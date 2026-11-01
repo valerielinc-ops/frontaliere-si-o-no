@@ -25,7 +25,7 @@ const { localizedQuestionWarning } = await import('../services/assistedApplicati
 const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
 const { runAutomationAdminAction } = await import('../services/assistedApplicationAdminService');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
-const { answerQuestionSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
+const { answerConfirmationSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 
 const SECRET = 'r'.repeat(40);
 const T0 = Date.UTC(2026, 8, 30, 10, 0, 0);
@@ -36,6 +36,7 @@ function draft(extra: Record<string, any> = {}) {
   return {
     status: 'ready',
     round: 1,
+    cvKey: `assisted-application-uploads/${ORDER}/review-cv.pdf`,
     verdict: 'weak',
     summaryIt: 'Profilo debole: manca il tedesco.',
     checksIt: ['Chiedere il diploma'],
@@ -68,7 +69,9 @@ const postAnswers = async (answers: Record<string, string>, extra: Record<string
 beforeEach(() => {
   effects.length = 0;
   store = createMemoryFirestore({
-    [BASE]: { paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Infermiera', companyName: 'Clinica', locale: 'it', applicantName: 'Maria Rossi' },
+    [BASE]: { userId: 'candidate-review-test', jobId: 'job-review-test', jobUrl: 'https://example.test/jobs/review/',
+      cvStorageKey: `assisted-application-uploads/${ORDER}/review-cv.pdf`, cvUploadedAt: T0,
+      paymentStatus: 'paid', submissionStatus: 'in_progress', jobTitle: 'Infermiera', companyName: 'Clinica', locale: 'it', applicantName: 'Maria Rossi' },
     [`${BASE}/automation/flow`]: { state: 'candidate_review', round: 1, deadlineAt: null, answers: {}, feedback: [] },
     [`${BASE}/ai_drafts/current`]: draft(),
   });
@@ -186,16 +189,19 @@ describe('candidate review API', () => {
 
   it('shows a reusable answer only while its attested source remains retained', async () => {
     const userId = 'candidate-synthetic';
-    const sourceOrder = { userId, jobId: 'source', jobUrl: 'https://example.test/jobs/source/', cvUploadedAt: T0 };
+    const sourceOrder = { userId, jobId: 'source', jobUrl: 'https://example.test/jobs/source/',
+      cvStorageKey: 'assisted-application-uploads/source/review-cv.pdf', cvUploadedAt: T0 };
     const sourceFlow = { state: 'candidate_review', round: 1, answers: {}, questionAnswers: {} };
-    const sourceDraft = { round: 1, questions: [{ id: 'birth_date_source', question: 'What is your date of birth?', type: 'date', required: true }] };
+    const sourceDraft = { round: 1, cvKey: sourceOrder.cvStorageKey,
+      questions: [{ id: 'birth_date_source', question: 'What is your date of birth?', type: 'date', required: true }] };
     await store.db.collection('assisted_applications').doc('source').set(sourceOrder);
     await store.db.collection('assisted_applications').doc('source').collection('automation').doc('flow').set(sourceFlow);
     await store.db.collection('assisted_applications').doc('source').collection('ai_drafts').doc('current').set(sourceDraft);
     await store.db.collection('user_cv_profiles').doc(userId).set({ status: 'ready', profile: { languages: [] } });
     await saveAnswersWithCv({ db: store.db, bucket: null, orderId: 'source', order: sourceOrder, flow: sourceFlow,
       draft: sourceDraft, answers: { birth_date_source: '1996-02-20' },
-      answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId: 'source', questions: sourceDraft.questions, draft: sourceDraft, nowMs: T0 }), answerActor: 'candidate', nowMs: T0 });
+      answerQuestionSnapshots: answerConfirmationSnapshotsFor({ userId, orderId: 'source', order: sourceOrder, flow: sourceFlow,
+        questions: sourceDraft.questions, draft: sourceDraft, nowMs: T0 }), answerActor: 'candidate', nowMs: T0 });
 
     await store.db.collection('assisted_applications').doc(ORDER).set({ userId, cvUploadedAt: T0 }, { merge: true });
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
@@ -267,7 +273,9 @@ describe('candidate review API', () => {
     await draftRef.set(draft({ questions: [first] }));
     const loadedDraft = store.read(`${BASE}/ai_drafts/current`);
     const loadedFlow = store.read(`${BASE}/automation/flow`);
-    const snapshots = answerQuestionSnapshotsFor({ orderId: ORDER, questions: [first], draft: loadedDraft, nowMs: T0 });
+    const loadedOrder = store.read(BASE);
+    const snapshots = answerConfirmationSnapshotsFor({ userId: loadedOrder.userId, orderId: ORDER, order: loadedOrder, flow: loadedFlow,
+      questions: [first], draft: loadedDraft, nowMs: T0 });
     const originalRunTransaction = store.db.runTransaction.bind(store.db);
     let changedBeforeCommit = false;
     store.db.runTransaction = async (callback: (transaction: any) => Promise<any>) => {

@@ -10,13 +10,16 @@ import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants
 import { hasPortalQuestionEvidence, portalQuestionText } from './lib/portalQuestionText.js';
 import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
 import { defaultStartDate, minDateFor } from './lib/assistedApplicationQuestionConstraints.js';
+import { answerConfirmationHash, answerConfirmationId, answerCvFingerprint, answerOriginMetadata } from './assistedApplicationAnswerConfirmation.js';
 
-export const ANSWER_EVIDENCE_VERSION = 'confirmed-question-evidence-v2';
-export const ANSWER_QUESTION_SNAPSHOT_VERSION = 'candidate-question-snapshot-v2';
+export const ANSWER_EVIDENCE_VERSION = 'confirmed-question-evidence-v3';
+export const ANSWER_QUESTION_SNAPSHOT_VERSION = 'candidate-question-snapshot-v3';
 const object = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+const UNKNOWN_ANSWER = /^(?:unknown|not known|not sure|i do not know|i don t know|i dont know|dont know|no idea|non lo so|non so|non conosco|keine angabe|weiss nicht|ich weiss es nicht|nicht bekannt|je ne sais pas|je ne sais plus|inconnu|inconnue|non renseigne|non renseignee)$/;
 const hasAnswer = value => typeof value === 'boolean' || typeof value === 'number' && Number.isFinite(value)
-  || typeof value === 'string' && Boolean(value.trim()) || Array.isArray(value) && value.some(item => String(item ?? '').trim());
+  || typeof value === 'string' && Boolean(value.trim()) && !UNKNOWN_ANSWER.test(norm(value))
+  || Array.isArray(value) && value.some(item => String(item ?? '').trim() && !UNKNOWN_ANSWER.test(norm(item)));
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object'
   ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, item]) => [key, canonical(item)])) : value;
 const serialized = value => JSON.stringify(canonical(value));
@@ -91,20 +94,94 @@ export function answerQuestionSnapshotsFor({ orderId, questions = [], draft = {}
   }));
 }
 
+/** Carries an already verified CV/profile origin into a server-confirmed answer without trusting client metadata. */
+export function answerOriginsForQuestions({ questions = [], answers = {}, answerEvidence = [], flow = {} } = {}) {
+  const byKey = new Map((Array.isArray(answerEvidence) ? answerEvidence : [])
+    .filter(record => ['candidate', 'job'].includes(record?.scope) && record?.sourceKind === 'direct_user')
+    .map(record => [record.key, record]));
+  return Object.fromEntries((Array.isArray(questions) ? questions : []).flatMap(question => {
+    const key = candidateQuestionAnswerKey(question);
+    const record = byKey.get(key);
+    const answer = answers?.[question?.id];
+    if (!hasAnswer(answer)) return [];
+    const localSource = object(flow.questionAnswerSources)[key];
+    const localAnswer = object(flow.answers)[question.id];
+    const recordOrigin = record && record.originSource !== 'unknown' && sameAnswerForOrigin(answer, record.answer, question, record.question)
+      ? { originSource: record.originSource, originCvFingerprint: record.originCvFingerprint } : null;
+    const localOrigin = localSource.kind === 'direct_user' && localSource.originSource !== 'unknown'
+      && sameAnswerForOrigin(answer, localAnswer, question, question)
+      ? { originSource: localSource.originSource, originCvFingerprint: localSource.originCvFingerprint } : null;
+    const origin = recordOrigin || localOrigin || answerOriginMetadata({ question, flow, answer });
+    if (!origin.originSource || origin.originSource === 'unknown') return [];
+    if (origin.originSource === 'cv_inferred' && !/^[a-f0-9]{64}$/.test(origin.originCvFingerprint || '')) return [];
+    return [[question.id, { ...origin, value: answer }]];
+  }));
+}
+
+function sameAnswerForOrigin(left, right, question, sourceQuestion) {
+  const canonicalValue = value => Array.isArray(value) ? value.map(item => String(item ?? '').trim()).sort()
+    : typeof value === 'number' ? String(value) : String(value ?? '').trim();
+  if (same(canonicalValue(left), canonicalValue(right))) return true;
+  const targetFact = candidateAnswerFact(question, left);
+  const sourceFact = candidateAnswerFact(sourceQuestion, right);
+  if (!targetFact || !sourceFact || !same(targetFact, sourceFact)) return false;
+  const semanticValue = (fact, value) => {
+    if (fact.type === 'experience_duration') {
+      const amount = Number(String(value).replace(',', '.'));
+      return Number.isFinite(amount) ? amount : null;
+    }
+    if (fact.type === 'credential_held') {
+      const answer = norm(value);
+      return /^(?:yes|si|ja|oui|true)$/.test(answer) ? true
+        : /^(?:no|nein|non|false)$/.test(answer) ? false : null;
+    }
+    if (fact.type === 'permit_status') return fact.status;
+    if (fact.type === 'birth_date') return String(value ?? '');
+    return null;
+  };
+  return semanticValue(targetFact, left) !== null && semanticValue(sourceFact, right) !== null
+    && same(semanticValue(targetFact, left), semanticValue(sourceFact, right));
+}
+
+/** Candidate-visible confirmation contracts bind self-declarations to the candidate, posting, round and question. */
+export function answerConfirmationSnapshotsFor({ userId, orderId, order = {}, flow = {}, questions = [], draft = {}, sourceKind = 'direct_user', nowMs = Date.now() } = {}) {
+  const counts = new Map();
+  for (const question of Array.isArray(questions) ? questions : []) {
+    const id = String(question?.id || '').trim();
+    if (id) counts.set(id, (counts.get(id) || 0) + 1);
+  }
+  return Object.fromEntries((Array.isArray(questions) ? questions : []).flatMap(question => {
+    const id = String(question?.id || '').trim();
+    if (!id || counts.get(id) !== 1) return [];
+    const questionSnapshotHash = answerQuestionSnapshotHash({ orderId, question, draft, nowMs });
+    const source = object(flow.questionAnswerSources)[candidateQuestionAnswerKey(question)];
+    const flowOrigin = object(flow.answerOrigins)[id];
+    const origin = source.originSource
+      ? { originSource: source.originSource, originCvFingerprint: source.originCvFingerprint }
+      : answerOriginMetadata({ question, flow, answer: flowOrigin.value ?? object(flow.answers)[id] });
+    const confirmationHash = answerConfirmationHash({ userId, orderId, order, flow, draft, questionSnapshotHash, sourceKind, ...origin });
+    return confirmationHash ? [[id, confirmationHash]] : [];
+  }));
+}
+
 /** Rebuild the candidate-confirmed local map using a canonical key for new ids and exact hashes for reused ids. */
-export function orderQuestionAnswerContext({ orderId, flow = {}, draft = {}, nowMs = Date.now() } = {}) {
+export function orderQuestionAnswerContext({ orderId, order = {}, flow = {}, draft = {}, nowMs = Date.now() } = {}) {
   const questions = Array.isArray(draft?.questions) ? draft.questions : [];
   const trusted = flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
   const oldAnswers = trusted ? object(flow.questionAnswers) : {};
   const oldSnapshots = trusted ? object(flow.questionAnswerSnapshots) : {};
   const oldQuestionIds = trusted ? object(flow.questionAnswerSnapshotIds) : {};
   const oldCompatibility = trusted ? object(flow.questionAnswerCompatibility) : {};
+  const oldConfirmations = trusted ? object(flow.questionAnswerConfirmationHashes) : {};
+  const oldSources = trusted ? object(flow.questionAnswerSources) : {};
   const flowAnswers = trusted ? object(flow.answers) : {};
   const previous = {};
   const answers = {};
   const snapshots = {};
   const snapshotIds = {};
   const compatibility = {};
+  const confirmations = {};
+  const sources = {};
   const groups = new Map();
   const snapshotQuestions = questions.map(question => answerQuestionSnapshotQuestion({ question, draft }));
   for (const question of snapshotQuestions) {
@@ -116,10 +193,17 @@ export function orderQuestionAnswerContext({ orderId, flow = {}, draft = {}, now
     const hashes = [...new Set(questionHashes.filter(Boolean))];
     const compatibilityHashes = group.map(question => answerQuestionCompatibilityHash({ orderId, question, draft, nowMs }));
     const compatible = new Set(compatibilityHashes.filter(Boolean));
+    const oldSource = object(oldSources[key]);
+    const origin = { originSource: oldSource.originSource, originCvFingerprint: oldSource.originCvFingerprint };
+    const confirmationHashes = compatibilityHashes.map(questionContractHash => answerConfirmationHash({ userId: order.userId,
+      orderId, order, flow, draft, questionSnapshotHash: questionContractHash, sourceKind: oldSource.kind, ...origin }));
+    const confirmationSet = new Set(confirmationHashes.filter(Boolean));
     const confirmedIds = Array.isArray(oldQuestionIds[key]) ? oldQuestionIds[key].filter(id => typeof id === 'string') : [];
     const reusesConfirmedId = group.some(question => confirmedIds.includes(question.id));
     const exactConfirmedSnapshot = reusesConfirmedId && oldSnapshots[key] === hashes[0];
     if (hashes.length !== 1 || questionHashes.some(hash => !hash) || compatible.size !== 1 || compatibilityHashes.some(hash => !hash)
+      || !['direct_user', 'owner_attested', 'cv_inferred'].includes(oldSource.kind)
+      || confirmationSet.size !== 1 || confirmationHashes.some(hash => !hash) || oldConfirmations[key] !== confirmationHashes[0]
       || !oldSnapshots[key] || !oldCompatibility[key]
       || (oldCompatibility[key] !== compatibilityHashes[0] && !exactConfirmedSnapshot)
       || reusesConfirmedId && !exactConfirmedSnapshot) continue;
@@ -128,6 +212,8 @@ export function orderQuestionAnswerContext({ orderId, flow = {}, draft = {}, now
     snapshots[key] = oldSnapshots[key];
     snapshotIds[key] = confirmedIds;
     compatibility[key] = oldCompatibility[key];
+    confirmations[key] = oldConfirmations[key];
+    sources[key] = oldSource;
     if (Object.hasOwn(oldAnswers, key)) previous[key] = oldAnswers[key];
     for (const question of group) if (confirmedIds.includes(question.id) && oldSnapshots[key] === hashes[0]
       && Object.hasOwn(flowAnswers, question.id)) answers[question.id] = flowAnswers[question.id];
@@ -137,10 +223,10 @@ export function orderQuestionAnswerContext({ orderId, flow = {}, draft = {}, now
   // path above may project answers into the current order.
   const orderAnswers = rememberCandidateQuestionAnswers({ questions: snapshotQuestions, answers, previous, changed: answers });
   return { answers, orderAnswers, questionAnswerSnapshots: snapshots, questionAnswerSnapshotIds: snapshotIds,
-    questionAnswerCompatibility: compatibility };
+    questionAnswerCompatibility: compatibility, questionAnswerConfirmationHashes: confirmations, questionAnswerSources: sources };
 }
 
-export function rememberOrderQuestionAnswerSnapshots({ orderId, questions = [], draft = {}, answers = {}, changed = {}, questionAnswers = {}, previous = {}, previousQuestionIds = {}, previousCompatibility = {}, confirmed = {}, nowMs = Date.now() } = {}) {
+export function rememberOrderQuestionAnswerSnapshots({ orderId, order = {}, flow = {}, questions = [], draft = {}, answers = {}, changed = {}, questionAnswers = {}, previous = {}, previousAnswers = {}, previousQuestionIds = {}, previousCompatibility = {}, previousConfirmations = {}, previousSources = {}, confirmed = {}, sourceKind = 'direct_user', nowMs = Date.now() } = {}) {
   const groups = new Map();
   const snapshotQuestions = (Array.isArray(questions) ? questions : []).map(question => answerQuestionSnapshotQuestion({ question, draft }));
   for (const question of snapshotQuestions) {
@@ -150,12 +236,30 @@ export function rememberOrderQuestionAnswerSnapshots({ orderId, questions = [], 
   const snapshots = {};
   const snapshotIds = {};
   const compatibility = {};
+  const confirmations = {};
+  const sources = {};
   for (const [key, group] of groups) {
     const questionHashes = group.map(question => answerQuestionSnapshotHash({ orderId, question, draft, nowMs }));
     const hashes = [...new Set(questionHashes.filter(Boolean))];
     const compatibilityHashes = group.map(question => answerQuestionCompatibilityHash({ orderId, question, draft, nowMs }));
     const compatible = [...new Set(compatibilityHashes.filter(Boolean))];
-    if (hashes.length !== 1 || questionHashes.some(hash => !hash) || compatible.length !== 1 || compatibilityHashes.some(hash => !hash)) continue;
+    const previousSource = object(previousSources[key]);
+    const previousOrigin = previousSource.originSource
+      ? { originSource: previousSource.originSource, originCvFingerprint: previousSource.originCvFingerprint }
+      : answerOriginMetadata({ question: group[0], flow, answer: questionAnswers[key] });
+    const priorConfirmationHashes = compatibilityHashes.map(questionContractHash => answerConfirmationHash({ userId: order.userId,
+      orderId, order, flow, draft, questionSnapshotHash: questionContractHash, sourceKind: previousSource.kind, ...previousOrigin }));
+    const priorConfirmationContracts = [...new Set(priorConfirmationHashes.filter(Boolean))];
+    const previousAnswerUnchanged = Boolean(previousSource.kind && hasAnswer(previousAnswers[key])
+      && hasAnswer(questionAnswers[key]) && same(questionAnswers[key], previousAnswers[key]));
+    const currentOrigin = previousAnswerUnchanged && previousSource.originSource
+      ? previousOrigin : answerOriginMetadata({ question: group[0], flow, answer: questionAnswers[key] });
+    const currentSource = { kind: sourceKind, ...currentOrigin };
+    const confirmationHashes = compatibilityHashes.map(questionContractHash => answerConfirmationHash({ userId: order.userId,
+      orderId, order, flow, draft, questionSnapshotHash: questionContractHash, sourceKind, ...currentOrigin }));
+    const confirmationContracts = [...new Set(confirmationHashes.filter(Boolean))];
+    if (hashes.length !== 1 || questionHashes.some(hash => !hash) || compatible.length !== 1 || compatibilityHashes.some(hash => !hash)
+      || confirmationContracts.length !== 1 || confirmationHashes.some(hash => !hash)) continue;
     const hash = hashes[0];
     const changedGroup = group.filter(question => Object.hasOwn(changed, question.id));
     if (changedGroup.length) {
@@ -163,16 +267,28 @@ export function rememberOrderQuestionAnswerSnapshots({ orderId, questions = [], 
         snapshots[key] = hash;
         snapshotIds[key] = changedGroup.map(question => question.id);
         compatibility[key] = compatible[0];
+        confirmations[key] = confirmationContracts[0];
+        sources[key] = currentSource;
       }
-    } else if (previous[key] && hasAnswer(questionAnswers[key])) {
+    } else if (previous[key] && hasAnswer(questionAnswers[key]) && previousSource.kind
+      && previousConfirmations[key] === priorConfirmationContracts[0]) {
       snapshots[key] = previous[key];
       snapshotIds[key] = Array.isArray(previousQuestionIds[key]) ? previousQuestionIds[key] : [];
-      if (previousCompatibility[key] === compatible[0]) compatibility[key] = previousCompatibility[key];
+      if (previousCompatibility[key] === compatible[0] && priorConfirmationContracts.length === 1) {
+        compatibility[key] = previousCompatibility[key];
+        confirmations[key] = priorConfirmationContracts[0];
+        sources[key] = previousSource;
+      }
     }
   }
-  return { snapshots, questionIds: snapshotIds, compatibility };
+  return { snapshots, questionIds: snapshotIds, compatibility, confirmations, sources };
 }
 const PRIVACY = /\b(?:privacy|datenschutz|confidentialite|consent\w*|consens\w*|einwillig\w*|zustimm\w*|einverstanden|speicher\w*|agree|accept\w*|accett\w*|autorizz\w*|authoriz\w*|permission|marketing|newsletter|data processing|trattamento|traitement|verarbeitung|terms|conditions|condizioni)\b/;
+const CV_NOTICE_PERIOD = /\b(?:notice period|period of notice|preavvis\w*|kundigungsfrist|preavis)\b/;
+const WHATSAPP_CONTACT = /\bwhatsapp\b/;
+const WHATSAPP_GENERIC_CONTACT = /^(?:(?:can|could|may) we contact you (?:via|on|through|by) whatsapp|(?:can|could) we reach you (?:via|on|through|by) whatsapp|(?:do you accept|are you okay with) (?:being )?contacted (?:via|on|through|by) whatsapp|do you accept (?:communication|contact) (?:via|on|through|by) whatsapp|can we communicate with you (?:via|on|through|by) whatsapp|accetti (?:la )?comunicazione (?:tramite|via|su) whatsapp|accetti di essere contattat\w* (?:tramite|via|su) whatsapp|possiamo contatt\w* (?:tramite|via|su) whatsapp|durfen wir sie (?:uber|per|via) whatsapp kontaktier\w*|konnen wir sie (?:uber|per|via) whatsapp erreich\w*|pouvons nous vous contact\w* (?:via|par|sur) whatsapp|acceptez vous (?:la )?communication (?:via|par|sur) whatsapp)$/;
+const WHATSAPP_SPECIFIC_SCOPE = /\b(?:privacy|datenschutz|confidentialite|data processing|trattamento dei dati|traitement des donnees|datenverarbeitung|marketing|newsletter|promotion\w*|advertis\w*|update\w*|reminder\w*|notification\w*|this application|the application|job application|recruitment|recruiting|hiring|interview|job|position|role|employer|company|diese bewerbung|bewerbungsverfahren|vorstellungsgesprach|stelle|unternehmen|bewerbung|candidatura|selezione|colloquio|ruolo|posizione|azienda|cette candidature|recrutement|entretien|poste|entreprise|embauche)\b/;
+const JOB_SCOPE_MARKERS = /\b(?:this|the) (?:job|position|role|application|employer|company)|\b(?:job|position|role|application|employer|company)[ -](?:specific|related)|\b(?:for this position|for this role|for this job|at our company|for our company|to work here|to join us|if we hire you|if you are hired|if selected|when hired|for us|fur diese stelle|fur die position|bei diesem unternehmen|bei uns|falls wir sie einstellen|wenn sie eingestellt|diese bewerbung|fur diese bewerbung|per questa posizione|per questo ruolo|per questo lavoro|per questa candidatura|per questa azienda|presso la nostra azienda|per lavorare con noi|se ti assumiamo|se vieni assunto|in caso di assunzione|per il datore|pour ce poste|pour cette candidature|pour cette entreprise|chez nous|dans notre entreprise|si nous vous embauchons|si vous etes embauche)\b/;
 const FACT_QUESTION = /^(?:do you (?:hold|have|possess)|have you|how many|what is your|what are your|which\b.{0,80}\bdo you (?:hold|have)|hai\b|possiedi\b|qual(?:e|i| e)\b|quanti\b|da quanti\b|verfugen sie\b|haben sie\b|besitzen sie\b|welche\b|wie viele\b|avez vous\b|possedez vous\b|quel(?:le|s|les)?\b|combien\b)/;
 const LANGUAGE_QUESTION = /^(?:what is your|what are your|how would you describe your|is your|do you speak|can you speak|qual e il tuo|qual e la tua|parli|conosci|wie ist ihr|wie ist dein|wie sind ihre|welches niveau|sprechen sie|quel est votre|parlez vous)\b/;
 const MOBILITY_QUESTION = /^(?:can you|are you|do you|puoi|sei|hai|konnen sie|sind sie|haben sie|pouvez vous|etes vous|avez vous)\b/;
@@ -196,10 +312,26 @@ function semantics(question, answer, nowMs = Date.now()) {
   const text = norm([question.question, question.applicationQuestion, question.context, question.section].join(' '));
   if (addressContextContract(question)?.unknown) return null;
   if (!key || question.source === 'policy_default') return null;
+  const original = norm(question.applicationQuestion);
+  const genericCandidateContract = !question.context && !question.section && !question.autocomplete
+    && (!original || original === label) && !JOB_SCOPE_MARKERS.test(text);
   const typed = candidateAnswerFact(question, answer, { nowMs });
   if (typed) {
     const { category, unit, scope, ...fact } = typed;
     return { category, unit, scope, fact };
+  }
+  if (genericCandidateContract && CV_NOTICE_PERIOD.test(text)) {
+    const unit = ['yes_no', 'checkbox'].includes(question.type) ? 'boolean' : question.type === 'date' ? 'date'
+      : question.type === 'number' ? 'question_specific_number' : 'question_specific_text';
+    return { category: 'form_preference', unit, scope: 'candidate' };
+  }
+  // A generic WhatsApp channel preference is a candidate fact. Privacy/legal,
+  // marketing, and application-purpose consents stay local to their order.
+  if (genericCandidateContract && WHATSAPP_CONTACT.test(text) && WHATSAPP_GENERIC_CONTACT.test(text)
+    && !WHATSAPP_SPECIFIC_SCOPE.test(text)) {
+    const unit = ['yes_no', 'checkbox'].includes(question.type) ? 'boolean' : question.type === 'date' ? 'date'
+      : question.type === 'number' ? 'question_specific_number' : 'question_specific_text';
+    return { category: 'form_preference', unit, scope: 'candidate' };
   }
   if (PRIVACY.test(text)) return null;
   const language = /^language_([a-z]{2})_(any|oral|written)_(proficiency|ability|threshold_[abc][12])$/.exec(key);
@@ -231,9 +363,10 @@ function retained(order, nowMs) {
   // anchor exists, the normal cutoff still applies.
   return talentPoolConsentActive(order) || due == null || nowMs < due;
 }
-function provenance({ actor, order, orderId, round, nowMs }) {
-  return { actor, userId: order.userId, orderId, round, confirmedAt: nowMs, retentionAt: retentionPurgeDueAt(order),
-    jobId: String(order.jobId || ''), jobUrl: String(order.jobUrl || '') };
+function provenance({ actor, sourceKind, originSource, originCvFingerprint, order, orderId, round, nowMs, cvFingerprint }) {
+  return { actor, sourceKind, originSource, ...(originCvFingerprint ? { originCvFingerprint } : {}),
+    userId: order.userId, orderId, round, confirmedAt: nowMs, retentionAt: retentionPurgeDueAt(order),
+    jobId: String(order.jobId || ''), jobUrl: String(order.jobUrl || ''), ...(cvFingerprint ? { cvFingerprint } : {}) };
 }
 
 /** One transaction applies the same accepted keys to raw values and their evidence/clear clocks. */
@@ -257,25 +390,44 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, conf
     if (Number(old?.provenance?.confirmedAt) > nowMs) continue;
     const raw = group[0]; const answer = changed[raw.id];
     const snapshotHashes = group.map(question => answerQuestionSnapshotHash({ orderId, question, draft, nowMs }));
+    const sourceKind = actor === 'candidate' ? 'direct_user' : 'owner_attested';
+    const persistedSource = object(flow.questionAnswerSources)[key];
+    const origin = persistedSource.originSource
+      ? { originSource: persistedSource.originSource, originCvFingerprint: persistedSource.originCvFingerprint }
+      : answerOriginMetadata({ question: raw, flow, answer });
+    const cvFingerprint = sourceKind === 'direct_user' ? null : answerCvFingerprint({ order, draft });
+    const confirmationHashes = snapshotHashes.map(questionSnapshotHash => answerConfirmationHash({
+      userId: order.userId, orderId, order, flow, draft, questionSnapshotHash, sourceKind, ...origin,
+    }));
     const compatibilityHashes = group.map(question => answerQuestionCompatibilityHash({ orderId, question, draft, nowMs }));
     if (old?.provenance?.confirmedAt === nowMs && (same(old.answer, answer) || old.cleared && !hasAnswer(answer))) continue;
-    const source = provenance({ actor, order, orderId, round, nowMs });
+    const source = provenance({ actor, sourceKind, ...origin, order, orderId, round, nowMs, cvFingerprint });
     const question = descriptor(raw); const policy = question && semantics(question, answer, nowMs);
     const snapshotMismatch = snapshotHashes.some((hash, index) => !hash || hash !== snapshotHashes[0]
-      || confirmedQuestionSnapshots[group[index]?.id] !== hash || !compatibilityHashes[index]
+      || !confirmationHashes[index] || confirmedQuestionSnapshots[group[index]?.id] !== confirmationHashes[index] || !compatibilityHashes[index]
       || compatibilityHashes[index] !== compatibilityHashes[0]);
     const conflict = old?.provenance?.confirmedAt === nowMs
       || group.some(q => !same(changed[q.id], answer) || !same(descriptor(q), question))
       || snapshotMismatch;
     accepted.add(key);
     delete records[key];
-    if (conflict || !policy || !hasAnswer(answer) || !validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok || policy.scope === 'job' && !order.jobUrl) {
+    const evidenceScope = sourceKind === 'direct_user' ? policy?.scope : 'job';
+    if (conflict || !policy || !hasAnswer(answer) || !validateAnswer(answer, question, { todayIso: new Date(nowMs).toISOString().slice(0, 10) }).ok || evidenceScope === 'job' && !order.jobUrl
+      || sourceKind !== 'direct_user' && !cvFingerprint) {
       // Keep only the ordering clock after a clear; never retain the removed Q/A.
       records[key] = { version: ANSWER_EVIDENCE_VERSION, key, cleared: true, provenance: source };
       continue;
     }
-    const record = { version: ANSWER_EVIDENCE_VERSION, key, question, answer, ...policy,
-      questionSnapshotHash: snapshotHashes[0], questionCompatibilityHash: compatibilityHashes[0], provenance: source };
+    const confirmationHash = confirmationHashes[0];
+    const confirmationId = answerConfirmationId({ confirmationHash, answer, actor, confirmedAt: nowMs });
+    if (!confirmationId) {
+      records[key] = { version: ANSWER_EVIDENCE_VERSION, key, cleared: true, provenance: source };
+      continue;
+    }
+    const record = { version: ANSWER_EVIDENCE_VERSION, key, question, answer, ...policy, scope: evidenceScope, sourceKind,
+      originSource: source.originSource, ...(source.originCvFingerprint ? { originCvFingerprint: source.originCvFingerprint } : {}),
+      questionSnapshotHash: snapshotHashes[0], questionCompatibilityHash: compatibilityHashes[0],
+      confirmationHash, confirmationId, ...(cvFingerprint ? { cvFingerprint } : {}), provenance: source };
     records[key] = { id: `answer-${randomBytes(12).toString('hex')}`, ...record };
   }
   return { records: Object.fromEntries(Object.entries(records).slice(-80)), accepted };
@@ -285,13 +437,26 @@ export const rememberCandidateAnswerEvidence = input => planCandidateAnswerEvide
 function validRecord(key, record, userId, legacy, nowMs) {
   if (!userId || !record || !/^answer-[a-f0-9]{24}$/.test(record.id || '') || record.version !== ANSWER_EVIDENCE_VERSION || record.key !== key
     || !/^[a-f0-9]{64}$/.test(record.questionSnapshotHash || '') || !/^[a-f0-9]{64}$/.test(record.questionCompatibilityHash || '')
+    || !/^[a-f0-9]{64}$/.test(record.confirmationHash || '') || !/^[a-f0-9]{64}$/.test(record.confirmationId || '')
+    || !['direct_user', 'owner_attested'].includes(record.sourceKind)
+    || record.sourceKind === 'direct_user' && record.cvFingerprint != null
+    || record.sourceKind !== 'direct_user' && !/^[a-f0-9]{64}$/.test(record.cvFingerprint || '')
+    || !['cv_inferred', 'profile_inferred', 'candidate_reused', 'policy_default', 'unknown'].includes(record.originSource)
+    || record.originSource === 'cv_inferred' && !/^[a-f0-9]{64}$/.test(record.originCvFingerprint || '')
     || !hasAnswer(record.answer)) return false;
   const { question, provenance: source } = record;
   const policy = semantics(question || {}, record.answer, nowMs);
-  return Boolean(policy && same(policy, { category: record.category, unit: record.unit, scope: record.scope, ...(record.fact ? { fact: record.fact } : {}) })
+  const expectedScope = record.sourceKind === 'direct_user' ? policy?.scope : 'job';
+  return Boolean(policy && same({ ...policy, scope: expectedScope }, { category: record.category, unit: record.unit, scope: record.scope, ...(record.fact ? { fact: record.fact } : {}) })
     && candidateQuestionAnswerKey(question) === key && validateAnswer(record.answer, question, { todayIso: Number.isFinite(nowMs) ? new Date(nowMs).toISOString().slice(0, 10) : '' }).ok
     && source?.userId === userId && ['candidate', 'owner'].includes(source.actor) && source.orderId
+    && source.sourceKind === record.sourceKind && source.originSource === record.originSource
+    && (source.originCvFingerprint || null) === (record.originCvFingerprint || null)
+    && (record.sourceKind === 'direct_user' ? source.actor === 'candidate' && source.cvFingerprint == null
+      : record.sourceKind === 'owner_attested' && source.actor === 'owner' && source.cvFingerprint === record.cvFingerprint)
     && Number.isInteger(source.round) && source.round > 0 && Number.isFinite(source.confirmedAt) && source.confirmedAt > 0
+    && record.confirmationId === answerConfirmationId({ confirmationHash: record.confirmationHash, answer: record.answer,
+      actor: source.actor, confirmedAt: source.confirmedAt })
     && Object.hasOwn(legacy, key) && same(legacy[key], record.answer));
 }
 const samePosting = (source, target) => {
@@ -316,14 +481,27 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
   const verified = candidates.filter(record => {
     const key = record.key;
     const source = sources.get(record.provenance.orderId); const current = source?.draft?.questions?.find(question => question.id === record.question.id);
+    const localSource = object(source?.flow?.questionAnswerSources)[key];
+    const currentCvFingerprint = answerCvFingerprint({ order: source?.order || {}, draft: source?.draft || {} });
+    const activeCvMatches = record.sourceKind === 'direct_user' ? !record.cvFingerprint && !record.provenance.cvFingerprint
+      : currentCvFingerprint === record.cvFingerprint && record.provenance.cvFingerprint === record.cvFingerprint;
+    const localConfirmationHash = answerConfirmationHash({ userId, orderId: record.provenance.orderId, order: source?.order || {},
+      flow: source?.flow || {}, draft: source?.draft || {}, questionSnapshotHash: record.questionCompatibilityHash,
+      sourceKind: localSource.kind, originSource: localSource.originSource, originCvFingerprint: localSource.originCvFingerprint });
     return source?.order?.userId === userId && retained(source.order, nowMs) && !source.flow?.retentionPurgedAt
       && Number(source.flow?.round) === record.provenance.round && Number(source.draft?.round) === record.provenance.round
       && current && same(descriptor(current), record.question) && same(source.flow?.answers?.[record.question.id], record.answer)
       && source.flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      && ['direct_user', 'owner_attested'].includes(localSource.kind) && localSource.kind === record.sourceKind
+      && localConfirmationHash && object(source.flow?.questionAnswerConfirmationHashes)[key] === localConfirmationHash
       && object(source.flow?.questionAnswerSnapshots)[key] === record.questionSnapshotHash
       && object(source.flow?.questionAnswerCompatibility)[key] === record.questionCompatibilityHash
       && answerQuestionSnapshotHash({ orderId: record.provenance.orderId, question: current, draft: source.draft, nowMs }) === record.questionSnapshotHash
       && answerQuestionCompatibilityHash({ orderId: record.provenance.orderId, question: current, draft: source.draft, nowMs }) === record.questionCompatibilityHash
+      && activeCvMatches
+      && answerConfirmationHash({ userId, orderId: record.provenance.orderId, order: source.order, flow: source.flow, draft: source.draft,
+        questionSnapshotHash: record.questionSnapshotHash, sourceKind: record.sourceKind, originSource: record.originSource,
+        originCvFingerprint: record.originCvFingerprint }) === record.confirmationHash
       && (record.scope === 'candidate' || samePosting(record.provenance, { jobId: source.order.jobId, jobUrl: source.order.jobUrl }));
   });
   return (job, { purpose = 'eligibility' } = {}) => {
@@ -344,8 +522,9 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
   const contextFor = orderRetained ? await loadCandidateAnswerEvidence({ db, profileRecord: profile, userId: order.userId, nowMs, getDocument,
     questionKeys: (draft?.questions || []).map(candidateQuestionAnswerKey) }) : null;
   const context = contextFor ? contextFor(order, { purpose: 'form' }) : { answers: {}, answerEvidence: [] };
-  const orderContext = orderRetained ? orderQuestionAnswerContext({ orderId, flow, draft, nowMs })
-    : { answers: {}, orderAnswers: {}, questionAnswerSnapshots: {}, questionAnswerSnapshotIds: {}, questionAnswerCompatibility: {} };
+  const orderContext = orderRetained ? orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs })
+    : { answers: {}, orderAnswers: {}, questionAnswerSnapshots: {}, questionAnswerSnapshotIds: {}, questionAnswerCompatibility: {},
+      questionAnswerConfirmationHashes: {}, questionAnswerSources: {} };
   // Both projections are restricted to the confirmed writer contract. An
   // unmarked legacy flow can still be inspected for recovery, but must not
   // become fill-kit input or candidate evidence.
@@ -353,6 +532,8 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
     questionAnswers: { ...context.answers, ...orderContext.orderAnswers } },
   orderAnswers: orderContext.orderAnswers, orderAnswerSnapshots: orderContext.questionAnswerSnapshots,
   orderAnswerSnapshotIds: orderContext.questionAnswerSnapshotIds, orderAnswerCompatibility: orderContext.questionAnswerCompatibility,
+  orderAnswerConfirmationHashes: orderContext.questionAnswerConfirmationHashes,
+  orderAnswerSources: orderContext.questionAnswerSources,
   answerEvidence: context.answerEvidence };
 }
 
