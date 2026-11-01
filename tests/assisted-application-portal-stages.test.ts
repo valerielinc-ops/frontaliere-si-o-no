@@ -110,6 +110,26 @@ describe('application stage ownership', () => {
     expect(applicationReceipt({ ...receipt, text: 'Thank you for your application.', url: `${origin}/thank-you` }, { applyUrl, job })).toBe(false);
   });
 
+  it('allows the fake portal transport only on loopback and still requires the same posting key', () => {
+    const localApply = 'http://127.0.0.1:3000/apply?jobid=e2e-42';
+    const localReceipt = {
+      url: 'http://127.0.0.1:3000/complete?jobid=e2e-42',
+      text: 'Vielen Dank für Ihre Bewerbung',
+      buttons: [],
+    };
+    expect(applicationReceipt(localReceipt, { applyUrl: localApply })).toBe(true);
+    expect(applicationReceipt({ ...localReceipt, url: localReceipt.url.replace('e2e-42', 'e2e-43') }, { applyUrl: localApply })).toBe(false);
+    expect(applicationReceipt({ ...localReceipt, url: localReceipt.url.replace('127.0.0.1', 'ats.example') }, { applyUrl: localApply })).toBe(false);
+    const publicHttpApply = 'http://ats.example:3000/apply?jobid=e2e-42';
+    const publicHttpReceipt = { ...localReceipt, url: 'http://ats.example:3000/complete?jobid=e2e-42' };
+    expect(applicationReceipt(publicHttpReceipt, { applyUrl: publicHttpApply })).toBe(false);
+    const localSubdomain = {
+      ...localReceipt,
+      url: 'http://career.example.localhost:3000/complete?jobid=e2e-42',
+    };
+    expect(applicationReceipt(localSubdomain, { applyUrl: 'http://career.example.localhost:3000/apply?jobid=e2e-42' })).toBe(true);
+  });
+
   it('makes a same-posting receipt terminal before a learned nonstandard send label can be selected', () => {
     const label = 'Finish application';
     const received = { ...receipt, buttons: [{ text: label }] };

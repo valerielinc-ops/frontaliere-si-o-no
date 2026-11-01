@@ -27,6 +27,17 @@ function parsed(value) {
   try { return new URL(value); } catch { return null; }
 }
 
+function isLoopbackHostname(hostname) {
+  const host = String(hostname || '').toLowerCase();
+  if (host === 'localhost' || host.endsWith('.localhost') || host === '[::1]' || host === '::1') return true;
+  const octets = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.exec(host)?.slice(1).map(Number);
+  return Boolean(octets && octets[0] === 127 && octets.every(octet => Number.isInteger(octet) && octet >= 0 && octet <= 255));
+}
+
+function trustedPortalTransport(url) {
+  return url.protocol === 'https:' || (url.protocol === 'http:' && isLoopbackHostname(url.hostname));
+}
+
 /** Only explicit posting keys bind a route. Account IDs/application IDs are not job IDs. */
 export function portalJobKey(value, protocol = null) {
   const url = parsed(value);
@@ -102,7 +113,10 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
   if (actualJobKey && expectedJobKey && actualJobKey !== expectedJobKey) return false;
   const actual = parsed(url);
   const source = parsed(submissionUrl || applyUrl);
-  if (!actual || !source || actual.protocol !== 'https:' || actual.origin !== source.origin) return false;
+  // Production receipts require HTTPS. The only HTTP exception is the local
+  // fake portal used by deterministic browser tests; public HTTP ATS hosts
+  // remain unknown even when their page says thank you.
+  if (!actual || !source || !trustedPortalTransport(actual) || !trustedPortalTransport(source) || actual.origin !== source.origin) return false;
   const namespace = avaturePortalDirectory(submissionUrl || applyUrl, sourceProtocol);
   if (namespace && actual.pathname.slice(0, actual.pathname.lastIndexOf('/') + 1) !== namespace) return false;
   return Boolean(actualJobKey && expectedJobKey && actualJobKey === expectedJobKey) || receiptTitleBound(snapshot.text, job.title);
