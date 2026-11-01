@@ -254,7 +254,7 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
   if (asyncDescriptionChanges) {
     // Use the generated machine label so the question must come from the
     // updated live description, not from planner-authored replacement text.
-    element('label[for="motivation"]').textContent = 'textarea_123 *';
+    element('label[for="motivation"]').textContent = 'textarea_123';
     page.after(3500, () => element('#motivation')?.setAttribute('aria-description', 'Describe your experience leading regional teams.'));
   }
   if (asyncValueChanges) {
@@ -758,7 +758,7 @@ describe('assisted portal question batching', () => {
       'Country of residence *',
     ]);
     expect(plannerInputs.some((input) => input.includes('Describe your experience leading regional teams.'))).toBe(true);
-    expect(plannerInputs.some((input) => input.includes('textarea_123 *'))).toBe(true);
+    expect(plannerInputs.some((input) => input.includes('textarea_123'))).toBe(true);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
   });
 

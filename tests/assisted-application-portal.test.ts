@@ -7,7 +7,6 @@ import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER
 import { residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
-import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 
 const fields = [
   { id: 'f1', kind: 'text', label: 'First name', required: true },
@@ -1191,40 +1190,54 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect((frame.getByRole as any).mock.calls[0][1]).toEqual({ name: 'Switzerland', exact: true });
   });
 
-  it('does not verify a stale value from the parent frame when an iframe reuses the same control id', async () => {
+  it('does not confirm a search value from the parent frame when an iframe reuses the same control id', async () => {
     const pageUrl = 'https://workday.localhost/form';
-    const makeFrame = (value: string) => {
-      const field = { id: 'shared-control', kind: 'text', inputType: 'text', label: 'Candidate name', value, required: true, options: [] };
+    const originalDateNow = Date.now;
+    let clock = originalDateNow();
+    Date.now = () => clock;
+    const makeFrame = (shown: string, { initialInput = '', onTarget = false } = {}) => {
+      let input = initialInput;
+      let expanded = 'true';
+      const field = { id: 'shared-search', kind: 'text', inputType: 'text', label: 'Phone country code', value: shown, search: true, options: [] };
       const snapshot = { url: pageUrl, title: '', fields: [field], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '' };
       const control = {
-        fill: vi.fn(async () => {}),
-        inputValue: vi.fn(async () => value),
-        evaluate: vi.fn(async () => false),
+        fill: vi.fn(async (value: string) => { if (onTarget) input = value; }),
+        inputValue: vi.fn(async () => input),
+        getAttribute: vi.fn(async (name: string) => name === 'aria-expanded' ? expanded : null),
         click: vi.fn(async () => {}),
-        press: vi.fn(async () => {}),
+        press: vi.fn(async () => { expanded = 'false'; }),
         pressSequentially: vi.fn(async () => {}),
       };
       return {
         url: () => pageUrl,
-        evaluate: async (reader: unknown) => reader === extractFieldsInPage ? snapshot : null,
-        locator: () => ({ first: () => control, allInnerTexts: async () => [] }),
-        getByRole: () => ({ first: () => control, allInnerTexts: async () => [] }),
+        evaluate: async () => snapshot,
+        locator: (selector: string) => selector.includes('[role="option"]')
+          ? { allInnerTexts: async () => [], nth: () => ({ click: async () => {} }) }
+          : { first: () => control },
+        control,
       };
     };
-    const parentFrame = makeFrame('Ada Example');
-    const applicationFrame = makeFrame('Different candidate');
+    // The parent has an old committed match; the application iframe still
+    // shows a different option. Only the target frame may confirm the answer.
+    const parentFrame = makeFrame('Switzerland (+41)', { initialInput: '+41' });
+    const applicationFrame = makeFrame('Italy (+39)', { initialInput: '+4', onTarget: true });
     const page = {
       url: () => pageUrl,
+      title: async () => '',
       frames: () => [parentFrame, applicationFrame],
       mainFrame: () => parentFrame,
-      waitForTimeout: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async (ms: number) => { clock += ms; }),
     };
 
-    const result = await applyActions(page as any, [{
-      id: 'shared-control', kind: 'text', inputType: 'text', label: 'Candidate name', frame: 1, required: true,
-    }], [{ fieldId: 'shared-control', action: 'fill', value: 'Ada Example' }], {}, { pause: async () => {} });
+    try {
+      const result = await applyActions(page as any, [{
+        id: 'shared-search', kind: 'text', inputType: 'text', label: 'Phone country code', frame: 1, search: true, value: '',
+      }], [{ fieldId: 'shared-search', action: 'fill', value: '+41' }], {}, { pause: async () => {} });
 
-    expect(result).toEqual([{ fieldId: 'shared-control', ok: false, error: 'choice_not_registered' }]);
+      expect(result).toEqual([{ fieldId: 'shared-search', ok: false, error: 'suggestion_not_chosen' }]);
+    } finally {
+      Date.now = originalDateNow;
+    }
   });
 
   it('passes split-phone metadata to the text boundary while keeping single inputs international', async () => {
