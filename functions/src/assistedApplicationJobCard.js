@@ -1,10 +1,9 @@
 /**
  * Presentation metadata for assisted-application email cards.
  *
- * New orders persist these fields at checkout. Older pending orders predate
- * that projection, so the recovery digest can fill the same fields from the
- * public job-detail dataset and the stable CDN logo paths without touching the
- * order itself.
+ * New orders persist these fields at checkout. Older orders and new concierge
+ * proposals can fill the same fields from the public job-detail dataset and
+ * stable CDN logo paths without writing presentation data back to Firestore.
  */
 
 const JOB_DETAIL_BASE = 'https://cdn.frontaliereticino.ch/data/job-detail';
@@ -35,7 +34,14 @@ function timeoutSignal() {
 
 function safeCompanyKey(order) {
   const value = String(order?.companyKey || order?.companyId || '').trim();
-  return COMPANY_KEY_RE.test(value) ? value.toLowerCase() : '';
+  if (COMPANY_KEY_RE.test(value)) return value.toLowerCase();
+  if (/[./\\]/.test(value)) return '';
+  const companyName = String(order?.companyName || '').trim();
+  if (value && value.toLowerCase() !== companyName.toLowerCase()) return '';
+  const slug = companyName.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return COMPANY_KEY_RE.test(slug) ? slug : '';
 }
 
 function finitePositiveNumber(value) {

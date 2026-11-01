@@ -60,7 +60,7 @@ export function brandLink(href, label) {
   return `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer" style="color:${ORANGE_TEXT};font-weight:600;text-decoration:underline;">${esc(label)}</a>`;
 }
 
-function safeHttpsImageUrl(value) {
+function safeHttpsUrl(value) {
   try {
     const url = new URL(String(value || ''));
     return url.protocol === 'https:' ? url.toString() : '';
@@ -77,10 +77,10 @@ const CONTRACT_LABELS = {
 };
 
 const JOB_CARD_LABELS = {
-  it: { new: '✨ NUOVA', posted: 'Pubblicato il', view: 'Vedi annuncio →' },
-  en: { new: '✨ NEW', posted: 'Posted on', view: 'View listing →' },
-  de: { new: '✨ NEU', posted: 'Veröffentlicht am', view: 'Angebot ansehen →' },
-  fr: { new: '✨ NOUVELLE', posted: 'Publié le', view: "Voir l'offre →" },
+  it: { new: '✨ NUOVA' },
+  en: { new: '✨ NEW' },
+  de: { new: '✨ NEU' },
+  fr: { new: '✨ NOUVELLE' },
 };
 
 /** Same contract labels used by the Job Alert and Saved Job renderers. */
@@ -132,19 +132,8 @@ export function brandEmailTagChip(label, palette = 'orange') {
   return `<span style="font-size:10px;background:${bg};color:${color};padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${label}</span>`;
 }
 
-function formatPostedDate(value, locale) {
-  const millis = Date.parse(String(value || ''));
-  if (!Number.isFinite(millis)) return '';
-  const localeTag = { it: 'it-CH', en: 'en-GB', de: 'de-CH', fr: 'fr-CH' }[locale] || 'it-CH';
-  try {
-    return new Date(millis).toLocaleDateString(localeTag, { day: 'numeric', month: 'short', year: 'numeric' });
-  } catch {
-    return '';
-  }
-}
-
-/** The job the order is about: the same logo/meta/badge treatment used by job alerts. */
-export function brandJobCard({
+/** Compact job-alert card shared by the job alert and assisted-application emails. */
+export function renderBrandJobCard({
   title,
   company,
   location = '',
@@ -156,16 +145,14 @@ export function brandJobCard({
   salaryCurrency = '',
   baseSalary = null,
   firstSeenAt = '',
-  postedDate = '',
-  sector = '',
-  category = '',
+  isNew,
   locale = 'it',
   newLabel = '',
-  postedLabel = '',
   url = '',
   linkLabel = '',
 }) {
-  const safeLogoUrl = safeHttpsImageUrl(logoUrl);
+  const safeLogoUrl = safeHttpsUrl(logoUrl);
+  const safeUrl = safeHttpsUrl(url);
   const companyName = String(company || '').trim();
   const initial = companyName.charAt(0).toUpperCase() || '?';
   const avatar = safeLogoUrl
@@ -176,36 +163,36 @@ export function brandJobCard({
   const tags = [];
   const cardLabels = JOB_CARD_LABELS[locale] || JOB_CARD_LABELS.it;
   const firstSeen = Date.parse(String(firstSeenAt || ''));
-  if (Number.isFinite(firstSeen) && Date.now() - firstSeen < 48 * 60 * 60 * 1000) {
+  const nowMs = Date.now();
+  const showNewBadge = typeof isNew === 'boolean'
+    ? isNew
+    : Number.isFinite(firstSeen) && firstSeen <= nowMs && nowMs - firstSeen < 48 * 60 * 60 * 1000;
+  if (showNewBadge) {
     tags.push(brandEmailTagChip(newLabel || cardLabels.new, 'green'));
   }
   const salaryLabel = brandFormatSalary({ salaryMin, salaryMax, salaryCurrency, baseSalary }, locale);
   if (salaryLabel) tags.push(brandEmailTagChip(esc(salaryLabel), 'blue'));
   if (contract) tags.push(brandEmailTagChip(esc(brandNormalizeContract(contract, locale))));
   if (locationLabel) tags.push(brandEmailTagChip(esc(locationLabel)));
-  const badgesHtml = tags.length ? `<div style="margin-top:6px;">${tags.join(' ')}</div>` : '';
-  const dateLabel = formatPostedDate(postedDate, locale);
-  const detailParts = [];
-  if (dateLabel) detailParts.push(`${esc(postedLabel || cardLabels.posted)} ${esc(dateLabel)}`);
-  const sectorLabel = String(sector || category || '').trim();
-  if (sectorLabel) detailParts.push(esc(sectorLabel));
-  const detailHtml = detailParts.length
-    ? `<div style="font-size:12px;color:${MUTED_ON_DARK};margin-top:6px;">${detailParts.join(' &middot; ')}</div>`
-    : '';
-  const viewLabel = String(linkLabel || cardLabels.view || 'Vedi annuncio →').trim();
-  const displayLinkLabel = /→$/.test(viewLabel) ? viewLabel : `${viewLabel} →`;
+  const badgesHtml = tags.length ? `<div style="margin-top:4px;">${tags.join(' ')}</div>` : '';
   const card = `<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:${DARK_CARD};border-radius:12px;">`
     + '<tr>'
-    + `<td width="58" style="padding:16px 0 16px 18px;vertical-align:top;">${avatar}</td>`
-    + `<td style="padding:16px 18px 16px 14px;vertical-align:top;">`
-    + `<div style="font-size:15px;font-weight:700;color:#f1f5f9;">${esc(title)}</div>`
-    + `<div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:2px;">${esc(meta)}</div>`
+    + `<td width="58" style="padding:16px 0 16px 18px;vertical-align:middle;">${avatar}</td>`
+    + `<td style="padding:16px 18px 16px 14px;vertical-align:middle;">`
+    + `<div style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0;overflow:hidden;text-overflow:ellipsis;">${esc(title)}</div>`
+    + `<div style="font-size:12px;color:${MUTED_ON_DARK};margin-top:2px;">${esc(meta)}</div>`
     + badgesHtml
-    + detailHtml
-    + (url ? `<div style="margin-top:8px;font-size:13px;color:${BRAND_ORANGE};font-weight:600;"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer" style="color:${BRAND_ORANGE};text-decoration:none;font-weight:600;">${esc(displayLinkLabel)}</a></div>` : '')
     + '</td></tr></table>';
+  if (!safeUrl) return card;
+  const accessibleLabel = String(linkLabel || '').trim();
+  const labelAttribute = accessibleLabel ? ` aria-label="${esc(accessibleLabel)}"` : '';
+  return `<a target="_blank" rel="noopener noreferrer" href="${esc(safeUrl)}"${labelAttribute} style="text-decoration:none;display:block;">${card}</a>`;
+}
+
+/** Keep the spacing used by assisted-application emails around the shared card. */
+export function brandJobCard(options = {}) {
   return `<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin:4px 0 18px;">`
-    + `<tr><td style="padding:0 0 10px;">${card}</td></tr></table>`;
+    + `<tr><td style="padding:0 0 10px;">${renderBrandJobCard(options)}</td></tr></table>`;
 }
 
 /** Numbered checklist with orange-tinted counters (email-safe table layout). */
