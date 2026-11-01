@@ -76,11 +76,25 @@ function optionValues(question) {
     .map(normalizeQuestionValue).filter(Boolean);
 }
 
+const UNKNOWN_ANSWER_VALUES = new Set([
+  'unknown', 'not known', 'not sure', 'i do not know', 'i don t know', 'i dont know', 'dont know', 'no idea',
+  'non lo so', 'non so', 'non conosco', 'keine angabe', 'weiss nicht', 'weiß nicht', 'ich weiss es nicht', 'ich weiß es nicht', 'nicht bekannt',
+  'je ne sais pas', 'je ne sais plus', 'inconnu', 'inconnue', 'non renseigne', 'non renseignee',
+]);
+
+function isUnknownAnswer(value) {
+  return typeof value === 'string' && UNKNOWN_ANSWER_VALUES.has(normalizeQuestionValue(value));
+}
+
 function hasQuestionAnswer(value) {
+  const meaningful = item => {
+    const text = String(item ?? '').trim();
+    return Boolean(text) && !UNKNOWN_ANSWER_VALUES.has(normalizeQuestionValue(text));
+  };
   return typeof value === 'boolean'
     || (typeof value === 'number' && Number.isFinite(value))
-    || (Array.isArray(value) && value.some((item) => String(item ?? '').trim()))
-    || String(value ?? '').trim().length > 0;
+    || (Array.isArray(value) && value.some(meaningful))
+    || typeof value === 'string' && meaningful(value);
 }
 
 function answerValueKey(value) {
@@ -115,7 +129,7 @@ export function isPreferredWorkloadQuestion(value) {
 
 const WORKLOAD_PREFERENCE_KEY = 'preference_workload_percentage_v1';
 /** Only this writer version marks the per-order semantic map as candidate/owner confirmed. */
-export const ORDER_QUESTION_ANSWER_EVIDENCE_VERSION = 'order-confirmed-question-answers-v2';
+export const ORDER_QUESTION_ANSWER_EVIDENCE_VERSION = 'order-confirmed-question-answers-v3';
 
 /** Complete general questions only: additional domain, future or employer clauses retain their own key. */
 export function isGeneralCandidateLanguageQuestion(value) {
@@ -162,6 +176,14 @@ export function candidateQuestionAnswerKey(question) {
 /** Reuse answers across changed ids only when their topic is unambiguous and the answer fits. */
 export function candidateAnswersForQuestions(questions, answers = {}, memory = {}) {
   const result = { ...(answers && typeof answers === 'object' ? answers : {}) };
+  const unknownKeys = new Set();
+  for (const question of Array.isArray(questions) ? questions : []) {
+    if (isUnknownAnswer(result[question?.id])) {
+      const key = candidateQuestionAnswerKey(question);
+      if (key) unknownKeys.add(key);
+      delete result[question.id];
+    }
+  }
   const currentValues = new Map();
   const conflicts = new Set();
   for (const question of Array.isArray(questions) ? questions : []) {
@@ -175,7 +197,7 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
   for (const question of Array.isArray(questions) ? questions : []) {
     if (!question?.id || hasQuestionAnswer(result[question.id])) continue;
     const key = candidateQuestionAnswerKey(question);
-    if (!key || conflicts.has(key)) continue;
+    if (!key || conflicts.has(key) || unknownKeys.has(key)) continue;
     const remembered = Object.hasOwn(memory || {}, key) ? memory[key] : undefined;
     if (Object.hasOwn(memory || {}, key) && !hasQuestionAnswer(remembered)) continue;
     const recorded = currentValues.get(key)?.value ?? remembered;

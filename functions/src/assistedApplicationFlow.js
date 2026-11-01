@@ -223,6 +223,14 @@ function base(flow) {
       && flow?.questionAnswerCompatibility && typeof flow.questionAnswerCompatibility === 'object' && !Array.isArray(flow.questionAnswerCompatibility)
       ? { questionAnswerCompatibility: { ...flow.questionAnswerCompatibility } }
       : {}),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      && flow?.questionAnswerConfirmationHashes && typeof flow.questionAnswerConfirmationHashes === 'object' && !Array.isArray(flow.questionAnswerConfirmationHashes)
+      ? { questionAnswerConfirmationHashes: { ...flow.questionAnswerConfirmationHashes } }
+      : {}),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      && flow?.questionAnswerSources && typeof flow.questionAnswerSources === 'object' && !Array.isArray(flow.questionAnswerSources)
+      ? { questionAnswerSources: { ...flow.questionAnswerSources } }
+      : {}),
     // Keep the semantic answer ledger across every transition.  Older flows
     // may not have the field yet; a plain object is the only shape accepted by
     // the candidate-answer projection and avoids leaking malformed data into
