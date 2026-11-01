@@ -290,6 +290,19 @@ describe('required privacy notice dialog controls', () => {
     expect(controls.accept).toBe(null);
   });
 
+  it('blocks the privacy default when dialog metadata contradicts the review label', () => {
+    const review = {
+      ...box('privacy', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.'),
+      required: true, ariaLabel: 'Email', privacyMetadataIncomplete: true,
+    };
+    const controls = privacyConsentControls({
+      buttons: [dialogButton('ok', 'Accept')],
+      fields: [review],
+    });
+    expect(controls.review).toBe(null);
+    expect(controls.accept).toBe(null);
+  });
+
   it('never ticks a marketing box beside the notice review', () => {
     const controls = privacyConsentControls({
       buttons: [dialogButton('ok', 'Akzeptieren', { disabled: true })],
@@ -516,6 +529,50 @@ describe('the same grammar on the canonical consent path', () => {
     const field = semanticId ? { name: semanticId } : {};
     expect(isPrivacyReviewAcknowledgment(label, semanticId)).toBe(false);
     expect(ownConsent({ kind: 'checkbox', required: true, label, ...field })).toBe(false);
+  });
+
+  it.each([
+    ['email aria label', { ariaLabel: 'Email' }],
+    ['email-like generated id', { name: 'mail1' }],
+    ['telephone-like generated id', { name: 'tel1' }],
+    ['sex-like generated id', { name: 'sex1' }],
+    ['visa-like generated id', { name: 'visa1' }],
+    ['phone control id', { semanticId: 'candidate_phone' }],
+    ['Italian mobile control id', { semanticId: 'cellulare' }],
+    ['residence address name', { name: 'residence_address' }],
+    ['German postal code id', { semanticId: 'PLZ' }],
+    ['disclosed partner purpose', { ariaDescription: 'Candidate data disclosed to our partners' }],
+  ])('vetoes a privacy-reading default when control metadata is factual or has another purpose: %s', (_name, metadata) => {
+    const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    expect(isPrivacyReviewAcknowledgment(label, metadata)).toBe(false);
+    expect(ownConsent({ kind: 'checkbox', required: true, label, ...metadata })).toBe(false);
+  });
+
+  it('revalidates privacy policy defaults against the native control before checking the box', () => {
+    const label = privacyAcknowledgments[0][1];
+    const planFor = (metadata: Record<string, unknown> = {}) => {
+      const field = {
+        id: 'privacy-review', kind: 'checkbox', inputType: 'checkbox', required: true, label,
+        ...metadata,
+      };
+      return guardPlan({
+        actions: [{ fieldId: field.id, action: 'check', value: 'true', document: 'none', source: 'policy_default', evidence: '' }],
+        missingRequired: [],
+      }, [field], candidate);
+    };
+    const clean = planFor();
+    expect(clean.actions).toContainEqual(expect.objectContaining({ fieldId: 'privacy-review', action: 'check', source: 'policy_default' }));
+
+    for (const metadata of [
+      { name: 'email', ariaLabel: 'Email' },
+      { name: 'visa1' },
+      { privacyMetadataIncomplete: true },
+      { label: 'Privacy acknowledgement', applicationQuestion: label, name: 'email', ariaLabel: 'Email' },
+    ]) {
+      const plan = planFor(metadata);
+      expect(plan.actions.some((action: any) => action.fieldId === 'privacy-review' && action.action === 'check')).toBe(false);
+      expect(plan.missingRequired.some((item: any) => item.fieldId === 'privacy-review')).toBe(true);
+    }
   });
 
   it.each([

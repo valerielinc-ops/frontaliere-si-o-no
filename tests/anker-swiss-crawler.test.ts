@@ -31,6 +31,7 @@ describe('Anker Swiss Ticino AG crawler parser', () => {
         address: {
           '@type': 'PostalAddress',
           addressRegion: 'Lyss',
+          addressCountry: 'CH',
         },
       },
     })}</script>`;
@@ -67,6 +68,32 @@ describe('Anker Swiss Ticino AG crawler parser', () => {
       addressRegion: 'Unknown place',
       addressLocality: '',
       addressCountry: '',
+    });
+  });
+
+  it('does not promote a known municipality when the source country is foreign', () => {
+    const url = 'https://anker-swiss.ch/stellen/foreign-location/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Foreign role',
+      description: 'Eine ausführliche Stellenbeschreibung mit Aufgaben, Anforderungen und Angaben zur Bewerbung für diese konkrete Stelle.',
+      url,
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: 'Lyss',
+          addressCountry: 'DE',
+        },
+      },
+    })}</script>`;
+
+    const detail = extractAnkerSwissDetailFields(html, url);
+
+    expect(detail.locationCandidates[0]).toMatchObject({
+      addressRegion: 'Lyss',
+      addressLocality: '',
+      addressCountry: 'DE',
     });
   });
 
