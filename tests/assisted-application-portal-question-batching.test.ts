@@ -169,7 +169,7 @@ function fakePage({ multiStep = false, conditional = true } = {}) {
   return { page, window };
 }
 
-function portalRunSummary(result: any) {
+function portalRunSummary(result: any, plannerTrace: any[] = []) {
   const steps = result.evidence.steps.map(({ step, fields, actions, redrawn, url, errors }: any) => ({
     step, fields, actions, redrawn, url, errors,
   }));
@@ -182,7 +182,7 @@ function portalRunSummary(result: any) {
     errors: report.errors,
     agent: report.agent,
   } : undefined;
-  return JSON.stringify({ event: result.event, steps, stopReport });
+  return JSON.stringify({ event: result.event, steps, stopReport, plannerTrace });
 }
 
 describe('assisted portal question batching', () => {
@@ -196,6 +196,7 @@ describe('assisted portal question batching', () => {
     page.context = () => context;
     const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
     const plannerCalls: string[][] = [];
+    const plannerTrace: any[] = [];
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     const codex = async () => {
       plannerCalls.push([...window.document.querySelectorAll('input,textarea,select')].map((field: any) => field.id));
@@ -208,12 +209,20 @@ describe('assisted portal question batching', () => {
       if (window.document.getElementById('availability')) {
         missingRequired.push({ fieldId: fieldId('availability'), question: 'When could you start?', why: '', type: 'text', options: [] });
       }
-      return {
-        actions: plannerCalls.length === 1
-          ? [{ fieldId: fieldId('country'), action: 'select', value: 'Italia', document: 'none', source: 'identity', evidence: '' }]
-          : [],
-        missingRequired,
-      };
+      const actions = plannerCalls.length === 1
+        ? [{ fieldId: fieldId('country'), action: 'select', value: 'Italia', document: 'none', source: 'identity', evidence: '' }]
+        : [];
+      plannerTrace.push({
+        visibleFields: [...window.document.querySelectorAll('input,textarea,select')].map((field: any) => ({
+          id: field.id, aaId: field.getAttribute('data-aa-id'),
+        })),
+        actions: actions.map(({ fieldId, action }) => ({ fieldId, action })),
+        missingRequired: missingRequired.map((item: any) => ({
+          fieldId: item.fieldId, question: item.question,
+          applicationQuestion: item.applicationQuestion, portalQuestion: item.portalQuestion,
+        })),
+      });
+      return { actions, missingRequired };
     };
 
     const result = await submitViaPortal({
@@ -226,7 +235,7 @@ describe('assisted portal question batching', () => {
       accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
     });
 
-    expect(result.event.type, portalRunSummary(result)).toBe('submit_needs_candidate');
+    expect(result.event.type, portalRunSummary(result, plannerTrace)).toBe('submit_needs_candidate');
     expect(elementValue(window, '#country')).toBe('IT');
     expect(result.event.questions.map((question: any) => question.question)).toEqual([
       'Why are you interested in this role?',
@@ -247,25 +256,36 @@ describe('assisted portal question batching', () => {
     page.context = () => context;
     const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    const plannerTrace: any[] = [];
     const codex = async () => {
       const pageNumber = Number(window.document.querySelector('form')?.getAttribute('data-page') || '1');
       const fields = new Set([...window.document.querySelectorAll('input,textarea,select')].map((field: any) => field.id));
       if (pageNumber === 1 && !fields.has('city')) {
-        return { actions: [{ fieldId: fieldId('country'), action: 'select', value: 'Italia', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
+        const plan = { actions: [{ fieldId: fieldId('country'), action: 'select', value: 'Italia', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
+        plannerTrace.push({ pageNumber, fields: [...fields], actions: plan.actions.map(({ fieldId, action }) => ({ fieldId, action })), missingRequired: [] });
+        return plan;
       }
       if (pageNumber === 1 && !fields.has('postal')) {
-        return { actions: [{ fieldId: fieldId('city'), action: 'fill', value: 'Lugano', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
+        const plan = { actions: [{ fieldId: fieldId('city'), action: 'fill', value: 'Lugano', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
+        plannerTrace.push({ pageNumber, fields: [...fields], actions: plan.actions.map(({ fieldId, action }) => ({ fieldId, action })), missingRequired: [] });
+        return plan;
       }
       if (pageNumber === 1) {
-        return { actions: [{ fieldId: fieldId('postal'), action: 'fill', value: '6900', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
+        const plan = { actions: [{ fieldId: fieldId('postal'), action: 'fill', value: '6900', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
+        plannerTrace.push({ pageNumber, fields: [...fields], actions: plan.actions.map(({ fieldId, action }) => ({ fieldId, action })), missingRequired: [] });
+        return plan;
       }
       if (!fields.has('availability')) {
-        return { actions: [{ fieldId: fieldId('country'), action: 'select', value: 'Italia', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
+        const plan = { actions: [{ fieldId: fieldId('country'), action: 'select', value: 'Italia', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
+        plannerTrace.push({ pageNumber, fields: [...fields], actions: plan.actions.map(({ fieldId, action }) => ({ fieldId, action })), missingRequired: [] });
+        return plan;
       }
-      return {
+      const plan = {
         actions: [],
         missingRequired: [{ fieldId: fieldId('availability'), question: 'When could you start?', why: '', type: 'text', options: [] }],
       };
+      plannerTrace.push({ pageNumber, fields: [...fields], actions: [], missingRequired: plan.missingRequired.map(({ fieldId, question }) => ({ fieldId, question })) });
+      return plan;
     };
 
     const result = await submitViaPortal({
@@ -276,7 +296,7 @@ describe('assisted portal question batching', () => {
       accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
     });
 
-    expect(window.document.querySelector('form')?.getAttribute('data-page'), portalRunSummary(result)).toBe('2');
+    expect(window.document.querySelector('form')?.getAttribute('data-page'), portalRunSummary(result, plannerTrace)).toBe('2');
     expect(result.event.type).toBe('submit_needs_candidate');
     expect(result.event.questions.map((question: any) => question.question)).toEqual(['When could you start?']);
   });
