@@ -32,6 +32,10 @@ const ChildApplicationReview = lazy(() => import('@/components/community/Assiste
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const APPLICATION_CONCIERGE_PRICE_EUR_CENTS = 3999;
 const POLL_MS = 3500;
+// Completed services can receive new proposals or employer updates later.
+// Revalidate at a low rate while visible, and immediately when the user returns.
+const SETTLED_REFRESH_MS = 60_000;
+const FOREGROUND_REFRESH_COOLDOWN_MS = 5_000;
 // The current Google tag batches custom hits for 5s after processing.
 // Leave a small scheduling margin and bound an unavailable SDK after the API.
 const CHECKOUT_TELEMETRY_BATCH_WINDOW_MS = 5250;
@@ -195,6 +199,7 @@ export default function ApplicationConciergePortal({
   const currentOwnerUid = useRef<string | null>(authUser?.uid || null);
   const lastAuthUid = useRef<string | null>(authUser?.uid || null);
   const lastAuthAnonymous = useRef(authUser?.isAnonymous === true);
+  const lastForegroundServiceRefreshAt = useRef(0);
   const checkoutContext = useRef({ serviceId, authUid: authUser?.uid || null, version: 0 });
   const nextAuthUid = authUser?.uid || null;
   if (checkoutContext.current.serviceId !== serviceId
@@ -328,6 +333,73 @@ export default function ApplicationConciergePortal({
       window.clearTimeout(timer);
     };
   }, [loadService, service, serviceId, previewService]);
+
+  useEffect(() => {
+    if (previewService || !serviceId || !service || loading || busy !== null
+      || isPending(service) || isRetryablePayment(service)
+      || MATCHING_STATES.has(String(service.matchingStatus || ''))) return undefined;
+
+    const effectContextVersion = checkoutContext.current.version;
+    const effectServiceId = serviceId;
+    let cancelled = false;
+    let inFlight = false;
+    let timer: number | undefined;
+    const contextIsCurrent = () => !cancelled
+      && checkoutContext.current.version === effectContextVersion
+      && checkoutContext.current.serviceId === effectServiceId;
+    const clearTimer = () => {
+      if (timer !== undefined) {
+        window.clearTimeout(timer);
+        timer = undefined;
+      }
+    };
+    function scheduleNext() {
+      clearTimer();
+      if (!contextIsCurrent() || document.visibilityState !== 'visible') return;
+      timer = window.setTimeout(() => { void refresh(); }, SETTLED_REFRESH_MS);
+    }
+    async function refresh(foreground = false) {
+      if (!contextIsCurrent() || inFlight || document.visibilityState !== 'visible') return;
+      const now = Date.now();
+      if (foreground && now - lastForegroundServiceRefreshAt.current < FOREGROUND_REFRESH_COOLDOWN_MS) {
+        scheduleNext();
+        return;
+      }
+      if (foreground) lastForegroundServiceRefreshAt.current = now;
+      inFlight = true;
+      try {
+        const user = await ensureUser();
+        if (!user || !contextIsCurrent()) return;
+        const loaded = await fetchApplicationConciergeService(user, effectServiceId);
+        if (!contextIsCurrent()) return;
+        setService(loaded);
+      } catch (refreshError) {
+        if (contextIsCurrent()) setError(errorKey(refreshError));
+      } finally {
+        inFlight = false;
+        scheduleNext();
+      }
+    }
+    const refreshOnForeground = () => {
+      if (!contextIsCurrent()) return;
+      if (document.visibilityState !== 'visible') {
+        clearTimer();
+        return;
+      }
+      clearTimer();
+      void refresh(true);
+    };
+
+    document.addEventListener('visibilitychange', refreshOnForeground);
+    window.addEventListener('focus', refreshOnForeground);
+    scheduleNext();
+    return () => {
+      cancelled = true;
+      clearTimer();
+      document.removeEventListener('visibilitychange', refreshOnForeground);
+      window.removeEventListener('focus', refreshOnForeground);
+    };
+  }, [busy, ensureUser, loading, previewService, service?.checkoutSessionStatus, service?.matchingStatus, service?.paymentProvider, service?.paymentStatus, service?.serviceStatus, serviceId]);
 
   const displayError = useMemo(() => {
     if (!error) return null;

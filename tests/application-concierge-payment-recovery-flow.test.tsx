@@ -41,6 +41,14 @@ vi.mock('@/components/community/SumUpPaymentWidget', () => ({ default: ({ amount
 } }));
 import ApplicationConciergePortal from '@/components/community/ApplicationConciergePortal';
 const owner = { uid: 'anonymous-owner', getIdToken: async () => 'test-token' };
+function makeDocumentVisible() {
+  const descriptor = Object.getOwnPropertyDescriptor(document, 'visibilityState');
+  Object.defineProperty(document, 'visibilityState', { configurable: true, value: 'visible' });
+  return () => {
+    if (descriptor) Object.defineProperty(document, 'visibilityState', descriptor);
+    else Reflect.deleteProperty(document, 'visibilityState');
+  };
+}
 const service = {
   serviceId: 'service-test', paymentStatus: 'pending', serviceStatus: 'awaiting_payment',
   checkoutSessionStatus: 'open', customerEmail: 'candidate@example.test', applicantLocation: 'Lugano',
@@ -54,7 +62,7 @@ beforeEach(() => {
   mocks.fetchService.mockResolvedValue(service);
   mocks.checkout.mockResolvedValue({ ok: true, paymentProvider: 'sumup', checkoutId: 'sumup-test', serviceId: 'service-test' });
 });
-afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
+afterEach(() => { cleanup(); vi.useRealTimers(); vi.unstubAllGlobals(); });
 
 describe('concierge child query navigation', () => {
   it('switches and reopens a child without rendering the previous token or retaining its edit state', async () => {
@@ -313,6 +321,160 @@ it('links an accepted application needing answers to its owned service detail', 
   expect(link.getAttribute('href')).toContain('application_concierge_application_id=owned-child');
   expect(link.getAttribute('href')).not.toContain('assisted_application_review');
   expect(mocks.checkout).not.toHaveBeenCalled();
+});
+
+it('shows proposals added after matching completes while the concierge page stays open', async () => {
+  const restoreVisibility = makeDocumentVisible();
+  vi.useFakeTimers();
+  const completed = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'complete', proposals: [] };
+  const refreshed = {
+    ...completed,
+    proposals: [{
+      proposalId: 'lifecycle-proposal', jobId: 'job-new', jobUrl: 'https://jobs.example.test/new-role',
+      companyId: 'company-new', companyName: 'New Example AG', jobTitle: 'Lifecycle-created role', status: 'proposed',
+    }],
+  };
+  mocks.fetchService.mockReset().mockResolvedValueOnce(completed).mockResolvedValueOnce(refreshed);
+  try {
+    render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    expect(screen.getByText('jobBoard.concierge.noProposals')).toBeTruthy();
+    expect(mocks.fetchService).toHaveBeenCalledOnce();
+
+    await act(async () => { await vi.advanceTimersByTimeAsync(60_000); });
+
+    expect(mocks.fetchService).toHaveBeenCalledTimes(2);
+    expect(screen.getByText('Lifecycle-created role')).toBeTruthy();
+  } finally {
+    restoreVisibility();
+  }
+});
+
+it('refreshes completed proposals immediately when the user returns to the concierge page', async () => {
+  const restoreVisibility = makeDocumentVisible();
+  const completed = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'complete', proposals: [] };
+  const refreshed = {
+    ...completed,
+    proposals: [{
+      proposalId: 'foreground-proposal', jobId: 'job-foreground', jobUrl: 'https://jobs.example.test/foreground-role',
+      companyId: 'company-foreground', companyName: 'Foreground Example AG', jobTitle: 'New proposal after focus', status: 'proposed',
+    }],
+  };
+  mocks.fetchService.mockReset().mockResolvedValueOnce(completed).mockResolvedValueOnce(refreshed);
+  try {
+    render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+
+    expect(await screen.findByText('jobBoard.concierge.noProposals')).toBeTruthy();
+    fireEvent.click(screen.getByRole('checkbox'));
+    expect(screen.getByRole('checkbox')).toBeChecked();
+    fireEvent.focus(window);
+
+    expect(await screen.findByText('New proposal after focus')).toBeTruthy();
+    expect(screen.getByRole('checkbox')).toBeChecked();
+    expect(mocks.fetchService).toHaveBeenCalledTimes(2);
+  } finally {
+    restoreVisibility();
+  }
+});
+
+it('ignores a late settled refresh after switching to another concierge service', async () => {
+  const restoreVisibility = makeDocumentVisible();
+  const oldService = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'complete', proposals: [] };
+  const currentService = {
+    ...oldService, serviceId: 'service-current',
+    proposals: [{
+      proposalId: 'current-proposal', jobId: 'job-current', jobUrl: 'https://jobs.example.test/current-role',
+      companyId: 'company-current', companyName: 'Current Example AG', jobTitle: 'Current service proposal', status: 'proposed',
+    }],
+  };
+  const staleService = {
+    ...oldService,
+    proposals: [{
+      proposalId: 'stale-proposal', jobId: 'job-stale', jobUrl: 'https://jobs.example.test/stale-role',
+      companyId: 'company-stale', companyName: 'Stale Example AG', jobTitle: 'Stale service proposal', status: 'proposed',
+    }],
+  };
+  let resolveStale!: (value: typeof staleService) => void;
+  const pendingStaleRefresh = new Promise<typeof staleService>(resolve => { resolveStale = resolve; });
+  mocks.fetchService.mockReset()
+    .mockResolvedValueOnce(oldService)
+    .mockReturnValueOnce(pendingStaleRefresh)
+    .mockResolvedValueOnce(currentService);
+
+  try {
+    const view = render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+    expect(await screen.findByText('jobBoard.concierge.noProposals')).toBeTruthy();
+    fireEvent.focus(window);
+    await waitFor(() => expect(mocks.fetchService).toHaveBeenCalledTimes(2));
+
+    view.rerender(<ApplicationConciergePortal serviceId="service-current" authUser={owner} />);
+    expect(await screen.findByText('Current service proposal')).toBeTruthy();
+
+    await act(async () => {
+      resolveStale(staleService);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(screen.getByText('Current service proposal')).toBeTruthy();
+    expect(screen.queryByText('Stale service proposal')).toBeNull();
+  } finally {
+    restoreVisibility();
+  }
+});
+
+it('ignores a late settled refresh after switching candidate accounts', async () => {
+  const restoreVisibility = makeDocumentVisible();
+  const oldService = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'complete', proposals: [] };
+  const nextService = {
+    ...oldService,
+    serviceId: 'service-next-owner',
+    proposals: [{
+      proposalId: 'next-account-proposal', jobId: 'job-next-account', jobUrl: 'https://jobs.example.test/next-account-role',
+      companyId: 'company-next-account', companyName: 'Next Account AG', jobTitle: 'Next account proposal', status: 'proposed',
+    }],
+  };
+  const staleService = {
+    ...oldService,
+    proposals: [{
+      proposalId: 'old-account-proposal', jobId: 'job-old-account', jobUrl: 'https://jobs.example.test/old-account-role',
+      companyId: 'company-old-account', companyName: 'Old Account AG', jobTitle: 'Old account proposal', status: 'proposed',
+    }],
+  };
+  const nextOwner = { uid: 'next-owner', getIdToken: async () => 'next-owner-token' };
+  let resolveStale!: (value: typeof staleService) => void;
+  const pendingStaleRefresh = new Promise<typeof staleService>(resolve => { resolveStale = resolve; });
+  mocks.fetchService.mockReset()
+    .mockResolvedValue(nextService)
+    .mockResolvedValueOnce(oldService)
+    .mockReturnValueOnce(pendingStaleRefresh);
+
+  try {
+    const view = render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+    expect(await screen.findByText('jobBoard.concierge.noProposals')).toBeTruthy();
+    fireEvent.focus(window);
+    await waitFor(() => expect(mocks.fetchService).toHaveBeenCalledTimes(2));
+
+    view.rerender(<ApplicationConciergePortal serviceId="service-next-owner" authUser={nextOwner} />);
+    expect(await screen.findByText('Next account proposal')).toBeTruthy();
+
+    await act(async () => {
+      resolveStale(staleService);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(screen.getByText('Next account proposal')).toBeTruthy();
+    expect(screen.queryByText('Old account proposal')).toBeNull();
+  } finally {
+    restoreVisibility();
+  }
 });
 
 describe('concierge qualification feedback', () => {
