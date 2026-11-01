@@ -1187,7 +1187,13 @@ async function main() {
     });
     check('SIX submits with the 100% operational default when no hard facts are missing', sixDefault.event.type === 'submit_succeeded'
       && state.sixApplications.length === 1 && state.sixApplications[0].workload === '100%'
-      && state.sixApplications[0].hasCv === true);
+      && state.sixApplications[0].hasCv === true, {
+      event: sixDefault.event,
+      postingViews: state.sixPostingViews,
+      applications: state.sixApplications.map(({ workload, hasCv }) => ({ workload, hasCv })),
+      postingMatch: sixDefault.evidence.postingMatch,
+      uploads: sixDefault.evidence.uploads,
+    });
     const six = await run({
       applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, job: sixJob,
       codex: sixCodex,
@@ -1199,9 +1205,18 @@ async function main() {
     });
     check('SIX opens the matching form and submits with the reviewed workload answer', six.event.type === 'submit_succeeded'
       && state.sixPostingViews === 3 && state.sixApplications.length === 2 && state.sixApplications[1].workload === '80%'
-      && six.evidence.postingMatch === 'match');
+      && six.evidence.postingMatch === 'match', {
+      event: six.event,
+      postingViews: state.sixPostingViews,
+      applications: state.sixApplications.map(({ workload, hasCv }) => ({ workload, hasCv })),
+      postingMatch: six.evidence.postingMatch,
+      uploads: six.evidence.uploads,
+    });
     check('SIX uploads the supplied CV when the planner skips its file field', state.sixApplications[1]?.hasCv === true
-      && six.evidence.uploads?.some((item) => item.document === 'cv'));
+      && six.evidence.uploads?.some((item) => item.document === 'cv'), {
+      application: state.sixApplications[1] && { workload: state.sixApplications[1].workload, hasCv: state.sixApplications[1].hasCv },
+      uploads: six.evidence.uploads,
+    });
     // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).
     const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
     const asked = unknown.event.questions || [];
