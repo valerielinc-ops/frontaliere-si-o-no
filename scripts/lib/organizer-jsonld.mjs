@@ -67,6 +67,19 @@ export function extractEventNodes(html) {
   return extractJsonLdNodes(html).filter(isEventNode);
 }
 
+function schemaTypeName(value) {
+  const type = value.trim().replace(/[\/#]+$/, '');
+  return type.slice(Math.max(type.lastIndexOf('/'), type.lastIndexOf('#')) + 1);
+}
+
+function typesOf(node) {
+  const value = node?.['@type'];
+  return (Array.isArray(value) ? value : [value])
+    .filter((entry) => typeof entry === 'string')
+    .map(schemaTypeName)
+    .filter(Boolean);
+}
+
 const ISO_LOCAL_RE = /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/;
 
 /**
