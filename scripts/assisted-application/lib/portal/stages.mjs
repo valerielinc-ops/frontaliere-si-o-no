@@ -38,6 +38,13 @@ const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
 
+/** The directory containing a route, treating a canonical trailing slash as decoration. */
+export function routeDirectory(pathname) {
+  const path = String(pathname || '').replace(/\/+$/, '') || '/';
+  const slash = path.lastIndexOf('/');
+  return slash >= 0 ? path.slice(0, slash + 1) : '/';
+}
+
 function incompleteApplication(text) {
   // ATS labels such as "Resume / CV" name a document role. Treating that
   // noun as the verb "resume" can join it to a nearby "Submit application"
@@ -103,7 +110,7 @@ function boundRoute(value, applyUrl, sourceProtocol = null) {
   const key = portalJobKey(applyUrl, sourceProtocol);
   const namespace = avaturePortalDirectory(applyUrl, sourceProtocol);
   return Boolean(url && expected && url.protocol === 'https:' && url.origin === expected.origin
-    && (!namespace || url.pathname.slice(0, url.pathname.lastIndexOf('/') + 1) === namespace) && key && portalJobKey(value) === key);
+    && (!namespace || routeDirectory(url.pathname) === namespace) && key && portalJobKey(value) === key);
 }
 
 function reviewNavigationRoute(value, applyUrl, sourceProtocol) {
@@ -115,7 +122,7 @@ function reviewNavigationRoute(value, applyUrl, sourceProtocol) {
   // keep direct source-directory routes and the existing root application/
   // owned-link case; do not infer another tenant's child namespace.
   const directory = avaturePortalDirectory(applyUrl, sourceProtocol)
-    || source.pathname.slice(0, source.pathname.lastIndexOf('/') + 1);
+    || routeDirectory(source.pathname);
   const route = target.pathname.slice(directory.length);
   return target.pathname.startsWith(directory) && (directory === '/' || !/^application\//i.test(route))
     && REVIEW_PATH_RE.test(route);
@@ -160,8 +167,15 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
   // remain unknown even when their page says thank you.
   if (!actual || !source || !trustedPortalTransport(actual) || !trustedPortalTransport(source) || actual.origin !== source.origin) return false;
   const namespace = avaturePortalDirectory(submissionUrl || applyUrl, sourceProtocol);
-  if (namespace && actual.pathname.slice(0, actual.pathname.lastIndexOf('/') + 1) !== namespace) return false;
-  return Boolean(actualJobKey && expectedJobKey && actualJobKey === expectedJobKey) || receiptTitleBound(snapshot.text, job.title);
+  if (namespace && routeDirectory(actual.pathname) !== namespace) return false;
+  const samePostingKey = Boolean(actualJobKey && expectedJobKey && actualJobKey === expectedJobKey);
+  // A handoff records the final form URL as an explicit binding even when the
+  // ATS keeps its posting identity only in server-side session state. Without
+  // that observed route, a repeated title on an arbitrary same-origin page is
+  // not evidence that this application was received.
+  const observedSubmissionRoute = Boolean(submissionUrl && source && source.origin === actual.origin
+    && !source.username && !source.password && !source.hash);
+  return samePostingKey || (observedSubmissionRoute && receiptTitleBound(snapshot.text, job.title));
 }
 
 /**
@@ -181,7 +195,7 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   const quotedSource = avaturePostingJobKey(applyUrl, sourceProtocol);
   if (quotedSource && !sameAvaturePortal(sourceProtocol, snapshot?.protocol, url)
     && buttons.some(button => GENERIC_APPLY_RE.test(button.text || ''))) return { kind: 'unknown_apply', prefinal: true };
-  const bound = boundRoute(url, applyUrl, sourceProtocol) || titleBound(text, job.title);
+  const bound = boundRoute(url, applyUrl, sourceProtocol);
   const finalReview = bound && REVIEW_INSTRUCTIONS_RE.test(text);
   if (finalReview) return { kind: 'final_review' };
   const pending = NOT_SUBMITTED_APPLICATION_RE.test(text) || PROFILE_CONTINUATION_RE.test(text)

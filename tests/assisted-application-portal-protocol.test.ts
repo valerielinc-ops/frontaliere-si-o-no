@@ -35,10 +35,12 @@ describe('primary Avature protocol and posting namespace', () => {
   it('accepts /application/review and /application/login when application is the proved portal namespace', async () => {
     const source = applyUrl.replace(namespace, '/application');
     const target = `${origin}/application/review?jobId=71825`;
+    const slashTarget = `${origin}/application/review/?jobId=71825`;
     const sourceProtocol = await portalProtocolFromHtml(html().replaceAll('ExternalJobs', 'application'), source);
     expect(sourceProtocol).not.toBeNull();
     expect(verificationTarget({ applyUrl: source, sourceProtocol, evidence: { finalUrl: target } })).toBe(target);
-    expect(safeSigninAction(`${origin}/application/login?jobId=71825`, source, sourceProtocol)).toBe(true);
+    expect(verificationTarget({ applyUrl: source, sourceProtocol, evidence: { finalUrl: slashTarget } })).toBe(slashTarget);
+    expect(safeSigninAction(`${origin}/application/login/?jobId=71825`, source, sourceProtocol)).toBe(true);
   });
 
   it.each([
@@ -87,6 +89,7 @@ describe('primary Avature protocol and posting namespace', () => {
     expect(verificationTarget({ applyUrl, evidence: { finalUrl: reviewUrl } })).toBeNull();
     expect(safeSigninAction(`${origin}${namespace}/Login?jobId=71825`, applyUrl, ctx.sourceProtocol)).toBe(true);
     expect(verificationHistoryTarget(`${origin}${namespace}/MyApplications`, applyUrl, ctx.sourceProtocol)).toBe(`${origin}${namespace}/MyApplications`);
+    expect(verificationHistoryTarget(`${origin}${namespace}/MyApplications/?page=1`, applyUrl, ctx.sourceProtocol)).toBe(`${origin}${namespace}/MyApplications/?page=1`);
     expect(applicationStage({ ...profile, protocol: await portalProtocolFromHtml(html('ApplicationConfirmation'), profileUrl) }, ctx))
       .toMatchObject({ kind: 'review_navigation', destination: reviewUrl });
     expect(applicationStage({ ...review, protocol: await portalProtocolFromHtml(html('ApplicationReview'), reviewUrl) }, ctx).kind).toBe('final_review');

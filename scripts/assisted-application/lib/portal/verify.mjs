@@ -4,10 +4,10 @@ import { COOKIE_REJECT_RE, headedBrowser, realisticUserAgent } from './portal.mj
 import { extractFields } from './fields.mjs';
 import { SIGN_IN_RE, authPageKind, loginFields } from './account.mjs';
 import { applyActions, findButton, locatorFor } from './fill.mjs';
-import { applicationReceipt, applicationStage, portalJobKey } from './stages.mjs';
+import { applicationReceipt, applicationStage, portalJobKey, routeDirectory } from './stages.mjs';
 import { avaturePortalDirectory } from './protocol.mjs';
 
-const portalDirectory = url => url.pathname.slice(0, url.pathname.lastIndexOf('/') + 1);
+const portalDirectory = url => routeDirectory(url.pathname);
 // /job?jobId=42 does not attest a sibling /application/ namespace. Only
 // primary protocol metadata can lift a JobDetail/slug directory to its
 // portal namespace; suffix regexes must never relax this boundary.

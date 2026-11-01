@@ -31,6 +31,21 @@ describe('application stage ownership', () => {
     expect(applicationReceipt(receipt, { applyUrl, job })).toBe(true);
   });
 
+  it('accepts canonical trailing-slash routes without widening the posting boundary', () => {
+    const slashReviewUrl = `${origin}/Careers/ApplicationReview/?jobId=42`;
+    const slashReceiptUrl = `${origin}/Careers/ApplicationComplete/?jobId=42`;
+    expect(applicationStage({ ...profile, buttons: [{ text: 'Apply', href: slashReviewUrl }] }, { applyUrl, job }))
+      .toMatchObject({ kind: 'review_navigation', destination: slashReviewUrl });
+    expect(applicationReceipt({ ...receipt, url: slashReceiptUrl }, { applyUrl, job })).toBe(true);
+  });
+
+  it('does not bind a repeated title without an explicit posting route or key', () => {
+    const titleOnlyReceipt = { ...receipt, url: `${origin}/Careers/complete/` };
+    expect(applicationReceipt(titleOnlyReceipt, { applyUrl, job })).toBe(false);
+    const titleOnlyReview = { ...review, url: `${origin}/Careers/ApplicationReview/` };
+    expect(applicationStage(titleOnlyReview, { applyUrl, job }).kind).toBe('unknown_apply');
+  });
+
   it.each([
     ['site search field', { ...profile, text: 'Thank you for your interest.', fields: [{ kind: 'text', inputType: 'search', label: 'Search jobs', formId: 'site-search' }], buttons: [{ text: 'Apply', formId: 'other' }] }],
     ['required field beside navigation', { ...profile, fields: [{ kind: 'text', inputType: 'text', label: 'First name', required: true, value: '' }] }],
@@ -216,8 +231,10 @@ describe('application stage ownership', () => {
     expect(applicationReceipt(target, { applyUrl, job })).toBe(false);
   });
 
-  it('recognises an explicit receipt bound by the full known job title when there is no job URL key', () => {
-    expect(applicationReceipt({ ...receipt, url: `${origin}/thank-you` }, { applyUrl, job })).toBe(true);
+  it('recognises an explicit receipt bound by the full known job title after an observed submission route', () => {
+    expect(applicationReceipt({ ...receipt, url: `${origin}/thank-you` }, {
+      applyUrl, submissionUrl: `${origin}/Careers/ApplicationReview?jobId=42`, job,
+    })).toBe(true);
     expect(applicationReceipt({ ...receipt, text: 'Thank you for your application.', url: `${origin}/thank-you` }, { applyUrl, job })).toBe(false);
   });
 
