@@ -1,6 +1,6 @@
 import { addressContextContract } from './lib/addressContextContract.js';
 /** Shared answers keep their question and attested source. Opaque legacy values are never promoted. */
-import { createHash } from 'node:crypto';
+import { createHash, randomBytes } from 'node:crypto';
 import { candidateAnswerFact } from './lib/candidateAnswerFacts.js';
 import { candidateQuestionAnswerKey, isGeneralCandidateLanguageQuestion, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
@@ -111,7 +111,7 @@ export function planCandidateAnswerEvidence({ questions = [], changed = {}, prev
       continue;
     }
     const record = { version: ANSWER_EVIDENCE_VERSION, key, question, answer, ...policy, provenance: source };
-    records[key] = { id: `answer-${createHash('sha256').update(serialized(record)).digest('hex').slice(0, 24)}`, ...record };
+    records[key] = { id: `answer-${randomBytes(12).toString('hex')}`, ...record };
   }
   return { records: Object.fromEntries(Object.entries(records).slice(-80)), accepted };
 }
@@ -158,7 +158,7 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
       && (record.scope === 'candidate' || samePosting(record.provenance, job)) && (purpose === 'form' || record.category !== 'form_preference'))
       .sort((a, b) => a.key.localeCompare(b.key));
     return { answers: Object.fromEntries(evidence.map(record => [record.key, record.answer])), answerEvidence: evidence,
-      fingerprint: createHash('sha256').update(serialized({ version: ANSWER_EVIDENCE_VERSION, evidence })).digest('hex') };
+      fingerprint: createHash('sha256').update(serialized({ version: ANSWER_EVIDENCE_VERSION, evidenceIds: evidence.map(record => record.id) })).digest('hex') };
   };
 }
 

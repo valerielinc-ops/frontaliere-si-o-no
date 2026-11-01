@@ -38,6 +38,8 @@ describe('typed facts use the attested answer source contract', () => {
     expect(result.fingerprint).toMatch(/^[a-f0-9]{64}$/);
     expect(result.fingerprint).not.toContain(cases[0].answer);
     expect(result.fingerprint).not.toContain(f.key);
+    expect(f.evidence[f.key].id).toMatch(/^answer-[a-f0-9]{24}$/);
+    expect((await f.load())(target).fingerprint).toBe(result.fingerprint);
   });
   it('does not treat fact.type alone as proof when the exact source question is absent', async () => {
     const f = fixture();

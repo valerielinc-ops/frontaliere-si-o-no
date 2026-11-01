@@ -39,6 +39,23 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.list(`${base}/events/`)).toHaveLength(1);
   });
 
+  it('requeues an old recovery receipt once when the source resolver version changes', async () => {
+    const store = fixture();
+    const oldVersion = 'a'.repeat(64);
+    const flowPath = `${base}/automation/flow`;
+    const submissionPath = `${base}/automation/submission`;
+    store.docs.set(flowPath, { ...store.read(flowPath), portalCodeVersion: oldVersion, portalRecoveryVersion: oldVersion });
+    store.docs.set(submissionPath, { ...store.read(submissionPath),
+      portalCodeRecovery: { version: oldVersion, round: 1, queuedAt: now - 1000 } });
+
+    const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 1, queued: 1 });
+    expect(store.read(flowPath).portalRecoveryVersion).toBe(version);
+    expect(store.read(submissionPath).portalCodeRecovery).toMatchObject({ version, round: 1, queuedAt: now });
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 0, queued: 0 });
+    expect(store.list(`${base}/events/`)).toHaveLength(1);
+  });
+
   it.each(['not_approved', 'same_code', 'withdrawn', 'sent', 'ambiguous', 'clicked', 'hard_question', 'captcha', 'expired', 'disabled'])('does not resume %s', async kind => {
     const store = fixture();
     const flowPath = `${base}/automation/flow`;
@@ -142,7 +159,9 @@ describe('automatic recovery after a portal fix', () => {
       'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
       'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
       ...['assistedApplicationConstants.js', 'assistedApplicationPortalSites.js', 'assistedApplicationRetention.js', 'assistedApplicationExtraDocuments.js', 'assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
-        'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js', 'lib/applicationConsent.js', 'lib/portalNativeContract.js', 'lib/answerRules.js', 'lib/portalQuestionText.js'].map(file => `functions/src/${file}`),
+        'assistedApplicationAnswerEvidence.js', 'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js',
+        'lib/candidateAnswerFacts.js', 'lib/languageFacts.js', 'lib/addressContextContract.js', 'lib/permitStatus.js',
+        'lib/applicationConsent.js', 'lib/portalNativeContract.js', 'lib/answerRules.js', 'lib/portalQuestionText.js'].map(file => `functions/src/${file}`),
     ];
     const write = (file: string, text: string) => { mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); writeFileSync(path.join(root, file), text); };
     try {
@@ -159,8 +178,11 @@ describe('automatic recovery after a portal fix', () => {
       write('functions/src/assistedApplicationPortalSites.js', 'fixed exact verification host');
       expect(currentPortalCodeVersion(root)).not.toBe(afterQuestions);
       const afterPortalSites = currentPortalCodeVersion(root);
-      write('functions/src/lib/applicationConsent.js', 'fixed notice grammar');
+      write('functions/src/assistedApplicationAnswerEvidence.js', 'updated attested answer resolver');
       expect(currentPortalCodeVersion(root)).not.toBe(afterPortalSites);
+      const afterAnswerEvidence = currentPortalCodeVersion(root);
+      write('functions/src/lib/applicationConsent.js', 'fixed notice grammar');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterAnswerEvidence);
       const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/assisted-application-portal-recovery.yml', import.meta.url), 'utf8'));
       for (const file of sourceFiles) expect(workflow.on.push.paths.some((pattern: string) => pattern.endsWith('/**') ? file.startsWith(pattern.slice(0, -2)) : file === pattern)).toBe(true);
     } finally { rmSync(root, { recursive: true, force: true }); }
