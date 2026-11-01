@@ -148,10 +148,12 @@ function normalizedHaystack(text) {
 
 const EXCLUSIVE_ELIGIBILITY_RE = /\b(?:only|exclusively|solely|reserved\s+for|limited\s+to|solo|soltanto|unicamente|esclusivamente|riservat\w*|uniquement|exclusivement|seulement|reserve\w*|nur|ausschliesslich|ausschließlich|exklusiv\w*|vorbehalten\w*)\b/i;
 const ELIGIBILITY_SUBJECT_RE = /\b(?:candidate\w*|applicant\w*|student\w*|pupil\w*|trainee\w*|intern\w*|apprentice\w*|person\w*|people|individuals?|those|who|resident\w*|holder\w*|graduate\w*|citizen\w*|inwohner\w*|bewohner\w*|inhaber\w*|absolvent\w*|etudiant\w*|eleve\w*|stagiaire\w*|apprenti\w*|candidat\w*|resident\w*|titulaire\w*|diplom\w*|laureat\w*|personnes?|habitants?|citoyen\w*|bewerber\w*|kandidat\w*|schuler\w*|auszubildende\w*|einwohner\w*|bewohner\w*|inhaber\w*|absolvent\w*|resident\w*|inhabitant\w*|chi|coloro|persone|residenti|titolari|laureat\w*|wer)\b/i;
-const HARD_REQUIREMENT_RE = /\b(?:must|requir(?:e|ed|es|ement|ements)|mandatory|essential|necessary|at\s+least|minimum|plus\s+(?:de|di)\s+\d+|more\s+than\s+\d+|over\s+\d+|mehr\s+als\s+\d+|au\s+moins\s+\d+|almeno\s+\d+|obbligator\w*|indispensabil\w*|richiest\w*|necessar\w*|deve|devono|devo|dovr\w+|dovete|requis\w*|obligatoir\w*|indispensable|doiv?\w*|exig\w*|erforderlich|zwingend|voraussetz\w*|notwendig|muss|mussen|mindestens)\b/i;
+const NEGATED_HARD_REQUIREMENT_RE = /\b(?:not\s+(?:be\s+)?(?:required|mandatory|essential|necessary|obligatory)|nicht\s+(?:erforderlich|notwendig|obligatorisch|zwingend)|pas\s+(?:obligatoire|necessaire)|non\s+(?:richiesto|obbligatorio|necessario))\b/gi;
+const EXPLICIT_MANDATORY_RE = /\b(?:must|requir(?:e|ed|es|ement|ements)|mandatory|essential|necessary|obbligator\w*|indispensabil\w*|richiest\w*|necessar\w*|deve|devono|devo|dovr\w+|dovete|requis\w*|obligatoir\w*|indispensable|doiv?\w*|exig\w*|erforderlich|zwingend|voraussetz\w*|notwendig|muss|mussen)\b/i;
+const THRESHOLD_REQUIREMENT_RE = /\b(?:at\s+least|minimum|plus\s+(?:de|di)\s+\d+|piu\s+di\s+\d+|more\s+than\s+\d+|over\s+\d+|mehr\s+als\s+\d+|au\s+moins\s+\d+|almeno\s+\d+|mindestens)\b/i;
 const QUALIFICATION_CONTEXT_RE = /\b(?:experience|erfahrung|exp[ée]rience|esperienz\w*|year\w*|jahre?\w*|ann[ée]e\w*|anni|language\w*|sprach\w*|lingu\w*|english|german|deutsch|fran[cç]ais|italian|italien\w*|degree|diplom\w*|diplome\w*|laurea|education|educazion\w*|bildung|school|scuola|schule|scolair\w*|student\w*|schuler\w*|eleve\w*|etudiant\w*|permit\w*|bewilligung\w*|arbeitsbewilligung\w*|arbeitserlaubnis\w*|visa|nationalit\w*|citizenship|passport|residen\w*|wohnort|domicil\w*|license|licence|fuehrerschein|fuhrerschein|fahrausweis|patente|competenc\w*|kompetenz\w*|skill\w*|connaissance\w*|kenntnis\w*|conoscenz\w*|office|crm|sap|certificat\w*|certification\w*|qualification\w*|qualifikation\w*|abilit\w*|aptitude\w*)\b/i;
 const HARD_QUALIFICATION_HEADING_RE = /^(?:required\s+)?(?:qualifications?|requirements?|essential\s+criteria|your\s+profile|votre\s+profil|il\s+tuo\s+profilo?|candidate\s+profile|profile\s+requirements|what\s+you\s+bring|requisiti(?:\s+richiesti)?|qualifiche|profilo\s+richiesto|anforderungen|qualifikationen|voraussetzungen|ihr\s+profil|profil\s+recherche|profil\s+recherch[eé]|conditions\s+requises|exigences|criteres?\s+requis)(?:\s+(?:and|&|\/)\s+(?:experience|skills|requirements?))?\s*:?$/i;
-const OPTIONAL_QUALIFICATION_HEADING_RE = /^(?:optional(?:\w*|\s+(?:qualifications?|requirements?|skills?|criteria?))?|opzional[ei](?:\s+(?:requisiti|qualifiche|competenze))?|qualifiche\s+opzionali|facultatif(?:s)?|facultativ(?:e|es)|qualifications?\s+facultatives?|exigences?\s+facultatives?|requisiti\s+opzionali|optionale?\s+(?:anforderungen|qualifikationen|kenntnisse|faehigkeiten)|un\s+plus|a\s+plus)\s*:?$/i;
+const OPTIONAL_QUALIFICATION_HEADING_RE = /^(?:optional(?:\w*|\s+(?:qualifications?|requirements?|skills?|criteria?))?|opzional[ei](?:\s+(?:requisiti|qualifiche|competenze))?|qualifiche\s+opzionali|competenze\s+facoltative|facultatif(?:s)?|facultativ(?:e|es)|qualifications?\s+facultatives?|exigences?\s+facultatives?|requisiti\s+opzionali|optionale?\s+(?:anforderungen|qualifikationen|kenntnisse|faehigkeiten)|un\s+plus|a\s+plus)\s*:?$/i;
 const OTHER_SECTION_HEADING_RE = /^(?:your\s+tasks?|your\s+responsibilities|tasks?|responsibilities|job\s+description|about\s+(?:us|the\s+company)|our\s+company|our\s+mission|our\s+offer|what\s+we\s+offer|benefits|nice\s+to\s+have|preferred\s+qualifications?|desirable\s+skills|aufgaben|taetigkeiten|tatigkeiten|ihre\s+aufgaben|ihre\s+taetigkeiten|ihre\s+tatigkeiten|wir\s+bieten|vorteile|wuenschenswert|wunschprofil|missions?|votre\s+mission|vos\s+missions|votre\s+quotidien|votre\s+environnement|nos\s+missions|vos\s+avantages|nous\s+offrons|atouts|responsabilites|cosa\s+offriamo|offriamo|la\s+tua\s+missione|le\s+tue\s+attivita|le\s+vostre\s+attivita|mansioni|compiti|responsabilita|costituisce\s+un\s+plus)\s*:?$/i;
 const PREFERENCE_CUE_RE = /\b(?:advantage|preferred|desirable|useful|nice\s+to\s+have|optional|opzional\w*|facultatif\w*|facultativ\w*|nicht\s+obligatorisch|nicht\s+erforderlich|not\s+mandatory|not\s+required|von\s+vorteil|wuenschenswert|wunschenswert|souhait[eé]|atout|un\s+plus|a\s+plus|an\s+optional\s+requirement|preferibil\w*|costituisce\s+un\s+plus)\b/i;
 const APPLICATION_METHOD_ONLY_RE = /\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,30}\b(?:online|portal|website|email)\s+only\b|\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,15}\bonly\s+(?:online|through|via|by\s+email)\b/i;
@@ -162,24 +164,37 @@ function normalizeEligibilityEvidence(value) {
     .replace(/^(?:[-*•▪◦]|\d+[.)])\s+/, '').replace(/[.!?;:,]+$/, '').trim();
 }
 
-function isHardEligibilityStatement(statement) {
+function classifyHardEligibilityCues(statement) {
   const normalized = normalizeEligibilityEvidence(statement);
-  return (!APPLICATION_METHOD_ONLY_RE.test(normalized) && EXCLUSIVE_ELIGIBILITY_RE.test(normalized) && ELIGIBILITY_SUBJECT_RE.test(normalized))
-    || (HARD_REQUIREMENT_RE.test(normalized) && QUALIFICATION_CONTEXT_RE.test(normalized));
+  if (APPLICATION_METHOD_ONLY_RE.test(normalized)) return { exclusive: false, mandatory: false, threshold: false };
+  const withoutNegatedHardCues = normalized.replace(NEGATED_HARD_REQUIREMENT_RE, ' ');
+  return {
+    exclusive: EXCLUSIVE_ELIGIBILITY_RE.test(normalized) && ELIGIBILITY_SUBJECT_RE.test(normalized),
+    mandatory: EXPLICIT_MANDATORY_RE.test(withoutNegatedHardCues) && QUALIFICATION_CONTEXT_RE.test(normalized),
+    threshold: THRESHOLD_REQUIREMENT_RE.test(normalized) && QUALIFICATION_CONTEXT_RE.test(normalized),
+  };
 }
 
 function postingEligibilityStatements(postingText) {
   const result = [];
+  const softClauses = [];
+  let ambiguous = false;
   let underQualificationHeading = false;
   let underOptionalHeading = false;
   let block = '';
   const flush = () => {
     if (!block.trim()) return;
-    const sentences = block.split(/(?<=[.!?])\s+/u).map(normalizeEligibilityEvidence).filter(Boolean);
-    for (const statement of sentences) {
+    const clauses = block.split(/\s*;\s*|(?<=[.!?])\s+/u).map(normalizeEligibilityEvidence).filter(Boolean);
+    for (const statement of clauses) {
+      if (APPLICATION_METHOD_ONLY_RE.test(statement)) continue;
+      const hardCues = classifyHardEligibilityCues(statement);
       const preference = PREFERENCE_CUE_RE.test(statement);
+      const explicitHard = hardCues.exclusive || hardCues.mandatory;
+      const thresholdHard = hardCues.threshold;
+      if (preference) softClauses.push(statement);
+      if (preference && (explicitHard || (thresholdHard && !underOptionalHeading))) ambiguous = true;
       const headingRequires = underQualificationHeading && !underOptionalHeading && !preference;
-      if (!underOptionalHeading && !preference && (headingRequires || isHardEligibilityStatement(statement))) result.push(statement);
+      if (explicitHard || (!underOptionalHeading && !preference && thresholdHard) || headingRequires) result.push(statement);
     }
     block = '';
   };
@@ -191,12 +206,22 @@ function postingEligibilityStatements(postingText) {
       continue;
     }
     const heading = normalizeEligibilityEvidence(line.replace(/^#+\s*/, '')).replace(/:$/, '').trim();
-    const inlineHeading = /^(.{1,80}?)(?:\s*[:–—-]\s+)(.+)$/.exec(line);
+    const inlineHeading = /^(.{1,80}?)(?:\s*(?:->|[:→–—-])\s+)(.+)$/.exec(line);
     if (inlineHeading && OPTIONAL_QUALIFICATION_HEADING_RE.test(normalizeEligibilityEvidence(inlineHeading[1].replace(/^#+\s*/, '')))) {
       flush();
       underOptionalHeading = true;
       block = inlineHeading[2].trim();
       continue;
+    }
+    if (inlineHeading && HARD_QUALIFICATION_HEADING_RE.test(normalizeEligibilityEvidence(inlineHeading[1].replace(/^#+\s*/, '')))) {
+      const nestedOptional = /^(.{1,80}?)(?:\s*:\s*(.*))?$/.exec(inlineHeading[2]);
+      if (nestedOptional && OPTIONAL_QUALIFICATION_HEADING_RE.test(normalizeEligibilityEvidence(nestedOptional[1]))) {
+        flush();
+        underQualificationHeading = true;
+        underOptionalHeading = true;
+        block = nestedOptional[2]?.trim() || '';
+        continue;
+      }
     }
     if (inlineHeading && HARD_QUALIFICATION_HEADING_RE.test(normalizeEligibilityEvidence(inlineHeading[1].replace(/^#+\s*/, '')))) {
       flush();
@@ -226,7 +251,20 @@ function postingEligibilityStatements(postingText) {
     block += `${block ? ' ' : ''}${line.replace(/^(?:[-*•▪◦–—]|\d+[.)])\s+/, '')}`;
   }
   flush();
-  return result;
+  const cueWords = /\b(?:only|exclusively|solely|reserved|limited|must|required|requirement|mandatory|essential|necessary|advantage|preferred|desirable|useful|optional|not|plus|at|least|minimum|more|than|over|mehr|als|au|moins|almeno|obligator\w*|indispensabil\w*|richiest\w*|necessar\w*|deve|devono|requis\w*|obligatoir\w*|indispensable|doiv?\w*|exig\w*|erforderlich|zwingend|voraussetz\w*|notwendig|muss|mussen|mindestens|candidat\w*|candidate\w*|applicant\w*|resident\w*|holder\w*|graduate\w*)\b/giu;
+  const criterionTokens = (statement) => new Set(normalizeEligibilityEvidence(statement)
+    .replace(cueWords, ' ').replace(/\b(?:a|an|the|is|are|be|for|of|in|on|to|and|or|with|who|may|apply|have|has)\b/gi, ' ')
+    .match(/[a-z0-9]+/g)?.filter((token) => token.length > 1) || []);
+  const overlapsSameCriterion = result.some((hardClause) => {
+    const hardTokens = criterionTokens(hardClause);
+    return softClauses.some((softClause) => {
+      const softTokens = criterionTokens(softClause);
+      if (!hardTokens.size || !softTokens.size) return false;
+      const overlap = [...hardTokens].filter((token) => softTokens.has(token)).length;
+      return overlap / Math.min(hardTokens.size, softTokens.size) >= 0.8;
+    });
+  });
+  return { statements: result, ambiguous: ambiguous || overlapsSameCriterion };
 }
 
 /**
@@ -237,7 +275,8 @@ function postingEligibilityStatements(postingText) {
  * Ambiguous or unusually long clauses fail closed and are retried as unknown.
  */
 export function hasUncoveredHardEligibilityStatements(requirements, postingText) {
-  const statements = postingEligibilityStatements(postingText);
+  const { statements, ambiguous } = postingEligibilityStatements(postingText);
+  if (ambiguous) return true;
   const rows = Array.isArray(requirements?.requirements) ? requirements.requirements : [];
   if (rows.some((item) => item?.basis === 'stated' && ['critical', 'high'].includes(item?.importance)
     && (!normalizeEligibilityEvidence(item?.sourceRequirement) || !normalizeEligibilityEvidence(item?.quote) || item?.quoteUnverified))) return true;
