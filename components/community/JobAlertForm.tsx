@@ -42,7 +42,11 @@ import {
 
 interface JobAlertFormProps {
  /** Currently authenticated user (null if not logged in) */
- authUser: { uid: string; email?: string | null } | null;
+ authUser: {
+  uid: string;
+  email?: string | null;
+  providerData?: Array<{ email?: string | null }>;
+ } | null;
  /** Auth must be settled before a known user's quota can gate the impression. */
  authResolved?: boolean;
  /** Callback to trigger auth flow when user isn't logged in */
