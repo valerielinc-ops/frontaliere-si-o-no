@@ -35,6 +35,10 @@ describe('typed facts use the complete producer and automation path', () => {
     const profile = store.read('user_cv_profiles/synthetic');
     expect(Object.values(profile.applicationQuestionAnswerEvidence)).toHaveLength(4);
     expect(profile.profile).toEqual({ languages: [] });
+    const sourceContext = await loadRunnerAnswerContext({ db: store.db, orderId: 'source', order: source,
+      flow: store.read('assisted_applications/source/automation/flow'), draft, nowMs: now });
+    expect(sourceContext.answerEvidence).toHaveLength(4);
+    expect(candidateAnswersForQuestions(questions, {}, sourceContext.flow.questionAnswers)).toEqual(answers);
     const runEffect = vi.fn(async (_input: any) => ({ ok: true }));
     await startAutomation({ db: store.db, orderId, runEffect, nowMs: now });
     expect(store.read(`${path}/automation/flow`).questionAnswers).toEqual({});

@@ -306,6 +306,7 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
     sources.set(orderId, { order: order.data(), flow: flow.data(), draft: draft.data() });
   }));
   const verified = candidates.filter(record => {
+    const key = record.key;
     const source = sources.get(record.provenance.orderId); const current = source?.draft?.questions?.find(question => question.id === record.question.id);
     return source?.order?.userId === userId && retained(source.order, nowMs) && !source.flow?.retentionPurgedAt
       && Number(source.flow?.round) === record.provenance.round && Number(source.draft?.round) === record.provenance.round
