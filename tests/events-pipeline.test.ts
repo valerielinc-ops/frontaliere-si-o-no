@@ -448,7 +448,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       url: 'https://www.tio.ch/agenda',
     });
     expect(ld.performer).toBeUndefined();
-    expect(ld.offers).toEqual({ '@type': 'Offer', url: 'https://www.tio.ch/agenda/day/20260704/62101' });
+    expect(ld.offers).toEqual({ '@type': 'Offer' });
     expect(ld.isAccessibleForFree).toBeUndefined();
     // When the source provides an end date, its calendar day must not precede
     // the source start day; date-only values intentionally carry no end time.
@@ -704,7 +704,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     // e.g. tio.ch "Prezzo:" label says "su richiesta" / "CHF" with no digits —
     // parsePriceText returns amount: null, isFree: false for this bucket.
     const ld = eventLd({ ...baseEvent, price: { amount: null, currency: 'CHF', isFree: false } }, 'it') as Record<string, any>;
-    expect(ld.offers).toEqual({ '@type': 'Offer', url: baseEvent.url });
+    expect(ld.offers).toEqual({ '@type': 'Offer' });
     expect(ld.isAccessibleForFree).toBeUndefined();
   });
 
@@ -713,7 +713,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       ...baseEvent,
       price: { amount: null, currency: 'CHF', isFree: false },
     }, 'it') as Record<string, any>;
-    expect(ld.offers).toEqual({ '@type': 'Offer', url: baseEvent.url });
+    expect(ld.offers).toEqual({ '@type': 'Offer' });
     expect(ld.isAccessibleForFree).toBeUndefined();
   });
 });

@@ -210,9 +210,9 @@ function validateEvent(schema, filePath) {
   }
 
   // A source-backed price is complete and strictly validated. When the source
-  // has no price, a plain Offer URL is allowed without asserting an amount,
-  // currency or availability. A zero still needs the free-access claim that
-  // supports it. AggregateOffer uses lowPrice instead of price.
+  // has no price, an unpriced Offer is allowed without inventing a ticket URL,
+  // amount, currency or availability. A zero still needs the free-access claim
+  // that supports it. AggregateOffer uses lowPrice instead of price.
   const offerType = String(schema.offers?.['@type'] || 'Offer').split('/').pop();
   const offerAmountField = offerType === 'AggregateOffer' ? 'lowPrice' : 'price';
   if (schema.offers !== undefined && schema.offers !== null) {
@@ -222,10 +222,10 @@ function validateEvent(schema, filePath) {
       const hasPrice = Object.prototype.hasOwnProperty.call(schema.offers, offerAmountField);
       const price = schema.offers[offerAmountField];
       if (!hasPrice) {
-        if (offerType !== 'Offer' || !isNonEmpty(schema.offers.url)) {
-          errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event with unknown price must use an Offer with a source/event URL' });
+        if (offerType !== 'Offer') {
+          errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event with unknown price must use Offer' });
         }
-        for (const field of ['priceCurrency', 'availability', 'validFrom']) {
+        for (const field of ['priceCurrency', 'availability', 'validFrom', 'url']) {
           if (Object.prototype.hasOwnProperty.call(schema.offers, field) && !isNonEmpty(schema.offers[field])) {
             errors.push({ file: filePath, type: 'Event', field: `offers.${field}`, message: `Event offers.${field} is empty` });
           }

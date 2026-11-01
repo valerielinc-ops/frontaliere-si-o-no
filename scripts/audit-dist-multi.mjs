@@ -846,7 +846,7 @@ function sdValidateEvent(schema, filePath) {
   }
   // Keep this in lockstep with validate-structured-data-completeness.mjs:
   // a source-backed price remains fully validated; an unknown amount may be
-  // represented by an Offer URL without inventing a price or availability.
+  // represented by an unpriced Offer without inventing ticket details.
   const offerType = String(schema.offers?.['@type'] || 'Offer').split('/').pop();
   const offerAmountField = offerType === 'AggregateOffer' ? 'lowPrice' : 'price';
   if (schema.offers !== undefined && schema.offers !== null) {
@@ -856,10 +856,10 @@ function sdValidateEvent(schema, filePath) {
       const hasPrice = Object.prototype.hasOwnProperty.call(schema.offers, offerAmountField);
       const price = schema.offers[offerAmountField];
       if (!hasPrice) {
-        if (offerType !== 'Offer' || !sdIsNonEmpty(schema.offers.url)) {
-          errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event with unknown price must use an Offer with a source/event URL' });
+        if (offerType !== 'Offer') {
+          errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event with unknown price must use Offer' });
         }
-        for (const field of ['priceCurrency', 'availability', 'validFrom']) {
+        for (const field of ['priceCurrency', 'availability', 'validFrom', 'url']) {
           if (Object.prototype.hasOwnProperty.call(schema.offers, field) && !sdIsNonEmpty(schema.offers[field])) {
             errors.push({ file: filePath, type: 'Event', field: `offers.${field}`, message: `Event offers.${field} is empty` });
           }

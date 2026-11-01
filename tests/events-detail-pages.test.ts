@@ -328,7 +328,7 @@ describe('eventLd source attribution (#3125)', () => {
 
   it('emits an unpriced Offer without claiming the event is free', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(ld.offers).toEqual({ '@type': 'Offer', url: EVENT.url });
+    expect(ld.offers).toEqual({ '@type': 'Offer' });
     expect(ld.isAccessibleForFree).toBeUndefined();
   });
 

@@ -1673,7 +1673,7 @@ export function zurichOffset(isoDate: string): string {
  * detail-page render time with deterministic catalog/venue/image defaults.
  * Offers always exist, but a numeric amount is emitted only with a verified
  * source price. `price: 0` is reserved for a confidently free event; unknown
- * prices get an Offer with a source/event URL and no invented amount.
+ * prices get an unpriced Offer, with a ticket URL only when the source gives one.
  * Performer and organizer never carry an address (crawlers
  * stamped the venue "Fiescheralp 4" as performer). A recurring series is its
  * first occurrence plus an `eventSchedule`, not one event of eight weeks; the
@@ -1737,6 +1737,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     ? event.price.highPrice
     : undefined;
   const offerUrl = event.price?.url || canonicalUrl || sourceUrl;
+  const sourceTicketUrl = event.price?.url;
   const offer = confidentPrice
     ? {
       '@type': fromPrice ? 'AggregateOffer' : 'Offer',
@@ -1750,10 +1751,9 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     }
     : {
       '@type': 'Offer',
-      ...(event.price?.currency ? { priceCurrency: event.price.currency } : {}),
       ...(event.price?.availability ? { availability: event.price.availability } : {}),
       ...(event.price?.validFrom ? { validFrom: event.price.validFrom } : {}),
-      ...(offerUrl ? { url: offerUrl } : {}),
+      ...(sourceTicketUrl ? { url: sourceTicketUrl } : {}),
     };
   return {
     '@context': 'https://schema.org',
