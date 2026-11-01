@@ -2890,7 +2890,8 @@ async function knownCookieDialogSnapshot(page, snapshot) {
     const buttons = (snapshot.buttons || []).filter((button) => button.dialog && button.dialogId === dialogId
       && [button.text, button.label, button.ariaLabel, button.title].some((value) => {
         const label = String(value || '').trim();
-        return COOKIE_REJECT_RE.test(label) || COOKIE_ACCEPT_RE.test(label);
+        return COOKIE_REJECT_RE.test(label) || (COOKIE_ACCEPT_RE.test(label)
+          && (COOKIE_DIALOG_CONTEXT_RE.test(label) || /^(tout accepter|accepter tout)$/i.test(label)));
       }));
     if (!buttons.length) continue;
     const frame = page.frames()[Number(dialog.frame ?? buttons[0].frame) || 0] || page.mainFrame();

@@ -4,8 +4,8 @@ import { openVerifiedSignInNavigation } from '../scripts/assisted-application/li
 const HOST = 'sunrise.wd3.myworkdayjobs.com';
 const CURRENT_URL = `https://${HOST}/de/registration`;
 
-function pageWithLink({ href, label, finalUrl, visible = true, tagName = 'A', cookieOverlay = false }: {
-  href?: string; label: string; finalUrl?: string; visible?: boolean; tagName?: string; cookieOverlay?: boolean;
+function pageWithLink({ href, label, finalUrl, visible = true, tagName = 'A', cookieOverlay = false, cookieText = 'We use cookies.' }: {
+  href?: string; label: string; finalUrl?: string; visible?: boolean; tagName?: string; cookieOverlay?: boolean; cookieText?: string;
 }) {
   let url = CURRENT_URL;
   let cookieVisible = cookieOverlay;
@@ -33,7 +33,7 @@ function pageWithLink({ href, label, finalUrl, visible = true, tagName = 'A', co
     first() { return this; },
     isVisible: vi.fn(async () => cookieVisible),
     click: vi.fn(async () => { cookieVisible = false; }),
-    innerText: vi.fn(async () => 'Reject all cookies'),
+    innerText: vi.fn(async () => cookieText),
     evaluate: vi.fn(async () => 'BUTTON'),
     getAttribute: vi.fn(async (name: string) => name === 'href' ? null : ''),
   };
@@ -149,6 +149,23 @@ describe('verified sign-in navigation from an existing-account registration page
     expect(cookieLocator.click).toHaveBeenCalledOnce();
     expect(frame.goto).toHaveBeenCalledOnce();
     expect(locator.click).not.toHaveBeenCalled();
+    expect(page.request.post).not.toHaveBeenCalled();
+  });
+
+  it('does not treat a generic OK as cookie consent, even inside cookie copy', async () => {
+    const { page, frame, cookieLocator } = pageWithLink({
+      label: 'Sign in', href: '/de/login', cookieOverlay: true, cookieText: 'We use cookies to improve this site.',
+    });
+    const snapshot = {
+      dialogs: [{ dialog: true, dialogId: 'd1', frame: 0 }],
+      buttons: [{ id: 'cookie-reject', frame: 0, text: 'OK', dialog: true, dialogId: 'd1' }],
+      links: [{ id: 'auth-link', frame: 0, text: 'Sign in' }],
+    };
+
+    await expect(openVerifiedSignInNavigation(page as any, snapshot as any)).resolves.toBe(false);
+
+    expect(cookieLocator.click).not.toHaveBeenCalled();
+    expect(frame.goto).not.toHaveBeenCalled();
     expect(page.request.post).not.toHaveBeenCalled();
   });
 
