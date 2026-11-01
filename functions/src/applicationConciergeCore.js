@@ -115,10 +115,14 @@ function extensionForCvKey(key) {
   return ['pdf', 'doc', 'docx'].includes(extension) ? extension : 'pdf';
 }
 
-function serializeProposal(doc) {
+function matchingNeedsVerification(service) {
+  return ['queued', 'running', 'failed', 'needs_review'].includes(String(service?.matchingStatus || ''));
+}
+
+function serializeProposal(doc, service = null) {
   const data = doc.data() || {};
   const staleEligibility = data.status === 'proposed'
-    && (data.eligibilityStatus !== 'compatible' || data.eligibilityVersion !== CONCIERGE_ELIGIBILITY_VERSION);
+    && (matchingNeedsVerification(service) || data.eligibilityStatus !== 'compatible' || data.eligibilityVersion !== CONCIERGE_ELIGIBILITY_VERSION);
   return {
     proposalId: doc.id,
     jobId: boundedString(data.jobId, 200),
@@ -163,7 +167,7 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     .sort((left, right) => (proposalRankingValue(right, 'matchRankingScore') || proposalRankingValue(right, 'matchScore'))
       - (proposalRankingValue(left, 'matchRankingScore') || proposalRankingValue(left, 'matchScore'))
       || proposalRankingValue(right, 'matchScore') - proposalRankingValue(left, 'matchScore'))
-    .map(serializeProposal);
+    .map((proposal) => serializeProposal(proposal, data));
   return {
     serviceId,
     serviceType: 'application_concierge',
@@ -390,7 +394,8 @@ async function acceptProposal(db, serviceId, proposalId, uid) {
   if (!proposalSnapshot.exists) throw new ApplicationConciergeError('proposal_not_found', 404);
   const proposal = proposalSnapshot.data() || {};
   if (proposal.status !== 'proposed') throw new ApplicationConciergeError('proposal_already_decided', 409);
-  if (proposal.eligibilityStatus !== 'compatible'
+  if (matchingNeedsVerification(service)
+    || proposal.eligibilityStatus !== 'compatible'
     || proposal.eligibilityVersion !== CONCIERGE_ELIGIBILITY_VERSION
     || proposal.eligibilityCvStorageKey !== service.cvStorageKey) {
     throw new ApplicationConciergeError('proposal_requires_verification', 409);
@@ -418,7 +423,8 @@ async function acceptProposal(db, serviceId, proposalId, uid) {
       if (!currentProposalSnapshot.exists || currentProposal.status !== 'proposed') {
         throw new ApplicationConciergeError('proposal_already_decided', 409);
       }
-      if (currentProposal.eligibilityStatus !== 'compatible'
+      if (matchingNeedsVerification(currentService)
+        || currentProposal.eligibilityStatus !== 'compatible'
         || currentProposal.eligibilityVersion !== CONCIERGE_ELIGIBILITY_VERSION
         || currentProposal.eligibilityCvStorageKey !== currentService.cvStorageKey
         || currentService.cvStorageKey !== service.cvStorageKey) {
