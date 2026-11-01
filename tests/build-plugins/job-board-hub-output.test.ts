@@ -22,6 +22,7 @@ const prefix = (locale: string) => locale === 'it' ? '' : `/${locale}`;
 const hubPath = (locale: typeof locales[number], canton: string) => `${prefix(locale)}/${buildCantonAwareSection(locale, canton)}/`;
 const daysAgo = (n: number) => new Date(Date.now() - n * 86400000).toISOString();
 const activeFirstSeenAt = daysAgo(3);
+const listingObservedAt = daysAgo(1);
 const description = 'La posizione prevede la collaborazione con il gruppo di lavoro e la gestione delle attività quotidiane. Cerchiamo una persona con esperienza professionale, precisione e capacità organizzative, interessata a crescere in un ambiente qualificato. Offriamo formazione continua, un contratto stabile e condizioni di lavoro trasparenti. Le candidature complete vengono esaminate dal responsabile delle risorse umane.';
 const semanticDescription = `${description}\n\n## Mansioni\n- Gestire il dossier completo\n\n## Requisiti\n- **Laurea riconosciuta**\n\n${'Contenuto originale senza omissioni. '.repeat(30)}Conclusione integrale della descrizione.`;
 let root: string;
@@ -32,6 +33,7 @@ const jobs = Array.from({ length: 8 }, (_, i) => ({
   titleByLocale: { it: `Specialista amministrativo ${i}`, en: `Administrative specialist ${i}`, de: `Verwaltungsspezialist ${i}`, fr: `Spécialiste administratif ${i}` },
   company: 'Audit Example SA', companyKey: 'audit-example', canton: i < 6 ? 'ZH' : 'TI',
   location: i < 6 ? 'Zürich' : 'Lugano', addressLocality: i < 6 ? 'Zürich' : 'Lugano',
+  postalCode: i < 6 ? '8001' : '6900', streetAddress: i < 6 ? 'Bahnhofstrasse 1' : 'Piazza Riforma 1', streetAddressSource: 'listing-source',
   description: semanticDescription, descriptionByLocale: Object.fromEntries(locales.map((locale) => [locale, semanticDescription])),
   previousSlugs: i === 0 ? ['old-audit-position'] : [],
   requirements: ['IT', 'Go', ...Array.from({ length: 15 }, (_, item) => `Requisito originale ${item}`)],
@@ -80,7 +82,7 @@ beforeAll(async () => {
   fs.copyFileSync(path.resolve('data/canton-url-slugs.json'), path.join(root, 'data/canton-url-slugs.json'));
   // One duplicate and a short translation reproduce the difference between the
   // visible inventory and the smaller sitemap-eligible subset.
-  const listingOnly = Array.from({ length: 120 }, (_, i) => ({ id: `listing-only-${i}`, slug: `listing-only-${i}`, title: `Posizione ${i}`, company: 'Audit Example SA', canton: 'ZH', location: 'Zürich' }));
+  const listingOnly = Array.from({ length: 120 }, (_, i) => ({ id: `listing-only-${i}`, slug: `listing-only-${i}`, title: `Posizione ${i}`, company: 'Audit Example SA', canton: 'ZH', location: 'Zürich', crawledAt: listingObservedAt }));
   const sgJobs = Array.from({ length: 6 }, (_, i) => ({ ...jobs[0], id: `sg-position-${i}`, slug: `sg-position-${i}`, canton: 'SG', location: 'St. Gallen' }));
   const invalidListings = [
     { ...jobs[0], id: 'missing-company', slug: 'missing-company', company: undefined },
@@ -88,7 +90,7 @@ beforeAll(async () => {
     { ...jobs[0], id: 'missing-title', slug: 'missing-title', title: '' },
     { ...jobs[0], id: 'foreign-location', slug: 'foreign-location', location: 'London', addressLocality: 'London' },
   ];
-  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, { ...jobs[0], id: 'active-unverified', slug: 'active-unverified', postingDateSource: 'unknown', tags: ['infermiere'] }, { ...jobs[0], id: 'active-first-seen', slug: 'active-first-seen', postingDateSource: 'unknown', datePosted: '', postedDate: '', firstSeenAt: activeFirstSeenAt }, ...listingOnly, ...sgJobs, ...invalidListings, { title: 'Developer (m/f/d) #1?', company: 'Acme', canton: 'TI', description }, { title: 'Cuoco', company: 'Acme', canton: 'TI', titleByLocale: { it: 'Cuoco', en: 'Cook', de: 'Koch', fr: 'Cuisinier' } }, jobs[0], { ...jobs[1], id: 'short-translation', slug: 'short-translation', descriptionByLocale: { it: 'Testo breve' } }]));
+  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, { ...jobs[0], id: 'active-unverified', slug: 'active-unverified', postingDateSource: 'unknown', tags: ['infermiere'] }, { ...jobs[0], id: 'active-first-seen', slug: 'active-first-seen', postingDateSource: 'unknown', datePosted: '', postedDate: '', firstSeenAt: activeFirstSeenAt }, ...listingOnly, ...sgJobs, ...invalidListings, { title: 'Developer (m/f/d) #1?', company: 'Acme', canton: 'TI', description, crawledAt: listingObservedAt }, { title: 'Cuoco', company: 'Acme', canton: 'TI', titleByLocale: { it: 'Cuoco', en: 'Cook', de: 'Koch', fr: 'Cuisinier' }, crawledAt: listingObservedAt }, jobs[0], { ...jobs[1], id: 'short-translation', slug: 'short-translation', descriptionByLocale: { it: 'Testo breve' } }]));
   // The archive emitter consumes its historical snapshot, independently of
   // current listing counts: ZH has one archive page and SG has two.
   fs.mkdirSync(path.join(root, 'data/jobs-snapshots-history'));

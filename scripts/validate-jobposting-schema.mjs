@@ -8,10 +8,10 @@
  *
  *   required, non-empty: title, description (≥ 50 chars), datePosted
  *   (parseable ISO 8601), hiringOrganization.name, jobLocation with a
- *   complete PostalAddress, employmentType (schema.org enum), baseSalary
- *   (currency + value.minValue>0 + value.maxValue>=min when present +
- *   value.unitText), and validThrough (parseable ISO 8601). The canonical
- *   builder supplies safe defaults when the source omits non-critical values.
+ *   PostalAddress (street optional), employmentType (schema.org enum),
+ *   baseSalary (currency + value.minValue>0 + value.maxValue>=min when present
+ *   + value.unitText). validThrough is optional and parseable when present.
+ *   The builder supplies safe defaults for the mandatory fields only.
  *
  * Exits with code 1 and prints a summary of failing URLs when any
  * violation is found — blocks deploy.

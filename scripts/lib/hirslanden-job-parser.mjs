@@ -666,7 +666,7 @@ export async function fetchAllHirslandenJobs() {
       const canton = inferredCanton;
       // Keep the existing safe postal fallback when the source omits a CAP;
       // the canton itself is never inferred from this fallback.
-      const postalCode = detail?.postalCode || parsedPostal || hqPostalCodeForLocality(location, 'Zürich', '8008');
+      const postalCode = detail?.postalCode || parsedPostal || hqPostalCodeForLocality(location, 'Zürich', '8008', 'ZH');
 
       // Only the posting's own text is published (issue 5253). A detail page
       // that could not be read, or whose body is under the shared 50-word
