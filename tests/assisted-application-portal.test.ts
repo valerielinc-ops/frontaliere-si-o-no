@@ -1188,6 +1188,39 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(entered).toBe('+39 324 0753275');
   });
 
+  it('waits for a search suggestion to replace the raw phone-code query', async () => {
+    let shown = '';
+    let raw = '';
+    let expanded = 'false';
+    const option = {
+      click: vi.fn(async () => { shown = 'Switzerland (+41)'; raw = ''; expanded = 'false'; }),
+    };
+    const options = {
+      allInnerTexts: vi.fn(async () => ['Switzerland (+41)', 'Italy (+39)']),
+      nth: vi.fn(() => option),
+    };
+    const control = {
+      fill: vi.fn(async (value: string) => { raw = value; shown = value; expanded = 'true'; }),
+      inputValue: vi.fn(async () => raw),
+      press: vi.fn(async () => { expanded = 'true'; }),
+      getAttribute: vi.fn(async (name: string) => name === 'aria-expanded' ? expanded : null),
+    };
+    const frame = {
+      url: () => 'https://workday.localhost/form',
+      evaluate: vi.fn(async () => ({ url: 'https://workday.localhost/form', pageMarker: '', fields: [{ id: 'phone-code', kind: 'text', inputType: 'text', label: 'Country Phone Code*', value: shown, search: true }], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [] })),
+      locator: vi.fn((selector: string) => selector.includes('[role="option"]') ? options : { first: () => control }),
+    };
+    const page = { url: () => 'https://workday.localhost/form', frames: () => [frame], mainFrame: () => frame, waitForTimeout: vi.fn(async () => {}) };
+    const result = await applyActions(page as any, [{ id: 'phone-code', kind: 'text', inputType: 'text', label: 'Country Phone Code*', search: true, value: '' }], [
+      { fieldId: 'phone-code', action: 'fill', value: '+41' },
+    ], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'phone-code', ok: true }]);
+    expect(option.click).toHaveBeenCalledOnce();
+    expect(shown).toBe('Switzerland (+41)');
+    expect(raw).toBe('');
+  });
+
   it('matches a custom picklist label by normalized exact text', async () => {
     let selected = '';
     const option = (label: string) => ({

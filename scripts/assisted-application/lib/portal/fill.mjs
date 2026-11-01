@@ -213,6 +213,20 @@ async function valueShownNow(page, field) {
   return String(fresh?.fields.find((candidate) => candidate.kind === field.kind && candidate.label === field.label)?.value || '');
 }
 
+/** A search answer is committed only after the chosen value replaces the raw query. */
+async function searchValueCommitted(page, field, locator, value) {
+  const shown = await valueShownNow(page, field);
+  if (!searchHolds(shown, value)) return false;
+  const raw = tidy(await locator.inputValue().catch(() => ''));
+  if (raw !== tidy(value)) return true;
+  // A few ATSes keep the query in the input after selecting its sole match;
+  // a closed owned popup is the remaining native proof that it was committed.
+  const expanded = typeof locator.getAttribute === 'function'
+    ? await locator.getAttribute('aria-expanded').catch(() => null)
+    : null;
+  return expanded === 'false';
+}
+
 /** A search box (fields.mjs `search`) already holds the answer: its chosen value names what would be typed. */
 export function searchHolds(shown, value) {
   return Boolean(tidy(value)) && tidy(shown).includes(tidy(value));
@@ -365,12 +379,12 @@ async function pickSuggestion(page, field, locator, value) {
     await locator.press('Enter').catch(() => {});
     for (const deadline = Date.now() + SUGGESTIONS_TIMEOUT_MS; Date.now() < deadline;) {
       await page.waitForTimeout(300);
-      if (searchHolds(await valueShownNow(page, field), value)) return;
+      if (await searchValueCommitted(page, field, locator, value)) return;
       const texts = await options.allInnerTexts().catch(() => []);
       const index = texts.findIndex((text) => text.toLowerCase().includes(needle));
       if (index >= 0) await options.nth(index).click({ timeout: 4000 }).catch(() => {});
     }
-    if (searchHolds(await valueShownNow(page, field), value)) return;
+    if (await searchValueCommitted(page, field, locator, value)) return;
     await locator.press('Tab').catch(() => {});
     throw new Error('suggestion_not_chosen');
   }

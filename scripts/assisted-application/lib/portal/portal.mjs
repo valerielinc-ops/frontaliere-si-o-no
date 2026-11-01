@@ -3336,7 +3336,11 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
     : ctx.candidate;
   const plan = await planPage({ snapshot: others, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
-  let registrationSnapshot = snapshot;
+  // Keep the account-form residence ownership contract on every reread. The
+  // native extractor cannot always infer the personal-information owner from
+  // an explicit residence caption alone, but losing this normalization after
+  // the first redraw would turn the same known field into an unreadable hold.
+  let registrationSnapshot = accountRegistrationSnapshot(snapshot);
   let registrationPlan = plan;
   let registrationReplans = 0;
   let privacySurfaceReplans = 0;
@@ -3363,7 +3367,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     while (true) {
       const stable = await waitForStableQuestionSurface(page, current, expectedUrl);
       if (stable.status !== 'stable') return { status: 'unstable', snapshot: stable.snapshot };
-      const plannedSnapshot = stable.snapshot;
+      const plannedSnapshot = accountRegistrationSnapshot(stable.snapshot);
       const planned = await planPage({
         snapshot: { ...plannedSnapshot, fields: plannedSnapshot.fields.filter((field) => field.inputType !== 'password') },
         candidate,
@@ -3372,7 +3376,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       });
       // The planner can take minutes. Re-read immediately after it returns so
       // its plan cannot authorize a CTA on a surface that appeared meanwhile.
-      const observed = await extractFields(page, NAVIGATION).catch(() => null);
+      const observedRaw = await extractFields(page, NAVIGATION).catch(() => null);
+      const observed = observedRaw ? accountRegistrationSnapshot(observedRaw) : null;
       if (!observed || page.url() !== expectedUrl || observed.url !== expectedUrl) {
         return { status: 'moved', snapshot: observed || plannedSnapshot };
       }
@@ -3401,7 +3406,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (page.url() !== registrationUrl) return { handoff: 'portal_needs_candidate' };
     const stable = await waitForStableQuestionSurface(page, registrationSnapshot, registrationUrl);
     if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate' };
-    registrationSnapshot = stable.snapshot;
+    registrationSnapshot = accountRegistrationSnapshot(stable.snapshot);
     registrationPlan = await planPage({
       snapshot: { ...registrationSnapshot, fields: registrationSnapshot.fields.filter((field) => field.inputType !== 'password') },
       candidate,
@@ -3419,12 +3424,6 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
     )),
   };
-  const initialRequirements = portalRequirementsFromMissingRequired(registrationSnapshot.fields, registrationPlan.missingRequired);
-  if (initialRequirements.unreadableFields?.length) return { handoff: 'question_label_unreadable' };
-  const initialRequest = await portalRequirementsForCandidate(initialRequirements, {
-    candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log: ctx.log,
-  });
-  if (initialRequest) return initialRequest;
   const password = account?.password || newPortalPassword({ portal: host });
   const sinceMs = Date.now();
   if (retryingUnverifiedAccount) {
@@ -3489,6 +3488,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       await parkRegistrationCredential('privacy_required_file_unhandled');
       return noted({ handoff: 'portal_required_file_unhandled' });
     }
+    // Emit the hard-question batch only from this stable post-privacy plan;
+    // the first registration plan may not include fields revealed by the notice.
     const stableRequest = await portalRequirementsForCandidate(stableRequirements, {
       candidateLocale: ctx.candidateLocale,
       applicationLocale: ctx.language,
@@ -3524,7 +3525,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         await parkRegistrationCredential('privacy_question_surface_unstable');
         return noted({ handoff: 'portal_needs_candidate' });
       }
-      registrationSnapshot = afterPrivacyActions.snapshot;
+      registrationSnapshot = accountRegistrationSnapshot(afterPrivacyActions.snapshot);
       registrationPlan = {
         ...stablePlan,
         actions: stablePlan.actions.filter((action) => !registrationActionSatisfied(

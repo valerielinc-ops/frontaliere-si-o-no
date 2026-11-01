@@ -287,6 +287,56 @@ describe('assisted portal question batching', () => {
     expect(accountEvents).toEqual(['save', 'discard']);
   });
 
+  it('batches already visible hard questions with hard questions revealed by privacy acceptance', async () => {
+    const fixture = fakePage({ registration: true, privacyRevealsUnknown: true });
+    const { page, window } = fixture;
+    const candidate = { identity: { email: 'candidate@example.test' }, profile: {} };
+    const form = window.document.querySelector('form')!;
+    form.insertAdjacentHTML('beforeend', '<label for="initial-requirement">When could you start?</label><input id="initial-requirement" name="initial-requirement" required>');
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    let plannerCalls = 0;
+    const codex = async ({ prompt }: any) => {
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      plannerCalls += 1;
+      const missingRequired = [
+        { fieldId: fieldId('initial-requirement'), question: 'When could you start?', why: '', type: 'text', options: [] },
+      ];
+      if (plannerCalls > 1) missingRequired.push({
+        fieldId: fieldId('unknown-requirement'), question: 'Which professional certification do you hold?', why: '', type: 'text', options: [],
+      });
+      return { actions: [], missingRequired };
+    };
+    const accountEvents: string[] = [];
+    const result = await handleAuth({
+      page,
+      snapshot: await extractFields(page, { listboxOptions: false }),
+      ctx: {
+        candidate,
+        candidateLocale: 'en',
+        language: 'en',
+        files: {},
+        codex,
+        accounts: {
+          load: async () => null,
+          save: async () => { accountEvents.push('save'); },
+          mark: async () => { accountEvents.push('mark'); },
+          discard: async () => { accountEvents.push('discard'); },
+        },
+      },
+    });
+
+    expect(plannerCalls).toBe(2);
+    expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'When could you start? *',
+      'Which professional certification do you hold? *',
+    ]);
+    expect(window.document.getElementById('privacy-dialog')).toBeNull();
+    expect(window.document.getElementById('unknown-requirement')).not.toBeNull();
+    expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
+    expect(window.document.getElementById('submit')?.getAttribute('data-clicked')).not.toBe('true');
+    expect(accountEvents).toEqual(['save', 'discard']);
+  });
+
   it('hands off a required CV revealed by privacy when no verified upload is available', async () => {
     const fixture = fakePage({ registration: true, privacyRevealsRequiredFile: true });
     const { page, window, ctaClicks } = fixture;
