@@ -24,8 +24,12 @@ describe('Sintio crawler parser', () => {
       expect(isSintioChJob({ company: 'Sintio' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isSintioChJob({ url: 'https://join.com/jobs/123' })).toBe(true);
+    it('does not match another employer on the shared platform', () => {
+      expect(isSintioChJob({
+        companyKey: 'other-company',
+        company: 'Other Employer',
+        url: 'https://join.com/jobs/123',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

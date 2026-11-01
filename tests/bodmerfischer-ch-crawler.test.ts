@@ -24,8 +24,12 @@ describe('BodmerFischer AG – Rechtsanwälte crawler parser', () => {
       expect(isBodmerfischerChJob({ company: 'BodmerFischer AG – Rechtsanwälte' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isBodmerfischerChJob({ url: 'https://weblaw.ch/jobs/123' })).toBe(true);
+    it('does not match another employer on the shared platform', () => {
+      expect(isBodmerfischerChJob({
+        companyKey: 'other-company',
+        company: 'Other Employer',
+        url: 'https://weblaw.ch/jobs/123',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

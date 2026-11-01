@@ -24,8 +24,12 @@ describe('AvantGarten crawler parser', () => {
       expect(isAvantgartenChJob({ company: 'AvantGarten' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isAvantgartenChJob({ url: 'https://yousty.ch/jobs/123' })).toBe(true);
+    it('does not match another employer on the shared platform', () => {
+      expect(isAvantgartenChJob({
+        companyKey: 'other-company',
+        company: 'Other Employer',
+        url: 'https://yousty.ch/jobs/123',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

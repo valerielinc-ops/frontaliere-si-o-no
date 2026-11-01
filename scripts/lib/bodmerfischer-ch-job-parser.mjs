@@ -13,12 +13,11 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import {
   resolveSourceBackedSwissGeography,
-  sourceBackedSwissGeographyFields,
+  sourceBackedSwissJobAddressFields,
 } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -52,13 +51,11 @@ export function isBodmerfischerChJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === BODMERFISCHER_CH_KEY ||
     key.startsWith('bodmerfischer-ch-') ||
-    company.includes('bodmerfischer ag – rechtsanwälte') ||
-    url.includes('weblaw.ch')
+    company.includes('bodmerfischer ag – rechtsanwälte')
   );
 }
 
@@ -154,9 +151,7 @@ export async function fetchAllBodmerfischerChJobs() {
     };
     const resolvedGeography = resolveSourceBackedSwissGeography(listing);
     const geography = resolvedGeography
-      && (typeof sourceBackedSwissGeographyFields === 'function'
-        ? sourceBackedSwissGeographyFields(sourceGeographyEvidence, resolvedGeography)
-        : resolvedGeography);
+      && sourceBackedSwissJobAddressFields(sourceGeographyEvidence, resolvedGeography);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
@@ -204,12 +199,12 @@ export async function fetchAllBodmerfischerChJobs() {
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(addressRegion || canton),
+      addressLocality: normalizeSpace(addressLocality),
+      addressRegion: normalizeSpace(addressRegion),
       addressCountry: normalizeSpace(addressCountry || 'CH'),
       country: normalizeSpace(addressCountry || 'CH'),
-      ...(postalCode ? { postalCode: normalizeSpace(postalCode) } : {}),
-      ...(streetAddress ? { streetAddress: normalizeSpace(streetAddress) } : {}),
+      postalCode: normalizeSpace(postalCode),
+      streetAddress: normalizeSpace(streetAddress),
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME'
         ? 'part-time'
