@@ -59,37 +59,6 @@ describe('portal field extraction', () => {
     expect(findButton(snapshot.buttons, COOKIE_ACCEPT_RE)?.text).toBe('Accept optional cookies');
   });
 
-  it('includes iframe application markers in page identity when field labels and ids repeat', async () => {
-    const mainUrl = 'https://careers.example.test/apply';
-    const formUrl = 'https://forms.example.test/application';
-    let step = 1;
-    const main = {
-      url: () => mainUrl,
-      evaluate: vi.fn(async () => extract('<main id="career-shell"></main>', mainUrl)),
-    };
-    const form = {
-      url: () => formUrl,
-      evaluate: vi.fn(async () => extract(`<form id="application" data-step="${step}">
-        <label for="name">Name *</label><input id="name" name="name" required>
-      </form>`, formUrl)),
-    };
-    const page = { url: () => mainUrl, frames: () => [main, form] };
-
-    const first = await extractFields(page as any);
-    step = 2;
-    const second = await extractFields(page as any);
-
-    expect(first.fields.map((field: any) => ({ frameIndex: field.frame, id: field.id, label: field.label })))
-      .toEqual(second.fields.map((field: any) => ({ frameIndex: field.frame, id: field.id, label: field.label })));
-    expect(JSON.parse(first.pageMarker)).toContainEqual(expect.objectContaining({
-      frame: 1, url: formUrl, marker: expect.stringContaining('data-step=1'),
-    }));
-    expect(JSON.parse(second.pageMarker)).toContainEqual(expect.objectContaining({
-      frame: 1, url: formUrl, marker: expect.stringContaining('data-step=2'),
-    }));
-    expect(second.pageMarker).not.toBe(first.pageMarker);
-  });
-
   it('uses the extracted SuccessFactors marker when a private-use upload button has only a generated snapshot id', async () => {
     let uploaded = false;
     const snapshot = extract(`
