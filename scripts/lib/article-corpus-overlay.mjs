@@ -1,8 +1,10 @@
 /**
- * Materialize one coherent corpus-main `content/` tree before an article
- * rerender. The site never decides from the published API or from a copied
- * tree: CI clones the corpus sparsely, checks out refs/remotes/origin/main,
- * validates the minimum shape, then mirrors only that tree into the site.
+ * Materialize one coherent corpus `content/` tree before an article rerender.
+ * CI clones the corpus sparsely, checks out either its main branch or an
+ * explicitly pinned published commit, validates the minimum shape, then
+ * mirrors only that tree into the site. A caller that publishes against the
+ * live API must pass the API manifest's commit; otherwise corpus/main can be
+ * ahead of the registry and make a safe rerender impossible indefinitely.
  */
 
 import fs from 'node:fs';
@@ -12,6 +14,7 @@ import { spawnSync } from 'node:child_process';
 
 import { isCantonCorpusPath, mirrorTree } from './corpus-canton-exclusion.mjs';
 import { destinationOnlyPaths, isPreservedTreePath } from './corpus-local-preserve.mjs';
+import { COMMIT_RE as CORPUS_COMMIT_RE, normalizeCommit as normalizeCorpusCommit } from './articles-sync-pin.mjs';
 
 const CORPUS_REMOTE = 'https://github.com/nanakokyobashi-rgb/frontaliere-articles.git';
 const REQUIRED_FILES = [
@@ -34,6 +37,7 @@ const CORPUS_REGISTRY_FILES = Object.freeze({
   frontaliere: 'content/routerBlogData.ts',
   svizzera: 'content/routerSwissData.ts',
 });
+export { CORPUS_COMMIT_RE, normalizeCorpusCommit };
 
 export function decideCorpusOverlayMode({ isCi = false, dryRun = false, explicit = false } = {}) {
   if (isCi === true || explicit === true) {
@@ -79,8 +83,8 @@ export function mirrorCorpusContent({ source, destination }) {
   });
 }
 
-export function corpusRevisionFromCheckout(checkoutDir) {
-  const commit = git(checkoutDir, ['rev-parse', 'refs/remotes/origin/main']);
+export function corpusRevisionFromCheckout(checkoutDir, ref = 'HEAD') {
+  const commit = git(checkoutDir, ['rev-parse', ref]);
   const epoch = git(checkoutDir, ['show', '-s', '--format=%ct', commit]);
   const short = git(checkoutDir, ['rev-parse', '--short=12', commit]);
   return { commit, contentRevision: `${epoch}.${short}` };
@@ -116,10 +120,15 @@ export function corpusArticleChangeTimestamp(checkoutDir, section, id, { sinceEp
 export function prepareCorpusContentOverlay({
   rootDir,
   remote = process.env.ARTICLES_CORPUS_REMOTE || CORPUS_REMOTE,
+  commit = null,
   retainCheckout = false,
   logPrefix = '[rerender-article-corpus]',
 } = {}) {
   const destination = path.join(rootDir, 'packages', 'articles', 'content');
+  const pinnedCommit = commit === null || commit === undefined ? null : normalizeCorpusCommit(commit);
+  if (commit !== null && commit !== undefined && !pinnedCommit) {
+    throw new Error(`invalid corpus commit pin ${JSON.stringify(commit)} — expected a full SHA-1`);
+  }
   const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-corpus-overlay-'));
   let retained = false;
   try {
@@ -132,11 +141,31 @@ export function prepareCorpusContentOverlay({
       throw new Error(`clone corpus fallito: ${String(clone.stderr || clone.stdout || 'nessun dettaglio').trim()}`);
     }
     git(temporary, ['sparse-checkout', 'set', '--no-cone', 'content']);
-    git(temporary, ['checkout', '--quiet', '--detach', 'refs/remotes/origin/main']);
+    const checkoutRef = pinnedCommit ?? 'refs/remotes/origin/main';
+    if (pinnedCommit) {
+      const present = spawnSync(
+        'git',
+        ['-C', temporary, 'cat-file', '-e', `${pinnedCommit}^{commit}`],
+        { encoding: 'utf8' },
+      );
+      if (present.status !== 0) {
+        const fetched = spawnSync(
+          'git', ['-C', temporary, 'fetch', '--quiet', 'origin', pinnedCommit],
+          { encoding: 'utf8' },
+        );
+        if (fetched.status !== 0) {
+          throw new Error(
+            `corpus commit ${pinnedCommit} non disponibile: `
+            + String(fetched.stderr || fetched.stdout || 'nessun dettaglio').trim(),
+          );
+        }
+      }
+    }
+    git(temporary, ['checkout', '--quiet', '--detach', checkoutRef]);
 
     const source = path.join(temporary, 'content');
     const shape = validateCorpusContentShape(source);
-    if (!shape.ok) throw new Error(`tree corpus main monco: mancano ${shape.missing.join(', ')}`);
+    if (!shape.ok) throw new Error(`tree corpus snapshot monco: mancano ${shape.missing.join(', ')}`);
     mirrorCorpusContent({ source, destination });
 
     const revision = corpusRevisionFromCheckout(temporary);
