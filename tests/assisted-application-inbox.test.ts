@@ -428,7 +428,7 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
   const GUARD_PATH = `${ORDER_PATH}/automation/submission`;
   const FLOW_PATH = `${ORDER_PATH}/automation/flow`;
   const classifyAs = (category: string) => async () => ({ category, summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: '', verificationUrl: '', needsReply: false });
-  const ackMail = () => employerMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.', auto: true });
+  const ackMail = (id: string) => Buffer.from([`Message-ID: <synthetic-${id}@example.test>`, employerMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.', auto: true }).toString('latin1')].join('\r\n'), 'latin1');
 
   /** By default: the portal's final click at 600, the run reported portal_ambiguous, Valerie holds the order. */
   async function ambiguousOrder({
@@ -448,8 +448,9 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
       return runAutomationEffect(context);
     };
     const sendCascade = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    let delivery = 0;
     const receive = async (category: string, { nowMs = 1000, db = store.db }: any = {}) => (
-      await deliver({ store, alias, db, raw: ackMail(), classify: classifyAs(category), sendCascade, runEffect, nowMs })
+      await deliver({ store, alias, db, raw: ackMail(`${category}-${delivery++}`), classify: classifyAs(category), sendCascade, runEffect, nowMs })
     ).processed;
     return { store, effects, sendCascade, receive };
   }
