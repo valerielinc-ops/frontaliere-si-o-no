@@ -1392,10 +1392,14 @@
           const containing = options.filter((item) => normalize(item.label).includes(wanted));
           return containing.length === 1 ? containing[0] : null;
         };
+        // A related-suite page can lower config.waitMs for fast fixtures, while
+        // Workday may still be redrawing the popup asynchronously. Keep the
+        // retry count bounded but allow one second for each observable phase.
+        const searchWaitMs = Math.max(config.waitMs, 1000);
         const open = async () => {
           setValue(element, query);
           fire(element, 'keydown', { key: 'Enter', code: 'Enter' });
-          return waitFor(findOption);
+          return waitFor(findOption, searchWaitMs);
         };
         // Some Workday tenants leave the option node mounted while the first
         // synthetic press is swallowed during the popup redraw. Others close
@@ -1414,7 +1418,7 @@
             continue;
           }
           press(option.element);
-          if (await waitFor(() => !isEmpty(entry))) return true;
+          if (await waitFor(() => !isEmpty(entry), searchWaitMs)) return true;
           // A swallowed press may leave Workday's old listbox open. Close it
           // before the single bounded re-open so the next Enter starts a fresh
           // query instead of reusing stale popup state.
