@@ -801,6 +801,23 @@ function nativeQuestionText(value, counter = null) {
     }
     return element.getAttribute('data-aa-id');
   };
+  // A portal may replace a file input while copying its data-aa-id. Keep a
+  // page-local identity for the actual DOM node so a later snapshot cannot
+  // mistake that fresh empty control for the one that received the file.
+  const controlIdentityState = window.__frontalierePortalControlIdentity || (() => {
+    const state = { nodes: new WeakMap(), next: 0 };
+    Object.defineProperty(window, '__frontalierePortalControlIdentity', { configurable: true, value: state });
+    return state;
+  })();
+  const controlInstanceFor = (element) => {
+    let instance = controlIdentityState.nodes.get(element);
+    if (!instance) {
+      controlIdentityState.next += 1;
+      instance = `control-${controlIdentityState.next}`;
+      controlIdentityState.nodes.set(element, instance);
+    }
+    return instance;
+  };
   // A limit the form states only in words or with a counter ("max. 500
   // caratteri", "0 / 1000"): shortened by us at a sentence end rather than cut
   // by the portal mid-sentence (career-ops counts the final answer).
@@ -887,6 +904,7 @@ function nativeQuestionText(value, counter = null) {
       inputType: type,
       form: formOf(element),
       domId: element.id || '',
+      ...(type === 'file' ? { controlInstance: controlInstanceFor(element) } : {}),
       ...semanticIdentifiers(element),
       name: clean(element.getAttribute('name') || ''),
       label,

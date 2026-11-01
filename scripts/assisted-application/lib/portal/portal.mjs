@@ -3344,7 +3344,24 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   let registrationPlan = plan;
   let registrationReplans = 0;
   let privacySurfaceReplans = 0;
-  const appliedRegistrationUploads = new Set();
+  // A successful upload belongs to the concrete control that received it.
+  // ATS redraws can reuse the same data-aa-id for a fresh empty file input;
+  // retaining only the field id would incorrectly authorize Create/Submit.
+  const appliedRegistrationUploads = new Map();
+  const uploadControlKey = (field) => JSON.stringify([
+    field?.frame ?? 0,
+    field?.form ?? null,
+    field?.controlInstance || '',
+    field?.domId || '',
+    field?.name || '',
+    field?.controlId || '',
+    field?.semanticId || '',
+    field?.nativeControlId || '',
+    field?.ownedList || '',
+  ]);
+  const uploadIsSatisfied = (field) => Boolean(field
+    && appliedRegistrationUploads.get(field.id)
+    && appliedRegistrationUploads.get(field.id) === uploadControlKey(field));
   const knownAnswerMatches = (field, action) => {
     if (action.action === 'skip') return true;
     if (!field) return false;
@@ -3367,7 +3384,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     return false;
   };
   const registrationActionSatisfied = (field, action) => action.action === 'upload'
-    ? appliedRegistrationUploads.has(action.fieldId)
+    ? uploadIsSatisfied(field)
     : knownAnswerMatches(field, action);
   const parkRegistrationCredential = async (reason) => {
     if (retryingUnverifiedAccount) await ctx.accounts.mark(host, { status: 'unanswered' });
@@ -3456,7 +3473,10 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
     const applied = await applyActions(page, registrationSnapshot.fields, [...plannedActions, ...passwordActions], ctx.files);
     for (const action of plannedActions.filter((item) => item.action === 'upload')) {
-      if (applied.some((result) => result.fieldId === action.fieldId && result.ok)) appliedRegistrationUploads.add(action.fieldId);
+      const field = registrationSnapshot.fields.find((candidateField) => candidateField.id === action.fieldId);
+      if (field && applied.some((result) => result.fieldId === action.fieldId && result.ok)) {
+        appliedRegistrationUploads.set(action.fieldId, uploadControlKey(field));
+      }
     }
     // After the fields: SuccessFactors opens its statement only for a chosen country.
     const privacyStartUrl = page.url();
@@ -3493,7 +3513,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const unhandledRequiredFiles = stableRegistrationSnapshot.fields.filter((field) =>
       (field.required === true || field.invalid === true || missingRequiredFieldIds.has(field.id))
       && (field.kind === 'file' || field.inputType === 'file')
-      && !appliedRegistrationUploads.has(field.id)
+      && !uploadIsSatisfied(field)
       && !stablePlan.actions.some((action) => action.fieldId === field.id && action.action === 'upload'));
     if (unhandledRequiredFiles.length) {
       await parkRegistrationCredential('privacy_required_file_unhandled');
@@ -3525,7 +3545,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         return noted({ handoff: 'portal_needs_candidate' });
       }
       for (const action of newlyRequiredActions.filter((item) => item.action === 'upload')) {
-        appliedRegistrationUploads.add(action.fieldId);
+        const field = stableRegistrationSnapshot.fields.find((candidateField) => candidateField.id === action.fieldId);
+        if (field) appliedRegistrationUploads.set(action.fieldId, uploadControlKey(field));
       }
       if (page.url() !== privacyUrl) {
         await parkRegistrationCredential('privacy_question_surface_moved');

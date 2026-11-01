@@ -223,6 +223,27 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
   return { page, window, extractionTrace, ctaClicks };
 }
 
+it('gives a replaced file input a new control identity even when its data-aa-id is reused', async () => {
+  const fixture = fakePage({ conditional: false });
+  const { page, window } = fixture;
+  const form = window.document.querySelector('form')!;
+  form.insertAdjacentHTML('beforeend', '<label for="cv">CV *</label><input id="cv" data-aa-id="reused-cv" type="file" required>');
+
+  const first = await extractFields(page, { listboxOptions: false });
+  const firstFile = first.fields.find((field: any) => field.inputType === 'file')!;
+  const replacement = window.document.createElement('input');
+  replacement.id = 'cv';
+  replacement.setAttribute('data-aa-id', 'reused-cv');
+  replacement.type = 'file';
+  replacement.required = true;
+  window.document.getElementById('cv')!.replaceWith(replacement);
+
+  const second = await extractFields(page, { listboxOptions: false });
+  const secondFile = second.fields.find((field: any) => field.inputType === 'file')!;
+  expect(secondFile.id).toBe(firstFile.id);
+  expect(secondFile.controlInstance).not.toBe(firstFile.controlInstance);
+});
+
 function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace: any[] = []) {
   const steps = result.evidence.steps.map(({ step, fields, actions, redrawn, url, errors }: any) => ({
     step, fields, actions, redrawn, url, errors,
