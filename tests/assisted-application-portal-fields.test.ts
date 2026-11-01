@@ -4,6 +4,7 @@ import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChann
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_REJECT_RE, dismissCookieBanner, openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { operationalDefaultAnswer } from '../functions/src/assistedApplicationOperationalAnswers.js';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
 function extract(html: string, url = 'https://jobs.example/apply', context: Record<string, unknown> = {}) {
@@ -373,6 +374,100 @@ describe('portal field extraction', () => {
     expect(extract('<section><h2>Inactive step</h2></section><section><div><input id="input-7"></div></section>').fields[0].label).not.toContain('Inactive step');
     const pair = extract('<div><span>First question</span><input id="input-7"><span>Second question</span><input id="input-8"></div>');
     expect(pair.fields.map((field: any) => field.label)).toEqual(['First question', 'Second question']);
+    const unlabelledPair = extract('<div><span>First question</span><input id="input-7"><input id="input-8"></div>');
+    expect(unlabelledPair.fields.map((field: any) => field.label)).toEqual(['First question', 'input-8']);
+    const pageCopy = extract('<main><p>Welcome to our careers page.</p><form><div><input id="input-9"></div></form></main>');
+    expect(pageCopy.fields[0].label).toBe('input-9');
+    const formQuestion = extract('<form><span>Form question</span><input id="input-10"></form>');
+    expect(formQuestion.fields[0].label).toBe('Form question');
+    const formCopy = extract('<form><p>Complete all sections before applying.</p><input id="input-11"></form>');
+    expect(formCopy.fields[0].label).toBe('input-11');
+    const formInstruction = extract('<form><span>Complete all sections before applying.</span><input id="input-12"></form>');
+    expect(formInstruction.fields[0].label).toBe('input-12');
+    const formInstructionWithoutPeriod = extract('<form><span>Complete all sections before applying</span><input id="input-13"></form>');
+    expect(formInstructionWithoutPeriod.fields[0].label).toBe('input-13');
+    for (const [instruction, id] of [
+      ['Complete this form', '_r_1_'],
+      ['Complete the form', '_r_2_'],
+      ['Completa il modulo', '_r_3_'],
+      ['Vervollständigen Sie das Formular', '_r_4_'],
+      ['Veuillez remplir le formulaire', '_r_5_'],
+      ['Bitte das Formular ausfüllen', '_r_6_'],
+    ]) {
+      const genericFormInstruction = extract(`<div><span>${instruction}</span><input id="${id}"></div>`);
+      expect(genericFormInstruction.fields[0].label).toBe(id);
+    }
+    const nearbyFormQuestion = extract('<form><span>What should I complete on this form?</span><input id="_r_6_"></form>');
+    expect(nearbyFormQuestion.fields[0].label).toBe('What should I complete on this form?');
+    const longerFormQuestion = extract('<div><span>Complete this form? What should I enter?</span><input id="_r_1_"></div>');
+    expect(longerFormQuestion.fields[0].label).toBe('Complete this form? What should I enter?');
+    for (const [instruction, id] of [
+      ['Completa tutti i campi prima di inviare la candidatura', 'input-15'],
+      ['Completa il modulo prima dell’invio', 'input-19'],
+      ['Si prega di compilare tutti i campi', 'input-21'],
+      ['Bitte füllen Sie alle Felder aus, bevor Sie sich bewerben', 'input-16'],
+      ['Bitte füllen Sie alle Felder aus bevor Sie sich bewerben', '_r_7_'],
+      ['Bitte füllen Sie sämtliche Felder aus', 'input-20'],
+      ['Veuillez remplir tous les champs avant de soumettre votre candidature', 'input-17'],
+      ['Merci de compléter tous les champs', 'input-22'],
+    ]) {
+      const genericInstruction = extract(`<form><span>${instruction}</span><input id="${id}"></form>`);
+      expect(genericInstruction.fields[0].label).toBe(id);
+    }
+    for (const [parts, id] of [
+      [['Completa tutti i', 'campi prima di inviare la candidatura'], 'input-31'],
+      [['Bitte füllen Sie alle', 'Felder aus, bevor Sie sich bewerben'], 'input-32'],
+      [['Veuillez remplir tous les', 'champs avant de soumettre votre candidature'], 'input-33'],
+    ]) {
+      const splitInstruction = extract(`<form><span>${parts[0]}</span><span>${parts[1]}</span><input id="${id}"></form>`);
+      expect(splitInstruction.fields[0].label).toBe(id);
+    }
+    const formPromptDiv = extract('<form><div class="question">Do you have a permit?</div><input id="input-14"></form>');
+    expect(formPromptDiv.fields[0].label).toBe('Do you have a permit?');
+    const ancestorQuestion = extract('<form><div><span>Wrapped question</span><div><input id="input-23"></div></div></form>');
+    expect(ancestorQuestion.fields[0].label).toBe('Wrapped question');
+    const ancestorPair = extract('<form><div><span>First wrapped question</span><div><input id="input-24"></div><span>Second wrapped question</span><div><input id="input-25"></div></div></form>');
+    expect(ancestorPair.fields.map((field: any) => field.label)).toEqual(['First wrapped question', 'Second wrapped question']);
+    const orientedAncestorLabel = extract('<form><div><input id="input-27"></div><span>Second wrapped question</span><div><input id="input-28"></div></form>');
+    expect(orientedAncestorLabel.fields.map((field: any) => field.label)).toEqual(['input-27', 'Second wrapped question']);
+    const nestedSiblingQuestion = extract('<form><span>First <span>nested</span> question?</span><input id="input-26"></form>');
+    expect(nestedSiblingQuestion.fields[0].label).toBe('First nested question?');
+    const pageParentCopy = extract('<main><span>Careers at Example</span><input id="input-29"></main>');
+    expect(pageParentCopy.fields[0].label).toBe('input-29');
+    const optionNotLabel = extract('<form><div role="group"><input id="input-30" role="combobox" aria-controls="choices"><div id="choices" role="listbox"><div role="option">Open vacancy</div></div></div></form>');
+    expect(optionNotLabel.fields[0].label).toBe('input-30');
+    const privacyPrompt = extract('<form><span class="question">Seleziona questa casella per confermare di aver letto l’<span>Informativa sulla privacy</span> per i candidati.</span><input id="input-18" type="checkbox" required></form>');
+    const fullPrivacyLabel = 'Seleziona questa casella per confermare di aver letto l’Informativa sulla privacy per i candidati.';
+    expect(privacyPrompt.fields[0].label).toBe(fullPrivacyLabel);
+    const privacyField = {
+      ...privacyPrompt.fields[0],
+      question: fullPrivacyLabel,
+      applicationQuestion: fullPrivacyLabel,
+      type: 'checkbox',
+      required: true,
+    };
+    expect(operationalDefaultAnswer(privacyField)).toMatchObject({ value: 'true', topic: 'privacy_review_ack', source: 'policy_default' });
+    const privacyPlan = guardPlan({
+      actions: [],
+      missingRequired: [{ fieldId: privacyField.id, question: fullPrivacyLabel, why: '', type: 'checkbox', options: [] }],
+    }, [privacyField], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
+    expect(privacyPlan.actions).toContainEqual(expect.objectContaining({
+      fieldId: privacyField.id,
+      action: 'check',
+      value: 'true',
+      source: 'policy_default',
+    }));
+    const optionalConsent = {
+      id: 'optional-marketing',
+      kind: 'checkbox',
+      type: 'checkbox',
+      label: 'Accetto di ricevere comunicazioni promozionali e newsletter.',
+      question: 'Accetto di ricevere comunicazioni promozionali e newsletter.',
+      applicationQuestion: 'Accetto di ricevere comunicazioni promozionali e newsletter.',
+      required: false,
+    };
+    expect(operationalDefaultAnswer(optionalConsent)).toBeNull();
+    expect(guardPlan({ actions: [], missingRequired: [] }, [optionalConsent], { answers: {}, profile: {}, portalQuestionsAnswered: [] }).actions).toEqual([]);
   });
 
   it('reads a radio group required only by its label as required, and asks the candidate for it', () => {
