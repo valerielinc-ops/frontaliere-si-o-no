@@ -1,109 +1,68 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-10-31T22:03:53.019Z",
-  "total": 183,
+  "generatedAt": "2026-11-01T09:48:35.624Z",
+  "total": 179,
   "newCount": 1,
-  "updatedCount": 9,
-  "removedCount": 1,
-  "unchangedCount": 173,
-  "durationMs": 406860,
-  "avgDurationMs": 406860,
+  "updatedCount": 4,
+  "removedCount": 5,
+  "unchangedCount": 174,
+  "durationMs": 472822,
+  "avgDurationMs": 472822,
   "durationHistory": [
-    406860
+    472822
   ],
   "newJobs": [
     {
-      "url": "https://job.post.ch/default/job/Praxisintegriertes-Bachelorstudium-in-Informatik/73888-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Praxisintegriertes-Bachelorstudium-in-Informatik/73888-de_DE",
-      "title": "Praxisintegriertes Bachelorstudium in Informatik",
+      "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73864-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73864-de_DE",
+      "title": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
       "company": "Die Schweizerische Post",
       "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Bern",
-      "canton": "BE",
+      "location": "Dättwil AG",
+      "canton": "AG",
       "country": "CH",
-      "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-dattwil-ag",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:01:12.040Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:45:22.944Z",
+      "validThrough": "2026-12-01T09:45:22.944Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
-      "sector": "IT",
+      "sector": "Logistica",
       "workload": "",
       "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
+        "canton": "AG",
+        "location": "Dättwil AG"
       },
       "needsRetranslation": true,
-      "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "id": "posta-svizzera-centro-regionale-e0565e17805a",
+      "salaryMin": 52000,
+      "salaryMax": 78500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "postalCode": "3004",
-      "firstSeenAt": "2026-10-31T22:01:12.040Z",
-      "_qualityScore": 80,
+      "addressLocality": "Dättwil AG",
+      "addressRegion": "AG",
+      "postalCode": "5000",
+      "streetAddress": "Dättwil AG",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-08-27T00:49:51.119Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 17
+        "translation": 19,
+        "completeness": 20
       }
     }
   ],
   "updatedJobs": [
-    {
-      "url": "https://job.post.ch/default/job/Apprentissage-de-gestionnaire-de-commerce-de-d%C3%A9tail-CFC%E2%80%AF-Neuch%C3%A2tel/74008-fr_FR",
-      "applyUrl": "https://job.post.ch/default/job/Apprentissage-de-gestionnaire-de-commerce-de-d%C3%A9tail-CFC%E2%80%AF-Neuch%C3%A2tel/74008-fr_FR",
-      "title": "Apprentissage de gestionnaire de commerce de détail CFC - Neuchâtel",
-      "company": "La Poste Suisse",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Neuchâtel, La Chaux-de-Fonds",
-      "canton": "NE",
-      "country": "CH",
-      "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-      "sourceLang": "fr",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "",
-      "validThrough": "",
-      "source": "postch-careers-crawler",
-      "employmentType": "INTERN",
-      "experienceLevel": "",
-      "sector": "Formazione",
-      "workload": "",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Neuchâtel"
-      },
-      "crawledAt": "2026-10-31T22:03:28.713Z",
-      "id": "posta-svizzera-centro-regionale-b6979983514b",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "firstSeenAt": "2026-09-08T13:47:51.005Z",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "postalCode": "2000",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EBA-%28Sortierzentrum-oder-Inhouse-in-einem-Distributionsgebiet%29/74020-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EBA-%28Sortierzentrum-oder-Inhouse-in-einem-Distributionsgebiet%29/74020-de_DE",
@@ -120,8 +79,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:02:50.061Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:47:09.747Z",
+      "validThrough": "2026-12-01T09:47:09.747Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -140,12 +99,15 @@
       "addressRegion": "TG",
       "firstSeenAt": "2026-09-24T00:13:31.805Z",
       "postalCode": "8500",
-      "_qualityScore": 89,
+      "streetAddress": "Frauenfeld",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -164,8 +126,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:02:38.632Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:46:55.286Z",
+      "validThrough": "2026-12-01T09:46:55.286Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -184,12 +146,15 @@
       "addressRegion": "SO",
       "firstSeenAt": "2026-09-24T00:13:31.805Z",
       "postalCode": "4500",
-      "_qualityScore": 89,
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -208,8 +173,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:02:17.214Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:46:31.587Z",
+      "validThrough": "2026-12-01T09:46:31.587Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -228,12 +193,15 @@
       "addressRegion": "GR",
       "postalCode": "7204",
       "firstSeenAt": "2026-09-24T00:13:31.805Z",
-      "_qualityScore": 89,
+      "streetAddress": "Untervaz",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -252,8 +220,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:01:16.548Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:45:21.184Z",
+      "validThrough": "2026-12-01T09:45:21.184Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -272,6 +240,55 @@
       "addressRegion": "AG",
       "postalCode": "5000",
       "firstSeenAt": "2026-09-24T00:13:31.805Z",
+      "streetAddress": "Buchs AG",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [
+    {
+      "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73988-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73988-de_DE",
+      "title": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Willisau",
+      "canton": "LU",
+      "country": "CH",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-8b8afa",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-31T22:02:32.896Z",
+      "validThrough": "",
+      "source": "postch-careers-crawler",
+      "employmentType": "INTERN",
+      "experienceLevel": "",
+      "sector": "Logistica",
+      "workload": "",
+      "_targetScope": {
+        "canton": "LU",
+        "location": "Willisau"
+      },
+      "id": "posta-svizzera-centro-regionale-9b5ab5bda907",
+      "salaryMin": 58500,
+      "salaryMax": 89000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Willisau",
+      "addressRegion": "LU",
+      "postalCode": "6130",
+      "firstSeenAt": "2026-08-27T00:49:51.119Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -281,154 +298,19 @@
       }
     },
     {
-      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74649-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74649-de_DE",
-      "title": "Zusteller:in Briefe und Pakete",
+      "url": "https://job.post.ch/default/job/Lehre-als-Fachmann-frau-Betriebsunterhalt-EFZ/73918-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Lehre-als-Fachmann-frau-Betriebsunterhalt-EFZ/73918-de_DE",
+      "title": "Lehre als Fachmann/-frau Betriebsunterhalt EFZ",
       "company": "Die Schweizerische Post",
       "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Küblis",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kublis",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-10-05",
-      "postedDate": "2026-10-05",
-      "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:59:59.135Z",
-      "validThrough": "2026-11-04",
-      "source": "postch-careers-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "50-80%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Küblis"
-      },
-      "id": "posta-svizzera-centro-regionale-d5882d13279d",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Küblis",
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-09-07T23:38:38.608Z",
-      "postalCode": "7240",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74710-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74710-de_DE",
-      "title": "Zusteller:in Briefe und Pakete",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Münsingen",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-10-06",
-      "postedDate": "2026-10-06",
-      "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:59:52.632Z",
-      "validThrough": "2026-11-05",
-      "source": "postch-careers-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "60-80%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Münsingen"
-      },
-      "id": "posta-svizzera-centro-regionale-e284265aa262",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Münsingen",
-      "addressRegion": "BE",
-      "postalCode": "3110",
-      "firstSeenAt": "2026-08-28T05:29:51.419Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74590-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74590-de_DE",
-      "title": "Zusteller:in Briefe und Pakete",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Solothurn",
-      "canton": "SO",
-      "country": "CH",
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-solothurn",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-10-07",
-      "postedDate": "2026-10-07",
-      "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:59:49.529Z",
-      "validThrough": "2026-11-04",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "60-100%",
-      "_targetScope": {
-        "canton": "SO",
-        "location": "Solothurn"
-      },
-      "id": "posta-svizzera-centro-regionale-32f37d392976",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "postalCode": "4500",
-      "firstSeenAt": "2026-08-28T05:29:51.419Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Lehre-als-Automatikerin-EFZ/73853-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Lehre-als-Automatikerin-EFZ/73853-de_DE",
-      "title": "Lehre als Automatiker:in EFZ",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Zürich-Mülligen",
+      "location": "Zürich",
       "canton": "ZH",
       "country": "CH",
-      "slug": "apprendistato-come-automatiker-in-cfc-die-schweizerische-post-zurich-mulligen",
+      "slug": "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-die-schweizerische-post-zurich",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T21:57:46.771Z",
       "validThrough": "",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
@@ -437,17 +319,20 @@
       "workload": "",
       "_targetScope": {
         "canton": "ZH",
-        "location": "Zürich-Mülligen"
+        "location": "Zürich"
       },
-      "id": "posta-svizzera-centro-regionale-1ee181e942a0",
+      "crawledAt": "2026-10-31T22:01:49.730Z",
+      "id": "posta-svizzera-centro-regionale-7b6d2c2c9948",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "addressLocality": "Zürich-Mülligen",
+      "addressLocality": "Zürich",
       "addressRegion": "ZH",
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-26T09:48:47.201Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -455,23 +340,24 @@
         "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73864-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73864-de_DE",
+      "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73873-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73873-de_DE",
       "title": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
       "company": "Die Schweizerische Post",
       "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Dättwil AG",
+      "location": "Gränichen",
       "canton": "AG",
       "country": "CH",
-      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-dattwil-ag",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-6f84a8",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-31T22:01:20.876Z",
       "validThrough": "",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
@@ -480,26 +366,111 @@
       "workload": "",
       "_targetScope": {
         "canton": "AG",
-        "location": "Dättwil AG"
+        "location": "Gränichen"
       },
-      "crawledAt": "2026-10-31T09:45:06.950Z",
-      "id": "posta-svizzera-centro-regionale-e0565e17805a",
+      "id": "posta-svizzera-centro-regionale-86dfc6ed05e3",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "addressLocality": "Dättwil AG",
+      "addressLocality": "Gränichen",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-08-27T00:49:51.119Z",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "postalCode": "5000",
+      "postalCode": "5722",
+      "firstSeenAt": "2026-08-27T20:05:14.310Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
         "completeness": 17
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74647-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74647-de_DE",
+      "title": "Zusteller:in Briefe und Pakete",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Untervaz",
+      "canton": "GR",
+      "country": "CH",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-untervaz",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-10-01",
+      "validThrough": "2026-10-31",
+      "source": "postch-careers-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "60-80%",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Untervaz"
+      },
+      "crawledAt": "2026-10-31T22:00:03.666Z",
+      "id": "posta-svizzera-centro-regionale-0bfdff597e67",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Untervaz",
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-28T05:29:51.419Z",
+      "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
+      "postalCode": "7204",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74646-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74646-de_DE",
+      "title": "Zusteller:in Briefe und Pakete",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Bad Ragaz",
+      "canton": "SG",
+      "country": "CH",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-bad-ragaz",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-10-01",
+      "validThrough": "2026-10-31",
+      "source": "postch-careers-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "50-70%",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "Bad Ragaz"
+      },
+      "crawledAt": "2026-10-31T22:00:02.110Z",
+      "id": "posta-svizzera-centro-regionale-cdea17f61652",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bad Ragaz",
+      "addressRegion": "SG",
+      "firstSeenAt": "2026-08-28T05:29:51.419Z",
+      "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
+      "postalCode": "7310",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
       }
     }
   ],
@@ -518,7 +489,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:48:12.847Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -528,7 +499,7 @@
         "canton": "VS",
         "location": "Sion"
       },
-      "crawledAt": "2026-10-31T22:03:42.989Z",
+      "crawledAt": "2026-11-01T09:48:12.847Z",
       "id": "posta-svizzera-centro-regionale-81ef13f9dde0",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -541,12 +512,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "1950",
-      "_qualityScore": 89,
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -563,7 +537,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:48:11.050Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -573,7 +547,7 @@
         "canton": "GE",
         "location": "Genève"
       },
-      "crawledAt": "2026-10-31T22:03:41.488Z",
+      "crawledAt": "2026-11-01T09:48:11.050Z",
       "id": "posta-svizzera-centro-regionale-f82f71aa9d56",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -586,12 +560,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "1201",
-      "_qualityScore": 89,
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -610,8 +587,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:03:40.026Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:48:09.362Z",
+      "validThrough": "2026-12-09T09:48:09.362Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -630,12 +607,15 @@
       "addressRegion": "VS",
       "postalCode": "1963",
       "firstSeenAt": "2026-10-24T21:55:42.297Z",
-      "_qualityScore": 89,
+      "streetAddress": "Vétroz",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -654,8 +634,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:03:38.658Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:48:07.684Z",
+      "validThrough": "2026-12-01T09:48:07.684Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -674,12 +654,15 @@
       "addressRegion": "VD",
       "postalCode": "1860",
       "firstSeenAt": "2026-09-23T13:57:56.331Z",
-      "_qualityScore": 89,
+      "streetAddress": "Aigle, Gland, Montreux, Yverdon-les-Bains",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -696,7 +679,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:48:05.986Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -706,7 +689,7 @@
         "canton": "VD",
         "location": "Daillens"
       },
-      "crawledAt": "2026-10-31T22:03:37.190Z",
+      "crawledAt": "2026-11-01T09:48:05.986Z",
       "id": "posta-svizzera-centro-regionale-d91508233f4d",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -718,12 +701,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "1306",
-      "_qualityScore": 89,
+      "streetAddress": "Daillens",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -740,7 +726,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:48:04.197Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -750,7 +736,7 @@
         "canton": "VS",
         "location": "Martigny"
       },
-      "crawledAt": "2026-10-31T22:03:35.706Z",
+      "crawledAt": "2026-11-01T09:48:04.197Z",
       "id": "posta-svizzera-centro-regionale-00603e78532f",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -762,12 +748,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "1920",
-      "_qualityScore": 89,
+      "streetAddress": "Martigny",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -786,8 +775,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:03:34.347Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:48:02.478Z",
+      "validThrough": "2026-12-04T09:48:02.478Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -806,12 +795,15 @@
       "addressRegion": "GE",
       "postalCode": "1201",
       "firstSeenAt": "2026-10-19T21:48:04.723Z",
-      "_qualityScore": 89,
+      "streetAddress": "Genève, Carouge GE, Petit-Lancy",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -828,7 +820,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:48:00.803Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -838,7 +830,7 @@
         "canton": "JU",
         "location": "Delémont"
       },
-      "crawledAt": "2026-10-31T22:03:32.814Z",
+      "crawledAt": "2026-11-01T09:48:00.803Z",
       "id": "posta-svizzera-centro-regionale-07eebf4edc3d",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -850,12 +842,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "2800",
-      "_qualityScore": 89,
+      "streetAddress": "Delémont",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -872,7 +867,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:47:59.130Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -882,7 +877,7 @@
         "canton": "BE",
         "location": "Bienne"
       },
-      "crawledAt": "2026-10-31T22:03:31.454Z",
+      "crawledAt": "2026-11-01T09:47:59.130Z",
       "id": "posta-svizzera-centro-regionale-e382cd332f1d",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -894,12 +889,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "3001",
-      "_qualityScore": 89,
+      "streetAddress": "Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -916,7 +914,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:47:57.460Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -926,7 +924,7 @@
         "canton": "NE",
         "location": "Colombier NE"
       },
-      "crawledAt": "2026-10-31T22:03:30.078Z",
+      "crawledAt": "2026-11-01T09:47:57.460Z",
       "id": "posta-svizzera-centro-regionale-38b87e7858e9",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -938,12 +936,62 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "2000",
-      "_qualityScore": 89,
+      "streetAddress": "Colombier NE",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Apprentissage-de-gestionnaire-de-commerce-de-d%C3%A9tail-CFC%E2%80%AF-Neuch%C3%A2tel/74008-fr_FR",
+      "applyUrl": "https://job.post.ch/default/job/Apprentissage-de-gestionnaire-de-commerce-de-d%C3%A9tail-CFC%E2%80%AF-Neuch%C3%A2tel/74008-fr_FR",
+      "title": "Apprentissage de gestionnaire de commerce de détail CFC - Neuchâtel",
+      "company": "La Poste Suisse",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Neuchâtel, La Chaux-de-Fonds",
+      "canton": "NE",
+      "country": "CH",
+      "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
+      "sourceLang": "fr",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "",
+      "validThrough": "2026-12-01T09:47:55.793Z",
+      "source": "postch-careers-crawler",
+      "employmentType": "INTERN",
+      "experienceLevel": "",
+      "sector": "Formazione",
+      "workload": "",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Neuchâtel"
+      },
+      "crawledAt": "2026-11-01T09:47:55.793Z",
+      "id": "posta-svizzera-centro-regionale-b6979983514b",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "reported",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "firstSeenAt": "2026-09-08T13:47:51.005Z",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "postalCode": "2000",
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
       }
     },
     {
@@ -960,7 +1008,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:47:54.073Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -970,7 +1018,7 @@
         "canton": "VS",
         "location": "Martigny"
       },
-      "crawledAt": "2026-10-31T22:03:27.354Z",
+      "crawledAt": "2026-11-01T09:47:54.073Z",
       "id": "posta-svizzera-centro-regionale-39cbb5d74178",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -982,12 +1030,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "1920",
-      "_qualityScore": 89,
+      "streetAddress": "Martigny",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1004,7 +1055,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:47:52.403Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1014,7 +1065,7 @@
         "canton": "GE",
         "location": "Genève"
       },
-      "crawledAt": "2026-10-31T22:03:25.990Z",
+      "crawledAt": "2026-11-01T09:47:52.403Z",
       "id": "posta-svizzera-centro-regionale-946fe367161a",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1026,12 +1077,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "1201",
-      "_qualityScore": 89,
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1048,7 +1102,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:47:50.698Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1058,7 +1112,7 @@
         "canton": "BE",
         "location": "Bienne"
       },
-      "crawledAt": "2026-10-31T22:03:24.594Z",
+      "crawledAt": "2026-11-01T09:47:50.698Z",
       "id": "posta-svizzera-centro-regionale-601d0feee2eb",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1070,12 +1124,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "3001",
-      "_qualityScore": 89,
+      "streetAddress": "Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1094,8 +1151,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:03:23.106Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:47:49.020Z",
+      "validThrough": "2026-12-08T09:47:49.020Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1114,12 +1171,15 @@
       "addressRegion": "VD",
       "postalCode": "1306",
       "firstSeenAt": "2026-10-23T21:38:10.065Z",
-      "_qualityScore": 89,
+      "streetAddress": "Renens VD, Daillens, Vevey",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1138,8 +1198,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:03:21.597Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:47:47.338Z",
+      "validThrough": "2026-12-03T09:47:47.338Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1158,12 +1218,15 @@
       "addressRegion": "VD",
       "postalCode": "1312",
       "firstSeenAt": "2026-10-19T09:38:24.018Z",
-      "_qualityScore": 89,
+      "streetAddress": "Eclépens",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1180,7 +1243,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:47:45.659Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1190,7 +1253,7 @@
         "canton": "VD",
         "location": "Eclépens"
       },
-      "crawledAt": "2026-10-31T22:03:20.053Z",
+      "crawledAt": "2026-11-01T09:47:45.659Z",
       "id": "posta-svizzera-centro-regionale-7fe973f03d0c",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1202,12 +1265,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "1312",
-      "_qualityScore": 89,
+      "streetAddress": "Eclépens",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1224,7 +1290,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:47:43.968Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1234,7 +1300,7 @@
         "canton": "VD",
         "location": "Vevey"
       },
-      "crawledAt": "2026-10-31T22:03:18.689Z",
+      "crawledAt": "2026-11-01T09:47:43.968Z",
       "id": "posta-svizzera-centro-regionale-bd237fd58a9b",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1246,12 +1312,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "1800",
-      "_qualityScore": 89,
+      "streetAddress": "Vevey",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1268,7 +1337,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:47:42.297Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1278,7 +1347,7 @@
         "canton": "VD",
         "location": "Renens VD"
       },
-      "crawledAt": "2026-10-31T22:03:17.206Z",
+      "crawledAt": "2026-11-01T09:47:42.297Z",
       "id": "posta-svizzera-centro-regionale-5ee8de20d861",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1290,12 +1359,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "1003",
-      "_qualityScore": 89,
+      "streetAddress": "Renens VD",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1312,7 +1384,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:47:40.631Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1322,7 +1394,7 @@
         "canton": "VD",
         "location": "Daillens"
       },
-      "crawledAt": "2026-10-31T22:03:15.803Z",
+      "crawledAt": "2026-11-01T09:47:40.631Z",
       "id": "posta-svizzera-centro-regionale-b056518b193f",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1334,12 +1406,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "1306",
-      "_qualityScore": 89,
+      "streetAddress": "Daillens",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1356,7 +1431,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:47:38.967Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1366,7 +1441,7 @@
         "canton": "VD",
         "location": "Daillens"
       },
-      "crawledAt": "2026-10-31T22:03:14.334Z",
+      "crawledAt": "2026-11-01T09:47:38.967Z",
       "id": "posta-svizzera-centro-regionale-7853772c3e4b",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1378,12 +1453,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "1306",
-      "_qualityScore": 89,
+      "streetAddress": "Daillens",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1400,7 +1478,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:47:37.301Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1410,7 +1488,7 @@
         "canton": "BE",
         "location": "Bienne"
       },
-      "crawledAt": "2026-10-31T22:03:12.945Z",
+      "crawledAt": "2026-11-01T09:47:37.301Z",
       "id": "posta-svizzera-centro-regionale-5b7191ce93dc",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1422,12 +1500,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "3001",
-      "_qualityScore": 89,
+      "streetAddress": "Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1444,7 +1525,7 @@
       "department": "",
       "category": "servizi-postali",
       "datePosted": "",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:47:35.572Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1454,7 +1535,7 @@
         "canton": "NE",
         "location": "Neuchâtel"
       },
-      "crawledAt": "2026-10-31T22:03:11.557Z",
+      "crawledAt": "2026-11-01T09:47:35.572Z",
       "id": "posta-svizzera-centro-regionale-fc6ee327cf4a",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1466,12 +1547,15 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "postalCode": "2000",
-      "_qualityScore": 89,
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1490,8 +1574,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:03:10.196Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:47:33.901Z",
+      "validThrough": "2026-12-13T09:47:33.901Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1510,12 +1594,15 @@
       "addressRegion": "VD",
       "postalCode": "1003",
       "firstSeenAt": "2026-10-28T09:49:03.441Z",
-      "_qualityScore": 89,
+      "streetAddress": "Lausanne, Prilly, Yverdon-les-Bains",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1534,8 +1621,8 @@
       "datePosted": "2026-10-28",
       "postedDate": "2026-10-28",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T22:03:08.690Z",
-      "validThrough": "2026-11-18",
+      "crawledAt": "2026-11-01T09:47:32.225Z",
+      "validThrough": "2026-11-18T00:00:00.000Z",
       "source": "postch-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1554,12 +1641,15 @@
       "addressRegion": "VS",
       "postalCode": "1963",
       "firstSeenAt": "2026-10-28T20:26:18.771Z",
-      "_qualityScore": 91,
+      "streetAddress": "Vétroz",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1578,8 +1668,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:03:07.193Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:47:30.252Z",
+      "validThrough": "2026-12-14T09:47:30.252Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1598,12 +1688,15 @@
       "addressRegion": "FR",
       "postalCode": "1700",
       "firstSeenAt": "2026-10-29T14:35:44.177Z",
-      "_qualityScore": 89,
+      "streetAddress": "Fribourg, Bulle, Givisiez",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1622,8 +1715,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:03:05.718Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:47:28.585Z",
+      "validThrough": "2026-12-14T09:47:28.585Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1643,6 +1736,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "firstSeenAt": "2026-10-29T10:28:30.185Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1667,8 +1762,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:03:04.354Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:47:26.881Z",
+      "validThrough": "2026-12-14T09:47:26.881Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1688,6 +1783,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "firstSeenAt": "2026-10-29T10:28:28.478Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1712,8 +1809,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:03:02.853Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:47:25.187Z",
+      "validThrough": "2026-12-14T09:47:25.187Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1732,12 +1829,15 @@
       "addressRegion": "TI",
       "postalCode": "6900",
       "firstSeenAt": "2026-10-29T10:28:26.774Z",
-      "_qualityScore": 91,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1756,8 +1856,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:03:01.479Z",
-      "validThrough": "",
+      "crawledAt": "2026-11-01T09:47:23.423Z",
+      "validThrough": "2026-12-14T09:47:23.423Z",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -1777,6 +1877,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "firstSeenAt": "2026-10-29T10:28:25.081Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1784,51 +1886,7 @@
         "translation": 25,
         "completeness": 20
       }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Apprendistato-come-impiegataimpiegato-del-commercio-al-dettaglio-AFC/73968-it_IT",
-      "applyUrl": "https://job.post.ch/default/job/Apprendistato-come-impiegataimpiegato-del-commercio-al-dettaglio-AFC/73968-it_IT",
-      "title": "Apprendistato come impiegata/impiegato del commercio al dettaglio AFC",
-      "company": "La Posta Svizzera",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Chiasso, Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "apprendistato-come-impiegata-impiegato-del-commercio-al-dettaglio-afc-la-posta-svizzera-chiasso-lugano-26903735cb",
-      "sourceLang": "it",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T22:03:00.100Z",
-      "validThrough": "",
-      "source": "postch-careers-crawler",
-      "employmentType": "INTERN",
-      "experienceLevel": "",
-      "sector": "Formazione",
-      "workload": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Chiasso"
-      },
-      "id": "posta-svizzera-centro-regionale-d44e949bea9d",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Chiasso, Lugano",
-      "addressRegion": "TI",
-      "postalCode": "6830",
-      "firstSeenAt": "2026-10-29T10:28:23.397Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 17
-      }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }
