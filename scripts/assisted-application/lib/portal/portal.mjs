@@ -59,7 +59,7 @@ const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // The extension injects this same classic-script module before its filler.
-export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole } = globalThis.AssistedApplyControls;
+export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence } = globalThis.AssistedApplyControls;
 const OUTCOME_TIMEOUT_MS = 60_000;
 // How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
 const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
@@ -479,9 +479,9 @@ const unreadableNativeOwner = field => (field?.kind === 'checkbox' && field?.con
 // reader quite correctly reports an empty owner contract. Bind only those
 // positive residence-role captions here; a generic «City» or an ambiguous
 // address remains a technical handoff.
-const accountRegistrationField = (field) => {
+export const accountRegistrationField = (field) => {
   const context = addressContextContract(field);
-  if (!context || context.unknown || hasAddressContextOwnership(field) || !residenceFieldRole(field?.label)) return field;
+  if (!context || context.unknown || hasAddressContextOwnership(field) || !residenceFieldRole(field?.label) || !explicitResidence(field?.label)) return field;
   return {
     ...field,
     addressContext: { section: 'Personal information', owners: ['Personal information'], unknown: false },

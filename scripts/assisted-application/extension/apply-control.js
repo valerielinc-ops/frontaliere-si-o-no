@@ -216,5 +216,5 @@ function isPrivacyReviewAcknowledgment(value, ...semanticIds) {
   return Boolean(exact && !hasConsentContradiction(value, ...semanticIds));
 }
   // consent-purpose:end
-  root.AssistedApplyControls = Object.freeze({ APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, nativeQuestionText, individualApplicationOriginQuestion, addressContextContract, hasAddressContextOwnership, isOptionalPurpose, privacySemanticIdentifiers, hasConsentContradiction, privacyReviewAcknowledgmentShape, isPrivacyReviewAcknowledgment });
+  root.AssistedApplyControls = Object.freeze({ APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, nativeQuestionText, individualApplicationOriginQuestion, addressContextContract, hasAddressContextOwnership, isOptionalPurpose, privacySemanticIdentifiers, hasConsentContradiction, privacyReviewAcknowledgmentShape, isPrivacyReviewAcknowledgment });
 })(globalThis);
