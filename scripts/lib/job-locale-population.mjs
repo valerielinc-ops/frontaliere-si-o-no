@@ -64,8 +64,8 @@ export const POPULATION_SOURCE =
  * least 120 trimmed characters, across all four locales, for every job —
  * INDEPENDENT of `needsRetranslation`.
  *
- * `expectedSlots` is the mean of the two 2026-08-11 measurements (91,297 and
- * 90,528), which sit 0.8% apart across a full crawl wave.
+ * `expectedSlots` was originally the mean of the two 2026-08-11 measurements
+ * (91,297 and 90,528), which sat 0.8% apart across a full crawl wave.
  *
  * RE-DERIVED 2026-11-01 (issue #16405): the assembled corpus measured 138,160
  * slots, including 5,708 slots held for translation outside the served
@@ -77,9 +77,10 @@ export const POPULATION_SOURCE =
  * to a round number: the old assembled baseline's slice reading was 107,808
  * slots (+18.6% over 90,900), so the slice/assembled swap that caused this
  * gate's first red had its own population-change message instead of a fake
- * quality regression. After the 2026-09-29 re-baseline that historical figure
- * is inside the new band; `tests/job-locale-population-guard.test.ts` therefore
- * keeps the same +18.6% swap as an explicit synthetic out-of-band fixture.
+ * quality regression. After the 2026-11-01 re-baseline that historical figure
+ * is below the new lower band; `tests/job-locale-population-guard.test.ts`
+ * therefore keeps the same +18.6% swap as an explicit synthetic out-of-band
+ * fixture.
  * Daily drift is 0.8%, so the band is ~19x observed movement and will not
  * flicker. When genuine corpus growth crosses it the gate says so in one line
  * and asks for a deliberate re-derivation — which is the intended cost, not a
