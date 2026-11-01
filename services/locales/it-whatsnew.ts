@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const translations: Record<string, string> = {
+ "whatsNew.v39911.title": "Comune di residenza con Paese confermato",
+ "whatsNew.v39911.applicationResidence.title": "Scegli prima il Paese, poi il comune",
+ "whatsNew.v39911.applicationResidence.desc": "Nel profilo selezioni il Paese e poi cerchi o scrivi il comune. Le vecchie località restano non confermate finché non scegli il Paese: le offerte possono considerare la tua residenza senza doverla indovinare.",
  "whatsNew.v39910.title": "Chi scrive e come si finanzia il sito",
  "whatsNew.v39910.authors.title": "Autori e firme in una pagina",
  "whatsNew.v39910.authors.desc": "La nuova pagina Autori distingue le persone reali dalle firme editoriali della redazione. Accanto al nome trovi la natura della firma e l’uso dell’IA, e le pagine con link partner spiegano come si finanzia il sito.",

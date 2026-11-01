@@ -455,6 +455,34 @@ describe('application concierge candidate API', () => {
     expect((result.body as any).service.applicantLocationCountry).toBe('FR');
   });
 
+  it('confirms a legacy country without queueing unchanged matching input', async () => {
+    const service = mocks.documents.get('application_concierge_services/service-1')!;
+    service.applicantLocation = 'Como, Italia';
+    service.matchingStatus = 'complete';
+    service.matchingJobCount = 2;
+
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: {
+        serviceId: 'service-1',
+        action: 'saveProfile',
+        applicantName: 'Candidate Example',
+        applicantEmail: 'candidate@example.test',
+        applicantLocation: 'Como, Italia',
+        applicantLocationCountry: 'IT',
+      },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result.status).toBe(200);
+    expect(mocks.documents.get('application_concierge_services/service-1')).toMatchObject({
+      applicantLocation: 'Como, Italia',
+      applicantLocationCountry: 'IT',
+      matchingStatus: 'complete',
+      matchingJobCount: 2,
+    });
+  });
+
   it('orders proposals by their capped match score plus private proximity weight', async () => {
     mocks.documents.get('application_concierge_services/service-1/proposals/proposal-1')!.matchScore = 50;
     mocks.documents.get('application_concierge_services/service-1/proposals/proposal-1')!.matchRankingScore = 58;

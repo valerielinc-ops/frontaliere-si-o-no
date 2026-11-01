@@ -268,12 +268,15 @@ function applicantLocationPatch(service, serviceId, body) {
   const applicantLocationCountry = !applicantLocation ? null
     : countryWasProvided ? requestedCountry || null
       : value !== String(service.applicantLocation || '').trim() ? null : existingCountry;
-  const changed = value !== String(service.applicantLocation || '').trim()
-    || applicantLocationCountry !== existingCountry;
+  const locationChanged = value !== String(service.applicantLocation || '').trim();
   return {
     applicantLocation,
     applicantLocationCountry,
-    ...(changed && cvKeyForService(serviceId, service.cvStorageKey) ? {
+    // The matcher is triggered by CV or location-text changes. Confirming a
+    // country for an unchanged legacy location is metadata only; queueing it
+    // here would leave the service stuck because the Firestore trigger ignores
+    // country-code-only updates.
+    ...(locationChanged && cvKeyForService(serviceId, service.cvStorageKey) ? {
       matchingStatus: 'queued',
       matchingError: null,
     } : {}),
