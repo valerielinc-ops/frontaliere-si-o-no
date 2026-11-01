@@ -3,14 +3,46 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => 'true'), bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}) }));
+const tailoredCvMocks = vi.hoisted(() => ({
+  tailoredCvChanges: vi.fn(() => false),
+  rebuildTailoredCvPdf: vi.fn(),
+  supersededPhotoPdf: vi.fn(() => null),
+}));
 vi.mock('../functions/src/assistedApplicationTailoredCvPdf.js', () => ({
-  tailoredCvChanges: () => false, rebuildTailoredCvPdf: vi.fn(), supersededPhotoPdf: () => null,
+  tailoredCvChanges: tailoredCvMocks.tailoredCvChanges,
+  rebuildTailoredCvPdf: tailoredCvMocks.rebuildTailoredCvPdf,
+  supersededPhotoPdf: tailoredCvMocks.supersededPhotoPdf,
 }));
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
 const { startAutomation, applyAutomationEvent } = await import('../functions/src/assistedApplicationAutomation.js');
-const { loadRunnerAnswerContext } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
+const { loadCandidateAnswerEvidence, loadRunnerAnswerContext } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { answerQuestionSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
-const { candidateAnswersForQuestions } = await import('../functions/src/assistedApplicationCandidateEdits.js');
+const { candidateAnswersForQuestions, candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
+
+function bufferedDb(store, { failPath = '' } = {}) {
+  const transactions = [];
+  const db = {
+    collection: store.db.collection,
+    async runTransaction(callback: (transaction: any) => Promise<any>) {
+      const writes: Array<{ ref: any; data?: any; options?: any; delete?: boolean }> = [];
+      const result = await callback({
+        get: (ref: any) => ref.get(),
+        set: (ref: any, data: any, options?: any) => {
+          if (ref.path === failPath) throw new Error('synthetic_transaction_write_failure');
+          writes.push({ ref, data, options });
+        },
+        delete: (ref: any) => writes.push({ ref, delete: true }),
+      });
+      for (const write of writes) {
+        if (write.delete) await write.ref.delete();
+        else await write.ref.set(write.data, write.options);
+      }
+      transactions.push(writes);
+      return result;
+    },
+  };
+  return { db: db as any, transactions };
+}
 
 describe('typed facts use the complete producer and automation path', () => {
   it('reuses the four attested fact types through source reads and equivalent native values without another candidate request', async () => {
@@ -34,6 +66,16 @@ describe('typed facts use the complete producer and automation path', () => {
       answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId: 'source', questions, draft, nowMs: now }), answerActor: 'candidate', nowMs: now });
     const profile = store.read('user_cv_profiles/synthetic');
     expect(Object.values(profile.applicationQuestionAnswerEvidence)).toHaveLength(4);
+    for (const question of questions) {
+      const key = candidateQuestionAnswerKey(question);
+      const evidence = profile.applicationQuestionAnswerEvidence[key];
+      expect(profile.applicationQuestionAnswers[key]).toBe(answers[question.id]);
+      expect(evidence).toMatchObject({ answer: answers[question.id], question: expect.objectContaining({
+        id: question.id, question: question.question,
+      }), scope: 'candidate', provenance: { actor: 'candidate', userId: 'synthetic', orderId: 'source', round: 1, confirmedAt: now } });
+      expect(evidence.questionSnapshotHash).toMatch(/^[a-f0-9]{64}$/);
+      expect(evidence.questionCompatibilityHash).toMatch(/^[a-f0-9]{64}$/);
+    }
     expect(profile.profile).toEqual({ languages: [] });
     const sourceContext = await loadRunnerAnswerContext({ db: store.db, orderId: 'source', order: source,
       flow: store.read('assisted_applications/source/automation/flow'), draft, nowMs: now });
@@ -73,6 +115,92 @@ describe('typed facts use the complete producer and automation path', () => {
     expect(result.flow.state).toBe('owner_takeover');
     expect(runEffect.mock.calls.some(([input]) => input.effect.kind === 'candidate_action_needed')).toBe(false);
     expect(store.read(`${path}/automation/flow`).questionAnswers).toEqual({});
+  });
+
+  it('commits typed evidence with the confirmed source answer in the same transaction, including a CV rebuild', async () => {
+    const now = Date.now(), orderId = 'atomic_answer_order', userId = 'synthetic', path = `assisted_applications/${orderId}`;
+    const order = { userId, paymentStatus: 'paid', cvUploadedAt: now, jobId: 'source', jobUrl: 'https://example.test/jobs/source/' };
+    const question = { id: 'birth_date', question: 'What is your date of birth?', type: 'date' };
+    const flow = { round: 1, state: 'candidate_review', answers: {}, questionAnswers: {} };
+    const draft = { round: 1, questions: [question] };
+    const store = createMemoryFirestore({ [path]: order, [`${path}/automation/flow`]: flow,
+      [`${path}/ai_drafts/current`]: draft, [`user_cv_profiles/${userId}`]: { status: 'ready', profile: { languages: [] } } });
+    const { db, transactions } = bufferedDb(store);
+    tailoredCvMocks.tailoredCvChanges.mockReturnValueOnce(true);
+    tailoredCvMocks.rebuildTailoredCvPdf.mockResolvedValueOnce({ pdfKey: 'synthetic-tailored.pdf', renderer: 'test', photo: null });
+
+    await saveAnswersWithCv({ db, bucket: {}, orderId, order, flow, draft, answers: { birth_date: '1996-02-20' },
+      answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId, questions: [question], draft, nowMs: now }), answerActor: 'candidate', nowMs: now });
+
+    expect(transactions).toHaveLength(1);
+    const committedPaths = new Set(transactions[0].map(write => write.ref.path));
+    expect(committedPaths).toEqual(new Set([`${path}/automation/flow`, `${path}/ai_drafts/current`, `user_cv_profiles/${userId}`]));
+    const key = candidateQuestionAnswerKey(question);
+    const profile = store.read(`user_cv_profiles/${userId}`);
+    expect(profile.applicationQuestionAnswers[key]).toBe('1996-02-20');
+    expect(profile.applicationQuestionAnswerEvidence[key]).toMatchObject({
+      answer: '1996-02-20', scope: 'candidate', question: expect.objectContaining({ id: question.id }),
+      provenance: { actor: 'candidate', userId, orderId, round: 1, confirmedAt: now },
+    });
+    expect(store.read(`${path}/automation/flow`).answers.birth_date).toBe('1996-02-20');
+    expect(store.read(`${path}/ai_drafts/current`).tailoredCv.pdfKey).toBe('synthetic-tailored.pdf');
+  });
+
+  it('does not commit an order answer if its shared evidence write fails', async () => {
+    const now = Date.now(), orderId = 'failed_ledger_order', userId = 'synthetic', path = `assisted_applications/${orderId}`;
+    const order = { userId, paymentStatus: 'paid', cvUploadedAt: now, jobId: 'source', jobUrl: 'https://example.test/jobs/source/' };
+    const question = { id: 'birth_date', question: 'What is your date of birth?', type: 'date' };
+    const flow = { round: 1, state: 'candidate_review', answers: {}, questionAnswers: {} };
+    const draft = { round: 1, questions: [question] };
+    const store = createMemoryFirestore({ [path]: order, [`${path}/automation/flow`]: flow,
+      [`${path}/ai_drafts/current`]: draft, [`user_cv_profiles/${userId}`]: { status: 'ready', profile: { languages: [] } } });
+    const { db, transactions } = bufferedDb(store, { failPath: `user_cv_profiles/${userId}` });
+
+    await expect(saveAnswersWithCv({ db, bucket: null, orderId, order, flow, draft, answers: { birth_date: '1996-02-20' },
+      answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId, questions: [question], draft, nowMs: now }), answerActor: 'candidate', nowMs: now }))
+      .rejects.toThrow('synthetic_transaction_write_failure');
+
+    expect(transactions).toHaveLength(0);
+    expect(store.read(`${path}/automation/flow`).answers).toEqual({});
+    expect(store.read(`user_cv_profiles/${userId}`).applicationQuestionAnswerEvidence).toBeUndefined();
+  });
+
+  it('keeps recognized employer-specific answers job-scoped and unrecognized answers unverified', async () => {
+    const now = Date.now(), orderId = 'scoped_answer_order', userId = 'synthetic', path = `assisted_applications/${orderId}`;
+    const order = { userId, paymentStatus: 'paid', cvUploadedAt: now, jobId: 'source', jobUrl: 'https://example.test/jobs/source/' };
+    const questions = [
+      { id: 'notice_period', question: 'What is your notice period?', type: 'text' },
+      { id: 'origin_region', question: 'Which region is your place of origin?', type: 'text' },
+    ];
+    const flow = { round: 1, state: 'candidate_review', answers: {}, questionAnswers: {} };
+    const draft = { round: 1, questions };
+    const store = createMemoryFirestore({ [path]: order, [`${path}/automation/flow`]: flow,
+      [`${path}/ai_drafts/current`]: draft, [`user_cv_profiles/${userId}`]: { status: 'ready', profile: { languages: [] } } });
+    const { db, transactions } = bufferedDb(store);
+    const answers = { notice_period: '3 months', origin_region: 'Ticino' };
+
+    await saveAnswersWithCv({ db, bucket: null, orderId, order, flow, draft, answers,
+      answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId, questions, draft, nowMs: now }), answerActor: 'candidate', nowMs: now });
+
+    const profile = store.read(`user_cv_profiles/${userId}`);
+    const noticeKey = candidateQuestionAnswerKey(questions[0]);
+    const regionKey = candidateQuestionAnswerKey(questions[1]);
+    expect(transactions).toHaveLength(1);
+    expect(profile.applicationQuestionAnswerEvidence[noticeKey]).toMatchObject({
+      answer: '3 months', scope: 'job', question: expect.objectContaining({ id: 'notice_period' }),
+      provenance: { actor: 'candidate', orderId, round: 1, jobUrl: order.jobUrl },
+    });
+    expect(profile.applicationQuestionAnswerEvidence[regionKey]).toMatchObject({ cleared: true,
+      provenance: { actor: 'candidate', orderId, round: 1 } });
+    expect(profile.applicationQuestionAnswerEvidence[regionKey]).not.toHaveProperty('answer');
+    expect(profile.applicationQuestionAnswers[noticeKey]).toBe('3 months');
+    expect(profile.applicationQuestionAnswers[regionKey]).toBe('');
+
+    const contextFor = await loadCandidateAnswerEvidence({ db: store.db, profileRecord: profile, userId, nowMs: now });
+    expect(contextFor({ id: 'other', url: 'https://example.test/jobs/other/' }, { purpose: 'form' }).answerEvidence).toEqual([]);
+    expect(contextFor(order, { purpose: 'form' }).answerEvidence).toMatchObject([
+      { answer: '3 months', scope: 'job', provenance: { jobUrl: order.jobUrl } },
+    ]);
   });
 
   it('does not recreate local answers or profile evidence when retention purge wins during a save', async () => {
@@ -127,9 +255,9 @@ describe('typed facts use the complete producer and automation path', () => {
       },
     };
 
-    await saveAnswersWithCv({ db: db as any, bucket: null, orderId, order, flow, draft, answers: { notice_period: '3 months' },
+    await expect(saveAnswersWithCv({ db: db as any, bucket: null, orderId, order, flow, draft, answers: { notice_period: '3 months' },
       answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId, questions: [question], draft, nowMs: now }),
-      answerActor: 'candidate', nowMs: now });
+      answerActor: 'candidate', nowMs: now })).rejects.toMatchObject({ code: 'changed_meanwhile', status: 409 });
 
     expect(purgeWon).toBe(true);
     expect(attemptedLedgerWrite).toBe(true);
