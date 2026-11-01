@@ -53,6 +53,44 @@ const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:$
 
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], rhbApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationInvalidOnlyOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
+  let receiptJobId = '';
+  let receiptJobParam = 'jobid';
+  let receiptJobSequence = 0;
+  const receiptJobKeys = /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i;
+  const bindReceiptJobId = (value) => {
+    const url = new URL(value);
+    const keys = [...url.searchParams.entries()].filter(([key]) => receiptJobKeys.test(key));
+    if (keys.length > 1) throw new Error('fake portal apply URL has ambiguous posting keys');
+    if (keys.length === 1) {
+      [receiptJobParam, receiptJobId] = keys[0];
+    } else {
+      receiptJobParam = 'jobid';
+      receiptJobId = `e2e-${++receiptJobSequence}`;
+      url.searchParams.set(receiptJobParam, receiptJobId);
+    }
+    return url.href;
+  };
+  const receiptQuery = (value) => {
+    const url = new URL(value, 'http://127.0.0.1');
+    if (![...url.searchParams.keys()].some((key) => receiptJobKeys.test(key))) {
+      url.searchParams.set(receiptJobParam, receiptJobId);
+    }
+    return `${url.pathname}${url.search}${url.hash}`;
+  };
+  const bindLocalReceiptTarget = (value) => {
+    if (String(value).startsWith('/') && !String(value).startsWith('//')) return receiptQuery(value);
+    let url;
+    try { url = new URL(value); } catch { return value; }
+    const port = String(server.address()?.port || '');
+    const hostname = url.hostname.toLowerCase();
+    const isLoopback = hostname === '127.0.0.1' || hostname === 'localhost' || hostname.endsWith('.localhost');
+    if (!isLoopback || url.port !== port) return value;
+    const bound = receiptQuery(`${url.pathname}${url.search}${url.hash}`);
+    return `${url.origin}${bound}`;
+  };
+  const bindLocalReceiptTargets = (html) => String(html)
+    .replace(/\b(href|action)=(['"])(\/[^'"]*)\2/gi, (_match, attribute, quote, target) => `${attribute}=${quote}${bindLocalReceiptTarget(target)}${quote}`)
+    .replace(/(window\.location(?:\.href)?\s*=\s*)(['"])(\/[^'"]*)\2/gi, (_match, assignment, quote, target) => `${assignment}${quote}${bindLocalReceiptTarget(target)}${quote}`);
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
   const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, privacyValidationRetry: false, privacyValidationRetries: 0, applicationPrivacySubmissions: [], flaky: false, cookieManager: '' };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
@@ -60,7 +98,7 @@ function fakePortal() {
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
   const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, uploadFails: false, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
-  const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
+  const form = (action, inner, multipart = false) => `<form method="post" action="${receiptQuery(action)}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const registrationForm = ({ submit = true, error = '', includePermit = state.registrationNeedsAnswer, invalidEmail = false } = {}) => {
     const validationError = error ? `<p role="alert">${error}</p>` : '';
     const permitField = includePermit
@@ -309,8 +347,8 @@ function fakePortal() {
     </script></main></body></html>`;
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, 'http://portal.test');
-    const send = (html) => { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); res.end(html); };
-    const redirect = (to, headers = {}) => { res.writeHead(303, { location: to, ...headers }); res.end(); };
+    const send = (html) => { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); res.end(bindLocalReceiptTargets(html)); };
+    const redirect = (to, headers = {}) => { res.writeHead(303, { location: bindLocalReceiptTarget(to), ...headers }); res.end(); };
     const route = `${req.method} ${url.pathname}`;
     if (route === 'GET /cookiecheck-cc0.html') {
       const validCookie = /(?:^|;\s*)sid=synthetic-session(?:;|$)/.test(req.headers.cookie || '');
@@ -323,7 +361,7 @@ function fakePortal() {
     if (route === 'GET /job/Zurich-Senior-IT-Manager/1448418433/') {
       state.sixPostingViews += 1;
       res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'set-cookie': 'sixPostingSeen=1; Path=/' });
-      return res.end(page('Senior IT Manager - CIO Office | SIX', '<h1>Senior IT Manager - CIO Office</h1><p>SIX Group</p><a href="/talentcommunity/apply/1448418433/?locale=en_US">Apply now »</a>'));
+      return res.end(bindLocalReceiptTargets(page('Senior IT Manager - CIO Office | SIX', '<h1>Senior IT Manager - CIO Office</h1><p>SIX Group</p><a href="/talentcommunity/apply/1448418433/?locale=en_US">Apply now »</a>')));
     }
     if (route === 'GET /talentcommunity/apply/1448418433/') {
       if (!/sixPostingSeen=1/.test(req.headers.cookie || '')) return redirect('/careers.html');
@@ -342,7 +380,7 @@ function fakePortal() {
     if (route === 'POST /rhb-submit') {
       const body = await readBody(req);
       state.rhbApplications.push({ hasCv: /filename="CV_/.test(body) });
-      return redirect('/rhb-offer');
+      return redirect(receiptQuery('/rhb-offer'));
     }
     if (route === 'GET /rhb-offer') return send(page('Pflegefachperson', '<p role="status">Ihre persönlichen Angaben wurden gespeichert. Ihre Bewerbung auf das Stellenangebot TEST-42 – Pflegefachperson (80%) wurde erfolgreich gesendet.</p><h1>Pflegefachperson 80%</h1><a href="/rhb-form">Auf diese Stelle bewerben</a>'));
     if (route === 'GET /job') return send(page('Pflegefachperson', '<h1>Pflegefachperson 80%</h1><a href="/login">Jetzt bewerben</a>'));
@@ -776,7 +814,7 @@ function fakePortal() {
     res.writeHead(404);
     res.end();
   });
-  return { server, state, coop, umantis, workday };
+  return { server, state, coop, umantis, workday, bindReceiptJobId };
 }
 
 /**
@@ -861,7 +899,7 @@ async function fakeCodex({ prompt }) {
  * after storing its password, while the portal had not answered yet, called it refused and threw the
  * password away.
  */
-async function workdayAccountChecks({ base, state, workday, files, executablePath, check }, assistedOnly = false) {
+async function workdayAccountChecks({ base, state, workday, files, executablePath, check, bindReceiptJobId }, assistedOnly = false) {
   const host = new URL(base).hostname;
   const saved = new Map();
   const accounts = {
@@ -873,10 +911,13 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   };
   // The order's name for the employer and the one the posting's own data gives it: two entities of one company.
   const job = { title: 'Verkaufsberater/in', company: 'Acme Retail Switzerland', organization: 'Acme Retail Germany GmbH' };
-  const run = (order = job, candidate = { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } }) => submitViaPortal({
-    applyUrl: `${base}/wd/job`, job: order, language: 'en', candidateLocale: 'it', candidate, files, codex: fakeCodex, accounts,
-    launch: () => launchChromium({ headless: true, executablePath }),
-  });
+  const run = (order = job, candidate = { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } }) => {
+    const applyUrl = bindReceiptJobId(`${base}/wd/job`);
+    return submitViaPortal({
+      applyUrl, job: order, language: 'en', candidateLocale: 'it', candidate, files, codex: fakeCodex, accounts,
+      launch: () => launchChromium({ headless: true, executablePath }),
+    });
+  };
   const authOf = (result) => result.evidence.steps.filter((step) => step.auth).map((step) => `${step.auth.kind}:${step.auth.outcome}`).join(',');
 
   if (assistedOnly) {
@@ -1015,7 +1056,7 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
 }
 
 async function main() {
-  const { server, state, coop, umantis, workday } = fakePortal();
+  const { server, state, coop, umantis, workday, bindReceiptJobId } = fakePortal();
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   const base = `http://127.0.0.1:${server.address().port}`;
   const otpBase = `http://career5.successfactors.localhost:${server.address().port}`;
@@ -1035,17 +1076,20 @@ async function main() {
   await writeFile(files.cv, '%PDF-1.4\n%%EOF\n');
   await writeFile(files.cover_letter, '%PDF-1.4\n%%EOF\n');
   const executablePath = process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined;
-  const run = (extra = {}) => submitViaPortal({
-    applyUrl: `${base}/job`,
-    language: 'de',
-    candidateLocale: 'it',
-    candidate: { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } },
-    files,
-    codex: fakeCodex,
-    accounts,
-    launch: () => launchChromium({ headless: true, executablePath }),
-    ...extra,
-  });
+  const run = (extra = {}) => {
+    const applyUrl = bindReceiptJobId(extra.applyUrl || `${base}/job`);
+    return submitViaPortal({
+      language: 'de',
+      candidateLocale: 'it',
+      candidate: { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } },
+      files,
+      codex: fakeCodex,
+      accounts,
+      launch: () => launchChromium({ headless: true, executablePath }),
+      ...extra,
+      applyUrl,
+    });
+  };
 
   // hCaptcha's own host answered locally: the test never calls the real service.
   const launchWithLocalHcaptcha = async () => {
@@ -1069,7 +1113,7 @@ async function main() {
   const focusRegistration = process.env.AA_PORTAL_E2E_FOCUS === 'registration-retry';
   try {
     if (focusWorkday) {
-      await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check }, true);
+      await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check, bindReceiptJobId }, true);
     } else if (!focusRegistration) {
     const dry = await run({ dryRun: true });
     check('a dry run stops before creating the account', dry.event.type === 'dry_run_ready' && dry.event.stage === 'account' && state.accounts.size === 0);
@@ -1156,7 +1200,16 @@ async function main() {
     });
     check('SIX submits with the 100% operational default when no hard facts are missing', sixDefault.event.type === 'submit_succeeded'
       && state.sixApplications.length === 1 && state.sixApplications[0].workload === '100%'
-      && state.sixApplications[0].hasCv === true);
+      && state.sixApplications[0].hasCv === true, {
+      event: sixDefault.event,
+      postingViews: state.sixPostingViews,
+      applications: state.sixApplications.map(({ workload, hasCv }) => ({ workload, hasCv })),
+      postingMatch: sixDefault.evidence.postingMatch,
+      uploads: sixDefault.evidence.uploads,
+      finalButton: sixDefault.evidence.finalButton,
+      steps: sixDefault.evidence.steps.map(({ url, fields, applicationStage }) => ({ path: new URL(url).pathname, fields, applicationStage })),
+      stopReport: sixDefault.evidence.stopReport,
+    });
     const six = await run({
       applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, job: sixJob,
       codex: sixCodex,
@@ -1168,9 +1221,24 @@ async function main() {
     });
     check('SIX opens the matching form and submits with the reviewed workload answer', six.event.type === 'submit_succeeded'
       && state.sixPostingViews === 3 && state.sixApplications.length === 2 && state.sixApplications[1].workload === '80%'
-      && six.evidence.postingMatch === 'match');
+      && six.evidence.postingMatch === 'match', {
+      event: six.event,
+      postingViews: state.sixPostingViews,
+      applications: state.sixApplications.map(({ workload, hasCv }) => ({ workload, hasCv })),
+      postingMatch: six.evidence.postingMatch,
+      uploads: six.evidence.uploads,
+      finalButton: six.evidence.finalButton,
+      steps: six.evidence.steps.map(({ url, fields, applicationStage }) => ({ path: new URL(url).pathname, fields, applicationStage })),
+      stopReport: six.evidence.stopReport,
+    });
     check('SIX uploads the supplied CV when the planner skips its file field', state.sixApplications[1]?.hasCv === true
-      && six.evidence.uploads?.some((item) => item.document === 'cv'));
+      && six.evidence.uploads?.some((item) => item.document === 'cv'), {
+      application: state.sixApplications[1] && { workload: state.sixApplications[1].workload, hasCv: state.sixApplications[1].hasCv },
+      uploads: six.evidence.uploads,
+      finalButton: six.evidence.finalButton,
+      steps: six.evidence.steps.map(({ url, fields, applicationStage }) => ({ path: new URL(url).pathname, fields, applicationStage })),
+      stopReport: six.evidence.stopReport,
+    });
     // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).
     const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
     const asked = unknown.event.questions || [];
@@ -1402,7 +1470,7 @@ async function main() {
       && diagnostics.validation.some((entry) => entry.phase === 'after_submit' && entry.frames.some((frame) => frame.invalid.some((field) => field.label === 'LinkedIn'))));
     const moved = await run({ applyUrl: `${base}/refused-moved` });
     check('a refusal on the error page the portal moved to is a refusal too', moved.event.type === 'submit_failed'
-      && moved.event.error === 'portal_refused' && moved.evidence.finalUrl.endsWith('/refused-moved/error'));
+      && moved.event.error === 'portal_refused' && new URL(moved.evidence.finalUrl || '/', `${base}/`).pathname === '/refused-moved/error');
     // Coop (2026-10-02): career page → Prospective.ch redirect → SuccessFactors, on an account of its own.
     const coopSaved = new Map();
     const coopAccounts = {
@@ -1499,7 +1567,7 @@ async function main() {
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
-    await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check });
+    await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check, bindReceiptJobId });
     }
 
     if (!focusWorkday) {

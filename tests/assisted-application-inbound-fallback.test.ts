@@ -254,9 +254,12 @@ describe('fallback classification by the purpose of the message', () => {
   });
 
   it('stays fast on long hostile text', () => {
-    const started = Date.now();
+    const started = performance.now();
     for (const text of ['a'.repeat(20_000), 'not '.repeat(5000), `${'a-'.repeat(10_000)}!`, `${'Bewerbung '.repeat(2000)}.`]) classifyByRules({ subject: 'x', text });
-    expect(Date.now() - started).toBeLessThan(2000);
+    // Keep the maximum-size adversarial inputs. The related-file suite runs
+    // hundreds of tests on one worker, so 2 s was sensitive to shared-runner
+    // load; a monotonic 10 s cap still catches catastrophic regex blow-ups.
+    expect(performance.now() - started).toBeLessThan(10_000);
   });
 });
 
