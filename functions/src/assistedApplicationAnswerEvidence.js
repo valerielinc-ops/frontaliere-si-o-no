@@ -100,6 +100,7 @@ export function orderQuestionAnswerContext({ orderId, flow = {}, draft = {}, now
   const oldQuestionIds = trusted ? object(flow.questionAnswerSnapshotIds) : {};
   const oldCompatibility = trusted ? object(flow.questionAnswerCompatibility) : {};
   const flowAnswers = trusted ? object(flow.answers) : {};
+  const directAnswers = object(flow.answers);
   const previous = {};
   const answers = {};
   const snapshots = {};
@@ -132,7 +133,13 @@ export function orderQuestionAnswerContext({ orderId, flow = {}, draft = {}, now
     for (const question of group) if (confirmedIds.includes(question.id) && oldSnapshots[key] === hashes[0]
       && Object.hasOwn(flowAnswers, question.id)) answers[question.id] = flowAnswers[question.id];
   }
-  const orderAnswers = rememberCandidateQuestionAnswers({ questions: snapshotQuestions, answers, previous, changed: answers });
+  // Same-order answers are usable for this order even when an old flow has no
+  // evidence marker; they are never copied into the candidate-wide ledger.
+  const directOrderAnswers = rememberCandidateQuestionAnswers({ questions: snapshotQuestions,
+    answers: Object.fromEntries(snapshotQuestions.filter(question => Object.hasOwn(directAnswers, question.id))
+      .map(question => [question.id, directAnswers[question.id]])), changed: directAnswers });
+  const orderAnswers = { ...directOrderAnswers,
+    ...rememberCandidateQuestionAnswers({ questions: snapshotQuestions, answers, previous, changed: answers }) };
   return { answers, orderAnswers, questionAnswerSnapshots: snapshots, questionAnswerSnapshotIds: snapshotIds,
     questionAnswerCompatibility: compatibility };
 }
@@ -223,7 +230,10 @@ function semantics(question, answer, nowMs = Date.now()) {
 function retained(order, nowMs) {
   if (!order || order.retentionPurgingAt != null || order.retentionPurgedAt != null || order.retentionPayloadPurgedAt != null) return false;
   const due = retentionPurgeDueAt(order);
-  return talentPoolConsentActive(order) || Number.isFinite(due) && nowMs < due;
+  // Orders created before the retention anchor was added have no due date;
+  // that means "not scheduled for purge", not "already purged". Once an
+  // anchor exists, the normal cutoff still applies.
+  return talentPoolConsentActive(order) || due == null || nowMs < due;
 }
 function provenance({ actor, order, orderId, round, nowMs }) {
   return { actor, userId: order.userId, orderId, round, confirmedAt: nowMs, retentionAt: retentionPurgeDueAt(order),
@@ -340,7 +350,13 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
   const context = contextFor ? contextFor(order, { purpose: 'form' }) : { answers: {}, answerEvidence: [] };
   const orderContext = orderRetained ? orderQuestionAnswerContext({ orderId, flow, draft, nowMs })
     : { answers: {}, orderAnswers: {}, questionAnswerSnapshots: {}, questionAnswerSnapshotIds: {}, questionAnswerCompatibility: {} };
-  return { flow: { ...flow, answers: orderContext.answers,
+  // `answers` belongs to this order and is already candidate/owner supplied;
+  // only the cross-order question ledger needs the stricter evidence contract.
+  // Keep it while the order is retained, then clear both projections once the
+  // retention purge has won.
+  const localAnswers = orderRetained && flow?.answers && typeof flow.answers === 'object' && !Array.isArray(flow.answers)
+    ? flow.answers : {};
+  return { flow: { ...flow, answers: { ...localAnswers, ...orderContext.answers },
     questionAnswers: { ...context.answers, ...orderContext.orderAnswers } },
   orderAnswers: orderContext.orderAnswers, orderAnswerSnapshots: orderContext.questionAnswerSnapshots,
   orderAnswerSnapshotIds: orderContext.questionAnswerSnapshotIds, orderAnswerCompatibility: orderContext.questionAnswerCompatibility,

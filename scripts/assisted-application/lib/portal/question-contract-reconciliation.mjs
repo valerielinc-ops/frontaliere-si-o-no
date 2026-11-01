@@ -2,7 +2,7 @@
 import { createHash } from 'node:crypto';
 import { hasAssistedApplicationConsent } from '../../../../functions/src/assistedApplicationConstants.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from '../../../../functions/src/assistedApplicationRetention.js';
-import { candidateAnswersForQuestions, candidateWithEdits } from '../../../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateAnswersForQuestions, candidateWithEdits, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../../../../functions/src/assistedApplicationCandidateEdits.js';
 import { roundWasSent, transition } from '../../../../functions/src/assistedApplicationFlow.js';
 import { validateAnswer } from '../../../../functions/src/lib/answerRules.js';
 import { isFetchablePublicUrl } from '../../../../functions/src/assistedApplicationAiJob.js';
@@ -52,6 +52,9 @@ export function legacyPortalContractEligible({ order, flow, draft, submission = 
   const purgeAt = retentionPurgeDueAt(order);
   const round = Number(flow?.round) || 1;
   const send = submission[`r${round}`];
+  const eligibilityFlow = flow?.__answerContextLoaded
+    && flow?.orderQuestionAnswersEvidenceVersion !== ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+    ? { ...flow, answers: {}, questionAnswers: {} } : flow;
   return order?.paymentStatus === 'paid' && hasAssistedApplicationConsent(order)
     && !order.withdrawnAt && !order.retentionPurgingAt && !order.retentionPurgedAt && !order.retentionPayloadPurgedAt
     && (talentPoolConsentActive(order) || (purgeAt != null && purgeAt > nowMs))
@@ -69,7 +72,7 @@ export function legacyPortalContractEligible({ order, flow, draft, submission = 
     && isFetchablePublicUrl(portalContractSourceUrl(draft))
     && (draft.questions || []).some(question => question.source === 'portal' && question.required === true
       && (ownerPortalQuestionHold(flow) || (flow.heldBy || []).includes(`question:${question.id}`)) && relaxablePortalQuestionTopic(question)
-      && !hasAnswer(candidateWithEdits({ order, draft, flow }).answers[question.id]));
+      && !hasAnswer(candidateWithEdits({ order, draft, flow: eligibilityFlow }).answers[question.id]));
 }
 
 /** Receipt identity changes with a review episode, never with each engine source hash. */
@@ -88,7 +91,14 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
   if (forms.length !== 1 || !hasNativeApplicantIdentity(fields, forms[0], draft.job?.title || order.jobTitle || '')) {
     return { changed: false, reason: 'application_form_owner_unknown' };
   }
-  const answers = candidateWithEdits({ order, draft, flow }).answers;
+  const trusted = flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
+  const ignoreUnattestedAnswers = flow?.__answerContextLoaded && !trusted;
+  // The maintenance read marks an untrusted legacy projection so it cannot
+  // suppress the question being revalidated. Direct callers still retain the
+  // old local answer for compatibility checks and audit-only behavior.
+  const recoveryFlow = ignoreUnattestedAnswers ? { ...flow, answers: {}, questionAnswers: {} } : flow;
+  const answers = candidateWithEdits({ order, draft, flow: recoveryFlow }).answers;
+  const preservedAnswers = candidateWithEdits({ order, draft, flow }).answers;
   const held = new Set(ownerPortalQuestionHold(flow)
     ? (draft.questions || []).filter(question => question.required === true).map(question => question.id)
     : (flow.heldBy || []).map(value => String(value).replace(/^question:/, '')));
@@ -130,7 +140,7 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
   if (!updated.length) return { changed: false, reason: 'no_unique_unanswered_native_contract' };
   const proposed = { ...draft, questions };
   if (Buffer.byteLength(JSON.stringify(proposed)) > 750_000) return { changed: false, reason: 'native_contract_too_large' };
-  const projected = candidateAnswersForQuestions(questions, answers, flow.questionAnswers || {});
+  const projected = candidateAnswersForQuestions(questions, preservedAnswers, trusted ? flow.questionAnswers || {} : {});
   const todayIso = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Zurich' }).format(new Date(nowMs));
   for (const question of questions) {
     const preserved = projected[question.id];
@@ -142,7 +152,7 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
       return { changed: false, reason: 'preserved_answer_incompatible' };
     }
   }
-  const tick = transition(flow, { type: 'tick' }, { draft: proposed, answers: flow.answers || {},
+  const tick = transition(recoveryFlow, { type: 'tick' }, { draft: proposed, answers,
     documents: flow.documents || {}, nowMs });
   return { changed: true, questions, updated, queue: tick.effects.some(effect => effect.type === 'dispatch'
     && effect.reason === 'resolved_candidate_answers') };

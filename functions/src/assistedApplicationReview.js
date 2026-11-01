@@ -275,7 +275,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
   const orderContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
-  const candidateFlow = { ...flow, answers: orderContext.answers,
+  const candidateFlow = { ...flow, answers: { ...(flow?.answers || {}), ...orderContext.answers },
     questionAnswers: { ...(flow?.questionAnswers || {}), ...orderContext.orderAnswers } };
   const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow: candidateFlow });
   const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale: order?.locale || 'it' }).answers;
@@ -810,10 +810,11 @@ export async function handleAssistedApplicationReview(req, deps) {
       const orderContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
       const runnerContext = await loadRunnerAnswerContext({ db: deps.db, orderId, order, flow, draft, nowMs });
       const questionAnswers = { ...runnerContext.flow.questionAnswers, ...orderContext.orderAnswers };
-      const reviewFlow = { ...runnerContext.flow, answers: orderContext.answers, questionAnswers };
+      const storedAnswers = { ...(runnerContext.flow.answers || {}), ...orderContext.answers };
+      const reviewFlow = { ...runnerContext.flow, answers: storedAnswers, questionAnswers };
       const candidate = candidateWithEdits({ order, draft, flow: reviewFlow });
       const visibleQuestions = questionsForCandidate(draft?.questions, candidate.profile, candidate.answers, questionAnswers, draft);
-      const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it', orderContext.answers, questionAnswers);
+      const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it', storedAnswers, questionAnswers);
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
       const currentSnapshots = answerQuestionSnapshotsFor({ orderId, questions: visibleQuestions, draft, nowMs });
       const suppliedSnapshots = body.answerQuestionSnapshots && typeof body.answerQuestionSnapshots === 'object' && !Array.isArray(body.answerQuestionSnapshots)

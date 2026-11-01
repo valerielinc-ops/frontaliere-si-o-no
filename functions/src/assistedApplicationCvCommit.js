@@ -76,7 +76,7 @@ function answerSnapshotGuardMatches({ orderId, draft, guard }) {
   return answerIds.every(id => current[id] && guard.snapshots?.[id] === current[id]);
 }
 
-export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 'candidate_review', edits = false, created = [], flowPatch = null, draftPatch, answerSnapshotGuard = null, nowMs }) {
+export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 'candidate_review', edits = false, created = [], flowPatch = null, draftPatch, answerSnapshotGuard = null, replaceAnswerMaps = false, nowMs }) {
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
@@ -94,7 +94,11 @@ export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 
       && same(current.draft.tailoredCv?.pdfKey, draft.tailoredCv?.pdfKey)
       && (!edits || (same(current.draft.coverLetterPdfKey, draft.coverLetterPdfKey) && same(current.draft.candidateEditedAt, draft.candidateEditedAt)));
     if (!unchanged) return false;
-    if (flowPatch) transaction.set(flowRef, { ...flowPatch, updatedAt: nowMs }, { merge: true });
+    if (flowPatch && replaceAnswerMaps) {
+      const { answers, ...answerMaps } = flowPatch;
+      if (answers !== undefined) transaction.set(flowRef, { answers, updatedAt: nowMs }, { merge: true });
+      if (Object.keys(answerMaps).length) transaction.set(flowRef, answerMaps, { mergeFields: Object.keys(answerMaps) });
+    } else if (flowPatch) transaction.set(flowRef, { ...flowPatch, updatedAt: nowMs }, { merge: true });
     transaction.set(draftRef, draftPatch, { merge: true });
     return true;
   });
@@ -182,7 +186,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
         const update = planCandidateAnswerEvidence({ questions: draft?.questions || [], changed: answers,
           confirmedQuestionSnapshots: evidenceQuestionSnapshots,
           previous: snapshot.data()?.applicationQuestionAnswerEvidence, latestWriteAt: Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0,
-          orderId, order: currentOrder, flow, draft: draft || {}, actor: answerActor, nowMs: freshNow });
+          orderId, order: currentOrder, flow, draft: draft || {}, actor: answerActor, nowMs });
         if (!update.accepted.size) return;
         const merged = { ...(current && typeof current === 'object' && !Array.isArray(current) ? current : {}) };
         for (const [key, value] of Object.entries(questionAnswers)) {
@@ -218,9 +222,11 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
         || !answerSnapshotGuardMatches({ orderId, draft: currentDraft.data() || {},
           guard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
             draftRound: Number(draft?.round) || 1, nowMs } })) return false;
-      transaction.set(flowRef, { answers, questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
+      transaction.set(flowRef, { answers, updatedAt: nowMs }, { merge: true });
+      transaction.set(flowRef, { questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
         questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
-        orderQuestionAnswersEvidenceVersion, updatedAt: nowMs }, { merge: true });
+        orderQuestionAnswersEvidenceVersion }, { mergeFields: ['questionAnswers', 'questionAnswerSnapshots', 'questionAnswerSnapshotIds',
+        'questionAnswerCompatibility', 'orderQuestionAnswersEvidenceVersion'] });
       return true;
     });
     if (!committed) throw new CvCommitError('changed_meanwhile', 409);
@@ -234,6 +240,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     flowPatch: { answers, questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
       questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
       orderQuestionAnswersEvidenceVersion },
+    replaceAnswerMaps: true,
     answerSnapshotGuard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
       draftRound: Number(draft?.round) || 1, nowMs },
     draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },

@@ -25,7 +25,9 @@ async function readContext(ref, read = item => item.get()) {
 async function contextWithVerifiedAnswers(db, orderId, context, nowMs, getDocument) {
   const { flow } = await loadRunnerAnswerContext({ db, orderId, order: context.order || {}, flow: context.flow || {},
     draft: context.draft || {}, nowMs, getDocument });
-  return { ...context, flow };
+  // Keep the marker out of Firestore: it only tells the reconciliation policy
+  // that this is a freshly loaded, untrusted legacy projection.
+  return { ...context, flow: { ...flow, __answerContextLoaded: true } };
 }
 
 export async function reconcilePortalQuestions({ db, apply = false, now = Date.now, isEnabled = null,

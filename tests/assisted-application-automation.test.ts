@@ -94,8 +94,12 @@ describe('starting the flow', () => {
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
     const order = paidOrder({ userId, jobUrl: 'https://jobs.example.test/roles/permit', cvUploadedAt: T0 });
+    const flow = { state: 'submitted', round: 1, answers: {}, questionAnswers: { legacy_unverified: 'Yes' } };
+    const draft = { round: 1, questions: [question] };
     store = createMemoryFirestore({
       [ORDER_PATH]: order,
+      [`${ORDER_PATH}/automation/flow`]: flow,
+      [`${ORDER_PATH}/ai_drafts/current`]: draft,
       [`user_cv_profiles/${userId}`]: { status: 'ready', profile: { languages: [] } },
     });
 
@@ -104,10 +108,10 @@ describe('starting the flow', () => {
       bucket: null,
       orderId: ORDER,
       order,
-      flow: { state: 'submitted', round: 1, answers: {}, questionAnswers: { legacy_unverified: 'Yes' } },
-      draft: { round: 1, questions: [question] },
+      flow,
+      draft,
       answers: { work_permit: 'Permit G' },
-      answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId: ORDER, questions: [question], draft: { round: 1, questions: [question] }, nowMs: T0 }),
+      answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId: ORDER, questions: [question], draft, nowMs: T0 }),
       answerActor: 'candidate',
       nowMs: T0,
     });

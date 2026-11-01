@@ -4,10 +4,38 @@ import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
 import { evaluateRedFlags, roundWasSent } from '../../functions/src/assistedApplicationFlow.js';
 import { loadRunnerAnswerContext } from '../../functions/src/assistedApplicationAnswerEvidence.js';
+import { candidateQuestionAnswerKey, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../../functions/src/assistedApplicationCandidateEdits.js';
+import { operationalQuestionTopic } from '../../functions/src/assistedApplicationOperationalAnswers.js';
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from '../../functions/src/assistedApplicationAutomationFlag.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from '../../functions/src/assistedApplicationRetention.js';
 import { getRemoteConfig } from 'firebase-admin/remote-config';
+import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../functions/src/lib/portalNativeContract.js';
 import { portalCodeVersion, portalRecoveryDefinitelyUnsent, operationalPortalRecoveryReady } from '../../functions/src/assistedApplicationPortalRecoveryPolicy.js';
+
+const hasAnswer = value => typeof value === 'boolean' || typeof value === 'number' && Number.isFinite(value)
+  || typeof value === 'string' && value.trim().length > 0 || Array.isArray(value) && value.some(item => String(item ?? '').trim());
+const object = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+const canonicalUrl = value => { try { return new URL(String(value || '')).href; } catch { return ''; } };
+
+function hasCurrentNativePortalContract(draft) {
+  const applyUrl = canonicalUrl(draft?.channel?.applyUrl || draft?.job?.applyUrl);
+  return (Array.isArray(draft?.questions) ? draft.questions : []).some(question => {
+    const proof = question?.portalNativeContract;
+    return question?.source === 'portal' && proof?.version === PORTAL_NATIVE_CONTRACT_VERSION
+      && canonicalUrl(proof.url) === applyUrl && Number(proof.round) === Number(draft?.round)
+      && Number(proof.observedAt) > 0 && proof.frame === 0 && Number.isInteger(proof.form)
+      && typeof proof.fieldId === 'string' && proof.fieldId.trim().length > 0;
+  });
+}
+
+function hasUntrustedProfileOperationalAnswers({ profile, draft }) {
+  const profileAnswers = object(profile?.applicationQuestionAnswers);
+  return (Array.isArray(draft?.questions) ? draft.questions : []).some(question => {
+    if (!operationalQuestionTopic(question)) return false;
+    const key = candidateQuestionAnswerKey(question);
+    return hasAnswer(profileAnswers[question.id]) || hasAnswer(key && profileAnswers[key]);
+  });
+}
 
 export async function reconcilePortalCode({ db, version, apply = false, nowMs = Date.now(), isEnabled = null }) {
   if (!portalCodeVersion(version)) throw new Error('invalid_portal_code_version');
@@ -42,16 +70,27 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
           || !roundWasSent(flow) || flow.postingExpiredAt) return false;
         if (flow.heldBy[0] === 'portal:portal_needs_candidate'
           && !talentPoolConsentActive(order) && !(retentionPurgeDueAt(order) > nowMs)) return false;
-        const answerContext = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs,
+        const answerContext = await loadRunnerAnswerContext({ db, orderId: doc.id, order, flow, draft, nowMs,
           profileRecord: profileDoc?.data() || {}, getDocument: ref => transaction.get(ref) });
-        if (!operationalPortalRecoveryReady({ order, flow: answerContext.flow, draft })) return false;
-        const flags = evaluateRedFlags(draft, answerContext.flow.answers || {}, flow.documents || {}, answerContext.flow.questionAnswers);
+        const trustedLocalAnswers = flow.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
+        if (flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
+          && hasUntrustedProfileOperationalAnswers({ profile: profileDoc?.data(), draft })
+          && !hasCurrentNativePortalContract(draft)) return false;
+        const verifiedQuestionAnswers = Object.fromEntries((answerContext.answerEvidence || [])
+          .map(record => [record.key, record.answer]));
+        const recoveryFlow = flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
+          ? { ...answerContext.flow, questionAnswers: verifiedQuestionAnswers }
+          : answerContext.flow;
+        if (!operationalPortalRecoveryReady({ order, flow: recoveryFlow, draft })) return false;
+        const flags = evaluateRedFlags(draft, recoveryFlow.answers || {}, flow.documents || {}, recoveryFlow.questionAnswers);
         if (flags.owner.length || flags.candidate.length || flags.documents.length) return false;
         const receipt = submissionDoc.data()?.portalCodeRecovery;
         if (receipt?.version === version && Number(receipt.round) === Number(flow.round || 1)) return false;
         if (apply) {
           const heldBy = flow.heldBy[0] === 'portal:captcha_provider_unavailable' ? flow.heldBy : ['portal:portal_needs_candidate'];
-          transaction.set(flowRef, { heldBy, questionAnswers: answerContext.orderAnswers, portalAutoRetryAt: nowMs, portalAutoRetryCount: 0,
+          const recoveryOrderAnswers = flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
+            ? {} : answerContext.orderAnswers;
+          transaction.set(flowRef, { heldBy, questionAnswers: recoveryOrderAnswers, portalAutoRetryAt: nowMs, portalAutoRetryCount: 0,
             portalRecoveryVersion: version, updatedAt: nowMs }, { merge: true });
           transaction.set(doc.ref, { automationDueAt: nowMs, automationUpdatedAt: new Date(nowMs) }, { merge: true });
           transaction.set(submissionRef, { portalCodeRecovery: { version, round: Number(flow.round) || 1, queuedAt: nowMs } }, { merge: true });

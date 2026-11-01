@@ -157,6 +157,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   const inPlaceKey = draft?.tailoredCv?.inplace?.status === 'ready' ? draft.tailoredCv.inplace.docxKey : null;
   const [letterUrl, tailoredCvUrl, inPlaceUrl, sent] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey), signed(inPlaceKey), sentView(draft?.sent, signed)]);
   const order = orderSnapshot.data() || {};
+  const nowMs = Date.now();
   const orderAnswerContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
   const reviewFlow = { ...flow, answers: orderAnswerContext.answers, questionAnswers: orderAnswerContext.orderAnswers };
   const candidateState = draft ? candidateWithEdits({ order, draft, flow: reviewFlow }) : { profile: {}, answers: {} };

@@ -8,6 +8,7 @@ import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-p
 import { currentPortalCodeVersion } from '../scripts/assisted-application/lib/portal-code-version.mjs';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { candidateQuestionAnswerKey } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { operationalPortalRecoveryReady } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 
 const now = Date.now();
 const version = 'b'.repeat(64);
