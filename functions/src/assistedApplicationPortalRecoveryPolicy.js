@@ -18,7 +18,7 @@ export function portalRecoveryDefinitelyUnsent({ order, flow, draft, submission 
   const round = Number(flow?.round) || 1;
   const send = submission[`r${round}`];
   return portalCodeChanged(flow, version) && order?.paymentStatus === 'paid'
-    && !order.withdrawnAt && !order.retentionPurgedAt
+    && !order.withdrawnAt && !order.retentionPurgingAt && !order.retentionPurgedAt && !order.retentionPayloadPurgedAt
     && !['submitted', 'withdrawn', 'refunded'].includes(order.submissionStatus)
     && !['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
     && draft?.status === 'ready' && Number(draft.round) === round && !draft.sent && !draft.sentAttempt

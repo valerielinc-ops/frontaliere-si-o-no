@@ -237,17 +237,23 @@ describe('candidate review API', () => {
 
   it('reuses a new question id only when its typed semantic key and constraints still match', async () => {
     const first = { id: 'german_level', question: 'Qual è il tuo livello di tedesco?', type: 'choice',
-      options: ['A1', 'A2', 'B1', 'B2'], required: true };
+      why: 'Indica il livello generale secondo la scala CEFR.', options: ['A1', 'A2', 'B1', 'B2'], required: true };
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [first] }));
     expect(await postAnswers({ german_level: 'B1' })).toMatchObject({ status: 200 });
 
-    const compatible = { ...first, id: 'german_skill_level', question: 'What is your German proficiency level?' };
+    const compatible = { ...first, id: 'german_skill_level', question: 'What is your German proficiency level?',
+      why: 'Indica il livello generale secondo la scala CEFR.' };
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [compatible] }));
     expect((await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body.answers)
       .toEqual({ german_skill_level: 'B1' });
 
     const incompatible = { ...compatible, options: ['A1', 'A2'] };
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [incompatible] }));
+    expect((await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body.answers)
+      .toEqual({ german_skill_level: '' });
+
+    const changedWhy = { ...compatible, why: 'Indica il livello scritto necessario per preparare documentazione tecnica.' };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [changedWhy] }));
     expect((await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body.answers)
       .toEqual({ german_skill_level: '' });
   });

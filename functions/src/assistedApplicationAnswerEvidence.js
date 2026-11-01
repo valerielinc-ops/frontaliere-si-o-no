@@ -57,7 +57,7 @@ export function answerQuestionCompatibilityHash({ orderId, question, draft = {},
   const q = answerQuestionSnapshotQuestion({ question, draft });
   const key = candidateQuestionAnswerKey(q);
   if (!String(orderId || '').trim() || !key || !String(q.question || '').trim()) return null;
-  const fields = ['applicationQuestion', 'context', 'section', 'type', 'options', 'required', 'validation', 'source',
+  const fields = ['why', 'applicationQuestion', 'context', 'section', 'type', 'options', 'required', 'validation', 'source',
     'autocomplete', 'addressContext'];
   const contract = Object.fromEntries(fields.map(field => [field,
     field === 'options' ? (Array.isArray(q.options) ? q.options : [])
@@ -118,9 +118,11 @@ export function orderQuestionAnswerContext({ orderId, flow = {}, draft = {}, now
     const compatible = new Set(compatibilityHashes.filter(Boolean));
     const confirmedIds = Array.isArray(oldQuestionIds[key]) ? oldQuestionIds[key].filter(id => typeof id === 'string') : [];
     const reusesConfirmedId = group.some(question => confirmedIds.includes(question.id));
+    const exactConfirmedSnapshot = reusesConfirmedId && oldSnapshots[key] === hashes[0];
     if (hashes.length !== 1 || questionHashes.some(hash => !hash) || compatible.size !== 1 || compatibilityHashes.some(hash => !hash)
-      || !oldSnapshots[key] || !oldCompatibility[key] || oldCompatibility[key] !== compatibilityHashes[0]
-      || reusesConfirmedId && oldSnapshots[key] !== hashes[0]) continue;
+      || !oldSnapshots[key] || !oldCompatibility[key]
+      || (oldCompatibility[key] !== compatibilityHashes[0] && !exactConfirmedSnapshot)
+      || reusesConfirmedId && !exactConfirmedSnapshot) continue;
     // A new id may reuse only through the same canonical semantic key. An id
     // already shown must retain its exact question text and constraints.
     snapshots[key] = oldSnapshots[key];
@@ -219,7 +221,7 @@ function semantics(question, answer, nowMs = Date.now()) {
   return null;
 }
 function retained(order, nowMs) {
-  if (!order || order.retentionPurgedAt != null) return false;
+  if (!order || order.retentionPurgingAt != null || order.retentionPurgedAt != null || order.retentionPayloadPurgedAt != null) return false;
   const due = retentionPurgeDueAt(order);
   return talentPoolConsentActive(order) || Number.isFinite(due) && nowMs < due;
 }
@@ -335,7 +337,8 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
   const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord: profile, userId: order.userId, nowMs, getDocument,
     questionKeys: (draft?.questions || []).map(candidateQuestionAnswerKey) });
   const context = contextFor(order, { purpose: 'form' });
-  const orderContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
+  const orderContext = retained(order, nowMs) ? orderQuestionAnswerContext({ orderId, flow, draft, nowMs })
+    : { answers: {}, orderAnswers: {}, questionAnswerSnapshots: {}, questionAnswerSnapshotIds: {}, questionAnswerCompatibility: {} };
   return { flow: { ...flow, answers: orderContext.answers,
     questionAnswers: { ...context.answers, ...orderContext.orderAnswers } },
   orderAnswers: orderContext.orderAnswers, orderAnswerSnapshots: orderContext.questionAnswerSnapshots,

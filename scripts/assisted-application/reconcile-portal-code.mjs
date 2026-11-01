@@ -39,12 +39,13 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
           ? await transaction.get(db.collection('user_cv_profiles').doc(order.userId))
           : null;
         if (!portalRecoveryDefinitelyUnsent({ order, flow, draft, submission: submissionDoc.data(), version })
-          || !roundWasSent(flow) || flow.postingExpiredAt || !operationalPortalRecoveryReady({ order, flow, draft })) return false;
+          || !roundWasSent(flow) || flow.postingExpiredAt) return false;
         if (flow.heldBy[0] === 'portal:portal_needs_candidate'
           && !talentPoolConsentActive(order) && !(retentionPurgeDueAt(order) > nowMs)) return false;
         const answerContext = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs,
           profileRecord: profileDoc?.data() || {}, getDocument: ref => transaction.get(ref) });
-        const flags = evaluateRedFlags(draft, flow.answers || {}, flow.documents || {}, answerContext.flow.questionAnswers);
+        if (!operationalPortalRecoveryReady({ order, flow: answerContext.flow, draft })) return false;
+        const flags = evaluateRedFlags(draft, answerContext.flow.answers || {}, flow.documents || {}, answerContext.flow.questionAnswers);
         if (flags.owner.length || flags.candidate.length || flags.documents.length) return false;
         const receipt = submissionDoc.data()?.portalCodeRecovery;
         if (receipt?.version === version && Number(receipt.round) === Number(flow.round || 1)) return false;

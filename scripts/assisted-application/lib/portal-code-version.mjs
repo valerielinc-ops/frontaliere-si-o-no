@@ -7,7 +7,8 @@ import path from 'node:path';
 export function currentPortalCodeVersion(root = fileURLToPath(new URL('../../../', import.meta.url))) {
   const portal = 'scripts/assisted-application/lib/portal';
   const files = readdirSync(path.join(root, portal)).filter(name => name.endsWith('.mjs')).map(name => `${portal}/${name}`);
-  files.push('scripts/assisted-application/reconcile-portal-code.mjs', 'scripts/assisted-application/agent.mjs', 'scripts/assisted-application/lib/submit.mjs',
+  files.push('scripts/assisted-application/reconcile-portal-code.mjs', 'scripts/assisted-application/reconcile-portal-questions.mjs',
+    'scripts/assisted-application/agent.mjs', 'scripts/assisted-application/lib/submit.mjs',
     'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
     'functions/src/assistedApplicationConstants.js', 'functions/src/assistedApplicationRetention.js',
     'functions/src/assistedApplicationPortalSites.js',

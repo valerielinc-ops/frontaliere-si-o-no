@@ -69,6 +69,26 @@ function storageKeyForOrder(orderId, value) {
   return /^[A-Za-z0-9._-]+$/.test(fileName) ? key : null;
 }
 
+/** Persist the retention embargo before deleting any payload or shared answer evidence. */
+export async function beginAssistedApplicationRetentionPurge({ db, orderRef, orderId, cutoffMillis }) {
+  return db.runTransaction(async transaction => {
+    const snapshot = await transaction.get(orderRef);
+    if (!snapshot.exists) return null;
+    const order = snapshot.data() || {};
+    const anchorMillis = timestampMillis(retentionAnchor(order));
+    if (order.retentionPurgedAt != null || order.talentPoolConsent === true
+      || anchorMillis === null || anchorMillis >= cutoffMillis) return null;
+    const rawKeys = [order.cvStorageKey, order.coverLetterStorageKey]
+      .map(value => String(value || '').trim()).filter(Boolean);
+    const keys = rawKeys.map(value => storageKeyForOrder(orderId, value)).filter(Boolean);
+    if (keys.length !== rawKeys.length) return { invalidStorageReference: true };
+    if (order.retentionPurgingAt == null) transaction.set(orderRef, {
+      retentionPurgingAt: FieldValue.serverTimestamp(), automationDueAt: null, followupDueAt: null,
+    }, { merge: true });
+    return { order, keys };
+  });
+}
+
 async function candidateDocs(collection, field, cutoff) {
   const candidates = [];
   let cursor = null;
@@ -159,29 +179,27 @@ export async function purgeExpiredAssistedApplicationFiles(
       continue;
     }
 
-    const rawKeys = [order.cvStorageKey, order.coverLetterStorageKey]
-      .map((value) => String(value || '').trim())
-      .filter(Boolean);
-    const keys = rawKeys
-      .map((value) => storageKeyForOrder(snapshot.id, value))
-      .filter(Boolean);
-    // An assisted order should only ever contain references created by this
-    // flow. Do not clear a malformed/legacy reference just because it is
-    // older than the retention window; preserving it is safer than touching a
-    // path that this job cannot prove belongs to the order.
-    if (keys.length !== rawKeys.length) {
-      skipped += 1;
-      console.error('[purgeExpiredAssistedApplicationFiles] invalid storage reference', snapshot.id);
-      continue;
-    }
     try {
+      // The transaction fences answer-ledger writers before this run deletes
+      // the ledger. If a later step fails, the persisted marker lets the next
+      // retention run resume the idempotent purge without reopening writes.
+      const purge = await beginAssistedApplicationRetentionPurge({ db: firestore, orderRef: snapshot.ref,
+        orderId: snapshot.id, cutoffMillis });
+      if (!purge) { skipped += 1; continue; }
+      if (purge.invalidStorageReference) {
+        skipped += 1;
+        console.error('[purgeExpiredAssistedApplicationFiles] invalid storage reference', snapshot.id);
+        continue;
+      }
+      const currentOrder = purge.order;
+      const keys = purge.keys;
       for (const key of keys) {
         await bucket.file(key).delete({ ignoreNotFound: true });
       }
-      await purgeAutomationData(bucket, snapshot.ref, snapshot.id, firestore, order, nowMs);
-      if (order.candidateAlias?.address) {
+      await purgeAutomationData(bucket, snapshot.ref, snapshot.id, firestore, currentOrder, nowMs);
+      if (currentOrder.candidateAlias?.address) {
         const { removeOrderAlias } = await import('./assistedApplicationAlias.js');
-        await removeOrderAlias({ db: firestore, order });
+        await removeOrderAlias({ db: firestore, order: currentOrder });
       }
       await snapshot.ref.set({
         cvStorageKey: null,
@@ -196,6 +214,7 @@ export async function purgeExpiredAssistedApplicationFiles(
         employerReplies: 0,
         lastEmployerReplyAt: null,
         lastEmployerReplyCategory: null,
+        retentionPurgingAt: null,
         retentionPurgedAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });

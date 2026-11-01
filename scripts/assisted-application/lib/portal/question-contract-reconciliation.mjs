@@ -12,7 +12,9 @@ import { operationalAnswerForOption, operationalQuestionTopic } from '../../../.
 import { hasNativeApplicantIdentity } from './native-control-contract.mjs';
 import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../../../functions/src/lib/portalNativeContract.js';
 
-export const PORTAL_CONTRACT_RECONCILIATION_VERSION = PORTAL_NATIVE_CONTRACT_VERSION;
+// Receipt version follows the answer provenance contract independently of
+// the native proof version stored on questions.
+export const PORTAL_CONTRACT_RECONCILIATION_VERSION = `${PORTAL_NATIVE_CONTRACT_VERSION}:answer-evidence-v2`;
 const text = value => ['string', 'number'].includes(typeof value) ? String(value).normalize('NFC').replace(/\s+/g, ' ').trim() : '';
 const hasAnswer = value => text(value).length > 0;
 const routingLabels = [
@@ -51,7 +53,7 @@ export function legacyPortalContractEligible({ order, flow, draft, submission = 
   const round = Number(flow?.round) || 1;
   const send = submission[`r${round}`];
   return order?.paymentStatus === 'paid' && hasAssistedApplicationConsent(order)
-    && !order.withdrawnAt && !order.retentionPurgedAt
+    && !order.withdrawnAt && !order.retentionPurgingAt && !order.retentionPurgedAt && !order.retentionPayloadPurgedAt
     && (talentPoolConsentActive(order) || (purgeAt != null && purgeAt > nowMs))
     && !['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
     && !['submitted', 'withdrawn', 'refunded'].includes(order.submissionStatus)
@@ -114,7 +116,7 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
       type: contract.type, options: contract.options, applicationOptions: contract.applicationOptions || [],
       optionMap: contract.optionMap || [], validation: contract.validation, required: field.required,
       portalNativeContract: {
-        version: PORTAL_CONTRACT_RECONCILIATION_VERSION, round: Number(draft.round), observedAt: proof.observedAt, url: proof.url,
+        version: PORTAL_NATIVE_CONTRACT_VERSION, round: Number(draft.round), observedAt: proof.observedAt, url: proof.url,
         fieldId: field.id, nativeControlId: text(field.nativeControlId).slice(0, 200),
         nativeSelectId: text(field.nativeSelectId).slice(0, 200), frame: field.frame, label: field.label, kind: field.kind,
         controlId: text(field.controlId).slice(0, 200), semanticId: text(field.semanticId).slice(0, 200),

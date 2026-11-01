@@ -11,6 +11,8 @@
 import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
 import { candidateQuestionAnswerKey, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { answerQuestionSnapshotQuestion, answerQuestionSnapshotsFor, orderQuestionAnswerContext, planCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots } from './assistedApplicationAnswerEvidence.js';
+import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
 import { rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvChanges } from './assistedApplicationTailoredCvPdf.js';
 
@@ -157,16 +159,23 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     if (!userId || !Object.keys(questionAnswers).length || Number(draft?.round) !== Number(flow.round || 1)) return;
     const changedKeys = new Set((draft?.questions || []).filter(question => Object.hasOwn(answers, question.id)).map(candidateQuestionAnswerKey));
     const profileRef = db.collection('user_cv_profiles').doc(userId);
+    const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
     try {
       await db.runTransaction(async (transaction) => {
-        const snapshot = await transaction.get(profileRef);
+        const [orderSnapshot, snapshot] = await Promise.all([transaction.get(orderRef), transaction.get(profileRef)]);
+        const currentOrder = orderSnapshot.data() || {};
+        const freshNow = Date.now();
+        const purgeDueAt = retentionPurgeDueAt(currentOrder);
+        const retained = talentPoolConsentActive(currentOrder) || Number.isFinite(purgeDueAt) && freshNow < purgeDueAt;
+        if (!orderSnapshot.exists || currentOrder.userId !== userId || !retained || currentOrder.retentionPurgingAt != null
+          || currentOrder.retentionPurgedAt != null || currentOrder.retentionPayloadPurgedAt != null) return;
         // This writer only augments an existing private projection; account deletion must not recreate it.
         if (!snapshot.exists) return;
         const current = snapshot.data()?.applicationQuestionAnswers;
         const update = planCandidateAnswerEvidence({ questions: draft?.questions || [], changed: answers,
           confirmedQuestionSnapshots: evidenceQuestionSnapshots,
           previous: snapshot.data()?.applicationQuestionAnswerEvidence, latestWriteAt: Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0,
-          orderId, order, flow, draft: draft || {}, actor: answerActor, nowMs });
+          orderId, order: currentOrder, flow, draft: draft || {}, actor: answerActor, nowMs: freshNow });
         if (!update.accepted.size) return;
         const merged = { ...(current && typeof current === 'object' && !Array.isArray(current) ? current : {}) };
         for (const [key, value] of Object.entries(questionAnswers)) {
@@ -177,7 +186,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
         transaction.set(profileRef, {
           applicationQuestionAnswers: Object.fromEntries(Object.entries(merged).slice(-80)),
           applicationQuestionAnswerEvidence: update.records,
-          applicationQuestionAnswersUpdatedAt: Math.max(Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0, nowMs),
+          applicationQuestionAnswersUpdatedAt: Math.max(Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0, freshNow),
         }, { mergeFields: ['applicationQuestionAnswers', 'applicationQuestionAnswerEvidence', 'applicationQuestionAnswersUpdatedAt'] });
       });
     } catch (error) {
