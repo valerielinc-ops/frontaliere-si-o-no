@@ -144,7 +144,12 @@ export function submissionGuard(db, orderId, round) {
       });
     },
     async markSent(record = {}, nowMs = Date.now()) {
-      await ref.set({ [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });
+      await db.runTransaction(async transaction => {
+        // A proven send is monotonic: it clears an earlier confirmed failure,
+        // and the transaction serializes against a late release() for this round.
+        await transaction.get(ref);
+        transaction.set(ref, { [key]: { ...record, state: 'sent', sentAt: nowMs, confirmedNotSent: false } }, { merge: true });
+      });
     },
     async release(reason, nowMs = Date.now(), metadata = {}) {
       const failure = Object.prototype.hasOwnProperty.call(metadata || {}, 'accountFailure')
@@ -155,7 +160,11 @@ export function submissionGuard(db, orderId, round) {
         confirmedNotSent: true,
       };
       if (failure) record.accountFailure = failure;
-      await ref.set({ [key]: record }, { merge: true });
+      await db.runTransaction(async transaction => {
+        const snapshot = await transaction.get(ref);
+        if (snapshot.data()?.[key]?.state === 'sent') return;
+        transaction.set(ref, { [key]: record }, { merge: true });
+      });
     },
   };
 }
