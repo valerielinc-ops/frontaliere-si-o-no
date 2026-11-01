@@ -3657,6 +3657,10 @@ export async function submitViaPortal(ctx) {
   let sourceProtocol = null;
   let diagnostics = null;
   let finalClickAttempted = false;
+  // Some ATSes replace the file input with a non-file token after accepting
+  // the upload. Keep that proof bound to the page URL so the stage guard can
+  // still prove the same form owns the final Apply button.
+  const uploadedCvUrls = new Set();
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason, metadata = {}) => {
     reason = portalHandoffReason(reason, { diagnostics: evidence.diagnostics, attempt: diagnostics?.currentAttempt(), finalClickAttempted });
@@ -3685,7 +3689,7 @@ export async function submitViaPortal(ctx) {
     return knowledge.get(host);
   };
   const controlsFor = async (current, known) => {
-    const snapshot = { ...current, text: await pageText(page) };
+    const snapshot = { ...current, text: await pageText(page), uploadedCv: uploadedCvUrls.has(page.url()) };
     const controls = pageControls(current.buttons, known, page.url(), { snapshot, applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
     if (controls.stage) {
       const stageEvidence = { kind: controls.stage.kind, ...(controls.stage.destination ? { destination: controls.stage.destination } : {}) };
@@ -4005,6 +4009,7 @@ export async function submitViaPortal(ctx) {
           if (opened.cv === 'uploaded') {
             record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
             noteUpload('cv');
+            uploadedCvUrls.add(page.url());
           }
           if (opened.cv !== 'unavailable' && opened.cvFieldKey) uploaded.add(opened.cvFieldKey);
           if (opened.cv !== 'uploaded') return await handoff('cv_upload_failed');
@@ -4242,7 +4247,10 @@ export async function submitViaPortal(ctx) {
         for (const result of results) {
           if (result.ok && actions.some((action) => action.fieldId === result.fieldId && action.action === 'upload')) uploaded.add(uploadKey(result.fieldId));
           const uploadAction = result.ok && actions.find((item) => item.fieldId === result.fieldId && item.action === 'upload');
-          if (uploadAction) noteUpload(uploadAction.document, result.files);
+          if (uploadAction) {
+            noteUpload(uploadAction.document, result.files);
+            if (uploadAction.document === 'cv') uploadedCvUrls.add(page.url());
+          }
           const action = result.ok && actions.find((item) => item.fieldId === result.fieldId);
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;

@@ -81,6 +81,37 @@ describe('application stage ownership', () => {
     expect(controls(form).submit).toBe(submit);
   });
 
+  it('does not treat a required Resume label as an incomplete-application instruction', () => {
+    const submit = { text: 'Submit final application', formId: 'application', frame: 0 };
+    const form = {
+      url: applyUrl,
+      text: [job.title, 'First name *', 'Email address/login *', 'Resume *', 'I would like my data to be deleted once the present application process is complete.', submit.text].join('\n'),
+      fields: [
+        { label: 'First name *', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { label: 'Email address/login *', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+      ],
+      buttons: [submit],
+    };
+    expect(applicationStage(form, { applyUrl, job }).kind).toBe('form');
+  });
+
+  it('keeps a same-page CV upload proof when the portal removes the file input', () => {
+    const submit = { text: 'Bewerben', formId: 'application', frame: 0 };
+    const form = {
+      url: applyUrl,
+      text: [job.title, 'Vorname *', 'Nachname *', 'E-Mail *', 'Lebenslauf *', submit.text].join('\n'),
+      uploadedCv: true,
+      fields: [
+        { label: 'Vorname *', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { label: 'Nachname *', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { label: 'E-Mail *', kind: 'text', inputType: 'email', formId: 'application', frame: 0 },
+      ],
+      buttons: [submit],
+    };
+    expect(applicationStage(form, { applyUrl, job }).kind).toBe('form');
+    expect(controls(form).submit).toBe(submit);
+  });
+
   it.each(['Resume your application', 'Incomplete application'])('keeps an explicit incomplete state guarded: %s', text => {
     const submit = { text: 'Submit application', formId: 'application', frame: 0 };
     const form = { url: applyUrl, text: `${job.title}. Resume / CV. ${text}`, fields: [], buttons: [submit] };

@@ -13,14 +13,14 @@ const NOT_SUBMITTED_APPLICATION_RE = new RegExp([
   String.raw`\bcandidature\b.{0,120}\bn['’](?:a pas été|est pas)(?=$|[^\p{L}\p{N}]).{0,60}\b(?:envoyée|soumise|transmise|terminée)(?=$|[^\p{L}\p{N}])`,
 ].join('|'), 'iu');
 const INCOMPLETE_APPLICATION_RE = new RegExp([
-  String.raw`\b(?:continue|resume|proceed|complete|finish)\b.{0,100}\b(?:application|candidature|bewerbung)\b`,
+  String.raw`\b(?:continue|resume|proceed|complete|finish)(?:\s+(?:your|the|this|my|a|an|with|to|and|filling|out|online|job|current|next|rest|application|process)){0,8}\s+\b(?:application|candidature|bewerbung)\b`,
   String.raw`\b(?:incomplete|unfinished)\s+(?:job\s+)?application\b`,
   String.raw`\bapplication\b.{0,120}\b(?:incomplete|unfinished|not (?:yet )?(?:complete|finished|submitted|sent)|has not been (?:completed|submitted|sent)|still (?:needs|requires) completion|to be completed|to complete)\b`,
   String.raw`\bbewerbung\b.{0,120}\b(?:unvollständig(?:e|en)?|nicht (?:vollständig|abgeschlossen|eingereicht|gesendet|fertig)|noch nicht (?:abgeschlossen|eingereicht|vollständig|fertig)|fortsetzen|vervollständigen)\b`,
   String.raw`\bcandidature\b.{0,120}\b(?:incomplète|inachevée|pas encore (?:terminée|envoyée|complète|soumise)|n['’]est pas (?:encore )?(?:complète|terminée|envoyée|soumise)|(?:à|a) compléter|poursuivre|compléter)(?=$|[^\p{L}\p{N}])`,
   String.raw`\bcandidatura\b.{0,120}\b(?:incomplet[ao]|non (?:è|e')\s+(?:ancora\s+)?(?:stata\s+)?(?:completat[ao]|inviat[ao]|complet[ao])|non (?:ancora\s+)?(?:completat[ao]|inviat[ao]|complet[ao])|da completare|continua|completa|prosegui)\b`,
 ].join('|'), 'iu');
-const DOCUMENT_ROLE_LABEL_RE = /\b(?:resume|cv|curriculum\s+vitae|lebenslauf)\s*\/\s*(?:resume|cv|curriculum\s+vitae|lebenslauf)\b/gi;
+const DOCUMENT_ROLE_LABEL_RE = /\b(?:resume|cv|curriculum\s+vitae|lebenslauf)\s*\/\s*(?:resume|cv|curriculum\s+vitae|lebenslauf)\b|\bresume\s*(?:[*:])(?=\s|$)/gi;
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
@@ -164,7 +164,7 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   // insufficient, even if an agent or a learned button calls it a submission.
   const apply = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || ''));
   const applicationForm = apply.length === 1 && !apply[0].href && apply[0].formId
-    && (snapshot?.fields || []).some(field => field.formId === apply[0].formId && (field.frame || 0) === (apply[0].frame || 0) && (field.kind === 'file' || field.inputType === 'file'))
+    && (snapshot?.uploadedCv === true || (snapshot?.fields || []).some(field => field.formId === apply[0].formId && (field.frame || 0) === (apply[0].frame || 0) && (field.kind === 'file' || field.inputType === 'file')))
     && (snapshot?.fields || []).some(field => field.formId === apply[0].formId && (field.frame || 0) === (apply[0].frame || 0) && (field.inputType === 'email' || /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i.test(field.label || '')));
   if (apply.length && (!applicationForm || pending)) return { kind: 'unknown_apply', prefinal: pending };
   return { kind: 'form' };
