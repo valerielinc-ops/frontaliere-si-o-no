@@ -1,16 +1,16 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-10-31T21:27:43.272Z",
+  "generatedAt": "2026-11-01T09:17:42.366Z",
   "total": 32,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 31,
-  "durationMs": 1751,
-  "avgDurationMs": 1751,
+  "durationMs": 1755,
+  "avgDurationMs": 1755,
   "durationHistory": [
-    1751
+    1755
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-10-19T22:51:40.722Z",
       "id": "the-living-circle-ae6046e52677",
       "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58000,
@@ -45,12 +45,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
@@ -79,7 +82,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-11-05T22:51:40.722Z",
       "id": "the-living-circle-2dbc96755e9e",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:51:40.722Z",
@@ -88,12 +91,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -119,7 +125,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-18T22:51:40.722Z",
       "id": "the-living-circle-7b5a07cc5ac3",
       "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 73000,
@@ -127,12 +133,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -158,7 +167,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-02T22:51:40.722Z",
       "id": "the-living-circle-c1a0b8c11999",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:51:40.722Z",
@@ -167,12 +176,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -198,7 +210,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-10T22:51:40.722Z",
       "id": "the-living-circle-c625cae72052",
       "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58000,
@@ -206,12 +218,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -237,7 +252,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-10T22:51:40.722Z",
       "id": "the-living-circle-e29ca5f2ec01",
       "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58000,
@@ -245,12 +260,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -276,7 +294,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-10T22:51:40.722Z",
       "id": "the-living-circle-35a4cebf2e44",
       "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58000,
@@ -284,13 +302,16 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -316,7 +337,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-15T22:51:40.722Z",
       "id": "the-living-circle-7d1b72f630a5",
       "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 67500,
@@ -324,12 +345,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "3818",
-      "_qualityScore": 94,
+      "streetAddress": "Grindelwald",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -355,7 +379,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-17T22:51:40.722Z",
       "id": "the-living-circle-4ce07dcd2a72",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:51:40.722Z",
@@ -364,12 +388,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "3818",
-      "_qualityScore": 94,
+      "streetAddress": "Grindelwald",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -395,7 +422,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-20T15:57:04.765Z",
       "id": "the-living-circle-ebab1e1df58a",
       "firstSeenAt": "2026-09-21T15:57:04.765Z",
       "salaryMin": 58400,
@@ -403,12 +430,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -434,7 +464,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-22T23:41:28.403Z",
       "id": "the-living-circle-7d303d4286dd",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:41:28.403Z",
@@ -443,12 +473,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -474,7 +507,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-24T14:44:48.658Z",
       "id": "the-living-circle-2c1768ea2e18",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:44:48.658Z",
@@ -483,12 +516,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -514,7 +550,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-24T14:44:48.658Z",
       "id": "the-living-circle-03d9307f2d29",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:44:48.658Z",
@@ -523,12 +559,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -554,7 +593,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-24T14:44:48.658Z",
       "id": "the-living-circle-6b16f6fb5301",
       "firstSeenAt": "2026-09-25T14:44:48.658Z",
       "salaryMin": 73000,
@@ -562,12 +601,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -593,7 +635,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-28T21:16:31.084Z",
       "id": "the-living-circle-e8b4a60c3f0c",
       "firstSeenAt": "2026-09-29T21:16:31.084Z",
       "salaryMin": 73000,
@@ -601,12 +643,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -632,7 +677,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-28T21:16:31.084Z",
       "id": "the-living-circle-6c8ec4da57ed",
       "firstSeenAt": "2026-09-29T21:16:31.084Z",
       "salaryMin": 73000,
@@ -640,13 +685,16 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -672,7 +720,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-28T21:16:31.084Z",
       "id": "the-living-circle-bb810507ff94",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:16:31.084Z",
@@ -681,12 +729,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8800",
-      "_qualityScore": 94,
+      "streetAddress": "Thalwil",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -712,7 +763,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-28T21:16:31.084Z",
       "id": "the-living-circle-4a2c08ebe333",
       "firstSeenAt": "2026-09-29T21:16:31.084Z",
       "salaryMin": 97500,
@@ -720,12 +771,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -751,7 +805,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-01T09:16:38.511Z",
       "id": "the-living-circle-c08e6a83d3e7",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:16:38.511Z",
@@ -760,12 +814,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 96,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -791,7 +848,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-01T09:16:38.511Z",
       "id": "the-living-circle-8cb764470f69",
       "firstSeenAt": "2026-10-03T09:16:38.511Z",
       "salaryMin": 73000,
@@ -799,12 +856,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -830,7 +890,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-18T22:51:40.722Z",
       "id": "the-living-circle-b36ebe43b9fe",
       "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58000,
@@ -838,12 +898,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -869,7 +932,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-10T13:38:48.303Z",
       "id": "the-living-circle-0bbc6621db52",
       "firstSeenAt": "2026-09-11T13:38:48.303Z",
       "salaryMin": 72000,
@@ -877,12 +940,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6612",
-      "_qualityScore": 96,
+      "streetAddress": "Ascona",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -908,7 +974,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-07T21:13:44.379Z",
       "id": "the-living-circle-25e3c4fe8c30",
       "firstSeenAt": "2026-10-09T21:13:44.379Z",
       "salaryMin": 90500,
@@ -916,12 +982,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "3818",
-      "_qualityScore": 94,
+      "streetAddress": "Grindelwald",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -947,7 +1016,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-12T09:18:24.811Z",
       "id": "the-living-circle-609e7a441c50",
       "firstSeenAt": "2026-10-14T09:18:24.811Z",
       "salaryMin": 97500,
@@ -955,12 +1024,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8800",
-      "_qualityScore": 94,
+      "streetAddress": "Thalwil",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -986,7 +1058,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-14T09:13:26.581Z",
       "id": "the-living-circle-8faa16ff792c",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-16T09:13:26.581Z",
@@ -995,12 +1067,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8800",
-      "_qualityScore": 94,
+      "streetAddress": "Thalwil",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1026,7 +1101,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-14T09:13:26.581Z",
       "id": "the-living-circle-bf5edeed05e8",
       "firstSeenAt": "2026-10-16T09:13:26.581Z",
       "salaryMin": 73000,
@@ -1034,12 +1109,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8800",
-      "_qualityScore": 94,
+      "streetAddress": "Thalwil",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1065,7 +1143,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-18T21:15:21.758Z",
       "id": "the-living-circle-626c0cbd47d7",
       "firstSeenAt": "2026-10-20T21:15:21.758Z",
       "salaryMin": 67500,
@@ -1073,12 +1151,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "3818",
-      "_qualityScore": 94,
+      "streetAddress": "Grindelwald",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1104,7 +1185,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-18T21:15:21.758Z",
       "id": "the-living-circle-a78ff6991448",
       "firstSeenAt": "2026-10-20T21:15:21.758Z",
       "salaryMin": 54000,
@@ -1112,12 +1193,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "3818",
-      "_qualityScore": 94,
+      "streetAddress": "Grindelwald",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1143,7 +1227,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-24T21:18:52.457Z",
       "id": "the-living-circle-9deb9e173624",
       "firstSeenAt": "2026-10-26T21:18:52.457Z",
       "salaryMin": 72000,
@@ -1151,13 +1235,16 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6612",
+      "streetAddress": "Ascona",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1183,7 +1270,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-25T21:19:47.483Z",
       "id": "the-living-circle-388726712bf9",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-27T21:19:47.483Z",
@@ -1192,12 +1279,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "3818",
-      "_qualityScore": 94,
+      "streetAddress": "Grindelwald",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1223,7 +1313,7 @@
       "postingDateSource": "reported",
       "employmentType": "other",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-25T21:19:47.483Z",
       "id": "the-living-circle-a0387eae2733",
       "firstSeenAt": "2026-10-27T21:19:47.483Z",
       "salaryMin": 73000,
@@ -1231,14 +1321,17 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

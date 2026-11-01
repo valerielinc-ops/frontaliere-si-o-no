@@ -1,7 +1,7 @@
 {
   "key": "benu",
   "label": "benu",
-  "generatedAt": "2026-10-31T21:32:08.049Z",
+  "generatedAt": "2026-11-01T09:23:26.256Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 10297,
-  "avgDurationMs": 10297,
+  "durationMs": 11839,
+  "avgDurationMs": 11839,
   "durationHistory": [
-    10297
+    11839
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://job.benu.ch/de/jobs/7820959-pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:31:54.157Z",
+      "crawledAt": "2026-11-01T09:23:08.097Z",
       "addressLocality": "Rheineck",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -60,6 +60,9 @@
       "salaryMin": 23000,
       "salaryMax": 34800,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:08.097Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,7 +83,7 @@
       "url": "https://job.benu.ch/de/jobs/8044173-verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:31:54.155Z",
+      "crawledAt": "2026-11-01T09:23:08.095Z",
       "addressLocality": "Schwerzenbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -103,6 +106,9 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:08.095Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -123,7 +129,7 @@
       "url": "https://job.benu.ch/de/jobs/8505815-pharma-assistent-springer-w-m-60-80-benu-deutschschweiz",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:31:54.154Z",
+      "crawledAt": "2026-11-01T09:23:08.094Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -144,12 +150,16 @@
       "salaryMax": 89200,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:23:08.094Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -164,7 +174,7 @@
       "url": "https://job.benu.ch/de/jobs/8505962-drogist-in-w-m-60-80-benu-zurich-witikon",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:31:54.153Z",
+      "crawledAt": "2026-11-01T09:23:08.093Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -186,6 +196,9 @@
       "salaryMin": 58800,
       "salaryMax": 89200,
       "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:23:08.093Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -206,7 +219,7 @@
       "url": "https://job.benu.ch/de/jobs/7378437-hr-service-specialist-w-m-60-100",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:31:54.151Z",
+      "crawledAt": "2026-11-01T09:23:08.091Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -228,6 +241,9 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:08.091Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -237,5 +253,5 @@
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }
