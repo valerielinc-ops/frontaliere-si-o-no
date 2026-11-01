@@ -1,7 +1,7 @@
 {
   "crawlerKey": "board-international",
-  "assembledAt": "2026-11-01T09:41:58.919Z",
-  "runId": "41292532779",
+  "assembledAt": "2026-11-01T22:15:00.927Z",
+  "runId": "41351307651",
   "jobs": [
     {
       "title": "Cloud Operations Specialist",
@@ -274,6 +274,9 @@
       "datePosted": "2026-08-14",
       "postingDateSource": "reported",
       "postalCode": "6830",
+      "streetAddress": "Chiasso, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
       "previousSlugsByLocale": {
         "it": [
           "solution-developer-board-international-chiasso-switzerland"
@@ -287,10 +290,7 @@
       },
       "previousSlugs": [
         "solution-developer-board-international-chiasso-switzerland"
-      ],
-      "streetAddress": "Chiasso, Switzerland",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      ]
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "imerys",
   "label": "Imerys",
-  "generatedAt": "2026-11-01T09:41:12.066Z",
+  "generatedAt": "2026-11-01T22:15:43.220Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6796,
-  "avgDurationMs": 6796,
+  "durationMs": 8123,
+  "avgDurationMs": 8123,
   "durationHistory": [
-    6796
+    8123
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/MECHANICAL-MAINTENANCE-SUPERVISOR_REQ-11824",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-01T09:41:00.383Z",
+      "crawledAt": "2026-11-01T22:15:25.536Z",
       "addressLocality": "Bodio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "postalCode": "6743",
       "streetAddress": "Bodio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:41:00.383Z",
+      "validThrough": "2026-12-01T22:15:25.536Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/HR-Director-IGC-H-F_REQ-11508-1",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:40:59.669Z",
+      "crawledAt": "2026-11-01T22:15:24.776Z",
       "addressLocality": "Bironico",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "postalCode": "6804",
       "streetAddress": "Bironico",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:40:59.669Z",
+      "validThrough": "2026-12-01T22:15:24.776Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/Communication-Manager_REQ-11963",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:40:58.958Z",
+      "crawledAt": "2026-11-01T22:15:23.952Z",
       "addressLocality": "Bironico",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -156,7 +156,7 @@
       "postalCode": "6804",
       "streetAddress": "Bironico",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:40:58.958Z",
+      "validThrough": "2026-12-08T22:15:23.952Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -179,7 +179,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/Manutentore-trice-Elettrico_REQ-11020",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-01T09:40:58.248Z",
+      "crawledAt": "2026-11-01T22:15:23.183Z",
       "addressLocality": "Bodio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -203,7 +203,7 @@
       "postalCode": "6743",
       "streetAddress": "Bodio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:40:58.248Z",
+      "validThrough": "2027-01-18T22:15:23.183Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -226,7 +226,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/Manutentore-trice-Meccanico_REQ-12156",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-01T09:40:57.549Z",
+      "crawledAt": "2026-11-01T22:15:22.419Z",
       "addressLocality": "Bodio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -250,7 +250,7 @@
       "postalCode": "6743",
       "streetAddress": "Bodio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:40:57.549Z",
+      "validThrough": "2027-01-18T22:15:22.419Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -261,5 +261,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }
