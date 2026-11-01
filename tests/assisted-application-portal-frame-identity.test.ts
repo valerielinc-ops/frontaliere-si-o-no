@@ -21,6 +21,20 @@ function extract(html: string, url: string) {
 afterEach(() => vi.unstubAllGlobals());
 
 describe('assisted portal iframe identity', () => {
+  it('changes the document identity when a repeated file control belongs to a new document', async () => {
+    const html = '<form><label for="cv">CV *</label><input id="cv" name="cv" type="file" required></form>';
+    const first = extract(html, 'https://forms.example.test/application');
+    const second = extract(html, 'https://forms.example.test/application');
+    const firstFile = first.fields.find((field: any) => field.inputType === 'file');
+    const secondFile = second.fields.find((field: any) => field.inputType === 'file');
+
+    expect(firstFile).toEqual(expect.objectContaining({ controlInstance: expect.any(String), documentInstance: expect.any(String) }));
+    expect(secondFile).toEqual(expect.objectContaining({ controlInstance: expect.any(String), documentInstance: expect.any(String) }));
+    // A fresh document may restart its node counter, so the document token is
+    // the identity that must invalidate a prior upload receipt.
+    expect(secondFile.documentInstance).not.toBe(firstFile.documentInstance);
+  });
+
   it('includes embedded step markers when parent URL and field labels and ids repeat', async () => {
     const mainUrl = 'https://careers.example.test/apply';
     const formUrl = 'https://forms.example.test/application';

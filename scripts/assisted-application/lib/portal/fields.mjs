@@ -833,6 +833,21 @@ function nativeQuestionText(value, counter = null) {
     Object.defineProperty(window, '__frontalierePortalControlIdentity', { configurable: true, value: state });
     return state;
   })();
+  // A same-URL iframe navigation creates a new document but may reuse the
+  // browsing context (and therefore reset the per-document control counter).
+  // Keep an identity on the Document itself so a fresh empty file input can
+  // never inherit the upload receipt of the previous document.
+  const documentInstance = (() => {
+    const key = '__frontalierePortalDocumentInstance';
+    const existing = document[key];
+    if (typeof existing === 'string' && existing) return existing;
+    const random = typeof window.crypto?.randomUUID === 'function'
+      ? window.crypto.randomUUID()
+      : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+    const identity = `document-${random}`;
+    Object.defineProperty(document, key, { configurable: false, enumerable: false, value: identity });
+    return identity;
+  })();
   const controlInstanceFor = (element) => {
     let instance = controlIdentityState.nodes.get(element);
     if (!instance) {
@@ -928,7 +943,7 @@ function nativeQuestionText(value, counter = null) {
       inputType: type,
       form: formOf(element),
       domId: element.id || '',
-      ...(type === 'file' ? { controlInstance: controlInstanceFor(element) } : {}),
+      ...(type === 'file' ? { documentInstance, controlInstance: controlInstanceFor(element) } : {}),
       ...semanticIdentifiers(element),
       name: clean(element.getAttribute('name') || ''),
       label,

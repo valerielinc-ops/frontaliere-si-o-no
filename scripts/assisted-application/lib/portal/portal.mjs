@@ -3385,6 +3385,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   const uploadControlKey = (field) => JSON.stringify([
     field?.frame ?? 0,
     field?.form ?? null,
+    field?.documentInstance || '',
     field?.controlInstance || '',
     field?.domId || '',
     field?.name || '',
