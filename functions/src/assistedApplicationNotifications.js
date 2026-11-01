@@ -773,10 +773,7 @@ function jobBlock(order, copy, vars) {
     salaryMax: order?.salaryMax,
     salaryCurrency: order?.salaryCurrency,
     baseSalary: order?.baseSalary,
-    firstSeenAt: order?.firstSeenAt,
-    postedDate: order?.postedDate,
-    sector: order?.sector,
-    category: order?.category,
+    firstSeenAt: order?.firstSeenAt || order?.postedDate,
     locale: resolveOrderLocale(order),
     url: jobUrl,
     linkLabel: copy.jobLink,
@@ -1121,7 +1118,7 @@ async function ensureEmailProviders() {
  * @param {FirebaseFirestore.Firestore} args.db
  * @param {string} args.orderId
  * @param {string} args.key  one of NOTIFICATION_KEYS
- * @param {(order: object, options?: {autologin?: object|null}) => {subject:string, html:string, text:string}} args.build
+ * @param {(order: object, options?: {autologin?: object|null}) => {subject:string, html:string, text:string}|Promise<{subject:string, html:string, text:string}>} args.build
  * @param {string} [args.recipientOverride] send to this address instead (test mode:
  *   nothing is recorded on the order, so the real send stays possible)
  * @param {object} [args.meta] extra fields recorded next to the send (e.g. variant)
@@ -1166,7 +1163,7 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
   const isCustomer = isCustomerAudience(key, audience);
   const customerEmail = customerEmailFor(order);
   const autologin = isCustomer && !testMode ? await resolveCustomerAutologin(to) : null;
-  const message = build(order, { autologin });
+  const message = await build(order, { autologin });
   const payload = {
     from: isCustomer ? ASSISTED_APPLICATION_SENDER : INTERNAL_SENDER,
     to: [to],
@@ -1347,7 +1344,7 @@ export async function handleAssistedApplicationOrderWritten(
   before,
   after,
   orderId,
-  { db, nowMs = Date.now(), checkCv = checkAssistedApplicationCv, automationEnabled = isAutomationEnabledFor, reviewSecret = getReviewTokenSecret } = {},
+  { db, nowMs = Date.now(), checkCv = checkAssistedApplicationCv, automationEnabled = isAutomationEnabledFor, reviewSecret = getReviewTokenSecret, enrichJobCards = enrichAssistedApplicationOrders } = {},
 ) {
   if (!after) return { ok: true, skipped: 'deleted' };
   const results = [];
@@ -1397,7 +1394,10 @@ export async function handleAssistedApplicationOrderWritten(
         db,
         orderId,
         key: NOTIFICATION_KEYS.customerSubmitted,
-        build: (order, { autologin } = {}) => buildCustomerEmail('submitted', order, orderId, { nowMs, reviewUrl, autologin }),
+        build: async (order, { autologin } = {}) => {
+          const [cardOrder] = await enrichJobCards([order]);
+          return buildCustomerEmail('submitted', cardOrder, orderId, { nowMs, reviewUrl, autologin });
+        },
         nowMs,
       }));
     }
