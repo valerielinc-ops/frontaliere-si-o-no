@@ -139,7 +139,7 @@ function fakePage({ multiStep = false, conditional = true } = {}) {
     formElement.addEventListener('input', (event: any) => {
       if (pageNumber !== 1 || event.target.id !== 'city' || postalAdded) return;
       postalAdded = true;
-      formElement.insertAdjacentHTML('beforeend', '<label for="postal">Postal code *</label><input id="postal" name="postal" required>');
+      formElement.insertAdjacentHTML('beforeend', '<label for="postal">Postal code of residence *</label><input id="postal" name="postal" required>');
     });
     formElement.addEventListener('click', (event: any) => {
       if (event.target.id !== 'next' || pageNumber !== 1) return;
