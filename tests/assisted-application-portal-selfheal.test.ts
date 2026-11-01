@@ -137,8 +137,9 @@ describe('portal runner self-correction', () => {
       ],
     };
 
-    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://www.stadt-zuerich.ch/bewerbungstipps/', { snapshot }))
-      .toEqual({ submit: null, next: null });
+    const controls = pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://www.stadt-zuerich.ch/bewerbungstipps/', { snapshot });
+    expect(controls.submit).toBeNull();
+    expect(controls.next).toBeNull();
     expect(hasApplicationSurface(snapshot)).toBe(false);
   });
 
@@ -156,8 +157,9 @@ describe('portal runner self-correction', () => {
       ],
     };
 
-    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://www.stadt-zuerich.ch/bewerbungstipps/', { snapshot }))
-      .toEqual({ submit: null, next: null });
+    const controls = pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://www.stadt-zuerich.ch/bewerbungstipps/', { snapshot });
+    expect(controls.submit).toBeNull();
+    expect(controls.next).toBeNull();
   });
 
   it('keeps a field-less application next widget on a gallery-shaped page', () => {
