@@ -1178,8 +1178,8 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     html: message.html,
     text: message.text,
     ...(message.headers ? { headers: message.headers } : {}),
-    // The candidate's e-mails report opens and clicks to the admin panel
-    // (assistedApplicationEmailEvents.js); the owner's and test copies do not.
+    // Candidate e-mails and parent-service receipts report provider events to
+    // their own ledger (assistedApplicationEmailEvents.js); test copies do not.
     ...(trackingTarget?.kind === 'application-concierge' && !testMode
       ? conciergeEmailTracking(trackingTarget.id, key)
       : isCustomer && !testMode && !recordRef ? assistedEmailTracking(orderId, key) : { tracking: false }),

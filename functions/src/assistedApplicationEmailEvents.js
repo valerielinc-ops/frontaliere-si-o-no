@@ -29,7 +29,7 @@ import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 export const ASSISTED_EMAIL_TYPE = 'assisted-application';
 export const CONCIERGE_EMAIL_TYPE = 'application-concierge';
 export const EMAIL_EVENTS_SUBCOLLECTION = 'email_events';
-const CAMPAIGN_RE = /^(aa|ac)--([A-Za-z0-9_-]+)--([a-z0-9_]{1,60})$/;
+const CAMPAIGN_RE = /^(aa|ac)--([A-Za-z0-9_-]{1,64}?)--([a-z0-9_]{1,60})$/;
 const CAMPAIGN_MAX_LENGTH = 64;
 const COUNTERS = {
   send: 'providerAccepted',
@@ -72,7 +72,9 @@ export function conciergeCampaignId(serviceId, key) {
 
 /** @returns {{orderId:string, key:string}|{serviceId:string, key:string}|null} */
 export function parseAssistedCampaign(value) {
-  const match = CAMPAIGN_RE.exec(String(value || ''));
+  const raw = String(value || '');
+  if (raw.length > CAMPAIGN_MAX_LENGTH) return null;
+  const match = CAMPAIGN_RE.exec(raw);
   if (!match) return null;
   return match[1] === 'ac'
     ? { serviceId: match[2], key: match[3] }
@@ -133,7 +135,7 @@ function eventDate(value) {
 }
 
 /**
- * Record one provider event for a candidate e-mail. Webhooks are delivered at
+ * Record one provider event for a candidate e-mail or parent-service receipt. Webhooks are delivered at
  * least once: one document per provider event, and the counters on the order
  * move only when that document is new.
  * @param {FirebaseFirestore.Firestore} db
