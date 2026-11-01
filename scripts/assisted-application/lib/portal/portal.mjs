@@ -776,7 +776,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       const stage = applicationStage({ ...snapshot, text: await pageText(page) }, { ...stageContext, url: page.url() });
       // A resumed account/review page is already inside the application.
       // Its Apply belongs to the stage classifier and final guard below.
-      if (['review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
+      if (['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
         || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return { page, snapshot };
     }
     const manual = findButton(snapshot.buttons, MANUAL_APPLY_RE);
@@ -3083,7 +3083,7 @@ export function pageControls(buttons, known, url, context = null) {
   const stage = context ? applicationStage(context.snapshot, { ...context, url }) : null;
   if (stage) {
     if (stage.kind === 'review_navigation') return { submit: null, next: stage.control, stage };
-    if (['unknown_apply', 'posting_mismatch'].includes(stage.kind)) return { submit: null, next: null, stage };
+    if (['receipt', 'unknown_apply', 'posting_mismatch'].includes(stage.kind)) return { submit: null, next: null, stage };
   }
   const here = anonymizePath(url);
   const submit = findButton(buttons, SUBMIT_RE);
@@ -3432,8 +3432,25 @@ export async function submitViaPortal(ctx) {
   const controlsFor = async (current, known) => {
     const snapshot = { ...current, text: await pageText(page) };
     const controls = pageControls(current.buttons, known, page.url(), { snapshot, applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
-    if (controls.stage) evidence.steps.at(-1).applicationStage = { kind: controls.stage.kind, ...(controls.stage.destination ? { destination: controls.stage.destination } : {}) };
+    if (controls.stage) {
+      const stageEvidence = { kind: controls.stage.kind, ...(controls.stage.destination ? { destination: controls.stage.destination } : {}) };
+      const lastStep = evidence.steps.at(-1);
+      if (lastStep) lastStep.applicationStage = stageEvidence;
+      else evidence.steps.push({ url: page.url(), applicationStage: stageEvidence });
+    }
     return controls;
+  };
+  const confirmedReceipt = async (current) => {
+    const snapshot = { ...current, text: await pageText(page) };
+    const stage = applicationStage(snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job, url: page.url() });
+    if (stage.kind !== 'receipt') return null;
+    const lastStep = evidence.steps.at(-1);
+    if (lastStep) lastStep.applicationStage = { kind: 'receipt' };
+    else evidence.steps.push({ url: page.url(), applicationStage: { kind: 'receipt' } });
+    evidence.finalOutcomes = [...(evidence.finalOutcomes || []), 'confirmed'];
+    evidence.finalUrl = page.url();
+    evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
+    return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence };
   };
   // Step buttons the agent named in this run, with their page: learned only once the portal confirms.
   const namedNext = [];
@@ -3489,6 +3506,8 @@ export async function submitViaPortal(ctx) {
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job }));
+    const initialReceipt = await confirmedReceipt(snapshot);
+    if (initialReceipt) return initialReceipt;
     if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
     const formHandoff = initialPortalHandoffReason({ snapshot });
     if (formHandoff) return await handoff(formHandoff);
@@ -3671,10 +3690,14 @@ export async function submitViaPortal(ctx) {
     for (let step = 1; step <= maxSteps; step += 1) {
       if (loopAttemptStarted) await diagnostics?.beginAttempt();
       else loopAttemptStarted = true;
+      const existingReceipt = await confirmedReceipt(snapshot);
+      if (existingReceipt) return existingReceipt;
       snapshot = await awaitCaptcha(page, snapshot, { enabled: Boolean(extensionPath) });
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
+      const observedReceipt = await confirmedReceipt(snapshot);
+      if (observedReceipt) return observedReceipt;
       // The portal's own «refresh the page and try again»: loaded again, as it asks.
       const again = await refreshed(snapshot);
       if (again) {
@@ -4015,6 +4038,8 @@ export async function submitViaPortal(ctx) {
       // A usual name, or one this portal taught a confirmed submission (level 2).
       const known = await knownFor(page.url());
       let { submit, next, stage } = await controlsFor(after, known);
+      const receiptResult = await confirmedReceipt(after);
+      if (receiptResult) return receiptResult;
       if (stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
       if (stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
       let advance = null;
@@ -4048,6 +4073,8 @@ export async function submitViaPortal(ctx) {
             after = await extractFields(page, NAVIGATION);
           }
           ({ submit, next, stage } = await controlsFor(after, known));
+          const receiptResult = await confirmedReceipt(after);
+          if (receiptResult) return receiptResult;
           if (stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
           if (stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
           // A step button with an unusual name ("Salva e prosegui"), never one that may send.
@@ -4076,6 +4103,8 @@ export async function submitViaPortal(ctx) {
           privacyAcceptedPages.add(page.url());
           after = await extractFields(page, NAVIGATION);
           ({ submit, next, stage } = await controlsFor(after, known));
+          const receiptResult = await confirmedReceipt(after);
+          if (receiptResult) return receiptResult;
           if (stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
           if (stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
           advance = null;
@@ -4154,6 +4183,8 @@ export async function submitViaPortal(ctx) {
         after = await extractFields(page, NAVIGATION);
         if (await requiredLeftEmpty(page, uploaded)) return await handoff('portal_required_fields_unfilled');
         const repairedControls = await controlsFor(after, known);
+        const receiptResult = await confirmedReceipt(after);
+        if (receiptResult) return receiptResult;
         if (repairedControls.stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
         if (repairedControls.stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
         if (repairedControls.next && !repairedControls.submit) {

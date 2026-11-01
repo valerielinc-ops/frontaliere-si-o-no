@@ -62,6 +62,16 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).toHaveBeenCalledTimes(1);
   });
 
+  it('records an already visible same-posting receipt without arming a second submit', async () => {
+    const f = fixture({ ...receipt, buttons: [{ text: 'Finish application' }] });
+    const result = await f.run();
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(result.evidence.finalOutcomes).toEqual(['confirmed']);
+    expect(result.evidence.finalUrl).toBe(receiptUrl);
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
   it('does not click an account confirmation whose owned review destination is absent', async () => {
     const f = fixture({ ...profile, buttons: [{ id: 'unknown', text: 'Apply' }] });
     const result = await f.run();

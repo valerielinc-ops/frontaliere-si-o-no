@@ -109,4 +109,14 @@ describe('application stage ownership', () => {
     expect(applicationReceipt({ ...receipt, url: `${origin}/thank-you` }, { applyUrl, job })).toBe(true);
     expect(applicationReceipt({ ...receipt, text: 'Thank you for your application.', url: `${origin}/thank-you` }, { applyUrl, job })).toBe(false);
   });
+
+  it('makes a same-posting receipt terminal before a learned nonstandard send label can be selected', () => {
+    const label = 'Finish application';
+    const received = { ...receipt, buttons: [{ text: label }] };
+    const learned = { nextButtons: [], finalButtons: [{ path: '/careers/applicationcomplete', label }] };
+    const result = pageControls(received.buttons, learned, received.url, { snapshot: received, applyUrl, job });
+    expect(result.stage).toMatchObject({ kind: 'receipt' });
+    expect(result.submit).toBeNull();
+    expect(result.next).toBeNull();
+  });
 });
