@@ -378,4 +378,14 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     // The final partial chunk gets the same treatment before the marker.
     expect(sweep).toMatch(/await releaseExpiredHtmlCacheChunk\(\);\n maybeForceJobsSeoHtmlGc\(\);\n\n jobsSeoMemContext\.sitemap\.expiredEntries/);
   });
+
+  it('streams the multi-million-path compat accumulator during the expired setup', () => {
+    const source = fs.readFileSync(
+      path.resolve(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+    expect(source).toContain("import { iterateCompatPaths } from '../scripts/lib/compat-paths-store.mjs';");
+    expect(source).toContain('for (const p of iterateCompatPaths(rootDir))');
+    expect(source).not.toContain('readCompatPaths(rootDir).paths');
+  });
 });
