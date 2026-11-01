@@ -1641,6 +1641,15 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(ownConsent({ kind: 'checkbox', name: 'privacy_marketing', label: '', required: false })).toBe(false);
   });
 
+  it('requires explicit language context before treating a CEFR token in consent metadata as a fact', () => {
+    const privacyConsent = { kind: 'checkbox', label: 'I agree to the Privacy Policy Statement', required: true };
+    expect(ownConsent({ ...privacyConsent, id: 'c1' })).toBe(true);
+    expect(ownConsent({ ...privacyConsent, id: 'c1', label: 'I agree to the English language Privacy Policy Statement' })).toBe(true);
+    expect(ownConsent({ ...privacyConsent, id: 'language_level_c1' })).toBe(false);
+    expect(ownConsent({ ...privacyConsent, id: 'german-c1' })).toBe(false);
+    expect(ownConsent({ ...privacyConsent, label: 'I agree to the Privacy Policy Statement and Arabic C1' })).toBe(false);
+  });
+
   it('never sends an ongoing or partial CV period to a calendar field', () => {
     const dateField = { id: 'past-end', kind: 'text', label: 'al (GG.MM.AAAA)', required: true };
     const candidate = candidateForForm({
