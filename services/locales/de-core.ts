@@ -1076,6 +1076,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.documents.check.legacy': "Die Datei ist hochgeladen, aber die frühere Prüfung hat ihren Typ nicht erkannt. Du kannst sie für eine neue Prüfung erneut hochladen.",
  'jobBoard.assisted.review.documents.check.match': "Das scheint die richtige Unterlage zu sein.",
  'jobBoard.assisted.review.documents.check.mismatch': "In dieser Datei finden wir nichts, was auf «{label}» hinweist. Ist es nicht die verlangte Unterlage, kann der Arbeitgeber die Bewerbung aussortieren: Wir empfehlen, die richtige hochzuladen. Die Entscheidung liegt bei dir.",
+ 'jobBoard.assisted.review.documents.check.unknown': "Der Text ist lesbar, aber diese Prüfung kann die Art des Dokuments nicht sicher erkennen. Bitte prüfe selbst, ob es «{label}» ist; das bedeutet nicht, dass die Datei falsch ist.",
  'jobBoard.assisted.review.documents.check.looksLikeCv': "Diese Datei sieht aus wie dein Lebenslauf, nicht wie «{label}». So kann die Bewerbung aussortiert werden: Wir empfehlen, die richtige Unterlage hochzuladen. Die Entscheidung liegt bei dir.",
  'jobBoard.assisted.review.documents.check.unreadable': "Den Inhalt dieser Datei können wir nicht lesen (zum Beispiel ein Foto oder ein Scan): Prüfe selbst, ob es «{label}» ist.",
  'jobBoard.assisted.review.documents.requiredNote': "Das Inserat verlangt «{label}»: Ohne diese Unterlage kann die Bewerbung nicht rausgehen.",

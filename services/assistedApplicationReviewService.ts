@@ -49,7 +49,7 @@ export interface ReviewDocument {
     size: number;
     detectedType: string | null;
     uploadedAt: number | null;
-    clientCheck: { verdict: 'match' | 'mismatch' | 'looks_like_cv' | 'unreadable'; matched: string; version?: number };
+    clientCheck: { verdict: 'match' | 'mismatch' | 'looks_like_cv' | 'unreadable' | 'unknown'; matched: string; version?: number };
   }>;
 }
 

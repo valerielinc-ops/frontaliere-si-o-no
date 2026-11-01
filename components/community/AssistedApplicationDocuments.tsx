@@ -8,8 +8,8 @@ import type { ReviewDocument } from '@/services/assistedApplicationReviewService
  * The documents the posting requires besides the CV and the letter (Rolex,
  * 2026-10-02: school reports, the EVA and GRI test results), on the
  * candidate's review page. Each file is checked in the browser first: a file
- * that does not look like the document asked for gets a warning, never a
- * block — which file to send is the candidate's choice (owner decision
+ * identified as a different document gets a warning; unrecognized readable
+ * text stays uncertain, never a block — which file to send is the candidate's choice (owner decision
  * 2026-10-02). Sending without a required document is not: the application
  * waits for it (owner decision 2026-10-08).
  */
@@ -51,6 +51,7 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
     mismatch: t('jobBoard.assisted.review.documents.check.mismatch', { label: document.label }),
     looks_like_cv: t('jobBoard.assisted.review.documents.check.looksLikeCv', { label: document.label }),
     unreadable: t('jobBoard.assisted.review.documents.check.unreadable', { label: document.label }),
+    unknown: t('jobBoard.assisted.review.documents.check.unknown', { label: document.label }),
   } as Record<string, string>)[verdict] || '';
 
   return (
@@ -81,6 +82,7 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
                 {document.files.map((file) => {
                   const ok = file.clientCheck.verdict === 'match';
                   const legacy = !ok && (file.clientCheck.version || 1) < DOCUMENT_CHECK_VERSION;
+                  const uncertain = file.clientCheck.verdict === 'unknown';
                   return (
                     <li key={file.id} className="rounded-md border border-edge p-2">
                       <div className="flex items-center justify-between gap-2">
@@ -98,10 +100,10 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
                           {t('jobBoard.assisted.review.documents.remove')}
                         </button>
                       </div>
-                      <p className={`mt-1 flex items-start gap-1.5 text-xs ${ok ? 'text-success' : legacy ? 'text-subtle' : 'text-warning'}`} role="status">
+                      <p className={`mt-1 flex items-start gap-1.5 text-xs ${ok ? 'text-success' : legacy || uncertain ? 'text-subtle' : 'text-warning'}`} role="status">
                         {ok
                           ? <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                          : legacy ? <FileText className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" /> : <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
+                          : legacy || uncertain ? <FileText className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" /> : <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
                         <span>{legacy ? t('jobBoard.assisted.review.documents.check.legacy') : checkMessage(document, file.clientCheck.verdict)}</span>
                       </p>
                     </li>

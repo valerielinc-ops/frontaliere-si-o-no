@@ -1050,6 +1050,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.documents.check.legacy': "Le fichier est chargé, mais la vérification précédente n’a pas reconnu son type. Vous pouvez le charger à nouveau pour le vérifier.",
  'jobBoard.assisted.review.documents.check.match': "Cela semble être le bon document.",
  'jobBoard.assisted.review.documents.check.mismatch': "Nous ne trouvons rien dans ce fichier qui indique « {label} ». Si ce n’est pas le document demandé, l’employeur pourrait écarter la candidature : nous vous conseillons de téléverser le bon. Le choix vous appartient.",
+ 'jobBoard.assisted.review.documents.check.unknown': "Le texte est lisible, mais cette vérification ne peut pas identifier le type de document avec certitude. Vérifiez qu’il s’agit bien de « {label} » ; cela ne signifie pas que le fichier est incorrect.",
  'jobBoard.assisted.review.documents.check.looksLikeCv': "Ce fichier ressemble à votre CV, pas à « {label} ». Ainsi, la candidature pourrait être écartée : nous vous conseillons de téléverser le bon document. Le choix vous appartient.",
  'jobBoard.assisted.review.documents.check.unreadable': "Nous ne pouvons pas lire le contenu de ce fichier (par exemple une photo ou un scan) : vérifiez vous-même qu’il s’agit bien de « {label} ».",
  'jobBoard.assisted.review.documents.requiredNote': "L’annonce exige « {label} » : sans ce document, la candidature ne peut pas partir.",

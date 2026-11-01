@@ -64,6 +64,15 @@ describe('retained document browser recheck protocol', () => {
     expect(set).toHaveBeenCalledWith({ 'Cache-Control': 'private, no-store' });
   });
 
+  it('persists an uncertain browser result without turning it into a mismatch or storing text', async () => {
+    const descriptor = await begin();
+    const unknown = { verdict: 'unknown', matched: '', version: DOCUMENT_CHECK_VERSION };
+    const result = await complete(descriptor, { clientCheck: unknown, extractedText: 'private document text' });
+    expect(result).toEqual({ state: 'checked', clientCheck: unknown });
+    expect(store.read(FLOW).documents.degree.files[0].clientCheck).toEqual(unknown);
+    expect(JSON.stringify(store.read(FLOW))).not.toContain('private document text');
+  });
+
   it('binds short-lived downloads to exact bytes, generation, document context and server version', async () => {
     const descriptor = await begin();
     expect(descriptor).toMatchObject({ state: 'ready', size: BYTES.length, sha256: HASH, generation: '123', version: DOCUMENT_CHECK_VERSION });
