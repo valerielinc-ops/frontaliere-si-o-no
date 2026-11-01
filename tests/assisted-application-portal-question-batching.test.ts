@@ -60,6 +60,10 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
   let skew = 0;
   const timers: Array<{ at: number; run: () => void }> = [];
   const element = (selector: string) => window.document.querySelector(selector) as any;
+  if (privacyReveals) {
+    element('#country').value = 'IT';
+    element('#motivation').value = 'Synthetic interest';
+  }
   const locator = (selector: string) => {
     const target = () => {
       const found = element(selector);
