@@ -98,7 +98,13 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
   // old local answer for compatibility checks and audit-only behavior.
   const recoveryFlow = ignoreUnattestedAnswers ? { ...flow, answers: {}, questionAnswers: {} } : flow;
   const answers = candidateWithEdits({ order, draft, flow: recoveryFlow }).answers;
-  const preservedAnswers = candidateWithEdits({ order, draft, flow }).answers;
+  // Compatibility checks may inspect an order's old local answers, but the
+  // strict execution projection above must remain empty until a candidate or
+  // owner writes an attested snapshot.
+  const preservedFlow = ignoreUnattestedAnswers
+    ? { ...flow, answers: flow.__legacyAnswers || {} }
+    : flow;
+  const preservedAnswers = candidateWithEdits({ order, draft, flow: preservedFlow }).answers;
   const held = new Set(ownerPortalQuestionHold(flow)
     ? (draft.questions || []).filter(question => question.required === true).map(question => question.id)
     : (flow.heldBy || []).map(value => String(value).replace(/^question:/, '')));

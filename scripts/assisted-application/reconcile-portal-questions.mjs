@@ -12,6 +12,7 @@ import { PORTAL_CONTRACT_RECONCILIATION_VERSION as VERSION, legacyPortalContract
 
 const RECEIPT = 'portalQuestionContractRecovery';
 const RETRY_MS = [5 * 60_000, 30 * 60_000];
+const plainObject = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
 const stateHash = context => portalContractContextHash({ ...context,
   submission: { ...context.submission, [RECEIPT]: undefined } });
 
@@ -23,11 +24,13 @@ async function readContext(ref, read = item => item.get()) {
 }
 
 async function contextWithVerifiedAnswers(db, orderId, context, nowMs, getDocument) {
+  const rawFlow = context.flow || {};
   const { flow } = await loadRunnerAnswerContext({ db, orderId, order: context.order || {}, flow: context.flow || {},
     draft: context.draft || {}, nowMs, getDocument });
   // Keep the marker out of Firestore: it only tells the reconciliation policy
   // that this is a freshly loaded, untrusted legacy projection.
-  return { ...context, flow: { ...flow, __answerContextLoaded: true } };
+  return { ...context, flow: { ...flow, __answerContextLoaded: true,
+    __legacyAnswers: plainObject(rawFlow.answers), __legacyQuestionAnswers: plainObject(rawFlow.questionAnswers) } };
 }
 
 export async function reconcilePortalQuestions({ db, apply = false, now = Date.now, isEnabled = null,

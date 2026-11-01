@@ -39,6 +39,7 @@ import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, pl
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
+import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
 import { answerMessage, validateAnswer } from './lib/answerRules.js';
@@ -716,9 +717,19 @@ export async function handleAssistedApplicationReview(req, deps) {
         return { status: 200, body: followupReviewPayload({ order: orderSnapshot.data(), draft: draftSnapshot.data() || {}, followup: followupSnapshot.data(), n: round }) };
       }
       const { order, flow, draft, submission } = await loadAll(deps.db, orderId);
-      const { flow: reviewFlow } = draft?.questions?.length
+      const runnerContext = draft?.questions?.length
         ? await loadRunnerAnswerContext({ db: deps.db, orderId, order, flow, draft, nowMs })
-        : { flow };
+        : { retained: true, flow };
+      // The candidate may inspect and confirm a legacy answer on this page.
+      // Keep that display-only projection here, but never pass it to the
+      // runner/fill-kit path (loadRunnerAnswerContext remains fail-closed).
+      const displayLegacyAnswers = runnerContext.retained
+        && flow?.orderQuestionAnswersEvidenceVersion !== ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
+      const reviewFlow = runnerContext.retained ? {
+        ...runnerContext.flow,
+        answers: { ...(displayLegacyAnswers ? flow?.answers || {} : {}), ...(runnerContext.flow?.answers || {}) },
+        questionAnswers: { ...(displayLegacyAnswers ? flow?.questionAnswers || {} : {}), ...(runnerContext.flow?.questionAnswers || {}) },
+      } : runnerContext.flow;
       // One signature per key and request: the letter can be both the review's and a kept file.
       const signed = new Map();
       const sign = (key) => {
@@ -815,8 +826,14 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (action === 'answers') {
       const orderContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
       const runnerContext = await loadRunnerAnswerContext({ db: deps.db, orderId, order, flow, draft, nowMs });
-      const questionAnswers = { ...runnerContext.flow.questionAnswers, ...orderContext.orderAnswers };
-      const storedAnswers = { ...(runnerContext.flow.answers || {}), ...orderContext.answers };
+      const displayLegacyAnswers = runnerContext.retained
+        && flow?.orderQuestionAnswersEvidenceVersion !== ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
+      const questionAnswers = runnerContext.retained
+        ? { ...(displayLegacyAnswers ? flow?.questionAnswers || {} : {}), ...(runnerContext.flow.questionAnswers || {}), ...orderContext.orderAnswers }
+        : { ...runnerContext.flow.questionAnswers, ...orderContext.orderAnswers };
+      const storedAnswers = runnerContext.retained
+        ? { ...(displayLegacyAnswers ? flow?.answers || {} : {}), ...(runnerContext.flow.answers || {}), ...orderContext.answers }
+        : { ...(runnerContext.flow.answers || {}), ...orderContext.answers };
       const reviewFlow = { ...runnerContext.flow, answers: storedAnswers, questionAnswers };
       const candidate = candidateWithEdits({ order, draft, flow: reviewFlow });
       const visibleQuestions = questionsForCandidate(draft?.questions, candidate.profile, candidate.answers, questionAnswers, draft);

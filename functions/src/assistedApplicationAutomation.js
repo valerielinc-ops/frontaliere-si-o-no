@@ -99,6 +99,8 @@ async function candidateQuestionAnswerContext({ db, transaction, orderId, order,
     orderAnswerSnapshotIds: context.orderAnswerSnapshotIds, orderAnswerCompatibility: context.orderAnswerCompatibility };
 }
 
+const plainObject = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+
 /** Fails closed: any error reading Remote Config means "off". */
 async function readAutomationFlag(read) {
   try {
@@ -290,10 +292,16 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     });
     // Only source-verified candidate facts can travel between postings.
     // Answers written on this order win and are rebuilt from its current draft;
-    // legacy flow/global maps are never treated as provenance.
+    // legacy flow/global maps are never treated as provenance. A candidate's
+    // explicit answer event may still re-evaluate answers already saved on the
+    // same order, so a pre-marker flow does not strand its own review hold.
+    const candidateAnswerEvent = actor === 'candidate' && event?.type === 'candidate_answers';
+    const legacyLocalAnswers = candidateAnswerEvent && flow?.orderQuestionAnswersEvidenceVersion !== ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      ? plainObject(flow.answers) : {};
+    const transitionAnswers = { ...legacyLocalAnswers, ...candidateAnswerContext.answers };
     const flowForTransition = {
       ...flow,
-      answers: candidateAnswerContext.answers,
+      answers: transitionAnswers,
       questionAnswers: candidateAnswerContext.questionAnswers,
       questionAnswerSnapshots: candidateAnswerContext.orderAnswerSnapshots,
       questionAnswerSnapshotIds: candidateAnswerContext.orderAnswerSnapshotIds,
@@ -306,7 +314,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       outcome = { ok: false, ignored: 'stale_round' };
       return;
     }
-    const result = transition(flowForTransition, event, { draft, answers: candidateAnswerContext.answers, documents: flow.documents || {}, nowMs });
+    const result = transition(flowForTransition, event, { draft, answers: transitionAnswers, documents: flow.documents || {}, nowMs });
     // Recovery can be scheduled before a refund or a manual closure. The
     // order read in this transaction is authoritative for starting and
     // continuing a fact-repair chain, including its candidate-review emails.
@@ -344,7 +352,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         reason: dispatch.reason || null,
       };
     }
-    const persistedFlow = { ...nextFlow, answers: candidateAnswerContext.answers,
+    const persistedFlow = { ...nextFlow, answers: transitionAnswers,
       questionAnswers: candidateAnswerContext.orderAnswers, questionAnswerSnapshots: candidateAnswerContext.orderAnswerSnapshots,
       questionAnswerSnapshotIds: candidateAnswerContext.orderAnswerSnapshotIds,
       questionAnswerCompatibility: candidateAnswerContext.orderAnswerCompatibility };

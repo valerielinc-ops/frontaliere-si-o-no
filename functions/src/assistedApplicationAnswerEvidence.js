@@ -349,7 +349,7 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
   // Both projections are restricted to the confirmed writer contract. An
   // unmarked legacy flow can still be inspected for recovery, but must not
   // become fill-kit input or candidate evidence.
-  return { flow: { ...flow, answers: orderContext.answers,
+  return { retained: orderRetained, flow: { ...flow, answers: orderContext.answers,
     questionAnswers: { ...context.answers, ...orderContext.orderAnswers } },
   orderAnswers: orderContext.orderAnswers, orderAnswerSnapshots: orderContext.questionAnswerSnapshots,
   orderAnswerSnapshotIds: orderContext.questionAnswerSnapshotIds, orderAnswerCompatibility: orderContext.questionAnswerCompatibility,

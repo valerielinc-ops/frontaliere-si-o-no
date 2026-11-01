@@ -4,7 +4,7 @@ import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { currentPortalCodeVersion } from './lib/portal-code-version.mjs';
 import { evaluateRedFlags, roundWasSent } from '../../functions/src/assistedApplicationFlow.js';
 import { loadRunnerAnswerContext } from '../../functions/src/assistedApplicationAnswerEvidence.js';
-import { candidateQuestionAnswerKey, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, rememberCandidateQuestionAnswers } from '../../functions/src/assistedApplicationCandidateEdits.js';
 import { operationalQuestionTopic } from '../../functions/src/assistedApplicationOperationalAnswers.js';
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from '../../functions/src/assistedApplicationAutomationFlag.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from '../../functions/src/assistedApplicationRetention.js';
@@ -78,9 +78,17 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
           && !hasCurrentNativePortalContract(draft)) return false;
         const verifiedQuestionAnswers = Object.fromEntries((answerContext.answerEvidence || [])
           .map(record => [record.key, record.answer]));
-        const recoveryFlow = flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
-          ? { ...answerContext.flow, questionAnswers: verifiedQuestionAnswers }
-          : answerContext.flow;
+        // A same-order legacy answer may be used to decide whether this
+        // already-saved application is internally compatible. It is not
+        // candidate-wide evidence, and it is never copied into the
+        // cross-order ledger automatically.
+        const legacyLocalAnswers = !trustedLocalAnswers ? object(flow.answers) : {};
+        const recoveryFlow = {
+          ...answerContext.flow,
+          answers: { ...(answerContext.flow.answers || {}), ...legacyLocalAnswers },
+          ...(flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
+            ? { questionAnswers: verifiedQuestionAnswers } : {}),
+        };
         if (!operationalPortalRecoveryReady({ order, flow: recoveryFlow, draft })) return false;
         const flags = evaluateRedFlags(draft, recoveryFlow.answers || {}, flow.documents || {}, recoveryFlow.questionAnswers);
         if (flags.owner.length || flags.candidate.length || flags.documents.length) return false;
@@ -89,7 +97,8 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
         if (apply) {
           const heldBy = flow.heldBy[0] === 'portal:captcha_provider_unavailable' ? flow.heldBy : ['portal:portal_needs_candidate'];
           const recoveryOrderAnswers = flow.heldBy[0] === 'portal:portal_needs_candidate' && !trustedLocalAnswers
-            ? {} : answerContext.orderAnswers;
+            ? {} : trustedLocalAnswers ? answerContext.orderAnswers
+              : rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: legacyLocalAnswers, changed: legacyLocalAnswers });
           transaction.set(flowRef, { heldBy, questionAnswers: recoveryOrderAnswers, portalAutoRetryAt: nowMs, portalAutoRetryCount: 0,
             portalRecoveryVersion: version, updatedAt: nowMs }, { merge: true });
           transaction.set(doc.ref, { automationDueAt: nowMs, automationUpdatedAt: new Date(nowMs) }, { merge: true });

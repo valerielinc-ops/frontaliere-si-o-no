@@ -633,7 +633,7 @@ const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\
 // Its wording is one address question even though «numéro» is not followed by
 // «civique» or «de la rue». Keep the conjunction bounded so a phone number or
 // another unrelated number in a longer label cannot become an address alias.
-const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street)\b\s*(?:and|et|e|und|&|\/)\s*(?:(?:house|street)\s*)?(?:number|no\.?|n[°ºo]?|numero|numéro|nummer)(?=\s|$|[?.,;:)])/i;
+const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street)\b\s*(?:and|et|e|und|&)\s*(?:(?:house|street|the|il|la|die|your|tuo|tua|vostro|vostra)\s*)*(?:number|no\.?|n[°ºo]?|numero|numéro|nummer)(?=\s|$|[?.,;:)])/i;
 const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|code\s+postal|npa)\b/i;
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
 const CITY_RE = /(?<![\p{L}\p{N}_])(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)(?![\p{L}\p{N}_])/iu;
@@ -697,6 +697,9 @@ function isPhoneCountryQuestion(value, context = '', metadata = {}) {
 export function addressQuestionTopic(text, context = '', metadata = {}) {
   const value = String(text || '');
   const role = residenceFieldRole(value)
+    || (STREET_NUMBER_PAIR_RE.test(value) ? 'address' : '')
+    || (CANDIDATE_CONTACT_ADDRESS_RE.test(value) ? 'street' : '')
+    || (COUNTRY_RE.test(value) && RESIDENCE_CONTEXT_RE.test(value) && !BIRTH_LOCATION_RE.test(value) ? 'country' : '')
     || (POSTAL_CODE_RE.test(value) && RESIDENCE_CONTEXT_RE.test(value) ? 'postalCode' : '');
   if (!role) return '';
   const surrounding = String(context || '').trim();
@@ -1050,7 +1053,13 @@ function ownedRecordedAnswer(item, question, metadata) {
   if (!addressAnswerNeedsOwnership(question, metadata)) return true;
   // A previous projection of CV/profile data is not a candidate statement
   // about another person's address. It must never be relabelled as one.
-  if (!['answers', 'candidate', 'user'].includes(item?.source)) return false;
+  // Entries from the pre-source-tag portalQuestionsAnswered array have no
+  // source, but are still candidate-entered order-local memories. Accept that
+  // legacy shape only when neither side carries a native ownership contract;
+  // a modern cross-scope record must remain explicitly owned.
+  const legacyUntyped = !item?.source && !hasAddressContextOwnership(metadata) && !hasAddressContextOwnership(item);
+  const legacyAnswerId = item?.source === 'answer-id' && !hasAddressContextOwnership(metadata) && !hasAddressContextOwnership(item);
+  if (!legacyUntyped && !legacyAnswerId && !['answers', 'candidate', 'user'].includes(item?.source)) return false;
   const current = addressContextContract(metadata);
   const previous = addressContextContract(item);
   if (current === undefined && previous === undefined) return true; // legacy exact-context questions
