@@ -726,7 +726,10 @@
     if (entry.kind === 'aria-radio') return !entry.options.some((option) => option.element.getAttribute('aria-checked') === 'true');
     if (entry.kind === 'listbox' && entry.nativeSelect) return !entry.nativeSelect.selectedOptions.length;
     if (entry.kind === 'listbox') return LISTBOX_PLACEHOLDER_RE.test(normalize(textOf(element))) || !normalize(textOf(element));
-    if (entry.kind === 'search-select') return !chosenPills(element).length && !String(element.value || '').trim();
+    // Workday keeps the typed query in the input until its async selection is
+    // committed. The query is not a selected answer: only the portal-owned
+    // pill proves that the option was accepted.
+    if (entry.kind === 'search-select') return !chosenPills(element).length;
     if (entry.kind === 'date') return element.hasAttribute('data-empty') || !element.querySelector('[data-selected], [aria-selected="true"]');
     if (entry.kind === 'combobox') {
       // A SuccessFactors picklist holds its choice in the input itself.
@@ -1392,8 +1395,16 @@
         });
         if (!option) return false;
         press(option.element);
-        await sleep(config.stepMs * 2);
-        return !isEmpty(entry);
+        const selected = await waitFor(() => !isEmpty(entry));
+        if (selected) return true;
+        // Some Workday tenants leave the option node mounted while the first
+        // synthetic press is swallowed during the popup redraw. Retry once,
+        // only while no pill exists and the exact option is still connected;
+        // this keeps the recovery bounded and avoids toggling an already
+        // committed choice.
+        if (!option.element.isConnected) return false;
+        press(option.element);
+        return Boolean(await waitFor(() => !isEmpty(entry)));
       }
       case 'date':
         return chooseDate(element, answer.value);
