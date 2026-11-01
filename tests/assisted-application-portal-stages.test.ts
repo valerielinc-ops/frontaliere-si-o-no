@@ -64,6 +64,31 @@ describe('application stage ownership', () => {
     expect(controls({ ...form, buttons: [{ text: 'Apply', formId: 'application', frame: 1 }] }).submit).toBeNull();
   });
 
+  it('treats Resume / CV as a document label beside an application submit button', () => {
+    const submit = { text: 'Submit application', formId: 'application', frame: 0 };
+    const form = {
+      url: applyUrl,
+      text: [job.title, 'First Name *', 'Email Address *', 'Resume / CV *', 'What is your preferred workload? *', submit.text].join('\n'),
+      fields: [
+        { label: 'First Name *', kind: 'text', inputType: 'text', required: true, formId: 'application', frame: 0 },
+        { label: 'Email Address *', kind: 'text', inputType: 'email', required: true, formId: 'application', frame: 0 },
+        { label: 'Resume / CV *', kind: 'file', inputType: 'file', required: true, formId: 'application', frame: 0 },
+        { label: 'What is your preferred workload? *', kind: 'text', inputType: 'text', required: true, formId: 'application', frame: 0 },
+      ],
+      buttons: [submit],
+    };
+    expect(applicationStage(form, { applyUrl, job }).kind).toBe('form');
+    expect(controls(form).submit).toBe(submit);
+  });
+
+  it.each(['Resume your application', 'Incomplete application'])('keeps an explicit incomplete state guarded: %s', text => {
+    const submit = { text: 'Submit application', formId: 'application', frame: 0 };
+    const form = { url: applyUrl, text: `${job.title}. Resume / CV. ${text}`, fields: [], buttons: [submit] };
+    expect(applicationStage(form, { applyUrl, job })).toMatchObject({ kind: 'unknown_apply', prefinal: true });
+    expect(controls(form).submit).toBeNull();
+    expect(controls(form).next).toBeNull();
+  });
+
   it('does not reinterpret an account ID or application ID as a job ID', () => {
     expect(portalJobKey(`${origin}/profile?applicationId=42`)).toBeNull();
     expect(portalJobKey(`${origin}/profile?jobId=42&JOBID=43`)).toBeNull();
@@ -88,6 +113,10 @@ describe('application stage ownership', () => {
 
   it.each(['Thank you for applying', 'Thank you very much for applying', 'Thank you so much for applying', 'Grazie per la tua candidatura', 'Grazie per aver inviato la tua candidatura', 'Merci pour votre candidature', 'Vielen Dank für Ihre Bewerbung'])('retains explicit application receipts: %s', text => {
     expect(applicationReceipt({ ...receipt, text }, { applyUrl, job })).toBe(true);
+  });
+
+  it('does not let a Resume / CV navigation label hide a positive application receipt', () => {
+    expect(applicationReceipt({ ...receipt, text: `Resume / CV. Thank you for your application for ${job.title}.` }, { applyUrl, job })).toBe(true);
   });
 
   it('keeps employer and ATS job-ID namespaces separate after a verified handoff', () => {

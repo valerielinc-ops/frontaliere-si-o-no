@@ -14,14 +14,23 @@ const NOT_SUBMITTED_APPLICATION_RE = new RegExp([
 ].join('|'), 'iu');
 const INCOMPLETE_APPLICATION_RE = new RegExp([
   String.raw`\b(?:continue|resume|proceed|complete|finish)\b.{0,100}\b(?:application|candidature|bewerbung)\b`,
+  String.raw`\b(?:incomplete|unfinished)\s+(?:job\s+)?application\b`,
   String.raw`\bapplication\b.{0,120}\b(?:incomplete|unfinished|not (?:yet )?(?:complete|finished|submitted|sent)|has not been (?:completed|submitted|sent)|still (?:needs|requires) completion|to be completed|to complete)\b`,
   String.raw`\bbewerbung\b.{0,120}\b(?:unvollständig(?:e|en)?|nicht (?:vollständig|abgeschlossen|eingereicht|gesendet|fertig)|noch nicht (?:abgeschlossen|eingereicht|vollständig|fertig)|fortsetzen|vervollständigen)\b`,
   String.raw`\bcandidature\b.{0,120}\b(?:incomplète|inachevée|pas encore (?:terminée|envoyée|complète|soumise)|n['’]est pas (?:encore )?(?:complète|terminée|envoyée|soumise)|(?:à|a) compléter|poursuivre|compléter)(?=$|[^\p{L}\p{N}])`,
   String.raw`\bcandidatura\b.{0,120}\b(?:incomplet[ao]|non (?:è|e')\s+(?:ancora\s+)?(?:stata\s+)?(?:completat[ao]|inviat[ao]|complet[ao])|non (?:ancora\s+)?(?:completat[ao]|inviat[ao]|complet[ao])|da completare|continua|completa|prosegui)\b`,
 ].join('|'), 'iu');
+const DOCUMENT_ROLE_LABEL_RE = /\b(?:resume|cv|curriculum\s+vitae|lebenslauf)\s*\/\s*(?:resume|cv|curriculum\s+vitae|lebenslauf)\b/gi;
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
+
+function incompleteApplication(text) {
+  // ATS labels such as "Resume / CV" name a document role. Treating that
+  // noun as the verb "resume" can join it to a nearby "Submit application"
+  // button and freeze an otherwise complete form.
+  return INCOMPLETE_APPLICATION_RE.test(String(text || '').replace(DOCUMENT_ROLE_LABEL_RE, 'CV document'));
+}
 
 function parsed(value) {
   try { return new URL(value); } catch { return null; }
@@ -104,7 +113,7 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
   const text = String(snapshot?.text || '');
   if (!snapshot || invalidPostingKey(url) || invalidPostingKey(submissionUrl || applyUrl, sourceProtocol) || NOT_SUBMITTED_APPLICATION_RE.test(text)
     || REFUSED_RE.test(text) || !CONFIRM_RE.test(text)
-    || PROFILE_CONTINUATION_RE.test(text) || INCOMPLETE_APPLICATION_RE.test(text)
+    || PROFILE_CONTINUATION_RE.test(text) || incompleteApplication(text)
     || REVIEW_INSTRUCTIONS_RE.test(snapshot.text || '') || BEFORE_SEND_RE.test(snapshot.text || '')) return false;
   if ((snapshot.buttons || []).some(button => !button.chrome && SUBMIT_RE.test(button.text || ''))) return false;
   const actualJobKey = portalJobKey(url);
@@ -143,7 +152,7 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   const finalReview = bound && REVIEW_INSTRUCTIONS_RE.test(text);
   if (finalReview) return { kind: 'final_review' };
   const pending = NOT_SUBMITTED_APPLICATION_RE.test(text) || PROFILE_CONTINUATION_RE.test(text)
-    || INCOMPLETE_APPLICATION_RE.test(text) || BEFORE_SEND_RE.test(text);
+    || incompleteApplication(text) || BEFORE_SEND_RE.test(text);
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
     && boundRoute(url, applyUrl, sourceProtocol) && reviewNavigationRoute(button.href, applyUrl, sourceProtocol)
     && !parsed(button.href)?.hash
