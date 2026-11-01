@@ -211,6 +211,47 @@ describe('hub freshness regression from the stale site copy', () => {
     expect(fetchMock).toHaveBeenCalledTimes(3);
   });
 
+  it('defers when the live hub is ahead of the pinned corpus snapshot', async () => {
+    const fetchMock = vi.fn(async (input: string | URL) => {
+      const url = String(input);
+      if (url.endsWith('/manifest.json')) {
+        return { ok: true, json: async () => ({ counts: { swissArticles: 2 } }) };
+      }
+      if (url.endsWith('/slugs.json')) {
+        return {
+          ok: true,
+          json: async () => ({ swiss: { stable: { it: 'stable' } } }),
+        };
+      }
+      if (url === 'https://frontaliereticino.ch/articoli-svizzera/') {
+        return {
+          ok: true,
+          text: async () => [
+            '<main class="ssg-article-grid">',
+            '<a class="ssg-art-card" href="/articoli-svizzera/stable/"></a>',
+            '<a class="ssg-art-card" href="/articoli-svizzera/live-only/"></a>',
+            '</main>',
+          ].join(''),
+        };
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const verdict = await checkCorpusFreshness(
+      'svizzera',
+      2,
+      { localRegistry: registryFor(['stable']) },
+    );
+
+    expect(verdict.ok).toBe(false);
+    expect(verdict.deferred).toBe(true);
+    expect(verdict.note).toContain('live-only');
+    expect(verdict.note).toContain('pinned corpus snapshot');
+    expect(verdict.note).toContain('deferring hub and client publication');
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
   it('catches the client up when corpus main is ahead but the live hub already serves the new card', async () => {
     const fetchMock = vi.fn(async (input: string | URL) => {
       const url = String(input);

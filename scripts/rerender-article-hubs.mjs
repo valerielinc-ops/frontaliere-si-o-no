@@ -624,11 +624,12 @@ function validateRenderedSection({ section, distDir, pathsByLocale, archivePaths
  * The count is only a coarse guard. A published fast-path article can make the
  * live hub move ahead before `slugs.json` catches up, without changing the
  * manifest count that the corpus-main overlay reads. The identity checks below
- * therefore compare the corpus-main registry with both published IDs and the
+ * therefore compare the pinned corpus registry with both published IDs and the
  * cards already served by the hub. When the only drift is corpus-main-ahead and
  * the live hub already proves those new IDs, the client registry can safely
- * catch up; otherwise the known bad hub/client split remains live until the
- * next publisher event.
+ * catch up. If the live hub is ahead of the pinned snapshot, the existing live
+ * bytes remain authoritative and this rerender is deferred until the snapshot
+ * catches up; publishing the older snapshot would move the client backwards.
  * Any unreadable external source fails closed: this function authorises a
  * destructive replacement of live bytes, so an unproved snapshot is not safe
  * to publish.
@@ -791,9 +792,11 @@ export async function checkCorpusFreshness(
   if (missingLiveSlugs.length > 0) {
     return {
       ok: false,
+      deferred: true,
       note:
-        `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from corpus main ` +
-        `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); refusing to move the client behind the hub`,
+        `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from the pinned corpus snapshot ` +
+        `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); refusing to move the client behind the hub and ` +
+        'deferring hub and client publication until the snapshot catches up',
     };
   }
 
