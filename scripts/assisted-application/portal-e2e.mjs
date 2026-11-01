@@ -1193,6 +1193,9 @@ async function main() {
       applications: state.sixApplications.map(({ workload, hasCv }) => ({ workload, hasCv })),
       postingMatch: sixDefault.evidence.postingMatch,
       uploads: sixDefault.evidence.uploads,
+      finalButton: sixDefault.evidence.finalButton,
+      steps: sixDefault.evidence.steps.map(({ url, fields, applicationStage }) => ({ path: new URL(url).pathname, fields, applicationStage })),
+      stopReport: sixDefault.evidence.stopReport,
     });
     const six = await run({
       applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, job: sixJob,
@@ -1211,11 +1214,17 @@ async function main() {
       applications: state.sixApplications.map(({ workload, hasCv }) => ({ workload, hasCv })),
       postingMatch: six.evidence.postingMatch,
       uploads: six.evidence.uploads,
+      finalButton: six.evidence.finalButton,
+      steps: six.evidence.steps.map(({ url, fields, applicationStage }) => ({ path: new URL(url).pathname, fields, applicationStage })),
+      stopReport: six.evidence.stopReport,
     });
     check('SIX uploads the supplied CV when the planner skips its file field', state.sixApplications[1]?.hasCv === true
       && six.evidence.uploads?.some((item) => item.document === 'cv'), {
       application: state.sixApplications[1] && { workload: state.sixApplications[1].workload, hasCv: state.sixApplications[1].hasCv },
       uploads: six.evidence.uploads,
+      finalButton: six.evidence.finalButton,
+      steps: six.evidence.steps.map(({ url, fields, applicationStage }) => ({ path: new URL(url).pathname, fields, applicationStage })),
+      stopReport: six.evidence.stopReport,
     });
     // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).
     const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
