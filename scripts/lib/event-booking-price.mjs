@@ -2,6 +2,7 @@ import { JSDOM } from 'jsdom';
 import { cancelReaderWithDeadline } from './bounded-response-body.mjs';
 import { eventOfferPriceAmount, extractEventOfferMetadata, parseEventPriceText } from './event-metadata.mjs';
 import { parseJsonLdText } from './json-ld-text.mjs';
+import { eventJsonLdCandidates, isSchemaEventJsonLdType } from './schema-event-jsonld.mjs';
 
 const BOOKING_HOSTS = new Set(['infomaniak.events', 'tickets.club-bellevue.ch', 'ticketing-nodabcvs.mapado.com', 'www.ticketino.com', 'eventfrog.ch', 'www.petzi.ch']);
 const MAX_HTML_BYTES = 2 * 1024 * 1024;
@@ -35,14 +36,12 @@ function localDate(value) {
 
 function eventNodes(doc) {
   const nodes = [];
-  const visit = value => {
-    if (Array.isArray(value)) return value.forEach(visit);
-    if (!value || typeof value !== 'object') return;
-    if ([value['@type']].flat().some(type => typeof type === 'string' && /event$/i.test(type))) nodes.push(value);
-    if (value['@graph']) visit(value['@graph']);
-  };
-  for (const script of doc.querySelectorAll('script[type="application/ld+json"]')) {
-    try { visit(parseJsonLdText(script.textContent)); } catch { /* Ignore malformed blocks. */ }
+  for (const script of doc.querySelectorAll('script')) {
+    if (script.getAttribute('type')?.trim().toLowerCase() !== 'application/ld+json') continue;
+    try {
+      nodes.push(...eventJsonLdCandidates(parseJsonLdText(script.textContent))
+        .filter(node => isSchemaEventJsonLdType(node['@type'])));
+    } catch { /* Ignore malformed blocks. */ }
   }
   return nodes;
 }

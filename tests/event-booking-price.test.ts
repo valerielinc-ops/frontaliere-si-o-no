@@ -25,6 +25,11 @@ describe('official event booking tariffs', () => {
     });
   });
 
+  it('does not use a non-schema Event vocabulary for booking prices', () => {
+    const externalEvent = { ...node, '@type': 'https://example.test/FooEvent' };
+    expect(extractEventBookingPrice(ld(externalEvent), bookingUrl, event)).toBeUndefined();
+  });
+
   it.each([null, '', ' ', undefined])('never turns an absent price %s into zero', price => {
     expect(extractEventBookingPrice(ld({ ...node, offers: { price, priceCurrency: 'CHF' } }), bookingUrl, event)).toBeUndefined();
   });
@@ -85,7 +90,7 @@ describe('official event booking tariffs', () => {
   });
 
   it('uses the Bellevue normal-ticket gross price rather than base price, quantities or vouchers', () => {
-    const html = ld({ ...node, '@type': 'event', offers: { price: 20, priceCurrency: 'CHF' } }) + `<div id="shopitems"><table>
+    const html = ld({ ...node, '@type': 'Event', offers: { price: 20, priceCurrency: 'CHF' } }) + `<div id="shopitems"><table>
       <tr><td class="shopitem-title">5 Bons</td><td><div class="shop-cart-price"><div>CHF 1.–</div></div></td></tr>
       <tr><td class="shopitem-title">Normales Ticket</td><td><div class="shop-cart-price"><div>CHF 21.60</div><div class="shop-cart-price-without-fee">(CHF 20.–)*</div></div></td><td>0 1 2</td></tr>
     </table></div>`;
