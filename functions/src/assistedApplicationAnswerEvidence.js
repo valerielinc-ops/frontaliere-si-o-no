@@ -133,11 +133,13 @@ const samePosting = (source, target) => {
 };
 
 /** The optional getter participates in the orchestrator's existing Firestore transaction. */
-export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, userId, nowMs = Date.now(), getDocument = ref => ref.get() }) {
+export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, userId, nowMs = Date.now(), getDocument = ref => ref.get(), questionKeys = null }) {
   const startedAt = Date.now();
   const legacy = object(profileRecord.applicationQuestionAnswers);
+  const allowedKeys = Array.isArray(questionKeys) ? new Set(questionKeys.filter(Boolean)) : null;
   const candidates = Object.entries(object(profileRecord.applicationQuestionAnswerEvidence)).slice(-80)
-    .filter(([key, record]) => validRecord(key, record, userId, legacy, nowMs) && record.provenance.confirmedAt <= nowMs).map(([, record]) => record);
+    .filter(([key, record]) => (!allowedKeys || allowedKeys.has(key))
+      && validRecord(key, record, userId, legacy, nowMs) && record.provenance.confirmedAt <= nowMs).map(([, record]) => record);
   const sources = new Map();
   await Promise.all([...new Set(candidates.map(record => record.provenance.orderId))].map(async orderId => {
     const ref = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
@@ -163,10 +165,12 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
 /** Runner reads keep the raw CAS/lease snapshot untouched and project only the execution's answer context. */
 export async function loadRunnerAnswerContext({ db, order, flow, draft, nowMs = Date.now() }) {
   const profileRecord = order.userId ? (await db.collection('user_cv_profiles').doc(order.userId).get()).data() || {} : {};
-  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord, userId: order.userId, nowMs });
-  return { flow: { ...flow, questionAnswers: { ...contextFor(order, { purpose: 'form' }).answers,
-    ...rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers: flow?.answers || {} }) } },
-  answerEvidence: contextFor(order).answerEvidence };
+  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord, userId: order.userId, nowMs,
+    questionKeys: (draft?.questions || []).map(candidateQuestionAnswerKey) });
+  const context = contextFor(order, { purpose: 'form' });
+  const answers = flow?.answers && typeof flow.answers === 'object' && !Array.isArray(flow.answers) ? flow.answers : {};
+  const orderAnswers = rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers, changed: answers });
+  return { flow: { ...flow, questionAnswers: { ...context.answers, ...orderAnswers } }, answerEvidence: context.answerEvidence };
 }
 
 /** A source purge removes only records/clocks still owned by that order, never newer confirmations. */

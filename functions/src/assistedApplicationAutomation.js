@@ -37,6 +37,8 @@ import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submission
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { loadCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
+import { candidateQuestionAnswerKey, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
 export { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
@@ -86,9 +88,23 @@ function candidateQuestionAnswersRefFor(db, userId) {
   return id ? db.collection('user_cv_profiles').doc(id) : null;
 }
 
-function candidateQuestionAnswersOf(snapshot) {
-  const memory = snapshot?.data()?.applicationQuestionAnswers;
-  return memory && typeof memory === 'object' && !Array.isArray(memory) ? memory : {};
+function orderScopedQuestionAnswers(draft, flow) {
+  const answers = flow?.answers && typeof flow.answers === 'object' && !Array.isArray(flow.answers) ? flow.answers : {};
+  return rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers, changed: answers });
+}
+
+async function candidateQuestionAnswerContext({ db, transaction, order, profileSnapshot, flow, draft, nowMs }) {
+  const evidenceFor = await loadCandidateAnswerEvidence({
+    db,
+    profileRecord: profileSnapshot?.data() || {},
+    userId: String(order?.userId || ''),
+    nowMs,
+    questionKeys: (draft?.questions || []).map(candidateQuestionAnswerKey),
+    getDocument: ref => transaction.get(ref),
+  });
+  const orderAnswers = orderScopedQuestionAnswers(draft, flow);
+  const reusable = evidenceFor(order || {}, { purpose: 'form' }).answers;
+  return { questionAnswers: { ...reusable, ...orderAnswers }, orderAnswers };
 }
 
 /** Fails closed: any error reading Remote Config means "off". */
@@ -274,17 +290,18 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       outcome = { ok: false, ignored: 'no_flow' };
       return;
     }
+    const order = orderSnapshot.data() || {};
     const flow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
-    // Answers explicitly saved on this order win over the candidate-wide
-    // ledger. The latter fills only semantic gaps, so a new posting can reuse
-    // a confirmed answer without asking the same person again.
+    const candidateAnswerContext = await candidateQuestionAnswerContext({
+      db, transaction, order, profileSnapshot: candidateProfileSnapshot, flow, draft, nowMs,
+    });
+    // Only source-verified candidate facts can travel between postings.
+    // Answers written on this order win and are rebuilt from its current draft;
+    // legacy flow/global maps are never treated as provenance.
     const flowForTransition = {
       ...flow,
-      questionAnswers: {
-        ...candidateQuestionAnswersOf(candidateProfileSnapshot),
-        ...(flow.questionAnswers || {}),
-      },
+      questionAnswers: candidateAnswerContext.questionAnswers,
     };
     // A runner event from a superseded round is stale: never let it move the
     // current round (e.g. a slow draft of round 1 finishing after a rejection).
@@ -331,16 +348,17 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         reason: dispatch.reason || null,
       };
     }
+    const persistedFlow = { ...nextFlow, questionAnswers: candidateAnswerContext.orderAnswers };
     const accountFailure = getAccountFailure(event);
     claim('applied');
-    transaction.set(flowRef, nextFlow);
-    transaction.set(orderRef, mirrorFields(nextFlow), { merge: true });
+    transaction.set(flowRef, persistedFlow);
+    transaction.set(orderRef, mirrorFields(persistedFlow), { merge: true });
     transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_transition', {
       actor: String(actor).slice(0, 120),
       eventType: event.type,
       fromState: flow.state || null,
-      toState: nextFlow.state,
-      round: nextFlow.round,
+      toState: persistedFlow.state,
+      round: persistedFlow.round,
       ...(accountFailure ? { accountFailure } : {}),
     }));
     outcome = { ok: true, fromState: flow.state, flow: nextFlow, effects: result.effects };
@@ -420,22 +438,23 @@ export async function maybeStartAutomation(before, after, orderId, {
 export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now(), reason = 'owner_request', ensureAlias = null }) {
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
+  const draftRef = draftRefFor(db, orderId);
   let created = null;
   await db.runTransaction(async (transaction) => {
     created = null; // Firestore retries a contended transaction: never keep a previous attempt's result
     const orderSnapshot = await transaction.get(orderRef);
     const order = orderSnapshot.data() || {};
-    const candidateQuestionAnswersRef = candidateQuestionAnswersRefFor(db, order.userId);
-    const [flowSnapshot, candidateProfileSnapshot] = await Promise.all([
+    const [flowSnapshot, draftSnapshot] = await Promise.all([
       transaction.get(flowRef),
-      candidateQuestionAnswersRef ? transaction.get(candidateQuestionAnswersRef) : Promise.resolve(null),
+      transaction.get(draftRef),
     ]);
     if (!orderSnapshot.exists) return;
     const existing = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
+    const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
     // A live flow is never restarted; a finished takeover can be restarted by the owner.
     if (existing && !(reason === 'owner_request' && existing.state === 'owner_takeover')) return;
     if (!automationEligibility(order, orderId).eligible) return;
-    const candidateQuestionAnswers = candidateQuestionAnswersOf(candidateProfileSnapshot);
+    const orderAnswers = orderScopedQuestionAnswers(draft, existing || {});
     const flow = {
       state: 'drafting',
       round: 1,
@@ -447,10 +466,10 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
       shownRounds: [],
       feedback: existing?.feedback || [],
       answers: existing?.answers || {},
-      questionAnswers: {
-        ...candidateQuestionAnswers,
-        ...(existing?.questionAnswers || {}),
-      },
+      // Keep only order-local answers in Firestore. Verified cross-posting
+      // facts are reloaded for the runner's execution context and not copied
+      // into another order's retention window.
+      questionAnswers: orderAnswers,
       history: [...(existing?.history || []), { at: nowMs, event: `start:${reason}`, state: 'drafting' }].slice(-40),
       dispatch: { mode: 'draft', round: 1, requestedAt: nowMs, attempts: 1, reason },
       startedAt: nowMs,

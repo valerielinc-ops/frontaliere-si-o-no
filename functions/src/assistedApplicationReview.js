@@ -38,6 +38,7 @@ import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, questionsForCandidate, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
+import { loadRunnerAnswerContext } from './assistedApplicationAnswerEvidence.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
 import { answerMessage, validateAnswer } from './lib/answerRules.js';
@@ -723,6 +724,9 @@ export async function handleAssistedApplicationReview(req, deps) {
         return { status: 200, body: followupReviewPayload({ order: orderSnapshot.data(), draft: draftSnapshot.data() || {}, followup: followupSnapshot.data(), n: round }) };
       }
       const { order, flow, draft, submission } = await loadAll(deps.db, orderId);
+      const { flow: reviewFlow } = draft?.questions?.length
+        ? await loadRunnerAnswerContext({ db: deps.db, order, flow, draft, nowMs })
+        : { flow };
       // One signature per key and request: the letter can be both the review's and a kept file.
       const signed = new Map();
       const sign = (key) => {
@@ -745,7 +749,7 @@ export async function handleAssistedApplicationReview(req, deps) {
           .map((file, index) => ({ kind: file.kind, name: file.name, word: file.word, url: keptUrls[index] }))
           .filter((file) => file.url), kept.whatsapp),
       };
-      return { status: 200, body: { ...buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
+      return { status: 200, body: { ...buildReviewPayload({ order, flow: reviewFlow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
         employerResponse: employerResponseView(await loadEmployerResponse(orderRefFor(deps.db, orderId), order)),
       } };
     }

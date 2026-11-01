@@ -22,6 +22,7 @@ const { entryData, readZip } = await import('../functions/src/lib/zipArchive.js'
 const { formatLetterDate } = await import('../functions/src/assistedApplicationAiPrompts.js');
 const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
 const { runAutomationAdminAction } = await import('../services/assistedApplicationAdminService');
+const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
 
 const SECRET = 'r'.repeat(40);
 const T0 = Date.UTC(2026, 8, 30, 10, 0, 0);
@@ -122,6 +123,38 @@ describe('candidate review API', () => {
     expect(body.questions[0]).toMatchObject({ id: 'german_level', required: true });
     expect(body.answers).toEqual({ german_level: 'B1' });
     expect(body.can.approve).toBe(true);
+  });
+
+  it('shows a reusable answer only while its attested source remains retained', async () => {
+    const userId = 'candidate-synthetic';
+    const sourceOrder = { userId, jobId: 'source', jobUrl: 'https://example.test/jobs/source/', cvUploadedAt: T0 };
+    const sourceFlow = { state: 'candidate_review', round: 1, answers: {}, questionAnswers: {} };
+    const sourceDraft = { round: 1, questions: [{ id: 'birth_date_source', question: 'What is your date of birth?', type: 'date', required: true }] };
+    await store.db.collection('assisted_applications').doc('source').set(sourceOrder);
+    await store.db.collection('assisted_applications').doc('source').collection('automation').doc('flow').set(sourceFlow);
+    await store.db.collection('assisted_applications').doc('source').collection('ai_drafts').doc('current').set(sourceDraft);
+    await store.db.collection('user_cv_profiles').doc(userId).set({ status: 'ready', profile: { languages: [] } });
+    await saveAnswersWithCv({ db: store.db, bucket: null, orderId: 'source', order: sourceOrder, flow: sourceFlow,
+      draft: sourceDraft, answers: { birth_date_source: '1996-02-20' }, answerActor: 'candidate', nowMs: T0 });
+
+    await store.db.collection('assisted_applications').doc(ORDER).set({ userId, cvUploadedAt: T0 }, { merge: true });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      questions: [{ id: 'birth_date_target', question: 'Qual è la tua data di nascita?', type: 'date', required: true }],
+    }));
+
+    const { body } = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(body.answers).toEqual({ birth_date_target: '1996-02-20' });
+    expect(body.can.approve).toBe(true);
+    expect(store.read(`${BASE}/automation/flow`)?.questionAnswers).toBeUndefined();
+
+    const sourceProfile = store.read(`user_cv_profiles/${userId}`);
+    const sourceKey = Object.keys(sourceProfile.applicationQuestionAnswerEvidence)[0];
+    expect(sourceProfile.applicationQuestionAnswerEvidence[sourceKey].provenance).toMatchObject({ actor: 'candidate', orderId: 'source' });
+
+    await store.db.collection('assisted_applications').doc('source').set({ retentionPurgedAt: T0 + 1 }, { merge: true });
+    const expired = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(expired.body.answers).toEqual({ birth_date_target: '' });
+    expect(expired.body.can.approve).toBe(false);
   });
 
   it('keeps a candidate answer when the next draft gives the same question a new id', async () => {

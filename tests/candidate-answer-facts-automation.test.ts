@@ -35,7 +35,7 @@ describe('typed facts use the complete producer and automation path', () => {
     expect(profile.profile).toEqual({ languages: [] });
     const runEffect = vi.fn(async (_input: any) => ({ ok: true }));
     await startAutomation({ db: store.db, orderId, runEffect, nowMs: now });
-    expect(Object.keys(store.read(`${path}/automation/flow`).questionAnswers)).toHaveLength(4);
+    expect(store.read(`${path}/automation/flow`).questionAnswers).toEqual({});
     const translated = [
       { id: 'it_dob', question: 'Qual è la tua data di nascita?', type: 'date' },
       { id: 'it_experience', question: 'Quanti anni di esperienza hai con Python?', type: 'number' },
@@ -47,13 +47,15 @@ describe('typed facts use the complete producer and automation path', () => {
     const context = await loadRunnerAnswerContext({ db: store.db, order, flow: rawFlow, draft: { round: 1, questions: translated } });
     expect(context.answerEvidence).toHaveLength(4);
     expect(rawFlow).toEqual(original);
+    expect(context.flow.questionAnswers).not.toHaveProperty('legacy_consent');
     expect(candidateAnswersForQuestions(translated, {}, context.flow.questionAnswers)).toEqual({ it_dob: answers.dob,
       it_experience: answers.experience, en_credential: 'Yes', fr_permit: permitOptions('fr')[1] });
     store.docs.set(`${path}/automation/flow`, rawFlow);
-    store.docs.set(`${path}/ai_drafts/current`, { round: 1, status: 'ready', questions: [], factCheck: { ok: true, unsupported: [] }, verdict: 'good' });
+    store.docs.set(`${path}/ai_drafts/current`, { round: 1, status: 'ready', questions: translated, factCheck: { ok: true, unsupported: [] }, verdict: 'good' });
     runEffect.mockClear();
     const result = await applyAutomationEvent({ db: store.db, orderId, event: { type: 'submit_needs_candidate', questions: translated.map(q => q.id), questionDetails: translated }, runEffect, nowMs: now });
     expect(result.flow.state).toBe('owner_takeover');
     expect(runEffect.mock.calls.some(([input]) => input.effect.kind === 'candidate_action_needed')).toBe(false);
+    expect(store.read(`${path}/automation/flow`).questionAnswers).toEqual({});
   });
 });
