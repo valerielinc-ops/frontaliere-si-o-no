@@ -1396,7 +1396,15 @@
         // Workday may still be redrawing the popup asynchronously. Keep the
         // retry count bounded but allow one second for each observable phase.
         const searchWaitMs = Math.max(config.waitMs, 1000);
-        const open = async () => {
+        const open = async (reset = false) => {
+          // Workday's controlled input may ignore a repeated identical query
+          // after a swallowed option press. Clear the query first so the
+          // second Enter represents a fresh search, not a duplicate state
+          // update.
+          if (reset) {
+            setValue(element, '');
+            await sleep(config.stepMs);
+          }
           setValue(element, query);
           fire(element, 'keydown', { key: 'Enter', code: 'Enter' });
           return waitFor(findOption, searchWaitMs);
@@ -1409,7 +1417,7 @@
         // the choice was accepted.
         for (let attempt = 0; attempt < 2; attempt += 1) {
           if (!isEmpty(entry)) return true;
-          const option = await open();
+          const option = await open(attempt > 0);
           // A redraw can replace the popup between Enter and the option
           // becoming readable. Keep the bounded retry contract instead of
           // reporting a missing answer before the second open.
