@@ -361,7 +361,52 @@ describe('rerender article hubs workflow', () => {
         localRegistry: { known: { it: 'known' } },
       });
       expect(verdict.ok).toBe(false);
+      expect(verdict.deferred).not.toBe(true);
       expect(verdict.note).toContain('live-only');
+    } finally {
+      __resetCorpusFreshnessCache();
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('defers a live hub card proven by the runtime overlay until corpus main converges', async () => {
+    const fetchMock = vi.fn((url: string) => {
+      if (url.endsWith('/manifest.json')) {
+        return Promise.resolve({ ok: true, json: async () => ({ counts: { swissArticles: 1 } }) });
+      }
+      if (url.endsWith('/slugs.json')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({ swiss: { known: { it: 'known' } } }),
+        });
+      }
+      if (url === 'https://frontaliereticino.ch/articoli-svizzera/') {
+        return Promise.resolve({
+          ok: true,
+          text: async () => '<main class="ssg-article-grid"><a class="ssg-art-card" href="/articoli-svizzera/live-only/"></a></main>',
+        });
+      }
+      if (url.includes('/data/blog-index-svizzera-it.json') && !url.includes('-full')) {
+        return Promise.resolve({ ok: true, json: async () => ({ articles: [] }) });
+      }
+      if (url.includes('/data/blog-index-svizzera-it-full.json')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({ articles: [{ id: 'live-only', title: 'Articolo pubblicato' }] }),
+        });
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    try {
+      const verdict = await checkCorpusFreshness('svizzera', 1, {
+        localRegistry: { known: { it: 'known' } },
+      });
+      expect(verdict.ok).toBe(false);
+      expect(verdict.deferred).toBe(true);
+      expect(verdict.note).toContain('runtime overlay proves live-only');
+      expect(verdict.note).toContain('deferring hub and client publication');
     } finally {
       __resetCorpusFreshnessCache();
       vi.unstubAllGlobals();
