@@ -1395,6 +1395,7 @@ const enCore: Record<string, string> = {
  'jobAlert.loading': 'Loading alerts...',
  'jobAlert.error.emptyFields': 'Enter at least one keyword or area.',
  'jobAlert.error.generic': 'Could not create the alert. Please try again.',
+ 'jobAlert.error.emailRequired': 'An email address is required to create the alert.',
  'jobAlert.pendingStorageUnavailable': 'This browser won\'t let us keep your alert while you sign in (private browsing or full storage). After signing in, come back here and press «Create alert» again.',
  'jobAlert.loginAnyway': 'Sign in anyway',
  'jobAlert.sector': 'Sector',
