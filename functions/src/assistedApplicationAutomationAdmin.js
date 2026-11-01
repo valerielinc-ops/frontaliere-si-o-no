@@ -20,7 +20,7 @@ import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
 import { CvCommitError, saveAnswersWithCv } from './assistedApplicationCvCommit.js';
-import { answerQuestionSnapshotsFor, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
+import { answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { cvChoiceOf, cvToSend } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
@@ -539,6 +539,7 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
   const order = orderSnapshot.data() || {};
   if (!flowSnapshot.exists || !draftSnapshot.exists) throw new AutomationAdminError('no_flow', 404);
   if (!FILL_KIT_STATES.has(flow.state)) throw new AutomationAdminError('not_taken_over', 409);
+  const { flow: fillKitFlow } = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs });
   const guard = submissionGuard(db, orderId, flow.round || 1);
   const record = await guard.read();
   if (record?.state === 'sent') throw new AutomationAdminError('already_sent', 409);
@@ -567,7 +568,7 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
     orderId,
     order,
     draft,
-    flow,
+    flow: fillKitFlow,
     documents: { cv: cvUrl ? { url: cvUrl, extension: cv.extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null, extra },
   });
 }

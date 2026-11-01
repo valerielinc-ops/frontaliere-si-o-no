@@ -175,6 +175,15 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     expect(original.documents.cv).toEqual({ url: 'https://signed/original-cv', fileName: 'CV_Maria_Luisa_Rossi.docx' });
   });
 
+  it('does not expose unattested legacy answers in the owner fill kit', async () => {
+    await seed({ ...takenOver, answers: { german_level: 'C1' }, questionAnswers: { language_de_any_proficiency: 'C1' } }, {
+      questions: [{ id: 'german_level', question: 'What is your German proficiency level?', type: 'choice', options: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], required: true }],
+      portalAnswers: { answers: [] },
+    });
+    const { kit } = await call('automationFillKit') as any;
+    expect(kit.answers).toEqual([]);
+  });
+
   // Phase 5: the candidate's own Word file with the adapted lines, page-checked by the runner.
   const inplace = { status: 'ready', docxKey: KEY('ai-cv-inplace-r1-1.docx'), verifiedKey: KEY('ai-cv-inplace-r1-1.docx'), baseKey: KEY('1-cv.docx'), baseType: 'docx', patched: ['r0-l0'], skipped: [], pageCheck: 'libreoffice', pages: 1 };
   const pdfCv = { url: 'https://signed/ai-cv-r1-1.pdf', fileName: 'CV_Maria_Luisa_Rossi.pdf' };
