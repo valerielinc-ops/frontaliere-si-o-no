@@ -29,12 +29,12 @@ function fakePage({ multiStep = false, conditional = true, registration = false 
     ? '<label for="password">Password *</label><input id="password" type="password" name="password" required><label for="password-confirm">Confirm password *</label><input id="password-confirm" type="password" name="password-confirm" required>'
     : '';
   const form = multiStep
-    ? `<form action="/apply" data-page="1">
+    ? `<form action="/apply" aria-label="Personal information" data-page="1">
         <label for="country">Country of residence *</label>
         <select id="country" name="country" required><option value="">Choose one</option><option value="IT">Italy</option><option value="CH">Switzerland</option></select>
         <button id="next" type="button">Next</button>
       </form>`
-    : `<form action="/apply">${credentials}
+    : `<form action="/apply" aria-label="Personal information">${credentials}
         <label for="country">Country of residence *</label>
         <select id="country" name="country" required><option value="">Choose one</option><option value="IT">Italy</option><option value="CH">Switzerland</option></select>
         <label for="motivation">Why are you interested in this role? *</label><textarea id="motivation" name="motivation" required></textarea>
@@ -158,7 +158,7 @@ function fakePage({ multiStep = false, conditional = true, registration = false 
     formElement.addEventListener('input', (event: any) => {
       if (pageNumber !== 1 || event.target.id !== 'city' || postalAdded) return;
       postalAdded = true;
-      formElement.insertAdjacentHTML('beforeend', '<label for="postal">Postal code of residence *</label><input id="postal" name="postal" required>');
+      formElement.insertAdjacentHTML('beforeend', '<label for="postal">Postal code *</label><input id="postal" name="postal" required>');
     });
     formElement.addEventListener('click', (event: any) => {
       if (event.target.id !== 'next' || pageNumber !== 1) return;
@@ -212,7 +212,8 @@ describe('assisted portal question batching', () => {
     const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
-    const codex = async () => {
+    const codex = async ({ prompt }: any) => {
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
       plannerCalls += 1;
       const missingRequired = [
         { fieldId: fieldId('motivation'), question: 'Why are you interested in this role?', why: '', type: 'text', options: [] },
@@ -320,9 +321,9 @@ describe('assisted portal question batching', () => {
     expect(result.event.type, portalRunSummary(result, plannerTrace, extractionTrace)).toBe('submit_needs_candidate');
     expect(elementValue(window, '#country')).toBe('IT');
     expect(result.event.questions.map((question: any) => question.question)).toEqual([
-      'Why are you interested in this role?',
-      'Which work authorization do you hold?',
-      'When could you start?',
+      'Why are you interested in this role? *',
+      'Which work authorization do you hold? *',
+      'When could you start? *',
     ]);
     expect(plannerCalls.some((fields) => fields.includes('availability'))).toBe(true);
     expect(window.document.getElementById('next')?.getAttribute('data-clicked')).not.toBe('true');
@@ -339,7 +340,7 @@ describe('assisted portal question batching', () => {
     const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     const plannerTrace: any[] = [];
-    const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia', city: 'Lugano', postalCode: '6900' } }, profile: {} };
+    const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia', city: 'Como', postalCode: '22100' } }, profile: {} };
     const codex = async () => {
       const pageNumber = Number(window.document.querySelector('form')?.getAttribute('data-page') || '1');
       const fields = new Set([...window.document.querySelectorAll('input,textarea,select')].map((field: any) => field.id));
@@ -351,14 +352,14 @@ describe('assisted portal question batching', () => {
         return plan;
       }
       if (pageNumber === 1 && !fields.has('postal')) {
-        const plan = { actions: [{ fieldId: fieldId('city'), action: 'fill', value: 'Lugano', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
+        const plan = { actions: [{ fieldId: fieldId('city'), action: 'fill', value: 'Como', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
         const extracted = await extractFields(page, { listboxOptions: false });
         const guarded = guardPlan(plan, extracted.fields, candidate);
         plannerTrace.push({ pageNumber, fields: [...fields], actions: plan.actions.map(({ fieldId, action }) => ({ fieldId, action })), guardedActions: guarded.actions, guardedMissingRequired: guarded.missingRequired, missingRequired: [] });
         return plan;
       }
       if (pageNumber === 1) {
-        const plan = { actions: [{ fieldId: fieldId('postal'), action: 'fill', value: '6900', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
+        const plan = { actions: [{ fieldId: fieldId('postal'), action: 'fill', value: '22100', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
         const extracted = await extractFields(page, { listboxOptions: false });
         const guarded = guardPlan(plan, extracted.fields, candidate);
         plannerTrace.push({ pageNumber, fields: [...fields], actions: plan.actions.map(({ fieldId, action }) => ({ fieldId, action })), guardedActions: guarded.actions, guardedMissingRequired: guarded.missingRequired, missingRequired: [] });
@@ -390,7 +391,7 @@ describe('assisted portal question batching', () => {
 
     expect(window.document.querySelector('form')?.getAttribute('data-page'), portalRunSummary(result, plannerTrace, extractionTrace)).toBe('2');
     expect(result.event.type).toBe('submit_needs_candidate');
-    expect(result.event.questions.map((question: any) => question.question)).toEqual(['When could you start?']);
+    expect(result.event.questions.map((question: any) => question.question)).toEqual(['When could you start? *']);
   });
 
   it('does not ask stale questions when the page moves while its DOM cannot be read', async () => {
