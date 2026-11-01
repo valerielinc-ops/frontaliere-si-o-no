@@ -127,7 +127,7 @@ export default function AssistedApplicationAutomationPanel({
     setEmailSubject(draft?.applicationEmail?.subject || '');
     setEmailBody(draft?.applicationEmail?.body || '');
     setAnswers(flow?.answers || {});
-  }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, flow?.answers]);
+  }, [draft?.coverLetter?.text, draft?.applicationEmail?.to, draft?.applicationEmail?.subject, draft?.applicationEmail?.body, draft?.questionSnapshots, flow?.answers]);
 
   const act = async (action: AutomationAdminAction, extra: Record<string, unknown> = {}, success = 'Fatto.') => {
     if (busy) return;
@@ -511,7 +511,7 @@ export default function AssistedApplicationAutomationPanel({
                   <input value={answers[question.id] || ''} onChange={(event) => setAnswers((current) => ({ ...current, [question.id]: event.target.value }))} className="mt-1 w-full rounded border border-edge bg-surface-alt px-2 py-1.5 text-sm" />
                 </label>
               ))}
-              <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void act('automationSetAnswers', { answers }, 'Risposte salvate.'); }}>
+              <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { void act('automationSetAnswers', { answers, answerQuestionSnapshots: draft.questionSnapshots || {} }, 'Risposte salvate.'); }}>
                 {spinner('automationSetAnswers') || <Save size={14} aria-hidden="true" />} Salva risposte
               </button>
             </div>

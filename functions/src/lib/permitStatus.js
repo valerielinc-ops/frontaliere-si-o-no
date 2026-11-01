@@ -146,10 +146,11 @@ export function permitStatusOf(value) {
   const exact = ALIASES.get(fold(text));
   if (exact) return exact;
   if (EXPECTATION_RE.test(text)) return '';
-  const bare = ALIASES.get(fold(text.replace(/\([^)]*\)/g, ' ')));
-  if (bare) return bare;
   const codes = new Set(text.split(/[/|;,()–—]|\s-\s/).map((part) => ALIASES.get(fold(part))).filter(Boolean));
-  return codes.size === 1 ? [...codes][0] : '';
+  // Legacy fragments establish an explicit status only when every qualifier
+  // also belongs to the positive option grammar. Never erase a condition.
+  const positive = permitOptionCode(text);
+  return codes.size === 1 && codes.has(positive) ? positive : '';
 }
 
 /** A stored value as the candidate's language shows it: its status's label, else the value as written. */

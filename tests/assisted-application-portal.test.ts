@@ -2651,6 +2651,13 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(guardPlan({ actions: [], missingRequired: [] }, [permitField('Bewilligung', ['G (Grenzgänger)', 'Ausweis G EU/EFTA'])], candidate({ permitStatus: 'permit_g' })).actions).toEqual([]);
   });
 
+  it('does not turn a conditional stored permit into a native held-permit selection', () => {
+    const field = permitField('Work permit', ['B', 'C']);
+    const guarded = guardPlan({ actions: [select('p1', 'B', 'profile')], missingRequired: [] }, [field], candidate({ workPermit: 'B (will be sponsored by employer)' }));
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired.map((item: any) => item.fieldId)).toEqual(['p1']);
+  });
+
   it('keeps a permit answer only when it names the candidate’s own status, never a «Ja» that occurs in the data', () => {
     const question = 'Haben Sie eine gültige Arbeitsbewilligung?';
     const yesNo = permitField(question, ['Ja', 'Nein']);

@@ -105,7 +105,13 @@ const deps = (extra: Record<string, any> = {}) => ({ db: store.db, bucket, runEf
 // The review link of round 1 (assistedApplicationReviewToken.js).
 const link = { secret: SECRET, orderId: ORDER, round: 1, nowMs: T0, kind: 'review' as const };
 const token = () => mintReviewToken(link);
-const post = (body: Record<string, any>, extra: Record<string, any> = {}) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), ...body } }, deps(extra));
+const post = async (body: Record<string, any>, extra: Record<string, any> = {}) => {
+  const answerQuestionSnapshots = body.action === 'answers'
+    ? (await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body.answerQuestionSnapshots || {}
+    : undefined;
+  return handleAssistedApplicationReview({ method: 'POST', body: { t: token(), ...body,
+    ...(answerQuestionSnapshots ? { answerQuestionSnapshots } : {}) } }, deps(extra));
+};
 const draftNow = () => store.read(`${BASE}/ai_drafts/current`);
 const flowNow = () => store.read(`${BASE}/automation/flow`);
 /** What the tailored CV the draft names prints. */
@@ -172,7 +178,8 @@ describe('a correction always reaches the tailored CV that leaves', () => {
     expect([draftNow().tailoredCv.pdfKey, renders()]).toEqual([key, before]);
 
     // The owner's answer, a legacy «B», rebuilds it too.
-    await handleAutomationAdminAction(store.db, { action: 'automationSetAnswers', orderId: ORDER, answers: { work_permit: 'B' } }, 'owner@example.com', { runEffect, bucket, nowMs: T0 });
+    const answerQuestionSnapshots = (await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body.answerQuestionSnapshots;
+    await handleAutomationAdminAction(store.db, { action: 'automationSetAnswers', orderId: ORDER, answers: { work_permit: 'B' }, answerQuestionSnapshots }, 'owner@example.com', { runEffect, bucket, nowMs: T0 });
     expect(printed().personal).toContainEqual(['Arbeitsbewilligung', 'Aufenthaltsbewilligung B']);
     expect(flowNow().answers).toMatchObject({ work_permit: 'B', availability: start, salary_expectation: 'CHF 80000' });
   });

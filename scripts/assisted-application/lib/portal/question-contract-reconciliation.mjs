@@ -2,7 +2,7 @@
 import { createHash } from 'node:crypto';
 import { hasAssistedApplicationConsent } from '../../../../functions/src/assistedApplicationConstants.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from '../../../../functions/src/assistedApplicationRetention.js';
-import { candidateAnswersForQuestions, candidateWithEdits } from '../../../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateAnswersForQuestions, candidateWithEdits, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../../../../functions/src/assistedApplicationCandidateEdits.js';
 import { roundWasSent, transition } from '../../../../functions/src/assistedApplicationFlow.js';
 import { validateAnswer } from '../../../../functions/src/lib/answerRules.js';
 import { isFetchablePublicUrl } from '../../../../functions/src/assistedApplicationAiJob.js';
@@ -12,7 +12,9 @@ import { operationalAnswerForOption, operationalQuestionTopic } from '../../../.
 import { hasNativeApplicantIdentity } from './native-control-contract.mjs';
 import { PORTAL_NATIVE_CONTRACT_VERSION } from '../../../../functions/src/lib/portalNativeContract.js';
 
-export const PORTAL_CONTRACT_RECONCILIATION_VERSION = PORTAL_NATIVE_CONTRACT_VERSION;
+// Receipt version follows the answer provenance contract independently of
+// the native proof version stored on questions.
+export const PORTAL_CONTRACT_RECONCILIATION_VERSION = `${PORTAL_NATIVE_CONTRACT_VERSION}:answer-evidence-v2`;
 const text = value => ['string', 'number'].includes(typeof value) ? String(value).normalize('NFC').replace(/\s+/g, ' ').trim() : '';
 const hasAnswer = value => text(value).length > 0;
 const routingLabels = [
@@ -50,8 +52,11 @@ export function legacyPortalContractEligible({ order, flow, draft, submission = 
   const purgeAt = retentionPurgeDueAt(order);
   const round = Number(flow?.round) || 1;
   const send = submission[`r${round}`];
+  const eligibilityFlow = flow?.__answerContextLoaded
+    && flow?.orderQuestionAnswersEvidenceVersion !== ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+    ? { ...flow, answers: {}, questionAnswers: flow.questionAnswers || {} } : flow;
   return order?.paymentStatus === 'paid' && hasAssistedApplicationConsent(order)
-    && !order.withdrawnAt && !order.retentionPurgedAt
+    && !order.withdrawnAt && !order.retentionPurgingAt && !order.retentionPurgedAt && !order.retentionPayloadPurgedAt
     && (talentPoolConsentActive(order) || (purgeAt != null && purgeAt > nowMs))
     && !['pending', 'succeeded', 'refunded'].includes(order.refundStatus)
     && !['submitted', 'withdrawn', 'refunded'].includes(order.submissionStatus)
@@ -67,7 +72,7 @@ export function legacyPortalContractEligible({ order, flow, draft, submission = 
     && isFetchablePublicUrl(portalContractSourceUrl(draft))
     && (draft.questions || []).some(question => question.source === 'portal' && question.required === true
       && (ownerPortalQuestionHold(flow) || (flow.heldBy || []).includes(`question:${question.id}`)) && relaxablePortalQuestionTopic(question)
-      && !hasAnswer(candidateWithEdits({ order, draft, flow }).answers[question.id]));
+      && !hasAnswer(candidateWithEdits({ order, draft, flow: eligibilityFlow }).answers[question.id]));
 }
 
 /** Receipt identity changes with a review episode, never with each engine source hash. */
@@ -86,7 +91,21 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
   if (forms.length !== 1 || !hasNativeApplicantIdentity(fields, forms[0], draft.job?.title || order.jobTitle || '')) {
     return { changed: false, reason: 'application_form_owner_unknown' };
   }
-  const answers = candidateWithEdits({ order, draft, flow }).answers;
+  const trusted = flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION;
+  const ignoreUnattestedAnswers = flow?.__answerContextLoaded && !trusted;
+  // The maintenance read marks an untrusted legacy projection so it cannot
+  // suppress the question being revalidated. Direct callers still retain the
+  // old local answer for compatibility checks and audit-only behavior.
+  const recoveryFlow = ignoreUnattestedAnswers
+    ? { ...flow, answers: {}, questionAnswers: flow.questionAnswers || {} } : flow;
+  const answers = candidateWithEdits({ order, draft, flow: recoveryFlow }).answers;
+  // Compatibility checks may inspect an order's old local answers, but the
+  // strict execution projection above excludes those raw values while keeping
+  // any independently verified candidate evidence.
+  const preservedFlow = ignoreUnattestedAnswers
+    ? { ...flow, answers: flow.__legacyAnswers || {}, questionAnswers: flow.questionAnswers || {} }
+    : flow;
+  const preservedAnswers = candidateWithEdits({ order, draft, flow: preservedFlow }).answers;
   const held = new Set(ownerPortalQuestionHold(flow)
     ? (draft.questions || []).filter(question => question.required === true).map(question => question.id)
     : (flow.heldBy || []).map(value => String(value).replace(/^question:/, '')));
@@ -114,7 +133,7 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
       type: contract.type, options: contract.options, applicationOptions: contract.applicationOptions || [],
       optionMap: contract.optionMap || [], validation: contract.validation, required: field.required,
       portalNativeContract: {
-        version: PORTAL_CONTRACT_RECONCILIATION_VERSION, round: Number(draft.round), observedAt: proof.observedAt, url: proof.url,
+        version: PORTAL_NATIVE_CONTRACT_VERSION, round: Number(draft.round), observedAt: proof.observedAt, url: proof.url,
         fieldId: field.id, nativeControlId: text(field.nativeControlId).slice(0, 200),
         nativeSelectId: text(field.nativeSelectId).slice(0, 200), frame: field.frame, label: field.label, kind: field.kind,
         controlId: text(field.controlId).slice(0, 200), semanticId: text(field.semanticId).slice(0, 200),
@@ -128,7 +147,8 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
   if (!updated.length) return { changed: false, reason: 'no_unique_unanswered_native_contract' };
   const proposed = { ...draft, questions };
   if (Buffer.byteLength(JSON.stringify(proposed)) > 750_000) return { changed: false, reason: 'native_contract_too_large' };
-  const projected = candidateAnswersForQuestions(questions, answers, flow.questionAnswers || {});
+  const resolverAnswers = (flow?.__answerContextLoaded || trusted) ? flow.questionAnswers || {} : {};
+  const projected = candidateAnswersForQuestions(questions, preservedAnswers, resolverAnswers);
   const todayIso = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Zurich' }).format(new Date(nowMs));
   for (const question of questions) {
     const preserved = projected[question.id];
@@ -140,7 +160,7 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
       return { changed: false, reason: 'preserved_answer_incompatible' };
     }
   }
-  const tick = transition(flow, { type: 'tick' }, { draft: proposed, answers: flow.answers || {},
+  const tick = transition(recoveryFlow, { type: 'tick' }, { draft: proposed, answers,
     documents: flow.documents || {}, nowMs });
   return { changed: true, questions, updated, queue: tick.effects.some(effect => effect.type === 'dispatch'
     && effect.reason === 'resolved_candidate_answers') };

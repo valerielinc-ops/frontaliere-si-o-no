@@ -21,6 +21,11 @@ on:
       - 'functions/src/assistedApplicationExtraDocuments.js'
       - 'functions/src/assistedApplicationOperationalAnswers.js'
       - 'functions/src/assistedApplicationCandidateEdits.js'
+      - 'functions/src/assistedApplicationAnswerEvidence.js'
+      - 'functions/src/assistedApplicationAutomation.js'
+      - 'functions/src/assistedApplicationAutomationAdmin.js'
+      - 'functions/src/assistedApplicationCvCommit.js'
+      - 'functions/src/assistedApplicationReview.js'
       - 'functions/src/assistedApplicationFlow.js'
       - 'functions/src/assistedApplicationPortalRetryPolicy.js'
       - 'functions/src/assistedApplicationPortalRecoveryPolicy.js'
@@ -28,7 +33,12 @@ on:
       - 'functions/src/lib/applicationConsent.js'
       - 'functions/src/lib/portalNativeContract.js'
       - 'functions/src/lib/answerRules.js'
+      - 'functions/src/lib/candidateAnswerFacts.js'
+      - 'functions/src/lib/languageFacts.js'
+      - 'functions/src/lib/addressContextContract.js'
+      - 'functions/src/lib/permitStatus.js'
       - 'functions/src/lib/portalQuestionText.js'
+      - 'functions/src/lib/assistedApplicationQuestionConstraints.js'
   workflow_dispatch:
 
 permissions:
