@@ -131,7 +131,7 @@ export async function fetchPublishedCorpusCommit({
 /**
  * How far the rendered archive count may differ from the published manifest
  * before the push is refused. The identity decision below is separate: after
- * the corpus-main overlay, a small publication handoff can legitimately leave
+ * the published-snapshot overlay, a small publication handoff can legitimately leave
  * ids on opposite sides for a short time. Hub HTML still waits for the
  * handoff, while a client-only subset is allowed only for ids already proved
  * by the live hub.

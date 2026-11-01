@@ -75,7 +75,7 @@ on:
       - 'build-plugins/shared/articleSectionCore.mjs'
       - 'services/articleSourceDates.ts'
       # Keep the checked-in content path as a trigger for preserved site-side
-      # files; the corpus-main overlay sources are listed explicitly below.
+      # files; the published-snapshot overlay sources are listed explicitly below.
       - 'packages/articles/content/**'
       # The renderer overlays these helpers from corpus main; changes to any
       # part of that shared overlay must rerender the hubs too.
@@ -92,9 +92,9 @@ on:
 
   # 2. THE CONTENT CHANGED. Hub pages are a function of the article corpus,
   #    not only of the renderers, and new articles arrive ~15-25 times a day.
-  #    The publisher dispatch is the prompt path; the render clones corpus
-  #    `main` through the shared overlay, so this job no longer depends on the
-  #    site's lagging content copy. The per-section concurrency group below
+  #    The publisher dispatch is the prompt path; the render pins the corpus
+  #    commit named by the published manifest, so this job no longer depends
+  #    on the site's lagging content copy. The per-section concurrency group below
   #    coalesces bursts without cancelling a live publisher.
   repository_dispatch:
     types: [articles-published]
@@ -170,8 +170,8 @@ jobs:
     # Which sections run as separate matrix jobs. A push, publisher dispatch or
     # schedule means both: the renderers and the corpus they read are shared,
     # so either kind of change affects the two sections identically. A manual
-    # dispatch honours the operator's choice. The overlay pins corpus `main`
-    # inside the render, so no workflow_run fan-out is needed here.
+    # dispatch honours the operator's choice. The overlay pins the published
+    # API manifest commit inside the render, so no workflow_run fan-out is needed.
     runs-on: ubuntu-latest
     outputs:
       sections: ${{ steps.compute.outputs.sections }}
