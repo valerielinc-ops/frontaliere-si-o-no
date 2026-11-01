@@ -304,6 +304,9 @@ describe('pharmacy SEO after SPA navigation', () => {
     expect(sunStores.length).toBeGreaterThan(1);
     const titles = sunStores.map((pharmacy) => buildPharmacyTitle(pharmacy, BORDER_PHARMACIES));
     expect(new Set(titles).size).toBe(titles.length);
+    const duplicateNameCatalogue = sunStores.map((pharmacy) => ({ ...pharmacy, name: 'Farmacia Sun Store' }));
+    const duplicateNameTitles = duplicateNameCatalogue.map((pharmacy) => buildPharmacyTitle(pharmacy, duplicateNameCatalogue));
+    expect(new Set(duplicateNameTitles).size).toBe(duplicateNameTitles.length);
     for (const pharmacy of sunStores) {
       const metadata = pharmacySeoRuntime.resolvePharmacySeoMetadata({
         kind: 'pharmacy',
