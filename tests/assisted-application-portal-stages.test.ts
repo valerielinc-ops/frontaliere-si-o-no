@@ -216,9 +216,12 @@ describe('application stage ownership', () => {
     expect(applicationReceipt({ ...receipt, text: `Resume / CV. Thank you for your application for ${job.title}.` }, { applyUrl, job })).toBe(true);
   });
 
-  it('keeps employer and ATS job-ID namespaces separate after a verified handoff', () => {
+  it('keeps employer and ATS job-ID namespaces separate until the handoff route is explicit', () => {
     const snapshot = { ...review, url: 'https://ats.example/review?jobId=internal99' };
-    expect(applicationStage(snapshot, { applyUrl, job }).kind).toBe('final_review');
+    // A cross-origin page is not a verified handoff merely because it repeats
+    // the role title and asks for the final Apply. The explicit submission
+    // route below is the evidence that can bind the resulting receipt.
+    expect(applicationStage(snapshot, { applyUrl, job }).kind).toBe('unknown_apply');
     expect(applicationReceipt({ ...receipt, url: 'https://ats.example/receipt?jobId=internal99', text: 'Thank you for your application.' },
       { applyUrl, submissionUrl: snapshot.url, job })).toBe(true);
     expect(applicationReceipt({ ...receipt, url: 'https://ats.example/receipt?jobId=other99' },
