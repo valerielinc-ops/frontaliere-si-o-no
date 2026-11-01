@@ -3126,7 +3126,7 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     } catch {
       return false;
     }
-    if (finalUrl.username || finalUrl.password || !sameSite(finalUrl.href, portalHost)) return false;
+    if (finalUrl.protocol !== 'https:' || finalUrl.username || finalUrl.password || !sameSite(finalUrl.href, portalHost)) return false;
     return true;
   }
   return false;
