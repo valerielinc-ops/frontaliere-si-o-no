@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { portalRequirementsFromMissingRequired, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { extractFields } from '../scripts/assisted-application/lib/portal/fields.mjs';
+import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
 const realNow = Date.now;
 afterEach(() => { Date.now = realNow; });
@@ -86,7 +88,10 @@ function fakePage({ multiStep = false, conditional = true } = {}) {
       const result = run(argument);
       if (result && Array.isArray(result.fields) && Array.isArray(result.buttons)) {
         const snapshot = {
-          fields: result.fields.map(({ id, kind, label, required }: any) => ({ id, kind, label, required })),
+          fields: result.fields.map(({ id, kind, label, required, value, options, context }: any) => ({
+            id, kind, label, required, value, context,
+            options: Array.isArray(options) ? options.map((option: any) => typeof option === 'string' ? option : option.label) : undefined,
+          })),
           buttons: result.buttons.map(({ id, text }: any) => ({ id, text })),
         };
         if (JSON.stringify(extractionTrace.at(-1)) !== JSON.stringify(snapshot)) extractionTrace.push(snapshot);
@@ -208,6 +213,7 @@ describe('assisted portal question batching', () => {
     const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
     const plannerCalls: string[][] = [];
     const plannerTrace: any[] = [];
+    const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     const codex = async () => {
       plannerCalls.push([...window.document.querySelectorAll('input,textarea,select')].map((field: any) => field.id));
@@ -223,6 +229,9 @@ describe('assisted portal question batching', () => {
       const actions = plannerCalls.length === 1
         ? [{ fieldId: fieldId('country'), action: 'select', value: 'Italia', document: 'none', source: 'identity', evidence: '' }]
         : [];
+      const extracted = await extractFields(page, { listboxOptions: false });
+      const guarded = guardPlan({ actions, missingRequired }, extracted.fields, candidate);
+      const mapped = portalRequirementsFromMissingRequired(extracted.fields, guarded.missingRequired);
       plannerTrace.push({
         visibleFields: [...window.document.querySelectorAll('input,textarea,select')].map((field: any) => ({
           id: field.id, aaId: field.getAttribute('data-aa-id'),
@@ -232,6 +241,9 @@ describe('assisted portal question batching', () => {
           fieldId: item.fieldId, question: item.question,
           applicationQuestion: item.applicationQuestion, portalQuestion: item.portalQuestion,
         })),
+        guardedActions: guarded.actions.map(({ fieldId, action, value }: any) => ({ fieldId, action, value })),
+        guardedMissingRequired: guarded.missingRequired.map(({ fieldId, question, portalQuestion }: any) => ({ fieldId, question, portalQuestion })),
+        mapped: { unreadableFields: mapped.unreadableFields || [], questions: mapped.questions.map(({ applicationQuestion, question }: any) => ({ applicationQuestion, question })) },
       });
       return { actions, missingRequired };
     };
@@ -240,7 +252,7 @@ describe('assisted portal question batching', () => {
       applyUrl: page.url(),
       job: { title: 'Synthetic role', company: 'Example AG' },
       language: 'en', candidateLocale: 'en',
-      candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
+      candidate,
       files: {}, skipPostingCheck: true, maxSteps: 5,
       codex, launch: async () => browser,
       accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
@@ -268,22 +280,29 @@ describe('assisted portal question batching', () => {
     const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     const plannerTrace: any[] = [];
+    const candidate = { identity: { email: 'candidate@example.test', address: { country: 'Italia', city: 'Lugano', postalCode: '6900' } }, profile: {} };
     const codex = async () => {
       const pageNumber = Number(window.document.querySelector('form')?.getAttribute('data-page') || '1');
       const fields = new Set([...window.document.querySelectorAll('input,textarea,select')].map((field: any) => field.id));
       if (pageNumber === 1 && !fields.has('city')) {
         const plan = { actions: [{ fieldId: fieldId('country'), action: 'select', value: 'Italia', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
-        plannerTrace.push({ pageNumber, fields: [...fields], actions: plan.actions.map(({ fieldId, action }) => ({ fieldId, action })), missingRequired: [] });
+        const extracted = await extractFields(page, { listboxOptions: false });
+        const guarded = guardPlan(plan, extracted.fields, candidate);
+        plannerTrace.push({ pageNumber, fields: [...fields], actions: plan.actions.map(({ fieldId, action }) => ({ fieldId, action })), guardedActions: guarded.actions, guardedMissingRequired: guarded.missingRequired, missingRequired: [] });
         return plan;
       }
       if (pageNumber === 1 && !fields.has('postal')) {
         const plan = { actions: [{ fieldId: fieldId('city'), action: 'fill', value: 'Lugano', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
-        plannerTrace.push({ pageNumber, fields: [...fields], actions: plan.actions.map(({ fieldId, action }) => ({ fieldId, action })), missingRequired: [] });
+        const extracted = await extractFields(page, { listboxOptions: false });
+        const guarded = guardPlan(plan, extracted.fields, candidate);
+        plannerTrace.push({ pageNumber, fields: [...fields], actions: plan.actions.map(({ fieldId, action }) => ({ fieldId, action })), guardedActions: guarded.actions, guardedMissingRequired: guarded.missingRequired, missingRequired: [] });
         return plan;
       }
       if (pageNumber === 1) {
         const plan = { actions: [{ fieldId: fieldId('postal'), action: 'fill', value: '6900', document: 'none', source: 'identity', evidence: '' }], missingRequired: [] };
-        plannerTrace.push({ pageNumber, fields: [...fields], actions: plan.actions.map(({ fieldId, action }) => ({ fieldId, action })), missingRequired: [] });
+        const extracted = await extractFields(page, { listboxOptions: false });
+        const guarded = guardPlan(plan, extracted.fields, candidate);
+        plannerTrace.push({ pageNumber, fields: [...fields], actions: plan.actions.map(({ fieldId, action }) => ({ fieldId, action })), guardedActions: guarded.actions, guardedMissingRequired: guarded.missingRequired, missingRequired: [] });
         return plan;
       }
       if (!fields.has('availability')) {
@@ -295,14 +314,17 @@ describe('assisted portal question batching', () => {
         actions: [],
         missingRequired: [{ fieldId: fieldId('availability'), question: 'When could you start?', why: '', type: 'text', options: [] }],
       };
-      plannerTrace.push({ pageNumber, fields: [...fields], actions: [], missingRequired: plan.missingRequired.map(({ fieldId, question }) => ({ fieldId, question })) });
+      const extracted = await extractFields(page, { listboxOptions: false });
+      const guarded = guardPlan(plan, extracted.fields, candidate);
+      const mapped = portalRequirementsFromMissingRequired(extracted.fields, guarded.missingRequired);
+      plannerTrace.push({ pageNumber, fields: [...fields], actions: [], guardedActions: guarded.actions, guardedMissingRequired: guarded.missingRequired, mapped: { unreadableFields: mapped.unreadableFields || [], questions: mapped.questions }, missingRequired: plan.missingRequired.map(({ fieldId, question }) => ({ fieldId, question })) });
       return plan;
     };
 
     const result = await submitViaPortal({
       applyUrl: page.url(), job: { title: 'Synthetic role', company: 'Example AG' },
       language: 'en', candidateLocale: 'en',
-      candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia', city: 'Lugano', postalCode: '6900' } }, profile: {} },
+      candidate,
       files: {}, skipPostingCheck: true, maxSteps: 8, codex, launch: async () => browser,
       accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
     });
