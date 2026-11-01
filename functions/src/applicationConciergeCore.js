@@ -38,6 +38,7 @@ import {
 } from './applicationConciergeConstants.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const APPLICATION_CONCIERGE_CANDIDATE_LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const CV_CONTENT_TYPES = new Set([
   'application/pdf',
@@ -62,6 +63,10 @@ function boundedString(value, max) {
 function optionalString(value, max) {
   if (value === undefined || value === null) return null;
   return boundedString(value, max) || null;
+}
+
+function candidateCommunicationLocale(service) {
+  return APPLICATION_CONCIERGE_CANDIDATE_LOCALES.has(service?.locale) ? service.locale : 'it';
 }
 
 function timestampToIso(value) {
@@ -472,6 +477,7 @@ async function acceptProposal(db, serviceId, proposalId, uid) {
         amountTotal: 0,
         currency: currentService.currency || 'eur',
         submissionStatus: 'awaiting_upload',
+        locale: candidateCommunicationLocale(currentService),
         jobId: currentProposal.jobId,
         jobUrl: currentProposal.jobUrl,
         companyId: currentProposal.companyId,
