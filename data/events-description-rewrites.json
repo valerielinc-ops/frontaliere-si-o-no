@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-01T04:20:25.941Z",
+  "generatedAt": "2026-11-01T05:20:25.372Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -109850,6 +109850,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T01:14:23.623Z"
     },
+    "myswitzerland:7d8f07bd18864203aa3cded554be4137::70a65abd6c2c7e70e05dc16051baa4eba0ef12401464343f592b06178e91d5ec": {
+      "id": "myswitzerland:7d8f07bd18864203aa3cded554be4137",
+      "sourceDescriptionHash": "70a65abd6c2c7e70e05dc16051baa4eba0ef12401464343f592b06178e91d5ec",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Maloja; comune: Bregaglia; cantone: GR; categoria: Event; organizzatore: MySwitzerland; data: 2027-09-11; ora: 10:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Maloja; comune: Bregaglia; cantone: GR; categoria: Event; organizzatore: MySwitzerland; data: 2027-09-11; ora: 10:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Maloja; municipality: Bregaglia; canton: GR; category: Event; organiser: MySwitzerland; date: 2027-09-11; time: 10:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Maloja; gemeinde: Bregaglia; kanton: GR; kategorie: Event; veranstalter: MySwitzerland; datum: 2027-09-11; uhrzeit: 10:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Maloja; commune: Bregaglia; canton: GR; catégorie: Event; organisateur: MySwitzerland; date: 2027-09-11; heure: 10:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-01T05:16:48.016Z"
+    },
     "myswitzerland:7d9c5eeffaef4d21a609beb1d5d42ebf::f7a9f6013d83ef3beebd19049a6664c54945872e22afc424d02a3cc767a78764": {
       "id": "myswitzerland:7d9c5eeffaef4d21a609beb1d5d42ebf",
       "sourceDescriptionHash": "f7a9f6013d83ef3beebd19049a6664c54945872e22afc424d02a3cc767a78764",
@@ -183251,15 +183265,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T11:27:42.457Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:7d8f07bd18864203aa3cded554be4137::70a65abd6c2c7e70e05dc16051baa4eba0ef12401464343f592b06178e91d5ec": {
-      "id": "myswitzerland:7d8f07bd18864203aa3cded554be4137",
-      "sourceDescriptionHash": "70a65abd6c2c7e70e05dc16051baa4eba0ef12401464343f592b06178e91d5ec",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-16T05:23:56.880Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
