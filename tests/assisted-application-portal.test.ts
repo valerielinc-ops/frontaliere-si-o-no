@@ -1180,7 +1180,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       locator: vi.fn((selector: string) => selector.includes('[role="option"]') ? options : { first: () => control }),
       getByRole: vi.fn((_role: string, query: { name: string }) => ({ first: () => ({ click: optionClick, query }) })),
     };
-    const page = { frames: () => [frame], mainFrame: () => frame };
+    const page = { frames: () => [frame], mainFrame: () => frame, waitForTimeout: vi.fn(async () => {}) };
     const result = await applyActions(page as any, [{
       id: 'residence-country', kind: 'listbox', label: 'Country of residence',
     }], [{ fieldId: 'residence-country', action: 'select', value: 'Svizzera' }], {}, { pause: async () => {} });

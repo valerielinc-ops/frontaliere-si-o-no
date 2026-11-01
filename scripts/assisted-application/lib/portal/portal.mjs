@@ -3510,7 +3510,13 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     // stable read and plan must prove that the account form is still complete
     // before the Create/Submit CTA is allowed.
     const privacyUrl = privacyStartUrl;
-    const privacyPlan = await planStableRegistrationSurface(filled, privacyUrl);
+    const privacyPlan = preflight.privacy === 'none'
+      // No notice was accepted or changed on this pass. The registration
+      // loop already planned this stable surface after every known answer;
+      // reuse that plan instead of asking the planner a third time and
+      // needlessly widening the account-creation latency budget.
+      ? { status: 'stable', snapshot: accountRegistrationSnapshot(filled), plan: registrationPlan }
+      : await planStableRegistrationSurface(filled, privacyUrl);
     if (privacyPlan.status !== 'stable') {
       await parkRegistrationCredential('privacy_question_surface_unstable');
       return noted({ handoff: 'portal_needs_candidate' });
