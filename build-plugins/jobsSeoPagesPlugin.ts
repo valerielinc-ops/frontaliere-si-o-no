@@ -1073,9 +1073,12 @@ export function replaceActiveJobPostingDates(
  validThrough: string | null,
  crawledAt?: string | null,
 ): string {
- // An active page never loses its JobPosting on a cache hit: a missing date
- // is a broken input, so fail closed and let the reuse layer re-render.
+ // An active page never loses a mandatory date on a cache hit: a missing or
+ // malformed deadline is a broken input, so fail closed and let reuse re-render.
  if (!datePosted) throw new Error('active JobPosting datePosted unavailable');
+ if (!validThrough || Number.isNaN(new Date(validThrough).getTime())) {
+  throw new Error('active JobPosting validThrough unavailable or invalid');
+ }
  const scriptMatch = fragment.match(
   /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/i,
  );
@@ -1083,11 +1086,8 @@ export function replaceActiveJobPostingDates(
  let script = scriptMatch[0];
  const fields: Array<[string, string]> = [
  ['datePosted', datePosted],
- ...(validThrough ? [['validThrough', validThrough] as [string, string]] : []),
+ ['validThrough', validThrough],
  ];
- // A deadline the source no longer states leaves the cached fragment. It is
- // never the first key of the node, so the comma before it goes with it.
- if (!validThrough) script = script.replace(/,\s*"validThrough"\s*:\s*(?:"[^"]*"|null)/, '');
  // Keep the third field optional for legacy callers/tests. The production
  // active-page rewrite supplies the current crawler heartbeat when available.
  if (crawledAt !== undefined) {
@@ -1154,8 +1154,8 @@ function hasCompleteActiveJobPostingContract(fragment: string): boolean {
    if (records.some((record) => {
     // Date fields are deliberately excluded here because the next rewrite
     // step refreshes them on every cache hit. `datePosted` must nevertheless
- // exist so replaceActiveJobPostingDates can replace it; validThrough is
- // optional and that helper adds or removes it from the source deadline.
+    // exist so replaceActiveJobPostingDates can replace it. A missing or
+    // invalid resolved deadline makes that rewrite fail closed and rebuild.
     if (!Object.prototype.hasOwnProperty.call(record, 'datePosted')) return false;
     return validateMandatoryJobPostingFields(record)
      .every(({ field }) => field === 'datePosted' || field === 'validThrough');

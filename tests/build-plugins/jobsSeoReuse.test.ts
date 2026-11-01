@@ -166,12 +166,10 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(() => replaceActiveJobPostingDates(fragment, '', '2026-12-31')).toThrow();
   });
 
-  it('refreshes datePosted and drops validThrough when the source does not state it', () => {
-    const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"old"}</script>';
-    const result = replaceActiveJobPostingDates(fragment, '2026-01-02T00:00:00.000Z', null);
-    expect(result).toContain('"datePosted":"2026-01-02T00:00:00.000Z"');
-    expect(result).not.toContain('validThrough');
-    expect(JSON.parse(result.replace(/<\/?script[^>]*>/g, ''))).toEqual({ '@type': 'JobPosting', datePosted: '2026-01-02T00:00:00.000Z' });
+  it('invalidates active reuse when the resolver cannot supply the mandatory validThrough', () => {
+    const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":null}</script>';
+    expect(() => replaceActiveJobPostingDates(fragment, '2026-01-02T00:00:00.000Z', null))
+      .toThrow('active JobPosting validThrough unavailable or invalid');
   });
 
   it('adds a deadline the source now states to a cached JobPosting without one', () => {
@@ -180,18 +178,22 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(result).toContain('"validThrough":"2026-12-31T00:00:00.000Z"');
   });
 
- it('never derives a deadline from the crawl heartbeat it receives', () => {
+ it('does not substitute the crawl heartbeat when the resolver has no deadline', () => {
   const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"old","crawledAt":"old"}</script>';
-  const result = replaceActiveJobPostingDates(fragment, '2026-01-01', null, '2026-03-01T00:00:00.000Z');
-  expect(result).not.toContain('validThrough');
-  expect(result).toContain('"crawledAt":"2026-03-01T00:00:00.000Z"');
+  expect(() => replaceActiveJobPostingDates(fragment, '2026-01-01', null, '2026-03-01T00:00:00.000Z'))
+   .toThrow('active JobPosting validThrough unavailable or invalid');
  });
 
- it('removes a stale cached validThrough when the source deadline is absent', () => {
+ it('rejects a stale cached validThrough when the resolver has no current deadline', () => {
   const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"2030-01-01T00:00:00.000Z"}</script>';
-  const result = replaceActiveJobPostingDates(fragment, '2026-01-02T00:00:00.000Z', null);
-  expect(result).toContain('"datePosted":"2026-01-02T00:00:00.000Z"');
-  expect(result).not.toContain('validThrough');
+  expect(() => replaceActiveJobPostingDates(fragment, '2026-01-02T00:00:00.000Z', null))
+   .toThrow('active JobPosting validThrough unavailable or invalid');
+ });
+
+ it('rejects a non-parseable resolved validThrough instead of returning invalid active JSON-LD', () => {
+  const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":null}</script>';
+  expect(() => replaceActiveJobPostingDates(fragment, '2026-01-02T00:00:00.000Z', 'not-a-date'))
+   .toThrow('active JobPosting validThrough unavailable or invalid');
  });
 
   it('reads the active validThrough from the source deadline only', () => {

@@ -83,7 +83,7 @@ export function resolveSourceDeadline(raw, now = new Date()) {
 }
 
 const ON_SITE_OR_HYBRID_RE = /(?:^|[^\p{L}\p{N}])(?:on[-\s]?site|vor\s+ort|in\s+sede|in\s+presenza|sur\s+site|hybrid|hybride|ibrid[oa])(?![\p{L}\p{N}])/iu;
-const FULLY_REMOTE_PHRASE_RE = /(?:^|[^\p{L}\p{N}])(?:100\s*%\s*(?:remote|remoto|home[-\s]?office|telelavoro|t[ée]l[ée]travail)|(?:fully|full|completely|entirely)[-\s]remote|remote[-\s](?:only|first)|vollst[äa]ndig\s+remote)(?![\p{L}\p{N}])/iu;
+const FULLY_REMOTE_PHRASE_RE = /(?:^|[^\p{L}\p{N}])(?:100\s*%\s*(?:remote|remoto|home[-\s]?office|telelavoro|t[ée]l[ée]travail)|(?:fully|full|completely|entirely)[-\s]remote|remote[-\s]only|vollst[äa]ndig\s+remote)(?![\p{L}\p{N}])/iu;
 const WORK_MODE_LABEL_RE = /^(?:remote|remoto|da\s+remoto|home[-\s]?office|telelavoro|telearbeit|t[ée]l[ée]travail|smart[-\s]?working|work\s+from\s+home)$/iu;
 
 function hasWorkModeLabel(text) {

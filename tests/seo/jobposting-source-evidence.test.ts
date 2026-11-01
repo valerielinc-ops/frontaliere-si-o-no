@@ -91,6 +91,7 @@ describe('jobLocationType marks only fully remote jobs', () => {
   it.each([
     ['Data Center Technician - Glarus - On-site', 'Glarus'],
     ['Remote Hands Technician', 'Zürich'],
+    ['Remote-first Product Manager', 'Zürich'],
     ['Software Engineer (Hybrid)', 'Lugano'],
     ['Remote Support Engineer', 'Bern'],
     ['Infermiere', 'Lugano'],
@@ -114,6 +115,13 @@ describe('jobLocationType marks only fully remote jobs', () => {
     expect(onSite).not.toHaveProperty('jobLocationType');
     expect(onSite).not.toHaveProperty('applicantLocationRequirements');
     expect(build({ ...job, isRemote: true }).jobLocationType).toBe('TELECOMMUTE');
+  });
+
+  it('does not emit TELECOMMUTE for a remote-first listing with a Swiss office location', () => {
+    const listing = { ...job, title: 'Remote-first Product Manager', location: 'Zürich' };
+    const schema = build({ ...listing, isRemote: isFullyRemoteListing(listing) });
+    expect(schema['@type']).toBe('JobPosting');
+    expect(schema).not.toHaveProperty('jobLocationType');
   });
 });
 
