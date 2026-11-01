@@ -72,6 +72,10 @@ const AUTH_TYPED_WAIT_MS = 600;
 // How long a choice gets to redraw the form it belongs to, and how often one page is planned again for it.
 const REDRAW_WAIT_MS = 3000;
 const MAX_REDRAWS_PER_PAGE = 2;
+const QUESTION_SURFACE_WAIT_MS = 10_000;
+const QUESTION_SURFACE_MIN_OBSERVATION_MS = 6000;
+const QUESTION_SURFACE_STABLE_MS = 1500;
+const QUESTION_SURFACE_POLL_MS = 250;
 // A page with nothing to fill on which the portal itself asks to be loaded again («Something went wrong.
 // Please refresh the page and then try again»: Workday, when the account already holds an application in
 // progress for the posting; its first request for a new one is refused, and the page loaded next is the
@@ -617,6 +621,56 @@ async function awaitFields(page, snapshot, unchanged = () => false) {
 /** A page is the same page when the URL and the field labels are (Workday's steps share one URL). */
 function pageSignature(page, snapshot) {
   return `${page.url()}|${snapshot.fields.map((field) => field.label).join('|')}`;
+}
+
+/** The visible question contract, without values the runner has just filled. */
+function questionSurfaceSignature(snapshot = {}) {
+  const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  const errors = Array.isArray(snapshot.errors) ? snapshot.errors : [];
+  return JSON.stringify({
+    fields: fields.map((field) => [
+      field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
+      field.context || '', field.section || '', field.required === true, field.invalid === true,
+      (Array.isArray(field.options) ? field.options : []).map((option) => [
+        String(typeof option === 'string' ? option : option?.label || ''),
+        String(typeof option === 'string' ? '' : option?.value || ''),
+        typeof option === 'string' ? false : option?.disabled === true,
+        typeof option === 'string' ? false : option?.placeholder === true,
+      ]),
+    ]),
+    errors: errors.map((error) => String(error?.message || error?.text || error || '')),
+  });
+}
+
+/** Wait for the fields exposed by known answers to settle before asking for missing facts. */
+async function waitForStableQuestionSurface(page, snapshot, expectedUrl) {
+  let current = snapshot;
+  let signature = questionSurfaceSignature(snapshot);
+  let quietMs = 0;
+  let observedMs = 0;
+  while (observedMs < QUESTION_SURFACE_WAIT_MS
+    && (observedMs < QUESTION_SURFACE_MIN_OBSERVATION_MS || quietMs < QUESTION_SURFACE_STABLE_MS)) {
+    await page.waitForTimeout(QUESTION_SURFACE_POLL_MS);
+    observedMs += QUESTION_SURFACE_POLL_MS;
+    const next = await extractFields(page, NAVIGATION).catch(() => null);
+    if (!next) {
+      quietMs = 0;
+      if (page.url() !== expectedUrl) return { status: 'unstable', snapshot: current };
+      continue;
+    }
+    current = next;
+    if (page.url() !== expectedUrl || next.url !== expectedUrl) return { status: 'moved', snapshot: current };
+    const nextSignature = questionSurfaceSignature(next);
+    if (nextSignature === signature) quietMs += QUESTION_SURFACE_POLL_MS;
+    else {
+      signature = nextSignature;
+      quietMs = 0;
+    }
+  }
+  return {
+    status: observedMs >= QUESTION_SURFACE_MIN_OBSERVATION_MS && quietMs >= QUESTION_SURFACE_STABLE_MS ? 'stable' : 'unstable',
+    snapshot: current,
+  };
 }
 
 /** The page's visible text, frames included (Greenhouse embeds its form). */
@@ -3518,7 +3572,9 @@ export async function submitViaPortal(ctx) {
     const ownPasswords = new Map();
     const uploaded = new Set();
     const privacyAcceptedPages = new Set();
-    // How often a page was planned again because a choice redrew it, by address.
+    // Bounded redraw recovery follows the logical wizard page, not the URL or
+    // the loop counter (portals often keep one address for every SPA step).
+    let pageEpoch = 0;
     const redraws = new Map();
     // How often a page was loaded again because the portal asked for it, by address.
     const refreshes = new Map();
@@ -3845,6 +3901,7 @@ export async function submitViaPortal(ctx) {
 
       let after = snapshot;
       let unclearQuestions = [];
+      let candidateQuestions = [];
       if (workable(snapshot)) {
         // The planner never sees a password field, nor what a retry finds typed in it.
         const cvFields = preferredCvFields(snapshot.fields);
@@ -3868,17 +3925,7 @@ export async function submitViaPortal(ctx) {
         // must not overwrite the approved CV or leave two conflicting receipts.
         const automaticCvIds = new Set(automaticCvUploads.map(upload => upload.fieldId));
         const plannedActions = [...plan.actions.filter(action => !automaticCvIds.has(action.fieldId)), ...automaticCvUploads];
-        const missingRequired = plan.missingRequired.filter(item => !automaticCvUploads.some(upload => upload.fieldId === item.fieldId));
-        // A required field with no readable label is no question for the
-        // candidate ("select-input-_r_p_"): the agent finds its question on the page.
-        const requirements = portalRequirementsFromMissingRequired(snapshot.fields, missingRequired);
-        const unclear = Boolean(requirements.unreadableFields?.length);
-        if (missingRequired.length && !unclear) {
-          const request = await askCandidate(missingRequired);
-          if (request) return request;
-        }
-        if (unclear) unclearQuestions = missingRequired;
-        if (unclear) agentHint = 'unclear_fields';
+        candidateQuestions = plan.missingRequired.filter(item => !automaticCvUploads.some(upload => upload.fieldId === item.fieldId));
         // A file already uploaded on this page is not uploaded again when the
         // page is planned a second time (Personio empties the input after the upload).
         const uploadKey = (fieldId) => uploadedPortalFieldKey(
@@ -3886,6 +3933,7 @@ export async function submitViaPortal(ctx) {
         );
         const actions = plannedActions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
         const plannedUrl = page.url();
+        const redrawKey = `${pageEpoch}|${plannedUrl}`;
         // Choices first: one of them may redraw the form (on Workday the name and address fields follow the
         // country), and what was typed before into fields that are no more is lost without a word (dry run of
         // 2026-10-07: the address went into «Address Line 1», the country was chosen last, and the form that
@@ -3902,13 +3950,13 @@ export async function submitViaPortal(ctx) {
         ];
         // The form after the choices: with other fields than the ones planned it is read and planned again
         // (twice at most for one page), and nothing is typed into what is no longer there.
-        const labelsOf = (view) => view.fields.map(field => `${field.id}:${field.kind}:${field.label}`).join('|');
         let redrawn = false;
-        if (choices.length && (redraws.get(plannedUrl) || 0) < MAX_REDRAWS_PER_PAGE) {
+        if (choices.length) {
           for (let waited = 0; waited < REDRAW_WAIT_MS && !redrawn && page.url() === plannedUrl; waited += 500) {
             await page.waitForTimeout(500);
             const now = await extractFields(page, NAVIGATION).catch(() => null);
-            redrawn = Boolean(now) && now.fields.length > 0 && labelsOf(now) !== labelsOf(snapshot);
+            redrawn = Boolean(now) && now.fields.length > 0
+              && questionSurfaceSignature(now) !== questionSurfaceSignature(snapshot);
           }
         }
         if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
@@ -3958,7 +4006,9 @@ export async function submitViaPortal(ctx) {
           return await handoff('portal_choice_not_registered');
         }
         if (redrawn && page.url() === plannedUrl) {
-          redraws.set(plannedUrl, (redraws.get(plannedUrl) || 0) + 1);
+          const redrawCount = redraws.get(redrawKey) || 0;
+          if (redrawCount >= MAX_REDRAWS_PER_PAGE) return await handoff('portal_needs_candidate');
+          redraws.set(redrawKey, redrawCount + 1);
           evidence.steps.at(-1).redrawn = true;
           snapshot = await awaitFields(page, await extractFields(page));
           step -= 1; // the same page, planned again
@@ -3975,6 +4025,7 @@ export async function submitViaPortal(ctx) {
         // and shows the CV page a moment later): plan that page, instead of
         // judging it by the buttons of the one just filled. Giro di prova 2026-10-01.
         if (page.url() !== plannedUrl) {
+          pageEpoch += 1;
           snapshot = await awaitFields(page, await extractFields(page));
           continue;
         }
@@ -3985,6 +4036,38 @@ export async function submitViaPortal(ctx) {
         for (let waited = 0; waited < buttonWaitMs && !findButton(after.buttons, SUBMIT_RE) && !findButton(after.buttons, NEXT_RE); waited += 2000) {
           await page.waitForTimeout(2000);
           after = await extractFields(page, NAVIGATION);
+        }
+        if (actions.length || candidateQuestions.length) {
+          const stable = await waitForStableQuestionSurface(page, after, plannedUrl);
+          after = stable.snapshot;
+          if (stable.status === 'moved') {
+            pageEpoch += 1;
+            snapshot = await awaitFields(page, await extractFields(page));
+            continue;
+          }
+          if (stable.status !== 'stable') return await handoff('portal_needs_candidate');
+          if (questionSurfaceSignature(after) !== questionSurfaceSignature(snapshot)) {
+            const redrawCount = redraws.get(redrawKey) || 0;
+            if (redrawCount >= MAX_REDRAWS_PER_PAGE) return await handoff('portal_needs_candidate');
+            redraws.set(redrawKey, redrawCount + 1);
+            evidence.steps.at(-1).redrawn = true;
+            snapshot = after;
+            step -= 1;
+            continue;
+          }
+          snapshot = after;
+          if (candidateQuestions.length) {
+            // Ask only after known answers have settled and any fields they
+            // reveal have been re-read and planned on the next pass.
+            const requirements = portalRequirementsFromMissingRequired(snapshot.fields, candidateQuestions);
+            if (requirements.unreadableFields?.length) {
+              unclearQuestions = candidateQuestions;
+              agentHint = 'unclear_fields';
+            } else {
+              const request = await askCandidate(candidateQuestions);
+              if (request) return request;
+            }
+          }
         }
       }
       after = await awaitCaptcha(page, after, { enabled: Boolean(extensionPath) });
@@ -4014,6 +4097,7 @@ export async function submitViaPortal(ctx) {
         }
         if (agent?.status === 'done') {
           if (agent.moved || page.url() !== agentUrl) {
+            pageEpoch += 1;
             snapshot = await awaitFields(page, await extractFields(page));
             continue;
           }
@@ -4075,6 +4159,8 @@ export async function submitViaPortal(ctx) {
         const labelsBefore = after.fields.map((field) => field.label).join('|');
         snapshot = await awaitFields(page, snapshot, (current) => pageSignature(page, current) === before
           || (current.fields.length > 0 && current.fields.map((field) => field.label).join('|') === labelsBefore));
+        const movedToNextPage = pageSignature(page, snapshot) !== before;
+        if (movedToNextPage) pageEpoch += 1;
         // Still the same page: the form refused a value. A correction by the
         // planner, one by the agent (it reads the page's own messages), then the owner.
         stuckOnPage = pageSignature(page, snapshot) === before ? stuckOnPage + 1 : 0;
@@ -4114,6 +4200,7 @@ export async function submitViaPortal(ctx) {
         }
         if (repair?.status !== 'done') return await handoff('portal_required_fields_unfilled');
         if (repair.moved || page.url() !== repairUrl) {
+          pageEpoch += 1;
           snapshot = await awaitFields(page, await extractFields(page));
           step -= 1;
           continue;
