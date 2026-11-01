@@ -213,17 +213,18 @@ function validateEvent(schema, filePath) {
   // has no price, an unpriced Offer is allowed without inventing a ticket URL,
   // amount, currency or availability. A zero still needs the free-access claim
   // that supports it. AggregateOffer uses lowPrice instead of price.
-  const offerType = String(schema.offers?.['@type'] || 'Offer').split('/').pop();
+  const offerIsObject = schema.offers !== null && typeof schema.offers === 'object' && !Array.isArray(schema.offers);
+  const offerType = offerIsObject ? String(schema.offers['@type'] || 'Offer').split('/').pop() : '';
   const offerAmountField = offerType === 'AggregateOffer' ? 'lowPrice' : 'price';
   if (schema.offers !== undefined && schema.offers !== null) {
-    if (typeof schema.offers !== 'object') {
+    if (!offerIsObject) {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
     } else {
       const hasPrice = Object.prototype.hasOwnProperty.call(schema.offers, offerAmountField);
       const price = schema.offers[offerAmountField];
       if (!hasPrice) {
-        if (offerType !== 'Offer') {
-          errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event with unknown price must use Offer' });
+        if (!Object.prototype.hasOwnProperty.call(schema.offers, '@type') || offerType !== 'Offer') {
+          errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event with unknown price must use an explicit Offer' });
         }
         for (const field of ['priceCurrency', 'availability', 'validFrom', 'url']) {
           if (Object.prototype.hasOwnProperty.call(schema.offers, field) && !isNonEmpty(schema.offers[field])) {
