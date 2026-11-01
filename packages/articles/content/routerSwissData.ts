@@ -1091,7 +1091,6 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lugano-calciomercato': { it: 'lugano-calciomercato', en: 'russian-at-lugano-you-need-patience', de: 'russisch-im-lugano-geduld-ist-gefragt', fr: 'russe-a-lugano-il-faut-de-la-patience' },
  'svizzera-neutralita-si': { it: 'svizzera-neutralita-si', en: 'switzerland-neutrality-yes', de: 'schweiz-neutralita-jja', fr: 'suisse-neutralite-oui' },
  'permesso-l-canton-friburgo-validita-e-proroga': { it: 'permesso-l-canton-friburgo-validita-e-proroga', en: 'permesso-l-canton-fribourg-validita-e-proroga-en', de: 'permesso-l-canton-freiburg-validita-e-proroga-de', fr: 'permesso-l-canton-fribourg-validita-e-proroga-fr' },
- 'sospensione-lavori-muro-anti-migranti-big-bend-texas': { it: 'sospensione-lavori-muro-anti-migranti-big-bend-texas', en: 'suspension-of-work-on-anti-migrant-wall-in-big-bend-texas', de: 'arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen', fr: 'suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas' },
  'infantino-fifa-lamour-licenziato': { it: 'infantino-fifa-lamour-licenziato', en: 'infantino-fifa-lamour-fired', de: 'infantino-fifa-lamour-abgesetzt', fr: 'infantino-fifa-lamour-licencie' },
  'assegni-familiari-canton-friburgo': { it: 'assegni-familiari-canton-friburgo', en: 'child-allowance-canton-fribourg', de: 'kindergeld-kanton-freiburg', fr: 'allocation-natality-canton-fribourg' },
  'sistema-scolastico-canton-friburgo': { it: 'sistema-scolastico-canton-friburgo', en: 'school-system-canton-fribourg', de: 'schulsystem-kanton-freiburg', fr: 'systeme-educatif-canton-fribourg' },
@@ -2908,6 +2907,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sem-rinnovo-simic-paralisi': { it: 'sem-rinnovo-simic-paralisi', en: 'sem-simic-renewal-paralysis', de: 'sem-simic-erneuerung-blockade', fr: 'sem-renouvellement-simic-paralysie' },
  'farmaci-riserve-finanziamento': { it: 'farmaci-riserve-finanziamento', en: 'medicine-stock-funding', de: 'medikamente-reserven-finanzierung', fr: 'medicaments-reserves-financement' },
  'svizzera-rischi-climatici-strumenti': { it: 'svizzera-rischi-climatici-strumenti', en: 'switzerland-climate-risk-tools', de: 'schweiz-klima-risiken-werkzeuge', fr: 'suisse-risques-climatiques-outils' },
+ 'scontro-fiscale-coppie-atto': { it: 'scontro-fiscale-coppie-atto', en: 'tax-conflict-couples-act', de: 'steuerkonflikt-paare-akt', fr: 'conflit-fiscal-couples-acte' },
+ 'sospensione-lavori-muro-anti-migranti-big-bend-texas': { it: 'sospensione-lavori-muro-anti-migranti-big-bend-texas', en: 'suspension-of-work-on-anti-migrant-wall-in-big-bend-texas', de: 'arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen', fr: 'suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

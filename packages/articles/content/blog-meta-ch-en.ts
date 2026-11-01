@@ -8457,7 +8457,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.big-tech-franchi-bolla-ia.excerpt': 'U.S. tech giants issue Swiss franc bonds to finance data centers.',
     'blog.article.big-tech-franchi-bolla-ia.imageAlt': 'Swiss urban skyline with offices and technology infrastructure linked to finance.',
     'blog.article.svizzera-vietnam-relazioni-2026.title': 'Switzerland and Vietnam intensify trade and investment',
-    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin received in Hanoi on October 17, 2026 EFTA-Vietnam agreement expected for October 18 Projects on trade and sustainable urban development Statements',
+    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin received in Hanoi on October 17, 2026 EFTA-Vietnam agreement expected for October 18 Projects on trade and sustainable urban development.',
     'blog.article.svizzera-vietnam-relazioni-2026.imageAlt': 'View of Lake Lugano with the Alps in the background, representing Switzerland-Vietnam cooperation on trade and investment.',
     'blog.article.microdrama-pubblicita-tiktok-instagram.title': 'Sexy microdrama promotes a paid app on TikTok',
     'blog.article.microdrama-pubblicita-tiktok-instagram.excerpt': 'AI ads depict sex somewhere between bizarre and fantasy.',
@@ -8657,6 +8657,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-rischi-climatici-strumenti.title': 'Over 30 tools for future climate risks in Switzerland',
     'blog.article.svizzera-rischi-climatici-strumenti.excerpt': 'Over 30 tools for future climate risks NCCS-Impacts launched in 2022 Five projects, over 100 people involved Approximately 9 million francs',
     'blog.article.svizzera-rischi-climatici-strumenti.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.scontro-fiscale-coppie-atto.title': 'Modernizers vs. conservatives: Act II in the tax battle over couples',
+    'blog.article.scontro-fiscale-coppie-atto.excerpt': 'March 8 is presented as a “revolution” under threat The model identified as a threat is income pooling The source refers to the second act of the tax dispute',
+    'blog.article.scontro-fiscale-coppie-atto.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

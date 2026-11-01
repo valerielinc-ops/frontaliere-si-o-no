@@ -1,0 +1,20 @@
+{
+  "companyKey": "averecura",
+  "companyName": "averecura",
+  "companyHost": "app.reflinejobs.io",
+  "platform": "reflinejobs.io",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.reflinejobs.io/3034/0072/index.html"
+  ],
+  "detailTemplate": "/3034/0072/index.html",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Stationsleitung Geriatrie 100%"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-31T12:51:51.617Z",
+  "candidateKey": "averecura.ch"
+}

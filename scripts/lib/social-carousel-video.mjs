@@ -234,6 +234,46 @@ export function buildSingleStatVideoFfmpegArgs(inputPaths, outputPath) {
   return args;
 }
 
+/**
+ * Cut the answer cards to the spoken audio. The card durations come from the
+ * voice length, so a card never outlives the sentence it shows.
+ *
+ * @param {string[]} inputPaths
+ * @param {number[]} durations seconds per card
+ * @param {string} audioPath
+ * @param {string} outputPath
+ */
+export function buildAnswerVideoFfmpegArgs(inputPaths, durations, audioPath, outputPath) {
+  if (!Array.isArray(inputPaths) || inputPaths.length === 0) throw new Error('a TikTok answer video needs at least one card');
+  if (durations?.length !== inputPaths.length) throw new Error('a TikTok answer video needs one duration per card');
+  if (!String(audioPath || '').trim() || !String(outputPath || '').trim()) throw new Error('a TikTok answer video needs audio and output paths');
+
+  const args = ['-hide_banner', '-loglevel', 'error', '-y'];
+  inputPaths.forEach((inputPath, index) => {
+    args.push('-loop', '1', '-t', durations[index].toFixed(3), '-i', String(inputPath));
+  });
+  args.push('-i', String(audioPath));
+
+  const filters = inputPaths.map((_, index) => slideFilter(index));
+  filters.push(`${inputPaths.map((_, index) => `[v${index}]`).join('')}concat=n=${inputPaths.length}:v=1:a=0[video]`);
+  args.push(
+    '-filter_complex', filters.join(';'),
+    '-map', '[video]',
+    '-map', `${inputPaths.length}:a:0`,
+    '-c:v', 'libx264',
+    '-preset', 'medium',
+    '-pix_fmt', 'yuv420p',
+    '-r', String(TIKTOK_VIDEO_FPS),
+    '-c:a', 'aac',
+    '-b:a', '128k',
+    '-ar', '44100',
+    '-ac', '2',
+    '-movflags', '+faststart',
+    String(outputPath),
+  );
+  return args;
+}
+
 function processError(binary, result) {
   const detail = result?.error?.message || result?.stderr?.trim() || `exit ${result?.status ?? 'unknown'}`;
   return new Error(`${binary} failed: ${detail}`);
@@ -339,4 +379,34 @@ export function renderHookThreeSlidesVideo(slideBuffers, opts = {}) {
 export function renderSingleStatVideo(slideBuffers, opts = {}) {
   const spotlight = slideBuffers[1] || slideBuffers[0];
   return renderWithBuilder([spotlight], buildSingleStatVideoFfmpegArgs, opts);
+}
+
+/**
+ * Render the spoken answer: vertical cards timed on the WAV voice track.
+ *
+ * @param {Buffer[]} cardBuffers
+ * @param {number[]} durations seconds per card
+ * @param {Buffer} wav
+ */
+export function renderAnswerVideo(cardBuffers, durations, wav, { ffmpegPath = 'ffmpeg', ffprobePath = 'ffprobe' } = {}) {
+  const tmpDir = mkdtempSync(path.join(os.tmpdir(), 'social-answer-video-'));
+  const outputPath = path.join(tmpDir, 'answer.mp4');
+  try {
+    const audioPath = path.join(tmpDir, 'voice.wav');
+    writeFileSync(audioPath, wav);
+    const inputPaths = cardBuffers.map((buffer, index) => {
+      const inputPath = path.join(tmpDir, `card-${index + 1}.jpg`);
+      writeFileSync(inputPath, buffer);
+      return inputPath;
+    });
+    const result = spawnSync(ffmpegPath, buildAnswerVideoFfmpegArgs(inputPaths, durations, audioPath, outputPath), { encoding: 'utf8' });
+    if (result.status !== 0) throw processError(ffmpegPath, result);
+    const bytes = statSync(outputPath).size;
+    if (!bytes) throw new Error('ffmpeg produced an empty TikTok answer video');
+    const shape = probeVideo(outputPath, ffprobePath);
+    const buffer = readFileSync(outputPath);
+    return { buffer, bytes, sha256: createHash('sha256').update(buffer).digest('hex'), ...shape };
+  } finally {
+    rmSync(tmpDir, { recursive: true, force: true });
+  }
 }

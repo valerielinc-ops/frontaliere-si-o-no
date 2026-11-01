@@ -8,7 +8,6 @@ import {
   getActiveJobCountsByLocale,
   isJobActiveForLocale,
   isJobBoardLandingPath,
-  FIRE_EMOJI_THRESHOLD,
   JOB_BOARD_LANDING_PATHS,
   type JobBoardLocale,
 } from '../build-plugins/jobBoardSeo'
@@ -90,39 +89,32 @@ describe('isJobBoardLandingPath', () => {
 describe('buildJobBoardSeo (F3a — CTR-optimized titles)', () => {
   const year = 2026
 
-  it('injects count and fire emoji on title when count >= threshold (IT)', () => {
+  it('injects the live count on title, without emoji (IT)', () => {
     const entry = buildJobBoardSeo('it', 2408, year)
-    // Short <title> (50-66 chars): keyword + year + count + 🔥, NO brand
+    // Short <title> (50-66 chars): keyword + year + count, NO brand
     expect(entry.title).toContain('2408')
-    expect(entry.title).toContain('🔥')
+    expect(entry.title).not.toMatch(/\p{Extended_Pictographic}/u)
     expect(entry.title).toContain(`${year}`)
     expect(entry.title).toContain('Offerte di lavoro Ticino')
     // OG title retains legacy brand suffix (unconstrained length)
-    expect(entry.ogT.startsWith('🔥 2408 ')).toBe(true)
+    expect(entry.ogT.startsWith('2408 ')).toBe(true)
     expect(entry.ogT).toContain('Offerte di Lavoro Ticino')
     // Desc includes number + primary keyword + CTA
     expect(entry.desc).toContain('2408')
     expect(entry.desc).toContain('offerte di lavoro in Ticino')
-    expect(entry.desc).toContain('Leggi gli annunci; accesso gratuito per candidarti.')
+    expect(entry.desc).toContain('accesso gratuito')
   })
 
-  it('omits fire emoji on title when count below threshold', () => {
-    const below = FIRE_EMOJI_THRESHOLD - 1
-    const entry = buildJobBoardSeo('it', below, year)
-    expect(entry.title).toContain(String(below))
-    expect(entry.title).not.toContain('🔥')
-  })
-
-  it('injects fire emoji exactly at threshold', () => {
-    const entry = buildJobBoardSeo('en', FIRE_EMOJI_THRESHOLD, year)
-    expect(entry.title).toContain('🔥')
-    expect(entry.title).toContain(String(FIRE_EMOJI_THRESHOLD))
-    expect(entry.ogT.startsWith(`🔥 ${FIRE_EMOJI_THRESHOLD} `)).toBe(true)
+  it('keeps title and og title free of emoji at any count', () => {
+    for (const count of [499, 500, 5000]) {
+      const entry = buildJobBoardSeo('en', count, year)
+      expect(entry.title).toContain(String(count))
+      expect(`${entry.title} ${entry.ogT}`).not.toMatch(/\p{Extended_Pictographic}/u)
+    }
   })
 
   it('falls back to count-less copy when count is zero', () => {
     const entry = buildJobBoardSeo('it', 0, year)
-    expect(entry.title).not.toContain('🔥')
     expect(entry.title).toContain('Offerte di lavoro Ticino')
     // Zero-count desc has no numeric jobs count
     expect(entry.desc).not.toMatch(/\b\d{2,}\b/)

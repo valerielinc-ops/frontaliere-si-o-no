@@ -27,11 +27,54 @@ giù come conseguenza.
 L'economia: un estrattore di famiglia per un vendor costa come un crawler per
 una sola azienda, e rende ogni tenant che quel vendor ha.
 
+Questa intuizione vale per chi usa un ATS, non per la micro-impresa. Misurato il
+31/10/2026 sui candidati tracciati: 4.474 self-hosted contro 748 su piattaforma.
+La salumeria non affitta nulla: scrive una frase sul proprio sito, e il loop deve
+saperla leggere. Per questo TRACE accetta anche un'offerta in homepage e rilegge
+periodicamente chi oggi non assume.
+
+Tre regole seguono da qui:
+
+- **Dominio dall'email.** Gli annunci SECO portano spesso un indirizzo di
+  candidatura. Si tiene solo il dominio, mai la casella. Caselle gratuite, ISP e
+  domini visti su due datori diversi (agenzie) non contano. Il dominio resta un
+  suggerimento: `resolveDomain` lo accetta solo se la pagina nomina il datore.
+  Misurato su 100 annunci ticinesi: 15 datori con suggerimento, 11 risolti.
+- **Segnale in homepage.** Se non c'è pagina carriere ma la homepage annuncia un
+  posto (`hasHomepageHiringSignal`), la homepage diventa il seed
+  (`trailVia: homepage-hiring-signal`).
+- **"Nessuna pagina carriere" scade.** Il verdetto descrive una data, non un
+  datore: dopo 60 giorni TRACE lo rimette in coda, 150 per run, Ticino prima.
+
+### Dal nome al dominio
+
+`resolveDomain` indovina e verifica. Tre cose lo tengono onesto.
+
+- **Il nome può dire già il dominio.** `Iride.ch SA` è `iride.ch`, non
+  `iridech.ch`. Un dominio scritto nel nome legale vale come quello letto
+  dall'email: basta che la pagina nomini il datore.
+- **Gli n-grammi costano poco perché il DNS filtra prima dell'HTTP.** Da un nome
+  nascono fino a 36 domini: `&` scritto `and`/`e`, articoli che aprono il nome
+  (`la-motta`), parole come `garage` e `ristorante` tenute nelle sequenze. Solo i
+  domini che il DNS conosce consumano una delle 10 richieste per datore, in
+  ordine, `.ch` prima di `.com`. Un dominio inesistente non costa più quattro
+  tentativi con backoff.
+- **L'apex che rimanda a `www.` è il caso normale.** `politeFetch` ammette solo
+  l'origine dell'URL ricevuto, quindi `cianilugano.ch → www.cianilugano.ch` era
+  un rifiuto di policy e un sito vero sembrava assente. La verifica ora ammette
+  apex e `www.` dello stesso dominio, e nessun'altra origine.
+
+Più tentativi significano più omonimi, quindi la verifica è più stretta: la soglia
+resta 3, un token sotto i cinque caratteri deve stare da solo (`zio` è dentro
+`servizio`), e una pagina che copre solo parte del nome deve anche nominare CAP o
+località. I "dominio non risolto" precedenti tornano in coda una volta sola, 150
+per run, Ticino prima (`reviveUnresolvedDomainCandidates`).
+
 ## I sei stadi
 
 | stadio | script | cosa fa |
 |---|---|---|
-| DISCOVER | `prospect-discover.mjs` | quattro sorgenti riempiono la coda dei candidati |
+| DISCOVER | `prospect-discover.mjs` | cinque sorgenti riempiono la coda dei candidati |
 | TRACE | `prospect-trace.mjs` | segue la traccia carriere e impara le piattaforme |
 | EXPAND | `prospect-expand.mjs` | enumera i tenant di una piattaforma — qui la copertura moltiplica |
 | SYNTHESIZE | `prospect-synthesize.mjs` | genera la spec del crawler dalla pagina viva |
@@ -40,7 +83,7 @@ una sola azienda, e rende ogni tenant che quel vendor ha.
 
 `prospect-report.mjs` stampa lo stato e **dove il loop non arriva**.
 
-## Le quattro sorgenti di scoperta
+## Le cinque sorgenti di scoperta
 
 | sorgente | costo | cosa vede | resa misurata |
 |---|---|---|---|
@@ -48,6 +91,7 @@ una sola azienda, e rende ogni tenant che quel vendor ha.
 | `seco` | API pubblica | chi assume **ora**, per obbligo di legge (Stellenmeldepflicht) | 5.923 datori nuovi su 26 cantoni |
 | `osm` | Overpass | imprese con sito, per cantone | 1.411 in Ticino |
 | `web` | indice Common Crawl | pagine carriere di **tutto il web svizzero** | ~11 datori per pagina d'indice, su 1.223 pagine |
+| `zefix` | SPARQL LINDAS | ogni società iscritta, anche senza annunci né sito | 15 siti su 80 società ticinesi recenti |
 
 Nessuna richiede chiave o quota.
 
@@ -56,11 +100,24 @@ Un risultato parziale resta utilizzabile e non viene contato come outage totale.
 Lo storico separa i record ricevuti dai nuovi candidati davvero inseriti in
 coda; il report tratta i record senza outcome come `legacy/unknown`.
 
+`zefix` è l'unica sorgente che dà un'identità e nessun segnale. Registro di
+commercio: nome legale, sede, scopo. Lo scopo serve a scartare, non resta nel
+candidato: fuori holding, immobiliari e casse pensioni (18% delle righe sul
+campione ticinese), oltre a ditte individuali e associazioni per forma giuridica.
+Una riga non riapre un candidato morto e non fa da prova di assunzione: ogni
+stadio dopo cerca la sua evidenza sul sito. Entrano 60 candidati nuovi per run,
+Ticino prima, iscrizioni nuove prima e poi l'arretrato dal più recente, con un
+cursore per cantone in `zefix-cursors.json`. A questo ritmo l'arretrato ticinese
+copre più di un anno e `candidates.json` cresce di circa 20 KB al giorno, poi i
+morti escono con la ritenzione a 90 giorni. Le righe finiscono nel bucket
+`fallback` di TRACE, il più lento. Dati: opendata.swiss, «Open use. Must provide
+the source», citati in `THIRD_PARTY_NOTICES.md`.
+
 Il budget predefinito di Common Crawl è 40 pagine per run e quello OSM è 3
 cantoni per run. Common Crawl usa una permutazione dell'intero intervallo della
 collection, riprova per prime le pagine fallite e conserva la copertura per
 collection. Con 1.230 pagine, 40 per run completano un passaggio in circa 31
-run. TRACE è salito da 300 a 450 candidati al giorno; la pausa minima per host
+run. TRACE è salito da 300 a 1.000 candidati al giorno; la pausa minima per host
 e la concorrenza restano invariate.
 
 ## Aggregatori: esclusi per costruzione

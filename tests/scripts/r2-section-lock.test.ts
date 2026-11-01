@@ -447,6 +447,64 @@ globalThis.fetch = async (_url, options = {}) => {
     await releaseSectionLock('frontaliere', { owner: lock.owner, leaseId: lock.leaseId, request });
   });
 
+  it('waits on a held lock with reads, spending one PUT until the lock looks free', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    const held = await acquireSectionLock('frontaliere', { owner: 'holder', request: baseRequest, timeoutMs: 1_000 });
+    const methods: string[] = [];
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      methods.push(input.method);
+      return baseRequest(input);
+    };
+    let polls = 0;
+
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'waiter',
+      request,
+      timeoutMs: 60_000,
+      sleep: async (ms: number) => {
+        if (ms === 100) return;
+        polls += 1;
+        if (polls === 5) objects.delete(held.key);
+      },
+    });
+
+    expect(lock.owner).toBe('waiter');
+    expect(polls).toBe(5);
+    expect(methods.filter((method) => method === 'PUT')).toHaveLength(2);
+    expect(methods.filter((method) => method === 'GET').length).toBeGreaterThanOrEqual(5);
+  });
+
+  it('takes over a lock that expires while waiting without a failed create', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    let clock = 1_000;
+    await acquireSectionLock('frontaliere', {
+      owner: 'holder',
+      request: baseRequest,
+      now: () => clock,
+      leaseMs: 10_000,
+    });
+    const headers: Array<Record<string, string>> = [];
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      if (input.method === 'PUT') headers.push(input.headers ?? {});
+      return baseRequest(input);
+    };
+
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'waiter',
+      request,
+      now: () => clock,
+      timeoutMs: 60_000,
+      pollMs: 6_000,
+      sleep: async (ms: number) => {
+        clock += ms;
+      },
+    });
+
+    expect(lock.owner).toBe('waiter');
+    expect(objects.get(lockKey('frontaliere'))?.payload.owner).toBe('waiter');
+    expect(headers.map((sent) => (sent['if-none-match'] ? 'create' : 'takeover'))).toEqual(['create', 'takeover']);
+  });
+
   it('reconciles a committed section lock when the PUT response is ambiguous', async () => {
     const { request: baseRequest, objects } = fakeR2();
     let ambiguous = true;

@@ -40,6 +40,7 @@ const MUST_ALLOW = [
   '/cerca-lavoro-ticino/',
   '/llms.txt',
   '/llms-full.txt',
+  '/llms-index.txt',
   '/.well-known/llms.txt',
   '/data/fuel-prices.json',
   '/data/health-premiums.json',
@@ -57,7 +58,11 @@ const WELCOMED = [
   'OAI-SearchBot',
   'Google-Extended',
   'ClaudeBot',
+  'Claude-User',
+  'Claude-SearchBot',
   'PerplexityBot',
+  'Perplexity-User',
+  'MistralAI-User',
   'Applebot',
   'CCBot',
   'SemrushBot',
@@ -113,6 +118,16 @@ describe('public/robots.txt group semantics (RFC 9309)', () => {
     const star = parsed.groups.find((g) => g.agents.includes('*'))!;
     for (const a of ['googlebot', 'bingbot', 'gptbot', 'claudebot', 'perplexitybot', 'oai-searchbot']) {
       expect(star.agents).toContain(a);
+    }
+  });
+
+  it('names only live product tokens, never retired or invented ones', () => {
+    const star = parsed.groups.find((g) => g.agents.includes('*'))!;
+    for (const a of ['claude-user', 'claude-searchbot', 'perplexity-user', 'mistralai-user']) {
+      expect(star.agents).toContain(a);
+    }
+    for (const a of ['claude-web', 'anthropic-ai', 'neevabot', 'msnbot', 'slurp', 'copilotbot', 'grokbot', 'qwenbot', 'mistralbot', 'deepseekbot']) {
+      expect(star.agents).not.toContain(a);
     }
   });
 

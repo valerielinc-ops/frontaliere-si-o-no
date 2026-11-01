@@ -33,6 +33,7 @@ import { cdnBlogImage } from './seo/blogImageCdn';
 import { resolveArticleAuthorUrl, loadArticleAuthorRegistry, type ArticleAuthorRegistry } from './seo/articleAuthorUrl';
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingFacts, buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
+import { isFullyRemoteListing } from '../scripts/lib/jobposting-field-provenance.mjs';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../build-plugins/shared/jobPostingFaq';
 import { resolveJobApplicationUrl } from './jobApplicationDestination';
 import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
@@ -474,15 +475,13 @@ async function resolveJobSeoBySlug(
  const canonicalUrl = `${BASE_URL}${canonicalLocalePath}`;
  const address = resolveJobAddress(job);
  const salary = resolveJobSalary(job);
- // isRemote detection mirrors build-plugins/jobsSeoPagesPlugin.ts's regex so
+ // isRemote detection shares build-plugins/jobsSeoPagesPlugin.ts's predicate so
  // both paths agree on the same job. Computed BEFORE canonicalInput (rather
  // than after canonicalSchema, as before) so it can be threaded into the
  // canonical builder — otherwise buildJobPostingSchema never learns a job is
  // remote and silently omits `jobLocationType`/`applicantLocationRequirements`
  // on the SPA path, unlike the SSG path (parity fix).
- const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
- `${localizedTitle} ${localizedDescription} ${job?.location || ''}`
- );
+ const isRemote = isFullyRemoteListing({ title: job?.title, location: job?.location });
  // Delegate to the canonical builder — see
  // build-plugins/shared/jobPostingSchema.ts. It guarantees Google's required
  // JobPosting fields and fills the site's complete non-critical contract with
@@ -504,16 +503,23 @@ async function resolveJobSeoBySlug(
  addressCountry: address.country,
  postalCode: address.postalCode,
  streetAddress: address.streetAddress,
+ streetAddressSource: job?.streetAddressSource,
+ companyRegisteredAddress: job?.companyRegisteredAddress,
+ companyKnownAddress: job?.companyKnownAddress,
  postingDateSource: job?.postingDateSource,
  datePosted: job?.datePosted,
  postedDate: job?.postedDate,
  firstSeenAt: job?.firstSeenAt,
+ lastSeenAt: job?.lastSeenAt,
+ lastObservedAt: job?.lastObservedAt,
  crawledAt: job?.crawledAt,
+ scrapedAt: job?.scrapedAt,
  updatedAt: job?.updatedAt,
  employmentType: job?.employmentType,
  contract: job?.contract,
  contractType: job?.contractType,
  validThrough: job?.validThrough,
+ validThroughSource: job?.validThroughSource,
  salaryMin: salary?.minValue ?? null,
  salaryMax: salary?.maxValue ?? null,
  salaryCurrency: salary?.currency,
@@ -1510,7 +1516,7 @@ function getLocalizedSectionLabel(section: string, fallback: string, cantonCode?
  */
 function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blogTitle?: string): Record<string, any> {
  const crumbs: { name: string; path: string }[] = [
- { name: ({ it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' } as Record<Locale, string>)[locale] ?? 'Home', path: '/' },
+ { name: ({ it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' } as Record<Locale, string>)[locale] ?? 'Home', path: locale === 'it' ? '/' : `/${locale}/` },
  ];
 
  if (route.activeTab === 'blog') {
@@ -2069,6 +2075,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  // internal job search `?q=` strings (Issue 24, 531 hreflang conflicts on
  // /cerca-lavoro-ticino/?q=...). Google honours the canonical → consolidates;
  // Semrush stops surfacing the URLs as blocked or as hreflang conflicts.
+ // `?q=` went back under a robots.txt Disallow that binds every crawler since
+ // 2026-10, so this branch only serves the head after a client navigation.
  const filterQueryKeys = ['canton', 'age', 'q'] as const;
  const hasFilterQuery = (() => {
  try {

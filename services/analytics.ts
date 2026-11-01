@@ -103,7 +103,7 @@ import { jobJourneyFields, recordJobJourneyStep, type JobJourneyStep, type JobJo
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { runAfterNextPaint } from './afterNextPaint';
 import { sanitizeTelemetryProperties } from './analyticsUrlPrivacy.js';
-import { buildResourceErrorLabel } from './resourceErrorLabel';
+import { buildResourceErrorDetails, buildResourceErrorLabel } from './resourceErrorLabel';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
@@ -120,6 +120,7 @@ import { APPLICATION_CONCIERGE_PATH } from '../functions/src/lib/newsletterUrlPa
 import { readBuildIdForTelemetry } from './buildInfo';
 import { jobGateNewsletterTags } from './jobGateExperiment';
 import { GA4_ERROR_EVENTS, isNonProductionTelemetryHost } from './nonProductionHost';
+import { isStalePassiveGa4Event, neutralizeGa4TrafficParams } from './ga4TrafficParams';
 
 // Keep this named export on the analytics chunk for compatibility with
 // AdSenseBanner assets cached by browsers before the bot gate moved to the
@@ -441,6 +442,8 @@ function _doSetProps(properties: Record<string, string | null>) {
  }
 }
 
+let lastGa4EventAt: number | null = null;
+
 const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
  const onSent = typeof params?.event_callback === 'function' ? params.event_callback as () => void : undefined;
  if (params && 'event_callback' in params) {
@@ -456,6 +459,10 @@ const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
  // production errors: keep them out of the GA4 property the backlog feeder
  // reads (see ./nonProductionHost).
  if (GA4_ERROR_EVENTS.has(eventName) && isNonProductionTelemetryHost()) return;
+ const now = Date.now();
+ if (isStalePassiveGa4Event(eventName, lastGa4EventAt, now)) return;
+ lastGa4EventAt = now;
+ params = neutralizeGa4TrafficParams(params);
  if (_firebaseReady) {
   _doLog(eventName, params, onSent);
  } else {
@@ -1888,10 +1895,12 @@ export const Analytics = {
  if (resErrors) {
  sessionStorage.removeItem('_resourceErrors');
  const errors: any[] = JSON.parse(resErrors);
+ const adBlockSeen = sessionStorage.getItem('_adBlockSeen') === '1';
  for (const err of errors.slice(0, 10)) {
  Analytics.trackResourceLoadError({
  resourceType: err.type || 'unknown',
  resourceUrl: err.url || '',
+ details: buildResourceErrorDetails({ ...err, adBlockSeen }),
  pagePath: err.pagePath || '/',
  triggeredReload: err.triggeredReload || false,
  blockedByAdBlocker: err.adBlocked || false,
@@ -1973,6 +1982,7 @@ export const Analytics = {
  trackResourceLoadError: (info: {
  resourceType: 'script' | 'link' | 'css' | 'unknown';
  resourceUrl: string;
+ details?: string;
  pagePath?: string;
  triggeredReload?: boolean;
  blockedByAdBlocker?: boolean;
@@ -1981,6 +1991,7 @@ export const Analytics = {
  // error_type/error_message are what GA4 can query: see resourceErrorLabel.ts.
  error_type: `resource_${info.resourceType}`,
  error_message: buildResourceErrorLabel(info.resourceUrl),
+ details: info.details,
  resource_type: info.resourceType,
  resource_url: truncate(info.resourceUrl, 200),
  page_path: truncate(info.pagePath || window.location.pathname, 180),

@@ -257,7 +257,7 @@ const HealthInsurance: React.FC = () => {
  <div className="bg-gradient-to-br from-danger-strong to-danger-strong-hover rounded-2xl p-5 sm:p-8 text-on-accent">
  <div className="flex items-center gap-3 mb-3">
  <Heart size={28} />
- <h2 className="text-2xl sm:text-3xl font-bold font-display">{t('health.title')}</h2>
+ <h1 className="text-2xl sm:text-3xl font-bold font-display">{t('health.title')}</h1>
  </div>
  <p className="text-on-accent text-base sm:text-lg">
  {t(isItaly ? 'health.residence.italyIntro' : 'health.residence.swissIntro')} ({isItaly ? premiumYear : data?.year ?? premiumYear})

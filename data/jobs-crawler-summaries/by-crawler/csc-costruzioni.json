@@ -1,16 +1,16 @@
 {
   "key": "csc-costruzioni",
   "label": "CSC Costruzioni",
-  "generatedAt": "2026-10-30T21:25:00.783Z",
+  "generatedAt": "2026-10-31T21:29:17.796Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 54230,
-  "avgDurationMs": 54230,
+  "durationMs": 41296,
+  "avgDurationMs": 41296,
   "durationHistory": [
-    54230
+    41296
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -35,7 +35,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-30T21:24:47.045Z",
+      "crawledAt": "2026-10-31T21:28:58.423Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "fr",
       "needsRetranslation": true,
@@ -73,7 +73,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-30T21:24:47.045Z",
+      "crawledAt": "2026-10-31T21:28:58.423Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "it",
       "salaryMin": 85500,
@@ -110,7 +110,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-30T21:24:47.045Z",
+      "crawledAt": "2026-10-31T21:28:58.423Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "en",
       "salaryMin": 85500,
@@ -147,7 +147,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-30T21:24:47.045Z",
+      "crawledAt": "2026-10-31T21:28:58.423Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "fr",
       "salaryMin": 51500,
@@ -184,7 +184,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-30T21:24:47.045Z",
+      "crawledAt": "2026-10-31T21:28:58.423Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -221,7 +221,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-30T21:24:47.045Z",
+      "crawledAt": "2026-10-31T21:28:58.423Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -258,7 +258,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-29T21:28:13.561Z",
+      "crawledAt": "2026-10-31T21:28:58.423Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "sourceLang": "en",
       "salaryMin": 142000,
@@ -277,5 +277,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

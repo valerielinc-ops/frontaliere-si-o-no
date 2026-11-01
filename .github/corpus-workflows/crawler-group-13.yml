@@ -100,9 +100,46 @@ jobs:
         run: |-
           echo "First sparse checkout failed; retrying in 30s"
           sleep 30
+      - name: Reset sparse checkout state before retry
+        id: site_checkout_retry_prepare
+        if: steps.site_checkout_primary.outcome == 'failure'
+        run: |-
+          set -euo pipefail
+          retrySparseCheckout() {
+            local workspace="${GITHUB_WORKSPACE:-}"
+            if [ -z "$workspace" ] || [ "$workspace" = "/" ]; then
+              echo "::error::GITHUB_WORKSPACE is empty or unsafe; refusing sparse checkout retry" >&2
+              return 1
+            fi
+            if [ ! -e "$workspace/.git" ]; then
+              echo "No partial Git metadata found; starting the retry from an empty workspace"
+              return 0
+            fi
+            local git_dir
+            if ! git_dir="$(git -C "$workspace" rev-parse --absolute-git-dir 2>/dev/null)"; then
+              echo "::error::Sparse checkout retry found unreadable Git metadata; refusing to reuse the workspace" >&2
+              return 1
+            fi
+            local lock_files=()
+            while IFS= read -r -d "" lock_file; do
+              lock_files+=("$lock_file")
+            done < <(find "$git_dir" -type f -name "*.lock" -print0)
+            for lock_file in "${lock_files[@]}"; do
+              unlink "$lock_file"
+            done
+            if ! git -C "$workspace" rev-parse --verify HEAD >/dev/null 2>&1; then
+              echo "::error::Sparse checkout retry found partial Git metadata without a valid HEAD; refusing to reuse the workspace" >&2
+              return 1
+            fi
+            git -C "$workspace" reset --hard HEAD
+            git -C "$workspace" clean -ffdx
+            # Keep sparse mode enabled: disabling it would materialize the full repository.
+            # The second actions/checkout invocation replaces the sparse patterns atomically.
+          }
+          retrySparseCheckout
       - name: Checkout frontaliere-si-o-no (attempt 2/2, sparse)
         id: site_checkout_retry
-        if: steps.site_checkout_primary.outcome == 'failure'
+        if: steps.site_checkout_primary.outcome == 'failure' && steps.site_checkout_retry_prepare.outcome == 'success'
         uses: actions/checkout@v7
         with:
           repository: valerielinc-ops/frontaliere-si-o-no
@@ -125,7 +162,7 @@ jobs:
             !/data/health-premiums/
           sparse-checkout-cone-mode: false
       - name: Report exhausted site checkout
-        if: always() && steps.site_checkout_primary.outcome == 'failure' && steps.site_checkout_retry.outcome == 'failure'
+        if: always() && steps.site_checkout_primary.outcome == 'failure' && (steps.site_checkout_retry.outcome == 'failure' || steps.site_checkout_retry_prepare.outcome == 'failure')
         env:
           GH_TOKEN: ${{ github.token }}
           ISSUE_TITLE: "Workflow Failure: Crawler Group 13 (sparse cross-repo execution)"
@@ -142,6 +179,12 @@ jobs:
         id: checkout
         if: always() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
         run: "true"
+      - name: Abort without a valid site checkout
+        id: checkout_abort
+        if: always() && steps.checkout.outcome != 'success'
+        run: |-
+          echo "::error::Neither sparse checkout attempt produced a valid site workspace; refusing to start crawler logic"
+          exit 1
       - name: Validate crawler generation token before crawling
         run: node scripts/check-crawler-generation-token.mjs
       - name: Restore crawler AI cache

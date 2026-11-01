@@ -253,6 +253,7 @@ const VERIFIED_CRAWLER_UAS = [
   'anthropic-ai',
   'PerplexityBot',
   'Perplexity-User',
+  'MistralAI-User',
   'Google-Extended',
   'cohere-ai',
   'Meta-ExternalAgent',
@@ -563,6 +564,26 @@ const MANAGED_RESPONSE_CACHE_RULES = [
 // strictly more honest than the previous duplicate 200.
 const MANAGED_REDIRECT_RULES = [
   {
+    // www -> apex in one hop (GEO audit 2026-10-31). Before this rule
+    // http://www answered 301 to https://www, which answered 301 to the apex:
+    // two hops for every legacy link, in the redirect the crawler pays first.
+    // The dynamic-redirect phase runs ahead of Always Use HTTPS (measured on the
+    // cdn-root-301 rule below: http://cdn.frontaliereticino.ch/ goes straight to
+    // the apex), so the scheme hop disappears too. Query strings are kept:
+    // a www link with UTM parameters must not lose them.
+    description: 'www-to-apex-301 (managed by scripts/cf-locale-failover-setup.mjs)',
+    expression: '(http.host eq "www.frontaliereticino.ch")',
+    action_parameters: {
+      from_value: {
+        status_code: 301,
+        target_url: {
+          expression: 'concat("https://frontaliereticino.ch", http.request.uri.path)',
+        },
+        preserve_query_string: true,
+      },
+    },
+  },
+  {
     description: 'trailing-slash-301 (managed by scripts/cf-locale-failover-setup.mjs)',
     expression:
       '(http.host eq "frontaliereticino.ch" ' +
@@ -640,6 +661,8 @@ const MANAGED_REDIRECT_RULES = [
 
 const LEGACY_APEX_SECURITY_HEADERS_DESCRIPTION =
   'apex-security-headers: HSTS + nosniff + Referrer-Policy on HTML responses (issue #3507; CSP/XFO deliberately excluded pending AdSense validation)';
+const PREVIOUS_APEX_SECURITY_HEADERS_DESCRIPTION =
+  'apex-security-headers: HSTS + CSP + X-Frame-Options + nosniff + Referrer-Policy on apex responses (managed by scripts/cf-locale-failover-setup.mjs)';
 
 // The site has first-party, consent-gated, and dynamically selected third-party
 // resources. The scheme source on resource directives preserves those runtime
@@ -650,16 +673,70 @@ const LEGACY_APEX_SECURITY_HEADERS_DESCRIPTION =
 const APEX_CONTENT_SECURITY_POLICY =
   "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; img-src 'self' data: blob: https:; connect-src 'self' https: wss:; frame-src 'self' https:; worker-src 'self' blob:; manifest-src 'self'; form-action 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests";
 
+// Only the three powerful features the site can reason about. Camera and
+// microphone have no caller in the app; geolocation stays first-party for the
+// pharmacy directory (components/pages/PharmacyDirectory.tsx). Deliberately NOT
+// listed: the ad-related features (attribution-reporting, browsing-topics,
+// join-ad-interest-group, run-ad-auction, private-state-token-*). AdSense and
+// Funding Choices rely on their default allowlists, and naming them here would
+// be a way to switch off part of Auto Ads from a response header.
+const APEX_PERMISSIONS_POLICY = 'camera=(), microphone=(), geolocation=(self)';
+
+// `includeSubDomains` was checked on 2026-10-31 against the public certificate
+// logs and the hostnames the repo names: every subdomain with an A/CNAME answers
+// on HTTPS. `preload` is deliberately absent: the preload list is effectively
+// one-way, so it needs the authoritative DNS zone export, not a public sample.
+const APEX_STRICT_TRANSPORT_SECURITY = 'max-age=31536000; includeSubDomains';
+
+// `cdn-assets-revalidate` was a foreign rule: it rewrote the BROWSER-facing
+// Cache-Control of EVERY /assets/* response to a 600 s revalidation. That was
+// right when every chunk had a stable name, and silently wrong once the
+// executable graph moved to /assets/releases/<BUILD_ID>/: R2 stamps those objects
+// `max-age=31536000,immutable` and the edge honours it (`age: 6055` on a GET,
+// 2026-10-31), but the browser was told 600 s and revalidated ~90 modules on
+// every repeat visit. The exclusion list is the set of URLs whose bytes can never
+// change: the build-scoped release plus the three content-addressed loaders
+// (`<name>-<sha256/12>.js`, build-plugins/constants.ts). The trailing `-` keeps
+// the stable aliases (`gtag-init.js`, `adsense-loader.js`, `partnerize-tag.js`)
+// under the rule. Prefixes, not `matches`: this zone is on the Free plan.
+const CDN_BROWSER_LONG_CACHE_PREFIXES = [
+  '/assets/releases/',
+  '/assets/gtag-init-',
+  '/assets/adsense-loader-',
+  '/assets/partnerize-tag-',
+];
+const LEGACY_CDN_ASSETS_REVALIDATE_DESCRIPTION =
+  'cdn-assets-revalidate: override GitHub Pages immutable on stable-named SPA chunks (max-age=600 must-revalidate, matches public/_headers)';
+
 const MANAGED_RESPONSE_HEADER_RULES = [
   {
     description:
-      'apex-security-headers: HSTS + CSP + X-Frame-Options + nosniff + Referrer-Policy on apex responses (managed by scripts/cf-locale-failover-setup.mjs)',
-    legacyDescriptions: [LEGACY_APEX_SECURITY_HEADERS_DESCRIPTION],
+      'cdn-assets-revalidate: stable-named /assets/* revalidate every 600s; build-scoped releases and content-addressed loaders keep the R2 immutable header (managed by scripts/cf-locale-failover-setup.mjs)',
+    legacyDescriptions: [LEGACY_CDN_ASSETS_REVALIDATE_DESCRIPTION],
+    expression:
+      '(http.host eq "cdn.frontaliereticino.ch" and starts_with(http.request.uri.path, "/assets/")' +
+      CDN_BROWSER_LONG_CACHE_PREFIXES.map((prefix) => ` and not starts_with(http.request.uri.path, "${prefix}")`).join('') +
+      ')',
+    headers: {
+      'Cache-Control': {
+        operation: 'set',
+        value: 'public, max-age=600, must-revalidate',
+      },
+    },
+  },
+  {
+    description:
+      'apex-security-headers: HSTS + CSP + Permissions-Policy + X-Frame-Options + nosniff + Referrer-Policy on apex responses (managed by scripts/cf-locale-failover-setup.mjs)',
+    legacyDescriptions: [LEGACY_APEX_SECURITY_HEADERS_DESCRIPTION, PREVIOUS_APEX_SECURITY_HEADERS_DESCRIPTION],
     expression: '(http.host eq "frontaliereticino.ch")',
     headers: {
       'Content-Security-Policy': {
         operation: 'set',
         value: APEX_CONTENT_SECURITY_POLICY,
+      },
+      'Permissions-Policy': {
+        operation: 'set',
+        value: APEX_PERMISSIONS_POLICY,
       },
       'Referrer-Policy': {
         operation: 'set',
@@ -667,7 +744,7 @@ const MANAGED_RESPONSE_HEADER_RULES = [
       },
       'Strict-Transport-Security': {
         operation: 'set',
-        value: 'max-age=31536000',
+        value: APEX_STRICT_TRANSPORT_SECURITY,
       },
       'X-Content-Type-Options': {
         operation: 'set',

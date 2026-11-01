@@ -283,6 +283,9 @@ jobs:
         run: |
           set -euo pipefail
           outcome_file=lessons-harvester-outcome.txt
+          runner_tmp="${RUNNER_TEMP:-$PWD}"
+          branches_file="$runner_tmp/lessons-branches.txt"
+          pr_file="$runner_tmp/lessons-pr.tsv"
           if [ ! -s "$outcome_file" ]; then
             echo "::error::$outcome_file assente o vuoto: la proposta Codex non ha dichiarato l'esito (PR aperta, scelta o fallimento)."
             exit 1
@@ -292,20 +295,20 @@ jobs:
           # Branch della proposta pushati in questa run (ultimo commit dopo l'avvio):
           # una PR richiede un branch, quindi un `none:` con un branch nuovo e'
           # una PR tentata e non aperta. Niente search API: indicizza in ritardo.
-          : > /tmp/lessons-branches.txt
+          : > "$branches_file"
           gh api --paginate "repos/$REPO/git/matching-refs/heads/lessons/auto-harvest" --jq '.[] | "\(.ref)\t\(.object.sha)"' |
             while IFS=$'\t' read -r ref sha; do
               committed=$(gh api "repos/$REPO/commits/$sha" --jq '.commit.committer.date')
-              if [[ ! "$committed" < "$STARTED_AT" ]]; then echo "${ref#refs/heads/}" >> /tmp/lessons-branches.txt; fi
+              if [[ ! "$committed" < "$STARTED_AT" ]]; then echo "${ref#refs/heads/}" >> "$branches_file"; fi
             done
-          echo "Branch lessons/auto-harvest-* pushati dopo $STARTED_AT:"; cat /tmp/lessons-branches.txt
+          echo "Branch lessons/auto-harvest-* pushati dopo $STARTED_AT:"; cat "$branches_file"
           case "$outcome" in
             pr:*)
               n="${outcome#pr:}"
               if ! [[ "$n" =~ ^[0-9]+$ ]]; then echo "::error::Esito '$outcome': numero PR non valido."; exit 1; fi
               gh pr view "$n" --repo "$REPO" --json state,headRefName,createdAt,headRepositoryOwner \
-                --jq '[.state, .headRefName, .createdAt, .headRepositoryOwner.login] | @tsv' > /tmp/lessons-pr.tsv
-              IFS=$'\t' read -r state head created owner < /tmp/lessons-pr.tsv
+                --jq '[.state, .headRefName, .createdAt, .headRepositoryOwner.login] | @tsv' > "$pr_file"
+              IFS=$'\t' read -r state head created owner < "$pr_file"
               echo "PR #$n: state=$state head=$head created=$created owner=$owner"
               if [[ "$owner" != "${REPO%%/*}" || "$head" != lessons/auto-harvest* || "$created" < "$STARTED_AT" ]]; then
                 echo "::error::Esito '$outcome' ma #$n non e' una PR lessons/auto-harvest-* di questo repo aperta in questa run."
@@ -317,7 +320,7 @@ jobs:
               esac
               ;;
             none:?*)
-              if [ -s /tmp/lessons-branches.txt ]; then
+              if [ -s "$branches_file" ]; then
                 echo "::error::Esito '$outcome' ma un branch lessons/auto-harvest-* e' stato pushato in questa run: la PR e' stata tentata e non risulta dichiarata."
                 exit 1
               fi

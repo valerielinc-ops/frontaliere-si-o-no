@@ -113679,6 +113679,240 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sindacati-aumenti-infermieri-ticino': {
+    title: 'Infermieri sociopsichiatrici: sindacati chiedono aumenti fino a 8\'941 franchi',
+    description: 'Il 10 novembre si riunisce l\'assemblea a Mendrisio Aumenti annui richiesti: da 5\'159 a 8\'941 franchi Riclassificazione: classi 4→5 e 5→6 OCST e VPOD',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, sociopsichiatrici, sindacati, chiedono',
+    ogTitle: 'Infermieri sociopsichiatrici chiedono aumenti fino a 8\'941 franchi',
+    ogDescription: 'Il 10 novembre si riunisce l\'assemblea a Mendrisio Aumenti annui richiesti: da 5\'159 a 8\'941 franchi Riclassificazione: classi 4→5 e 5→6 OCST e VPOD chiedono',
+    canonicalPath: '/articoli-frontaliere/sindacati-aumenti-infermieri-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri sociopsichiatrici: sindacati chiedono aumenti fino a 8'941 franchi",
+      "description": "Il 10 novembre si riunisce l'assemblea a Mendrisio Aumenti annui richiesti: da 5'159 a 8'941 franchi Riclassificazione: classi 4→5 e 5→6 OCST e VPOD",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sindacati-aumenti-infermieri-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-30T20:19:37+00:00",
+      "dateModified": "2026-10-30T20:19:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sindacati-aumenti-infermieri-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-giornico-consiglio-stato-fermata': {
+    title: 'Consiglio di Stato respinge riapertura fermata FFS a Giornico',
+    description: 'Il Consiglio di Stato respinge la riapertura a Giornico La linea 120 serve Paese, Fraggio e Scuola Media Le coincidenze TILO passano dalla S10',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, stato, respinge, riapertura',
+    ogTitle: 'Riapertura fermata FFS Giornico respinta Consiglio di Stato',
+    ogDescription: 'Il Consiglio di Stato respinge la riapertura a Giornico La linea 120 serve Paese, Fraggio e Scuola Media Le coincidenze TILO passano dalla S10 a Biasca Nessuno',
+    canonicalPath: '/articoli-frontaliere/giornico-consiglio-stato-fermata/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio di Stato respinge riapertura fermata FFS a Giornico",
+      "description": "Il Consiglio di Stato respinge la riapertura a Giornico La linea 120 serve Paese, Fraggio e Scuola Media Le coincidenze TILO passano dalla S10",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-giornico-consiglio-stato-fermata.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-30T21:52:12+00:00",
+      "dateModified": "2026-10-30T21:52:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giornico-consiglio-stato-fermata/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cassa-pensione-snl-sev-attacca': {
+    title: 'Cassa pensione SNL: SEV contesta lettura risultati',
+    description: 'UBS gestirà il patrimonio della Cassa pensione SNL ATIOZ impose una nuova procedura dopo un conflitto d\'interessi Il grado di copertura era del 104,1%',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, pensione, contesta, lettura',
+    ogTitle: 'Cassa pensione SNL: SEV attacca mistificazione realtà',
+    ogDescription: 'UBS gestirà il patrimonio della Cassa pensione SNL ATIOZ impose una nuova procedura dopo un conflitto d\'interessi Il grado di copertura era del 104,1% a fine',
+    canonicalPath: '/articoli-frontaliere/cassa-pensione-snl-sev-attacca/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa pensione SNL: SEV contesta lettura risultati",
+      "description": "UBS gestirà il patrimonio della Cassa pensione SNL ATIOZ impose una nuova procedura dopo un conflitto d'interessi Il grado di copertura era del 104,1%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-cassa-pensione-snl-sev-attacca.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-30T22:23:25+00:00",
+      "dateModified": "2026-10-30T22:23:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassa-pensione-snl-sev-attacca/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavori-barriere-antirumore-a8': {
+    title: 'Lavori su barriere antirumore in A8 e D08: guida alle chiusure',
+    description: 'Chiusure notturne su A8 e D08 dal 2 al 6 novembre Prime fasce: dalle 23:00 alle 5:00 Gallarate, Besnate e Busto Arsizio nei percorsi indicati Seconda',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, barriere, antirumore, alle',
+    ogTitle: 'Lavori A8 D08: chiusure notturne 2-6 novembre',
+    ogDescription: 'Chiusure notturne su A8 e D08 dal 2 al 6 novembre Prime fasce: dalle 23:00 alle 5:00 Gallarate, Besnate e Busto Arsizio nei percorsi indicati Seconda fase',
+    canonicalPath: '/articoli-frontaliere/lavori-barriere-antirumore-a8/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori su barriere antirumore in A8 e D08: guida alle chiusure",
+      "description": "Chiusure notturne su A8 e D08 dal 2 al 6 novembre Prime fasce: dalle 23:00 alle 5:00 Gallarate, Besnate e Busto Arsizio nei percorsi indicati Seconda",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lavori-barriere-antirumore-a8.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-31T08:27:34+00:00",
+      "dateModified": "2026-10-31T08:27:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-barriere-antirumore-a8/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bellinzona-imposte-piu-salate-2028': {
+    title: 'A Bellinzona imposte più salate dal 2028 | Frontaliere Ticino',
+    description: 'Il Municipio di Bellinzona annuncia imposte più salate dal 2028. Preventivo 2026 con disavanzo di 10,6 milioni; moltiplicatore 93% per l\'anno',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, imposte, salate, municipio',
+    ogTitle: 'Imposte Bellinzona più salate dal 2028',
+    ogDescription: 'Il Municipio di Bellinzona annuncia imposte più salate dal 2028. Il Preventivo 2026 mostra un disavanzo di 10,6 milioni e il moltiplicatore per l\'anno prossimo è 93%.',
+    canonicalPath: '/articoli-frontaliere/bellinzona-imposte-piu-salate-2028/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Bellinzona imposte più salate dal 2028",
+      "description": "Il Municipio di Bellinzona annuncia imposte più salate dal 2028. Preventivo 2026 con disavanzo di 10,6 milioni; moltiplicatore 93% per l'anno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-bellinzona-imposte-piu-salate-2028.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-31T08:56:47+00:00",
+      "dateModified": "2026-10-31T08:56:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-imposte-piu-salate-2028/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-infermieri-osc-sindacati-stipendi': {
+    title: 'Infermieri Osc e sindacati chiedono sblocco stipendi',
+    description: 'La riclassificazione Osc è ferma da anni 2019: classe 4→5 per infermieri, 5→6 per specialità Aumenti annui da 5\'159 a 8\'941 franchi Assemblea il 10',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, sindacati, chiedono, sblocco',
+    ogTitle: 'Infermieri Osc chiedono sblocco stipendi',
+    ogDescription: 'La riclassificazione Osc è ferma da anni 2019: classe 4→5 per infermieri, 5→6 per specialità Aumenti annui da 5\'159 a 8\'941 franchi Assemblea il 10 novembre',
+    canonicalPath: '/articoli-frontaliere/infermieri-osc-sindacati-stipendi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri Osc e sindacati chiedono sblocco stipendi",
+      "description": "La riclassificazione Osc è ferma da anni 2019: classe 4→5 per infermieri, 5→6 per specialità Aumenti annui da 5'159 a 8'941 franchi Assemblea il 10",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-assemblea-ccti-rotta-economia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-31T09:38:45+00:00",
+      "dateModified": "2026-10-31T09:38:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infermieri-osc-sindacati-stipendi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

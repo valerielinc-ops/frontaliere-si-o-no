@@ -2,27 +2,32 @@ import { resolveRolloutSchemaPostingDate } from '../../scripts/lib/job-posting-d
 /**
  * Canonical `JobPosting` structured-data builder.
  *
- * Owner decision 2026-10-24: the schema is ALWAYS emitted for an active job,
- * and the JobPosting contract includes a safe value for every field required
- * by the site's rich-result completeness gate. Source values win; when a
- * crawler omits a non-critical field, the builder emits a deterministic,
- * locality-safe fallback rather than dropping the property.
+ * Owner decisions 2026-10-24 and 2026-10-31: the schema is ALWAYS emitted for
+ * an active job; required-field coverage never drops to improve quality. A
+ * stronger source replaces a weak value, and unresolved addresses retain the
+ * best available value with internal `to-enrich` provenance.
  * Always present (guaranteed by `assertMandatoryFieldsComplete`):
  *
  *   1. title
  *   2. description (≥ 50 chars)
  *   3. datePosted (ISO 8601, provenance chain of resolveRolloutSchemaPostingDate)
  *   4. hiringOrganization.name
- *   5. jobLocation (Place + PostalAddress with addressLocality and addressCountry 'CH')
- *   6. jobLocation.address.streetAddress
- *   7. jobLocation.address.postalCode
+ *   5. jobLocation (Place + PostalAddress)
+ *   6. jobLocation.address.addressLocality / addressRegion / addressCountry
+ *   7. jobLocation.address.postalCode / streetAddress
  *   8. employmentType
  *   9. baseSalary
- *   10. validThrough
+ *  10. validThrough
+ *
+ * streetAddress and validThrough are mandatory in the site contract. The
+ * address resolver prefers a source street, then a verified same-city
+ * employer address, and otherwise preserves the best existing location with
+ * `streetAddressSource: 'to-enrich'`. The deadline uses a plausible source
+ * date or a bounded window from the last stored active observation.
  *
  * Derived values are deliberately conservative: salary bands are marked as
- * estimates in the page data, addresses remain coherent with the resolved
- * locality/canton, and validThrough uses source-first date fallbacks.
+ * estimates in the page data and addresses remain coherent with the resolved
+ * locality/canton.
  *
  * Shared by (as of this refactor):
  *   - `build-plugins/jobsSeoPagesPlugin.ts` (per-job active + soft-landing)
@@ -54,10 +59,7 @@ import { resolveRolloutSchemaPostingDate } from '../../scripts/lib/job-posting-d
 
 import {
   CANTON_CAPITAL_ADDRESSES,
-  CITY_FALLBACK_ADDRESSES,
-  COMPANY_HQ_ADDRESSES,
   deriveCantonFromCity,
-  localityMatchesHq,
   regionLocalityCapital,
   resolveFallbackAddress,
 } from './companyHqAddresses';
@@ -80,7 +82,13 @@ import {
   employmentTypeJsonLdValue,
   resolveJobEmploymentTypes,
 } from '../../scripts/lib/job-employment-type.mjs';
-import { isSalaryReportedBySource, isSourceStreetAddress } from '../../scripts/lib/jobposting-field-provenance.mjs';
+import {
+  isSalaryReportedBySource,
+} from '../../scripts/lib/jobposting-field-provenance.mjs';
+import {
+  resolveActiveJobPostingDeadline,
+  resolveJobPostingStreetAddress,
+} from '../../scripts/lib/jobposting-field-enrichment.mjs';
 import { truncateCodeUnits } from './safeTruncate';
 import { sanitizeBrowserJobTitle } from './literalMarkdown';
 import {
@@ -122,6 +130,21 @@ export interface JobInput {
   readonly addressCountry?: string | null;
   readonly postalCode?: string | null;
   readonly streetAddress?: string | null;
+  /** Internal source tier; never emitted in JSON-LD. */
+  readonly streetAddressSource?: string | null;
+  readonly companyRegisteredAddress?: {
+    readonly source?: string | null;
+    readonly streetAddress?: string | null;
+    readonly postalCode?: string | null;
+    readonly addressLocality?: string | null;
+    readonly addressRegion?: string | null;
+  } | null;
+  readonly companyKnownAddress?: {
+    readonly streetAddress?: string | null;
+    readonly postalCode?: string | null;
+    readonly addressLocality?: string | null;
+    readonly addressRegion?: string | null;
+  } | null;
   readonly address?: string | null;
 
   readonly postingDateSource?: string | null;
@@ -129,10 +152,14 @@ export interface JobInput {
   readonly datePosted?: string | null;
   /** First crawler observation, used only when no source publication date exists. */
   readonly firstSeenAt?: string | null;
+  readonly lastSeenAt?: string | null;
+  readonly lastObservedAt?: string | null;
   readonly crawledAt?: string | null;
   readonly scrapedAt?: string | null;
   readonly updatedAt?: string | null;
   readonly validThrough?: string | null;
+  /** Internal deadline provenance; never emitted in JSON-LD. */
+  readonly validThroughSource?: string | null;
   readonly expiredAt?: string | null;
 
   readonly contract?: string | null;
@@ -183,9 +210,10 @@ export interface BuildJobPostingOptions {
 }
 
 /**
- * schema.org `PostalAddress` emitted by the builder. Street and CAP are
- * required by the site's completeness contract and are always resolved to a
- * coherent source, HQ, locality, or canton-capital fallback.
+ * schema.org `PostalAddress` emitted by the builder. The CAP is required by
+ * the site's completeness contract and resolves to a coherent source, HQ,
+ * locality or canton-capital fallback; streetAddress preserves the best
+ * existing value and records weak provenance when no street evidence exists.
  */
 export interface PostalAddressSchema {
   readonly '@type': 'PostalAddress';
@@ -360,9 +388,29 @@ const CATEGORY_TO_ONET: Record<string, string> = {
   security: '33-0000', safety: '33-0000',
 };
 
+const CATCH_ALL_SECTOR_RE = /^(?:altro|altri|other|others|sonstige|autre|autres)$/i;
+const HEALTH_SECTOR_RE = /sanit|health|medic/i;
+const HEALTH_EVIDENCE_RE = /pfleg|spital|spitex|klinik|klinique|clinic|arzt|ärzt|medic|mediz|ospedal|h[oô]pital|hospital|infermier|infirmi|sanitar|sanità|santé|health|psych|therap|th[ée]rap|apothek|pharm|farmac|physio|fisio|\bergo|logop|hebamme|levatric|geburts|\blabor|radiolog|r[oö]ntgen|anästhes|altersheim|casa anziani/i;
+const EDUCATION_TITLE_RE = /\bmaestr[ao]\b|\bmaestre\b|\bdocent[ei]\b|\binsegnant[ei]\b|\blehrperson|\blehrer|\blehrkraft|\bkinderg[aä]rtner|\benseignant|\bteacher\b/i;
+
+/**
+ * The sector text, when it says something about THIS job. Many parsers stamp
+ * one tenant-wide default ('Sanità / Ospedali' is the shared parser default,
+ * so a teacher or a road engineer inherits it): a health value needs a health
+ * signal in the title or employer, and a catch-all carries no information.
+ */
+function resolveJobSector(job: JobInput): string {
+  const raw = String(job.sector || job.category || '').trim();
+  if (CATCH_ALL_SECTOR_RE.test(raw)) return '';
+  if (!HEALTH_SECTOR_RE.test(raw)) return raw;
+  const title = String(job.title || '');
+  if (EDUCATION_TITLE_RE.test(title)) return '';
+  return HEALTH_EVIDENCE_RE.test(`${title} ${job.company || ''}`) ? raw : '';
+}
+
 /** Resolve `job.sector`/`job.category` to an O*NET-SOC code, if known. */
 function resolveOccupationalCategory(job: JobInput): string | undefined {
-  const cat = String(job.sector || job.category || '').trim();
+  const cat = resolveJobSector(job);
   return cat ? CATEGORY_TO_ONET[cat] : undefined;
 }
 
@@ -371,8 +419,7 @@ function resolveOccupationalCategory(job: JobInput): string | undefined {
  * signal used for `occupationalCategory` — no separate source needed.
  */
 function resolveIndustry(job: JobInput): string | undefined {
-  const raw = String(job.sector || job.category || '').trim();
-  return raw.length > 0 ? raw : undefined;
+  return resolveJobSector(job) || undefined;
 }
 
 /**
@@ -395,56 +442,9 @@ function toIsoDate(raw: string | null | undefined): string | null {
   return d.toISOString();
 }
 
-/** Keep a derived active deadline in the future so Google does not treat a
- * still-published listing as already expired. Explicit source deadlines stay
- * authoritative, including past values on expired-job pages. */
-function floorToFuture(computed: Date, now?: Date): string {
-  const floor = new Date(now || new Date());
-  floor.setUTCDate(floor.getUTCDate() + 30);
-  return (computed.getTime() < floor.getTime() ? floor : computed).toISOString();
-}
-
-/** Resolve a deadline for every emitted JobPosting, with source-first fallbacks. */
-function computeValidThrough(
-  explicit: string | null | undefined,
-  crawledAt: string | null | undefined,
-  datePosted: string,
-  now?: Date,
-): string {
-  const explicitIso = toIsoDate(explicit);
-  if (explicitIso) return explicitIso;
-
-  const crawledIso = toIsoDate(crawledAt);
-  if (crawledIso) {
-    const out = new Date(crawledIso);
-    out.setUTCDate(out.getUTCDate() + 60);
-    return floorToFuture(out, now);
-  }
-
-  const posted = new Date(datePosted);
-  if (!Number.isNaN(posted.getTime())) {
-    const out = new Date(posted);
-    out.setUTCDate(out.getUTCDate() + 90);
-    return floorToFuture(out, now);
-  }
-
-  const fallback = new Date(now || new Date());
-  fallback.setUTCDate(fallback.getUTCDate() + 60);
-  return fallback.toISOString();
-}
-
-/** Public so the active-page HTML reuse path shares the exact builder logic. */
-export function resolveJobPostingValidThrough(
-  job: JobInput,
-  datePosted: string,
-  now?: Date,
-): string {
-  return computeValidThrough(
-    job.validThrough,
-    job.crawledAt || job.scrapedAt || job.updatedAt || null,
-    datePosted,
-    now,
-  );
+/** Resolve the active deadline from source evidence or the last observation. */
+export function resolveJobPostingValidThrough(job: JobInput, now?: Date): string | null {
+  return resolveActiveJobPostingDeadline(job, now).validThrough;
 }
 
 /** Build a locale-aware fallback description ≥ 50 chars. */
@@ -623,11 +623,10 @@ export function sanitizeLocalityForRegion(rawLocality: string, region: string): 
   return cityRaw;
 }
 
-/** Resolve the PostalAddress with every field guaranteed non-empty. */
+/** Resolve the PostalAddress using the same enrichment tiers at every emitter. */
 function resolveAddress(
   job: JobInput,
   _companyName: string,
-  locale: string,
 ): PostalAddressSchema {
   const companySlug = job.companySlug || job.companyKey || '';
   const rawCity = String(
@@ -640,10 +639,6 @@ function resolveAddress(
   const region = resolveCanton(job);
   const cityRaw = sanitizeLocalityForRegion(rawCity, region);
 
-  const hqEntry = companySlug
-    ? COMPANY_HQ_ADDRESSES[companySlug.toLowerCase()]
-    : undefined;
-
   const fallback = resolveFallbackAddress(
     companySlug ? companySlug.toLowerCase() : undefined,
     cityRaw ? cityRaw.toLowerCase() : undefined,
@@ -652,27 +647,6 @@ function resolveAddress(
 
   const addressLocality =
     cityRaw.length > 0 ? cityRaw : fallback.addressLocality;
-
-  // A curated company HQ address is only trustworthy for jobs with no own
-  // city or in the HQ's own CITY (#3513). Canton-level matching is not
-  // enough: a Lugano posting for a Bellinzona-seat employer (same canton)
-  // must not pair the HQ street/CAP with the Lugano locality. Fall through to
-  // the city lookup instead, which anchors on the job's own city.
-  const hqUsable =
-    !!hqEntry &&
-    String(hqEntry.addressRegion || '').toUpperCase() === String(region || '').toUpperCase() &&
-    localityMatchesHq(cityRaw, hqEntry);
-
-  // The fallback tuple is the complete address of ONE locality: the curated HQ
-  // (same city only), the city table, or, as a last resort, the canton
-  // capital. Its street and CAP may complete this address only when they
-  // describe the same locality. The capital's street/CAP next to another real
-  // locality is the incoherent tuple of issue 9852 (Pully + Place de la
-  // Palud 2 + 1003, which are Lausanne's).
-  const fallbackDescribesLocality = cityRaw.length === 0
-    || fallback === hqEntry
-    || fallback === CITY_FALLBACK_ADDRESSES[cityRaw.toLowerCase()]
-    || normalizePostalCityKey(fallback.addressLocality) === normalizePostalCityKey(cityRaw);
 
   // A source CAP can be formally valid and still belong to another known
   // locality (for example 6500 on a Lugano posting). Treat that pair as
@@ -697,38 +671,28 @@ function resolveAddress(
     || (isPostalCodeCoherentWithCity(addressLocality, sourcePostalCode) && !sourcePostalIsCantonFallback);
   const sourcePostal = sourcePostalIsCoherent ? sourcePostalCode : '';
 
-  // The listing's own street, when it reads as a street of this locality. An
-  // incoherent source CAP drops the street travelling with it: that tuple is
-  // usually an HQ address stamped on a vacancy in another city (#9108).
-  const streetAddressRaw = String(job.streetAddress || job.address || '').trim();
-  const sourceStreet = sourcePostalIsCoherent && isSourceStreetAddress(streetAddressRaw, addressLocality)
-    ? streetAddressRaw
+  const streetResolution = resolveJobPostingStreetAddress(job, {
+    addressLocality,
+    addressRegion: region,
+    postalCode: sourcePostal,
+  });
+  const selectedAddress = streetResolution.address;
+  const selectedPostal = selectedAddress && isValidPostalCode(selectedAddress.postalCode)
+    ? String(selectedAddress.postalCode).trim()
     : '';
-
-  // The HQ tuple completes the address only as a whole, and only when the
-  // listing does not name another CAP of the same city (6912 on a Lugano HQ
-  // listed at 6900 is another site, not the HQ).
-  const hqPostal = hqUsable && isValidPostalCode(hqEntry.postalCode) ? String(hqEntry.postalCode).trim() : '';
-  const useHq = !sourceStreet
-    && hqUsable
-    && String(hqEntry.streetAddress || '').trim().length > 0
-    && (sourcePostal.length === 0 || sourcePostal === hqPostal);
 
   const postalCode = sourcePostalIsCoherent && sourcePostalCode.length > 0
     ? sourcePostalCode
-    : (hqUsable && hqEntry.postalCode && isValidPostalCode(hqEntry.postalCode) ? hqEntry.postalCode : '') ||
+    : selectedPostal ||
       localityPostalCode ||
       // Safe default: when the source locality has no postal entry, borrow the
       // fallback tuple's CAP while keeping the page's own locality. The street
       // below remains the locality's own fallback, never a mismatched capital.
       fallback.postalCode;
 
-  const streetAddress = sourceStreet
-    || (useHq ? String(hqEntry.streetAddress).trim() : '')
-    || (fallbackDescribesLocality ? fallback.streetAddress : '')
-    || localisedCentro(addressLocality, locale);
+  const streetAddress = streetResolution.streetAddress;
 
-  if (!streetAddress || !postalCode || !addressLocality || !region) {
+  if (!postalCode || !addressLocality || !region) {
     throw new Error(
       `buildJobPostingSchema: could not resolve complete address for job ` +
       `"${job.id || job.slug || job.title || _companyName}"`,
@@ -761,22 +725,6 @@ function cantonFallbackPostalTuples(region: string): Array<{ postalCode: string;
     ] : []),
     ...(crawlerFallback ? [{ postalCode: crawlerFallback.postalCode, locality: crawlerFallback.city }] : []),
   ].filter(({ postalCode }) => postalCode.length > 0);
-}
-
-/** Localised "<city> centro" fallback for streetAddress. */
-function localisedCentro(city: string, locale: string): string {
-  const short = (locale || 'it').slice(0, 2).toLowerCase();
-  switch (short) {
-    case 'en':
-      return `${city} city centre`;
-    case 'de':
-      return `${city} Stadtzentrum`;
-    case 'fr':
-      return `${city} centre-ville`;
-    case 'it':
-    default:
-      return `${city} centro`;
-  }
 }
 
 /**
@@ -843,7 +791,7 @@ function resolveBaseSalary(job: JobInput): BaseSalarySchema {
  * place's street or CAP (issue 9852).
  */
 export function resolveJobPostingAddress(job: JobInput, locale: string): PostalAddressSchema {
-  return resolveAddress(job, resolveCompanyName(job, locale), locale);
+  return resolveAddress(job, resolveCompanyName(job, locale));
 }
 
 /**
@@ -880,7 +828,7 @@ export function buildJobPostingFacts(
       fallbackUrl: opts.fallbackUrl,
       knownSlugs: opts.knownSlugs,
     }),
-    jobLocation: { '@type': 'Place', address: resolveAddress(job, companyName, locale) },
+    jobLocation: { '@type': 'Place', address: resolveAddress(job, companyName) },
   };
 }
 
@@ -905,7 +853,7 @@ export function buildJobPostingSchema(
 
   const companyName = resolveCompanyName(job, opts.locale);
   const title = resolveTitle(job, opts.locale);
-  const address = resolveAddress(job, companyName, opts.locale);
+  const address = resolveAddress(job, companyName);
   const description = resolveDescription(
     job,
     title,
@@ -913,7 +861,13 @@ export function buildJobPostingSchema(
     address.addressLocality,
     opts.locale,
   );
-  const validThrough = resolveJobPostingValidThrough(job, datePosted, opts.now);
+  const validThrough = resolveJobPostingValidThrough(job, opts.now);
+  if (!validThrough) {
+    throw new Error(
+      `buildJobPostingSchema: could not resolve a source or observed deadline for job ` +
+      `"${job.id || job.slug || job.title || companyName}"`,
+    );
+  }
   const resolvedEmploymentTypes = resolveEmploymentTypes(job, title);
   const employmentType = employmentTypeJsonLdValue(
     resolvedEmploymentTypes.length > 0 ? resolvedEmploymentTypes : ['FULL_TIME'],
@@ -981,10 +935,10 @@ function assertMandatoryFieldsComplete(schema: JobPostingSchema): void {
   const addr = schema.jobLocation?.address;
   if (!addr) missing.push('jobLocation');
   else {
+    if (!addr.streetAddress) missing.push('jobLocation.address.streetAddress');
     if (!addr.addressLocality) missing.push('jobLocation.address.addressLocality');
     if (!addr.addressRegion) missing.push('jobLocation.address.addressRegion');
     if (addr.addressCountry !== 'CH') missing.push('jobLocation.address.addressCountry');
-    if (!addr.streetAddress) missing.push('jobLocation.address.streetAddress');
     if (!isValidPostalCode(addr.postalCode)) missing.push('jobLocation.address.postalCode');
   }
 

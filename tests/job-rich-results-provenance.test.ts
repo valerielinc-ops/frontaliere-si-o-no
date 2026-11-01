@@ -103,22 +103,23 @@ describe('rich-result eligibility validation', () => {
     expect(result.status).toBe(1);
     expect(result.stdout).toContain('datePosted:reported_mismatch');
   });
-  it('accepts safe defaults when the source lacks non-critical values', () => {
+  it('accepts preserved street and bounded deadline fallbacks when source values are absent', () => {
+    const fallbackDeadline = new Date(new Date(date).getTime() + 90 * 86400000).toISOString();
     const result = validate('reported', {
       ...posting,
-      validThrough: new Date(Date.now() + 45 * 86400000).toISOString(),
+      validThrough: fallbackDeadline,
       employmentType: 'FULL_TIME',
       baseSalary: { currency: 'CHF', value: { minValue: 61000, maxValue: 77000, unitText: 'YEAR' } },
-      jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH', postalCode: '6900', streetAddress: 'Piazza Riforma 1' } },
+      jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH', postalCode: '6900', streetAddress: 'Lugano' } },
     }, {
       job: { salaryMin: 61000, salaryMax: 77000, salarySource: 'estimated' },
     });
     expect(result.status, result.stdout + result.stderr).toBe(0);
   });
-  it('still rejects a substituted source validThrough', () => {
+  it('rejects an implausibly distant deadline that was not corrected', () => {
     const result = validate('reported', { ...posting, validThrough: '2030-01-01T00:00:00.000Z' });
     expect(result.status).toBe(1);
-    expect(result.stdout).toContain('validThrough:not_from_source');
+    expect(result.stdout).toContain('validThrough:not_from_active_observation');
   });
   it('rejects a reported salary dropped from the markup', () => {
     const result = validate('reported', { ...posting, baseSalary: undefined });
@@ -131,12 +132,48 @@ describe('rich-result eligibility validation', () => {
    ...posting,
    jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI' } },
   };
-  const result = validate('reported', schemaWithoutStreetOrPostal, {
+  const withoutPostal = validate('reported', schemaWithoutStreetOrPostal, {
    job: { ...SOURCE_FIELDS, streetAddress: 'Via Nassa 1', postalCode: '6900' },
   });
+  expect(withoutPostal.status).toBe(1);
+  expect(withoutPostal.stdout).toContain('missing:jobLocation.address.postalCode');
+  const withoutStreet = validate('reported', {
+   ...posting,
+   jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH', postalCode: '6900' } },
+  }, {
+   job: { ...SOURCE_FIELDS, streetAddress: 'Via Nassa 1', postalCode: '6900' },
+  });
+  expect(withoutStreet.status).toBe(1);
+  expect(withoutStreet.stdout).toContain('streetAddress:missing');
+ });
+ it('accepts lower-tier values only when they match the shared resolver', () => {
+  const result = validate('reported', {
+   ...posting,
+   validThrough: new Date(Date.now() + 45 * 86400000).toISOString(),
+   jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH', postalCode: '6900', streetAddress: 'Piazza Riforma 1' } },
+  }, {
+   job: { salaryMin: 61000, salaryMax: 77000, salarySource: 'estimated' },
+  });
   expect(result.status).toBe(1);
-  expect(result.stdout).toContain('missing:jobLocation.address.streetAddress');
-  expect(result.stdout).toContain('missing:jobLocation.address.postalCode');
+  expect(result.stdout).toContain('validThrough:not_from_active_observation');
+  expect(result.stdout).toContain('streetAddress:source_level_mismatch');
+ });
+ it('rejects a city-centre street and reports the lost field coverage', () => {
+  const result = validate('reported', {
+   ...posting,
+   jobLocation: { address: { ...posting.jobLocation.address, streetAddress: 'Lugano city centre' } },
+  });
+  expect(result.status).toBe(1);
+  expect(result.stdout).toContain('invalid:jobLocation.address.streetAddress_placeholder');
+ });
+ it('reports a coverage regression against every eligible locale in the snapshot', () => {
+  const result = validate('reported', {
+   ...posting,
+   jobLocation: { address: { ...posting.jobLocation.address, streetAddress: '' } },
+  });
+  expect(result.status).toBe(1);
+  expect(result.stdout).toContain('streetAddress coverage: 0/4 (regression=true)');
+  expect(result.stdout).toContain('coverage_regression:streetAddress:0/4');
  });
  it('rejects an incoherent fallback CAP even when the source CAP is formally valid', () => {
   const schemaWithWrongFallbackPostal = {

@@ -17,7 +17,6 @@ import { recaptchaService } from '@/services/recaptchaService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
-import { getFirestore, collection, addDoc, serverTimestamp, query, where, limit, getDocs } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { useAuth, getAuthEmail, getUserDisplayName } from '@/services/authService';
 import { trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
@@ -73,6 +72,9 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
     setAlreadyApplied('checking');
     (async () => {
       try {
+        // Dynamic: JobBoard imports this form statically, and a static import here
+        // put the 598 KB Firestore client on every job board view.
+        const { getFirestore, collection, query, where, limit, getDocs } = await import('firebase/firestore');
         const db = getFirestore(await getApp());
         const snap = await getDocs(
           query(
@@ -165,6 +167,7 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
       if (!verification.passed) throw new Error('recaptcha_blocked');
 
       const consentText = t('publisherApply.consent');
+      const { getFirestore, collection, addDoc, serverTimestamp } = await import('firebase/firestore');
       const db = getFirestore(await getApp());
       const application = await addDoc(collection(db, 'applications'), {
         jobId,

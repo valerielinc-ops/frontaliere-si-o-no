@@ -16,8 +16,13 @@
  */
 import { politeFetch } from './polite-fetch.mjs';
 import { extractVacancies, isSufficientVacancyDescription, textOf } from './extract.mjs';
-import { extractLinks, isRetryableTraceStatus } from './careers-trail.mjs';
+import { extractLinks, hasHomepageHiringSignal, isRetryableTraceStatus } from './careers-trail.mjs';
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
+import {
+  extractFreeTextOffers,
+  FREE_TEXT_MODE,
+  FREE_TEXT_CONTRACT_VERSION,
+} from './free-text-extract.mjs';
 import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs';
 import { KNOWN_AGGREGATOR_DOMAINS } from '../known-aggregator-domains.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
@@ -81,7 +86,7 @@ function careerLinksFromPage(body, baseUrl) {
  * @property {string} companyName
  * @property {string} companyHost
  * @property {string} platform            registrable domain of the ATS, '' when self-hosted
- * @property {'jsonld'|'microdata'|'template'} mode
+ * @property {'jsonld'|'microdata'|'template'|'free-text'} mode
  * @property {string[]} seedUrls
  * @property {string[]} [transportFallbackSeedUrls] Listing seeds tried only after a primary seed fails without receiving an HTTP response
  * @property {string[]} [allowedDetailOrigins] Exact extra origins reviewed for cross-origin ATS/CDN detail URLs
@@ -106,6 +111,11 @@ function careerLinksFromPage(body, baseUrl) {
  * @property {'expected-filter'} [detailNotFoundPolicy] Treat definitive detail HTTP 404s as stale listing filters after enough valid detail rows prove the source
  * @property {number} [detailNotFoundMinimumPublished] Minimum valid detail rows required before 404s can be classified as expected filters
  * @property {number} [qualityContractVersion] Version of the quality evidence rules; bump to require fresh validations
+ * @property {number} [freeTextContractVersion] Version of the source-grounded free-text extraction contract
+ * @property {{ location?: string, addressLocality?: string, addressRegion?: string, addressCountry?: string, postalCode?: string, streetAddress?: string }} [sourceLocation]
+ *   Independently sourced employer location used only when the free-text page omits a workplace.
+ * @property {Array<{ label: string, description: string, sourceText: string, applyUrl: string }>} [permanentApplications]
+ *   Standing application options kept separate from JobPosting vacancies.
  * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, declaredPageCountPattern?: string, stopAfterDeclaredPageCount?: boolean, pageStateParams?: string[], selfNextIsTerminal?: boolean, countDuplicateRowsForCoverage?: boolean }} [pagination]
  *   Follow the seed's `rel="next"` pages; with `declaredTotalPattern` the walk must
  *   collect `minCoverage` of the count the source declares, or the run fails closed;
@@ -422,6 +432,9 @@ export async function synthesizeSpec(candidate, runtime = {}) {
   let reachablePages = 0;
   let malformedResponses = 0;
   let extracted = null;
+  let freeTextSignalSeen = false;
+  let freeTextFailure = null;
+  let freeTextPermanentApplications = [];
   let suppliedSeedsAttempted = 0;
   while ((pendingPriority.length || pendingInitial.length || pendingDiscovered.length)
     && attempted.size < MAX_SYNTHESIS_FETCHES) {
@@ -498,6 +511,37 @@ export async function synthesizeSpec(candidate, runtime = {}) {
       extracted = { res, vacancies: result.vacancies, via: result.via };
       break;
     }
+    // The homepage detector is a hard precondition for the AI path. Keep the
+    // check here as well as inside the shared extractor so SYNTHESIZE never
+    // spends an LLM call on an ordinary corporate page.
+    if (hasHomepageHiringSignal(res.body)) {
+      freeTextSignalSeen = true;
+      const freeText = await extractFreeTextOffers(res.body, res.url, {
+        companyName: candidate.name,
+        companyLocation: {
+          location: candidate.city,
+          addressLocality: candidate.city,
+          addressRegion: candidate.canton,
+          addressCountry: candidate.country,
+          postalCode: candidate.zip,
+        },
+        callLLM: runtime.callLLM,
+      });
+      if (freeText.llmFailure) freeTextFailure = freeText.llmFailure;
+      if (freeText.vacancies.length) {
+        extracted = {
+          res,
+          vacancies: freeText.vacancies,
+          via: FREE_TEXT_MODE,
+          freeText,
+        };
+        break;
+      }
+      freeTextPermanentApplications = [
+        ...freeTextPermanentApplications,
+        ...(freeText.permanentApplications || []),
+      ].slice(0, 12);
+    }
     // A homepage often points to the real career listing. Follow only links
     // whose path or authored label signals recruitment, and extractLinks
     // already limits these links to the page's own origin.
@@ -512,11 +556,25 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     if (reachablePages > 0 && malformedResponses === 0) {
       return {
         spec: null,
-        reason: 'nessun annuncio estratto dal seed',
-        reasonCode: 'no_verified_vacancies',
+        reason: freeTextFailure
+          ? `estrazione testo libero non riuscita: ${freeTextFailure}`
+          : freeTextPermanentApplications.length
+            ? 'solo candidatura permanente, nessun annuncio concreto'
+            : 'nessun annuncio estratto dal seed',
+        reasonCode: freeTextFailure
+          ? 'free_text_llm_failure'
+          : freeTextPermanentApplications.length
+            ? 'permanent_application_only'
+            : 'no_verified_vacancies',
         retryable: true,
         vacancies: [],
-        diagnostics: { attemptedUrls: attempted.size, reachablePages, malformedResponses },
+        diagnostics: {
+          attemptedUrls: attempted.size,
+          reachablePages,
+          malformedResponses,
+          freeTextSignalSeen,
+          permanentApplications: freeTextPermanentApplications.length,
+        },
       };
     }
     const isRetryableFetchFailure = (attempt) => {
@@ -538,7 +596,7 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     };
   }
 
-  const { res, vacancies, via } = extracted;
+  const { res, vacancies, via, freeText } = extracted;
 
   // A synthesised spec must not silently learn an unreviewed ATS/CDN origin.
   // Existing promoted specs may name `allowedDetailOrigins` explicitly, but
@@ -591,15 +649,31 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     companyName: candidate.name || tenantLabel(host) || host,
     companyHost: host,
     platform: candidate.platform || inferredPlatform,
-    mode: /** @type {'jsonld'|'microdata'|'template'} */ (via),
+    mode: /** @type {'jsonld'|'microdata'|'template'|'free-text'} */ (via),
     seedUrls: [res.url],
-    detailTemplate: commonUrlTemplate(vacancies.map((v) => v.url)) || undefined,
-    detailEnrichment: via === 'template' || listingNeedsDetail,
+    detailTemplate: via === FREE_TEXT_MODE
+      ? undefined
+      : commonUrlTemplate(vacancies.map((v) => v.url)) || undefined,
+    detailEnrichment: via === FREE_TEXT_MODE ? false : via === 'template' || listingNeedsDetail,
     detailFetchWorkers: 4,
     pagination,
     sampleVacancyCount: vacancies.length,
     sampleTitles: vacancies.slice(0, 5).map((v) => v.title),
     canton: candidate.canton || undefined,
+    ...(via === FREE_TEXT_MODE ? {
+      freeTextContractVersion: FREE_TEXT_CONTRACT_VERSION,
+      sourceLocation: {
+        location: candidate.city || '',
+        addressLocality: candidate.city || '',
+        addressRegion: candidate.canton || '',
+        addressCountry: candidate.country || '',
+        postalCode: candidate.zip || '',
+      },
+      permanentApplications: [
+        ...(freeText?.permanentApplications || []),
+        ...freeTextPermanentApplications,
+      ].slice(0, 12),
+    } : {}),
     sourceLang: detectPageLang(res.body),
     learnedAt: new Date().toISOString(),
   };
@@ -643,6 +717,29 @@ export async function runSpec(spec, runtime = {}) {
       }
       if (!res?.ok) {
         errors.push(`${effectiveSeed}: ${res?.status ? `HTTP ${res.status}` : `transport ${res?.transportError || 'other'}`}`);
+        continue;
+      }
+      if (spec.mode === FREE_TEXT_MODE) {
+        const freeText = await extractFreeTextOffers(res.body, res.url, {
+          companyName: spec.companyName,
+          sourceLocation: spec.sourceLocation,
+          callLLM: runtime.callLLM,
+        });
+        if (freeText.llmFailure) errors.push(`${res.url}: ${freeText.llmFailure}`);
+        for (const v of freeText.vacancies || []) {
+          try { await urlPolicy(v.url); } catch {
+            errors.push(`${v.url}: origine offerta non autorizzata`);
+            continue;
+          }
+          all.push({
+            ...v,
+            company: v.company || spec.companyName,
+            companyKey: spec.companyKey,
+            companyDomain: spec.companyHost,
+            sourceLang: spec.sourceLang,
+            canton: spec.canton,
+          });
+        }
         continue;
       }
       // Stessa evidenza di listing che allega `runSpecInProduction()`: su

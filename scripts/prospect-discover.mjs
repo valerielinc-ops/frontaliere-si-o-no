@@ -15,14 +15,20 @@
  *
  * Options:
  *   --cantons=<list|all>  default TI
- *   --sources=<list>      own,seco,osm,web    (default: all four)
+ *   --sources=<list>      own,seco,osm,web,zefix    (default: all five)
  *   --pages=<n>           index pages to sweep for `web`, default 40
  *   --days=<n>            SECO window, default 30
  *   --limit=<n>           cap candidates filed per run
  *   --dry-run             report only, write nothing
  */
-import { fetchSecoEmployers } from './lib/prospector/sources/seco-jobroom.mjs';
+import { emailDomainHintsByEmployer, fetchSecoEmployers } from './lib/prospector/sources/seco-jobroom.mjs';
 import { fetchOsmBusinesses } from './lib/prospector/sources/osm-overpass.mjs';
+import {
+  loadZefixCursors,
+  saveZefixCursors,
+  sweepZefix,
+  ZEFIX_DAILY_BUDGET,
+} from './lib/prospector/sources/zefix-lindas.mjs';
 import { censusFromOwnCrawls, listingPathsFromAdapters } from './lib/prospector/sources/known-crawlers.mjs';
 import { sweepSwissCareerPages } from './lib/prospector/sources/commoncrawl-careers.mjs';
 import { loadCoverage, isCovered } from './lib/prospector/coverage.mjs';
@@ -50,7 +56,7 @@ const argv = process.argv.slice(2);
 // e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
 assertKnownFlags(argv, {
   booleans: ['dry-run'],
-  valued: ['cantons', 'sources', 'pages', 'days', 'limit', 'osm-cantons', 'osm-offset', 'prune-days'],
+  valued: ['cantons', 'sources', 'pages', 'days', 'limit', 'osm-cantons', 'osm-offset', 'prune-days', 'zefix-budget'],
 });
 const arg = (name, fallback) => {
   const hit = argv.find((a) => a.startsWith(`--${name}=`));
@@ -72,10 +78,10 @@ const cantons = [...new Set(cantonArg === 'all' ? CANTONS : cantonArg.split(',')
 if (!cantons.length || cantons.some((canton) => !CANTONS.includes(canton))) {
   throw new Error(`--cantons must contain valid Swiss canton codes: ${CANTONS.join(',')}`);
 }
-const sources = [...new Set(String(arg('sources', 'own,seco,osm,web')).split(',').map((s) => s.trim()).filter(Boolean))];
-const knownSources = new Set(['own', 'seco', 'osm', 'web']);
+const sources = [...new Set(String(arg('sources', 'own,seco,osm,web,zefix')).split(',').map((s) => s.trim()).filter(Boolean))];
+const knownSources = new Set(['own', 'seco', 'osm', 'web', 'zefix']);
 if (!sources.length || sources.some((source) => !knownSources.has(source))) {
-  throw new Error('--sources must be a comma-separated list of own,seco,osm,web');
+  throw new Error('--sources must be a comma-separated list of own,seco,osm,web,zefix');
 }
 const pages = boundedInt('pages', arg('pages', undefined), 40, 1, 100);
 const days = boundedInt('days', arg('days', undefined), 30, 1, 365);
@@ -89,6 +95,7 @@ const store = loadCandidates();
 const registry = loadRegistry();
 const duplicateReconciliation = reconcileCandidateDuplicates(store, dryRun ? null : undefined);
 const secoPageCursors = sources.includes('seco') ? loadSecoPageCursors() : null;
+const zefixCursors = sources.includes('zefix') ? loadZefixCursors() : null;
 
 console.log('═══ Prospector · DISCOVER ═══');
 console.log(`cantoni: ${cantons.join(',')}  sorgenti: ${sources.join(',')}  finestra SECO: ${days}g`);
@@ -104,9 +111,9 @@ const perSource = {};
 // Per-source outage tracking: a source counts as DOWN only if it was
 // requested AND every attempt on it failed. A partial failure (some
 // cantons reachable) is normal flakiness, not an outage.
-const sourceAttempts = { seco: 0, osm: 0, web: 0 };
-const sourceFailures = { seco: 0, osm: 0, web: 0 };
-const sourcePartial = { seco: 0, osm: 0, web: 0 };
+const sourceAttempts = { seco: 0, osm: 0, web: 0, zefix: 0 };
+const sourceFailures = { seco: 0, osm: 0, web: 0, zefix: 0 };
+const sourcePartial = { seco: 0, osm: 0, web: 0, zefix: 0 };
 
 /**
  * @param {Record<string, any>} candidate
@@ -119,7 +126,8 @@ function file(candidate, source, sourceMetadata = {}) {
   const cov = isCovered(coverage, observation);
   if (cov.covered) { skippedCovered++; return; }
   const key = observation.key || candidateKey(observation);
-  reviveRetryableDeadCandidate(store, key, observation, dryRun ? null : undefined, source);
+  // A registry row proves a company exists, not that anything changed about it.
+  if (source !== 'zefix') reviveRetryableDeadCandidate(store, key, observation, dryRun ? null : undefined, source);
   const { created } = upsertCandidate(store, observation, source);
   if (created) { filed++; perSource[source] = (perSource[source] || 0) + 1; }
 }
@@ -194,6 +202,7 @@ if (sources.includes('seco')) {
       };
     }
     const filedBefore = perSource.seco || 0;
+    const emailDomainHints = emailDomainHintsByEmployer(employers);
     for (const e of employers) {
       file({
         name: e.name,
@@ -206,6 +215,7 @@ if (sources.includes('seco')) {
         adCount: e.adCount,
         sampleTitles: e.titles,
         applyHosts: e.applyHosts,
+        emailDomainHints: emailDomainHints.get(e.name) || [],
       }, 'seco');
     }
     outcome = recordSourceOutcome('seco', {
@@ -314,16 +324,50 @@ if (sources.includes('web')) {
   });
 }
 
+/* ── The commercial registers, last so real sources fill the limit first ── */
+if (sources.includes('zefix')) {
+  const budget = Math.min(
+    boundedInt('zefix-budget', arg('zefix-budget', undefined), ZEFIX_DAILY_BUDGET, 0, 5000),
+    Math.max(0, limit - filed),
+  );
+  if (budget > 0) {
+    const filedBefore = perSource.zefix || 0;
+    try {
+      const sweep = await sweepZefix({
+        cantons,
+        budget,
+        cursors: zefixCursors,
+        // Identity only: every later stage must find its own proof of hiring.
+        accept: ({ zefixId, name, city, zip, canton }) => {
+          const before = filed;
+          file({ name, city, zip, canton, country: 'CH', zefixId }, 'zefix');
+          return filed > before;
+        },
+      });
+      recordSourceOutcome('zefix', {
+        outcome: sweep.outcome,
+        errorCode: sweep.errorCode,
+        recordsSeen: sweep.recordsSeen,
+        newCandidatesFiled: (perSource.zefix || 0) - filedBefore,
+      });
+      console.log(`Zefix ${sweep.cantonsRead.join(',') || '—'}: ${sweep.accepted} nuovi su ${sweep.recordsSeen} righe, scartate ${JSON.stringify(sweep.excluded)}${sweep.outcome !== 'complete' ? ` · ${sweep.outcome}${sweep.errorCode ? ` (${sweep.errorCode})` : ''}` : ''}`);
+    } catch (err) {
+      recordSourceOutcome('zefix', { outcome: 'unavailable', errorCode: 'source_exception' });
+      console.log(`Zefix: non raggiungibile — ${(err instanceof Error ? err.message : String(err)).slice(0, 90)}`);
+    }
+  }
+}
+
 /* ── Outage detection ─────────────────────────────────────────── */
 // Zero candidati filed è ambiguo: può voler dire "nulla di nuovo" oppure
 // "ogni fonte esterna era giù". Solo il secondo caso merita un segnale che
 // distingua un giro vuoto per outage da un giro vuoto per davvero — senza
 // far fallire lo stadio (coerente con l'isolamento per-elemento di #6287,
 // il resto del loop notturno deve comunque processare la coda esistente).
-const downSources = ['seco', 'osm', 'web'].filter(
+const downSources = ['seco', 'osm', 'web', 'zefix'].filter(
   (s) => sources.includes(s) && sourceAttempts[s] > 0 && sourceFailures[s] === sourceAttempts[s],
 );
-const requestedExternal = ['seco', 'osm', 'web'].filter((s) => sources.includes(s) && sourceAttempts[s] > 0);
+const requestedExternal = ['seco', 'osm', 'web', 'zefix'].filter((s) => sources.includes(s) && sourceAttempts[s] > 0);
 if (requestedExternal.length > 0 && downSources.length === requestedExternal.length) {
   console.error(`\n⚠️  OUTAGE TOTALE: tutte le fonti esterne richieste (${downSources.join('+').toUpperCase()}) sono fallite in questo giro — zero candidati filed non e' "nessuna novita'".`);
   process.exitCode = 1;
@@ -350,6 +394,7 @@ if (dryRun) {
   saveCandidates(store);
   saveRegistry(registry);
   if (secoPageCursors) saveSecoPageCursors(secoPageCursors);
+  if (zefixCursors) saveZefixCursors(zefixCursors);
   try { appendDiscoveryHealth(discoveryHealthRun); } catch {
     console.error('::warning::Telemetria discovery non aggiornata; lo storico corrotto o non scrivibile e\' stato preservato.');
   }

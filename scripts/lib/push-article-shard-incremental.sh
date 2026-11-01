@@ -55,12 +55,16 @@
 #                         (verified) the exact destination path inside the
 #                         shard repo, e.g. articoli-frontaliere/some-slug/index.html
 #
-# Required env (identical convention to push-section-shard.sh):
+# Required env (identical credential convention to push-section-shard.sh):
 #   SHARD_<SECTION_UPPER>_<LOCALE_UPPER>_DEPLOY_KEY — e.g.
 #     SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY. SSH-only write deploy key for
-#     frontaliere-<section>-<locale>. Read via indirect expansion.
-#     Missing → hard failure: the fast publisher must not report a push that
-#     published zero shard paths.
+#     frontaliere-<section>-<locale>. Read via indirect expansion and preferred
+#     when present.
+#   SHARD_PUSH_PAT or the owner-specific PAT selected by shard-git-helpers.sh
+#     (GITHUB_PAT for valerielinc-ops, GITHUB_PAT_NANAKO for
+#     nanakokyobashi-rgb). Used over HTTPS when the deploy key is absent.
+#     Missing both credentials → hard failure: the fast publisher must not
+#     report a push that published zero shard paths.
 # Optional env:
 #   RUNNER_TEMP — scratch dir; falls back to a mktemp dir if unset (logged).
 #
@@ -115,16 +119,10 @@ for rel in "${relpaths[@]}"; do
 done
 
 # Per-section-per-locale deploy key via indirect expansion (mirrors
-# push-section-shard.sh). The incremental publisher is the source of the
-# workflow's "push confirmed" signal, so missing provisioning must be a hard
-# failure rather than a successful no-op that lets the caller announce a shard
-# which received no HTML.
+# push-section-shard.sh). A missing key is resolved below through the explicit
+# owner-aware HTTPS PAT fallback; it is not a reason to skip the publish.
 key_var="SHARD_${SECTION_UPPER}_${LOC_UPPER}_DEPLOY_KEY"
 key_val="${!key_var:-}"
-if [ -z "$key_val" ]; then
-  echo "::error::no $key_var secret — cannot publish $loc $section article fast-path shard (not provisioned)" >&2
-  exit 1
-fi
 
 # A fast publisher renders current-main HTML without publishing the full
 # dist/assets producer set. Keep the old shard page live unless every asset
@@ -162,8 +160,31 @@ SHARD_PUSH_FAIL_REASON_FILE="${RUNNER_TEMP:-/tmp}/shard-fail-reason-$section-$lo
 : > "$SHARD_PUSH_FAIL_REASON_FILE" 2>/dev/null || true
 
 keyfile="$RUNNER_TEMP/article-shard_${section}_${loc}_key"
-printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
-export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
+shard_remote="$SHARD_REPO"
+shard_transport='ssh'
+if [ -n "$key_val" ]; then
+  printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
+  export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
+else
+  # The fallback is selected from the canonical owner encoded in SHARD_REPO;
+  # never use a generic token for a transferred shard when the helper has an
+  # owner-specific credential available. Keep the token out of the URL and
+  # argv: Git's credential helper reads the exported value only at request
+  # time, matching shard_pat_push's masking/scrubbing contract.
+  SHARD_PUSH_TOKEN="$(shard_push_token_for_repo "$SHARD_REPO")"
+  if [ -z "$SHARD_PUSH_TOKEN" ]; then
+    echo "::error::no $key_var and no SHARD_PUSH_PAT/GITHUB_PAT credential — cannot publish $loc $section article fast-path shard" >&2
+    exit 1
+  fi
+  if ! shard_remote="$(shard_https_push_url "$SHARD_REPO")"; then
+    echo "::error::cannot derive an HTTPS remote for $SHARD_REPO — refusing the PAT fallback" >&2
+    exit 1
+  fi
+  echo "::add-mask::$SHARD_PUSH_TOKEN"
+  export SHARD_PUSH_TOKEN
+  shard_transport='https'
+  echo "ℹ️ $section-$loc article shard: deploy key $key_var is absent — using the owner-aware HTTPS PAT fallback"
+fi
 
 stage="$RUNNER_TEMP/article-shard-$section-$loc"
 # A concurrent full deploy can keep moving the shard tip for longer than the
@@ -330,8 +351,15 @@ _attempt() {
   rm -rf "$stage"
   local clone_err
   clone_err="$(mktemp)"
-  if ! git clone -q --depth 1 --filter=blob:none --no-checkout "$SHARD_REPO" "$stage" 2>"$clone_err"; then
-    echo "::warning::clone of $SHARD_REPO failed: $(cat "$clone_err")"
+  if [ "$shard_transport" = 'https' ]; then
+    if ! git -c credential.helper= -c "credential.helper=$_SHARD_CRED_HELPER" \
+      clone -q --depth 1 --filter=blob:none --no-checkout "$shard_remote" "$stage" 2>"$clone_err"; then
+      echo "::warning::clone of $shard_remote failed: $(cat "$clone_err")"
+      rm -f "$clone_err"
+      return 1
+    fi
+  elif ! git clone -q --depth 1 --filter=blob:none --no-checkout "$shard_remote" "$stage" 2>"$clone_err"; then
+    echo "::warning::clone of $shard_remote failed: $(cat "$clone_err")"
     rm -f "$clone_err"
     return 1
   fi
@@ -457,7 +485,12 @@ _attempt() {
   # same shape as shard_push_with_retry, which this direct push does not use.
   local push_err push_rc=0
   push_err="$(mktemp)"
-  git -C "$stage" push "$SHARD_REPO" "$commit":main 2>"$push_err" || push_rc=$?
+  if [ "$shard_transport" = 'https' ]; then
+    git -C "$stage" -c credential.helper= -c "credential.helper=$_SHARD_CRED_HELPER" \
+      push "$shard_remote" "$commit":main 2>"$push_err" || push_rc=$?
+  else
+    git -C "$stage" push "$shard_remote" "$commit":main 2>"$push_err" || push_rc=$?
+  fi
   cat -- "$push_err" >&2
   if [ "$push_rc" -eq 0 ]; then
     rm -f -- "$push_err"

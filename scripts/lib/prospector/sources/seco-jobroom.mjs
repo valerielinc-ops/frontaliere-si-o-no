@@ -20,9 +20,58 @@
  * anyone naming a vendor.
  */
 import { politeFetch } from './../polite-fetch.mjs';
-import { normalizeHost } from './../registrable.mjs';
+import { normalizeHost, registrableDomain } from './../registrable.mjs';
+import { NON_PLATFORM_HOSTS } from './../config.mjs';
 
 const API = 'https://www.job-room.ch/jobadservice/api/jobAdvertisements/_search';
+
+/**
+ * Mailbox providers: the domain after `@` says nothing about the employer.
+ * Swiss ISPs are listed because a micro-employer's address is often theirs.
+ */
+const SHARED_MAIL_DOMAINS = new Set([
+  'bluewin.ch', 'gmail.com', 'gmx.ch', 'gmx.net', 'hispeed.ch', 'hotmail.com',
+  'hotmail.it', 'icloud.com', 'libero.it', 'me.com', 'mac.com', 'outlook.com',
+  'protonmail.com', 'proton.me', 'sunrise.ch', 'swissonline.ch', 'ticino.com',
+  'tiscali.it', 'vtxmail.ch', 'yahoo.com', 'yahoo.it', 'zoho.com',
+]);
+
+/**
+ * The employer domain an application address points at, or null when the
+ * address cannot identify the employer. Only the domain ever leaves this
+ * function: the mailbox can name a person and must not reach the store.
+ *
+ * @param {unknown} email
+ * @returns {string|null}
+ */
+export function employerEmailDomain(email) {
+  const match = /^[^@\s]+@([a-z0-9.-]+\.[a-z]{2,})$/i.exec(String(email || '').trim());
+  if (!match) return null;
+  const domain = registrableDomain(match[1].toLowerCase());
+  if (!domain || SHARED_MAIL_DOMAINS.has(domain) || NON_PLATFORM_HOSTS.has(domain)) return null;
+  return domain;
+}
+
+/**
+ * Domain hints per employer name. A domain seen on two different employers is
+ * an agency or a recruiting service rather than either employer's own site, the
+ * same "two unrelated employers" reading the platform registry applies.
+ *
+ * @param {SecoEmployer[]} employers
+ * @returns {Map<string, string[]>}
+ */
+export function emailDomainHintsByEmployer(employers = []) {
+  const owners = new Map();
+  for (const employer of employers) {
+    for (const domain of employer.emailDomains || []) {
+      owners.set(domain, (owners.get(domain) || 0) + 1);
+    }
+  }
+  return new Map(employers.map((employer) => [
+    employer.name,
+    (employer.emailDomains || []).filter((domain) => owners.get(domain) === 1).slice(0, 3),
+  ]));
+}
 
 /**
  * @typedef {Object} SecoEmployer
@@ -32,6 +81,7 @@ const API = 'https://www.job-room.ch/jobadservice/api/jobAdvertisements/_search'
  * @property {string} canton
  * @property {string} [website]
  * @property {string[]} applyHosts  hosts seen on this employer's apply URLs
+ * @property {string[]} emailDomains  employer domains seen on application addresses
  * @property {number} adCount
  * @property {string[]} titles
  */
@@ -41,6 +91,100 @@ function advertisementId(row) {
   if (typeof raw === 'string' && raw.trim()) return raw.trim();
   if (Number.isSafeInteger(raw)) return String(raw);
   return null;
+}
+
+function transportOptions(opts) {
+  return { fetchImpl: opts.fetchImpl, sleepImpl: opts.sleepImpl, lookupImpl: opts.lookupImpl };
+}
+
+/**
+ * One page of the public search, the single request behind both consumers: the
+ * prospector wants the employers, the job crawler publishes the ads. Never
+ * throws — each consumer decides what a failed page means.
+ *
+ * `displayRestricted:false` asks for what anyone can read. `x-total-count` is
+ * the source's own total, and the only way to tell a complete read from a
+ * short one.
+ *
+ * @param {number} page
+ * @param {{ cantons: string[], onlineSince: number, pageSize: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} opts
+ * @returns {Promise<{ ok: true, batch: any[], declaredTotal: number|null } | { ok: false, outcome: 'unavailable'|'malformed', errorCode: string }>}
+ */
+export async function readSecoSearchPage(page, { cantons, onlineSince, pageSize, fetchImpl, sleepImpl, lookupImpl }) {
+  try {
+    const res = await politeFetch(`${API}?page=${page}&size=${pageSize}&sort=date_desc`, {
+      method: 'POST',
+      accept: 'application/json',
+      ignoreRobots: true,
+      captureHeaders: ['x-total-count'],
+      body: JSON.stringify({
+        permanent: null,
+        workloadPercentageMin: 0,
+        workloadPercentageMax: 100,
+        onlineSince,
+        displayRestricted: false,
+        keywords: [],
+        professionCodes: [],
+        cantonCodes: cantons,
+        communalCodes: [],
+        companyName: null,
+      }),
+      fetchImpl,
+      sleepImpl,
+      lookupImpl,
+    });
+    if (!res.ok) return { ok: false, outcome: 'unavailable', errorCode: `http_${res.status}` };
+    let batch;
+    try { batch = JSON.parse(res.body); } catch { batch = null; }
+    if (!Array.isArray(batch)) {
+      return { ok: false, outcome: 'malformed', errorCode: batch === null ? 'malformed_json' : 'unexpected_payload' };
+    }
+    const rawTotal = String(res.headers?.['x-total-count'] ?? '').trim();
+    return { ok: true, batch, declaredTotal: /^\d+$/.test(rawTotal) ? Number(rawTotal) : null };
+  } catch {
+    return { ok: false, outcome: 'unavailable', errorCode: 'network_error' };
+  }
+}
+
+/**
+ * The whole feed for a set of cantons, read in one sweep.
+ *
+ * The prospector's head/after cursors below are deliberately not used here:
+ * they exist to spread a discovery sweep over several runs, while a publisher
+ * must see every live ad in every run or it would retire the ones it skipped.
+ * What this shares with them is the stable-ID rule: pages shift while new ads
+ * land, so a row is identified by its ID and never by its position.
+ *
+ * @param {{ cantons?: string[], onlineSince?: number, maxPages?: number, pageSize?: number, fetchImpl?: typeof fetch, sleepImpl?: (ms:number) => Promise<unknown>, lookupImpl?: any }} [opts]
+ * @returns {Promise<{ rows: any[], outcome: 'complete'|'partial'|'unavailable'|'malformed', errorCode: string|null, pagesRead: number, firstDeclaredTotal: number|null, lastDeclaredTotal: number|null, skippedRows: number }>}
+ */
+export async function fetchSecoAdSnapshot(opts = {}) {
+  const cantons = opts.cantons || ['TI'];
+  const onlineSince = opts.onlineSince ?? 30;
+  const maxPages = opts.maxPages ?? 100;
+  const pageSize = opts.pageSize ?? 100;
+  const byId = new Map();
+  let pagesRead = 0;
+  let firstDeclaredTotal = null;
+  let lastDeclaredTotal = null;
+  let skippedRows = 0;
+  const finish = (outcome, errorCode = null) => ({
+    rows: [...byId.values()], outcome, errorCode, pagesRead, firstDeclaredTotal, lastDeclaredTotal, skippedRows,
+  });
+
+  for (let page = 0; page < maxPages; page++) {
+    const result = await readSecoSearchPage(page, { cantons, onlineSince, pageSize, ...transportOptions(opts) });
+    if (!result.ok) return finish(pagesRead > 0 ? 'partial' : result.outcome, result.errorCode);
+    pagesRead++;
+    if (firstDeclaredTotal === null) firstDeclaredTotal = result.declaredTotal;
+    if (result.declaredTotal !== null) lastDeclaredTotal = result.declaredTotal;
+    for (const row of result.batch) {
+      const id = advertisementId(row);
+      if (id) byId.set(id, row); else skippedRows++;
+    }
+    if (result.batch.length < pageSize) return finish('complete');
+  }
+  return finish('partial', 'page_limit_reached');
 }
 
 /**
@@ -93,38 +237,7 @@ export async function fetchSecoEmployers(opts = {}) {
 
   async function readPage(page) {
     if (pageCache.has(page)) return pageCache.get(page);
-    let result;
-    try {
-      const res = await politeFetch(`${API}?page=${page}&size=${pageSize}&sort=date_desc`, {
-        method: 'POST',
-        accept: 'application/json',
-        ignoreRobots: true,
-        body: JSON.stringify({
-          permanent: null,
-          workloadPercentageMin: 0,
-          workloadPercentageMax: 100,
-          onlineSince,
-          displayRestricted: false,
-          keywords: [],
-          professionCodes: [],
-          cantonCodes: cantons,
-          communalCodes: [],
-          companyName: null,
-        }),
-        fetchImpl: opts.fetchImpl,
-        sleepImpl: opts.sleepImpl,
-        lookupImpl: opts.lookupImpl,
-      });
-      if (!res.ok) result = { ok: false, outcome: 'unavailable', errorCode: `http_${res.status}` };
-      else {
-        let batch;
-        try { batch = JSON.parse(res.body); } catch { batch = null; }
-        if (!Array.isArray(batch)) result = { ok: false, outcome: 'malformed', errorCode: batch === null ? 'malformed_json' : 'unexpected_payload' };
-        else result = { ok: true, batch };
-      }
-    } catch {
-      result = { ok: false, outcome: 'unavailable', errorCode: 'network_error' };
-    }
+    const result = await readSecoSearchPage(page, { cantons, onlineSince, pageSize, ...transportOptions(opts) });
     pageCache.set(page, result);
     if (result.ok) pagesRead++;
     return result;
@@ -160,6 +273,7 @@ export async function fetchSecoEmployers(opts = {}) {
         canton: cantons.length === 1 ? cantons[0] : '',
         website: c.website || undefined,
         applyHosts: [],
+        emailDomains: [],
         adCount: 0,
         titles: [],
       });
@@ -168,6 +282,8 @@ export async function fetchSecoEmployers(opts = {}) {
     e.adCount++;
     const title = (jc.jobDescriptions || [])[0]?.title;
     if (title && e.titles.length < 5) e.titles.push(String(title).slice(0, 120));
+    const emailDomain = employerEmailDomain(jc.applyChannel?.emailAddress);
+    if (emailDomain && !e.emailDomains.includes(emailDomain)) e.emailDomains.push(emailDomain);
     const url = jc.externalUrl || jc.applyChannel?.formUrl || null;
     if (url) {
       try {

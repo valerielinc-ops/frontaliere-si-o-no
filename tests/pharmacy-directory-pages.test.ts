@@ -9,7 +9,12 @@ import { currentDutyWeekStart } from '../services/pharmacies/dutyWeek';
 import { currentItalyDutyWeekStart } from '../services/pharmacies/italyDuty';
 import catalogueJson from '../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
+import { ITALY_BORDER_PHARMACIES, ITALY_BORDER_PROVINCES, TICINO_PHARMACIES } from '../services/pharmacies/data';
+import { buildPharmacyPath } from '../services/pharmacies/paths';
+import { countHtmlBodyWords } from '../build-plugins/constants';
 import type { Pharmacy, PharmacyDutiesDataset } from '../services/pharmacies/types';
+
+const locales = ['it', 'en', 'de', 'fr'] as const;
 
 const tempRoots: string[] = [];
 
@@ -93,6 +98,56 @@ describe('pharmacy directory static pages', () => {
     expect(built.html).toContain('Die Zahl beschreibt die im aktuellen Datensatz veröffentlichten Einträge');
   });
 
+  it('indexes singleton towns with nearby, hours and duty context', async () => {
+    const root = makeTempRoot();
+    await runCloseBundle(root);
+    const sitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-farmacie.xml'), 'utf8');
+    const cities = pharmacyPageDescriptors().filter((candidate) => candidate.kind === 'city');
+    const countFor = (descriptor: typeof cities[number]) => descriptor.country === 'IT'
+      ? ITALY_BORDER_PHARMACIES.filter((pharmacy) => pharmacy.province === ITALY_BORDER_PROVINCES.find((area) => area.slug === descriptor.areaSlug)?.code && pharmacy.city === descriptor.cityName).length
+      : TICINO_PHARMACIES.filter((pharmacy) => pharmacy.city === descriptor.cityName).length;
+    const singletonDescriptors = cities.filter((descriptor) => countFor(descriptor) === 1);
+    const sitemapRoutes = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]));
+    const singletonPages = locales.flatMap((locale) => singletonDescriptors.map((descriptor) => {
+      const pagePath = descriptor.country === 'IT'
+        ? buildPharmacyPath({ kind: 'city', country: 'IT', areaSlug: descriptor.areaSlug, citySlug: descriptor.citySlug, locale })
+        : buildPharmacyPath({ kind: 'city', country: 'CH', citySlug: descriptor.citySlug, locale });
+      const file = path.join(root, 'dist', `${pagePath.replace(/^\/+|\/+$/g, '')}/index.html`);
+      const html = fs.readFileSync(file, 'utf8');
+      const section = html.match(/<section\b[^>]*data-single-pharmacy-city-enrichment=(?:"true"|true)[^>]*>[\s\S]*?<\/section>/)?.[0] || '';
+      return { country: descriptor.country, path: pagePath, html, addedWords: countHtmlBodyWords(section) };
+    }));
+    const addedWords = singletonPages.map((page) => page.addedWords);
+    const averageAddedWords = addedWords.reduce((sum, count) => sum + count, 0) / Math.max(1, addedWords.length);
+    const ticinoPages = singletonPages.filter((page) => page.country === 'CH');
+    const ticinoAverageAddedWords = ticinoPages.reduce((sum, page) => sum + page.addedWords, 0) / Math.max(1, ticinoPages.length);
+
+    expect(singletonPages).toHaveLength(singletonDescriptors.length * locales.length);
+    expect(ticinoPages.length).toBeGreaterThan(0);
+    for (const page of singletonPages) {
+      expect(robotsOf(page.html).replace(/\s+/g, ''), page.path).toBe('index,follow');
+      expect(sitemapRoutes, page.path).toContain(`https://frontaliereticino.ch${page.path}`);
+    }
+    expect(averageAddedWords).toBeGreaterThan(0);
+
+    const airolo = buildPharmacyDirectoryPage(
+      cities.find((descriptor) => descriptor.country === 'CH' && descriptor.cityName === 'Airolo')!,
+      'it', root, dutiesJson as unknown as PharmacyDutiesDataset, new Date('2026-10-31T12:00:00+02:00'),
+    );
+    expect(airolo.html).toContain('data-nearby-pharmacy-id=');
+    expect(airolo.html).toContain('Orari pubblicati');
+    expect(airolo.html).toContain('data-distance-km=');
+
+    const noCoordinates = buildPharmacyDirectoryPage(
+      cities.find((descriptor) => descriptor.country === 'CH' && descriptor.cityName === 'Arbedo')!,
+      'it', root, dutiesJson as unknown as PharmacyDutiesDataset, new Date('2026-10-31T12:00:00+02:00'),
+    );
+    expect(noCoordinates.html).toMatch(/data-distance-unavailable=(?:"coordinates"|coordinates)/);
+    expect(noCoordinates.html).not.toContain('data-distance-km=');
+
+    console.info(`[pharmacy singleton indexability] ${singletonPages.length} pages indexable (${ticinoPages.length} Ticino) across ${locales.length} locales; ${averageAddedWords.toFixed(1)} average body words added per page (${ticinoAverageAddedWords.toFixed(1)} Ticino)`);
+  });
+
   it('keeps duty-week model indexability fail-closed and tied to the sitemap', async () => {
     const root = makeTempRoot();
     await runCloseBundle(root);
@@ -122,6 +177,9 @@ describe('pharmacy directory static pages', () => {
     );
     expect(sitemapRoutes.has(current.path)).toBe(current.indexable);
     expect(sitemapRoutes.has(hub.path)).toBe(true);
+    // A listing has no date of its own; a single pharmacy has its verification day.
+    expect(sitemap).toContain(`<loc>https://frontaliereticino.ch${hub.path}</loc><changefreq>`);
+    expect(sitemap).toMatch(/<\/loc><lastmod>\d{4}-\d{2}-\d{2}<\/lastmod><changefreq>/);
 
     const tampered = {
       ...dutiesJson,

@@ -4852,6 +4852,12 @@ async function probeForeignPresentPage(
 }
 
 /**
+ * In the `<head>` of every closed-offer soft landing and of nothing else. Those
+ * pages are deliberately `index,follow`, so the noindex check cannot see them.
+ */
+const CLOSED_JOB_PAGE_HEAD_MARKER = 'window.__EXPIRED_JOB_DATA__=';
+
+/**
  * Async parallel variant. Replaced the sync version (180k `fs.readFileSync`
  * + 360k `fs.existsSync` per build, ~41s under `sitemap-write` in run
  * 26597194374) with a fixed-size concurrency pool of async readFile attempts.
@@ -4891,7 +4897,11 @@ export async function dropOverwrittenLocs(
   options: {
     inspectForeignPresent?: boolean;
     keepMissing?: boolean;
+    /** Treat the input as a complete dist assembled from every locale shard. */
+    ignoreShardOwnership?: boolean;
     preserveCanonicalExemptions?: boolean;
+    /** Also drop a closed offer: its soft landing is `index,follow` but no sitemap entry. */
+    dropClosedJobPages?: boolean;
     foreignDirectoryIndex?: ForeignDirectoryIndex;
     /** Etichetta del chiamante, solo per la riga `[sitemap-truth]` di diagnosi. */
     label?: string;
@@ -4922,7 +4932,7 @@ export async function dropOverwrittenLocs(
   // unrelated HTML tree is traversed but never retained in the index. A caller
   // that supplies a shared index owns its retention scope and is left intact.
   let foreignCandidatePaths: Iterable<string> | undefined;
-  if (options.inspectForeignPresent && !options.foreignDirectoryIndex) {
+  if (options.inspectForeignPresent && !options.ignoreShardOwnership && !options.foreignDirectoryIndex) {
     if (!EMIT_ALL_LOCALES) {
       foreignCandidatePaths = (function* (): Iterable<string> {
         for (const loc of locs) {
@@ -4949,7 +4959,10 @@ export async function dropOverwrittenLocs(
       // owning locale this shard does not emit has no HTML on disk by design —
       // keep it so the it/main shard's sitemap stays complete. Skipped entirely
       // in the default build (EMIT_ALL_LOCALES) so behaviour is byte-identical.
-      const foreignLocale = !EMIT_ALL_LOCALES && !shouldEmitLocale(localeOfDistPath(urlPath, ''));
+      const foreignLocale =
+        !options.ignoreShardOwnership &&
+        !EMIT_ALL_LOCALES &&
+        !shouldEmitLocale(localeOfDistPath(urlPath, ''));
       const routePath = path.join(distDir, urlPath);
       const indexPath = path.join(distDir, urlPath, 'index.html');
       const flatPath = path.join(distDir, urlPath + '.html');
@@ -5041,6 +5054,10 @@ export async function dropOverwrittenLocs(
       }
       if (facts ? facts.metaRefresh : hasMetaRefresh(html)) {
         flags[i] = DROP_REDIRECT;
+        continue;
+      }
+      if (options.dropClosedJobPages && html.includes(CLOSED_JOB_PAGE_HEAD_MARKER)) {
+        flags[i] = DROP_NOINDEX;
         continue;
       }
       const canonHref = facts ? facts.canonicalHref : extractCanonicalHref(html);
@@ -5416,6 +5433,7 @@ export async function reconcileSitemapJobsWithDist(
         (await dropOverwrittenLocs(distDir, locs, {
           inspectForeignPresent: true,
           preserveCanonicalExemptions: true,
+          dropClosedJobPages: true,
           foreignDirectoryIndex: options.foreignDirectoryIndex,
           label: 'jobs',
         }))

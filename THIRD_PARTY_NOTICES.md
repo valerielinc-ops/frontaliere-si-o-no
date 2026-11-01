@@ -19,6 +19,14 @@ requires.
 | [Reactive Resume](https://github.com/reactive-resume/reactive-resume) | `functions/src/assistedApplicationAiPrompts.js` (CV extraction rules), `lib/toolVocabulary.js` (tool aliases) |
 | [hiring-agent](https://github.com/interviewstreet/hiring-agent) | `functions/src/assistedApplicationAiPrompts.js` (fairness rule of the match) |
 
+## Zefix company data
+
+The prospector reads company names, seats and purposes from Zefix, the Central Business Name Index of the Federal
+Commercial Registry Office (FCRO/EHRA), through the [LINDAS](https://register.ld.admin.ch/.well-known/dataset/foj-zefix)
+linked-data service of the Swiss Federal Administration. Source: Swiss Federal Commercial Registry Office, Zefix.
+Published on [opendata.swiss](https://opendata.swiss/en/dataset/zefix-zentraler-firmenindex) under "Open use. Must
+provide the source."
+
 ## career-ops
 
 MIT License

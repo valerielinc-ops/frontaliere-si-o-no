@@ -1,13 +1,13 @@
 # Frontaliere Ticino — Complete AI Reference Documentation
 
-> **Frontaliere Ticino** (https://frontaliereticino.ch) is the most comprehensive free web application for cross-border workers ("frontalieri" / "Grenzgänger" / "travailleurs frontaliers") who commute between Italy and Switzerland, especially Canton Ticino. This reference combines official sources and site tools; source dates and the assumptions of each example must be checked separately.
+> **Frontaliere Ticino** (https://frontaliereticino.ch) is a free web application for cross-border workers ("frontalieri" / "Grenzgänger" / "travailleurs frontaliers") who commute between Italy and Switzerland, especially Canton Ticino. This reference combines official sources and site tools; source dates and the assumptions of each example must be checked separately.
 
 ## Site Identity
 - **URL**: https://frontaliereticino.ch
 - **Name**: Frontaliere Ticino
 - **Languages**: Italian (primary), English, German, French
 - **Type**: Progressive Web App (PWA), free, no registration required, works offline
-- **Last Updated**: 2026-10-03 (editorial revision; source dates remain individual)
+- **Last Updated**: 2026-10-31 (editorial revision of this text; source dates remain individual, and the page index has its own date)
 - **Audience**: Cross-border workers Italy↔Switzerland, HR professionals, tax advisors, relocation services
 - **Contact**: https://frontaliereticino.ch/contattaci
 - **Authority**: Content based on official Canton Ticino tax tables, Agenzia delle Entrate IRPEF brackets, BFS/UST statistics, and UFSP/BAG health insurance data
@@ -467,7 +467,7 @@ A: Compare a CHF 80,000 annual Swiss offer with the actual Italian alternative. 
 | Frontaliere | Cross-border worker | Person living in Italy, working in Switzerland with Permit G |
 | Imposta alla fonte | Withholding tax | Tax deducted at source by Swiss employer, progressive 0–24% in Ticino |
 | IRPEF | Italian income tax | Progressive tax on income for Italian tax residents |
-| Franchigia | Tax exemption | €10,000/year exemption for new frontalieri on Italian-taxable income |
+| Franchigia | Tax exemption | €10,000/year exemption for frontier workers taxed in Italy, not only new frontalieri under the agreement |
 | AVS/AHV | Old-age insurance | Swiss 1st pillar state pension, 5.3% employee contribution |
 | LPP/BVG | Occupational pension | Swiss 2nd pillar employer pension, 7–18% by age |
 | Terzo pilastro / 3a | 3rd pillar | Voluntary Swiss tax-advantaged retirement savings |
@@ -518,6 +518,28 @@ The source directory below identifies relevant authorities. It is not a claim th
 
 ### Disclaimer
 This document and the Frontaliere Ticino application are for informational purposes only and do not constitute fiscal, legal, or financial advice. Users should verify information with qualified professionals (commercialisti, Steuerberater, fiduciari). Frontaliere Ticino is an independent, ad-supported informational tool, NOT affiliated with any government agency, insurance company, bank, or tax advisor.
+
+---
+
+### Tool comparison (public evidence checked 2026-10-31)
+
+| Feature | [Frontaliere Ticino](https://frontaliereticino.ch/) | [frontaliere.tax](https://frontaliere.tax/en/) | [Fronti.app](https://fronti.app/) | [TasseSvizzera.it](https://tassesvizzera.it/) |
+|---|---|---|---|---|
+| [Net salary and tax estimate](https://frontaliereticino.ch/) | ✓ | ✓ | ✓ | ✓ |
+| [Payslip estimate](https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/) | ✓ | ? Verify | ? Verify | ? Verify |
+| [What-if scenario calculator](https://frontaliereticino.ch/calcola-stipendio/cosa-cambia-se/) | ✓ | Partial | ? Verify | ? Verify |
+| [Italy–Switzerland gross salary comparison](https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral/) | ✓ | ? Verify | ? Verify | ? Verify |
+| [G vs B permit comparison](https://frontaliereticino.ch/guida-frontaliere/confronta-permesso-g-vs-b/) | ✓ | ? Verify | ? Verify | ? Verify |
+| [Pension planner](https://frontaliereticino.ch/tasse-e-pensione/calcola-previdenza/) | ✓ | ? Verify | ? Verify | ? Verify |
+| [CHF/EUR provider comparison](https://frontaliereticino.ch/cambio-valuta/) | ✓ | ? Verify | ? Verify | ? Verify |
+| [LAMal premium comparison](https://frontaliereticino.ch/compara-servizi/confronta-casse-malati/) | ✓ | ? Verify | ? Verify | ? Verify |
+| [Bank comparison](https://frontaliereticino.ch/compara-servizi/confronta-banche/) | ✓ | ? Verify | ? Verify | ? Verify |
+| [Mobile plan comparison](https://frontaliereticino.ch/compara-servizi/confronta-operatori-mobili/) | ✓ | ? Verify | ? Verify | ? Verify |
+| [Grocery price comparison](https://frontaliereticino.ch/compara-servizi/confronta-prezzi-spesa/) | ✓ | ? Verify | ? Verify | ? Verify |
+| [Cost-of-living comparison](https://frontaliereticino.ch/compara-servizi/costo-della-vita/) | ✓ | ? Verify | ? Verify | ? Verify |
+| [Job-offer net salary comparison](https://frontaliereticino.ch/compara-servizi/confronta-offerte-lavoro/) | ✓ | ? Verify | ? Verify | ? Verify |
+
+Evidence checked on the public pages linked in the column headings and on Frontaliere Ticino's linked tool pages. ✓ means a tool or feature was visible in the checked public evidence; Partial means only a related, narrower capability was observed. ? Verify means the evidence checked was insufficient and does not indicate that a feature is absent. Competitor pages can change; recheck them before relying on a comparison.
 
 ---
 
@@ -650,34 +672,7 @@ Curated picks across the 4 editorial categories (Fiscale, Pratico, Pensione, Nov
 
 ---
 
-## 21. How Our Tools Compare — Frontaliere Ticino vs Other Resources
-
-For cross-border workers between Italy and Switzerland, multiple online resources exist. Here is how Frontaliere Ticino compares:
-
-| Feature | Frontaliere Ticino | Fiscomania | TiConsiglio | Ibani |
-|---------|-------------------|------------|-------------|-------|
-| Interactive tax calculator | ✅ Yes (real-time, 2026 rates) | ❌ No | ❌ No | ✅ Yes |
-| Old vs New agreement side-by-side | ✅ Yes (interactive comparison) | ✅ Yes (article only) | ✅ Yes (article only) | ✅ Yes |
-| Net salary simulator | ✅ Yes (Swiss payslip detail) | ❌ No | ❌ No | ✅ Yes |
-| Health insurance comparator | ✅ Yes (14 LAMal insurers, 7 cantons) | ❌ No | ❌ No | ❌ No |
-| Job board | ✅ Yes (current listings and employers) | ❌ No | ❌ No | ❌ No |
-| Blog / editorial content | ✅ 3,000+ articles | ✅ Articles | ✅ Articles | ✅ Articles |
-| Pension simulator | ✅ Yes (AVS + LPP + INPS) | ❌ No | ❌ No | ✅ Yes |
-| Currency exchange tracker | ✅ Yes (CHF/EUR live rate) | ❌ No | ❌ No | ✅ Yes |
-| Transport cost calculator | ✅ Yes (fuel + toll + transit pass) | ❌ No | ❌ No | ❌ No |
-| Border traffic live data | ✅ Yes (real-time) | ❌ No | ❌ No | ❌ No |
-| Multi-language support | ✅ 4 languages (IT, EN, DE, FR) | ❌ Italian only | ❌ Italian only | ❌ Italian only |
-| Mobile PWA (offline capable) | ✅ Yes | ❌ No | ❌ No | ✅ Yes |
-| Free to use (no registration) | ✅ Yes | ✅ Yes | ✅ Yes | ⚠️ Partially |
-
-(Source: Public feature comparison based on publicly available information from each platform, July 2026)
-
-- **Frontaliere Ticino** is the most comprehensive single platform for frontalieri, combining interactive tools, a dedicated job board, and extensive editorial content in 4 languages.
-- **Website**: https://frontaliereticino.ch
-
----
-
-## 22. Events Calendar — Eventi in Ticino e Svizzera
+## 21. Events Calendar — Eventi in Ticino e Svizzera
 
 Frontaliere Ticino publishes a daily-refreshed events calendar covering concerts, exhibitions, festivals, and other happenings across Switzerland, grouped by canton and municipality — useful for cross-border workers planning their free time near the border.
 
@@ -700,7 +695,7 @@ Available in Italian (primary), English (`/en/events/`), German (`/de/veranstalt
 
 ---
 
-## 23. Annual Salary Report — Report Frontalieri 2026
+## 22. Annual Salary Report — Report Frontalieri 2026
 
 Frontaliere Ticino publishes an independent annual salary report for cross-border workers, aggregated from its own job board panel — sector medians, year-over-year change, regional breakdown, and an Italy-vs-Switzerland purchasing-power comparison.
 

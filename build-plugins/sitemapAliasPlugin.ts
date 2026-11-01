@@ -4,11 +4,11 @@
  *    that violate Google's sitemap-hreflang method (issue #3474). See
  *    `sanitizeSitemapHreflangReciprocity` below.
  * 1. Keep backward compatibility with the legacy sitemap_news.xml filename
- * 2. Regenerate `dist/sitemap.xml` as a sitemap index containing EVERY
- *    `dist/sitemap-*.xml` file present after the build. This turns the
- *    index into an auto-discovered manifest so future feature plugins
- *    don't have to manually patch the index — they just write their
- *    own `sitemap-*.xml` at `closeBundle` and this plugin picks it up.
+ * 2. Regenerate `dist/sitemap.xml` as a sitemap index containing every
+ *    eligible `dist/sitemap-*.xml` file present after the build. This turns
+ *    the index into an auto-discovered manifest so future feature plugins
+ *    don't have to manually patch it — they just write their own
+ *    `sitemap-*.xml` at `closeBundle` and this plugin picks it up.
  *
  * Ordering:
  *   - `enforce: 'post'` + `closeBundle.order: 'post'` ensure this plugin
@@ -36,6 +36,8 @@ import {
   isFuelSitemapFile,
 } from './fuelDailyData';
 import { pruneAlreadyListedLocaleVariants } from './shared/localeVariantSitemap';
+import { deriveSitemapLastmods, newestSitemapDay } from './shared/sitemapDerivedLastmod';
+import { pruneSeededPagesAlreadyListed } from './shared/sitemapUrlsetDedupe';
 import {
   dropOverwrittenLocs,
   dropUrlBlocksByLoc,
@@ -72,19 +74,30 @@ const EXCLUDED_SITEMAP_FILES = new Set<string>([
   'sitemap-index.xml',
 ]);
 
+/**
 /** Match `sitemap-<name>.xml` — underscore separator is reserved for legacy. */
 const SITEMAP_FILE_PATTERN = /^sitemap-[a-z0-9][a-z0-9-]*\.xml$/i;
 const ARTICLE_SITEMAP_FILE_PATTERN = /^sitemap-(?:blog(?:-ch)?|locale-variants(?:-\d+)?|news)\.xml$/i;
 
 export interface DiscoveredSitemap {
   file: string;
-  lastmod: string; // YYYY-MM-DD
+  /** Newest `<lastmod>` the file lists (YYYY-MM-DD); absent when it dates nothing. */
+  lastmod?: string;
 }
 
 /**
  * Discover every `sitemap-*.xml` in `distDir` and return a de-duplicated,
- * alphabetically sorted list with each file's last-modified date (YYYY-MM-DD).
- * `sitemap.xml` itself and `sitemap_news.xml` are excluded.
+ * alphabetically sorted list with the date of each file's newest entry.
+ * `sitemap.xml` itself, `sitemap_news.xml` and the nested `sitemap-index.xml`
+ * are excluded. Every emitted sitemap family remains discoverable; final
+ * dist-truth reconciliation removes only URLs whose rendered page is missing,
+ * noindex, redirected, or not self-canonical.
+ *
+ * The date comes from the file's content, never from its mtime: every sitemap
+ * is rewritten on every build, so the mtime only ever said "built today" and
+ * gave all 159 index entries the same value (GEO audit 2026-10-31). A file that
+ * dates none of its URLs has no honest date, and `lastmod` is optional in a
+ * sitemap index.
  *
  * The function is pure (no writes) so unit tests can exercise it with a
  * seeded tmpdir.
@@ -95,30 +108,18 @@ export async function discoverSitemapFiles(distDir: string): Promise<DiscoveredS
   const entries = fs.readdirSync(distDir);
   const seen = new Set<string>();
   const discovered: DiscoveredSitemap[] = [];
-  // Solo banco (deploy-matrix-experiment con freeze_clock/compare_variants):
-  // `mtime` e' l'orologio REALE del filesystem, che il clock congelato non
-  // tocca, quindi due gambe costruite a ore di distanza (a cavallo della
-  // mezzanotte UTC) davano `lastmod` diversi e un `sitemap.xml` diverso per
-  // il solo fuso orario del run. In produzione la variabile non esiste e il
-  // `lastmod` resta la data di modifica del file.
-  const frozenMs = Number(process.env.BENCH_FROZEN_CLOCK_MS);
-  const frozenDate = /^\d{10,16}$/.test(process.env.BENCH_FROZEN_CLOCK_MS ?? '') ? new Date(frozenMs) : null;
-  const frozenLastmod = frozenDate && !Number.isNaN(frozenDate.getTime())
-    ? frozenDate.toISOString().slice(0, 10)
-    : null;
   for (const file of entries) {
     if (EXCLUDED_SITEMAP_FILES.has(file)) continue;
     if (!SITEMAP_FILE_PATTERN.test(file)) continue;
     if (seen.has(file)) continue;
     seen.add(file);
-    let lastmod: string;
+    let lastmod: string | undefined;
     try {
-      const stat = fs.statSync(path.join(distDir, file));
-      lastmod = frozenLastmod ?? stat.mtime.toISOString().slice(0, 10);
+      lastmod = newestSitemapDay(fs.readFileSync(path.join(distDir, file), 'utf-8'));
     } catch {
-      // If stat fails, fall back to today — keeps the index valid rather
-      // than crashing the build over a transient filesystem hiccup.
-      lastmod = new Date().toISOString().slice(0, 10);
+      // Unreadable: list it undated rather than crash the build over a
+      // transient filesystem hiccup.
+      lastmod = undefined;
     }
     discovered.push({ file, lastmod });
   }
@@ -133,14 +134,18 @@ export async function discoverSitemapFiles(distDir: string): Promise<DiscoveredS
  * The final artifact is the source of truth: a present page is eligible only
  * when it is indexable and self-canonical, except for canonical bridge rules
  * already classified by `canonicalExemptions`. Missing HTML stays advertised
- * here because article and static locale shards can be completed by a sibling
- * artifact; the dedicated sitemap-completeness gate owns that invariant.
+ * during a locale-shard build because a sibling artifact may still provide it;
+ * the post-rehydration pass can disable that behavior after assembly.
  */
 async function reconcileSitemapFamilyWithDist(
   distDir: string,
   filePredicate: (file: string) => boolean,
   familyLabel: string,
-  options: { foreignDirectoryIndex?: ForeignDirectoryIndex } = {},
+  options: {
+    foreignDirectoryIndex?: ForeignDirectoryIndex;
+    keepMissing?: boolean;
+    ignoreShardOwnership?: boolean;
+  } = {},
 ): Promise<number> {
   if (!fs.existsSync(distDir)) return 0;
 
@@ -155,7 +160,8 @@ async function reconcileSitemapFamilyWithDist(
 
   const kept = new Set(await dropOverwrittenLocs(distDir, locs, {
     inspectForeignPresent: true,
-    keepMissing: true,
+    keepMissing: options.keepMissing ?? true,
+    ignoreShardOwnership: options.ignoreShardOwnership,
     preserveCanonicalExemptions: true,
     foreignDirectoryIndex: options.foreignDirectoryIndex,
     label: familyLabel,
@@ -188,7 +194,11 @@ async function reconcileSitemapFamilyWithDist(
 /** Remove noindex/non-self-canonical article URLs while retaining shard-missing URLs. */
 export async function reconcileArticleSitemapsWithDist(
   distDir: string,
-  options: { foreignDirectoryIndex?: ForeignDirectoryIndex } = {},
+  options: {
+    foreignDirectoryIndex?: ForeignDirectoryIndex;
+    keepMissing?: boolean;
+    ignoreShardOwnership?: boolean;
+  } = {},
 ): Promise<number> {
   return reconcileSitemapFamilyWithDist(
     distDir,
@@ -204,9 +214,13 @@ export async function reconcileArticleSitemapsWithDist(
  * from the emitted filenames prevents a new sitemap producer from silently
  * bypassing the noindex/canonical contract.
  */
-async function reconcileRemainingSitemapsWithDist(
+export async function reconcileRemainingSitemapsWithDist(
   distDir: string,
-  options: { foreignDirectoryIndex?: ForeignDirectoryIndex } = {},
+  options: {
+    foreignDirectoryIndex?: ForeignDirectoryIndex;
+    keepMissing?: boolean;
+    ignoreShardOwnership?: boolean;
+  } = {},
 ): Promise<number> {
   return reconcileSitemapFamilyWithDist(
     distDir,
@@ -234,7 +248,7 @@ export function buildSitemapIndexXml(
   const entries = sitemaps
     .map(
       (s) =>
-        `  <sitemap>\n    <loc>${baseUrl}/${s.file}</loc>\n    <lastmod>${s.lastmod}</lastmod>\n  </sitemap>`,
+        `  <sitemap>\n    <loc>${baseUrl}/${s.file}</loc>\n${s.lastmod ? `    <lastmod>${s.lastmod}</lastmod>\n` : ''}  </sitemap>`,
     )
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -308,7 +322,10 @@ function removeStaleFuelSitemapFiles(distDir: string): string[] {
  * Exported for the dist-artifact regression test; the Vite hook calls it after
  * all page emitters have completed.
  */
-export async function reconcileSitemapFuelWithDist(distDir: string): Promise<number> {
+export async function reconcileSitemapFuelWithDist(
+  distDir: string,
+  options: { keepMissing?: boolean; ignoreShardOwnership?: boolean } = {},
+): Promise<number> {
   if (!fs.existsSync(distDir)) return 0;
 
   const removedShards = removeStaleFuelSitemapFiles(distDir);
@@ -332,7 +349,12 @@ export async function reconcileSitemapFuelWithDist(distDir: string): Promise<num
   // path is present on disk (for example, a direct-fs bridge), inspect it so
   // noindex/non-self-canonical HTML cannot leak through.
   const kept = new Set(
-    await dropOverwrittenLocs(distDir, locs, { inspectForeignPresent: true, label: 'fuel' }),
+    await dropOverwrittenLocs(distDir, locs, {
+      inspectForeignPresent: true,
+      keepMissing: options.keepMissing,
+      ignoreShardOwnership: options.ignoreShardOwnership,
+      label: 'fuel',
+    }),
   );
   const dropLocs = [...new Set(locs.filter((loc) => !kept.has(loc)))];
   if (dropLocs.length === 0) return 0;
@@ -535,6 +557,7 @@ export function sanitizeSitemapHreflangReciprocity(
 export async function reconcileFinalSitemapsWithDist(
   distDir: string,
   mirrorLocs: ReadonlyArray<string> = getFinalSitemapMirrorLocs(),
+  options: { keepMissing?: boolean; ignoreShardOwnership?: boolean } = {},
 ): Promise<void> {
   // Tempi per famiglia (`[sitemap-alias-detail]`): sono la sola attribuzione
   // possibile dei ~9-11 minuti del plugin senza un secondo run profilato.
@@ -548,13 +571,17 @@ export async function reconcileFinalSitemapsWithDist(
   };
   const foreignDirectoryIndex = await __detail('foreign-candidates', () => createForeignDirectoryIndex(
     distDir,
-    collectForeignDirectoryCandidates(distDir),
+    options.ignoreShardOwnership ? new Set<string>() : collectForeignDirectoryCandidates(distDir),
   ));
   await __detail('search-clusters', () => reconcileSitemapSearchClustersWithDist(distDir));
   await __detail('jobs', () => reconcileSitemapJobsWithDist(distDir, mirrorLocs, { foreignDirectoryIndex }));
-  await __detail('fuel', () => reconcileSitemapFuelWithDist(distDir));
-  await __detail('articles', () => reconcileArticleSitemapsWithDist(distDir, { foreignDirectoryIndex }));
-  await __detail('remaining-static', () => reconcileRemainingSitemapsWithDist(distDir, { foreignDirectoryIndex }));
+  await __detail('fuel', () => reconcileSitemapFuelWithDist(distDir, options));
+  await __detail('articles', () =>
+    reconcileArticleSitemapsWithDist(distDir, { ...options, foreignDirectoryIndex }),
+  );
+  await __detail('remaining-static', () =>
+    reconcileRemainingSitemapsWithDist(distDir, { ...options, foreignDirectoryIndex }),
+  );
 }
 
 export function sitemapAliasPlugin(rootDir: string): Plugin {
@@ -627,6 +654,18 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
           );
         }
 
+        // 1-pre-b. A URL its own family lists leaves the seeded sitemap-pages.xml,
+        //    so the two copies cannot disagree in the guard below.
+        const yielded = pruneSeededPagesAlreadyListed(sitemapFiles);
+        for (const [file, xml] of yielded) {
+          fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');
+        }
+        if (yielded.size > 0) {
+          sitemapFiles = sitemapFiles.map((f) =>
+            yielded.has(f.file) ? { file: f.file, xml: yielded.get(f.file)! } : f,
+          );
+        }
+
         const __tSanitize = performance.now();
         const sanitized = sanitizeSitemapHreflangReciprocity(sitemapFiles);
         console.log(`[sitemap-alias-detail] hreflang-sanitize wall_s=${((performance.now() - __tSanitize) / 1000).toFixed(1)} files=${sitemapFiles.length}`);
@@ -639,6 +678,24 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
           );
         }
 
+        // 1-post. Dates the undated listing pages can prove. Last rewrite of the
+        //    urlsets: it needs the final <loc> set and the final HTML.
+        const __tLastmod = performance.now();
+        const dated = deriveSitemapLastmods(
+          sitemapFiles.map((f) => (sanitized.has(f.file) ? { file: f.file, xml: sanitized.get(f.file)! } : f)),
+          (loc) => {
+            try {
+              return fs.readFileSync(path.join(distDir, new URL(loc).pathname, 'index.html'), 'utf-8');
+            } catch {
+              return null;
+            }
+          },
+        );
+        for (const [file, xml] of dated) {
+          fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');
+        }
+        console.log(`[sitemap-alias-detail] derived-lastmod wall_s=${((performance.now() - __tLastmod) / 1000).toFixed(1)} files=${dated.size}`);
+
         // 2. Legacy alias: sitemap-news.xml → sitemap_news.xml
         //    Must run BEFORE discovery so the alias file exists when the
         //    discovery step runs (the alias is excluded from the index, but
@@ -650,7 +707,13 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
           console.log('\x1b[36m[sitemap-alias]\x1b[0m Created sitemap_news.xml alias');
         }
 
-        // 3. Auto-discover all sitemap-*.xml in dist/ and regenerate the index
+        // 3. The job shard writer still leaves its own `sitemap-index.xml`, a
+        //    partial duplicate of the real index (96 of 159 children, SEO audit
+        //    2026-10-31) that nothing declares. /sitemap.xml is the only index:
+        //    the file stops being published and the edge redirects its URL.
+        fs.rmSync(path.join(distDir, 'sitemap-index.xml'), { force: true });
+
+        // 4. Auto-discover all sitemap-*.xml in dist/ and regenerate the index
         const discovered = await discoverSitemapFiles(distDir);
         const indexPath = path.join(distDir, 'sitemap.xml');
         const xml = buildSitemapIndexXml(discovered, BASE_URL);

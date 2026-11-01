@@ -29,6 +29,10 @@ import {
   setStatus,
   byStatus,
   isTraceRetryDue,
+  NO_CAREERS_REASON,
+  NO_CAREERS_RECHECK_BATCH,
+  reviveStaleNoCareersCandidates,
+  reviveUnresolvedDomainCandidates,
   scheduleTraceRetry,
   statusCounts,
   startLedgerPhase,
@@ -59,6 +63,9 @@ startLedgerPhase('trace', { dryRun });
 const store = loadCandidates();
 const registry = loadRegistry();
 
+const rechecked = onlyKey || onlySource || dryRun ? [] : reviveStaleNoCareersCandidates(store);
+const retriedDomains = onlyKey || onlySource || dryRun ? [] : reviveUnresolvedDomainCandidates(store);
+
 const queue = onlyKey
   // Manual --key intentionally bypasses automatic retry cooldown/evidence suppression.
   ? [store.candidates[resolveCandidateKey(store, onlyKey)]].filter(Boolean)
@@ -72,6 +79,8 @@ const queue = onlyKey
   );
 
 console.log('═══ Prospector · TRACE ═══');
+if (rechecked.length) console.log(`ricontrollo periodico: ${rechecked.length} siti senza pagina carriere (max ${NO_CAREERS_RECHECK_BATCH} per run)`);
+if (retriedDomains.length) console.log(`nuovo generatore di domini: ${retriedDomains.length} candidati rimessi in coda`);
 console.log(`in coda: ${queue.length} candidati (di ${byStatus(store, 'new').length} nuovi)\n`);
 
 const results = await mapPool(queue, CONCURRENCY, (c) => traceCandidate(c));
@@ -85,6 +94,11 @@ const promoted = [];
 for (const r of results) {
   if (!r) continue;
   const { c } = r;
+  if (r.resolution?.triedHints?.length) {
+    store.candidates[c.key].emailDomainHintsTried = [
+      ...new Set([...(c.emailDomainHintsTried || []), ...r.resolution.triedHints]),
+    ];
+  }
   if (r.verdict === 'retry') {
     deferred++;
     setStatus(store, c.key, 'new', scheduleTraceRetry(c, r.reason));
@@ -95,6 +109,7 @@ for (const r of results) {
     dead++;
     setStatus(store, c.key, 'dead', {
       reason: r.reason,
+      ...(r.reason === NO_CAREERS_REASON ? { noCareersVerdictAt: new Date().toISOString() } : {}),
       traceRetryable: false,
       domain: r.domain || undefined,
       traceRetryAt: null,

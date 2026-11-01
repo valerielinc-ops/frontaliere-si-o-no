@@ -447,15 +447,17 @@ function AdSenseBannerInstance({
 
  // Otherwise observe for width changes
  console.info(`[AdSense] waiting for measurable width for slot=${adSlot}`);
+ // push() mutates the DOM synchronously: inside a ResizeObserver delivery that
+ // raises "ResizeObserver loop completed with undelivered notifications".
+ let pushFrame: number | undefined;
  const observer = new ResizeObserver((entries) => {
- for (const entry of entries) {
- if (entry.contentRect.width > 0) {
+ if (pushFrame !== undefined || !entries.some((entry) => entry.contentRect.width > 0)) return;
+ pushFrame = requestAnimationFrame(() => {
+ pushFrame = undefined;
+ if (!tryPush()) return;
  observer.disconnect();
  resizeObserverRef.current = null;
- tryPush();
- break;
- }
- }
+ });
  });
  observer.observe(wrapper);
  resizeObserverRef.current = observer;
@@ -463,6 +465,8 @@ function AdSenseBannerInstance({
  // Safety timeout — collapse if width never materializes
  const timeout = setTimeout(() => {
  observer.disconnect();
+ if (pushFrame !== undefined) cancelAnimationFrame(pushFrame);
+ pushFrame = undefined;
  if (!pushed.current) {
  collapseWhenLayoutSafe('width timeout');
  }
@@ -471,6 +475,7 @@ function AdSenseBannerInstance({
  return () => {
  cleanupAsyncWatchers();
  clearTimeout(timeout);
+ if (pushFrame !== undefined) cancelAnimationFrame(pushFrame);
  };
  }, [state, scriptReady, adSlot, cleanupAsyncWatchers, collapseWhenLayoutSafe, ensureLifecycle, adsConsentTick]);
 

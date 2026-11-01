@@ -1032,7 +1032,7 @@ async function enrichJob(job, aiState) {
     // Otherwise the emitted PostalAddress would mix an HQ street/CAP with a
     // different locality (e.g. 'Viale Officina 3'/'6500' Bellinzona on a
     // Lugano posting). Build-time fallbacks derive coherent city values.
-    const hqLocalityOk = sameLocalityAsHq(realLocality, knownAddr.addressLocality);
+    const hqLocalityOk = sameLocalityAsHq(realLocality, knownAddr.addressLocality, knownAddr.addressRegion);
     job = {
       ...job,
       streetAddress: job.streetAddress || (hqLocalityOk ? knownAddr.streetAddress : ''),

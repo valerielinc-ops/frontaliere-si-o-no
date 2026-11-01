@@ -39,6 +39,7 @@ import {
   parseOrphanLandingPath,
   buildOrphanLandingRoutes,
   filterMatchingJobs,
+  selectOrphanLandingJobs,
   jobMatchesCluster,
   median,
   topCounts,
@@ -448,6 +449,140 @@ describe('orphanQueryData — job matching', () => {
 });
 
 // ─── Small helpers ───────────────────────────────────────────
+describe('selectOrphanLandingJobs — explicit Ticino coverage (GEO audit 2026-10-31)', () => {
+  const architect = (canton: string, location: string, slug: string) =>
+    activeJob({
+      title: 'Architetto',
+      titleByLocale: { it: 'Architetto', en: 'Architect', de: 'Architekt', fr: 'Architecte' },
+      canton,
+      location,
+      addressLocality: location,
+      slug,
+    });
+  const ticinoQuery = makeCluster('it', 'offerte-di-lavoro-architetto-ticino', 30, ['architett'], ['ticino']);
+
+  it('keeps broader matches indexable and distinguishes Ticino from wider Swiss coverage', () => {
+    const jobs = [architect('ZH', 'Zurigo', 'a'), architect('BE', 'Berna', 'b'), architect('VD', 'Losanna', 'c'), architect('TI', 'Lugano', 'd')];
+    const selected = selectOrphanLandingJobs(jobs, ticinoQuery, 15, 3);
+    expect(selected.regionRelevant).toBe(true);
+    expect(selected.jobs).toHaveLength(4);
+    expect(selected.regionCoverage).toEqual({
+      region: 'ticino',
+      regionMatchCount: 1,
+      outsideRegionMatchCount: 3,
+      unresolvedRegionMatchCount: 0,
+      totalMatchCount: 4,
+      resultScope: 'broader',
+    });
+
+    const rendered = __renderOrphanLandingPage({
+      cluster: ticinoQuery,
+      matchingJobs: selected.jobs,
+      regionRelevant: selected.regionRelevant,
+      regionCoverage: selected.regionCoverage,
+      strings: {},
+      dateStamp: '2026-10-13',
+      knownSlugsByLocale: new Map(ORPHAN_LANDING_LOCALES.map((locale) => [locale, new Set<string>()])),
+    });
+    expect(rendered.indexable).toBe(true);
+    expect(rendered.html).toMatch(/data-orphan-region-coverage=(?:"ticino"|ticino)/);
+    expect(rendered.html).toContain('Ticino: 1; fuori dal Ticino: 3 (4 totali)');
+    expect(rendered.html).toContain('quelle verificate in Ticino sono sotto soglia');
+    expect(rendered.regionCoverageWordCount).toBeGreaterThan(20);
+    expect(rendered.regionCoverageResultScope).toBe('broader');
+
+    const roleTokens = { it: 'architett', en: 'architect', de: 'architekt', fr: 'architect' } as const;
+    const addedWordsByLocale = ORPHAN_LANDING_LOCALES.map((locale) => {
+      const clusterForLocale = makeCluster(locale, `architect-ticino-${locale}`, 30, [roleTokens[locale]], ['ticino']);
+      const selectedForLocale = selectOrphanLandingJobs(jobs, clusterForLocale, 15, 3);
+      const page = __renderOrphanLandingPage({
+        cluster: clusterForLocale,
+        matchingJobs: selectedForLocale.jobs,
+        regionRelevant: selectedForLocale.regionRelevant,
+        regionCoverage: selectedForLocale.regionCoverage,
+        strings: {},
+        dateStamp: '2026-10-13',
+        knownSlugsByLocale: new Map(ORPHAN_LANDING_LOCALES.map((candidate) => [candidate, new Set<string>()])),
+      });
+      expect(page.indexable, locale).toBe(true);
+      return page.regionCoverageWordCount;
+    });
+    const averageAddedCoverageWords = addedWordsByLocale.reduce((sum, count) => sum + count, 0) / addedWordsByLocale.length;
+    expect(averageAddedCoverageWords).toBeGreaterThan(20);
+    console.info(`[orphan Ticino coverage] ${ORPHAN_LANDING_LOCALES.length} locale pages indexable with wider matches; ${averageAddedCoverageWords.toFixed(1)} average coverage words added per page`);
+  });
+
+  it('with enough jobs in Ticino the page shows only those', () => {
+    const jobs = [architect('ZH', 'Zurigo', 'a'), architect('TI', 'Lugano', 'b'), architect('TI', 'Bellinzona', 'c'), architect('TI', 'Locarno', 'd')];
+    const selected = selectOrphanLandingJobs(jobs, ticinoQuery, 15, 3);
+    expect(selected.regionRelevant).toBe(true);
+    expect(selected.jobs.map((job) => job.slug).sort()).toEqual(['b', 'c', 'd']);
+    expect(selected.regionCoverage).toMatchObject({
+      regionMatchCount: 3,
+      outsideRegionMatchCount: 1,
+      totalMatchCount: 4,
+      resultScope: 'ticino',
+    });
+  });
+
+  it('looks past the limit: recent jobs elsewhere do not hide jobs in Ticino', () => {
+    const elsewhere = Array.from({ length: 5 }, (_, i) => architect('ZH', 'Zurigo', `zh-${i}`));
+    const jobs = [...elsewhere, architect('TI', 'Lugano', 'x'), architect('TI', 'Lugano', 'y'), architect('TI', 'Lugano', 'z')];
+    const selected = selectOrphanLandingJobs(jobs, ticinoQuery, 3, 3);
+    expect(selected.regionRelevant).toBe(true);
+    expect(selected.jobs.map((job) => job.slug).sort()).toEqual(['x', 'y', 'z']);
+  });
+
+  it('keeps the minimum match gate when the wider result set is still too small', () => {
+    const jobs = [architect('ZH', 'Zurigo', 'a'), architect('TI', 'Lugano', 'b')];
+    const selected = selectOrphanLandingJobs(jobs, ticinoQuery, 15, 3);
+    expect(selected.regionRelevant).toBe(false);
+    expect(selected.regionCoverage).toMatchObject({ totalMatchCount: 2, resultScope: 'broader' });
+  });
+
+  it('keeps unknown locations out of the Ticino and outside-Ticino counts', () => {
+    const jobs = [
+      architect('TI', 'Lugano', 'ti'),
+      architect('', 'Sede non verificata', 'unknown-a'),
+      architect('', 'Sede non verificata', 'unknown-b'),
+      architect('', 'Sede non verificata', 'unknown-c'),
+      architect('XX', 'Lugano', 'conflicting-canton'),
+    ];
+    const selected = selectOrphanLandingJobs(jobs, ticinoQuery, 15, 3);
+    expect(selected.regionRelevant).toBe(true);
+    expect(selected.regionCoverage).toMatchObject({
+      regionMatchCount: 1,
+      outsideRegionMatchCount: 0,
+      unresolvedRegionMatchCount: 4,
+      totalMatchCount: 5,
+      resultScope: 'broader',
+    });
+    const rendered = __renderOrphanLandingPage({
+      cluster: ticinoQuery,
+      matchingJobs: selected.jobs,
+      regionRelevant: selected.regionRelevant,
+      regionCoverage: selected.regionCoverage,
+      strings: {},
+      dateStamp: '2026-10-13',
+      knownSlugsByLocale: new Map(ORPHAN_LANDING_LOCALES.map((locale) => [locale, new Set<string>()])),
+    });
+    expect(rendered.indexable).toBe(true);
+    expect(rendered.html).toContain('Ticino: 1; fuori dal Ticino: 0; cantone non verificato: 4');
+  });
+
+  it('leaves a nationwide query alone', () => {
+    const c = makeCluster('it', 'architetto-svizzera', 30, ['architett'], ['svizzera']);
+    const selected = selectOrphanLandingJobs([architect('ZH', 'Zurigo', 'a')], c, 15, 3);
+    expect(selected).toEqual({ jobs: [expect.objectContaining({ slug: 'a' })], regionRelevant: true });
+  });
+
+  it('lets a city in the query decide over the Ticino token', () => {
+    const c = makeCluster('it', 'architetto-lugano-ticino', 30, ['architett'], ['lugano', 'ticino']);
+    const selected = selectOrphanLandingJobs([architect('TI', 'Lugano', 'a')], c, 15, 3);
+    expect(selected.regionRelevant).toBe(true);
+  });
+});
+
 describe('orphanQueryData — helpers', () => {
   it('median returns 0 for empty / all-zero input', () => {
     expect(median([])).toBe(0);

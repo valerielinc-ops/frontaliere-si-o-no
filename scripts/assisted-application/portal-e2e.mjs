@@ -1447,8 +1447,9 @@ async function main() {
     // Review of #11015: a lost first click gets its own 8 s retry window.
     const slowBrowser = await launchChromium({ headless: true, executablePath });
     const slowPage = await slowBrowser.newPage();
-    await slowPage.setContent(`<a role="button" tabindex="0" id="t">Datenschutzerklärung lesen und akzeptieren.</a>
-      <div role="dialog" id="d" hidden><button type="button" id="ok">Akzeptieren</button></div><input type="hidden" id="v" value="">
+    await slowPage.setContent(`<form><a role="button" tabindex="0" id="t">Datenschutzerklärung lesen und akzeptieren.</a>
+      <input type="hidden" id="v" value=""><button type="button">Konto anlegen</button></form>
+      <div role="dialog" id="d" hidden><h2>Datenschutzerklärung</h2><button type="button" id="ok">Akzeptieren</button></div>
       <script>
         // The first click is lost. Only the second click starts the 6 s open.
         let clicks = 0;

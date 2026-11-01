@@ -1,3 +1,4 @@
+import { renderSitemapLastmod } from './shared/sitemapLastmod';
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
@@ -24,10 +25,16 @@ import {
   pharmaciesForCity,
   pharmaciesForProvince,
 } from '../services/pharmacies/data';
+import {
+  SINGLE_CITY_COPY,
+  hasValidPharmacyCoordinates,
+  nearestPharmacies,
+  nextVerifiedCityDuty,
+  publishedHoursText,
+} from '../services/pharmacies/cityEnrichment';
 import { buildPharmacyPath, type PharmacyPageKind, type PharmacyPath } from '../services/pharmacies/paths';
 import { parsePharmacyRoute } from '../services/pharmacies/routePaths';
 import { PHARMACY_DUTY_CITY_REDIRECTS } from '../scripts/lib/pharmacySections.mjs';
-import { publicDutiesForRegion } from '../services/pharmacies/duties';
 import { buildDutyWeekModel, currentDutyWeekStart, DUTY_WEEK_SOURCE_URL, formatDutyDateTime, type DutyWeekModel } from '../services/pharmacies/dutyWeek';
 import { buildDutyCoverageMatrix, formatDutyCoverageDate, getDutyCoverageMatrixCopy, type DutyCoverageMatrixModel } from '../services/pharmacies/dutyCoverageMatrix';
 import { currentDutyForRegion } from '../services/pharmacies/duties';
@@ -51,6 +58,8 @@ import { PHARMACY_NOINDEX_TARGET_MARKER } from './shared/pharmacyNoindexTargetMa
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const dutiesDataset = dutiesJson as PharmacyDutiesDataset;
+const DATE_FORMATTERS = new Map<Locale, Intl.DateTimeFormat>();
+const DISTANCE_FORMATTERS = new Map<Locale, Intl.NumberFormat>();
 
 /** Static duty-city bridges are exclusions for their source locale only. */
 export function pharmacyDutyCityAliasPaths(
@@ -320,16 +329,30 @@ const DETAIL_VERIFICATION_NOTE: Record<Locale, string> = {
 };
 
 const CITY_VERIFICATION_NOTE: Record<Locale, string> = {
-  it: 'Il conteggio descrive le schede pubblicate per questa località nel dataset corrente, non il numero di farmacie aperte né un calendario di turni. Indirizzi, orari e servizi possono cambiare: apri la scheda, controlla la fonte indicata e contatta direttamente la sede prima di partire.',
-  en: 'The count describes records published for this locality in the current dataset, not the number of pharmacies open now or a duty timetable. Addresses, hours and services can change: open the record, check its cited source and contact the location directly before travelling.',
-  de: 'Die Zahl beschreibt die im aktuellen Datensatz veröffentlichten Einträge für diesen Ort, nicht die Zahl jetzt geöffneter Apotheken oder einen Notdienstplan. Adressen, Zeiten und Leistungen können sich ändern: Eintrag öffnen, Quelle prüfen und den Standort vor der Fahrt direkt kontaktieren.',
-  fr: 'Le nombre décrit les fiches publiées pour cette localité dans le jeu actuel, pas le nombre de pharmacies ouvertes ni un calendrier de garde. Adresses, horaires et services peuvent changer : ouvrez la fiche, vérifiez sa source et contactez directement le site avant de partir.',
+  it: 'Il conteggio descrive le schede pubblicate per questa località nel dataset corrente, non il numero di farmacie aperte né un calendario completo dei turni. Indirizzi, orari e servizi possono cambiare: apri la scheda, controlla la fonte indicata e contatta direttamente la sede prima di partire.',
+  en: 'The count describes records published for this locality in the current dataset, not the number of pharmacies open now or a complete duty timetable. Addresses, hours and services can change: open the record, check its cited source and contact the location directly before travelling.',
+  de: 'Die Zahl beschreibt die im aktuellen Datensatz veröffentlichten Einträge für diesen Ort, nicht die Zahl jetzt geöffneter Apotheken oder einen vollständigen Notdienstplan. Adressen, Zeiten und Leistungen können sich ändern: Eintrag öffnen, Quelle prüfen und den Standort vor der Fahrt direkt kontaktieren.',
+  fr: 'Le nombre décrit les fiches publiées pour cette localité dans le jeu actuel, pas le nombre de pharmacies ouvertes ni un calendrier complet de garde. Adresses, horaires et services peuvent changer : ouvrez la fiche, vérifiez sa source et contactez directement le site avant de partir.',
 };
 
 function formatDate(iso: string, locale: Locale): string {
   const date = new Date(iso);
   if (!Number.isFinite(date.getTime())) return iso;
-  return new Intl.DateTimeFormat(locale === 'it' ? 'it-CH' : locale, { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(date);
+  let formatter = DATE_FORMATTERS.get(locale);
+  if (!formatter) {
+    formatter = new Intl.DateTimeFormat(locale === 'it' ? 'it-CH' : locale, { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' });
+    DATE_FORMATTERS.set(locale, formatter);
+  }
+  return formatter.format(date);
+}
+
+function formatDistance(distance: number, locale: Locale): string {
+  let formatter = DISTANCE_FORMATTERS.get(locale);
+  if (!formatter) {
+    formatter = new Intl.NumberFormat(locale === 'it' ? 'it-CH' : locale, { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+    DISTANCE_FORMATTERS.set(locale, formatter);
+  }
+  return formatter.format(distance);
 }
 
 function pharmacyPath(pharmacy: Pharmacy, locale: Locale): PharmacyPath {
@@ -560,6 +583,36 @@ function renderDuty(duty: PharmacyDuty | undefined, locale: Locale): string {
   if (!duty) return `<p style="${BODY_STYLE}">${esc(copy.noDuty)}</p>`;
   const pharmacy = pharmacyById(duty.pharmacyId) || pharmacyBySlug(duty.pharmacyId);
   return `<article class="${CARD_CLASS}"><h3 style="${H3_STYLE}">${esc(pharmacy?.name || duty.pharmacyId)}</h3><p style="${BODY_STYLE}"><strong>${esc(copy.coverage)}:</strong> ${esc(duty.coverageName)}<br><strong>${esc(copy.interval)}:</strong> ${esc(formatDate(duty.startsAt, locale))} – ${esc(formatDate(duty.endsAt, locale))}<br><strong>${esc(copy.checked)}:</strong> ${esc(formatDate(duty.fetchedAt, locale))}</p>${pharmacy ? `<p style="${BODY_STYLE}">${esc(pharmacy.address)}, ${esc(pharmacy.postalCode)} ${esc(pharmacy.city)}${pharmacy.phone ? ` · <a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a>` : ''}</p>` : ''}<p style="${BODY_STYLE}"><a href="${esc(duty.sourceUrl || dutySource)}" rel="nofollow noopener">${esc(copy.sourceLink)}</a></p></article>`;
+}
+
+function renderSinglePharmacyCityEnrichment(
+  descriptor: PageDescriptor,
+  locale: Locale,
+  dataset: PharmacyDutiesDataset,
+  now: Date,
+): string {
+  if (descriptor.kind !== 'city') return '';
+  const pharmacies = pagePharmacies(descriptor, dataset, now);
+  if (pharmacies.length !== 1) return '';
+
+  const pharmacy = pharmacies[0];
+  const labels = SINGLE_CITY_COPY[locale];
+  const nearby = nearestPharmacies(pharmacy, BORDER_PHARMACIES);
+  const nearbyHtml = hasValidPharmacyCoordinates(pharmacy)
+    ? nearby.length > 0
+      ? `<p style="${BODY_STYLE}"><strong>${esc(labels.nearby)}:</strong> ${esc(labels.distanceMethod)}.</p><ul class="pharmacy-static-nearby-list" style="${BODY_STYLE}">${nearby.map(({ pharmacy: candidate, distanceKm: distance }) => {
+        const targetPath = buildPharmacyPath(pharmacyPath(candidate, locale), locale);
+        const distanceText = formatDistance(distance, locale);
+        return `<li data-nearby-pharmacy-id="${esc(candidate.id)}" data-distance-km="${distance.toFixed(1)}"><a href="${esc(targetPath)}">${esc(candidate.name)}</a> — ${esc(candidate.address)}, ${esc(candidate.postalCode)} ${esc(candidate.city)}. <strong>${esc(labels.distance)}:</strong> ${distanceText} km ${esc(labels.distanceMethod)}. <strong>${esc(labels.hours)}:</strong> ${esc(publishedHoursText(candidate, locale))}</li>`;
+      }).join('')}</ul>`
+      : `<p style="${BODY_STYLE}">${esc(labels.noNearby)}</p>`
+    : `<p data-distance-unavailable="coordinates" style="${BODY_STYLE}">${esc(labels.noCoordinates)}</p>`;
+  const schedule = nextVerifiedCityDuty(pharmacy, dataset, now, completeTicinoSnapshot);
+  const dutyHtml = schedule
+    ? `<article class="${CARD_CLASS}" data-city-duty-verified="true"><p style="${BODY_STYLE}"><strong>${esc(labels.duty)}:</strong> ${esc(schedule.duty.coverageName)} · ${esc(formatDate(schedule.duty.startsAt, locale))} – ${esc(formatDate(schedule.duty.endsAt, locale))}</p><p style="${BODY_STYLE}">${esc(labels.dutyArea)}</p><p style="${BODY_STYLE}"><a href="${esc(schedule.sourceUrl)}" rel="nofollow noopener">${esc(labels.source)}</a></p></article>`
+    : `<p data-city-duty-available="false" style="${BODY_STYLE}">${esc(labels.dutyUnavailable)}</p>`;
+
+  return `<section data-single-pharmacy-city-enrichment="true" data-pharmacy-id="${esc(pharmacy.id)}"><h2 style="${H2_STYLE}">${esc(labels.heading)}</h2><p style="${BODY_STYLE}"><strong>${esc(pharmacy.name)} · ${esc(labels.hours)}:</strong> ${esc(publishedHoursText(pharmacy, locale))}</p>${nearbyHtml}<h3 style="${H3_STYLE}">${esc(labels.duty)}</h3>${dutyHtml}</section>`;
 }
 
 function dutyWeekModel(descriptor: PageDescriptor, dataset: PharmacyDutiesDataset = dutiesDataset, now = new Date()): DutyWeekModel {
@@ -1011,7 +1064,8 @@ function renderBody(
       : descriptor.kind === 'city' && descriptor.country === 'CH'
         ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-city', locale, citySlug: descriptor.citySlug }, copy.viewDuties)}</p>`
         : '';
-    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2>${directory}${dutyLink}</section>`;
+    const singleCityEnrichment = renderSinglePharmacyCityEnrichment(descriptor, locale, dataset, now);
+    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2>${directory}${singleCityEnrichment}${dutyLink}</section>`;
   }
   const faq = descriptor.kind === 'city' && descriptor.country === 'CH'
     ? renderCityFaq(locale, descriptor.cityName || '', pharmaciesForCity(descriptor.cityName || '').length)
@@ -1288,6 +1342,13 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
         emittedPathsByLocale.set(locale, emittedPaths);
       }
       let excludedNoindexRoutes = 0;
+      // Only the single-pharmacy page has a date of its own: the verification
+      // day it already declares as `dateModified`. Listings have no such date.
+      const lastVerifiedByUrl = new Map<string, string>();
+      const noteLastVerified = (url: string, descriptor: PageDescriptor): void => {
+        const lastmod = renderSitemapLastmod(descriptor.pharmacy?.lastVerifiedAt);
+        if (lastmod) lastVerifiedByUrl.set(url, lastmod);
+      };
       // The Italian shard owns the shared sitemap, but indexability is a
       // per-locale decision: translated body word counts and locale-specific
       // release models can differ. Build the small eligibility map before the
@@ -1317,7 +1378,9 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
             for (const descriptor of allDescriptors) {
               if (isDutyCityAliasDescriptor(descriptor, locale)) continue;
               if (eligibility.get(descriptor)?.indexable) {
-                urls.push(buildPharmacyPath(descriptorPath(descriptor, locale), locale));
+                const url = buildPharmacyPath(descriptorPath(descriptor, locale), locale);
+                urls.push(url);
+                noteLastVerified(url, descriptor);
               } else {
                 excludedNoindexRoutes += 1;
               }
@@ -1331,12 +1394,16 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
           collector.add(path.join(distDir, `${built.path.replace(/^\/+/, '').replace(/\/+$/, '')}/index.html`), built.html);
           // The IT/main shard owns the shared sitemap and must list every
           // locale URL, even though its collector writes only its own pages.
-          if (built.indexable) urls.push(built.path);
-          else excludedNoindexRoutes += 1;
+          if (built.indexable) {
+            urls.push(built.path);
+            noteLastVerified(built.path, descriptor);
+          } else excludedNoindexRoutes += 1;
         }
       }
       const dateStamp = BUILD_DATE_STAMP;
-      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${BASE_URL}${url}</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>\n`).join('')}</urlset>\n`;
+      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => {
+        return `  <url><loc>${BASE_URL}${url}</loc>${lastVerifiedByUrl.get(url) ?? ''}<changefreq>weekly</changefreq><priority>0.6</priority></url>\n`;
+      }).join('')}</urlset>\n`;
       const written = await collector.flush();
       // The main locale shard owns shared JSON; the exact same validated
       // observation is embedded in SSR for a network-independent SPA handoff.
