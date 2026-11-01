@@ -136,7 +136,7 @@ describe('portal runner self-correction', () => {
       ],
     };
 
-    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://portal.example/apply/').next).toBe(next);
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://portal.example/apply/', { snapshot }).next).toBe(next);
     expect(hasApplicationSurface(snapshot)).toBe(true);
   });
 
