@@ -331,13 +331,14 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
 
 /** Runner reads keep the raw CAS/lease snapshot untouched and project only the execution's answer context. */
 export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs = Date.now(), profileRecord, getDocument = ref => ref.get() }) {
-  const profile = profileRecord === undefined
+  const orderRetained = retained(order, nowMs);
+  const profile = !orderRetained ? {} : profileRecord === undefined
     ? order.userId ? (await getDocument(db.collection('user_cv_profiles').doc(order.userId))).data() || {} : {}
     : profileRecord || {};
-  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord: profile, userId: order.userId, nowMs, getDocument,
-    questionKeys: (draft?.questions || []).map(candidateQuestionAnswerKey) });
-  const context = contextFor(order, { purpose: 'form' });
-  const orderContext = retained(order, nowMs) ? orderQuestionAnswerContext({ orderId, flow, draft, nowMs })
+  const contextFor = orderRetained ? await loadCandidateAnswerEvidence({ db, profileRecord: profile, userId: order.userId, nowMs, getDocument,
+    questionKeys: (draft?.questions || []).map(candidateQuestionAnswerKey) }) : null;
+  const context = contextFor ? contextFor(order, { purpose: 'form' }) : { answers: {}, answerEvidence: [] };
+  const orderContext = orderRetained ? orderQuestionAnswerContext({ orderId, flow, draft, nowMs })
     : { answers: {}, orderAnswers: {}, questionAnswerSnapshots: {}, questionAnswerSnapshotIds: {}, questionAnswerCompatibility: {} };
   return { flow: { ...flow, answers: orderContext.answers,
     questionAnswers: { ...context.answers, ...orderContext.orderAnswers } },

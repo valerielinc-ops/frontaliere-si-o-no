@@ -61,6 +61,11 @@ describe('typed facts use the complete producer and automation path', () => {
     expect(context.flow.questionAnswers).not.toHaveProperty('legacy_consent');
     expect(candidateAnswersForQuestions(translated, {}, context.flow.questionAnswers)).toEqual({ it_dob: answers.dob,
       it_experience: answers.experience, en_credential: 'Yes', fr_permit: permitOptions('fr')[1] });
+    const purgingTarget = await loadRunnerAnswerContext({ db: store.db, orderId, order: { ...order, retentionPurgingAt: now },
+      flow: rawFlow, draft: { round: 1, questions: translated }, nowMs: now });
+    expect(purgingTarget.answerEvidence).toEqual([]);
+    expect(purgingTarget.flow.answers).toEqual({});
+    expect(purgingTarget.flow.questionAnswers).toEqual({});
     store.docs.set(`${path}/automation/flow`, rawFlow);
     store.docs.set(`${path}/ai_drafts/current`, { round: 1, status: 'ready', questions: translated, factCheck: { ok: true, unsupported: [] }, verdict: 'good' });
     runEffect.mockClear();
@@ -70,7 +75,7 @@ describe('typed facts use the complete producer and automation path', () => {
     expect(store.read(`${path}/automation/flow`).questionAnswers).toEqual({});
   });
 
-  it('does not recreate answer evidence when retention purge wins after the ledger transaction read', async () => {
+  it('does not recreate local answers or profile evidence when retention purge wins during a save', async () => {
     const now = Date.now(), orderId = 'purge_race_order', userId = 'synthetic', path = `assisted_applications/${orderId}`;
     const order = { userId, paymentStatus: 'paid', cvUploadedAt: now, jobId: 'target', jobUrl: 'https://example.test/jobs/target/' };
     const question = { id: 'notice_period', question: 'What is your notice period?', type: 'text', required: true };
@@ -84,6 +89,7 @@ describe('typed facts use the complete producer and automation path', () => {
     });
     const profileRef = store.db.collection('user_cv_profiles').doc(userId);
     const orderRef = store.db.collection('assisted_applications').doc(orderId);
+    const flowRef = orderRef.collection('automation').doc('flow');
     const commitTransaction = store.db.runTransaction.bind(store.db);
     let purgeWon = false;
     let attemptedLedgerWrite = false;
@@ -109,6 +115,7 @@ describe('typed facts use the complete producer and automation path', () => {
           // writes its order marker and removes this order's profile evidence.
           purgeWon = true;
           await orderRef.set({ retentionPurgingAt: now + 1 }, { merge: true });
+          await flowRef.delete();
           await profileRef.set({ applicationQuestionAnswers: {}, applicationQuestionAnswerEvidence: {} }, { merge: true });
           return commitTransaction(callback);
         }
@@ -126,8 +133,63 @@ describe('typed facts use the complete producer and automation path', () => {
 
     expect(purgeWon).toBe(true);
     expect(attemptedLedgerWrite).toBe(true);
-    expect(store.read(`${path}/automation/flow`).answers).toEqual({ notice_period: '3 months' });
+    expect(store.read(`${path}/automation/flow`)).toBeUndefined();
     expect(store.read(`user_cv_profiles/${userId}`).applicationQuestionAnswerEvidence).toEqual({});
     expect(store.read(`user_cv_profiles/${userId}`).applicationQuestionAnswers).toEqual({});
+    await expect(saveAnswersWithCv({ db: store.db, bucket: null, orderId, order, flow, draft,
+      answers: { notice_period: '6 months' }, answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId, questions: [question], draft, nowMs: now }),
+      answerActor: 'candidate', nowMs: now })).rejects.toMatchObject({ code: 'changed_meanwhile', status: 409 });
+    expect(store.read(`${path}/automation/flow`)).toBeUndefined();
+    expect(store.read(`user_cv_profiles/${userId}`).applicationQuestionAnswerEvidence).toEqual({});
+  });
+
+  it('retries the local answer transaction against a purge marker committed before its write', async () => {
+    const now = Date.now(), orderId = 'purge_local_race', userId = 'synthetic', path = `assisted_applications/${orderId}`;
+    const order = { userId, paymentStatus: 'paid', cvUploadedAt: now };
+    const question = { id: 'notice_period', question: 'What is your notice period?', type: 'text', required: true };
+    const flow = { round: 1, state: 'candidate_review', answers: {}, questionAnswers: {} };
+    const draft = { round: 1, questions: [question] };
+    const store = createMemoryFirestore({
+      [path]: order,
+      [`${path}/automation/flow`]: flow,
+      [`${path}/ai_drafts/current`]: draft,
+      [`user_cv_profiles/${userId}`]: { status: 'ready', profile: { languages: [] } },
+    });
+    const orderRef = store.db.collection('assisted_applications').doc(orderId);
+    const flowRef = orderRef.collection('automation').doc('flow');
+    const commitTransaction = store.db.runTransaction.bind(store.db);
+    let purgeWon = false;
+    const db = {
+      collection: store.db.collection,
+      async runTransaction(callback: (transaction: any) => Promise<any>) {
+        if (purgeWon) return commitTransaction(callback);
+        let flowRead = false;
+        const writes: Array<{ ref: any; data: any; options: any }> = [];
+        const result = await callback({
+          get: async (ref: any) => {
+            if (ref.path === `${path}/automation/flow`) flowRead = true;
+            return ref.get();
+          },
+          set: (ref: any, data: any, options?: any) => writes.push({ ref, data, options }),
+        });
+        if (flowRead) {
+          // Firestore retries after an order write conflicts with this read set.
+          purgeWon = true;
+          await orderRef.set({ retentionPurgingAt: now + 1 }, { merge: true });
+          await flowRef.delete();
+          return commitTransaction(callback);
+        }
+        for (const write of writes) await write.ref.set(write.data, write.options);
+        return result;
+      },
+    };
+
+    await expect(saveAnswersWithCv({ db: db as any, bucket: null, orderId, order, flow, draft, answers: { notice_period: '3 months' },
+      answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId, questions: [question], draft, nowMs: now }),
+      answerActor: 'candidate', nowMs: now })).rejects.toMatchObject({ code: 'changed_meanwhile', status: 409 });
+
+    expect(purgeWon).toBe(true);
+    expect(store.read(`${path}/automation/flow`)).toBeUndefined();
+    expect(store.read(`user_cv_profiles/${userId}`).applicationQuestionAnswerEvidence).toBeUndefined();
   });
 });

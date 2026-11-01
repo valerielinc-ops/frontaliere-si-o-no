@@ -41,6 +41,12 @@ export async function deleteStored(bucket, orderId, keys) {
   }));
 }
 
+function retentionWriteAllowed(order, nowMs) {
+  if (!order || order.retentionPurgingAt != null || order.retentionPurgedAt != null || order.retentionPayloadPurgedAt != null) return false;
+  const purgeDueAt = retentionPurgeDueAt(order);
+  return talentPoolConsentActive(order) || purgeDueAt == null || nowMs < purgeDueAt;
+}
+
 /**
  * The commit of the writers that publish a rebuilt PDF (the photo, the line
  * choices, the candidate's edits and answers, the owner's answers): the flow
@@ -71,11 +77,15 @@ function answerSnapshotGuardMatches({ orderId, draft, guard }) {
 }
 
 export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 'candidate_review', edits = false, created = [], flowPatch = null, draftPatch, answerSnapshotGuard = null, nowMs }) {
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
   const same = (left, right) => (left || null) === (right || null);
   const committed = await db.runTransaction(async (transaction) => {
-    const [flowSnapshot, draftSnapshot] = await Promise.all([transaction.get(flowRef), transaction.get(draftRef)]);
+    const [orderSnapshot, flowSnapshot, draftSnapshot] = await Promise.all([
+      transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
+    ]);
+    if (!orderSnapshot.exists || !retentionWriteAllowed(orderSnapshot.data(), Date.now())) return false;
     const current = { flow: flowSnapshot.data() || {}, draft: draftSnapshot.data() || {} };
     const unchanged = current.flow.state === state
       && Number(current.flow.round || 1) === Number(flow.round || 1)
@@ -165,10 +175,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
         const [orderSnapshot, snapshot] = await Promise.all([transaction.get(orderRef), transaction.get(profileRef)]);
         const currentOrder = orderSnapshot.data() || {};
         const freshNow = Date.now();
-        const purgeDueAt = retentionPurgeDueAt(currentOrder);
-        const retained = talentPoolConsentActive(currentOrder) || Number.isFinite(purgeDueAt) && freshNow < purgeDueAt;
-        if (!orderSnapshot.exists || currentOrder.userId !== userId || !retained || currentOrder.retentionPurgingAt != null
-          || currentOrder.retentionPurgedAt != null || currentOrder.retentionPayloadPurgedAt != null) return;
+        if (!orderSnapshot.exists || currentOrder.userId !== userId || !retentionWriteAllowed(currentOrder, freshNow)) return;
         // This writer only augments an existing private projection; account deletion must not recreate it.
         if (!snapshot.exists) return;
         const current = snapshot.data()?.applicationQuestionAnswers;
@@ -201,8 +208,12 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     const flowRef = flowRefFor(db, orderId);
     const draftRef = draftRefFor(db, orderId);
     const committed = await db.runTransaction(async transaction => {
-      const [currentFlow, currentDraft] = await Promise.all([transaction.get(flowRef), transaction.get(draftRef)]);
-      if (!currentFlow.exists || currentFlow.data()?.state !== flow.state
+      const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+      const [currentOrder, currentFlow, currentDraft] = await Promise.all([
+        transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
+      ]);
+      if (!currentOrder.exists || !retentionWriteAllowed(currentOrder.data(), Date.now())
+        || !currentFlow.exists || currentFlow.data()?.state !== flow.state
         || Number(currentFlow.data()?.round || 1) !== Number(flow.round || 1)
         || !answerSnapshotGuardMatches({ orderId, draft: currentDraft.data() || {},
           guard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
