@@ -178,10 +178,19 @@ export function isCardCatalogueExplicitlyEmpty(html) {
     || /Votre\s+recherche\s+n(?:['’]|&#39;|&apos;)a\s+donn(?:é|&eacute;|&#233;)\s+aucun\s+r(?:é|&eacute;|&#233;)sultat\.?/i.test(text);
   if (hasNoResultsMarker) return true;
 
-  return hasHtmlClass(source, 'auction-grid')
+  // The French VD portal keeps this official welcome shell when an auction
+  // round has ended, but omits the no-results sentence. Its stable source
+  // identity plus the French search controls are enough to distinguish that
+  // answered empty catalogue from an unrecognised card response.
+  const hasFrenchWelcomeShell = /Bienvenue\s*!?/i.test(text)
+    && /site\s+de\s+vente\s+de\s+num(?:é|&eacute;|&#233;)ros\s+de\s+plaques/i.test(text)
+    && /Votre\s+service\s+des\s+automobiles\s+et\s+de\s+la\s+navigation/i.test(text);
+
+  return hasFrenchWelcomeShell
+    || (hasHtmlClass(source, 'auction-grid')
     && hasHtmlClass(source, 'auctions')
     && /Auktion\s+von\s*(?:\.\.\.|…)/i.test(text)
-    && /Herzlich\s+willkommen/i.test(text);
+    && /Herzlich\s+willkommen/i.test(text));
 }
 
 /**
