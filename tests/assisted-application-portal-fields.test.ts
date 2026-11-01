@@ -306,11 +306,14 @@ describe('portal field extraction', () => {
       const genericFormInstruction = extract(`<div><span>${instruction}</span><input id="${id}"></div>`);
       expect(genericFormInstruction.fields[0].label).toBe(id);
     }
+    const nearbyFormQuestion = extract('<form><span>What should I complete on this form?</span><input id="_r_6_"></form>');
+    expect(nearbyFormQuestion.fields[0].label).toBe('What should I complete on this form?');
     for (const [instruction, id] of [
       ['Completa tutti i campi prima di inviare la candidatura', 'input-15'],
       ['Completa il modulo prima dell’invio', 'input-19'],
       ['Si prega di compilare tutti i campi', 'input-21'],
       ['Bitte füllen Sie alle Felder aus, bevor Sie sich bewerben', 'input-16'],
+      ['Bitte füllen Sie alle Felder aus bevor Sie sich bewerben', '_r_7_'],
       ['Bitte füllen Sie sämtliche Felder aus', 'input-20'],
       ['Veuillez remplir tous les champs avant de soumettre votre candidature', 'input-17'],
       ['Merci de compléter tous les champs', 'input-22'],
