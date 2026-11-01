@@ -11,7 +11,7 @@
  * so they stay out of the page's bundle until a candidate picks a file.
  */
 
-export type DocumentCheckVerdict = 'match' | 'mismatch' | 'looks_like_cv' | 'unreadable';
+export type DocumentCheckVerdict = 'match' | 'mismatch' | 'looks_like_cv' | 'unreadable' | 'unknown';
 
 export interface DocumentCheck {
   verdict: DocumentCheckVerdict;
@@ -33,7 +33,7 @@ export interface CheckedDocument {
 const KIND_WORDS: Record<string, string[]> = {
   school_report: ['bulletin', 'bulletins', 'notes', 'moyenne', 'semestre', 'trimestre', 'zeugnis', 'zeugnisse', 'schulzeugnis', 'noten', 'schuljahr', 'pagella', 'scheda di valutazione', 'anno scolastico', 'voti', 'school report', 'grades', 'school year'],
   aptitude_test: ['test', 'resultats', 'resultat', 'ergebnis', 'ergebnisse', 'risultati', 'results', 'multicheck', 'basic check', 'stellwerk', 'eva', 'gri', 'aptitude', 'eignungstest'],
-  diploma: ['diplome', 'diplom', 'diploma', 'cfc', 'efz', 'afp', 'eba', 'attestato', 'certificat federal', 'fahigkeitszeugnis', 'laurea', 'universita', 'dottore', 'dottorato', 'titolo di studio', 'maturita', 'bachelor', 'master', 'university', 'degree', 'graduation', 'abschluss', 'hochschule', 'universitat', 'baccalaureat', 'licence', 'universite'],
+  diploma: ['diplome', 'diplom', 'diploma', 'cfc', 'efz', 'afp', 'eba', 'attestato', 'certificat federal', 'fahigkeitszeugnis', 'laurea', 'laureato', 'laureata', 'universita', 'universitario', 'universitaria', 'accademico', 'accademica', 'dottore', 'dottorato', 'titolo di studio', 'titolo universitario', 'maturita', 'bachelor', 'master', 'university', 'degree', 'graduation', 'abschluss', 'hochschule', 'universitat', 'baccalaureat', 'licence', 'universite'],
   certificate: ['certificat', 'certificate', 'zertifikat', 'certificato', 'attestato', 'attestation', 'bescheinigung'],
   reference: ['arbeitszeugnis', 'zwischenzeugnis', 'certificat de travail', 'lettre de recommandation', 'reference', 'referenza', 'empfehlungsschreiben', 'recommendation'],
   work_permit: ['permis', 'bewilligung', 'aufenthaltsbewilligung', 'grenzganger', 'permesso', 'frontaliere', 'ausweis', 'autorisation'],
@@ -45,20 +45,48 @@ const KIND_WORDS: Record<string, string[]> = {
 // These document titles identify the type across languages even when the
 // posting supplied keywords only in its own language. A CV still takes precedence.
 const KIND_TITLES: Record<string, string[]> = {
-  diploma: ['diploma di laurea', 'diploma di maturita', 'certificato di laurea', 'certificato di conseguimento del titolo', 'attestato di qualifica professionale', 'degree certificate', 'graduation certificate', 'bachelor of science', 'master of science', 'bachelor of arts', 'master of arts', 'bachelorzeugnis', 'masterzeugnis', 'abschlusszeugnis', 'diplome de licence', 'diplome de master', 'certificat de reussite'],
+  diploma: ['diploma di laurea', 'diploma universitario', 'diploma di maturita', 'attestato di laurea', 'attestazione di laurea', 'attestazione del conseguimento della laurea', 'certificazione di laurea', 'certificazione del conseguimento della laurea', 'certificato accademico di laurea', 'certificato di laurea', 'certificato di conseguimento del titolo', 'certificato di completamento degli studi universitari', 'attestato di qualifica professionale', 'degree certificate', 'degree certificates', 'certificate of degree', 'certificates of degree', 'graduation certificate', 'bachelor of science', 'master of science', 'bachelor of arts', 'master of arts', 'bachelorzeugnis', 'masterzeugnis', 'abschlusszeugnis', 'diplomurkunde', 'hochschulabschlusszeugnis', 'hochschulabschluss', 'diplome de licence', 'diplome de master', 'certificat de reussite', 'attestation de diplome', 'certificat de diplome'],
   reference: ['attestato di lavoro', 'certificato di lavoro', 'lettera di referenza', 'lettera di raccomandazione', 'arbeitszeugnis', 'zwischenzeugnis', 'certificat de travail', 'lettre de recommandation', 'employment reference', 'reference letter'],
   school_report: ['scheda di valutazione', 'bulletin scolaire', 'schulzeugnis', 'school report'],
+  aptitude_test: ['multicheck', 'basic check', 'stellwerk', 'eva test', 'gri test', 'aptitude test', 'eignungstest', 'test d aptitudes', 'test di attitudine'],
   identity: ['carta d identita', 'carte d identite', 'identity card', 'identitatskarte', 'reisepass', 'passeport', 'passport'],
+  work_permit: ['work permit', 'permis de travail', 'permis de sejour', 'arbeitsbewilligung', 'permesso di lavoro'],
+  portfolio: ['portfolio'],
 };
+
+// A mismatch is useful only when the readable text positively identifies a
+// different document. Otherwise it is an unknown result, not evidence that
+// the candidate chose the wrong file.
+const CLEAR_NON_DOCUMENT_TITLES = [
+  'invoice', 'invoice number', 'fattura', 'numero fattura', 'rechnung', 'rechnungsnummer', 'facture', 'numero de facture',
+  'template', 'fac simile', 'facsimile', 'modello di certificato', 'modello amministrativo',
+];
+const CLEAR_OTHER_DOCUMENT_TITLES = [
+  'certificato di residenza', 'attestazione di residenza', 'certificate of residence', 'certificat de residence', 'wohnmeldebestatigung',
+];
+function hasKnownOtherDocumentType(haystack: string, kind: string): boolean {
+  if (!kind || kind === 'other') return false;
+  if (kind === 'certificate') return found(haystack, CLEAR_NON_DOCUMENT_TITLES).length > 0;
+  const otherTitles = Object.entries(KIND_TITLES)
+    .filter(([candidateKind]) => candidateKind !== kind)
+    .flatMap(([, titles]) => titles);
+  return found(haystack, [...otherTitles, ...CLEAR_NON_DOCUMENT_TITLES, ...CLEAR_OTHER_DOCUMENT_TITLES]).length > 0;
+}
+
+function hasClearNonDocumentHeading(haystack: string): boolean {
+  const heading = haystack.slice(0, 120);
+  return CLEAR_NON_DOCUMENT_TITLES.some(title => heading.startsWith(` ${normalize(title).trim()} `));
+}
 
 // Italian registrars also certify a completed degree exam without printing a
 // degree title. Require the certification and the completed exam together:
 // "certificato" alone also describes residence and other unrelated documents.
 const NON_ACADEMIC_CERTIFICATION_CONTEXT = [
-  'fattura', 'invoice', 'rechnung', 'facture', 'preventivo', 'fac simile', 'modello di certificato', 'template',
+  ...CLEAR_NON_DOCUMENT_TITLES, ...CLEAR_OTHER_DOCUMENT_TITLES,
   ...KIND_TITLES.reference,
 ];
 const ITALIAN_DEGREE_CERTIFICATION = / (?:si certifica|si attesta) che (?:(?!\b(?:non|mai|dovra|deve)\b)[a-z0-9 ]){0,160}ha superato (?:in data [0-3]?\d [01]?\d (?:19|20)\d{2} )?(?:con (?:voti|votazione) (?:[a-z0-9]+ ){1,10})?l esame di laurea /;
+const ITALIAN_DEGREE_NEGATION = / (?:non si (?:certifica|attesta)|mai si (?:certifica|attesta)|non ha(?: ancora)? superato|deve sostenere) [a-z0-9 ]{0,160}esame di laurea /;
 
 // What a CV says about itself: in a file that should be something else, the candidate picked their CV.
 const CV_WORDS = [
@@ -89,6 +117,8 @@ export function classifyDocumentText(text: string, document: CheckedDocument): D
   const cv = found(haystack, CV_WORDS);
   // Unless the CV is what the posting asked for, a file that reads as a CV is the CV.
   if (cv.length >= 3 && asked.length < 2) return { verdict: 'looks_like_cv', matched: '' };
+  if (document.kind === 'diploma' && ITALIAN_DEGREE_NEGATION.test(haystack)) return { verdict: 'mismatch', matched: '' };
+  if (hasClearNonDocumentHeading(haystack)) return { verdict: 'mismatch', matched: '' };
   if (asked.length) return { verdict: 'match', matched: asked[0] };
   if (titles.length && cv.length < 2) return { verdict: 'match', matched: titles[0] };
   if (document.kind === 'diploma' && cv.length < 2
@@ -97,7 +127,8 @@ export function classifyDocumentText(text: string, document: CheckedDocument): D
     && ITALIAN_DEGREE_CERTIFICATION.test(haystack)) return { verdict: 'match', matched: 'esame di laurea' };
   if (usual.length >= 2) return { verdict: 'match', matched: usual[0] };
   if (cv.length >= 2) return { verdict: 'looks_like_cv', matched: '' };
-  return { verdict: 'mismatch', matched: '' };
+  if (hasKnownOtherDocumentType(haystack, document.kind)) return { verdict: 'mismatch', matched: '' };
+  return { verdict: 'unknown', matched: '' };
 }
 
 async function pdfText(file: File): Promise<string> {

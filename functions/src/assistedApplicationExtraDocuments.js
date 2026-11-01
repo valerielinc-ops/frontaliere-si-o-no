@@ -45,7 +45,7 @@ export const DOCUMENT_CONTENT_TYPES = Object.freeze({
 export const MAX_DOCUMENT_BYTES = 10 * 1024 * 1024;
 // What the candidate's browser concluded about the file (owner decision
 // 2026-10-02: a warning, never a block; recorded, never checked again).
-export const CLIENT_CHECK_VERDICTS = Object.freeze(['match', 'mismatch', 'looks_like_cv', 'unreadable']);
+export const CLIENT_CHECK_VERDICTS = Object.freeze(['match', 'mismatch', 'looks_like_cv', 'unreadable', 'unknown']);
 
 const IMAGE_SIGNATURES = [
   { type: 'jpg', bytes: [0xff, 0xd8, 0xff] },

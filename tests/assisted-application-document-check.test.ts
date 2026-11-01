@@ -30,16 +30,38 @@ describe('the browser\'s check of a requested document', () => {
     expect(classifyDocumentText(CV, REPORTS).verdict).toBe('looks_like_cv');
   });
 
-  it('warns about a file that shows nothing of the document, and never judges a scan', () => {
+  it('reserves mismatch for a clearly different document and keeps unreadable files unjudged', () => {
     expect(classifyDocumentText('Fattura n. 1234 del 12 marzo 2025. Importo dovuto CHF 120.00. Pagamento entro 30 giorni.', EVA).verdict).toBe('mismatch');
     // A photo or a scanned PDF has no text in the browser: the candidate checks it.
     expect(classifyDocumentText('', REPORTS)).toEqual({ verdict: 'unreadable', matched: '' });
     expect(classifyDocumentText('  1  ', REPORTS).verdict).toBe('unreadable');
   });
 
+  it('keeps readable text that has no known document type uncertain', () => {
+    const text = 'Verbale di protocollo. La domanda è stata ricevuta e registrata con il numero 2471. La risposta seguirà dopo la verifica completa degli allegati.';
+    expect(classifyDocumentText(text, EVA)).toEqual({ verdict: 'unknown', matched: '' });
+    expect(sanitizeClientCheck({ verdict: 'unknown', matched: '' })).toEqual({ verdict: 'unknown', matched: '' });
+  });
+
   it('matches whole words only, never part of another word', () => {
     // «eva» inside «evaluation» or «prevalere» is not the EVA test.
-    expect(classifyDocumentText('Evaluation report: the project will prevalere over the previous plan, timeline and budget attached.', { ...EVA, keywords: ['EVA'] }).verdict).toBe('mismatch');
+    expect(classifyDocumentText('Evaluation report: the project will prevalere over the previous plan, timeline and budget attached.', { ...EVA, keywords: ['EVA'] }).verdict).toBe('unknown');
+  });
+
+  it.each([
+    'Certificazione del conseguimento della laurea magistrale in ingegneria informatica rilasciata dall’università degli studi.',
+    'Attestazione di laurea in informatica rilasciata dall’università degli studi.',
+    'Certificato accademico di laurea in informatica.',
+    'Diploma universitario in ingegneria informatica conseguito al termine del corso.',
+    'Attestation de diplôme universitaire délivrée après la réussite des examens.',
+  ])('recognises an equivalent degree certificate wording without posting-language keywords: %s', text => {
+    expect(classifyDocumentText(text, { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] }).verdict).toBe('match');
+  });
+
+  it('detects a positively identified different document type even when it quotes the requested label', () => {
+    const degree = { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificate'] };
+    expect(classifyDocumentText('Fattura per traduzione. Servizio richiesto: «degree certificate». Importo e scadenza di pagamento.', degree).verdict).toBe('mismatch');
+    expect(classifyDocumentText('Certificato di residenza relativo alla persona iscritta in anagrafe, per uso amministrativo.', degree).verdict).toBe('mismatch');
   });
 
   it.each([
