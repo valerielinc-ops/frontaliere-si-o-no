@@ -1,7 +1,7 @@
 {
   "crawlerKey": "igroove",
-  "assembledAt": "2026-11-01T09:42:09.972Z",
-  "runId": "41292779854",
+  "assembledAt": "2026-11-01T22:46:46.657Z",
+  "runId": "41351588885",
   "jobs": [
     {
       "id": "igroove-612edf8c2c46",
@@ -34,7 +34,7 @@
       "url": "https://igroove.jobs.personio.de/job/2839848",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:42:01.607Z",
+      "crawledAt": "2026-11-01T22:46:42.532Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "streetAddress": "Churerstrasse 135",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:42:01.607Z",
+      "validThrough": "2027-01-11T22:46:42.532Z",
       "validThroughSource": "last-observed-window"
     }
   ]

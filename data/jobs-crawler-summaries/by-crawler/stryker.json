@@ -1,7 +1,7 @@
 {
   "key": "stryker",
   "label": "Stryker",
-  "generatedAt": "2026-11-01T09:41:39.050Z",
+  "generatedAt": "2026-11-01T22:47:36.033Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 8495,
-  "avgDurationMs": 8495,
+  "unchangedCount": 7,
+  "durationMs": 8872,
+  "avgDurationMs": 8872,
   "durationHistory": [
-    8495
+    8872
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "stryker-b91369d6d475",
       "slug": "lean-specialista-m-w-d-process-improvement-stryker-selzach",
@@ -36,7 +38,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:19.737Z",
+      "crawledAt": "2026-11-01T22:47:21.957Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -60,7 +62,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:41:19.737Z",
+      "validThrough": "2026-12-01T22:47:21.957Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -69,10 +71,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "stryker-fb00ba8bf3f5",
       "slug": "senior-direttore-ehs-m-f-d-arbeitsicherheit-umwelschutz-stryker-selzach",
@@ -85,7 +84,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/XMLNAME--Senior--EHS-Manager--m-w-d--Arbeitssicherheit--Umweltschutz_R573690-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:41:19.130Z",
+      "crawledAt": "2026-11-01T22:47:21.169Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -109,7 +108,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:41:19.130Z",
+      "validThrough": "2026-12-14T22:47:21.169Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -132,7 +131,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Berufsbildner--m-w-d-_R574592",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:18.537Z",
+      "crawledAt": "2026-11-01T22:47:20.416Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -156,7 +155,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:41:18.537Z",
+      "validThrough": "2027-01-05T22:47:20.416Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -179,7 +178,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Praktikum-im-Bereich-Produktionstechnik--Fertigung-Produktion----ab-Februar-Mrz-2027-6-Monate_R569865",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:17.928Z",
+      "crawledAt": "2026-11-01T22:47:19.723Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -203,7 +202,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:41:17.928Z",
+      "validThrough": "2026-12-28T22:47:19.723Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -225,7 +224,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/R-D-Packaging---Internship--6-months-_R574827",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:41:17.317Z",
+      "crawledAt": "2026-11-01T22:47:19.026Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -249,7 +248,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:41:17.317Z",
+      "validThrough": "2027-01-21T22:47:19.026Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -271,7 +270,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Project-Associate--m-f-d--as-part-of-our-Regulatory-Affairs-team_R576188",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:41:16.718Z",
+      "crawledAt": "2026-11-01T22:47:18.310Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -295,7 +294,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:41:16.718Z",
+      "validThrough": "2027-01-25T22:47:18.310Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -318,7 +317,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Ausbildung-Produktionsmechaniker--m-w-d----Selzach--CH-_R569007",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:15.478Z",
+      "crawledAt": "2026-11-01T22:47:17.207Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -342,7 +341,7 @@
       "postalCode": "2545",
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:41:15.478Z",
+      "validThrough": "2027-01-25T22:47:17.207Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -353,5 +352,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

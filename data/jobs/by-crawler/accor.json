@@ -1,7 +1,7 @@
 {
   "crawlerKey": "accor",
-  "assembledAt": "2026-11-01T09:40:20.091Z",
-  "runId": "41292779854",
+  "assembledAt": "2026-11-01T22:45:41.404Z",
+  "runId": "41351588885",
   "jobs": [
     {
       "id": "accor-e283ad8b1977",
@@ -35,7 +35,7 @@
       "url": "https://careers.accor.com/fr/fr/job/instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-106298",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.411Z",
+      "crawledAt": "2026-11-01T22:45:35.229Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:40:12.411Z",
+      "validThrough": "2026-12-01T22:45:35.229Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -123,7 +123,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-operationnel-100-in-ibis-lausanne-centre-lausanne-switzerland-jid-106701",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.409Z",
+      "crawledAt": "2026-11-01T22:45:35.227Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -166,7 +166,95 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:40:12.409Z",
+      "validThrough": "2026-12-01T22:45:35.227Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "accor-25bbb5c819a5",
+      "slug": "gruppi-assistenti-event-manager-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
+      "slugByLocale": {
+        "it": "gruppi-assistenti-event-manager-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
+        "en": "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-25bbb5c8",
+        "de": "assistent-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
+        "fr": "groupes-adjoints-et-gestionnaire-d-evenements-h-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
+      },
+      "slugDisambiguator": "25bbb5c8",
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Assistant Groups & Event Manager (f/m/d)",
+      "titleByLocale": {
+        "it": "Gruppi Assistenti & Event Manager (m/f/d)",
+        "en": "Assistant Groups & Event Manager (f/m/d)",
+        "de": "Assistent Groups & Event Manager (f/m/d)",
+        "fr": "Groupes adjoints et gestionnaire d'événements (h/f/d)"
+      },
+      "description": "Company DescriptionIn Zürich we offer you two exciting places to work: the 25hours Hotel Zürich West and Langstrasse. Both hotels tell their own story - as do our colleagues. Our ambience is multicultural, our philosophy is unconventional. We are a young team and love our first-name culture mixed with a good upbringing. Six meeting rooms, two restaurants, a bar - versatile possibilities to organize parties and events in the house. You make sure that all event rooms are sold and that every event runs smoothly.COME AS YOU ARE AND SHOW WHAT YOU CAN...... in a 4 day week.Enjoy 3 days off every week and the opportunity to make your free time more flexible.Job DescriptionHow does your working day looks like ...You’ll look after our event guests – working closely with your team from early morning until lateYou’ll coordinate events with all internal departments and ensure that everyone has all the necessary informationYou’ll be responsible for translating menus and various event and sales documents (German/English)You will be responsible for all group enquiries for 8 rooms or moreYou will be responsible for preparing quotations, contracts and invoicesYou will prepare forecasts, reports and sales analysesYou will attend internal meetingsYou will act as the point of contact for the team in the manager’s absenceYou will draw up training and rota schedulesYou will actively maintain customer relationships and support sales activitiesYou will ensure compliance with hotel standards and quality assurance in the events departmentYou will enter bookings into the system, draw up rooming lists and prepare everything for a seamless check-in and stayYou conduct customer meetings on site and follow these up with telephone discussions.You organise tours of the premises for event and corporate clientsYou prepare for each shift and ensure that everything is tidied up afterwardsYou keep a clear overview, even when every room in the hotel is booked out and things are getting hecticQualificationsYour personality counts more than your CV...You have professional experience in a similar role and are a passionate hostYou are an open and communicative person who isn’t afraid to stand your ground when necessaryYou enjoy working with people and inspiring themYou are passionate about good food and drink and enjoy discovering new conceptsYou bring not only your skills but also your personality to the roleYou are fluent in German and EnglishAdditional InformationWhat`s in it for you...After successfully completing your probation period you have the opportunity to switch to a 4-day workweekStay up to 10 nights per year free of charge at our 25hours hotelsAs part of Ennismore, benefit from generous discounts at our bars, restaurants, and hotels worldwideYou’ll have the freedom to bring in your own ideas and experiment creativelyEnjoy attractive offers from our many cooperation partnersBe part of our colorful staff parties and vibrant tribe spirit",
+      "descriptionByLocale": {
+        "it": "DescrizioneIn Zürich vi offriamo due luoghi interessanti da lavorare: il 25hours Hotel Zürich West e la Langstrasse. Entrambi gli hotel raccontano la loro storia - così come i nostri colleghi. La nostra atmosfera è multiculturale, la nostra filosofia è non convenzionale. Siamo una squadra giovane e amiamo la nostra cultura di primo nome mescolata con una buona educazione. Sei sale riunioni, due ristoranti, un bar - possibilità versatili per organizzare feste ed eventi in casa. Assicurati che tutte le sale degli eventi siano vendute e che ogni evento funzioni senza intoppi. Vieni come sei e fai quello che puoi... in una settimana di 4 giorni. Godetevi 3 giorni liberi ogni settimana e la possibilità di rendere il vostro tempo libero più flessibile. Descrizione del lavoroCome fa il vostro giorno di lavoro sembra... Potrai prendersi cura dei nostri ospiti evento – lavorando a stretto contatto con il vostro team dalla mattina presto fino a tardiCoordinare gli eventi con tutti i dipartimenti interni e garantire che tutti abbiano tutte le informazioni necessarie Sarete responsabili per la traduzione di menu e vari documenti di evento e di vendita (tedesco/inglese) Sarete responsabili di tutte le richieste di gruppo per 8 camere o piùSarete responsabili per la preparazione di quotazioni, contratti e fatture Prepari le previsioni, i rapporti e le analisi delle venditePrenderai riunioni interne Agirà come punto di contatto per la squadra in assenza del manager Elaborerai corsi di formazione e programmi di rota Potrai mantenere attivamente le relazioni con i clienti e sostenere le attività di vendita Garantirai il rispetto degli standard alberghieri e della garanzia di qualità nel reparto eventi Inserirai le prenotazioni nel sistema, preparerai liste di insalate e preparerai tutto per un check-in senza soluzione di continuità e rimani.Conduci riunioni dei clienti in loco e segui queste con discussioni telefoniche. Organizza tour dei locali per clienti aziendali e di eventi Ti prepari per ogni turno e ti assicuri che tutto sia legato dopo Si mantiene una chiara panoramica, anche quando ogni camera dell'hotel è prenotata fuori e le cose stanno diventando freneticheQualificazioni La tua personalità conta più del tuo CV... Avete esperienza professionale in un ruolo simile e sono un ospite appassionatoSiete una persona aperta e comunicativa che non ha paura di stare in piedi il vostro terreno quando necessario Ti piace lavorare con le persone e ispirarleSi è appassionati di buon cibo e bere e godere di scoprire nuovi concetti Porti non solo le tue abilità, ma anche la tua personalità al ruolo Sei fluente in tedesco e ingleseUlteriori informazioni Cosa c'è dentro per te... Dopo aver completato con successo il vostro periodo di prova avete la possibilità di passare a un workweek di 4 giorniStay fino a 10 notti all'anno gratuitamente presso i nostri hotel di 25 oreCome parte di Ennismore, beneficiare di sconti generosi presso i nostri bar, ristoranti e alberghi in tutto il mondo avrete la libertà di portare nelle vostre idee e sperimentare creativamenteGodete offerte attraenti dai nostri numerosi partner di cooperazione Fai parte delle nostre feste di personale colorate e vibrante spirito di tribù",
+        "en": "Company DescriptionIn Zürich we offer you two exciting places to work: the 25hours Hotel Zürich West and Langstrasse. Both hotels tell their own story - as do our colleagues. Our ambience is multicultural, our philosophy is unconventional. We are a young team and love our first-name culture mixed with a good upbringing. Six meeting rooms, two restaurants, a bar - versatile possibilities to organize parties and events in the house. You make sure that all event rooms are sold and that every event runs smoothly.COME AS YOU ARE AND SHOW WHAT YOU CAN...... in a 4 day week.Enjoy 3 days off every week and the opportunity to make your free time more flexible.Job DescriptionHow does your working day looks like ...You’ll look after our event guests – working closely with your team from early morning until lateYou’ll coordinate events with all internal departments and ensure that everyone has all the necessary informationYou’ll be responsible for translating menus and various event and sales documents (German/English)You will be responsible for all group enquiries for 8 rooms or moreYou will be responsible for preparing quotations, contracts and invoicesYou will prepare forecasts, reports and sales analysesYou will attend internal meetingsYou will act as the point of contact for the team in the manager’s absenceYou will draw up training and rota schedulesYou will actively maintain customer relationships and support sales activitiesYou will ensure compliance with hotel standards and quality assurance in the events departmentYou will enter bookings into the system, draw up rooming lists and prepare everything for a seamless check-in and stayYou conduct customer meetings on site and follow these up with telephone discussions.You organise tours of the premises for event and corporate clientsYou prepare for each shift and ensure that everything is tidied up afterwardsYou keep a clear overview, even when every room in the hotel is booked out and things are getting hecticQualificationsYour personality counts more than your CV...You have professional experience in a similar role and are a passionate hostYou are an open and communicative person who isn’t afraid to stand your ground when necessaryYou enjoy working with people and inspiring themYou are passionate about good food and drink and enjoy discovering new conceptsYou bring not only your skills but also your personality to the roleYou are fluent in German and EnglishAdditional InformationWhat`s in it for you...After successfully completing your probation period you have the opportunity to switch to a 4-day workweekStay up to 10 nights per year free of charge at our 25hours hotelsAs part of Ennismore, benefit from generous discounts at our bars, restaurants, and hotels worldwideYou’ll have the freedom to bring in your own ideas and experiment creativelyEnjoy attractive offers from our many cooperation partnersBe part of our colorful staff parties and vibrant tribe spirit",
+        "de": "In Zürich bieten wir Ihnen zwei spannende Arbeitsplätze: das 25hours Hotel Zürich West und die Langstraße. Beide Hotels erzählen ihre eigene Geschichte - ebenso wie unsere Kollegen. Unser Ambiente ist multikulturell, unsere Philosophie unkonventionell. Wir sind ein junges Team und lieben unsere Vornamenkultur, gemischt mit einer guten Erziehung. Sechs Tagungsräume, zwei Restaurants, eine Bar - vielseitige Möglichkeiten, Partys und Veranstaltungen im Haus zu organisieren. Sie stellen sicher, dass alle Veranstaltungsräume verkauft werden und dass jede Veranstaltung reibungslos verläuft. Kommen Sie, wie Sie sind und zeigen, was Sie können ... in einer 4-tägigen Woche. Genießen Sie 3 freie Tage pro Woche und die Möglichkeit, Ihre Freizeit flexibler zu gestalten. StellenbeschreibungWie sieht Ihr Arbeitstag aus wie ... Sie betreuen unsere Eventgäste – arbeiten eng mit Ihrem Team von früh bis spätSie koordinieren die Veranstaltungen mit allen internen Abteilungen und sorgen dafür, dass jeder alle notwendigen Informationen hat Sie sind verantwortlich für die Übersetzung von Menüs und verschiedenen Veranstaltungs- und Verkaufsunterlagen (Deutsch/Englisch) Sie sind für alle Gruppenanfragen für 8 Zimmer oder mehr verantwortlichSie sind für die Erstellung von Angeboten, Verträgen und Rechnungen verantwortlich Sie erstellen Prognosen, Berichte und VerkaufsanalysenSie nehmen an internen Meetings teil Sie werden als Ansprechpartner für das Team in Abwesenheit des Managers fungieren Sie erstellen Schulungs- und Rotationspläne Sie pflegen aktiv Kundenbeziehungen und unterstützen Verkaufsaktivitäten Sie sorgen für die Einhaltung von Hotelstandards und Qualitätssicherung in der Veranstaltungsabteilung Sie geben Buchungen in das System ein, erstellen Zimmerlisten und bereiten alles für einen nahtlosen Check-in und Aufenthalt vorSie führen Kundengespräche vor Ort durch und führen diese mit Telefongesprächen durch. Sie organisieren Führungen durch die Räumlichkeiten für Event- und Firmenkunden Sie bereiten sich auf jede Schicht vor und sorgen dafür, dass danach alles aufgeräumt wird Sie behalten den Überblick, auch wenn jedes Zimmer im Hotel ausgebucht ist und die Dinge hektisch werdenQualifikationen Deine Persönlichkeit zählt mehr als dein Lebenslauf... Sie haben Berufserfahrung in einer ähnlichen Rolle und sind ein leidenschaftlicher GastgeberSie sind eine offene und kommunikative Person, die keine Angst hat, sich zu behaupten, wenn es nötig ist Sie arbeiten gerne mit Menschen zusammen und inspirieren sieSie sind begeistert von gutem Essen und Trinken und entdecken gerne neue Konzepte Sie bringen nicht nur Ihre Fähigkeiten, sondern auch Ihre Persönlichkeit in die RolleSie sprechen fließend Deutsch und EnglischZusätzliche Informationen Was ist für dich drin... Nach erfolgreichem Abschluss Ihrer Probezeit haben Sie die Möglichkeit, zu einer 4-tägigen Arbeitswoche zu wechselnStay bis zu 10 Nächte pro Jahr kostenlos in unseren 25hours HotelsIm Rahmen von Ennismore, profitieren Sie von großzügigen Rabatten in unseren Bars, Restaurants und Hotels weltweitSie haben die Freiheit, Ihre eigenen Ideen einzubringen und kreativ zu experimentierenGenießen Sie attraktive Angebote unserer vielen Kooperationspartner Werden Sie Teil unserer bunten Mitarbeiterpartys und unseres lebendigen Stammesgeistes",
+        "fr": "Description de l'entrepriseÀ Zurich, nous vous proposons deux lieux de travail passionnants : l'hôtel Zürich West et la Langstrasse. Les deux hôtels racontent leur propre histoire - tout comme nos collègues. Notre ambiance est multiculturelle, notre philosophie n'est pas conventionnelle. Nous sommes une jeune équipe et aimons notre première culture mélangée avec une bonne éducation. Six salles de réunion, deux restaurants, un bar - des possibilités polyvalentes pour organiser des fêtes et des événements dans la maison. Vous vous assurez que toutes les salles d'événements sont vendues et que chaque événement se déroule en douceur. Viens comme tu es et dis ce que tu peux... dans une semaine de 4 jours. Profitez de 3 jours de congé chaque semaine et la possibilité de rendre votre temps libre plus flexible. Description de l'emploiComment votre journée de travail ressemble à ... Vous allez vous occuper de nos invités – travailler en étroite collaboration avec votre équipe de tôt le matin à tardVous allez coordonner les événements avec tous les départements internes et veiller à ce que chacun ait toutes les informations nécessaires Vous serez responsable de la traduction des menus et de divers documents d'événement et de vente (allemand/anglais) Vous serez responsable de toutes les demandes de groupe pour 8 chambres ou plusVous serez responsable de la préparation des devis, des contrats et des factures Vous préparerez des prévisions, des rapports et des analyses de ventesVous assisterez à des réunions internes Vous agirez comme point de contact pour l'équipe dans l'absence du manager. Vous établirez des horaires de formation et de rotation Vous maintenirez activement des relations avec la clientèle et soutenirz les activités de vente Vous assurerez le respect des normes hôtelières et l'assurance de la qualité dans le département des événements Vous entrerez les réservations dans le système, dresserez des listes de chambres et préparerez tout pour un enregistrement et un séjour sans failleVous organisez des réunions de clients sur place et suivez-les avec des discussions téléphoniques. Vous organisez des visites des lieux pour les clients d'événements et d'entreprises Vous vous préparez à chaque poste et vous assurez que tout est réglé par la suite Vous gardez une vue d'ensemble claire, même lorsque chaque chambre de l'hôtel est réservée et que les choses deviennent émouvantesQualifications Votre personnalité compte plus que votre CV... Vous avez une expérience professionnelle dans un rôle similaire et êtes un hôte passionnéVous êtes une personne ouverte et communicative qui n'a pas peur de rester debout lorsque nécessaire Vous aimez travailler avec les gens et les inspirerVous êtes passionnés par la bonne nourriture et la boisson et aimez découvrir de nouveaux concepts Vous apportez non seulement vos compétences mais aussi votre personnalité au rôleVous maîtrisez couramment l'allemand et l'anglaisInformations complémentaires Qu'y a-t-il dedans pour toi... Après avoir terminé avec succès votre période de probation, vous avez la possibilité de passer à une semaine de travail de 4 joursRestez jusqu'à 10 nuits par an gratuitement dans nos hôtels de 25 heuresDans le cadre d'Ennismore, profitez de rabais généreux dans nos bars, restaurants et hôtels dans le monde entierVous aurez la liberté d'apporter vos propres idées et d'expérimenter de manière créative. Faites partie de notre personnel coloré et esprit de tribu vibrant"
+      },
+      "location": "25hours Hotel Zurich West, Zürich, Switzerland",
+      "canton": "ZH",
+      "url": "https://careers.accor.com/fr/fr/job/assistant-groups-and-event-manager-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-107850",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-01T22:45:35.226Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-27T06:10:24+00:00",
+      "postedDate": "2026-08-27T06:10:24+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/assistant-groups-and-event-manager-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-107850",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-groups-event-manager-f-m-d-accor-ch",
+        "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
+        "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-25bbb5c8"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-groups-event-manager-f-m-d-accor-ch",
+          "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-25bbb5c8"
+        ],
+        "en": [
+          "assistant-groups-event-manager-f-m-d-accor-ch",
+          "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
+        ],
+        "fr": [
+          "assistant-groups-event-manager-f-m-d-accor-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-31T23:39:13.477Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T22:45:35.226Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -201,7 +289,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistent-front-office-manager-in-ibis-styles-zurich-city-center-zuerich-switzerland-jid-107635",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:40:12.408Z",
+      "crawledAt": "2026-11-01T22:45:35.226Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -271,95 +359,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:40:12.408Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "accor-25bbb5c819a5",
-      "slug": "gruppi-assistenti-event-manager-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
-      "slugByLocale": {
-        "it": "gruppi-assistenti-event-manager-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
-        "en": "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-25bbb5c8",
-        "de": "assistent-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
-        "fr": "groupes-adjoints-et-gestionnaire-d-evenements-h-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
-      },
-      "slugDisambiguator": "25bbb5c8",
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Assistant Groups & Event Manager (f/m/d)",
-      "titleByLocale": {
-        "it": "Gruppi Assistenti & Event Manager (m/f/d)",
-        "en": "Assistant Groups & Event Manager (f/m/d)",
-        "de": "Assistent Groups & Event Manager (f/m/d)",
-        "fr": "Groupes adjoints et gestionnaire d'événements (h/f/d)"
-      },
-      "description": "Company DescriptionIn Zürich we offer you two exciting places to work: the 25hours Hotel Zürich West and Langstrasse. Both hotels tell their own story - as do our colleagues. Our ambience is multicultural, our philosophy is unconventional. We are a young team and love our first-name culture mixed with a good upbringing. Six meeting rooms, two restaurants, a bar - versatile possibilities to organize parties and events in the house. You make sure that all event rooms are sold and that every event runs smoothly.COME AS YOU ARE AND SHOW WHAT YOU CAN...... in a 4 day week.Enjoy 3 days off every week and the opportunity to make your free time more flexible.Job DescriptionHow does your working day looks like ...You’ll look after our event guests – working closely with your team from early morning until lateYou’ll coordinate events with all internal departments and ensure that everyone has all the necessary informationYou’ll be responsible for translating menus and various event and sales documents (German/English)You will be responsible for all group enquiries for 8 rooms or moreYou will be responsible for preparing quotations, contracts and invoicesYou will prepare forecasts, reports and sales analysesYou will attend internal meetingsYou will act as the point of contact for the team in the manager’s absenceYou will draw up training and rota schedulesYou will actively maintain customer relationships and support sales activitiesYou will ensure compliance with hotel standards and quality assurance in the events departmentYou will enter bookings into the system, draw up rooming lists and prepare everything for a seamless check-in and stayYou conduct customer meetings on site and follow these up with telephone discussions.You organise tours of the premises for event and corporate clientsYou prepare for each shift and ensure that everything is tidied up afterwardsYou keep a clear overview, even when every room in the hotel is booked out and things are getting hecticQualificationsYour personality counts more than your CV...You have professional experience in a similar role and are a passionate hostYou are an open and communicative person who isn’t afraid to stand your ground when necessaryYou enjoy working with people and inspiring themYou are passionate about good food and drink and enjoy discovering new conceptsYou bring not only your skills but also your personality to the roleYou are fluent in German and EnglishAdditional InformationWhat`s in it for you...After successfully completing your probation period you have the opportunity to switch to a 4-day workweekStay up to 10 nights per year free of charge at our 25hours hotelsAs part of Ennismore, benefit from generous discounts at our bars, restaurants, and hotels worldwideYou’ll have the freedom to bring in your own ideas and experiment creativelyEnjoy attractive offers from our many cooperation partnersBe part of our colorful staff parties and vibrant tribe spirit",
-      "descriptionByLocale": {
-        "it": "DescrizioneIn Zürich vi offriamo due luoghi interessanti da lavorare: il 25hours Hotel Zürich West e la Langstrasse. Entrambi gli hotel raccontano la loro storia - così come i nostri colleghi. La nostra atmosfera è multiculturale, la nostra filosofia è non convenzionale. Siamo una squadra giovane e amiamo la nostra cultura di primo nome mescolata con una buona educazione. Sei sale riunioni, due ristoranti, un bar - possibilità versatili per organizzare feste ed eventi in casa. Assicurati che tutte le sale degli eventi siano vendute e che ogni evento funzioni senza intoppi. Vieni come sei e fai quello che puoi... in una settimana di 4 giorni. Godetevi 3 giorni liberi ogni settimana e la possibilità di rendere il vostro tempo libero più flessibile. Descrizione del lavoroCome fa il vostro giorno di lavoro sembra... Potrai prendersi cura dei nostri ospiti evento – lavorando a stretto contatto con il vostro team dalla mattina presto fino a tardiCoordinare gli eventi con tutti i dipartimenti interni e garantire che tutti abbiano tutte le informazioni necessarie Sarete responsabili per la traduzione di menu e vari documenti di evento e di vendita (tedesco/inglese) Sarete responsabili di tutte le richieste di gruppo per 8 camere o piùSarete responsabili per la preparazione di quotazioni, contratti e fatture Prepari le previsioni, i rapporti e le analisi delle venditePrenderai riunioni interne Agirà come punto di contatto per la squadra in assenza del manager Elaborerai corsi di formazione e programmi di rota Potrai mantenere attivamente le relazioni con i clienti e sostenere le attività di vendita Garantirai il rispetto degli standard alberghieri e della garanzia di qualità nel reparto eventi Inserirai le prenotazioni nel sistema, preparerai liste di insalate e preparerai tutto per un check-in senza soluzione di continuità e rimani.Conduci riunioni dei clienti in loco e segui queste con discussioni telefoniche. Organizza tour dei locali per clienti aziendali e di eventi Ti prepari per ogni turno e ti assicuri che tutto sia legato dopo Si mantiene una chiara panoramica, anche quando ogni camera dell'hotel è prenotata fuori e le cose stanno diventando freneticheQualificazioni La tua personalità conta più del tuo CV... Avete esperienza professionale in un ruolo simile e sono un ospite appassionatoSiete una persona aperta e comunicativa che non ha paura di stare in piedi il vostro terreno quando necessario Ti piace lavorare con le persone e ispirarleSi è appassionati di buon cibo e bere e godere di scoprire nuovi concetti Porti non solo le tue abilità, ma anche la tua personalità al ruolo Sei fluente in tedesco e ingleseUlteriori informazioni Cosa c'è dentro per te... Dopo aver completato con successo il vostro periodo di prova avete la possibilità di passare a un workweek di 4 giorniStay fino a 10 notti all'anno gratuitamente presso i nostri hotel di 25 oreCome parte di Ennismore, beneficiare di sconti generosi presso i nostri bar, ristoranti e alberghi in tutto il mondo avrete la libertà di portare nelle vostre idee e sperimentare creativamenteGodete offerte attraenti dai nostri numerosi partner di cooperazione Fai parte delle nostre feste di personale colorate e vibrante spirito di tribù",
-        "en": "Company DescriptionIn Zürich we offer you two exciting places to work: the 25hours Hotel Zürich West and Langstrasse. Both hotels tell their own story - as do our colleagues. Our ambience is multicultural, our philosophy is unconventional. We are a young team and love our first-name culture mixed with a good upbringing. Six meeting rooms, two restaurants, a bar - versatile possibilities to organize parties and events in the house. You make sure that all event rooms are sold and that every event runs smoothly.COME AS YOU ARE AND SHOW WHAT YOU CAN...... in a 4 day week.Enjoy 3 days off every week and the opportunity to make your free time more flexible.Job DescriptionHow does your working day looks like ...You’ll look after our event guests – working closely with your team from early morning until lateYou’ll coordinate events with all internal departments and ensure that everyone has all the necessary informationYou’ll be responsible for translating menus and various event and sales documents (German/English)You will be responsible for all group enquiries for 8 rooms or moreYou will be responsible for preparing quotations, contracts and invoicesYou will prepare forecasts, reports and sales analysesYou will attend internal meetingsYou will act as the point of contact for the team in the manager’s absenceYou will draw up training and rota schedulesYou will actively maintain customer relationships and support sales activitiesYou will ensure compliance with hotel standards and quality assurance in the events departmentYou will enter bookings into the system, draw up rooming lists and prepare everything for a seamless check-in and stayYou conduct customer meetings on site and follow these up with telephone discussions.You organise tours of the premises for event and corporate clientsYou prepare for each shift and ensure that everything is tidied up afterwardsYou keep a clear overview, even when every room in the hotel is booked out and things are getting hecticQualificationsYour personality counts more than your CV...You have professional experience in a similar role and are a passionate hostYou are an open and communicative person who isn’t afraid to stand your ground when necessaryYou enjoy working with people and inspiring themYou are passionate about good food and drink and enjoy discovering new conceptsYou bring not only your skills but also your personality to the roleYou are fluent in German and EnglishAdditional InformationWhat`s in it for you...After successfully completing your probation period you have the opportunity to switch to a 4-day workweekStay up to 10 nights per year free of charge at our 25hours hotelsAs part of Ennismore, benefit from generous discounts at our bars, restaurants, and hotels worldwideYou’ll have the freedom to bring in your own ideas and experiment creativelyEnjoy attractive offers from our many cooperation partnersBe part of our colorful staff parties and vibrant tribe spirit",
-        "de": "In Zürich bieten wir Ihnen zwei spannende Arbeitsplätze: das 25hours Hotel Zürich West und die Langstraße. Beide Hotels erzählen ihre eigene Geschichte - ebenso wie unsere Kollegen. Unser Ambiente ist multikulturell, unsere Philosophie unkonventionell. Wir sind ein junges Team und lieben unsere Vornamenkultur, gemischt mit einer guten Erziehung. Sechs Tagungsräume, zwei Restaurants, eine Bar - vielseitige Möglichkeiten, Partys und Veranstaltungen im Haus zu organisieren. Sie stellen sicher, dass alle Veranstaltungsräume verkauft werden und dass jede Veranstaltung reibungslos verläuft. Kommen Sie, wie Sie sind und zeigen, was Sie können ... in einer 4-tägigen Woche. Genießen Sie 3 freie Tage pro Woche und die Möglichkeit, Ihre Freizeit flexibler zu gestalten. StellenbeschreibungWie sieht Ihr Arbeitstag aus wie ... Sie betreuen unsere Eventgäste – arbeiten eng mit Ihrem Team von früh bis spätSie koordinieren die Veranstaltungen mit allen internen Abteilungen und sorgen dafür, dass jeder alle notwendigen Informationen hat Sie sind verantwortlich für die Übersetzung von Menüs und verschiedenen Veranstaltungs- und Verkaufsunterlagen (Deutsch/Englisch) Sie sind für alle Gruppenanfragen für 8 Zimmer oder mehr verantwortlichSie sind für die Erstellung von Angeboten, Verträgen und Rechnungen verantwortlich Sie erstellen Prognosen, Berichte und VerkaufsanalysenSie nehmen an internen Meetings teil Sie werden als Ansprechpartner für das Team in Abwesenheit des Managers fungieren Sie erstellen Schulungs- und Rotationspläne Sie pflegen aktiv Kundenbeziehungen und unterstützen Verkaufsaktivitäten Sie sorgen für die Einhaltung von Hotelstandards und Qualitätssicherung in der Veranstaltungsabteilung Sie geben Buchungen in das System ein, erstellen Zimmerlisten und bereiten alles für einen nahtlosen Check-in und Aufenthalt vorSie führen Kundengespräche vor Ort durch und führen diese mit Telefongesprächen durch. Sie organisieren Führungen durch die Räumlichkeiten für Event- und Firmenkunden Sie bereiten sich auf jede Schicht vor und sorgen dafür, dass danach alles aufgeräumt wird Sie behalten den Überblick, auch wenn jedes Zimmer im Hotel ausgebucht ist und die Dinge hektisch werdenQualifikationen Deine Persönlichkeit zählt mehr als dein Lebenslauf... Sie haben Berufserfahrung in einer ähnlichen Rolle und sind ein leidenschaftlicher GastgeberSie sind eine offene und kommunikative Person, die keine Angst hat, sich zu behaupten, wenn es nötig ist Sie arbeiten gerne mit Menschen zusammen und inspirieren sieSie sind begeistert von gutem Essen und Trinken und entdecken gerne neue Konzepte Sie bringen nicht nur Ihre Fähigkeiten, sondern auch Ihre Persönlichkeit in die RolleSie sprechen fließend Deutsch und EnglischZusätzliche Informationen Was ist für dich drin... Nach erfolgreichem Abschluss Ihrer Probezeit haben Sie die Möglichkeit, zu einer 4-tägigen Arbeitswoche zu wechselnStay bis zu 10 Nächte pro Jahr kostenlos in unseren 25hours HotelsIm Rahmen von Ennismore, profitieren Sie von großzügigen Rabatten in unseren Bars, Restaurants und Hotels weltweitSie haben die Freiheit, Ihre eigenen Ideen einzubringen und kreativ zu experimentierenGenießen Sie attraktive Angebote unserer vielen Kooperationspartner Werden Sie Teil unserer bunten Mitarbeiterpartys und unseres lebendigen Stammesgeistes",
-        "fr": "Description de l'entrepriseÀ Zurich, nous vous proposons deux lieux de travail passionnants : l'hôtel Zürich West et la Langstrasse. Les deux hôtels racontent leur propre histoire - tout comme nos collègues. Notre ambiance est multiculturelle, notre philosophie n'est pas conventionnelle. Nous sommes une jeune équipe et aimons notre première culture mélangée avec une bonne éducation. Six salles de réunion, deux restaurants, un bar - des possibilités polyvalentes pour organiser des fêtes et des événements dans la maison. Vous vous assurez que toutes les salles d'événements sont vendues et que chaque événement se déroule en douceur. Viens comme tu es et dis ce que tu peux... dans une semaine de 4 jours. Profitez de 3 jours de congé chaque semaine et la possibilité de rendre votre temps libre plus flexible. Description de l'emploiComment votre journée de travail ressemble à ... Vous allez vous occuper de nos invités – travailler en étroite collaboration avec votre équipe de tôt le matin à tardVous allez coordonner les événements avec tous les départements internes et veiller à ce que chacun ait toutes les informations nécessaires Vous serez responsable de la traduction des menus et de divers documents d'événement et de vente (allemand/anglais) Vous serez responsable de toutes les demandes de groupe pour 8 chambres ou plusVous serez responsable de la préparation des devis, des contrats et des factures Vous préparerez des prévisions, des rapports et des analyses de ventesVous assisterez à des réunions internes Vous agirez comme point de contact pour l'équipe dans l'absence du manager. Vous établirez des horaires de formation et de rotation Vous maintenirez activement des relations avec la clientèle et soutenirz les activités de vente Vous assurerez le respect des normes hôtelières et l'assurance de la qualité dans le département des événements Vous entrerez les réservations dans le système, dresserez des listes de chambres et préparerez tout pour un enregistrement et un séjour sans failleVous organisez des réunions de clients sur place et suivez-les avec des discussions téléphoniques. Vous organisez des visites des lieux pour les clients d'événements et d'entreprises Vous vous préparez à chaque poste et vous assurez que tout est réglé par la suite Vous gardez une vue d'ensemble claire, même lorsque chaque chambre de l'hôtel est réservée et que les choses deviennent émouvantesQualifications Votre personnalité compte plus que votre CV... Vous avez une expérience professionnelle dans un rôle similaire et êtes un hôte passionnéVous êtes une personne ouverte et communicative qui n'a pas peur de rester debout lorsque nécessaire Vous aimez travailler avec les gens et les inspirerVous êtes passionnés par la bonne nourriture et la boisson et aimez découvrir de nouveaux concepts Vous apportez non seulement vos compétences mais aussi votre personnalité au rôleVous maîtrisez couramment l'allemand et l'anglaisInformations complémentaires Qu'y a-t-il dedans pour toi... Après avoir terminé avec succès votre période de probation, vous avez la possibilité de passer à une semaine de travail de 4 joursRestez jusqu'à 10 nuits par an gratuitement dans nos hôtels de 25 heuresDans le cadre d'Ennismore, profitez de rabais généreux dans nos bars, restaurants et hôtels dans le monde entierVous aurez la liberté d'apporter vos propres idées et d'expérimenter de manière créative. Faites partie de notre personnel coloré et esprit de tribu vibrant"
-      },
-      "location": "25hours Hotel Zurich West, Zürich, Switzerland",
-      "canton": "ZH",
-      "url": "https://careers.accor.com/fr/fr/job/assistant-groups-and-event-manager-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-107850",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:40:12.407Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-27T06:10:24+00:00",
-      "postedDate": "2026-08-27T06:10:24+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/assistant-groups-and-event-manager-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-107850",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistant-groups-event-manager-f-m-d-accor-ch",
-        "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
-        "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-25bbb5c8"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-groups-event-manager-f-m-d-accor-ch",
-          "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-25bbb5c8"
-        ],
-        "en": [
-          "assistant-groups-event-manager-f-m-d-accor-ch",
-          "assistant-groups-event-manager-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
-        ],
-        "fr": [
-          "assistant-groups-event-manager-f-m-d-accor-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-31T23:39:13.477Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:40:12.407Z",
+      "validThrough": "2026-12-01T22:45:35.226Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -394,7 +394,7 @@
       "url": "https://careers.accor.com/fr/fr/job/therapeute-estheticienne-h-f-x-cdi-sur-appel-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-111289",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.406Z",
+      "crawledAt": "2026-11-01T22:45:35.225Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -437,7 +437,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:40:12.406Z",
+      "validThrough": "2026-12-22T22:45:35.225Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -472,7 +472,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-receptionniste-h-f-x-in-mercure-fribourg-centre-remparts-fribourg-switzerl-jid-88660",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.404Z",
+      "crawledAt": "2026-11-01T22:45:35.224Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -521,7 +521,7 @@
       "postalCode": "1700",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:40:12.404Z",
+      "validThrough": "2026-12-23T22:45:35.224Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -556,7 +556,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-aux-banquets-petit-dejeuner-la-palmeraie-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112443",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.403Z",
+      "crawledAt": "2026-11-01T22:45:35.223Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -599,7 +599,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:40:12.403Z",
+      "validThrough": "2026-12-31T22:45:35.223Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -634,7 +634,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-cuisine-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112444",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.401Z",
+      "crawledAt": "2026-11-01T22:45:35.222Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -677,7 +677,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:40:12.401Z",
+      "validThrough": "2026-12-31T22:45:35.222Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -712,7 +712,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-patisserie-f-h-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112448",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.399Z",
+      "crawledAt": "2026-11-01T22:45:35.221Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -755,7 +755,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:40:12.399Z",
+      "validThrough": "2026-12-31T22:45:35.221Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -790,7 +790,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stage-reception-du-fairmont-spa-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112451",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.396Z",
+      "crawledAt": "2026-11-01T22:45:35.220Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -833,7 +833,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:40:12.396Z",
+      "validThrough": "2026-12-31T22:45:35.220Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -868,7 +868,7 @@
       "url": "https://careers.accor.com/fr/fr/job/banquet-superviseur-h-f-100-in-moevenpick-hotel-lausanne-lausanne-switzerland-jid-112470",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.393Z",
+      "crawledAt": "2026-11-01T22:45:35.219Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -914,7 +914,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:40:12.393Z",
+      "validThrough": "2026-12-31T22:45:35.219Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -949,7 +949,7 @@
       "url": "https://careers.accor.com/fr/fr/job/chef-de-rang-banquet-et-restaurant-in-geneva-switzerland-jid-112384",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.391Z",
+      "crawledAt": "2026-11-01T22:45:35.219Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -984,7 +984,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:40:12.391Z",
+      "validThrough": "2026-12-30T22:45:35.219Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1019,7 +1019,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-administration-direction-f-and-b-f-h-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112528",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.390Z",
+      "crawledAt": "2026-11-01T22:45:35.218Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1062,7 +1062,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:40:12.390Z",
+      "validThrough": "2026-12-31T22:45:35.218Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1097,7 +1097,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-en-service-f-and-b-f-h-x-montreux-jazz-cafe-terrasse-du-petit-palais-funky-claude-s-bar-pr-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112445",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.385Z",
+      "crawledAt": "2026-11-01T22:45:35.217Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1140,7 +1140,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:40:12.385Z",
+      "validThrough": "2026-12-31T22:45:35.217Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1175,7 +1175,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-in-room-dining-pureaty-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112447",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.383Z",
+      "crawledAt": "2026-11-01T22:45:35.216Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1218,7 +1218,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:40:12.383Z",
+      "validThrough": "2026-12-31T22:45:35.216Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1253,7 +1253,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-receptionniste-f-h-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112450",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.380Z",
+      "crawledAt": "2026-11-01T22:45:35.214Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1296,7 +1296,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:40:12.380Z",
+      "validThrough": "2026-12-31T22:45:35.214Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1331,7 +1331,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-sustainability-achats-f-h-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112449",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.377Z",
+      "crawledAt": "2026-11-01T22:45:35.213Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1374,7 +1374,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:40:12.377Z",
+      "validThrough": "2026-12-31T22:45:35.213Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1409,7 +1409,7 @@
       "url": "https://careers.accor.com/fr/fr/job/sales-manager-h-f-x-in-hotel-rotary-geneva-mgallery-geneva-switzerland-jid-113021",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.374Z",
+      "crawledAt": "2026-11-01T22:45:35.211Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1455,7 +1455,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:40:12.374Z",
+      "validThrough": "2027-01-05T22:45:35.211Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1490,7 +1490,7 @@
       "url": "https://careers.accor.com/fr/fr/job/service-staff-25hours-hotel-zuerich-langstrasse-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-5865",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:40:12.372Z",
+      "crawledAt": "2026-11-01T22:45:35.210Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1543,7 +1543,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:40:12.372Z",
+      "validThrough": "2027-01-06T22:45:35.210Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1578,7 +1578,7 @@
       "url": "https://careers.accor.com/fr/fr/job/inspire-f-and-b-mit-avril-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-113151",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.370Z",
+      "crawledAt": "2026-11-01T22:45:35.209Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1614,7 +1614,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:40:12.370Z",
+      "validThrough": "2027-01-06T22:45:35.209Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1649,7 +1649,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistante-gouvernante-generale-f-h-x-cdi-in-fairmont-le-montreux-palace-montreux-switzerland-jid-113536",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.366Z",
+      "crawledAt": "2026-11-01T22:45:35.205Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1701,7 +1701,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:40:12.366Z",
+      "validThrough": "2027-01-08T22:45:35.205Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1736,7 +1736,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-chef-de-cuisine-f-h-x-in-hotel-rotary-geneva-mgallery-geneva-switzerland-jid-106838",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.364Z",
+      "crawledAt": "2026-11-01T22:45:35.204Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1790,7 +1790,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:40:12.364Z",
+      "validThrough": "2026-12-01T22:45:35.204Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1825,7 +1825,7 @@
       "url": "https://careers.accor.com/fr/fr/job/commis-de-rang-montreux-jazz-cafe-funky-claude-s-bar-f-h-x-2-mois-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-114583",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.361Z",
+      "crawledAt": "2026-11-01T22:45:35.203Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1874,7 +1874,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:40:12.361Z",
+      "validThrough": "2027-01-18T22:45:35.203Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1909,7 +1909,7 @@
       "url": "https://careers.accor.com/fr/fr/job/senior-bartender-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-36066",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:40:12.359Z",
+      "crawledAt": "2026-11-01T22:45:35.201Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1955,7 +1955,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:40:12.359Z",
+      "validThrough": "2027-01-18T22:45:35.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1990,7 +1990,7 @@
       "url": "https://careers.accor.com/fr/fr/job/aide-cuisine-cantine-du-personnel-et-cuisine-h-f-x-cdi-in-fairmont-le-montreux-palace-montreux-switzerland-jid-114582",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.357Z",
+      "crawledAt": "2026-11-01T22:45:35.201Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2042,7 +2042,87 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:40:12.357Z",
+      "validThrough": "2027-01-18T22:45:35.201Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "accor-711ae44782b7",
+      "slug": "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
+      "slugByLocale": {
+        "it": "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
+        "en": "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
+        "de": "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
+        "fr": "agent-du-bureau-principal-zurich-ouest-h-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
+      },
+      "slugDisambiguator": "711ae447",
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Front Office Agent Zürich West (f/m/d)",
+      "titleByLocale": {
+        "it": "Agente di ufficio anteriore Zürich West (m/f/d)",
+        "en": "Front Office Agent Zürich West (f/m/d)",
+        "de": "Front-Office-Mitarbeiter Zürich West (m/w/d)",
+        "fr": "Agent du bureau principal Zürich Ouest (h/f/d)"
+      },
+      "description": "Company DescriptionThe 25hours Hotel Zürich West is the first 25hours Hotel in Switzerland and was designed by the renowned designer Alfredo Häberli. It offers 123 rooms, exciting conference facilities and plenty of space for stories and adventures.From \"Grüezi\" to \"Adieu\" : together with the reception team, you’ll ensure our guests are happy from the moment they arrive until the moment they leave.COME AS YOUR ARE & SHOW HOW YOU CARE...... in a 4 day week.Enjoy 3 days off every week and the opportunity to organize your free time more flexibly!Job DescriptionHow does your working day look like...At the reception, you’ll make sure that guests aren’t just contented, but enthusiasticYou’ll always keep your cool – even when all the guests turn up to check in at the same timeYou’ll make sure things run smoothly when guests arrive at the hotel receptionYou’ll get everything ready for the shift, and round it off with the Front Office fully cleaned upQualificationsYour personality counts more than your CV...You've completed hospitality training, gained some professional experience at the front office, and speak fluent German and English. Additional languages are advantageous.You can inspire your fellow staff just as you can inspire your guests. On top of this, you know your way around town and always have tips for partying up your sleeveYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersReconcile your personal situation with work - we are open to parttime employments and other adjustmentsBe part of our hilarous staff parties and much more...",
+      "descriptionByLocale": {
+        "it": "Descrizione della Società Il 25 ore Hotel Zürich West è il primo 25hours Hotel in Svizzera ed è stato progettato dal famoso designer Alfredo Häberli. Offre 123 camere, emozionanti strutture per conferenze e un sacco di spazio per storie e avventure. Da \"Grüezi\" a \"Adieu\": insieme al team di accoglienza, ti assicurerai che i nostri ospiti siano felici dal momento in cui arrivano fino al momento in cui partono. Vieni come te e come stai... in una settimana di 4 giorni. Godetevi 3 giorni liberi ogni settimana e la possibilità di organizzare il vostro tempo libero in modo più flessibile! Descrizione del lavoroCome fa la vostra giornata di lavoro... Alla reception, ti assicurerai che gli ospiti non siano solo contenti, ma entusiasti, manterrai sempre il tuo fresco – anche quando tutti gli ospiti si presenteranno per effettuare il check-in allo stesso tempo, ti assicurerai che le cose funzionino senza problemi quando arriverai alla reception dell'hotel, avrai tutto pronto per il turno, e che ti avvicini al Front Office completamente pulitoQualificazioni La tua personalità conta più del tuo CV... Hai completato l'allenamento di ospitalità, acquisito un'esperienza professionale presso l'ufficio anteriore, e parlare fluente tedesco e inglese. Le lingue aggiuntive sono vantaggiose. Potete ispirare il vostro personale come potete ispirare i vostri ospiti. In cima a questo, si conosce il vostro senso intorno alla città e sempre avere consigli per festeggiare il vostro manicaYou’re un doer – e anche se si fa male a volte, si ammette apertamente è non solo portare le vostre abilità, ma anche il vostro carattereUlteriori informazioni Cosa c'è dentro per te... Scopri tutti gli altri hotel di 25 ore e soggiorna gratuitamente per un massimo di 10 notti all'anno come dipendente Ottieni un'indennità extra per viaggiare con i mezzi pubblici e approfitta delle fantastiche offerte dei nostri partner cooperative! Approfitta di essere parte di Ennismore e ottenere sconti generosi durante la visita dei nostri bar e ristoranti, nonché prenotazioni camere di hotel in tutto il mondo Vantaggi da grandi offerte dai nostri partner numeros collaborazioniRiconciliare la vostra situazione personale con il lavoro - siamo aperti a lavori parttime e altri adattamenti Partecipa alle nostre feste di personale hilarous e molto altro...",
+        "en": "Company DescriptionThe 25hours Hotel Zürich West is the first 25hours Hotel in Switzerland and was designed by the renowned designer Alfredo Häberli. It offers 123 rooms, exciting conference facilities and plenty of space for stories and adventures.From \"Grüezi\" to \"Adieu\" : together with the reception team, you’ll ensure our guests are happy from the moment they arrive until the moment they leave.COME AS YOUR ARE & SHOW HOW YOU CARE...... in a 4 day week.Enjoy 3 days off every week and the opportunity to organize your free time more flexibly!Job DescriptionHow does your working day look like...At the reception, you’ll make sure that guests aren’t just contented, but enthusiasticYou’ll always keep your cool – even when all the guests turn up to check in at the same timeYou’ll make sure things run smoothly when guests arrive at the hotel receptionYou’ll get everything ready for the shift, and round it off with the Front Office fully cleaned upQualificationsYour personality counts more than your CV...You've completed hospitality training, gained some professional experience at the front office, and speak fluent German and English. Additional languages are advantageous.You can inspire your fellow staff just as you can inspire your guests. On top of this, you know your way around town and always have tips for partying up your sleeveYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersReconcile your personal situation with work - we are open to parttime employments and other adjustmentsBe part of our hilarous staff parties and much more...",
+        "de": "Beschreibung des Unternehmens Das 25hours Hotel Zürich West ist das erste 25hours Hotel der Schweiz und wurde vom renommierten Designer Alfredo Häberli entworfen. Es bietet 123 Zimmer, aufregende Konferenzeinrichtungen und viel Platz für Geschichten und Abenteuer. Von \"Grüezi\" bis \"Adieu\": Gemeinsam mit dem Empfangsteam sorgen Sie dafür, dass unsere Gäste vom Moment ihrer Ankunft bis zum Moment ihrer Abreise zufrieden sind. Kommen Sie, wie Sie sind und zeigen, wie Sie sich kümmern ... in einer 4-tägigen Woche. Genießen Sie 3 freie Tage pro Woche und die Möglichkeit, Ihre Freizeit flexibler zu organisieren! StellenbeschreibungWie sieht Ihr Arbeitstag aus... An der Rezeption stellen Sie sicher, dass die Gäste nicht nur zufrieden, sondern enthusiastisch sindSie werden immer cool bleiben - auch wenn alle Gäste gleichzeitig eincheckenSie sorgen dafür, dass die Dinge reibungslos laufen, wenn die Gäste an der Hotelrezeption ankommenSie bereiten alles für die Schicht vor und runden es mit dem Front Office ab, das vollständig gereinigt istQualifikationen Deine Persönlichkeit zählt mehr als dein Lebenslauf... Sie haben eine Hospitality-Ausbildung abgeschlossen, Berufserfahrung im Front Office gesammelt und sprechen fließend Deutsch und Englisch. Weitere Sprachen sind vorteilhaft. Sie können Ihre Mitarbeiter genauso inspirieren, wie Sie Ihre Gäste inspirieren können. Darüber hinaus kennen Sie sich in der Stadt aus und haben immer Tipps, wie Sie Ihren Ärmel feiern könnenSie sind ein Macher - und selbst wenn Sie es manchmal falsch machen, geben Sie es offen zuSie bringen nicht nur Ihre Fähigkeiten, sondern auch Ihren Charakter Zusätzliche Informationen Was ist für dich drin... Lernen Sie alle anderen 25hours Hotels kennen und übernachten Sie kostenlos für maximal 10 Nächte pro Jahr als Mitarbeiter Holen Sie sich einen zusätzlichen Freibetrag für Reisen mit öffentlichen Verkehrsmitteln und profitieren Sie von fantastischen Angeboten unserer Kooperationspartner! Nutzen Sie die Vorteile, ein Teil von Ennismore zu sein und erhalten Sie großzügige Rabatte beim Besuch unserer Bars und Restaurants sowie bei der Buchung von Hotelzimmern auf der ganzen Welt Vorteile von tollen Angeboten unserer numeros KooperationspartnerVersöhnen Sie Ihre persönliche Situation mit der Arbeit - wir sind offen für Teilzeitbeschäftigungen und andere Anpassungen Seien sie teil unserer lustigen personalpartys und vieles mehr.",
+        "fr": "Désignation de l'entreprise L'Hôtel Zürich 25 heures West est le premier hôtel de 25 heures en Suisse et a été conçu par le célèbre designer Alfredo Häberli. Il offre 123 chambres, des salles de conférence passionnantes et beaucoup d'espace pour des histoires et des aventures. De « Grüezi » à « Adieu » : avec l'équipe de réception, vous vous assurerez que nos invités sont heureux du moment où ils arrivent jusqu'au moment où ils partent. Venez comme vous êtes et dites comment vous vous sentez... dans une semaine de 4 jours. Profitez de 3 jours de congé chaque semaine et la possibilité d'organiser votre temps libre de manière plus flexible! Description de l'emploiÀ quoi ressemble votre journée de travail... A la réception, vous vous assurerez que les invités ne sont pas simplement contents, mais enthousiastesVous garderez toujours votre cool – même lorsque tous les invités se présentent pour s'enregistrer en même tempsVous vous assurerez que les choses fonctionnent bien lorsque les invités arrivent à la réception de l'hôtelVous obtiendrez tout prêt pour le quart, et arrondir avec le Front Office entièrement nettoyé\n• Qualifications Votre personnalité compte plus que votre CV... Vous avez suivi une formation d'accueil, acquis une certaine expérience professionnelle au front office et parlé couramment allemand et anglais. D'autres langues sont avantageuses. Vous pouvez inspirer vos collègues tout comme vous pouvez inspirer vos invités. En plus de cela, vous connaissez votre chemin autour de la ville et avez toujours des conseils pour faire la fête dans votre mancheVous êtes un joueur – et même si vous le faites mal parfois, vous l'avouez ouvertementVous n'apportez pas seulement vos capacités, mais aussi votre caractèreInformations supplémentaires Qu'y a-t-il dedans pour toi... Découvrez tous les autres hôtels de 25 heures et séjournez gratuitement pour un maximum de 10 nuits par an en tant qu'employé Obtenez une indemnité supplémentaire pour voyager en transports en commun et profitez des offres fantastiques de nos partenaires coopératifs! Profitez d'une partie d'Ennismore et obtenez des rabais généreux lors de la visite de nos bars et restaurants ainsi que la réservation de chambres d'hôtel partout dans le monde Avantages de grandes offres de nos partenaires de coopération de numerosRéconciliez votre situation personnelle avec le travail - nous sommes ouverts aux emplois à temps partiel et autres ajustements Faites partie de nos soirées hilarantes et bien plus encore..."
+      },
+      "location": "25hours Hotel Zurich West, Zürich, Switzerland",
+      "canton": "ZH",
+      "url": "https://careers.accor.com/fr/fr/job/front-office-agent-zuerich-west-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-110319",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-01T22:45:35.199Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21T10:25:14+00:00",
+      "postedDate": "2026-10-21T10:25:14+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/front-office-agent-zuerich-west-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-110319",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
+        "front-office-agent-zurich-west-m-w-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
+          "front-office-agent-zurich-west-m-w-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:07:10.829Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T22:45:35.199Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2077,7 +2157,7 @@
       "url": "https://careers.accor.com/fr/fr/job/front-office-agent-langstrasse-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-27718",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:40:12.356Z",
+      "crawledAt": "2026-11-01T22:45:35.199Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2126,87 +2206,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:40:12.356Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "accor-711ae44782b7",
-      "slug": "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-      "slugByLocale": {
-        "it": "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-        "en": "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-        "de": "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-        "fr": "agent-du-bureau-principal-zurich-ouest-h-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
-      },
-      "slugDisambiguator": "711ae447",
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Front Office Agent Zürich West (f/m/d)",
-      "titleByLocale": {
-        "it": "Agente di ufficio anteriore Zürich West (m/f/d)",
-        "en": "Front Office Agent Zürich West (f/m/d)",
-        "de": "Front-Office-Mitarbeiter Zürich West (m/w/d)",
-        "fr": "Agent du bureau principal Zürich Ouest (h/f/d)"
-      },
-      "description": "Company DescriptionThe 25hours Hotel Zürich West is the first 25hours Hotel in Switzerland and was designed by the renowned designer Alfredo Häberli. It offers 123 rooms, exciting conference facilities and plenty of space for stories and adventures.From \"Grüezi\" to \"Adieu\" : together with the reception team, you’ll ensure our guests are happy from the moment they arrive until the moment they leave.COME AS YOUR ARE & SHOW HOW YOU CARE...... in a 4 day week.Enjoy 3 days off every week and the opportunity to organize your free time more flexibly!Job DescriptionHow does your working day look like...At the reception, you’ll make sure that guests aren’t just contented, but enthusiasticYou’ll always keep your cool – even when all the guests turn up to check in at the same timeYou’ll make sure things run smoothly when guests arrive at the hotel receptionYou’ll get everything ready for the shift, and round it off with the Front Office fully cleaned upQualificationsYour personality counts more than your CV...You've completed hospitality training, gained some professional experience at the front office, and speak fluent German and English. Additional languages are advantageous.You can inspire your fellow staff just as you can inspire your guests. On top of this, you know your way around town and always have tips for partying up your sleeveYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersReconcile your personal situation with work - we are open to parttime employments and other adjustmentsBe part of our hilarous staff parties and much more...",
-      "descriptionByLocale": {
-        "it": "Descrizione della Società Il 25 ore Hotel Zürich West è il primo 25hours Hotel in Svizzera ed è stato progettato dal famoso designer Alfredo Häberli. Offre 123 camere, emozionanti strutture per conferenze e un sacco di spazio per storie e avventure. Da \"Grüezi\" a \"Adieu\": insieme al team di accoglienza, ti assicurerai che i nostri ospiti siano felici dal momento in cui arrivano fino al momento in cui partono. Vieni come te e come stai... in una settimana di 4 giorni. Godetevi 3 giorni liberi ogni settimana e la possibilità di organizzare il vostro tempo libero in modo più flessibile! Descrizione del lavoroCome fa la vostra giornata di lavoro... Alla reception, ti assicurerai che gli ospiti non siano solo contenti, ma entusiasti, manterrai sempre il tuo fresco – anche quando tutti gli ospiti si presenteranno per effettuare il check-in allo stesso tempo, ti assicurerai che le cose funzionino senza problemi quando arriverai alla reception dell'hotel, avrai tutto pronto per il turno, e che ti avvicini al Front Office completamente pulitoQualificazioni La tua personalità conta più del tuo CV... Hai completato l'allenamento di ospitalità, acquisito un'esperienza professionale presso l'ufficio anteriore, e parlare fluente tedesco e inglese. Le lingue aggiuntive sono vantaggiose. Potete ispirare il vostro personale come potete ispirare i vostri ospiti. In cima a questo, si conosce il vostro senso intorno alla città e sempre avere consigli per festeggiare il vostro manicaYou’re un doer – e anche se si fa male a volte, si ammette apertamente è non solo portare le vostre abilità, ma anche il vostro carattereUlteriori informazioni Cosa c'è dentro per te... Scopri tutti gli altri hotel di 25 ore e soggiorna gratuitamente per un massimo di 10 notti all'anno come dipendente Ottieni un'indennità extra per viaggiare con i mezzi pubblici e approfitta delle fantastiche offerte dei nostri partner cooperative! Approfitta di essere parte di Ennismore e ottenere sconti generosi durante la visita dei nostri bar e ristoranti, nonché prenotazioni camere di hotel in tutto il mondo Vantaggi da grandi offerte dai nostri partner numeros collaborazioniRiconciliare la vostra situazione personale con il lavoro - siamo aperti a lavori parttime e altri adattamenti Partecipa alle nostre feste di personale hilarous e molto altro...",
-        "en": "Company DescriptionThe 25hours Hotel Zürich West is the first 25hours Hotel in Switzerland and was designed by the renowned designer Alfredo Häberli. It offers 123 rooms, exciting conference facilities and plenty of space for stories and adventures.From \"Grüezi\" to \"Adieu\" : together with the reception team, you’ll ensure our guests are happy from the moment they arrive until the moment they leave.COME AS YOUR ARE & SHOW HOW YOU CARE...... in a 4 day week.Enjoy 3 days off every week and the opportunity to organize your free time more flexibly!Job DescriptionHow does your working day look like...At the reception, you’ll make sure that guests aren’t just contented, but enthusiasticYou’ll always keep your cool – even when all the guests turn up to check in at the same timeYou’ll make sure things run smoothly when guests arrive at the hotel receptionYou’ll get everything ready for the shift, and round it off with the Front Office fully cleaned upQualificationsYour personality counts more than your CV...You've completed hospitality training, gained some professional experience at the front office, and speak fluent German and English. Additional languages are advantageous.You can inspire your fellow staff just as you can inspire your guests. On top of this, you know your way around town and always have tips for partying up your sleeveYou’re a doer – and even if you do it wrong sometimes, you openly admit itYou’re not just bringing your abilities, but also your characterAdditional InformationWhat`s in it for you...Get to know all the other 25hours Hotels and stay for free for a maximum of 10 nights per year as a employee Get an extra allowance for travelling by public transport and take advantage of fantastic offers from our cooperative partners!Take advantage of being a part of Ennismore and get generous discounts when visiting our bars and restaurants as well as booking hotel rooms all over the world Benefits from great offers from our numeros cooperations partnersReconcile your personal situation with work - we are open to parttime employments and other adjustmentsBe part of our hilarous staff parties and much more...",
-        "de": "Beschreibung des Unternehmens Das 25hours Hotel Zürich West ist das erste 25hours Hotel der Schweiz und wurde vom renommierten Designer Alfredo Häberli entworfen. Es bietet 123 Zimmer, aufregende Konferenzeinrichtungen und viel Platz für Geschichten und Abenteuer. Von \"Grüezi\" bis \"Adieu\": Gemeinsam mit dem Empfangsteam sorgen Sie dafür, dass unsere Gäste vom Moment ihrer Ankunft bis zum Moment ihrer Abreise zufrieden sind. Kommen Sie, wie Sie sind und zeigen, wie Sie sich kümmern ... in einer 4-tägigen Woche. Genießen Sie 3 freie Tage pro Woche und die Möglichkeit, Ihre Freizeit flexibler zu organisieren! StellenbeschreibungWie sieht Ihr Arbeitstag aus... An der Rezeption stellen Sie sicher, dass die Gäste nicht nur zufrieden, sondern enthusiastisch sindSie werden immer cool bleiben - auch wenn alle Gäste gleichzeitig eincheckenSie sorgen dafür, dass die Dinge reibungslos laufen, wenn die Gäste an der Hotelrezeption ankommenSie bereiten alles für die Schicht vor und runden es mit dem Front Office ab, das vollständig gereinigt istQualifikationen Deine Persönlichkeit zählt mehr als dein Lebenslauf... Sie haben eine Hospitality-Ausbildung abgeschlossen, Berufserfahrung im Front Office gesammelt und sprechen fließend Deutsch und Englisch. Weitere Sprachen sind vorteilhaft. Sie können Ihre Mitarbeiter genauso inspirieren, wie Sie Ihre Gäste inspirieren können. Darüber hinaus kennen Sie sich in der Stadt aus und haben immer Tipps, wie Sie Ihren Ärmel feiern könnenSie sind ein Macher - und selbst wenn Sie es manchmal falsch machen, geben Sie es offen zuSie bringen nicht nur Ihre Fähigkeiten, sondern auch Ihren Charakter Zusätzliche Informationen Was ist für dich drin... Lernen Sie alle anderen 25hours Hotels kennen und übernachten Sie kostenlos für maximal 10 Nächte pro Jahr als Mitarbeiter Holen Sie sich einen zusätzlichen Freibetrag für Reisen mit öffentlichen Verkehrsmitteln und profitieren Sie von fantastischen Angeboten unserer Kooperationspartner! Nutzen Sie die Vorteile, ein Teil von Ennismore zu sein und erhalten Sie großzügige Rabatte beim Besuch unserer Bars und Restaurants sowie bei der Buchung von Hotelzimmern auf der ganzen Welt Vorteile von tollen Angeboten unserer numeros KooperationspartnerVersöhnen Sie Ihre persönliche Situation mit der Arbeit - wir sind offen für Teilzeitbeschäftigungen und andere Anpassungen Seien sie teil unserer lustigen personalpartys und vieles mehr.",
-        "fr": "Désignation de l'entreprise L'Hôtel Zürich 25 heures West est le premier hôtel de 25 heures en Suisse et a été conçu par le célèbre designer Alfredo Häberli. Il offre 123 chambres, des salles de conférence passionnantes et beaucoup d'espace pour des histoires et des aventures. De « Grüezi » à « Adieu » : avec l'équipe de réception, vous vous assurerez que nos invités sont heureux du moment où ils arrivent jusqu'au moment où ils partent. Venez comme vous êtes et dites comment vous vous sentez... dans une semaine de 4 jours. Profitez de 3 jours de congé chaque semaine et la possibilité d'organiser votre temps libre de manière plus flexible! Description de l'emploiÀ quoi ressemble votre journée de travail... A la réception, vous vous assurerez que les invités ne sont pas simplement contents, mais enthousiastesVous garderez toujours votre cool – même lorsque tous les invités se présentent pour s'enregistrer en même tempsVous vous assurerez que les choses fonctionnent bien lorsque les invités arrivent à la réception de l'hôtelVous obtiendrez tout prêt pour le quart, et arrondir avec le Front Office entièrement nettoyé\n• Qualifications Votre personnalité compte plus que votre CV... Vous avez suivi une formation d'accueil, acquis une certaine expérience professionnelle au front office et parlé couramment allemand et anglais. D'autres langues sont avantageuses. Vous pouvez inspirer vos collègues tout comme vous pouvez inspirer vos invités. En plus de cela, vous connaissez votre chemin autour de la ville et avez toujours des conseils pour faire la fête dans votre mancheVous êtes un joueur – et même si vous le faites mal parfois, vous l'avouez ouvertementVous n'apportez pas seulement vos capacités, mais aussi votre caractèreInformations supplémentaires Qu'y a-t-il dedans pour toi... Découvrez tous les autres hôtels de 25 heures et séjournez gratuitement pour un maximum de 10 nuits par an en tant qu'employé Obtenez une indemnité supplémentaire pour voyager en transports en commun et profitez des offres fantastiques de nos partenaires coopératifs! Profitez d'une partie d'Ennismore et obtenez des rabais généreux lors de la visite de nos bars et restaurants ainsi que la réservation de chambres d'hôtel partout dans le monde Avantages de grandes offres de nos partenaires de coopération de numerosRéconciliez votre situation personnelle avec le travail - nous sommes ouverts aux emplois à temps partiel et autres ajustements Faites partie de nos soirées hilarantes et bien plus encore..."
-      },
-      "location": "25hours Hotel Zurich West, Zürich, Switzerland",
-      "canton": "ZH",
-      "url": "https://careers.accor.com/fr/fr/job/front-office-agent-zuerich-west-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-110319",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:40:12.354Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-21T10:25:14+00:00",
-      "postedDate": "2026-10-21T10:25:14+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/front-office-agent-zuerich-west-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-110319",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-        "front-office-agent-zurich-west-m-w-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-          "front-office-agent-zurich-west-m-w-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:07:10.829Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:40:12.354Z",
+      "validThrough": "2027-01-19T22:45:35.199Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2241,7 +2241,7 @@
       "url": "https://careers.accor.com/fr/fr/job/porteur-banquets-f-h-x-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-114990",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.353Z",
+      "crawledAt": "2026-11-01T22:45:35.198Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2288,7 +2288,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:40:12.353Z",
+      "validThrough": "2027-01-21T22:45:35.198Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2323,7 +2323,7 @@
       "url": "https://careers.accor.com/fr/fr/job/serveur-se-sur-appel-f-h-x-cdd-automne-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-115037",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:40:12.351Z",
+      "crawledAt": "2026-11-01T22:45:35.197Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2373,7 +2373,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:40:12.351Z",
+      "validThrough": "2027-01-21T22:45:35.197Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2408,7 +2408,7 @@
       "url": "https://careers.accor.com/fr/fr/job/bar-supervisor-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-46693",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:40:12.337Z",
+      "crawledAt": "2026-11-01T22:45:35.196Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2457,7 +2457,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:40:12.337Z",
+      "validThrough": "2027-01-25T22:45:35.196Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2492,7 +2492,7 @@
       "url": "https://careers.accor.com/fr/fr/job/trainee-front-office-zuerich-west-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-30472",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:40:12.332Z",
+      "crawledAt": "2026-11-01T22:45:35.193Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2541,7 +2541,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:40:12.332Z",
+      "validThrough": "2027-01-25T22:45:35.193Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2576,7 +2576,7 @@
       "url": "https://careers.accor.com/fr/fr/job/f-and-b-assistant-100-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-115072",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:40:12.330Z",
+      "crawledAt": "2026-11-01T22:45:35.192Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2619,7 +2619,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:40:12.330Z",
+      "validThrough": "2027-01-25T22:45:35.192Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2654,7 +2654,7 @@
       "url": "https://careers.accor.com/fr/fr/job/mice-and-groups-sales-manager-french-and-german-speaking-h-f-x-in-fairmont-le-montreux-palace-montreux-switzerland-jid-102065",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:40:12.328Z",
+      "crawledAt": "2026-11-01T22:45:35.190Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2709,7 +2709,7 @@
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:40:12.328Z",
+      "validThrough": "2027-01-28T22:45:35.190Z",
       "validThroughSource": "last-observed-window"
     }
   ]
