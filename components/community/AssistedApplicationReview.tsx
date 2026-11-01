@@ -229,14 +229,14 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const currentToken = useRef(token);
   currentToken.current = token;
   const loadedToken = useRef<string | null>(null);
-  const load = useCallback(async () => {
+  const load = useCallback(async (): Promise<ReviewPayload | null> => {
     try {
       const payload = await fetchReview(token);
-      if (currentToken.current !== token) return;
+      if (currentToken.current !== token) return null;
       if ('kind' in payload && payload.kind === 'followup') {
         setFollowup(payload);
         setError(null);
-        return;
+        return null;
       }
       const review = payload as ReviewPayload;
       loadedToken.current = token;
@@ -247,8 +247,10 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
         .map((question) => [question.id, question.suggested as string]));
       setAnswers({ ...(review.answers || {}), ...proposed });
       setError(null);
+      return review;
     } catch (reason) {
       if (currentToken.current === token) setError(reason instanceof ReviewRequestError ? reason.code : 'network');
+      return null;
     }
   }, [token]);
 
@@ -286,7 +288,20 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       // edit form still holds the values it was opened with: close it, so that a
       // second save cannot send them back over the other tab's change.
       if (code === 'changed_meanwhile' || code === 'withdrawal_unavailable') {
-        await load();
+        const draftAnswers = action === 'answers'
+          ? Object.fromEntries(Object.entries(answers).filter(([id, value]) => String(value ?? '') !== String(data?.answers?.[id] ?? '')))
+          : {};
+        const oldSnapshots = data?.answerQuestionSnapshots || {};
+        const latest = await load();
+        if (action === 'answers' && latest && Object.keys(draftAnswers).length) {
+          // Keep only unsaved answers whose exact question contract is still shown.
+          // A changed question stays at the server's current value for the candidate to review.
+          const currentQuestionIds = new Set(latest.questions.map((question) => question.id));
+          const retainedDraft = Object.fromEntries(Object.entries(draftAnswers).filter(([id]) =>
+            currentQuestionIds.has(id) && oldSnapshots[id] && oldSnapshots[id] === latest.answerQuestionSnapshots?.[id]
+          ));
+          if (Object.keys(retainedDraft).length) setAnswers((current) => ({ ...current, ...retainedDraft }));
+        }
         if (action === 'edit') setEditing(false);
       }
       setError(code);
