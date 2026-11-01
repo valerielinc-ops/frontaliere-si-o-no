@@ -19,13 +19,25 @@ const CAMPAIGN = assistedCampaignId(ORDER_ID, 'auto_candidate_review_r1');
 const EMAIL = 'luigi@example.com';
 const REVIEW_LINK = `https://frontaliereticino.ch/candidatura/?t=signed-token-${ORDER_ID}`;
 
-/** A Firestore double with create/update semantics that records every write path. */
-function memoryDb(seed: Record<string, Record<string, any>> = {}) {
+/** A Firestore double with atomic transaction commits and injectable failures. */
+function memoryDb(seed: Record<string, Record<string, any>> = {}, {
+  failProjectionOnce = false,
+  failCommitOnce = false,
+}: { failProjectionOnce?: boolean; failCommitOnce?: boolean } = {}) {
   const docs = new Map(Object.entries(seed).map(([path, data]) => [path, structuredClone(data)]));
   const writes: string[] = [];
   const read = (data: any, field: string) => field.split('.').reduce((value, part) => value?.[part], data);
+  const applyUpdate = (data: Record<string, any>, fields: Record<string, any>) => {
+    for (const [field, value] of Object.entries(fields)) {
+      const parts = field.split('.');
+      const parent = parts.slice(0, -1).reduce((node: any, part) => (node[part] ??= {}), data);
+      const last = parts[parts.length - 1];
+      parent[last] = value?.constructor?.name === 'NumericIncrementTransform' ? (parent[last] || 0) + value.operand : structuredClone(value);
+    }
+  };
   const doc = (path: string): any => ({
     id: path.split('/').pop(),
+    path,
     get: async () => ({ exists: docs.has(path), data: () => docs.get(path), get: (field: string) => read(docs.get(path), field) }),
     create: async (data: any) => {
       if (docs.has(path)) throw Object.assign(new Error('6 ALREADY_EXISTS: Document already exists'), { code: 6 });
@@ -47,7 +59,43 @@ function memoryDb(seed: Record<string, Record<string, any>> = {}) {
     collection: (name: string) => collection(`${path}/${name}`),
   });
   const collection = (path: string): any => ({ doc: (id: string) => doc(`${path}/${id}`), add: async () => { writes.push(`${path}/+`); } });
-  return { db: { collection } as any, docs, writes };
+  const db = {
+    collection,
+    async runTransaction(callback: (transaction: any) => Promise<any>) {
+      const staged: Array<{ type: 'create' | 'update'; path: string; data: Record<string, any> }> = [];
+      const transaction = {
+        get: async (ref: any) => ({ exists: docs.has(ref.path), data: () => docs.get(ref.path), get: (field: string) => read(docs.get(ref.path), field) }),
+        create: (ref: any, data: Record<string, any>) => staged.push({ type: 'create', path: ref.path, data }),
+        update: (ref: any, data: Record<string, any>) => {
+          if (failProjectionOnce) {
+            failProjectionOnce = false;
+            throw new Error('injected projection update failure');
+          }
+          staged.push({ type: 'update', path: ref.path, data });
+        },
+      };
+      const result = await callback(transaction);
+      if (failCommitOnce) {
+        failCommitOnce = false;
+        throw new Error('injected transaction commit failure');
+      }
+      const next = new Map([...docs].map(([path, data]) => [path, structuredClone(data)]));
+      for (const write of staged) {
+        if (write.type === 'create') {
+          if (next.has(write.path)) throw Object.assign(new Error('6 ALREADY_EXISTS: Document already exists'), { code: 6 });
+          next.set(write.path, structuredClone(write.data));
+        } else {
+          if (!next.has(write.path)) throw Object.assign(new Error('5 NOT_FOUND'), { code: 5 });
+          applyUpdate(next.get(write.path)!, write.data);
+        }
+      }
+      docs.clear();
+      for (const [path, data] of next) docs.set(path, data);
+      writes.push(...staged.map(write => write.path));
+      return result;
+    },
+  };
+  return { db: db as any, docs, writes };
 }
 
 const seeded = () => memoryDb({ [ORDER]: { jobTitle: 'Infermiere/a' } });
@@ -90,6 +138,36 @@ describe('assisted e-mail events', () => {
 
     expect(await recordAssistedEmailEvent(db, { ...first, type: 'send' })).toMatchObject({ recorded: false, reason: 'untracked_type:send' });
     expect(await recordAssistedEmailEvent(seeded().db, { ...first, campaign: assistedCampaignId('gone', 'x') })).toMatchObject({ recorded: false, reason: 'order_not_found' });
+  });
+
+  it('keeps an event and its projection atomic when the projection write fails, then retries once', async () => {
+    const { db, docs, writes } = memoryDb({ [ORDER]: { jobTitle: 'Infermiere/a' } }, { failProjectionOnce: true });
+    const event = { campaign: CAMPAIGN, type: 'open', provider: 'resend', messageId: 'retry-on-projection-failure', occurredAt: '2026-09-30T18:40:00Z' };
+
+    await expect(recordAssistedEmailEvent(db, event)).rejects.toThrow('injected projection update failure');
+    expect([...docs.keys()].some(path => path.startsWith(`${ORDER}/email_events/`))).toBe(false);
+    expect(docs.get(ORDER)).not.toHaveProperty('emailEngagement');
+    expect(writes).toEqual([]);
+
+    expect(await recordAssistedEmailEvent(db, event)).toEqual({ assisted: true, recorded: true });
+    expect(await recordAssistedEmailEvent(db, event)).toMatchObject({ recorded: false, reason: 'duplicate' });
+    expect(docs.get(ORDER)!.emailEngagement.auto_candidate_review_r1).toMatchObject({ opens: 1 });
+    expect([...docs.keys()].filter(path => path.startsWith(`${ORDER}/email_events/`))).toHaveLength(1);
+  });
+
+  it('does not leave an event behind when the transaction commit fails, and records it on retry', async () => {
+    const { db, docs, writes } = memoryDb({ [ORDER]: { jobTitle: 'Infermiere/a' } }, { failCommitOnce: true });
+    const event = { campaign: CAMPAIGN, type: 'click', provider: 'resend', messageId: 'retry-on-commit-failure', occurredAt: '2026-09-30T18:41:00Z', url: REVIEW_LINK };
+
+    await expect(recordAssistedEmailEvent(db, event)).rejects.toThrow('injected transaction commit failure');
+    expect([...docs.keys()].some(path => path.startsWith(`${ORDER}/email_events/`))).toBe(false);
+    expect(docs.get(ORDER)).not.toHaveProperty('emailEngagement');
+    expect(writes).toEqual([]);
+
+    expect(await recordAssistedEmailEvent(db, event)).toEqual({ assisted: true, recorded: true });
+    expect(await recordAssistedEmailEvent(db, event)).toMatchObject({ recorded: false, reason: 'duplicate' });
+    expect(docs.get(ORDER)!.emailEngagement.auto_candidate_review_r1).toMatchObject({ clicks: 1 });
+    expect([...docs.keys()].filter(path => path.startsWith(`${ORDER}/email_events/`))).toHaveLength(1);
   });
 
   it('keeps concierge acceptance separate from delivery and preserves the strongest delivery evidence', async () => {
