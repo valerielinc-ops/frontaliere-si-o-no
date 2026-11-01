@@ -1,6 +1,7 @@
 /** Shared schema.org Event JSON-LD boundaries for event crawlers. */
 
-const SCRIPT_BLOCK_RE = /<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi;
+const SCRIPT_OPEN_RE = /<script\b/gi;
+const SCRIPT_CLOSE_RE = /<\/script\s*>/gi;
 const SCHEMA_ORG_EVENT_NAMES = new Set([
   'Event', 'BusinessEvent', 'ChildrensEvent', 'ComedyEvent', 'CourseInstance',
   'DanceEvent', 'DeliveryEvent', 'EducationEvent', 'EventSeries', 'ExhibitionEvent',
@@ -14,6 +15,21 @@ const JSON_LD_MIME = 'application/ld+json';
 
 function isWhitespace(value) {
   return typeof value === 'string' && /\s/.test(value);
+}
+
+function findOpeningTagEnd(html, start) {
+  let quote;
+  for (let index = start; index < html.length; index += 1) {
+    const character = html[index];
+    if (quote) {
+      if (character === quote) quote = undefined;
+    } else if (character === '"' || character === "'") {
+      quote = character;
+    } else if (character === '>') {
+      return index;
+    }
+  }
+  return -1;
 }
 
 /**
@@ -62,10 +78,18 @@ function hasJsonLdTypeAttribute(attributes) {
 export function extractJsonLdScriptContents(html) {
   if (typeof html !== 'string' || !html) return [];
   const contents = [];
-  SCRIPT_BLOCK_RE.lastIndex = 0;
-  let match;
-  while ((match = SCRIPT_BLOCK_RE.exec(html))) {
-    if (hasJsonLdTypeAttribute(match[1])) contents.push(match[2]);
+  SCRIPT_OPEN_RE.lastIndex = 0;
+  let opening;
+  while ((opening = SCRIPT_OPEN_RE.exec(html))) {
+    const openingEnd = findOpeningTagEnd(html, SCRIPT_OPEN_RE.lastIndex);
+    if (openingEnd < 0) break;
+    SCRIPT_CLOSE_RE.lastIndex = openingEnd + 1;
+    const closing = SCRIPT_CLOSE_RE.exec(html);
+    if (!closing) break;
+    if (hasJsonLdTypeAttribute(html.slice(SCRIPT_OPEN_RE.lastIndex, openingEnd))) {
+      contents.push(html.slice(openingEnd + 1, closing.index));
+    }
+    SCRIPT_OPEN_RE.lastIndex = closing.index + closing[0].length;
   }
   return contents;
 }
@@ -100,7 +124,7 @@ export function isSchemaEventJsonLdType(value) {
     if (typeof type !== 'string') return false;
     const normalized = type.trim();
     const iriMatch = SCHEMA_ORG_EVENT_IRI_RE.exec(normalized);
-    return iriMatch ? SCHEMA_ORG_EVENT_IRI_NAME_RE.test(iriMatch[1]) : SCHEMA_ORG_EVENT_NAMES.has(normalized) || normalized === 'event';
+    return iriMatch ? SCHEMA_ORG_EVENT_IRI_NAME_RE.test(iriMatch[1]) : SCHEMA_ORG_EVENT_NAMES.has(normalized);
   });
 }
 
