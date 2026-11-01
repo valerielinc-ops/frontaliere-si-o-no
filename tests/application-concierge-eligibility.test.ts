@@ -176,7 +176,8 @@ describe('qualification before proposal publication', () => {
     const mapped = { requirements: [{ requirement: 'Strong communication skills', sourceRequirement: statement, importance: 'critical', basis: 'stated', quote: statement }] };
     expect(hasUncoveredHardEligibilityStatements(mapped, statement)).toBe(false);
     const { matchUserText } = await import('../functions/src/assistedApplicationAiPrompts.js');
-    const payload = JSON.parse(matchUserText({ profile: {}, requirements: mapped, answers: {}, postingExcerpt: statement }));
+    const payload = JSON.parse(matchUserText({ profile: {}, requirements: mapped, answers: {}, postingExcerpt: statement })
+      .split('\n\n<<<POSTING EXCERPT', 1)[0]);
     expect(payload.requirements[0]).toMatchObject({ requirement: statement, displayRequirement: 'Strong communication skills' });
   });
 
@@ -471,7 +472,7 @@ describe('qualification before proposal publication', () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
     const required = { requirements: [{ requirement: 'English B2', sourceRequirement: 'English B2 required', importance: 'critical', basis: 'stated', quote: 'English B2 required' }] };
     f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? required : { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
-    f.readPosting.mockResolvedValue({ text: `English B2 ${'IT operations and infrastructure. '.repeat(20)}`, textTruncated: false, source: 'job_detail' });
+    f.readPosting.mockResolvedValue({ text: `English B2 required. ${'IT operations and infrastructure. '.repeat(20)}`, textTruncated: false, source: 'job_detail' });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
     const job = { id: 'job', title: 'IT Manager', company: 'Example' };
     const result = await check(job);

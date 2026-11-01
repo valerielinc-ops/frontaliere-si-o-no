@@ -73,9 +73,13 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
   const postingHash = sourceHash(posting.text);
   const raw = await generate(REQUIREMENTS_SYSTEM_PROMPT, requirementsUserText({ jobTitle: job.title, companyName: job.company,
     location: posting.location || job.location, postingText: posting.text }), REQUIREMENTS_SCHEMA);
-  if (!Array.isArray(raw.requirements) || !raw.requirements.length || raw.requirements.length > 12) return { status: 'unverified', reason: 'requirements_incomplete' };
+  if (!Array.isArray(raw.requirements) || !raw.requirements.length || raw.requirements.length > 12) {
+    return { status: 'unverified', reason: 'requirements_incomplete', gaps: [] };
+  }
   const requirements = verifyQuotes(sanitizeRequirements(raw), posting.text);
-  if (hasUncoveredHardEligibilityStatements(requirements, posting.text)) return { status: 'unverified', reason: 'requirements_incomplete' };
+  if (hasUncoveredHardEligibilityStatements(requirements, posting.text)) {
+    return { status: 'unverified', reason: 'requirements_incomplete', gaps: [] };
+  }
   const normalizedProfile = profileForEligibility(profile);
   const evidenceText = sourceText || JSON.stringify(normalizedProfile);
   const candidateSources = sourceCitations({ cv: evidenceText, answers: Object.keys(answers).length ? JSON.stringify(answers) : '' });
