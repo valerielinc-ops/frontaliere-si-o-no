@@ -719,6 +719,7 @@ export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptier
 export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
 const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
 const COOKIE_WORD_RE = /\bcookies?\b/i;
+const COOKIE_BANNER_CONTEXT_RE = /\b(?:banner|notice|consent|overlay|modal|dialog|manager)\b/i;
 const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const cookieSupportingContext = (button) => {
   const ownLabels = [button.text, button.label, button.title, button.ariaLabel]
@@ -741,7 +742,8 @@ async function cookieControlHasCookieContext(page, button) {
       // Fall through to the non-dialog banner context below.
     }
   }
-  return COOKIE_WORD_RE.test(cookieSupportingContext(button));
+  const supportingContext = cookieSupportingContext(button);
+  return COOKIE_WORD_RE.test(supportingContext) && COOKIE_BANNER_CONTEXT_RE.test(supportingContext);
 }
 
 async function findCookieControl(page, snapshot, pattern, { genericPreferences = false } = {}) {
