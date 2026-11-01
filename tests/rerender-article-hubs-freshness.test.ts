@@ -6,6 +6,7 @@ import {
   __resetCorpusFreshnessCache,
   checkCorpusFreshness,
   decideCorpusRegistryDrift,
+  fetchPublishedCorpusCommit,
 } from '../scripts/rerender-article-hubs.mjs';
 import { ensureTwitterCardMeta } from '../scripts/lib/refresh-article-hub-landings.mjs';
 
@@ -17,6 +18,20 @@ const freshTimestamp = () => Math.floor(Date.now() / 1000) - MAX_CORPUS_DRIFT_AG
 const staleTimestamp = () => Math.floor(Date.now() / 1000) - MAX_CORPUS_DRIFT_AGE_SECONDS - 1;
 
 describe('hub corpus-main registry drift decisions', () => {
+  it('reads the exact published corpus commit from the manifest', async () => {
+    const commit = 'a'.repeat(40);
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      json: async () => ({ commit }),
+    }));
+
+    await expect(fetchPublishedCorpusCommit({
+      manifestUrl: 'https://example.invalid/manifest.json',
+      fetchImpl,
+    })).resolves.toBe(commit);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
   const cases = [
     {
       name: 'converged registries proceed',

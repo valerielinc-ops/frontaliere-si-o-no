@@ -7,12 +7,20 @@ import { execFileSync } from 'node:child_process';
 import {
   corpusArticleChangeTimestamp,
   decideCorpusOverlayMode,
+  normalizeCorpusCommit,
   prepareCorpusContentOverlay,
   validateCorpusContentShape,
 } from '../scripts/lib/article-corpus-overlay.mjs';
 import { filterEntriesByImagePostcondition } from '../scripts/lib/article-image-postcondition.mjs';
 
 describe('article corpus overlay mode', () => {
+  it('accepts only full corpus commit pins', () => {
+    const commit = 'A'.repeat(40).toLowerCase();
+    expect(normalizeCorpusCommit(commit)).toBe(commit);
+    expect(normalizeCorpusCommit(commit.slice(0, 39))).toBeNull();
+    expect(normalizeCorpusCommit('refs/remotes/origin/main')).toBeNull();
+  });
+
   it('usa il corpus main in CI', () => {
     expect(decideCorpusOverlayMode({ isCi: true, dryRun: false, explicit: false })).toEqual({
       mode: 'overlay',
@@ -83,6 +91,55 @@ describe('article corpus overlay mode', () => {
         rootDir: root,
         remote: path.join(root, 'missing-remote.git'),
       })).toThrow(/clone corpus fallito/);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('materializza il commit pubblicato richiesto invece del tip di main', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'corpus-pinned-overlay-'));
+    const remote = path.join(root, 'remote');
+    const runGit = (...args: string[]) => execFileSync('git', ['-C', remote, ...args], { stdio: 'ignore' });
+    const requiredFiles = [
+      'blog-articles-data.ts',
+      'swiss-articles-data.ts',
+      'blog-meta-it.ts',
+      'blog-meta-en.ts',
+      'blog-meta-de.ts',
+      'blog-meta-fr.ts',
+      'blog-meta-ch-it.ts',
+      'blog-meta-ch-en.ts',
+      'blog-meta-ch-de.ts',
+      'blog-meta-ch-fr.ts',
+    ];
+    const bodyDirs = [
+      ...['it', 'en', 'de', 'fr'].map((locale) => `blog-body/${locale}`),
+      ...['it', 'en', 'de', 'fr'].map((locale) => `blog-body-ch/${locale}`),
+    ];
+    try {
+      fs.mkdirSync(path.join(remote, 'content'), { recursive: true });
+      execFileSync('git', ['-C', remote, 'init', '--initial-branch=main'], { stdio: 'ignore' });
+      execFileSync('git', ['-C', remote, 'config', 'user.email', 'fixture@example.invalid'], { stdio: 'ignore' });
+      execFileSync('git', ['-C', remote, 'config', 'user.name', 'fixture'], { stdio: 'ignore' });
+      for (const file of requiredFiles) fs.writeFileSync(path.join(remote, 'content', file), 'old\n');
+      for (const dir of bodyDirs) {
+        fs.mkdirSync(path.join(remote, 'content', dir), { recursive: true });
+        fs.writeFileSync(path.join(remote, 'content', dir, 'article.ts'), 'old\n');
+      }
+      runGit('add', 'content');
+      runGit('commit', '-m', 'published snapshot');
+      const publishedCommit = execFileSync('git', ['-C', remote, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+      fs.writeFileSync(path.join(remote, 'content', 'blog-articles-data.ts'), 'newer main\n');
+      runGit('add', 'content/blog-articles-data.ts');
+      runGit('commit', '-m', 'unpublished main advance');
+
+      const revision = prepareCorpusContentOverlay({
+        rootDir: root,
+        remote,
+        commit: publishedCommit,
+      });
+      expect(revision.commit).toBe(publishedCommit);
+      expect(fs.readFileSync(path.join(root, 'packages/articles/content/blog-articles-data.ts'), 'utf8')).toBe('old\n');
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }

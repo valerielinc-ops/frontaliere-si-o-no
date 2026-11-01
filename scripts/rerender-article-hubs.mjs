@@ -57,9 +57,10 @@
 //     --section <all|frontaliere|svizzera> --out <scratchDir> --summary <path> \
 //     [--locale <all|it|en|de|fr>] [--dry-run] [--allow-content-overlay]
 //
-// Content source follows the article rerender contract: CI overlays corpus
-// `main`; a local dry run renders from the checked-out site copy and says so;
-// a real local render requires `--allow-content-overlay`.
+// Content source follows the article rerender contract: CI pins the corpus to
+// the commit named by the published API manifest; a local dry run renders from
+// the checked-out site copy and says so; a real local render requires
+// `--allow-content-overlay`.
 //
 // `--dry-run` renders and VALIDATES and pushes nothing. It is a complete
 // exercise of everything that can go wrong locally, which is why the workflow
@@ -87,6 +88,7 @@ import {
 import {
   corpusArticleChangeTimestamp,
   decideCorpusOverlayMode,
+  normalizeCorpusCommit,
   prepareCorpusContentOverlay,
 } from './lib/article-corpus-overlay.mjs';
 
@@ -108,6 +110,23 @@ const LIVE_HUB_TIMEOUT_MS = 20_000;
 const FETCH_HEADERS = {
   'User-Agent': 'frontaliere-article-hub-refresh/1.0',
 };
+
+export async function fetchPublishedCorpusCommit({
+  manifestUrl = MANIFEST_URL,
+  fetchImpl = globalThis.fetch,
+} = {}) {
+  const response = await fetchImpl(manifestUrl, {
+    headers: FETCH_HEADERS,
+    signal: AbortSignal.timeout(LIVE_HUB_TIMEOUT_MS),
+  });
+  if (!response.ok) throw new Error(`HTTP ${response.status} for ${manifestUrl}`);
+  const payload = await response.json();
+  const commit = normalizeCorpusCommit(payload?.commit);
+  if (!commit) {
+    throw new Error(`manifest ${manifestUrl} carries no usable corpus commit`);
+  }
+  return commit;
+}
 
 /**
  * How far the rendered archive count may differ from the published manifest
@@ -811,9 +830,13 @@ async function main() {
   // shared R2 section lease and its watcher paths.
   assertArticleChunkLease({ required: leaseRequired });
 
+  const publishedCorpusCommit = overlayMode.mode === 'overlay'
+    ? await fetchPublishedCorpusCommit()
+    : null;
   const corpusOverlay = overlayMode.mode === 'overlay'
     ? prepareCorpusContentOverlay({
       rootDir: ROOT_DIR,
+      commit: publishedCorpusCommit,
       retainCheckout: true,
       logPrefix: LOG,
     })
