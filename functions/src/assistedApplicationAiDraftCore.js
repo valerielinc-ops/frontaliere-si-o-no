@@ -157,6 +157,10 @@ const OPTIONAL_QUALIFICATION_HEADING_RE = /^(?:optional(?:\w*|\s+(?:qualificatio
 const OTHER_SECTION_HEADING_RE = /^(?:your\s+tasks?|your\s+responsibilities|tasks?|responsibilities|job\s+description|about\s+(?:us|the\s+company)|our\s+company|our\s+mission|our\s+offer|what\s+we\s+offer|benefits|nice\s+to\s+have|preferred\s+qualifications?|desirable\s+skills|aufgaben|taetigkeiten|tatigkeiten|ihre\s+aufgaben|ihre\s+taetigkeiten|ihre\s+tatigkeiten|wir\s+bieten|vorteile|wuenschenswert|wunschprofil|missions?|votre\s+mission|vos\s+missions|votre\s+quotidien|votre\s+environnement|nos\s+missions|vos\s+avantages|nous\s+offrons|atouts|responsabilites|cosa\s+offriamo|offriamo|la\s+tua\s+missione|le\s+tue\s+attivita|le\s+vostre\s+attivita|mansioni|compiti|responsabilita|costituisce\s+un\s+plus)\s*:?$/i;
 const PREFERENCE_CUE_RE = /\b(?:advantage|preferred|desirable|useful|nice\s+to\s+have|optional|opzional\w*|facultatif\w*|facultativ\w*|nicht\s+obligatorisch|nicht\s+erforderlich|nicht\s+notwendig|not\s+mandatory|not\s+required|not\s+essential|not\s+necessary|not\s+obligatory|pas\s+obligatoire|pas\s+necessaire|non\s+(?:e\s+)?richiest\w*|non\s+(?:e\s+)?obbligator\w*|non\s+(?:e\s+)?necessar\w*|von\s+vorteil|wuenschenswert|wunschenswert|souhait[eé]|atout|un\s+plus|a\s+plus|an\s+optional\s+requirement|preferibil\w*|costituisce\s+un\s+plus)\b/i;
 const APPLICATION_METHOD_ONLY_RE = /\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,30}\b(?:online|portal|website|email)\s+only\b|\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,15}\bonly\s+(?:online|through|via|by\s+email)\b/i;
+const CURRENT_STUDENT_CUE_RE = /\b(?:student\w*|pupil\w*|trainee\w*|intern\w*|apprentice\w*|studente\w*|alliev\w*|schueler\w*|schuler\w*|auszubildende\w*|eleve\w*|etudiant\w*|stagiaire\w*|apprenti\w*)\b/i;
+const CURRENT_ENROLLMENT_CUE_RE = /\b(?:current(?:ly)?|enroll\w*|attend\w*|studying|ongoing|presently|attualmente|frequent\w*|iscritt\w*|derzeit|aktuell|besuch\w*|actuellement|inscrit\w*|scolarise\w*)\b/i;
+const CURRENT_YEAR_CUE_RE = /\b(?:(?:third|3rd|troisieme|3e|terzo|terza|drittes?|dritten)[-\s]+(?:school[-\s]+)?(?:year|jahr|anno|annee|klasse)|(?:3|three|third|3rd)\s*(?:rd\s*)?(?:year|jahr|anno|annee|klasse)|(?:year|jahr|anno|annee|klasse)\s+(?:3|third|3rd))\b/i;
+const COMMERCIAL_SCHOOL_CUE_RE = /\b(?:commercial[-\s]+school|scuola[-\s]+commerciale|ecole[-\s]+(?:de[-\s]+)?commerce|handelsschule|kaufmaennische[-\s]+schule)\b/i;
 
 function normalizeEligibilityEvidence(value) {
   return String(value || '').replace(/\p{Cf}/gu, '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
@@ -289,6 +293,27 @@ export function hasUncoveredHardEligibilityStatements(requirements, postingText)
     })).filter((item) => item.quote && item.sourceRequirement);
   return statements.some((statement) => !quotes.some((item) =>
     item.quote.includes(statement) && item.sourceRequirement === statement));
+}
+
+/** Past employment cannot prove eligibility for an exclusive current-student placement. */
+export function hasUnverifiedCurrentStudentEligibility(postingText, profile = {}) {
+  const statements = postingEligibilityStatements(postingText).statements;
+  const currentStudentRequirements = statements.filter((statement) =>
+    EXCLUSIVE_ELIGIBILITY_RE.test(statement)
+    && (CURRENT_STUDENT_CUE_RE.test(statement)
+      || (CURRENT_ENROLLMENT_CUE_RE.test(statement) && (CURRENT_YEAR_CUE_RE.test(statement) || COMMERCIAL_SCHOOL_CUE_RE.test(statement)))));
+  if (!currentStudentRequirements.length) return false;
+
+  const currentEducation = profile?.currentEducation || {};
+  const currentEducationText = normalizeEligibilityEvidence([
+    currentEducation.degree, currentEducation.institution, currentEducation.start,
+    currentEducation.end, currentEducation.grade,
+  ].filter(Boolean).join(' '));
+  if (!currentEducationText) return true;
+
+  return currentStudentRequirements.some((statement) =>
+    (CURRENT_YEAR_CUE_RE.test(statement) && !CURRENT_YEAR_CUE_RE.test(currentEducationText))
+    || (COMMERCIAL_SCHOOL_CUE_RE.test(statement) && !COMMERCIAL_SCHOOL_CUE_RE.test(currentEducationText)));
 }
 
 /** A quote the posting does not contain verbatim is dropped, not trusted. */
