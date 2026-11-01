@@ -1,7 +1,7 @@
 {
   "crawlerKey": "transgourmet",
-  "assembledAt": "2026-10-31T09:21:51.051Z",
-  "runId": "41187297189",
+  "assembledAt": "2026-11-01T09:22:13.879Z",
+  "runId": "41291644918",
   "jobs": [
     {
       "id": "transgourmet-69b007bc-f7c",
@@ -34,7 +34,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-coolway/69b007bc-f7c9-4b3b-b014-a2b9e4f9a5f2",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.156Z",
+      "crawledAt": "2026-11-01T09:21:27.790Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -93,7 +93,102 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6010"
+      "postalCode": "6010",
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:21:27.790Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "transgourmet-9dff2c26-9fa",
+      "slug": "chef-chef-team-culinario-transgourmet-moosseedorf",
+      "slugByLocale": {
+        "it": "chef-chef-team-culinario-transgourmet-moosseedorf",
+        "en": "chef-chef-culinary-team-transgourmet-moosseedorf",
+        "de": "kochin-koch-kulinarik-team-transgourmet-moosseedorf",
+        "fr": "chef-equipe-culinaire-chef-transgourmet-moosseedorf"
+      },
+      "company": "Transgourmet",
+      "companyKey": "transgourmet",
+      "companyDomain": "transgourmet.ch",
+      "title": "Köchin / Koch Kulinarik-Team",
+      "titleByLocale": {
+        "it": "Chef / chef team culinario",
+        "en": "Chef / chef culinary team",
+        "de": "Köchin / Koch Kulinarik-Team",
+        "fr": "Chef / équipe culinaire chef"
+      },
+      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\nKochen ist bei uns mehr als Mittagsservice. Als Teil unseres kleinen Kulinarik-Teams sorgst du für genussvolle Momente in unserem Mitarbeiterrestaurant «Inside». Von der Znünipause über den Mittagsservice bis hin zu Produktdegustationen, Schulungen, Shootings, Messen und Events ist dein Arbeitsalltag vielseitig und abwechslungsreich.\nDu bereitest mit Freude frische Gerichte zu, bringst eigene Ideen ein und gestaltest unser kulinarisches Angebot aktiv mit. Gleichzeitig blickst du über den Tellerrand der klassischen Mitarbeiterverpflegung hinaus und unterstützt das Team überall dort, wo kulinarisches Know-how und tatkräftige Unterstützung gefragt sind.\n• Du bereitest unser tägliches kulinarisches Angebot zu und sorgst für einen reibungslosen Ablauf im Mitarbeiterrestaurant «Inside»\n• Du unterstützt bei der Pausenverpflegung, bei Kaffeepausen sowie bei der Vorbereitung und Bereitstellung unserer Meetingräume\n• Du bringst eigene Ideen ein und gestaltest gemeinsam mit dem Team abwechslungsreiche und zeitgemässe Menüs und Angebote\n• Du unterstützt das Category Management bei der Vorbereitung und Durchführung von Produkt- und Vergleichsdegustationen\n• Du wirkst internen Veranstaltungen sowie bei der Vorbereitung von Foto- und Videoshootings mit\n• Du unterstützt unser Kulinarik-Team bei Messen und Events und repräsentierst unsere Kulinarik auch ausserhalb des Mitarbeiterrestaurants\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Grundbildung als Koch/Köchin EFZ und bringst Berufserfahrung in der Gastronomie mit\n• Du hast Freude am Kochen, probierst gerne Neues aus und bringst eigene Ideen ein\n• Unsere Küche ist offen und der direkte Kontakt zu unseren Gästen gehört zum Alltag. Deshalb bist du nicht nur Koch oder Köchin, sondern auch Gastgeber/in mit Freude am Umgang mit Menschen\n• Du bist ein Teamplayer mit Hands-on-Mentalität – in unserem kleinen Team übernimmt jeder Verantwortung und packt dort an, wo es gerade etwas zu tun gibt\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nLochackerweg 5\n3302 Moosseedorf\nMoosseedorf\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nGastronomie / Hotellerie\nArbeitsort\nAufgaben\nAnforderungen",
+      "descriptionByLocale": {
+        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di consegna e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\nLa cucina è più che il pranzo. Come parte del nostro piccolo team culinario, vi assicurerete momenti piacevoli nel nostro ristorante dipendente «Inside». Dalla Znünipause al servizio pranzo alle degustazioni di prodotti, corsi di formazione, tiro, fiere ed eventi, la vostra giornata di lavoro è versatile e variegata.\nSiete felici di preparare piatti freschi, portare le vostre idee e modellare attivamente la nostra offerta culinaria. Allo stesso tempo, si guarda al di fuori della scatola di catering dei dipendenti classici e sostenere il team ovunque il know-how culinario e il supporto attivo sono necessari.\n• Preparate la nostra offerta culinaria quotidiana e assicurate un processo liscio nel ristorante dipendente «Inside»\n• Supporti con i pasti di pausa, coffee break e nella preparazione e nella fornitura delle nostre sale riunioni\n• Porti le tue idee e il tuo design menu vario e contemporaneo e offre insieme al team\n• Supporti Categoria Gestione nella preparazione e realizzazione di degustazioni di prodotto e confronto\n• Partecipate agli eventi interni e alla preparazione di foto e video\n• Sostieni il nostro team culinario in fiere ed eventi e rappresenti anche la nostra cucina al di fuori del ristorante dipendente\n\n## Requisiti\n• Hai una formazione di base completa come chef/chef EFZ e portare esperienza professionale nella gastronomia\n• Ti piace cucinare, come provare cose nuove e portare le tue idee\n• La nostra cucina è aperta e il contatto diretto con i nostri ospiti fa parte della vita quotidiana. Pertanto, non siete solo un cuoco, ma anche un ospite con piacere nel trattare con le persone\n• Sei un giocatore di squadra con una mentalità hands-on – nella nostra piccola squadra ognuno si assume la responsabilità e affronta dove c'è qualcosa da fare\nCosa offriamo\n\n## Luogo di lavoro\nTransgourmet/Prodega\nPercorso perforato 5\n3302 Moosseedorf\nMoosseedorf\n100%\nPerpetuo\nApertura del lavoro: immediatamente o per accordo\n\n## Specializzazione\nGastronomia/Hotel\nLuogo di lavoro\nCompiti\nRequisiti",
+        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss delivery and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals and retailers).\n\n## Tasks\nCooking is more than lunch service. As part of our small culinary team, you will ensure enjoyable moments in our employee restaurant «Inside». From the Znünipause to the lunch service to product tastings, training courses, shootings, trade fairs and events, your workday is versatile and varied.\nYou are happy to prepare fresh dishes, bring your own ideas and actively shape our culinary offer. At the same time, you look outside the box of classic employee catering and support the team wherever culinary know-how and active support are required.\n• You prepare our daily culinary offer and ensure a smooth process in the employee restaurant «Inside»\n• You support with the break meals, coffee breaks as well as in the preparation and provision of our meeting rooms\n• You bring your own ideas and design varied and contemporary menus and offers together with the team\n• You support Category Management in the preparation and implementation of product and comparison degustations\n• You participate in internal events as well as in the preparation of photo and video shoots\n• You support our culinary team at trade shows and events and also represent our cuisine outside the employee restaurant\n\n## Requirements\n• You have a completed basic education as a chef/chef EFZ and bring professional experience in the gastronomy\n• You enjoy cooking, like to try new things and bring your own ideas\n• Our kitchen is open and direct contact with our guests is part of everyday life. Therefore, you are not only a cook, but also a host with pleasure in dealing with people\n• You are a team player with a hands-on mentality – in our small team everyone takes responsibility and tackles where there is something to do\nWhat we offer\n\n## Place of work\nTransgourmet/Prodega\nPerforated path 5\n3302 Moosseedorf\nMoosseedorf\n100%\nPerpetual\nJob opening: immediately or by agreement\n\n## Specialisation\nGastronomy/Hotelry\nPlace of work\nTasks\nRequirements",
+        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\nKochen ist bei uns mehr als Mittagsservice. Als Teil unseres kleinen Kulinarik-Teams sorgst du für genussvolle Momente in unserem Mitarbeiterrestaurant «Inside». Von der Znünipause über den Mittagsservice bis hin zu Produktdegustationen, Schulungen, Shootings, Messen und Events ist dein Arbeitsalltag vielseitig und abwechslungsreich.\nDu bereitest mit Freude frische Gerichte zu, bringst eigene Ideen ein und gestaltest unser kulinarisches Angebot aktiv mit. Gleichzeitig blickst du über den Tellerrand der klassischen Mitarbeiterverpflegung hinaus und unterstützt das Team überall dort, wo kulinarisches Know-how und tatkräftige Unterstützung gefragt sind.\n• Du bereitest unser tägliches kulinarisches Angebot zu und sorgst für einen reibungslosen Ablauf im Mitarbeiterrestaurant «Inside»\n• Du unterstützt bei der Pausenverpflegung, bei Kaffeepausen sowie bei der Vorbereitung und Bereitstellung unserer Meetingräume\n• Du bringst eigene Ideen ein und gestaltest gemeinsam mit dem Team abwechslungsreiche und zeitgemässe Menüs und Angebote\n• Du unterstützt das Category Management bei der Vorbereitung und Durchführung von Produkt- und Vergleichsdegustationen\n• Du wirkst internen Veranstaltungen sowie bei der Vorbereitung von Foto- und Videoshootings mit\n• Du unterstützt unser Kulinarik-Team bei Messen und Events und repräsentierst unsere Kulinarik auch ausserhalb des Mitarbeiterrestaurants\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Grundbildung als Koch/Köchin EFZ und bringst Berufserfahrung in der Gastronomie mit\n• Du hast Freude am Kochen, probierst gerne Neues aus und bringst eigene Ideen ein\n• Unsere Küche ist offen und der direkte Kontakt zu unseren Gästen gehört zum Alltag. Deshalb bist du nicht nur Koch oder Köchin, sondern auch Gastgeber/in mit Freude am Umgang mit Menschen\n• Du bist ein Teamplayer mit Hands-on-Mentalität – in unserem kleinen Team übernimmt jeder Verantwortung und packt dort an, wo es gerade etwas zu tun gibt\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nLochackerweg 5\n3302 Moosseedorf\nMoosseedorf\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nGastronomie / Hotellerie\nArbeitsort\nAufgaben\nAnforderungen",
+        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. La société est leader dans le commerce de gros suisse de livraison et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons, hôpitaux et détaillants).\n\n## Tâche\nLa cuisine est plus que le service de déjeuner. Dans le cadre de notre petite équipe culinaire, vous assurerez des moments agréables dans notre restaurant «Inside». De la Znünipause au service de déjeuner aux dégustations de produits, cours de formation, tournages, foires et événements, votre journée de travail est polyvalente et variée.\nVous êtes heureux de préparer des plats frais, apporter vos propres idées et façonner activement notre offre culinaire. En même temps, vous regardez en dehors de la boîte de restauration des employés classiques et soutenir l'équipe partout où le savoir-faire culinaire et le soutien actif sont nécessaires.\n• Vous préparez notre offre culinaire quotidienne et assurez un processus en douceur dans le restaurant des employés «Inside»\n• Vous supportez les repas de pause, les pauses café ainsi que la préparation et la mise à disposition de nos salles de réunion\n• Vous apportez vos propres idées et conception de menus variés et contemporains et offre avec l'équipe\n• Vous soutenez la gestion de catégorie dans la préparation et la mise en œuvre des produits et des produits de comparaison\n• Vous participez à des événements internes ainsi qu'à la préparation de tournages photo et vidéo\n• Vous accompagnez notre équipe culinaire lors des salons et événements professionnels et représentez également notre cuisine à l'extérieur du restaurant des employés\n\n## Exigences\n• Vous avez une éducation de base terminée en tant que chef/chef EFZ et apportez une expérience professionnelle dans la gastronomie\n• Vous aimez cuisiner, essayer de nouvelles choses et apporter vos propres idées\n• Notre cuisine est ouverte et le contact direct avec nos clients fait partie de la vie quotidienne. Par conséquent, vous n'êtes pas seulement un cuisinier, mais aussi un hôte avec plaisir à traiter avec les gens\n• Vous êtes un joueur d'équipe avec une mentalité pratique – dans notre petite équipe tout le monde prend des responsabilités et s'attaque là où il y a quelque chose à faire\nCe que nous offrons\n\n## Lieu de travail\nTransgourmet/Prodega\nVoie perforée 5\n3302 Mooseedorf\nMousseedorf\n100%\nPerpétuelle\nOuverture d'emploi: immédiatement ou par accord\n\n## Spécialisation\nGastronomie/hôtellerie\nLieu de travail\nTâche\nExigences"
+      },
+      "location": "Moosseedorf",
+      "canton": "BE",
+      "url": "https://jobs.transgourmet.ch/offene-stellen/koechin-koch-kulinarik-team/9dff2c26-9fa1-4c3d-8d2f-22fe7daa66dc",
+      "source": "Transgourmet Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:21:27.789Z",
+      "addressLocality": "Moosseedorf",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3302",
+      "streetAddress": "Lochackerweg 5",
+      "category": "Altro",
+      "contract": "permanent",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio all'ingrosso alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "pensum": "100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170194",
+      "requirements": [
+        "• Du verfügst über eine abgeschlossene Grundbildung als Koch/Köchin EFZ und bringst Berufserfahrung in der Gastronomie mit",
+        "• Du hast Freude am Kochen, probierst gerne Neues aus und bringst eigene Ideen ein",
+        "• Unsere Küche ist offen und der direkte Kontakt zu unseren Gästen gehört zum Alltag. Deshalb bist du nicht nur Koch oder Köchin, sondern auch Gastgeber/in mit Freude am Umgang mit Menschen",
+        "• Du bist ein Teamplayer mit Hands-on-Mentalität – in unserem kleinen Team übernimmt jeder Verantwortung und packt dort an, wo es gerade etwas zu tun gibt"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Du hast Freude am Kochen, probierst gerne Neues aus und bringst eigene Ideen ein"
+        ]
+      },
+      "previousSlugs": [
+        "female-cook-male-cook-culinary-team-transgourmet-moosseedorf",
+        "kochin-koch-kulinarik-team-transgourmet-moosseedorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-kulinarik-team-transgourmet-moosseedorf"
+        ],
+        "en": [
+          "female-cook-male-cook-culinary-team-transgourmet-moosseedorf"
+        ]
+      },
+      "firstSeenAt": "2026-10-06T09:12:27.792Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-04T09:21:27.789Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-c409229c-c2e",
@@ -126,7 +221,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-check-out-befristet-dez-sl/c409229c-c2e4-4ca0-b307-e703deac3cc8",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.155Z",
+      "crawledAt": "2026-11-01T09:21:27.789Z",
       "addressLocality": "Rüschlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -200,186 +295,10 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "transgourmet-13c1ccbe-b88",
-      "slug": "autista-cat-c-transgourmet-belp",
-      "slugByLocale": {
-        "it": "autista-cat-c-transgourmet-belp",
-        "en": "driver-cat-c-transgourmet-belp",
-        "de": "chauffeuse-chauffeur-kat-c-transgourmet-belp",
-        "fr": "chauffeuse-chauffeur-kat-c-transgourmet-belp"
       },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Chauffeuse / Chauffeur Kat. C",
-      "titleByLocale": {
-        "it": "Autista Cat. C",
-        "en": "Driver Cat. C",
-        "de": "Chauffeuse / Chauffeur Kat. C",
-        "fr": "Chauffeuse / Chauffeur cat. C"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du wickelst deine Touren selbstständig ab.\n• Du belädst dein Fahrzeug temperaturgerecht und sicherst die Ladung professionell.\n• Du kontrollierst die Lieferungen anhand der Lieferscheine – alles muss stimmen.\n• Du lieferst fachgerecht aus und nimmst Leergut sowie allfällige Retouren mit zurück.\n• Du erkennst Kundenbedürfnisse unterwegs und leitest sie intern weiter.\n• Du pflegst dein Fahrzeug und übernimmst weitere Aufgaben nach Absprache.\n\n## Anforderungen\n• Du besitzt den Führerausweis Kat. C und hast mehrere Jahre Erfahrung als Chauffeuse oder Chauffeur\n• Du hast Erfahrung in der Stückgutverteilung – idealerweise mit Lebensmitteln\n• Du kennst dich geografisch gut aus und navigierst sicher\n• Du bist körperlich fit und belastbar\n• Du sprichst und schreibst gut Deutsch\n• Du arbeitest strukturiert, zuverlässig und hast Freude am Kundenkontakt\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nHühnerhubelstrasse 66\n3123 Belp\nBelp\n100%\nunbefristet\nStellenantritt: 01.11.2026\n\n## Fachrichtung\nLogistik / Transport\nArbeitsort\nAufgaben\nAnforderungen",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Fai i tuoi tour in modo indipendente.\n• Caricate il vostro veicolo a temperatura e assicurate il carico professionalmente.\n• Controllare le consegne in base alle note di consegna – tutto deve essere giusto.\n• Si consegna professionalmente e riprendere beni vuoti e eventuali ritorni.\n• Riconoscete le esigenze del cliente per andare e inoltrarle internamente.\n• Prendersi cura del vostro veicolo e prendere ulteriori compiti dopo la consultazione.\n\n## Requisiti\n• Hai la patente di guida Cat. C e hai diversi anni di esperienza come autista o autista\n• Avete esperienza nella distribuzione generale del carico – idealmente con il cibo\n• Conosci bene la geografia e naviga in modo sicuro\n• Sei fisicamente in forma e resiliente\n• Parli e scrivi un buon tedesco\n• Lavori strutturato, affidabile e goditi il contatto con il cliente\nCosa offriamo\n\n## Luogo di lavoro\nTransgourmet/Prodega\nHühnerhubelstrasse 66\n3123 Cintura\nCintura\n100%\nPerpetuo\nApertura del lavoro: 01.11.2026\n\n## Specializzazione\nLogistica / Trasporti\nLuogo di lavoro\nCompiti\nRequisiti",
-        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You do your tours independently.\n• You load your vehicle at temperature and secure the load professionally.\n• You check the deliveries on the basis of the delivery notes – everything has to be right.\n• You deliver professionally and take back empty goods and any returns.\n• You recognize customer needs on the go and forward them internally.\n• You take care of your vehicle and take on further tasks after consultation.\n\n## Requirements\n• You have the driving license Cat. C and have several years of experience as a chauffeur or chauffeur\n• You have experience in general cargo distribution – ideally with food\n• You know geography well and navigate safely\n• You are physically fit and resilient\n• You speak and write good German\n• You work structured, reliable and enjoy customer contact\nWhat we offer\n\n## Place of work\nTransgourmet/Prodega\nHühnerhubelstrasse 66\n3123 Belp\nBelp\n100%\nPerpetual\nJob opening: 01.11.2026\n\n## Specialisation\nLogistics / Transportation\nPlace of work\nTasks\nRequirements",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du wickelst deine Touren selbstständig ab.\n• Du belädst dein Fahrzeug temperaturgerecht und sicherst die Ladung professionell.\n• Du kontrollierst die Lieferungen anhand der Lieferscheine – alles muss stimmen.\n• Du lieferst fachgerecht aus und nimmst Leergut sowie allfällige Retouren mit zurück.\n• Du erkennst Kundenbedürfnisse unterwegs und leitest sie intern weiter.\n• Du pflegst dein Fahrzeug und übernimmst weitere Aufgaben nach Absprache.\n\n## Anforderungen\n• Du besitzt den Führerausweis Kat. C und hast mehrere Jahre Erfahrung als Chauffeuse oder Chauffeur\n• Du hast Erfahrung in der Stückgutverteilung – idealerweise mit Lebensmitteln\n• Du kennst dich geografisch gut aus und navigierst sicher\n• Du bist körperlich fit und belastbar\n• Du sprichst und schreibst gut Deutsch\n• Du arbeitest strukturiert, zuverlässig und hast Freude am Kundenkontakt\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nHühnerhubelstrasse 66\n3123 Belp\nBelp\n100%\nunbefristet\nStellenantritt: 01.11.2026\n\n## Fachrichtung\nLogistik / Transport\nArbeitsort\nAufgaben\nAnforderungen",
-        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Vous faites vos visites indépendamment.\n• Vous chargez votre véhicule à la température et assurez la charge professionnellement.\n• Vous vérifiez les livraisons sur la base des notes de livraison – tout doit être juste.\n• Vous livrez professionnellement et ramenez des marchandises vides et tout retour.\n• Vous reconnaissez les besoins des clients sur la route et les transmettre en interne.\n• Vous prenez soin de votre véhicule et prenez d'autres tâches après consultation.\n\n## Exigences\n• Vous avez le permis de conduire Cat. C et avez plusieurs années d'expérience comme chauffeur ou chauffeur\n• Vous avez de l'expérience dans la distribution générale de fret – idéalement avec la nourriture\n• Vous connaissez bien la géographie et naviguez en toute sécurité\n• Vous êtes physiquement en forme et résistant\n• Tu parles et tu écris de l'allemand\n• Vous travaillez structuré, fiable et profitez du contact client\nCe que nous offrons\n\n## Lieu de travail\nTransgourmet/Prodega\nHühnerhubelstrasse 66\n3123 Belgique\nBelgique\n100%\nPerpétuelle\nOuverture de l'emploi: 01.11.2026\n\n## Spécialisation\nLogistique / Transport\nLieu de travail\nTâche\nExigences"
-      },
-      "location": "Belp",
-      "canton": "BE",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c/13c1ccbe-b88d-40a9-9e7e-ee6094313a26",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.154Z",
-      "addressLocality": "Belp",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3123",
-      "streetAddress": "Hühnerhubelstrasse 66",
-      "category": "Altro",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170325",
-      "requirements": [
-        "• Du besitzt den Führerausweis Kat. C und hast mehrere Jahre Erfahrung als Chauffeuse oder Chauffeur",
-        "• Du hast Erfahrung in der Stückgutverteilung – idealerweise mit Lebensmitteln",
-        "• Du kennst dich geografisch gut aus und navigierst sicher",
-        "• Du bist körperlich fit und belastbar",
-        "• Du sprichst und schreibst gut Deutsch",
-        "• Du arbeitest strukturiert, zuverlässig und hast Freude am Kundenkontakt"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du besitzt den Führerausweis Kat. C und hast mehrere Jahre Erfahrung als Chauffeuse oder Chauffeur",
-          "• Du hast Erfahrung in der Stückgutverteilung – idealerweise mit Lebensmitteln",
-          "• Du kennst dich geografisch gut aus und navigierst sicher",
-          "• Du bist körperlich fit und belastbar",
-          "• Du sprichst und schreibst gut Deutsch",
-          "• Du arbeitest strukturiert, zuverlässig und hast Freude am Kundenkontakt"
-        ]
-      },
-      "previousSlugs": [
-        "chauffeuse-chauffeur-kat-c-transgourmet-belp"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeuse-chauffeur-kat-c-transgourmet-belp"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:14:39.213Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "transgourmet-9dff2c26-9fa",
-      "slug": "chef-chef-team-culinario-transgourmet-moosseedorf",
-      "slugByLocale": {
-        "it": "chef-chef-team-culinario-transgourmet-moosseedorf",
-        "en": "chef-chef-culinary-team-transgourmet-moosseedorf",
-        "de": "kochin-koch-kulinarik-team-transgourmet-moosseedorf",
-        "fr": "chef-equipe-culinaire-chef-transgourmet-moosseedorf"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Köchin / Koch Kulinarik-Team",
-      "titleByLocale": {
-        "it": "Chef / chef team culinario",
-        "en": "Chef / chef culinary team",
-        "de": "Köchin / Koch Kulinarik-Team",
-        "fr": "Chef / équipe culinaire chef"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\nKochen ist bei uns mehr als Mittagsservice. Als Teil unseres kleinen Kulinarik-Teams sorgst du für genussvolle Momente in unserem Mitarbeiterrestaurant «Inside». Von der Znünipause über den Mittagsservice bis hin zu Produktdegustationen, Schulungen, Shootings, Messen und Events ist dein Arbeitsalltag vielseitig und abwechslungsreich.\nDu bereitest mit Freude frische Gerichte zu, bringst eigene Ideen ein und gestaltest unser kulinarisches Angebot aktiv mit. Gleichzeitig blickst du über den Tellerrand der klassischen Mitarbeiterverpflegung hinaus und unterstützt das Team überall dort, wo kulinarisches Know-how und tatkräftige Unterstützung gefragt sind.\n• Du bereitest unser tägliches kulinarisches Angebot zu und sorgst für einen reibungslosen Ablauf im Mitarbeiterrestaurant «Inside»\n• Du unterstützt bei der Pausenverpflegung, bei Kaffeepausen sowie bei der Vorbereitung und Bereitstellung unserer Meetingräume\n• Du bringst eigene Ideen ein und gestaltest gemeinsam mit dem Team abwechslungsreiche und zeitgemässe Menüs und Angebote\n• Du unterstützt das Category Management bei der Vorbereitung und Durchführung von Produkt- und Vergleichsdegustationen\n• Du wirkst internen Veranstaltungen sowie bei der Vorbereitung von Foto- und Videoshootings mit\n• Du unterstützt unser Kulinarik-Team bei Messen und Events und repräsentierst unsere Kulinarik auch ausserhalb des Mitarbeiterrestaurants\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Grundbildung als Koch/Köchin EFZ und bringst Berufserfahrung in der Gastronomie mit\n• Du hast Freude am Kochen, probierst gerne Neues aus und bringst eigene Ideen ein\n• Unsere Küche ist offen und der direkte Kontakt zu unseren Gästen gehört zum Alltag. Deshalb bist du nicht nur Koch oder Köchin, sondern auch Gastgeber/in mit Freude am Umgang mit Menschen\n• Du bist ein Teamplayer mit Hands-on-Mentalität – in unserem kleinen Team übernimmt jeder Verantwortung und packt dort an, wo es gerade etwas zu tun gibt\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nLochackerweg 5\n3302 Moosseedorf\nMoosseedorf\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nGastronomie / Hotellerie\nArbeitsort\nAufgaben\nAnforderungen",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di consegna e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\nLa cucina è più che il pranzo. Come parte del nostro piccolo team culinario, vi assicurerete momenti piacevoli nel nostro ristorante dipendente «Inside». Dalla Znünipause al servizio pranzo alle degustazioni di prodotti, corsi di formazione, tiro, fiere ed eventi, la vostra giornata di lavoro è versatile e variegata.\nSiete felici di preparare piatti freschi, portare le vostre idee e modellare attivamente la nostra offerta culinaria. Allo stesso tempo, si guarda al di fuori della scatola di catering dei dipendenti classici e sostenere il team ovunque il know-how culinario e il supporto attivo sono necessari.\n• Preparate la nostra offerta culinaria quotidiana e assicurate un processo liscio nel ristorante dipendente «Inside»\n• Supporti con i pasti di pausa, coffee break e nella preparazione e nella fornitura delle nostre sale riunioni\n• Porti le tue idee e il tuo design menu vario e contemporaneo e offre insieme al team\n• Supporti Categoria Gestione nella preparazione e realizzazione di degustazioni di prodotto e confronto\n• Partecipate agli eventi interni e alla preparazione di foto e video\n• Sostieni il nostro team culinario in fiere ed eventi e rappresenti anche la nostra cucina al di fuori del ristorante dipendente\n\n## Requisiti\n• Hai una formazione di base completa come chef/chef EFZ e portare esperienza professionale nella gastronomia\n• Ti piace cucinare, come provare cose nuove e portare le tue idee\n• La nostra cucina è aperta e il contatto diretto con i nostri ospiti fa parte della vita quotidiana. Pertanto, non siete solo un cuoco, ma anche un ospite con piacere nel trattare con le persone\n• Sei un giocatore di squadra con una mentalità hands-on – nella nostra piccola squadra ognuno si assume la responsabilità e affronta dove c'è qualcosa da fare\nCosa offriamo\n\n## Luogo di lavoro\nTransgourmet/Prodega\nPercorso perforato 5\n3302 Moosseedorf\nMoosseedorf\n100%\nPerpetuo\nApertura del lavoro: immediatamente o per accordo\n\n## Specializzazione\nGastronomia/Hotel\nLuogo di lavoro\nCompiti\nRequisiti",
-        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss delivery and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals and retailers).\n\n## Tasks\nCooking is more than lunch service. As part of our small culinary team, you will ensure enjoyable moments in our employee restaurant «Inside». From the Znünipause to the lunch service to product tastings, training courses, shootings, trade fairs and events, your workday is versatile and varied.\nYou are happy to prepare fresh dishes, bring your own ideas and actively shape our culinary offer. At the same time, you look outside the box of classic employee catering and support the team wherever culinary know-how and active support are required.\n• You prepare our daily culinary offer and ensure a smooth process in the employee restaurant «Inside»\n• You support with the break meals, coffee breaks as well as in the preparation and provision of our meeting rooms\n• You bring your own ideas and design varied and contemporary menus and offers together with the team\n• You support Category Management in the preparation and implementation of product and comparison degustations\n• You participate in internal events as well as in the preparation of photo and video shoots\n• You support our culinary team at trade shows and events and also represent our cuisine outside the employee restaurant\n\n## Requirements\n• You have a completed basic education as a chef/chef EFZ and bring professional experience in the gastronomy\n• You enjoy cooking, like to try new things and bring your own ideas\n• Our kitchen is open and direct contact with our guests is part of everyday life. Therefore, you are not only a cook, but also a host with pleasure in dealing with people\n• You are a team player with a hands-on mentality – in our small team everyone takes responsibility and tackles where there is something to do\nWhat we offer\n\n## Place of work\nTransgourmet/Prodega\nPerforated path 5\n3302 Moosseedorf\nMoosseedorf\n100%\nPerpetual\nJob opening: immediately or by agreement\n\n## Specialisation\nGastronomy/Hotelry\nPlace of work\nTasks\nRequirements",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\nKochen ist bei uns mehr als Mittagsservice. Als Teil unseres kleinen Kulinarik-Teams sorgst du für genussvolle Momente in unserem Mitarbeiterrestaurant «Inside». Von der Znünipause über den Mittagsservice bis hin zu Produktdegustationen, Schulungen, Shootings, Messen und Events ist dein Arbeitsalltag vielseitig und abwechslungsreich.\nDu bereitest mit Freude frische Gerichte zu, bringst eigene Ideen ein und gestaltest unser kulinarisches Angebot aktiv mit. Gleichzeitig blickst du über den Tellerrand der klassischen Mitarbeiterverpflegung hinaus und unterstützt das Team überall dort, wo kulinarisches Know-how und tatkräftige Unterstützung gefragt sind.\n• Du bereitest unser tägliches kulinarisches Angebot zu und sorgst für einen reibungslosen Ablauf im Mitarbeiterrestaurant «Inside»\n• Du unterstützt bei der Pausenverpflegung, bei Kaffeepausen sowie bei der Vorbereitung und Bereitstellung unserer Meetingräume\n• Du bringst eigene Ideen ein und gestaltest gemeinsam mit dem Team abwechslungsreiche und zeitgemässe Menüs und Angebote\n• Du unterstützt das Category Management bei der Vorbereitung und Durchführung von Produkt- und Vergleichsdegustationen\n• Du wirkst internen Veranstaltungen sowie bei der Vorbereitung von Foto- und Videoshootings mit\n• Du unterstützt unser Kulinarik-Team bei Messen und Events und repräsentierst unsere Kulinarik auch ausserhalb des Mitarbeiterrestaurants\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Grundbildung als Koch/Köchin EFZ und bringst Berufserfahrung in der Gastronomie mit\n• Du hast Freude am Kochen, probierst gerne Neues aus und bringst eigene Ideen ein\n• Unsere Küche ist offen und der direkte Kontakt zu unseren Gästen gehört zum Alltag. Deshalb bist du nicht nur Koch oder Köchin, sondern auch Gastgeber/in mit Freude am Umgang mit Menschen\n• Du bist ein Teamplayer mit Hands-on-Mentalität – in unserem kleinen Team übernimmt jeder Verantwortung und packt dort an, wo es gerade etwas zu tun gibt\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nLochackerweg 5\n3302 Moosseedorf\nMoosseedorf\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nGastronomie / Hotellerie\nArbeitsort\nAufgaben\nAnforderungen",
-        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. La société est leader dans le commerce de gros suisse de livraison et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons, hôpitaux et détaillants).\n\n## Tâche\nLa cuisine est plus que le service de déjeuner. Dans le cadre de notre petite équipe culinaire, vous assurerez des moments agréables dans notre restaurant «Inside». De la Znünipause au service de déjeuner aux dégustations de produits, cours de formation, tournages, foires et événements, votre journée de travail est polyvalente et variée.\nVous êtes heureux de préparer des plats frais, apporter vos propres idées et façonner activement notre offre culinaire. En même temps, vous regardez en dehors de la boîte de restauration des employés classiques et soutenir l'équipe partout où le savoir-faire culinaire et le soutien actif sont nécessaires.\n• Vous préparez notre offre culinaire quotidienne et assurez un processus en douceur dans le restaurant des employés «Inside»\n• Vous supportez les repas de pause, les pauses café ainsi que la préparation et la mise à disposition de nos salles de réunion\n• Vous apportez vos propres idées et conception de menus variés et contemporains et offre avec l'équipe\n• Vous soutenez la gestion de catégorie dans la préparation et la mise en œuvre des produits et des produits de comparaison\n• Vous participez à des événements internes ainsi qu'à la préparation de tournages photo et vidéo\n• Vous accompagnez notre équipe culinaire lors des salons et événements professionnels et représentez également notre cuisine à l'extérieur du restaurant des employés\n\n## Exigences\n• Vous avez une éducation de base terminée en tant que chef/chef EFZ et apportez une expérience professionnelle dans la gastronomie\n• Vous aimez cuisiner, essayer de nouvelles choses et apporter vos propres idées\n• Notre cuisine est ouverte et le contact direct avec nos clients fait partie de la vie quotidienne. Par conséquent, vous n'êtes pas seulement un cuisinier, mais aussi un hôte avec plaisir à traiter avec les gens\n• Vous êtes un joueur d'équipe avec une mentalité pratique – dans notre petite équipe tout le monde prend des responsabilités et s'attaque là où il y a quelque chose à faire\nCe que nous offrons\n\n## Lieu de travail\nTransgourmet/Prodega\nVoie perforée 5\n3302 Mooseedorf\nMousseedorf\n100%\nPerpétuelle\nOuverture d'emploi: immédiatement ou par accord\n\n## Spécialisation\nGastronomie/hôtellerie\nLieu de travail\nTâche\nExigences"
-      },
-      "location": "Moosseedorf",
-      "canton": "BE",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/koechin-koch-kulinarik-team/9dff2c26-9fa1-4c3d-8d2f-22fe7daa66dc",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.153Z",
-      "addressLocality": "Moosseedorf",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3302",
-      "streetAddress": "Lochackerweg 5",
-      "category": "Altro",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170194",
-      "requirements": [
-        "• Du verfügst über eine abgeschlossene Grundbildung als Koch/Köchin EFZ und bringst Berufserfahrung in der Gastronomie mit",
-        "• Du hast Freude am Kochen, probierst gerne Neues aus und bringst eigene Ideen ein",
-        "• Unsere Küche ist offen und der direkte Kontakt zu unseren Gästen gehört zum Alltag. Deshalb bist du nicht nur Koch oder Köchin, sondern auch Gastgeber/in mit Freude am Umgang mit Menschen",
-        "• Du bist ein Teamplayer mit Hands-on-Mentalität – in unserem kleinen Team übernimmt jeder Verantwortung und packt dort an, wo es gerade etwas zu tun gibt"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du hast Freude am Kochen, probierst gerne Neues aus und bringst eigene Ideen ein"
-        ]
-      },
-      "previousSlugs": [
-        "female-cook-male-cook-culinary-team-transgourmet-moosseedorf",
-        "kochin-koch-kulinarik-team-transgourmet-moosseedorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kochin-koch-kulinarik-team-transgourmet-moosseedorf"
-        ],
-        "en": [
-          "female-cook-male-cook-culinary-team-transgourmet-moosseedorf"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T09:12:27.792Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-10T09:21:27.789Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-11a8a04e-111",
@@ -412,7 +331,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-allrounder/11a8a04e-111d-4a20-b6f4-4f65889adca4",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.151Z",
+      "crawledAt": "2026-11-01T09:21:27.788Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -480,7 +399,10 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-04T09:21:27.788Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-34fe2937-c68",
@@ -513,7 +435,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-molkerei/34fe2937-c684-4723-be61-c3a812eb892f",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.150Z",
+      "crawledAt": "2026-11-01T09:21:27.787Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -581,7 +503,10 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-04T09:21:27.787Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-148f5c81-c6c",
@@ -614,7 +539,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-fruechte-und-gemuese/148f5c81-c6c3-4be5-901b-10f51bbfa865",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.148Z",
+      "crawledAt": "2026-11-01T09:21:27.785Z",
       "addressLocality": "Risch-Rotkreuz",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -684,7 +609,10 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-04T09:21:27.785Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-56c54d28-52b",
@@ -717,7 +645,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-front-office/56c54d28-52b3-4225-ae19-205f9a03fb53",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.147Z",
+      "crawledAt": "2026-11-01T09:21:27.784Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -780,7 +708,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6010"
+      "postalCode": "6010",
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:21:27.784Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-9d46ad75-471",
@@ -813,7 +745,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/test-engineer/9d46ad75-471d-4ab6-92aa-848e17579b40",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.146Z",
+      "crawledAt": "2026-11-01T09:21:27.783Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -871,7 +803,10 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-07T09:21:27.783Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-0908ec85-4d4",
@@ -904,7 +839,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer/0908ec85-4d4c-437f-84e8-207a0a9d1626",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.144Z",
+      "crawledAt": "2026-11-01T09:21:27.781Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -972,7 +907,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8400"
+      "postalCode": "8400",
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:21:27.781Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-dfaf14ad-033",
@@ -1005,7 +944,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/cheffe-adjointe-chef-adjoint-de-rayon-fruits-legumes/dfaf14ad-0339-4092-90c2-d8b4d4bfcbf8",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:21:33.142Z",
+      "crawledAt": "2026-11-01T09:21:27.780Z",
       "addressLocality": "Laténa",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1075,7 +1014,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:21:27.780Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-a9a122aa-8ee",
@@ -1108,7 +1050,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/conseillere-conseiller-des-clients/a9a122aa-8eea-4a90-9cf2-3b6d8cb5a6b1",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:21:33.141Z",
+      "crawledAt": "2026-11-01T09:21:27.778Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1166,7 +1108,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T09:21:27.778Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-779a2b13-3f5",
@@ -1199,7 +1144,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/779a2b13-3f51-4dd8-8a42-18d49b53ee75",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.139Z",
+      "crawledAt": "2026-11-01T09:21:27.777Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1261,7 +1206,10 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-07T09:21:27.777Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-d0cfbf93-928",
@@ -1294,7 +1242,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/d0cfbf93-928e-4ff0-846e-5405faa899da",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.138Z",
+      "crawledAt": "2026-11-01T09:21:27.776Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1356,7 +1304,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-05T09:21:27.776Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-33b115b1-767",
@@ -1389,7 +1340,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/assistant-category-management-molkerei-backwaren/33b115b1-7674-4d09-ae77-4577088f7876",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.136Z",
+      "crawledAt": "2026-11-01T09:21:27.775Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1452,7 +1403,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:21:27.775Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-8f70d758-982",
@@ -1485,7 +1439,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-frische/8f70d758-9828-4238-a741-09a1dcf07c0e",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.134Z",
+      "crawledAt": "2026-11-01T09:21:27.774Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1550,7 +1504,10 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-30T09:21:27.774Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-b962132c-674",
@@ -1583,7 +1540,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/b962132c-6746-491c-b5c2-951f85d7c460",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.133Z",
+      "crawledAt": "2026-11-01T09:21:27.773Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1641,7 +1598,10 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:21:27.773Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-ea8066ac-914",
@@ -1674,7 +1634,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-getraenke/ea8066ac-9148-4cda-8be8-1af93cc853a2",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.129Z",
+      "crawledAt": "2026-11-01T09:21:27.771Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1738,7 +1698,10 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:21:27.771Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-991649c2-ac1",
@@ -1771,7 +1734,7 @@
       "url": "https://jobs.transgourmet.ch/posti-vacanti/chauffeuse-chauffeur-kat-c-1/991649c2-ac18-48b7-abe3-0832a34833f3",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:21:33.127Z",
+      "crawledAt": "2026-11-01T09:21:27.770Z",
       "addressLocality": "quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1821,7 +1784,10 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:21:27.770Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-c8613d12-9e6",
@@ -1854,7 +1820,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-chauffeur-warenannahme-duebendorf/c8613d12-9e61-480c-ae3c-1426c8c5114d",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.126Z",
+      "crawledAt": "2026-11-01T09:21:27.769Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1918,7 +1884,10 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-29T09:21:27.769Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-59ff5a37-368",
@@ -1951,7 +1920,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/projektleiterin-projektleiter-bau-unterhalt/59ff5a37-3684-481c-b74e-7714328c40b0",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.124Z",
+      "crawledAt": "2026-11-01T09:21:27.768Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2016,40 +1985,43 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-29T09:21:27.768Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "transgourmet-4451a3b3-362",
-      "slug": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
+      "slug": "vice-capo-dipartimento-vice-capo-dipartimento-food-transgourmet-kriens",
       "slugByLocale": {
+        "it": "vice-capo-dipartimento-vice-capo-dipartimento-food-transgourmet-kriens",
+        "en": "deputy-head-of-department-deputy-head-of-department-food-transgourmet-kriens",
         "de": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
-        "it": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
-        "en": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet",
-        "fr": "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+        "fr": "chef-adjoint-de-departement-chef-adjoint-de-departement-alimentation-transgourmet-kriens"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
       "companyDomain": "transgourmet.ch",
       "title": "Stellvertretende Abteilungsleiterin / Stellvertretender Abteilungsleiter Food",
       "titleByLocale": {
+        "it": "Vice Capo Dipartimento / Vice Capo Dipartimento Food",
+        "en": "Deputy Head of Department / Deputy Head of Department Food",
         "de": "Stellvertretende Abteilungsleiterin / Stellvertretender Abteilungsleiter Food",
-        "it": "Stellvertretende Abteilungsleiterin / Stellvertretender Abteilungsleiter Food",
-        "en": "Stellvertretende Abteilungsleiterin / Stellvertretender Abteilungsleiter Food",
-        "fr": "Stellvertretende Abteilungsleiterin / Stellvertretender Abteilungsleiter Food"
+        "fr": "Chef adjoint de département / Chef adjoint de département Alimentation"
       },
       "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du berätst unsere Kundschaft aktiv, freundlich und fachkundig\n• Du stellst sicher, dass die Warenpräsentation top, frisch und saisonal ist\n• Du führst selbstständig das Bestellwesen und sorgst für volle Verfügbarkeit\n• Du überwachst Aktionen, Beschriftung und Verkaufsplätze gemäss Konzept\n• Du erkennst Kundenwünsche und leitest diese an die Abteilungsleitung weiter\n• Du unterstützt deinen Vorgesetzten im Tagesgeschäft und bildest Mitarbeitende sowie Lernende „on the job“ aus\n\n## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in)\n• Du arbeitest zuverlässig, effizient und hast ein gepflegtes Auftreten\n• Du bist fit im Umgang mit MS Office\n• Du gehst offen auf Menschen zu und hast Freude am Kundenkontakt\n• Du bist belastbar und bleibst auch in hektischen Momenten freundlich\n• Du sprichst fliessend Deutsch und arbeitest gerne im Team\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nKriens\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nVerkauf Food\nArbeitsort\nAufgaben\nAnforderungen",
       "descriptionByLocale": {
+        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di consegna e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Si consiglia ai nostri clienti attivamente, amichevole ed esperto\n• Assicurarsi che la presentazione del prodotto sia top, fresco e stagionale\n• Gestisci in modo indipendente l'ordine e assicurati la piena disponibilità\n• Monitora le azioni, l'etichettatura e i luoghi di vendita secondo il concetto\n• Riconosci i desideri dei clienti e li invii alla gestione del dipartimento\n• Sostieni il tuo manager nelle attività quotidiane e alleni dipendenti e studenti “sul lavoro”\n\n## Requisiti\n• Formazione completa nel commercio al dettaglio o nell'industria alimentare (ad esempio chef, panettiere:in)\n• Lavori in modo affidabile, efficiente e hai un aspetto ben tenuto\n• Sei adatto per affrontare MS Office\n• Ti avvicini alle persone apertamente e goditi il contatto con il cliente\n• Sei resiliente e rimani amichevole anche nei momenti frenetici\n• Si parla fluente tedesco e godere di lavorare in una squadra\nCosa offriamo\n\n## Luogo di lavoro\nTransgourmet/Prodega\nKriens\n100%\nPerpetuo\nApertura del lavoro: immediatamente o per accordo\n\n## Specializzazione\nVendita di cibo\nLuogo di lavoro\nCompiti\nRequisiti",
+        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss delivery and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals and retailers).\n\n## Tasks\n• You advise our customers actively, friendly and expertly\n• You make sure that the product presentation is top, fresh and seasonal\n• You independently manage the ordering and ensure full availability\n• You monitor actions, labeling and sales places according to the concept\n• You recognize customer wishes and forward them to the department management\n• You support your manager in day-to-day business and train employees and learners “on the job”\n\n## Requirements\n• Completed training in the retail trade or in the food industry (e.g. chef, baker:in)\n• You work reliably, efficiently and have a well-kept appearance\n• You are fit to deal with MS Office\n• You approach people openly and enjoy customer contact\n• You are resilient and stay friendly even in hectic moments\n• You speak fluent German and enjoy working in a team\nWhat we offer\n\n## Place of work\nTransgourmet/Prodega\nKriens\n100%\nPerpetual\nJob opening: immediately or by agreement\n\n## Specialisation\nSale of food\nPlace of work\nTasks\nRequirements",
         "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du berätst unsere Kundschaft aktiv, freundlich und fachkundig\n• Du stellst sicher, dass die Warenpräsentation top, frisch und saisonal ist\n• Du führst selbstständig das Bestellwesen und sorgst für volle Verfügbarkeit\n• Du überwachst Aktionen, Beschriftung und Verkaufsplätze gemäss Konzept\n• Du erkennst Kundenwünsche und leitest diese an die Abteilungsleitung weiter\n• Du unterstützt deinen Vorgesetzten im Tagesgeschäft und bildest Mitarbeitende sowie Lernende „on the job“ aus\n\n## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in)\n• Du arbeitest zuverlässig, effizient und hast ein gepflegtes Auftreten\n• Du bist fit im Umgang mit MS Office\n• Du gehst offen auf Menschen zu und hast Freude am Kundenkontakt\n• Du bist belastbar und bleibst auch in hektischen Momenten freundlich\n• Du sprichst fliessend Deutsch und arbeitest gerne im Team\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nKriens\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nVerkauf Food\nArbeitsort\nAufgaben\nAnforderungen",
-        "it": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du berätst unsere Kundschaft aktiv, freundlich und fachkundig\n• Du stellst sicher, dass die Warenpräsentation top, frisch und saisonal ist\n• Du führst selbstständig das Bestellwesen und sorgst für volle Verfügbarkeit\n• Du überwachst Aktionen, Beschriftung und Verkaufsplätze gemäss Konzept\n• Du erkennst Kundenwünsche und leitest diese an die Abteilungsleitung weiter\n• Du unterstützt deinen Vorgesetzten im Tagesgeschäft und bildest Mitarbeitende sowie Lernende „on the job“ aus\n\n## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in)\n• Du arbeitest zuverlässig, effizient und hast ein gepflegtes Auftreten\n• Du bist fit im Umgang mit MS Office\n• Du gehst offen auf Menschen zu und hast Freude am Kundenkontakt\n• Du bist belastbar und bleibst auch in hektischen Momenten freundlich\n• Du sprichst fliessend Deutsch und arbeitest gerne im Team\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nKriens\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nVerkauf Food\nArbeitsort\nAufgaben\nAnforderungen",
-        "en": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du berätst unsere Kundschaft aktiv, freundlich und fachkundig\n• Du stellst sicher, dass die Warenpräsentation top, frisch und saisonal ist\n• Du führst selbstständig das Bestellwesen und sorgst für volle Verfügbarkeit\n• Du überwachst Aktionen, Beschriftung und Verkaufsplätze gemäss Konzept\n• Du erkennst Kundenwünsche und leitest diese an die Abteilungsleitung weiter\n• Du unterstützt deinen Vorgesetzten im Tagesgeschäft und bildest Mitarbeitende sowie Lernende „on the job“ aus\n\n## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in)\n• Du arbeitest zuverlässig, effizient und hast ein gepflegtes Auftreten\n• Du bist fit im Umgang mit MS Office\n• Du gehst offen auf Menschen zu und hast Freude am Kundenkontakt\n• Du bist belastbar und bleibst auch in hektischen Momenten freundlich\n• Du sprichst fliessend Deutsch und arbeitest gerne im Team\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nKriens\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nVerkauf Food\nArbeitsort\nAufgaben\nAnforderungen",
-        "fr": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du berätst unsere Kundschaft aktiv, freundlich und fachkundig\n• Du stellst sicher, dass die Warenpräsentation top, frisch und saisonal ist\n• Du führst selbstständig das Bestellwesen und sorgst für volle Verfügbarkeit\n• Du überwachst Aktionen, Beschriftung und Verkaufsplätze gemäss Konzept\n• Du erkennst Kundenwünsche und leitest diese an die Abteilungsleitung weiter\n• Du unterstützt deinen Vorgesetzten im Tagesgeschäft und bildest Mitarbeitende sowie Lernende „on the job“ aus\n\n## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in)\n• Du arbeitest zuverlässig, effizient und hast ein gepflegtes Auftreten\n• Du bist fit im Umgang mit MS Office\n• Du gehst offen auf Menschen zu und hast Freude am Kundenkontakt\n• Du bist belastbar und bleibst auch in hektischen Momenten freundlich\n• Du sprichst fliessend Deutsch und arbeitest gerne im Team\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nKriens\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nVerkauf Food\nArbeitsort\nAufgaben\nAnforderungen"
+        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. La société est leader dans le commerce de gros suisse de livraison et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons, hôpitaux et détaillants).\n\n## Tâche\n• Vous conseillez nos clients activement, amical et expert\n• Vous assurez que la présentation du produit est haut, frais et saisonnier\n• Vous gérez la commande de manière indépendante et assurez la pleine disponibilité\n• Vous surveillez les actions, l'étiquetage et les lieux de vente selon le concept\n• Vous reconnaissez les souhaits des clients et les transmettez à la direction du service\n• Vous soutenez votre gestionnaire dans les affaires quotidiennes et former les employés et les apprenants sur le travail\n\n## Exigences\n• Formation complète dans le commerce de détail ou dans l'industrie alimentaire (p. ex. chef, boulanger:in)\n• Vous travaillez de manière fiable, efficace et avez une apparence bien gardée\n• Vous êtes apte à traiter avec MS Office\n• Vous approchez les gens ouvertement et profitez du contact client\n• Vous êtes résilient et restez amical même dans des moments agités\n• Vous parlez couramment allemand et aimez travailler en équipe\nCe que nous offrons\n\n## Lieu de travail\nTransgourmet/Prodega\nKriens\n100%\nPerpétuelle\nOuverture d'emploi: immédiatement ou par accord\n\n## Spécialisation\nVente de denrées alimentaires\nLieu de travail\nTâche\nExigences"
       },
       "location": "Kriens",
       "canton": "LU",
       "url": "https://jobs.transgourmet.ch/offene-stellen/stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food/4451a3b3-362b-44cf-a368-2f591a216ba8",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.119Z",
+      "crawledAt": "2026-11-01T09:21:27.764Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2076,7 +2048,7 @@
       ],
       "requirementsByLocale": {
         "de": [
-          "• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in)",
+          "• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in)",
           "• Du arbeitest zuverlässig, effizient und hast ein gepflegtes Auftreten",
           "• Du bist fit im Umgang mit MS Office",
           "• Du gehst offen auf Menschen zu und hast Freude am Kundenkontakt",
@@ -2084,22 +2056,39 @@
           "• Du sprichst fliessend Deutsch und arbeitest gerne im Team"
         ]
       },
-      "needsRetranslation": true,
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "previousSlugs": [
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+        ],
+        "en": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+        ],
+        "fr": [
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-food-transgourmet"
+        ]
+      },
+      "firstSeenAt": "2026-10-31T09:21:33.119Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 96000,
+          "maxValue": 146000,
           "unitText": "YEAR"
         }
       },
       "postalCode": "6010",
-      "firstSeenAt": "2026-10-31T09:21:33.119Z"
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:21:27.764Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kanton-solothurn",
-  "assembledAt": "2026-10-31T09:37:31.224Z",
-  "runId": "41187978199",
+  "assembledAt": "2026-11-01T09:29:12.182Z",
+  "runId": "41292374401",
   "jobs": [
     {
       "id": "kanton-solothurn-1ef770d83a68",
@@ -34,10 +34,10 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz/065b6048-21b7-4eda-b46e-718abf7d3725",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:23.826Z",
+      "crawledAt": "2026-11-01T09:29:04.436Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -75,7 +75,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:29:04.436Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-d9e383691665",
@@ -109,10 +112,10 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/f9d698a8-5442-4fd9-8576-c7c9c9b4bd00",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:23.477Z",
+      "crawledAt": "2026-11-01T09:29:03.429Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -152,7 +155,10 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:29:03.429Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-1e60e0e3b74e",
@@ -185,10 +191,10 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-uhrmacher-in-efz/35eac920-78d1-4fa2-b308-ea4121b54715",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:23.164Z",
+      "crawledAt": "2026-11-01T09:29:02.434Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Grenchen",
       "postalCode": "2540",
       "addressCountry": "CH",
       "country": "CH",
@@ -228,7 +234,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:29:02.434Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-6c7e34c91250",
@@ -262,10 +271,10 @@
       "url": "https://job.so.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in-gesundheitsversorgung/a376905e-f70b-4168-ab91-d8e13f30ea3f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:22.839Z",
+      "crawledAt": "2026-11-01T09:29:01.438Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -311,7 +320,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:29:01.438Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-6517c56b4925",
@@ -344,10 +356,10 @@
       "url": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in/a22afa7f-b24e-4bb3-80f9-42627bd15834",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:22.453Z",
+      "crawledAt": "2026-11-01T09:29:00.963Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -393,7 +405,10 @@
           "maxValue": 83200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:29:00.963Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-b64bd8e124d1",
@@ -427,10 +442,10 @@
       "url": "https://job.so.ch/offene-stellen/schulische-r-heilpaedagoge-heilpaedagogin/79f58a36-175d-48da-9d58-4936a7b8f091",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:22.060Z",
+      "crawledAt": "2026-11-01T09:29:00.444Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
       "country": "CH",
@@ -474,7 +489,10 @@
           "maxValue": 36900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:29:00.444Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-9d7965b22f14",
@@ -507,10 +525,10 @@
       "url": "https://job.so.ch/offene-stellen/polizeiliche-r-sicherheitsassistent-in/35766ab7-54e0-4891-9851-9cc68d65d763",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:21.732Z",
+      "crawledAt": "2026-11-01T09:28:58.428Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -554,7 +572,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:28:58.428Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-cbdfb4333696",
@@ -588,10 +609,10 @@
       "url": "https://job.so.ch/offene-stellen/sozialpaedagoge-sozialpaedagogin/cab5d338-f59b-495b-84eb-f97a6281aa0a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:21.405Z",
+      "crawledAt": "2026-11-01T09:28:56.949Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
       "country": "CH",
@@ -635,7 +656,10 @@
           "maxValue": 86800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:28:56.949Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-b4b35a90748c",
@@ -669,10 +693,10 @@
       "url": "https://job.so.ch/offene-stellen/jurist-in/3dd6e5c2-d168-4fe1-8bf9-88f579d61c34",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:21.091Z",
+      "crawledAt": "2026-11-01T09:28:55.855Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -710,7 +734,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:28:55.855Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-92c5fc6cb484",
@@ -744,10 +771,10 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-betriebswirtschaftliche-dienste/645380d1-b805-4693-be22-33857cd25cff",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:20.781Z",
+      "crawledAt": "2026-11-01T09:28:55.346Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -793,7 +820,10 @@
           "maxValue": 307500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:28:55.346Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-46cf633c925d",
@@ -827,10 +857,10 @@
       "url": "https://job.so.ch/offene-stellen/fachexperte-fachexpertin-alter-und-pflege/7966534f-d285-45ed-b0aa-288db7691925",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:20.440Z",
+      "crawledAt": "2026-11-01T09:28:54.936Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -875,7 +905,10 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:28:54.936Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-17ec8c735f78",
@@ -909,10 +942,10 @@
       "url": "https://job.so.ch/offene-stellen/fallverantwortliche-r-mit-besonderen-aufgaben-vollzug-1/a89b4e12-a432-4085-a95b-6cd530061ef1",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:20.057Z",
+      "crawledAt": "2026-11-01T09:28:54.448Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -956,7 +989,10 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:28:54.448Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-233bcbd95233",
@@ -990,10 +1026,10 @@
       "url": "https://job.so.ch/offene-stellen/juristische-r-fallverantwortliche-r-vollzug-2/83337e06-9f79-4131-a297-3a4b758c68ed",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:19.650Z",
+      "crawledAt": "2026-11-01T09:28:53.948Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -1037,7 +1073,10 @@
           "maxValue": 114400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:28:53.948Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-fcbbf742eb3a",
@@ -1071,10 +1110,10 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-amt-fuer-raumplanung-kantonsplaner-in/18e3681a-4c40-4c13-925f-20fa41b7167d",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:19.264Z",
+      "crawledAt": "2026-11-01T09:28:50.337Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -1117,7 +1156,10 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:28:50.337Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-3dc35460641c",
@@ -1151,10 +1193,10 @@
       "url": "https://job.so.ch/offene-stellen/kommunikationsspezialist-in/b8166cd9-da9a-4e61-a979-88e38dbb8ee0",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:18.882Z",
+      "crawledAt": "2026-11-01T09:28:49.934Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -1198,7 +1240,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:28:49.934Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-d041640b2348",
@@ -1232,10 +1277,10 @@
       "url": "https://job.so.ch/offene-stellen/mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik/d77455fc-9741-4ef9-bdd7-38db3598e0f9",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:18.496Z",
+      "crawledAt": "2026-11-01T09:28:49.444Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -1281,7 +1326,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:28:49.444Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-debfa510e046",
@@ -1315,10 +1363,10 @@
       "url": "https://job.so.ch/offene-stellen/fachbereichsleiter-in-aufsichtsbehoerde-kesb/175f4537-89a6-4dec-b092-7d857bcc224a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:18.097Z",
+      "crawledAt": "2026-11-01T09:28:48.929Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -1362,7 +1410,10 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:28:48.929Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-078638ff2251",
@@ -1396,10 +1447,10 @@
       "url": "https://job.so.ch/offene-stellen/informatiker-in-efz-systemadministration-pc-support/f0e0bce1-4953-4d42-8938-7e34027903c1",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:17.710Z",
+      "crawledAt": "2026-11-01T09:28:48.444Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -1443,7 +1494,10 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:28:48.444Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-157de24fa533",
@@ -1476,10 +1530,10 @@
       "url": "https://job.so.ch/offene-stellen/case-manager-in/3d4d248d-9130-4e0c-8fed-c81fcb09d7d5",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:17.326Z",
+      "crawledAt": "2026-11-01T09:28:47.946Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -1509,7 +1563,10 @@
           "maxValue": 130000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:28:47.946Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-1833f6f47b36",
@@ -1542,10 +1599,10 @@
       "url": "https://job.so.ch/offene-stellen/stv-schlosswart-in/781df1de-77e0-4f97-a057-d94abd28a914",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:16.931Z",
+      "crawledAt": "2026-11-01T09:28:47.455Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
       "country": "CH",
@@ -1589,7 +1646,94 @@
           "maxValue": 10900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:28:47.455Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "kanton-solothurn-051c68675a0c",
+      "slug": "impiegato-a-amministrativo-a-100-kanton-solothurn-solothurn",
+      "slugByLocale": {
+        "it": "impiegato-a-amministrativo-a-100-kanton-solothurn-solothurn",
+        "en": "administrative-clerk-100-kanton-solothurn-solothurn",
+        "de": "sachbearbeiter-in-100-kanton-solothurn-solothurn",
+        "fr": "employe-e-administratif-ve-100-kanton-solothurn-solothurn"
+      },
+      "company": "Kanton Solothurn",
+      "companyKey": "kanton-solothurn",
+      "companyDomain": "so.ch",
+      "title": "Sachbearbeiter/-in, 100 %",
+      "titleByLocale": {
+        "it": "Impiegato/a amministrativo/a, 100 %",
+        "en": "Administrative clerk, 100 %",
+        "de": "Sachbearbeiter/-in, 100 %",
+        "fr": "Employé·e administratif·ve, 100 %"
+      },
+      "description": "Das Richteramt Dorneck-Thierstein ist erste richterliche Instanz in der Amtei. Für die Zivil- und Strafabteilung suchen wir per 01.02.2027 oder nach Vereinbarung befristet bis 31.07.2027 am Standort Dornach eine/-n Sachbearbeiter/-in, 100%.\n\nIhre Verantwortung\n\n• Sie bearbeiten die eingehende Post, eröffnen Gerichtsdossiers und verfassen Verfügungen und allgemeine Korrespondenz.\n\n• Sie treffen Terminvereinbarungen und setzen Gerichtsverhandlungen an.\n\n• In Ihre Zuständigkeit fällt auch der Versand sämtlicher Korrespondenz, namentlich von Verfügungen, Urteilen und Rechtskraftbescheinigungen, sowie die Fallabrechnung und -archivierung.\n\n• Sie führen die Fristenkontrolle.\n\n• Am Telefon und Schalter erteilen Sie Auskünfte und bedienen den Empfang.\n\nIhr Profil\n\n• Wir erwarten einen kaufmännischen Lehrabschluss, nach Möglichkeit mit Erfahrung im Bereich Zivil- und/oder Strafrecht (insbesondere Prozessrecht).\n\n• Sie besitzen gute IT-Kenntnisse, arbeiten gerne selbstständig und übernehmen Verantwortung.\n\n• Rechtlichen Fragestellungen interessieren Sie.\n\n• Sie sind gewandt im mündlichen Ausdruck und schätzen den Kontakt mit Kunden und Behörden.\n\n• Eine effiziente Arbeitsweise, stilsicheres Deutsch sowie Flexibilität, Belastbarkeit und Teamfähigkeit runden Ihr Profil ab.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSusanne Engeloch\nAmtsgerichtsschreiberin\n061 704 70 47\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+      "descriptionByLocale": {
+        "it": "Il Richteramt Dorneck-Thierstein è la prima autorità giudiziaria in carica. Per il Dipartimento Civile e Criminale, stiamo cercando un impiegato al 100% presso il sito di Dornach al 01.02.2027 o per accordo fino al 31.07.2027.\n\nLa tua responsabilità\n\n• Elaborano la posta in arrivo, i fascicoli del tribunale aperto e scrivono gli ordini e la corrispondenza generale.\n\n• Prendono appuntamenti e organizzano udienze.\n\n• L'utente è inoltre responsabile dell'invio di ogni corrispondenza, in particolare di decisioni, giudizi e certificati di forza legale, nonché di contabilità e archiviazione dei casi.\n\n• Esse effettuano controlli sui limiti di tempo.\n\n• Al telefono e contatore fornire informazioni e servire la reception.\n\nIl tuo profilo\n\n• Ci aspettiamo una laurea commerciale, se possibile con esperienza nel diritto civile e/o penale (in particolare il diritto processuale).\n\n• Hanno una buona conoscenza IT, come lavorare in modo indipendente e prendersi la responsabilità.\n\n• Le questioni legali ti interessano.\n\n• Sono abili nell'espressione orale e apprezzano il contatto con clienti e autorità.\n\n• Un metodo di lavoro efficiente, un tedesco elegante e flessibilità, resistenza e lavoro di squadra completano il tuo profilo.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'assistenza all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nSusanne Engeloch\nCorte di giustizia\n061 704 70 47\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
+        "en": "The Richteramt Dorneck-Thierstein is the first judicial authority in the office. For the Civil and Criminal Department, we are looking for a 100% clerk at the Dornach site as of 01.02.2027 or by agreement until 31.07.2027.\n\nYour responsibility\n\n• They process the incoming mail, open court dossiers and write orders and general correspondence.\n\n• They make appointments and set up court hearings.\n\n• You are also responsible for sending all correspondence, in particular decisions, judgments and certificates of legal force, as well as case accounting and archiving.\n\n• They shall carry out checks on time limits.\n\n• On the telephone and counter you provide information and serve the reception.\n\nYour profile\n\n• We expect a commercial degree, if possible with experience in civil and/or criminal law (in particular procedural law).\n\n• They have good IT knowledge, like to work independently and take responsibility.\n\n• Legal issues interest you.\n\n• They are skillful in oral expression and appreciate contact with customers and authorities.\n\n• An efficient working method, stylish German as well as flexibility, resilience and teamwork round off your profile.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nSusanne Engeloch\nCourt clerk\n061 704 70 47\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
+        "de": "Das Richteramt Dorneck-Thierstein ist erste richterliche Instanz in der Amtei. Für die Zivil- und Strafabteilung suchen wir per 01.02.2027 oder nach Vereinbarung befristet bis 31.07.2027 am Standort Dornach eine/-n Sachbearbeiter/-in, 100%.\n\nIhre Verantwortung\n\n• Sie bearbeiten die eingehende Post, eröffnen Gerichtsdossiers und verfassen Verfügungen und allgemeine Korrespondenz.\n\n• Sie treffen Terminvereinbarungen und setzen Gerichtsverhandlungen an.\n\n• In Ihre Zuständigkeit fällt auch der Versand sämtlicher Korrespondenz, namentlich von Verfügungen, Urteilen und Rechtskraftbescheinigungen, sowie die Fallabrechnung und -archivierung.\n\n• Sie führen die Fristenkontrolle.\n\n• Am Telefon und Schalter erteilen Sie Auskünfte und bedienen den Empfang.\n\nIhr Profil\n\n• Wir erwarten einen kaufmännischen Lehrabschluss, nach Möglichkeit mit Erfahrung im Bereich Zivil- und/oder Strafrecht (insbesondere Prozessrecht).\n\n• Sie besitzen gute IT-Kenntnisse, arbeiten gerne selbstständig und übernehmen Verantwortung.\n\n• Rechtlichen Fragestellungen interessieren Sie.\n\n• Sie sind gewandt im mündlichen Ausdruck und schätzen den Kontakt mit Kunden und Behörden.\n\n• Eine effiziente Arbeitsweise, stilsicheres Deutsch sowie Flexibilität, Belastbarkeit und Teamfähigkeit runden Ihr Profil ab.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSusanne Engeloch\nAmtsgerichtsschreiberin\n061 704 70 47\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
+        "fr": "Le Richteramt Dorneck-Thierstein est la première autorité judiciaire du bureau. Pour le Département civil et criminel, nous recherchons un commis à 100% au site de Dornach au 01.02.2027 ou par accord jusqu'au 31.07.2027.\n\nVotre responsabilité\n\n• Ils traitent le courrier entrant, ouvrent des dossiers judiciaires et rédigent des ordonnances et de la correspondance générale.\n\n• Ils prennent des rendez-vous et organisent des audiences.\n\n• Vous êtes également responsable de l'envoi de toute correspondance, en particulier les décisions, jugements et certificats de force juridique, ainsi que la comptabilité de cas et l'archivage.\n\n• Ils effectuent des contrôles sur les délais.\n\n• Au téléphone et au comptoir, vous fournissez des informations et servez la réception.\n\nVotre profil\n\n• Nous attendons un diplôme commercial, si possible avec une expérience en droit civil et/ou pénal (en particulier le droit procédural).\n\n• Ils possèdent de bonnes connaissances en TI, ils aiment travailler de façon indépendante et assumer leurs responsabilités.\n\n• Les questions juridiques vous intéressent.\n\n• Ils sont habiles dans l'expression orale et apprécient le contact avec les clients et les autorités.\n\n• Une méthode de travail efficace, un allemand élégant ainsi que la flexibilité, la résilience et le travail d'équipe complètent votre profil.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée au moyen d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives basées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nSusanne Engeloch\nGreffier\n061 704 70 47\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes par courriel ne peuvent pas être prises en considération."
+      },
+      "needsRetranslation": false,
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in/94bc7a9a-7acb-41bb-b11e-da900608eb72",
+      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:28:47.007Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "streetAddress": "Solothurn",
+      "postalCode": "4500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sicurezza & Giustizia",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job.so.ch/offene-stellen/sachbearbeiter-in/94bc7a9a-7acb-41bb-b11e-da900608eb72",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-100-kanton-solothurn-solothurn"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "sachbearbeiter-in-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "sachbearbeiter-in-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "firstSeenAt": "2026-10-30T21:27:55.557Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:28:47.007Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-solothurn-2ac14dbacd99",
@@ -1623,10 +1767,10 @@
       "url": "https://job.so.ch/offene-stellen/stv-dienstchef-in-polizeiliche-lage-und-fachverantwortliche-r-integriertes-lagebild/90bad929-9af3-4eb9-84f8-bee5f711144d",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:16.532Z",
+      "crawledAt": "2026-10-31T22:04:18.395Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -1672,88 +1816,11 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "kanton-solothurn-051c68675a0c",
-      "slug": "impiegato-a-amministrativo-a-100-kanton-solothurn-solothurn",
-      "slugByLocale": {
-        "it": "impiegato-a-amministrativo-a-100-kanton-solothurn-solothurn",
-        "en": "administrative-clerk-100-kanton-solothurn-solothurn",
-        "de": "sachbearbeiter-in-100-kanton-solothurn-solothurn",
-        "fr": "employe-e-administratif-ve-100-kanton-solothurn-solothurn"
       },
-      "company": "Kanton Solothurn",
-      "companyKey": "kanton-solothurn",
-      "companyDomain": "so.ch",
-      "title": "Sachbearbeiter/-in, 100 %",
-      "titleByLocale": {
-        "it": "Impiegato/a amministrativo/a, 100 %",
-        "en": "Administrative clerk, 100 %",
-        "de": "Sachbearbeiter/-in, 100 %",
-        "fr": "Employé·e administratif·ve, 100 %"
-      },
-      "description": "Das Richteramt Dorneck-Thierstein ist erste richterliche Instanz in der Amtei. Für die Zivil- und Strafabteilung suchen wir per 01.02.2027 oder nach Vereinbarung befristet bis 31.07.2027 am Standort Dornach eine/-n Sachbearbeiter/-in, 100%.\n\nIhre Verantwortung\n\n• Sie bearbeiten die eingehende Post, eröffnen Gerichtsdossiers und verfassen Verfügungen und allgemeine Korrespondenz.\n\n• Sie treffen Terminvereinbarungen und setzen Gerichtsverhandlungen an.\n\n• In Ihre Zuständigkeit fällt auch der Versand sämtlicher Korrespondenz, namentlich von Verfügungen, Urteilen und Rechtskraftbescheinigungen, sowie die Fallabrechnung und -archivierung.\n\n• Sie führen die Fristenkontrolle.\n\n• Am Telefon und Schalter erteilen Sie Auskünfte und bedienen den Empfang.\n\nIhr Profil\n\n• Wir erwarten einen kaufmännischen Lehrabschluss, nach Möglichkeit mit Erfahrung im Bereich Zivil- und/oder Strafrecht (insbesondere Prozessrecht).\n\n• Sie besitzen gute IT-Kenntnisse, arbeiten gerne selbstständig und übernehmen Verantwortung.\n\n• Rechtlichen Fragestellungen interessieren Sie.\n\n• Sie sind gewandt im mündlichen Ausdruck und schätzen den Kontakt mit Kunden und Behörden.\n\n• Eine effiziente Arbeitsweise, stilsicheres Deutsch sowie Flexibilität, Belastbarkeit und Teamfähigkeit runden Ihr Profil ab.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSusanne Engeloch\nAmtsgerichtsschreiberin\n061 704 70 47\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-      "descriptionByLocale": {
-        "it": "Il Richteramt Dorneck-Thierstein è la prima autorità giudiziaria in carica. Per il Dipartimento Civile e Criminale, stiamo cercando un impiegato al 100% presso il sito di Dornach al 01.02.2027 o per accordo fino al 31.07.2027.\n\nLa tua responsabilità\n\n• Elaborano la posta in arrivo, i fascicoli del tribunale aperto e scrivono gli ordini e la corrispondenza generale.\n\n• Prendono appuntamenti e organizzano udienze.\n\n• L'utente è inoltre responsabile dell'invio di ogni corrispondenza, in particolare di decisioni, giudizi e certificati di forza legale, nonché di contabilità e archiviazione dei casi.\n\n• Esse effettuano controlli sui limiti di tempo.\n\n• Al telefono e contatore fornire informazioni e servire la reception.\n\nIl tuo profilo\n\n• Ci aspettiamo una laurea commerciale, se possibile con esperienza nel diritto civile e/o penale (in particolare il diritto processuale).\n\n• Hanno una buona conoscenza IT, come lavorare in modo indipendente e prendersi la responsabilità.\n\n• Le questioni legali ti interessano.\n\n• Sono abili nell'espressione orale e apprezzano il contatto con clienti e autorità.\n\n• Un metodo di lavoro efficiente, un tedesco elegante e flessibilità, resistenza e lavoro di squadra completano il tuo profilo.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'assistenza all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nSusanne Engeloch\nCorte di giustizia\n061 704 70 47\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
-        "en": "The Richteramt Dorneck-Thierstein is the first judicial authority in the office. For the Civil and Criminal Department, we are looking for a 100% clerk at the Dornach site as of 01.02.2027 or by agreement until 31.07.2027.\n\nYour responsibility\n\n• They process the incoming mail, open court dossiers and write orders and general correspondence.\n\n• They make appointments and set up court hearings.\n\n• You are also responsible for sending all correspondence, in particular decisions, judgments and certificates of legal force, as well as case accounting and archiving.\n\n• They shall carry out checks on time limits.\n\n• On the telephone and counter you provide information and serve the reception.\n\nYour profile\n\n• We expect a commercial degree, if possible with experience in civil and/or criminal law (in particular procedural law).\n\n• They have good IT knowledge, like to work independently and take responsibility.\n\n• Legal issues interest you.\n\n• They are skillful in oral expression and appreciate contact with customers and authorities.\n\n• An efficient working method, stylish German as well as flexibility, resilience and teamwork round off your profile.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nSusanne Engeloch\nCourt clerk\n061 704 70 47\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
-        "de": "Das Richteramt Dorneck-Thierstein ist erste richterliche Instanz in der Amtei. Für die Zivil- und Strafabteilung suchen wir per 01.02.2027 oder nach Vereinbarung befristet bis 31.07.2027 am Standort Dornach eine/-n Sachbearbeiter/-in, 100%.\n\nIhre Verantwortung\n\n• Sie bearbeiten die eingehende Post, eröffnen Gerichtsdossiers und verfassen Verfügungen und allgemeine Korrespondenz.\n\n• Sie treffen Terminvereinbarungen und setzen Gerichtsverhandlungen an.\n\n• In Ihre Zuständigkeit fällt auch der Versand sämtlicher Korrespondenz, namentlich von Verfügungen, Urteilen und Rechtskraftbescheinigungen, sowie die Fallabrechnung und -archivierung.\n\n• Sie führen die Fristenkontrolle.\n\n• Am Telefon und Schalter erteilen Sie Auskünfte und bedienen den Empfang.\n\nIhr Profil\n\n• Wir erwarten einen kaufmännischen Lehrabschluss, nach Möglichkeit mit Erfahrung im Bereich Zivil- und/oder Strafrecht (insbesondere Prozessrecht).\n\n• Sie besitzen gute IT-Kenntnisse, arbeiten gerne selbstständig und übernehmen Verantwortung.\n\n• Rechtlichen Fragestellungen interessieren Sie.\n\n• Sie sind gewandt im mündlichen Ausdruck und schätzen den Kontakt mit Kunden und Behörden.\n\n• Eine effiziente Arbeitsweise, stilsicheres Deutsch sowie Flexibilität, Belastbarkeit und Teamfähigkeit runden Ihr Profil ab.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSusanne Engeloch\nAmtsgerichtsschreiberin\n061 704 70 47\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-        "fr": "Le Richteramt Dorneck-Thierstein est la première autorité judiciaire du bureau. Pour le Département civil et criminel, nous recherchons un commis à 100% au site de Dornach au 01.02.2027 ou par accord jusqu'au 31.07.2027.\n\nVotre responsabilité\n\n• Ils traitent le courrier entrant, ouvrent des dossiers judiciaires et rédigent des ordonnances et de la correspondance générale.\n\n• Ils prennent des rendez-vous et organisent des audiences.\n\n• Vous êtes également responsable de l'envoi de toute correspondance, en particulier les décisions, jugements et certificats de force juridique, ainsi que la comptabilité de cas et l'archivage.\n\n• Ils effectuent des contrôles sur les délais.\n\n• Au téléphone et au comptoir, vous fournissez des informations et servez la réception.\n\nVotre profil\n\n• Nous attendons un diplôme commercial, si possible avec une expérience en droit civil et/ou pénal (en particulier le droit procédural).\n\n• Ils possèdent de bonnes connaissances en TI, ils aiment travailler de façon indépendante et assumer leurs responsabilités.\n\n• Les questions juridiques vous intéressent.\n\n• Ils sont habiles dans l'expression orale et apprécient le contact avec les clients et les autorités.\n\n• Une méthode de travail efficace, un allemand élégant ainsi que la flexibilité, la résilience et le travail d'équipe complètent votre profil.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée au moyen d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives basées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nSusanne Engeloch\nGreffier\n061 704 70 47\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes par courriel ne peuvent pas être prises en considération."
-      },
-      "needsRetranslation": false,
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in/94bc7a9a-7acb-41bb-b11e-da900608eb72",
-      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:16.146Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "streetAddress": "",
-      "postalCode": "4500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza & Giustizia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job.so.ch/offene-stellen/sachbearbeiter-in/94bc7a9a-7acb-41bb-b11e-da900608eb72",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-100-kanton-solothurn-solothurn"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-100-kanton-solothurn-solothurn"
-        ],
-        "en": [
-          "sachbearbeiter-in-100-kanton-solothurn-solothurn"
-        ],
-        "fr": [
-          "sachbearbeiter-in-100-kanton-solothurn-solothurn"
-        ]
-      },
-      "firstSeenAt": "2026-10-30T21:27:55.557Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T22:04:18.395Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

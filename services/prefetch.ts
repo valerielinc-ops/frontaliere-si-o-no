@@ -68,6 +68,9 @@ const TAB_LOADERS: Record<string, PrefetchFn[]> = {
  ],
  blog: [
  () => import('@/components/community/BlogArticles'),
+ // The static article HTML owns a cold article view; warm its translated
+ // metadata only when a related link/tab is relevant or the page is idle.
+ () => import('@/services/i18n').then(m => m.loadBlogMeta()),
  // Warm the blog slug map on intent: it no longer preloads at App mount
  // (#3528/#3532), so hover/focus on the blog tab kicks it early and
  // article hrefs are canonical the moment BlogArticles renders.

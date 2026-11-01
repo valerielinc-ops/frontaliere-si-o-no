@@ -37,6 +37,11 @@ import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import { isDismissalActive, NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { readStorageItem, writeStorageItem } from '@/services/storageAvailability';
 import { useCaptureImpression } from '@/hooks/useCaptureImpression';
+import { DEFAULT_EXCHANGE_RATE, DEFAULT_EXCHANGE_RATE_DATE } from '@/constants';
+
+const formatRate = DEFAULT_EXCHANGE_RATE.toFixed(4).replace('.', ',');
+const formatDate = DEFAULT_EXCHANGE_RATE_DATE.split('-').reverse().join('/');
+const formatEuro = (value: number) => Math.round(value).toLocaleString('de-CH').replace(/[’']/g, '.');
 
 /** Last-touch attribution for a login started from this box (see authService). */
 const LEAD_MAGNET_AUTH_ATTRIBUTION = { cta: 'lead_magnet_social', component: 'LeadMagnetCTA' } as const;
@@ -157,8 +162,8 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Dicembre: Verifica conguaglio imposta alla fonte sul cedolino svizzero',
  ]},
  { heading: 'Deduzioni e Agevolazioni Fiscali', items: [
- 'Franchigia di non imposizione: i primi EUR 10.000 di reddito svizzero sono esenti IRPEF (solo nuovi frontalieri dal 17/07/2023)',
- 'Vecchi frontalieri (ante 17/07/2023): franchigia EUR 7.500 fino al 2033, poi EUR 10.000',
+ 'Franchigia IRPEF: EUR 10.000 dal 2024 per il reddito tassato in Italia (L. 83/2023 art. 4; dal 2027 D.Lgs. 117/2026 art. 217)',
+ 'Vecchi frontalieri ex art. 9: salario imponibile solo in Svizzera, quindi la franchigia IRPEF non serve',
  'Credito d\'imposta estero: Art. 165 TUIR - le imposte alla fonte svizzere riducono l\'IRPEF dovuta in Italia',
  'Contributi AVS/AI/IPG (5.3%): deducibili integralmente dal reddito imponibile italiano',
  'Contributi AD (1.1%): deducibili dal reddito imponibile italiano',
@@ -200,7 +205,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  nextSteps: [
  'Usa il calcolatore stipendio netto su frontaliereticino.ch per simulare la tua situazione',
  'Consulta un commercialista specializzato in fiscalita\' transfrontaliera',
- 'Verifica i ristorni del tuo comune su frontaliereticino.ch/ristorni-comunali',
+ 'Capisci come funzionano i ristorni su frontaliereticino.ch/tasse-e-pensione/ristorni-fiscali/',
  'Iscriviti alla newsletter per ricevere avvisi sulle scadenze fiscali',
  ],
  },
@@ -231,9 +236,9 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'LPP 35-44 anni (5%): - CHF 300',
  'Imposta alla fonte Tab. A (10.3%): - CHF 618',
  '= Netto svizzero: circa CHF 4.608/mese',
- 'Convertito in EUR (tasso 0.94): circa EUR 4.332/mese',
+ `Convertito in EUR (tasso ${formatRate}, ${formatDate}): circa EUR ${formatEuro(4608 * DEFAULT_EXCHANGE_RATE)}/mese`,
  'Meno IRPEF residua italiana (dopo credito imposta): circa - EUR 150-300/mese',
- '= Netto finale effettivo: circa EUR 4.030-4.180/mese',
+ `= Netto finale effettivo: circa EUR ${formatEuro(4608 * DEFAULT_EXCHANGE_RATE - 300)}-${formatEuro(4608 * DEFAULT_EXCHANGE_RATE - 150)}/mese`,
  ]},
  { heading: 'Tabelle Imposta alla Fonte - Aliquote Indicative', items: [
  'CHF 4.000/mese: Tab A ~6.5%, Tab B ~2.8%, Tab C ~5.2%',
@@ -480,8 +485,8 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  { heading: 'Tasse e Fiscalita\'', items: [
  'Imposta alla fonte in Canton Ticino: dal 4% al 25%+ in base a stipendio e stato civile',
  'Tabelle: A (celibe), B (coniugato reddito unico), C (doppio reddito), H (monoparentale)',
- 'Franchigia per nuovi frontalieri (dal 17/07/2023): EUR 10.000 di reddito esente IRPEF',
- 'Vecchi frontalieri (ante 17/07/2023): franchigia EUR 7.500 (transitoria fino al 2033)',
+ 'Franchigia IRPEF: EUR 10.000 dal 2024 per il reddito tassato in Italia',
+ 'Vecchi frontalieri ex art. 9: salario imponibile solo in Svizzera',
  'Dichiarazione redditi italiana OBBLIGATORIA: Modello 730 entro il 30 aprile',
  'Credito d\'imposta estero: le imposte svizzere riducono l\'IRPEF (Art. 165 TUIR)',
  'I contributi AVS, AD e LPP sono deducibili dal reddito imponibile italiano',

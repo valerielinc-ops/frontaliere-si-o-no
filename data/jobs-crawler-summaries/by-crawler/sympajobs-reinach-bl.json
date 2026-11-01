@@ -1,7 +1,7 @@
 {
   "key": "sympajobs-reinach-bl",
   "label": "Sympajobs AG",
-  "generatedAt": "2026-10-31T09:25:37.921Z",
+  "generatedAt": "2026-11-01T09:18:22.441Z",
   "total": 12,
   "discovered": 27,
   "parsed": 12,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 33873,
-  "avgDurationMs": 33873,
+  "durationMs": 34143,
+  "avgDurationMs": 34143,
   "durationHistory": [
-    33873
+    34143
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -41,7 +41,7 @@
       "url": "https://sympajobs.ch/job/flachdach-vorarbeiter-baufuehrer-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:25:22.225Z",
+      "crawledAt": "2026-11-01T09:18:07.135Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -60,52 +60,16 @@
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.135Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "sympajobs-reinach-bl-529b9f1da27e",
-      "slug": "zimmermann-m-w-d-baselland-sympajobs-ch-529b9f1d",
-      "slugDisambiguator": "529b9f1d",
-      "company": "Sympajobs AG",
-      "companyKey": "sympajobs-reinach-bl",
-      "companyDomain": "sympajobs.ch",
-      "title": "Zimmermann (M/W/D)",
-      "location": "Baselland",
-      "canton": "BL",
-      "url": "https://sympajobs.ch/job/zimmermann-m-w-d-2/",
-      "source": "Sympajobs Official Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:25:22.224Z",
-      "addressLocality": "Baselland",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "employmentType": "OTHER",
-      "contract": "other",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://sympajobs.ch/job/zimmermann-m-w-d-2/",
-      "firstSeenAt": "2026-10-19T09:25:37.404Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -121,7 +85,7 @@
       "url": "https://sympajobs.ch/job/flachdachisoleur-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:25:22.223Z",
+      "crawledAt": "2026-11-01T09:18:07.131Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -140,12 +104,60 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.131Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
+      }
+    },
+    {
+      "id": "sympajobs-reinach-bl-529b9f1da27e",
+      "slug": "zimmermann-m-w-d-baselland-sympajobs-ch-529b9f1d",
+      "slugDisambiguator": "529b9f1d",
+      "company": "Sympajobs AG",
+      "companyKey": "sympajobs-reinach-bl",
+      "companyDomain": "sympajobs.ch",
+      "title": "Zimmermann (M/W/D)",
+      "location": "Baselland",
+      "canton": "BL",
+      "url": "https://sympajobs.ch/job/zimmermann-m-w-d-2/",
+      "source": "Sympajobs Official Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:18:07.131Z",
+      "addressLocality": "Baselland",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "employmentType": "OTHER",
+      "contract": "other",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://sympajobs.ch/job/zimmermann-m-w-d-2/",
+      "firstSeenAt": "2026-10-19T09:25:37.404Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.131Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
       }
     },
     {
@@ -161,7 +173,7 @@
       "url": "https://sympajobs.ch/job/spengler-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:25:22.222Z",
+      "crawledAt": "2026-11-01T09:18:07.130Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -180,12 +192,16 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.130Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -201,7 +217,7 @@
       "url": "https://sympajobs.ch/job/gaertner-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:25:22.221Z",
+      "crawledAt": "2026-11-01T09:18:07.129Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -220,52 +236,16 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.129Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "sympajobs-reinach-bl-2ac9b4c658bf",
-      "slug": "paesaggio-m-f-d-sympajobs-ag-baselland-2ac9b4c6",
-      "slugDisambiguator": "2ac9b4c6",
-      "company": "Sympajobs AG",
-      "companyKey": "sympajobs-reinach-bl",
-      "companyDomain": "sympajobs.ch",
-      "title": "Landschaftsgärtner (M/W/D)",
-      "location": "Baselland",
-      "canton": "BL",
-      "url": "https://sympajobs.ch/job/landschaftsgaertner-m-w-d-2/",
-      "source": "Sympajobs Official Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:25:22.220Z",
-      "addressLocality": "Baselland",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "employmentType": "OTHER",
-      "contract": "other",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://sympajobs.ch/job/landschaftsgaertner-m-w-d-2/",
-      "firstSeenAt": "2026-10-19T09:25:37.401Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -281,7 +261,7 @@
       "url": "https://sympajobs.ch/job/kranfuehrer-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:25:22.219Z",
+      "crawledAt": "2026-11-01T09:18:07.128Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -300,12 +280,60 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.128Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
+      }
+    },
+    {
+      "id": "sympajobs-reinach-bl-2ac9b4c658bf",
+      "slug": "paesaggio-m-f-d-sympajobs-ag-baselland-2ac9b4c6",
+      "slugDisambiguator": "2ac9b4c6",
+      "company": "Sympajobs AG",
+      "companyKey": "sympajobs-reinach-bl",
+      "companyDomain": "sympajobs.ch",
+      "title": "Landschaftsgärtner (M/W/D)",
+      "location": "Baselland",
+      "canton": "BL",
+      "url": "https://sympajobs.ch/job/landschaftsgaertner-m-w-d-2/",
+      "source": "Sympajobs Official Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:18:07.128Z",
+      "addressLocality": "Baselland",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "employmentType": "OTHER",
+      "contract": "other",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://sympajobs.ch/job/landschaftsgaertner-m-w-d-2/",
+      "firstSeenAt": "2026-10-19T09:25:37.401Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.128Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
       }
     },
     {
@@ -321,7 +349,7 @@
       "url": "https://sympajobs.ch/job/schreiner-m-w-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:25:22.217Z",
+      "crawledAt": "2026-11-01T09:18:07.127Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -340,12 +368,16 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.127Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -361,7 +393,7 @@
       "url": "https://sympajobs.ch/job/couvreur-ferblantier-h-f-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:25:22.214Z",
+      "crawledAt": "2026-11-01T09:18:07.124Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -380,12 +412,16 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.124Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -401,7 +437,7 @@
       "url": "https://sympajobs.ch/job/platrier-h-f-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:25:22.213Z",
+      "crawledAt": "2026-11-01T09:18:07.123Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -420,12 +456,16 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.123Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -441,7 +481,7 @@
       "url": "https://sympajobs.ch/job/peintre-h-f-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:25:22.212Z",
+      "crawledAt": "2026-11-01T09:18:07.122Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -460,12 +500,16 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.122Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -481,7 +525,7 @@
       "url": "https://sympajobs.ch/job/grutier-h-f-d-2/",
       "source": "Sympajobs Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:25:22.210Z",
+      "crawledAt": "2026-11-01T09:18:07.121Z",
       "addressLocality": "Baselland",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -500,14 +544,18 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "streetAddress": "Baselland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.121Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

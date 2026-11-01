@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-10-31T09:21:02.598Z",
+  "generatedAt": "2026-11-01T09:17:20.046Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 4927,
-  "avgDurationMs": 4927,
+  "durationMs": 4957,
+  "avgDurationMs": 4957,
   "durationHistory": [
-    4927
+    4957
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,24 +37,26 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-10-01T21:38:35.083Z",
       "id": "centiel-5b2ad723a13f",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Lugano",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.06-jd-eg-product-manager-critical-power.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 88,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -78,24 +80,26 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-10-01T21:38:35.083Z",
       "id": "centiel-6c09b1f01934",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Lugano",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.06-jd-it-specialista-ufficio-tecnico.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -119,24 +123,26 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-10-01T21:38:35.083Z",
       "id": "centiel-5d6623fa2ed6",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Lugano",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-operatore-di-produzione.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -160,24 +166,26 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-10-01T21:38:35.083Z",
       "id": "centiel-807453cca7cd",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Lugano",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-tecnico-collaudatore.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -201,24 +209,26 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-08-03T10:19:57.725Z",
       "id": "centiel-53535134c4ae",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Lugano",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-05T10:19:57.725Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/05/2026.02-jd-eg-project-manager-critical-power.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 88,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -242,24 +252,26 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-08-03T10:19:57.725Z",
       "id": "centiel-bcf08d3b0c73",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Lugano",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-05T10:19:57.725Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/05/2026.02-jd-eg-pre-sales-application-engineer-cp.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -283,11 +295,11 @@
       "postedDate": "",
       "employmentType": "100%",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-07-12T21:21:09.576Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Lugano",
       "postalCode": "6900",
       "id": "centiel-ced8dc312c7e",
       "firstSeenAt": "2026-04-13T21:21:09.576Z",
@@ -295,12 +307,14 @@
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2025/11/2025.11-jd-eg-rd-engineer-rev1.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 88,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -324,11 +338,11 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-07-12T21:21:09.576Z",
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Lugano",
       "postalCode": "6900",
       "id": "centiel-31fb67bd3d47",
       "firstSeenAt": "2026-04-13T21:21:09.576Z",
@@ -336,14 +350,16 @@
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2025/05/job_profile_after_sales_technician.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 88,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

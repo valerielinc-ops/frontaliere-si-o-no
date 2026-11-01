@@ -1,7 +1,7 @@
 {
   "crawlerKey": "upd",
-  "assembledAt": "2026-10-31T09:30:40.373Z",
-  "runId": "41187750242",
+  "assembledAt": "2026-11-01T09:24:29.370Z",
+  "runId": "41292128544",
   "jobs": [
     {
       "id": "upd-cef74eab4c7d",
@@ -35,13 +35,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/18d19c57-e206-46b6-b7bb-00ca879f5b8b",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.158Z",
+      "crawledAt": "2026-11-01T09:23:59.355Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3110",
-      "streetAddress": "",
+      "streetAddress": "Münsingen",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -82,7 +82,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:59.355Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-2deb0a151c96",
@@ -116,7 +119,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/4f05566a-2dc6-4af8-8db6-0a50cbae6e67",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:30:08.157Z",
+      "crawledAt": "2026-11-01T09:23:59.354Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -163,7 +166,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.354Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-eac79a6599f8",
@@ -196,7 +202,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/608ca87a-fc71-4472-b222-02951086b381",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:30:08.156Z",
+      "crawledAt": "2026-11-01T09:23:59.353Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -240,7 +246,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-23T09:23:59.353Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-d3e85e7deeca",
@@ -273,7 +282,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/4a730b0e-283f-41b1-b25c-c8d9ea42f3cd",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:30:08.154Z",
+      "crawledAt": "2026-11-01T09:23:59.352Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -320,7 +329,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.352Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-4f111d53c631",
@@ -354,7 +366,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a36b916b-ccf0-426e-8683-654cf3dff5d8",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.153Z",
+      "crawledAt": "2026-11-01T09:23:59.351Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -401,7 +413,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.351Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-165de408e3cd",
@@ -435,7 +450,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/25603295-5027-4372-825d-08c733e64c00",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.152Z",
+      "crawledAt": "2026-11-01T09:23:59.350Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -479,7 +494,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.350Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-2a43e43b05cc",
@@ -513,7 +531,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b2627675-8f61-46df-ad71-5a6c3a03e590",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.151Z",
+      "crawledAt": "2026-11-01T09:23:59.349Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -554,7 +572,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.349Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-5fa5a649cc99",
@@ -588,7 +609,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/3f4247ea-a808-4d88-acef-55a6b1ef3555",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.151Z",
+      "crawledAt": "2026-11-01T09:23:59.347Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -635,7 +656,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.347Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-7552507e3c21",
@@ -669,7 +693,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/8e1cc0f9-657b-4015-a349-0b7e3f7540f8",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.150Z",
+      "crawledAt": "2026-11-01T09:23:59.346Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -718,7 +742,10 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.346Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-1fb787c3a7dd",
@@ -752,7 +779,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a6983060-dc63-4cab-ba16-5cf3b10c5e5a",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.149Z",
+      "crawledAt": "2026-11-01T09:23:59.344Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -799,7 +826,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.344Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-c74b51d9d48c",
@@ -833,7 +863,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/db5db006-d07f-4a98-bb67-02630343146a",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.148Z",
+      "crawledAt": "2026-11-01T09:23:59.342Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -880,7 +910,10 @@
           "maxValue": 68000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.342Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-0147dc93a5f6",
@@ -914,7 +947,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/32be07af-8e1c-4cc4-b421-9a5e28d6d645",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.146Z",
+      "crawledAt": "2026-11-01T09:23:59.340Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -961,7 +994,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.340Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-d90ba4a9b0ae",
@@ -994,7 +1030,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/dbf36a33-c248-4fd1-9c7b-2c9a0dc19a96",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.145Z",
+      "crawledAt": "2026-11-01T09:23:59.338Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1041,7 +1077,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.338Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-3fe74108bdf0",
@@ -1074,7 +1113,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e795a198-be86-4bf4-87a1-072aa085c07a",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.144Z",
+      "crawledAt": "2026-11-01T09:23:59.336Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1118,7 +1157,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-02T09:23:59.336Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-222b7a309d09",
@@ -1152,7 +1194,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/803f6aee-2201-4a2d-8e51-005abca2abaa",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.143Z",
+      "crawledAt": "2026-11-01T09:23:59.335Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1199,7 +1241,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.335Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-b6d1c0fb6080",
@@ -1233,7 +1278,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/834143ff-94d1-4ea5-9f8b-16a4d114e541",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.142Z",
+      "crawledAt": "2026-11-01T09:23:59.333Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1280,7 +1325,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-10T09:23:59.333Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-89c8778fb05a",
@@ -1314,7 +1362,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/c7a6be48-ac3d-48e8-a4da-9953599141b9",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.141Z",
+      "crawledAt": "2026-11-01T09:23:59.332Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1361,7 +1409,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-20T09:23:59.332Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-f875d9aaa7fd",
@@ -1395,7 +1446,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/466100b9-5f12-4427-afee-52a1bf3fc2b5",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.140Z",
+      "crawledAt": "2026-11-01T09:23:59.330Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1442,7 +1493,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.330Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-68d148282734",
@@ -1476,7 +1530,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f822dcaa-af38-4c3a-8c3c-d00784f35bdf",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.139Z",
+      "crawledAt": "2026-11-01T09:23:59.329Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1523,7 +1577,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.329Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-800e7d4a8f40",
@@ -1557,7 +1614,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/c0b781e5-cb1f-4040-8fa7-0f05bcb9d5f1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.138Z",
+      "crawledAt": "2026-11-01T09:23:59.327Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1604,7 +1661,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.327Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-ca38e001e7fa",
@@ -1638,7 +1698,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/feea3bf9-8fb3-41d3-bf15-56f7d04df8f0",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.137Z",
+      "crawledAt": "2026-11-01T09:23:59.325Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1682,7 +1742,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.325Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-4e042a2b001b",
@@ -1716,7 +1779,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/c43cdeff-9f71-4fac-92f5-c4c6dc8dd8cc",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.136Z",
+      "crawledAt": "2026-11-01T09:23:59.323Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1763,7 +1826,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-02T09:23:59.323Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-fcbb6035a0ab",
@@ -1796,7 +1862,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/36f63aeb-f607-4075-87db-13bacbfe1116",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.135Z",
+      "crawledAt": "2026-11-01T09:23:59.321Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1843,7 +1909,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-29T09:23:59.321Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-04d6b0dd3c8b",
@@ -1876,7 +1945,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a98ffa5e-60b4-4082-a88a-427bd8ad4576",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.134Z",
+      "crawledAt": "2026-11-01T09:23:59.320Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1923,7 +1992,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-29T09:23:59.320Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-91c0a7708e6b",
@@ -1956,7 +2028,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/517efa38-8a96-4f43-9651-e61a091f92a0",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.133Z",
+      "crawledAt": "2026-11-01T09:23:59.318Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2003,7 +2075,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-29T09:23:59.318Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-99f545a0b383",
@@ -2037,7 +2112,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/2bb055fb-c3a5-4e50-8fe9-77f60549d86f",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.132Z",
+      "crawledAt": "2026-11-01T09:23:59.316Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2084,7 +2159,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.316Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-a1432d848fa9",
@@ -2118,7 +2196,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f1566f2d-4071-48d1-80ef-2b7579555f92",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.131Z",
+      "crawledAt": "2026-11-01T09:23:59.315Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2165,7 +2243,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-23T09:23:59.315Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-de60fcb70340",
@@ -2199,7 +2280,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/9f6b0ca1-a71f-4581-b674-66bbb8d9bf25",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.130Z",
+      "crawledAt": "2026-11-01T09:23:59.313Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2246,7 +2327,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-23T09:23:59.313Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-0dc280580e4d",
@@ -2280,7 +2364,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/50aea3a4-a14a-48a9-b178-1519af4c6099",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.129Z",
+      "crawledAt": "2026-11-01T09:23:59.311Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2328,7 +2412,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.311Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-39c42e355946",
@@ -2362,7 +2449,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/87e62f6d-7d5f-4f40-b139-fed33c95aff1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.128Z",
+      "crawledAt": "2026-11-01T09:23:59.310Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2409,7 +2496,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.310Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-8c570b54f114",
@@ -2443,7 +2533,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/c1e0db7b-11f9-4757-ad71-e8e10fa75b65",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.127Z",
+      "crawledAt": "2026-11-01T09:23:59.309Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2484,7 +2574,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.309Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-54b17d2cd0b6",
@@ -2518,7 +2611,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ebd7222b-4401-4c27-9c60-b87426f19f67",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.126Z",
+      "crawledAt": "2026-11-01T09:23:59.307Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2565,7 +2658,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.307Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-ee8bfb28ee0d",
@@ -2598,7 +2694,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/50761ce1-056b-4172-9cba-68ed340001ed",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.125Z",
+      "crawledAt": "2026-11-01T09:23:59.306Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2649,7 +2745,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.306Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-6eb800db45b1",
@@ -2682,7 +2781,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/390c697f-f6c1-4494-92eb-cd41c5aafd2c",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.124Z",
+      "crawledAt": "2026-11-01T09:23:59.305Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2729,7 +2828,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-02T09:23:59.305Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-95734eff8e39",
@@ -2763,7 +2865,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/d9f19d99-3e8e-48b7-af34-accae13fe51c",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.123Z",
+      "crawledAt": "2026-11-01T09:23:59.304Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2810,7 +2912,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-06T09:23:59.304Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-495647be9274",
@@ -2843,7 +2948,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/088c23b7-824f-4dcb-81b8-70852e027375",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.121Z",
+      "crawledAt": "2026-11-01T09:23:59.303Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2890,7 +2995,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.303Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-249cf6d46f75",
@@ -2923,7 +3031,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/88c308ea-0270-4aee-9fa7-7d20763bb530",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.120Z",
+      "crawledAt": "2026-11-01T09:23:59.302Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2970,7 +3078,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.302Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-f21fbab7ef5e",
@@ -3003,7 +3114,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/5ae16aea-9431-4246-bc11-521e10c57d67",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.119Z",
+      "crawledAt": "2026-11-01T09:23:59.301Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3050,7 +3161,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.301Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-49542d11ef6e",
@@ -3083,7 +3197,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/065f0696-69b6-48c0-ae4b-c62b7c7dd24c",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.118Z",
+      "crawledAt": "2026-11-01T09:23:59.300Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3130,7 +3244,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.300Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-290367e014cd",
@@ -3164,7 +3281,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/4407adac-56e2-46fa-bddc-4e4e4407206e",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.117Z",
+      "crawledAt": "2026-11-01T09:23:59.299Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3211,7 +3328,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.299Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-88b8204eb22c",
@@ -3244,7 +3364,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/78097d2e-ec74-45b2-a617-4d936f44f9dd",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.116Z",
+      "crawledAt": "2026-11-01T09:23:59.298Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3288,7 +3408,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.298Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-7ed1a31ea5d6",
@@ -3322,7 +3445,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/546cae36-b07c-4876-a8ec-d19aad56bfc8",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.115Z",
+      "crawledAt": "2026-11-01T09:23:59.297Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3369,7 +3492,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.297Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-0154c61f0ee5",
@@ -3402,7 +3528,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/740663fe-4cf5-4b01-aa5c-e5a3b67b6be1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.114Z",
+      "crawledAt": "2026-11-01T09:23:59.296Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3451,7 +3577,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-10T09:23:59.296Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-49b16b2d3c20",
@@ -3485,7 +3614,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/3844d324-51d7-4298-814f-162171b104bf",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.113Z",
+      "crawledAt": "2026-11-01T09:23:59.295Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3532,7 +3661,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-10T09:23:59.295Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-4a8bcedf7ff9",
@@ -3566,7 +3698,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/35611fd1-dd37-47e6-8d95-d3e975daf0fe",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.111Z",
+      "crawledAt": "2026-11-01T09:23:59.293Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3615,7 +3747,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-11T09:23:59.293Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-07bb0329558d",
@@ -3649,7 +3784,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/8021118f-0421-4d80-b73b-eb49484713ab",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.110Z",
+      "crawledAt": "2026-11-01T09:23:59.292Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3696,7 +3831,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T09:23:59.292Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-f5aae9259b42",
@@ -3730,7 +3868,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/99e0a8cd-354b-4a38-98cd-ca0a215e1988",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.109Z",
+      "crawledAt": "2026-11-01T09:23:59.291Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3779,7 +3917,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T09:23:59.291Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-ade4f8c0d7aa",
@@ -3813,7 +3954,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f19c43e9-9dfb-42fd-92af-8778fbfbf9f8",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.108Z",
+      "crawledAt": "2026-11-01T09:23:59.290Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3860,7 +4001,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.290Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-3b8653956496",
@@ -3893,7 +4037,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f45b98a7-1d53-4198-a896-1f574ad94b92",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.107Z",
+      "crawledAt": "2026-11-01T09:23:59.289Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3942,7 +4086,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T09:23:59.289Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-ab157255d2a6",
@@ -3976,7 +4123,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/9f966fa0-0ed7-41fb-9336-2efef2593862",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.106Z",
+      "crawledAt": "2026-11-01T09:23:59.288Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4027,7 +4174,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:23:59.288Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-fef0c7315b1c",
@@ -4061,7 +4211,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ff9adcb5-61ca-438f-84a2-6ffd33e334bd",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.105Z",
+      "crawledAt": "2026-11-01T09:23:59.287Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4107,7 +4257,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.287Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-d078ca5855af",
@@ -4141,7 +4294,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e40ae52f-c96a-41df-81cb-06d9d500018c",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.104Z",
+      "crawledAt": "2026-11-01T09:23:59.286Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4188,7 +4341,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-05T09:23:59.286Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-d491a33b4cbd",
@@ -4222,7 +4378,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/8274b894-807c-4325-aac1-a2ffae48a8b5",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.103Z",
+      "crawledAt": "2026-11-01T09:23:59.285Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4269,7 +4425,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-17T09:23:59.285Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-c91b6eca8669",
@@ -4303,7 +4462,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/fe9d8c29-c0ba-498c-a916-0e4506f9ee27",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.102Z",
+      "crawledAt": "2026-11-01T09:23:59.284Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4344,7 +4503,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-10T09:23:59.284Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-3cb55327a38c",
@@ -4378,7 +4540,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/4c438152-5791-4036-b9ac-979731e8149e",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.101Z",
+      "crawledAt": "2026-11-01T09:23:59.283Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4425,7 +4587,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-17T09:23:59.283Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-4b1a210f3920",
@@ -4459,7 +4624,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/031c75fd-9690-4c23-8f02-a53a7875852d",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.099Z",
+      "crawledAt": "2026-11-01T09:23:59.281Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4506,7 +4671,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-17T09:23:59.281Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-fa918080d788",
@@ -4540,7 +4708,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f7592211-4bbe-4b35-91d5-422a81d91e9d",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.098Z",
+      "crawledAt": "2026-11-01T09:23:59.280Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4589,7 +4757,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.280Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-08c4865963b8",
@@ -4623,7 +4794,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/8440aec7-c1a1-46dd-8730-e88fc08715fc",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.097Z",
+      "crawledAt": "2026-11-01T09:23:59.279Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4670,7 +4841,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:23:59.279Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-9da0f089f895",
@@ -4703,7 +4877,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/5e86bbf3-5b4a-454a-b6cb-a21efa6d0189",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.096Z",
+      "crawledAt": "2026-11-01T09:23:59.277Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4750,7 +4924,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:23:59.277Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-fe0f678b18c6",
@@ -4784,7 +4961,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/886ade66-5a60-416c-b275-16c642a3b08f",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.095Z",
+      "crawledAt": "2026-11-01T09:23:59.276Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4833,7 +5010,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.276Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-0c3314286bad",
@@ -4867,7 +5047,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/5e92d3b5-04cc-4997-8650-212b0ae36f39",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.094Z",
+      "crawledAt": "2026-11-01T09:23:59.275Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4914,7 +5094,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:23:59.275Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-ecf8bcc3e314",
@@ -4948,7 +5131,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/4a343096-e2ff-45e3-ac01-705088bbf454",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.093Z",
+      "crawledAt": "2026-11-01T09:23:59.273Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4995,7 +5178,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.273Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-9c0616da1638",
@@ -5029,7 +5215,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/c1b402ce-ad5a-4bcf-a061-b6aaf8d9bb25",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.092Z",
+      "crawledAt": "2026-11-01T09:23:59.272Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5076,7 +5262,10 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:23:59.272Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-7f8a8174977b",
@@ -5110,7 +5299,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/2ec7a578-ea22-4f24-abd9-43b30dbdfa0d",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.090Z",
+      "crawledAt": "2026-11-01T09:23:59.271Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5157,7 +5346,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-15T09:23:59.271Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-1925e375f43a",
@@ -5191,7 +5383,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/3f5812dd-9821-4366-8863-470d64b2200b",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.089Z",
+      "crawledAt": "2026-11-01T09:23:59.270Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5232,7 +5424,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:23:59.270Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-65fa4dac9b9e",
@@ -5265,7 +5460,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ae4535e3-f530-4028-aac2-ea1f349630be",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.088Z",
+      "crawledAt": "2026-11-01T09:23:59.269Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5312,7 +5507,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-06T09:23:59.269Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-78cb2409126f",
@@ -5346,7 +5544,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/6fb32efa-b8c3-4d60-a3ed-44ee00fbf5af",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.087Z",
+      "crawledAt": "2026-11-01T09:23:59.268Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5393,7 +5591,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:23:59.268Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-a92570ba63df",
@@ -5427,7 +5628,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/d5f24061-9d22-4123-9c1c-2b6e69ca6477",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.086Z",
+      "crawledAt": "2026-11-01T09:23:59.267Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5475,7 +5676,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-20T09:23:59.267Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-f95e465c1e9f",
@@ -5508,7 +5712,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/3382e8f0-85b8-45ee-b3f2-367f87a119e7",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.084Z",
+      "crawledAt": "2026-11-01T09:23:59.264Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5555,7 +5759,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-15T09:23:59.264Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-5dd9a14c50c6",
@@ -5589,7 +5796,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e21ca9aa-cb73-4689-b6e4-361e281c523e",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.083Z",
+      "crawledAt": "2026-11-01T09:23:59.263Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5636,7 +5843,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:23:59.263Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-bb86fc03c539",
@@ -5670,7 +5880,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/98eaf534-4027-40fc-8342-86778deb8f19",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.081Z",
+      "crawledAt": "2026-11-01T09:23:59.261Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5717,7 +5927,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-20T09:23:59.261Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-f9dc5c11f2cb",
@@ -5745,12 +5958,13 @@
         "de": "## Universitätsklinik für Kinder- und Jugendpsychiatrie und Psychotherapie\nSie sind TOP-Medizinerin und TOP-Mediziner, TOP-Forscherin und TOP-Forscher, TOP-Controllerin und TOP-Controller sowie TOP-Personalmanagerin und TOP-Personalmanager?\nManchmal? Selten? Oder möchten Sie es werden?\nDann sind Sie bei uns richtig, denn wir sind jeden Tag aufs Neue etwas von allem und helfen Ihnen dabei, Ihre Stärken in diesen vier TOPs zu finden und weiterzuentwickeln\nMöchten Sie Teil eines universitären innovativen und dynamischen Teams der Universitätsklinik für Kinder- und Jugendpsychiatrie - psychotherapie in der Hauptstadt der Schweiz werden? Wir arbeiten eng mit pädagogischen und psychologischen Leitungen in trialen Teams zusammen. Sie lernen unterschiedliche Schwerpunkte kennen und können sich darin weiterentwickeln. Wir unterstützen Sie gerne in Ihrem neuen Tätigkeitsfeld als Führungskraft und stehen Ihnen supervisorisch eng zur Seite. Unsere (psycho)therapeutischen Schwerpunkte sind breit gestreut mit Spezialisierung auf Dialektisch-Behavoriale Therapie, systemische Therapie (Multifamilientherapie), tiefenpsychologische und stationsäquivalente - aufsuchende Therapie.\n\n## Ihre Aufgaben\n• Sie verantworten die kinder- und jugendpsychiatrische Diagnostik und Therapie in enger interdisziplinärer Zusammenarbeit mit unserem Team (inklusive fachärztliche Rufbereitschaft)\n• Die Mitarbeit in der Weiterentwicklung der klinischen Konzepte in enger Zusammenarbeit mit einem engagierten, multidisziplinären Team ist ein weiterer Teil dieser interessanten Aufgabe\n• Sie engagieren sich in der universitären Lehre und Forschung\n\n## Ihr Profil\n• Sie haben einen Facharzttitel im Bereich der Kinder- und Jugendpsychiatrie erfolgreich erworben (Promotion von Vorteil)\n• Sie interessieren sich für eine Tätigkeit an einer Universitätsklinik und die hiermit einhergehenden Schnittstellen zu Lehre und Forschung\n• Sie übernehmen gerne Führungs- und Weiterbildungsverantwortung und interessieren sich für die Entwicklung neuer Therapiekonzepte\n• Sie haben gute mündliche und schriftliche Deutschkenntnisse auf Niveau C2\n\n## Das UPZ\nDas Universitäre Psychiatrische Zentrum Bern (UPZ) ist als universitäre Klinik das führende Kompetenzzentrum für Psychiatrie und Psychotherapie in der Hauptstadtregion. Es gewährleistet die psychiatrische Versorgung im Kanton Bern entlang der gesamten Versorgungskette, von der Früherkennung über ambulante, tagesklinische und stationäre Therapien bis hin zu Rehabilitation und Forensik. Mit über 30 Standorten bietet das UPZ ein flächendeckendes Versorgungsnetz. Darüber hinaus leistet das UPZ einen wichtigen Beitrag in den Bereichen Lehre, Aus- und Weiterbildung sowie Forschung.\n\n## Ihr Arbeitsort\nUniversitäres Psychiatrisches Zentrum Bern (UPZ)\nBolligenstrasse 111, 3000 Bern 60",
         "fr": "## Clinique universitaire de psychiatrie et de psychothérapie des enfants et des adolescents\nÊtes-vous un médecin TOP, chercheur TOP, contrôleur TOP et gestionnaire des ressources humaines TOP?\nParfois ? Rarement ? Ou tu veux l'être ? Ensuite, vous avez raison avec nous, parce que nous sommes quelque chose de tout chaque jour et vous aider à trouver vos forces dans ces 4 TOP et vous développer plus loin.\nSouhaitez-vous faire partie d'une équipe novatrice et dynamique de l'Hôpital universitaire de psychiatrie de l'enfant et de l'adolescent - Psychothérapie dans la capitale suisse ? Nous travaillons en étroite collaboration avec les responsables éducatifs et psychologiques des équipes de procès. Ils apprennent à connaître différents domaines d'intervention et peuvent s'y développer davantage. Nous sommes heureux de vous soutenir dans votre nouveau domaine d'activité en tant que leader et sommes proches de vous supervision. Nos focus (psycho)thérapeutiques sont largement répandus avec spécialisation dans la thérapie dialectique-comportementale, la thérapie systémique (thérapie multifamiliale), la profondeur psychologique et l'équivalent de station - à la recherche de thérapie.\n\n## Leurs tâches\n• Vous êtes responsable du diagnostic et de la thérapie psychiatriques chez l'enfant et l'adolescent en étroite collaboration interdisciplinaire avec notre équipe (y compris la volonté des spécialistes d'appeler)\n• La participation à la poursuite du développement des concepts cliniques en étroite collaboration avec une équipe multidisciplinaire engagée constitue une autre partie de cette tâche intéressante.\n• Vous participez à l'enseignement et à la recherche universitaires\n\n## Votre profil\n• Vous avez acquis avec succès un titre spécialisé dans le domaine de la psychiatrie des enfants et des adolescents (promotion bénéfique)\n• Vous êtes intéressé à travailler dans un hôpital universitaire et les interfaces associées à l'enseignement et à la recherche\n• Vous aimez assumer la responsabilité du leadership et de l'éducation continue et êtes intéressé par le développement de nouveaux concepts thérapeutiques\n• Vous avez une bonne connaissance orale et écrite de l'allemand au niveau C2\n\n## L'UPZ\nLe Centre psychiatrique de l'Université de Berne (UPZ) est le centre d'excellence en psychiatrie et en psychothérapie de la capitale. Il assure des soins psychiatriques dans le canton de Berne tout au long de la chaîne d'approvisionnement, depuis le diagnostic précoce jusqu'au traitement ambulatoire, aux garderies et aux soins hospitaliers jusqu'à la réadaptation et à la médecine légale. Avec plus de 30 emplacements, l'UPZ offre un réseau d'approvisionnement complet. En outre, l'UPZ apporte une contribution importante dans les domaines de l'enseignement, de la formation et de la formation continue ainsi que de la recherche.\n\n## Votre lieu de travail\nCentre psychiatrique universitaire de Berne (UPZ)\nBolligenstrasse 111, 3000 Berne 60"
       },
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/jobs/2f2d7e45-014b-4330-a164-a21c5dcc5dde",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.080Z",
+      "crawledAt": "2026-11-01T09:23:59.259Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5770,6 +5984,30 @@
       "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/2f2d7e45-014b-4330-a164-a21c5dcc5dde",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
+        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-48f154b2",
+        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-8aec06b2",
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-d6593398",
+        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-223997c8",
+        "medico-specialista-in-pediatria-e-adolescenza-universitare-psychiatrische-dienste-bern-upd-bern",
+        "senior-physician-in-child-and-adolescent-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
+        "medecin-specialiste-en-psychiatrie-de-l-enfant-et-de-l-adolescent-universitare-psychiatrische-dienste-bern-upd-bern",
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-c7f6cc65",
+        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-544dff53",
+        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-22000f1b",
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-6b11e239",
+        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-149f0325",
+        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-87d86361",
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-fe123209",
+        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-6cadb09a",
+        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-387da642",
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-0b1c345d",
+        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-faf1b9bc",
+        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-805b6568",
+        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-e51c675f",
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-6a76704f"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
@@ -5803,30 +6041,7 @@
           "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-48f154b2"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
-        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-48f154b2",
-        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-8aec06b2",
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-d6593398",
-        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-223997c8",
-        "medico-specialista-in-pediatria-e-adolescenza-universitare-psychiatrische-dienste-bern-upd-bern",
-        "senior-physician-in-child-and-adolescent-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
-        "medecin-specialiste-en-psychiatrie-de-l-enfant-et-de-l-adolescent-universitare-psychiatrische-dienste-bern-upd-bern",
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-c7f6cc65",
-        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-544dff53",
-        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-22000f1b",
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-6b11e239",
-        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-149f0325",
-        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-87d86361",
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-fe123209",
-        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-6cadb09a",
-        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-387da642",
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-0b1c345d",
-        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-faf1b9bc",
-        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-805b6568",
-        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-e51c675f",
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-6a76704f"
-      ],
+      "firstSeenAt": "2026-10-17T09:26:20.143Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -5840,7 +6055,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-17T09:26:20.143Z"
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.259Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-25aa56b7baca",
@@ -5874,7 +6091,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/82f018f5-1ce2-43cb-a3e3-bfa69dfa2813",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.079Z",
+      "crawledAt": "2026-11-01T09:23:59.257Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5920,7 +6137,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.257Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-b3bd66c0a516",
@@ -5954,7 +6174,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/4eec4521-dc5e-4ac8-9584-f7e7972728cd",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.078Z",
+      "crawledAt": "2026-11-01T09:23:59.255Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6002,7 +6222,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.255Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-c0ebc1f46461",
@@ -6035,7 +6258,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/39e80465-2690-4b0e-b16f-7563f669a012",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.075Z",
+      "crawledAt": "2026-11-01T09:23:59.252Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6082,7 +6305,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.252Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-813d51c48496",
@@ -6116,7 +6342,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/7dad46e2-236a-4b43-b1b6-69c5a0729335",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.074Z",
+      "crawledAt": "2026-11-01T09:23:59.251Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6163,88 +6389,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "upd-1ef318bbc073",
-      "slug": "interno-di-ricerca-wasa-universitare-psychiatrische-dienste-bern-upd-bern",
-      "slugByLocale": {
-        "it": "interno-di-ricerca-wasa-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "research-internship-wasa-universitare-psychiatrische-dienste-bern-upd-bern",
-        "de": "forschungspraktikum-wasa-upd-bern",
-        "fr": "stage-de-recherche-wasa-universitare-psychiatrische-dienste-bern-upd-bern"
       },
-      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
-      "companyKey": "upd",
-      "companyDomain": "upd.ch",
-      "title": "Forschungspraktikum WASA",
-      "titleByLocale": {
-        "it": "Interno di ricerca WASA",
-        "en": "Research Internship WASA",
-        "de": "Forschungspraktikum WASA",
-        "fr": "Stage de recherche WASA"
-      },
-      "description": "## Universitätsklinik für Kinder- und Jugendpsychiatrie und Psychotherapie\nDas Berner Zentrum für Essstörungen (BZE) der Universitätsklinik für Kinder- und Jugendpsychiatrie und Psychotherapie, UPZ, sucht ab sofort oder laufend nach Vereinbarung eine Praktikantin und einen Praktikanten (300 Arbeitsstunden bzw. 6–8 Stunden pro Woche, Laufzeit ca. 1 Jahr) für die Mitarbeit an einer Studie mit stationären Patientinnen und Patienten mit Anorexie.\n\n## Ihre Aufgaben\n• Sie absolvieren aktuell ein Bachelor oder Masterstudium der Psychologie an der Universität Bern und haben Interesse an empirischer Forschung im Bereich Anorexie\n• Sie sind mit Computerprogrammen (Word und Excel) vertraut, und suchen eine Möglichkeit, Berufserfahrungen in projektorientierter klini-scher Arbeit zu sammeln\n• Von Vorteil sind Vorkenntnisse in psychologischer Diagnostik (z.B. Durchführung halbstrukturierter Interviews)\n• Erwartet wird eine aktive, gewissenhafte und verbindliche Mitarbeit in einem interdisziplinären Team (Medizin, Psychologie, Pflege) und die Bereitschaft, Messungen am frühen Morgen in Moosseedorf zu begleiten\n\n## Ihr Profil\n• Sie arbeiten in unserer Studie WASA mit, die den Zusammenhang zwischen Gewichtsangst und psychologisch-biophysiologischen Reaktionen untersucht\n• In dieser Funktion unterstützen Sie uns bei der psychologischen Diagnostik (Dateneingabe & -verwaltung, klinische Messungen vor dem Frühstück in der Klinik in Moosseedorf und aufsuchend in den Familien)\n• Zudem erhalten Sie einen umfassenden inhaltlichen und organisatorischen Einblick in die multimodale, professionelle Arbeit am Berner Zentrum für Essstörungen (BZE)\n• Das Praktikum erfolgt unentgeltlich\nInformationen zum Berner Zentrum für Essstörungen.\nInformationen zur WASA Studie und unserem Forschungsteam.\n\n## Das UPZ\nDas Universitäre Psychiatrische Zentrum Bern (UPZ) ist als universitäre Klinik das führende Kompetenzzentrum für Psychiatrie und Psychotherapie in der Hauptstadtregion. Es gewährleistet die psychiatrische Versorgung im Kanton Bern entlang der gesamten Versorgungskette, von der Früherkennung über ambulante, tagesklinische und stationäre Therapien bis hin zu Rehabilitation und Forensik. Mit über 30 Standorten bietet das UPZ ein flächendeckendes Versorgungsnetz. Darüber hinaus leistet das UPZ einen wichtigen Beitrag in den Bereichen Lehre, Aus- und Weiterbildung sowie Forschung.\n\n## Ihr Arbeitsort\nUniversitäres Psychiatrisches Zentrum Bern (UPZ)\nHallerstrasse 10, 3012 Bern",
-      "descriptionByLocale": {
-        "it": "## Clinica universitaria per bambini e adolescente psichiatria e psicoterapia\nIl Centro di Berna per Disturbi Mangianti (BZE) dell'Ospedale Universitario per la Psichiatria infantile e Adolescente e la Psicologia, UPZ, sta cercando uno stagista (300 ore lavorative o 6-8 ore settimanali, durata circa 1 anno) per partecipare a uno studio con pazienti affetti da anoressia.\n\n## I loro compiti\n• Stai attualmente completando una laurea o Master in Psicologia presso l'Università di Berna e sono interessati a ricerche empiriche nel campo dell'anoressia\n• Hai familiarità con i programmi per computer (Word e Excel) e stai cercando un modo per acquisire esperienza professionale nel lavoro clinico orientato al progetto\n• La conoscenza prioritaria nella diagnosi psicologica (ad esempio condurre interviste semi-strutturate) è vantaggiosa.\n• Si prevede una partecipazione attiva, coscienziosa e impegnata in un team interdisciplinare (medicina, psicologia, cura) e la volontà di accompagnare le misurazioni al mattino presto a Moosseedorf\n\n## Il tuo profilo\n• Sono coinvolti nel nostro studio WASA, che esamina il rapporto tra ansia di peso e reazioni psico-biofisiologiche.\n• In questa funzione, ci supporta nella diagnosi psicologica (ingresso dati e gestione, misurazioni cliniche prima della colazione nella clinica di Moosseedorf e visita nelle famiglie)\n• Inoltre, otterrete un contenuto completo e una panoramica organizzativa del lavoro multimodale e professionale presso il Centro di Berna per l'Eating Disorders (BZE)\n• Il tirocinio è gratuito\nInformazioni sul Centro di Berna per Eating Disorders.\nInformazioni sullo studio WASA e sul nostro team di ricerca.\n\n## L'UPZ\nLa Universitäre Psychiatrische Zentrum Bern (UPZ) è il centro di eccellenza per la psichiatria e la psicoterapia nella regione capitale. Garantisce cure psichiatriche nel cantone di Berna lungo tutta la catena di approvvigionamento, dalla diagnosi precoce alle terapie ospedaliere, diurne e ospedaliere alla riabilitazione e alla forense. Con oltre 30 sedi, UPZ offre una rete di approvvigionamento completa. Inoltre, l'UPZ offre un importante contributo nei settori dell'insegnamento, della formazione e dell'ulteriore istruzione e della ricerca.\n\n## Il tuo posto di lavoro\nCentro psichiatrico universitario Berna (UPZ)\nHallerstrasse 10, 3012 Berna",
-        "en": "## University Clinic for Child and Adolescent Psychiatry and Psychotherapy\nThe Bern Center for Eating Disorders (BZE) of the University Hospital for Child and Adolescent Psychiatry and Psychotherapy, UPZ, is looking for an intern (300 working hours or 6-8 hours per week, duration about 1 year) to participate in a study with inpatients with anorexia.\n\n## Their tasks\n• You are currently completing a Bachelor's or Master's degree in Psychology at the University of Bern and are interested in empirical research in the field of anorexia\n• You are familiar with computer programs (Word and Excel) and are looking for a way to gain professional experience in project-oriented clinical work\n• Prior knowledge in psychological diagnosis (e.g. conducting semi-structured interviews) is advantageous.\n• An active, conscientious and committed participation in an interdisciplinary team (medicine, psychology, care) and the willingness to accompany measurements in the early morning in Moosseedorf is expected\n\n## Your profile\n• They are involved in our study WASA, which examines the relationship between weight anxiety and psychological-biophysiological reactions.\n• In this function, you support us in psychological diagnosis (data entry & management, clinical measurements before breakfast in the clinic in Moosseedorf and visiting in the families)\n• In addition, you will get a comprehensive content and organizational insight into the multimodal, professional work at the Bern Center for Eating Disorders (BZE)\n• The traineeship is free of charge\nInformation about the Bern Center for Eating Disorders.\nInformation about the WASA study and our research team.\n\n## The UPZ\nThe Universitäre Psychiatrische Zentrum Bern (UPZ) is the leading centre of excellence for psychiatry and psychotherapy in the capital region. It ensures psychiatric care in the canton of Bern along the entire supply chain, from early diagnosis to outpatient, day-care and inpatient therapies to rehabilitation and forensics. With more than 30 locations, the UPZ offers a comprehensive supply network. In addition, the UPZ makes an important contribution in the areas of teaching, training and further education as well as research.\n\n## Your place of work\nUniversity Psychiatric Center Bern (UPZ)\nHallerstrasse 10, 3012 Bern",
-        "de": "## Universitätsklinik für Kinder- und Jugendpsychiatrie und Psychotherapie\nDas Berner Zentrum für Essstörungen (BZE) der Universitätsklinik für Kinder- und Jugendpsychiatrie und Psychotherapie, UPZ, sucht ab sofort oder laufend nach Vereinbarung eine Praktikantin und einen Praktikanten (300 Arbeitsstunden bzw. 6–8 Stunden pro Woche, Laufzeit ca. 1 Jahr) für die Mitarbeit an einer Studie mit stationären Patientinnen und Patienten mit Anorexie.\n\n## Ihre Aufgaben\n• Sie absolvieren aktuell ein Bachelor oder Masterstudium der Psychologie an der Universität Bern und haben Interesse an empirischer Forschung im Bereich Anorexie\n• Sie sind mit Computerprogrammen (Word und Excel) vertraut, und suchen eine Möglichkeit, Berufserfahrungen in projektorientierter klini-scher Arbeit zu sammeln\n• Von Vorteil sind Vorkenntnisse in psychologischer Diagnostik (z.B. Durchführung halbstrukturierter Interviews)\n• Erwartet wird eine aktive, gewissenhafte und verbindliche Mitarbeit in einem interdisziplinären Team (Medizin, Psychologie, Pflege) und die Bereitschaft, Messungen am frühen Morgen in Moosseedorf zu begleiten\n\n## Ihr Profil\n• Sie arbeiten in unserer Studie WASA mit, die den Zusammenhang zwischen Gewichtsangst und psychologisch-biophysiologischen Reaktionen untersucht\n• In dieser Funktion unterstützen Sie uns bei der psychologischen Diagnostik (Dateneingabe & -verwaltung, klinische Messungen vor dem Frühstück in der Klinik in Moosseedorf und aufsuchend in den Familien)\n• Zudem erhalten Sie einen umfassenden inhaltlichen und organisatorischen Einblick in die multimodale, professionelle Arbeit am Berner Zentrum für Essstörungen (BZE)\n• Das Praktikum erfolgt unentgeltlich\nInformationen zum Berner Zentrum für Essstörungen.\nInformationen zur WASA Studie und unserem Forschungsteam.\n\n## Das UPZ\nDas Universitäre Psychiatrische Zentrum Bern (UPZ) ist als universitäre Klinik das führende Kompetenzzentrum für Psychiatrie und Psychotherapie in der Hauptstadtregion. Es gewährleistet die psychiatrische Versorgung im Kanton Bern entlang der gesamten Versorgungskette, von der Früherkennung über ambulante, tagesklinische und stationäre Therapien bis hin zu Rehabilitation und Forensik. Mit über 30 Standorten bietet das UPZ ein flächendeckendes Versorgungsnetz. Darüber hinaus leistet das UPZ einen wichtigen Beitrag in den Bereichen Lehre, Aus- und Weiterbildung sowie Forschung.\n\n## Ihr Arbeitsort\nUniversitäres Psychiatrisches Zentrum Bern (UPZ)\nHallerstrasse 10, 3012 Bern",
-        "fr": "## Clinique universitaire de psychiatrie et de psychothérapie des enfants et des adolescents\nLe Centre Bern pour les troubles de l'alimentation (BZE) de l'hôpital universitaire de psychiatrie et de psychothérapie de l'enfant et de l'adolescent, UPZ, est à la recherche d'un interne (300 heures de travail ou 6-8 heures par semaine, d'une durée d'environ 1 an) pour participer à une étude avec des malades hospitalisés avec anorexie.\n\n## Leurs tâches\n• Vous êtes en train de terminer un baccalauréat ou une maîtrise en psychologie à l'Université de Berne et êtes intéressé par la recherche empirique dans le domaine de l'anorexie\n• Vous connaissez les programmes informatiques (Word et Excel) et vous cherchez un moyen d'acquérir une expérience professionnelle dans le travail clinique axé sur le projet\n• La connaissance préalable du diagnostic psychologique (p. ex. la conduite d'entrevues semi-structurées) est avantageuse.\n• Une participation active, consciencieuse et engagée à une équipe interdisciplinaire (médecine, psychologie, soins) et la volonté d'accompagner les mesures tôt le matin à Moosseedorf sont attendues\n\n## Votre profil\n• Ils sont impliqués dans notre étude WASA, qui examine la relation entre l'anxiété de poids et les réactions psychologiques-biophysiologiques.\n• Dans cette fonction, vous nous aidez dans le diagnostic psychologique (entrée de données et gestion, mesures cliniques avant le petit déjeuner dans la clinique de Moosseedorf et visite dans les familles)\n• En outre, vous obtiendrez un contenu complet et un aperçu organisationnel du travail multimodal et professionnel au Centre Bern pour les troubles de l'alimentation (BZE)\n• Le stage est gratuit\nInformations sur le Centre Bern pour les troubles de l'alimentation.\nInformations sur l'étude WASA et notre équipe de recherche.\n\n## L'UPZ\nL'Université Psychiatrische Zentrum Bern (UPZ) est le centre d'excellence en psychiatrie et en psychothérapie de la capitale. Il assure les soins psychiatriques dans le canton de Berne tout au long de la chaîne d ' approvisionnement, depuis le diagnostic précoce jusqu ' aux consultations externes, aux garderies et aux soins hospitaliers jusqu ' à la réadaptation et à la médecine légale. Avec plus de 30 emplacements, l'UPZ offre un réseau d'approvisionnement complet. En outre, l'UPZ apporte une contribution importante dans les domaines de l'enseignement, de la formation et de la formation continue ainsi que de la recherche.\n\n## Votre lieu de travail\nCentre psychiatrique universitaire de Berne (UPZ)\nHallerstrasse 10, 3012 Berne"
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/jobs/13e58149-6b59-437f-8ec4-bcff3e3c0b9c",
-      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.073Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Hallerstrasse 10",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2023-09-20",
-      "postedDate": "2023-09-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/13e58149-6b59-437f-8ec4-bcff3e3c0b9c",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "forschungspraktikum-wasa-upd-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "forschungspraktikum-wasa-upd-bern"
-        ],
-        "en": [
-          "forschungspraktikum-wasa-upd-bern"
-        ],
-        "fr": [
-          "forschungspraktikum-wasa-upd-bern"
-        ]
-      },
-      "firstSeenAt": "2026-09-29T21:25:33.629Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.251Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-306edaf374ef",
@@ -6278,7 +6426,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ccc20219-c69e-4e3c-b257-4a6c164f2cc8",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.072Z",
+      "crawledAt": "2026-11-01T09:23:59.249Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6325,7 +6473,94 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.249Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "upd-1ef318bbc073",
+      "slug": "interno-di-ricerca-wasa-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slugByLocale": {
+        "it": "interno-di-ricerca-wasa-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "research-internship-wasa-universitare-psychiatrische-dienste-bern-upd-bern",
+        "de": "forschungspraktikum-wasa-upd-bern",
+        "fr": "stage-de-recherche-wasa-universitare-psychiatrische-dienste-bern-upd-bern"
+      },
+      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+      "companyKey": "upd",
+      "companyDomain": "upd.ch",
+      "title": "Forschungspraktikum WASA",
+      "titleByLocale": {
+        "it": "Interno di ricerca WASA",
+        "en": "Research Internship WASA",
+        "de": "Forschungspraktikum WASA",
+        "fr": "Stage de recherche WASA"
+      },
+      "description": "## Universitätsklinik für Kinder- und Jugendpsychiatrie und Psychotherapie\nDas Berner Zentrum für Essstörungen (BZE) der Universitätsklinik für Kinder- und Jugendpsychiatrie und Psychotherapie, UPZ, sucht ab sofort oder laufend nach Vereinbarung eine Praktikantin und einen Praktikanten (300 Arbeitsstunden bzw. 6–8 Stunden pro Woche, Laufzeit ca. 1 Jahr) für die Mitarbeit an einer Studie mit stationären Patientinnen und Patienten mit Anorexie.\n\n## Ihre Aufgaben\n• Sie absolvieren aktuell ein Bachelor oder Masterstudium der Psychologie an der Universität Bern und haben Interesse an empirischer Forschung im Bereich Anorexie\n• Sie sind mit Computerprogrammen (Word und Excel) vertraut, und suchen eine Möglichkeit, Berufserfahrungen in projektorientierter klini-scher Arbeit zu sammeln\n• Von Vorteil sind Vorkenntnisse in psychologischer Diagnostik (z.B. Durchführung halbstrukturierter Interviews)\n• Erwartet wird eine aktive, gewissenhafte und verbindliche Mitarbeit in einem interdisziplinären Team (Medizin, Psychologie, Pflege) und die Bereitschaft, Messungen am frühen Morgen in Moosseedorf zu begleiten\n\n## Ihr Profil\n• Sie arbeiten in unserer Studie WASA mit, die den Zusammenhang zwischen Gewichtsangst und psychologisch-biophysiologischen Reaktionen untersucht\n• In dieser Funktion unterstützen Sie uns bei der psychologischen Diagnostik (Dateneingabe & -verwaltung, klinische Messungen vor dem Frühstück in der Klinik in Moosseedorf und aufsuchend in den Familien)\n• Zudem erhalten Sie einen umfassenden inhaltlichen und organisatorischen Einblick in die multimodale, professionelle Arbeit am Berner Zentrum für Essstörungen (BZE)\n• Das Praktikum erfolgt unentgeltlich\nInformationen zum Berner Zentrum für Essstörungen.\nInformationen zur WASA Studie und unserem Forschungsteam.\n\n## Das UPZ\nDas Universitäre Psychiatrische Zentrum Bern (UPZ) ist als universitäre Klinik das führende Kompetenzzentrum für Psychiatrie und Psychotherapie in der Hauptstadtregion. Es gewährleistet die psychiatrische Versorgung im Kanton Bern entlang der gesamten Versorgungskette, von der Früherkennung über ambulante, tagesklinische und stationäre Therapien bis hin zu Rehabilitation und Forensik. Mit über 30 Standorten bietet das UPZ ein flächendeckendes Versorgungsnetz. Darüber hinaus leistet das UPZ einen wichtigen Beitrag in den Bereichen Lehre, Aus- und Weiterbildung sowie Forschung.\n\n## Ihr Arbeitsort\nUniversitäres Psychiatrisches Zentrum Bern (UPZ)\nHallerstrasse 10, 3012 Bern",
+      "descriptionByLocale": {
+        "it": "## Clinica universitaria per bambini e adolescente psichiatria e psicoterapia\nIl Centro di Berna per Disturbi Mangianti (BZE) dell'Ospedale Universitario per la Psichiatria infantile e Adolescente e la Psicologia, UPZ, sta cercando uno stagista (300 ore lavorative o 6-8 ore settimanali, durata circa 1 anno) per partecipare a uno studio con pazienti affetti da anoressia.\n\n## I loro compiti\n• Stai attualmente completando una laurea o Master in Psicologia presso l'Università di Berna e sono interessati a ricerche empiriche nel campo dell'anoressia\n• Hai familiarità con i programmi per computer (Word e Excel) e stai cercando un modo per acquisire esperienza professionale nel lavoro clinico orientato al progetto\n• La conoscenza prioritaria nella diagnosi psicologica (ad esempio condurre interviste semi-strutturate) è vantaggiosa.\n• Si prevede una partecipazione attiva, coscienziosa e impegnata in un team interdisciplinare (medicina, psicologia, cura) e la volontà di accompagnare le misurazioni al mattino presto a Moosseedorf\n\n## Il tuo profilo\n• Sono coinvolti nel nostro studio WASA, che esamina il rapporto tra ansia di peso e reazioni psico-biofisiologiche.\n• In questa funzione, ci supporta nella diagnosi psicologica (ingresso dati e gestione, misurazioni cliniche prima della colazione nella clinica di Moosseedorf e visita nelle famiglie)\n• Inoltre, otterrete un contenuto completo e una panoramica organizzativa del lavoro multimodale e professionale presso il Centro di Berna per l'Eating Disorders (BZE)\n• Il tirocinio è gratuito\nInformazioni sul Centro di Berna per Eating Disorders.\nInformazioni sullo studio WASA e sul nostro team di ricerca.\n\n## L'UPZ\nLa Universitäre Psychiatrische Zentrum Bern (UPZ) è il centro di eccellenza per la psichiatria e la psicoterapia nella regione capitale. Garantisce cure psichiatriche nel cantone di Berna lungo tutta la catena di approvvigionamento, dalla diagnosi precoce alle terapie ospedaliere, diurne e ospedaliere alla riabilitazione e alla forense. Con oltre 30 sedi, UPZ offre una rete di approvvigionamento completa. Inoltre, l'UPZ offre un importante contributo nei settori dell'insegnamento, della formazione e dell'ulteriore istruzione e della ricerca.\n\n## Il tuo posto di lavoro\nCentro psichiatrico universitario Berna (UPZ)\nHallerstrasse 10, 3012 Berna",
+        "en": "## University Clinic for Child and Adolescent Psychiatry and Psychotherapy\nThe Bern Center for Eating Disorders (BZE) of the University Hospital for Child and Adolescent Psychiatry and Psychotherapy, UPZ, is looking for an intern (300 working hours or 6-8 hours per week, duration about 1 year) to participate in a study with inpatients with anorexia.\n\n## Their tasks\n• You are currently completing a Bachelor's or Master's degree in Psychology at the University of Bern and are interested in empirical research in the field of anorexia\n• You are familiar with computer programs (Word and Excel) and are looking for a way to gain professional experience in project-oriented clinical work\n• Prior knowledge in psychological diagnosis (e.g. conducting semi-structured interviews) is advantageous.\n• An active, conscientious and committed participation in an interdisciplinary team (medicine, psychology, care) and the willingness to accompany measurements in the early morning in Moosseedorf is expected\n\n## Your profile\n• They are involved in our study WASA, which examines the relationship between weight anxiety and psychological-biophysiological reactions.\n• In this function, you support us in psychological diagnosis (data entry & management, clinical measurements before breakfast in the clinic in Moosseedorf and visiting in the families)\n• In addition, you will get a comprehensive content and organizational insight into the multimodal, professional work at the Bern Center for Eating Disorders (BZE)\n• The traineeship is free of charge\nInformation about the Bern Center for Eating Disorders.\nInformation about the WASA study and our research team.\n\n## The UPZ\nThe Universitäre Psychiatrische Zentrum Bern (UPZ) is the leading centre of excellence for psychiatry and psychotherapy in the capital region. It ensures psychiatric care in the canton of Bern along the entire supply chain, from early diagnosis to outpatient, day-care and inpatient therapies to rehabilitation and forensics. With more than 30 locations, the UPZ offers a comprehensive supply network. In addition, the UPZ makes an important contribution in the areas of teaching, training and further education as well as research.\n\n## Your place of work\nUniversity Psychiatric Center Bern (UPZ)\nHallerstrasse 10, 3012 Bern",
+        "de": "## Universitätsklinik für Kinder- und Jugendpsychiatrie und Psychotherapie\nDas Berner Zentrum für Essstörungen (BZE) der Universitätsklinik für Kinder- und Jugendpsychiatrie und Psychotherapie, UPZ, sucht ab sofort oder laufend nach Vereinbarung eine Praktikantin und einen Praktikanten (300 Arbeitsstunden bzw. 6–8 Stunden pro Woche, Laufzeit ca. 1 Jahr) für die Mitarbeit an einer Studie mit stationären Patientinnen und Patienten mit Anorexie.\n\n## Ihre Aufgaben\n• Sie absolvieren aktuell ein Bachelor oder Masterstudium der Psychologie an der Universität Bern und haben Interesse an empirischer Forschung im Bereich Anorexie\n• Sie sind mit Computerprogrammen (Word und Excel) vertraut, und suchen eine Möglichkeit, Berufserfahrungen in projektorientierter klini-scher Arbeit zu sammeln\n• Von Vorteil sind Vorkenntnisse in psychologischer Diagnostik (z.B. Durchführung halbstrukturierter Interviews)\n• Erwartet wird eine aktive, gewissenhafte und verbindliche Mitarbeit in einem interdisziplinären Team (Medizin, Psychologie, Pflege) und die Bereitschaft, Messungen am frühen Morgen in Moosseedorf zu begleiten\n\n## Ihr Profil\n• Sie arbeiten in unserer Studie WASA mit, die den Zusammenhang zwischen Gewichtsangst und psychologisch-biophysiologischen Reaktionen untersucht\n• In dieser Funktion unterstützen Sie uns bei der psychologischen Diagnostik (Dateneingabe & -verwaltung, klinische Messungen vor dem Frühstück in der Klinik in Moosseedorf und aufsuchend in den Familien)\n• Zudem erhalten Sie einen umfassenden inhaltlichen und organisatorischen Einblick in die multimodale, professionelle Arbeit am Berner Zentrum für Essstörungen (BZE)\n• Das Praktikum erfolgt unentgeltlich\nInformationen zum Berner Zentrum für Essstörungen.\nInformationen zur WASA Studie und unserem Forschungsteam.\n\n## Das UPZ\nDas Universitäre Psychiatrische Zentrum Bern (UPZ) ist als universitäre Klinik das führende Kompetenzzentrum für Psychiatrie und Psychotherapie in der Hauptstadtregion. Es gewährleistet die psychiatrische Versorgung im Kanton Bern entlang der gesamten Versorgungskette, von der Früherkennung über ambulante, tagesklinische und stationäre Therapien bis hin zu Rehabilitation und Forensik. Mit über 30 Standorten bietet das UPZ ein flächendeckendes Versorgungsnetz. Darüber hinaus leistet das UPZ einen wichtigen Beitrag in den Bereichen Lehre, Aus- und Weiterbildung sowie Forschung.\n\n## Ihr Arbeitsort\nUniversitäres Psychiatrisches Zentrum Bern (UPZ)\nHallerstrasse 10, 3012 Bern",
+        "fr": "## Clinique universitaire de psychiatrie et de psychothérapie des enfants et des adolescents\nLe Centre Bern pour les troubles de l'alimentation (BZE) de l'hôpital universitaire de psychiatrie et de psychothérapie de l'enfant et de l'adolescent, UPZ, est à la recherche d'un interne (300 heures de travail ou 6-8 heures par semaine, d'une durée d'environ 1 an) pour participer à une étude avec des malades hospitalisés avec anorexie.\n\n## Leurs tâches\n• Vous êtes en train de terminer un baccalauréat ou une maîtrise en psychologie à l'Université de Berne et êtes intéressé par la recherche empirique dans le domaine de l'anorexie\n• Vous connaissez les programmes informatiques (Word et Excel) et vous cherchez un moyen d'acquérir une expérience professionnelle dans le travail clinique axé sur le projet\n• La connaissance préalable du diagnostic psychologique (p. ex. la conduite d'entrevues semi-structurées) est avantageuse.\n• Une participation active, consciencieuse et engagée à une équipe interdisciplinaire (médecine, psychologie, soins) et la volonté d'accompagner les mesures tôt le matin à Moosseedorf sont attendues\n\n## Votre profil\n• Ils sont impliqués dans notre étude WASA, qui examine la relation entre l'anxiété de poids et les réactions psychologiques-biophysiologiques.\n• Dans cette fonction, vous nous aidez dans le diagnostic psychologique (entrée de données et gestion, mesures cliniques avant le petit déjeuner dans la clinique de Moosseedorf et visite dans les familles)\n• En outre, vous obtiendrez un contenu complet et un aperçu organisationnel du travail multimodal et professionnel au Centre Bern pour les troubles de l'alimentation (BZE)\n• Le stage est gratuit\nInformations sur le Centre Bern pour les troubles de l'alimentation.\nInformations sur l'étude WASA et notre équipe de recherche.\n\n## L'UPZ\nL'Université Psychiatrische Zentrum Bern (UPZ) est le centre d'excellence en psychiatrie et en psychothérapie de la capitale. Il assure les soins psychiatriques dans le canton de Berne tout au long de la chaîne d ' approvisionnement, depuis le diagnostic précoce jusqu ' aux consultations externes, aux garderies et aux soins hospitaliers jusqu ' à la réadaptation et à la médecine légale. Avec plus de 30 emplacements, l'UPZ offre un réseau d'approvisionnement complet. En outre, l'UPZ apporte une contribution importante dans les domaines de l'enseignement, de la formation et de la formation continue ainsi que de la recherche.\n\n## Votre lieu de travail\nCentre psychiatrique universitaire de Berne (UPZ)\nHallerstrasse 10, 3012 Berne"
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/13e58149-6b59-437f-8ec4-bcff3e3c0b9c",
+      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:23:59.249Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Hallerstrasse 10",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2023-09-20",
+      "postedDate": "2023-09-20",
+      "postingDateSource": "reported",
+      "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/13e58149-6b59-437f-8ec4-bcff3e3c0b9c",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "forschungspraktikum-wasa-upd-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "forschungspraktikum-wasa-upd-bern"
+        ],
+        "en": [
+          "forschungspraktikum-wasa-upd-bern"
+        ],
+        "fr": [
+          "forschungspraktikum-wasa-upd-bern"
+        ]
+      },
+      "firstSeenAt": "2026-09-29T21:25:33.629Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.249Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-ed0a6087c0f2",
@@ -6359,7 +6594,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/2b78d94a-2ef4-4b35-a381-302be21eab90",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.070Z",
+      "crawledAt": "2026-11-01T09:23:59.247Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6406,7 +6641,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.247Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-b68ce820c23d",
@@ -6439,7 +6677,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/d385d45e-ac99-41e7-b885-319dfc4615e0",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:30:08.069Z",
+      "crawledAt": "2026-11-01T09:23:59.246Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6488,7 +6726,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.246Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-d613b0a555d5",
@@ -6521,7 +6762,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/77ff5754-14bf-4ce1-bfa3-a66dbdf1bd6e",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.068Z",
+      "crawledAt": "2026-11-01T09:23:59.245Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6568,7 +6809,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.245Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-bb27e65b3d77",
@@ -6601,7 +6845,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/780e0705-6798-497f-8dca-0f8e55b0c9a6",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.067Z",
+      "crawledAt": "2026-11-01T09:23:59.244Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6649,7 +6893,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.244Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-dd5d923475e9",
@@ -6683,7 +6930,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/503ca35e-f248-4547-a143-ace4707e6467",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.066Z",
+      "crawledAt": "2026-11-01T09:23:59.243Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6730,7 +6977,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.243Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-8837e07a8cb2",
@@ -6763,7 +7013,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/afaa480b-630f-4ae6-9895-9859cca72e8b",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:30:08.065Z",
+      "crawledAt": "2026-11-01T09:23:59.242Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6812,7 +7062,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-10T09:23:59.242Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-f35b09ede2ae",
@@ -6846,7 +7099,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/fb985298-7c13-4246-b0fa-94c998996a3a",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.064Z",
+      "crawledAt": "2026-11-01T09:23:59.241Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6893,7 +7146,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-10T09:23:59.241Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-a2a64d253326",
@@ -6927,7 +7183,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/07cdd5fa-d9c0-445c-a796-cac5ea04c255",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.063Z",
+      "crawledAt": "2026-11-01T09:23:59.240Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6974,7 +7230,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.240Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-51d6e65c98ed",
@@ -7008,7 +7267,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/337b7de5-180d-4d66-bc2f-90c03454fe93",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.062Z",
+      "crawledAt": "2026-11-01T09:23:59.239Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7052,7 +7311,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-20T09:23:59.239Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-e3c10d719dc2",
@@ -7085,7 +7347,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/890911d2-2cb4-4b53-ae5a-5efcdec89b33",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.061Z",
+      "crawledAt": "2026-11-01T09:23:59.238Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7132,7 +7394,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:23:59.238Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-97b7a3a8096a",
@@ -7166,7 +7431,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/00aa3acd-ad1d-44a3-af07-a48981f5e0b4",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.060Z",
+      "crawledAt": "2026-11-01T09:23:59.237Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7215,7 +7480,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:23:59.237Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-a06cbf8b2ed8",
@@ -7249,7 +7517,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b35d6eb4-85e7-48ae-937c-7b03ecdbb37a",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.059Z",
+      "crawledAt": "2026-11-01T09:23:59.236Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7296,7 +7564,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:23:59.236Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-a24aba551c24",
@@ -7330,7 +7601,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/3a388c21-53e1-4236-b1f9-065715de5459",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.058Z",
+      "crawledAt": "2026-11-01T09:23:59.235Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7377,7 +7648,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-25T09:23:59.235Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-276a7262d55a",
@@ -7411,7 +7685,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/0296da24-91ed-4082-a3b2-005b45b519f0",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.057Z",
+      "crawledAt": "2026-11-01T09:23:59.234Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7452,7 +7726,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-25T09:23:59.234Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-040bb7b70327",
@@ -7486,7 +7763,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/1ad6be9c-1841-4a3f-b8ed-90e53fcdd0d8",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.056Z",
+      "crawledAt": "2026-11-01T09:23:59.233Z",
       "addressLocality": "Kehrsatz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7533,7 +7810,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:23:59.233Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-96d42ed1c240",
@@ -7566,7 +7846,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/18c216d8-da50-4764-a61a-64612c3692ff",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.054Z",
+      "crawledAt": "2026-11-01T09:23:59.231Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7613,7 +7893,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:23:59.231Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-0db9e7058308",
@@ -7647,7 +7930,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/0faaa6ab-95b1-4dda-920f-892039f23dda",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.053Z",
+      "crawledAt": "2026-11-01T09:23:59.230Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7696,7 +7979,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:23:59.230Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-3b5cdc066678",
@@ -7729,7 +8015,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f7681660-3388-496a-880c-7c8d318dc529",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.052Z",
+      "crawledAt": "2026-11-01T09:23:59.229Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7776,7 +8062,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:23:59.229Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-aa3e8eca1653",
@@ -7810,7 +8099,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/becc78de-7f15-411a-b1bb-830ad131c9a3",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.051Z",
+      "crawledAt": "2026-11-01T09:23:59.228Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7859,7 +8148,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:23:59.228Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-b9ccd10720e2",
@@ -7892,7 +8184,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/03a8a142-c812-43fb-b849-5a89107c6c9d",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.050Z",
+      "crawledAt": "2026-11-01T09:23:59.227Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7939,7 +8231,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-25T09:23:59.227Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-e49dd06f554d",
@@ -7973,7 +8268,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/c32e6eeb-acfa-4e8f-9a6c-f63f98da23de",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.049Z",
+      "crawledAt": "2026-11-01T09:23:59.226Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8020,7 +8315,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.226Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-218fa64f938f",
@@ -8054,7 +8352,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b48145c7-27db-4d84-9c8a-fe4b68147a91",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.048Z",
+      "crawledAt": "2026-11-01T09:23:59.225Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8101,7 +8399,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.225Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-151eb1d7c3b6",
@@ -8135,7 +8436,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/dcde2f31-ca38-4c10-94e3-96553d6be38b",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.045Z",
+      "crawledAt": "2026-11-01T09:23:59.223Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8184,7 +8485,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-29T09:23:59.223Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-032e26199467",
@@ -8218,7 +8522,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/5d778f3f-8307-4c7d-b8a2-0fde53db12cb",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.043Z",
+      "crawledAt": "2026-11-01T09:23:59.222Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8265,7 +8569,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.222Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-4c991faa55b2",
@@ -8299,7 +8606,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/04eab40b-f8b2-4f02-b1e8-265ed1bb5db0",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.041Z",
+      "crawledAt": "2026-11-01T09:23:59.221Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8346,7 +8653,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-29T09:23:59.221Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-6c39b1cc982f",
@@ -8380,7 +8690,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/7e6089d9-7b01-46e8-a10e-af85e74b8f53",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.038Z",
+      "crawledAt": "2026-11-01T09:23:59.218Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8435,7 +8745,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-29T09:23:59.218Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-34931edb41fb",
@@ -8468,7 +8781,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/de67a529-fe33-46df-b17c-08e49914febc",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.037Z",
+      "crawledAt": "2026-11-01T09:23:59.216Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8515,7 +8828,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-29T09:23:59.216Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-01e6032fbe08",
@@ -8549,7 +8865,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/52a4cbe9-f19e-4dc3-a436-0e96e884ee71",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.036Z",
+      "crawledAt": "2026-11-01T09:23:59.214Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8598,7 +8914,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-29T09:23:59.214Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-699484977517",
@@ -8632,7 +8951,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/fde92dcc-1219-4566-a8c0-a14783d85adb",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.034Z",
+      "crawledAt": "2026-11-01T09:23:59.213Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8679,7 +8998,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.213Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-3fb6c35afdc6",
@@ -8712,7 +9034,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e56d8b84-aadd-4f3e-b3ca-b7bb79da9ab1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.033Z",
+      "crawledAt": "2026-11-01T09:23:59.212Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8759,7 +9081,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.212Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-d2935b8ec489",
@@ -8793,7 +9118,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/bf987018-ed69-4e5e-a8c6-4c15ebf50423",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.032Z",
+      "crawledAt": "2026-11-01T09:23:59.211Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8840,7 +9165,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:59.211Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-acd7b7badbeb",
@@ -8873,7 +9201,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/038dde35-5944-481c-a71c-e20ad17fdee7",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.029Z",
+      "crawledAt": "2026-11-01T09:23:59.208Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8920,7 +9248,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:23:59.208Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-5b73364654e2",
@@ -8953,7 +9284,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/fd7efa94-d13a-4a37-9939-181f96d23e32",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.027Z",
+      "crawledAt": "2026-11-01T09:23:59.207Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8997,7 +9328,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:23:59.207Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-7cdddbad68c9",
@@ -9031,7 +9365,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/39d1597e-977d-45ea-8179-cc07d935dff2",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.023Z",
+      "crawledAt": "2026-11-01T09:23:59.203Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9081,7 +9415,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:23:59.203Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-5e945a6175c5",
@@ -9114,7 +9451,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/7555c772-2f77-4782-b8ee-e905f536b956",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.020Z",
+      "crawledAt": "2026-11-01T09:23:59.201Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9161,7 +9498,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:23:59.201Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "upd-66619b167049",
@@ -9195,7 +9535,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/9a12eca4-4086-4efb-ac38-d7728ab76bdc",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.011Z",
+      "crawledAt": "2026-11-01T09:23:59.192Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9242,98 +9582,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "upd-45110cb71bd7",
-      "slug": "medica-dirigente-medico-dirigente-per-bambini-e-adolescenti-universitare-psychiatrische-dienste-bern-upd-bern",
-      "slugByLocale": {
-        "it": "medica-dirigente-medico-dirigente-per-bambini-e-adolescenti-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern",
-        "de": "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
-        "fr": "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern"
       },
-      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
-      "companyKey": "upd",
-      "companyDomain": "upd.ch",
-      "title": "Oberärztin / Oberarzt Kinder und Jugendliche",
-      "titleByLocale": {
-        "it": "Medica dirigente / Medico dirigente per bambini e adolescenti",
-        "en": "Senior physician children and adolescents",
-        "de": "Oberärztin / Oberarzt Kinder und Jugendliche",
-        "fr": "Médecin supérieur enfants et adolescents"
-      },
-      "description": "## Universitätsklinik für Kinder- und Jugendpsychiatrie und Psychotherapie\nSie sind TOP-Medizinerin und TOP-Mediziner, TOP-Forscherin und TOP-Forscher, TOP-Controllerin und TOP-Controller sowie TOP-Personalmanagerin und TOP-Personalmanager?\nManchmal? Selten? Oder möchten Sie es werden?\nDann sind Sie bei uns richtig, denn wir sind jeden Tag aufs Neue etwas von allem und helfen Ihnen dabei, Ihre Stärken in diesen vier TOPs zu finden und weiterzuentwickeln\nMöchten Sie Teil eines universitären innovativen und dynamischen Teams der Universitätsklinik für Kinder- und Jugendpsychiatrie - psychotherapie in der Hauptstadt der Schweiz werden? Wir arbeiten eng mit pädagogischen und psychologischen Leitungen in trialen Teams zusammen. Sie lernen unterschiedliche Schwerpunkte kennen und können sich darin weiterentwickeln. Wir unterstützen Sie gerne in Ihrem neuen Tätigkeitsfeld als Führungskraft und stehen Ihnen supervisorisch eng zur Seite. Unsere (psycho)therapeutischen Schwerpunkte sind breit gestreut mit Spezialisierung auf Dialektisch-Behavoriale Therapie, systemische Therapie (Multifamilientherapie), tiefenpsychologische und stationsäquivalente - aufsuchende Therapie.\n\n## Ihre Aufgaben\n• Sie verantworten die kinder- und jugendpsychiatrische Diagnostik und Therapie in enger interdisziplinärer Zusammenarbeit mit unserem Team (inklusive fachärztliche Rufbereitschaft)\n• Die Mitarbeit in der Weiterentwicklung der klinischen Konzepte in enger Zusammenarbeit mit einem engagierten, multidisziplinären Team ist ein weiterer Teil dieser interessanten Aufgabe\n• Sie engagieren sich in der universitären Lehre und Forschung\n\n## Ihr Profil\n• Sie haben einen Facharzttitel im Bereich der Kinder- und Jugendpsychiatrie erfolgreich erworben (Promotion von Vorteil)\n• Sie interessieren sich für eine Tätigkeit an einer Universitätsklinik und die hiermit einhergehenden Schnittstellen zu Lehre und Forschung\n• Sie übernehmen gerne Führungs- und Weiterbildungsverantwortung und interessieren sich für die Entwicklung neuer Therapiekonzepte\n• Sie haben gute mündliche und schriftliche Deutschkenntnisse auf Niveau C2\n\n## Das UPZ\nDas Universitäre Psychiatrische Zentrum Bern (UPZ) ist als universitäre Klinik das führende Kompetenzzentrum für Psychiatrie und Psychotherapie in der Hauptstadtregion. Es gewährleistet die psychiatrische Versorgung im Kanton Bern entlang der gesamten Versorgungskette, von der Früherkennung über ambulante, tagesklinische und stationäre Therapien bis hin zu Rehabilitation und Forensik. Mit über 30 Standorten bietet das UPZ ein flächendeckendes Versorgungsnetz. Darüber hinaus leistet das UPZ einen wichtigen Beitrag in den Bereichen Lehre, Aus- und Weiterbildung sowie Forschung.\n\n## Ihr Arbeitsort\nUniversitäres Psychiatrisches Zentrum Bern (UPZ)\nBolligenstrasse 111, 3000 Bern 60",
-      "descriptionByLocale": {
-        "it": "## Clinica Universitaria per Psichiatria infantile e adolescente e Psicoterapia\nSei un medico TOP, ricercatore TOP, TOP controller e TOP responsabile risorse umane?\nA volte? Raramente? O vuoi esserlo? Allora avete ragione con noi, perché siamo qualcosa di tutto ogni giorno e vi aiutiamo a trovare i vostri punti di forza in queste 4 TOP e a svilupparvi ulteriormente.\nTi piacerebbe entrare a far parte di un team innovativo e dinamico dell'Università Hospital for Child and Adolescent Psychiatry - Psicoterapia nella capitale della Svizzera? Lavoriamo a stretto contatto con i leader educativi e psicologici nelle squadre di prova. Essi possono conoscere diverse aree di messa a fuoco e possono svilupparsi ulteriormente in loro. Siamo lieti di supportarvi nel vostro nuovo campo di attività come leader e siamo vicini a voi supervisore. I nostri obiettivi terapeutici (psycho) sono ampiamente diffusi con specializzazione in terapia dialettica-behavorial, terapia sistemica (terapia multifamiglia), profondità psicologica e stazione-equivalente - alla ricerca di terapia.\n\n## I loro compiti\n• Sei responsabile della diagnosi e della terapia psichiatrica infantile e adolescente in stretta collaborazione interdisciplinare con il nostro team (compresa la volontà specialistica di chiamare)\n• La partecipazione all'ulteriore sviluppo di concetti clinici in stretta collaborazione con un team impegnato e multidisciplinare è un'altra parte di questo interessante compito\n• Sei coinvolto nell'insegnamento universitario e nella ricerca\n\n## Il tuo profilo\n• Hai acquisito con successo un titolo specialistico nel campo della psichiatria infantile e adolescente (promozione benefica)\n• Sei interessato a lavorare in un ospedale universitario e le interfacce associate all'insegnamento e alla ricerca\n• Ti piace assumere la leadership e l'ulteriore responsabilità educativa e sono interessati allo sviluppo di nuovi concetti terapeutici\n• Hai una buona conoscenza orale e scritta del tedesco a livello C2\n\n## L'UPZ\nL'University Psychiatric Center Bern (UPZ) è il principale centro di eccellenza per la psichiatria e la psicoterapia nella regione capitale. Garantisce cure psichiatriche nel cantone di Berna lungo tutta la catena di approvvigionamento, dalla diagnosi precoce alle terapie ambulatoriale, diurne e inpatie alla riabilitazione e alla forense. Con oltre 30 sedi, UPZ offre una rete di approvvigionamento completa. Inoltre, l'UPZ offre un importante contributo nei settori dell'insegnamento, della formazione e dell'ulteriore istruzione e della ricerca.\n\n## Il tuo posto di lavoro\nCentro psichiatrico universitario Berna (UPZ)\nBolligenstrasse 111, 3000 Bern 60",
-        "en": "## University Clinic for Child and Adolescent Psychiatry and Psychotherapy\nAre you a TOP physician, TOP researcher, TOP controller and TOP human resources manager?\nSometimes? Rarely? Or do you want to be? Then you are right with us, because we are something of everything every day and help you to find your strengths in these 4 TOPs and develop you further.\nWould you like to become part of a university innovative and dynamic team of the University Hospital for Child and Adolescent Psychiatry - Psychotherapy in the capital of Switzerland? We work closely with educational and psychological leaders in trial teams. They get to know different focus areas and can develop further in them. We are happy to support you in your new field of activity as a leader and are close to you supervisory. Our (psycho)therapeutic focuses are broadly spread with specialization in dialectical-behavorial therapy, systemic therapy (multi-family therapy), depth psychological and station-equivalent - seeking therapy.\n\n## Their tasks\n• You are responsible for child and adolescent psychiatric diagnosis and therapy in close interdisciplinary cooperation with our team (including specialist willingness to call)\n• Participation in the further development of clinical concepts in close cooperation with a committed, multidisciplinary team is another part of this interesting task\n• You are involved in university teaching and research\n\n## Your profile\n• You have successfully acquired a specialist title in the field of child and adolescent psychiatry (promotion beneficial)\n• You are interested in working at a university hospital and the associated interfaces to teaching and research\n• You like to take on leadership and further education responsibility and are interested in the development of new therapeutic concepts\n• You have good oral and written knowledge of German at level C2\n\n## The UPZ\nThe University Psychiatric Center Bern (UPZ) is the leading centre of excellence for psychiatry and psychotherapy in the capital region. It ensures psychiatric care in the canton of Bern along the entire supply chain, from early diagnosis to outpatient, day-care and inpatient therapies to rehabilitation and forensics. With more than 30 locations, the UPZ offers a comprehensive supply network. In addition, the UPZ makes an important contribution in the areas of teaching, training and further education as well as research.\n\n## Your place of work\nUniversity Psychiatric Center Bern (UPZ)\nBolligenstrasse 111, 3000 Bern 60",
-        "de": "## Universitätsklinik für Kinder- und Jugendpsychiatrie und Psychotherapie\nSie sind TOP-Medizinerin und TOP-Mediziner, TOP-Forscherin und TOP-Forscher, TOP-Controllerin und TOP-Controller sowie TOP-Personalmanagerin und TOP-Personalmanager?\nManchmal? Selten? Oder möchten Sie es werden?\nDann sind Sie bei uns richtig, denn wir sind jeden Tag aufs Neue etwas von allem und helfen Ihnen dabei, Ihre Stärken in diesen vier TOPs zu finden und weiterzuentwickeln\nMöchten Sie Teil eines universitären innovativen und dynamischen Teams der Universitätsklinik für Kinder- und Jugendpsychiatrie - psychotherapie in der Hauptstadt der Schweiz werden? Wir arbeiten eng mit pädagogischen und psychologischen Leitungen in trialen Teams zusammen. Sie lernen unterschiedliche Schwerpunkte kennen und können sich darin weiterentwickeln. Wir unterstützen Sie gerne in Ihrem neuen Tätigkeitsfeld als Führungskraft und stehen Ihnen supervisorisch eng zur Seite. Unsere (psycho)therapeutischen Schwerpunkte sind breit gestreut mit Spezialisierung auf Dialektisch-Behavoriale Therapie, systemische Therapie (Multifamilientherapie), tiefenpsychologische und stationsäquivalente - aufsuchende Therapie.\n\n## Ihre Aufgaben\n• Sie verantworten die kinder- und jugendpsychiatrische Diagnostik und Therapie in enger interdisziplinärer Zusammenarbeit mit unserem Team (inklusive fachärztliche Rufbereitschaft)\n• Die Mitarbeit in der Weiterentwicklung der klinischen Konzepte in enger Zusammenarbeit mit einem engagierten, multidisziplinären Team ist ein weiterer Teil dieser interessanten Aufgabe\n• Sie engagieren sich in der universitären Lehre und Forschung\n\n## Ihr Profil\n• Sie haben einen Facharzttitel im Bereich der Kinder- und Jugendpsychiatrie erfolgreich erworben (Promotion von Vorteil)\n• Sie interessieren sich für eine Tätigkeit an einer Universitätsklinik und die hiermit einhergehenden Schnittstellen zu Lehre und Forschung\n• Sie übernehmen gerne Führungs- und Weiterbildungsverantwortung und interessieren sich für die Entwicklung neuer Therapiekonzepte\n• Sie haben gute mündliche und schriftliche Deutschkenntnisse auf Niveau C2\n\n## Das UPZ\nDas Universitäre Psychiatrische Zentrum Bern (UPZ) ist als universitäre Klinik das führende Kompetenzzentrum für Psychiatrie und Psychotherapie in der Hauptstadtregion. Es gewährleistet die psychiatrische Versorgung im Kanton Bern entlang der gesamten Versorgungskette, von der Früherkennung über ambulante, tagesklinische und stationäre Therapien bis hin zu Rehabilitation und Forensik. Mit über 30 Standorten bietet das UPZ ein flächendeckendes Versorgungsnetz. Darüber hinaus leistet das UPZ einen wichtigen Beitrag in den Bereichen Lehre, Aus- und Weiterbildung sowie Forschung.\n\n## Ihr Arbeitsort\nUniversitäres Psychiatrisches Zentrum Bern (UPZ)\nBolligenstrasse 111, 3000 Bern 60",
-        "fr": "## Clinique universitaire de psychiatrie et de psychothérapie des enfants et des adolescents\nÊtes-vous un médecin TOP, chercheur TOP, contrôleur TOP et gestionnaire des ressources humaines TOP?\nParfois ? Rarement ? Ou tu veux l'être ? Ensuite, vous avez raison avec nous, parce que nous sommes quelque chose de tout chaque jour et vous aider à trouver vos forces dans ces 4 TOP et vous développer plus loin.\nSouhaitez-vous faire partie d'une équipe novatrice et dynamique de l'Hôpital universitaire de psychiatrie de l'enfant et de l'adolescent - Psychothérapie dans la capitale suisse ? Nous travaillons en étroite collaboration avec les responsables éducatifs et psychologiques des équipes de procès. Ils apprennent à connaître différents domaines d'intervention et peuvent s'y développer davantage. Nous sommes heureux de vous soutenir dans votre nouveau domaine d'activité en tant que leader et sommes proches de vous supervision. Nos focus (psycho)thérapeutiques sont largement répandus avec spécialisation dans la thérapie dialectique-comportementale, la thérapie systémique (thérapie multifamiliale), la profondeur psychologique et l'équivalent de station - à la recherche de thérapie.\n\n## Leurs tâches\n• Vous êtes responsable du diagnostic et de la thérapie psychiatriques chez l'enfant et l'adolescent en étroite collaboration interdisciplinaire avec notre équipe (y compris la volonté des spécialistes d'appeler)\n• La participation à la poursuite du développement des concepts cliniques en étroite collaboration avec une équipe multidisciplinaire engagée constitue une autre partie de cette tâche intéressante.\n• Vous participez à l'enseignement et à la recherche universitaires\n\n## Votre profil\n• Vous avez acquis avec succès un titre spécialisé dans le domaine de la psychiatrie des enfants et des adolescents (promotion bénéfique)\n• Vous êtes intéressé à travailler dans un hôpital universitaire et les interfaces associées à l'enseignement et à la recherche\n• Vous aimez assumer la responsabilité du leadership et de l'éducation continue et êtes intéressé par le développement de nouveaux concepts thérapeutiques\n• Vous avez une bonne connaissance orale et écrite de l'allemand au niveau C2\n\n## L'UPZ\nLe Centre psychiatrique de l'Université de Berne (UPZ) est le centre d'excellence en psychiatrie et en psychothérapie de la capitale. Il assure des soins psychiatriques dans le canton de Berne tout au long de la chaîne d'approvisionnement, depuis le diagnostic précoce jusqu'au traitement ambulatoire, aux garderies et aux soins hospitaliers jusqu'à la réadaptation et à la médecine légale. Avec plus de 30 emplacements, l'UPZ offre un réseau d'approvisionnement complet. En outre, l'UPZ apporte une contribution importante dans les domaines de l'enseignement, de la formation et de la formation continue ainsi que de la recherche.\n\n## Votre lieu de travail\nCentre psychiatrique universitaire de Berne (UPZ)\nBolligenstrasse 111, 3000 Berne 60"
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/jobs/d869756f-c15e-4c74-9ef6-f1ea53ae5e0f",
-      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Prospective medium 1000842)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:30:27.012Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Bolligenstrasse 111",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02",
-      "postedDate": "2026-10-02",
-      "postingDateSource": "reported",
-      "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/d869756f-c15e-4c74-9ef6-f1ea53ae5e0f",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
-        "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-ac2be942",
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-6dd26384",
-        "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-33b0c1c6"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
-          "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-ac2be942",
-          "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-6dd26384",
-          "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-33b0c1c6"
-        ],
-        "en": [
-          "senior-physician-children-and-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-ac2be942"
-        ],
-        "de": [
-          "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern-6dd26384"
-        ],
-        "fr": [
-          "medecin-superieur-enfants-et-adolescents-universitare-psychiatrische-dienste-bern-upd-bern-33b0c1c6"
-        ]
-      },
-      "firstSeenAt": "2026-10-17T09:26:20.143Z",
-      "salaryMin": 115000,
-      "salaryMax": 160000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 115000,
-          "maxValue": 160000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:23:59.192Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

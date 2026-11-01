@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fondation-domus",
-  "assembledAt": "2026-10-31T09:25:52.190Z",
-  "runId": "41187598975",
+  "assembledAt": "2026-11-01T09:20:56.080Z",
+  "runId": "41291964879",
   "jobs": [
     {
       "id": "fondation-domus-aab935f83d3d",
@@ -34,7 +34,7 @@
       "url": "https://www.jobup.ch/en/jobs/detail/13420dc8-eaae-458c-95a4-32b0f2bc6f5f/?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:25:46.045Z",
+      "crawledAt": "2026-11-01T09:20:49.943Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -80,7 +80,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Fondation Domus",
+        "streetAddress": "Route du Simplon 31",
+        "postalCode": "1957",
+        "addressLocality": "Ardon",
+        "addressRegion": "VS",
+        "checkedAt": "2026-10-31T20:48:57.846Z"
+      },
+      "streetAddress": "Route du Simplon 31",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-14T09:20:49.943Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

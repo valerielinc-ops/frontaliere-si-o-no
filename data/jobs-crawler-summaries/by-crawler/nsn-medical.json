@@ -1,7 +1,7 @@
 {
   "key": "nsn-medical",
   "label": "NSN Medical Group",
-  "generatedAt": "2026-10-31T09:30:06.196Z",
+  "generatedAt": "2026-11-01T09:22:49.391Z",
   "total": 15,
   "discovered": null,
   "parsed": 15,
@@ -13,60 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 14,
-  "durationMs": 13850,
-  "avgDurationMs": 13850,
+  "unchangedCount": 15,
+  "durationMs": 14752,
+  "avgDurationMs": 14752,
   "durationHistory": [
-    13850
+    14752
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "nsn-medical-ad0a666e3083",
-      "slug": "dipl-infermiera-hf-dipl-professionista-hf-60-90-nsn-medical-group-zurich",
-      "company": "NSN Medical Group",
-      "companyKey": "nsn-medical",
-      "companyDomain": "nsn.ch",
-      "title": "Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF 60-90%",
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2884.umantis.com/Vacancies/843/Description/1",
-      "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:46.143Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "department": "Pflege (inkl. Spezialgebiete)",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/843/Application/CheckLogin/1",
-      "firstSeenAt": "2026-10-30T21:24:50.876Z",
-      "salaryMin": 82400,
-      "salaryMax": 115200,
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -82,7 +38,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/750/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:53.796Z",
+      "crawledAt": "2026-11-01T09:22:34.326Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -104,12 +60,16 @@
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Onkologie",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:34.326Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -125,7 +85,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/788/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:53.231Z",
+      "crawledAt": "2026-11-01T09:22:33.759Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -147,12 +107,16 @@
       "salaryMin": 45800,
       "salaryMax": 64000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:33.759Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -168,7 +132,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/787/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:52.863Z",
+      "crawledAt": "2026-11-01T09:22:33.182Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -189,12 +153,16 @@
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:33.182Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -210,7 +178,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/817/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:52.272Z",
+      "crawledAt": "2026-11-01T09:22:32.620Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -232,12 +200,16 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Onkologie",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:32.620Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -252,7 +224,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/822/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:51.701Z",
+      "crawledAt": "2026-11-01T09:22:32.018Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -274,12 +246,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Onkologie",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:32.018Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -294,7 +270,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/828/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:51.108Z",
+      "crawledAt": "2026-11-01T09:22:31.425Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -316,12 +292,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Onkologie",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:31.425Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -337,7 +317,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/830/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:50.527Z",
+      "crawledAt": "2026-11-01T09:22:30.861Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -359,12 +339,16 @@
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Onkologie",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:30.861Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -380,7 +364,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/823/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:49.961Z",
+      "crawledAt": "2026-11-01T09:22:30.279Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -402,12 +386,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:30.279Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -422,7 +410,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/836/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:49.370Z",
+      "crawledAt": "2026-11-01T09:22:29.709Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -444,12 +432,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Onkologie",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:29.709Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -465,7 +457,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/838/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:48.899Z",
+      "crawledAt": "2026-11-01T09:22:29.032Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -487,12 +479,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Onkologie",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:29.032Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -508,7 +504,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/839/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:48.316Z",
+      "crawledAt": "2026-11-01T09:22:28.464Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -530,12 +526,16 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:28.464Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -550,7 +550,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/840/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:47.725Z",
+      "crawledAt": "2026-11-01T09:22:27.885Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -572,12 +572,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Onkologie",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:22:27.885Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -593,7 +597,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/841/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:47.349Z",
+      "crawledAt": "2026-11-01T09:22:27.308Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -615,12 +619,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Onkologie",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:22:27.308Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -635,7 +643,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/842/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:46.716Z",
+      "crawledAt": "2026-11-01T09:22:26.715Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -657,14 +665,65 @@
       "salaryMin": 44100,
       "salaryMax": 66900,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:22:26.715Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
+      }
+    },
+    {
+      "id": "nsn-medical-ad0a666e3083",
+      "slug": "dipl-infermiera-hf-dipl-professionista-hf-60-90-nsn-medical-group-zurich",
+      "company": "NSN Medical Group",
+      "companyKey": "nsn-medical",
+      "companyDomain": "nsn.ch",
+      "title": "Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF 60-90%",
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2884.umantis.com/Vacancies/843/Description/1",
+      "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:22:26.142Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "department": "Pflege (inkl. Spezialgebiete)",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/843/Application/CheckLogin/1",
+      "firstSeenAt": "2026-10-30T21:24:50.876Z",
+      "salaryMin": 82400,
+      "salaryMax": 115200,
+      "salarySource": "estimated",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:22:26.142Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

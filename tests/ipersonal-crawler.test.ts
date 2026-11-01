@@ -14,6 +14,7 @@ import {
   getVerifiedIpersonalGeography,
   runIpersonalSpecInProduction,
 } from '../scripts/lib/ipersonal-spec-runtime.mjs';
+import { loadSpec } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 const REAL_IPERSONAL_LISTING_FIXTURE = readFileSync(
   resolve(import.meta.dirname, 'fixtures/ipersonal-live-listing-20261001.html'),
@@ -21,6 +22,21 @@ const REAL_IPERSONAL_LISTING_FIXTURE = readFileSync(
 );
 
 describe('MediPersonal crawler parser', () => {
+  it.each([
+    {
+      companyKey: 'ipersonal',
+      listingSeed: 'https://med-ipersonal.ch/offene-stellen/',
+    },
+    {
+      companyKey: 'med-ipersonal',
+      listingSeed: 'https://www.ipersonal.ch/offene-stellen/',
+    },
+  ])('uses the authoritative listing page for $companyKey discovery', ({ companyKey, listingSeed }) => {
+    const spec = loadSpec(companyKey);
+    expect(spec.seedUrls).toContain(listingSeed);
+    expect(spec.seedUrls).not.toContain(new URL(listingSeed).origin + '/');
+  });
+
   describe('shared Simple Job Board detail boundary', () => {
     it('preserves legacy arrow lists and stops before application boilerplate', () => {
       const html = `
@@ -45,6 +61,38 @@ describe('MediPersonal crawler parser', () => {
 
     it('fails closed when the authoritative detail boundary is absent', () => {
       expect(extractIpersonalDescription('<main><p>Generic page copy</p></main>')).toBe('');
+    });
+
+    it('rejects a long bare main listing but accepts the same content in an article', () => {
+      const listingWords = Array.from({ length: 80 }, (_, index) => `listing-word-${index + 1}`).join(' ');
+
+      expect(extractIpersonalDescription(`<main><ul><li>${listingWords}</li></ul></main>`)).toBe('');
+
+      const description = extractIpersonalDescription(
+        `<main><article><ul><li>${listingWords}</li></ul></article></main>`,
+      );
+      expect(description).toContain('• listing-word-1');
+    });
+
+    it('recovers the current semantic detail shell without the application tail', () => {
+      const html = `
+        <header><nav>Navigation noise</nav></header>
+        <main><article>
+          <h1>Fachärztin / Facharzt Allgemeinmedizin</h1>
+          <p>Eine verantwortungsvolle Stelle mit langfristiger Betreuung in einer modernen Praxis.</p>
+          <h3>Ihre Aufgaben</h3>
+          <ul><li>Patientinnen und Patienten eigenverantwortlich betreuen</li>
+            <li>Untersuchungen und Befunde sorgfältig dokumentieren</li></ul>
+          <h3>Bewerbung &amp; Kontakt</h3>
+          <p>Bitte senden Sie Ihre vollständigen Unterlagen per E-Mail.</p>
+        </article></main>
+        <footer>Footer SEO text</footer>`;
+
+      const description = extractIpersonalDescription(html);
+      expect(description).toContain('\n• Patientinnen und Patienten eigenverantwortlich betreuen');
+      expect(description).toContain('\n• Untersuchungen und Befunde sorgfältig dokumentieren');
+      expect(description).not.toContain('Navigation noise');
+      expect(description).not.toContain('Bitte senden Sie Ihre vollständigen Unterlagen');
     });
 
     it('keeps nested legacy content and recovers paragraph-backed lists', () => {

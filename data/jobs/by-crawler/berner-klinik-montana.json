@@ -1,7 +1,7 @@
 {
   "crawlerKey": "berner-klinik-montana",
-  "assembledAt": "2026-10-31T09:16:27.717Z",
-  "runId": "41187221286",
+  "assembledAt": "2026-11-01T09:13:40.325Z",
+  "runId": "41291565146",
   "jobs": [
     {
       "id": "berner-klinik-montana-15179945cb12",
@@ -35,7 +35,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/un-e-charge-e-de-communication-a-40-50-2917/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:16:20.144Z",
+      "crawledAt": "2026-11-01T09:13:33.204Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -81,7 +81,11 @@
           "maxValue": 54500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Crans-Montana",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:13:33.204Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "berner-klinik-montana-fb815f2b592c",
@@ -114,7 +118,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/physiotherapeute-a-100-2872/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:16:18.857Z",
+      "crawledAt": "2026-11-01T09:13:32.038Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -160,7 +164,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Crans-Montana",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:13:32.038Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "berner-klinik-montana-ab142c8a69d8",
@@ -194,7 +202,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/collaborateur-trice-restauration-80-100-2237/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:16:17.642Z",
+      "crawledAt": "2026-11-01T09:13:30.930Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -240,7 +248,11 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Crans-Montana",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:13:30.930Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "berner-klinik-montana-872f2d025151",
@@ -273,7 +285,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/assistant-e-en-soins-et-sante-communautaire-80-100-2095/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:16:16.472Z",
+      "crawledAt": "2026-11-01T09:13:29.769Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -344,7 +356,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Crans-Montana",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:29.769Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "berner-klinik-montana-ee2da3d4a12f",
@@ -378,7 +394,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/infirmier-ere-100-2074/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:16:15.282Z",
+      "crawledAt": "2026-11-01T09:13:28.587Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -454,7 +470,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Crans-Montana",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:28.587Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "berner-klinik-montana-e9f22adf975c",
@@ -488,7 +508,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/un-e-medecin-chef-de-clinique-ou-chef-de-clinique-adjoint-e-2475/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:16:14.145Z",
+      "crawledAt": "2026-11-01T09:13:27.436Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -534,7 +554,11 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Crans-Montana",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:27.436Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "berner-klinik-montana-90f7cf24b9b6",
@@ -567,7 +591,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/medecin-chef-fe-adjoint-e-en-readaptation-neurologique-2852/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:16:12.974Z",
+      "crawledAt": "2026-11-01T09:13:26.306Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -613,7 +637,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Crans-Montana",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:13:26.306Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

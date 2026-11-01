@@ -1,16 +1,16 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-10-31T09:32:43.666Z",
+  "generatedAt": "2026-11-01T09:36:04.809Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 11150,
-  "avgDurationMs": 11150,
+  "durationMs": 11694,
+  "avgDurationMs": 11694,
   "durationHistory": [
-    11150
+    11694
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,10 +35,10 @@
       "datePosted": "2026-10-08T11:03:47+02:00",
       "postedDate": "2026-10-08T11:03:47+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:32:35.857Z",
+      "crawledAt": "2026-11-01T09:35:46.523Z",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2027-01-06T09:35:46.523Z",
       "id": "mks-pamp-01db383769ae",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -46,12 +46,15 @@
       "salarySource": "estimated",
       "postalCode": "6874",
       "firstSeenAt": "2026-10-13T21:32:05.090Z",
-      "_qualityScore": 94,
+      "streetAddress": "Castel San Pietro",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
@@ -78,10 +81,10 @@
       "datePosted": "2026-10-02T15:18:11+02:00",
       "postedDate": "2026-10-02T15:18:11+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:32:35.858Z",
+      "crawledAt": "2026-11-01T09:35:46.529Z",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2027-01-01T09:35:46.529Z",
       "id": "mks-pamp-74eaacf6a62f",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -89,12 +92,15 @@
       "salarySource": "estimated",
       "postalCode": "6874",
       "firstSeenAt": "2026-10-26T21:47:02.947Z",
-      "_qualityScore": 96,
+      "streetAddress": "Castel San Pietro",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -118,7 +124,7 @@
       "postedDate": "2026-09-29T16:44:49+02:00",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2026-12-29T09:35:46.531Z",
       "id": "mks-pamp-94c930306b63",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -127,14 +133,17 @@
       "firstSeenAt": "2026-09-29T21:39:07.108Z",
       "datePosted": "2026-09-29T16:44:49+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:32:35.859Z",
+      "crawledAt": "2026-11-01T09:35:46.531Z",
       "postalCode": "6874",
-      "_qualityScore": 94,
+      "streetAddress": "Castel San Pietro",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -158,7 +167,7 @@
       "postedDate": "2026-08-19T12:39:04+02:00",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:35:46.535Z",
       "id": "mks-pamp-a1552294ce80",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -167,14 +176,17 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-19T12:39:04+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:32:35.861Z",
+      "crawledAt": "2026-11-01T09:35:46.535Z",
       "postalCode": "6874",
-      "_qualityScore": 96,
+      "streetAddress": "Castel San Pietro",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -198,25 +210,27 @@
       "postedDate": "2026-01-28T12:40:44+01:00",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:35:46.536Z",
       "id": "mks-pamp-6b726144ffd1",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Castel San Pietro",
       "postalCode": "6874",
       "firstSeenAt": "2026-04-23T22:07:57.426Z",
       "salarySource": "estimated",
       "retranslationAttempts": 0,
       "datePosted": "2026-01-28T12:40:44+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:32:35.861Z",
-      "_qualityScore": 94,
+      "crawledAt": "2026-11-01T09:35:46.536Z",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -240,26 +254,28 @@
       "postedDate": "2026-01-28T11:17:43+01:00",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:35:46.541Z",
       "salaryMin": 92000,
       "salaryMax": 125000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Castel San Pietro",
       "postalCode": "6874",
       "id": "mks-pamp-9aa99d99b95f",
       "firstSeenAt": "2026-04-13T22:10:50.570Z",
       "salarySource": "reported",
       "datePosted": "2026-01-28T11:17:43+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:32:35.862Z",
-      "_qualityScore": 94,
+      "crawledAt": "2026-11-01T09:35:46.541Z",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

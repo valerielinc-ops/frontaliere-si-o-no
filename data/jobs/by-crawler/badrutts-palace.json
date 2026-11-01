@@ -1,7 +1,7 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-10-31T09:26:16.117Z",
-  "runId": "41188121331",
+  "assembledAt": "2026-11-01T09:42:27.884Z",
+  "runId": "41292532779",
   "jobs": [
     {
       "id": "badrutts-palace-7fc4aec52ba7",
@@ -34,7 +34,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5478672-elektriker-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:10.314Z",
+      "crawledAt": "2026-11-01T09:42:22.724Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -84,7 +84,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Badrutt's Palace Hotel",
+        "streetAddress": "Via Serlas 27",
+        "postalCode": "7500",
+        "addressLocality": "St. Moritz",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:00.724Z"
+      },
+      "streetAddress": "Via Serlas 27",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:42:22.724Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "badrutts-palace-2c4d5b5f4a63",
@@ -117,7 +131,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8107575-director-of-brand-marketing-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:10.311Z",
+      "crawledAt": "2026-11-01T09:42:22.721Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -177,7 +191,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Badrutt's Palace Hotel",
+        "streetAddress": "Via Serlas 27",
+        "postalCode": "7500",
+        "addressLocality": "St. Moritz",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:00.724Z"
+      },
+      "streetAddress": "Via Serlas 27",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:42:22.721Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "badrutts-palace-efb1838faf84",
@@ -210,7 +238,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8158231-assistant-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:10.307Z",
+      "crawledAt": "2026-11-01T09:42:22.714Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -267,7 +295,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Badrutt's Palace Hotel",
+        "streetAddress": "Via Serlas 27",
+        "postalCode": "7500",
+        "addressLocality": "St. Moritz",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:00.724Z"
+      },
+      "streetAddress": "Via Serlas 27",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:42:22.714Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "badrutts-palace-f6389a361791",
@@ -300,7 +342,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:10.295Z",
+      "crawledAt": "2026-11-01T09:42:22.702Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -340,7 +382,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Badrutt's Palace Hotel",
+        "streetAddress": "Via Serlas 27",
+        "postalCode": "7500",
+        "addressLocality": "St. Moritz",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:00.724Z"
+      },
+      "streetAddress": "Via Serlas 27",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:42:22.702Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

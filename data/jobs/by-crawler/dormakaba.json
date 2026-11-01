@@ -1,7 +1,7 @@
 {
   "crawlerKey": "dormakaba",
-  "assembledAt": "2026-10-31T09:42:43.613Z",
-  "runId": "41188424656",
+  "assembledAt": "2026-11-01T09:41:25.361Z",
+  "runId": "41292859129",
   "jobs": [
     {
       "id": "dormakaba-11716",
@@ -34,7 +34,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11716/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:42:36.325Z",
+      "crawledAt": "2026-11-01T09:41:13.836Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -81,6 +81,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:13.836Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-07-04T10:35:54.059Z"
     },
     {
@@ -114,7 +117,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11162/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:42:36.325Z",
+      "crawledAt": "2026-11-01T09:41:13.836Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -174,6 +177,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:13.836Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-07-04T10:35:54.067Z"
     },
     {
@@ -207,7 +213,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11893/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:42:36.324Z",
+      "crawledAt": "2026-11-01T09:41:13.835Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -268,6 +274,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:13.835Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-07-28T22:36:09.538Z"
     },
     {
@@ -301,7 +310,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11909/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:42:36.324Z",
+      "crawledAt": "2026-11-01T09:41:13.835Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -343,6 +352,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:13.835Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-07-20T12:47:03.270Z"
     },
     {
@@ -376,7 +388,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11917/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:42:36.321Z",
+      "crawledAt": "2026-11-01T09:41:13.833Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -444,82 +456,10 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:13.833Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-05T11:47:41.907Z"
-    },
-    {
-      "id": "dormakaba-12354",
-      "slug": "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen",
-      "slugByLocale": {
-        "de": "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
-        "it": "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen",
-        "en": "technical-services-80-100-m-f-d-dormakaba-st-gallen",
-        "fr": "services-techniques-80-100-h-f-d-dormakaba-st-gallen"
-      },
-      "company": "dormakaba",
-      "companyKey": "dormakaba",
-      "companyDomain": "dormakaba.com",
-      "title": "Technischer Sachbearbeiter Services 80% - 100% (m/w/d)",
-      "titleByLocale": {
-        "it": "Addetto tecnico servizi 80% - 100% (m/f/d)",
-        "en": "Technical Clerk Services 80% - 100% (m/f/d)",
-        "de": "Technischer Sachbearbeiter Services 80% - 100% (m/w/d)",
-        "fr": "Responsable technique Services 80 % - 100 % (h/f/d)"
-      },
-      "description": "Werden Sie Teil unseres Teams\n Als weltweit agierendes Unternehmen, das ganz klare Wachstumsziele verfolgt, benötigen wir Mitarbeitende, die sich und die Firma weiterbringen möchten. Für unseren Standort St. Gallen suchen wir dich per sofort oder nach Vereinbarung als Technischer Sachbearbeiter Modernisierungen (w/m/d) 100%.\n In dieser Funktion bist du für die kaufmännische und technische Abwicklung von Modernisierungsaufträgen im Bereich automatische Türsysteme verantwortlich und stellst eine termingerechte sowie wirtschaftlich erfolgreiche Auftragsabwicklung sicher.\n Deine Aufgaben\n • Du bist verantwortlich für die kaufmännische und technische Abwicklung von Modernisierungsaufträgen im Bereich automatische Türsysteme.\n • Ausarbeitung von Offerten und Aufträgen für die Modernisation automatischer Türsysteme.\n • Du stellst sicher, dass die Aufträge wirtschaftlich erfolgreich für das Unternehmen abgeschlossen werden.\n • Kaufmännische und technische Klärung bei allfälligen Abweichungen zum Angebot in Zusammenarbeit mit dem Service Account Manager.\n • Terminverantwortung.\n • Verrechnen von Aufträgen und Zusatzaufträgen.\n • Stellvertretung für die Bearbeitung von Wartungsverträgen. ,\n • Reklamationsmanagement.\n • Stammdatenpflege.\n\nDein Profil\n • Technische Berufsbildung mit Weiterbildung im kaufmännischen Bereich.\n • 3–5 Jahre Erfahrung in einer ähnlichen Position.\n • Flair für Technik.\n • Organisationstalent und gute Kommunikationsfähigkeit.\n • Gute EDV-Kenntnisse (MS Office & SAP-Kenntnisse).\n • Kundenorientierte, selbständige und motivierte Persönlichkeit.\n • Ausgezeichnete Deutschkenntnisse; Französischkenntnisse sind von Vorteil.\n • Freundliches Auftreten und lösungsorientierte Arbeitsweise.\n\nWas wir bieten\n • Beste Chancen in einem global agierenden Konzern mit der Kultur eines Familienunternehmens.\n • Mit dem ÖV gut erschlossene Arbeitsstandorte sowie Homeoffice-Möglichkeiten.\n • Attraktives Gehaltspaket.\n • Transparente und klar definierte Weiterentwicklungsmöglichkeiten.\n • Unterstützung von Milizarbeit und gemeinnützigen Projekten auch während der Arbeitszeit.\n\nWer wir sind\n For every place that matters. Von automatischen Türen bis hin zu cloudbasiertem Zutrittsmanagement – als ein weltweit führender Anbieter auf dem Markt für Zutrittslösungen für Schulen, Banken, Flughäfen, Krankenhäuser, Hotels und viele weitere ermöglichen wir es, sichere und nachhaltige Orte zu schaffen, an denen sich Menschen nahtlos bewegen können. Mit über 160 Jahren Erfahrung und einem klaren Fokus auf Exzellenz und Innovation bieten wir spannende Möglichkeiten zur Weiterentwicklung in einem Umfeld, in dem Sie wirklich etwas bewirken können. Bei dormakaba werden Sie ermutigt, Eigeninitiative zu zeigen, Ihre Fähigkeiten auszubauen und Ihre Karriere gemeinsam mit 16.000 Expertinnen und Experten weltweit zu gestalten, die täglich neue Massstäbe in der Branche setzen.",
-      "descriptionByLocale": {
-        "it": "Diventa parte del nostro team\nCome azienda attiva a livello globale che persegue obiettivi di crescita molto chiari, abbiamo bisogno di dipendenti che vogliano aiutare se stessi e l'azienda ad andare avanti. Per la nostra sede di St. Gallen, ti cerchiamo come tecnico per modernizzazioni (m/f/d) 100% con effetto immediato o su appuntamento.\nIn questo ruolo, sarai responsabile dell'elaborazione commerciale e tecnica degli ordini di modernizzazione nel campo dei sistemi automatici per porte e garantirai un'elaborazione tempestiva ed economicamente efficace degli ordini.\nI tuoi compiti\n• Sarai responsabile dell'elaborazione commerciale e tecnica degli ordini di modernizzazione nel campo dei sistemi automatici per porte.\n• Preparazione di offerte e ordini per la modernizzazione dei sistemi automatici di porte.\n• Ti assicurerai che gli ordini vengano completati con successo per l'azienda.\n• Chiarimenti commerciali e tecnici in caso di deviazioni dall'offerta in collaborazione con il Service Account Manager.\n• Responsabilità con le scadenze.\n• Risoluzione degli ordini e ordini aggiuntivi.\n• Delegare per l'elaborazione dei contratti di manutenzione.,\n• Gestione dei reclami.\n• Manutenzione dei dati master.\n\nIl tuo profilo\n• Formazione tecnica professionale con ulteriore formazione nel settore commerciale.\n• 3-5 anni di esperienza in una posizione simile.\n• Talento per la tecnologia.\n• Talento organizzativo e buone capacità comunicative.\n• Buone competenze IT (MS Office e competenze SAP).\n• Personalità orientata al cliente, indipendente e motivata.\n• Ottima conoscenza della lingua tedesca; La conoscenza del francese costituisce titolo preferenziale.\n• Comportamento amichevole e modo di lavorare orientato alla soluzione.\n\nCosa offriamo\n• Le migliori opportunità in un'azienda globale con la cultura di un'azienda familiare.\n• Luoghi di lavoro ben serviti dai trasporti pubblici e possibilità di home office.\n• Pacchetto salariale interessante.\n• Opportunità di sviluppo trasparenti e chiaramente definite.\n• Sostegno al lavoro delle milizie e a progetti di beneficenza, anche durante l'orario di lavoro.\n\nChi siamo\nPer ogni luogo che conta. Dalle porte automatiche alla gestione degli accessi basata su cloud, in qualità di leader globale nelle soluzioni di accesso per scuole, banche, aeroporti, ospedali, hotel e altro ancora, creiamo luoghi sicuri e sostenibili in cui le persone possono muoversi senza problemi. Con oltre 160 anni di esperienza e una chiara attenzione all'eccellenza e all'innovazione, offriamo entusiasmanti opportunità di sviluppo in un ambiente in cui puoi fare davvero la differenza. In dormakaba sei incoraggiato a mostrare iniziativa, sviluppare le tue capacità e dare forma alla tua carriera insieme a 16.000 esperti in tutto il mondo che ogni giorno stabiliscono nuovi standard nel settore.",
-        "en": "Become part of our team\nAs a global company that pursues very clear growth goals, we need employees who want to advance themselves and the company. For our St. Gallen location, we are looking for you as a technical modernization officer (m/f/d) 100% immediately or by appointment.\nIn this role, you are responsible for the commercial and technical processing of modernization orders in the area of ​​automatic door systems and ensure timely and economically successful order processing.\nYour tasks\n• You are responsible for the commercial and technical processing of modernization orders in the area of ​​automatic door systems.\n• Preparation of offers and orders for the modernization of automatic door systems.\n• You ensure that the orders are completed in an economically successful manner for the company.\n• Commercial and technical clarification of any deviations from the offer in collaboration with the service account manager.\n• Appointment responsibility.\n• Billing of orders and additional orders.\n• Substitute for processing maintenance contracts. ,\n• Complaint management.\n• Master data maintenance.\n\nYour profile\n• Technical vocational training with further training in the commercial area.\n• 3-5 years of experience in a similar position.\n• Flair for technology.\n• Organizational skills and good communication skills.\n• Good computer skills (MS Office & SAP knowledge).\n• Customer-oriented, independent and motivated personality.\n• Excellent knowledge of German; Knowledge of French is an advantage.\n• Friendly demeanor and solution-oriented way of working.\n\nWhat we offer\n• Best opportunities in a global corporation with the culture of a family business.\n• Work locations well served by public transport and home office options.\n• Attractive salary package.\n• Transparent and clearly defined development opportunities.\n• Support for militia work and charitable projects, even during working hours.\n\nWho we are\nFor every place that matters. From automatic doors to cloud-based access management, as a global leader in access solutions for schools, banks, airports, hospitals, hotels and more, we enable safe and sustainable places where people can move seamlessly. With over 160 years of experience and a clear focus on excellence and innovation, we offer exciting opportunities for development in an environment where you can make a real difference. At dormakaba you are encouraged to show initiative, develop your skills and shape your career together with 16,000 experts worldwide who set new standards in the industry every day.",
-        "de": "Werden Sie Teil unseres Teams\nAls weltweit agierendes Unternehmen, das ganz klare Wachstumsziele verfolgt, benötigen wir Mitarbeitende, die sich und die Firma weiterbringen möchten. Für unseren Standort St. Gallen suchen wir dich per sofort oder nach Vereinbarung als Technischer Sachbearbeiter Modernisierungen (w/m/d) 100%.\nIn dieser Funktion bist du für die kaufmännische und technische Abwicklung von Modernisierungsaufträgen im Bereich automatische Türsysteme verantwortlich und stellst eine termingerechte sowie wirtschaftlich erfolgreiche Auftragsabwicklung sicher.\nDeine Aufgaben\n• Du bist verantwortlich für die kaufmännische und technische Abwicklung von Modernisierungsaufträgen im Bereich automatische Türsysteme.\n• Ausarbeitung von Offerten und Aufträgen für die Modernisation automatischer Türsysteme.\n• Du stellst sicher, dass die Aufträge wirtschaftlich erfolgreich für das Unternehmen abgeschlossen werden.\n• Kaufmännische und technische Klärung bei allfälligen Abweichungen zum Angebot in Zusammenarbeit mit dem Service Account Manager.\n• Terminverantwortung.\n• Verrechnen von Aufträgen und Zusatzaufträgen.\n• Stellvertretung für die Bearbeitung von Wartungsverträgen. ,\n• Reklamationsmanagement.\n• Stammdatenpflege.\n\nDein Profil\n• Technische Berufsbildung mit Weiterbildung im kaufmännischen Bereich.\n• 3–5 Jahre Erfahrung in einer ähnlichen Position.\n• Flair für Technik.\n• Organisationstalent und gute Kommunikationsfähigkeit.\n• Gute EDV-Kenntnisse (MS Office & SAP-Kenntnisse).\n• Kundenorientierte, selbständige und motivierte Persönlichkeit.\n• Ausgezeichnete Deutschkenntnisse; Französischkenntnisse sind von Vorteil.\n• Freundliches Auftreten und lösungsorientierte Arbeitsweise.\n\nWas wir bieten\n• Beste Chancen in einem global agierenden Konzern mit der Kultur eines Familienunternehmens.\n• Mit dem ÖV gut erschlossene Arbeitsstandorte sowie Homeoffice-Möglichkeiten.\n• Attraktives Gehaltspaket.\n• Transparente und klar definierte Weiterentwicklungsmöglichkeiten.\n• Unterstützung von Milizarbeit und gemeinnützigen Projekten auch während der Arbeitszeit.\n\nWer wir sind\nFor every place that matters. Von automatischen Türen bis hin zu cloudbasiertem Zutrittsmanagement – als ein weltweit führender Anbieter auf dem Markt für Zutrittslösungen für Schulen, Banken, Flughäfen, Krankenhäuser, Hotels und viele weitere ermöglichen wir es, sichere und nachhaltige Orte zu schaffen, an denen sich Menschen nahtlos bewegen können. Mit über 160 Jahren Erfahrung und einem klaren Fokus auf Exzellenz und Innovation bieten wir spannende Möglichkeiten zur Weiterentwicklung in einem Umfeld, in dem Sie wirklich etwas bewirken können. Bei dormakaba werden Sie ermutigt, Eigeninitiative zu zeigen, Ihre Fähigkeiten auszubauen und Ihre Karriere gemeinsam mit 16.000 Expertinnen und Experten weltweit zu gestalten, die täglich neue Massstäbe in der Branche setzen.",
-        "fr": "Devenez membre de notre équipe\nEn tant qu'entreprise mondiale qui poursuit des objectifs de croissance très clairs, nous avons besoin d'employés qui souhaitent progresser et progresser au sein de l'entreprise. Pour notre site de Saint-Gall, nous vous recherchons en tant que responsable de la modernisation technique (h/f/d) à 100% immédiatement ou sur rendez-vous.\nDans ce rôle, vous êtes responsable du traitement commercial et technique des commandes de modernisation dans le domaine des systèmes de portes automatiques et assurez un traitement des commandes rapide et économiquement réussi.\nVos tâches\n• Vous êtes responsable du traitement commercial et technique des commandes de modernisation dans le domaine des systèmes de portes automatiques.\n• Préparation d'offres et de commandes pour la modernisation des systèmes de portes automatiques.\n• Vous veillez à ce que les commandes soient exécutées de manière économiquement rentable pour l'entreprise.\n• Clarification commerciale et technique des éventuels écarts par rapport à l'offre en collaboration avec le service account manager.\n• Responsabilité de nomination.\n• Facturation des commandes et commandes complémentaires.\n• Substitut au traitement des contrats de maintenance. ,\n• Gestion des réclamations.\n• Maintenance des données de base.\n\nVotre profil\n• Formation professionnelle technique avec formation continue dans le domaine commercial.\n• 3 à 5 ans d'expérience dans un poste similaire.\n• Goût pour la technologie.\n• Compétences organisationnelles et bonnes capacités de communication.\n• Bonnes compétences informatiques (connaissance MS Office & SAP).\n• Personnalité orientée client, indépendante et motivée.\n• Excellente connaissance de l'allemand ; La connaissance du français est un avantage.\n• Attitude amicale et méthode de travail axée sur les solutions.\n\nCe que nous proposons\n• Meilleures opportunités dans une entreprise mondiale avec la culture d’une entreprise familiale.\n• Des lieux de travail bien desservis par les transports en commun et les possibilités de bureau à domicile.\n• Un package salarial attractif.\n• Des opportunités de développement transparentes et clairement définies.\n• Soutien au travail des milices et aux projets caritatifs, même pendant les heures de travail.\n\nQui nous sommes\nPour chaque endroit qui compte. Des portes automatiques à la gestion des accès basée sur le cloud, en tant que leader mondial des solutions d'accès pour les écoles, les banques, les aéroports, les hôpitaux, les hôtels et bien plus encore, nous créons des lieux sûrs et durables où les gens peuvent se déplacer en toute transparence. Avec plus de 160 ans d’expérience et un accent clair sur l’excellence et l’innovation, nous offrons des opportunités de développement passionnantes dans un environnement où vous pouvez faire une réelle différence. Chez dormakaba, vous êtes encouragé à faire preuve d'initiative, à développer vos compétences et à façonner votre carrière avec 16 000 experts dans le monde entier qui établissent chaque jour de nouvelles normes dans l'industrie."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://jobs.dormakaba.com/job-invite/12354/?locale=de_DE",
-      "source": "dormakaba Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:42:36.311Z",
-      "addressLocality": "St. Gallen",
-      "postalCode": "9000",
-      "streetAddress": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "department": "Vertrieb",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.dormakaba.com/job-invite/12354/?locale=de_DE",
-      "legalEntity": "dormakaba Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
-        ]
-      },
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-25T15:07:54.711Z"
     },
     {
       "id": "dormakaba-12355",
@@ -552,7 +492,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12355/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:42:36.311Z",
+      "crawledAt": "2026-11-01T09:41:13.825Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -602,6 +542,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:41:13.825Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-24T14:51:47.178Z"
     },
     {
@@ -635,7 +578,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12274/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:42:36.311Z",
+      "crawledAt": "2026-11-01T09:41:13.825Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -682,6 +625,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:41:13.825Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T23:11:25.677Z"
     },
     {
@@ -715,7 +661,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12356/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:42:36.310Z",
+      "crawledAt": "2026-11-01T09:41:13.824Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -763,7 +709,88 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:41:13.824Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-25T15:07:54.710Z"
+    },
+    {
+      "id": "dormakaba-12354",
+      "slug": "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen",
+      "slugByLocale": {
+        "de": "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
+        "it": "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen",
+        "en": "technical-services-80-100-m-f-d-dormakaba-st-gallen",
+        "fr": "services-techniques-80-100-h-f-d-dormakaba-st-gallen"
+      },
+      "company": "dormakaba",
+      "companyKey": "dormakaba",
+      "companyDomain": "dormakaba.com",
+      "title": "Technischer Sachbearbeiter Services 80% - 100% (m/w/d)",
+      "titleByLocale": {
+        "it": "Addetto tecnico servizi 80% - 100% (m/f/d)",
+        "en": "Technical Clerk Services 80% - 100% (m/f/d)",
+        "de": "Technischer Sachbearbeiter Services 80% - 100% (m/w/d)",
+        "fr": "Responsable technique Services 80 % - 100 % (h/f/d)"
+      },
+      "description": "Werden Sie Teil unseres Teams\n Als weltweit agierendes Unternehmen, das ganz klare Wachstumsziele verfolgt, benötigen wir Mitarbeitende, die sich und die Firma weiterbringen möchten. Für unseren Standort St. Gallen suchen wir dich per sofort oder nach Vereinbarung als Technischer Sachbearbeiter Modernisierungen (w/m/d) 100%.\n In dieser Funktion bist du für die kaufmännische und technische Abwicklung von Modernisierungsaufträgen im Bereich automatische Türsysteme verantwortlich und stellst eine termingerechte sowie wirtschaftlich erfolgreiche Auftragsabwicklung sicher.\n Deine Aufgaben\n • Du bist verantwortlich für die kaufmännische und technische Abwicklung von Modernisierungsaufträgen im Bereich automatische Türsysteme.\n • Ausarbeitung von Offerten und Aufträgen für die Modernisation automatischer Türsysteme.\n • Du stellst sicher, dass die Aufträge wirtschaftlich erfolgreich für das Unternehmen abgeschlossen werden.\n • Kaufmännische und technische Klärung bei allfälligen Abweichungen zum Angebot in Zusammenarbeit mit dem Service Account Manager.\n • Terminverantwortung.\n • Verrechnen von Aufträgen und Zusatzaufträgen.\n • Stellvertretung für die Bearbeitung von Wartungsverträgen. ,\n • Reklamationsmanagement.\n • Stammdatenpflege.\n\nDein Profil\n • Technische Berufsbildung mit Weiterbildung im kaufmännischen Bereich.\n • 3–5 Jahre Erfahrung in einer ähnlichen Position.\n • Flair für Technik.\n • Organisationstalent und gute Kommunikationsfähigkeit.\n • Gute EDV-Kenntnisse (MS Office & SAP-Kenntnisse).\n • Kundenorientierte, selbständige und motivierte Persönlichkeit.\n • Ausgezeichnete Deutschkenntnisse; Französischkenntnisse sind von Vorteil.\n • Freundliches Auftreten und lösungsorientierte Arbeitsweise.\n\nWas wir bieten\n • Beste Chancen in einem global agierenden Konzern mit der Kultur eines Familienunternehmens.\n • Mit dem ÖV gut erschlossene Arbeitsstandorte sowie Homeoffice-Möglichkeiten.\n • Attraktives Gehaltspaket.\n • Transparente und klar definierte Weiterentwicklungsmöglichkeiten.\n • Unterstützung von Milizarbeit und gemeinnützigen Projekten auch während der Arbeitszeit.\n\nWer wir sind\n For every place that matters. Von automatischen Türen bis hin zu cloudbasiertem Zutrittsmanagement – als ein weltweit führender Anbieter auf dem Markt für Zutrittslösungen für Schulen, Banken, Flughäfen, Krankenhäuser, Hotels und viele weitere ermöglichen wir es, sichere und nachhaltige Orte zu schaffen, an denen sich Menschen nahtlos bewegen können. Mit über 160 Jahren Erfahrung und einem klaren Fokus auf Exzellenz und Innovation bieten wir spannende Möglichkeiten zur Weiterentwicklung in einem Umfeld, in dem Sie wirklich etwas bewirken können. Bei dormakaba werden Sie ermutigt, Eigeninitiative zu zeigen, Ihre Fähigkeiten auszubauen und Ihre Karriere gemeinsam mit 16.000 Expertinnen und Experten weltweit zu gestalten, die täglich neue Massstäbe in der Branche setzen.",
+      "descriptionByLocale": {
+        "it": "Diventa parte del nostro team\nCome azienda attiva a livello globale che persegue obiettivi di crescita molto chiari, abbiamo bisogno di dipendenti che vogliano aiutare se stessi e l'azienda ad andare avanti. Per la nostra sede di St. Gallen, ti cerchiamo come tecnico per modernizzazioni (m/f/d) 100% con effetto immediato o su appuntamento.\nIn questo ruolo, sarai responsabile dell'elaborazione commerciale e tecnica degli ordini di modernizzazione nel campo dei sistemi automatici per porte e garantirai un'elaborazione tempestiva ed economicamente efficace degli ordini.\nI tuoi compiti\n• Sarai responsabile dell'elaborazione commerciale e tecnica degli ordini di modernizzazione nel campo dei sistemi automatici per porte.\n• Preparazione di offerte e ordini per la modernizzazione dei sistemi automatici di porte.\n• Ti assicurerai che gli ordini vengano completati con successo per l'azienda.\n• Chiarimenti commerciali e tecnici in caso di deviazioni dall'offerta in collaborazione con il Service Account Manager.\n• Responsabilità con le scadenze.\n• Risoluzione degli ordini e ordini aggiuntivi.\n• Delegare per l'elaborazione dei contratti di manutenzione.,\n• Gestione dei reclami.\n• Manutenzione dei dati master.\n\nIl tuo profilo\n• Formazione tecnica professionale con ulteriore formazione nel settore commerciale.\n• 3-5 anni di esperienza in una posizione simile.\n• Talento per la tecnologia.\n• Talento organizzativo e buone capacità comunicative.\n• Buone competenze IT (MS Office e competenze SAP).\n• Personalità orientata al cliente, indipendente e motivata.\n• Ottima conoscenza della lingua tedesca; La conoscenza del francese costituisce titolo preferenziale.\n• Comportamento amichevole e modo di lavorare orientato alla soluzione.\n\nCosa offriamo\n• Le migliori opportunità in un'azienda globale con la cultura di un'azienda familiare.\n• Luoghi di lavoro ben serviti dai trasporti pubblici e possibilità di home office.\n• Pacchetto salariale interessante.\n• Opportunità di sviluppo trasparenti e chiaramente definite.\n• Sostegno al lavoro delle milizie e a progetti di beneficenza, anche durante l'orario di lavoro.\n\nChi siamo\nPer ogni luogo che conta. Dalle porte automatiche alla gestione degli accessi basata su cloud, in qualità di leader globale nelle soluzioni di accesso per scuole, banche, aeroporti, ospedali, hotel e altro ancora, creiamo luoghi sicuri e sostenibili in cui le persone possono muoversi senza problemi. Con oltre 160 anni di esperienza e una chiara attenzione all'eccellenza e all'innovazione, offriamo entusiasmanti opportunità di sviluppo in un ambiente in cui puoi fare davvero la differenza. In dormakaba sei incoraggiato a mostrare iniziativa, sviluppare le tue capacità e dare forma alla tua carriera insieme a 16.000 esperti in tutto il mondo che ogni giorno stabiliscono nuovi standard nel settore.",
+        "en": "Become part of our team\nAs a global company that pursues very clear growth goals, we need employees who want to advance themselves and the company. For our St. Gallen location, we are looking for you as a technical modernization officer (m/f/d) 100% immediately or by appointment.\nIn this role, you are responsible for the commercial and technical processing of modernization orders in the area of ​​automatic door systems and ensure timely and economically successful order processing.\nYour tasks\n• You are responsible for the commercial and technical processing of modernization orders in the area of ​​automatic door systems.\n• Preparation of offers and orders for the modernization of automatic door systems.\n• You ensure that the orders are completed in an economically successful manner for the company.\n• Commercial and technical clarification of any deviations from the offer in collaboration with the service account manager.\n• Appointment responsibility.\n• Billing of orders and additional orders.\n• Substitute for processing maintenance contracts. ,\n• Complaint management.\n• Master data maintenance.\n\nYour profile\n• Technical vocational training with further training in the commercial area.\n• 3-5 years of experience in a similar position.\n• Flair for technology.\n• Organizational skills and good communication skills.\n• Good computer skills (MS Office & SAP knowledge).\n• Customer-oriented, independent and motivated personality.\n• Excellent knowledge of German; Knowledge of French is an advantage.\n• Friendly demeanor and solution-oriented way of working.\n\nWhat we offer\n• Best opportunities in a global corporation with the culture of a family business.\n• Work locations well served by public transport and home office options.\n• Attractive salary package.\n• Transparent and clearly defined development opportunities.\n• Support for militia work and charitable projects, even during working hours.\n\nWho we are\nFor every place that matters. From automatic doors to cloud-based access management, as a global leader in access solutions for schools, banks, airports, hospitals, hotels and more, we enable safe and sustainable places where people can move seamlessly. With over 160 years of experience and a clear focus on excellence and innovation, we offer exciting opportunities for development in an environment where you can make a real difference. At dormakaba you are encouraged to show initiative, develop your skills and shape your career together with 16,000 experts worldwide who set new standards in the industry every day.",
+        "de": "Werden Sie Teil unseres Teams\nAls weltweit agierendes Unternehmen, das ganz klare Wachstumsziele verfolgt, benötigen wir Mitarbeitende, die sich und die Firma weiterbringen möchten. Für unseren Standort St. Gallen suchen wir dich per sofort oder nach Vereinbarung als Technischer Sachbearbeiter Modernisierungen (w/m/d) 100%.\nIn dieser Funktion bist du für die kaufmännische und technische Abwicklung von Modernisierungsaufträgen im Bereich automatische Türsysteme verantwortlich und stellst eine termingerechte sowie wirtschaftlich erfolgreiche Auftragsabwicklung sicher.\nDeine Aufgaben\n• Du bist verantwortlich für die kaufmännische und technische Abwicklung von Modernisierungsaufträgen im Bereich automatische Türsysteme.\n• Ausarbeitung von Offerten und Aufträgen für die Modernisation automatischer Türsysteme.\n• Du stellst sicher, dass die Aufträge wirtschaftlich erfolgreich für das Unternehmen abgeschlossen werden.\n• Kaufmännische und technische Klärung bei allfälligen Abweichungen zum Angebot in Zusammenarbeit mit dem Service Account Manager.\n• Terminverantwortung.\n• Verrechnen von Aufträgen und Zusatzaufträgen.\n• Stellvertretung für die Bearbeitung von Wartungsverträgen. ,\n• Reklamationsmanagement.\n• Stammdatenpflege.\n\nDein Profil\n• Technische Berufsbildung mit Weiterbildung im kaufmännischen Bereich.\n• 3–5 Jahre Erfahrung in einer ähnlichen Position.\n• Flair für Technik.\n• Organisationstalent und gute Kommunikationsfähigkeit.\n• Gute EDV-Kenntnisse (MS Office & SAP-Kenntnisse).\n• Kundenorientierte, selbständige und motivierte Persönlichkeit.\n• Ausgezeichnete Deutschkenntnisse; Französischkenntnisse sind von Vorteil.\n• Freundliches Auftreten und lösungsorientierte Arbeitsweise.\n\nWas wir bieten\n• Beste Chancen in einem global agierenden Konzern mit der Kultur eines Familienunternehmens.\n• Mit dem ÖV gut erschlossene Arbeitsstandorte sowie Homeoffice-Möglichkeiten.\n• Attraktives Gehaltspaket.\n• Transparente und klar definierte Weiterentwicklungsmöglichkeiten.\n• Unterstützung von Milizarbeit und gemeinnützigen Projekten auch während der Arbeitszeit.\n\nWer wir sind\nFor every place that matters. Von automatischen Türen bis hin zu cloudbasiertem Zutrittsmanagement – als ein weltweit führender Anbieter auf dem Markt für Zutrittslösungen für Schulen, Banken, Flughäfen, Krankenhäuser, Hotels und viele weitere ermöglichen wir es, sichere und nachhaltige Orte zu schaffen, an denen sich Menschen nahtlos bewegen können. Mit über 160 Jahren Erfahrung und einem klaren Fokus auf Exzellenz und Innovation bieten wir spannende Möglichkeiten zur Weiterentwicklung in einem Umfeld, in dem Sie wirklich etwas bewirken können. Bei dormakaba werden Sie ermutigt, Eigeninitiative zu zeigen, Ihre Fähigkeiten auszubauen und Ihre Karriere gemeinsam mit 16.000 Expertinnen und Experten weltweit zu gestalten, die täglich neue Massstäbe in der Branche setzen.",
+        "fr": "Devenez membre de notre équipe\nEn tant qu'entreprise mondiale qui poursuit des objectifs de croissance très clairs, nous avons besoin d'employés qui souhaitent progresser et progresser au sein de l'entreprise. Pour notre site de Saint-Gall, nous vous recherchons en tant que responsable de la modernisation technique (h/f/d) à 100% immédiatement ou sur rendez-vous.\nDans ce rôle, vous êtes responsable du traitement commercial et technique des commandes de modernisation dans le domaine des systèmes de portes automatiques et assurez un traitement des commandes rapide et économiquement réussi.\nVos tâches\n• Vous êtes responsable du traitement commercial et technique des commandes de modernisation dans le domaine des systèmes de portes automatiques.\n• Préparation d'offres et de commandes pour la modernisation des systèmes de portes automatiques.\n• Vous veillez à ce que les commandes soient exécutées de manière économiquement rentable pour l'entreprise.\n• Clarification commerciale et technique des éventuels écarts par rapport à l'offre en collaboration avec le service account manager.\n• Responsabilité de nomination.\n• Facturation des commandes et commandes complémentaires.\n• Substitut au traitement des contrats de maintenance. ,\n• Gestion des réclamations.\n• Maintenance des données de base.\n\nVotre profil\n• Formation professionnelle technique avec formation continue dans le domaine commercial.\n• 3 à 5 ans d'expérience dans un poste similaire.\n• Goût pour la technologie.\n• Compétences organisationnelles et bonnes capacités de communication.\n• Bonnes compétences informatiques (connaissance MS Office & SAP).\n• Personnalité orientée client, indépendante et motivée.\n• Excellente connaissance de l'allemand ; La connaissance du français est un avantage.\n• Attitude amicale et méthode de travail axée sur les solutions.\n\nCe que nous proposons\n• Meilleures opportunités dans une entreprise mondiale avec la culture d’une entreprise familiale.\n• Des lieux de travail bien desservis par les transports en commun et les possibilités de bureau à domicile.\n• Un package salarial attractif.\n• Des opportunités de développement transparentes et clairement définies.\n• Soutien au travail des milices et aux projets caritatifs, même pendant les heures de travail.\n\nQui nous sommes\nPour chaque endroit qui compte. Des portes automatiques à la gestion des accès basée sur le cloud, en tant que leader mondial des solutions d'accès pour les écoles, les banques, les aéroports, les hôpitaux, les hôtels et bien plus encore, nous créons des lieux sûrs et durables où les gens peuvent se déplacer en toute transparence. Avec plus de 160 ans d’expérience et un accent clair sur l’excellence et l’innovation, nous offrons des opportunités de développement passionnantes dans un environnement où vous pouvez faire une réelle différence. Chez dormakaba, vous êtes encouragé à faire preuve d'initiative, à développer vos compétences et à façonner votre carrière avec 16 000 experts dans le monde entier qui établissent chaque jour de nouvelles normes dans l'industrie."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://jobs.dormakaba.com/job-invite/12354/?locale=de_DE",
+      "source": "dormakaba Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:41:13.824Z",
+      "addressLocality": "St. Gallen",
+      "postalCode": "9000",
+      "streetAddress": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "department": "Vertrieb",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sicurezza / Controllo accessi (hardware per porte e sistemi di accesso)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.dormakaba.com/job-invite/12354/?locale=de_DE",
+      "legalEntity": "dormakaba Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
+        ]
+      },
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:41:13.824Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-25T15:07:54.711Z"
     },
     {
       "id": "dormakaba-12019",
@@ -796,7 +823,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12019/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:42:36.309Z",
+      "crawledAt": "2026-11-01T09:41:13.823Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -848,6 +875,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:13.823Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-18T10:07:59.609Z"
     },
     {
@@ -881,7 +911,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12525/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:42:36.308Z",
+      "crawledAt": "2026-11-01T09:41:13.822Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -930,6 +960,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:41:13.822Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-22T09:46:38.214Z"
     },
     {
@@ -963,7 +996,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11900/?locale=en_US",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:42:36.307Z",
+      "crawledAt": "2026-11-01T09:41:13.820Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -1013,6 +1046,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:13.820Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-07-16T22:17:33.262Z"
     }
   ]

@@ -1,25 +1,25 @@
 {
   "key": "aarreha-schinznach",
   "label": "aarReha Schinznach",
-  "generatedAt": "2026-10-31T09:21:25.636Z",
-  "total": 14,
+  "generatedAt": "2026-11-01T09:16:54.576Z",
+  "total": 13,
   "discovered": null,
   "parsed": 13,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 14,
+  "written": 13,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 14,
-  "durationMs": 10664,
-  "avgDurationMs": 10664,
+  "unchangedCount": 13,
+  "durationMs": 9641,
+  "avgDurationMs": 9641,
   "durationHistory": [
-    10664
+    9641
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-unterassistentin-unterassistent_538.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:10.582Z",
+      "crawledAt": "2026-11-01T09:16:44.241Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -58,12 +58,26 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:44.241Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -79,7 +93,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-dipl-pflegefachfrau-dipl-pflegefachmann-mit-zusatzfunktion-als-berufsbildner-in-schwerpunkt-int_530.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:10.064Z",
+      "crawledAt": "2026-11-01T09:16:43.712Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -100,12 +114,26 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:43.712Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -120,7 +148,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-praktikantin-praktikant-pflege_542.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:09.401Z",
+      "crawledAt": "2026-11-01T09:16:43.185Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -141,12 +169,26 @@
       "salaryMin": 79000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:43.185Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -162,7 +204,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-psychologin-psychologe-oder-oberpsychologin-oberpsychologe-_546.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:08.361Z",
+      "crawledAt": "2026-11-01T09:16:42.689Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -183,12 +225,26 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:42.689Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -204,7 +260,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-ernahrungsberaterin-ernahrungsberater-bsc-oder-hf-_556.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:07.868Z",
+      "crawledAt": "2026-11-01T09:16:42.197Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -225,12 +281,26 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:42.197Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -245,7 +315,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-lehrstelle-2027-als-restaurantfachfrau-restaurantfachmann-efz_551.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:07.411Z",
+      "crawledAt": "2026-11-01T09:16:41.674Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -266,12 +336,26 @@
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-19T09:16:41.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -286,7 +370,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz_550.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:06.900Z",
+      "crawledAt": "2026-11-01T09:16:41.178Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -307,12 +391,26 @@
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-19T09:16:41.178Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -328,7 +426,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-leitende-arztin-leitender-arzt-geriatrie_565.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:06.419Z",
+      "crawledAt": "2026-11-01T09:16:40.688Z",
       "addressLocality": "Schinznach-Bad und Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -349,12 +447,16 @@
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Schinznach-Bad und Zofingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:16:40.688Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -370,7 +472,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-fachfrau-fachmann-gesundheit_562.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:05.898Z",
+      "crawledAt": "2026-11-01T09:16:40.196Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -391,12 +493,26 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:40.196Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -412,7 +528,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-dipl-pflegefachfrau-dipl-pflegefachmann_544.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:05.444Z",
+      "crawledAt": "2026-11-01T09:16:39.684Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -433,12 +549,26 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:39.684Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -454,7 +584,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-dipl-med-masseurin-dipl-med-masseur_531.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:04.983Z",
+      "crawledAt": "2026-11-01T09:16:39.192Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -475,12 +605,26 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:39.192Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -496,7 +640,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-ernahrungsberaterin-ernahrungsberater-bsc-oder-hf-svde_566.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:04.529Z",
+      "crawledAt": "2026-11-01T09:16:38.694Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -517,12 +661,26 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-26T09:16:38.694Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -538,7 +696,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-mitarbeiterin-mitarbeiter-restauration_540.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:04.059Z",
+      "crawledAt": "2026-11-01T09:16:38.202Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -559,57 +717,28 @@
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:38.202Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "aarreha-schinznach-f6345d460b43",
-      "slug": "dipl-fisioterapista-dipl-fisioterapisti-aarreha-schinznach-windisch",
-      "company": "aarReha Schinznach",
-      "companyKey": "aarreha-schinznach",
-      "companyDomain": "aarreha.ch",
-      "title": "dipl. Physiotherapeutin / dipl. Physiotherapeut",
-      "needsRetranslation": true,
-      "location": "Windisch",
-      "canton": "AG",
-      "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-dipl-physiotherapeutin-dipl-physiotherapeut_545.aspx",
-      "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:33:28.856Z",
-      "addressLocality": "Windisch",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5210",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-dipl-physiotherapeutin-dipl-physiotherapeut_545.aspx",
-      "firstSeenAt": "2026-07-16T11:13:07.205Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

@@ -615,6 +615,35 @@ describe('renderCompanyCityPage', () => {
     expect(html).toMatch(/Dati iniziali/);
   });
 
+  it('keeps a locale-specific title lead when a long employer name is clamped', () => {
+    const employer = 'Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino';
+    const titles = WEEKLY_EMPLOYERS_LOCALES.map((locale) => {
+      const html = renderCompanyCityPage({
+        ...fixture,
+        locale,
+        companySlug: 'canton-ticino-osc',
+        canonicalPath: buildCompanyCityCurrentPath(locale, 'mendrisio', 'canton-ticino-osc'),
+        stats: {
+          ...fixture.stats,
+          city: 'mendrisio',
+          companySlug: 'canton-ticino-osc',
+          employer,
+          employerKey: 'canton-ticino-osc',
+        },
+      });
+      const title = html.match(/<title>([^<]*)<\/title>/)?.[1];
+      expect(title).toBeTruthy();
+      expect(title!.length).toBeLessThanOrEqual(66);
+      return title;
+    });
+
+    expect(new Set(titles).size).toBe(WEEKLY_EMPLOYERS_LOCALES.length);
+    expect(titles[0]).toContain('Offerte di lavoro');
+    expect(titles[1]).toContain('Jobs in');
+    expect(titles[2]).toContain('Stellenangebote');
+    expect(titles[3]).toContain('Emplois');
+  });
+
   it('emits noindex,follow on an old archive variant', () => {
     const html = renderCompanyCityPage({
       ...fixture,

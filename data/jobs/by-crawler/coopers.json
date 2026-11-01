@@ -1,7 +1,7 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-10-31T09:29:50.261Z",
-  "runId": "41187750242",
+  "assembledAt": "2026-11-01T09:20:49.059Z",
+  "runId": "41292128544",
   "jobs": [
     {
       "id": "coopers-76e7d5c21035",
@@ -34,7 +34,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:43.223Z",
+      "crawledAt": "2026-11-01T09:20:42.081Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -95,7 +95,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:42.081Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-e2bf5b2d46bc",
@@ -128,7 +132,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:42.335Z",
+      "crawledAt": "2026-11-01T09:20:41.236Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -187,7 +191,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6300"
+      "postalCode": "6300",
+      "streetAddress": "Zug",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:41.236Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-1f0b26337c57",
@@ -220,7 +228,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:41.447Z",
+      "crawledAt": "2026-11-01T09:20:40.410Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -273,7 +281,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8500"
+      "postalCode": "8500",
+      "streetAddress": "Thurgau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:40.410Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-d6f3782d4212",
@@ -306,7 +318,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:40.536Z",
+      "crawledAt": "2026-11-01T09:20:39.591Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -368,7 +380,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8500"
+      "postalCode": "8500",
+      "streetAddress": "Thurgau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:39.591Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-963709e57e85",
@@ -401,7 +417,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:39.650Z",
+      "crawledAt": "2026-11-01T09:20:38.759Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -473,7 +489,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:38.759Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-e422145c5708",
@@ -506,7 +526,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:38.763Z",
+      "crawledAt": "2026-11-01T09:20:37.946Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -560,7 +580,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:37.946Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-67b1692b6037",
@@ -593,7 +617,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:37.871Z",
+      "crawledAt": "2026-11-01T09:20:37.114Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -647,7 +671,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "streetAddress": "Basel-Stadt",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:37.114Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-172428ad68bb",
@@ -680,7 +708,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:36.975Z",
+      "crawledAt": "2026-11-01T09:20:36.268Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -735,7 +763,11 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel-Landschaft",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:36.268Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-0529dc35c9dd",
@@ -768,7 +800,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:36.082Z",
+      "crawledAt": "2026-11-01T09:20:35.447Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -821,7 +853,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "streetAddress": "Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:35.447Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-d795315f2b97",
@@ -854,7 +890,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JMN86",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:35.197Z",
+      "crawledAt": "2026-11-01T09:20:34.624Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -922,7 +958,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:34.624Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-a19125428a8b",
@@ -955,7 +995,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=80N9VI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:34.305Z",
+      "crawledAt": "2026-11-01T09:20:33.810Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1010,7 +1050,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel-Landschaft",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:33.810Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-6d7d027f089a",
@@ -1043,7 +1087,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R1HY31",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:33.415Z",
+      "crawledAt": "2026-11-01T09:20:32.995Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1096,7 +1140,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "streetAddress": "Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:32.995Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-10052419e49b",
@@ -1129,7 +1177,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=873AAR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:29:32.117Z",
+      "crawledAt": "2026-11-01T09:20:32.175Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1184,7 +1232,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "streetAddress": "Wallis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:32.175Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-cc0bbdff0aed",
@@ -1217,7 +1269,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HWB224",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:31.230Z",
+      "crawledAt": "2026-11-01T09:20:31.354Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1273,7 +1325,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "streetAddress": "Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:31.354Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-ba7ed6a137ca",
@@ -1306,7 +1362,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8A0OK8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:30.339Z",
+      "crawledAt": "2026-11-01T09:20:30.526Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1360,7 +1416,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4500"
+      "postalCode": "4500",
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:30.526Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-93a446c04c42",
@@ -1393,7 +1453,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SC117T",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:29.416Z",
+      "crawledAt": "2026-11-01T09:20:29.673Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1453,7 +1513,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "streetAddress": "Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T09:20:29.673Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-a8c91082987c",
@@ -1486,7 +1550,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B3LB50",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:28.521Z",
+      "crawledAt": "2026-11-01T09:20:28.848Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1544,7 +1608,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:20:28.848Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-7cba30c89f47",
@@ -1577,7 +1645,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5LY2U0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:27.618Z",
+      "crawledAt": "2026-11-01T09:20:28.020Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1639,7 +1707,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "streetAddress": "Basel-Stadt",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:20:28.020Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-ce54d52ecb84",
@@ -1672,7 +1744,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=T5ME25",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:26.724Z",
+      "crawledAt": "2026-11-01T09:20:27.185Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1729,7 +1801,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6300"
+      "postalCode": "6300",
+      "streetAddress": "Zug",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:20:27.185Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-37ef7dc48c49",
@@ -1762,7 +1838,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9OIT77",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:29:25.829Z",
+      "crawledAt": "2026-11-01T09:20:26.355Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1824,99 +1900,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
-    },
-    {
-      "id": "coopers-ebaa6d26e920",
-      "slug": "enablement-ingegnere-m-w-d-coopers-group-ag-schaffhausen",
-      "slugByLocale": {
-        "it": "enablement-ingegnere-m-w-d-coopers-group-ag-schaffhausen",
-        "en": "enablement-engineer-m-w-d-coopers-schaffhausen",
-        "de": "enablement-ingenieur-m-w-d-coopers-group-ag-schaffhausen",
-        "fr": "enablement-engineer-m-w-d-coopers-schaffhausen"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Enablement Engineer (m/w/d)",
-      "titleByLocale": {
-        "it": "Enablement Ingegnere (m/w/d)",
-        "en": "Enablement Engineer (m/w/d)",
-        "de": "Enablement Ingenieur (m/w/d)",
-        "fr": "Enablement Ingénieur (m/w/d)"
-      },
-      "description": "For our Pharma client in Schaffausen, we are looking for an Enablement Engineer who has good knowledge of MES systems\n\nYour responsibilities\n• Analyse capability and training needs with project managers, process owners, subject-matter experts, Manufacturing, Quality, IT, Automation, and Validation.\n• Translate manufacturing processes, approved procedures, and PAS-X functionality into role-based learning objectives, curricula, and practical user guidance.\n• Develop and maintain instructor-led and digital learning content, exercises, presentations, simulations, quick-reference guides, manuals, and other support materials.\n• Plan, coordinate, and deliver classroom, group, individual, and hands-on PAS-X training for production employees, support functions, key users, and internal trainers.\n• Assess learning effectiveness and user readiness through knowledge checks, practical exercises, observations, feedback, and readiness reporting.\n• Provide floor-level support during deployment and hypercare, coaching users and resolving or routing process- and system-related questions.\n• Capture recurring user challenges and work with relevant teams to improve training, documentation, business processes, or system configuration.\n• Maintain training records, completion status, evaluation results, capability gaps, risks, and progress reports in line with applicable quality requirements.\n\nRequired qualifications and experience\n• Degree or comparable qualification in engineering, life sciences, IT, business administration, educational sciences, or a related field.\n• Experience developing and delivering technical, process-based, or system training; experience with PAS-X or another MES is strongly preferred.\n• Understanding of manufacturing processes and the ability to independently connect operational workflows with system functionality.\n• Experience in a pharmaceutical, biotechnology, medical device, or other regulated manufacturing environment is preferred; GxP knowledge is an advantage.\n• Experience supporting system implementation, change, go-live preparation, hypercare, train-the-trainer activities, or key-user networks is beneficial.\n• Strong instructional design, adult-learning, facilitation, coaching, communication, and presentation skills.\n• Structured, proactive, and solution-oriented working style, with strong collaboration skills and attention to documentation quality.\n• Fluent German and English, both written and spoken.\n\nJob profile\n• IT - ERP & Applications\n• Schaffhausen\n• Contracting\n• Full Time\n• asap - 12 months\n• software, Requirements Engineering",
-      "descriptionByLocale": {
-        "it": "Per il nostro cliente Pharma a Schaffausen, stiamo cercando un Ingegnere di Attivazione che ha una buona conoscenza dei sistemi MES\n\nLe tue responsabilità\n• Analizzare le capacità e le esigenze di formazione con project manager, responsabili di processo, esperti di materia, produzione, qualità, IT, automazione e convalida.\n• Traduci i processi produttivi, le procedure approvate e la funzionalità PAS-X in obiettivi di apprendimento basati sul ruolo, curricula e guida utente pratica.\n• Sviluppare e mantenere contenuti di apprendimento, esercizi, presentazioni, simulazioni, guide di riferimento rapido, manuali e altri materiali di supporto.\n• Pianificare, coordinare e fornire formazione in classe, gruppo, individuale e hands-on PAS-X per i dipendenti di produzione, funzioni di supporto, utenti chiave e formatori interni.\n• Valuta l'efficacia dell'apprendimento e la disponibilità dell'utente attraverso controlli di conoscenza, esercizi pratici, osservazioni, feedback e reportage di disponibilità.\n• Fornire supporto a livello di pavimento durante l'implementazione e l'ipercare, gli utenti di coaching e risolvere o routing processo- e domande relative al sistema.\n• Catturare le sfide dell'utente ricorrenti e lavorare con i team rilevanti per migliorare la formazione, la documentazione, i processi aziendali o la configurazione di sistema.\n• Mantenere record di formazione, stato di completamento, risultati di valutazione, lacune di capacità, rischi e rapporti di progresso in linea con i requisiti di qualità applicabili.\n\nObbligazioni ed esperienze\n• Laurea o qualificazione comparabile in ingegneria, scienze della vita, IT, amministrazione aziendale, scienze educative, o un campo correlato.\n• L'esperienza di sviluppo e la fornitura di formazione tecnica, basata su processi o di sistema; l'esperienza con PAS-X o un altro MES è fortemente preferita.\n• Comprensione dei processi produttivi e la capacità di collegare in modo indipendente i flussi di lavoro operativi con la funzionalità del sistema.\n• L'esperienza in un farmaceutico, biotecnologia, dispositivo medico o altro ambiente di produzione regolamentato è preferito; la conoscenza GxP è un vantaggio.\n• Esperienza di implementazione del sistema di supporto, cambiamento, preparazione di go-live, ipercare, attività train-the-trainer, o le reti key-user è vantaggioso.\n• Forte design didattico, adulto-apprendimento, facilitazione, coaching, comunicazione e capacità di presentazione.\n• Stile di lavoro strutturato, proattivo e orientato alla soluzione, con forti capacità di collaborazione e attenzione alla qualità della documentazione.\n• Tedesco fluente e inglese, sia scritto che parlato.\n\nProfilo del lavoro\n• IT - ERP & Applicazioni\n• Schaffhausen\n• Contraente\n• Tempo pieno\n• asap - 12 mesi\n• software, Requisiti Ingegneria",
-        "en": "For our Pharma client in Schaffausen, we are looking for an Enablement Engineer who has good knowledge of MES systems\n\nYour responsibilities\n• Analyse capability and training needs with project managers, process owners, subject-matter experts, Manufacturing, Quality, IT, Automation, and Validation.\n• Translate manufacturing processes, approved procedures, and PAS-X functionality into role-based learning objectives, curricula, and practical user guidance.\n• Develop and maintain instructor-led and digital learning content, exercises, presentations, simulations, quick-reference guides, manuals, and other support materials.\n• Plan, coordinate, and deliver classroom, group, individual, and hands-on PAS-X training for production employees, support functions, key users, and internal trainers.\n• Assess learning effectiveness and user readiness through knowledge checks, practical exercises, observations, feedback, and readiness reporting.\n• Provide floor-level support during deployment and hypercare, coaching users and resolving or routing process- and system-related questions.\n• Capture recurring user challenges and work with relevant teams to improve training, documentation, business processes, or system configuration.\n• Maintain training records, completion status, evaluation results, capability gaps, risks, and progress reports in line with applicable quality requirements.\n\nRequired qualifications and experience\n• Degree or comparable qualification in engineering, life sciences, IT, business administration, educational sciences, or a related field.\n• Experience developing and delivering technical, process-based, or system training; experience with PAS-X or another MES is strongly preferred.\n• Understanding of manufacturing processes and the ability to independently connect operational workflows with system functionality.\n• Experience in a pharmaceutical, biotechnology, medical device, or other regulated manufacturing environment is preferred; GxP knowledge is an advantage.\n• Experience supporting system implementation, change, go-live preparation, hypercare, train-the-trainer activities, or key-user networks is beneficial.\n• Strong instructional design, adult-learning, facilitation, coaching, communication, and presentation skills.\n• Structured, proactive, and solution-oriented working style, with strong collaboration skills and attention to documentation quality.\n• Fluent German and English, both written and spoken.\n\nJob profile\n• IT - ERP & Applications\n• Schaffhausen\n• Contracting\n• Full Time\n• asap - 12 months\n• software, Requirements Engineering",
-        "de": "Für unseren Pharma-Kunden in Schaffausen suchen wir einen Enablement Engineer mit guten Kenntnissen der MES-Systeme\n\nIhre Verantwortung\n• Analyse von Fähigkeiten und Schulungsanforderungen mit Projektmanagern, Prozesseigentümern, Fachexperten, Fertigung, Qualität, IT, Automatisierung und Validierung.\n• Übersetzen Sie Fertigungsprozesse, genehmigte Verfahren und PAS-X-Funktionalität in rollenbasierte Lernziele, Lehrpläne und praktische Benutzerführung.\n• Entwicklung und Pflege von instruktorgeführten und digitalen Lerninhalten, Übungen, Präsentationen, Simulationen, Schnellreferenzanleitungen, Handbüchern und anderen Unterstützungsmaterialien.\n• Planen, koordinieren und liefern Klassenzimmer, Gruppe, Einzel- und praktische PAS-X-Schulungen für Produktionsmitarbeiter, Supportfunktionen, Key User und interne Trainer.\n• Beurteilen Sie die Lerneffektivität und die Benutzerbereitschaft durch Wissensüberprüfungen, praktische Übungen, Beobachtungen, Feedback und Bereitschaftsberichterstattung.\n• Unterstützung auf Bodenebene während der Bereitstellung und Hypercare, Coaching von Benutzern und Lösung oder Routing von prozess- und systembezogenen Fragen.\n• Erfassen Sie wiederkehrende Benutzerherausforderungen und arbeiten Sie mit relevanten Teams zusammen, um Schulungen, Dokumentationen, Geschäftsprozesse oder die Systemkonfiguration zu verbessern.\n• Führen Sie Schulungsaufzeichnungen, Abschlussstatus, Bewertungsergebnisse, Fähigkeitslücken, Risiken und Fortschrittsberichte gemäß den geltenden Qualitätsanforderungen.\n\nErforderliche Qualifikationen und Erfahrung\n• Grad oder vergleichbare Qualifikation in Ingenieurwissenschaften, Life Sciences, IT, Betriebswirtschaftslehre, Bildungswissenschaften oder einem verwandten Bereich.\n• Erfahrung in der Entwicklung und Durchführung technischer, prozessbasierter oder Systemschulungen; Erfahrung mit PAS-X oder einem anderen MES wird stark bevorzugt.\n• Verständnis von Fertigungsprozessen und die Fähigkeit, betriebliche Workflows unabhängig mit der Systemfunktionalität zu verbinden.\n• Erfahrung in einem pharmazeutischen, biotechnologischen, medizinischen Gerät oder einer anderen regulierten Fertigungsumgebung wird bevorzugt; GxP-Wissen ist ein Vorteil.\n• Die Erfahrung mit der Unterstützung von Systemimplementierung, Änderung, Go-Live-Vorbereitung, Hypercare, Train-the-Trainer-Aktivitäten oder Key-User-Netzwerken ist von Vorteil.\n• Starkes Unterrichtsdesign, Lernen für Erwachsene, Erleichterung, Coaching, Kommunikation und Präsentationsfähigkeiten.\n• Strukturierter, proaktiver und lösungsorientierter Arbeitsstil mit starken Kollaborationsfähigkeiten und Aufmerksamkeit für die Qualität der Dokumentation.\n• fließend Deutsch und Englisch, geschrieben und gesprochen.\n\nStellenprofil\n• IT - ERP & Anwendungen\n• Schaffhausen\n• Vertrag\n• Vollzeit\n• asap - 12 Monate\n• Software, Requirements Engineering",
-        "fr": "Pour notre client Pharma à Schaffausen, nous recherchons un ingénieur d'activation qui possède une bonne connaissance des systèmes MES\n\nVos responsabilités\n• Analyser les capacités et les besoins de formation avec les gestionnaires de projet, les propriétaires de processus, les experts en la matière, la fabrication, la qualité, les TI, l'automatisation et la validation.\n• Traduire les processus de fabrication, les procédures approuvées et la fonctionnalité PAS-X en objectifs d'apprentissage axés sur les rôles, programmes d'études et conseils pratiques aux utilisateurs.\n• Élaborer et tenir à jour du contenu d'apprentissage numérique, des exercices, des présentations, des simulations, des guides de référence rapide, des manuels et d'autres documents de soutien.\n• Planifier, coordonner et dispenser une formation en classe, en groupe, individuelle et pratique sur le PAS-X pour les employés de production, les fonctions de soutien, les utilisateurs clés et les formateurs internes.\n• Évaluer l'efficacité de l'apprentissage et l'état de préparation des utilisateurs au moyen de vérifications des connaissances, d'exercices pratiques, d'observations, de rétroaction et de rapports sur l'état de préparation.\n• Fournir un soutien au niveau du plancher pendant le déploiement et l'hypersoins, entraîner les utilisateurs et résoudre ou acheminer les questions liées au processus et au système.\n• Capter les défis récurrents des utilisateurs et travailler avec les équipes compétentes pour améliorer la formation, la documentation, les processus opérationnels ou la configuration du système.\n• Tenir des dossiers de formation, l'état d'achèvement, les résultats d'évaluation, les lacunes en matière de capacités, les risques et les rapports d'étape conformément aux exigences de qualité applicables.\n\nQualifications et expérience requises\n• Diplôme ou qualification comparable en génie, sciences de la vie, TI, administration des affaires, sciences de l'éducation ou un domaine connexe.\n• L'expérience du développement et de la prestation d'une formation technique, de processus ou de systèmes; l'expérience du PAS-X ou d'un autre MES est fortement préférée.\n• Compréhension des processus de fabrication et capacité de connecter indépendamment les flux de travail opérationnels à la fonctionnalité du système.\n• L'expérience d'un milieu pharmaceutique, de la biotechnologie, d'un instrument médical ou d'un autre milieu de fabrication réglementé est privilégiée; la connaissance GxP est un avantage.\n• L'expérience de la mise en œuvre du système, du changement, de la préparation continue, de l'hypersoins, des activités de formation des formateurs ou des réseaux d'utilisateurs clés est bénéfique.\n• Une solide conception pédagogique, l'apprentissage des adultes, la facilitation, l'encadrement, la communication et la présentation.\n• Style de travail structuré, proactif et axé sur les solutions, avec de solides compétences en collaboration et une attention à la qualité de la documentation.\n• L'allemand et l'anglais, écrits et parlés.\n\nProfil d'emploi\n• IT - ERP & Applications\n• Schaffhausen\n• Contrats\n• Temps plein\n• dès - 12 mois\n• logiciel, Ingénierie des besoins"
-      },
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2Y3C1X",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:29:24.943Z",
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-19T00:00:00Z",
-      "postedDate": "2026-10-19T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=2Y3C1X",
-      "requirements": [
-        "IT - ERP & Applications",
-        "Schaffhausen",
-        "Contracting",
-        "Full Time",
-        "asap - 12 months",
-        "software, Requirements Engineering"
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "IT - ERP & Applications",
-          "Schaffhausen",
-          "Contracting",
-          "Full Time",
-          "asap - 12 months",
-          "software, Requirements Engineering"
-        ]
-      },
-      "previousSlugs": [
-        "enablement-engineer-m-w-d-coopers-schaffhausen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "enablement-engineer-m-w-d-coopers-schaffhausen"
-        ],
-        "de": [
-          "enablement-engineer-m-w-d-coopers-schaffhausen"
-        ]
-      },
-      "firstSeenAt": "2026-10-19T21:18:10.095Z",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8200"
+      "postalCode": "4001",
+      "streetAddress": "Basel-Stadt",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:20:26.355Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-254839baf2e7",
@@ -1949,7 +1937,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8ADY23",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:29:24.050Z",
+      "crawledAt": "2026-11-01T09:20:25.512Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2009,7 +1997,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6300"
+      "postalCode": "6300",
+      "streetAddress": "Zug",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:20:25.512Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-f7d4bc29cecd",
@@ -2042,7 +2034,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0VTZ20",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:23.161Z",
+      "crawledAt": "2026-11-01T09:20:24.689Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2103,7 +2095,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:20:24.689Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-0732f02c2230",
@@ -2136,7 +2132,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:22.274Z",
+      "crawledAt": "2026-11-01T09:20:23.871Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2194,7 +2190,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:23.871Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-4a0e7648e312",
@@ -2227,7 +2227,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=60UUR1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:21.381Z",
+      "crawledAt": "2026-11-01T09:20:23.052Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2275,7 +2275,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "streetAddress": "Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:23.052Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-8856ca4605a2",
@@ -2308,7 +2312,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OH3F98",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:20.491Z",
+      "crawledAt": "2026-11-01T09:20:22.224Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2371,7 +2375,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:22.224Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-0de4185421a8",
@@ -2404,7 +2412,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=D6GR56",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:19.604Z",
+      "crawledAt": "2026-11-01T09:20:21.404Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2462,7 +2470,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:21.404Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-61e7efc3c9e5",
@@ -2495,7 +2507,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2JN4D0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:18.714Z",
+      "crawledAt": "2026-11-01T09:20:20.574Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2556,7 +2568,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:20.574Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-d9cbde47b2ee",
@@ -2589,7 +2605,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6HR98P",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:17.824Z",
+      "crawledAt": "2026-11-01T09:20:19.731Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2653,7 +2669,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:19.731Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-962516f105df",
@@ -2686,7 +2706,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8WU85W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:16.926Z",
+      "crawledAt": "2026-11-01T09:20:18.911Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2742,7 +2762,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "streetAddress": "Basel-Stadt",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:18.911Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-83384329db18",
@@ -2775,7 +2799,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=H3E57F",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:16.033Z",
+      "crawledAt": "2026-11-01T09:20:18.094Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2822,7 +2846,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:18.094Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-c1b921d84e28",
@@ -2855,7 +2883,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=M4R79H",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:29:15.149Z",
+      "crawledAt": "2026-11-01T09:20:17.275Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2902,7 +2930,11 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel-Landschaft",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:17.275Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-5ff26817566f",
@@ -2935,7 +2967,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=980SOQ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:29:14.222Z",
+      "crawledAt": "2026-11-01T09:20:16.431Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2999,7 +3031,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "streetAddress": "Basel-Stadt",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:20:16.431Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-9c6230b096fd",
@@ -3032,7 +3068,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=EHF530",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:13.320Z",
+      "crawledAt": "2026-11-01T09:20:15.610Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3092,7 +3128,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6300"
+      "postalCode": "6300",
+      "streetAddress": "Zug",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:20:15.610Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-2e3757c8f99c",
@@ -3125,7 +3165,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9IT6S4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:29:12.434Z",
+      "crawledAt": "2026-11-01T09:20:14.790Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3184,7 +3224,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "streetAddress": "Basel-Stadt",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:20:14.790Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-8607ee46c11d",
@@ -3217,7 +3261,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=UZ52R4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:11.543Z",
+      "crawledAt": "2026-11-01T09:20:13.956Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3278,7 +3322,11 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel-Landschaft",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:20:13.956Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-043d109fef21",
@@ -3311,7 +3359,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8ZU22W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:10.646Z",
+      "crawledAt": "2026-11-01T09:20:13.130Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3370,7 +3418,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:20:13.130Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-ccaff3348ea3",
@@ -3403,7 +3455,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9TBS41",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:09.708Z",
+      "crawledAt": "2026-11-01T09:20:12.310Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3470,7 +3522,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:20:12.310Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-8c472b4d7c43",
@@ -3503,7 +3559,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=7MQ5O5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:08.819Z",
+      "crawledAt": "2026-11-01T09:20:11.474Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3570,7 +3626,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:20:11.474Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-e0355f870dbb",
@@ -3603,7 +3663,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=YY0W40",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:07.920Z",
+      "crawledAt": "2026-11-01T09:20:10.651Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3664,7 +3724,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:20:10.651Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-7cf39ec2b813",
@@ -3697,7 +3761,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=TDT703",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:29:07.031Z",
+      "crawledAt": "2026-11-01T09:20:09.781Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3758,7 +3822,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "streetAddress": "Wallis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:20:09.781Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-9477b206fa7e",
@@ -3791,7 +3859,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=ED033Q",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:06.130Z",
+      "crawledAt": "2026-11-01T09:20:08.295Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3853,15 +3921,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "streetAddress": "Basel-Stadt",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:20:08.295Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-87ef4891f703",
       "slug": "recruitment-consulente-it-public-m-w-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
-        "de": "recruitment-consultant-it-public-m-w-d-coopers-basel-stadt",
         "it": "recruitment-consulente-it-public-m-w-d-coopers-group-ag-basel-stadt",
         "en": "recruitment-consultant-it-public-m-w-d-coopers-basel-stadt",
+        "de": "recruitment-consultant-it-public-m-w-d-coopers-basel-stadt",
         "fr": "conseiller-en-recrutement-it-public-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
@@ -3869,16 +3941,16 @@
       "companyDomain": "coopers.ch",
       "title": "Recruitment Consultant IT Public (m/w/d)",
       "titleByLocale": {
-        "de": "Recruitment Consultant IT Public (m/w/d)",
         "it": "Recruitment Consulente IT Public (m/w/d)",
         "en": "Recruitment Consultant IT Public (m/f/d)",
+        "de": "Recruitment Consultant IT Public (m/w/d)",
         "fr": "Conseiller en recrutement IT Public (h/f/d)"
       },
       "description": "Are YOU a Cooper?\n\nBist du eine kommunikative und vertriebsstarke Persönlichkeit, die sich im Bereich Sales wie zu Hause fühlt? Liegt es dir am Herzen, Kundenbeziehungen nicht nur aufzubauen, sondern sie auch nachhaltig und partnerschaftlich zu pflegen? – Dann bist du bei uns genau richtig! Wir bieten dir ein grossartiges Arbeitsumfeld, tolle Kollegen und Kolleginnen und die Möglichkeit persönlich wie auch beruflich zu wachsen.\n\nDeine Aufgaben:\n• Du gewinnst Neukunden im Umfeld öffentlicher Verwaltungen und entwickelst bestehende Kundenbeziehungen gezielt zu langfristigen Key Accounts weiter.\n• Du unterstützt öffentliche Verwaltungen und öffentlich-rechtliche Organisationen in der Deutschschweiz dabei, ihre IT-Projekte mit den passenden externen IT-Fachkräften erfolgreich umzusetzen.\n• Du verantwortest den gesamten Prozess , von der Ausschreibung über die Koordination der passenden Fachkräfte bis zur erfolgreichen Projektabwicklung und Kundenbetreuung. Dabei wirst du von unserem Talent Acquisition Team unterstützt.\n• Du unterstützt dein Team bei der Evaluierung öffentlicher Ausschreibungen und der Erstellung entsprechender Angebote.\n• Du pflegst eine enge, partnerschaftliche Zusammenarbeit mit deinen Kunden und baust nachhaltige, vertrauensvolle Geschäftsbeziehungen auf.\n\nDu bringst mit:\n• Eine abgeschlossene kaufmännische oder betriebswirtschaftliche Ausbildung sowie Erfahrung im Account Management in der Personalberatung , idealerweise im Umfeld öffentlicher Verwaltungen.\n• Eine vertriebsstarke, kommunikative Persönlichkeit sowie ein sicheres und professionelles Auftreten\n• Einen hohen Qualitätsanspruch an deine tagtägliche Arbeit\n• Ein hohes Mass an Verantwortungsbewusstsein und Eigenmotivation\n• Lust in einem humorvollen, kompetenten und wertschätzenden Team zu arbeiten\n• Fliessende Deutsch- und gute Englischkenntnisse\n\nWarum Coopers?\n\nWir sind anders – und das natürlich im positiven Sinne! Wir sind ein familiäres und diverses Team, verbunden durch eine gemeinsame Vision. Wir unterstützen uns gegenseitig und setzen Teamwork als höchste Priorität. Bei uns arbeitest du in good company !\n\nWas wir dir bieten:\n• Flexible Arbeitszeiten und ein hybrides Arbeitsmodell\n• Workation : Arbeite 10 Tage im Jahr von deinem Lieblingsreiseziel!\n• 30 Tage Ferien im Jahr\n• Einen 13. Monatslohn\n• Eine private Unfallversicherung\n• Abwechslungsreiche, dynamische Aufgaben und interne Entwicklungsmöglichkeiten\n• Internationales Flair: Sowohl intern als auch durch den Kontakt mit Kandidaten und Kunden aus aller Welt\n• Regelmässige Veranstaltungen und Events\n\nWillst du noch mehr über uns erfahren? Dann schau doch mal in unserem Blog vorbei, wo wir regelmässig über unternehmensinterne News berichten, Teammitglieder vorgestellt werden oder du mehr über unsere letzten Events erfahren kannst.\n\nJob profile\n• IT - IT Management\n• Basel-Stadt\n• Coopers intern\n• Part Time, 80-100%\n• Recruiting, Consulting\n\nJob benefits\n• 13 monthly salaries\n• 30 days of vacation\n• Company laptop\n• Events\n• Family-friendly company\n• First-name terms\n• Free drinks\n• Language courses\n• Modern workspace\n• Private accident insurance\n• Strong team spirit\n• Workation\n• Work-life-balance",
       "descriptionByLocale": {
-        "de": "Are YOU a Cooper?\n\nBist du eine kommunikative und vertriebsstarke Persönlichkeit, die sich im Bereich Sales wie zu Hause fühlt? Liegt es dir am Herzen, Kundenbeziehungen nicht nur aufzubauen, sondern sie auch nachhaltig und partnerschaftlich zu pflegen? – Dann bist du bei uns genau richtig! Wir bieten dir ein grossartiges Arbeitsumfeld, tolle Kollegen und Kolleginnen und die Möglichkeit persönlich wie auch beruflich zu wachsen.\n\nDeine Aufgaben:\n• Du gewinnst Neukunden im Umfeld öffentlicher Verwaltungen und entwickelst bestehende Kundenbeziehungen gezielt zu langfristigen Key Accounts weiter.\n• Du unterstützt öffentliche Verwaltungen und öffentlich-rechtliche Organisationen in der Deutschschweiz dabei, ihre IT-Projekte mit den passenden externen IT-Fachkräften erfolgreich umzusetzen.\n• Du verantwortest den gesamten Prozess , von der Ausschreibung über die Koordination der passenden Fachkräfte bis zur erfolgreichen Projektabwicklung und Kundenbetreuung. Dabei wirst du von unserem Talent Acquisition Team unterstützt.\n• Du unterstützt dein Team bei der Evaluierung öffentlicher Ausschreibungen und der Erstellung entsprechender Angebote.\n• Du pflegst eine enge, partnerschaftliche Zusammenarbeit mit deinen Kunden und baust nachhaltige, vertrauensvolle Geschäftsbeziehungen auf.\n\nDu bringst mit:\n• Eine abgeschlossene kaufmännische oder betriebswirtschaftliche Ausbildung sowie Erfahrung im Account Management in der Personalberatung , idealerweise im Umfeld öffentlicher Verwaltungen.\n• Eine vertriebsstarke, kommunikative Persönlichkeit sowie ein sicheres und professionelles Auftreten\n• Einen hohen Qualitätsanspruch an deine tagtägliche Arbeit\n• Ein hohes Mass an Verantwortungsbewusstsein und Eigenmotivation\n• Lust in einem humorvollen, kompetenten und wertschätzenden Team zu arbeiten\n• Fliessende Deutsch- und gute Englischkenntnisse\n\nWarum Coopers?\n\nWir sind anders – und das natürlich im positiven Sinne! Wir sind ein familiäres und diverses Team, verbunden durch eine gemeinsame Vision. Wir unterstützen uns gegenseitig und setzen Teamwork als höchste Priorität. Bei uns arbeitest du in good company !\n\nWas wir dir bieten:\n• Flexible Arbeitszeiten und ein hybrides Arbeitsmodell\n• Workation : Arbeite 10 Tage im Jahr von deinem Lieblingsreiseziel!\n• 30 Tage Ferien im Jahr\n• Einen 13. Monatslohn\n• Eine private Unfallversicherung\n• Abwechslungsreiche, dynamische Aufgaben und interne Entwicklungsmöglichkeiten\n• Internationales Flair: Sowohl intern als auch durch den Kontakt mit Kandidaten und Kunden aus aller Welt\n• Regelmässige Veranstaltungen und Events\n\nWillst du noch mehr über uns erfahren? Dann schau doch mal in unserem Blog vorbei, wo wir regelmässig über unternehmensinterne News berichten, Teammitglieder vorgestellt werden oder du mehr über unsere letzten Events erfahren kannst.\n\nJob profile\n• IT - IT Management\n• Basel-Stadt\n• Coopers intern\n• Part Time, 80-100%\n• Recruiting, Consulting\n\nJob benefits\n• 13 monthly salaries\n• 30 days of vacation\n• Company laptop\n• Events\n• Family-friendly company\n• First-name terms\n• Free drinks\n• Language courses\n• Modern workspace\n• Private accident insurance\n• Strong team spirit\n• Workation\n• Work-life-balance",
         "it": "Sei una Cooper?\n\nSei una personalità comunicativa e orientata alle vendite che si sente a casa nelle vendite? È importante per voi non solo costruire relazioni con i clienti, ma anche mantenerli in modo sostenibile e in partnership? Allora hai proprio ragione con noi! Vi offriamo un grande ambiente di lavoro, grandi colleghi e l'opportunità di crescere sia personalmente che professionalmente.\n\nI vostri compiti:\n• Acquisrai nuovi clienti nell'ambiente della pubblica amministrazione e svilupperai le relazioni con i clienti esistenti in conti chiave a lungo termine.\n• Sosterrete le amministrazioni pubbliche e le organizzazioni di diritto pubblico in Svizzera di lingua tedesca nell'attuazione con successo dei loro progetti IT con gli specialisti IT esterni appropriati.\n• Sei responsabile dell'intero processo, dall'offerta al coordinamento dei giusti specialisti all'implementazione di progetti di successo e al supporto clienti. Sarete supportati dal nostro Talent Acquisition Team.\n• Sostieni il tuo team nella valutazione delle offerte pubbliche e nella preparazione delle offerte corrispondenti.\n• Si mantiene un rapporto stretto e cooperativo con i clienti e costruire relazioni commerciali sostenibili e affidabili.\n\nPorti con te:\n• Una formazione commerciale o aziendale completa, nonché l'esperienza nella gestione del conto nella consulenza del personale, idealmente nell'ambiente delle amministrazioni pubbliche.\n• Una personalità commerciale, comunicativa e un aspetto sicuro e professionale\n• Uno standard di alta qualità per il vostro lavoro quotidiano\n• Un alto grado di responsabilità e automotivazione\n• Desiderio lavorare in un team umoristico, competente e apprezzato\n• Flusso tedesco e buone competenze in inglese\n\nPerche' Coopers?\n\nSiamo diversi – e naturalmente in senso positivo! Siamo una squadra familiare e diversificata, collegata da una visione comune. Ci sosteniamo a vicenda e mettiamo il lavoro di squadra come la massima priorità. Lavori in buona compagnia!\n\nCosa ti offriamo:\n• Ore lavorative flessibili e un modello di lavoro ibrido\n• Workation: Work 10 giorni all'anno dalla tua destinazione preferita!\n• 30 giorni di vacanza all'anno\n• A 13. Salari mensili\n• Assicurazione infortuni privata\n• Variazioni, compiti dinamici e opportunità di sviluppo interno\n• Internazionale: sia internamente che attraverso il contatto con candidati e clienti da tutto il mondo\n• Eventi ed eventi regolari\n\nVuoi saperne di più su di noi? Dai un'occhiata al nostro blog, dove si segnalano regolarmente notizie aziendali interne, i membri del team vengono presentati o si può scoprire di più sui nostri ultimi eventi.\n\nProfili di lavoro\n• IT - Gestione IT\n• Città di Basilea\n• Coopers internamente\n• Tempo parziale, 80-100 %\n• Reclutamento, Consulenza\n\nPrestazioni di lavoro\n• 13 Salari mensili\n• 30 giorni di vacanza\n• Computer aziendale\n• Eventi\n• Azienda per famiglie\n• Termini di primo nome\n• bevande gratuite\n• Corsi di lingua\n• Spazio di lavoro moderno\n• Assicurazione infortunio privato\n• Forte spirito di squadra\n• Lavorazione\n• Bilancia della vita lavorativa",
         "en": "Are you a Cooper?\n\nAre you a communicative and sales-driven personality who feels at home in sales? Is it important to you not only to build customer relationships, but also to maintain them sustainably and in partnership? Then you are exactly right with us! We offer you a great working environment, great colleagues and the opportunity to grow both personally and professionally.\n\nYour tasks:\n• You will gain new customers in the public administration environment and develop existing customer relationships into long-term key accounts.\n• You will support public administrations and public-law organisations in German-speaking Switzerland in successfully implementing their IT projects with the appropriate external IT specialists.\n• You are responsible for the entire process, from tendering to coordinating the right specialists to successful project implementation and customer support. You will be supported by our Talent Acquisition Team.\n• You support your team in the evaluation of public tenders and the preparation of corresponding offers.\n• You maintain a close, cooperative relationship with your customers and build sustainable, trusting business relationships.\n\nYou bring with you:\n• A completed commercial or business education as well as experience in account management in personnel consulting, ideally in the environment of public administrations.\n• A sales-strong, communicative personality as well as a secure and professional appearance\n• A high quality standard for your daily work\n• A high degree of responsibility and self-motivation\n• Desire to work in a humorous, competent and appreciative team\n• Flowing German and good English skills\n\nWhy Coopers?\n\nWe are different – and of course in a positive sense! We are a family and diverse team, connected by a common vision. We support each other and set teamwork as the highest priority. You work in good company!\n\nWhat we offer you:\n• Flexible working hours and a hybrid working model\n• Workation: Work 10 days a year from your favorite destination!\n• 30 days of holidays per year\n• A 13. Monthly wages\n• Private Accident Insurance\n• Varied, dynamic tasks and internal development opportunities\n• International flair: Both internally and through contact with candidates and customers from all over the world\n• Regular events and events\n\nWant to know more about us? Then check out our blog, where we regularly report on internal company news, team members are introduced or you can find out more about our latest events.\n\nJob profiles\n• IT - IT Management\n• Basel City\n• Coopers internally\n• Part Time, 80-100 %\n• Recruiting, Consulting\n\nJob benefits\n• 13 Monthly Salaries\n• 30 days of vacation\n• Company laptop\n• Events\n• Family-friendly company\n• First-name terms\n• Free drinks\n• Language courses\n• Modern workspace\n• Private accident insurance\n• Strong team spirit\n• Workation\n• Work-life balance",
+        "de": "Are YOU a Cooper?\n\nBist du eine kommunikative und vertriebsstarke Persönlichkeit, die sich im Bereich Sales wie zu Hause fühlt? Liegt es dir am Herzen, Kundenbeziehungen nicht nur aufzubauen, sondern sie auch nachhaltig und partnerschaftlich zu pflegen? – Dann bist du bei uns genau richtig! Wir bieten dir ein grossartiges Arbeitsumfeld, tolle Kollegen und Kolleginnen und die Möglichkeit persönlich wie auch beruflich zu wachsen.\n\nDeine Aufgaben:\n• Du gewinnst Neukunden im Umfeld öffentlicher Verwaltungen und entwickelst bestehende Kundenbeziehungen gezielt zu langfristigen Key Accounts weiter.\n• Du unterstützt öffentliche Verwaltungen und öffentlich-rechtliche Organisationen in der Deutschschweiz dabei, ihre IT-Projekte mit den passenden externen IT-Fachkräften erfolgreich umzusetzen.\n• Du verantwortest den gesamten Prozess , von der Ausschreibung über die Koordination der passenden Fachkräfte bis zur erfolgreichen Projektabwicklung und Kundenbetreuung. Dabei wirst du von unserem Talent Acquisition Team unterstützt.\n• Du unterstützt dein Team bei der Evaluierung öffentlicher Ausschreibungen und der Erstellung entsprechender Angebote.\n• Du pflegst eine enge, partnerschaftliche Zusammenarbeit mit deinen Kunden und baust nachhaltige, vertrauensvolle Geschäftsbeziehungen auf.\n\nDu bringst mit:\n• Eine abgeschlossene kaufmännische oder betriebswirtschaftliche Ausbildung sowie Erfahrung im Account Management in der Personalberatung , idealerweise im Umfeld öffentlicher Verwaltungen.\n• Eine vertriebsstarke, kommunikative Persönlichkeit sowie ein sicheres und professionelles Auftreten\n• Einen hohen Qualitätsanspruch an deine tagtägliche Arbeit\n• Ein hohes Mass an Verantwortungsbewusstsein und Eigenmotivation\n• Lust in einem humorvollen, kompetenten und wertschätzenden Team zu arbeiten\n• Fliessende Deutsch- und gute Englischkenntnisse\n\nWarum Coopers?\n\nWir sind anders – und das natürlich im positiven Sinne! Wir sind ein familiäres und diverses Team, verbunden durch eine gemeinsame Vision. Wir unterstützen uns gegenseitig und setzen Teamwork als höchste Priorität. Bei uns arbeitest du in good company !\n\nWas wir dir bieten:\n• Flexible Arbeitszeiten und ein hybrides Arbeitsmodell\n• Workation : Arbeite 10 Tage im Jahr von deinem Lieblingsreiseziel!\n• 30 Tage Ferien im Jahr\n• Einen 13. Monatslohn\n• Eine private Unfallversicherung\n• Abwechslungsreiche, dynamische Aufgaben und interne Entwicklungsmöglichkeiten\n• Internationales Flair: Sowohl intern als auch durch den Kontakt mit Kandidaten und Kunden aus aller Welt\n• Regelmässige Veranstaltungen und Events\n\nWillst du noch mehr über uns erfahren? Dann schau doch mal in unserem Blog vorbei, wo wir regelmässig über unternehmensinterne News berichten, Teammitglieder vorgestellt werden oder du mehr über unsere letzten Events erfahren kannst.\n\nJob profile\n• IT - IT Management\n• Basel-Stadt\n• Coopers intern\n• Part Time, 80-100%\n• Recruiting, Consulting\n\nJob benefits\n• 13 monthly salaries\n• 30 days of vacation\n• Company laptop\n• Events\n• Family-friendly company\n• First-name terms\n• Free drinks\n• Language courses\n• Modern workspace\n• Private accident insurance\n• Strong team spirit\n• Workation\n• Work-life-balance",
         "fr": "Vous êtes Cooper ?\n\nÊtes-vous une personnalité communicative et axée sur les ventes qui se sent à la maison dans les ventes? Est-il important pour vous non seulement d'établir des relations avec la clientèle, mais aussi de les maintenir durablement et en partenariat? Alors tu as raison avec nous ! Nous vous offrons un excellent environnement de travail, de grands collègues et l'occasion de grandir à la fois personnellement et professionnellement.\n\nVos tâches:\n• Vous gagnerez de nouveaux clients dans l'environnement de l'administration publique et développerez les relations client existantes en comptes clés à long terme.\n• Vous aiderez les administrations publiques et les organismes de droit public en Suisse germanophone à mener à bien leurs projets informatiques avec les spécialistes informatiques externes appropriés.\n• Vous êtes responsable de l'ensemble du processus, de l'appel d'offres à la coordination des spécialistes appropriés à la mise en œuvre réussie du projet et le soutien à la clientèle. Vous serez soutenu par notre équipe d'acquisition de talents.\n• Vous accompagnez votre équipe dans l'évaluation des appels d'offres publics et la préparation des offres correspondantes.\n• Vous maintenez une relation étroite et coopérative avec vos clients et construisez des relations d'affaires durables et confiantes.\n\nVous apportez avec vous:\n• Une formation commerciale ou commerciale complète ainsi qu'une expérience en gestion de compte en conseil du personnel, idéalement dans l'environnement des administrations publiques.\n• Une personnalité communicative forte de vente ainsi qu'une apparence sécurisée et professionnelle\n• Un standard de haute qualité pour votre travail quotidien\n• Un haut degré de responsabilité et d'automotivation\n• Désir de travailler dans une équipe humoristique, compétente et reconnaissante\n• L'allemand et de bonnes compétences en anglais\n\nPourquoi Coopers ?\n\nNous sommes différents – et bien sûr dans un sens positif! Nous sommes une famille et une équipe diversifiée, reliées par une vision commune. Nous nous soutenons mutuellement et nous faisons du travail d'équipe la priorité absolue. Vous travaillez en bonne compagnie !\n\nCe que nous vous offrons:\n• Des horaires flexibles et un modèle de travail hybride\n• Travail: Travaillez 10 jours par an depuis votre destination préférée!\n• 30 jours de vacances par an\n• A 13. Salaire mensuel\n• Assurance accidents privés\n• Tâches variées, dynamiques et possibilités de développement interne\n• International flair: à la fois interne et par contact avec des candidats et des clients du monde entier\n• Manifestations et manifestations régulières\n\nVous voulez en savoir plus sur nous ? Ensuite, consultez notre blog, où nous rapportons régulièrement les nouvelles internes de l'entreprise, les membres de l'équipe sont présentés ou vous pouvez en savoir plus sur nos derniers événements.\n\nProfils d'emploi\n• Gestion des TI\n• Ville de Bâle\n• Coopers internes\n• Temps partiel, 80-100 %\n• Recrutement, conseil\n\nPrestations d'emploi\n• 13 Salaires mensuels\n• 30 jours de vacances\n• Ordinateur portable de la société\n• Événements\n• Entreprise familiale\n• Termes de prénom\n• Boissons gratuites\n• Cours de langues\n• Espace de travail moderne\n• Assurance accidents privés\n• Un esprit d'équipe fort\n• Travail\n• Équilibre travail-vie privée"
       },
       "location": "Basel-Stadt",
@@ -3886,7 +3958,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3Z1HK0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:05.243Z",
+      "crawledAt": "2026-11-01T09:20:07.471Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3918,6 +3990,18 @@
           "Recruiting, Consulting"
         ]
       },
+      "previousSlugs": [
+        "recruitment-consultant-it-public-m-w-d-coopers-basel-stadt"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "recruitment-consultant-it-public-m-w-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "recruitment-consultant-it-public-m-w-d-coopers-basel-stadt"
+        ]
+      },
+      "firstSeenAt": "2026-10-30T21:29:07.251Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -3932,18 +4016,107 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-30T21:29:07.251Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "recruitment-consultant-it-public-m-w-d-coopers-basel-stadt"
-        ],
-        "fr": [
-          "recruitment-consultant-it-public-m-w-d-coopers-basel-stadt"
+      "streetAddress": "Basel-Stadt",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:20:07.471Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "coopers-ebaa6d26e920",
+      "slug": "enablement-ingegnere-m-w-d-coopers-group-ag-schaffhausen",
+      "slugByLocale": {
+        "it": "enablement-ingegnere-m-w-d-coopers-group-ag-schaffhausen",
+        "en": "enablement-engineer-m-w-d-coopers-schaffhausen",
+        "de": "enablement-ingenieur-m-w-d-coopers-group-ag-schaffhausen",
+        "fr": "enablement-engineer-m-w-d-coopers-schaffhausen"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Enablement Engineer (m/w/d)",
+      "titleByLocale": {
+        "it": "Enablement Ingegnere (m/w/d)",
+        "en": "Enablement Engineer (m/w/d)",
+        "de": "Enablement Ingenieur (m/w/d)",
+        "fr": "Enablement Ingénieur (m/w/d)"
+      },
+      "description": "For our Pharma client in Schaffausen, we are looking for an Enablement Engineer who has good knowledge of MES systems\n\nYour responsibilities\n• Analyse capability and training needs with project managers, process owners, subject-matter experts, Manufacturing, Quality, IT, Automation, and Validation.\n• Translate manufacturing processes, approved procedures, and PAS-X functionality into role-based learning objectives, curricula, and practical user guidance.\n• Develop and maintain instructor-led and digital learning content, exercises, presentations, simulations, quick-reference guides, manuals, and other support materials.\n• Plan, coordinate, and deliver classroom, group, individual, and hands-on PAS-X training for production employees, support functions, key users, and internal trainers.\n• Assess learning effectiveness and user readiness through knowledge checks, practical exercises, observations, feedback, and readiness reporting.\n• Provide floor-level support during deployment and hypercare, coaching users and resolving or routing process- and system-related questions.\n• Capture recurring user challenges and work with relevant teams to improve training, documentation, business processes, or system configuration.\n• Maintain training records, completion status, evaluation results, capability gaps, risks, and progress reports in line with applicable quality requirements.\n\nRequired qualifications and experience\n• Degree or comparable qualification in engineering, life sciences, IT, business administration, educational sciences, or a related field.\n• Experience developing and delivering technical, process-based, or system training; experience with PAS-X or another MES is strongly preferred.\n• Understanding of manufacturing processes and the ability to independently connect operational workflows with system functionality.\n• Experience in a pharmaceutical, biotechnology, medical device, or other regulated manufacturing environment is preferred; GxP knowledge is an advantage.\n• Experience supporting system implementation, change, go-live preparation, hypercare, train-the-trainer activities, or key-user networks is beneficial.\n• Strong instructional design, adult-learning, facilitation, coaching, communication, and presentation skills.\n• Structured, proactive, and solution-oriented working style, with strong collaboration skills and attention to documentation quality.\n• Fluent German and English, both written and spoken.\n\nJob profile\n• IT - ERP & Applications\n• Schaffhausen\n• Contracting\n• Full Time\n• asap - 12 months\n• software, Requirements Engineering",
+      "descriptionByLocale": {
+        "it": "Per il nostro cliente Pharma a Schaffausen, stiamo cercando un Ingegnere di Attivazione che ha una buona conoscenza dei sistemi MES\n\nLe tue responsabilità\n• Analizzare le capacità e le esigenze di formazione con project manager, responsabili di processo, esperti di materia, produzione, qualità, IT, automazione e convalida.\n• Traduci i processi produttivi, le procedure approvate e la funzionalità PAS-X in obiettivi di apprendimento basati sul ruolo, curricula e guida utente pratica.\n• Sviluppare e mantenere contenuti di apprendimento, esercizi, presentazioni, simulazioni, guide di riferimento rapido, manuali e altri materiali di supporto.\n• Pianificare, coordinare e fornire formazione in classe, gruppo, individuale e hands-on PAS-X per i dipendenti di produzione, funzioni di supporto, utenti chiave e formatori interni.\n• Valuta l'efficacia dell'apprendimento e la disponibilità dell'utente attraverso controlli di conoscenza, esercizi pratici, osservazioni, feedback e reportage di disponibilità.\n• Fornire supporto a livello di pavimento durante l'implementazione e l'ipercare, gli utenti di coaching e risolvere o routing processo- e domande relative al sistema.\n• Catturare le sfide dell'utente ricorrenti e lavorare con i team rilevanti per migliorare la formazione, la documentazione, i processi aziendali o la configurazione di sistema.\n• Mantenere record di formazione, stato di completamento, risultati di valutazione, lacune di capacità, rischi e rapporti di progresso in linea con i requisiti di qualità applicabili.\n\nObbligazioni ed esperienze\n• Laurea o qualificazione comparabile in ingegneria, scienze della vita, IT, amministrazione aziendale, scienze educative, o un campo correlato.\n• L'esperienza di sviluppo e la fornitura di formazione tecnica, basata su processi o di sistema; l'esperienza con PAS-X o un altro MES è fortemente preferita.\n• Comprensione dei processi produttivi e la capacità di collegare in modo indipendente i flussi di lavoro operativi con la funzionalità del sistema.\n• L'esperienza in un farmaceutico, biotecnologia, dispositivo medico o altro ambiente di produzione regolamentato è preferito; la conoscenza GxP è un vantaggio.\n• Esperienza di implementazione del sistema di supporto, cambiamento, preparazione di go-live, ipercare, attività train-the-trainer, o le reti key-user è vantaggioso.\n• Forte design didattico, adulto-apprendimento, facilitazione, coaching, comunicazione e capacità di presentazione.\n• Stile di lavoro strutturato, proattivo e orientato alla soluzione, con forti capacità di collaborazione e attenzione alla qualità della documentazione.\n• Tedesco fluente e inglese, sia scritto che parlato.\n\nProfilo del lavoro\n• IT - ERP & Applicazioni\n• Schaffhausen\n• Contraente\n• Tempo pieno\n• asap - 12 mesi\n• software, Requisiti Ingegneria",
+        "en": "For our Pharma client in Schaffausen, we are looking for an Enablement Engineer who has good knowledge of MES systems\n\nYour responsibilities\n• Analyse capability and training needs with project managers, process owners, subject-matter experts, Manufacturing, Quality, IT, Automation, and Validation.\n• Translate manufacturing processes, approved procedures, and PAS-X functionality into role-based learning objectives, curricula, and practical user guidance.\n• Develop and maintain instructor-led and digital learning content, exercises, presentations, simulations, quick-reference guides, manuals, and other support materials.\n• Plan, coordinate, and deliver classroom, group, individual, and hands-on PAS-X training for production employees, support functions, key users, and internal trainers.\n• Assess learning effectiveness and user readiness through knowledge checks, practical exercises, observations, feedback, and readiness reporting.\n• Provide floor-level support during deployment and hypercare, coaching users and resolving or routing process- and system-related questions.\n• Capture recurring user challenges and work with relevant teams to improve training, documentation, business processes, or system configuration.\n• Maintain training records, completion status, evaluation results, capability gaps, risks, and progress reports in line with applicable quality requirements.\n\nRequired qualifications and experience\n• Degree or comparable qualification in engineering, life sciences, IT, business administration, educational sciences, or a related field.\n• Experience developing and delivering technical, process-based, or system training; experience with PAS-X or another MES is strongly preferred.\n• Understanding of manufacturing processes and the ability to independently connect operational workflows with system functionality.\n• Experience in a pharmaceutical, biotechnology, medical device, or other regulated manufacturing environment is preferred; GxP knowledge is an advantage.\n• Experience supporting system implementation, change, go-live preparation, hypercare, train-the-trainer activities, or key-user networks is beneficial.\n• Strong instructional design, adult-learning, facilitation, coaching, communication, and presentation skills.\n• Structured, proactive, and solution-oriented working style, with strong collaboration skills and attention to documentation quality.\n• Fluent German and English, both written and spoken.\n\nJob profile\n• IT - ERP & Applications\n• Schaffhausen\n• Contracting\n• Full Time\n• asap - 12 months\n• software, Requirements Engineering",
+        "de": "Für unseren Pharma-Kunden in Schaffausen suchen wir einen Enablement Engineer mit guten Kenntnissen der MES-Systeme\n\nIhre Verantwortung\n• Analyse von Fähigkeiten und Schulungsanforderungen mit Projektmanagern, Prozesseigentümern, Fachexperten, Fertigung, Qualität, IT, Automatisierung und Validierung.\n• Übersetzen Sie Fertigungsprozesse, genehmigte Verfahren und PAS-X-Funktionalität in rollenbasierte Lernziele, Lehrpläne und praktische Benutzerführung.\n• Entwicklung und Pflege von instruktorgeführten und digitalen Lerninhalten, Übungen, Präsentationen, Simulationen, Schnellreferenzanleitungen, Handbüchern und anderen Unterstützungsmaterialien.\n• Planen, koordinieren und liefern Klassenzimmer, Gruppe, Einzel- und praktische PAS-X-Schulungen für Produktionsmitarbeiter, Supportfunktionen, Key User und interne Trainer.\n• Beurteilen Sie die Lerneffektivität und die Benutzerbereitschaft durch Wissensüberprüfungen, praktische Übungen, Beobachtungen, Feedback und Bereitschaftsberichterstattung.\n• Unterstützung auf Bodenebene während der Bereitstellung und Hypercare, Coaching von Benutzern und Lösung oder Routing von prozess- und systembezogenen Fragen.\n• Erfassen Sie wiederkehrende Benutzerherausforderungen und arbeiten Sie mit relevanten Teams zusammen, um Schulungen, Dokumentationen, Geschäftsprozesse oder die Systemkonfiguration zu verbessern.\n• Führen Sie Schulungsaufzeichnungen, Abschlussstatus, Bewertungsergebnisse, Fähigkeitslücken, Risiken und Fortschrittsberichte gemäß den geltenden Qualitätsanforderungen.\n\nErforderliche Qualifikationen und Erfahrung\n• Grad oder vergleichbare Qualifikation in Ingenieurwissenschaften, Life Sciences, IT, Betriebswirtschaftslehre, Bildungswissenschaften oder einem verwandten Bereich.\n• Erfahrung in der Entwicklung und Durchführung technischer, prozessbasierter oder Systemschulungen; Erfahrung mit PAS-X oder einem anderen MES wird stark bevorzugt.\n• Verständnis von Fertigungsprozessen und die Fähigkeit, betriebliche Workflows unabhängig mit der Systemfunktionalität zu verbinden.\n• Erfahrung in einem pharmazeutischen, biotechnologischen, medizinischen Gerät oder einer anderen regulierten Fertigungsumgebung wird bevorzugt; GxP-Wissen ist ein Vorteil.\n• Die Erfahrung mit der Unterstützung von Systemimplementierung, Änderung, Go-Live-Vorbereitung, Hypercare, Train-the-Trainer-Aktivitäten oder Key-User-Netzwerken ist von Vorteil.\n• Starkes Unterrichtsdesign, Lernen für Erwachsene, Erleichterung, Coaching, Kommunikation und Präsentationsfähigkeiten.\n• Strukturierter, proaktiver und lösungsorientierter Arbeitsstil mit starken Kollaborationsfähigkeiten und Aufmerksamkeit für die Qualität der Dokumentation.\n• fließend Deutsch und Englisch, geschrieben und gesprochen.\n\nStellenprofil\n• IT - ERP & Anwendungen\n• Schaffhausen\n• Vertrag\n• Vollzeit\n• asap - 12 Monate\n• Software, Requirements Engineering",
+        "fr": "Pour notre client Pharma à Schaffausen, nous recherchons un ingénieur d'activation qui possède une bonne connaissance des systèmes MES\n\nVos responsabilités\n• Analyser les capacités et les besoins de formation avec les gestionnaires de projet, les propriétaires de processus, les experts en la matière, la fabrication, la qualité, les TI, l'automatisation et la validation.\n• Traduire les processus de fabrication, les procédures approuvées et la fonctionnalité PAS-X en objectifs d'apprentissage axés sur les rôles, programmes d'études et conseils pratiques aux utilisateurs.\n• Élaborer et tenir à jour du contenu d'apprentissage numérique, des exercices, des présentations, des simulations, des guides de référence rapide, des manuels et d'autres documents de soutien.\n• Planifier, coordonner et dispenser une formation en classe, en groupe, individuelle et pratique sur le PAS-X pour les employés de production, les fonctions de soutien, les utilisateurs clés et les formateurs internes.\n• Évaluer l'efficacité de l'apprentissage et l'état de préparation des utilisateurs au moyen de vérifications des connaissances, d'exercices pratiques, d'observations, de rétroaction et de rapports sur l'état de préparation.\n• Fournir un soutien au niveau du plancher pendant le déploiement et l'hypersoins, entraîner les utilisateurs et résoudre ou acheminer les questions liées au processus et au système.\n• Capter les défis récurrents des utilisateurs et travailler avec les équipes compétentes pour améliorer la formation, la documentation, les processus opérationnels ou la configuration du système.\n• Tenir des dossiers de formation, l'état d'achèvement, les résultats d'évaluation, les lacunes en matière de capacités, les risques et les rapports d'étape conformément aux exigences de qualité applicables.\n\nQualifications et expérience requises\n• Diplôme ou qualification comparable en génie, sciences de la vie, TI, administration des affaires, sciences de l'éducation ou un domaine connexe.\n• L'expérience du développement et de la prestation d'une formation technique, de processus ou de systèmes; l'expérience du PAS-X ou d'un autre MES est fortement préférée.\n• Compréhension des processus de fabrication et capacité de connecter indépendamment les flux de travail opérationnels à la fonctionnalité du système.\n• L'expérience d'un milieu pharmaceutique, de la biotechnologie, d'un instrument médical ou d'un autre milieu de fabrication réglementé est privilégiée; la connaissance GxP est un avantage.\n• L'expérience de la mise en œuvre du système, du changement, de la préparation continue, de l'hypersoins, des activités de formation des formateurs ou des réseaux d'utilisateurs clés est bénéfique.\n• Une solide conception pédagogique, l'apprentissage des adultes, la facilitation, l'encadrement, la communication et la présentation.\n• Style de travail structuré, proactif et axé sur les solutions, avec de solides compétences en collaboration et une attention à la qualité de la documentation.\n• L'allemand et l'anglais, écrits et parlés.\n\nProfil d'emploi\n• IT - ERP & Applications\n• Schaffhausen\n• Contrats\n• Temps plein\n• dès - 12 mois\n• logiciel, Ingénierie des besoins"
+      },
+      "location": "Schaffhausen",
+      "canton": "SH",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2Y3C1X",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-31T22:10:29.974Z",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-19T00:00:00Z",
+      "postedDate": "2026-10-19T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=2Y3C1X",
+      "requirements": [
+        "IT - ERP & Applications",
+        "Schaffhausen",
+        "Contracting",
+        "Full Time",
+        "asap - 12 months",
+        "software, Requirements Engineering"
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "IT - ERP & Applications",
+          "Schaffhausen",
+          "Contracting",
+          "Full Time",
+          "asap - 12 months",
+          "software, Requirements Engineering"
         ]
       },
       "previousSlugs": [
-        "recruitment-consultant-it-public-m-w-d-coopers-basel-stadt"
-      ]
+        "enablement-engineer-m-w-d-coopers-schaffhausen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "enablement-engineer-m-w-d-coopers-schaffhausen"
+        ],
+        "de": [
+          "enablement-engineer-m-w-d-coopers-schaffhausen"
+        ]
+      },
+      "firstSeenAt": "2026-10-19T21:18:10.095Z",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8200",
+      "crawlerMissStreak": 1,
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T22:10:29.974Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

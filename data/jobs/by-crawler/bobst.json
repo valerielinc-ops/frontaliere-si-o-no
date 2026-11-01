@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bobst",
-  "assembledAt": "2026-10-31T09:54:04.180Z",
-  "runId": "41188195639",
+  "assembledAt": "2026-11-01T09:43:18.799Z",
+  "runId": "41292611758",
   "jobs": [
     {
       "id": "bobst-f254d67b8a12",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7706/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:53:56.576Z",
+      "crawledAt": "2026-11-01T09:43:11.364Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -117,7 +117,11 @@
         }
       },
       "postalCode": "4500",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "streetAddress": "Switzerland (Grenchen)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:11.364Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-a50d899700e3",
@@ -151,7 +155,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8743/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:53:55.996Z",
+      "crawledAt": "2026-11-01T09:43:10.530Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -198,7 +202,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:10.530Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-fb32aad751a0",
@@ -232,7 +240,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8868/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:55.427Z",
+      "crawledAt": "2026-11-01T09:43:09.750Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -279,7 +287,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:09.750Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-d5cc3069bc1c",
@@ -312,7 +324,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9073/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:53:54.644Z",
+      "crawledAt": "2026-11-01T09:43:08.879Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -361,7 +373,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:08.879Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-42d29368f8b4",
@@ -394,7 +410,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9070/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:53:53.839Z",
+      "crawledAt": "2026-11-01T09:43:08.301Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -457,7 +473,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:08.301Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-bdedce751de6",
@@ -491,7 +511,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9221/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:53.046Z",
+      "crawledAt": "2026-11-01T09:43:07.464Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -542,7 +562,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:07.464Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-855585a4eeb5",
@@ -576,7 +600,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9220/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:52.232Z",
+      "crawledAt": "2026-11-01T09:43:06.916Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -623,7 +647,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:06.916Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-f8dd9f2738dd",
@@ -657,7 +685,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9222/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:51.463Z",
+      "crawledAt": "2026-11-01T09:43:06.076Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -708,7 +736,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:06.076Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-093858ad3e55",
@@ -742,7 +774,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9223/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:50.687Z",
+      "crawledAt": "2026-11-01T09:43:05.305Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -793,7 +825,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:05.305Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-49bee4b2fcbf",
@@ -827,7 +863,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9225/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:49.915Z",
+      "crawledAt": "2026-11-01T09:43:04.559Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -874,7 +910,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:04.559Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-ca582ec179f7",
@@ -907,7 +947,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9227/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:49.128Z",
+      "crawledAt": "2026-11-01T09:43:03.765Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -958,7 +998,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:03.765Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-10e0ab0d935a",
@@ -991,7 +1035,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9228/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:48.340Z",
+      "crawledAt": "2026-11-01T09:43:03.003Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1038,7 +1082,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:03.003Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-9b1013c9b68b",
@@ -1072,7 +1120,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9229/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:47.531Z",
+      "crawledAt": "2026-11-01T09:43:02.234Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1119,7 +1167,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:02.234Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-7953b2006541",
@@ -1153,7 +1205,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9230/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:46.795Z",
+      "crawledAt": "2026-11-01T09:43:01.398Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1194,7 +1246,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:01.398Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-3621de669a99",
@@ -1228,7 +1284,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9231/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:46.058Z",
+      "crawledAt": "2026-11-01T09:43:00.610Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1275,7 +1331,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:00.610Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-06d7cab87f11",
@@ -1309,7 +1369,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6267/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:45.266Z",
+      "crawledAt": "2026-11-01T09:42:59.802Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1356,7 +1416,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:42:59.802Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-54b2a93e6104",
@@ -1390,7 +1454,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9224/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:44.481Z",
+      "crawledAt": "2026-11-01T09:42:58.998Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1441,7 +1505,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:42:58.998Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-2317c4fa7029",
@@ -1475,7 +1543,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8728/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:53:43.685Z",
+      "crawledAt": "2026-11-01T09:42:58.207Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1522,7 +1590,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:42:58.207Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-ddacd8e2accc",
@@ -1556,7 +1628,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9307/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:53:42.888Z",
+      "crawledAt": "2026-11-01T09:42:57.395Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1603,7 +1675,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:42:57.395Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bobst-6c804496d3eb",
@@ -1636,7 +1712,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9357/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:53:42.048Z",
+      "crawledAt": "2026-11-01T09:42:56.570Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1683,7 +1759,11 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Switzerland (Mex)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:42:56.570Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,3 +1,4 @@
+import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
 import '../../extension/apply-control.js';
 /**
@@ -30,7 +31,7 @@ import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, 
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -40,6 +41,7 @@ import { operationalAnswerForOption, operationalQuestionTopic } from '../../../.
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
+import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
@@ -57,7 +59,7 @@ const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // The extension injects this same classic-script module before its filler.
-export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
+export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence } = globalThis.AssistedApplyControls;
 const OUTCOME_TIMEOUT_MS = 60_000;
 // How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
 const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
@@ -157,6 +159,19 @@ const POPUP_GRACE_MS = 6_000;
 const NAVIGATION = { listboxOptions: false };
 // Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
 const MAX_AGENT_CALLS = 16;
+
+function accountFailure(code, stage) {
+  return serializeAccountFailure({ code, stage }) || { code: 'unknown', stage: 'unknown' };
+}
+
+function accountHandoff(handoff, code, stage) {
+  return { handoff, accountFailure: accountFailure(code, stage) };
+}
+
+function accountStageFor(snapshot) {
+  const kind = authPageKind(snapshot);
+  return kind === 'create' ? 'registration' : kind === 'sign_in' ? 'login' : 'unknown';
+}
 
 function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
   try {
@@ -352,13 +367,13 @@ export { portalQuestionId, portalQuestionKey, slugId };
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {} }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {}, currentAnswerIds = [], answerSources = {} }) {
   // The split the candidate chose on the review page, else the surname with its particles (splitName).
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = profile.permitStatus || '';
-  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers);
+  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
   const address = resolveResidenceAddress(profile.address, profile.location);
@@ -453,7 +468,33 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
  * Current answers win; canonical topics also reuse an unambiguous answer from
  * the previous portal run when an ATS regenerates its field id.
  */
-function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
+const addressMetadata = (field) => Object.hasOwn(field || {}, 'addressContext') ? { addressContext: addressContextContract(field) } : {};
+const unreadableNativeOwner = field => (field?.kind === 'checkbox' && field?.consentOwnershipUnknown === true)
+  || (addressAnswerNeedsOwnership(field?.label || field?.applicationQuestion || field?.question, field)
+    && Object.hasOwn(field || {}, 'addressContext') && !hasAddressContextOwnership(field));
+
+// An account-creation form is the candidate's own profile surface. Some ATSes
+// expose an explicit residence caption (for example «Land/Region des
+// Wohnorts») without a semantic personal-information container, so the native
+// reader quite correctly reports an empty owner contract. Bind only those
+// positive residence-role captions here; a generic «City» or an ambiguous
+// address remains a technical handoff.
+export const accountRegistrationField = (field) => {
+  const context = addressContextContract(field);
+  if (!context || context.unknown || hasAddressContextOwnership(field) || !residenceFieldRole(field?.label) || !explicitResidence(field?.label)) return field;
+  return {
+    ...field,
+    addressContext: { section: 'Personal information', owners: ['Personal information'], unknown: false },
+  };
+};
+
+const accountRegistrationSnapshot = (snapshot) => ({
+  ...snapshot,
+  fields: (snapshot?.fields || []).map(accountRegistrationField),
+});
+
+function portalAnswersForQuestions(questions, answers, previousAnswers = [], currentAnswerIds = [], answerSources = {}) {
+  const attestedIds = new Set(currentAnswerIds);
   const items = questions.map((question) => {
     const raw = String(answers[question.id] ?? '').trim();
     const projected = operationalAnswerForOption(question, raw) || raw;
@@ -470,23 +511,26 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
       context: question.context || '',
       section: question.section || '',
       autocomplete: question.autocomplete || '',
+      ...addressMetadata(question),
       answer,
-      source: 'answers',
+      source: Object.hasOwn(answerSources, question.id) ? answerSources[question.id] : 'answers',
       current: true,
+      attested: attestedIds.has(question.id) && (!Object.hasOwn(answerSources, question.id) || answerSources[question.id] === 'answers'),
     };
-  }).filter((item) => item.answer);
+  }).filter((item) => String(item.answer ?? '').trim());
   const keyFor = (item) => portalQuestionKey(item) || portalQuestionId(item);
   const currentKeys = new Set(questions
     // An empty value under a regenerated field id is not an answer; keep the
     // previous semantic answer eligible for that same question.
-    .filter((question) => question?.id && String(answers[question.id] ?? '').trim())
-    .map((question) => keyFor({ applicationQuestion: question.applicationQuestion, question: question.question, context: question.context || '', section: question.section || '', autocomplete: question.autocomplete || '' })));
+    .filter((question) => question?.id && (String(answers[question.id] ?? '').trim()
+      || (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question) && Object.hasOwn(answers, question.id))))
+    .map((question) => keyFor({ applicationQuestion: question.applicationQuestion, question: question.question, context: question.context || '', section: question.section || '', autocomplete: question.autocomplete || '', ...addressMetadata(question) })));
   const priorGroups = new Map();
   for (const item of Array.isArray(previousAnswers) ? previousAnswers : []) {
     const question = String(item?.question || '').trim();
-    const answer = String(item?.answer || '').trim();
+    const answer = String(item?.answer ?? '').trim();
     if (!question || !answer) continue;
-    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), answer, source: String(item?.source || 'answers') };
+    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), ...addressMetadata(item), answer, source: String(item?.source || 'answers') };
     const key = keyFor(prior);
     if (currentKeys.has(key)) continue;
     const group = priorGroups.get(key) || [];
@@ -503,13 +547,13 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
     const previous = seen.get(key);
     if (!previous || item.current) seen.set(key, item);
   }
-  return [...seen.values()].map(({ answerId, question, applicationQuestion, candidateQuestion, answer, context, section, autocomplete, source }) => ({
-    ...(answerId ? { answerId } : {}), question, ...(applicationQuestion ? { applicationQuestion } : {}), ...(candidateQuestion ? { candidateQuestion } : {}), answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
+  return [...seen.values()].map(({ answerId, question, applicationQuestion, candidateQuestion, answer, context, section, autocomplete, source, current, attested, ...metadata }) => ({
+    ...(attested === true && Object.hasOwn(metadata, 'addressContext') && addressAnswerNeedsOwnership(question, { ...metadata, autocomplete }) ? { current: true } : {}), ...addressMetadata(metadata), ...(answerId ? { answerId } : {}), question, ...(applicationQuestion ? { applicationQuestion } : {}), ...(candidateQuestion ? { candidateQuestion } : {}), answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
   }));
 }
 
 /** Resolve required portal questions from the candidate data before the submit gate. */
-export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {} } = {}) {
+export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {}, sources = null } = {}) {
   const out = {};
   for (const question of questions) {
     if (question?.source !== 'portal' || !question.required || String(answers?.[question.id] ?? '').trim()) continue;
@@ -525,6 +569,7 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
       context: question.context || '',
       section: question.section || '',
       autocomplete: question.autocomplete || '',
+      ...addressMetadata(question),
       required: true,
       options,
     };
@@ -534,7 +579,10 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
         return no ? { value: no.label, source: 'rule' } : null;
       })();
     // Policy defaults belong to live form filling, never to confirmed CV facts.
-    if (answer?.value && answer.source !== 'policy_default') out[question.id] = answer.value;
+    if (answer?.value && answer.source !== 'policy_default') {
+      out[question.id] = answer.value;
+      if (sources) sources[question.id] = answer.source;
+    }
   }
   return out;
 }
@@ -1063,7 +1111,7 @@ function questionsFrom(missingRequired) {
   const seen = new Set();
   for (const item of missingRequired) {
     const id = portalQuestionId(item);
-    const key = portalQuestionKey(item);
+    const key = portalQuestionKey(item) || id;
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
     const applicationQuestion = String(item.applicationQuestion || item.portalQuestion || item.question || '').trim().slice(0, 300);
@@ -1081,6 +1129,7 @@ function questionsFrom(missingRequired) {
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
       ...(item.section ? { section: String(item.section).slice(0, 240) } : {}),
       ...(item.autocomplete ? { autocomplete: String(item.autocomplete).slice(0, 100) } : {}),
+      ...addressMetadata(item),
       why: item.why || '',
       type: item.type,
       options,
@@ -1093,6 +1142,7 @@ function questionsFrom(missingRequired) {
 }
 
 const QUESTION_LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
+const QUESTION_LANGUAGE_CODES = Object.freeze([...Object.keys(QUESTION_LANGUAGE_NAMES), 'unknown']);
 const QUESTION_LOCALIZATION_SCHEMA = {
   type: 'object',
   properties: {
@@ -1102,6 +1152,7 @@ const QUESTION_LOCALIZATION_SCHEMA = {
         type: 'object',
         properties: {
           id: { type: 'string' },
+          sourceLocale: { type: 'string', enum: QUESTION_LANGUAGE_CODES },
           question: { type: 'string' },
           why: { type: 'string' },
           options: { type: 'array', items: { type: 'string' } },
@@ -1116,7 +1167,7 @@ const QUESTION_LOCALIZATION_SCHEMA = {
           },
           validationMessage: { type: 'string' },
         },
-        required: ['id', 'question', 'why', 'options', 'optionMap', 'validationMessage'],
+        required: ['id', 'sourceLocale', 'question', 'why', 'options', 'optionMap', 'validationMessage'],
         additionalProperties: false,
       },
     },
@@ -1180,28 +1231,37 @@ function fallbackOption(option, language) {
   return text;
 }
 
-function fallbackLocalizedQuestion(item, language) {
+function nativePortalQuestion(item) {
+  return readablePortalQuestionText(item?.applicationQuestion)
+    || readablePortalQuestionText(item?.portalQuestion)
+    || portalQuestionText(item);
+}
+
+function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
-  const applicationQuestion = String(item.applicationQuestion || '').trim();
-  const rawQuestion = String(item.question || '').trim();
-  const rawIsApplicationCopy = !rawQuestion || !applicationQuestion || normalizedQuestionText(rawQuestion) === normalizedQuestionText(applicationQuestion);
-  const candidateOptions = (Array.isArray(item.options) && item.options.length ? item.options : item.applicationOptions || [])
+  const rawQuestion = nativePortalQuestion(item);
+  const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length ? item.applicationOptions : item.options || [])
+    .map((option) => String(option || '').trim()).filter(Boolean);
+  const candidateOptions = applicationOptions
     .map((option) => fallbackOption(option, language));
   const fallbackMap = portalOptionMap({
     options: candidateOptions,
-    applicationOptions: item.applicationOptions || [],
+    applicationOptions,
   });
-  const optionMap = fallbackMap.length ? fallbackMap : portalOptionMap(item);
+  const optionMap = fallbackMap.length ? fallbackMap : portalOptionMap({ ...item, applicationOptions });
   const options = optionMap.length ? optionMap.map((pair) => pair.candidate)
-    : item.applicationOptions?.length ? item.applicationOptions : candidateOptions;
+    : applicationOptions.length ? applicationOptions : candidateOptions;
   return {
     ...item,
-    question: portalQuestionText(item),
-    ...(rawIsApplicationCopy && !String(item.why || '').trim() ? { why: fallback.why } : {}),
-    ...(item.validation?.message && rawIsApplicationCopy ? { validation: { ...item.validation, message: fallback.validation } } : {}),
+    question: rawQuestion,
+    applicationQuestion: rawQuestion,
+    applicationQuestionLocale: localeCode(sourceLocale) || null,
+    why: fallback.why,
+    ...(applicationOptions.length ? { applicationOptions } : {}),
+    ...(item.validation ? { validation: { ...item.validation, message: fallback.validation } } : {}),
     ...(options.length ? { options } : {}),
     optionMap,
-    localizationStatus: rawIsApplicationCopy ? 'fallback' : 'planner_copy',
+    localizationStatus: 'fallback',
   };
 }
 
@@ -1211,21 +1271,34 @@ function fallbackLocalizedQuestion(item, language) {
  * the answer can be mapped back to the form's language at submission time.
  * The application copy remains exact and the candidate copy is translated in
  * one structured call. If that call fails or returns a generic placeholder,
- * retain the actual question and mark the fallback for diagnostics.
+ * retain the native label and mark it for an explicit warning in candidate review.
  */
 export async function localizePortalQuestions(questions, { candidateLocale, applicationLocale, codex, log = () => {} } = {}) {
-  const items = (Array.isArray(questions) ? questions : []).map(item => ({ ...item, question: portalQuestionText(item) }));
+  const items = (Array.isArray(questions) ? questions : []).map((item) => {
+    const sourceQuestion = nativePortalQuestion(item);
+    const applicationOptions = (Array.isArray(item?.applicationOptions) && item.applicationOptions.length
+      ? item.applicationOptions
+      : item?.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+    return {
+      ...item,
+      question: sourceQuestion,
+      applicationQuestion: sourceQuestion,
+      ...(applicationOptions.length ? { applicationOptions, options: applicationOptions } : {}),
+    };
+  });
   if (items.some(item => !item.question)) throw new Error('portal_question_unreadable');
   const candidateLanguage = localeCode(candidateLocale);
-  const applicationLanguage = localeCode(applicationLocale);
-  if (!items.length || !candidateLanguage || !applicationLanguage || candidateLanguage === applicationLanguage) return items;
+  const applicationLanguageHint = localeCode(applicationLocale);
+  if (!items.length || !candidateLanguage) return items;
+  // Posting/letter language is only a hint. An ATS may render a German form
+  // for an Italian-language job, so compare against the native question text.
   if (typeof codex !== 'function') return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
   const input = items.map((item) => ({
     id: String(item.id || ''),
     question: String(item.question || ''),
     why: String(item.why || ''),
     applicationQuestion: String(item.applicationQuestion || item.question || ''),
-    options: Array.isArray(item.options) ? item.options.map((option) => String(option || '')) : [],
+    options: Array.isArray(item.applicationOptions) ? item.applicationOptions.map((option) => String(option || '')) : [],
     applicationOptions: Array.isArray(item.applicationOptions) ? item.applicationOptions.map((option) => String(option || '')) : [],
     optionMap: Array.isArray(item.optionMap) ? item.optionMap : [],
     validationMessage: String(item.validation?.message || ''),
@@ -1234,7 +1307,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   try {
     translated = await codex({
       prompt: codexPrompt(
-        `You localize questions from an online job application for a candidate. The candidate language is ${QUESTION_LANGUAGE_NAMES[candidateLanguage]}; the application language is ${QUESTION_LANGUAGE_NAMES[applicationLanguage]}. Translate only the candidate-facing question, explanation and each option into the candidate language. Do not answer the questions. Keep names, abbreviations, licence categories, codes, numbers and legal terms unchanged where they are proper or technical terms. Return exactly one item for every id, in the same order. optionMap is mandatory whenever applicationOptions are present: for every application option, provide exactly one candidate label and the exact original application label. The applicationQuestion and applicationOptions are source data: never translate them and never use them as candidate-facing output.`,
+        `You localize questions from an online job application for a candidate. The candidate language is ${QUESTION_LANGUAGE_NAMES[candidateLanguage]}. The posting/letter language hint is ${applicationLanguageHint ? QUESTION_LANGUAGE_NAMES[applicationLanguageHint] : 'unknown'} and may be wrong for the ATS form. For EACH item, detect the actual language of applicationQuestion and applicationOptions from their text and return sourceLocale as it, de, fr, en or unknown. Never infer the source language from the hint alone. Translate only the candidate-facing question, explanation, validation message and each option into the candidate language when sourceLocale differs. If sourceLocale equals the candidate language, preserve the original wording and option labels. Do not answer the questions. Keep names, abbreviations, licence categories, codes, numbers and legal terms unchanged where they are proper or technical terms. Return exactly one item for every id, in the same order. optionMap is mandatory whenever applicationOptions are present: for every application option, provide exactly one candidate label and the exact original application label. The applicationQuestion and applicationOptions are source data: never translate them and never use them as candidate-facing output.`,
         JSON.stringify({ questions: input }),
       ),
       schema: QUESTION_LOCALIZATION_SCHEMA,
@@ -1247,37 +1320,57 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   const byId = new Map((Array.isArray(translated?.questions) ? translated.questions : []).map((item) => [String(item?.id || ''), item]));
   return items.map((item) => {
     const copy = byId.get(String(item.id || ''));
+    const sourceLocale = localeCode(copy?.sourceLocale);
+    if (!copy || !sourceLocale) return fallbackLocalizedQuestion(item, candidateLanguage);
     const applicationOptions = Array.isArray(item.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
       : item.options || [];
-    const candidateOptions = Array.isArray(copy?.options) && copy.options.length
+    if (sourceLocale === candidateLanguage) {
+      const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
+      return {
+        ...item,
+        question: nativePortalQuestion(item),
+        ...(applicationOptions.length ? { applicationOptions, options: applicationOptions, optionMap } : {}),
+        applicationQuestionLocale: sourceLocale,
+        localizationStatus: 'same_language',
+      };
+    }
+    const candidateOptions = Array.isArray(copy?.options)
       ? copy.options.map((option) => String(option || '').trim()).filter(Boolean)
-      : item.options;
+      : [];
     // A partial or unmapped translation must not shrink the live catalogue
     // or attach an old mapping to new candidate labels.
     const translatedMap = portalOptionMap({ options: candidateOptions, applicationOptions, optionMap: copy?.optionMap });
-    const optionMap = translatedMap.length ? translatedMap : portalOptionMap(item);
-    const options = optionMap.length
-      ? optionMap.map((pair) => pair.candidate)
-      : applicationOptions.length ? applicationOptions : candidateOptions;
+    const optionsComplete = !applicationOptions.length || (Array.isArray(copy.options)
+      && copy.options.length === applicationOptions.length
+      && translatedMap.length === applicationOptions.length
+      && candidateOptions.length === applicationOptions.length);
     const translatedQuestion = String(copy?.question || '').trim();
-    const rawQuestion = String(item.question || '').trim();
-    const rawIsApplicationCopy = !rawQuestion || !String(item.applicationQuestion || '').trim()
-      || normalizedQuestionText(rawQuestion) === normalizedQuestionText(item.applicationQuestion);
-    const question = readablePortalQuestionText(translatedQuestion) || portalQuestionText(item);
-    const why = String(copy?.why || '').trim() || (rawIsApplicationCopy && !String(item.why || '').trim()
-      ? (LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it).why
-      : String(item.why || '').trim());
-    const validationMessage = String(copy?.validationMessage || '').trim() || String(item.validation?.message || '').trim();
+    const sourceQuestion = nativePortalQuestion(item);
+    const question = readablePortalQuestionText(translatedQuestion);
+    const translationIsValid = question && normalizedQuestionText(question) !== normalizedQuestionText(sourceQuestion) && optionsComplete;
+    if (!translationIsValid) return fallbackLocalizedQuestion(item, candidateLanguage, sourceLocale);
+    const fallback = LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it;
+    const translatedWhy = String(copy?.why || '').trim();
+    const why = !translatedWhy || normalizedQuestionText(translatedWhy) === normalizedQuestionText(item.why)
+      ? fallback.why
+      : translatedWhy;
+    const translatedValidation = String(copy?.validationMessage || '').trim();
+    const validationMessage = !translatedValidation
+      || normalizedQuestionText(translatedValidation) === normalizedQuestionText(item.validation?.message)
+      ? fallback.validation
+      : translatedValidation;
+    const options = translatedMap.length ? translatedMap.map((pair) => pair.candidate) : candidateOptions;
     return {
       ...item,
       question,
       why,
       options,
       ...(applicationOptions.length ? { applicationOptions } : {}),
-      optionMap,
+      optionMap: translatedMap,
       ...(item.validation ? { validation: { ...item.validation, ...(validationMessage ? { message: validationMessage } : {}) } } : {}),
-      localizationStatus: copy ? 'translated' : 'fallback',
+      applicationQuestionLocale: sourceLocale,
+      localizationStatus: 'translated',
     };
   });
 }
@@ -1337,7 +1430,7 @@ async function waitForVerificationOutcome(page) {
 }
 
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
-async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
+export async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   let current = snapshot || await extractFields(page);
   const existingVerificationIds = typeof ctx.accounts.verificationMessageIds === 'function'
     ? await ctx.accounts.verificationMessageIds()
@@ -1360,21 +1453,24 @@ async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     sinceMs,
     ...(resendRequested ? { excludeMessageIds: existingVerificationIds } : {}),
   });
-  if (!verification) return { handoff: 'account_verification_timeout' };
+  if (!verification) return accountHandoff('account_verification_timeout', 'verification_timeout', 'verification');
   if (verification.url) {
     await page.goto(verification.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
   } else {
     const field = codeField(current);
-    if (!field) return { handoff: 'account' };
+    if (!field) return accountHandoff('account', 'verification_unobserved', 'verification');
     await applyActions(page, current.fields, [{ fieldId: field.id, action: 'fill', value: verification.code }], {});
-    if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, ACCOUNT_VERIFY_RE])) return { handoff: 'account' };
+    if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, ACCOUNT_VERIFY_RE])) return accountHandoff('account', 'verification_unobserved', 'verification');
     await settle(page);
   }
   const { after, outcome } = await waitForVerificationOutcome(page);
   // Verified only when the portal says so: an expired or refused token never
   // marks the account verified for the next runs.
-  if (outcome !== 'accepted') return { handoff: `account_verification_${outcome}` };
+  if (outcome !== 'accepted') {
+    const code = outcome === 'pending' ? 'verification_timeout' : outcome === 'rejected' ? 'verification_rejected' : 'verification_unobserved';
+    return accountHandoff(`account_verification_${outcome}`, code, 'verification');
+  }
   await ctx.accounts.mark(host, { verifiedAt: Date.now() });
   return { snapshot: after, reopen: true };
 }
@@ -1384,9 +1480,19 @@ async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
 // “I have reviewed…” checkbox before «Akzeptieren» becomes enabled. This is
 // the application's own required consent (plan.mjs), never a newsletter or a
 // job alert.
-export const PRIVACY_STATEMENT_RE = /(lesen und akzeptieren|leggere e accettare|lire et accepter|read and accept)/i;
+//
+// The wording is the tenant's: infinitive («lesen und akzeptieren», Coop),
+// imperative («Lese und akzeptiere», 2026-10-30), a button or a plain link. The
+// consent guard reads it, with the same grammar it reads a required box with.
+const noticeControls = (snapshot) => [...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []), ...(Array.isArray(snapshot.links) ? snapshot.links : [])];
+const optionalNotice = (control) => ownConsent.isOptionalPurpose(control.text, control.ownLabel, control.label, control.title, control.ariaLabel);
+/** Opened by the runner: the notice this application needs, in a control that keeps the page on the form. */
+const privacyStatementControl = (control) => !control.disabled && !control.chrome && !control.leavesDocument && ownConsent.isRequiredNotice(control);
+
 export const PRIVACY_REVIEW_RE = /(dpcs|data[\s_-]*privacy.*(?:review|read|accept)|privacy.*(?:review|read|accept)|datenschutz.*(?:gelesen|akzept|zustimm)|(?:ich habe|i have|j['’]ai|ho)\s+.*(?:gelesen|reviewed|read|lu|letto)|(?:presa|preso|prise|pris)\s+visione|consent.*(?:review|read|accept|gelesen|lu|letto))/i;
-export const PRIVACY_ACCEPT_RE = /^(akzeptieren|ich akzeptiere|accept|i accept|agree|zustimmen|accetta|accetto|accettare|accepter|j['’]accepte)(?:\s+(?:und|and|et|e)\s+.*)?\W*$/i;
+export const PRIVACY_ACCEPT_RE = /^(akzeptieren|akzeptiere|ich akzeptiere|accept|i accept|agree|i agree|zustimmen|stimme zu|ich stimme zu|accetta|accetto|accettare|accepter|acceptez|j['’]accepte)(?:\s+(?:und|and|et|e)\s+(?:weiter|fortfahren|continue|proceed|continuer|continuare|continua|schlie(?:ss|ß)en|close|fermer|chiudi))?\W*$/i;
+// How long a form gets to free its button after the notice was accepted.
+const PRIVACY_ENABLE_TIMEOUT_MS = 8_000;
 
 function dialogKey(control) {
   if (control?.dialogId) return String(control.dialogId);
@@ -1408,6 +1514,7 @@ function visibleDialogTokens(snapshot = {}) {
   const controls = [
     ...(Array.isArray(snapshot.fields) ? snapshot.fields : []),
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.dialogs) ? snapshot.dialogs : []),
   ];
   return new Set(controls.map(dialogToken).filter(Boolean));
 }
@@ -1435,16 +1542,23 @@ export function privacyConsentControls(snapshot = {}, { allowedDialogTokens = nu
   // the disabled-button preference keeps direct snapshot inspection safe too.
   const dialogFields = fields.filter((field) => isDialogControl(field) && inScope(field));
   const dialogButtons = buttons.filter((button) => isDialogControl(button) && inScope(button));
-  const reviewFields = dialogFields.filter((field) => field.kind === 'checkbox'
-    && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
+  const reviewCandidate = field => field.kind === 'checkbox' && (field.required || ownConsent(field)
+    || PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
+  const reviewFields = dialogFields.filter((field) => reviewCandidate(field)
+    && !ownConsent.isOptionalPurpose(field.label, field.name, field.autocomplete) && ownConsent.isNoticeReview(field.label, field.name, field.autocomplete, field.domId));
   const candidateTokens = new Set([
     ...reviewFields.map(dialogToken),
     ...dialogButtons.map(dialogToken),
   ].filter(Boolean));
   const candidates = [...candidateTokens].map((token) => {
-    const review = reviewFields.find((field) => dialogToken(field) === token) || null;
-    const buttonsInDialog = dialogButtons.filter((button) => dialogToken(button) === token);
-    return { token, review, accept: findButton(buttonsInDialog, PRIVACY_ACCEPT_RE, { includeDisabled: true }) };
+    const reviews = reviewFields.filter((field) => dialogToken(field) === token);
+    const review = reviews[0] || null;
+    const buttonsInDialog = dialogButtons.filter((button) => dialogToken(button) === token && !optionalNotice(button));
+    // An enabled Accept must not bypass an unrecognised factual or negated review box.
+    const unknownReview = dialogFields.some((field) => dialogToken(field) === token && reviewCandidate(field)
+      && !ownConsent.isNoticeReview(field.label, field.name, field.autocomplete, field.domId)
+      && (!ownConsent.isOptionalPurpose(field.label, field.name, field.autocomplete) || !review || field.required));
+    return { token, review, reviews, accept: unknownReview ? null : findButton(buttonsInDialog, PRIVACY_ACCEPT_RE, { includeDisabled: true }) };
   });
   const preferred = preferredDialogToken
     ? candidates.find((candidate) => candidate.token === preferredDialogToken) || null
@@ -1453,9 +1567,15 @@ export function privacyConsentControls(snapshot = {}, { allowedDialogTokens = nu
     .map((item, index) => ({ item, index }))
     .sort((left, right) => candidateScore(right.item) - candidateScore(left.item) || right.index - left.index)[0]?.item || null;
   const review = candidate?.review || null;
+  const controls = noticeControls(snapshot);
+  const notices = controls.filter((control) => !control.chrome && ownConsent.isNoticeRequest(control.text));
   return {
-    trigger: findButton(buttons, PRIVACY_STATEMENT_RE),
+    trigger: controls.find(privacyStatementControl) || null,
+    // Asks to read and accept something the runner may not open or accept for
+    // the candidate. Never pressed: the caller can only name it.
+    notice: notices.find((control) => !optionalNotice(control)) || notices[0] || null,
     review,
+    reviews: candidate?.reviews || [],
     // A disabled accept button is useful evidence while the required review
     // box is being checked; the caller still waits for it to become enabled.
     accept: candidate?.accept || null,
@@ -1474,9 +1594,30 @@ async function scrollPrivacyStatement(page) {
   }).catch(() => {})));
 }
 
+/**
+ * The dialog names the notice itself. Its title is read in its own document: the
+ * snapshot's `section` of a control in a dialog is whatever heading the page has above it.
+ */
+async function ownPrivacyDialog(page, token, review) {
+  const separator = token.indexOf(':');
+  const frame = page.frames()[Number(token.slice(0, separator))] || page.mainFrame();
+  const title = await frame.evaluate((key) => {
+    const dialog = document.querySelector(`[data-aa-dialog-id="${CSS.escape(key)}"]`);
+    if (!dialog) return '';
+    const labelledBy = (dialog.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+      .map((id) => document.getElementById(id)?.textContent || '');
+    return [dialog.getAttribute('aria-label') || '', ...labelledBy, dialog.querySelector('h1, h2, h3, h4, [role="heading"]')?.textContent || ''].join(' ');
+  }, token.slice(separator + 1)).catch(() => '');
+  return ownConsent.isNoticeDialog(title, review?.label);
+}
+
 /** @returns {Promise<'none'|'accepted'|'unavailable'>} */
-export async function acceptPrivacyStatement(page, snapshot) {
-  if (!privacyConsentControls(snapshot).trigger) return 'none';
+export async function acceptPrivacyStatement(page, snapshot, { targetControl = registrationButton(snapshot) } = {}) {
+  const sameTargetForm = control => targetControl && targetControl.form >= 0
+    && control.form === targetControl.form && control.frame === targetControl.frame;
+  const targetControls = current => privacyConsentControls({ ...current,
+    buttons: (current.buttons || []).filter(sameTargetForm), links: (current.links || []).filter(sameTargetForm) });
+  if (!targetControls(snapshot).trigger) return privacyConsentControls(snapshot).trigger ? 'unavailable' : 'none';
   // The last field filled (the password repeat) checks itself on blur:
   // SuccessFactors asks its password policy and a click on the statement's
   // link meanwhile is lost. Blur first, wait for that request, then open the
@@ -1486,13 +1627,16 @@ export async function acceptPrivacyStatement(page, snapshot) {
   for (let attempt = 0; attempt < 2; attempt += 1) {
     const deadline = Date.now() + 8_000;
     const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
-    const trigger = privacyConsentControls(currentSnapshot).trigger;
+    const trigger = targetControls(currentSnapshot).trigger;
     if (!trigger) break;
     const beforeDialogTokens = visibleDialogTokens(currentSnapshot);
+    // The statement opens in the document of its link; a dialog that appears
+    // meanwhile in another frame is someone else's.
+    const triggerFrame = `${trigger.frame || 0}:`;
     let openedDialogToken = '';
     const controlsForOpenedDialog = (current) => {
       const currentDialogTokens = visibleDialogTokens(current);
-      const newlyOpened = [...currentDialogTokens].filter((token) => !beforeDialogTokens.has(token));
+      const newlyOpened = [...currentDialogTokens].filter((token) => token.startsWith(triggerFrame) && !beforeDialogTokens.has(token));
       let controls = privacyConsentControls(current, {
         allowedDialogTokens: openedDialogToken ? [openedDialogToken] : newlyOpened,
         preferredDialogToken: openedDialogToken,
@@ -1510,19 +1654,29 @@ export async function acceptPrivacyStatement(page, snapshot) {
     await scrollPrivacyStatement(page);
     while (Date.now() <= deadline) {
       const current = await extractFields(page, NAVIGATION).catch(() => null);
-      if (current) {
-        const controls = controlsForOpenedDialog(current);
-        if (controls.review && !controls.review.checked) {
-          await applyActions(page, current.fields, [{ fieldId: controls.review.id, action: 'check' }], {}, { pause: async () => {} });
+      const controls = current ? controlsForOpenedDialog(current) : {};
+      // Nothing is touched in a dialog that does not name this notice: it may still be loading, or be another's.
+      if (controls.dialogToken && await ownPrivacyDialog(page, controls.dialogToken, controls.review)) {
+        const expectedReviews = controls.reviews || [];
+        const uncheckedReviews = expectedReviews.filter(review => !review.checked);
+        if (uncheckedReviews.length) {
+          // A box that does not register is an unfinished notice, not a crash.
+          await applyActions(page, current.fields, uncheckedReviews.map(review => ({ fieldId: review.id, action: 'check' })), {}, { pause: async () => {} }).catch(() => {});
           await scrollPrivacyStatement(page);
         }
         const refreshed = await extractFields(page, NAVIGATION).catch(() => null);
-        const accept = controlsForOpenedDialog(refreshed || {}).accept;
-        if (accept && !accept.disabled) {
+        const { accept, reviews = [] } = controlsForOpenedDialog(refreshed || {});
+        const reviewed = reviews.every(review => review.checked) && expectedReviews.every(expected =>
+          reviews.some(review => review.id === expected.id && review.frame === expected.frame && review.checked));
+        if (accept && !accept.disabled && reviewed) {
           try {
             await clickButton(page, accept);
             await page.waitForTimeout(800);
-            return 'accepted';
+            // Accepted only once the dialog has gone: a click it ignored proves nothing.
+            const closed = await extractFields(page, NAVIGATION).catch(() => null);
+            const scannedFrame = closed?.frames?.some(frame => frame.index === Number(trigger.frame || 0));
+            const remaining = closed && [...visibleDialogTokens(closed)].some(token => token.startsWith(triggerFrame) && !beforeDialogTokens.has(token));
+            if (scannedFrame && !remaining) return 'accepted';
           } catch {
             // A portal can replace the dialog button after the review checkbox;
             // rescan and retry within the bounded window.
@@ -1535,6 +1689,47 @@ export async function acceptPrivacyStatement(page, snapshot) {
     await settle(page);
   }
   return 'unavailable';
+}
+
+const registrationButton = (snapshot) => [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE]
+  .map((pattern) => findButton(snapshot.buttons || [], pattern, { includeDisabled: true })).find(Boolean) || null;
+
+/**
+ * Before the registration's button: the notice accepted and the button free,
+ * or `blocked`, with nothing pressed. A portal keeps its button shut until the
+ * notice is accepted, and a press on it answers nothing: read afterwards, that
+ * silence would be a registration that may have gone through.
+ * @returns {Promise<{ privacy: 'none'|'accepted'|'unavailable', filled: object, blocked: boolean }>}
+ */
+export async function registrationPrivacyPreflight(page, { accepted = false, timeoutMs = PRIVACY_ENABLE_TIMEOUT_MS } = {}) {
+  const initial = await extractFields(page, NAVIGATION);
+  const targetControl = registrationButton(initial);
+  const privacy = await acceptPrivacyStatement(page, initial, { targetControl });
+  let filled = await extractFields(page, NAVIGATION);
+  if (privacy === 'unavailable') return { privacy, filled, blocked: true };
+  // A repair of the same form: the link of a notice already accepted can stay on the page, shut.
+  if (privacy === 'none' && accepted) return { privacy, filled, blocked: false };
+  if (privacy === 'none') {
+    // A button shut by its styling alone reads as free: only an optional notice
+    // leaves the way open, and then only past a button that is not shut.
+    const sameForm = control => targetControl && targetControl.form >= 0 && control.form === targetControl.form && control.frame === targetControl.frame;
+    const { notice } = privacyConsentControls({ ...filled, buttons: filled.buttons.filter(sameForm), links: (filled.links || []).filter(sameForm) });
+    // A link off the form is no way to accept: a ticked own box of the form already is.
+    const cta = registrationButton(filled);
+    const answered = Boolean(notice?.leavesDocument) && cta && !cta.disabled && notice.form >= 0
+      && notice.form === cta.form && notice.frame === cta.frame
+      && (filled.fields || []).some((field) => field.checked && ownConsent(field)
+        && field.form === notice.form && field.frame === notice.frame);
+    const blocked = Boolean(notice) && !answered && (!optionalNotice(notice) || Boolean(registrationButton(filled)?.disabled));
+    return blocked ? { privacy: 'unavailable', filled, blocked } : { privacy, filled, blocked };
+  }
+  if (!registrationButton(filled)?.disabled) return { privacy, filled, blocked: false };
+  for (const deadline = Date.now() + timeoutMs; Date.now() < deadline;) {
+    await page.waitForTimeout(250);
+    filled = await extractFields(page, NAVIGATION).catch(() => filled);
+    if (!registrationButton(filled)?.disabled) return { privacy, filled, blocked: false };
+  }
+  return { privacy: 'unavailable', filled, blocked: true };
 }
 
 // SuccessFactors (Coop, 2026-10-03): the application page shows its sections
@@ -2691,13 +2886,23 @@ async function awaitAuthView(page, before) {
  * it on the alias, or verify it. Returns the next page, a handoff reason,
  * questions for the candidate, or `dryRun` (a dry run never creates an account).
  */
-async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false }) {
+export async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false }) {
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
 
+  const canResendVerification = Boolean(findButton(snapshot.buttons || [], RESEND_VERIFICATION_RE)
+    || (snapshot.links || []).some((link) => [link.text, link.label, link.ariaLabel, link.title]
+      .some((value) => RESEND_VERIFICATION_RE.test(String(value || '')))));
+  // SuccessFactors keeps the pending OTP account in this same sign-in shape;
+  // its dedicated recovery below must restart registration instead of trying
+  // to verify through a mailbox account that does not exist yet.
+  if (kind === 'sign_in' && account && !account.verifiedAt && canResendVerification && !usesOtpAccountCreation(host)) {
+    return verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot });
+  }
+
   if (kind === 'sign_in' && !account) {
-    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { handoff: 'account' };
+    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return accountHandoff('account', 'no_create_button', 'login');
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
 
@@ -2709,9 +2914,9 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   // issue a fresh OTP; do not throw the credential away and try to create a
   // second one.
   if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration) {
-    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { handoff: 'account_verification' };
+    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return accountHandoff('account_verification', 'no_create_button', 'verification');
     const registration = await awaitAuthView(page, snapshot);
-    if (authPageKind(registration) !== 'create') return { handoff: 'account_verification' };
+    if (authPageKind(registration) !== 'create') return accountHandoff('account_verification', 'verification_unobserved', 'verification');
     return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics });
   }
 
@@ -2723,7 +2928,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
     let typed = false;
     for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
       const { email, password } = loginFields(form);
-      if (!email || !password) return { handoff: 'account' };
+      if (!email || !password) return accountHandoff('account', 'login_unobserved', 'login');
       await applyActions(page, form.fields, [
         { fieldId: email.id, action: 'fill', value: account.email },
         { fieldId: password.id, action: 'fill', value: account.password },
@@ -2733,26 +2938,26 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
       const now = loginFields(form);
       typed = Boolean(now.email?.value) && Boolean(now.password?.value);
     }
-    if (!typed) return { handoff: 'account' };
+    if (!typed) return accountHandoff('account', 'login_unobserved', 'login');
     const shown = form.errors || [];
     diagnostics?.beforeClick('account');
     const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
-    if (!pressed) return { handoff: 'account' };
+    if (!pressed) return accountHandoff('account', 'no_sign_in_button', 'login');
     const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
     diagnostics?.afterClick();
     if (!account.verifiedAt && (VERIFY_PAGE_RE.test(after.text) || codeField(after))) {
       return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
     }
     // Two password fields after a sign-in are no account's home either (a dialog opened over the form).
-    if (authPageKind(after) === 'create') return { handoff: 'account_sign_in_failed', pressed };
+    if (authPageKind(after) === 'create') return { ...accountHandoff('account_sign_in_failed', 'login_unobserved', 'login'), pressed };
     if (authPageKind(after) === 'sign_in') {
       // A registration the portal never answered (status `unanswered`): the account was not created after
       // all. It is created now, once; any other account that cannot sign in is the owner's to look at.
-      if (account.status !== 'unanswered' || recreated) return { handoff: 'account_sign_in_failed', pressed };
+      if (account.status !== 'unanswered' || recreated) return { ...accountHandoff('account_sign_in_failed', 'login_unobserved', 'login'), pressed };
       await ctx.accounts.discard(host, 'never_created');
-      if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return { handoff: 'account_sign_in_failed' };
+      if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return accountHandoff('account_sign_in_failed', 'no_create_button', 'login');
       const registration = await awaitAuthView(page, after);
-      if (authPageKind(registration) !== 'create') return { handoff: 'account_sign_in_failed' };
+      if (authPageKind(registration) !== 'create') return accountHandoff('account_sign_in_failed', 'login_unobserved', 'login');
       return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true });
     }
     // Signed in: the account exists, whatever its registration left on record (`unanswered`, `pending`). A
@@ -2765,11 +2970,11 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   const retryingUnverifiedAccount = Boolean(account && !account.verifiedAt && allowExistingRegistration);
   if (account && !retryingUnverifiedAccount) {
     // Created by an earlier run: sign in instead.
-    if (!await clickFirst(page, snapshot, [SIGN_IN_RE])) return { handoff: 'account' };
+    if (!await clickFirst(page, snapshot, [SIGN_IN_RE])) return accountHandoff('account', 'no_sign_in_button', 'registration');
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };
-  const others = { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') };
+  const others = accountRegistrationSnapshot({ ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') });
   const candidate = account
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
     : ctx.candidate;
@@ -2800,15 +3005,21 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
       .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
     await applyActions(page, registrationSnapshot.fields, [...registrationPlan.actions, ...passwordActions], ctx.files);
     // After the fields: SuccessFactors opens its statement only for a chosen country.
-    const acceptedPrivacy = await acceptPrivacyStatement(page, await extractFields(page, NAVIGATION));
-    if (acceptedPrivacy !== 'none') privacy = acceptedPrivacy;
-    const filled = await extractFields(page, NAVIGATION);
+    const preflight = await registrationPrivacyPreflight(page, { accepted: privacy === 'accepted' });
+    if (preflight.privacy !== 'none') privacy = preflight.privacy;
+    if (preflight.blocked) {
+      // Nothing was pressed, so no account came of this: as with no button, a
+      // retry keeps the same unverified account's encrypted password.
+      if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'privacy_not_accepted');
+      return noted({ handoff: 'privacy_not_accepted' });
+    }
+    const { filled } = preflight;
     diagnostics?.beforeClick('account');
     if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
       // A retry is still the same unverified account: keep its encrypted
       // password so the owner can retry after the portal exposes its button.
       if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'no_create_button');
-      return noted({ handoff: 'account' });
+      return noted(accountHandoff('account', 'no_create_button', 'registration'));
     }
     const after = await awaitAuthOutcome(page, 'create', filled.errors, filled.fields);
     diagnostics?.afterClick();
@@ -2824,13 +3035,13 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
       // gone through, so the password stays; the next run signs in with it, and creates the account again
       // only if that sign-in fails.
       await ctx.accounts.mark(host, { status: 'unanswered' });
-      return noted({ handoff: 'account_create_unanswered' });
+      return noted(accountHandoff('account_create_unanswered', 'create_unanswered', 'registration'));
     }
 
     // A form-level validation response can expose fields the first plan did
     // not recognize. Replan against that response before treating it as a
     // permanent refusal; the planner receives the invalid fields and messages.
-    const repairSnapshot = { ...after, fields: after.fields.filter((field) => field.inputType !== 'password') };
+    const repairSnapshot = accountRegistrationSnapshot({ ...after, fields: after.fields.filter((field) => field.inputType !== 'password') });
     const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     if (repairPlan.missingRequired.length) {
       const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired);
@@ -2852,12 +3063,14 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
       }
     }
 
-    const retryableFields = after.fields.filter((field) => field.invalid || (field.required && !holdsValue(field)));
+    const retryableFields = accountRegistrationSnapshot(after).fields
+      .filter((field) => field.invalid || (field.required && !holdsValue(field)));
     const retryableIds = new Set(retryableFields.map((field) => field.id));
     const repairActions = repairPlan.actions.filter((action) => retryableIds.has(action.fieldId)
       && !['skip', 'uncheck'].includes(action.action));
     const openFields = retryableFields.filter((field) => field.inputType !== 'password'
       && !repairActions.some((action) => action.fieldId === field.id));
+    if (openFields.some(unreadableNativeOwner)) return noted({ handoff: 'question_label_unreadable' });
     if (openFields.length) {
       const why = ({ it: 'Il portale ha rifiutato questo dato. Controllalo o correggilo.', de: 'Das Portal hat diese Angabe abgelehnt. Bitte prüfe oder korrigiere sie.', fr: 'Le portail a refusé cette réponse. Veuillez la vérifier ou la corriger.', en: 'The portal rejected this entry. Please check or correct it.' })[ctx.candidateLocale] || 'Il portale ha rifiutato questo dato. Controllalo o correggilo.';
       const openQuestions = questionsFrom(openFields.filter((field) => String(field.label || '').trim()).map((field) => ({
@@ -2867,6 +3080,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
         ...(field.context ? { context: field.context } : {}),
         ...(field.section ? { section: field.section } : {}),
         ...(field.autocomplete ? { autocomplete: field.autocomplete } : {}),
+        ...addressMetadata(field),
         why,
         type: field.options?.length ? 'choice' : field.kind === 'date' || field.inputType === 'date' ? 'date' : field.inputType === 'number' ? 'number' : 'text',
         options: (field.options || []).map((option) => option.label).filter(Boolean),
@@ -2885,11 +3099,11 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
 
     const passwordNeedsRefill = retryableFields.some((field) => field.inputType === 'password');
     if (repairAttempts >= 2 || (!repairActions.length && !passwordNeedsRefill)) {
-      if (retryingUnverifiedAccount) return noted({ handoff: 'account_verification_retry_refused' });
+      if (retryingUnverifiedAccount) return noted(accountHandoff('account_verification_retry_refused', 'create_refused', 'registration'));
       // No candidate answer or concrete correction remains: do not keep
       // credentials for an account the portal explicitly rejected.
       await ctx.accounts.discard(host, 'registration_refused');
-      return noted({ handoff: 'account_create_refused' });
+      return noted(accountHandoff('account_create_refused', 'create_refused', 'registration'));
     }
 
     repairAttempts += 1;
@@ -3103,6 +3317,10 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
     // A rejected live field remains a request even if it lacks a required marker;
     // missing metadata is unknown, not evidence that the field is optional.
     if (field?.required === false && !field.invalid) continue;
+    if (unreadableNativeOwner(field || item)) {
+      unreadableFields.push(field?.id || item.fieldId || 'unknown');
+      continue;
+    }
     const document = portalRequiredDocumentFromField(field ? { ...field, required: true } : field);
     if (!document) {
       // A field with a generated name is no question for a person: the submit
@@ -3150,6 +3368,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),
+          ...addressMetadata(field || item),
         });
       }
       continue;
@@ -3266,7 +3485,7 @@ export async function submitViaPortal(ctx) {
   let diagnostics = null;
   let finalClickAttempted = false;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
-  const handoff = async (reason) => {
+  const handoff = async (reason, metadata = {}) => {
     reason = portalHandoffReason(reason, { diagnostics: evidence.diagnostics, attempt: diagnostics?.currentAttempt(), finalClickAttempted });
     if (page) {
       evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
@@ -3276,7 +3495,8 @@ export async function submitViaPortal(ctx) {
         evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [] });
       }
     }
-    return { event: { type: 'submit_handoff', reason }, evidence };
+    const failure = serializeAccountFailure(metadata.accountFailure);
+    return { event: { type: 'submit_handoff', reason, ...(failure ? { accountFailure: failure } : {}) }, evidence };
   };
   // What each portal taught earlier runs (level 2), read once per host.
   const knowledge = new Map();
@@ -3422,16 +3642,17 @@ export async function submitViaPortal(ctx) {
       const name = String(document);
       evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
-    const record = (question, answer, source, context = '', section = '', autocomplete = '') => {
+    const record = (question, answer, source, context = '', section = '', autocomplete = '', metadata = {}) => {
       if (!question || !String(answer ?? '').trim()) return;
       const label = String(question).slice(0, 200);
       const surrounding = String(context || '').slice(0, 240);
       const heading = String(section || '').slice(0, 240);
       const fieldAutocomplete = String(autocomplete || '').slice(0, 100);
-      const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete };
+      const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete, ...addressMetadata(metadata) };
       const key = portalQuestionKey(item) || portalQuestionId(item) || label;
       given.set(key, {
         question: label,
+        ...addressMetadata(metadata),
         answer: String(answer).slice(0, 2000),
         source: source || '',
         ...(surrounding ? { context: surrounding } : {}),
@@ -3454,13 +3675,14 @@ export async function submitViaPortal(ctx) {
           // planner sees the form. Keep an explicit candidate fact above that
           // default; phone-code defaults are never candidate answers.
           const candidateAnswer = candidateAnswerForField(candidate, field)?.value || '';
-          if (isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
+          if (addressAnswerNeedsOwnership(field.label, field) || isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
           return {
             question: String(field.label || field.name || field.id || '').slice(0, 200),
             answer,
             context: String(field.context || '').slice(0, 240),
             section: String(field.section || '').slice(0, 240),
             autocomplete: String(field.autocomplete || '').slice(0, 100),
+            ...addressMetadata(field),
             source: 'answers',
           };
         })
@@ -3499,7 +3721,7 @@ export async function submitViaPortal(ctx) {
       }
       agentCalls += agent.calls;
       (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
-      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context);
+      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context, item.section, item.autocomplete, item);
       for (const item of (agent.evidence?.rounds || []).flatMap((round) => round.actions || [])) {
         if (item.action === 'upload' && item.ok) noteUpload(item.document, item.files);
       }
@@ -3542,7 +3764,7 @@ export async function submitViaPortal(ctx) {
       // password field, so it must be handled before the application planner.
       const otpAccount = await pendingOtpAccount(snapshot);
       if (otpAccount) {
-        if (++authSteps > MAX_AUTH_STEPS) return await handoff('account_verification');
+        if (++authSteps > MAX_AUTH_STEPS) return await handoff('account_verification', { accountFailure: accountFailure('auth_steps_exhausted', 'verification') });
         const auth = await verifyAccount({
           page,
           host: otpAccount.host,
@@ -3554,7 +3776,7 @@ export async function submitViaPortal(ctx) {
           kind: 'otp_verification',
           outcome: auth.handoff || 'ok',
         };
-        if (auth.handoff) return await handoff(auth.handoff);
+        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
         snapshot = auth.snapshot;
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
@@ -3600,9 +3822,10 @@ export async function submitViaPortal(ctx) {
       // The form asks for its account's password itself (umantis): no login
       // page to get through, the password is typed with the rest of the form.
       let ownAccount = ownAccountForm(snapshot, channelType);
-      if (ownAccount && !ctx.accounts) return await handoff('account');
+      if (ownAccount && !ctx.accounts) return await handoff('account', { accountFailure: accountFailure('unknown', 'application') });
       if (snapshot.passwordVisible && !ownAccount) {
-        if (!ctx.accounts || ++authSteps > MAX_AUTH_STEPS) return await handoff('account');
+        if (!ctx.accounts) return await handoff('account', { accountFailure: accountFailure('unknown', 'login') });
+        if (++authSteps > MAX_AUTH_STEPS) return await handoff('account', { accountFailure: accountFailure('auth_steps_exhausted', 'login') });
         let auth;
         try {
           auth = await handleAuth({ page, snapshot, ctx, diagnostics });
@@ -3611,14 +3834,14 @@ export async function submitViaPortal(ctx) {
           // redrawn away): another run finds the same page. Thrown, it ended the run with no page kept
           // and, read as a timeout, the run was started again twice; the owner gets the page instead.
           if (!/^locator\./.test(String(error?.message || ''))) throw error;
-          evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: 'control_error', error: String(error.message).split('\n')[0].slice(0, 160) };
+          evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: 'control_error' };
           // A registration whose password was stored and whose button then could not be pressed: whether the
           // account exists is not known. Left `pending`, the next run would sign in, fail and stop there;
           // as `unanswered` it signs in and, when that fails, creates the account.
           const authHost = new URL(page.url()).hostname;
           const stored = await ctx.accounts.load(authHost).catch(() => null);
           if (stored?.status === 'pending') await ctx.accounts.mark(authHost, { status: 'unanswered' }).catch(() => {});
-          return await handoff('account');
+          return await handoff('account', { accountFailure: accountFailure('locator_control_error', accountStageFor(snapshot)) });
         }
         evidence.steps.at(-1).auth = {
           kind: authPageKind(snapshot),
@@ -3627,7 +3850,7 @@ export async function submitViaPortal(ctx) {
           // How the sign-in button was found (clickButton): by its id, again after a redraw, or by its text.
           ...(auth.pressed ? { pressed: auth.pressed } : {}),
         };
-        if (auth.handoff) return await handoff(auth.handoff);
+        if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure });
         if (auth.questions?.length || auth.documents?.length) return {
           event: { type: 'submit_needs_candidate', questions: auth.questions || [], documents: auth.documents || [] }, evidence,
         };
@@ -3814,7 +4037,7 @@ export async function submitViaPortal(ctx) {
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
-          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete);
+          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete, field);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
@@ -3843,7 +4066,7 @@ export async function submitViaPortal(ctx) {
         if (ownAccount) {
           const typed = await typeOwnPassword({ page, snapshot, ctx, passwords: ownPasswords });
           evidence.steps.at(-1).auth = { kind: 'inline', outcome: !typed ? 'password_not_typed' : ctx.dryRun ? 'dry_run' : 'ok' };
-          if (!typed) return await handoff('account');
+          if (!typed) return await handoff('account', { accountFailure: accountFailure('login_unobserved', 'application') });
         }
 
         after = await extractFields(page, NAVIGATION);

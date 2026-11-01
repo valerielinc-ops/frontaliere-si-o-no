@@ -1,7 +1,7 @@
 {
   "crawlerKey": "stiftung-kind-autismus",
-  "assembledAt": "2026-10-31T09:48:08.417Z",
-  "runId": "41188271558",
+  "assembledAt": "2026-11-01T09:39:58.282Z",
+  "runId": "41292695324",
   "jobs": [
     {
       "id": "stiftung-kind-autismus-a8888267502c",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/2044/0108/pub/102/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:02.173Z",
+      "crawledAt": "2026-11-01T09:39:52.122Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,11 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Urdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:39:52.122Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-kind-autismus-30a978247924",
@@ -116,7 +120,7 @@
       "url": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:01.633Z",
+      "crawledAt": "2026-11-01T09:39:51.283Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -165,7 +169,11 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Urdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:39:51.283Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

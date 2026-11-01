@@ -1,16 +1,16 @@
 {
   "key": "swisscom-sede-ticino",
   "label": "Swisscom",
-  "generatedAt": "2026-10-31T09:29:34.021Z",
+  "generatedAt": "2026-11-01T09:30:27.389Z",
   "total": 36,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 31,
-  "durationMs": 32189,
-  "avgDurationMs": 32189,
+  "durationMs": 25905,
+  "avgDurationMs": 25905,
   "durationHistory": [
-    32189
+    25905
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "datePosted": "2026-04-23",
       "postedDate": "2026-04-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:21.621Z",
+      "crawledAt": "2026-11-01T09:30:15.386Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -48,12 +48,16 @@
       "salarySource": "estimated",
       "addressRegion": "BE",
       "postalCode": "3004",
-      "_qualityScore": 91,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:15.386Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -71,7 +75,7 @@
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:13.491Z",
+      "crawledAt": "2026-11-01T09:30:07.843Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -90,12 +94,16 @@
       "salarySource": "estimated",
       "addressRegion": "BE",
       "postalCode": "3004",
-      "_qualityScore": 91,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:30:07.843Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -113,7 +121,7 @@
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:12.957Z",
+      "crawledAt": "2026-11-01T09:30:07.245Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -132,12 +140,16 @@
       "salarySource": "estimated",
       "addressRegion": "BE",
       "postalCode": "3004",
-      "_qualityScore": 91,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:30:07.245Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -155,7 +167,7 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:11.225Z",
+      "crawledAt": "2026-11-01T09:30:05.400Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -174,12 +186,16 @@
       "salarySource": "estimated",
       "addressRegion": "BE",
       "postalCode": "3004",
-      "_qualityScore": 91,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:30:05.400Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -197,7 +213,7 @@
       "datePosted": "2026-10-25",
       "postedDate": "2026-10-25",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:28:58.667Z",
+      "crawledAt": "2026-11-01T09:29:58.743Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -216,12 +232,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 91,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-23T09:29:58.743Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
@@ -242,7 +262,7 @@
       "datePosted": "2026-06-02",
       "postedDate": "2026-06-02",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:21.018Z",
+      "crawledAt": "2026-11-01T09:30:14.882Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -261,12 +281,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 91,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:14.882Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -284,7 +308,7 @@
       "datePosted": "2026-07-29",
       "postedDate": "2026-07-29",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:20.432Z",
+      "crawledAt": "2026-11-01T09:30:14.350Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -303,12 +327,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 93,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:14.350Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -326,7 +354,7 @@
       "datePosted": "2026-08-23",
       "postedDate": "2026-08-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:19.836Z",
+      "crawledAt": "2026-11-01T09:30:13.830Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -345,12 +373,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 93,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:13.830Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -368,7 +400,7 @@
       "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:19.254Z",
+      "crawledAt": "2026-11-01T09:30:13.319Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -387,12 +419,16 @@
       "salarySource": "estimated",
       "addressRegion": "VS",
       "postalCode": "3960",
-      "_qualityScore": 91,
+      "streetAddress": "Sierre",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:13.319Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -410,7 +446,7 @@
       "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:18.751Z",
+      "crawledAt": "2026-11-01T09:30:12.825Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -429,12 +465,16 @@
       "salarySource": "estimated",
       "addressRegion": "NE",
       "postalCode": "2000",
-      "_qualityScore": 91,
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:12.825Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -452,7 +492,7 @@
       "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:18.243Z",
+      "crawledAt": "2026-11-01T09:30:12.329Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -471,12 +511,16 @@
       "salarySource": "estimated",
       "addressRegion": "FR",
       "postalCode": "1754",
-      "_qualityScore": 91,
+      "streetAddress": "Avry-sur-Matran",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:12.329Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -494,7 +538,7 @@
       "datePosted": "2026-09-03",
       "postedDate": "2026-09-03",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:17.692Z",
+      "crawledAt": "2026-11-01T09:30:11.782Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -513,12 +557,16 @@
       "salarySource": "estimated",
       "addressRegion": "SG",
       "postalCode": "9000",
-      "_qualityScore": 91,
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:30:11.782Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -536,7 +584,7 @@
       "datePosted": "2026-09-10",
       "postedDate": "2026-09-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:17.023Z",
+      "crawledAt": "2026-11-01T09:30:11.135Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -555,12 +603,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 91,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:30:11.135Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -578,7 +630,7 @@
       "datePosted": "2026-09-26",
       "postedDate": "2026-09-26",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:16.422Z",
+      "crawledAt": "2026-11-01T09:30:10.622Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -597,12 +649,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 91,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:30:10.622Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -620,7 +676,7 @@
       "datePosted": "2026-10-01",
       "postedDate": "2026-10-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:15.820Z",
+      "crawledAt": "2026-11-01T09:30:10.089Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -639,12 +695,16 @@
       "salarySource": "estimated",
       "addressRegion": "BE",
       "postalCode": "3004",
-      "_qualityScore": 91,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:30:10.089Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -662,7 +722,7 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:15.213Z",
+      "crawledAt": "2026-11-01T09:30:09.517Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -682,12 +742,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 93,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:30:09.517Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -705,7 +769,7 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:14.620Z",
+      "crawledAt": "2026-11-01T09:30:09.002Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -724,12 +788,16 @@
       "salarySource": "estimated",
       "addressRegion": "BE",
       "postalCode": "3004",
-      "_qualityScore": 91,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:30:09.002Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -747,7 +815,7 @@
       "datePosted": "2026-10-06",
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:14.015Z",
+      "crawledAt": "2026-11-01T09:30:08.424Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -766,12 +834,16 @@
       "salarySource": "estimated",
       "addressRegion": "FR",
       "postalCode": "1700",
-      "_qualityScore": 94,
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:30:08.424Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -789,7 +861,7 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:12.332Z",
+      "crawledAt": "2026-11-01T09:30:06.660Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -808,12 +880,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 93,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:30:06.660Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -831,7 +907,7 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:11.768Z",
+      "crawledAt": "2026-11-01T09:30:06.089Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -850,12 +926,16 @@
       "salarySource": "estimated",
       "addressRegion": "BE",
       "postalCode": "3004",
-      "_qualityScore": 91,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:30:06.089Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -873,7 +953,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:10.664Z",
+      "crawledAt": "2026-11-01T09:30:04.790Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -892,12 +972,16 @@
       "salarySource": "estimated",
       "addressRegion": "GL",
       "postalCode": "8754",
-      "_qualityScore": 91,
+      "streetAddress": "Netstal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:04.790Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -915,7 +999,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:10.148Z",
+      "crawledAt": "2026-11-01T09:30:04.284Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -934,12 +1018,16 @@
       "salarySource": "estimated",
       "addressRegion": "VS",
       "postalCode": "3900",
-      "_qualityScore": 91,
+      "streetAddress": "Brig",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:04.284Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -957,7 +1045,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:09.594Z",
+      "crawledAt": "2026-11-01T09:30:03.689Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -976,12 +1064,16 @@
       "salarySource": "estimated",
       "addressRegion": "SZ",
       "postalCode": "6438",
-      "_qualityScore": 91,
+      "streetAddress": "Ibach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:03.689Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -999,7 +1091,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:09.043Z",
+      "crawledAt": "2026-11-01T09:30:03.095Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1017,12 +1109,16 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "postalCode": "7000",
-      "_qualityScore": 91,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:03.095Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1040,7 +1136,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:08.425Z",
+      "crawledAt": "2026-11-01T09:30:02.388Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1059,12 +1155,16 @@
       "salarySource": "estimated",
       "addressRegion": "BE",
       "postalCode": "3600",
-      "_qualityScore": 91,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:02.388Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1082,7 +1182,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:07.891Z",
+      "crawledAt": "2026-11-01T09:30:01.725Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1101,12 +1201,16 @@
       "salarySource": "estimated",
       "addressRegion": "BE",
       "postalCode": "2502",
-      "_qualityScore": 91,
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:01.725Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1124,7 +1228,7 @@
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:07.326Z",
+      "crawledAt": "2026-11-01T09:30:01.225Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1143,12 +1247,16 @@
       "salarySource": "estimated",
       "addressRegion": "LU",
       "postalCode": "6003",
-      "_qualityScore": 91,
+      "streetAddress": "Lucerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:30:01.225Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1166,7 +1274,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:06.744Z",
+      "crawledAt": "2026-11-01T09:30:00.581Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1185,12 +1293,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 91,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:00.581Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1208,7 +1320,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:29:06.203Z",
+      "crawledAt": "2026-11-01T09:29:59.990Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1227,12 +1339,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 91,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:29:59.990Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1250,7 +1366,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:28:59.279Z",
+      "crawledAt": "2026-11-01T09:29:59.340Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -1269,12 +1385,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 93,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:29:59.340Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1292,7 +1412,7 @@
       "datePosted": "2026-10-25",
       "postedDate": "2026-10-25",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:28:58.036Z",
+      "crawledAt": "2026-11-01T09:29:58.222Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1311,12 +1431,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 91,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-23T09:29:58.222Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1334,7 +1458,7 @@
       "datePosted": "2026-10-25",
       "postedDate": "2026-10-25",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:28:57.436Z",
+      "crawledAt": "2026-11-01T09:29:57.639Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1353,12 +1477,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 91,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-23T09:29:57.639Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1376,7 +1504,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:28:56.890Z",
+      "crawledAt": "2026-11-01T09:29:57.034Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1395,12 +1523,16 @@
       "salarySource": "estimated",
       "addressRegion": "VD",
       "postalCode": "1800",
-      "_qualityScore": 91,
+      "streetAddress": "Vevey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:29:57.034Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1418,7 +1550,7 @@
       "datePosted": "2026-10-29",
       "postedDate": "2026-10-29",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:28:56.352Z",
+      "crawledAt": "2026-11-01T09:29:56.495Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1438,12 +1570,16 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 91,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:29:56.495Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1461,7 +1597,7 @@
       "datePosted": "2026-10-09",
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:28:55.815Z",
+      "crawledAt": "2026-11-01T09:29:55.882Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -1480,14 +1616,18 @@
       "salarySource": "estimated",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "_qualityScore": 91,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:29:55.882Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

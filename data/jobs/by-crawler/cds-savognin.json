@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cds-savognin",
-  "assembledAt": "2026-10-31T09:21:25.618Z",
-  "runId": "41187447043",
+  "assembledAt": "2026-11-01T09:17:17.206Z",
+  "runId": "41291802731",
   "jobs": [
     {
       "id": "cds-savognin-405-9cf102943bc6",
@@ -34,7 +34,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/405.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:19.777Z",
+      "crawledAt": "2026-11-01T09:17:11.857Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -82,7 +82,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Center da Sanadad Savognin",
+        "streetAddress": "Stradung 52",
+        "postalCode": "7460",
+        "addressLocality": "Savognin",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:02.284Z"
+      },
+      "streetAddress": "Stradung 52",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:17:11.857Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cds-savognin-402-d920b6404abf",
@@ -115,7 +129,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/402.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:19.774Z",
+      "crawledAt": "2026-11-01T09:17:11.855Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -165,7 +179,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Center da Sanadad Savognin",
+        "streetAddress": "Stradung 52",
+        "postalCode": "7460",
+        "addressLocality": "Savognin",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:02.284Z"
+      },
+      "streetAddress": "Stradung 52",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:17:11.855Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cds-savognin-159-5df441a9b5eb",
@@ -198,7 +226,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/159.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:19.772Z",
+      "crawledAt": "2026-11-01T09:17:11.853Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -244,7 +272,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Center da Sanadad Savognin",
+        "streetAddress": "Stradung 52",
+        "postalCode": "7460",
+        "addressLocality": "Savognin",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:02.284Z"
+      },
+      "streetAddress": "Stradung 52",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:17:11.853Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cds-savognin-270-1dc201a15dcc",
@@ -278,7 +320,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:19.769Z",
+      "crawledAt": "2026-11-01T09:17:11.851Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -318,7 +360,21 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Center da Sanadad Savognin",
+        "streetAddress": "Stradung 52",
+        "postalCode": "7460",
+        "addressLocality": "Savognin",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:02.284Z"
+      },
+      "streetAddress": "Stradung 52",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:17:11.851Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cds-savognin-259-f4c73bc7743b",
@@ -352,7 +408,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/259.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:19.745Z",
+      "crawledAt": "2026-11-01T09:17:11.833Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -392,7 +448,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Center da Sanadad Savognin",
+        "streetAddress": "Stradung 52",
+        "postalCode": "7460",
+        "addressLocality": "Savognin",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:02.284Z"
+      },
+      "streetAddress": "Stradung 52",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:17:11.833Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lhm-luzerner-hohenklinik-montana",
-  "assembledAt": "2026-10-31T09:20:38.242Z",
-  "runId": "41187899100",
+  "assembledAt": "2026-11-01T09:26:25.278Z",
+  "runId": "41292289555",
   "jobs": [
     {
       "id": "lhm-luzerner-hohenklinik-montana-4be678959842",
@@ -35,7 +35,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/fachaerztin-arzt-allgemeine-innere-medizin",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:29.317Z",
+      "crawledAt": "2026-11-01T09:26:16.780Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -75,7 +75,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Crans-Montana",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:16.780Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-e5dc0f811a97",
@@ -109,7 +113,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/assistenzaerztin-assistenzarzt",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:28.934Z",
+      "crawledAt": "2026-11-01T09:26:16.405Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -168,7 +172,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Crans-Montana",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:16.405Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-9541cabb9fa2",
@@ -202,7 +210,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/oberaerztin-oberarzt-oder-stv",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:28.553Z",
+      "crawledAt": "2026-11-01T09:26:16.025Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -242,7 +250,11 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Crans-Montana",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:16.025Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-98567d01b9d0",
@@ -276,7 +288,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/infirmier-praticien-formateur",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:20:28.166Z",
+      "crawledAt": "2026-11-01T09:26:15.656Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -320,7 +332,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Crans-Montana",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:15.656Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-8dc29a816c36",
@@ -353,7 +369,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/pflegefachfrau-pflegefachmann-hf-fh-stationsleiterin",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:27.787Z",
+      "crawledAt": "2026-11-01T09:26:15.272Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -404,7 +420,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Crans-Montana",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:15.272Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-10-31T09:22:39.560Z",
+  "generatedAt": "2026-11-01T09:20:13.024Z",
   "total": 19,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 16,
-  "durationMs": 5300,
-  "avgDurationMs": 5300,
+  "durationMs": 6563,
+  "avgDurationMs": 6563,
   "durationHistory": [
-    5300
+    6563
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-07-12T22:04:42.089Z",
       "id": "lwphr-829c46db14ab",
       "firstSeenAt": "2026-04-13T22:04:42.089Z",
       "salaryMin": 60000,
@@ -47,12 +47,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "7500",
-      "_qualityScore": 90,
+      "streetAddress": "St. Moritz",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -74,19 +77,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-790cda812087",
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -112,7 +118,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-7e4dc64de101",
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,
@@ -120,12 +126,25 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6900",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "LWP Ledermann Wieting & Partners",
+        "streetAddress": "Via Vegezzi 4",
+        "postalCode": "6900",
+        "addressLocality": "Lugano",
+        "addressRegion": "TI",
+        "checkedAt": "2026-10-31T20:50:01.472Z"
+      },
+      "streetAddress": "Via Vegezzi 4",
+      "streetAddressSource": "zefix-registry",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
@@ -150,19 +169,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-28T21:24:25.570Z",
       "id": "lwphr-8d717757acb5",
       "firstSeenAt": "2026-10-30T21:24:25.570Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -184,19 +206,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-24T09:16:08.886Z",
       "id": "lwphr-3de39366c9c0",
       "firstSeenAt": "2026-10-26T09:16:08.886Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -218,19 +243,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-17T21:15:35.245Z",
       "id": "lwphr-1e0e2eaa71b7",
       "firstSeenAt": "2026-10-19T21:15:35.245Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -252,19 +280,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-03T21:26:24.362Z",
       "id": "lwphr-df739a9c239c",
       "firstSeenAt": "2026-10-05T21:26:24.362Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -286,19 +317,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-3322a7b85508",
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -320,19 +354,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-18974787daa7",
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -354,19 +391,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-64c97595da41",
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -388,19 +428,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-110b54adc4c8",
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 81,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -422,7 +465,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-6db5ef76ebc1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
@@ -430,12 +473,15 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -457,19 +503,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-2d3f44124af1",
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 81,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -495,7 +544,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-07-12T22:04:42.089Z",
       "id": "lwphr-c5edb7026c28",
       "firstSeenAt": "2026-04-13T22:04:42.089Z",
       "salaryMin": 51500,
@@ -503,12 +552,25 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6900",
-      "_qualityScore": 94,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "LWP Ledermann Wieting & Partners",
+        "streetAddress": "Via Vegezzi 4",
+        "postalCode": "6900",
+        "addressLocality": "Lugano",
+        "addressRegion": "TI",
+        "checkedAt": "2026-10-31T20:50:01.472Z"
+      },
+      "streetAddress": "Via Vegezzi 4",
+      "streetAddressSource": "zefix-registry",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -530,19 +592,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-ea31dc50202b",
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 81,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -564,19 +629,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-8e151fb5fd60",
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -598,7 +666,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-03fbe0fd8985",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
@@ -606,12 +674,15 @@
       "salaryMax": 135000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -633,19 +704,22 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-ddeec64678fb",
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     },
     {
@@ -667,21 +741,24 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-27T21:37:00.378Z",
       "id": "lwphr-6421a8aa2f7c",
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 13
+        "completeness": 16
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

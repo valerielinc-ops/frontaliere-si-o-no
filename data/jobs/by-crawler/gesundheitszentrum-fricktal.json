@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gesundheitszentrum-fricktal",
-  "assembledAt": "2026-10-31T09:30:36.887Z",
-  "runId": "41187373855",
+  "assembledAt": "2026-11-01T09:19:26.331Z",
+  "runId": "41291723109",
   "jobs": [
     {
       "id": "gesundheitszentrum-fricktal-b5c0a92280ad",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/857/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:29.723Z",
+      "crawledAt": "2026-11-01T09:19:18.817Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -74,7 +74,21 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-29T09:19:18.817Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-d531a35d514a",
@@ -108,7 +122,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2124/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:27.695Z",
+      "crawledAt": "2026-11-01T09:19:16.844Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -148,7 +162,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-02T09:19:16.844Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-98aa78e29ddc",
@@ -182,7 +210,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2222/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:25.721Z",
+      "crawledAt": "2026-11-01T09:19:14.837Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -225,7 +253,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-29T09:19:14.837Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-bb05d3c58954",
@@ -259,7 +301,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1790/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:23.719Z",
+      "crawledAt": "2026-11-01T09:19:12.845Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -299,7 +341,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-30T09:19:12.845Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-4df22cba14f2",
@@ -333,7 +389,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2291/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:21.722Z",
+      "crawledAt": "2026-11-01T09:19:10.841Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -423,7 +479,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-02T09:19:10.841Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-82420f40f1b1",
@@ -457,7 +527,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2315/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:19.722Z",
+      "crawledAt": "2026-11-01T09:19:08.845Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -510,7 +580,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-30T09:19:08.845Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-bcfb0d4f9ff1",
@@ -544,7 +628,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2073/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:16.728Z",
+      "crawledAt": "2026-11-01T09:19:06.839Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -585,7 +669,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-29T09:19:06.839Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-81b2678d02f3",
@@ -619,7 +717,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2341/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:12.712Z",
+      "crawledAt": "2026-11-01T09:19:04.837Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -659,7 +757,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-30T09:19:04.837Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-b860758604e3",
@@ -693,7 +805,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2219/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:08.699Z",
+      "crawledAt": "2026-11-01T09:19:02.839Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -732,7 +844,21 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-30T09:19:02.839Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-25481b61e133",
@@ -766,7 +892,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2134/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:04.724Z",
+      "crawledAt": "2026-11-01T09:19:00.836Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -805,7 +931,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-30T09:19:00.836Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-7389cb34bec7",
@@ -838,7 +978,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2120/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:30:00.731Z",
+      "crawledAt": "2026-11-01T09:18:58.832Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -877,7 +1017,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-30T09:18:58.832Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-471c08bda322",
@@ -910,7 +1064,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2329/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:56.545Z",
+      "crawledAt": "2026-11-01T09:18:56.739Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -950,7 +1104,21 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:18:56.739Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-8e2ea4a8daf1",
@@ -983,7 +1151,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2369/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:54.708Z",
+      "crawledAt": "2026-11-01T09:18:55.838Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1054,7 +1222,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-08T09:18:55.838Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-5d0e956abb9c",
@@ -1087,7 +1269,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2437/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:52.719Z",
+      "crawledAt": "2026-11-01T09:18:53.830Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1127,7 +1309,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-30T09:18:53.830Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-89dffe058d8a",
@@ -1161,7 +1357,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2247/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:50.723Z",
+      "crawledAt": "2026-11-01T09:18:51.743Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1214,7 +1410,21 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-29T09:18:51.743Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-c250bb95783f",
@@ -1248,7 +1458,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2193/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:48.722Z",
+      "crawledAt": "2026-11-01T09:18:49.842Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1288,7 +1498,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:18:49.842Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-7066cac2481f",
@@ -1322,7 +1546,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2418/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:46.710Z",
+      "crawledAt": "2026-11-01T09:18:47.723Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1398,7 +1622,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-23T09:18:47.723Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-ab5b0957ab60",
@@ -1432,7 +1670,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2278/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:44.729Z",
+      "crawledAt": "2026-11-01T09:18:45.838Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1488,7 +1726,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-10T09:18:45.838Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-366373203181",
@@ -1522,7 +1774,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2393/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:42.709Z",
+      "crawledAt": "2026-11-01T09:18:43.835Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1569,7 +1821,21 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-04T09:18:43.835Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-4c1af5aefc97",
@@ -1603,7 +1869,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2410/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:40.731Z",
+      "crawledAt": "2026-11-01T09:18:41.833Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1643,7 +1909,21 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-25T09:18:41.833Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-faf89d617985",
@@ -1677,7 +1957,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2426/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:38.714Z",
+      "crawledAt": "2026-11-01T09:18:39.824Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1731,7 +2011,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-23T09:18:39.824Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-193ca7b1cae2",
@@ -1764,7 +2058,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2381/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:36.702Z",
+      "crawledAt": "2026-11-01T09:18:37.837Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1814,7 +2108,21 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-12T09:18:37.837Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-94e2c29f99f7",
@@ -1848,7 +2156,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2454/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:34.542Z",
+      "crawledAt": "2026-11-01T09:18:35.823Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1881,7 +2189,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:18:35.823Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-fc68293e8b8d",
@@ -1915,7 +2237,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2442/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:33.382Z",
+      "crawledAt": "2026-11-01T09:18:33.822Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1964,7 +2286,21 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-08T09:18:33.822Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-66a47837618c",
@@ -1998,7 +2334,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2394/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:32.501Z",
+      "crawledAt": "2026-11-01T09:18:32.150Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2047,7 +2383,21 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:18:32.150Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-9042ebbbfab4",
@@ -2081,7 +2431,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2447/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:31.437Z",
+      "crawledAt": "2026-11-01T09:18:31.243Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2127,7 +2477,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:18:31.243Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-fcca1dd54de6",
@@ -2160,7 +2524,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2466/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:30.374Z",
+      "crawledAt": "2026-11-01T09:18:30.350Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2206,7 +2570,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:18:30.350Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-4fbef07c6f09",
@@ -2240,7 +2618,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2452/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:29.472Z",
+      "crawledAt": "2026-11-01T09:18:29.441Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2286,7 +2664,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:18:29.441Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-78fe56b242d3",
@@ -2307,20 +2699,19 @@
         "de": "Abteilungsleitung (m/w/d)",
         "fr": "Chef de département (h/f/d)"
       },
-      "description": "Gesundheitszentrum Fricktal AG | online seit : 10/16/2026\n\nArbeitsort : GZF Laufenburg\n\nIn der Seora – Leben im Alter an den beiden Standorten in Laufenburg und Rheinfelden stehen die Bedürfnisse sowie die Selbst- und Mitbestimmung unserer Bewohner:innen im Zentrum. In deinem Seora Team arbeiten Kolleg:innen aus verschiedenen Berufsgruppen – Pflegende, Mitarbeitende der Aktivierung und des Bewohnerservices – respektvoll und auf Augenhöhe zusammen. Gemeinsam sorgt ihr dafür, dass unsere Bewohner:innen in einer familiären Atmosphäre persönlich und herzlich betreut werden – immer unter Berücksichtigung ihrer individuellen Bedürfnisse und Lebensgeschichte. Dank der unmittelbaren Nähe zum Akutspital ist an beiden Standorten rund um die Uhr für qualifizierte ärztliche Hilfe und medizinische Betreuung gesorgt und die interdisziplinäre Zusammenarbeit u.a. mit Case Management und Physiotherapie wird täglich gelebt. Seora ist ein Teil des GZF.\n\n• Du führst dein Team von 15 Mitarbeiter:innen mit Freude und Teamgeist\n• Für die Bewohner:innen und ihre Angehörigen bringst du viel Einfühlungsvermögen mit und hast immer ein offenes Ohr für ihre Anliegen\n• Du möchtest den Bewohner:innen ein selbst bestimmtes Leben ermöglichen, um ihnen ein erfülltes Zuhause weg von ihrem Zuhause zu bieten\n• Du packst auch in der Pflege mit an - Teamwork steht für dich an erster Stelle\n• Du gestaltest den Veränderungsprozess für die Neuorientierung unseres Pflegeheims aktiv mit\n\n• Eine abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH\n• Einige Jahre Führungserfahrung in einem Pflegeheim sind von Vorteil\n• Hohe Sozialkompetenz & die Fähigkeit, das Team wertschätzend zu begleiten, zu fördern und nachhaltig zu motivieren\n• Ausdauer und Freude bei neuen Aufgaben und Projekten\n• Selbständige, verantwortungsbewusste und organisierte Arbeitsweise\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+      "description": "Gesundheitszentrum Fricktal AG | online seit : 16.10.2026\n\nArbeitsort : GZF Laufenburg\n\nIn der Seora – Leben im Alter an den beiden Standorten in Laufenburg und Rheinfelden stehen die Bedürfnisse sowie die Selbst- und Mitbestimmung unserer Bewohner:innen im Zentrum. In deinem Seora Team arbeiten Kolleg:innen aus verschiedenen Berufsgruppen – Pflegende, Mitarbeitende der Aktivierung und des Bewohnerservices – respektvoll und auf Augenhöhe zusammen. Gemeinsam sorgt ihr dafür, dass unsere Bewohner:innen in einer familiären Atmosphäre persönlich und herzlich betreut werden – immer unter Berücksichtigung ihrer individuellen Bedürfnisse und Lebensgeschichte. Dank der unmittelbaren Nähe zum Akutspital ist an beiden Standorten rund um die Uhr für qualifizierte ärztliche Hilfe und medizinische Betreuung gesorgt und die interdisziplinäre Zusammenarbeit u.a. mit Case Management und Physiotherapie wird täglich gelebt. Seora ist ein Teil des GZF.\n\n• Du führst dein Team von 15 Mitarbeiter:innen mit Freude und Teamgeist\n• Für die Bewohner:innen und ihre Angehörigen bringst du viel Einfühlungsvermögen mit und hast immer ein offenes Ohr für ihre Anliegen\n• Du möchtest den Bewohner:innen ein selbst bestimmtes Leben ermöglichen, um ihnen ein erfülltes Zuhause weg von ihrem Zuhause zu bieten\n• Du packst auch in der Pflege mit an - Teamwork steht für dich an erster Stelle\n• Du gestaltest den Veränderungsprozess für die Neuorientierung unseres Pflegeheims aktiv mit\n\n• Eine abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH\n• Einige Jahre Führungserfahrung in einem Pflegeheim sind von Vorteil\n• Hohe Sozialkompetenz & die Fähigkeit, das Team wertschätzend zu begleiten, zu fördern und nachhaltig zu motivieren\n• Ausdauer und Freude bei neuen Aufgaben und Projekten\n• Selbständige, verantwortungsbewusste und organisierte Arbeitsweise\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
         "it": "Centro sanitario Fricktal AG | online dal: 16.10.2026\n\nLuogo di lavoro: GZF Laufenburg\n\nNella Seora – Vivere in età avanzata nelle due località di Laufenburg e Rheinfelden, le esigenze e l'autodeterminazione e la co-determinazione dei nostri residenti sono al centro. Nel vostro team Seora, colleghi di diversi gruppi professionali – assistenti, dipendenti dell'attivazione e del servizio residente – lavorano insieme in modo rispettoso e su un piano di parità. Insieme, assicuratevi che i nostri residenti siano curati personalmente e calorosamente in un'atmosfera familiare, tenendo sempre conto delle loro esigenze individuali e della loro storia di vita. Grazie all'immediata vicinanza all'ospedale acuto, l'assistenza medica qualificata e l'assistenza medica è fornita in entrambe le sedi intorno all'orologio e la cooperazione interdisciplinare con la gestione dei casi e la fisioterapia è vissuta quotidianamente. Seora fa parte del GZF.\n\n• Tu guida il tuo team di 15 dipendenti: donne con gioia e spirito di squadra\n• Per i residenti: porti molta empatia e hai sempre un orecchio aperto per le loro preoccupazioni\n• Vuoi dare ai residenti una vita autodeterminata per offrire loro una casa soddisfatta lontano dalla loro casa\n• Si prende anche parte alla cura - il lavoro di squadra è la vostra prima priorità\n• Formare attivamente il processo di cambiamento per il riorientamento della nostra casa di cura\n\n• Formazione completa come infermiera certificata HF/FH\n• Alcuni anni di esperienza di leadership in una casa di cura sono benefici\n• Alte competenze sociali e la capacità di accompagnare, promuovere e motivare in modo sostenibile il team in modo apprezzabile\n• Perseveranza e gioia in nuovi compiti e progetti\n• Pratiche di lavoro indipendenti, responsabili e organizzate\n\nhttp://www.gzf.ch\n\nSono interessato e vorrei candidarmi\n\nIndietro",
         "en": "Health Centre Fricktal AG | online since : 16.10.2026\n\nPlace of work: GZF Laufenburg\n\nIn the Seora – Living in old age at the two locations in Laufenburg and Rheinfelden, the needs as well as the self-determination and co-determination of our residents are at the center. In your Seora team, colleagues from different professional groups – carers, employees of the activation and resident service – work together respectfully and on an equal footing. Together, you ensure that our residents are cared for personally and warmly in a family atmosphere – always taking into account their individual needs and life story. Thanks to the immediate proximity to the acute hospital, qualified medical assistance and medical care is provided at both locations around the clock and the interdisciplinary cooperation with case management and physiotherapy is lived daily. Seora is part of the GZF.\n\n• You lead your team of 15 employees: women with joy and team spirit\n• For the residents: you bring a lot of empathy and always have an open ear for their concerns\n• You want to give the residents a self-determined life in order to offer them a fulfilled home away from their home\n• You also take part in the care - teamwork is your first priority\n• You actively shape the change process for the reorientation of our nursing home\n\n• Completed training as a certified nurse HF/FH\n• A few years of leadership experience in a nursing home are beneficial\n• High social skills & the ability to accompany, promote and sustainably motivate the team in an appreciative way\n• Perseverance and joy in new tasks and projects\n• Self-employed, responsible and organised working practices\n\nhttp://www.gzf.ch\n\nI am interested and would like to apply\n\nBack",
-        "de": "Gesundheitszentrum Fricktal AG | online seit : 10/16/2026\n\nArbeitsort : GZF Laufenburg\n\nIn der Seora – Leben im Alter an den beiden Standorten in Laufenburg und Rheinfelden stehen die Bedürfnisse sowie die Selbst- und Mitbestimmung unserer Bewohner:innen im Zentrum. In deinem Seora Team arbeiten Kolleg:innen aus verschiedenen Berufsgruppen – Pflegende, Mitarbeitende der Aktivierung und des Bewohnerservices – respektvoll und auf Augenhöhe zusammen. Gemeinsam sorgt ihr dafür, dass unsere Bewohner:innen in einer familiären Atmosphäre persönlich und herzlich betreut werden – immer unter Berücksichtigung ihrer individuellen Bedürfnisse und Lebensgeschichte. Dank der unmittelbaren Nähe zum Akutspital ist an beiden Standorten rund um die Uhr für qualifizierte ärztliche Hilfe und medizinische Betreuung gesorgt und die interdisziplinäre Zusammenarbeit u.a. mit Case Management und Physiotherapie wird täglich gelebt. Seora ist ein Teil des GZF.\n\n• Du führst dein Team von 15 Mitarbeiter:innen mit Freude und Teamgeist\n• Für die Bewohner:innen und ihre Angehörigen bringst du viel Einfühlungsvermögen mit und hast immer ein offenes Ohr für ihre Anliegen\n• Du möchtest den Bewohner:innen ein selbst bestimmtes Leben ermöglichen, um ihnen ein erfülltes Zuhause weg von ihrem Zuhause zu bieten\n• Du packst auch in der Pflege mit an - Teamwork steht für dich an erster Stelle\n• Du gestaltest den Veränderungsprozess für die Neuorientierung unseres Pflegeheims aktiv mit\n\n• Eine abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH\n• Einige Jahre Führungserfahrung in einem Pflegeheim sind von Vorteil\n• Hohe Sozialkompetenz & die Fähigkeit, das Team wertschätzend zu begleiten, zu fördern und nachhaltig zu motivieren\n• Ausdauer und Freude bei neuen Aufgaben und Projekten\n• Selbständige, verantwortungsbewusste und organisierte Arbeitsweise\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "de": "Gesundheitszentrum Fricktal AG | online seit : 16.10.2026\n\nArbeitsort : GZF Laufenburg\n\nIn der Seora – Leben im Alter an den beiden Standorten in Laufenburg und Rheinfelden stehen die Bedürfnisse sowie die Selbst- und Mitbestimmung unserer Bewohner:innen im Zentrum. In deinem Seora Team arbeiten Kolleg:innen aus verschiedenen Berufsgruppen – Pflegende, Mitarbeitende der Aktivierung und des Bewohnerservices – respektvoll und auf Augenhöhe zusammen. Gemeinsam sorgt ihr dafür, dass unsere Bewohner:innen in einer familiären Atmosphäre persönlich und herzlich betreut werden – immer unter Berücksichtigung ihrer individuellen Bedürfnisse und Lebensgeschichte. Dank der unmittelbaren Nähe zum Akutspital ist an beiden Standorten rund um die Uhr für qualifizierte ärztliche Hilfe und medizinische Betreuung gesorgt und die interdisziplinäre Zusammenarbeit u.a. mit Case Management und Physiotherapie wird täglich gelebt. Seora ist ein Teil des GZF.\n\n• Du führst dein Team von 15 Mitarbeiter:innen mit Freude und Teamgeist\n• Für die Bewohner:innen und ihre Angehörigen bringst du viel Einfühlungsvermögen mit und hast immer ein offenes Ohr für ihre Anliegen\n• Du möchtest den Bewohner:innen ein selbst bestimmtes Leben ermöglichen, um ihnen ein erfülltes Zuhause weg von ihrem Zuhause zu bieten\n• Du packst auch in der Pflege mit an - Teamwork steht für dich an erster Stelle\n• Du gestaltest den Veränderungsprozess für die Neuorientierung unseres Pflegeheims aktiv mit\n\n• Eine abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH\n• Einige Jahre Führungserfahrung in einem Pflegeheim sind von Vorteil\n• Hohe Sozialkompetenz & die Fähigkeit, das Team wertschätzend zu begleiten, zu fördern und nachhaltig zu motivieren\n• Ausdauer und Freude bei neuen Aufgaben und Projekten\n• Selbständige, verantwortungsbewusste und organisierte Arbeitsweise\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Centre de santé Fricktal AG en ligne depuis : 16.10.2026\n\nLieu de travail: GZF Laufenburg\n\nDans la Seora – Vivant dans la vieillesse aux deux endroits de Laufenburg et Rheinfelden, les besoins ainsi que l'autodétermination et la co-détermination de nos résidents sont au centre. Dans votre équipe Seora, des collègues de différents groupes professionnels – soignants, employés du service d'activation et résidents – travaillent ensemble avec respect et sur un pied d'égalité. Ensemble, vous veillez à ce que nos résidents soient pris en charge personnellement et chaleureusement dans une ambiance familiale – en tenant toujours compte de leurs besoins individuels et de leur histoire de vie. Grâce à la proximité immédiate de l'hôpital d'urgence, une assistance médicale et des soins médicaux qualifiés sont fournis 24 heures sur 24, et la coopération interdisciplinaire avec la gestion des cas et la physiothérapie est assurée quotidiennement. Seora fait partie du GZF.\n\n• Vous dirigez votre équipe de 15 employés : les femmes avec joie et esprit d'équipe\n• Pour les résidents: vous apportez beaucoup d'empathie et avez toujours une oreille ouverte pour leurs préoccupations\n• Vous voulez donner aux résidents une vie déterminée pour leur offrir une maison remplie loin de leur maison\n• Vous participez également au soin - le travail d'équipe est votre priorité\n• Vous façonnez activement le processus de changement pour la réorientation de notre maison de retraite\n\n• Formation terminée en tant qu'infirmière HF/FH\n• Quelques années d'expérience en leadership dans une maison de soins infirmiers sont bénéfiques\n• Hautes compétences sociales & la capacité d'accompagner, de promouvoir et de motiver durablement l'équipe d'une manière reconnaissante\n• Persévérance et joie dans les nouvelles tâches et projets\n• Pratiques de travail indépendantes, responsables et organisées\n\nhttp://www.gzf.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent"
       },
-      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2443/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:28.574Z",
+      "crawledAt": "2026-11-01T09:18:28.551Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2367,7 +2758,21 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-15T09:18:28.551Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-bd6e1bb01e53",
@@ -2401,7 +2806,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1861/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:27.776Z",
+      "crawledAt": "2026-11-01T09:18:27.645Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2442,7 +2847,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-29T09:18:27.645Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-c17aca429664",
@@ -2470,13 +2889,12 @@
         "de": "Gesundheitszentrum Fricktal AG | online seit : 23.10.2026\n\nArbeitsort : GZF Rheinfelden\n\nDu liebst die Verbindung von Medizin und Zahlen und behältst auch bei komplexen Kodierungen den Überblick? Dann bist du bei uns genau richtig! Werde Teil unseres engagierten dreiköpfigen Kodierteams und gestalte die Zukunft der medizinischen Kodierung aktiv mit. Wir betreuen rund 10'000 stationäre Fälle pro Jahr aus den Fachbereichen: Medizin, Akutgeriatrie, Viszeralchirurgie mit HNO und Urologie, Zentrum für Bewegung mit Orthopädie und Wirbelsäulenchirurgie, Frauenklinik mit einem zertifizierten Brustzentrum, Geburtshilfe, Plastische Chirurgie - und sind im Haus als kompetente und geschätzte Anlaufstelle etabliert. Wir freuen uns auf deine Verstärkung!\n\n• Du kodierst die stationären Behandlungsfälle und überprüfst die ärztlichen und pflegerischen Dokumentationen auf Vollständigkeit und Plausibilität\n• Du bringst dein Fachwissen mit und sorgst im Austausch mit behandelnden Ärzt:innen zur Optimierung der Vollständigkeit der erbrachten medizinischen Leistungen\n• Du unterstützt die fortlaufende Optimierung der Dokumentations- und Kodierqualität\n• Du übernimmst Mitverantwortung für das DRG Prüf- und Rückweisungsmanagement, sowie den telefonischen und schriftlichen Kontakt mit Leistungserbringenden\n• Nach der erfolgreichen Einarbeitungszeit ist auch Homeoffice im Teilzeitpensum möglich\n\n• Zwingend bringst du eine abgeschlossene Ausbildung zur Dipl. Pflegefachperson (Pflegefachfrau DN II/ AKP) oder ein abgeschlossenes Medizinstudium mit. Eine Weiterbildung in medizinischer Kodierung (H+) wäre von Vorteil\n• Idealerweise konntest du bereits mehrjährige praktische Erfahrung in der Kodierung sammeln. Aber auch wenn du Berufseinsteiger:in bist freuen wir uns auf deine Bewerbung\n• Du bezeichnest dich als engagierte und eigenständige Persönlichkeit mit einer ausgeprägten Motivation Prozesse voran zu treiben\n• Von Vorteil bringst du gute Anwenderkenntnisse in Excel, KIS (ORBIS) und ERP-Systemen (Nexus PATng) mit\n• Du zeichnest dich durch deine strukturierte und exakte Arbeitsweise aus und findest dich auch schnell in neuen Systemen zurecht\n• Du hast ein Flair für Informatik und der Ausbau der IT-Unterstützung in der Kodierung bereitet dir Freude\n• Zudem hast du Interesse an der Verknüpfung von medizinischen und ökonomischen Themen\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Centre de santé Fricktal AG en ligne depuis : 23.10.2026\n\nLieu de travail: GZF Rheinfelden\n\nVous aimez le lien entre la médecine et les chiffres et gardez une trace des codes complexes? Alors tu as exactement raison avec nous ! Faites partie de notre équipe de codage dédiée à trois personnes et façonnez activement l'avenir du codage médical. Nous prenons soin d'environ 10 000 patients hospitalisés par an dans les domaines spécialisés : médecine, chirurgie aiguë, chirurgie viscérale avec ENT et urologie, centre de mouvement avec orthopédie et chirurgie spinale, clinique pour femmes avec un centre mammaire certifié, obstétrique, chirurgie plastique - et sont établis dans la maison comme un point de contact compétent et apprécié. Nous attendons avec impatience votre renfort!\n\n• Vous codez les cas d'hospitalisation et vérifiez la documentation médicale et infirmière pour vérifier l'exhaustivité et la plausibilité\n• Vous apportez votre expertise et de fournir en échange avec les médecins de traitement: à l'intérieur pour optimiser l'exhaustivité des services médicaux fournis\n• Soutenir l'optimisation continue de la documentation et de la qualité du codage\n• Vous assumez la responsabilité conjointe du test DRG et de la gestion du rejet, ainsi que les contacts téléphoniques et écrits avec les fournisseurs de services\n• Après la période de formation réussie, le bureau à domicile est également possible dans le travail à temps partiel\n\n• Obligatoire vous apportez une formation complète au dipl. Infirmière (spécialiste des soins DN II / AKP) ou ayant terminé des études médicales. Un nouveau développement du codage médical (H+) serait avantageux\n• Idéalement, vous pourriez déjà acquérir plusieurs années d'expérience pratique dans le codage. Mais même si vous débutez votre carrière : nous attendons avec impatience votre candidature\n• Vous vous décrivez comme une personnalité engagée et indépendante avec une forte motivation pour faire avancer les processus\n• Vous bénéficierez de bonnes connaissances utilisateur dans les systèmes Excel, KIS (ORBIS) et ERP (Nexus PATng)\n• Vous vous distinguez par votre méthode de travail structurée et exacte et vous trouvez rapidement votre chemin dans de nouveaux systèmes\n• Vous avez un style pour l'informatique et l'expansion du support informatique dans le codage vous rend heureux\n• Vous êtes également intéressé à relier des sujets médicaux et économiques\n\nhttp://www.gzf.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent"
       },
-      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2457/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:26.717Z",
+      "crawledAt": "2026-11-01T09:18:26.763Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2522,7 +2940,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-22T09:18:26.763Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-f233a1a05822",
@@ -2556,7 +2988,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2148/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:25.628Z",
+      "crawledAt": "2026-11-01T09:18:25.870Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2598,7 +3030,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-23T09:18:25.870Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-2accd6a83dbf",
@@ -2632,7 +3078,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2451/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:24.564Z",
+      "crawledAt": "2026-11-01T09:18:24.967Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2678,7 +3124,21 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-25T09:18:24.967Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-3c84488378bc",
@@ -2712,7 +3172,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2392/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:23.481Z",
+      "crawledAt": "2026-11-01T09:18:24.180Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2754,7 +3214,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-02T09:18:24.180Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-c7ecafcb5fc7",
@@ -2775,19 +3249,20 @@
         "de": "Technische:r Sterilisationsassistent:in (m/w/d)",
         "fr": "Assistant/e technique en stérilisation (h/f/d)"
       },
-      "description": "Gesundheitszentrum Fricktal AG | online seit : 28.10.2026\n\nArbeitsort : GZF Rheinfelden, Villa Robersten Rheinfelden\n\nSechs OP-Säle, zwei Standorte, ein starkes Team. Das Spital Rheinfelden ist unser Herzstück: Hier laufen die Prozesse der Zentralsterilisation zusammen und hier pulsiert unsere OP-Organisation. Gearbeitet wird im Zweischichtbetrieb von Montag bis Freitag (08:00–20:00 Uhr). Auch sonntags bieten wir engagierten Mitarbeitenden attraktive Einsatzmöglichkeiten. Klingt spannend? Dann komm ins Team, wo Präzision auf Teamgeist trifft!\n\n• Du bereitest Medizinprodukte fachgerecht auf, indem Du Instrumente und Medizinprodukte reinigst, desinfizierst und sterilisierst – stets nach höchsten Qualitäts- und Hygienestandards\n• Du behältst den Überblick, stellst OP-Siebe und Einzelinstrumente bedarfsgerecht zusammen und sorgst für deren termingerechte Bereitstellung\n• Du koordinierst Bestellungen und Reparaturen, hast den Lagerbestand im Griff und stellst einen reibungslosen Ablauf sicher\n• Du führst Prozesskontrollen durch, dokumentierst diese sorgfältig und pflegst das Rapportwesen zuverlässig\n• Du stellst die Einhaltung aller gesetzlichen und normativen Vorgaben sicher und bringst Dich aktiv in die kontinuierliche Qualitätsverbesserung ein\n\n• Du verfügst über eine abgeschlossene Berufsausbildung sowie eine Fachkundeausbildung als Technische:r Sterilisationsassistent:in (Stufe I, idealerweise Stufe II). Erste Erfahrung in der Aufbereitung von Medizinprodukten bringst Du idealerweise bereits mit\n• Du beherrschst die deutsche Sprache sicher in Wort und Schrift und trittst offen, freundlich sowie kommunikativ auf\n• Du arbeitest flexibel, verantwortungsbewusst und mit einem ausgeprägten Qualitäts- und Hygieneverständnis. Sorgfalt und Zuverlässigkeit sind für Dich selbstverständlich\n• Du arbeitest gerne im Team und trägst mit Deiner strukturierten, zuverlässigen Arbeitsweise zu reibungslosen Abläufen bei\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+      "description": "Gesundheitszentrum Fricktal AG | online seit : 10/28/2026\n\nArbeitsort : GZF Rheinfelden, Villa Robersten Rheinfelden\n\nSechs OP-Säle, zwei Standorte, ein starkes Team. Das Spital Rheinfelden ist unser Herzstück: Hier laufen die Prozesse der Zentralsterilisation zusammen und hier pulsiert unsere OP-Organisation. Gearbeitet wird im Zweischichtbetrieb von Montag bis Freitag (08:00–20:00 Uhr). Auch sonntags bieten wir engagierten Mitarbeitenden attraktive Einsatzmöglichkeiten. Klingt spannend? Dann komm ins Team, wo Präzision auf Teamgeist trifft!\n\n• Du bereitest Medizinprodukte fachgerecht auf, indem Du Instrumente und Medizinprodukte reinigst, desinfizierst und sterilisierst – stets nach höchsten Qualitäts- und Hygienestandards\n• Du behältst den Überblick, stellst OP-Siebe und Einzelinstrumente bedarfsgerecht zusammen und sorgst für deren termingerechte Bereitstellung\n• Du koordinierst Bestellungen und Reparaturen, hast den Lagerbestand im Griff und stellst einen reibungslosen Ablauf sicher\n• Du führst Prozesskontrollen durch, dokumentierst diese sorgfältig und pflegst das Rapportwesen zuverlässig\n• Du stellst die Einhaltung aller gesetzlichen und normativen Vorgaben sicher und bringst Dich aktiv in die kontinuierliche Qualitätsverbesserung ein\n\n• Du verfügst über eine abgeschlossene Berufsausbildung sowie eine Fachkundeausbildung als Technische:r Sterilisationsassistent:in (Stufe I, idealerweise Stufe II). Erste Erfahrung in der Aufbereitung von Medizinprodukten bringst Du idealerweise bereits mit\n• Du beherrschst die deutsche Sprache sicher in Wort und Schrift und trittst offen, freundlich sowie kommunikativ auf\n• Du arbeitest flexibel, verantwortungsbewusst und mit einem ausgeprägten Qualitäts- und Hygieneverständnis. Sorgfalt und Zuverlässigkeit sind für Dich selbstverständlich\n• Du arbeitest gerne im Team und trägst mit Deiner strukturierten, zuverlässigen Arbeitsweise zu reibungslosen Abläufen bei\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
         "it": "Centro sanitario Fricktal AG | online dal: 28.10.2026\n\nLuogo di lavoro: GZF Rheinfelden, Villa Robersten Rheinfelden\n\nSei sale operatorie, due sedi, una squadra forte. Spital Rheinfelden è al centro del nostro lavoro: qui si incontrano i processi di sterilizzazione centrale e dove la nostra organizzazione chirurgica è vibrante. Il lavoro è effettuato in un'operazione a due turni da lunedì a venerdì (08:00-20:00). La domenica, offriamo anche dipendenti impegnati interessanti opportunità di distribuzione. Sembra eccitante? Poi unisciti al team dove la precisione incontra lo spirito di squadra!\n\n• Preparate i dispositivi medici professionalmente pulendo, disinfettando e sterilizzando gli strumenti e i dispositivi medici – sempre ai più elevati standard di qualità e igiene\n• Mantenete una panoramica, compilate gli schermi operativi e gli strumenti individuali come necessario e assicurate la loro tempestiva disposizione\n• Coordinare ordini e riparazioni, avere lo stock sotto controllo e garantire un processo regolare\n• Eseguire controlli di processo, documentarli con attenzione e mantenere il sistema di reporting in modo affidabile\n• Assicurate la conformità a tutti i requisiti legali e normativi e siete attivamente coinvolti nel continuo miglioramento della qualità\n\n• Ha completato la formazione professionale e la formazione professionale come assistente tecnico:r sterilizzazione:in (livello I, idealmente livello II). Prima esperienza nel trattamento dei dispositivi medici Sei idealmente già con\n• Si padroneggia la lingua tedesca in modo sicuro nella parola e nella scrittura e sono aperti, cordiali e comunicativi\n• Lavori in modo flessibile, responsabile e con una forte comprensione della qualità e dell'igiene. Cura e affidabilità sono una questione naturalmente per voi\n• Ti piace lavorare in un team e contribuire a processi lisci con il tuo metodo di lavoro strutturato e affidabile\n\nhttp://www.gzf.ch\n\nSono interessato e vorrei candidarmi\n\nIndietro",
         "en": "Health Centre Fricktal AG | online since : 28.10.2026\n\nPlace of work: GZF Rheinfelden, Villa Robersten Rheinfelden\n\nSix operating rooms, two locations, a strong team. Spital Rheinfelden is at the heart of our work: this is where the processes of central sterilization come together and where our surgical organization is vibrant. Work is carried out in a two-shift operation from Monday to Friday (08:00-20:00). On Sundays, we also offer committed employees attractive deployment opportunities. Sounds exciting? Then join the team where precision meets team spirit!\n\n• You prepare medical devices professionally by cleaning, disinfecting and sterilizing instruments and medical devices – always to the highest quality and hygiene standards\n• You keep an overview, compile operating screens and individual instruments as needed and ensure their timely provision\n• You coordinate orders and repairs, have the stock under control and ensure a smooth process\n• You carry out process controls, document them carefully and maintain the reporting system reliably\n• You ensure compliance with all legal and normative requirements and are actively involved in the continuous quality improvement\n\n• You have completed vocational training as well as vocational training as a technical:r sterilization assistant:in (level I, ideally level II). First experience in the processing of medical devices You are ideally already with\n• You master the German language safely in word and writing and are open, friendly and communicative\n• You work flexibly, responsibly and with a strong understanding of quality and hygiene. Care and reliability are a matter of course for you\n• You enjoy working in a team and contribute to smooth processes with your structured, reliable working method\n\nhttp://www.gzf.ch\n\nI am interested and would like to apply\n\nBack",
-        "de": "Gesundheitszentrum Fricktal AG | online seit : 28.10.2026\n\nArbeitsort : GZF Rheinfelden, Villa Robersten Rheinfelden\n\nSechs OP-Säle, zwei Standorte, ein starkes Team. Das Spital Rheinfelden ist unser Herzstück: Hier laufen die Prozesse der Zentralsterilisation zusammen und hier pulsiert unsere OP-Organisation. Gearbeitet wird im Zweischichtbetrieb von Montag bis Freitag (08:00–20:00 Uhr). Auch sonntags bieten wir engagierten Mitarbeitenden attraktive Einsatzmöglichkeiten. Klingt spannend? Dann komm ins Team, wo Präzision auf Teamgeist trifft!\n\n• Du bereitest Medizinprodukte fachgerecht auf, indem Du Instrumente und Medizinprodukte reinigst, desinfizierst und sterilisierst – stets nach höchsten Qualitäts- und Hygienestandards\n• Du behältst den Überblick, stellst OP-Siebe und Einzelinstrumente bedarfsgerecht zusammen und sorgst für deren termingerechte Bereitstellung\n• Du koordinierst Bestellungen und Reparaturen, hast den Lagerbestand im Griff und stellst einen reibungslosen Ablauf sicher\n• Du führst Prozesskontrollen durch, dokumentierst diese sorgfältig und pflegst das Rapportwesen zuverlässig\n• Du stellst die Einhaltung aller gesetzlichen und normativen Vorgaben sicher und bringst Dich aktiv in die kontinuierliche Qualitätsverbesserung ein\n\n• Du verfügst über eine abgeschlossene Berufsausbildung sowie eine Fachkundeausbildung als Technische:r Sterilisationsassistent:in (Stufe I, idealerweise Stufe II). Erste Erfahrung in der Aufbereitung von Medizinprodukten bringst Du idealerweise bereits mit\n• Du beherrschst die deutsche Sprache sicher in Wort und Schrift und trittst offen, freundlich sowie kommunikativ auf\n• Du arbeitest flexibel, verantwortungsbewusst und mit einem ausgeprägten Qualitäts- und Hygieneverständnis. Sorgfalt und Zuverlässigkeit sind für Dich selbstverständlich\n• Du arbeitest gerne im Team und trägst mit Deiner strukturierten, zuverlässigen Arbeitsweise zu reibungslosen Abläufen bei\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "de": "Gesundheitszentrum Fricktal AG | online seit : 10/28/2026\n\nArbeitsort : GZF Rheinfelden, Villa Robersten Rheinfelden\n\nSechs OP-Säle, zwei Standorte, ein starkes Team. Das Spital Rheinfelden ist unser Herzstück: Hier laufen die Prozesse der Zentralsterilisation zusammen und hier pulsiert unsere OP-Organisation. Gearbeitet wird im Zweischichtbetrieb von Montag bis Freitag (08:00–20:00 Uhr). Auch sonntags bieten wir engagierten Mitarbeitenden attraktive Einsatzmöglichkeiten. Klingt spannend? Dann komm ins Team, wo Präzision auf Teamgeist trifft!\n\n• Du bereitest Medizinprodukte fachgerecht auf, indem Du Instrumente und Medizinprodukte reinigst, desinfizierst und sterilisierst – stets nach höchsten Qualitäts- und Hygienestandards\n• Du behältst den Überblick, stellst OP-Siebe und Einzelinstrumente bedarfsgerecht zusammen und sorgst für deren termingerechte Bereitstellung\n• Du koordinierst Bestellungen und Reparaturen, hast den Lagerbestand im Griff und stellst einen reibungslosen Ablauf sicher\n• Du führst Prozesskontrollen durch, dokumentierst diese sorgfältig und pflegst das Rapportwesen zuverlässig\n• Du stellst die Einhaltung aller gesetzlichen und normativen Vorgaben sicher und bringst Dich aktiv in die kontinuierliche Qualitätsverbesserung ein\n\n• Du verfügst über eine abgeschlossene Berufsausbildung sowie eine Fachkundeausbildung als Technische:r Sterilisationsassistent:in (Stufe I, idealerweise Stufe II). Erste Erfahrung in der Aufbereitung von Medizinprodukten bringst Du idealerweise bereits mit\n• Du beherrschst die deutsche Sprache sicher in Wort und Schrift und trittst offen, freundlich sowie kommunikativ auf\n• Du arbeitest flexibel, verantwortungsbewusst und mit einem ausgeprägten Qualitäts- und Hygieneverständnis. Sorgfalt und Zuverlässigkeit sind für Dich selbstverständlich\n• Du arbeitest gerne im Team und trägst mit Deiner strukturierten, zuverlässigen Arbeitsweise zu reibungslosen Abläufen bei\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Centre de santé Fricktal AG en ligne depuis : 28.10.2026\n\nLieu de travail: GZF Rheinfelden, Villa Robersten Rheinfelden\n\nSix salles d'opération, deux emplacements, une équipe forte. Spital Rheinfelden est au cœur de notre travail : c'est là que se réunissent les processus de stérilisation centrale et où notre organisation chirurgicale est dynamique. Les travaux sont effectués dans le cadre d'une opération en deux équipes du lundi au vendredi (de 08 h à 20 h). Le dimanche, nous offrons également aux employés engagés des possibilités de déploiement attrayantes. Ça semble excitant ? Ensuite, rejoignez l'équipe où la précision rencontre l'esprit d'équipe !\n\n• Vous préparez des dispositifs médicaux professionnellement en nettoyant, désinfectant et stérilisant des instruments et des dispositifs médicaux – toujours selon les normes de qualité et d'hygiène les plus élevées\n• Vous conservez une vue d'ensemble, compilez les écrans d'exploitation et les instruments individuels au besoin et assurez leur disponibilité en temps opportun\n• Vous coordonnez les commandes et les réparations, avez le stock sous contrôle et assurer un processus en douceur\n• Vous effectuez des contrôles de processus, les documentez soigneusement et maintenez le système de rapport de façon fiable\n• Vous veillez au respect de toutes les exigences légales et normatives et participez activement à l'amélioration continue de la qualité\n\n• Vous avez suivi une formation professionnelle ainsi qu'une formation professionnelle en tant qu'assistant de stérilisation technique (niveau I, idéalement niveau II). Première expérience dans le traitement des dispositifs médicaux Vous êtes idéalement déjà avec\n• Vous maîtrisez la langue allemande en toute sécurité dans la parole et l'écriture et êtes ouvert, amical et communicatif\n• Vous travaillez de manière flexible, responsable et avec une forte compréhension de la qualité et de l'hygiène. Le soin et la fiabilité sont une question bien sûr pour vous\n• Vous aimez travailler en équipe et contribuer aux processus en douceur avec votre méthode de travail structurée et fiable\n\nhttp://www.gzf.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2444/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:22.574Z",
+      "crawledAt": "2026-11-01T09:18:23.393Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2833,7 +3308,21 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-12T09:18:23.393Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-b4a471395959",
@@ -2867,7 +3356,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2446/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:21.662Z",
+      "crawledAt": "2026-11-01T09:18:22.707Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2913,7 +3402,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-27T09:18:22.707Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitszentrum-fricktal-e41df0bd5925",
@@ -2946,7 +3449,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2483/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:20.736Z",
+      "crawledAt": "2026-11-01T09:18:21.918Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2992,7 +3495,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Gesundheitszentrum Fricktal",
+        "streetAddress": "Riburgerstrasse 12",
+        "postalCode": "4310",
+        "addressLocality": "Rheinfelden",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Riburgerstrasse 12",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-28T09:18:21.918Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

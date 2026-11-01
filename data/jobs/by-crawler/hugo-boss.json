@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hugo-boss",
-  "assembledAt": "2026-10-31T09:40:54.716Z",
-  "runId": "41188565736",
+  "assembledAt": "2026-11-01T09:40:14.938Z",
+  "runId": "41293009398",
   "jobs": [
     {
       "url": "https://careers.hugoboss.com/global/en/job/HUBOGLOBAL144951EXTERNALENGLOBAL/assistant-store-manager-boss-outlet-w-m-d",
@@ -60,7 +60,10 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-15T09:51:52.899Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

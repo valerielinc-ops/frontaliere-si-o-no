@@ -1,7 +1,7 @@
 {
   "key": "medimeo-ch",
   "label": "Medimeo AG",
-  "generatedAt": "2026-10-31T09:44:16.744Z",
+  "generatedAt": "2026-11-01T09:45:28.714Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19231,
-  "avgDurationMs": 19231,
+  "durationMs": 17887,
+  "avgDurationMs": 17887,
   "durationHistory": [
-    19231
+    17887
   ],
   "newJobs": [
     {
@@ -34,7 +34,7 @@
       "url": "https://medimeo.ch/job/facharzt-fachaerztin-fuer-allgemeine-innere-medizin-komplementaermedizin-und-spannende-entwicklungschancen-3690/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:43:57.668Z",
+      "crawledAt": "2026-11-01T09:45:15.094Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -55,13 +55,17 @@
       "salaryMax": 116500,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "firstSeenAt": "2026-10-31T09:43:57.668Z",
-      "_qualityScore": 88,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:45:15.094Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-01T09:45:15.094Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -76,7 +80,7 @@
       "url": "https://medimeo.ch/job/oberaerztin-oberarzt-allgemeine-innere-medizin-80-100-breite-innere-medizin-mit-allen-spezialdisziplinen-im-haus-3692/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:43:57.666Z",
+      "crawledAt": "2026-11-01T09:45:15.093Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -97,13 +101,17 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "4500",
-      "firstSeenAt": "2026-10-31T09:43:57.666Z",
-      "_qualityScore": 88,
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:45:15.093Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-01T09:45:15.093Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -118,7 +126,7 @@
       "url": "https://medimeo.ch/job/hausaerztin-hausarzt-60-100-zeit-fuer-patientinnen-statt-praxisfabrik-20-minuten-von-zuerich-3693/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:43:57.664Z",
+      "crawledAt": "2026-11-01T09:45:15.092Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -139,55 +147,17 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-31T09:43:57.664Z",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:45:15.092Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-01T09:45:15.092Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "medimeo-ch-6abce13c0c31",
-      "slug": "oberarztin-oberarzt-gynakologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten",
-      "company": "Medimeo AG",
-      "companyKey": "medimeo-ch",
-      "companyDomain": "medimeo.ch",
-      "title": "Oberärztin / Oberarzt Gynäkologie – operativer Fokus ohne Geburtshilfe, geregelte Arbeitszeiten (50-60%)",
-      "location": "Olten / Aargau",
-      "canton": "SO",
-      "url": "https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten-50-60-3518/",
-      "source": "Medimeo AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:43:57.662Z",
-      "addressLocality": "Olten",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-30T00:00:00+01:00",
-      "postedDate": "2026-10-30T00:00:00+01:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten-50-60-3518/",
-      "needsRetranslation": true,
-      "salaryMin": 42600,
-      "salaryMax": 57300,
-      "salarySource": "estimated",
-      "postalCode": "4600",
-      "firstSeenAt": "2026-10-31T09:43:57.662Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -202,7 +172,7 @@
       "url": "https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-und-geburtshilfe-50-100-ihr-abenteuer-schweiz-wartet-auf-sie-3547/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:43:57.661Z",
+      "crawledAt": "2026-11-01T09:45:15.091Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -223,13 +193,63 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-31T09:43:57.661Z",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:45:15.091Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-01T09:45:15.091Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 22
+        "completeness": 25
+      }
+    },
+    {
+      "id": "medimeo-ch-6abce13c0c31",
+      "slug": "oberarztin-oberarzt-gynakologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten",
+      "company": "Medimeo AG",
+      "companyKey": "medimeo-ch",
+      "companyDomain": "medimeo.ch",
+      "title": "Oberärztin / Oberarzt Gynäkologie – operativer Fokus ohne Geburtshilfe, geregelte Arbeitszeiten (50-60%)",
+      "location": "Olten / Aargau",
+      "canton": "SO",
+      "url": "https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten-50-60-3518/",
+      "source": "Medimeo AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:45:15.091Z",
+      "addressLocality": "Olten",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-30T00:00:00+01:00",
+      "postedDate": "2026-10-30T00:00:00+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-operativer-fokus-ohne-geburtshilfe-geregelte-arbeitszeiten-50-60-3518/",
+      "needsRetranslation": true,
+      "salaryMin": 42600,
+      "salaryMax": 57300,
+      "salarySource": "estimated",
+      "postalCode": "4600",
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:45:15.091Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-01T09:45:15.091Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 25
       }
     },
     {
@@ -244,7 +264,7 @@
       "url": "https://medimeo.ch/job/leitende-aerztin-leitender-arzt-in-gynaekologischer-praxis-80-100-3694/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:43:57.658Z",
+      "crawledAt": "2026-11-01T09:45:15.089Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -265,13 +285,17 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-31T09:43:57.658Z",
-      "_qualityScore": 85,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:45:15.089Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-01T09:45:15.089Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -286,7 +310,7 @@
       "url": "https://medimeo.ch/job/fachaerztin-facharzt-allgemeine-innere-medizin-mit-grossem-interdisziplinaerem-team-3698/",
       "source": "Medimeo AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:43:57.656Z",
+      "crawledAt": "2026-11-01T09:45:15.088Z",
       "addressLocality": "Freiburg / Neuenburg",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -307,18 +331,22 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "2000",
-      "firstSeenAt": "2026-10-31T09:43:57.656Z",
-      "_qualityScore": 88,
+      "streetAddress": "Freiburg / Neuenburg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:45:15.088Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-01T09:45:15.088Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

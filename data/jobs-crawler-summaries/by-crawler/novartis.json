@@ -1,143 +1,59 @@
 {
   "key": "novartis",
   "label": "Novartis",
-  "generatedAt": "2026-10-31T09:26:44.228Z",
-  "total": 35,
+  "generatedAt": "2026-11-01T09:22:01.668Z",
+  "total": 34,
   "discovered": null,
   "parsed": 34,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 35,
+  "written": 34,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 3,
-  "unchangedCount": 35,
-  "durationMs": 34714,
-  "avgDurationMs": 34714,
+  "removedCount": 1,
+  "unchangedCount": 34,
+  "durationMs": 33880,
+  "avgDurationMs": 33880,
   "durationHistory": [
-    34714
+    33880
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [
     {
-      "id": "novartis-43cf8e29b47b",
-      "slug": "innovation-capability-direttore-global-clinical-operations-gco-novartis-basel-city",
+      "id": "novartis-576145d10eb9",
+      "slug": "ingegneria-degli-esperti-senior-novartis-basel-city",
       "company": "Novartis",
       "companyKey": "novartis",
       "companyDomain": "novartis.com",
-      "title": "Innovation Capability Director - Global Clinical Operations (GCO)",
+      "title": "Device & Packaging Senior Expert Engineering",
       "location": "Basel (City)",
       "canton": "BS",
-      "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Innovation-Capability-Director---Global-Clinical-Operations--GCO-_REQ-10089024-1",
+      "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Device---Packaging-Senior-Expert-Engineering_REQ-10090199",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T21:21:53.364Z",
+      "crawledAt": "2026-10-30T21:22:24.499Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Produzione",
+      "category": "Ingegneria",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "senior",
       "sector": "Farmaceutica / Biotecnologia",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-08",
-      "postedDate": "2026-10-08",
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
       "postingDateSource": "reported",
-      "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Innovation-Capability-Director---Global-Clinical-Operations--GCO-_REQ-10089024-1",
-      "firstSeenAt": "2026-10-08T22:18:56.862Z",
-      "salaryMin": 123000,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "postalCode": "4001",
-      "addressRegion": "BS",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "novartis-bfa2e4200e5c",
-      "slug": "responsabile-di-journey-assunzioni-e-mobilita-vicepresidente-novartis-basel-city",
-      "company": "Novartis",
-      "companyKey": "novartis",
-      "companyDomain": "novartis.com",
-      "title": "Journey Head, Hire & Move (Vice President)",
-      "location": "Basel (City)",
-      "canton": "BS",
-      "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Journey-Head--Hire---Move--Vice-President-_REQ-10089212-1",
-      "source": "Novartis Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-29T21:21:52.468Z",
-      "addressLocality": "Basel (City)",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-09",
-      "postedDate": "2026-10-09",
-      "postingDateSource": "reported",
-      "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Journey-Head--Hire---Move--Vice-President-_REQ-10089212-1",
-      "firstSeenAt": "2026-10-09T21:19:10.475Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "postalCode": "4001",
-      "addressRegion": "BS",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "novartis-2e62edc936f3",
-      "slug": "leader-del-progetto-phad-pdu-per-prodotti-di-droga-orale-novartis-basel-city",
-      "company": "Novartis",
-      "companyKey": "novartis",
-      "companyDomain": "novartis.com",
-      "title": "PHAD PDU Oral Drug Product Project Leader",
-      "location": "Basel (City)",
-      "canton": "BS",
-      "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/PHAD-PDU-Oral-Drug-Product-Project-Leader_REQ-10089301",
-      "source": "Novartis Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-29T21:21:50.615Z",
-      "addressLocality": "Basel (City)",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-19",
-      "postedDate": "2026-10-19",
-      "postingDateSource": "reported",
-      "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/PHAD-PDU-Oral-Drug-Product-Project-Leader_REQ-10089301",
-      "firstSeenAt": "2026-10-19T09:25:09.737Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Device---Packaging-Senior-Expert-Engineering_REQ-10090199",
+      "firstSeenAt": "2026-10-30T09:33:30.006Z",
+      "salaryMin": 99500,
+      "salaryMax": 151000,
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
@@ -164,7 +80,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Logistiker-in-EFZ_REQ-10084328",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:29.595Z",
+      "crawledAt": "2026-11-01T09:21:43.993Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -185,12 +101,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:43.993Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -205,7 +125,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Laborant-in-EFZ-Fachrichtung-Chemie_REQ-10084314-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:28.850Z",
+      "crawledAt": "2026-11-01T09:21:42.989Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -226,12 +146,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:42.989Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -246,7 +170,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Laborant-in-EFZ-Fachrichtung-Biologie_REQ-10084330",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:28.105Z",
+      "crawledAt": "2026-11-01T09:21:42.282Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -267,12 +191,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:42.282Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -287,7 +215,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Kauffrau--mann-EFZ_REQ-10084331",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:27.227Z",
+      "crawledAt": "2026-11-01T09:21:41.570Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -308,12 +236,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:41.570Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -328,7 +260,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Kauffrau--mann-EBA_REQ-10084332",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:26.532Z",
+      "crawledAt": "2026-11-01T09:21:40.882Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -349,12 +281,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:40.882Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -369,7 +305,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Chemie--und-Pharmatechnologe--technologin-EFZ_REQ-10084325",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:25.744Z",
+      "crawledAt": "2026-11-01T09:21:40.071Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -390,12 +326,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:40.071Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -410,7 +350,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Tierpfleger-in-EFZ--Fachrichtung-Versuchstiere_REQ-10084421",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:24.950Z",
+      "crawledAt": "2026-11-01T09:21:39.311Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -431,12 +371,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:39.311Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -451,7 +395,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Therapeutic-Area-Head--PK-Sciences---Immunology_REQ-10084131-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:24.172Z",
+      "crawledAt": "2026-11-01T09:21:38.587Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -472,12 +416,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:38.587Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -492,7 +440,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Translational-Medicine-Director-Associate---Cardiovascular---Metabolic_REQ-10087155-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:23.386Z",
+      "crawledAt": "2026-11-01T09:21:37.803Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -513,12 +461,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:21:37.803Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -533,7 +485,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Biomarker-Therapeutic-Area-Head--Neuroscience_REQ-10087052-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:22.603Z",
+      "crawledAt": "2026-11-01T09:21:37.021Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -554,12 +506,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:21:37.021Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -574,7 +530,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Muttenz-with-Canteen/Equipment-Operator--m-f-d-_REQ-10078774-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:21.895Z",
+      "crawledAt": "2026-11-01T09:21:36.280Z",
       "addressLocality": "Muttenz (with Canteen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -594,12 +550,16 @@
       "salaryMax": 93500,
       "salarySource": "estimated",
       "addressRegion": "BL",
-      "_qualityScore": 89,
+      "streetAddress": "Muttenz (with Canteen)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:21:36.280Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -614,7 +574,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Legal-Counsel-Global-Procurement--DD-IT_REQ-10086997-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:21.069Z",
+      "crawledAt": "2026-11-01T09:21:35.545Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -635,12 +595,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:21:35.545Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -655,7 +619,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Associate-Expert-Drug-Supply_REQ-10086875",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:20.368Z",
+      "crawledAt": "2026-11-01T09:21:34.838Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -677,12 +641,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:21:34.838Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -697,7 +665,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Translational-Medicine-Expert--Neurodegeneration-_REQ-10088329-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:19.674Z",
+      "crawledAt": "2026-11-01T09:21:34.131Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -718,12 +686,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:21:34.131Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -738,7 +710,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Executive-Clinical-Program-Leader---Translational-Clinical-Oncology_REQ-10087767-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:18.965Z",
+      "crawledAt": "2026-11-01T09:21:33.217Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -759,12 +731,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:21:33.217Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -779,7 +755,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-ICT-Fachmann-frau-EFZ_REQ-10089048-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:17.921Z",
+      "crawledAt": "2026-11-01T09:21:32.492Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -800,12 +776,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:21:32.492Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -820,7 +800,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Forward-Deployed-Engineer--FDE--Data42_REQ-10079038-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:17.082Z",
+      "crawledAt": "2026-11-01T09:21:31.790Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -841,12 +821,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:21:31.790Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -861,7 +845,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Patent-Paralegal_REQ-10087836-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:16.335Z",
+      "crawledAt": "2026-11-01T09:21:31.068Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -882,12 +866,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:21:31.068Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -902,7 +890,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Next-Generation-Scientist-2027_REQ-10089124-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:15.561Z",
+      "crawledAt": "2026-11-01T09:21:30.360Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -923,12 +911,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:21:30.360Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -943,7 +935,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Postgraduate-Program-Biologics_REQ-10090227-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:14.805Z",
+      "crawledAt": "2026-11-01T09:21:29.589Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -964,12 +956,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 96,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:21:29.589Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -984,7 +980,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Corporate-Affairs-Intelligence--Strategic-Insights_REQ-10090495-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:14.073Z",
+      "crawledAt": "2026-11-01T09:21:28.825Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1005,12 +1001,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:21:28.825Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1025,7 +1025,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Portfolio-Analytics_REQ-10086799-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:13.211Z",
+      "crawledAt": "2026-11-01T09:21:28.101Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1046,12 +1046,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:21:28.101Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1066,7 +1070,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Biocatalysis-and-Protein-Engineering---Industrial-Post-Doctoral-Researcher-in-Global-Discovery-Chemistry--Novartis-Genesis-Labs-_REQ-10090372",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:12.496Z",
+      "crawledAt": "2026-11-01T09:21:27.383Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1087,12 +1091,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:21:27.383Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1107,7 +1115,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Muttenz-with-Canteen/Robotics-Expert-ITOT_REQ-10089426-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:11.453Z",
+      "crawledAt": "2026-11-01T09:21:26.294Z",
       "addressLocality": "Muttenz (with Canteen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1127,12 +1135,16 @@
       "salaryMax": 110000,
       "salarySource": "estimated",
       "addressRegion": "BL",
-      "_qualityScore": 89,
+      "streetAddress": "Muttenz (with Canteen)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:21:26.294Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1147,7 +1159,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Global-Regulatory-Director--RA-Central-Solutions-CTA-CTR_REQ-10089021",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:10.602Z",
+      "crawledAt": "2026-11-01T09:21:25.492Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1168,12 +1180,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:21:25.492Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1188,7 +1204,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/WORKFORCE-STRATEGY-HEAD--ENTERPRISE-DATA-SCIENCE---ARTIFICIAL-INTELLIGENCE--DSAI-_REQ-10089300-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:09.791Z",
+      "crawledAt": "2026-11-01T09:21:24.746Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1209,12 +1225,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:21:24.746Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1229,7 +1249,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Clinical-Program-Leader_REQ-10077698-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:08.926Z",
+      "crawledAt": "2026-11-01T09:21:23.977Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1249,12 +1269,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:21:23.977Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1269,7 +1293,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Head-of-International-Medical-Affairs--Governance-Enablement_REQ-10090847-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:07.980Z",
+      "crawledAt": "2026-11-01T09:21:23.224Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1290,12 +1314,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:21:23.224Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1310,7 +1338,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Head-of-International-Medical-Affairs--Process-Effectiveness-and-Monitoring_REQ-10090845-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:07.205Z",
+      "crawledAt": "2026-11-01T09:21:22.440Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1332,12 +1360,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:21:22.440Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1352,7 +1384,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Analyst--Novartis-Venture-Fund_REQ-10089340-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:26:06.281Z",
+      "crawledAt": "2026-11-01T09:21:21.698Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1373,14 +1405,18 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:21:21.698Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nivarox-swatch-group",
-  "assembledAt": "2026-10-31T09:29:47.615Z",
-  "runId": "41187297189",
+  "assembledAt": "2026-11-01T09:23:12.475Z",
+  "runId": "41291644918",
   "jobs": [
     {
       "id": "company-7uc3o0",
@@ -24,7 +24,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "nivarox-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-31T09:29:29.542Z",
+      "crawledAt": "2026-11-01T09:22:52.257Z",
       "firstSeenAt": "2026-10-27T09:47:40.517Z",
       "titleByLocale": {
         "it": "Laborantin/Physical Laborantine Learning CFC",
@@ -72,7 +72,21 @@
       "employmentType": "FULL_TIME",
       "postalCode": "2400",
       "addressLocality": "Le Locle",
-      "addressRegion": "NE"
+      "addressRegion": "NE",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Nivarox-FAR S.A.",
+        "streetAddress": "avenue du Collège 10",
+        "postalCode": "2400",
+        "addressLocality": "Le Locle",
+        "addressRegion": "NE",
+        "checkedAt": "2026-10-31T20:50:36.110Z"
+      },
+      "streetAddress": "avenue du Collège 10",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-26T09:22:52.257Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

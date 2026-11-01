@@ -1,25 +1,25 @@
 {
   "key": "spital-thurgau",
   "label": "Spital Thurgau (STGAG)",
-  "generatedAt": "2026-10-31T09:52:43.251Z",
-  "total": 164,
+  "generatedAt": "2026-11-01T09:23:30.265Z",
+  "total": 163,
   "discovered": null,
   "parsed": 163,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 164,
+  "written": 163,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
-  "unchangedCount": 159,
-  "durationMs": 152558,
-  "avgDurationMs": 152558,
+  "removedCount": 0,
+  "unchangedCount": 158,
+  "durationMs": 155528,
+  "avgDurationMs": 155528,
   "durationHistory": [
-    152558
+    155528
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/2393/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:02.608Z",
+      "crawledAt": "2026-11-01T09:22:46.614Z",
       "addressLocality": "Diessenhofen",
       "addressRegion": "TG",
       "postalCode": "8253",
@@ -58,12 +58,16 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Diessenhofen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:46.614Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -78,7 +82,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/2143/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:01.675Z",
+      "crawledAt": "2026-11-01T09:22:45.678Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -101,12 +105,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:45.678Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -121,7 +129,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3582/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:37.727Z",
+      "crawledAt": "2026-11-01T09:22:21.420Z",
       "addressLocality": "Diessenhofen",
       "addressRegion": "TG",
       "postalCode": "8253",
@@ -144,12 +152,16 @@
       "salaryMin": 73000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Diessenhofen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:21.420Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -164,7 +176,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3815/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:00.104Z",
+      "crawledAt": "2026-11-01T09:21:42.217Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -187,12 +199,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:21:42.217Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -207,7 +223,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3308/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:50:57.766Z",
+      "crawledAt": "2026-11-01T09:21:39.384Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -230,61 +246,20 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:21:39.384Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "spital-thurgau-45ca5a1c104d",
-      "slug": "infermiera-di-posizionamento-chirurgico-spital-thurgau-stgag-kantonsspital-frauenfeld",
-      "company": "Spital Thurgau (STGAG)",
-      "companyKey": "spital-thurgau",
-      "companyDomain": "stgag.ch",
-      "title": "OP-Lagerungspfleger/-in",
-      "location": "Kantonsspital Frauenfeld",
-      "canton": "TG",
-      "url": "https://rekrutierung.stgag.ch/Vacancies/3826/Description/1?lang=ger",
-      "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:20:08.862Z",
-      "addressLocality": "Kantonsspital Frauenfeld",
-      "addressRegion": "TG",
-      "postalCode": "8596",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-05",
-      "postedDate": "2026-10-05",
-      "postingDateSource": "reported",
-      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3826/Application/CheckLogin/1?lang=ger",
-      "department": "Med.-technisches & Med.-therapeutisches Personal",
-      "contractDuration": "permanent",
-      "firstSeenAt": "2026-10-05T06:23:52.457Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "spital-thurgau-970f2e823f29",
@@ -298,7 +273,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1559/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:32.384Z",
+      "crawledAt": "2026-11-01T09:23:16.816Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -321,12 +296,16 @@
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:16.816Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -341,7 +320,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1706/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:31.863Z",
+      "crawledAt": "2026-11-01T09:23:15.893Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -364,12 +343,16 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:15.893Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -384,7 +367,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3368/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:30.933Z",
+      "crawledAt": "2026-11-01T09:23:14.983Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -407,12 +390,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:14.983Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -427,7 +414,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3366/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:30.015Z",
+      "crawledAt": "2026-11-01T09:23:14.468Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -450,12 +437,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:14.468Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -470,7 +461,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3373/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:29.107Z",
+      "crawledAt": "2026-11-01T09:23:13.531Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -493,12 +484,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:13.531Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -513,7 +508,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3432/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:28.127Z",
+      "crawledAt": "2026-11-01T09:23:12.526Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -536,12 +531,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:12.526Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -556,7 +555,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3430/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:27.245Z",
+      "crawledAt": "2026-11-01T09:23:11.576Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -579,12 +578,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:11.576Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -599,7 +602,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3455/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:26.363Z",
+      "crawledAt": "2026-11-01T09:23:10.687Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -622,12 +625,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:10.687Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -642,7 +649,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3324/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:25.466Z",
+      "crawledAt": "2026-11-01T09:23:09.730Z",
       "addressLocality": "Kantonsspital Frauenfeld",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -665,12 +672,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Frauenfeld",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:09.730Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -685,7 +696,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3509/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:24.536Z",
+      "crawledAt": "2026-11-01T09:23:08.804Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -708,12 +719,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:08.804Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -728,7 +743,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3517/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:23.652Z",
+      "crawledAt": "2026-11-01T09:23:07.874Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -751,12 +766,16 @@
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:07.874Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -771,7 +790,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3512/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:22.705Z",
+      "crawledAt": "2026-11-01T09:23:06.919Z",
       "addressLocality": "Diessenhofen",
       "addressRegion": "TG",
       "postalCode": "8253",
@@ -794,12 +813,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Diessenhofen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:06.919Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -814,7 +837,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3559/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:21.801Z",
+      "crawledAt": "2026-11-01T09:23:05.989Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -837,12 +860,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:05.989Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -857,7 +884,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3551/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:20.863Z",
+      "crawledAt": "2026-11-01T09:23:05.084Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -880,12 +907,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:05.084Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -900,7 +931,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3549/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:19.969Z",
+      "crawledAt": "2026-11-01T09:23:04.124Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -923,12 +954,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:04.124Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -943,7 +978,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3548/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:19.068Z",
+      "crawledAt": "2026-11-01T09:23:03.189Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -966,12 +1001,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:03.189Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -986,7 +1025,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3546/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:18.149Z",
+      "crawledAt": "2026-11-01T09:23:02.236Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1009,12 +1048,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:02.236Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1029,7 +1072,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3545/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:17.251Z",
+      "crawledAt": "2026-11-01T09:23:01.307Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1052,12 +1095,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:01.307Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1072,7 +1119,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3544/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:16.331Z",
+      "crawledAt": "2026-11-01T09:23:00.377Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1095,12 +1142,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:00.377Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1115,7 +1166,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3572/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:15.445Z",
+      "crawledAt": "2026-11-01T09:22:59.467Z",
       "addressLocality": "Kantonsspital Frauenfeld",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1138,12 +1189,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Frauenfeld",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:59.467Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1158,7 +1213,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3586/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:14.507Z",
+      "crawledAt": "2026-11-01T09:22:58.585Z",
       "addressLocality": "Kantonsspital Frauenfeld",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1181,12 +1236,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Frauenfeld",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:58.585Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1201,7 +1260,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3585/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:13.592Z",
+      "crawledAt": "2026-11-01T09:22:57.678Z",
       "addressLocality": "Kantonsspital Frauenfeld",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1224,12 +1283,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Frauenfeld",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:57.678Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1244,7 +1307,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3625/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:12.648Z",
+      "crawledAt": "2026-11-01T09:22:56.751Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1267,12 +1330,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:56.751Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1287,7 +1354,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3617/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:11.715Z",
+      "crawledAt": "2026-11-01T09:22:55.838Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1310,12 +1377,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:55.838Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1330,7 +1401,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3616/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:10.788Z",
+      "crawledAt": "2026-11-01T09:22:54.906Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1353,12 +1424,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:54.906Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1373,7 +1448,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3294/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:09.875Z",
+      "crawledAt": "2026-11-01T09:22:53.965Z",
       "addressLocality": "Kantonsspital Frauenfeld",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1396,12 +1471,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Frauenfeld",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:53.965Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1416,7 +1495,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3027/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:08.969Z",
+      "crawledAt": "2026-11-01T09:22:53.041Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1439,12 +1518,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:53.041Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1459,7 +1542,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3020/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:08.065Z",
+      "crawledAt": "2026-11-01T09:22:52.103Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1482,12 +1565,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:52.103Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1502,7 +1589,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1815/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:07.149Z",
+      "crawledAt": "2026-11-01T09:22:51.165Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1525,12 +1612,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:51.165Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1545,7 +1636,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3631/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:06.257Z",
+      "crawledAt": "2026-11-01T09:22:50.232Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -1568,14 +1659,18 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Kantonsspital Münsterlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:50.232Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

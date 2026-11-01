@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fmi",
-  "assembledAt": "2026-10-31T09:13:01.976Z",
-  "runId": "41187221286",
+  "assembledAt": "2026-11-01T09:12:25.227Z",
+  "runId": "41291565146",
   "jobs": [
     {
       "id": "fmi-0ac06fbabc27",
@@ -35,7 +35,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/praktikant-in-langzeitpflege/90ce8148-065f-4daf-95de-74bcdd06ed04",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:50.661Z",
+      "crawledAt": "2026-11-01T09:12:19.362Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -100,7 +100,11 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:19.362Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-486435cde7e3",
@@ -134,7 +138,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegeberuf-bei-uns-findest-du-flexible-arbeitsmodelle-fuer-jede-lebenslage/ef8d65b4-c50a-49e4-b981-93c840035a5e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:50.078Z",
+      "crawledAt": "2026-11-01T09:12:18.798Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -174,7 +178,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:18.798Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-9248d622cef4",
@@ -208,7 +216,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-psychiatrie-stationaer/cc3657be-a4d0-4367-ba22-674570a9d744",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:49.612Z",
+      "crawledAt": "2026-11-01T09:12:18.235Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -271,7 +279,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:18.235Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-dfdffdca77f3",
@@ -305,7 +317,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/elektroinstallateur-in/445a97be-e8b9-4774-830b-ba7a0dfa28a1",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:49.012Z",
+      "crawledAt": "2026-11-01T09:12:17.674Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -398,7 +410,11 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:17.674Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-3692f5a2a043",
@@ -431,7 +447,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/individuelle-einsaetze-pflegepool-pflegefachfrau-pflegefachmann-hf-fachfrau-fachmann-gesundheit-efz-oder-assistent-in-gesundheit-und-soziales/c63d0192-89b3-48c4-bbd0-c427e3ff058e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:48.517Z",
+      "crawledAt": "2026-11-01T09:12:17.223Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -493,7 +509,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:17.223Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-4a892c807c3d",
@@ -527,7 +547,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/zivildienst-pflege-und-betreuung/a068f18b-1040-48e1-b11b-2b2ee5bd41bb",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:47.925Z",
+      "crawledAt": "2026-11-01T09:12:16.666Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -583,7 +603,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:16.666Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-d81ceb98489e",
@@ -617,7 +641,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-psychiatrie/6eacc015-9bcb-412b-a2e3-7d085fd7153d",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:47.447Z",
+      "crawledAt": "2026-11-01T09:12:16.201Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -670,7 +694,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:16.201Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-878fefb24b8b",
@@ -704,7 +732,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-operationstechnik-hf/aff489f8-5b07-4860-8567-83167d830719",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:46.977Z",
+      "crawledAt": "2026-11-01T09:12:15.766Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -748,7 +776,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:15.766Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-48d6852b887d",
@@ -782,7 +814,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/experte-expertin-notfallpflege/daec2cf0-3bef-45c6-b4e8-3208b5aae34b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:46.385Z",
+      "crawledAt": "2026-11-01T09:12:15.171Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -829,7 +861,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:15.171Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-4f3e05b2d8ac",
@@ -862,7 +898,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie/a50b8252-267c-427d-8396-168297695861",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:45.927Z",
+      "crawledAt": "2026-11-01T09:12:14.739Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -945,7 +981,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:14.739Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-a9d57550e9a9",
@@ -978,7 +1018,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/fb161cc4-f887-4014-a16b-3b4da26c7472",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:45.315Z",
+      "crawledAt": "2026-11-01T09:12:14.169Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1043,7 +1083,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:14.169Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-fbd77f1cda98",
@@ -1076,7 +1120,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh/0f106ebd-a8af-4986-bcda-b3a4f2ecfc2e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:44.720Z",
+      "crawledAt": "2026-11-01T09:12:13.620Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1143,7 +1187,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:13.620Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-084f2cedcd42",
@@ -1177,7 +1225,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/stellvertretende-wohngruppenleitung/c53d8be6-4dcc-4c7f-a169-bd61d3cd55aa",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:44.140Z",
+      "crawledAt": "2026-11-01T09:12:13.055Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1217,7 +1265,11 @@
           "maxValue": 96000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:13.055Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-7cec056cc088",
@@ -1251,7 +1303,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegepersonal/9c227446-7612-4b79-b0fc-6a28403139e2",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:43.544Z",
+      "crawledAt": "2026-11-01T09:12:12.491Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1356,7 +1408,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:12.491Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-0c792846ac54",
@@ -1389,7 +1445,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachperson-gesundheit-efz/f315d841-ffae-4aed-8a37-0ea65fdc93d0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:42.962Z",
+      "crawledAt": "2026-11-01T09:12:11.938Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1452,7 +1508,11 @@
           "maxValue": 59500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:11.938Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-7228d9f5ba47",
@@ -1485,7 +1545,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2027/c45ec92b-a03c-41a2-96b7-e0fdb0bc6462",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:42.509Z",
+      "crawledAt": "2026-11-01T09:12:11.507Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1544,7 +1604,11 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:11.507Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-10b255511801",
@@ -1577,7 +1641,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-weissenau-2027/a30626f2-2c18-430f-aee3-45601b11149c",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:41.884Z",
+      "crawledAt": "2026-11-01T09:12:10.918Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1617,7 +1681,11 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:10.918Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-be32f19c14dc",
@@ -1650,7 +1718,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-spital-interlaken-2027/9603ba2d-4b72-431c-8374-3c3d4dfaf493",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:41.268Z",
+      "crawledAt": "2026-11-01T09:12:10.352Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1707,7 +1775,11 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:10.352Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-541f6ca4054b",
@@ -1740,7 +1812,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2027/236c98b5-290e-49d0-853c-87be82a07f46",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:40.690Z",
+      "crawledAt": "2026-11-01T09:12:09.785Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1799,7 +1871,11 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:09.785Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-245c75923c9c",
@@ -1832,7 +1908,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-weissenau-2027/2baa4758-741f-402e-baaa-0b448d2c10c9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:40.233Z",
+      "crawledAt": "2026-11-01T09:12:09.346Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1891,7 +1967,11 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:09.346Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-593edc64ece6",
@@ -1924,7 +2004,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-spital-frutigen-2027/8225ef49-9e67-43f0-80b3-bf8ee8ae8951",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:39.660Z",
+      "crawledAt": "2026-11-01T09:12:08.799Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1986,7 +2066,11 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:08.799Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-5b33656218a9",
@@ -2020,7 +2104,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-station-medizin/6062bcbc-38c1-4dc3-a814-538ae85be262",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:39.060Z",
+      "crawledAt": "2026-11-01T09:12:08.237Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2067,7 +2151,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:08.237Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-5a455ab12f5b",
@@ -2100,7 +2188,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt/4cb91fc1-ca49-4791-b8e3-df610fbcd5ae",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:38.457Z",
+      "crawledAt": "2026-11-01T09:12:07.678Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2191,7 +2279,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:07.678Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-d2c3915bcbf3",
@@ -2224,7 +2316,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt/3c68714d-5929-4a32-8bcc-1261b38bd3a0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:37.858Z",
+      "crawledAt": "2026-11-01T09:12:07.110Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2264,7 +2356,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:07.110Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-220580d4c881",
@@ -2297,7 +2393,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopaedie/912ba1dd-8303-49b3-87b8-62dba9beceee",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:37.387Z",
+      "crawledAt": "2026-11-01T09:12:06.665Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2362,7 +2458,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:06.665Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-d0b677b34def",
@@ -2395,7 +2495,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-mit-spannenden-zusatzaufgaben/8acf3d4c-798c-4510-bde3-57af39a33a49",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:36.763Z",
+      "crawledAt": "2026-11-01T09:12:06.092Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2435,7 +2535,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:06.092Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-b8504356e3c8",
@@ -2469,7 +2573,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/wohngruppenleitung/15513cd2-5c07-4092-b3b0-c780a56fec49",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:36.155Z",
+      "crawledAt": "2026-11-01T09:12:05.536Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2520,7 +2624,11 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:05.536Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-15512036df79",
@@ -2554,7 +2662,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/praktikant-in/3d689cbc-b87d-4b32-b872-bb511137902e",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:35.550Z",
+      "crawledAt": "2026-11-01T09:12:04.961Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2600,7 +2708,11 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:04.961Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-f1c949521558",
@@ -2634,7 +2746,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf/473dcc71-145d-4530-9be9-b83e8c36904b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:35.083Z",
+      "crawledAt": "2026-11-01T09:12:04.496Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2682,7 +2794,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:04.496Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-faf4f7f2b932",
@@ -2715,7 +2831,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/85ced034-128c-4aa8-ba64-5c81a4eaa220",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:34.623Z",
+      "crawledAt": "2026-11-01T09:12:04.061Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2755,7 +2871,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:04.061Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-23730eb06a24",
@@ -2789,7 +2909,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/nachdiplomstudium-notfallpflege-hf/9945f9c6-d13e-4f1e-92d2-17cf80df28e6",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:34.151Z",
+      "crawledAt": "2026-11-01T09:12:03.609Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2837,7 +2957,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:03.609Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-70144ea9bd0d",
@@ -2871,7 +2995,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf/476409a8-cda5-4e04-ac79-6bfc0dde1dcb",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:33.542Z",
+      "crawledAt": "2026-11-01T09:12:03.047Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2932,7 +3056,11 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:03.047Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-2ec9a2360269",
@@ -2965,7 +3093,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/bb78f6e2-e974-4c3a-ac2b-07cae42f1ea7",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:32.942Z",
+      "crawledAt": "2026-11-01T09:12:02.475Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3005,7 +3133,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:02.475Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-dd778f06ac79",
@@ -3039,7 +3171,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh/eb38263b-bb56-445c-948f-e6914357813d",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:32.347Z",
+      "crawledAt": "2026-11-01T09:12:01.900Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3102,7 +3234,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:01.900Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-c95be7bb9325",
@@ -3136,7 +3272,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/expert-in-intensivpflege/efdeb34b-9424-4f00-b03f-661737c71c2b",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:31.755Z",
+      "crawledAt": "2026-11-01T09:12:01.329Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3182,7 +3318,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:01.329Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-56b07714851f",
@@ -3215,7 +3355,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/cc3f4360-ceb8-4c92-a0ba-c83f392fdac8",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:31.174Z",
+      "crawledAt": "2026-11-01T09:12:00.763Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3261,7 +3401,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:00.763Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-fb4571f2eb06",
@@ -3295,7 +3439,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/elektroinstallateur-in-schwerpunkt-zutritts-und-schliesssysteme/9dbdf88b-fbd5-45b0-90bd-b1dc2ab6d431",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:30.572Z",
+      "crawledAt": "2026-11-01T09:12:00.161Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3341,7 +3485,11 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:00.161Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-9fa43669848d",
@@ -3375,7 +3523,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/leitender-arzt-leitende-aerztin-innere-medizin/a7fbda1e-5885-4878-84e9-d47181b41815",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.952Z",
+      "crawledAt": "2026-11-01T09:11:59.584Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3421,7 +3569,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:59.584Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-39f7e4148b25",
@@ -3454,7 +3606,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehilfe/01a01453-fa3c-434d-ba13-b0f4baa193a9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.331Z",
+      "crawledAt": "2026-11-01T09:11:59.016Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3500,7 +3652,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:59.016Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-f469c27ff4fd",
@@ -3534,7 +3690,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/studierende-r-rettungssanitaeter-in-hf/11d40920-6d9d-4cad-8a58-77fd73ea095c",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:28.869Z",
+      "crawledAt": "2026-11-01T09:11:58.581Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3585,7 +3741,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wilderswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:58.581Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-85d90657a774",
@@ -3618,7 +3778,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/technische-r-sterilisationsassistent-in/40d9df3b-2633-4646-93ed-1fafc19fc900",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:28.399Z",
+      "crawledAt": "2026-11-01T09:11:58.124Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3664,7 +3824,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:58.124Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-9457f6c56d1e",
@@ -3697,7 +3861,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/medizinaltechniker-in/2635d189-fa12-49ea-9406-4e6bbce4d8b2",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:27.917Z",
+      "crawledAt": "2026-11-01T09:11:57.650Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3756,7 +3920,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:57.650Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-6af831aa43d1",
@@ -3790,7 +3958,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-fachperson-efz-assistenzperson-gesundheit-und-soziales-im-pflegepool/baa9310e-8e8f-4ee3-817c-70dd9d26b098",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:27.340Z",
+      "crawledAt": "2026-11-01T09:11:57.089Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3838,7 +4006,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:11:57.089Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-9d9cda03f4f5",
@@ -3872,7 +4044,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-wintersaison/27b03ec7-e83e-4695-a877-31460c490d90",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:26.743Z",
+      "crawledAt": "2026-11-01T09:11:56.543Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3918,7 +4090,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:11:56.543Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-65cccf573a10",
@@ -3952,7 +4128,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/elektroinstallateur-in/d029739e-3036-4fd8-8913-e1e546620990",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:26.138Z",
+      "crawledAt": "2026-11-01T09:11:55.970Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3998,7 +4174,11 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:11:55.970Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-55acb9444752",
@@ -4032,7 +4212,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/expert-in-notfallpflege-dipl-pflegefachperson-mit-imc-ausbildung/225ab539-6eb7-43cb-bff1-3e1096d5c834",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:25.531Z",
+      "crawledAt": "2026-11-01T09:11:55.385Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4085,7 +4265,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:11:55.385Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-41ec2ae57003",
@@ -4119,7 +4303,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachperson-hf-fh/a3b75b26-996b-471d-954f-2e52be77d968",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:24.938Z",
+      "crawledAt": "2026-11-01T09:11:54.821Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4167,7 +4351,11 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:11:54.821Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-bcd767e6e550",
@@ -4201,7 +4389,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/mitarbeiter-in-reinigung-operationstrakt-und-notfallstation/7ff57a66-733a-4863-8385-747f14d5cf99",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:24.348Z",
+      "crawledAt": "2026-11-01T09:11:54.190Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4253,7 +4441,11 @@
           "maxValue": 33800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:11:54.190Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-5988c07f3400",
@@ -4287,7 +4479,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/leitende-pflegefachperson/6566dff5-d994-42d3-8f02-ceccd3b4fd28",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:23.860Z",
+      "crawledAt": "2026-11-01T09:11:53.731Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4333,7 +4525,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:11:53.731Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-ffd4a65b4be4",
@@ -4367,7 +4563,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/einkaeufer-in-mit-strategischen-aufgaben/dad61292-3278-4995-a1b7-3f5defdad5d4",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:23.396Z",
+      "crawledAt": "2026-11-01T09:11:53.291Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4413,7 +4609,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:11:53.291Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-79b3fd031576",
@@ -4447,7 +4647,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-mit-vertiefung-in-palliative-care-fuer-die-interdisziplinaere-privatstation/c5f1305f-9bfd-448e-b988-67c597a2509d",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:22.811Z",
+      "crawledAt": "2026-11-01T09:11:52.737Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4495,7 +4695,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:11:52.737Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-8abc30fe0f41",
@@ -4529,7 +4733,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/praktikant-in-kinderbetreuung/134d46ee-43e9-4f2c-931b-91dbc68b1c77",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:22.230Z",
+      "crawledAt": "2026-11-01T09:11:52.179Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4575,7 +4779,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:11:52.179Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-181c314b959b",
@@ -4608,7 +4816,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/oberarzt-oberaerztin/196f99df-cade-4506-a9fb-9a9cd2ec79dd",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:21.596Z",
+      "crawledAt": "2026-11-01T09:11:51.733Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4654,7 +4862,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:11:51.733Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-845d50d1e7f3",
@@ -4687,7 +4899,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/arztsekretaer-in-orthopaedie/b794c860-de5c-4225-ae37-50b21d4d825a",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:21.017Z",
+      "crawledAt": "2026-11-01T09:11:51.184Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4733,7 +4945,11 @@
           "maxValue": 71400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frutigen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:11:51.184Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-5b81427502fa",
@@ -4767,7 +4983,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/projekt-prozessmanager-in-finanzen/7b17dc37-2a93-4649-a7df-23bec1eea8c6",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:20.445Z",
+      "crawledAt": "2026-11-01T09:11:50.616Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4813,7 +5029,11 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:11:50.616Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-4006ef508f3b",
@@ -4846,7 +5066,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/apotheker-in/fe2ad6c5-6f1e-4985-ab91-0950454ee4a2",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:19.856Z",
+      "crawledAt": "2026-11-01T09:11:50.055Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4892,7 +5112,11 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:11:50.055Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-6e22ebd4bf1c",
@@ -4925,7 +5149,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/arztsekretaer-in-orthopaedie/56f0e06b-ab08-40b0-8a53-eaebf1f7dfae",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:19.269Z",
+      "crawledAt": "2026-11-01T09:11:49.468Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4973,7 +5197,11 @@
           "maxValue": 59500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:11:49.468Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-604ed2eeeebf",
@@ -5007,7 +5235,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/wohngruppenleitung/7f94e54b-a604-4f11-8629-62efc3dbc3a2",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:18.801Z",
+      "crawledAt": "2026-11-01T09:11:49.026Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5052,7 +5280,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:11:49.026Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-43b594a3c1d3",
@@ -5086,7 +5318,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/leitung-pflege-mit-verantwortung-fuer-den-stationaeren-oder-ambulanten-bereich/14d115ac-7da9-4b42-b6ef-dd9e65bd4347",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:18.218Z",
+      "crawledAt": "2026-11-01T09:11:48.474Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5134,7 +5366,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:11:48.474Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-ff6cdd7bb39d",
@@ -5168,7 +5404,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachperson-apotheke-pharmaassistent-in/1637d75d-d535-4bab-8628-c48e9c5a79f3",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:17.607Z",
+      "crawledAt": "2026-11-01T09:11:47.905Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5214,7 +5450,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:11:47.905Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-b6118f5ec11b",
@@ -5247,7 +5487,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/leitende-aerztin-leitender-arzt-nephrologie/1900ef27-d1c5-4962-bf42-5d48d5f536f5",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:16.980Z",
+      "crawledAt": "2026-11-01T09:11:47.366Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5293,7 +5533,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:11:47.366Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fmi-c6c9214bfdb9",
@@ -5327,7 +5571,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/oberaerztin-oberarzt-oder-fachaerztin-facharzt-radiologie/5b44c9c0-98c7-4ef2-b507-e47a588504f9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:16.343Z",
+      "crawledAt": "2026-11-01T09:11:46.781Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5375,7 +5619,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterseen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:11:46.781Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

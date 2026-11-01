@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bracco",
-  "assembledAt": "2026-10-31T09:15:13.845Z",
-  "runId": "41187221286",
+  "assembledAt": "2026-11-01T09:14:10.586Z",
+  "runId": "41291565146",
   "jobs": [
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Plan-les-Ouates/Automation-Specialist_JR100449",
@@ -36,7 +36,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:15:08.557Z",
+      "crawledAt": "2026-11-01T09:14:08.193Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -79,7 +79,11 @@
       },
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
-      "postalCode": "1228"
+      "postalCode": "1228",
+      "streetAddress": "Plan-les-Ouates",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:14:08.193Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Lausanne/Internship--Robotic-Solution-for-Test-Automation-of-a-Contrast-Media-Injector_JR100450",
@@ -114,7 +118,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:15:08.557Z",
+      "crawledAt": "2026-11-01T09:14:08.193Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -157,7 +161,11 @@
       },
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:14:08.193Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Lausanne/Internship---Digital-Twin-of-a-Contrast-Media-Injector-for-Virtual-Verification-and-Reliability-Engineering_JR100448",
@@ -192,7 +200,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:15:08.557Z",
+      "crawledAt": "2026-11-01T09:14:08.193Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -235,7 +243,11 @@
       },
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:14:08.193Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/Digital-Learning---Training-Internship_JR100407",
@@ -270,7 +282,7 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:15:08.557Z",
+      "crawledAt": "2026-11-01T09:14:08.193Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -307,7 +319,11 @@
       },
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
-      "postalCode": "6814"
+      "postalCode": "6814",
+      "streetAddress": "Cadempino",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:14:08.193Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

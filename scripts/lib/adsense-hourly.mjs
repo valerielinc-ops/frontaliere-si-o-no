@@ -24,8 +24,10 @@ export const ALERT_COLLECTION = 'adsense_hourly_alerts';
 export const DEFAULT_CONFIG = Object.freeze({
   dropThreshold: 0.2,
   severeDropThreshold: 0.3,
-  // Sotto questa cifra il cumulato notturno e' rumore: 1 euro di scarto vale il 20%.
-  minBaselineEarnings: 5,
+  // Replay sulle ore GA4 di 70 giorni fino al 30/10/2026: con 5 euro scattano 14
+  // giorni, molti alle 10-11 su pochi euro; con 12 sono 7 e resta rilevato
+  // l'incidente reale del 27/09 (che con 15 euro o 4 conferme si perde).
+  minBaselineEarnings: 12,
   confirmRuns: 3,
   matchToleranceMinutes: 45,
   // I totali di ieri si assestano nella mattina: rpm-canary aspetta lo stesso assestamento.

@@ -1,12 +1,19 @@
 import { describe, expect, it } from 'vitest';
-import { operationalDefaultAnswer, withOperationalQuestionAnswers, operationalEmailBody } from '../functions/src/assistedApplicationOperationalAnswers.js';
+import { JSDOM } from 'jsdom';
+import { operationalDefaultAnswer, operationalQuestionTopic, withOperationalQuestionAnswers, operationalEmailBody } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { evaluateRedFlags, transition } from '../functions/src/assistedApplicationFlow.js';
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
-import { candidateAnswerForField, guardPlan, addressQuestionTopic, isAddressLikeQuestion } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { autoAnswersForPortalQuestions } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { candidateAnswerForField, guardPlan, addressQuestionTopic, isAddressLikeQuestion, ownConsent } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { applyActions } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { runAutomationSweep } from '../functions/src/assistedApplicationAutomation.js';
 import { reconcileOperationalAnswers } from '../scripts/assisted-application/reconcile-operational-answers.mjs';
 import { openRequiredQuestions } from '../scripts/assisted-application/lib/submit.mjs';
+import { provenOptionalOperationalPortalQuestion } from '../functions/src/lib/portalNativeContract.js';
+import { mergeLivePortalQuestions } from '../scripts/assisted-application/lib/portal/merge-live-requirements.mjs';
+import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
+import { installNativeGroupIdentityInPage, nativeControlEvidenceInPage, snapshotWithNativeControlEvidence } from '../scripts/assisted-application/lib/portal/native-control-contract.mjs';
 
 const questions = [
   { id: 'notice', question: 'Qual è il tuo attuale periodo di preavviso?', applicationQuestion: 'Attuale periodo di preavviso *', type: 'choice', options: [], required: true, source: 'portal' },
@@ -15,6 +22,33 @@ const questions = [
 ];
 const draft = { status: 'ready', round: 1, job: { source: 'job_detail' }, channel: { type: 'portal' }, questions };
 const approved = { state: 'needs_candidate_action', round: 1, heldBy: questions.map(q => `question:${q.id}`), dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+const REAL_ENGLISH_PRIVACY_ACK = 'Please check this box to acknowledge that you have read the Applicant Privacy Notice.';
+
+function serializedNativePrivacyField({ label = REAL_ENGLISH_PRIVACY_ACK, controlId = '', semanticId = '' } = {}) {
+  const identifiers = [
+    controlId ? `data-control-id="${controlId}"` : '',
+    semanticId ? `data-semantic-id="${semanticId}"` : '',
+  ].filter(Boolean).join(' ');
+  const dom = new JSDOM(`<!doctype html><div data-control-id="country-of-residence" data-semantic-id="workPermit"><form><label for="privacyAck">${label}</label><input id="privacyAck" type="checkbox" required ${identifiers}></form></div>`, {
+    url: 'https://jobs.example.test/apply', runScripts: 'outside-only',
+  });
+  try {
+    Object.defineProperty(dom.window.HTMLElement.prototype, 'getBoundingClientRect', {
+      configurable: true, value: () => ({ width: 100, height: 24, top: 0, left: 0, right: 100, bottom: 24 }),
+    });
+    Object.defineProperty(dom.window, 'CSS', { configurable: true, value: { escape: value => String(value) } });
+    const readFields = dom.window.eval(`(${extractFieldsInPage.toString()})`);
+    const raw = readFields({});
+    const fields = raw.fields.map(field => ({ ...field, frame: 0 }));
+    dom.window.eval(`(${installNativeGroupIdentityInPage.toString()})`)();
+    const readEvidence = dom.window.eval(`(${nativeControlEvidenceInPage.toString()})`);
+    const markers = JSON.parse(JSON.stringify(readEvidence(fields)));
+    const snapshot = snapshotWithNativeControlEvidence({ ...raw, fields }, markers);
+    return { field: snapshot.fields.find(field => field.kind === 'checkbox'), marker: markers[0] };
+  } finally {
+    dom.window.close();
+  }
+}
 
 describe('operational preferences at every required-answer gate', () => {
   it('projects defaults without recording candidate facts', () => {
@@ -74,6 +108,247 @@ describe('scope, languages and actual field options', () => {
     'Einwilligung zur Kommunikation per WhatsApp', 'Consentement au contact par WhatsApp',
     'WhatsApp contact and data processing',
   ])('does not invent facts or consent: %s', label => expect(operationalDefaultAnswer({ label, type: 'yes_no' })).toBeNull());
+
+  it.each([
+    ['it', 'Seleziona questa casella per confermare di aver letto l’Informativa sulla privacy per i candidati.'],
+    ['de', 'Aktivieren Sie dieses Kontrollkästchen, um zu bestätigen, dass Sie die Datenschutzerklärung für Bewerber gelesen haben.'],
+    ['en', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.'],
+    ['fr', 'Veuillez cocher cette case pour confirmer que vous avez pris connaissance de l’avis de confidentialité destiné aux candidats.'],
+    ['real-en', REAL_ENGLISH_PRIVACY_ACK],
+  ])('defaults only the sole privacy-reading checkbox in %s', (_locale, label) => {
+    const question = { id: 'privacy', label, type: 'checkbox', required: true };
+    expect(operationalQuestionTopic(question)).toBe('privacy_review_ack');
+    expect(operationalDefaultAnswer(question)).toMatchObject({ value: 'true', topic: 'privacy_review_ack' });
+    expect(candidateAnswerForField({ identity: {}, profile: {}, answers: {} }, { ...question, kind: 'checkbox' }))
+      .toMatchObject({ value: 'true', source: 'policy_default' });
+  });
+
+  it.each([
+    ['it', 'Seleziona questa casella per confermare di aver letto l’Informativa sulla privacy per i candidati.'],
+    ['de', 'Aktivieren Sie dieses Kontrollkästchen, um zu bestätigen, dass Sie die Datenschutzerklärung für Bewerber gelesen haben.'],
+    ['en', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.'],
+    ['fr', 'Veuillez cocher cette case pour confirmer que vous avez pris connaissance de l’avis de confidentialité destiné aux candidats.'],
+  ])('carries the real DOM privacy checkbox through native snapshot, question reduction and default in %s', (_locale, label) => {
+    const { field, marker } = serializedNativePrivacyField({ label });
+    expect(marker).toMatchObject({ nativeControlOwned: true, controlId: '', semanticId: '' });
+    expect(field).toMatchObject({ kind: 'checkbox', controlId: '', semanticId: '' });
+    expect(ownConsent(field)).toBe(true);
+    const reduced = mergeLivePortalQuestions(
+      [{ id: 'legacy_privacy_ack', source: 'portal', question: label, applicationQuestion: label, type: 'text', options: [], required: true }],
+      [{ id: 'live_privacy_ack', source: 'portal', question: label, applicationQuestion: label, type: 'text', options: [], required: true,
+        controlId: field.controlId, semanticId: field.semanticId }],
+    );
+    expect(reduced.ambiguous).toBe(false);
+    expect(reduced.questions[0]).toMatchObject({ controlId: '', semanticId: '' });
+    expect(operationalQuestionTopic(reduced.questions[0])).toBe('privacy_review_ack');
+    const expectedAnswer = _locale === 'fr' ? 'Oui' : 'Yes';
+    expect(operationalDefaultAnswer(reduced.questions[0])).toMatchObject({ value: expectedAnswer, topic: 'privacy_review_ack' });
+    const plan = guardPlan({ actions: [], missingRequired: [] }, [field], { identity: {}, profile: {}, answers: {} });
+    expect(plan.actions).toContainEqual(expect.objectContaining({ fieldId: field.id, action: 'check' }));
+    expect(plan.missingRequired).toEqual([]);
+  });
+
+  it.each([
+    ['country control', { controlId: 'country-of-residence' }],
+    ['work permit semantic', { semanticId: 'workPermit' }],
+    ['qualification semantic', { semanticId: 'qualification' }],
+  ])('keeps a factual native identifier as a required hold through the real DOM reader in %s', (_name, identifiers) => {
+    const { field, marker } = serializedNativePrivacyField(identifiers);
+    expect(marker).toMatchObject({ nativeControlOwned: true, ...identifiers });
+    expect(field).toMatchObject({ kind: 'checkbox', ...identifiers });
+    expect(ownConsent(field)).toBe(false);
+    const question = { id: field.id, source: 'portal', question: field.label, applicationQuestion: field.label, type: 'text', options: [], required: true, ...identifiers };
+    expect(operationalQuestionTopic(question)).toBeNull();
+    expect(operationalDefaultAnswer(question)).toBeNull();
+    const plan = guardPlan({ actions: [], missingRequired: [] }, [field], { identity: {}, profile: {}, answers: {} });
+    expect(plan.actions).toEqual([]);
+    expect(plan.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
+  });
+
+  it('keeps an explicit No on a real privacy checkbox as an uncheck and candidate hold', () => {
+    const { field } = serializedNativePrivacyField();
+    const plan = guardPlan({ actions: [], missingRequired: [] }, [field], {
+      identity: {}, profile: {}, answers: {},
+      portalQuestionsAnswered: [{ question: field.label, answer: 'No', source: 'candidate' }],
+    });
+    expect(plan.actions).toContainEqual(expect.objectContaining({ fieldId: field.id, action: 'uncheck' }));
+    expect(plan.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
+  });
+
+  it('defaults the legacy text descriptor without an original native contract', () => {
+    const question = {
+      id: 'portal_privacy_ack', question: 'Seleziona questa casella per confermare di aver letto l\'Informativa sulla privacy per i candidati.',
+      applicationQuestion: REAL_ENGLISH_PRIVACY_ACK, type: 'text', options: [], required: true, source: 'portal',
+    };
+    expect(question.originalNativeContract).toBeUndefined();
+    expect(operationalQuestionTopic(question)).toBe('privacy_review_ack');
+    expect(operationalDefaultAnswer(question)).toMatchObject({ value: 'Yes', topic: 'privacy_review_ack' });
+  });
+
+  it.each([
+    ['factual sibling', 'Country of residence'],
+    ['optional-purpose sibling', 'Privacy notice for marketing'],
+  ])('keeps a privacy default closed when another question representation is a %s', (_name, sibling) => {
+    const italianPrompt = 'Seleziona questa casella per confermare di aver letto l\'Informativa sulla privacy per i candidati.';
+    const question = {
+      id: 'q1', kind: 'checkbox', question: italianPrompt, applicationQuestion: sibling,
+      type: 'text', options: [], required: true, source: 'portal',
+    };
+    expect(operationalQuestionTopic(question)).toBeNull();
+    expect(operationalDefaultAnswer(question)).toBeNull();
+
+    const field = {
+      id: 'q1', kind: 'checkbox', inputType: 'checkbox', type: 'text', label: italianPrompt,
+      question: italianPrompt, applicationQuestion: sibling, required: true, checked: false, options: [],
+    };
+    const plan = guardPlan({ actions: [], missingRequired: [] }, [field], { identity: {}, profile: {}, answers: {} });
+    expect(plan.actions).not.toContainEqual(expect.objectContaining({ fieldId: field.id, action: 'check' }));
+    expect(plan.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
+  });
+
+  it.each([
+    ['country control', { controlId: 'country-of-residence' }],
+    ['work permit semantic', { semanticId: 'workpermit' }],
+  ])('does not default the legacy text descriptor when its native identifier is factual: %s', (_name, identifiers) => {
+    const question = {
+      id: 'portal_privacy_ack', question: REAL_ENGLISH_PRIVACY_ACK, applicationQuestion: REAL_ENGLISH_PRIVACY_ACK,
+      type: 'text', options: [], required: true, source: 'portal', ...identifiers,
+    };
+    expect(operationalQuestionTopic(question)).toBeNull();
+    expect(operationalDefaultAnswer(question)).toBeNull();
+  });
+
+  it.each([
+    ['country control', { controlId: 'country-of-residence' }],
+    ['work permit semantic', { semanticId: 'workpermit' }],
+  ])('keeps a factual native checkbox on the candidate path: %s', (_name, identifiers) => {
+    const field = {
+      id: 'privacy_ack', kind: 'checkbox', inputType: 'checkbox', type: 'text', label: REAL_ENGLISH_PRIVACY_ACK,
+      required: true, checked: false, options: [], ...identifiers,
+    };
+    expect(ownConsent(field)).toBe(false);
+    const plan = guardPlan({ actions: [], missingRequired: [] }, [field], { identity: {}, profile: {}, answers: {} });
+    expect(plan.actions).toEqual([]);
+    expect(plan.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
+  });
+
+  it('ignores object-valued metadata instead of coercing it into a contradictory identifier', () => {
+    const question = { label: REAL_ENGLISH_PRIVACY_ACK, type: 'checkbox', controlId: { value: 'country' } };
+    expect(operationalQuestionTopic(question)).toBe('privacy_review_ack');
+    expect(operationalDefaultAnswer(question)).toMatchObject({ topic: 'privacy_review_ack' });
+  });
+
+  it('retains native privacy identifiers while merging a live portal descriptor', () => {
+    const label = REAL_ENGLISH_PRIVACY_ACK;
+    const merged = mergeLivePortalQuestions(
+      [{ id: 'privacy_ack', source: 'portal', applicationQuestion: label, required: true }],
+      [{ id: 'live_privacy_ack', source: 'portal', question: label, applicationQuestion: label, required: true,
+        controlId: 'country-of-residence', semanticId: 'workpermit' }],
+    );
+    expect(merged.ambiguous).toBe(false);
+    expect(merged.questions[0]).toMatchObject({ controlId: 'country-of-residence', semanticId: 'workpermit' });
+  });
+
+  it.each([['default', {}, true], ['false', { answer: false }, false], ['No', { answer: 'No' }, false]])
+    ('projects a privacy checkbox through guardPlan and applyActions without a model action: %s', async (_name, answerPatch, expected) => {
+      const field = { id: 'privacy_ack', kind: 'checkbox', inputType: 'checkbox', type: 'text', label: REAL_ENGLISH_PRIVACY_ACK, required: true, checked: false, options: [] };
+      const candidate = {
+        identity: {}, profile: {}, answers: {},
+        portalQuestionsAnswered: answerPatch.answer === undefined ? [] : [{ question: REAL_ENGLISH_PRIVACY_ACK, answer: answerPatch.answer, source: 'answers' }],
+      };
+      const guarded = guardPlan({ actions: [], missingRequired: [] }, [field], candidate);
+      expect(guarded.actions).toContainEqual(expect.objectContaining({ fieldId: field.id, action: expected ? 'check' : 'uncheck' }));
+      const dom = new JSDOM('<!doctype html><input data-aa-id="privacy_ack" type="checkbox">', { url: 'https://jobs.example.test/apply' });
+      const element = dom.window.document.querySelector('input');
+      const locator = {
+        first: () => locator,
+        elementHandle: async () => ({ dispose: async () => {} }),
+        evaluate: async (fn: any, arg?: any) => fn(element, arg),
+        setChecked: async (checked: boolean) => { element.checked = checked; },
+        isChecked: async () => element.checked,
+      };
+      const frame = { locator: () => locator };
+      const result = await applyActions({ frames: () => [frame], mainFrame: () => frame } as any, [field], guarded.actions, {}, { pause: async () => {} });
+      expect(result).toEqual([expect.objectContaining({ fieldId: field.id, ok: true })]);
+      expect(element.checked).toBe(expected);
+      dom.window.close();
+    });
+
+  it('keeps an existing native tick answered, while an explicit refusal can remove it', () => {
+    const field = { id: 'privacy_ack', kind: 'checkbox', inputType: 'checkbox', type: 'text', label: REAL_ENGLISH_PRIVACY_ACK, required: true, checked: true, options: [] };
+    const defaultPlan = guardPlan({ actions: [], missingRequired: [] }, [field], { identity: {}, profile: {}, answers: {} });
+    expect(defaultPlan).toEqual({ actions: [], missingRequired: [] });
+    const refusalPlan = guardPlan({ actions: [], missingRequired: [] }, [field], {
+      identity: {}, profile: {}, answers: {},
+      portalQuestionsAnswered: [{ question: REAL_ENGLISH_PRIVACY_ACK, answer: 'No', source: 'answers' }],
+    });
+    expect(refusalPlan.actions).toContainEqual(expect.objectContaining({ fieldId: field.id, action: 'uncheck' }));
+    expect(refusalPlan.missingRequired).toContainEqual(expect.objectContaining({ fieldId: field.id }));
+  });
+
+  it('lets explicit false win over the privacy soft default and rejects contradictions', () => {
+    const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    const question = { id: 'privacy', label, type: 'checkbox', required: true };
+    expect(withOperationalQuestionAnswers([question], { privacy: false }).answers).toEqual({ privacy: false });
+    for (const answer of [false, 'No']) {
+      const formCandidate = candidateForForm({
+        identity: { name: 'Test Candidate', email: 'candidate@example.test', phone: '' }, profile: {},
+        answers: { privacy: answer }, draft: { questions: [{ ...question, applicationQuestion: label }] },
+        portalQuestions: [{ ...question, applicationQuestion: label }],
+      });
+      expect(formCandidate.portalQuestionsAnswered).toContainEqual(expect.objectContaining({ answer: String(answer) }));
+    }
+    for (const answer of [false, 'No']) {
+      expect(candidateAnswerForField({ identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [{ question: label, answer, source: 'candidate' }] }, { ...question, kind: 'checkbox' }))
+        .toMatchObject({ value: String(answer), source: 'answers' });
+    }
+    for (const variant of [
+      `${label} and agree to the terms`,
+      `${label} and have 5 years of experience`,
+      `${label} for marketing`,
+      `${label} for the talent pool`,
+      `${label} and share data with third parties`,
+      `${label} and agree to the subscription`,
+      { label, name: 'country' },
+      { label, id: 'experienceYears' },
+    ]) {
+      const candidateQuestion = typeof variant === 'string' ? { label: variant, type: 'checkbox' } : { ...variant, type: 'checkbox' };
+      expect(operationalDefaultAnswer(candidateQuestion)).toBeNull();
+    }
+  });
+
+  it('keeps the native optional contract on the same privacy-review topic', () => {
+    const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    const question = {
+      source: 'portal', required: false, applicationQuestion: label,
+      portalNativeContract: {
+        version: 'native-contract-v1', round: 1, url: 'https://join.com/apply', observedAt: 1,
+        required: false, requiredEvidence: 'aria-required:false', topic: 'privacy_review_ack',
+        frame: 0, form: 0, fieldId: 'privacy', label,
+      },
+    };
+    expect(provenOptionalOperationalPortalQuestion(question, {
+      round: 1, channel: { applyUrl: 'https://join.com/apply' },
+    })).toBe(true);
+  });
+
+  it.each([
+    ['country control', { controlId: 'country-of-residence' }],
+    ['work permit semantic', { semanticId: 'workpermit' }],
+  ])('rejects a native optional privacy contract with a factual identifier: %s', (_name, identifiers) => {
+    const label = REAL_ENGLISH_PRIVACY_ACK;
+    const question = {
+      source: 'portal', required: false, applicationQuestion: label, ...identifiers,
+      portalNativeContract: {
+        version: 'native-contract-v1', round: 1, url: 'https://join.com/apply', observedAt: 1,
+        required: false, requiredEvidence: 'aria-required:false', topic: 'privacy_review_ack',
+        frame: 0, form: 0, fieldId: 'privacy', label, ...identifiers,
+      },
+    };
+    expect(provenOptionalOperationalPortalQuestion(question, {
+      round: 1, channel: { applyUrl: 'https://join.com/apply' },
+    })).toBe(false);
+  });
 
   it('rejects compound text prompts independently of their input type', () => {
     for (const question of [
@@ -145,6 +420,37 @@ describe('scope, languages and actual field options', () => {
 
 
 describe('operational wait recovery after deployment', () => {
+  it('runs the real MemoryFirestore sweep and dispatches only after the privacy default resolves the question hold', async () => {
+    const base = 'assisted_applications/privacy_ack_sweep';
+    const question = {
+      id: 'portal_privacy_ack',
+      question: 'Seleziona questa casella per confermare di aver letto l\'Informativa sulla privacy per i candidati.',
+      applicationQuestion: REAL_ENGLISH_PRIVACY_ACK,
+      type: 'text', options: [], required: true, source: 'portal',
+    };
+    const now = 1793449764000;
+    const store = createMemoryFirestore({
+      [base]: { paymentStatus: 'paid', submissionStatus: 'awaiting_upload', automationState: 'needs_candidate_action', automationDueAt: now },
+      [`${base}/automation/flow`]: {
+        state: 'needs_candidate_action', round: 1, heldBy: [`question:${question.id}`],
+        dispatch: { mode: 'submit', round: 1, attempts: 1 }, heldSince: now - 1000,
+      },
+      [`${base}/ai_drafts/current`]: {
+        status: 'ready', round: 1, questions: [question], factCheck: { ok: true, unsupported: [] },
+        job: { source: 'job_detail' }, channel: { type: 'portal', applyUrl: 'https://jobs.example.test/apply' },
+      },
+    });
+    const effects: any[] = [];
+    const result = await runAutomationSweep({
+      db: store.db,
+      nowMs: now,
+      runEffect: async ({ effect }: any) => { effects.push(effect); return { ok: true }; },
+    });
+    expect(result).toMatchObject({ ticks: 1, failed: 0 });
+    expect(store.read(`${base}/automation/flow`)).toMatchObject({ state: 'submitting', heldBy: [], dispatch: { reason: 'resolved_candidate_answers' } });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'resolved_candidate_answers' }]);
+  });
+
   it('deduplicates one wait while recovering a later step on the same order and policy', async () => {
     const base = 'assisted_applications/operational_test';
     const flowPath = `${base}/automation/flow`;

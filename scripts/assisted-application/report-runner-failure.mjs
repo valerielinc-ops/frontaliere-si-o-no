@@ -27,6 +27,18 @@ export async function reportRunnerFailure({ db, orderId, mode, round, runId, sta
       || !expected.includes(flow?.state) || Number(flow.round || 1) !== round
       || Number(flow.dispatch?.requestedAt || 0) > startedAt) return { reported: false, reason: 'superseded' };
     const send = submissionDoc.data()?.[`r${round}`];
+    // The workflow calls this only after the agent step has ended. A portal
+    // claim without clickedAt is then a confirmed pre-click failure: release
+    // it in the same transaction as the retry event. A live/unreconciled claim
+    // stays locked; e-mail sends are ambiguous even without clickedAt.
+    if (mode === 'submit' && send?.state === 'sending' && send.channel === 'portal' && !send.clickedAt) {
+      transaction.set(orderRef.collection('automation').doc('submission'), {
+        [`r${round}`]: {
+          state: 'failed', reason: 'runner_infrastructure_unavailable', releasedAt: nowMs,
+          confirmedNotSent: true,
+        },
+      }, { merge: true });
+    }
     const event = mode === 'submit' && send?.state === 'sent'
       ? { type: 'submit_succeeded', channel: send.channel }
       : { type: mode === 'draft' ? 'draft_failed' : 'submit_failed', error: mode === 'submit' && isUnconfirmedSubmission(send)

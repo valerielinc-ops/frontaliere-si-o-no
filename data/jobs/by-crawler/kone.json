@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kone",
-  "assembledAt": "2026-10-31T09:49:28.277Z",
-  "runId": "41188424656",
+  "assembledAt": "2026-11-01T09:44:05.867Z",
+  "runId": "41292859129",
   "jobs": [
     {
       "id": "kone-8cc5f02244f1",
@@ -35,7 +35,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Bern/Verkaufsberater-in-Neuanlagen---Region-Bern_R0663874",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:49:22.185Z",
+      "crawledAt": "2026-11-01T09:44:00.260Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -82,7 +82,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:44:00.260Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kone-94ebc1a97868",
@@ -116,7 +120,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/echnicien-ne-de-maintenance-Ascenseurs---Rgion-Yverdon_R0665610",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:49:21.338Z",
+      "crawledAt": "2026-11-01T09:43:59.427Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -163,7 +167,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:43:59.427Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kone-c3826232c75b",
@@ -197,7 +205,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/Technicien-ne-de-maintenance-Ascenseurs---Rgion-Fribourg_R0665744",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:49:20.609Z",
+      "crawledAt": "2026-11-01T09:43:58.738Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -244,7 +252,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:43:58.738Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kone-fa74e292ddc3",
@@ -278,7 +290,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Aufzugsmonteur-in---Region-Luzern_R0664487",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:49:19.883Z",
+      "crawledAt": "2026-11-01T09:43:58.029Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -329,7 +341,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8306"
+      "postalCode": "8306",
+      "streetAddress": "Brüttisellen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:43:58.029Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

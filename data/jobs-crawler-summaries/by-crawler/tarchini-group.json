@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-10-31T09:18:42.341Z",
+  "generatedAt": "2026-11-01T09:15:32.728Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2840,
-  "avgDurationMs": 2840,
+  "durationMs": 2635,
+  "avgDurationMs": 2635,
   "durationHistory": [
-    2840
+    2635
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,11 +37,11 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:15:24.232Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Lugano",
       "postalCode": "6900",
       "id": "tarchini-group-b286e34534eb",
       "firstSeenAt": "2026-04-13T22:32:13.614Z",
@@ -49,13 +49,15 @@
       "applicationEmail": "info@tarchinigroup.com",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T09:18:29.234Z",
-      "_qualityScore": 90,
+      "crawledAt": "2026-11-01T09:15:24.232Z",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -80,7 +82,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-29T09:15:24.241Z",
       "id": "tarchini-group-e3e32d44df83",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -89,16 +91,19 @@
       "firstSeenAt": "2026-09-29T21:13:20.401Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T09:18:29.262Z",
+      "crawledAt": "2026-11-01T09:15:24.241Z",
       "postalCode": "6850",
-      "_qualityScore": 90,
+      "streetAddress": "Mendrisio",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

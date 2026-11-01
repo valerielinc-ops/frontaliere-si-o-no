@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-10-31T09:24:08.293Z",
+  "generatedAt": "2026-11-01T09:23:44.107Z",
   "total": 57,
   "newCount": 0,
   "updatedCount": 19,
   "removedCount": 0,
   "unchangedCount": 38,
-  "durationMs": 208680,
-  "avgDurationMs": 208680,
+  "durationMs": 190474,
+  "avgDurationMs": 190474,
   "durationHistory": [
-    208680
+    190474
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "2026-06-29",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2053-11-12",
+      "validThrough": "2026-12-01T09:23:31.899Z",
       "id": "ruag-ag-1e64bf1b6041",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -44,14 +44,17 @@
       "salarySource": "estimated",
       "datePosted": "2026-06-29",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.795Z",
+      "crawledAt": "2026-11-01T09:23:31.899Z",
       "postalCode": "6467",
-      "_qualityScore": 94,
+      "streetAddress": "Schattdorf",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -75,7 +78,7 @@
       "postedDate": "2026-07-15",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2053-11-28",
+      "validThrough": "2026-12-01T09:23:31.905Z",
       "id": "ruag-ag-1766d61933ec",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -84,14 +87,17 @@
       "salarySource": "reported",
       "datePosted": "2026-07-15",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.802Z",
+      "crawledAt": "2026-11-01T09:23:31.905Z",
       "postalCode": "6467",
-      "_qualityScore": 94,
+      "streetAddress": "Schattdorf",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -115,7 +121,7 @@
       "postedDate": "2026-06-18",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2053-11-01",
+      "validThrough": "2026-12-01T09:23:31.927Z",
       "id": "ruag-ag-e948f592ce1d",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -124,14 +130,17 @@
       "firstSeenAt": "2026-09-24T14:29:39.343Z",
       "datePosted": "2026-06-18",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.832Z",
+      "crawledAt": "2026-11-01T09:23:31.927Z",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -155,10 +164,10 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.842Z",
+      "crawledAt": "2026-11-01T09:23:31.933Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-18",
+      "validThrough": "2027-01-03T09:23:31.933Z",
       "id": "ruag-ag-8145499f1ced",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -166,12 +175,15 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-05T09:17:56.114Z",
       "postalCode": "6032",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -195,10 +207,10 @@
       "datePosted": "2026-10-08",
       "postedDate": "2026-10-08",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.850Z",
+      "crawledAt": "2026-11-01T09:23:31.940Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-21",
+      "validThrough": "2027-01-06T09:23:31.940Z",
       "id": "ruag-ag-44aa19bf9886",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -206,13 +218,16 @@
       "salarySource": "estimated",
       "postalCode": "1530",
       "firstSeenAt": "2026-10-08T21:19:10.502Z",
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -236,10 +251,10 @@
       "datePosted": "2026-10-09",
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.851Z",
+      "crawledAt": "2026-11-01T09:23:31.941Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-02-22",
+      "validThrough": "2027-01-07T09:23:31.941Z",
       "id": "ruag-ag-75ea1030401f",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -247,12 +262,15 @@
       "salarySource": "estimated",
       "postalCode": "6460",
       "firstSeenAt": "2026-10-09T09:25:55.098Z",
-      "_qualityScore": 94,
+      "streetAddress": "Altdorf",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -276,10 +294,10 @@
       "datePosted": "2026-10-09",
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.852Z",
+      "crawledAt": "2026-11-01T09:23:31.942Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-22",
+      "validThrough": "2027-01-07T09:23:31.942Z",
       "id": "ruag-ag-04171502f915",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -287,12 +305,15 @@
       "salarySource": "estimated",
       "postalCode": "3600",
       "firstSeenAt": "2026-10-09T09:25:55.099Z",
-      "_qualityScore": 94,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -316,10 +337,10 @@
       "datePosted": "2026-10-09",
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.854Z",
+      "crawledAt": "2026-11-01T09:23:31.943Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-02-22",
+      "validThrough": "2027-01-07T09:23:31.943Z",
       "id": "ruag-ag-41efd146eeb0",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -327,12 +348,15 @@
       "salarySource": "estimated",
       "postalCode": "3600",
       "firstSeenAt": "2026-09-19T23:09:49.363Z",
-      "_qualityScore": 94,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -356,10 +380,10 @@
       "datePosted": "2026-10-09",
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.857Z",
+      "crawledAt": "2026-11-01T09:23:31.945Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-22",
+      "validThrough": "2027-01-07T09:23:31.945Z",
       "id": "ruag-ag-3aa3854506d6",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -367,12 +391,15 @@
       "salarySource": "estimated",
       "postalCode": "1530",
       "firstSeenAt": "2026-10-09T21:25:21.811Z",
-      "_qualityScore": 94,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -396,10 +423,10 @@
       "datePosted": "2026-10-09",
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.858Z",
+      "crawledAt": "2026-11-01T09:23:31.946Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-22",
+      "validThrough": "2027-01-07T09:23:31.946Z",
       "id": "ruag-ag-0fec36509f02",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -407,13 +434,16 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-10T21:18:31.879Z",
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -437,10 +467,10 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.871Z",
+      "crawledAt": "2026-11-01T09:23:31.956Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-03-04",
+      "validThrough": "2027-01-17T09:23:31.956Z",
       "id": "ruag-ag-bfbfccf5197b",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -448,12 +478,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-19T09:17:54.896Z",
-      "_qualityScore": 96,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -477,10 +510,10 @@
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.876Z",
+      "crawledAt": "2026-11-01T09:23:31.959Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2026-11-30",
+      "validThrough": "2026-11-30T00:00:00.000Z",
       "id": "ruag-ag-9198a25d48ec",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -488,12 +521,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-20T09:15:09.138Z",
-      "_qualityScore": 96,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -517,10 +553,10 @@
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.877Z",
+      "crawledAt": "2026-11-01T09:23:31.961Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "id": "ruag-ag-4a9ae12d4a89",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -528,12 +564,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-20T09:15:09.139Z",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -557,10 +596,10 @@
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.880Z",
+      "crawledAt": "2026-11-01T09:23:31.963Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-03-06",
+      "validThrough": "2027-01-19T09:23:31.963Z",
       "id": "ruag-ag-3de1467d24b7",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -568,12 +607,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-20T21:15:37.039Z",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -597,10 +639,10 @@
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.883Z",
+      "crawledAt": "2026-11-01T09:23:31.965Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-03-06",
+      "validThrough": "2027-01-19T09:23:31.965Z",
       "id": "ruag-ag-e446e04aab00",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -608,12 +650,15 @@
       "salarySource": "estimated",
       "postalCode": "3812",
       "firstSeenAt": "2026-10-24T21:15:43.539Z",
-      "_qualityScore": 94,
+      "streetAddress": "Wilderswil",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -637,10 +682,10 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.888Z",
+      "crawledAt": "2026-11-01T09:23:31.969Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-03-12",
+      "validThrough": "2027-01-25T09:23:31.969Z",
       "id": "ruag-ag-5229b8615bcf",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -648,12 +693,15 @@
       "salarySource": "estimated",
       "postalCode": "3600",
       "firstSeenAt": "2026-08-20T21:52:29.815Z",
-      "_qualityScore": 94,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -677,10 +725,10 @@
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.892Z",
+      "crawledAt": "2026-11-01T09:23:31.971Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-25",
+      "validThrough": "2027-01-10T09:23:31.971Z",
       "id": "ruag-ag-acc0bddbb350",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -688,12 +736,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-27T21:27:22.611Z",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -717,10 +768,10 @@
       "datePosted": "2026-10-28",
       "postedDate": "2026-10-28",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.895Z",
+      "crawledAt": "2026-11-01T09:23:31.974Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-03-13",
+      "validThrough": "2027-01-26T09:23:31.974Z",
       "id": "ruag-ag-4149d51748fd",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -728,12 +779,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-09-11T13:55:53.398Z",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -757,10 +811,10 @@
       "datePosted": "2026-10-28",
       "postedDate": "2026-10-28",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.897Z",
+      "crawledAt": "2026-11-01T09:23:31.975Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-03-13",
+      "validThrough": "2027-01-26T09:23:31.975Z",
       "id": "ruag-ag-85d3a878c056",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -768,12 +822,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-09-11T13:55:53.398Z",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
@@ -800,7 +857,7 @@
       "postedDate": "2026-07-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2053-11-26",
+      "validThrough": "2026-12-01T09:23:31.902Z",
       "id": "ruag-ag-d7240e40d186",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -809,14 +866,17 @@
       "salarySource": "reported",
       "datePosted": "2026-07-13",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.799Z",
+      "crawledAt": "2026-11-01T09:23:31.902Z",
       "postalCode": "6032",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -840,7 +900,7 @@
       "postedDate": "2026-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2053-11-29",
+      "validThrough": "2026-12-01T09:23:31.906Z",
       "id": "ruag-ag-5fb2c7ddc7c0",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -849,14 +909,17 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-16",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.804Z",
+      "crawledAt": "2026-11-01T09:23:31.906Z",
       "postalCode": "3600",
-      "_qualityScore": 96,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -880,7 +943,7 @@
       "postedDate": "2026-07-27",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2053-12-10",
+      "validThrough": "2026-12-01T09:23:31.907Z",
       "id": "ruag-ag-a54c3f75754f",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -889,14 +952,17 @@
       "salarySource": "reported",
       "datePosted": "2026-07-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.806Z",
+      "crawledAt": "2026-11-01T09:23:31.907Z",
       "postalCode": "6032",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -920,7 +986,7 @@
       "postedDate": "2026-07-29",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2053-12-12",
+      "validThrough": "2026-12-01T09:23:31.909Z",
       "id": "ruag-ag-dc4380e5f44b",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -929,14 +995,17 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-29",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.808Z",
+      "crawledAt": "2026-11-01T09:23:31.909Z",
       "postalCode": "3004",
-      "_qualityScore": 94,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -960,7 +1029,7 @@
       "postedDate": "2026-08-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2053-12-15",
+      "validThrough": "2026-12-01T09:23:31.910Z",
       "id": "ruag-ag-988f9f7de60c",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -969,14 +1038,17 @@
       "salarySource": "reported",
       "datePosted": "2026-08-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.809Z",
+      "crawledAt": "2026-11-01T09:23:31.910Z",
       "postalCode": "6032",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1000,7 +1072,7 @@
       "postedDate": "2026-08-06",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2053-12-20",
+      "validThrough": "2026-12-01T09:23:31.911Z",
       "id": "ruag-ag-5e5a01159d8f",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1009,14 +1081,17 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.811Z",
+      "crawledAt": "2026-11-01T09:23:31.911Z",
       "postalCode": "3004",
-      "_qualityScore": 96,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1040,7 +1115,7 @@
       "postedDate": "2026-08-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2053-12-24",
+      "validThrough": "2026-12-01T09:23:31.913Z",
       "id": "ruag-ag-994f9b6e0753",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -1049,14 +1124,17 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.813Z",
+      "crawledAt": "2026-11-01T09:23:31.913Z",
       "postalCode": "6055",
-      "_qualityScore": 94,
+      "streetAddress": "Alpnach",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1080,7 +1158,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2053-10-15",
+      "validThrough": "2026-12-01T09:23:31.914Z",
       "id": "ruag-ag-5688b3ac1ea3",
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -1089,14 +1167,17 @@
       "salarySource": "estimated",
       "datePosted": "2026-06-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.816Z",
+      "crawledAt": "2026-11-01T09:23:31.914Z",
       "postalCode": "6032",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1120,7 +1201,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2053-10-15",
+      "validThrough": "2026-12-01T09:23:31.917Z",
       "id": "ruag-ag-77796e4c9329",
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -1129,14 +1210,17 @@
       "salarySource": "estimated",
       "datePosted": "2026-06-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.818Z",
+      "crawledAt": "2026-11-01T09:23:31.917Z",
       "postalCode": "6032",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1160,7 +1244,7 @@
       "postedDate": "2026-08-26",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-01-09",
+      "validThrough": "2026-12-01T09:23:31.918Z",
       "id": "ruag-ag-468642299c55",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1169,14 +1253,17 @@
       "salarySource": "reported",
       "datePosted": "2026-08-26",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.820Z",
+      "crawledAt": "2026-11-01T09:23:31.918Z",
       "postalCode": "6032",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1200,7 +1287,7 @@
       "postedDate": "2026-08-26",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-01-09",
+      "validThrough": "2026-12-01T09:23:31.919Z",
       "id": "ruag-ag-05f48e23d7f6",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1209,14 +1296,17 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-26",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.821Z",
+      "crawledAt": "2026-11-01T09:23:31.919Z",
       "postalCode": "3600",
-      "_qualityScore": 94,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1240,7 +1330,7 @@
       "postedDate": "2026-09-01",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-01-15",
+      "validThrough": "2026-12-01T09:23:31.920Z",
       "id": "ruag-ag-a5b1e3d28302",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -1249,14 +1339,17 @@
       "firstSeenAt": "2026-09-01T14:28:28.264Z",
       "datePosted": "2026-09-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.823Z",
+      "crawledAt": "2026-11-01T09:23:31.920Z",
       "postalCode": "6032",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1280,7 +1373,7 @@
       "postedDate": "2026-09-04",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-01-18",
+      "validThrough": "2026-12-03T09:23:31.921Z",
       "id": "ruag-ag-409db48f7ceb",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1289,14 +1382,17 @@
       "firstSeenAt": "2026-09-04T13:50:13.899Z",
       "datePosted": "2026-09-04",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.824Z",
+      "crawledAt": "2026-11-01T09:23:31.921Z",
       "postalCode": "3600",
-      "_qualityScore": 94,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1320,7 +1416,7 @@
       "postedDate": "2026-09-23",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-06",
+      "validThrough": "2026-12-22T09:23:31.922Z",
       "id": "ruag-ag-2cd78db558f2",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -1329,14 +1425,17 @@
       "firstSeenAt": "2026-09-23T19:54:42.582Z",
       "datePosted": "2026-09-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.826Z",
+      "crawledAt": "2026-11-01T09:23:31.922Z",
       "postalCode": "6032",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1360,7 +1459,7 @@
       "postedDate": "2026-09-22",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-05",
+      "validThrough": "2026-12-21T09:23:31.925Z",
       "id": "ruag-ag-32e8a16e81a2",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -1369,14 +1468,17 @@
       "firstSeenAt": "2026-09-23T19:54:42.582Z",
       "datePosted": "2026-09-22",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.830Z",
+      "crawledAt": "2026-11-01T09:23:31.925Z",
       "postalCode": "8306",
-      "_qualityScore": 94,
+      "streetAddress": "Wangen-Brüttisellen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1400,7 +1502,7 @@
       "postedDate": "2026-09-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-02-11",
+      "validThrough": "2026-12-27T09:23:31.929Z",
       "id": "ruag-ag-e0018bf781ed",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -1409,14 +1511,17 @@
       "firstSeenAt": "2026-09-28T21:22:22.900Z",
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.834Z",
+      "crawledAt": "2026-11-01T09:23:31.929Z",
       "postalCode": "6032",
-      "_qualityScore": 96,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1440,7 +1545,7 @@
       "postedDate": "2026-09-29",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-02-12",
+      "validThrough": "2026-12-28T09:23:31.931Z",
       "id": "ruag-ag-82634ac7643b",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -1449,14 +1554,17 @@
       "firstSeenAt": "2026-09-29T09:20:41.806Z",
       "datePosted": "2026-09-29",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.837Z",
+      "crawledAt": "2026-11-01T09:23:31.931Z",
       "postalCode": "6467",
-      "_qualityScore": 94,
+      "streetAddress": "Schattdorf",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1480,10 +1588,10 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.839Z",
+      "crawledAt": "2026-11-01T09:23:31.932Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-02-18",
+      "validThrough": "2027-01-03T09:23:31.932Z",
       "id": "ruag-ag-f0e8e950bd6e",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1491,12 +1599,15 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-05T09:17:56.114Z",
       "postalCode": "3600",
-      "_qualityScore": 94,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1520,10 +1631,10 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.843Z",
+      "crawledAt": "2026-11-01T09:23:31.935Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-02-18",
+      "validThrough": "2027-01-03T09:23:31.935Z",
       "id": "ruag-ag-76c97863dfcf",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1531,12 +1642,15 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-05T16:23:34.271Z",
       "postalCode": "3600",
-      "_qualityScore": 96,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1560,10 +1674,10 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.845Z",
+      "crawledAt": "2026-11-01T09:23:31.937Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-02-18",
+      "validThrough": "2027-01-03T09:23:31.937Z",
       "id": "ruag-ag-35adc49af6e7",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1571,12 +1685,15 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-05T16:23:34.273Z",
       "postalCode": "3600",
-      "_qualityScore": 94,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1600,10 +1717,10 @@
       "datePosted": "2026-10-06",
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.846Z",
+      "crawledAt": "2026-11-01T09:23:31.938Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-02-19",
+      "validThrough": "2027-01-04T09:23:31.938Z",
       "id": "ruag-ag-be9d103c92b6",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -1611,12 +1728,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-06T21:25:14.785Z",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1640,10 +1760,10 @@
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.860Z",
+      "crawledAt": "2026-11-01T09:23:31.948Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-25",
+      "validThrough": "2027-01-10T09:23:31.948Z",
       "id": "ruag-ag-ac8ac1739621",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -1651,12 +1771,15 @@
       "salarySource": "estimated",
       "postalCode": "3004",
       "firstSeenAt": "2026-10-12T21:20:36.614Z",
-      "_qualityScore": 96,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1680,10 +1803,10 @@
       "datePosted": "2026-10-13",
       "postedDate": "2026-10-13",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.863Z",
+      "crawledAt": "2026-11-01T09:23:31.950Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-26",
+      "validThrough": "2027-01-11T09:23:31.950Z",
       "id": "ruag-ag-01061433f5c0",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1691,12 +1814,15 @@
       "salarySource": "estimated",
       "postalCode": "8306",
       "firstSeenAt": "2026-10-13T21:22:43.922Z",
-      "_qualityScore": 96,
+      "streetAddress": "Wangen-Brüttisellen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1720,22 +1846,25 @@
       "datePosted": "2026-09-07",
       "postedDate": "2026-09-07",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.865Z",
+      "crawledAt": "2026-11-01T09:23:31.951Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-27",
+      "validThrough": "2026-12-06T09:23:31.951Z",
       "id": "ruag-ag-773d7f8c1198",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6032",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1759,10 +1888,10 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.866Z",
+      "crawledAt": "2026-11-01T09:23:31.952Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-02-27",
+      "validThrough": "2027-01-12T09:23:31.952Z",
       "id": "ruag-ag-a66a175cbc9a",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1770,12 +1899,15 @@
       "salarySource": "reported",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-14T21:19:29.113Z",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1799,10 +1931,10 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.868Z",
+      "crawledAt": "2026-11-01T09:23:31.953Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-27",
+      "validThrough": "2027-01-12T09:23:31.953Z",
       "id": "ruag-ag-4cc22e50b52c",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -1810,12 +1942,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-14T21:19:29.114Z",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1839,10 +1974,10 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.870Z",
+      "crawledAt": "2026-11-01T09:23:31.954Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-02-27",
+      "validThrough": "2027-01-12T09:23:31.954Z",
       "id": "ruag-ag-5f1f5670c4d1",
       "salaryMin": 41700,
       "salaryMax": 63600,
@@ -1850,12 +1985,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-14T21:19:29.116Z",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1879,10 +2017,10 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.873Z",
+      "crawledAt": "2026-11-01T09:23:31.957Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-03-04",
+      "validThrough": "2027-01-17T09:23:31.957Z",
       "id": "ruag-ag-525fb7903bd8",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -1890,12 +2028,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-19T21:15:02.472Z",
-      "_qualityScore": 96,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1919,10 +2060,10 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.874Z",
+      "crawledAt": "2026-11-01T09:23:31.958Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2054-03-04",
+      "validThrough": "2027-01-17T09:23:31.958Z",
       "id": "ruag-ag-3709fc557dfc",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -1930,12 +2071,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-19T21:15:02.474Z",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1959,10 +2103,10 @@
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T09:23:55.879Z",
+      "crawledAt": "2026-11-01T09:23:31.962Z",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "validThrough": "2054-03-05",
+      "validThrough": "2027-01-18T09:23:31.962Z",
       "id": "ruag-ag-887aa6be55e6",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1970,14 +2114,17 @@
       "salarySource": "estimated",
       "postalCode": "3600",
       "firstSeenAt": "2026-07-16T22:56:56.768Z",
-      "_qualityScore": 96,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

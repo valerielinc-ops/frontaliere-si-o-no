@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lombard-odier",
-  "assembledAt": "2026-10-31T09:50:36.757Z",
-  "runId": "41188424656",
+  "assembledAt": "2026-11-01T09:48:44.584Z",
+  "runId": "41292859129",
   "jobs": [
     {
       "id": "lombard-odier-1151f9e4cc7b",
@@ -35,7 +35,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Private-Assets-Investment-Analyst_R0006952",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:29.308Z",
+      "crawledAt": "2026-11-01T09:48:38.568Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -84,7 +84,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:48:38.568Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-5aac7eb468b5",
@@ -118,7 +122,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Head-of-Spain_R0007129",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:28.615Z",
+      "crawledAt": "2026-11-01T09:48:37.921Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -167,7 +171,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:48:37.921Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-425a9532a84b",
@@ -201,7 +209,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Zrich/EAM-Banker---Business-Developer--80-100--_R0007469",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:27.568Z",
+      "crawledAt": "2026-11-01T09:48:36.990Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -248,7 +256,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:48:36.990Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-a4bda49f2e9a",
@@ -282,7 +294,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Operational-Risk-Officer--80-100--_R0007529",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:26.863Z",
+      "crawledAt": "2026-11-01T09:48:36.352Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -329,7 +341,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:48:36.352Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-247383db701f",
@@ -363,7 +379,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Cross-Border-Officer--80-100--_R0007525",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:26.163Z",
+      "crawledAt": "2026-11-01T09:48:35.716Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -418,7 +434,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:48:35.716Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-568c51b8ad69",
@@ -451,7 +471,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Business-Application-Support-Specialist---Finance--80-100--_R0006770",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:24.764Z",
+      "crawledAt": "2026-11-01T09:48:34.486Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -498,7 +518,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:48:34.486Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-ba584140efaa",
@@ -532,7 +556,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/IT-Production-Engineer--80-100--_R0007478",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:23.703Z",
+      "crawledAt": "2026-11-01T09:48:33.526Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -579,7 +603,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:33.526Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-0e2b6d392899",
@@ -612,7 +640,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Senior-Charg-e-de-Comptes-Global-Custody--80-100--_R0007568-1",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:50:23.002Z",
+      "crawledAt": "2026-11-01T09:48:32.872Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -659,7 +687,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:48:32.872Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-72d3997cc404",
@@ -692,7 +724,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Business-Risk---Support-Manager--80-100--_R0007652-1",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:22.299Z",
+      "crawledAt": "2026-11-01T09:48:32.216Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -733,7 +765,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:48:32.216Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-dccdd5bf80b2",
@@ -767,7 +803,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Responsable-de-l-Offre-Suisse_R0007545-1",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:50:21.593Z",
+      "crawledAt": "2026-11-01T09:48:31.570Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -814,7 +850,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:48:31.570Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-b28c9b05878e",
@@ -848,7 +888,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Quantitative-Research-Intern---AI-for-Investment-Research_R0007657",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:20.839Z",
+      "crawledAt": "2026-11-01T09:48:30.923Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -895,7 +935,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:48:30.923Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-5b4a638164db",
@@ -929,7 +973,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Generative-AI-Intern_R0007656",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:20.006Z",
+      "crawledAt": "2026-11-01T09:48:30.219Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -976,7 +1020,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:48:30.219Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-eeaca2b65a3d",
@@ -1009,7 +1057,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Quantitative-Analyst-Intern-Multi-Asset_R0007658",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:19.253Z",
+      "crawledAt": "2026-11-01T09:48:29.524Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1056,7 +1104,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:48:29.524Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-cc9547d38308",
@@ -1090,7 +1142,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Senior-Full-Stack-Engineer_R0007683",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:18.129Z",
+      "crawledAt": "2026-11-01T09:48:28.516Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1137,7 +1189,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:48:28.516Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-bc0ce1e54c17",
@@ -1170,7 +1226,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Collaborateur--trice-Trsor--Caisse-et-Cartes_R0007679",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:50:17.420Z",
+      "crawledAt": "2026-11-01T09:48:27.879Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1229,7 +1285,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:48:27.879Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-9ae6adfedf33",
@@ -1262,7 +1322,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Software-Engineer---Global-Markets-Services-AI-Project_R0007627-1",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:16.711Z",
+      "crawledAt": "2026-11-01T09:48:27.236Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1309,7 +1369,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:27.236Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-0916b8eb096e",
@@ -1342,7 +1406,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Powered-Portfolio-Intelligence--PMS-_R0007628",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:15.938Z",
+      "crawledAt": "2026-11-01T09:48:26.545Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1389,7 +1453,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:48:26.545Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-553d60b4aa72",
@@ -1422,7 +1490,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Machine-Learning-Engineer---Action-Dashboard-Ranking-Engine_R0007629",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:15.160Z",
+      "crawledAt": "2026-11-01T09:48:25.827Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1469,7 +1537,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:25.827Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-9d90ddf95407",
@@ -1502,7 +1574,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Software-engineer---Cash-Management-Tool-Redevelopment_R0007630",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:14.400Z",
+      "crawledAt": "2026-11-01T09:48:25.136Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1549,7 +1621,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:25.136Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-88481f642f9c",
@@ -1582,7 +1658,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Software-Engineer---Application-Monitoring---Observability_R0007631",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:13.644Z",
+      "crawledAt": "2026-11-01T09:48:24.452Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1629,7 +1705,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:24.452Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-eb6e700bbd95",
@@ -1662,7 +1742,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Driven-Batch-to-Service-Migration-for-Securities-Settlement_R0007632",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:12.882Z",
+      "crawledAt": "2026-11-01T09:48:23.732Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1709,7 +1789,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:23.732Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-45c83ffb3887",
@@ -1742,7 +1826,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Powered-Non-Regression-Test-Case-Generation_R0007633",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:12.117Z",
+      "crawledAt": "2026-11-01T09:48:23.041Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1789,7 +1873,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:23.041Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-60b11b36e927",
@@ -1822,7 +1910,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---Contribution-to-the-Design-and-Implementation-of-an-Agentic-Sandbox-Platform_R0007634",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:11.330Z",
+      "crawledAt": "2026-11-01T09:48:22.340Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1869,7 +1957,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:22.340Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-39d3ae9f63f6",
@@ -1902,7 +1994,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Data-Engineer---Optimization-of-Data-Delivery_R0007637",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:10.551Z",
+      "crawledAt": "2026-11-01T09:48:21.636Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1949,7 +2041,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:21.636Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-c08e33ff6b02",
@@ -1983,7 +2079,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Data-Engineer---Accelerating-Adoption-of-Microsoft-Fabric_R0007638",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:09.778Z",
+      "crawledAt": "2026-11-01T09:48:20.958Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2030,7 +2126,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:20.958Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-4ff65adafc0e",
@@ -2064,7 +2164,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Engineer---AI-Powered-CRM--Engagement---Churn-Analysis_R0007639",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:09.009Z",
+      "crawledAt": "2026-11-01T09:48:20.273Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2111,7 +2211,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:20.273Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-23d49c56c334",
@@ -2144,7 +2248,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Engineer---AI-Powered-CRM---Data-Extraction---KYC-Support_R0007640",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:08.249Z",
+      "crawledAt": "2026-11-01T09:48:19.575Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2191,7 +2295,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:19.575Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-f16d5faa819f",
@@ -2216,15 +2324,16 @@
       "descriptionByLocale": {
         "it": "Una carriera a Lombard Odier significa lavorare per un rinomato asset manager globale, con un forte focus sugli investimenti sostenibili. Un'innovativa banca di scelta per clienti privati ed istituzionali, il nostro Studio indipendente di proprietà è uno dei gruppi bancari meglio capitalizzati al mondo, che gestisce quasi 300 miliardi di franchi e opera da oltre 25 uffici in 4 continenti.\n\nCon una storia che dura oltre 230 anni, Lombard Odier è una casa di investimento che offre un'offerta completa di gestione del portafoglio discrezionale e consultivo, servizi di ricchezza e custodia. Offriamo anche servizi di asset management e strategie di investimento attraverso Lombard Odier Investment Manager e fornire tecnologia bancaria avanzata ad altre istituzioni finanziarie.\n\n“Rethink Everything” è la nostra filosofia – è al centro di tutto ciò che facciamo. Siamo cresciuti più forti attraverso più di 40 crisi finanziarie ripensando il mondo intorno a noi per fornire una nuova prospettiva di investimento per i nostri clienti.\n\nInternship – AI Software Engineer - AI-Powered Relationship Intelligence per Private Banking\n\nI professionisti del Private Banking interagiscono quotidianamente con grandi volumi di clienti, relazioni, conformità e informazioni operative diffuse in più sistemi.\nMentre la nostra piattaforma CRM interna fornisce l'accesso a ricchi set di dati, gli utenti spesso passano tempo significativo alla ricerca di informazioni, identificare le priorità e determinare le azioni più rilevanti da eseguire.\n\nLa prossima generazione del nostro CRM si sta evolvendo da repository informativi verso spazi di lavoro intelligenti in grado di navigare proattivamente intuizioni, rischi, opportunità e azioni raccomandate.\nQuesto tirocinio mira a esplorare come l'intelligenza artificiale può aiutare a trasformare i dati grezzi in intelligenza attuabile fornendo approfondimenti significativi, raccomandazioni e capacità di supporto decisionale direttamente all'interno dei flussi di lavoro aziendali.\n\nIl tuo!\n\n• La ricerca si avvicina all'avanguardia nel CRM alimentato dall'IA, nei sistemi di raccomandazione, nei flussi di lavoro di intelligenza artificiale e agentic.\n\n• Analizzare la gestione delle relazioni, la conformità e i dati operativi.\n\n• Identificare eventi aziendali, segnali comportamentali e modelli che possono guidare raccomandazioni proattive.\n\n• Progettare e sviluppare capacità intelligenti che aiutano gli utenti a concentrarsi su ciò che conta di più.\n\n• Sviluppare modelli di raccomandazione e punteggio in grado di identificare azioni, rischi, opportunità e strozzature operative.\n\n• Esplora Modelli di lingua grande e copiloti AI come meccanismi di supporto decisionale.\n\n• Progettare approcci di raccomandazione spiegabili che aiutano gli utenti a capire perché le azioni sono suggerite.\n\n• Prototipo e valutare esperienze di intelligenza artificiale conversazionale e visiva.\n\n• Collabora con team di prodotti, business e tecnologia.\n\n• Misura l'adozione dell'utente, la qualità della raccomandazione e l'impatto aziendale.\n\nIl tuo progetto\n\n• Studente di Master in Informatica, Scienza dei dati o Ingegneria.\n\n• Interessi nei sistemi di raccomandazione e AI.\n\n• Forte capacità analitiche e di problem solving.\n\n• Familiarità con lo sviluppo del software e l'elaborazione dei dati.\n\n• Giocatore di squadra con forti capacità di comunicazione.\n\n• Residence in Svizzera o disponibilità a trasferirsi\n\nQuello che hai detto\n\n• Lavorare su sistemi intelligenti di supporto decisionale.\n\n• Esposizione alle applicazioni AI con impatto diretto sul business.\n\n• Opportunità di influenzare la produttività del banchiere e il servizio client.\n\n• Collaborazione con team di prodotti, business e tecnologia.\n\nIl DNA della nostra Maison è definito da cinque valori fondamentali. L'eccellenza ci spinge ad essere i migliori a quello che facciamo, mentre l'innovazione alimenta i nostri progressi. Il rispetto sostiene ogni interazione, e l'integrità plasma le nostre azioni. Insieme, siamo un team unico, uniti nel servire i nostri clienti con dedizione inaspettata.\n\nCome datore di lavoro responsabile e di supporto, promuoviamo un ambiente di lavoro diversificato e inclusivo per i nostri dipendenti e candidati. Diversità, equità e inclusione sono tessuti nel tessuto del DNA della nostra Maison, e ci sforziamo di garantire che i nostri dipendenti possano soddisfare sia i loro personali che professionali",
         "en": "A career at Lombard Odier means working for a renowned global wealth and asset manager, with a strong focus on sustainable investing. An innovative bank of choice for private and institutional clients, our independently owned Firm is one of the best-capitalised banking groups in the world, managing close to CHF 300 billion and operating from over 25 offices across 4 continents.\n\nWith a history spanning over 230 years, Lombard Odier is an investment house providing a comprehensive offering of discretionary and advisory portfolio management, wealth services and custody. We also offer asset management services and investment strategies through Lombard Odier Investment Managers and provide advanced banking technology to other financial institutions.\n\n“Rethink Everything” is our philosophy – it is at the heart of everything we do. We have grown stronger through more than 40 financial crises by rethinking the world around us to provide a fresh investment perspective for our clients.\n\nInternship – AI Software Engineer - AI-Powered Relationship Intelligence for Private Banking\n\nPrivate Banking professionals interact daily with large volumes of client, relationship, compliance and operational information spread across multiple systems.\nWhile our inhouse CRM platform provides access to rich datasets, users often spend significant time searching for information, identifying priorities and determining the most relevant actions to perform.\n\nThe next generation of our CRM is evolving from information repositories toward intelligent workspaces capable of proactively surfacing insights, risks, opportunities and recommended actions.\nThis internship aims to explore how Artificial Intelligence can help transform raw data into actionable intelligence by delivering meaningful insights, recommendations and decision-support capabilities directly within business workflows.\n\nYOUR ROLE\n\n• Research state-of-the-art approaches in AI-powered CRM, recommendation systems, explainable AI and agentic workflows.\n\n• Analyze relationship management, compliance and operational data.\n\n• Identify business events, behavioural signals and patterns that can drive proactive recommendations.\n\n• Design and develop intelligent capabilities that help users focus on what matters most.\n\n• Develop recommendation and scoring models capable of identifying relevant actions, risks, opportunities and operational bottlenecks.\n\n• Explore Large Language Models and AI copilots as decision-support mechanisms.\n\n• Design explainable recommendation approaches helping users understand why actions are suggested.\n\n• Prototype and evaluate conversational and visual AI experiences.\n\n• Collaborate with product, business and technology teams.\n\n• Measure user adoption, recommendation quality and business impact.\n\nYOUR PROFILE\n\n• Master's student in Computer Science, Data Science or Engineering.\n\n• Interest in recommendation systems and AI.\n\n• Strong analytical and problem-solving capabilities.\n\n• Familiarity with software development and data processing.\n\n• Team player with strong communication skills.\n\n• Residence in Switzerland or willingness to relocate\n\nWHAT YOU WILL GAIN\n\n• Work on intelligent decision-support systems.\n\n• Exposure to AI applications with direct business impact.\n\n• Opportunity to influence banker productivity and client servicing.\n\n• Collaboration with product, business and technology teams.\n\nOur Maison’s DNA is defined by five core values. Excellence drives us to be the best at what we do, while Innovation fuels our progress. Respect underpins every interaction, and Integrity shapes our actions. Together, we are One Team , united in serving our clients with unwavering dedication.\n\nAs a responsible and supportive employer, we promote a diverse and inclusive work environment for our employees and candidates. Diversity, Equity and Inclusion are woven into the fabric of our Maison’s DNA, and we strive to ensure that our employees can fulfill both their personal and professional aspirations by encouraging internal mobility and individual upskilling programs. We firmly believe that building Diverse Teams contributes to our successes and to deliver on this, we actively embed Diversity, Equity and Inclusion in our business strategy.\n\nIt is an exciting time to join our Teams. All applications will be handled in the strictest confidence.",
-        "de": "Eine Karriere bei Lombard Odier bedeutet, für einen renommierten globalen Vermögensverwalter mit einem starken Fokus auf nachhaltiges Investieren zu arbeiten. Als innovative Bank der Wahl für private und institutionelle Kunden ist unsere unabhängige Kanzlei eine der am besten kapitalisierten Bankengruppen der Welt, die fast CHF 300 Milliarden verwaltet und von über 25 Büros auf 4 Kontinenten aus operiert.\n\nMit einer über 230-jährigen Geschichte ist Lombard Odier ein Investmenthaus, das ein umfassendes Angebot an diskretionärem und beratendem Portfoliomanagement, Vermögensdienstleistungen und Verwahrung bietet. Wir bieten auch Asset-Management-Dienstleistungen und Anlagestrategien durch Lombard Odier Investment Managers und bieten fortschrittliche Banktechnologie für andere Finanzinstitute.\n\n„Rethink Everything ist unsere Philosophie – sie steht im Mittelpunkt von allem, was wir tun. Wir sind durch mehr als 40 Finanzkrisen stärker geworden, indem wir die Welt um uns herum neu überdenken, um unseren Kunden eine neue Investitionsperspektive zu bieten.\n\nPraktikum - AI Software Engineer - AI-Powered Relationship Intelligence für Private Banking\n\nPrivate Banking-Profis interagieren täglich mit großen Mengen an Kunden-, Beziehungs-, Compliance- und Betriebsinformationen, die über mehrere Systeme verteilt sind.\nWährend unsere interne CRM-Plattform Zugriff auf umfangreiche Datensätze bietet, verbringen Benutzer oft viel Zeit mit der Suche nach Informationen, der Identifizierung von Prioritäten und der Festlegung der wichtigsten auszuführenden Maßnahmen.\n\nDie nächste Generation unseres CRM entwickelt sich von Informations-Repositorien hin zu intelligenten Arbeitsbereichen, die in der Lage sind, proaktiv Erkenntnisse, Risiken, Chancen und Handlungsempfehlungen aufzudecken.\nDieses Praktikum zielt darauf ab, zu untersuchen, wie Künstliche Intelligenz dazu beitragen kann, Rohdaten in umsetzbare Intelligenz zu verwandeln, indem sie aussagekräftige Erkenntnisse, Empfehlungen und Entscheidungsunterstützungsfunktionen direkt in Geschäftsworkflows liefert.\n\nIHRE ROLLE\n\n• Forschung State-of-the-Art-Ansätze in AI-powered CRM, Empfehlungssysteme, erklärbare KI und agentische Workflows.\n\n• Analysieren Sie Beziehungsmanagement, Compliance und Betriebsdaten.\n\n• Identifizieren Sie Geschäftsereignisse, Verhaltenssignale und Muster, die proaktive Empfehlungen auslösen können.\n\n• Entwerfen und entwickeln Sie intelligente Fähigkeiten, die den Benutzern helfen, sich auf das Wesentliche zu konzentrieren.\n\n• Entwicklung von Empfehlungs- und Bewertungsmodellen, mit denen relevante Maßnahmen, Risiken, Chancen und operationelle Engpässe identifiziert werden können.\n\n• Erkunden Sie große Sprachmodelle und KI-Kopiloten als Entscheidungshilfemechanismen.\n\n• Entwerfen Sie erklärbare Empfehlungsansätze, die den Benutzern helfen zu verstehen, warum Aktionen vorgeschlagen werden.\n\n• Prototyp und Bewertung von Konversations- und visuellen KI-Erfahrungen.\n\n• Zusammenarbeit mit Produkt-, Geschäfts- und Technologieteams.\n\n• Messen Sie die Benutzerakzeptanz, die Empfehlungsqualität und die Geschäftsauswirkungen.\n\nIHR PROFIL\n\n• Master-Student in Informatik, Data Science oder Engineering.\n\n• Interesse an Empfehlungssystemen und KI.\n\n• Starke analytische und Problemlösungsfähigkeiten.\n\n• Vertrautheit mit Softwareentwicklung und Datenverarbeitung.\n\n• Teamplayer mit starken Kommunikationsfähigkeiten.\n\n• Aufenthalt in der Schweiz oder Umzugsbereitschaft\n\nWAS SIE WERDEN WERDEN\n\n• Arbeiten an intelligenten Entscheidungshilfesystemen.\n\n• Exposition gegenüber KI-Anwendungen mit direkten geschäftlichen Auswirkungen.\n\n• Möglichkeit, die Produktivität der Banker und den Kundenservice zu beeinflussen.\n\n• Zusammenarbeit mit Produkt-, Geschäfts- und Technologieteams.\n\nDie DNA unseres Hauses wird durch fünf Kernwerte definiert. Exzellenz treibt uns an, die Besten bei dem zu sein, was wir tun, während Innovation unseren Fortschritt antreibt. Respekt untermauert jede Interaktion, und Integrität prägt unser Handeln. Zusammen sind wir ein Team, vereint darin, unseren Kunden mit unerschütterlichem Engagement zu dienen.\n\nAls verantwortungsbewusster und unterstützender Arbeitgeber fördern wir ein vielfältiges und integratives Arbeitsumfeld für unsere Mitarbeiter und Kandidaten. Diversität, Gerechtigkeit und Inklusion sind Teil der DNA unseres Hauses und wir bemühen uns sicherzustellen, dass unsere Mitarbeiter sowohl ihre persönlichen als auch ihre beruflichen Ziele erfüllen können, indem sie die interne Mobilität und individuelle Weiterbildungsprogramme fördern. Wir sind fest davon überzeugt, dass der Aufbau von Diverse Teams zu unseren Erfolgen beiträgt, und um dies zu erreichen, binden wir Diversität, Equity und Inklusion aktiv in unsere Geschäftsstrategie ein.\n\nEs ist eine aufregende Zeit, unseren Teams beizutreten. Alle Anwendungen werden im strengsten Vertrauen behandelt.",
+        "de": "Eine Karriere bei Lombard Odier bedeutet, für einen renommierten globalen Vermögensverwalter mit einem starken Fokus auf nachhaltiges Investieren zu arbeiten. Als innovative Bank der Wahl für private und institutionelle Kunden ist unsere unabhängige Kanzlei eine der am besten kapitalisierten Bankengruppen der Welt, die fast CHF 300 Milliarden verwaltet und von über 25 Büros auf 4 Kontinenten aus operiert.\n\nMit einer über 230-jährigen Geschichte ist Lombard Odier ein Investmenthaus, das ein umfassendes Angebot an diskretionärem und beratendem Portfoliomanagement, Vermögensdienstleistungen und Verwahrung bietet. Wir bieten auch Asset-Management-Dienstleistungen und Anlagestrategien durch Lombard Odier Investment Managers und bieten fortschrittliche Banktechnologie für andere Finanzinstitute.\n\n„Rethink Everything ist unsere Philosophie – sie steht im Mittelpunkt von allem, was wir tun. Wir sind durch mehr als 40 Finanzkrisen stärker geworden, indem wir die Welt um uns herum neu überdenken, um unseren Kunden eine neue Investitionsperspektive zu bieten.\n\nPraktikum - AI Software Engineer - AI-Powered Relationship Intelligence für Private Banking\n\nPrivate Banking-Profis interagieren täglich mit großen Mengen an Kunden-, Beziehungs-, Compliance- und Betriebsinformationen, die über mehrere Systeme verteilt sind.\nWährend unsere interne CRM-Plattform Zugriff auf umfangreiche Datensätze bietet, verbringen Benutzer oft viel Zeit mit der Suche nach Informationen, der Identifizierung von Prioritäten und der Festlegung der wichtigsten auszuführenden Maßnahmen.\n\nDie nächste Generation unseres CRM entwickelt sich von Informations-Repositorien hin zu intelligenten Arbeitsbereichen, die in der Lage sind, proaktiv Erkenntnisse, Risiken, Chancen und Handlungsempfehlungen aufzudecken.\nDieses Praktikum zielt darauf ab, zu untersuchen, wie Künstliche Intelligenz dazu beitragen kann, Rohdaten in umsetzbare Intelligenz zu verwandeln, indem sie aussagekräftige Erkenntnisse, Empfehlungen und Entscheidungsunterstützungsfunktionen direkt in Geschäftsworkflows liefert.\n\nIHRE ROLLE\n\n• Forschung State-of-the-Art-Ansätze in AI-powered CRM, Empfehlungssysteme, erklärbare KI und agentische Workflows.\n\n• Analysieren Sie Beziehungsmanagement, Compliance und Betriebsdaten.\n\n• Identifizieren Sie Geschäftsereignisse, Verhaltenssignale und Muster, die proaktive Empfehlungen auslösen können.\n\n• Entwerfen und entwickeln Sie intelligente Fähigkeiten, die den Benutzern helfen, sich auf das Wesentliche zu konzentrieren.\n\n• Entwicklung von Empfehlungs- und Bewertungsmodellen, mit denen relevante Maßnahmen, Risiken, Chancen und operationelle Engpässe identifiziert werden können.\n\n• Erkunden Sie große Sprachmodelle und KI-Kopiloten als Entscheidungshilfemechanismen.\n\n• Entwerfen Sie erklärbare Empfehlungsansätze, die den Benutzern helfen zu verstehen, warum Aktionen vorgeschlagen werden.\n\n• Prototyp und Bewertung von Konversations- und visuellen KI-Erfahrungen.\n\n• Zusammenarbeit mit Produkt-, Geschäfts- und Technologieteams.\n\n• Messen Sie die Benutzerakzeptanz, die Empfehlungsqualität und die Geschäftsauswirkungen.\n\nIHR PROFIL\n\n• Master-Student in Informatik, Data Science oder Engineering.\n\n• Interesse an Empfehlungssystemen und KI.\n\n• Starke analytische und Problemlösungsfähigkeiten.\n\n• Vertrautheit mit Softwareentwicklung und Datenverarbeitung.\n\n• Teamplayer mit starken Kommunikationsfähigkeiten.\n\n• Aufenthalt in der Schweiz oder Umzugsbereitschaft\n\nWAS SIE WERDEN WERDEN\n\n• Arbeiten an intelligenten Entscheidungshilfesystemen.\n\n• Exposition gegenüber KI-Anwendungen mit direkten geschäftlichen Auswirkungen.\n\n• Möglichkeit, die Produktivität der Banker und den Kundenservice zu beeinflussen.\n\nDie DNA unseres Hauses wird durch fünf Kernwerte definiert. Exzellenz treibt uns an, die Besten bei dem zu sein, was wir tun, während Innovation unseren Fortschritt antreibt. Respekt untermauert jede Interaktion, und Integrität prägt unser Handeln. Zusammen sind wir ein Team, vereint darin, unseren Kunden mit unerschütterlichem Engagement zu dienen.\n\nAls verantwortungsbewusster und unterstützender Arbeitgeber fördern wir ein vielfältiges und integratives Arbeitsumfeld für unsere Mitarbeiter und Kandidaten. Diversität, Gerechtigkeit und Inklusion sind Teil der DNA unseres Hauses und wir bemühen uns sicherzustellen, dass unsere Mitarbeiter sowohl ihre persönlichen als auch ihre beruflichen Ziele erfüllen können, indem sie die interne Mobilität und individuelle Weiterbildungsprogramme fördern. Wir sind fest davon überzeugt, dass der Aufbau von Diverse Teams zu unseren Erfolgen beiträgt, und um dies zu erreichen, binden wir Diversität, Equity und Inklusion aktiv in unsere Geschäftsstrategie ein.\n\nEs ist eine aufregende Zeit, unseren Teams beizutreten. Alle Anwendungen werden im strengsten Vertrauen behandelt.",
         "fr": "Une carrière chez Lombard Odier signifie travailler pour un gérant mondial de patrimoine et d'actifs renommé, avec un accent fort sur l'investissement durable. Banque innovante de choix pour les clients privés et institutionnels, notre entreprise indépendante est l'un des groupes bancaires les mieux capitalisés au monde, gérant près de 300 milliards de francs et opérant depuis plus de 25 bureaux répartis sur 4 continents.\n\nAvec une histoire de plus de 230 ans, Lombard Odier est une maison d'investissement offrant une offre complète de gestion de portefeuille discrétionnaire et consultative, de services de patrimoine et de garde. Nous offrons également des services de gestion d'actifs et des stratégies d'investissement par l'intermédiaire de Lombard Odier Investment Managers et fournissons une technologie bancaire avancée à d'autres institutions financières.\n\nRepenser Tout est notre philosophie – elle est au cœur de tout ce que nous faisons. Nous sommes devenus plus forts grâce à plus de 40 crises financières en repensant le monde qui nous entoure pour offrir une nouvelle perspective d'investissement à nos clients.\n\nStage – Ingénieur logiciel AI - Intelligence relationnelle AI pour la banque privée\n\nLes professionnels de la banque privée interagissent quotidiennement avec un grand nombre de clients, de relations, de conformité et d'informations opérationnelles réparties sur plusieurs systèmes.\nBien que notre plateforme interne de CRM donne accès à de riches ensembles de données, les utilisateurs passent souvent beaucoup de temps à chercher de l'information, à identifier les priorités et à déterminer les actions les plus pertinentes à exécuter.\n\nLa prochaine génération de notre CRM est en train de passer des dépôts d'information à des espaces de travail intelligents capables de faire face de façon proactive aux idées, aux risques, aux opportunités et aux actions recommandées.\nCe stage vise à explorer comment l'Intelligence Artificielle peut aider à transformer les données brutes en intelligence actionnable en fournissant des idées significatives, des recommandations et des capacités de soutien à la décision directement dans les flux de travail opérationnels.\n\nVotre rôle\n\n• Rechercher des approches à la fine pointe de la technologie dans le CRM, les systèmes de recommandation, l'IA explicable et les flux de travail des agents.\n\n• Analyser la gestion des relations, la conformité et les données opérationnelles.\n\n• Identifier les événements d'affaires, les signaux comportementaux et les modèles qui peuvent mener à des recommandations proactives.\n\n• Concevoir et développer des capacités intelligentes qui aident les utilisateurs à se concentrer sur ce qui compte le plus.\n\n• Élaborer des modèles de recommandation et de notation permettant de déterminer les mesures, les risques, les possibilités et les goulets d'étranglement opérationnels pertinents.\n\n• Explorer les grands modèles linguistiques et les copilotes d'IA comme mécanismes d'aide à la décision.\n\n• Concevoir des méthodes de recommandation explicables pour aider les utilisateurs à comprendre pourquoi des mesures sont suggérées.\n\n• Prototyper et évaluer les expériences d'IA conversationnelle et visuelle.\n\n• Collaborer avec des équipes de produits, d'affaires et de technologie.\n\n• Mesurer l'adoption par les utilisateurs, la qualité des recommandations et l'impact des activités.\n\nVOTRE PROFIL\n\n• Maîtrise en informatique, informatique ou génie.\n\n• Intérêt pour les systèmes de recommandation et l'IA.\n\n• Fortes capacités d'analyse et de résolution de problèmes.\n\n• Connaissance du développement logiciel et du traitement des données.\n\n• Joueur d'équipe avec de solides compétences en communication.\n\n• Résidence en Suisse ou volonté de déménager\n\nCe que tu vas avoir\n\n• Travailler sur des systèmes intelligents de soutien à la décision.\n\n• Exposition aux applications d'IA ayant un impact commercial direct.\n\n• Possibilité d'influencer la productivité des banquiers et le service à la clientèle.\n\n• Collaboration avec les équipes de produits, d'affaires et de technologie.\n\nL'ADN de la Maison est défini par cinq valeurs fondamentales. L'excellence nous pousse à être les meilleurs dans ce que nous faisons, tandis que l'innovation alimente nos progrès. Le respect sous-tend chaque interaction, et l'intégrité façonne nos actions. Ensemble, nous sommes une équipe, unie pour servir nos clients avec un dévouement indéfectible.\n\nEn tant qu'employeur responsable et solidaire, nous favorisons un milieu de travail diversifié et inclusif pour nos employés et nos candidats. Diversité, équité et inclusion sont tissés dans le tissu de notre ADN Maison, et nous nous efforçons de faire en sorte que nos employés puissent remplir leurs obligations personnelles et professionnelles."
       },
+      "needsRetranslation": true,
       "location": "Geneva",
       "canton": "GE",
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Powered-Relationship-Intelligence-for-Private-Banking_R0007641",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:07.450Z",
+      "crawledAt": "2026-11-01T09:48:18.902Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2271,7 +2380,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:18.902Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-f37533bfd0d8",
@@ -2304,7 +2417,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Powered-CRM---Mobile-CRM-Features--Voice-Notes---Smart-Notifications-_R0007642",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:06.688Z",
+      "crawledAt": "2026-11-01T09:48:18.216Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2351,7 +2464,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:18.216Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-b18868e30ef3",
@@ -2384,7 +2501,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Software-Engineer---Competency-Graph-Administration-Platform-Modernization_R0007643",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:05.912Z",
+      "crawledAt": "2026-11-01T09:48:17.516Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2431,7 +2548,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:17.516Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-4a6b078c8499",
@@ -2464,7 +2585,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Engineer---AI-in-Enterprise-Java-Application-Frameworks_R0007635",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:05.141Z",
+      "crawledAt": "2026-11-01T09:48:16.819Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2511,7 +2632,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:16.819Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-9e6d2354b21a",
@@ -2544,7 +2669,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Engineer---AI-Powered-Software-Migration-Factory_R0007636-1",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:04.062Z",
+      "crawledAt": "2026-11-01T09:48:15.850Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2591,7 +2716,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:15.850Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-97e67469d3ef",
@@ -2624,7 +2753,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Workstation-Architect_R0007645",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:02.621Z",
+      "crawledAt": "2026-11-01T09:48:14.871Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2671,7 +2800,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:48:14.871Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-afe610bb7bcb",
@@ -2704,7 +2837,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Platform-Engineer---Secure-Cloud-Native-Platforms-for-Financial-Services_R0007619",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:01.819Z",
+      "crawledAt": "2026-11-01T09:48:14.185Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2751,7 +2884,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:14.185Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-b3ad87b77665",
@@ -2785,7 +2922,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Zrich/International-IT-Services-Specialist--80-100--_R0007666",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:01.099Z",
+      "crawledAt": "2026-11-01T09:48:13.539Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2831,7 +2968,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:48:13.539Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-ce9a9fa0eb4e",
@@ -2865,7 +3006,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/HR-Strategy---Transformation-Specialist--80-100--_R0007665",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:59.625Z",
+      "crawledAt": "2026-11-01T09:48:12.269Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2912,7 +3053,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:48:12.269Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-cdda189a35f1",
@@ -2945,7 +3090,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Application-Support-Specialist---Front-Office_R0007517",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:58.913Z",
+      "crawledAt": "2026-11-01T09:48:11.616Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2994,7 +3139,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:11.616Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-f7e760d26ed5",
@@ -3028,7 +3177,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Integration-and-DevOps-Engineer--80-100--_R0007610",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:58.221Z",
+      "crawledAt": "2026-11-01T09:48:10.924Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3075,7 +3224,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:10.924Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-82ae38dce459",
@@ -3109,7 +3262,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Enhancing-Financial-Knowledge-Access-with-Generative-AI_R0007258",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:57.431Z",
+      "crawledAt": "2026-11-01T09:48:10.273Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3158,7 +3311,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:48:10.273Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-95554c63e49c",
@@ -3192,7 +3349,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Microsoft-365-Collaboration-Engineer--80-100--_R0007465",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:56.046Z",
+      "crawledAt": "2026-11-01T09:48:08.873Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3239,7 +3396,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:48:08.873Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-a18f6ea06a0d",
@@ -3273,7 +3434,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Tax-Reporting-Specialist--80-100--_R0007476",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.337Z",
+      "crawledAt": "2026-11-01T09:48:08.218Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3320,7 +3481,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:48:08.218Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-9eff9f3aa7ea",
@@ -3353,7 +3518,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Test-Architect--80-100--_R0007222",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:54.628Z",
+      "crawledAt": "2026-11-01T09:48:07.573Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3402,7 +3567,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:48:07.573Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-048e1f50d23f",
@@ -3436,7 +3605,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Unified-Communications-Manager--80-100--_R0007521",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:53.223Z",
+      "crawledAt": "2026-11-01T09:48:06.298Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3483,7 +3652,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:48:06.298Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-2c4dfba70520",
@@ -3516,7 +3689,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Operations-Support---Transformation-Specialist--80-100--_R0007719",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:52.529Z",
+      "crawledAt": "2026-11-01T09:48:05.650Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3563,7 +3736,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:48:05.650Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-471559e6aa6a",
@@ -3596,7 +3773,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Zrich/Mitarbeiter-in-Corporate-Services-100-_R0007722",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:49:51.445Z",
+      "crawledAt": "2026-11-01T09:48:04.694Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3643,7 +3820,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:48:04.694Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-66a76e85ee63",
@@ -3677,7 +3858,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Senior-IT-Production-Engineer---Scheduling---File-Transfer---Monitoring--80-100--_R0007103",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:50.313Z",
+      "crawledAt": "2026-11-01T09:48:03.700Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3741,7 +3922,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:03.700Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-29aef618b2dc",
@@ -3775,7 +3960,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Chief-of-Staff---IT-Infrastructure--80-100--_R0007547",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:49.594Z",
+      "crawledAt": "2026-11-01T09:48:03.003Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3824,7 +4009,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:48:03.003Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-1afe7d213da1",
@@ -3858,7 +4047,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Data-Architect--80-100--_R0007655",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:48.562Z",
+      "crawledAt": "2026-11-01T09:48:02.312Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3902,7 +4091,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:48:02.312Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-2d5ede4799cb",
@@ -3936,7 +4129,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Spcialiste-Digital--IA---Excellence-Oprationnelle--80-100--_R0007730",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:49:47.868Z",
+      "crawledAt": "2026-11-01T09:48:01.585Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3983,7 +4176,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:48:01.585Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lombard-odier-52f8733a8e88",
@@ -4017,7 +4214,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Treasury-Officer--80-100--_R0007743",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:47.159Z",
+      "crawledAt": "2026-11-01T09:48:00.898Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4064,7 +4261,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:48:00.898Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

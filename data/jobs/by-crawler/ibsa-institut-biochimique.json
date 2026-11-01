@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ibsa-institut-biochimique",
-  "assembledAt": "2026-10-31T09:37:25.442Z",
-  "runId": "41187978199",
+  "assembledAt": "2026-11-01T09:32:35.442Z",
+  "runId": "41292374401",
   "jobs": [
     {
       "id": "company-52pqq",
@@ -29,7 +29,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-31T09:37:09.959Z",
+      "crawledAt": "2026-11-01T09:32:27.881Z",
       "firstSeenAt": "2026-10-30T21:23:34.237Z",
       "titleByLocale": {
         "it": "Communication Specialista",
@@ -76,7 +76,11 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddress": "Lugano-Castagnola",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-14T09:32:27.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-uxcw7b",
@@ -111,7 +115,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-31T09:37:09.959Z",
+      "crawledAt": "2026-11-01T09:32:27.881Z",
       "firstSeenAt": "2026-10-15T21:22:55.556Z",
       "titleByLocale": {
         "it": "Sr Drug Safety Specialista & Deputy QPPV",
@@ -176,7 +180,11 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddress": "Collina d'Oro",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:27.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-v13loz",
@@ -208,7 +216,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-31T09:37:09.959Z",
+      "crawledAt": "2026-11-01T09:32:27.881Z",
       "firstSeenAt": "2026-10-15T21:22:55.556Z",
       "titleByLocale": {
         "en": "Affiliates HR Specialist",
@@ -268,7 +276,11 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddress": "Collina d'Oro",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:32:27.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-3md54o",
@@ -298,7 +310,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-31T09:37:09.959Z",
+      "crawledAt": "2026-11-01T09:32:27.881Z",
       "firstSeenAt": "2026-09-09T23:11:44.442Z",
       "titleByLocale": {
         "fr": "Partenaire RH",
@@ -371,7 +383,11 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://career.ibsagroup.com/job/Collina-d'Oro-HR-Business-Partner-TI-6926/1367796755/",
       "datePosted": "2026-10-08T02:00:00Z",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "streetAddress": "Collina d'Oro",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:27.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-pt8y8b",
@@ -402,7 +418,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-31T09:37:09.959Z",
+      "crawledAt": "2026-11-01T09:32:27.881Z",
       "firstSeenAt": "2026-08-31T21:29:17.361Z",
       "titleByLocale": {
         "en": "IT Category Manager",
@@ -473,7 +489,11 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://career.ibsagroup.com/job/Grancia-IT-Category-Manager-TI-6916/1365742755/",
       "datePosted": "2026-09-24T02:00:00Z",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "streetAddress": "Grancia",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:32:27.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-uz2sd8",
@@ -506,7 +526,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-31T09:37:09.959Z",
+      "crawledAt": "2026-11-01T09:32:27.881Z",
       "firstSeenAt": "2026-09-23T23:48:30.532Z",
       "titleByLocale": {
         "en": "Project Manager R&D",
@@ -569,7 +589,11 @@
       },
       "employmentType": "FULL_TIME",
       "datePosted": "2026-09-23T00:00:00Z",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "streetAddress": "Grancia",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:27.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-uz5a39",
@@ -602,7 +626,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-31T09:37:09.959Z",
+      "crawledAt": "2026-11-01T09:32:27.881Z",
       "firstSeenAt": "2026-09-23T23:48:30.532Z",
       "titleByLocale": {
         "en": "Project Management Specialist",
@@ -663,7 +687,11 @@
       },
       "employmentType": "FULL_TIME",
       "datePosted": "2026-09-23T00:00:00Z",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "streetAddress": "Grancia",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:32:27.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-ro7hf5",
@@ -692,7 +720,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-31T09:37:09.959Z",
+      "crawledAt": "2026-11-01T09:32:27.881Z",
       "firstSeenAt": "2026-08-24T10:28:44.645Z",
       "titleByLocale": {
         "en": "Lead HR Operations Officer",
@@ -751,7 +779,11 @@
       "postalCode": "6919",
       "applyUrl": "https://career.ibsagroup.com/job/Collina-d'Oro-Lead-HR-Operations-Officer-TI-6926/1365369255/",
       "datePosted": "2026-09-22T02:00:00Z",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "streetAddress": "Collina d'Oro",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:27.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-um2f7f",
@@ -781,7 +813,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-10-31T09:37:09.959Z",
+      "crawledAt": "2026-11-01T09:32:27.881Z",
       "firstSeenAt": "2026-10-15T21:22:55.556Z",
       "slugByLocale": {
         "de": "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co-um2f7f",
@@ -835,7 +867,11 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddress": "Collina d'Oro",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:27.881Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

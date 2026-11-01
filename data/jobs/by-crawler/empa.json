@@ -1,7 +1,7 @@
 {
   "crawlerKey": "empa",
-  "assembledAt": "2026-10-31T09:50:03.073Z",
-  "runId": "41188195639",
+  "assembledAt": "2026-11-01T09:40:28.552Z",
+  "runId": "41292611758",
   "jobs": [
     {
       "id": "empa-e5605f1e4107",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/673276/2199/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:49:55.256Z",
+      "crawledAt": "2026-11-01T09:40:20.545Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -99,7 +99,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:40:20.545Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-18740ead79ed",
@@ -132,7 +135,7 @@
       "url": "https://apply.refline.ch/673276/2197/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:49:55.254Z",
+      "crawledAt": "2026-11-01T09:40:20.542Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -221,7 +224,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:40:20.542Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-d5c944130420",
@@ -254,7 +260,7 @@
       "url": "https://apply.refline.ch/673276/2220/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:49:55.251Z",
+      "crawledAt": "2026-11-01T09:40:20.540Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -332,7 +338,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:40:20.540Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-684bd7cd8e78",
@@ -365,7 +374,7 @@
       "url": "https://apply.refline.ch/673276/2223/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:49:55.248Z",
+      "crawledAt": "2026-11-01T09:40:20.537Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -439,7 +448,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:40:20.537Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-96321f4a5541",
@@ -472,7 +484,7 @@
       "url": "https://apply.refline.ch/673276/2226/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.247Z",
+      "crawledAt": "2026-11-01T09:40:20.536Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -515,7 +527,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-02T09:40:20.536Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-0af71a5099a5",
@@ -548,7 +563,7 @@
       "url": "https://apply.refline.ch/673276/2229/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.245Z",
+      "crawledAt": "2026-11-01T09:40:20.534Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -591,7 +606,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-03T09:40:20.534Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-916a5cd93e8a",
@@ -624,7 +642,7 @@
       "url": "https://apply.refline.ch/673276/2228/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.243Z",
+      "crawledAt": "2026-11-01T09:40:20.533Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -667,7 +685,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-03T09:40:20.533Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-ba09f35f5dd0",
@@ -700,7 +721,7 @@
       "url": "https://apply.refline.ch/673276/2231/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.242Z",
+      "crawledAt": "2026-11-01T09:40:20.532Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -743,7 +764,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-08T09:40:20.532Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-3fa00ba46829",
@@ -776,7 +800,7 @@
       "url": "https://apply.refline.ch/673276/2233/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.241Z",
+      "crawledAt": "2026-11-01T09:40:20.530Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -819,7 +843,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-10T09:40:20.530Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-9df9ad0ef261",
@@ -852,7 +879,7 @@
       "url": "https://apply.refline.ch/673276/2232/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.239Z",
+      "crawledAt": "2026-11-01T09:40:20.526Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -895,7 +922,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-10T09:40:20.526Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-606a70e8b53e",
@@ -928,7 +958,7 @@
       "url": "https://apply.refline.ch/673276/2234/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.235Z",
+      "crawledAt": "2026-11-01T09:40:20.524Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -971,83 +1001,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "empa-e05199f1b17e",
-      "slug": "specialista-risorse-umane-administration-risorse-umane-it-80-100-empa-dubendorf",
-      "slugByLocale": {
-        "it": "specialista-risorse-umane-administration-risorse-umane-it-80-100-empa-dubendorf",
-        "en": "specialist-hr-administration-hr-it-80-100-empa-dubendorf",
-        "de": "specialist-hr-administration-hr-it-80-100-empa-dubendorf",
-        "fr": "specialiste-ressources-humaines-administration-ressources-humaines-it-80-100-empa-dubendorf"
       },
-      "company": "Empa",
-      "companyKey": "empa",
-      "companyDomain": "empa.ch",
-      "title": "Specialist HR-Administration & HR IT (80-100%)",
-      "titleByLocale": {
-        "it": "Specialista Risorse Umane-Administration & Risorse Umane IT (80-100%)",
-        "en": "HR Administration Specialist & HR IT (80-100%)",
-        "de": "Specialist HR-Administration & HR IT (80-100%)",
-        "fr": "Spécialiste Ressources Humaines-Administration & Ressources Humaines IT (80-100%)"
-      },
-      "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nSpecialist HR-Administration & HR IT (80-100%)\n\nDie HR-Abteilung ermöglicht die Gewinnung, Betreuung, Entwicklung und Administration von Talenten aus rund 50 Nationen. Zur Verstärkung des Teams HR-Administration & -IT Applikation am Standort Dübendorf suchen wir eine zuverlässige, kommunikative und teamorientierte Persönlichkeit.\n\nIhre Aufgaben\n\nIn dieser abwechslungsreichen Funktion betreuen Sie selbständig eine Organisationseinheit mit Personal am Standort Dübendorf.\n\n• Selbständige Bearbeitung sämtlicher personal-administrativer Aufgaben für einen Teilbereich, im Zusammenhang mit Anstellung, Betreuung und Austritt von Mitarbeitenden, Praktikanten, Diplomanden und akademischen Gästen\n\n• Steuerung der HR-Prozesse vom Eintritt bis zum Austritt: Einholen von Aufenthalts- und Arbeitsbewilligungen, Vertragsänderungen, Verlängerungen sowie Austritt mit Arbeitszeugnis (ohne Saläradministration und Sozialversicherungen)\n\n• Erste Anlaufstelle für administrative Fragen, mit vielfältigen Kontakten zu Mitarbeitenden und Behörden\n\n• Bearbeitung der Aufgaben in zunehmendem Masse mit modernen HR-IT-Tools, im Rahmen der laufenden Weiterentwicklung unserer HR-Applikationen und des Ausbaus der E-Workflows\n\n• Aktive Mitwirkung bei Digitalisierungsprojekten und der Weiterentwicklung unserer HR-Tools, mit der Möglichkeit, dich in diesem Bereich gezielt weiterzuentwickeln\n\n• Übernahme von Spezialaufgaben\n\nIhr Profil\n\n• Mehrjährige Erfahrung in der Personaladministration oder einer vergleichbaren Position\n\n• Höhere Personalfachausbildung (Eidg. HR-Fachausweis)\n\n• Ausgeprägte IT-Affinität sowie Freude am Arbeiten mit digitalen HR-Tools und Systemen\n\n• Erfahrung in der Digitalisierung oder Automatisierung von HR-Prozessen, z. B. durch Mitwirkung bei der Einführung neuer Tools oder E-Workflows\n\n• Ambition, sich fachlich in Richtung HR-Digitalisierung weiterzuentwickeln und mittelfristig mehr Verantwortung in diesem Bereich zu übernehmen\n\n• Wille, Prozesse schlank, effizient und kundenfreundlich zu gestalten\n\n• Strukturierte, sorgfältige Arbeitsweise sowie hohe Diskretion im Umgang mit sensiblen Personendaten\n\n• Dienstleistungsorientierung und Kommunikationsstärke im Kontakt mit Mitarbeitenden und Behörden\n\n• Sehr gute Deutsch- und Englischkenntnisse für die gewandte Kommunikation im internationalen, multikulturellen Umfeld\n\nUnser Angebot\n\nWir bieten Ihnen viel Spielraum in einer spannenden, stimulierenden und dynamischen Umgebung, in der Innovation, Kreativität und Teamgeist wichtige Erfolgsfaktoren sind. Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\n.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnissen und Diplomen. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
-      "descriptionByLocale": {
-        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo decisivo a beneficio della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH.\n\nSpecialist HR Administration & HR IT (80-100%)\n\nIl reparto HR consente il reclutamento, mentoring, sviluppo e amministrazione di talenti provenienti da circa 50 nazioni. Per rafforzare il team HR Administration & IT Application nel sito Dübendorf, stiamo cercando una personalità affidabile, comunicativa e orientata al team.\n\nI loro compiti\n\nIn questa variegata funzione, si supervisiona in modo indipendente un'unità organizzativa con il personale nella posizione di Dübendorf.\n\n• Autooccupazione di tutti i compiti amministrativi del personale per una subzona, in relazione all'occupazione, al sostegno e alle dimissioni di dipendenti, tirocinanti, studenti di diploma e ospiti accademici\n\n• Gestione dei processi HR dall'ingresso all'uscita: ottenere permessi di soggiorno e di lavoro, modifiche contrattuali, estensioni e uscite con certificato di occupazione (senza amministrazione salariale e assicurazione sociale)\n\n• Primo punto di contatto per questioni amministrative, con diversi contatti con dipendenti e autorità\n\n• I compiti di elaborazione sempre più con moderni strumenti IT HR, nell'ambito dello sviluppo continuo delle nostre applicazioni HR e dell'espansione dei flussi di e-work\n\n• Partecipazione attiva ai progetti di digitalizzazione e sviluppo ulteriore dei nostri strumenti HR, con l'opportunità di svilupparsi in questo settore\n\n• Assunzione di compiti specializzati\n\nIl tuo profilo\n\n• Diversi anni di esperienza nell'amministrazione del personale o una posizione paragonabile\n\n• Formazione specialistica delle risorse umane superiore (certificato professionale HR federale)\n\n• Forte affinità IT e godimento lavorando con strumenti e sistemi digitali HR\n\n• Esperienza nella digitalizzazione o nell'automazione dei processi HR, ad esempio B. partecipando all'introduzione di nuovi strumenti o flussi di lavoro\n\n• Ambizione di sviluppare professionalmente verso la digitalizzazione delle risorse umane e di assumersi più responsabilità in questo settore a medio termine\n\n• Volontà di progettazione dei processi orientati, efficienti e rispettosi del cliente\n\n• Metodi di lavoro strutturati, attenti e ad alta discrezione nel trattamento dei dati personali sensibili\n\n• Orientamento del servizio e forza di comunicazione a contatto con i dipendenti e le autorità\n\n• Ottima conoscenza del tedesco e dell'inglese per una comunicazione sapiente in un ambiente internazionale e multiculturale\n\nLa nostra offerta\n\nVi offriamo un sacco di spazio in un ambiente emozionante, stimolante e dinamico in cui innovazione, creatività e spirito di squadra sono fattori di successo importanti. Viviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che hanno il desiderio di attività innovative, sostenibili e significative - solo che conta.\n\n.\n\nNon vediamo l'ora della tua applicazione online completa incl. Lettera di motivazione, CV, certificati e diplomi. Si prega di inviarli esclusivamente tramite il nostro portale di applicazione. Le domande per e-mail o per posta non saranno considerate.",
-        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa’s approximately 1,100 employees make decisive contributions to the benefit of society for a future worth living in. Empa is a research institution of the ETH Domain.\n\nSpecialist HR Administration & HR IT (80-100%)\n\nThe HR department enables the recruitment, mentoring, development and administration of talent from around 50 nations. To strengthen the HR Administration & IT Application team at the Dübendorf site, we are looking for a reliable, communicative and team-oriented personality.\n\nTheir tasks\n\nIn this varied function, you independently supervise an organizational unit with staff at the Dübendorf location.\n\n• Self-employment of all personnel-administrative tasks for a sub-area, in connection with the employment, support and resignation of employees, interns, diploma students and academic guests\n\n• Management of HR processes from entry to exit: obtaining residence and work permits, contract changes, extensions and exit with employment certificate (without salary administration and social insurance)\n\n• First point of contact for administrative issues, with diverse contacts with employees and authorities\n\n• Processing tasks increasingly with modern HR IT tools, as part of the ongoing development of our HR applications and the expansion of e-workflows\n\n• Active participation in digitalization projects and the further development of our HR tools, with the opportunity to develop yourself in this area\n\n• Taking on specialised tasks\n\nYour profile\n\n• Several years of experience in personnel administration or a comparable position\n\n• Higher Human Resources Specialist Training (Federal HR Professional Certificate)\n\n• Strong IT affinity and enjoyment working with digital HR tools and systems\n\n• Experience in the digitization or automation of HR processes, e.g. B. by participating in the introduction of new tools or e-workflows\n\n• Ambition to develop professionally towards HR digitization and to assume more responsibility in this area in the medium term\n\n• Will to design processes lean, efficient and customer-friendly\n\n• Structured, careful working methods as well as high discretion in handling sensitive personal data\n\n• Service orientation and communication strength in contact with employees and authorities\n\n• Very good knowledge of German and English for skilful communication in an international, multicultural environment\n\nOur offer\n\nWe offer you plenty of leeway in an exciting, stimulating and dynamic environment where innovation, creativity and team spirit are important success factors. We live a culture of inclusion and respect. We welcome all people who have the desire for innovative, sustainable and meaningful activities - only that counts.\n\n.\n\nWe look forward to your complete online application incl. Letter of motivation, CV, certificates and diplomas. Please submit them exclusively via our application portal. Applications by e-mail or by post will not be considered.",
-        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nSpecialist HR-Administration & HR IT (80-100%)\n\nDie HR-Abteilung ermöglicht die Gewinnung, Betreuung, Entwicklung und Administration von Talenten aus rund 50 Nationen. Zur Verstärkung des Teams HR-Administration & -IT Applikation am Standort Dübendorf suchen wir eine zuverlässige, kommunikative und teamorientierte Persönlichkeit.\n\nIhre Aufgaben\n\nIn dieser abwechslungsreichen Funktion betreuen Sie selbständig eine Organisationseinheit mit Personal am Standort Dübendorf.\n\n• Selbständige Bearbeitung sämtlicher personal-administrativer Aufgaben für einen Teilbereich, im Zusammenhang mit Anstellung, Betreuung und Austritt von Mitarbeitenden, Praktikanten, Diplomanden und akademischen Gästen\n\n• Steuerung der HR-Prozesse vom Eintritt bis zum Austritt: Einholen von Aufenthalts- und Arbeitsbewilligungen, Vertragsänderungen, Verlängerungen sowie Austritt mit Arbeitszeugnis (ohne Saläradministration und Sozialversicherungen)\n\n• Erste Anlaufstelle für administrative Fragen, mit vielfältigen Kontakten zu Mitarbeitenden und Behörden\n\n• Bearbeitung der Aufgaben in zunehmendem Masse mit modernen HR-IT-Tools, im Rahmen der laufenden Weiterentwicklung unserer HR-Applikationen und des Ausbaus der E-Workflows\n\n• Aktive Mitwirkung bei Digitalisierungsprojekten und der Weiterentwicklung unserer HR-Tools, mit der Möglichkeit, dich in diesem Bereich gezielt weiterzuentwickeln\n\n• Übernahme von Spezialaufgaben\n\nIhr Profil\n\n• Mehrjährige Erfahrung in der Personaladministration oder einer vergleichbaren Position\n\n• Höhere Personalfachausbildung (Eidg. HR-Fachausweis)\n\n• Ausgeprägte IT-Affinität sowie Freude am Arbeiten mit digitalen HR-Tools und Systemen\n\n• Erfahrung in der Digitalisierung oder Automatisierung von HR-Prozessen, z. B. durch Mitwirkung bei der Einführung neuer Tools oder E-Workflows\n\n• Ambition, sich fachlich in Richtung HR-Digitalisierung weiterzuentwickeln und mittelfristig mehr Verantwortung in diesem Bereich zu übernehmen\n\n• Wille, Prozesse schlank, effizient und kundenfreundlich zu gestalten\n\n• Strukturierte, sorgfältige Arbeitsweise sowie hohe Diskretion im Umgang mit sensiblen Personendaten\n\n• Dienstleistungsorientierung und Kommunikationsstärke im Kontakt mit Mitarbeitenden und Behörden\n\n• Sehr gute Deutsch- und Englischkenntnisse für die gewandte Kommunikation im internationalen, multikulturellen Umfeld\n\nUnser Angebot\n\nWir bieten Ihnen viel Spielraum in einer spannenden, stimulierenden und dynamischen Umgebung, in der Innovation, Kreativität und Teamgeist wichtige Erfolgsfaktoren sind. Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\n.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnissen und Diplomen. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
-        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à notre recherche de pointe, Empa, environ 1 100 employés apportent une contribution décisive au bénéfice de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH.\n\nSpécialiste en administration des RH et en TI des RH (80-100%)\n\nLe département RH permet le recrutement, le mentorat, le perfectionnement et l'administration de talents provenant d'une cinquantaine de pays. Pour renforcer l'équipe d'applications RH Administration & IT sur le site de Dübendorf, nous recherchons une personnalité fiable, communicative et orientée vers l'équipe.\n\nLeurs tâches\n\nDans cette fonction variée, vous supervisez indépendamment une unité organisationnelle avec du personnel à l'emplacement de Dübendorf.\n\n• Travail indépendant de toutes les tâches administratives du personnel pour une sous-zone, en rapport avec l'emploi, le soutien et la démission des employés, des stagiaires, des étudiants diplômés et des étudiants invités\n\n• Gestion des processus RH de l'entrée à la sortie: obtention de permis de séjour et de travail, modification de contrat, prolongation et sortie avec certificat d'emploi (sans administration salariale et assurance sociale)\n\n• Premier point de contact pour les questions administratives, avec divers contacts avec les employés et les autorités\n\n• Traitement des tâches de plus en plus avec des outils modernes de TI RH, dans le cadre du développement continu de nos applications RH et de l'expansion des flux de travail électroniques\n\n• Participation active aux projets de numérisation et développement de nos outils RH, avec l'occasion de se développer dans ce domaine\n\n• Prise en charge de tâches spécialisées\n\nVotre profil\n\n• Plusieurs années d'expérience dans l'administration du personnel ou un poste comparable\n\n• Formation spécialisée en ressources humaines supérieures (Certificat professionnel fédéral des RH)\n\n• Forte affinité informatique et plaisir de travailler avec les outils et systèmes numériques RH\n\n• Expérience dans la numérisation ou l'automatisation des processus RH, p.ex. B. en participant à l'introduction de nouveaux outils ou de nouveaux flux de travail électroniques\n\n• L'ambition de se développer professionnellement vers la numérisation des RH et d'assumer davantage de responsabilités dans ce domaine à moyen terme\n\n• Volonté de concevoir des processus maigres, efficaces et conviviaux\n\n• Méthodes de travail structurées et prudentes et grande discrétion dans le traitement des données personnelles sensibles\n\n• Orientation du service et force de communication en contact avec les employés et les autorités\n\n• Très bonne connaissance de l'allemand et de l'anglais pour une communication habile dans un environnement international et multiculturel\n\nNotre offre\n\nNous vous offrons beaucoup de latitude dans un environnement passionnant, stimulant et dynamique où l'innovation, la créativité et l'esprit d'équipe sont des facteurs de succès importants. Nous vivons une culture d'inclusion et de respect. Nous souhaitons la bienvenue à toutes les personnes qui désirent des activités novatrices, durables et significatives - seulement cela compte.\n\n.\n\nNous attendons avec impatience votre demande en ligne complète, y compris. Lettre de motivation, CV, certificats et diplômes. Veuillez les soumettre exclusivement via notre portail d'applications. Les demandes par courrier électronique ou par la poste ne seront pas prises en considération."
-      },
-      "location": "Dübendorf",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/673276/2236/pub/1/index.html",
-      "source": "Empa Dedicated Parser (Refline 673276)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:49:55.233Z",
-      "addressLocality": "Dübendorf",
-      "addressRegion": "ZH",
-      "streetAddress": "Ueberlandstrasse 129",
-      "postalCode": "8600",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Università / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-22T06:42:40.948481+00:00",
-      "postedDate": "2026-09-22T06:42:40.948481+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/673276/2236/pub/1/index.html",
-      "hiringOrganizationName": "Empa",
-      "jobReqId": "2236",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "specialist-hr-administration-hr-it-80-100-empa-dubendorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "specialist-hr-administration-hr-it-80-100-empa-dubendorf"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:52:11.703Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-17T09:40:20.524Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-32e0956786d8",
@@ -1080,7 +1037,7 @@
       "url": "https://apply.refline.ch/673276/2239/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:49:55.231Z",
+      "crawledAt": "2026-11-01T09:40:20.521Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1123,7 +1080,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-28T09:40:20.521Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-880bf642f7e9",
@@ -1156,7 +1116,7 @@
       "url": "https://apply.refline.ch/673276/2240/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.229Z",
+      "crawledAt": "2026-11-01T09:40:20.519Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1199,7 +1159,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-29T09:40:20.519Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-f9da9f2a9440",
@@ -1232,7 +1195,7 @@
       "url": "https://apply.refline.ch/673276/2244/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.226Z",
+      "crawledAt": "2026-11-01T09:40:20.516Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1283,7 +1246,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T09:40:20.516Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-075174446cfa",
@@ -1316,7 +1282,7 @@
       "url": "https://apply.refline.ch/673276/2238/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.223Z",
+      "crawledAt": "2026-11-01T09:40:20.512Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1359,7 +1325,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-23T09:40:20.512Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-b3914f9ea547",
@@ -1392,7 +1361,7 @@
       "url": "https://apply.refline.ch/673276/2245/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.221Z",
+      "crawledAt": "2026-11-01T09:40:20.510Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -1427,7 +1396,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:40:20.510Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-31fc5ca190de",
@@ -1460,7 +1432,7 @@
       "url": "https://apply.refline.ch/673276/2247/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.220Z",
+      "crawledAt": "2026-11-01T09:40:20.508Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1495,7 +1467,10 @@
           "maxValue": 77000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:40:20.508Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-5a71867b80d9",
@@ -1528,7 +1503,7 @@
       "url": "https://apply.refline.ch/673276/2248/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:49:55.216Z",
+      "crawledAt": "2026-11-01T09:40:20.505Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1579,7 +1554,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-20T09:40:20.505Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-7d5be632017c",
@@ -1612,7 +1590,7 @@
       "url": "https://apply.refline.ch/673276/2250/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.214Z",
+      "crawledAt": "2026-11-01T09:40:20.502Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1661,7 +1639,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:40:20.502Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-abb558e6f621",
@@ -1694,7 +1675,7 @@
       "url": "https://apply.refline.ch/673276/2249/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:49:55.212Z",
+      "crawledAt": "2026-11-01T09:40:20.498Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1745,7 +1726,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:40:20.498Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "empa-54e6e346667d",
@@ -1778,7 +1762,7 @@
       "url": "https://apply.refline.ch/673276/2251/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:49:55.206Z",
+      "crawledAt": "2026-11-01T09:40:20.495Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1827,15 +1811,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:40:20.495Z",
+      "validThroughSource": "last-observed-window"
     },
     {
-      "id": "empa-551ce77de7a9",
+      "id": "empa-efd75dcc2465",
       "slug": "apprendista-laboratore-trice-afc-indirizzo-tessile-a-empa-st-gallen",
       "slugByLocale": {
+        "de": "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
         "it": "apprendista-laboratore-trice-afc-indirizzo-tessile-a-empa-st-gallen",
         "en": "apprentice-laboratory-technician-efz-specialization-textile-a-empa-st-gallen",
-        "de": "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
         "fr": "apprenti-e-laborantin-e-cfc-orientation-textile-a-empa-st-gallen"
       },
       "company": "Empa",
@@ -1848,19 +1835,19 @@
         "de": "Lernende/r Laborant/in EFZ Fachrichtung Textil (a)",
         "fr": "Apprenti/e Laborantin/e CFC Orientation Textile (a)"
       },
-      "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Laborant/in EFZ Fachrichtung Textil (a)\n\nEine vielseitige und praxisnahe Berufsbildung ist uns besonders wichtig. Bei uns lernst du nicht nur dein Handwerk, sondern arbeitest aktiv in einem innovativen Forschungsumfeld. Für eine erfolgreiche Berufslehre an der Empa zählen Motivation, Eigeninitiative und Flexibilität.\n Selbständigkeit, Verantwortungsbewusstsein, Kreativität und vernetzts Denken begleiten dich während deiner gesamten Ausbildung. Mit unserem internen Förderprogramm \"Saphir\" unterstützen wir dich zusätzlich gezielt in deiner Entwicklung. Wenn du neugierig bist, gerne an Zukunftstechnologien mitarbeitest und Forschung spannend findest, freuen wir uns dich kennenzulernen.\n\nDeine\n• Aufgaben\n\nLaboranten/innen EFZ Textil erlernen neben dem sicheren Umgang mit Chemikalien die verfahrenstechnischen und färberischen Verfahren. Externe chemische und textilspezifische Einführungskurse unterstützen die Wissensvermittlung während deiner Ausbildung. Du arbeitest an Forschungsprojekten mit und lernst Versuche im Labor zu planen, durchzuführen und die Ergebnisse auszuwerten. Dabei ist das Protokollieren von Experimenten eine zentraler Bestandteil der täglichen Arbeit. Neben der innerbetrieblichen Ausbildung besuchst du das Gewerbliche Berufs- und Weiterbildungszentrum St. Gallen (GBS).\n\nDein Profil\n\nDu hast die Sekundarschule mit guten Leistungen in Mathematik, Physik, Chemie und Englisch absolviert, verfügst über ein gutes Farbsehvermögen und bringst Lern- und Leistungsbereitschaft mit. Vernetztes Denken und eine exakte und zuverlässige Arbeitsweise sind dir sehr wichtig. Du magst die Arbeit am PC und hast viel Ausdauer für Versuche, die nicht auf anhieb funktionieren.\n\nUnser Angebot\n\nWir bieten eine interessante Ausbildung, einen modernen Arbeitsplatz und hervorragende Anstellungsbedingungen. Du hast bei uns die Möglichkeit, dir ein vielfältiges Wissen anzueignen. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair. Weitere Informationen zur Lehre der Empa findest du in unserem Factsheet und auf unserer Homepage .\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Stellwerktest und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese Dokumente ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
+      "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Laborant/in EFZ Fachrichtung Textil (a)\n\nEine vielseitige und praxisnahe Berufsbildung ist uns besonders wichtig. Bei uns lernst du nicht nur dein Handwerk, sondern arbeitest aktiv in einem innovativen Forschungsumfeld. Für eine erfolgreiche Berufslehre an der Empa zählen Motivation, Eigeninitiative und Flexibilität.\n Selbständigkeit, Verantwortungsbewusstsein, Kreativität und vernetzts Denken begleiten dich während deiner gesamten Ausbildung. Mit unserem internen Förderprogramm \"Saphir\" unterstützen wir dich zusätzlich gezielt in deiner Entwicklung. Wenn du neugierig bist, gerne an Zukunftstechnologien mitarbeitest und Forschung spannend findest, freuen wir uns dich kennenzulernen.\n\nDeine \n• Aufgaben\n\nLaboranten/innen EFZ Textil erlernen neben dem sicheren Umgang mit Chemikalien die verfahrenstechnischen und färberischen Verfahren. Externe chemische und textilspezifische Einführungskurse unterstützen die Wissensvermittlung während deiner Ausbildung. Du arbeitest an Forschungsprojekten mit und lernst Versuche im Labor zu planen, durchzuführen und die Ergebnisse auszuwerten. Dabei ist das Protokollieren von Experimenten eine zentraler Bestandteil der täglichen Arbeit. Neben der innerbetrieblichen Ausbildung besuchst du das Gewerbliche Berufs- und Weiterbildungszentrum St. Gallen (GBS).\n\nDein Profil\n\nDu hast die Sekundarschule mit guten Leistungen in Mathematik, Physik, Chemie und Englisch absolviert, verfügst über ein gutes Farbsehvermögen und bringst Lern- und Leistungsbereitschaft mit. Vernetztes Denken und eine exakte und zuverlässige Arbeitsweise sind dir sehr wichtig. Du magst die Arbeit am PC und hast viel Ausdauer für Versuche, die nicht auf anhieb funktionieren.\n\nUnser Angebot\n\nWir bieten eine interessante Ausbildung, einen modernen Arbeitsplatz und hervorragende Anstellungsbedingungen. Du hast bei uns die Möglichkeit, dir ein vielfältiges Wissen anzueignen. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair. Weitere Informationen zur Lehre der Empa findest du in unserem Factsheet und auf unserer Homepage .\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Stellwerktest und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese Dokumente ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
       "descriptionByLocale": {
         "it": "Chi siamo\n\nLa scienza e la tecnologia dei materiali sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 collaboratori dell'Empa danno un contributo decisivo al benessere della società e ad un futuro degno di essere vissuto. L'Empa è un istituto di ricerca del settore dei PF.\n\nApprendista assistente di laboratorio EFZ con specializzazione nel settore tessile (a)\n\nPer noi è particolarmente importante una formazione professionale versatile e pratica. Con noi non solo impari il tuo mestiere, ma lavori anche attivamente in un ambiente di ricerca innovativo. Un apprendistato di successo all'Empa richiede motivazione, iniziativa e flessibilità.\n\nIndipendenza, senso di responsabilità, creatività e pensiero in rete ti accompagneranno durante tutta la tua formazione. Con il nostro programma di supporto interno “Saphir” vi forniamo ulteriore supporto mirato nel vostro sviluppo. Se sei curioso, ti piace lavorare sulle tecnologie del futuro e trovi interessante la ricerca, non vediamo l'ora di conoscerti.\n\nCompiti\n\n- I tecnici di laboratorio EFZ Textil imparano non solo come maneggiare in sicurezza i prodotti chimici, ma anche i processi tecnici e di tintura.\n- I corsi introduttivi esterni specifici per il settore chimico e tessile supportano il trasferimento di conoscenze durante la formazione.\n- Lavori su progetti di ricerca e impari a pianificare e realizzare esperimenti in laboratorio e valutare i risultati.\n- La registrazione degli esperimenti è una parte centrale del lavoro quotidiano.\n- Oltre alla formazione interna, frequenterai il Centro commerciale di formazione professionale e perfezionamento di San Gallo (GBS).\n\nRequisiti\n\n- Hai conseguito il diploma di scuola secondaria superiore con buoni risultati in matematica, fisica, chimica e inglese.\n- Hai una buona visione dei colori.\n- Hai la volontà di imparare ed esibirti.\n- Per te è molto importante pensare in rete e un modo di lavorare preciso e affidabile.\n- Ti piace lavorare al PC e hai molta perseveranza per gli esperimenti che non funzionano subito.\n\nOffriamo\n\n- Offriamo una formazione interessante, un ambiente di lavoro moderno e ottime condizioni di lavoro.\n- Con noi hai l'opportunità di acquisire una vasta gamma di conoscenze.\n- L'Empa è un ambiente di ricerca vivace e innovativo con un tocco internazionale.\n- Puoi trovare ulteriori informazioni sull'insegnamento dell'Empa nella nostra scheda informativa e sulla nostra homepage.\n\nNei nostri annunci di lavoro “a” sta per “all”. Viviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone interessate ad attività innovative, sostenibili e significative: questo è tutto ciò che conta.\n\nContatto\n\nSaremo lieti di ricevere la tua candidatura online completa, inclusa una lettera di motivazione, CV, certificati, test della cabina di segnalazione e dettagli di contatto per due referenze. Si prega di inviare questi documenti esclusivamente tramite il nostro portale di candidatura. Non verranno prese in considerazione candidature inviate via e-mail o posta.",
         "en": "About us\n\nMaterials science and technology are our passion. With our cutting-edge research, Empa's approximately 1,100 employees make crucial contributions to the well-being of society and to a future worth living. Empa is a research institution in the ETH domain.\n\nApprentice laboratory assistant EFZ specializing in textiles (a)\n\nVersatile and practical vocational training is particularly important to us. With us you not only learn your craft, but also work actively in an innovative research environment. A successful apprenticeship at Empa requires motivation, initiative and flexibility.\n\nIndependence, a sense of responsibility, creativity and networked thinking accompany you throughout your entire training. With our internal “Saphir” support program, we provide you with additional targeted support in your development. If you are curious, enjoy working on future technologies and find research exciting, we look forward to getting to know you.\n\nTasks\n\n- EFZ Textil laboratory technicians learn not only how to safely handle chemicals, but also technical and dyeing processes.\n- External chemical and textile-specific introductory courses support the transfer of knowledge during your training.\n- You work on research projects and learn to plan and carry out experiments in the laboratory and evaluate the results.\n- Recording experiments is a central part of daily work.\n- In addition to in-house training, you will attend the St. Gallen Commercial Vocational and Further Training Center (GBS).\n\nRequirements\n\n- You graduated from secondary school with good results in mathematics, physics, chemistry and English.\n- You have good color vision.\n- You have a willingness to learn and perform.\n- Networked thinking and an exact and reliable way of working are very important to you.\n- You like working on the PC and have a lot of perseverance for experiments that don't work right away.\n\nWe offer\n\n- We offer interesting training, a modern workplace and excellent employment conditions.\n- With us you have the opportunity to acquire a wide range of knowledge.\n- Empa is a lively and innovative research environment with an international flair.\n- You can find further information about Empa's teaching in our fact sheet and on our homepage.\n\n“a” stands for “all” in our job advertisements. We live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's all that counts.\n\nContact\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, signal box test and contact details for two references. Please submit these documents exclusively via our application portal. Applications by email or post will not be considered.",
-        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Laborant/in EFZ Fachrichtung Textil (a)\n\nEine vielseitige und praxisnahe Berufsbildung ist uns besonders wichtig. Bei uns lernst du nicht nur dein Handwerk, sondern arbeitest aktiv in einem innovativen Forschungsumfeld. Für eine erfolgreiche Berufslehre an der Empa zählen Motivation, Eigeninitiative und Flexibilität.\nSelbständigkeit, Verantwortungsbewusstsein, Kreativität und vernetzts Denken begleiten dich während deiner gesamten Ausbildung. Mit unserem internen Förderprogramm \"Saphir\" unterstützen wir dich zusätzlich gezielt in deiner Entwicklung. Wenn du neugierig bist, gerne an Zukunftstechnologien mitarbeitest und Forschung spannend findest, freuen wir uns dich kennenzulernen.\n\nDeine\n• Aufgaben\n\nLaboranten/innen EFZ Textil erlernen neben dem sicheren Umgang mit Chemikalien die verfahrenstechnischen und färberischen Verfahren. Externe chemische und textilspezifische Einführungskurse unterstützen die Wissensvermittlung während deiner Ausbildung. Du arbeitest an Forschungsprojekten mit und lernst Versuche im Labor zu planen, durchzuführen und die Ergebnisse auszuwerten. Dabei ist das Protokollieren von Experimenten eine zentraler Bestandteil der täglichen Arbeit. Neben der innerbetrieblichen Ausbildung besuchst du das Gewerbliche Berufs- und Weiterbildungszentrum St. Gallen (GBS).\n\nDein Profil\n\nDu hast die Sekundarschule mit guten Leistungen in Mathematik, Physik, Chemie und Englisch absolviert, verfügst über ein gutes Farbsehvermögen und bringst Lern- und Leistungsbereitschaft mit. Vernetztes Denken und eine exakte und zuverlässige Arbeitsweise sind dir sehr wichtig. Du magst die Arbeit am PC und hast viel Ausdauer für Versuche, die nicht auf anhieb funktionieren.\n\nUnser Angebot\n\nWir bieten eine interessante Ausbildung, einen modernen Arbeitsplatz und hervorragende Anstellungsbedingungen. Du hast bei uns die Möglichkeit, dir ein vielfältiges Wissen anzueignen. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair. Weitere Informationen zur Lehre der Empa findest du in unserem Factsheet und auf unserer Homepage .\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Stellwerktest und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese Dokumente ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
+        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Laborant/in EFZ Fachrichtung Textil (a)\n\nEine vielseitige und praxisnahe Berufsbildung ist uns besonders wichtig. Bei uns lernst du nicht nur dein Handwerk, sondern arbeitest aktiv in einem innovativen Forschungsumfeld. Für eine erfolgreiche Berufslehre an der Empa zählen Motivation, Eigeninitiative und Flexibilität.\nSelbständigkeit, Verantwortungsbewusstsein, Kreativität und vernetzts Denken begleiten dich während deiner gesamten Ausbildung. Mit unserem internen Förderprogramm \"Saphir\" unterstützen wir dich zusätzlich gezielt in deiner Entwicklung. Wenn du neugierig bist, gerne an Zukunftstechnologien mitarbeitest und Forschung spannend findest, freuen wir uns dich kennenzulernen.\n\nDeine \n• Aufgaben\n\nLaboranten/innen EFZ Textil erlernen neben dem sicheren Umgang mit Chemikalien die verfahrenstechnischen und färberischen Verfahren. Externe chemische und textilspezifische Einführungskurse unterstützen die Wissensvermittlung während deiner Ausbildung. Du arbeitest an Forschungsprojekten mit und lernst Versuche im Labor zu planen, durchzuführen und die Ergebnisse auszuwerten. Dabei ist das Protokollieren von Experimenten eine zentraler Bestandteil der täglichen Arbeit. Neben der innerbetrieblichen Ausbildung besuchst du das Gewerbliche Berufs- und Weiterbildungszentrum St. Gallen (GBS).\n\nDein Profil\n\nDu hast die Sekundarschule mit guten Leistungen in Mathematik, Physik, Chemie und Englisch absolviert, verfügst über ein gutes Farbsehvermögen und bringst Lern- und Leistungsbereitschaft mit. Vernetztes Denken und eine exakte und zuverlässige Arbeitsweise sind dir sehr wichtig. Du magst die Arbeit am PC und hast viel Ausdauer für Versuche, die nicht auf anhieb funktionieren.\n\nUnser Angebot\n\nWir bieten eine interessante Ausbildung, einen modernen Arbeitsplatz und hervorragende Anstellungsbedingungen. Du hast bei uns die Möglichkeit, dir ein vielfältiges Wissen anzueignen. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair. Weitere Informationen zur Lehre der Empa findest du in unserem Factsheet und auf unserer Homepage .\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Stellwerktest und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese Dokumente ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
         "fr": "À propos de nous\n\nLa science et la technologie des matériaux sont notre passion. Grâce à notre recherche de pointe, les quelque 1 100 collaborateurs de l'Empa apportent une contribution cruciale au bien-être de la société et à un avenir digne d'être vécu. L'Empa est une institution de recherche du domaine des EPF.\n\nApprenti laborantin EFZ spécialisé textile (a)\n\nUne formation professionnelle polyvalente et pratique nous tient particulièrement à cœur. Avec nous, vous apprenez non seulement votre métier, mais vous travaillez également activement dans un environnement de recherche innovant. Un apprentissage réussi à l'Empa nécessite de la motivation, de l'initiative et de la flexibilité.\n\nIndépendance, sens des responsabilités, créativité et pensée en réseau vous accompagnent tout au long de votre formation. Avec notre programme d’accompagnement interne « Saphir », nous vous apportons un accompagnement complémentaire ciblé dans votre développement. Si vous êtes curieux, aimez travailler sur les technologies du futur et trouvez la recherche passionnante, nous avons hâte de faire votre connaissance.\n\nTâches\n\n- Les techniciens du laboratoire d'EFZ Textil apprennent non seulement à manipuler en toute sécurité les produits chimiques, mais aussi les procédés techniques et de teinture.\n- Des cours externes d'initiation à la chimie et au textile soutiennent le transfert de connaissances pendant votre formation.\n- Vous travaillez sur des projets de recherche et apprenez à planifier et réaliser des expériences en laboratoire et à évaluer les résultats.\n- L'enregistrement des expériences est un élément central du travail quotidien.\n- En plus de la formation interne, vous fréquentez le Centre de formation professionnelle et continue commerciale (GBS) de Saint-Gall.\n\nExigences\n\n- Vous êtes diplômé du secondaire avec de bons résultats en mathématiques, physique, chimie et anglais.\n- Vous avez une bonne vision des couleurs.\n- Vous avez une volonté d'apprendre et de performer.\n- La pensée en réseau et une méthode de travail précise et fiable sont très importantes pour vous.\n- Vous aimez travailler sur PC et avez beaucoup de persévérance pour des expériences qui ne fonctionnent pas tout de suite.\n\nNous offrons\n\n- Nous offrons des formations intéressantes, un lieu de travail moderne et d'excellentes conditions d'emploi.\n- Avec nous, vous avez la possibilité d'acquérir un large éventail de connaissances.\n- L'Empa est un environnement de recherche vivant et innovant avec une touche internationale.\n- Vous trouverez de plus amples informations sur l'enseignement de l'Empa dans notre fiche d'information et sur notre page d'accueil.\n\n« a » signifie « tous » dans nos offres d'emploi. Nous vivons une culture d’inclusion et de respect. Nous accueillons toutes les personnes intéressées par des activités innovantes, durables et porteuses de sens, c'est tout ce qui compte.\n\nContacter\n\nNous attendons avec impatience de recevoir votre candidature en ligne complète comprenant une lettre de motivation, un CV, des certificats, un test de signalisation et les coordonnées de deux références. Veuillez soumettre ces documents exclusivement via notre portail de candidature. Les candidatures par email ou par courrier ne seront pas prises en compte."
       },
       "location": "St. Gallen",
       "canton": "SG",
-      "url": "https://apply.refline.ch/673276/2204/pub/2/index.html",
+      "url": "https://apply.refline.ch/673276/2204/pub/4/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:41:52.393Z",
+      "crawledAt": "2026-11-01T09:40:20.492Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1877,7 +1864,7 @@
       "datePosted": "2026-05-27T14:28:58.561681+00:00",
       "postedDate": "2026-05-27T14:28:58.561681+00:00",
       "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/673276/2204/pub/2/index.html",
+      "applyUrl": "https://apply.refline.ch/673276/2204/pub/4/index.html",
       "hiringOrganizationName": "Empa",
       "jobReqId": "2204",
       "requirements": [],
@@ -1913,17 +1900,15 @@
           "Curiosité et intérêt pour les technologies du futur et la recherche"
         ]
       },
-      "previousSlugs": [
-        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen",
-        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen",
           "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-08-20T21:51:51.012Z",
+      "previousSlugs": [
+        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
+      ],
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -1937,44 +1922,47 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:40:20.492Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-08-20T21:51:51.012Z"
     },
     {
-      "id": "empa-91dfe92ee2a7",
-      "slug": "system-engineer-cell-culture-automation-80-100-empa-st-gallen",
+      "id": "empa-e05199f1b17e",
+      "slug": "specialista-risorse-umane-administration-risorse-umane-it-80-100-empa-dubendorf",
       "slugByLocale": {
-        "it": "system-engineer-cell-culture-automation-80-100-empa-st-gallen",
-        "en": "system-engineer-cell-culture-automation-80-100-empa-st-gallen",
-        "de": "system-engineer-cell-culture-automation-80-100-empa-st-gallen",
-        "fr": "system-engineer-cell-culture-automation-80-100-empa-st-gallen"
+        "it": "specialista-risorse-umane-administration-risorse-umane-it-80-100-empa-dubendorf",
+        "en": "specialist-hr-administration-hr-it-80-100-empa-dubendorf",
+        "de": "specialist-hr-administration-hr-it-80-100-empa-dubendorf",
+        "fr": "specialiste-ressources-humaines-administration-ressources-humaines-it-80-100-empa-dubendorf"
       },
       "company": "Empa",
       "companyKey": "empa",
       "companyDomain": "empa.ch",
-      "title": "System-Engineer Cell Culture Automation 80 - 100%",
+      "title": "Specialist HR-Administration & HR IT (80-100%)",
       "titleByLocale": {
-        "it": "System-Ingegnere Cell Culture Automation 80 - 100%",
-        "en": "System-Engineer Cell Culture Automation 80 - 100%",
-        "de": "System-Ingenieur Cell Culture Automation 80 - 100%",
-        "fr": "System-Ingénieur Cell Culture Automation 80 - 100%"
+        "it": "Specialista Risorse Umane-Administration & Risorse Umane IT (80-100%)",
+        "en": "HR Administration Specialist & HR IT (80-100%)",
+        "de": "Specialist HR-Administration & HR IT (80-100%)",
+        "fr": "Spécialiste Ressources Humaines-Administration & Ressources Humaines IT (80-100%)"
       },
-      "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nSystem-Engineer Cell Culture Automation 80 - 100%\n\nThe Nanomaterials in Health department at Empa St. Gallen is a highly motivated team of biologists, chemists and bioinformaticians. Our aim is understanding and controlling the interactions between (nano)materials and biological systems. To this end, we develop practical, clinically and diagnostically relevant cell-based models such as co-cultures and organoids.\n\nYour tasks\n\nAs a specialist in cell culture automation, you will be responsible for the end-to-end development and maintenance of complex cell cultures, from concept to implementation. Specifically, this includes:\n• Collaborate with a multidisciplinary team to develop concepts for automating complex cell culture processes using robotics\n\n• Conduct needs analyses to define the required system specifications and functional requirements\n\n• Support the Laboratory Head in evaluating, comparing and selecting suitable robotic systems and assist throughout the procurement process\n\n• Lead the implementation of the selected system, including its configuration and the programming of automated workflows and procedures\n\nYour profile\n\n• Master’s degree in life sciences, engineering, or equivalent education\n\n• At least 3 years of professional experience in programming and operating laboratory automation and liquid-handling systems, as well as in related quality management\n\n• Experience in adapting and optimizing cell-based and in vitro assays\n\n• Knowledge of mammalian cell culture systems and 3D cell cultures (organoids)\n\n• Expertise in software such as R, KNIME or Python\n\n• An independent, reliable and goal-oriented work style\n\n• You are not afraid to take on responsibility, tackle new tasks and independently acquire the necessary expertise\n\n• You have an open and communicative personality and enjoy working in a multidisciplinary environment\n\n• Good oral and written proficiency in German and English is required: You must be fluent in everyday use of both languages\n\nOur offer\n\n• A challenging and varied role in the field of cutting-edge international research\n\n• Progressive working conditions, an open work environment, excellent opportunities for professional development and a modern workplace in St. Gallen\n\n• Initial 2-year fixed-term position—with the possibility of extension\n\n• Flexible working hours, flat hierarchies, knowledge exchange, working together in a team\n\n• Ideal starting date: 1 November 2026 or upon agreement\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, reporting on 1 - 2 representative tasks / experiences supporting your skills (see application process), CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
+      "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nSpecialist HR-Administration & HR IT (80-100%)\n\nDie HR-Abteilung ermöglicht die Gewinnung, Betreuung, Entwicklung und Administration von Talenten aus rund 50 Nationen. Zur Verstärkung des Teams HR-Administration & -IT Applikation am Standort Dübendorf suchen wir eine zuverlässige, kommunikative und teamorientierte Persönlichkeit.\n\nIhre Aufgaben\n\nIn dieser abwechslungsreichen Funktion betreuen Sie selbständig eine Organisationseinheit mit Personal am Standort Dübendorf.\n\n• Selbständige Bearbeitung sämtlicher personal-administrativer Aufgaben für einen Teilbereich, im Zusammenhang mit Anstellung, Betreuung und Austritt von Mitarbeitenden, Praktikanten, Diplomanden und akademischen Gästen\n\n• Steuerung der HR-Prozesse vom Eintritt bis zum Austritt: Einholen von Aufenthalts- und Arbeitsbewilligungen, Vertragsänderungen, Verlängerungen sowie Austritt mit Arbeitszeugnis (ohne Saläradministration und Sozialversicherungen)\n\n• Erste Anlaufstelle für administrative Fragen, mit vielfältigen Kontakten zu Mitarbeitenden und Behörden\n\n• Bearbeitung der Aufgaben in zunehmendem Masse mit modernen HR-IT-Tools, im Rahmen der laufenden Weiterentwicklung unserer HR-Applikationen und des Ausbaus der E-Workflows\n\n• Aktive Mitwirkung bei Digitalisierungsprojekten und der Weiterentwicklung unserer HR-Tools, mit der Möglichkeit, dich in diesem Bereich gezielt weiterzuentwickeln\n\n• Übernahme von Spezialaufgaben\n\nIhr Profil\n\n• Mehrjährige Erfahrung in der Personaladministration oder einer vergleichbaren Position\n\n• Höhere Personalfachausbildung (Eidg. HR-Fachausweis)\n\n• Ausgeprägte IT-Affinität sowie Freude am Arbeiten mit digitalen HR-Tools und Systemen\n\n• Erfahrung in der Digitalisierung oder Automatisierung von HR-Prozessen, z. B. durch Mitwirkung bei der Einführung neuer Tools oder E-Workflows\n\n• Ambition, sich fachlich in Richtung HR-Digitalisierung weiterzuentwickeln und mittelfristig mehr Verantwortung in diesem Bereich zu übernehmen\n\n• Wille, Prozesse schlank, effizient und kundenfreundlich zu gestalten\n\n• Strukturierte, sorgfältige Arbeitsweise sowie hohe Diskretion im Umgang mit sensiblen Personendaten\n\n• Dienstleistungsorientierung und Kommunikationsstärke im Kontakt mit Mitarbeitenden und Behörden\n\n• Sehr gute Deutsch- und Englischkenntnisse für die gewandte Kommunikation im internationalen, multikulturellen Umfeld\n\nUnser Angebot\n\nWir bieten Ihnen viel Spielraum in einer spannenden, stimulierenden und dynamischen Umgebung, in der Innovation, Kreativität und Teamgeist wichtige Erfolgsfaktoren sind. Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\n.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnissen und Diplomen. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
       "descriptionByLocale": {
-        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo essenziale al benessere della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH.\n\nSystem-Engineer Cell Culture Automation 80 - 100%\n\nIl Nanomaterials in Health Department di Empa St. Gallen è un team altamente motivato di biologi, chimici e bioinformatici. Il nostro obiettivo è la comprensione e il controllo delle interazioni tra (nano)materiali e sistemi biologici. A tal fine, sviluppiamo modelli pratici, clinicamente e diagnosticamente rilevanti a base cellulare come co-culture e organoidi.\n\nI tuoi compiti\n\nCome specialista nell'automazione della cultura cellulare, sarete responsabili dello sviluppo end-to-end e della manutenzione di culture cellulari complesse, dal concetto all'implementazione. In particolare, questo include:\n• Collaborare con un team multidisciplinare per sviluppare concetti per automatizzare processi complessi di coltura cellulare utilizzando la robotica\n\n• Condurre ha bisogno di analisi per definire le specifiche del sistema richieste e i requisiti funzionali\n\n• Sostenere la Testa di Laboratorio nella valutazione, nel confronto e nella selezione di sistemi robotici adatti e nell'assistenza durante il processo di approvvigionamento\n\n• Condurre l'implementazione del sistema selezionato, compresa la configurazione e la programmazione dei flussi di lavoro automatizzati e delle procedure\n\nIl tuo profilo\n\n• Laurea magistrale in scienze della vita, ingegneria o istruzione equivalente\n\n• Almeno 3 anni di esperienza professionale nella programmazione e nell'automazione del laboratorio operativo e nei sistemi di gestione dei liquidi, nonché nella gestione della qualità\n\n• Esperienza nell'adattamento e nell'ottimizzazione delle analisi basate sulle cellule e in vitro\n\n• Conoscenza dei sistemi di coltura cellulare dei mammiferi e delle culture cellulari 3D (organoidi)\n\n• Competenza in software come R, KNIME o Python\n\n• Uno stile di lavoro indipendente, affidabile e mirato\n\n• Non hai paura di assumerti la responsabilità, affrontare nuovi compiti e acquisire in modo indipendente le competenze necessarie\n\n• Hai una personalità aperta e comunicativa e ti piace lavorare in un ambiente multidisciplinare\n\n• È richiesta una buona conoscenza orale e scritta in tedesco e inglese: Devi essere fluente nell'uso quotidiano di entrambe le lingue\n\nLa nostra offerta\n\n• Un ruolo impegnativo e vario nel campo della ricerca internazionale all'avanguardia\n\n• Condizioni di lavoro progressive, un ambiente di lavoro aperto, ottime opportunità di sviluppo professionale e un luogo di lavoro moderno a St. Gallen\n\n• Posizione fissa iniziale di 2 anni — con possibilità di proroga\n\n• Ore lavorative flessibili, gerarchie piatte, scambio di conoscenze, lavorare insieme in un team\n\n• Data di partenza ideale: 1 novembre 2026 o su accordo\n\nViviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che sono interessate a attività innovative, sostenibili e significative - questo è ciò che conta.\n\nNon vediamo l'ora di ricevere la tua applicazione online completa, tra cui una lettera di motivazione, segnalazione su 1 - 2 compiti rappresentativi / esperienze che supportano le tue competenze (vedi processo di applicazione), CV, certificati, diplomi e dettagli di contatto di due persone di riferimento. Si prega di inviare questi esclusivamente tramite il nostro portale di lavoro. Le domande per e-mail e per posta non saranno considerate.",
-        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nSystem-Engineer Cell Culture Automation 80 - 100%\n\nThe Nanomaterials in Health department at Empa St. Gallen is a highly motivated team of biologists, chemists and bioinformaticians. Our aim is understanding and controlling the interactions between (nano)materials and biological systems. To this end, we develop practical, clinically and diagnostically relevant cell-based models such as co-cultures and organoids.\n\nYour tasks\n\nAs a specialist in cell culture automation, you will be responsible for the end-to-end development and maintenance of complex cell cultures, from concept to implementation. Specifically, this includes:\n• Collaborate with a multidisciplinary team to develop concepts for automating complex cell culture processes using robotics\n\n• Conduct needs analyses to define the required system specifications and functional requirements\n\n• Support the Laboratory Head in evaluating, comparing and selecting suitable robotic systems and assist throughout the procurement process\n\n• Lead the implementation of the selected system, including its configuration and the programming of automated workflows and procedures\n\nYour profile\n\n• Master’s degree in life sciences, engineering, or equivalent education\n\n• At least 3 years of professional experience in programming and operating laboratory automation and liquid-handling systems, as well as in related quality management\n\n• Experience in adapting and optimizing cell-based and in vitro assays\n\n• Knowledge of mammalian cell culture systems and 3D cell cultures (organoids)\n\n• Expertise in software such as R, KNIME or Python\n\n• An independent, reliable and goal-oriented work style\n\n• You are not afraid to take on responsibility, tackle new tasks and independently acquire the necessary expertise\n\n• You have an open and communicative personality and enjoy working in a multidisciplinary environment\n\n• Good oral and written proficiency in German and English is required: You must be fluent in everyday use of both languages\n\nOur offer\n\n• A challenging and varied role in the field of cutting-edge international research\n\n• Progressive working conditions, an open work environment, excellent opportunities for professional development and a modern workplace in St. Gallen\n\n• Initial 2-year fixed-term position—with the possibility of extension\n\n• Flexible working hours, flat hierarchies, knowledge exchange, working together in a team\n\n• Ideal starting date: 1 November 2026 or upon agreement\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, reporting on 1 - 2 representative tasks / experiences supporting your skills (see application process), CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
-        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1.100 Mitarbeiter der Empa wesentliche Beiträge zum Wohl der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungseinrichtung des ETH-Bereichs.\n\nSystemtechniker Zellkultur Automation 80 - 100%\n\nDie Abteilung Nanomaterialien im Gesundheitswesen der Empa St. Gallen ist ein hochmotiviertes Team aus Biologen, Chemikern und Bioinformatikern. Unser Ziel ist es, die Wechselwirkungen zwischen (Nano-)Materialien und biologischen Systemen zu verstehen und zu kontrollieren. Dazu entwickeln wir praxisnahe, klinisch und diagnostisch relevante zellbasierte Modelle wie Co-Kulturen und Organoide.\n\nIhre Aufgaben\n\nAls Spezialist für Zellkulturautomatisierung sind Sie für die durchgängige Entwicklung und Pflege komplexer Zellkulturen vom Konzept bis zur Umsetzung verantwortlich. Insbesondere umfasst dies:\n• Arbeiten Sie mit einem multidisziplinären Team zusammen, um Konzepte für die Automatisierung komplexer Zellkulturprozesse mit Robotik zu entwickeln\n\n• Durchführung von Bedarfsanalysen zur Definition der erforderlichen Systemspezifikationen und funktionalen Anforderungen\n\n• Unterstützung des Laborleiters bei der Bewertung, dem Vergleich und der Auswahl geeigneter Robotersysteme und Unterstützung während des gesamten Beschaffungsprozesses\n\n• Führen Sie die Implementierung des ausgewählten Systems, einschließlich seiner Konfiguration und der Programmierung automatisierter Workflows und Verfahren\n\nDein Profil\n\n• Master-Abschluss in Life Sciences, Engineering oder gleichwertiger Ausbildung\n\n• Mindestens 3 Jahre Berufserfahrung in der Programmierung und dem Betrieb von Laborautomation und Liquid Handling Systemen sowie im damit verbundenen Qualitätsmanagement\n\n• Erfahrung in der Anpassung und Optimierung zellbasierter und in vitro Assays\n\n• Wissen über Säugetier-Zellkultursysteme und 3D-Zellkulturen (Organoide)\n\n• Expertise in Software wie R, KNIME oder Python\n\n• Ein unabhängiger, zuverlässiger und zielgerichteter Arbeitsstil\n\n• Sie haben keine Angst, Verantwortung zu übernehmen, neue Aufgaben anzugehen und sich selbstständig das nötige Fachwissen anzueignen\n\n• Sie haben eine offene und kommunikative Persönlichkeit und arbeiten gerne in einem multidisziplinären Umfeld\n\n• Gute mündliche und schriftliche Kenntnisse in Deutsch und Englisch sind erforderlich: Sie müssen fließend im täglichen Gebrauch beider Sprachen sein\n\nUnser Angebot\n\n• Eine herausfordernde und vielfältige Rolle im Bereich der internationalen Spitzenforschung\n\n• Fortschrittliche Arbeitsbedingungen, ein offenes Arbeitsumfeld, hervorragende Möglichkeiten zur beruflichen Entwicklung und ein moderner Arbeitsplatz in St. Gallen\n\n• Anfängliche 2-jährige befristete Position - mit der Möglichkeit einer Verlängerung\n\n• Flexible Arbeitszeiten, flache Hierarchien, Wissensaustausch, Zusammenarbeit im Team\n\n• Idealer Starttermin: 1. November 2026 oder nach Vereinbarung\n\nWir leben eine Kultur der Integration und des Respekts. Wir begrüßen alle Menschen, die sich für innovative, nachhaltige und sinnvolle Aktivitäten interessieren – das zählt.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung inklusive Motivationsschreiben, Berichterstattung über 1 - 2 repräsentative Aufgaben / Erfahrungen, die Ihre Fähigkeiten unterstützen (siehe Bewerbungsprozess), Lebenslauf, Zertifikate, Diplome und Kontaktdaten von zwei Referenzpersonen. Bitte senden Sie diese ausschließlich über unser Jobportal. Bewerbungen per E-Mail und Post werden nicht berücksichtigt.",
-        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à nos recherches de pointe, les quelque 1 100 employés d'Empa apportent une contribution essentielle au bien-être de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH.\n\nSystem-Engineer Cell Culture Automation 80 - 100%\n\nLe département des nanomatériaux de la Santé à Empa St. Gallen est une équipe hautement motivée de biologistes, de chimistes et de bioinformaticiens. Notre objectif est de comprendre et de contrôler les interactions entre (nano)matériaux et systèmes biologiques. À cette fin, nous développons des modèles cellulaires pratiques, cliniquement et diagnostiquement pertinents, comme les co-cultures et les organoïdes.\n\nVos tâches\n\nEn tant que spécialiste de l'automatisation de la culture cellulaire, vous serez responsable du développement de bout en bout et du maintien de cultures cellulaires complexes, du concept à la mise en œuvre. Plus précisément, cela comprend :\n• Collaborer avec une équipe multidisciplinaire pour élaborer des concepts pour automatiser les processus complexes de culture cellulaire à l'aide de la robotique\n\n• Effectuer des analyses pour définir les spécifications du système et les exigences fonctionnelles requises\n\n• Aider le chef de laboratoire à évaluer, comparer et sélectionner les systèmes robotiques appropriés et aider tout au long du processus d'approvisionnement\n\n• Diriger la mise en œuvre du système sélectionné, y compris sa configuration et la programmation des flux de travail et des procédures automatisés\n\nVotre profil\n\n• Maîtrise en sciences de la vie, ingénierie ou enseignement équivalent\n\n• Au moins 3 ans d'expérience professionnelle dans la programmation et le fonctionnement des systèmes d'automatisation des laboratoires et de manipulation des liquides, ainsi que dans la gestion de la qualité connexe\n\n• Expérience en matière d'adaptation et d'optimisation des essais cellulaires et in vitro\n\n• Connaissance des systèmes de culture cellulaire des mammifères et des cultures cellulaires 3D (organoïdes)\n\n• Expertise en logiciels tels que R, KNIME ou Python\n\n• Un style de travail indépendant, fiable et axé sur les objectifs\n\n• Vous n'avez pas peur d'assumer vos responsabilités, d'entreprendre de nouvelles tâches et d'acquérir de manière indépendante l'expertise nécessaire.\n\n• Vous avez une personnalité ouverte et communicative et aimez travailler dans un environnement multidisciplinaire\n\n• Une bonne maîtrise orale et écrite de l'allemand et de l'anglais est requise : Vous devez utiliser couramment les deux langues au quotidien.\n\nNotre offre\n\n• Un rôle stimulant et varié dans le domaine de la recherche internationale de pointe\n\n• Des conditions de travail progressives, un environnement de travail ouvert, d'excellentes possibilités de perfectionnement professionnel et un milieu de travail moderne à St. Gallen\n\n• Position initiale à terme de 2 ans — avec possibilité de prolongation\n\n• Heures de travail flexibles, hiérarchies plates, échange de connaissances, travail en équipe\n\n• Date de début idéale : 1er novembre 2026 ou sur accord\n\nNous vivons une culture d'inclusion et de respect. Nous accueillons toutes les personnes qui s'intéressent à des activités novatrices, durables et significatives - c'est ce qui compte.\n\nNous sommes impatients de recevoir votre candidature complète en ligne, y compris une lettre de motivation, un rapport sur 1 - 2 tâches / expériences représentatives soutenant vos compétences (voir processus de candidature), CV, certificats, diplômes et coordonnées de deux personnes de référence. Veuillez les soumettre exclusivement via notre portail d'emploi. Les demandes par courrier électronique et par la poste ne seront pas prises en considération."
+        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo decisivo a beneficio della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH.\n\nSpecialist HR Administration & HR IT (80-100%)\n\nIl reparto HR consente il reclutamento, mentoring, sviluppo e amministrazione di talenti provenienti da circa 50 nazioni. Per rafforzare il team HR Administration & IT Application nel sito Dübendorf, stiamo cercando una personalità affidabile, comunicativa e orientata al team.\n\nI loro compiti\n\nIn questa variegata funzione, si supervisiona in modo indipendente un'unità organizzativa con il personale nella posizione di Dübendorf.\n\n• Autooccupazione di tutti i compiti amministrativi del personale per una subzona, in relazione all'occupazione, al sostegno e alle dimissioni di dipendenti, tirocinanti, studenti di diploma e ospiti accademici\n\n• Gestione dei processi HR dall'ingresso all'uscita: ottenere permessi di soggiorno e di lavoro, modifiche contrattuali, estensioni e uscite con certificato di occupazione (senza amministrazione salariale e assicurazione sociale)\n\n• Primo punto di contatto per questioni amministrative, con diversi contatti con dipendenti e autorità\n\n• I compiti di elaborazione sempre più con moderni strumenti IT HR, nell'ambito dello sviluppo continuo delle nostre applicazioni HR e dell'espansione dei flussi di e-work\n\n• Partecipazione attiva ai progetti di digitalizzazione e sviluppo ulteriore dei nostri strumenti HR, con l'opportunità di svilupparsi in questo settore\n\n• Assunzione di compiti specializzati\n\nIl tuo profilo\n\n• Diversi anni di esperienza nell'amministrazione del personale o una posizione paragonabile\n\n• Formazione specialistica delle risorse umane superiore (certificato professionale HR federale)\n\n• Forte affinità IT e godimento lavorando con strumenti e sistemi digitali HR\n\n• Esperienza nella digitalizzazione o nell'automazione dei processi HR, ad esempio B. partecipando all'introduzione di nuovi strumenti o flussi di lavoro\n\n• Ambizione di sviluppare professionalmente verso la digitalizzazione delle risorse umane e di assumersi più responsabilità in questo settore a medio termine\n\n• Volontà di progettazione dei processi orientati, efficienti e rispettosi del cliente\n\n• Metodi di lavoro strutturati, attenti e ad alta discrezione nel trattamento dei dati personali sensibili\n\n• Orientamento del servizio e forza di comunicazione a contatto con i dipendenti e le autorità\n\n• Ottima conoscenza del tedesco e dell'inglese per una comunicazione sapiente in un ambiente internazionale e multiculturale\n\nLa nostra offerta\n\nVi offriamo un sacco di spazio in un ambiente emozionante, stimolante e dinamico in cui innovazione, creatività e spirito di squadra sono fattori di successo importanti. Viviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che hanno il desiderio di attività innovative, sostenibili e significative - solo che conta.\n\n.\n\nNon vediamo l'ora della tua applicazione online completa incl. Lettera di motivazione, CV, certificati e diplomi. Si prega di inviarli esclusivamente tramite il nostro portale di applicazione. Le domande per e-mail o per posta non saranno considerate.",
+        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa’s approximately 1,100 employees make decisive contributions to the benefit of society for a future worth living in. Empa is a research institution of the ETH Domain.\n\nSpecialist HR Administration & HR IT (80-100%)\n\nThe HR department enables the recruitment, mentoring, development and administration of talent from around 50 nations. To strengthen the HR Administration & IT Application team at the Dübendorf site, we are looking for a reliable, communicative and team-oriented personality.\n\nTheir tasks\n\nIn this varied function, you independently supervise an organizational unit with staff at the Dübendorf location.\n\n• Self-employment of all personnel-administrative tasks for a sub-area, in connection with the employment, support and resignation of employees, interns, diploma students and academic guests\n\n• Management of HR processes from entry to exit: obtaining residence and work permits, contract changes, extensions and exit with employment certificate (without salary administration and social insurance)\n\n• First point of contact for administrative issues, with diverse contacts with employees and authorities\n\n• Processing tasks increasingly with modern HR IT tools, as part of the ongoing development of our HR applications and the expansion of e-workflows\n\n• Active participation in digitalization projects and the further development of our HR tools, with the opportunity to develop yourself in this area\n\n• Taking on specialised tasks\n\nYour profile\n\n• Several years of experience in personnel administration or a comparable position\n\n• Higher Human Resources Specialist Training (Federal HR Professional Certificate)\n\n• Strong IT affinity and enjoyment working with digital HR tools and systems\n\n• Experience in the digitization or automation of HR processes, e.g. B. by participating in the introduction of new tools or e-workflows\n\n• Ambition to develop professionally towards HR digitization and to assume more responsibility in this area in the medium term\n\n• Will to design processes lean, efficient and customer-friendly\n\n• Structured, careful working methods as well as high discretion in handling sensitive personal data\n\n• Service orientation and communication strength in contact with employees and authorities\n\n• Very good knowledge of German and English for skilful communication in an international, multicultural environment\n\nOur offer\n\nWe offer you plenty of leeway in an exciting, stimulating and dynamic environment where innovation, creativity and team spirit are important success factors. We live a culture of inclusion and respect. We welcome all people who have the desire for innovative, sustainable and meaningful activities - only that counts.\n\n.\n\nWe look forward to your complete online application incl. Letter of motivation, CV, certificates and diplomas. Please submit them exclusively via our application portal. Applications by e-mail or by post will not be considered.",
+        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nSpecialist HR-Administration & HR IT (80-100%)\n\nDie HR-Abteilung ermöglicht die Gewinnung, Betreuung, Entwicklung und Administration von Talenten aus rund 50 Nationen. Zur Verstärkung des Teams HR-Administration & -IT Applikation am Standort Dübendorf suchen wir eine zuverlässige, kommunikative und teamorientierte Persönlichkeit.\n\nIhre Aufgaben\n\nIn dieser abwechslungsreichen Funktion betreuen Sie selbständig eine Organisationseinheit mit Personal am Standort Dübendorf.\n\n• Selbständige Bearbeitung sämtlicher personal-administrativer Aufgaben für einen Teilbereich, im Zusammenhang mit Anstellung, Betreuung und Austritt von Mitarbeitenden, Praktikanten, Diplomanden und akademischen Gästen\n\n• Steuerung der HR-Prozesse vom Eintritt bis zum Austritt: Einholen von Aufenthalts- und Arbeitsbewilligungen, Vertragsänderungen, Verlängerungen sowie Austritt mit Arbeitszeugnis (ohne Saläradministration und Sozialversicherungen)\n\n• Erste Anlaufstelle für administrative Fragen, mit vielfältigen Kontakten zu Mitarbeitenden und Behörden\n\n• Bearbeitung der Aufgaben in zunehmendem Masse mit modernen HR-IT-Tools, im Rahmen der laufenden Weiterentwicklung unserer HR-Applikationen und des Ausbaus der E-Workflows\n\n• Aktive Mitwirkung bei Digitalisierungsprojekten und der Weiterentwicklung unserer HR-Tools, mit der Möglichkeit, dich in diesem Bereich gezielt weiterzuentwickeln\n\n• Übernahme von Spezialaufgaben\n\nIhr Profil\n\n• Mehrjährige Erfahrung in der Personaladministration oder einer vergleichbaren Position\n\n• Höhere Personalfachausbildung (Eidg. HR-Fachausweis)\n\n• Ausgeprägte IT-Affinität sowie Freude am Arbeiten mit digitalen HR-Tools und Systemen\n\n• Erfahrung in der Digitalisierung oder Automatisierung von HR-Prozessen, z. B. durch Mitwirkung bei der Einführung neuer Tools oder E-Workflows\n\n• Ambition, sich fachlich in Richtung HR-Digitalisierung weiterzuentwickeln und mittelfristig mehr Verantwortung in diesem Bereich zu übernehmen\n\n• Wille, Prozesse schlank, effizient und kundenfreundlich zu gestalten\n\n• Strukturierte, sorgfältige Arbeitsweise sowie hohe Diskretion im Umgang mit sensiblen Personendaten\n\n• Dienstleistungsorientierung und Kommunikationsstärke im Kontakt mit Mitarbeitenden und Behörden\n\n• Sehr gute Deutsch- und Englischkenntnisse für die gewandte Kommunikation im internationalen, multikulturellen Umfeld\n\nUnser Angebot\n\nWir bieten Ihnen viel Spielraum in einer spannenden, stimulierenden und dynamischen Umgebung, in der Innovation, Kreativität und Teamgeist wichtige Erfolgsfaktoren sind. Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\n.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnissen und Diplomen. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
+        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à notre recherche de pointe, Empa, environ 1 100 employés apportent une contribution décisive au bénéfice de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH.\n\nSpécialiste en administration des RH et en TI des RH (80-100%)\n\nLe département RH permet le recrutement, le mentorat, le perfectionnement et l'administration de talents provenant d'une cinquantaine de pays. Pour renforcer l'équipe d'applications RH Administration & IT sur le site de Dübendorf, nous recherchons une personnalité fiable, communicative et orientée vers l'équipe.\n\nLeurs tâches\n\nDans cette fonction variée, vous supervisez indépendamment une unité organisationnelle avec du personnel à l'emplacement de Dübendorf.\n\n• Travail indépendant de toutes les tâches administratives du personnel pour une sous-zone, en rapport avec l'emploi, le soutien et la démission des employés, des stagiaires, des étudiants diplômés et des étudiants invités\n\n• Gestion des processus RH de l'entrée à la sortie: obtention de permis de séjour et de travail, modification de contrat, prolongation et sortie avec certificat d'emploi (sans administration salariale et assurance sociale)\n\n• Premier point de contact pour les questions administratives, avec divers contacts avec les employés et les autorités\n\n• Traitement des tâches de plus en plus avec des outils modernes de TI RH, dans le cadre du développement continu de nos applications RH et de l'expansion des flux de travail électroniques\n\n• Participation active aux projets de numérisation et développement de nos outils RH, avec l'occasion de se développer dans ce domaine\n\n• Prise en charge de tâches spécialisées\n\nVotre profil\n\n• Plusieurs années d'expérience dans l'administration du personnel ou un poste comparable\n\n• Formation spécialisée en ressources humaines supérieures (Certificat professionnel fédéral des RH)\n\n• Forte affinité informatique et plaisir de travailler avec les outils et systèmes numériques RH\n\n• Expérience dans la numérisation ou l'automatisation des processus RH, p.ex. B. en participant à l'introduction de nouveaux outils ou de nouveaux flux de travail électroniques\n\n• L'ambition de se développer professionnellement vers la numérisation des RH et d'assumer davantage de responsabilités dans ce domaine à moyen terme\n\n• Volonté de concevoir des processus maigres, efficaces et conviviaux\n\n• Méthodes de travail structurées et prudentes et grande discrétion dans le traitement des données personnelles sensibles\n\n• Orientation du service et force de communication en contact avec les employés et les autorités\n\n• Très bonne connaissance de l'allemand et de l'anglais pour une communication habile dans un environnement international et multiculturel\n\nNotre offre\n\nNous vous offrons beaucoup de latitude dans un environnement passionnant, stimulant et dynamique où l'innovation, la créativité et l'esprit d'équipe sont des facteurs de succès importants. Nous vivons une culture d'inclusion et de respect. Nous souhaitons la bienvenue à toutes les personnes qui désirent des activités novatrices, durables et significatives - seulement cela compte.\n\n.\n\nNous attendons avec impatience votre demande en ligne complète, y compris. Lettre de motivation, CV, certificats et diplômes. Veuillez les soumettre exclusivement via notre portail d'applications. Les demandes par courrier électronique ou par la poste ne seront pas prises en considération."
       },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://apply.refline.ch/673276/2218/pub/1/index.html",
+      "location": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/673276/2236/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:42:55.808Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "streetAddress": "Lerchenfeldstrasse 5",
-      "postalCode": "9000",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-31T21:36:29.556Z",
+      "addressLocality": "Dübendorf",
+      "addressRegion": "ZH",
+      "streetAddress": "Ueberlandstrasse 129",
+      "postalCode": "8600",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Ricerca",
@@ -1984,29 +1972,40 @@
       "sector": "Università / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-15T13:46:46.462019+00:00",
-      "postedDate": "2026-07-15T13:46:46.462019+00:00",
+      "datePosted": "2026-09-22T06:42:40.948481+00:00",
+      "postedDate": "2026-09-22T06:42:40.948481+00:00",
       "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/673276/2218/pub/1/index.html",
+      "applyUrl": "https://apply.refline.ch/673276/2236/pub/1/index.html",
       "hiringOrganizationName": "Empa",
-      "jobReqId": "2218",
+      "jobReqId": "2236",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-20T22:55:02.889Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "previousSlugs": [
+        "specialist-hr-administration-hr-it-80-100-empa-dubendorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "specialist-hr-administration-hr-it-80-100-empa-dubendorf"
+        ]
+      },
+      "firstSeenAt": "2026-09-23T23:52:11.703Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1,
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-21T21:36:29.556Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

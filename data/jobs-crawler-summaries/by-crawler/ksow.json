@@ -1,7 +1,7 @@
 {
   "key": "ksow",
   "label": "Kantonsspital Obwalden",
-  "generatedAt": "2026-10-31T09:21:35.689Z",
+  "generatedAt": "2026-11-01T09:24:33.859Z",
   "total": 13,
   "discovered": null,
   "parsed": 13,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 30293,
-  "avgDurationMs": 30293,
+  "durationMs": 34275,
+  "avgDurationMs": 34275,
   "durationHistory": [
-    30293
+    34275
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fmh-allgemeine-innere-medizin-ca/1rn6v8yexqoha8aa0h3j3v8fwsaljtvz2lq36nnjyhbnst2trkc5tt3golid0m7f",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:16.424Z",
+      "crawledAt": "2026-11-01T09:24:03.427Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -59,12 +59,16 @@
       "salaryMin": 8700,
       "salaryMax": 12100,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:03.427Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -79,7 +83,7 @@
       "url": "https://link.ostendis.com/publication/hebamme-hf-als-beleghebamme/sps0tnlmko6qyyzaidf5ejsnjh7al617qbyx6zmrt55d5etvj0mii5e50rdf3bib",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:14.875Z",
+      "crawledAt": "2026-11-01T09:24:01.610Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -101,12 +105,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:01.610Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -121,7 +129,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf/zvlnudeefxpj3lstnn3rdi0v7fzfv2o6zek40f7yq80ioqeoz2vdodv14sbiie2l",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:13.475Z",
+      "crawledAt": "2026-11-01T09:23:59.678Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -143,12 +151,16 @@
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:59.678Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -163,7 +175,7 @@
       "url": "https://link.ostendis.com/publication/leitende-arzt-aerztin-innere-medizin-schwerpunkt-geriatrie/vs7xfcnesedeepbf3eazkakjmfzj286ocmhfx8sm67absaxp6r2b4m2q4yyoprvc",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:12.087Z",
+      "crawledAt": "2026-11-01T09:23:58.014Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -185,12 +197,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:58.014Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -205,7 +221,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf/cltooq170hv1mlpf74ma4qorps5m7365vh2wprt4vphrz7gfqlkehwozvtr2jhv7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:10.454Z",
+      "crawledAt": "2026-11-01T09:23:56.243Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -226,12 +242,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:56.243Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -246,7 +266,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-fachfrau-fachmann-hauswirtschaft-efz/mhpe6got6kp8aehvbhvrutqet94iqlvveti51x2mzy0czw1etpot27jvsddb54w2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:08.976Z",
+      "crawledAt": "2026-11-01T09:23:54.499Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -267,12 +287,16 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:54.499Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -287,7 +311,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-koechin-koch-efz/pkihhblzupj8tzcuezrj0x6dvyd4l66pc5to2p54fimn1cifw3r4e8anlzpsh653",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:07.236Z",
+      "crawledAt": "2026-11-01T09:23:52.363Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -308,12 +332,16 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:52.363Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -328,7 +356,7 @@
       "url": "https://link.ostendis.com/publication/vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf/uivc5rdvnw5u75bub47fcsvf1qy0d33dzjw5xpokd0t1uewhxn6eb1dhue0z83xw",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:05.610Z",
+      "crawledAt": "2026-11-01T09:23:50.605Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -349,12 +377,16 @@
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:50.605Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -369,7 +401,7 @@
       "url": "https://link.ostendis.com/publication/sozialarbeiter-in-fh-hfs/yelztwd6hssenpdynxyf2qpypop26353103e6c82a5lkjfmp0yssn4d3nfis2ado",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:03.928Z",
+      "crawledAt": "2026-11-01T09:23:48.920Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -391,12 +423,16 @@
       "salaryMin": 34600,
       "salaryMax": 48200,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:23:48.920Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -411,7 +447,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-restaurant/e5ezu23qdm35hmmqetx0gv9tvvuffkr0pex87rcm5ixergj583jcm0iwmim4eu42",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:02.078Z",
+      "crawledAt": "2026-11-01T09:23:47.034Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -432,12 +468,16 @@
       "salaryMin": 51900,
       "salaryMax": 72300,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:23:47.034Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -452,7 +492,7 @@
       "url": "https://link.ostendis.com/publication/diaetkoch-koechin-koch-koechin-efz/kpcey41rlkhrag7d4oc0tdteobgw8o0qxwzmhexksvbkxbxy8ct0cexmpmc4uduo",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:00.300Z",
+      "crawledAt": "2026-11-01T09:23:45.225Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -473,12 +513,16 @@
       "salaryMin": 69000,
       "salaryMax": 86500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:23:45.225Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -493,7 +537,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-abwaschkueche/itshiaa8qw3fp2fsw4myyjhbshkp2huom26hgiob7sl50qzx5ct7vkczac0p7j73",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:58.413Z",
+      "crawledAt": "2026-11-01T09:23:43.460Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -514,12 +558,16 @@
       "salaryMin": 69000,
       "salaryMax": 86500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:23:43.460Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -534,7 +582,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-ueberwachungsstation-hf/by3ccdt48c1qc7bhytzj0jsgmjly737v42chv5kc2sw677ofpjrb5jkjy76zjjx4",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:56.541Z",
+      "crawledAt": "2026-11-01T09:23:41.244Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -556,14 +604,18 @@
       "salaryMin": 60500,
       "salaryMax": 84400,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:23:41.244Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

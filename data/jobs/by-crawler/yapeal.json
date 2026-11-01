@@ -1,7 +1,7 @@
 {
   "crawlerKey": "yapeal",
-  "assembledAt": "2026-10-31T09:13:08.726Z",
-  "runId": "41186993103",
+  "assembledAt": "2026-11-01T09:13:46.274Z",
+  "runId": "41291333597",
   "jobs": [
     {
       "id": "yapeal-8d58ba85703f",
@@ -34,7 +34,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:13:03.103Z",
+      "crawledAt": "2026-11-01T09:13:38.248Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -85,7 +85,10 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:13:38.248Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "yapeal-1b9cf2600e1d",
@@ -118,7 +121,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2868333",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:13:03.101Z",
+      "crawledAt": "2026-11-01T09:13:38.245Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -197,7 +200,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:13:38.245Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "yapeal-762e79908815",
@@ -230,7 +236,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:13:03.096Z",
+      "crawledAt": "2026-11-01T09:13:38.241Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -275,7 +281,10 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:13:38.241Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

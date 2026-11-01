@@ -1,7 +1,7 @@
 {
   "key": "hib-broye",
   "label": "Hôpital Intercantonal de la Broye (HIB)",
-  "generatedAt": "2026-10-31T09:12:39.532Z",
+  "generatedAt": "2026-11-01T09:12:46.413Z",
   "total": 47,
   "discovered": null,
   "parsed": 47,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 47,
-  "durationMs": 8766,
-  "avgDurationMs": 8766,
+  "durationMs": 9307,
+  "avgDurationMs": 9307,
   "durationHistory": [
-    8766
+    9307
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-de-80-a-100-95",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.620Z",
+      "crawledAt": "2026-11-01T09:12:24.522Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -58,12 +58,16 @@
       "salaryMin": 56800,
       "salaryMax": 86000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:12:24.522Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -79,7 +83,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100-94",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.618Z",
+      "crawledAt": "2026-11-01T09:12:24.520Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -100,12 +104,16 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.520Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -120,7 +128,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/technologue-en-dispositifs-medicaux-a-100-93",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.617Z",
+      "crawledAt": "2026-11-01T09:12:24.519Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,12 +149,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.519Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -161,7 +173,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/ergotherapeute-30-a-50-92",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.615Z",
+      "crawledAt": "2026-11-01T09:12:24.517Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -182,12 +194,16 @@
       "salaryMin": 43300,
       "salaryMax": 60300,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.517Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -203,7 +219,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-91",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.613Z",
+      "crawledAt": "2026-11-01T09:12:24.515Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -224,12 +240,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:12:24.515Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -245,7 +265,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-90",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.610Z",
+      "crawledAt": "2026-11-01T09:12:24.513Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -266,12 +286,16 @@
       "salaryMin": 43300,
       "salaryMax": 60300,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:12:24.513Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -286,7 +310,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-de-80-a-100-84",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.607Z",
+      "crawledAt": "2026-11-01T09:12:24.511Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -307,12 +331,16 @@
       "salaryMin": 36300,
       "salaryMax": 54900,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.511Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -327,7 +355,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/offre-spontanee-medecin-assistant.e-pour-le-centre-de-readaptation-75",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.604Z",
+      "crawledAt": "2026-11-01T09:12:24.510Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -348,12 +376,16 @@
       "salaryMin": 35500,
       "salaryMax": 53800,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.510Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -368,7 +400,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-specialise.e-de-80-a-100-dans-le-service-danesthesie-110",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.601Z",
+      "crawledAt": "2026-11-01T09:12:24.508Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -389,12 +421,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.508Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -410,7 +446,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-specialise-e-de-80-a-100-pour-le-service-des-soins-intensifs-109",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.599Z",
+      "crawledAt": "2026-11-01T09:12:24.506Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -431,12 +467,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.506Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -452,7 +492,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-de-80-a-100-pour-le-service-de-chirurgie-108",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.598Z",
+      "crawledAt": "2026-11-01T09:12:24.504Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -473,12 +513,16 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.504Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -493,7 +537,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/chef.fe-de-clinique-ou-chef.fe-de-clinique-adjoint.e-106",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.596Z",
+      "crawledAt": "2026-11-01T09:12:24.502Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -514,12 +558,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.502Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -534,7 +582,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-gyneco-obstetrique-de-50-a-100-105",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.593Z",
+      "crawledAt": "2026-11-01T09:12:24.500Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -555,12 +603,16 @@
       "salaryMin": 76500,
       "salaryMax": 107100,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.500Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -575,7 +627,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-en-pharmacie-cdm-104",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.591Z",
+      "crawledAt": "2026-11-01T09:12:24.498Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -596,12 +648,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.498Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -616,7 +672,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-de-80-a-100-103",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.588Z",
+      "crawledAt": "2026-11-01T09:12:24.495Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -637,12 +693,16 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:12:24.495Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -657,7 +717,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-a-100-102",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.584Z",
+      "crawledAt": "2026-11-01T09:12:24.491Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -678,12 +738,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.491Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -699,7 +763,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-chirurgie-orthopedique-101",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.581Z",
+      "crawledAt": "2026-11-01T09:12:24.488Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -720,12 +784,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.488Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -740,7 +808,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-rh-114",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.578Z",
+      "crawledAt": "2026-11-01T09:12:24.486Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -761,12 +829,16 @@
       "salaryMin": 30300,
       "salaryMax": 45800,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.486Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -781,7 +853,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-comptable-de-60-a-80-136",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.575Z",
+      "crawledAt": "2026-11-01T09:12:24.482Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -802,12 +874,16 @@
       "salaryMin": 68000,
       "salaryMax": 95200,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.482Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -822,7 +898,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-pour-le-ctr-de-50-a-100-168",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.573Z",
+      "crawledAt": "2026-11-01T09:12:24.480Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -843,12 +919,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.480Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -863,7 +943,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-de-recherche-clinique-a-100-cdd-2-ans-145",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.570Z",
+      "crawledAt": "2026-11-01T09:12:24.478Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -884,12 +964,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.478Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -904,7 +988,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/codificateur-trice-medical-e-80-100-150",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.567Z",
+      "crawledAt": "2026-11-01T09:12:24.475Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -925,12 +1009,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.475Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -945,7 +1033,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-a-80-155",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.565Z",
+      "crawledAt": "2026-11-01T09:12:24.472Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -966,12 +1054,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.472Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -986,7 +1078,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/cuisinier.ere-a-80-153",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.562Z",
+      "crawledAt": "2026-11-01T09:12:24.470Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1007,12 +1099,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.470Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1027,7 +1123,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/employe.e-de-nettoyage-a-80-185",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.559Z",
+      "crawledAt": "2026-11-01T09:12:24.467Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1048,12 +1144,16 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:12:24.467Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1069,7 +1169,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-184",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.558Z",
+      "crawledAt": "2026-11-01T09:12:24.465Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1090,12 +1190,16 @@
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.465Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1111,7 +1215,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/secretaire-medical.e-a-40-181",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.556Z",
+      "crawledAt": "2026-11-01T09:12:24.464Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1132,12 +1236,16 @@
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.464Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1152,7 +1260,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-technologue-en-dispositifs-medicaux-cfc-a-100-180",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.555Z",
+      "crawledAt": "2026-11-01T09:12:24.462Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1173,12 +1281,16 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.462Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1193,7 +1305,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/trm-a-100-179",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.553Z",
+      "crawledAt": "2026-11-01T09:12:24.461Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1214,12 +1326,16 @@
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.461Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1235,7 +1351,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-pour-le-service-de-chirurgie-de-50-a-100-167",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:12:19.552Z",
+      "crawledAt": "2026-11-01T09:12:24.459Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1256,14 +1372,18 @@
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.459Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

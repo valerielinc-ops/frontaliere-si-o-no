@@ -1,7 +1,7 @@
 {
   "crawlerKey": "engadin-tourismus",
-  "assembledAt": "2026-10-31T09:18:50.757Z",
-  "runId": "41187520287",
+  "assembledAt": "2026-11-01T09:22:45.624Z",
+  "runId": "41291881160",
   "jobs": [
     {
       "id": "engadin-tourismus-78fa7a41626e",
@@ -49,7 +49,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/praktikantin-tourismus-100-m-w-d",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:45.388Z",
+      "crawledAt": "2026-11-01T09:22:39.914Z",
       "previousSlugs": [
         "praktikant-in-tourismus-100-m-w-d-st-moritz-engadin-tourismus"
       ],
@@ -78,7 +78,21 @@
           "maxValue": 62000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Engadin Tourismus AG",
+        "streetAddress": "Via Maistra 1",
+        "postalCode": "7500",
+        "addressLocality": "St. Moritz",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:51.295Z"
+      },
+      "streetAddress": "Via Maistra 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-14T09:22:39.914Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

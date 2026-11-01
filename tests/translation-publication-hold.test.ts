@@ -95,7 +95,7 @@ afterEach(() => {
 
 describe('registro dei crawler di agenzia', () => {
   it('names exactly the four agency crawlers of the owner decision', () => {
-    expect([...TRANSLATION_HOLD_CRAWLER_KEYS].sort()).toEqual(['fachkraft', 'sta', 'stellenpartner', 'stellentreff']);
+    expect([...TRANSLATION_HOLD_CRAWLER_KEYS].sort()).toEqual(['fachkraft', 'seco-jobroom', 'sta', 'stellenpartner', 'stellentreff']);
   });
 });
 

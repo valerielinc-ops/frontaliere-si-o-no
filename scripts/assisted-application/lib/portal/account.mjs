@@ -21,7 +21,7 @@
 
 import { randomBytes } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from '../../../../functions/src/assistedApplicationConstants.js';
-import { sameSite } from '../../../../functions/src/assistedApplicationPortalSites.js';
+import { sameSite, exactPortalVerificationUrl, currentPendingPortalAccount } from '../../../../functions/src/assistedApplicationPortalSites.js';
 import { decryptJson, encryptJson } from '../secure-run.mjs';
 
 export const VERIFICATION_TIMEOUT_MS = 10 * 60 * 1000;
@@ -182,8 +182,29 @@ export function hostKey(host) {
   return String(host || '').toLowerCase().replace(/[^a-z0-9-]/g, '_').slice(0, 120);
 }
 
-// A verification link is opened only on the portal's own site (or its ATS
-// family); the inbound handler uses the same rule to keep a message from the candidate.
+const hasOwn = (value, key) => Object.prototype.hasOwnProperty.call(value || {}, key);
+
+/**
+ * Pre-marker inbox documents have no authenticated-source marker. Do not
+ * invent one: the bounded compatibility proof is the old persisted primary
+ * host, an exact HTTPS URL, the same order's inbox path and a fresh receipt,
+ * with the current pending account read again from Firestore. Schema/tenant
+ * fields in the old JSON are not authority and cannot broaden this path.
+ */
+function legacyVerificationUrl(message, host, sinceMs) {
+  if (hasOwn(message, 'portalVerificationHost') || message.category !== 'verification') return '';
+  const normalizedHost = String(host || '').toLowerCase();
+  if (typeof message.host !== 'string' || message.host.toLowerCase() !== normalizedHost) return '';
+  const receivedAt = Number(message.receivedAt);
+  if (!Number.isFinite(receivedAt) || receivedAt < sinceMs) return '';
+  // An explicit failed-authentication signal is counterproof, never a value
+  // to overwrite with true. Absence is handled only by the host/URL proof.
+  if (message.senderAuthenticated === false || message.authenticated === false || message.senderAuth === false) return '';
+  return exactPortalVerificationUrl(message.verificationUrl, normalizedHost);
+}
+
+// sameSite stays exported for compatibility. Opening verification links uses
+// the exact account host and the inbound handler's validated host binding.
 export { sameSite };
 
 export function accountsRefFor(db, orderId) {
@@ -236,23 +257,37 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
     },
     /**
      * The first verification message classified by the inbound handler after
-     * `sinceMs` whose link is on the portal's site (or that carries a code).
+     * `sinceMs` bound by inbound to this exact account host.
      */
     async waitForVerification({ host, sinceMs, timeoutMs = VERIFICATION_TIMEOUT_MS, excludeMessageIds = [] }) {
       const excluded = new Set(excludeMessageIds);
+      const normalizedHost = String(host || '').toLowerCase();
+      const since = Number(sinceMs);
+      if (!normalizedHost || !Number.isFinite(since)) return null;
       const deadline = nowMs() + timeoutMs;
       while (nowMs() < deadline) {
-        const snapshot = await inbox.where('receivedAt', '>=', sinceMs).get();
-        for (const doc of snapshot.docs) {
-          if (excluded.has(doc.id)) continue;
-          const message = doc.data();
-          if (message.category !== 'verification') continue;
-          const url = message.verificationUrl && sameSite(message.verificationUrl, host) ? message.verificationUrl : '';
-          const code = String(message.verificationCode || '');
-          if (url || code) {
-            mask(url);
-            mask(code);
-            return { url, code, messageId: doc.id };
+        const account = currentPendingPortalAccount((await ref.get()).data(), normalizedHost);
+        if (account) {
+          const snapshot = await inbox.where('receivedAt', '>=', since).get();
+          for (const doc of snapshot.docs) {
+            if (excluded.has(doc.id)) continue;
+            const message = doc.data();
+            const hasMarker = hasOwn(message, 'portalVerificationHost');
+            if (message.category !== 'verification') continue;
+            const receivedAt = Number(message.receivedAt);
+            if (!Number.isFinite(receivedAt) || receivedAt < since) continue;
+            if (hasMarker && String(message.portalVerificationHost || '').toLowerCase() !== normalizedHost) continue;
+            const createdAt = Number(account.createdAt);
+            if (!hasMarker && Number.isFinite(createdAt) && createdAt > receivedAt) continue;
+            const url = hasMarker
+              ? exactPortalVerificationUrl(message.verificationUrl, normalizedHost)
+              : legacyVerificationUrl(message, normalizedHost, since);
+            const code = hasMarker ? String(message.verificationCode || '') : '';
+            if (url || code) {
+              mask(url);
+              mask(code);
+              return { url, code, messageId: doc.id };
+            }
           }
         }
         await sleep(VERIFICATION_POLL_MS);

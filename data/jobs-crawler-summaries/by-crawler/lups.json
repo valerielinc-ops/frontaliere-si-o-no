@@ -1,10 +1,10 @@
 {
   "key": "lups",
   "label": "Luzerner Psychiatrie (LUPS)",
-  "generatedAt": "2026-10-31T09:12:34.502Z",
+  "generatedAt": "2026-11-01T09:17:53.508Z",
   "total": 68,
   "discovered": null,
-  "parsed": 68,
+  "parsed": 65,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -13,59 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 67,
-  "durationMs": 37497,
-  "avgDurationMs": 37497,
+  "unchangedCount": 68,
+  "durationMs": 82346,
+  "avgDurationMs": 82346,
   "durationHistory": [
-    37497
+    82346
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "lups-fe104ac95ea3",
-      "slug": "professionista-m-f-d-60-80-luzerner-psychiatrie-lups-st-urban",
-      "company": "Luzerner Psychiatrie (LUPS)",
-      "companyKey": "lups",
-      "companyDomain": "lups.ch",
-      "title": "Pflegefachperson (w/m/d) 60 - 80%",
-      "needsRetranslation": false,
-      "location": "St. Urban",
-      "canton": "LU",
-      "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-w-m-d/811aaac2-5df2-435e-b80f-9769f46c7c66",
-      "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:47.253Z",
-      "addressLocality": "St. Urban",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4915",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.lups.ch/offene-stellen/pflegefachperson-w-m-d/811aaac2-5df2-435e-b80f-9769f46c7c66",
-      "firstSeenAt": "2026-10-30T21:11:43.917Z",
-      "salaryMin": 69200,
-      "salaryMax": 96400,
-      "salarySource": "estimated",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -80,7 +37,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-assistent-klinikschule/e6ac78a5-a124-4aab-8a68-9959273ad101",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:18.203Z",
+      "crawledAt": "2026-11-01T09:17:36.100Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -101,12 +58,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:36.100Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -121,7 +82,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-pflegehilfe/9debbdcc-4eaa-4c7d-a508-d58b26454d70",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:18.012Z",
+      "crawledAt": "2026-11-01T09:17:35.355Z",
       "addressLocality": "Luzern 16",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -142,12 +103,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Luzern 16",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:35.355Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -162,7 +127,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-betreuungsassistent/b385c234-0a72-4811-9b1f-454396755a8d",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:17.562Z",
+      "crawledAt": "2026-11-01T09:17:34.351Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -183,12 +148,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:34.351Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -203,7 +172,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-betreuungsassistent-menschen-mit-beeintraechtigung-m-w-d/a20d1db6-cc8b-43c1-9710-c73be317a48d",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:17.083Z",
+      "crawledAt": "2026-11-01T09:17:33.339Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -224,12 +193,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:33.339Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -245,7 +218,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberaerztin-mit-co-stellenleitung-w-m-d/d1150d47-46f4-48c9-8296-8b4ba449d331",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:16.619Z",
+      "crawledAt": "2026-11-01T09:17:32.394Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -266,12 +239,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:32.394Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -287,7 +264,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/praktikum-in-der-begleitung-von-menschen-mit-beeintraechtigung-w-m-d-80/fe790031-795a-4532-9c8d-dce77f22c9d5",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:16.134Z",
+      "crawledAt": "2026-11-01T09:17:31.319Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -308,12 +285,16 @@
       "salaryMin": 51000,
       "salaryMax": 93500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:31.319Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -328,7 +309,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-betreuungsassistent/3d554689-c4aa-4db7-a551-e620c9f160f7",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:15.704Z",
+      "crawledAt": "2026-11-01T09:17:30.357Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -349,12 +330,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:30.357Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -370,7 +355,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-pflegehilfe/d757ee28-67c8-4e83-949e-ce1085f5d79c",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:15.258Z",
+      "crawledAt": "2026-11-01T09:17:29.346Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -391,12 +376,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:29.346Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -411,7 +400,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-betreuungsassistent/58363b0e-9e37-49c5-81fd-1debb1a950fe",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:14.812Z",
+      "crawledAt": "2026-11-01T09:17:28.334Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -432,12 +421,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:28.334Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -453,7 +446,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-m-w-d/184d404c-9a2c-4472-9dc5-59eaa49e8890",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:14.359Z",
+      "crawledAt": "2026-11-01T09:17:27.342Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -474,12 +467,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:27.342Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -494,7 +491,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-m-w-d/c461b08c-e656-42f0-ad52-dcaa7c4fac71",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:13.929Z",
+      "crawledAt": "2026-11-01T09:17:26.349Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -515,12 +512,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Sursee",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:26.349Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -535,7 +536,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-w-m-d/9a3e9ba1-1ff6-41cf-8304-c246ce7e07ef",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:13.456Z",
+      "crawledAt": "2026-11-01T09:17:25.347Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -556,12 +557,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:25.347Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -577,7 +582,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/leitender-arzt-m-w-d/bef76132-ec2c-4bf3-afb9-0c2820e5fef6",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:13.010Z",
+      "crawledAt": "2026-11-01T09:17:24.393Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -598,12 +603,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:24.393Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -618,7 +627,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegeexpertin-apn-w-m-d/da352ceb-3a3f-43b5-995d-6830f2636a3d",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:12.520Z",
+      "crawledAt": "2026-11-01T09:17:23.341Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -639,12 +648,16 @@
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:23.341Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -659,7 +672,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberaerztin-co-stellenleitung-w-m-d/6e23fdd4-1386-4ad2-88ed-b986ad1ed5d0",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:12.071Z",
+      "crawledAt": "2026-11-01T09:17:22.389Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -680,12 +693,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Sursee",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:22.389Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -701,7 +718,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-oder-sozialpaedagoge-nachtwache-m-w-d-befristet/e312d763-abd6-425e-a53e-b6a6d1efecb5",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:11.596Z",
+      "crawledAt": "2026-11-01T09:17:21.394Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -722,12 +739,16 @@
       "salaryMin": 51900,
       "salaryMax": 72300,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:21.394Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -742,7 +763,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/lernende-fachperson-reinigungstechnik-efz-ab-august-2027-m-w-d/cffaad89-8355-4b5c-8cd7-c84cbe896f12",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:11.105Z",
+      "crawledAt": "2026-11-01T09:17:20.403Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -763,12 +784,16 @@
       "salaryMin": 55000,
       "salaryMax": 69000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:20.403Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -784,7 +809,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/psychomotorik-therapeutin-m-w-d/146278b7-697f-43fd-aa82-b1deb6eea60d",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:10.617Z",
+      "crawledAt": "2026-11-01T09:17:19.332Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -805,12 +830,16 @@
       "salaryMin": 34600,
       "salaryMax": 48200,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:19.332Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -825,7 +854,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-w-m-d/0867d27f-2a91-41fe-85c4-beaf37b4af55",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:10.165Z",
+      "crawledAt": "2026-11-01T09:17:18.348Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -846,12 +875,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:18.348Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -867,7 +900,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/fabe-oder-arbeitsagoge-m-w-d/572d9170-54a5-4cb9-9b0a-6fd5170cc282",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:09.721Z",
+      "crawledAt": "2026-11-01T09:17:17.438Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -888,12 +921,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:17.438Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -909,7 +946,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberarzt-oder-spitalfacharzt-m-w-d-psychiatrie-oder-paediatrie/7a54a4c3-bb01-4ea1-81fc-33935866b956",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:09.193Z",
+      "crawledAt": "2026-11-01T09:17:16.402Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -930,12 +967,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:16.402Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -950,7 +991,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-m-w-d/d9502190-e8e2-4a6c-acfb-df14b55b4bd5",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:08.681Z",
+      "crawledAt": "2026-11-01T09:17:15.342Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -971,12 +1012,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:15.342Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -991,7 +1036,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberaerztin-oberarzt-m-w-d/ff119cf2-6c53-4c04-bc52-3d077d57ce00",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:08.237Z",
+      "crawledAt": "2026-11-01T09:17:14.376Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1012,12 +1057,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:14.376Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1033,7 +1082,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegeexpertin-apn-w-m-d/1f277034-f792-41e9-a2f2-8cc250470f83",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:07.740Z",
+      "crawledAt": "2026-11-01T09:17:13.348Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1054,12 +1103,16 @@
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:13.348Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1074,7 +1127,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberaerztin-co-stellenleitung-w-m-d/6cdd37f6-b185-435f-a065-02ac4365ab1c",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:07.293Z",
+      "crawledAt": "2026-11-01T09:17:12.378Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1095,12 +1148,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Sursee",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:12.378Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1116,7 +1173,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-oder-sozialpaedagogin-im-spaetdienst-und-in-der-nacht-m-w-d/7799b9ee-d5b5-4487-9873-0284dcb93959",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:06.783Z",
+      "crawledAt": "2026-11-01T09:17:11.381Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1137,12 +1194,16 @@
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:11.381Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1157,7 +1218,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-m-w-d/e1686a3e-d21e-4ee9-962b-57de105c510c",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:06.302Z",
+      "crawledAt": "2026-11-01T09:17:10.343Z",
       "addressLocality": "Wolhusen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1178,12 +1239,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Wolhusen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:10.343Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1198,7 +1263,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-hf-w-m-d/e19e61d5-53e6-4e0c-937e-0c8c3eef8020",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:05.857Z",
+      "crawledAt": "2026-11-01T09:17:09.377Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1219,12 +1284,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:09.377Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1240,7 +1309,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-oder-sozialpaedagogin-als-nachtwache-m-w-d/171afdc8-0298-4c1b-a8db-ec442fbf9eec",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:05.406Z",
+      "crawledAt": "2026-11-01T09:17:08.386Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1261,12 +1330,16 @@
       "salaryMin": 34600,
       "salaryMax": 48200,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:08.386Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1282,7 +1355,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberarzt-oder-spitalfacharzt-m-w-d/d5a42442-108b-402b-9f8f-90aeef988181",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:04.905Z",
+      "crawledAt": "2026-11-01T09:17:07.396Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1303,14 +1376,18 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:07.396Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

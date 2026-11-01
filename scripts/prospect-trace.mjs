@@ -32,6 +32,7 @@ import {
   NO_CAREERS_REASON,
   NO_CAREERS_RECHECK_BATCH,
   reviveStaleNoCareersCandidates,
+  reviveUnresolvedDomainCandidates,
   scheduleTraceRetry,
   statusCounts,
   startLedgerPhase,
@@ -63,6 +64,7 @@ const store = loadCandidates();
 const registry = loadRegistry();
 
 const rechecked = onlyKey || onlySource || dryRun ? [] : reviveStaleNoCareersCandidates(store);
+const retriedDomains = onlyKey || onlySource || dryRun ? [] : reviveUnresolvedDomainCandidates(store);
 
 const queue = onlyKey
   // Manual --key intentionally bypasses automatic retry cooldown/evidence suppression.
@@ -78,6 +80,7 @@ const queue = onlyKey
 
 console.log('═══ Prospector · TRACE ═══');
 if (rechecked.length) console.log(`ricontrollo periodico: ${rechecked.length} siti senza pagina carriere (max ${NO_CAREERS_RECHECK_BATCH} per run)`);
+if (retriedDomains.length) console.log(`nuovo generatore di domini: ${retriedDomains.length} candidati rimessi in coda`);
 console.log(`in coda: ${queue.length} candidati (di ${byStatus(store, 'new').length} nuovi)\n`);
 
 const results = await mapPool(queue, CONCURRENCY, (c) => traceCandidate(c));

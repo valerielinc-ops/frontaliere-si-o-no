@@ -1,0 +1,25 @@
+{
+  "companyKey": "jobmatchpro-ch",
+  "companyName": "JobMatch Pro Sàrl",
+  "companyHost": "jobmatchpro.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobmatchpro.ch/jobsearchrechercheemlpoi/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 18,
+  "sampleTitles": [
+    "Machiniste M1/M7 (H/F)",
+    "Conducteur de travaux (H/F)",
+    "Carreleur CFC (H/F)",
+    "Magasinier cariste (H/F)",
+    "Aide-étancheur (H/F)"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-31T12:45:49.247Z",
+  "candidateKey": "jobmatch-pro@blonay"
+}

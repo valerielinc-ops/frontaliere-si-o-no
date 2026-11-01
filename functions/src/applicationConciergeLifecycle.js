@@ -10,11 +10,22 @@ import * as conciergeMatcher from './applicationConciergeMatching.js';
 const { runApplicationConciergeMatching } = conciergeMatcher;
 import { buildConciergeNewJobsEmail, buildConciergeRenewalEmail } from './applicationConciergeLifecycleEmails.js';
 import { sendOrderNotification } from './assistedApplicationNotifications.js';
+import { enrichAssistedApplicationOrders } from './assistedApplicationJobCard.js';
 
 const REFRESH_LEASE_MS = 10 * 60 * 1000;
 function underCap(service) {
   return acceptedPositionsCount(service) < (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS);
 }
+
+export function isFreshConciergeProposalRefreshRequest(before, after) {
+  const requestedBy = after?.proposalRefreshRequestedBy;
+  return Boolean(
+    (requestedBy === 'lifecycle' || requestedBy === 'candidate_withdrawal')
+      && after?.proposalRefreshRequestId
+      && after.proposalRefreshRequestId !== before?.proposalRefreshRequestId,
+  );
+}
+
 async function claimRefresh(db, ref, nowMs, enqueueOnly) {
   const requestId = randomUUID();
   return db.runTransaction(async tx => {
@@ -29,7 +40,7 @@ async function claimRefresh(db, ref, nowMs, enqueueOnly) {
   });
 }
 
-async function deliverNewProposals({ db, ref, nowMs, send }) {
+async function deliverNewProposals({ db, ref, nowMs, send, enrichJobCards }) {
   const snapshot = await ref.get();
   const service = snapshot.data();
   const pending = service?.pendingProposalNotice;
@@ -42,7 +53,10 @@ async function deliverNewProposals({ db, ref, nowMs, send }) {
   }
   const result = await send({ db, recordRef: ref, orderId: ref.id, key: pending.key, audience: 'customer', nowMs,
     eligible: (current) => serviceIsActive(current, Math.max(nowMs, Date.now())) && underCap(current),
-    build: (current, options) => buildConciergeNewJobsEmail(current, ref.id, proposals, options),
+    build: async (current, options) => {
+      const cardProposals = await enrichJobCards(proposals.slice(0, 3));
+      return buildConciergeNewJobsEmail(current, ref.id, [...cardProposals, ...proposals.slice(3)], options);
+    },
   });
   if (result.ok || ['already_sent', 'already_ambiguous'].includes(result.reason)) {
     await ref.set({ pendingProposalNotice: FieldValue.delete() }, { merge: true });
@@ -51,7 +65,7 @@ async function deliverNewProposals({ db, ref, nowMs, send }) {
 }
 
 /** One document-trigger worker per service: no user's AI work can starve another service's sweep. */
-export async function runConciergeProposalRefresh({ db, serviceId, requestId = null, nowMs = Date.now(), match = runApplicationConciergeMatching, send = sendOrderNotification, deadlineMs = null }) {
+export async function runConciergeProposalRefresh({ db, serviceId, requestId = null, nowMs = Date.now(), match = runApplicationConciergeMatching, send = sendOrderNotification, deadlineMs = null, enrichJobCards = enrichAssistedApplicationOrders }) {
   const ref = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(serviceId);
   const claimed = await db.runTransaction(async tx => {
     const current = (await tx.get(ref)).data();
@@ -72,7 +86,8 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
     if (result.status === 'complete') {
       refreshed = 1;
       const after = await ref.collection('proposals').get();
-      const ids = after.docs.filter(d => !previouslyProposed.has(d.id) && d.data().status === 'proposed').map(d => d.id).sort();
+      const ids = after.docs.filter(d => !previouslyProposed.has(d.id)
+        && d.data().status === 'proposed' && d.data().eligibilityStatus === 'compatible').map(d => d.id).sort();
       const key = `new_proposals_${createHash('sha256').update(`${ids.join('|')}|${requestId || nowMs}`).digest('hex').slice(0, 24)}`;
       await db.runTransaction(async tx => {
         const current = (await tx.get(ref)).data();
@@ -83,13 +98,13 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
         }
       });
     }
-    return { refreshed, newJobEmails: await deliverNewProposals({ db, ref, nowMs, send }) ? 1 : 0 };
+    return { refreshed, newJobEmails: await deliverNewProposals({ db, ref, nowMs, send, enrichJobCards }) ? 1 : 0 };
   } finally {
     await ref.set({ proposalRefreshClaimedAt: FieldValue.delete(), proposalRefreshWorkerStartedAt: FieldValue.delete() }, { merge: true });
   }
 }
 
-export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match = runApplicationConciergeMatching, send = sendOrderNotification, unsubscribeSecret = null, enqueueOnly = true }) {
+export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match = runApplicationConciergeMatching, send = sendOrderNotification, unsubscribeSecret = null, enqueueOnly = true, enrichJobCards = enrichAssistedApplicationOrders }) {
   const secret = unsubscribeSecret ?? (await getNewsletterSecrets()).newsletterSecret;
   const snapshot = await db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).where('paymentStatus', '==', 'paid').get();
   const summary = { queuedRefreshes: 0, refreshed: 0, newJobEmails: 0, renewalEmails: 0, failed: 0 };
@@ -98,13 +113,13 @@ export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match
     try {
       await inheritConciergeRenewalMaterials({ db, serviceId: ref.id, nowMs });
       // Retry a failed notice before a later refresh can replace its pending batch.
-      if (await deliverNewProposals({ db, ref, nowMs, send })) summary.newJobEmails += 1;
+      if (await deliverNewProposals({ db, ref, nowMs, send, enrichJobCards })) summary.newJobEmails += 1;
       // A rolling deployment must never email lexical-only matches as verified proposals.
       const verifiedMatcherAvailable = match !== runApplicationConciergeMatching || conciergeMatcher.APPLICATION_CONCIERGE_REQUIREMENTS_VERIFIED === true;
       if (verifiedMatcherAvailable && await claimRefresh(db, ref, nowMs, enqueueOnly)) {
         if (enqueueOnly) summary.queuedRefreshes += 1;
         else {
-          const result = await runConciergeProposalRefresh({ db, serviceId: ref.id, nowMs, match, send });
+          const result = await runConciergeProposalRefresh({ db, serviceId: ref.id, nowMs, match, send, enrichJobCards });
           summary.refreshed += result.refreshed;
           summary.newJobEmails += result.newJobEmails;
         }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "oerlikon",
-  "assembledAt": "2026-10-31T09:32:59.003Z",
-  "runId": "41188495912",
+  "assembledAt": "2026-11-01T09:38:44.778Z",
+  "runId": "41292933668",
   "jobs": [
     {
       "id": "oerlikon-3e7f80f0bc32",
@@ -34,7 +34,7 @@
       "url": "https://careers.oerlikon.com/job/Global-OPS-Continuous-Improvement-Manager-%28gn%29/104472-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:32:53.203Z",
+      "crawledAt": "2026-11-01T09:38:37.498Z",
       "addressLocality": "Barchfeld, DEU",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -80,7 +80,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barchfeld, DEU",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-15T09:38:37.498Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-4777cad32119",
@@ -113,7 +117,7 @@
       "url": "https://careers.oerlikon.com/job/Receptionist/104921-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:32:52.597Z",
+      "crawledAt": "2026-11-01T09:38:36.859Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -145,15 +149,19 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Mendrisio, TI",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:38:36.859Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-6f58f20dbe72",
       "slug": "capo-team-electrical-engineering-oerlikon-wohlen",
       "slugByLocale": {
-        "de": "team-lead-electrical-engineering-oerlikon-ch",
         "it": "capo-team-electrical-engineering-oerlikon-wohlen",
         "en": "team-lead-electrical-engineering-oerlikon-ch",
+        "de": "team-lead-electrical-engineering-oerlikon-ch",
         "fr": "chef-d-equipe-electrical-engineering-oerlikon-wohlen"
       },
       "company": "Oerlikon",
@@ -168,17 +176,17 @@
       },
       "description": "Team Lead Electrical Engineering\n\nIhre Aufgaben\n\n• Fachliche und personelle Führung sowie Weiterentwicklung eines engagierten Elektroengineering-Teams\n\n• Verantwortung für die Weiterentwicklung bestehender Produkte und Evaluation neuer Komponenten und Technologien\n\n• Enge Zusammenarbeit mit dem Produktmanagement, Produktion, Sales und weiteren Fachbereichen\n\n• Sicherstellung und kontinuierliche Verbesserung von Engineering-Standards, Prozessen und Qualitätsrichtlinien\n\n• Planung und Koordination von Ressourcen, Projekten und Engineering-Aktivitäten\n\n• Initiierung und Umsetzung von Verbesserungsmassnahmen im Rahmen des KVP\n\nIhr Profil\n\n• Solide technische Grundausbildung und Weiterbildung auf Stufe HF/FH (Elektrotechnik, Automation oder Systemtechnik)\n\n• Mehrjährige Berufserfahrung im Elektro-Engineering sowie Erfahrung in der Führung und Entwicklung von Teams\n\n• Fundiertes Fachwissen relevanter Normen, Sicherheitsstandards im Bereich der Elektrotechnik im Maschinen- und Anlagenbau\n\n• Profunde Kenntnisse in elektrischen CAD-Systemen (EPLAN P8, COMOS oder vergleichbaren Systemen)\n\n• Verständnis für Automatisierungs- und Robotik-Lösungen, Kenntnisse von ABB- oder FANUC-Systemen sind ein Plus\n\n• Sehr gute Kommunikationsfähigkeit in Deutsch und Englisch im Umgang mit Kunden, sowie internen und externen Ansprechpartnern (gn)\n\n• Selbstständige, motivierte und teamorientierte Persönlichkeit\n\nWir bieten\n\n• Spannende Projekte in einem international ausgerichteten Unternehmen im High-Tech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenes Team\n\n• Ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung ab 2027 in Hausen (AG)\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\n• Attraktive Anstellungsbedingungen sowie fortschrittliche Sozialleistungen\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nFür diese Vakanz können Bewerbungen von Personalvermittlungen nicht berücksichtigt werden. Vielen Dank für Ihr Verständnis.\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
       "descriptionByLocale": {
+        "it": "Team Lead Ingegneria elettrica\n\nI loro compiti\n\n• Gestione professionale e del personale e sviluppo di un team dedicato di elettroingegneria\n\n• Responsabilità per l'ulteriore sviluppo dei prodotti esistenti e valutazione di nuovi componenti e tecnologie\n\n• Una stretta collaborazione con la gestione dei prodotti, la produzione, le vendite e altri settori specializzati\n\n• Garantire e migliorare continuamente standard ingegneristici, processi e politiche di qualità\n\n• Pianificazione e coordinamento delle risorse, dei progetti e delle attività ingegneristiche\n\n• Iniziazione e attuazione delle misure di miglioramento del CIP\n\nIl tuo profilo\n\n• Formazione tecnica di base solida e formazione continua a livello HF/FH (ingegneria elettrica, automazione o sistema)\n\n• Diversi anni di esperienza professionale nell'ingegneria elettrica e l'esperienza nella gestione e nello sviluppo dei team\n\n• Competenze approfondite di norme pertinenti, norme di sicurezza nel campo dell'ingegneria elettrica nell'ingegneria meccanica e nell'ingegneria degli impianti\n\n• Conoscenza comprovata nei sistemi CAD elettrici (EPLAN P8, COMOS o sistemi comparabili)\n\n• La comprensione delle soluzioni di automazione e robotica, la conoscenza dei sistemi ABB o FANUC sono un vantaggio\n\n• Molto buone capacità di comunicazione in tedesco e inglese nel trattare con i clienti, nonché contatti interni ed esterni (gn)\n\n• Personalità indipendente, motivata e orientata al team\n\nOffriamo\n\n• Progetti entusiasmanti in una società orientata a livello internazionale nel settore high-tech\n\n• Aprire la cultura aziendale e un team amichevole e aperto\n\n• Un moderno centro di produzione e tecnologia per il rivestimento termico dal 2027 ad Hausen (AG)\n\n• Prospettive per lo sviluppo personale e professionale\n\n• Lavorare in modo indipendente in un ambiente di lavoro attraente\n\n• Condizioni di lavoro interessanti e vantaggi sociali progressivi\n\nTi senti indirizzato? Allora siamo curiosi di conoscerti!\n\nSi prega di applicare online tramite la nostra pagina Carriera www.oerlikon.com/career\n\nLe domande delle agenzie di reclutamento non possono essere prese in considerazione per questo posto di lavoro. Grazie per la vostra comprensione.\n\nInformazioni su Oerlikon\n\nOerlikon è un leader globale nell'ingegneria delle scienze materiali. Con la giusta combinazione di tecnologie di superficie, materiali avanzati, attrezzature di rivestimento, componenti e produzione avanzata, aiutiamo i clienti a migliorare le prestazioni, l'efficienza, la durata e la sostenibilità dei loro prodotti e processi. Le nostre tecnologie sono spesso invisibili agli utenti finali, ma critiche al business delle industrie che rendono possibile la vita moderna: aerospaziale, energia, semiconduttori, tecnologia medica, beni di lusso, industria degli strumenti, industria automobilistica e industria generale. Oerlikon ha sede a Pfäffikon, Svizzera, opera in 38 paesi e impiega circa 10.000 persone in tutto il mondo. Nel 2025, Oerlikon ha generato vendite di CHF 1,6 miliardi.\n\nOffriamo una vasta gamma di profili di attività in un ambiente dinamico e di supporto in cui le persone sono abilitate a crescere e raggiungere il loro pieno potenziale, guidato dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "en": "Team Lead Electrical Engineering\n\nTheir tasks\n\n• Professional and personnel management as well as further development of a dedicated electroengineering team\n\n• Responsibility for the further development of existing products and evaluation of new components and technologies\n\n• Close cooperation with product management, production, sales and other specialist areas\n\n• Ensuring and continuously improving engineering standards, processes and quality policies\n\n• Planning and coordination of resources, projects and engineering activities\n\n• Initiation and implementation of CIP improvement measures\n\nYour profile\n\n• Solid basic technical training and further education at HF/FH level (electrical, automation or system engineering)\n\n• Several years of professional experience in electrical engineering as well as experience in the management and development of teams\n\n• In-depth expertise of relevant standards, safety standards in the field of electrical engineering in mechanical and plant engineering\n\n• Profound knowledge in electrical CAD systems (EPLAN P8, COMOS or comparable systems)\n\n• Understanding automation and robotics solutions, knowledge of ABB or FANUC systems are a plus\n\n• Very good communication skills in German and English in dealing with customers, as well as internal and external contacts (gn)\n\n• Independent, motivated and team-oriented personality\n\nWe offer\n\n• Exciting projects in an internationally oriented company in the high-tech sector\n\n• Open corporate culture and a friendly, open-minded team\n\n• A modern production and technology centre for thermal coating from 2027 in Hausen (AG)\n\n• Perspectives for personal and professional development\n\n• Working independently in an attractive working environment\n\n• Attractive employment conditions and progressive social benefits\n\nDo you feel addressed? Then we are curious to meet you!\n\nPlease apply online via our Career page www.oerlikon.com/career\n\nApplications from recruitment agencies cannot be considered for this vacancy. Thank you for your understanding.\n\nAbout Oerlikon\n\nOerlikon is a global leader in material science engineering. With the right combination of surface technologies, advanced materials, coating equipment, components and advanced manufacturing, we help customers improve the performance, efficiency, durability and sustainability of their products and processes. Our technologies are often invisible to end users, but critical to the business of the industries that make modern life possible: aerospace, energy, semiconductors, medical technology, luxury goods, tool industry, automotive industry and general industry. Oerlikon is headquartered in Pfäffikon, Switzerland, operates in 38 countries and employs around 10,000 people worldwide. In 2025, Oerlikon generated sales of CHF 1.6 billion.\n\nWe offer a wide variety of activity profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential, guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
         "de": "Team Lead Electrical Engineering\n\nIhre Aufgaben\n\n• Fachliche und personelle Führung sowie Weiterentwicklung eines engagierten Elektroengineering-Teams\n\n• Verantwortung für die Weiterentwicklung bestehender Produkte und Evaluation neuer Komponenten und Technologien\n\n• Enge Zusammenarbeit mit dem Produktmanagement, Produktion, Sales und weiteren Fachbereichen\n\n• Sicherstellung und kontinuierliche Verbesserung von Engineering-Standards, Prozessen und Qualitätsrichtlinien\n\n• Planung und Koordination von Ressourcen, Projekten und Engineering-Aktivitäten\n\n• Initiierung und Umsetzung von Verbesserungsmassnahmen im Rahmen des KVP\n\nIhr Profil\n\n• Solide technische Grundausbildung und Weiterbildung auf Stufe HF/FH (Elektrotechnik, Automation oder Systemtechnik)\n\n• Mehrjährige Berufserfahrung im Elektro-Engineering sowie Erfahrung in der Führung und Entwicklung von Teams\n\n• Fundiertes Fachwissen relevanter Normen, Sicherheitsstandards im Bereich der Elektrotechnik im Maschinen- und Anlagenbau\n\n• Profunde Kenntnisse in elektrischen CAD-Systemen (EPLAN P8, COMOS oder vergleichbaren Systemen)\n\n• Verständnis für Automatisierungs- und Robotik-Lösungen, Kenntnisse von ABB- oder FANUC-Systemen sind ein Plus\n\n• Sehr gute Kommunikationsfähigkeit in Deutsch und Englisch im Umgang mit Kunden, sowie internen und externen Ansprechpartnern (gn)\n\n• Selbstständige, motivierte und teamorientierte Persönlichkeit\n\nWir bieten\n\n• Spannende Projekte in einem international ausgerichteten Unternehmen im High-Tech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenes Team\n\n• Ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung ab 2027 in Hausen (AG)\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\n• Attraktive Anstellungsbedingungen sowie fortschrittliche Sozialleistungen\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nFür diese Vakanz können Bewerbungen von Personalvermittlungen nicht berücksichtigt werden. Vielen Dank für Ihr Verständnis.\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "it": "Team Lead Ingegneria elettrica\n\nI loro compiti\n\n• Gestione professionale e del personale e sviluppo di un team dedicato di elettroingegneria\n\n• Responsabilità per l'ulteriore sviluppo dei prodotti esistenti e valutazione di nuovi componenti e tecnologie\n\n• Una stretta collaborazione con la gestione dei prodotti, la produzione, le vendite e altri settori specializzati\n\n• Garantire e migliorare continuamente standard ingegneristici, processi e politiche di qualità\n\n• Pianificazione e coordinamento delle risorse, dei progetti e delle attività ingegneristiche\n\n• Iniziazione e attuazione delle misure di miglioramento del CIP\n\nIl tuo profilo\n\n• Formazione tecnica di base solida e formazione continua a livello HF/FH (ingegneria elettrica, automazione o sistema)\n\n• Diversi anni di esperienza professionale nell'ingegneria elettrica e l'esperienza nella gestione e nello sviluppo dei team\n\n• Competenze approfondite di norme pertinenti, norme di sicurezza nel campo dell'ingegneria elettrica nell'ingegneria meccanica e nell'ingegneria degli impianti\n\n• Conoscenza comprovata nei sistemi CAD elettrici (EPLAN P8, COMOS o sistemi comparabili)\n\n• La comprensione delle soluzioni di automazione e robotica, la conoscenza dei sistemi ABB o FANUC sono un vantaggio\n\n• Molto buone capacità di comunicazione in tedesco e inglese nel trattare con i clienti, nonché contatti interni ed esterni (gn)\n\n• Personalità indipendente, motivata e orientata al team\n\nOffriamo\n\n• Progetti entusiasmanti in una società orientata a livello internazionale nel settore high-tech\n\n• Aprire la cultura aziendale e un team amichevole e aperto\n\n• Un moderno centro di produzione e tecnologia per il rivestimento termico dal 2027 ad Hausen (AG)\n\n• Prospettive per lo sviluppo personale e professionale\n\n• Lavorare in modo indipendente in un ambiente di lavoro attraente\n\n• Condizioni di lavoro interessanti e vantaggi sociali progressivi\n\nTi senti indirizzato? Allora siamo curiosi di conoscerti!\n\nSi prega di applicare online tramite la nostra pagina Carriera www.oerlikon.com/career\n\nLe domande delle agenzie di reclutamento non possono essere prese in considerazione per questo posto di lavoro. Grazie per la vostra comprensione.\n\nInformazioni su Oerlikon\n\nOerlikon è un leader globale nell'ingegneria delle scienze materiali. Con la giusta combinazione di tecnologie di superficie, materiali avanzati, attrezzature di rivestimento, componenti e produzione avanzata, aiutiamo i clienti a migliorare le prestazioni, l'efficienza, la durata e la sostenibilità dei loro prodotti e processi. Le nostre tecnologie sono spesso invisibili agli utenti finali, ma critiche al business delle industrie che rendono possibile la vita moderna: aerospaziale, energia, semiconduttori, tecnologia medica, beni di lusso, industria degli strumenti, industria automobilistica e industria generale. Oerlikon ha sede a Pfäffikon, Svizzera, opera in 38 paesi e impiega circa 10.000 persone in tutto il mondo. Nel 2025, Oerlikon ha generato vendite di CHF 1,6 miliardi.\n\nOffriamo una vasta gamma di profili di attività in un ambiente dinamico e di supporto in cui le persone sono abilitate a crescere e raggiungere il loro pieno potenziale, guidato dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\n LinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "en": "Team Lead Electrical Engineering\n\nTheir tasks\n\n• Professional and personnel management as well as further development of a dedicated electroengineering team\n\n• Responsibility for the further development of existing products and evaluation of new components and technologies\n\n• Close cooperation with product management, production, sales and other specialist areas\n\n• Ensuring and continuously improving engineering standards, processes and quality policies\n\n• Planning and coordination of resources, projects and engineering activities\n\n• Initiation and implementation of CIP improvement measures\n\nYour profile\n\n• Solid basic technical training and further education at HF/FH level (electrical, automation or system engineering)\n\n• Several years of professional experience in electrical engineering as well as experience in the management and development of teams\n\n• In-depth expertise of relevant standards, safety standards in the field of electrical engineering in mechanical and plant engineering\n\n• Profound knowledge in electrical CAD systems (EPLAN P8, COMOS or comparable systems)\n\n• Understanding automation and robotics solutions, knowledge of ABB or FANUC systems are a plus\n\n• Very good communication skills in German and English in dealing with customers, as well as internal and external contacts (gn)\n\n• Independent, motivated and team-oriented personality\n\nWe offer\n\n• Exciting projects in an internationally oriented company in the high-tech sector\n\n• Open corporate culture and a friendly, open-minded team\n\n• A modern production and technology centre for thermal coating from 2027 in Hausen (AG)\n\n• Perspectives for personal and professional development\n\n• Working independently in an attractive working environment\n\n• Attractive employment conditions and progressive social benefits\n\nDo you feel addressed? Then we are curious to meet you!\n\nPlease apply online via our Career page www.oerlikon.com/career\n\nApplications from recruitment agencies cannot be considered for this vacancy. Thank you for your understanding.\n\nAbout Oerlikon\n\nOerlikon is a global leader in material science engineering. With the right combination of surface technologies, advanced materials, coating equipment, components and advanced manufacturing, we help customers improve the performance, efficiency, durability and sustainability of their products and processes. Our technologies are often invisible to end users, but critical to the business of the industries that make modern life possible: aerospace, energy, semiconductors, medical technology, luxury goods, tool industry, automotive industry and general industry. Oerlikon is headquartered in Pfäffikon, Switzerland, operates in 38 countries and employs around 10,000 people worldwide. In 2025, Oerlikon generated sales of CHF 1.6 billion.\n\nWe offer a wide variety of activity profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential, guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\n LinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "fr": "Chef d'équipe Génie électrique\n\nLeurs tâches\n\n• Gestion professionnelle et du personnel ainsi que développement d'une équipe spécialisée en électroingénierie\n\n• Responsabilité de la poursuite du développement des produits existants et de l'évaluation des nouveaux composants et technologies\n\n• Coopération étroite avec la gestion des produits, la production, les ventes et d'autres domaines spécialisés\n\n• Assurer et améliorer continuellement les normes techniques, les processus et les politiques de qualité\n\n• Planification et coordination des ressources, des projets et des activités d'ingénierie\n\n• Lancement et mise en œuvre de mesures d'amélioration du PIC\n\nVotre profil\n\n• Formation technique de base solide et formation continue au niveau HF/FH (électrique, d'automatisation ou d'ingénierie de systèmes)\n\n• Plusieurs années d'expérience professionnelle en génie électrique ainsi que d'expérience dans la gestion et le développement des équipes\n\n• Expertise approfondie des normes pertinentes, normes de sécurité dans le domaine de l'ingénierie électrique en mécanique et en génie des installations\n\n• Connaissance approfondie des systèmes de CAO électriques (EPLAN P8, COMOS ou systèmes comparables)\n\n• Comprendre les solutions d'automatisation et de robotique, la connaissance des systèmes ABB ou FANUC sont un plus\n\n• Très bonnes compétences en communication en allemand et en anglais dans les relations avec les clients, ainsi que des contacts internes et externes (gn)\n\n• Personnalité indépendante, motivée et axée sur l'équipe\n\nNous offrons\n\n• Projets passionnants dans une entreprise internationale du secteur de la haute technologie\n\n• Une culture d'entreprise ouverte et une équipe amicale et ouverte\n\n• Un centre de production et de technologie moderne pour le revêtement thermique à partir de 2027 à Hausen (AG)\n\n• Perspectives de développement personnel et professionnel\n\n• Travailler de manière indépendante dans un environnement de travail attrayant\n\n• Conditions d'emploi attrayantes et avantages sociaux progressifs\n\nVous sentez-vous adressé ? Alors nous sommes curieux de vous rencontrer !\n\nVeuillez postuler en ligne sur notre page Carrière www.oerlikon.com/career\n\nLes candidatures des agences de recrutement ne peuvent pas être prises en considération pour ce poste vacant. Merci de votre compréhension.\n\nÀ propos d'Oerlikon\n\nOerlikon est un leader mondial en ingénierie des sciences des matériaux. Avec la bonne combinaison de technologies de surface, matériaux avancés, équipement de revêtement, composants et fabrication avancée, nous aidons les clients à améliorer la performance, l'efficacité, la durabilité et la durabilité de leurs produits et procédés. Nos technologies sont souvent invisibles pour les utilisateurs finaux, mais critiques pour les entreprises des industries qui rendent la vie moderne possible: aérospatiale, énergie, semi-conducteurs, technologie médicale, produits de luxe, industrie des outils, industrie automobile et industrie générale. Oerlikon a son siège social à Pfäffikon, en Suisse, opère dans 38 pays et emploie environ 10 000 personnes dans le monde. En 2025, Oerlikon a généré des ventes de 1,6 milliard de francs suisses.\n\nNous offrons une grande variété de profils d'activités dans un environnement dynamique et favorable où les gens sont habilités à croître et à réaliser leur plein potentiel, guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\n Instagram YouTube\n\nLe site www.oerlikon.com"
+        "fr": "Chef d'équipe Génie électrique\n\nLeurs tâches\n\n• Gestion professionnelle et du personnel ainsi que développement d'une équipe spécialisée en électroingénierie\n\n• Responsabilité de la poursuite du développement des produits existants et de l'évaluation des nouveaux composants et technologies\n\n• Coopération étroite avec la gestion des produits, la production, les ventes et d'autres domaines spécialisés\n\n• Assurer et améliorer continuellement les normes techniques, les processus et les politiques de qualité\n\n• Planification et coordination des ressources, des projets et des activités d'ingénierie\n\n• Lancement et mise en œuvre de mesures d'amélioration du PIC\n\nVotre profil\n\n• Formation technique de base solide et formation continue au niveau HF/FH (électrique, d'automatisation ou d'ingénierie de systèmes)\n\n• Plusieurs années d'expérience professionnelle en génie électrique ainsi que d'expérience dans la gestion et le développement des équipes\n\n• Expertise approfondie des normes pertinentes, normes de sécurité dans le domaine de l'ingénierie électrique en mécanique et en génie des installations\n\n• Connaissance approfondie des systèmes de CAO électriques (EPLAN P8, COMOS ou systèmes comparables)\n\n• Comprendre les solutions d'automatisation et de robotique, la connaissance des systèmes ABB ou FANUC sont un plus\n\n• Très bonnes compétences en communication en allemand et en anglais dans les relations avec les clients, ainsi que des contacts internes et externes (gn)\n\n• Personnalité indépendante, motivée et axée sur l'équipe\n\nNous offrons\n\n• Projets passionnants dans une entreprise internationale du secteur de la haute technologie\n\n• Une culture d'entreprise ouverte et une équipe amicale et ouverte\n\n• Un centre de production et de technologie moderne pour le revêtement thermique à partir de 2027 à Hausen (AG)\n\n• Perspectives de développement personnel et professionnel\n\n• Travailler de manière indépendante dans un environnement de travail attrayant\n\n• Conditions d'emploi attrayantes et avantages sociaux progressifs\n\nVous sentez-vous adressé ? Alors nous sommes curieux de vous rencontrer !\n\nVeuillez postuler en ligne sur notre page Carrière www.oerlikon.com/career\n\nLes candidatures des agences de recrutement ne peuvent pas être prises en considération pour ce poste vacant. Merci de votre compréhension.\n\nÀ propos d'Oerlikon\n\nOerlikon est un leader mondial en ingénierie des sciences des matériaux. Avec la bonne combinaison de technologies de surface, matériaux avancés, équipement de revêtement, composants et fabrication avancée, nous aidons les clients à améliorer la performance, l'efficacité, la durabilité et la durabilité de leurs produits et procédés. Nos technologies sont souvent invisibles pour les utilisateurs finaux, mais critiques pour les entreprises des industries qui rendent la vie moderne possible: aérospatiale, énergie, semi-conducteurs, technologie médicale, produits de luxe, industrie des outils, industrie automobile et industrie générale. Oerlikon a son siège social à Pfäffikon, en Suisse, opère dans 38 pays et emploie environ 10 000 personnes dans le monde. En 2025, Oerlikon a généré des ventes de 1,6 milliard de francs suisses.\n\nNous offrons une grande variété de profils d'activités dans un environnement dynamique et favorable où les gens sont habilités à croître et à réaliser leur plein potentiel, guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\nInstagram YouTube\n\nLe site www.oerlikon.com"
       },
       "location": "Wohlen",
       "canton": "AG",
       "url": "https://careers.oerlikon.com/job/Team-Lead-Electrical-Engineering/105195-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:52.126Z",
+      "crawledAt": "2026-11-01T09:38:36.219Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -197,7 +205,19 @@
       "applyUrl": "https://careers.oerlikon.com/job/Team-Lead-Electrical-Engineering/105195-en_US",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "team-lead-electrical-engineering-oerlikon-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "team-lead-electrical-engineering-oerlikon-ch"
+        ],
+        "fr": [
+          "team-lead-electrical-engineering-oerlikon-ch"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-30T21:54:09.073Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -211,18 +231,10 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T21:54:09.073Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "team-lead-electrical-engineering-oerlikon-ch"
-        ],
-        "fr": [
-          "team-lead-electrical-engineering-oerlikon-ch"
-        ]
-      },
-      "previousSlugs": [
-        "team-lead-electrical-engineering-oerlikon-ch"
-      ]
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:38:36.219Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-36b0a730fba6",
@@ -255,7 +267,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:51.535Z",
+      "crawledAt": "2026-11-01T09:38:35.565Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -297,7 +309,11 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:35.565Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-356e3fe4d231",
@@ -330,7 +346,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:50.912Z",
+      "crawledAt": "2026-11-01T09:38:34.920Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -375,7 +391,11 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:38:34.920Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-77272637dd1f",
@@ -408,7 +428,7 @@
       "url": "https://careers.oerlikon.com/job/Techniker-%28gn%29-Pr%C3%BCffeld/104517-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:50.315Z",
+      "crawledAt": "2026-11-01T09:38:34.281Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -454,7 +474,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:38:34.281Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-69b1abc884fd",
@@ -487,7 +511,7 @@
       "url": "https://careers.oerlikon.com/job/MonteurMechaniker-%28gn%29-f%C3%BCr-den-Anlagenbau/104513-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:49.719Z",
+      "crawledAt": "2026-11-01T09:38:33.646Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -536,7 +560,11 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:38:33.646Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-f6087624a04b",
@@ -569,7 +597,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:49.100Z",
+      "crawledAt": "2026-11-01T09:38:32.987Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -616,7 +644,11 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:38:32.987Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-934beb8e0afc",
@@ -649,7 +681,7 @@
       "url": "https://careers.oerlikon.com/job/Inbetriebnahme-%28gn%29-Engineer/104461-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:48.502Z",
+      "crawledAt": "2026-11-01T09:38:32.354Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -696,7 +728,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:38:32.354Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-e3b44d1050bb",
@@ -729,7 +765,7 @@
       "url": "https://careers.oerlikon.com/job/Teamleiter-Elektrofertigung-%28gn%29/104960-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:47.747Z",
+      "crawledAt": "2026-11-01T09:38:31.684Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -773,7 +809,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:38:31.684Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

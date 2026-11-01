@@ -27,8 +27,9 @@ import {
   type StatTileTone,
 } from './seoContentTokens';
 import { calculateSimulation, calculateSeasonalScenario } from '../../services/calculationService';
-import { DEFAULT_INPUTS, DEFAULT_EXCHANGE_RATE } from '../../constants';
+import { DEFAULT_INPUTS, DEFAULT_EXCHANGE_RATE, DEFAULT_EXCHANGE_RATE_DATE } from '../../constants';
 import { MUNICIPALITIES } from '../../data/municipalities';
+import { buildReferenceNetScenario } from '../../services/referenceNetScenario';
 import { HEALTH_HREF, JOBS_HREF } from './comparatorHref';
 
 export type SalaryLocale = 'it' | 'en' | 'de' | 'fr';
@@ -137,7 +138,7 @@ const LOCALE_PACKS: Record<SalaryLocale, LocalePack> = {
     ctaPrimary: 'Calculer votre net',
     ctaSecondary: 'Ouvrir le simulateur si',
     simulatorHref: '/fr/calculer-salaire/',
-    whatIfHref: '/fr/calculer-salaire/et-si/',
+    whatIfHref: '/fr/calculer-salaire/',
   },
 };
 
@@ -195,6 +196,41 @@ function over20NetEUR(ral: number, zone: 'WITHIN_20KM' | 'OVER_20KM'): number {
 
 const round100 = (n: number): number => Math.round(n / 100) * 100;
 const round10 = (n: number): number => Math.round(n / 10) * 10;
+
+/** Righe RAL → netto dal motore: nuovo frontaliere, single, 30 anni, entro 20 km. */
+function ralNetRows(tag: string): Array<{ cells: string[]; emphasized?: true }> {
+  const formatInteger = (value: number) => {
+    const rounded = Math.round(value);
+    const absolute = Math.abs(rounded);
+    if (absolute >= 1000 && absolute < 10000) {
+      // it-IT's Intl data omits grouping for four-digit values; keep monthly nets consistent.
+      const separator = new Intl.NumberFormat(tag)
+        .formatToParts(10_000)
+        .find((part) => part.type === 'group')?.value;
+      if (separator) {
+        const digits = String(absolute);
+        return `${rounded < 0 ? '-' : ''}${digits.slice(0, -3)}${separator}${digits.slice(-3)}`;
+      }
+    }
+    return rounded.toLocaleString(tag);
+  };
+
+  return [60000, 80000, 100000, 120000].map((ral) => {
+    const r = calculateSimulation({
+      ...DEFAULT_INPUTS,
+      annualIncomeCHF: ral,
+      healthInsuranceCHF: 0,
+      expensesIT: [],
+      expensesCH: [],
+    });
+    const net = r.itResident.netIncomeAnnual;
+    const n = (value: number) => formatInteger(round100(value));
+    return {
+      cells: [formatInteger(ral), `~CHF ${n(net / 12)}`, `~CHF ${n(net)}`, `~EUR ${n(net * DEFAULT_EXCHANGE_RATE)}`],
+      ...(ral === 80000 ? { emphasized: true as const } : {}),
+    };
+  });
+}
 
 // Per-RAL { within, over, delta } EUR, computed once and reused by tile/advice/table.
 // `delta` is the difference of the *rounded* within/over cells (not the raw
@@ -546,7 +582,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'Sur CHF 6 000/mois brut, les cotisations sociales prélèvent déjà ~CHF 380 avant l\'impôt à la source — raisonnez sur le vrai net, pas le brut affiché.',
       ctaPrimary: { label: 'Ouvrir le simulateur', href: '/fr/calculer-salaire/' },
-      ctaSecondary: { label: 'Simulateur et-si', href: '/fr/calculer-salaire/et-si/' },
+      ctaSecondary: { label: 'Simulateur et-si', href: '/fr/calculer-salaire/' },
       table: {
         caption: 'Exemple fiche de paie : CHF 6 000/mois brut (A0N, Lugano)',
         headers: ['Poste', 'Taux', 'CHF/mois', 'EUR/mois'],
@@ -666,7 +702,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         { label: 'Sortie', value: 'Δ en CHF + EUR', tone: 'success' },
       ],
       advice: 'Passer de A0 (célibataire) à C2 (marié, 2 enfants) peut faire varier le net annuel de CHF 4 000 à 6 000 à brut égal — simulez avant de signer.',
-      ctaPrimary: { label: 'Ouvrir et-si', href: '/fr/calculer-salaire/et-si/' },
+      ctaPrimary: { label: 'Ouvrir et-si', href: '/fr/calculer-salaire/' },
       ctaSecondary: { label: 'Aller au simulateur de base', href: '/fr/calculer-salaire/' },
       table: {
         caption: 'Exemples de delta net annuel à brut CHF 80 000',
@@ -695,7 +731,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         { label: 'Differenza media', value: '+40-60% CH', tone: 'success' },
         { label: 'Spesa CH vs IT', value: '+35-55%', tone: 'warning' },
         { label: 'Trasporto frontaliere', value: '200-400 EUR/m', tone: 'danger' },
-        { label: 'Costo cassa malati', value: '200-600 CHF/m', tone: 'warning' },
+        { label: 'LAMal da 26 anni, residenti in Italia, senza infortuni (UFSP 2026)', value: '279-487 CHF/m', tone: 'warning' },
       ],
       advice: 'CHF 70.000 a Lugano valgono ~EUR 47.000 netti in tasca dopo trasporto + LAMal: confrontalo con un\'offerta da EUR 40.000 a Milano per capire il vero margine.',
       ctaPrimary: { label: 'Apri il confronto', href: '/calcola-stipendio/' },
@@ -725,7 +761,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         { label: 'Average gap', value: '+40-60% CH', tone: 'success' },
         { label: 'Grocery CH vs IT', value: '+35-55%', tone: 'warning' },
         { label: 'Cross-border travel', value: '200-400 EUR/mo', tone: 'danger' },
-        { label: 'Health insurance', value: '200-600 CHF/mo', tone: 'warning' },
+        { label: 'LAMal from 26, living in Italy, no accident cover (FOPH 2026)', value: '279-487 CHF/mo', tone: 'warning' },
       ],
       advice: 'CHF 70,000 in Lugano nets ~EUR 47,000 in pocket after travel + LAMal: weigh it against an EUR 40,000 Milan offer to see the true margin.',
       ctaPrimary: { label: 'Open the comparison', href: '/en/calculate-salary/' },
@@ -755,7 +791,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         { label: 'Mittlerer Unterschied', value: '+40-60% CH', tone: 'success' },
         { label: 'Lebensmittel CH vs IT', value: '+35-55%', tone: 'warning' },
         { label: 'Grenzgänger-Pendel', value: '200-400 EUR/Mt', tone: 'danger' },
-        { label: 'Krankenkasse', value: '200-600 CHF/Mt', tone: 'warning' },
+        { label: 'KVG ab 26, Wohnsitz Italien, ohne Unfall (BAG 2026)', value: '279-487 CHF/Mt', tone: 'warning' },
       ],
       advice: 'CHF 70.000 in Lugano ergeben ~EUR 47.000 netto nach Pendel + LAMal: vergleichen Sie mit EUR 40.000 in Mailand, um die echte Marge zu sehen.',
       ctaPrimary: { label: 'Vergleich öffnen', href: '/de/gehalt-berechnen/' },
@@ -785,7 +821,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         { label: 'Écart moyen', value: '+40-60% CH', tone: 'success' },
         { label: 'Courses CH vs IT', value: '+35-55%', tone: 'warning' },
         { label: 'Transport frontalier', value: '200-400 EUR/m', tone: 'danger' },
-        { label: 'Caisse maladie', value: '200-600 CHF/m', tone: 'warning' },
+        { label: 'LAMal dès 26 ans, résidents en Italie, sans accident (OFSP 2026)', value: '279-487 CHF/m', tone: 'warning' },
       ],
       advice: 'CHF 70 000 à Lugano valent ~EUR 47 000 nets après transport + LAMal : comparez avec une offre EUR 40 000 à Milan pour la vraie marge.',
       ctaPrimary: { label: 'Ouvrir la comparaison', href: '/fr/calculer-salaire/' },
@@ -821,7 +857,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         { label: 'Pool totale', value: '20 quiz', tone: 'warning' },
       ],
       advice: 'Il quiz è anche didattico: ogni risposta sbagliata sblocca una spiegazione con riferimento normativo. Usalo prima di una trattativa salariale.',
-      ctaPrimary: { label: 'Inizia il quiz', href: '/calcola-stipendio/quiz-stipendio/' },
+      ctaPrimary: { label: 'Inizia il quiz', href: '/calcola-stipendio/' },
       ctaSecondary: { label: 'Vai al simulatore', href: '/calcola-stipendio/' },
       table: {
         caption: 'Aree coperte dal pool di 20 domande',
@@ -934,8 +970,8 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       eyebrow: 'Da RAL svizzera a netto reale',
       tagline: 'CHF 80.000 lordi ≠ CHF 80.000 netti: vediamo cosa resta dopo AVS, LPP e imposta alla fonte.',
       tiles: [
-        { label: 'RAL CHF 80k', value: '~CHF 58k netti', tone: 'accent' },
-        { label: 'Contributi tot.', value: '14-22%', tone: 'warning' },
+        { label: 'RAL CHF 80k', value: `~CHF ${Math.round(buildReferenceNetScenario().newNetAnnualCHF / 1000)}k netti`, tone: 'accent' },
+        { label: 'Contributi tot.', value: '11-17%', tone: 'warning' },
         { label: 'LPP 50+ anni', value: '+18%', tone: 'danger' },
         { label: '13ª mensilità', value: 'Standard CH', tone: 'success' },
       ],
@@ -943,15 +979,10 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ctaPrimary: { label: 'Calcola il netto dalla RAL', href: '/calcola-stipendio/' },
       ctaSecondary: { label: 'Confronta due offerte', href: JOBS_HREF.it },
       table: {
-        caption: 'Conversione RAL → netto stimato (single A0, Lugano)',
+        caption: 'Conversione RAL → netto stimato (nuovo frontaliere, single, entro 20 km)',
         headers: ['RAL CHF', 'Netto mensile', 'Netto annuo', 'Netto in EUR'],
-        rows: [
-          { cells: ['60.000', '~CHF 4.000', '~CHF 48.000', '~EUR 50.000'] },
-          { cells: ['80.000', '~CHF 4.800', '~CHF 58.000', '~EUR 60.500'], emphasized: true },
-          { cells: ['100.000', '~CHF 5.800', '~CHF 70.000', '~EUR 73.500'] },
-          { cells: ['120.000', '~CHF 6.700', '~CHF 80.500', '~EUR 84.500'] },
-        ],
-        footnote: 'Stime per fascia LPP 25-34, Lugano. Per età 50+ il LPP sale al 18% e il netto cala ~CHF 4.000/anno.',
+        rows: ralNetRows('it-IT'),
+        footnote: 'Stime del calcolatore a 30 anni con tabella A, senza premio sanitario. Con l\'età il LPP sale e il netto cala.',
       },
       faqs: [
         { q: 'Cos\'è esattamente la RAL svizzera?', a: 'Retribuzione Annua Lorda: include 12 o 13 mensilità a seconda del settore, ma non i benefit (assicurazione integrativa, buoni pasto, parcheggio).' },
@@ -963,8 +994,8 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       eyebrow: 'From Swiss gross (RAL) to real net',
       tagline: 'CHF 80,000 gross ≠ CHF 80,000 net: see what\'s left after AVS, LPP and source tax.',
       tiles: [
-        { label: 'CHF 80k gross', value: '~CHF 58k net', tone: 'accent' },
-        { label: 'Total contrib.', value: '14-22%', tone: 'warning' },
+        { label: 'CHF 80k gross', value: `~CHF ${Math.round(buildReferenceNetScenario().newNetAnnualCHF / 1000)}k net`, tone: 'accent' },
+        { label: 'Total contrib.', value: '11-17%', tone: 'warning' },
         { label: 'LPP age 50+', value: '+18%', tone: 'danger' },
         { label: '13th month', value: 'Standard CH', tone: 'success' },
       ],
@@ -972,15 +1003,10 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ctaPrimary: { label: 'Calculate net from gross', href: '/en/calculate-salary/' },
       ctaSecondary: { label: 'Compare two offers', href: JOBS_HREF.en },
       table: {
-        caption: 'Gross → estimated net (single A0, Lugano)',
+        caption: 'Gross → estimated net (new cross-border worker, single, within 20 km)',
         headers: ['CHF gross', 'Monthly net', 'Annual net', 'Net in EUR'],
-        rows: [
-          { cells: ['60,000', '~CHF 4,000', '~CHF 48,000', '~EUR 50,000'] },
-          { cells: ['80,000', '~CHF 4,800', '~CHF 58,000', '~EUR 60,500'], emphasized: true },
-          { cells: ['100,000', '~CHF 5,800', '~CHF 70,000', '~EUR 73,500'] },
-          { cells: ['120,000', '~CHF 6,700', '~CHF 80,500', '~EUR 84,500'] },
-        ],
-        footnote: 'Estimates for LPP bracket 25-34, Lugano. From age 50+ LPP rises to 18% and net drops ~CHF 4,000/year.',
+        rows: ralNetRows('en-US'),
+        footnote: 'Calculator estimates at age 30 with table A, no health premium. LPP rises with age and net falls.',
       },
       faqs: [
         { q: 'What is Swiss RAL exactly?', a: 'Annual Gross Salary: includes 12 or 13 monthly payments depending on the sector, but not benefits (supplementary insurance, meal vouchers, parking).' },
@@ -992,8 +1018,8 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       eyebrow: 'Vom Schweizer Brutto (RAL) zum echten Netto',
       tagline: 'CHF 80.000 brutto ≠ CHF 80.000 netto: was nach AHV, BVG und Quellensteuer übrig bleibt.',
       tiles: [
-        { label: 'CHF 80k brutto', value: '~CHF 58k netto', tone: 'accent' },
-        { label: 'Beiträge total', value: '14-22%', tone: 'warning' },
+        { label: 'CHF 80k brutto', value: `~CHF ${Math.round(buildReferenceNetScenario().newNetAnnualCHF / 1000)}k netto`, tone: 'accent' },
+        { label: 'Beiträge total', value: '11-17%', tone: 'warning' },
         { label: 'BVG 50+', value: '+18%', tone: 'danger' },
         { label: '13. Monatslohn', value: 'CH-Standard', tone: 'success' },
       ],
@@ -1003,12 +1029,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       table: {
         caption: 'Brutto → geschätztes Netto (ledig A0, Lugano)',
         headers: ['CHF brutto', 'Netto/Monat', 'Netto/Jahr', 'Netto in EUR'],
-        rows: [
-          { cells: ['60.000', '~CHF 4.000', '~CHF 48.000', '~EUR 50.000'] },
-          { cells: ['80.000', '~CHF 4.800', '~CHF 58.000', '~EUR 60.500'], emphasized: true },
-          { cells: ['100.000', '~CHF 5.800', '~CHF 70.000', '~EUR 73.500'] },
-          { cells: ['120.000', '~CHF 6.700', '~CHF 80.500', '~EUR 84.500'] },
-        ],
+        rows: ralNetRows('de-DE'),
         footnote: 'Schätzwerte für BVG-Altersband 25-34, Lugano. Ab 50+ steigt das BVG auf 18 % und das Netto sinkt um ~CHF 4.000/Jahr.',
       },
       faqs: [
@@ -1021,8 +1042,8 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       eyebrow: 'Du brut suisse (RAL) au net réel',
       tagline: 'CHF 80 000 brut ≠ CHF 80 000 net : voyez ce qu\'il reste après AVS, LPP et impôt à la source.',
       tiles: [
-        { label: 'Brut CHF 80k', value: '~CHF 58k net', tone: 'accent' },
-        { label: 'Cotisations tot.', value: '14-22%', tone: 'warning' },
+        { label: 'Brut CHF 80k', value: `~CHF ${Math.round(buildReferenceNetScenario().newNetAnnualCHF / 1000)}k net`, tone: 'accent' },
+        { label: 'Cotisations tot.', value: '11-17%', tone: 'warning' },
         { label: 'LPP 50+ ans', value: '+18%', tone: 'danger' },
         { label: '13e mois', value: 'Standard CH', tone: 'success' },
       ],
@@ -1032,12 +1053,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       table: {
         caption: 'Brut → net estimé (célibataire A0, Lugano)',
         headers: ['CHF brut', 'Net/mois', 'Net/an', 'Net en EUR'],
-        rows: [
-          { cells: ['60 000', '~CHF 4 000', '~CHF 48 000', '~EUR 50 000'] },
-          { cells: ['80 000', '~CHF 4 800', '~CHF 58 000', '~EUR 60 500'], emphasized: true },
-          { cells: ['100 000', '~CHF 5 800', '~CHF 70 000', '~EUR 73 500'] },
-          { cells: ['120 000', '~CHF 6 700', '~CHF 80 500', '~EUR 84 500'] },
-        ],
+        rows: ralNetRows('fr-FR'),
         footnote: 'Estimations pour LPP 25-34, Lugano. Dès 50 ans, la LPP atteint 18 % et le net baisse de ~CHF 4 000/an.',
       },
       faqs: [
@@ -1056,7 +1072,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       tagline: 'Conviene davvero il permesso B? Quanto guadagni in più (o in meno) trasferendoti dall\'Italia, su 12 mesi.',
       tiles: [
         { label: 'Permit G → B', value: '+CHF 3-7k/anno', tone: 'success' },
-        { label: 'Costo LAMal', value: '200-600 CHF/mese', tone: 'warning' },
+        { label: 'LAMal in Ticino da 26 anni, franchigia 300 (UFSP 2026)', value: '512-769 CHF/mese', tone: 'warning' },
         { label: 'Soggiorno richiesto', value: '>183 gg/anno CH', tone: 'accent' },
         { label: 'Cassa malati', value: 'LAMal obbligatoria', tone: 'danger' },
       ],
@@ -1071,7 +1087,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
           { cells: ['80.000', '~CHF 55.000', '~CHF 58.000', '+CHF 3.000'], emphasized: true },
           { cells: ['100.000', '~CHF 67.000', '~CHF 71.000', '+CHF 4.000'] },
         ],
-        footnote: 'Stime al netto di trasporto frontaliere (G) e LAMal CHF 4.800/anno (B). Considera anche costo affitto Lugano (~+CHF 1.200/mese vs Como).',
+        footnote: 'Stime al netto di trasporto frontaliere (G) e LAMal CHF 6.144-9.228/anno (B). Considera anche costo affitto Lugano (~+CHF 1.200/mese vs Como).',
       },
       faqs: [
         { q: 'Quali sono i requisiti per il permesso B?', a: 'Contratto di lavoro CH valido, alloggio a tuo nome, dimostrazione di mezzi sufficienti, iscrizione anagrafica al Comune CH (entro 14 giorni dall\'arrivo). Variabile per cantone.' },
@@ -1167,6 +1183,15 @@ interface TierConfig {
   readonly variant: TierVariant;
 }
 
+/** Tasso e data del calcolo statico, nel formato di ogni lingua. */
+const REFERENCE_FX: Record<SalaryLocale, string> = {
+  it: DEFAULT_EXCHANGE_RATE.toFixed(4).replace('.', ','),
+  en: DEFAULT_EXCHANGE_RATE.toFixed(4),
+  de: DEFAULT_EXCHANGE_RATE.toFixed(4).replace('.', ','),
+  fr: DEFAULT_EXCHANGE_RATE.toFixed(4).replace('.', ','),
+};
+const REFERENCE_FX_DATE = DEFAULT_EXCHANGE_RATE_DATE.split('-').reverse().join('/');
+
 const SALARY_TIER_LABELS: Record<SalaryLocale, {
   eyebrow: string;
   taglinePrefix: string;
@@ -1200,9 +1225,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fonteTile: 'Fonte cantonale',
     irpefTile: 'Franchigia IT',
     tableLabel: 'Tabella A · B · C',
-    fxLabel: 'Tasso fisso 1,096',
+    fxLabel: `Cambio ${REFERENCE_FX.it} (${REFERENCE_FX_DATE})`,
     rateTile: 'Cambio CHF/EUR',
-    adviceTpl: (g, n, e) => `Su CHF ${g.toLocaleString('it-CH')} di lordo, ti restano circa CHF ${n.toLocaleString('it-CH')} netti — equivalenti a EUR ${e.toLocaleString('it-CH')} al tasso fisso del calcolatore (CHF 1 = EUR 1,096).`,
+    adviceTpl: (g, n, e) => `Su CHF ${g.toLocaleString('it-CH')} di lordo, ti restano circa CHF ${n.toLocaleString('it-CH')} netti — equivalenti a EUR ${e.toLocaleString('it-CH')} al tasso di riferimento del ${REFERENCE_FX_DATE} (CHF 1 = EUR ${REFERENCE_FX.it}).`,
     tableCaption: (g, p) => `Decomposizione: lordo CHF ${g.toLocaleString('it-CH')} (${p})`,
     captionProfileBase: 'single A0, Lugano',
     grossAllowanceLabel: 'Lordo + assegni familiari',
@@ -1210,11 +1235,11 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     rowLabels: { gross: 'Lordo (RAL)', social: 'Contributi sociali', source: 'Imposta alla fonte TI', italian: 'IRPEF residua (post-franchigia)', net: 'Netto stimato' },
     footnote: 'Stima per scopi indicativi. Per il tuo caso esatto usa il simulatore con i tuoi parametri.',
     faqQ1: 'Come si calcola il netto da questa RAL?',
-    faqA1: (g) => `Da CHF ${g.toLocaleString('it-CH')} lordi si sottraggono prima i contributi sociali (~14-16%), poi l'imposta alla fonte Ticino, infine l'IRPEF italiana residua post-franchigia 10.000 EUR.`,
+    faqA1: (g) => `Da CHF ${g.toLocaleString('it-CH')} lordi si sottraggono prima i contributi sociali (~11-17% secondo l\'età), poi l'imposta alla fonte Ticino, infine l'IRPEF italiana residua post-franchigia 10.000 EUR.`,
     faqQ2: 'Quanto incide la fascia LPP?',
     faqA2: 'Tanto: il LPP varia dal 7% (25-34 anni) al 18% (55-65 anni) del salario coordinato. Un over-50 con lo stesso lordo prende ~CHF 4.000/anno netti in meno.',
     faqQ3: 'Il netto è in CHF o EUR?',
-    faqA3: 'Il simulatore mostra entrambi: CHF per la busta paga, EUR convertito al tasso fisso del calcolatore (CHF 1 = EUR 1,096, aggiornato a ogni build) per pianificare le spese in Italia.',
+    faqA3: `Il simulatore mostra entrambi: CHF per la busta paga, EUR convertito al tasso di riferimento di /cambio-franco-euro/ (CHF 1 = EUR ${REFERENCE_FX.it} del ${REFERENCE_FX_DATE}) per pianificare le spese in Italia.`,
     variantSuffix: {
       base: '',
       new: ' · Nuovo frontaliere 2026',
@@ -1231,9 +1256,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fonteTile: 'Cantonal source',
     irpefTile: 'IT allowance',
     tableLabel: 'Table A · B · C',
-    fxLabel: 'Fixed 1.096',
+    fxLabel: `Rate ${REFERENCE_FX.en} (${REFERENCE_FX_DATE})`,
     rateTile: 'CHF/EUR rate',
-    adviceTpl: (g, n, e) => `On CHF ${g.toLocaleString('en-US')} gross, about CHF ${n.toLocaleString('en-US')} net remains — equivalent to EUR ${e.toLocaleString('en-US')} at the calculator's fixed rate (CHF 1 = EUR 1.096).`,
+    adviceTpl: (g, n, e) => `On CHF ${g.toLocaleString('en-US')} gross, about CHF ${n.toLocaleString('en-US')} net remains — equivalent to EUR ${e.toLocaleString('en-US')} at the reference rate of ${REFERENCE_FX_DATE} (CHF 1 = EUR ${REFERENCE_FX.en}).`,
     tableCaption: (g, p) => `Breakdown: gross CHF ${g.toLocaleString('en-US')} (${p})`,
     captionProfileBase: 'single A0, Lugano',
     grossAllowanceLabel: 'Gross + family allowance',
@@ -1241,11 +1266,11 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     rowLabels: { gross: 'Gross (RAL)', social: 'Social contributions', source: 'Ticino source tax', italian: 'Residual IRPEF (post-allowance)', net: 'Estimated net' },
     footnote: 'Indicative estimate. For your exact case use the simulator with your parameters.',
     faqQ1: 'How is the net calculated from this gross?',
-    faqA1: (g) => `From CHF ${g.toLocaleString('en-US')} gross we first subtract social contributions (~14-16%), then Ticino source tax, then residual Italian IRPEF after the EUR 10,000 allowance.`,
+    faqA1: (g) => `From CHF ${g.toLocaleString('en-US')} gross we first subtract social contributions (~11-17% depending on age), then Ticino source tax, then residual Italian IRPEF after the EUR 10,000 allowance.`,
     faqQ2: 'How much does the LPP bracket matter?',
     faqA2: 'A lot: LPP ranges from 7% (age 25-34) to 18% (age 55-65) of the coordinated salary. An over-50 worker with the same gross takes home ~CHF 4,000/year less.',
     faqQ3: 'Is the net in CHF or EUR?',
-    faqA3: 'The simulator shows both: CHF for the payslip, EUR converted at the calculator\'s fixed rate (CHF 1 = EUR 1.096, updated each build) so you can plan Italian expenses.',
+    faqA3: `The simulator shows both: CHF for the payslip, EUR converted at the site\'s reference rate (CHF 1 = EUR ${REFERENCE_FX.en} on ${REFERENCE_FX_DATE}) so you can plan Italian expenses.`,
     variantSuffix: {
       base: '',
       new: ' · New 2026 cross-border worker',
@@ -1262,9 +1287,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fonteTile: 'Kantonale Quelle',
     irpefTile: 'IT-Freibetrag',
     tableLabel: 'Tabelle A · B · C',
-    fxLabel: 'Fester Kurs 1,096',
+    fxLabel: `Kurs ${REFERENCE_FX.de} (${REFERENCE_FX_DATE})`,
     rateTile: 'CHF/EUR-Kurs',
-    adviceTpl: (g, n, e) => `Bei CHF ${g.toLocaleString('de-CH')} brutto bleiben rund CHF ${n.toLocaleString('de-CH')} netto — entspricht EUR ${e.toLocaleString('de-CH')} zum festen Kurs des Rechners (CHF 1 = EUR 1,096).`,
+    adviceTpl: (g, n, e) => `Bei CHF ${g.toLocaleString('de-CH')} brutto bleiben rund CHF ${n.toLocaleString('de-CH')} netto — entspricht EUR ${e.toLocaleString('de-CH')} zum Referenzkurs vom ${REFERENCE_FX_DATE} (CHF 1 = EUR ${REFERENCE_FX.de}).`,
     tableCaption: (g, p) => `Aufschlüsselung: Brutto CHF ${g.toLocaleString('de-CH')} (${p})`,
     captionProfileBase: 'ledig A0, Lugano',
     grossAllowanceLabel: 'Brutto + Familienzulagen',
@@ -1272,11 +1297,11 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     rowLabels: { gross: 'Brutto (RAL)', social: 'Sozialabgaben', source: 'Tessiner Quellensteuer', italian: 'IRPEF-Rest (nach Freibetrag)', net: 'Geschätztes Netto' },
     footnote: 'Richtwert. Für Ihren konkreten Fall den Simulator mit Ihren Parametern nutzen.',
     faqQ1: 'Wie wird das Netto aus diesem Brutto berechnet?',
-    faqA1: (g) => `Von CHF ${g.toLocaleString('de-CH')} brutto werden zuerst Sozialabgaben (~14-16 %) abgezogen, dann die Tessiner Quellensteuer, dann die italienische IRPEF nach EUR 10.000 Freibetrag.`,
+    faqA1: (g) => `Von CHF ${g.toLocaleString('de-CH')} brutto werden zuerst Sozialabgaben (~11-17 % je nach Alter) abgezogen, dann die Tessiner Quellensteuer, dann die italienische IRPEF nach EUR 10.000 Freibetrag.`,
     faqQ2: 'Wie stark wirkt die BVG-Altersgruppe?',
     faqA2: 'Stark: BVG reicht von 7 % (25-34) bis 18 % (55-65) des koordinierten Lohns. Ein Über-50 mit gleichem Brutto erhält ~CHF 4.000/Jahr weniger netto.',
     faqQ3: 'Ist das Netto in CHF oder EUR?',
-    faqA3: 'Der Simulator zeigt beides: CHF für den Lohnausweis, EUR zum festen Kurs des Rechners (CHF 1 = EUR 1,096, bei jedem Build aktualisiert) zur Planung italienischer Ausgaben.',
+    faqA3: `Der Simulator zeigt beides: CHF für den Lohnausweis, EUR zum Referenzkurs der Website (CHF 1 = EUR ${REFERENCE_FX.de} vom ${REFERENCE_FX_DATE}) zur Planung italienischer Ausgaben.`,
     variantSuffix: {
       base: '',
       new: ' · Neuer Grenzgänger 2026',
@@ -1293,9 +1318,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fonteTile: 'Source cantonale',
     irpefTile: 'Franchise IT',
     tableLabel: 'Barème A · B · C',
-    fxLabel: 'Taux fixe 1,096',
+    fxLabel: `Taux ${REFERENCE_FX.fr} (${REFERENCE_FX_DATE})`,
     rateTile: 'Taux CHF/EUR',
-    adviceTpl: (g, n, e) => `Sur CHF ${g.toLocaleString('fr-CH')} brut, il reste ~CHF ${n.toLocaleString('fr-CH')} nets — soit EUR ${e.toLocaleString('fr-CH')} au taux fixe du calculateur (CHF 1 = EUR 1,096).`,
+    adviceTpl: (g, n, e) => `Sur CHF ${g.toLocaleString('fr-CH')} brut, il reste ~CHF ${n.toLocaleString('fr-CH')} nets — soit EUR ${e.toLocaleString('fr-CH')} au taux de référence du ${REFERENCE_FX_DATE} (CHF 1 = EUR ${REFERENCE_FX.fr}).`,
     tableCaption: (g, p) => `Décomposition : brut CHF ${g.toLocaleString('fr-CH')} (${p})`,
     captionProfileBase: 'célibataire A0, Lugano',
     grossAllowanceLabel: 'Brut + allocations familiales',
@@ -1303,11 +1328,11 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     rowLabels: { gross: 'Brut (RAL)', social: 'Cotisations sociales', source: 'Impôt à la source TI', italian: 'IRPEF résiduel (post-franchise)', net: 'Net estimé' },
     footnote: 'Estimation indicative. Pour votre cas exact, utilisez le simulateur avec vos paramètres.',
     faqQ1: 'Comment se calcule le net depuis ce brut ?',
-    faqA1: (g) => `De CHF ${g.toLocaleString('fr-CH')} brut on déduit d\'abord les cotisations sociales (~14-16 %), puis l\'impôt à la source du Tessin, puis l\'IRPEF italien résiduel après la franchise EUR 10 000.`,
+    faqA1: (g) => `De CHF ${g.toLocaleString('fr-CH')} brut on déduit d\'abord les cotisations sociales (~11-17 % selon l\'âge), puis l\'impôt à la source du Tessin, puis l\'IRPEF italien résiduel après la franchise EUR 10 000.`,
     faqQ2: 'Combien impacte la tranche LPP ?',
     faqA2: 'Beaucoup : la LPP va de 7 % (25-34 ans) à 18 % (55-65 ans) du salaire coordonné. Un 50+ avec le même brut touche ~CHF 4 000/an de moins.',
     faqQ3: 'Le net est en CHF ou EUR ?',
-    faqA3: 'Le simulateur affiche les deux : CHF pour la fiche de paie, EUR converti au taux fixe du calculateur (CHF 1 = EUR 1,096, mis à jour à chaque build) pour planifier les dépenses en Italie.',
+    faqA3: `Le simulateur affiche les deux : CHF pour la fiche de paie, EUR converti au taux de référence du site (CHF 1 = EUR ${REFERENCE_FX.fr} du ${REFERENCE_FX_DATE}) pour planifier les dépenses en Italie.`,
     variantSuffix: {
       base: '',
       new: ' · Nouveau frontalier 2026',
@@ -1360,6 +1385,17 @@ interface TierDecomposition {
 // Full CHF decomposition for a salary-tier variant, straight from the calculator.
 // gross == RAL + familyAllowance, and net == gross - social - source - italian,
 // so every rendered table reconciles exactly.
+/** Netto mensile da citare nel testo: arrotondato a CHF 50, scritto come il testo. */
+export function tierNetMonthly(ral: number, variant: TierVariant): string {
+  const monthly = tierDecomposition(ral, variant).net / DEFAULT_INPUTS.monthsBasis;
+  return `CHF ${(Math.round(monthly / 50) * 50).toLocaleString('de-CH').replace('’', "'")}`;
+}
+
+/** Contributi sociali annui dello scenario base, arrotondati a CHF 100. */
+export function tierSocialAnnual(ral: number): string {
+  return `CHF ${round100(tierDecomposition(ral, 'base').social).toLocaleString('de-CH').replace('’', "'")}`;
+}
+
 function tierDecomposition(ral: number, variant: TierVariant): TierDecomposition {
   const r = calculateSimulation({
     ...DEFAULT_INPUTS,
@@ -1388,7 +1424,7 @@ function buildSalaryTierData(cfg: TierConfig, locale: SalaryLocale): SalaryLandi
   const ralCHF = cfg.ral * 1000;
 
   // Every variant is derived from the live calculator: no fabricated deltas, and
-  // the same DEFAULT_EXCHANGE_RATE (1.096) the tool uses for EUR (issues #1137,
+  // the same DEFAULT_EXCHANGE_RATE the tool uses for EUR (issues #1137,
   // #1150). `gross` is RAL + CH family allowance (allowance > 0 only for
   // `married`), so net == gross - social - source - italian reconciles exactly.
   const d = tierDecomposition(ralCHF, cfg.variant);
@@ -1624,7 +1660,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
       ],
       advice: 'Le net dépend du revenu, des cotisations, de la famille et des impôts applicables ; le statut ne change pas automatiquement entre 2025 et 2026. Utilisez les mêmes données dans le simulateur.',
       ctaPrimary: { label: 'Calculer votre net 2026', href: '/fr/calculer-salaire/' },
-      ctaSecondary: { label: 'Voir scénarios et-si', href: '/fr/calculer-salaire/et-si/' },
+      ctaSecondary: { label: 'Voir scénarios et-si', href: '/fr/calculer-salaire/' },
       table: {
         caption: 'Régimes fiscaux dans la zone des 20 km',
         headers: ['Élément', 'Anciens admissibles', 'Nouveaux admissibles'],
@@ -1893,7 +1929,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
         footnote: 'Stime al netto di trasporto (G) e LAMal (B). Il permesso B vince quasi sempre per i nuovi frontalieri oltre 20 km.',
       },
       faqs: [
-        { q: 'Perché il delta è così alto oltre 20 km?', a: 'Perché il nuovo regime tassa il 100% in CH + l\'IRPEF italiana piena (no split 80/20). Il permesso B paga solo la fonte CH, evitando la doppia imposta.' },
+        { q: 'Perché il delta è così alto oltre 20 km?', a: 'Perché oltre 20 km la ritenuta svizzera è ordinaria, senza la riduzione all\'80%, e l\'Italia tassa il reddito con credito per l\'imposta svizzera. Il permesso B paga solo la fonte CH.' },
         { q: 'Quali requisiti per il permesso B?', a: 'Contratto di lavoro CH valido, alloggio a tuo nome, dimostrazione mezzi sufficienti, dichiarazione iscrizione anagrafica al Comune CH. Variabile per cantone.' },
         { q: 'Conviene anche se ho famiglia in Italia?', a: 'Più complesso: trasferimento famiglia comporta cambio scuole, lavoro coniuge, sanità. Spesso conviene se entrambi possono trasferirsi.' },
       ],
@@ -1921,7 +1957,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
         footnote: 'Net of travel (G) and LAMal (B). Permit B almost always wins for new cross-border workers over 20 km.',
       },
       faqs: [
-        { q: 'Why is the delta so large over 20 km?', a: 'Because the new regime taxes 100% in CH plus full Italian IRPEF (no 80/20 split). Permit B pays only Swiss source tax, avoiding double taxation.' },
+        { q: 'Why is the delta so large over 20 km?', a: 'Because over 20 km Swiss withholding is ordinary, without the reduction to 80%, and Italy taxes the income with a credit for Swiss tax. Permit B pays only Swiss source tax.' },
         { q: 'What are B-permit requirements?', a: 'Valid Swiss employment contract, accommodation in your name, sufficient means, registration at the Swiss municipality. Varies by canton.' },
         { q: 'Worth it if my family lives in Italy?', a: 'More complex: family move means new schools, partner job, healthcare. Often worth it if both can relocate.' },
       ],
@@ -1949,7 +1985,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
         footnote: 'Netto nach Pendel (G) und LAMal (B). B-Bewilligung gewinnt fast immer für neue Grenzgänger über 20 km.',
       },
       faqs: [
-        { q: 'Warum ist die Differenz über 20 km so gross?', a: 'Weil das neue Regime 100 % in CH + volle italienische IRPEF besteuert (kein 80/20-Split). B zahlt nur CH-Quellensteuer und vermeidet die Doppelbesteuerung.' },
+        { q: 'Warum ist die Differenz über 20 km so gross?', a: 'Weil über 20 km die ordentliche Schweizer Quellensteuer gilt, ohne Reduktion auf 80 %, und Italien das Einkommen mit Anrechnung der Schweizer Steuer besteuert. B zahlt nur CH-Quellensteuer.' },
         { q: 'Was braucht eine B-Bewilligung?', a: 'Gültiger CH-Arbeitsvertrag, Wohnung auf eigenen Namen, ausreichende Mittel, Anmeldung bei der CH-Wohngemeinde. Kanton-abhängig.' },
         { q: 'Lohnt es sich auch mit Familie in Italien?', a: 'Komplexer: Familienumzug bedeutet Schulwechsel, Partnerarbeit, Gesundheit. Oft lohnend, wenn beide umziehen können.' },
       ],
@@ -1977,7 +2013,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
         footnote: 'Net après transport (G) et LAMal (B). Le permis B gagne presque toujours pour les nouveaux frontaliers au-delà de 20 km.',
       },
       faqs: [
-        { q: 'Pourquoi un delta si grand au-delà de 20 km ?', a: 'Parce que le nouveau régime impose 100 % en CH + IRPEF italien plein (pas de split 80/20). Le permis B ne paie que l\'impôt source CH, évitant la double imposition.' },
+        { q: 'Pourquoi un delta si grand au-delà de 20 km ?', a: 'Parce qu\'au-delà de 20 km la retenue suisse est ordinaire, sans réduction à 80 %, et l\'Italie impose le revenu avec un crédit pour l\'impôt suisse. Le permis B ne paie que l\'impôt source CH.' },
         { q: 'Quelles sont les exigences du permis B ?', a: 'Contrat de travail CH valide, logement à votre nom, ressources suffisantes, déclaration d\'inscription à la commune CH. Variable selon canton.' },
         { q: 'Vaut-il le coup avec famille en Italie ?', a: 'Plus complexe : déménagement familial = nouvelles écoles, emploi conjoint, santé. Souvent intéressant si les deux peuvent déménager.' },
       ],
@@ -2217,6 +2253,7 @@ export const _internal = {
   resolveScenarioData,
   buildSalaryTierData,
   tierDecomposition,
+  ralNetRows,
   OVER20_ROWS,
   HUB_PATH_TO_KEY,
 };

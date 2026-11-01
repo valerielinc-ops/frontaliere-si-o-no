@@ -1,7 +1,7 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-10-31T09:15:18.070Z",
-  "runId": "41187068114",
+  "assembledAt": "2026-11-01T09:12:36.784Z",
+  "runId": "41291409806",
   "jobs": [
     {
       "id": "efg-6488",
@@ -52,7 +52,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.264Z",
+      "crawledAt": "2026-11-01T09:12:29.120Z",
       "slugByLocale": {
         "it": "global-regulatory-reporting-specialista-efg-international-ag-geneve",
         "en": "global-regulatory-reporting-specialist-efg-geneve",
@@ -95,7 +95,11 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6488",
       "postingDateSource": "reported",
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-14T09:12:29.120Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6436",
@@ -264,7 +268,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.259Z",
+      "crawledAt": "2026-11-01T09:12:29.113Z",
       "slugByLocale": {
         "it": "it-analista-and-software-ingegnere-efg-international-ag-lugano",
         "en": "it-analyst-and-software-engineer-efg-lugano",
@@ -305,7 +309,10 @@
       ],
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6436",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-16T09:12:29.113Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6071",
@@ -356,7 +363,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.223Z",
+      "crawledAt": "2026-11-01T09:12:29.073Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -378,7 +385,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "",
+      "streetAddress": "Geneve",
       "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
@@ -401,7 +408,10 @@
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6071",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:29.073Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6066",
@@ -542,7 +552,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.220Z",
+      "crawledAt": "2026-11-01T09:12:29.069Z",
       "slugByLocale": {
         "it": "responsabile-dei-servizi-alla-clientela-bacino-di-talenti-di-ginevra-efg-international-ag-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -564,7 +574,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "",
+      "streetAddress": "Geneve",
       "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
@@ -586,7 +596,10 @@
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6066",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:29.069Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6039",
@@ -637,7 +650,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.215Z",
+      "crawledAt": "2026-11-01T09:12:29.064Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -679,7 +692,10 @@
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6039",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:12:29.064Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-5967",
@@ -826,7 +842,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.189Z",
+      "crawledAt": "2026-11-01T09:12:29.043Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -861,7 +877,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "",
+      "streetAddress": "Bleicherweg 8",
       "postalCode": "8001",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
@@ -890,7 +906,20 @@
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5967",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "EFG International AG",
+        "streetAddress": "Bleicherweg 8",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:48:45.577Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:12:29.043Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6221",
@@ -944,7 +973,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-31T09:15:11.179Z",
+      "crawledAt": "2026-11-01T09:12:29.033Z",
       "slugByLocale": {
         "it": "responsabile-della-gestione-del-rischio-di-terze-parti-efg-international-ag-lugano",
         "en": "third-party-risk-management-officer-efg-lugano",
@@ -966,7 +995,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "",
+      "streetAddress": "Bleicherweg 8",
       "postalCode": "8001",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
@@ -986,7 +1015,20 @@
       "previousSlugs": [
         "third-party-risk-management-officer-efg-lugano",
         "third-party-risk-management-officer-efg-international-ag-lugano"
-      ]
+      ],
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "EFG International AG",
+        "streetAddress": "Bleicherweg 8",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:48:45.577Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-18T09:12:29.033Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6456",
@@ -1147,7 +1189,11 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6456",
       "postingDateSource": "reported",
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-26T09:22:17.154Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6490",
@@ -1332,7 +1378,21 @@
         "digital-marketing-manager-campaigns-efg-zurich"
       ],
       "postingDateSource": "reported",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "EFG International AG",
+        "streetAddress": "Bleicherweg 8",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:48:45.577Z"
+      },
+      "streetAddress": "Bleicherweg 8",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-24T21:16:50.290Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6531",
@@ -1445,7 +1505,11 @@
         "client-services-officer-russian-speaker-efg-geneve"
       ],
       "postingDateSource": "reported",
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:15:22.561Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6413",
@@ -1539,7 +1603,11 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6413",
       "postingDateSource": "reported",
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-14T09:11:41.676Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6336",
@@ -1776,7 +1844,11 @@
       "salarySource": "estimated",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6336",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-10-31T09:17:04.463Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6317",
@@ -1960,7 +2032,11 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6317",
       "postingDateSource": "unknown",
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-10-28T04:51:51.498Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6175",
@@ -2108,7 +2184,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "",
+      "streetAddress": "Geneve",
       "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
@@ -2135,7 +2211,10 @@
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6175",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-10-28T04:51:51.496Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6384",
@@ -2300,7 +2379,21 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6384",
       "postingDateSource": "unknown",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "EFG International AG",
+        "streetAddress": "Bleicherweg 8",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:48:45.577Z"
+      },
+      "streetAddress": "Bleicherweg 8",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-10-13T13:51:30.827Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6327",
@@ -2489,7 +2582,21 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6327",
       "postingDateSource": "unknown",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "EFG International AG",
+        "streetAddress": "Bleicherweg 8",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:48:45.577Z"
+      },
+      "streetAddress": "Bleicherweg 8",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-10-19T13:51:30.824Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "efg-6210",
@@ -2588,428 +2695,11 @@
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6210",
-      "postingDateSource": "unknown"
-    },
-    {
-      "id": "efg-6219",
-      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Data Ops Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "General Info\n\n- Department: IT Data Departement\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n\n- Maintain high standards of data quality, reliability, and performance.\n\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n\n- Comfortable working with Python, SQL, PySpark and Databricks\n\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n\n- Familiarity with microservices architecture, API management and observability is a real plus\n\n- Experienced with Azure databricks.\n\n- Good communication and collaboration skills.\n\n- Rigorous and methodical in documentation and process creation\n\n- High interest for convergence, normalization and reusability.\n\n- Curious, enthusiastic and proactive\n\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6219",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Data Ops Engineer",
-        "it": "Ingegnere di Data Ops",
-        "de": "Data Ops Ingenieur",
-        "fr": "Ingénieur des opérations de données"
-      },
-      "descriptionByLocale": {
-        "en": "General Info\n- Department: IT Data Departement\n- Work time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n- Maintain high standards of data quality, reliability, and performance.\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n- Comfortable working with Python, SQL, PySpark and Databricks\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n- Familiarity with microservices architecture, API management and observability is a real plus\n- Experienced with Azure databricks.\n- Good communication and collaboration skills.\n- Rigorous and methodical in documentation and process creation\n- High interest for convergence, normalization and reusability.\n- Curious, enthusiastic and proactive\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
-        "it": "Informazioni generali\n- Dipartimento: Dipartimento dati IT\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\n\nLa nostra azienda\n\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nDescrizione del lavoro\n\nLa missione del team di piattaforma DataOps è garantire un livello di servizio affidabile in ogni componente tecnologica della piattaforma dati EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nStiamo costruendo ed evolvendo la piattaforma CI/CD che supporta le implementazioni delle pipeline di dati, portando competenze di implementazione e lavorando a stretto contatto con i team di progetto per ottenere consegnabili attraverso la linea.\n\nLe responsabilità chiave del team includono, la governance CI/CD delle pipeline di dati, il supporto di distribuzione delle pipeline e la certificazione e il monitoraggio delle operazioni a livello di piattaforma.\n\nPrincipali responsabilità\n\nMentre la nostra piattaforma e il panorama dei dati si evolvono, vorremmo rafforzare il nostro team con un ingegnere CI/CD specializzato nelle implementazioni delle pipeline di dati.\n- Le aspettative sulla qualità dei dati sono in costante aumento con la necessità di una consegna di servizio estremamente stabile. Dobbiamo garantire che i nostri processi di consegna siano controllati e visibili ai nostri stakeholder.\n- Siamo particolarmente interessati a qualcuno che guida le operazioni di Kafka, Spark e Databricks con Python\n- Rinforzando il nostro team, contribuirai notevolmente alla continuità e alla qualità delle nostre operazioni.\n- Assumere la proprietà operativa di specifici servizi di dati (gestione del cambiamento, gestione dell'assicurazione di qualità, SLA, SOP)\n\n- tracciare e garantire il buon funzionamento dei datadotti critici durante le ore asiatiche, agendo come punto di contatto primario per problemi critici in un modello di supporto al sole.\n- Progettare, implementare e ottimizzare la pipeline di dati in modalità batch e streaming.\n- Seguire e applicare la pratica CI/CD per automatizzare e ottimizzare le implementazioni e le integrazioni.\n- Creare, mantenere e migliorare la documentazione e le procedure operative per le quali è garantita la proprietà operativa.\n- Collaborare con team interfunzionali per migliorare e rivedere la governance nelle operazioni di integrazione.\n- Mantenere elevati standard di qualità dei dati, affidabilità e prestazioni.\n- Mantenere corrente con progressi nell'ingegneria dei dati, di dataops tech stack, per supportare il miglioramento continuo\n\nRequisiti e qualifiche\n- Almeno 5 anni di comprovata esperienza pratica nell'ingegneria dei dati e nell'implementazione delle pipeline di dati radicate nella pratica dei devoti.\n- Confortevole lavoro con Python, SQL, PySpark e Databricks\n- Robusta esperienza di tutte le principali piattaforme e processi CI/CD in ambiente ibrido (ad esempio, Azure DevOps, GitLab CI, GitHub Actions ).\n- La familiarità con l'architettura dei microservizi, la gestione delle API e l'osservabilità è un vantaggio reale\n- Esperienza con i databrick Azure.\n- Buone capacità di comunicazione e collaborazione.\n- Rigoroso e metodico nella documentazione e nella creazione di processi\n- Alto interesse per la convergenza, la normalizzazione e la riutilizzabilità.\n- Curioso, entusiasta e proattivo\n- Appassionato sulle tecnologie di elaborazione dei dati, con un forte desiderio di imparare e crescere in un ambiente esigente\n- Fluente in inglese parlato e scritto, il francese è un bene.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nAssicurarsi di allegare una lettera di copertura al vostro CV durante la compilazione dell'applicazione.\n\nApplicazione\n\nSe si desidera richiedere per questa posizione utilizzare questo link per applicare.",
-        "de": "Allgemeine Info\n- Abteilung: IT Data Department\n- Arbeitszeit Prozentsatz: 100%\n- Standort: Genf\n\nUnsere Firma\n\nEFG International ist eine globale private Bankengruppe, die private Bank- und Asset-Management-Dienste anbietet. Wir servieren Kunden an über 40 Standorten weltweit. EFG International bietet ein anregendes und dynamisches Arbeitsumfeld und strebt danach, Arbeitgeber der Wahl zu sein.\n\nUnsere Aufgabe und Mission\n\nUnternehmerische Köpfe stärken, Wert zu schaffen – heute und für die Zukunft.\n\nJob Description\n\nDataOps-Plattform-Team-Mission ist, ein zuverlässiges Serviceniveau über jede technologische Komponente der EFG-Datenplattform (Databricks, Kafka, Spark, Eastic Search, Apache MQ, uServices Stack) zu gewährleisten.\n\nWir bauen und entwickeln die CI/CD-Plattform, die Datenpipeline-Bereitstellungen unterstützt, Implementierungskompetenz bringt und eng mit Projektteams zusammenarbeitet, um Lieferungen über die Strecke zu erhalten.\n\nZu den Hauptaufgaben des Teams gehören die CI/CD Governance von Datenpipelines, die Unterstützung der Pipeline-Bereitstellung und die Zertifizierung und Überwachung von Plattformebenenoperationen.\n\nHauptverantwortlichkeiten\n\nMit der Entwicklung unserer Plattform und Datenlandschaft möchten wir unser Team mit einem qualifizierten CI/CD-Ingenieur, der sich auf die Implementierung von Datenpipeline spezialisiert hat, stärken.\n- Erwartungen an die Datenqualität steigen ständig mit der Notwendigkeit einer extrem stabilen Service-Lieferung. Wir müssen sicherstellen, dass unsere Lieferprozesse für unsere Stakeholder kontrolliert und sichtbar werden.\n- Wir sind besonders an einem komfortablen Fahren von Kafka, Spark und Databricks mit Python interessiert\n- Durch die Verstärkung unseres Teams tragen Sie maßgeblich zur Kontinuität und Qualität unserer Operationen bei.\n- Nehmen Sie das operative Eigentum an bestimmten Datendiensten (Wechselmanagement, Qualitätssicherung, SLA, SOP)\n\n- den reibungslosen Betrieb von kritischen Datenpipelines während asiatischer Stunden verfolgen und sicherstellen, als primärer Ansprechpartner für kritische Fragen in einem Folgemodell der Sonnenunterstützung.\n- Entwicklung, Implementierung und Optimierung der Datenpipeline im Batch- und Streaming-Modus.\n- Folgen Sie der CI/CD-Praxis, um Bereitstellungen und Integrationen zu automatisieren und zu optimieren.\n- Erstellung, Wartung und Verbesserung der Dokumentation und der operativen Verfahren, für die das operative Eigentum gewährleistet ist.\n- Zusammenarbeit mit funktionsübergreifenden Teams zur Verbesserung und Überprüfung der Governance bei Integrationsoperationen.\n- Bewahren Sie hohe Standards der Datenqualität, Zuverlässigkeit und Leistung.\n- Bleiben Sie aktuell mit Fortschritten in der Datentechnik, von Dataops Tech Stack, um kontinuierliche Verbesserung zu unterstützen\n\nAnforderungen und Qualifikationen\n- Mindestens 5 Jahre Erfahrung in der Datentechnik und Datenpipeline-Bereitstellung, die in der Praxis verwurzelt ist.\n- Komfortables Arbeiten mit Python, SQL, PySpark und Databricks\n- Robuste Erfahrung aller führenden CI/CD-Plattformen und Prozesse in hybrider Umgebung (z.B. Azure DevOps, GitLab CI, GitHub Actions).\n- Vertrautheit mit Mikroservice-Architektur, API-Management und Beobachtbarkeit ist ein echtes Plus\n- Erlebt mit Azure Databricks.\n- Gute Kommunikation und Zusammenarbeit.\n- Beständig und methodisch in der Dokumentation und Prozesserstellung\n- Hohes Interesse an Konvergenz, Normalisierung und Wiederverwendbarkeit.\n- Kurios, begeistert und proaktiv\n- Leidenschaftlich über Datenverarbeitungstechnologien, mit einem starken Wunsch, in einer anspruchsvollen Umgebung zu lernen und zu wachsen\n- Flöten in gesprochenem und geschriebenem Englisch, Französisch ist ein Vermögen.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeit mit einem Unternehmergeist.\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.\n\nAnwendung\n\nWenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
-        "fr": "Informations générales\n- Département: Département des données informatiques\n- Temps de travail Pourcentage: 100%\n- Lieu: Genève\n\nNotre société\n\nEFG International est un groupe mondial de banques privées qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nAutoriser les esprits entrepreneurs à créer de la valeur – aujourd'hui et pour l'avenir.\n\nDescription de l'emploi\n\nLa mission de l'équipe de plate-forme DataOps est d'assurer un niveau de service fiable pour chaque composant technologique de la plate-forme de données EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices pile).\n\nNous développons et évoluons la plate-forme CI/CD qui appuie le déploiement de pipelines de données, apporte une expertise en mise en oeuvre et travaille en étroite collaboration avec les équipes de projet pour obtenir les résultats attendus.\n\nLes principales responsabilités de l'équipe comprennent la gouvernance des pipelines de données, le soutien au déploiement des pipelines et la certification et la surveillance des opérations au niveau des plates-formes.\n\nPrincipales responsabilités\n\nAu fur et à mesure que notre plateforme et notre paysage de données évoluent, nous souhaitons renforcer notre équipe avec un ingénieur CI/CD qualifié spécialisé dans les implémentations de pipelines de données.\n- Les attentes en matière de qualité des données ne cessent d'augmenter avec la nécessité d'une prestation de services extrêmement stable. Nous devons veiller à ce que nos processus de prestation soient contrôlés et visibles par nos intervenants.\n- Nous sommes particulièrement intéressés par quelqu'un confortable conduire des opérations Kafka, Spark et Databricks avec Python\n- En renforçant notre équipe, vous contribuerez grandement à la continuité et à la qualité de nos opérations.\n- Prise en charge opérationnelle de services de données spécifiques (gestion du changement, gestion de l'assurance qualité, SLA, SOP)\n\n- suivre et assurer le bon fonctionnement des pipelines de données critiques pendant les heures d'Asie, agissant comme point de contact principal pour les problèmes critiques dans un modèle de soutien solaire suivant.\n- Concevoir, mettre en œuvre et optimiser le pipeline de données en mode batch et streaming.\n- Suivre et appliquer la pratique de l'IC/CD pour automatiser et rationaliser les déploiements et les intégrations.\n- Créer, maintenir et améliorer la documentation et les procédures opérationnelles pour lesquelles la propriété opérationnelle est assurée.\n- Collaborer avec des équipes interfonctionnelles pour améliorer et examiner la gouvernance des opérations d'intégration.\n- Maintenir des normes élevées de qualité des données, de fiabilité et de performance.\n- Restez à jour avec les progrès de l'ingénierie des données, de la pile de technologie de données, pour soutenir l'amélioration continue\n\nExigences et qualifications\n- Au moins 5 ans d'expérience pratique prouvée en ingénierie des données et en déploiement de pipelines de données enracinés dans la pratique des dévops.\n- Travail confortable avec Python, SQL, PySpark et Databricks\n- Expérience robuste de toutes les plateformes et processus CI/CD de pointe dans l'environnement hybride (p. ex. Azure DevOps, GitLab CI, GitHub Actions).\n- Familiarité avec l'architecture des microservices, la gestion des API et l'observabilité est un vrai plus\n- Expérience avec Azure databricks.\n- Bonnes compétences en communication et collaboration.\n- Rigieuse et méthodique dans la documentation et la création de processus\n- Intérêt pour la convergence, la normalisation et la réutilisabilité.\n- Curieux, enthousiaste et proactif\n- Passionné par les technologies de traitement des données, avec un vif désir d'apprendre et de grandir dans un environnement exigeant\n- En anglais parlé et écrit, le français est un atout.\n\nNos valeurs\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'améliorations continues\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionné : être engagé et viser l'excellence\n- Déterminé par la solution : se concentrer sur les résultats des clients et traiter les clients de façon équitable en tenant compte des risques\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nVeuillez joindre une lettre d'accompagnement à votre CV pour remplir la demande.\n\nDemande\n\nSi vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: IT Data Departement</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">DataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack). </span></p><p><span lang=\"EN-GB\">We are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line. </span></p><p><span lang=\"EN-GB\">Key team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.</span></p><p><span lang=\"EN-GB\"><strong>Main Responsibilities</strong></span></p><p><span lang=\"EN-GB\"> As our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders. </span></li><li><span lang=\"EN-GB\">We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python </span></li><li><span lang=\"EN-GB\">By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.</span></li><li><span lang=\"EN-GB\">Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP) </span></li><li><span lang=\"EN-GB\">track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.</span></li><li><span lang=\"EN-GB\">Design, implement, and optimize data pipeline in batch and streaming mode.</span></li><li><span lang=\"EN-GB\">Follow and apply CI/CD practice to automate and streamline deployments and integrations.</span></li><li><span lang=\"EN-GB\">Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.</span></li><li><span lang=\"EN-GB\">Collaborate with cross-functional teams to improve and review governance around integration operations.</span></li><li><span lang=\"EN-GB\">Maintain high standards of data quality, reliability, and performance.</span></li><li><span lang=\"EN-GB\">Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement</span></li></ul><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.</span></li><li><span lang=\"EN-GB\">Comfortable working with Python, SQL, PySpark and Databricks</span></li><li><span lang=\"EN-GB\">Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).</span></li><li><span lang=\"EN-GB\">Familiarity with microservices architecture, API management and observability is a real plus </span></li><li><span lang=\"EN-GB\">Experienced with Azure databricks.</span></li><li><span lang=\"EN-GB\">Good communication and collaboration skills.</span></li><li><span lang=\"EN-GB\">Rigorous and methodical in documentation and process creation</span></li><li><span lang=\"EN-GB\">High interest for convergence, normalization and reusability.</span></li><li><span lang=\"EN-GB\">Curious, enthusiastic and proactive</span></li><li><span lang=\"EN-GB\">Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment</span></li><li><span lang=\"EN-GB\">Fluent in spoken and written English, French is an asset.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-09-01T23:07:28.564Z",
-      "slugByLocale": {
-        "it": "data-ops-ingegnere-efg-international-ag-geneve",
-        "en": "data-ops-engineer-efg-geneve",
-        "de": "data-ops-ingenieur-efg-international-ag-geneve",
-        "fr": "data-ops-ingenieur-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1201",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-20T22:46:49.521Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "data-ops-engineer-efg-geneve"
-        ],
-        "de": [
-          "data-ops-engineer-efg-geneve"
-        ],
-        "fr": [
-          "data-ops-engineer-efg-geneve",
-          "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "data-ops-engineer-efg-geneve",
-        "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
-      ],
-      "country": "CH",
-      "salarySource": "reported",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6219",
-      "postingDateSource": "unknown"
-    },
-    {
-      "id": "efg-6163",
-      "slug": "learning-development-specialista-efg-international-ag-lugano-n932z9",
-      "company": "EFG International AG",
-      "title": "Learning & Development Specialist",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Job Description\n\nAs a key resource of the Learning & Development team, the  Learning & Development Specialist  will manage end-to-end the apprentices and interns programmes at EFG, ensuring a best-in-class onboarding and development experience, and provide support and coordinate selected global learning initiatives.\n\nThe resource will interact with all HR functional areas and expected to become a reference person within the organization on the assigned activities.\n\nThis is an excellent opportunity for someone willing to work in an international, fast-paced and client-oriented HR team within a global private banking group.\n\n## Main responsibilities\n\nLearning & Development Program Delivery (Apprentices & Interns)\n\n- Design, implement, and continuously improve apprentices and interns programmes, ensuring alignment with EFG’s standards and local requirements.\n\n- Manage the end-to-end hiring process for apprentices in Switzerland and interns globally, partnering with line managers and HR Business Partners/local HR.\n\n- Coordinate and facilitate onboarding and training sessions to build readiness and engagement for apprentices.\n\n- Prepare reports and feedback surveys to measure programme effectiveness; analyse insights to assess impact and identify opportunities for improvement.\n\nGlobal Learning Initiatives\n\n- Provide technical support for training-related topics, ensuring effective use of the company’s learning tools and systems.\n\n- Coordinate selected global learning initiatives, supporting design, rollout, communications, and logistics in partnership with the L&D team.\n\nThe Learning & Development Specialist will have a dual reporting line to the Head of Talent Development and the Head of Learning, and will work closely with the L&D and HR teams. The role collaborates with HRBPs, local HR, and business stakeholders to ensure seamless delivery and adherence to global frameworks.\n\n## Skills and Experience\n\n- University degree, preferably in human resources, organizational development, economics, or a related field\n\n- 3+ of relevant experience in early career talent acquisition or development within structured HR departments of international companies\n\n- Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred\n\n- Strong commitment to people development and delivering outstanding customer service\n\n- International mindset and experience working in multicultural environments\n\n- Proactive, positive attitude with energy and intellectual curiosity\n\n- Excellent interpersonal and collaboration skills; proven ability to work with diverse stakeholders across functions and countries\n\n- Strong communication skills, with the ability to clearly and effectively structure key messages\n\n- Exceptional organizational skills; able to work independently, manage multiple priorities, and deliver in a dynamic and demanding environment\n\n- Fluency in English, French, and Italian\n\n- Proficiency in MS Office programs\n\n## Our Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.",
-      "requirements": [
-        "University degree, preferably in human resources, organizational development, economics, or a related field",
-        "3+ of relevant experience in early career talent acquisition or development within structured HR departments of international companies",
-        "Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred",
-        "Strong commitment to people development and delivering outstanding customer service",
-        "International mindset and experience working in multicultural environments",
-        "Proactive, positive attitude with energy and intellectual curiosity",
-        "Excellent interpersonal and collaboration skills; proven ability to work with diverse stakeholders across functions and countries",
-        "Strong communication skills, with the ability to clearly and effectively structure key messages",
-        "Exceptional organizational skills; able to work independently, manage multiple priorities, and deliver in a dynamic and demanding environment",
-        "Fluency in English, French, and Italian",
-        "Proficiency in MS Office programs"
-      ],
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6163",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Learning & Development Specialist",
-        "it": "Specialista sviluppo e formazione",
-        "de": "Spezialist für Weiterbildung und Personalentwicklung",
-        "fr": "Spécialiste du développement et de la formation"
-      },
-      "descriptionByLocale": {
-        "en": "## Job Description\n\nAs a key resource of the Learning & Development team, the  Learning & Development Specialist  will manage end-to-end the apprentices and interns programmes at EFG, ensuring a best-in-class onboarding and development experience, and provide support and coordinate selected global learning initiatives.\n\nThe resource will interact with all HR functional areas and expected to become a reference person within the organization on the assigned activities.\n\nThis is an excellent opportunity for someone willing to work in an international, fast-paced and client-oriented HR team within a global private banking group.\n\n## Main responsibilities\n\nLearning & Development Program Delivery (Apprentices & Interns)\n\n- Design, implement, and continuously improve apprentices and interns programmes, ensuring alignment with EFG’s standards and local requirements.\n\n- Manage the end-to-end hiring process for apprentices in Switzerland and interns globally, partnering with line managers and HR Business Partners/local HR.\n\n- Coordinate and facilitate onboarding and training sessions to build readiness and engagement for apprentices.\n\n- Prepare reports and feedback surveys to measure programme effectiveness; analyse insights to assess impact and identify opportunities for improvement.\n\nGlobal Learning Initiatives\n\n- Provide technical support for training-related topics, ensuring effective use of the company’s learning tools and systems.\n\n- Coordinate selected global learning initiatives, supporting design, rollout, communications, and logistics in partnership with the L&D team.\n\nThe Learning & Development Specialist will have a dual reporting line to the Head of Talent Development and the Head of Learning, and will work closely with the L&D and HR teams. The role collaborates with HRBPs, local HR, and business stakeholders to ensure seamless delivery and adherence to global frameworks.\n\n## Skills and Experience\n\n- University degree, preferably in human resources, organizational development, economics, or a related field\n\n- 3+ of relevant experience in early career talent acquisition or development within structured HR departments of international companies\n\n- Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred\n\n- Strong commitment to people development and delivering outstanding customer service\n\n- International mindset and experience working in multicultural environments\n\n- Proactive, positive attitude with energy and intellectual curiosity\n\n- Excellent interpersonal and collaboration skills; proven ability to work with diverse stakeholders across functions and countries\n\n- Strong communication skills, with the ability to clearly and effectively structure key messages\n\n- Exceptional organizational skills; able to work independently, manage multiple priorities, and deliver in a dynamic and demanding environment\n\n- Fluency in English, French, and Italian\n\n- Proficiency in MS Office programs\n\n## Our Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.",
-        "it": "## Descrizione del lavoro\n\nIn qualità di risorsa chiave del team Learning & Development, lo Specialist Learning & Development gestirà end-to-end i programmi di apprendisti e tirocinanti dell'EFG, garantendo una migliore esperienza di bordo e sviluppo di classe, e fornire supporto e coordinare le iniziative di apprendimento globale selezionate.\n\nLa risorsa interagirà con tutte le aree funzionali HR e si prevede di diventare una persona di riferimento all'interno dell'organizzazione sulle attività assegnate.\n\nQuesta è un'ottima opportunità per qualcuno disposto a lavorare in un team HR internazionale, veloce e orientato al cliente all'interno di un gruppo bancario privato globale.\n\n## Principali responsabilità\n\nLearning & Development Program Delivery (Apprendisti & Interni)\n\n- Progettare, implementare e migliorare continuamente i programmi di apprendisti e tirocinanti, garantendo l’allineamento con gli standard dell’EFG e le esigenze locali.\n\n- Gestire il processo di assunzione end-to-end per gli apprendisti in Svizzera e i tirocinanti in tutto il mondo, collaborando con i dirigenti di linea e le HR Business Partners/local HR.\n\n- Coordinare e facilitare le sessioni di bordo e formazione per costruire la disponibilità e l'impegno per gli apprendisti.\n\n- Preparare report e sondaggi di feedback per misurare l'efficacia del programma; analizzare le informazioni per valutare l'impatto e identificare le opportunità di miglioramento.\n\nIniziative di apprendimento globali\n\n- Fornire supporto tecnico per argomenti legati alla formazione, garantendo un uso efficace degli strumenti e dei sistemi di apprendimento dell’azienda.\n\n- Coordinate le iniziative di apprendimento globale selezionate, supportando design, rollout, comunicazioni e logistica in collaborazione con il team L&D.\n\nIl Learning & Development Specialist avrà una doppia linea di reportistica al Head of Talent Development e al Head of Learning, e lavorerà a stretto contatto con i team L&D e HR. Il ruolo collabora con HRBP, HR locale e stakeholder aziendali per garantire la consegna e l'adesione senza soluzione di continuità ai quadri globali.\n\n## Competenze ed Esperienza\n\n- Laurea universitaria, preferibilmente in risorse umane, sviluppo organizzativo, economia, o un campo correlato\n\n- 3+ di esperienza rilevante nell'acquisizione o nello sviluppo di talenti di carriera all'interno di dipartimenti HR strutturati di aziende internazionali\n\n- L'interesse dimostrato per le tecnologie di apprendimento; l'esperienza con strumenti di progettazione di apprendimento (ad esempio Articulate) ha preferito\n\n- Forte impegno per lo sviluppo e la fornitura di un servizio clienti eccezionale\n\n- Mindset internazionale e esperienza di lavoro in ambienti multiculturali\n\n- Atteggiamento attivo e positivo con energia e curiosità intellettuale\n\n- Competenze interpersonali e di collaborazione eccellenti; comprovata capacità di lavorare con diverse parti interessate attraverso funzioni e paesi\n\n- Forte capacità di comunicazione, con la capacità di strutturare in modo chiaro ed efficace i messaggi chiave\n\n- Competenze organizzative eccezionali; in grado di lavorare in modo indipendente, gestire più priorità e fornire in un ambiente dinamico ed esigente\n\n- Fluency in inglese, francese e italiano\n\n- Proficienza nei programmi di MS Office\n\n## I nostri valori\n\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n\n- Passionato: Impegnarsi e lottare per l'eccellenza\n\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole\n\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nAssicurarsi di allegare una lettera di copertura al vostro CV durante la compilazione dell'applicazione.",
-        "de": "## Stellenbeschreibung\n\nAls eine wichtige Ressource des Learning & Development-Teams wird der Learning & Development Specialist die End-to-End-Programme für Auszubildende und Praktikanten bei EFG verwalten, eine erstklassige Onboarding- und Entwicklungserfahrung sicherstellen und ausgewählte globale Lerninitiativen unterstützen und koordinieren.\n\nDie Ressource wird mit allen HR-Funktionsbereichen interagieren und es wird erwartet, dass sie bei den zugewiesenen Aktivitäten eine Referenzperson innerhalb der Organisation wird.\n\nDies ist eine hervorragende Gelegenheit für jemanden, der bereit ist, in einem internationalen, schnelllebigen und kundenorientierten HR-Team innerhalb einer globalen Private-Banking-Gruppe zu arbeiten.\n\n## Hauptzuständigkeiten\n\nLern- und Entwicklungsprogramm (Auszubildende und Praktikanten)\n\n- Design, Implementierung und kontinuierliche Verbesserung von Lehrlingen und Praktikantenprogrammen, um die Übereinstimmung mit den Standards und lokalen Anforderungen der EFG sicherzustellen.\n\n- Verwalten Sie den End-to-End-Einstellungsprozess für Auszubildende in der Schweiz und Praktikanten weltweit und arbeiten Sie mit Vorgesetzten und HR Business Partners / Local HR zusammen.\n\n- Koordinieren und erleichtern Sie Onboarding und Schulungen, um die Bereitschaft und das Engagement für Auszubildende zu verbessern.\n\n- Erstellung von Berichten und Feedback-Umfragen zur Messung der Wirksamkeit des Programms; Analyse von Erkenntnissen zur Bewertung der Auswirkungen und Ermittlung von Verbesserungsmöglichkeiten.\n\nGlobale Lerninitiativen\n\n- Bieten Sie technische Unterstützung für Schulungsthemen und gewährleisten Sie die effektive Nutzung der Lernwerkzeuge und -systeme des Unternehmens.\n\n- Koordinieren Sie ausgewählte globale Lerninitiativen und unterstützen Sie Design, Rollout, Kommunikation und Logistik in Partnerschaft mit dem L & D-Team.\n\nDer Learning & Development Specialist wird eine doppelte Berichtslinie für den Head of Talent Development und den Head of Learning haben und eng mit den L&D- und HR-Teams zusammenarbeiten. Die Rolle arbeitet mit HRBPs, lokalen HR und geschäftlichen Stakeholdern zusammen, um eine nahtlose Bereitstellung und Einhaltung globaler Rahmenbedingungen zu gewährleisten.\n\n## Fähigkeiten und Erfahrung\n\n- Universitätsabschluss, vorzugsweise in Personal, Organisationsentwicklung, Wirtschaft oder einem verwandten Bereich\n\n- 3+ relevante Erfahrung in der frühen Karriere Talentgewinnung oder -entwicklung in strukturierten HR-Abteilungen internationaler Unternehmen\n\n- Demonstriertes Interesse an Lerntechnologien; Erfahrung mit Lerndesign-Tools (z.B. Articulate) bevorzugt\n\n- Starkes Engagement für die Entwicklung von Menschen und die Bereitstellung eines hervorragenden Kundenservice\n\n- Internationale Denkweise und Erfahrung im multikulturellen Umfeld\n\n- Proaktive, positive Einstellung zu Energie und intellektueller Neugier\n\n- Hervorragende zwischenmenschliche und Collaboration-Fähigkeiten; nachgewiesene Fähigkeit, mit verschiedenen Stakeholdern über Funktionen und Länder hinweg zu arbeiten\n\n- Starke Kommunikationsfähigkeiten mit der Fähigkeit, Schlüsselbotschaften klar und effektiv zu strukturieren\n\n- Außergewöhnliche organisatorische Fähigkeiten; in der Lage, unabhängig zu arbeiten, mehrere Prioritäten zu verwalten und in einem dynamischen und anspruchsvollen Umfeld zu liefern\n\n- Fließend in Englisch, Französisch und Italienisch\n\n- Kenntnisse in MS Office-Programmen\n\n## Unsere Werte\n\n- Verantwortlichkeit: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie Suche nach kontinuierlicher Verbesserung\n\n- Hands-on: Proaktiv sein, um schnell qualitativ hochwertige Ergebnisse zu liefern\n\n- Leidenschaftlich: Engagiert sein und nach Exzellenz streben\n\n- Lösungsorientiert: Fokussierung auf Kundenergebnisse und faire Behandlung von Kunden mit einer risikobewussten Denkweise\n\n- Partnerschaftsorientiert: Zusammenarbeit und Teamwork fördern. Zusammenarbeit mit Unternehmergeist.\n\nBitte stellen Sie sicher, dass Sie Ihrem Lebenslauf beim Ausfüllen des Antrags ein Anschreiben beifügen.",
-        "fr": "## Description de l'emploi\n\nEn tant que ressource clé de l'équipe d'apprentissage et de développement, le spécialiste de l'apprentissage et du développement gérera de bout en bout les programmes d'apprentis et de stagiaires de l'EFG, en assurant une expérience d'embarquement et de développement optimale, et fournira un soutien et coordonnera certaines initiatives d'apprentissage à l'échelle mondiale.\n\nLa ressource interagira avec tous les secteurs fonctionnels des RH et devrait devenir une personne de référence au sein de l'organisation pour les activités assignées.\n\nC'est une excellente occasion pour quelqu'un qui est prêt à travailler dans une équipe RH internationale, rapide et axée sur le client au sein d'un groupe mondial de banques privées.\n\n## Principales responsabilités\n\nExécution du programme d'apprentissage et de perfectionnement (apprentis et stagiaires)\n\n- Concevoir, mettre en œuvre et améliorer continuellement les programmes d'apprentis et de stagiaires, en assurant l'alignement sur les normes de l'EFG et les exigences locales.\n\n- Gérer le processus d'embauche de bout en bout pour les apprentis en Suisse et les stagiaires dans le monde entier, en partenariat avec les gestionnaires hiérarchiques et les partenaires d'affaires RH/RH locales.\n\n- Coordonner et faciliter les séances d'embarquement et de formation pour renforcer la préparation et l'engagement des apprentis.\n\n- Préparer des rapports et des enquêtes de retour d ' information pour mesurer l ' efficacité du programme; analyser les informations permettant d ' évaluer l ' impact et identifier les possibilités d ' amélioration.\n\nInitiatives globales d'apprentissage\n\n- Fournir un soutien technique pour les sujets liés à la formation, en assurant une utilisation efficace des outils et des systèmes d'apprentissage de l'entreprise.\n\n- Coordonner certaines initiatives d'apprentissage à l'échelle mondiale, appuyer la conception, le déploiement, les communications et la logistique en partenariat avec l'équipe de L&D.\n\nLe spécialiste de l'apprentissage et du perfectionnement aura un double lien hiérarchique avec le chef du développement des talents et le chef de l'apprentissage, et travaillera en étroite collaboration avec les équipes de L&D et de RH. Ce rôle collabore avec les HRBP, les RH locales et les intervenants du secteur privé afin d'assurer une prestation et un respect uniformes des cadres mondiaux.\n\n## Compétences et expérience\n\n- Diplôme universitaire, de préférence en ressources humaines, en développement organisationnel, en économie ou dans un domaine connexe\n\n- 3+ d'expérience pertinente dans l'acquisition ou le perfectionnement de talents en début de carrière au sein des départements RH structurés des entreprises internationales\n\n- Intérêt démontré pour les technologies d'apprentissage; expérience avec les outils de conception d'apprentissage (p. ex. articulate) préféré\n\n- Un engagement ferme envers le développement des personnes et la prestation d'un service à la clientèle exceptionnel\n\n- L'état d'esprit international et l'expérience de travail dans des environnements multiculturels\n\n- Une attitude proactive et positive avec énergie et curiosité intellectuelle\n\n- Excellentes compétences en relations interpersonnelles et en collaboration; capacité éprouvée de travailler avec diverses parties prenantes à travers les fonctions et les pays\n\n- Fortes compétences en communication, avec la capacité de structurer clairement et efficacement les messages clés\n\n- Compétences organisationnelles exceptionnelles, capables de travailler de façon indépendante, de gérer de multiples priorités et d'offrir un environnement dynamique et exigeant\n\n- Connaissance de l'anglais, du français et de l'italien\n\n- Compétence dans les programmes du Bureau de la SP\n\n## Nos valeurs\n\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'amélioration continue\n\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n\n- Passionné : être engagé et rechercher l'excellence\n\n- Une solution axée sur les résultats des clients et le traitement équitable des clients avec un état d'esprit conscient des risques\n\n- Orientation vers le partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nVeuillez joindre une lettre d'accompagnement à votre CV pour remplir la demande."
-      },
-      "requirementsByLocale": {
-        "en": [
-          "University degree, preferably in human resources, organizational development, economics, or a related field",
-          "3+ of relevant experience in early career talent acquisition or development within structured HR departments of international companies",
-          "Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred",
-          "Strong commitment to people development and delivering outstanding customer service",
-          "International mindset and experience working in multicultural environments",
-          "Proactive, positive attitude with energy and intellectual curiosity",
-          "Excellent interpersonal and collaboration skills; proven ability to work with diverse stakeholders across functions and countries",
-          "Strong communication skills, with the ability to clearly and effectively structure key messages",
-          "Exceptional organizational skills; able to work independently, manage multiple priorities, and deliver in a dynamic and demanding environment",
-          "Fluency in English, French, and Italian",
-          "Proficiency in MS Office programs"
-        ],
-        "it": [
-          "University degree, preferably in human resources, organizational development, economics, or a related field",
-          "Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred",
-          "Strong commitment to people development and delivering outstanding customer service",
-          "International mindset and experience working in multicultural environments",
-          "Proactive, positive attitude with energy and intellectual curiosity",
-          "Strong communication skills, with the ability to clearly and effectively structure key messages",
-          "Fluency in English, French, and Italian",
-          "Proficiency in MS Office programs"
-        ],
-        "de": [
-          "University degree, preferably in human resources, organizational development, economics, or a related field",
-          "Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred",
-          "Strong commitment to people development and delivering outstanding customer service",
-          "International mindset and experience working in multicultural environments",
-          "Proactive, positive attitude with energy and intellectual curiosity",
-          "Strong communication skills, with the ability to clearly and effectively structure key messages",
-          "Fluency in English, French, and Italian",
-          "Proficiency in MS Office programs"
-        ],
-        "fr": [
-          "University degree, preferably in human resources, organizational development, economics, or a related field",
-          "Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred",
-          "Strong commitment to people development and delivering outstanding customer service",
-          "International mindset and experience working in multicultural environments",
-          "Proactive, positive attitude with energy and intellectual curiosity",
-          "Strong communication skills, with the ability to clearly and effectively structure key messages",
-          "Fluency in English, French, and Italian",
-          "Proficiency in MS Office programs"
-        ]
-      },
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "As a key resource of the Learning & Development team, the <i>Learning & Development Specialist</i> will manage end-to-end the apprentices and interns programmes at EFG, ensuring a best-in-class onboarding and development experience, and provide support and coordinate selected global learning initiatives.",
-              "The resource will interact with all HR functional areas and expected to become a reference person within the organization on the assigned activities.",
-              "This is an excellent opportunity for someone willing to work in an international, fast-paced and client-oriented HR team within a global private banking group.",
-              "Learning & Development Program Delivery (Apprentices & Interns)"
-            ],
-            "responsibilities": [
-              "Design, implement, and continuously improve apprentices and interns programmes, ensuring alignment with EFG’s standards and local requirements.",
-              "Manage the end-to-end hiring process for apprentices in Switzerland and interns globally, partnering with line managers and HR Business Partners/local HR.",
-              "Coordinate and facilitate onboarding and training sessions to build readiness and engagement for apprentices.",
-              "Prepare reports and feedback surveys to measure programme effectiveness; analyse insights to assess impact and identify opportunities for improvement.",
-              "Provide technical support for training-related topics, ensuring effective use of the company’s learning tools and systems.",
-              "Coordinate selected global learning initiatives, supporting design, rollout, communications, and logistics in partnership with the L&D team."
-            ],
-            "requirements": [
-              "University degree, preferably in human resources, organizational development, economics, or a related field",
-              "3+ of relevant experience in early career talent acquisition or development within structured HR departments of international companies",
-              "Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred",
-              "Strong commitment to people development and delivering outstanding customer service",
-              "International mindset and experience working in multicultural environments",
-              "Proactive, positive attitude with energy and intellectual curiosity",
-              "Excellent interpersonal and collaboration skills; proven ability to work with diverse stakeholders across functions and countries",
-              "Strong communication skills, with the ability to clearly and effectively structure key messages",
-              "Exceptional organizational skills; able to work independently, manage multiple priorities, and deliver in a dynamic and demanding environment",
-              "Fluency in English, French, and Italian",
-              "Proficiency in MS Office programs"
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Design, implement, and continuously improve apprentices and interns programmes, ensuring alignment with EFG’s standards and local requirements.",
-              "Manage the end-to-end hiring process for apprentices in Switzerland and interns globally, partnering with line managers and HR Business Partners/local HR.",
-              "Coordinate and facilitate onboarding and training sessions to build readiness and engagement for apprentices.",
-              "University degree, preferably in human resources, organizational development, economics, or a related field",
-              "3+ of relevant experience in early career talent acquisition or development within structured HR departments of international companies",
-              "Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "University degree",
-              "3+ of relevant experience in early career talent acquisition or development within structured HR departments of international companies",
-              "Demonstrated interest in learning technologies",
-              "Strong commitment to people development and delivering outstanding customer service",
-              "International mindset and experience working in multicultural environments",
-              "Design",
-              "Manage the end-to-end hiring process for apprentices in Switzerland and interns globally",
-              "Coordinate and facilitate onboarding and training sessions to build readiness and engagement for apprentices.",
-              "Prepare reports and feedback surveys to measure programme effectiveness"
-            ],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-09-01T23:07:28.553Z",
-      "slugByLocale": {
-        "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
-        "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
-        "de": "learning-development-spezialist-efg-international-ag-lugano-n932z9",
-        "fr": "learning-development-specialiste-efg-international-ag-lugano-n932z9"
-      },
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "previousSlugs": [
-        "learning-development-specialista-efg-international-ag-lugano",
-        "learning-development-spezialist-efg-international-ag-lugano-n932z9",
-        "learning-development-specialiste-efg-international-ag-lugano-n932z9",
-        "specialista-learning-development-efg-international-ag-lugano",
-        "specialista-in-apprendimento-e-sviluppo-efg-international-ag-lugano",
-        "specialista-in-learning-development-efg-international-ag-lugano",
-        "specialista-in-sviluppo-e-formazione-efg-international-ag-lugano",
-        "specialista-sviluppo-e-formazione-efg-international-ag-lugano",
-        "learning-development-specialist-efg-international-ag-lugano",
-        "spezialist-fur-weiterbildung-und-personalentwicklung-efg-international-ag-lugano",
-        "specialiste-du-developpement-et-de-la-formation-efg-international-ag-lugano",
-        "lern-und-entwicklungs-spezialist-efg-international-ag-lugano",
-        "specialista-per-lo-sviluppo-e-l-apprendimento-efg-international-ag-lugano",
-        "specialiste-des-paies-internationales-efg-international-ag-lugano",
-        "specialiste-developpement-et-apprentissage-efg-international-ag-lugano",
-        "specialiste-en-apprentissage-et-developpement-efg-international-ag-lugano",
-        "spezialist-fur-lernen-und-entwicklung-efg-international-ag-lugano",
-        "spezialist-fur-learning-development-efg-international-ag-lugano",
-        "specialiste-en-apprentissage-developpement-efg-international-ag-lugano"
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "learning-development-specialista-efg-international-ag-lugano",
-          "learning-development-spezialist-efg-international-ag-lugano-n932z9",
-          "learning-development-specialiste-efg-international-ag-lugano-n932z9",
-          "specialista-learning-development-efg-international-ag-lugano",
-          "specialista-in-apprendimento-e-sviluppo-efg-international-ag-lugano",
-          "specialista-in-learning-development-efg-international-ag-lugano",
-          "specialista-in-sviluppo-e-formazione-efg-international-ag-lugano",
-          "specialista-sviluppo-e-formazione-efg-international-ag-lugano"
-        ],
-        "en": [
-          "learning-development-spezialist-efg-international-ag-lugano-n932z9",
-          "learning-development-specialiste-efg-international-ag-lugano-n932z9",
-          "learning-development-specialist-efg-international-ag-lugano"
-        ],
-        "de": [
-          "learning-development-specialiste-efg-international-ag-lugano-n932z9",
-          "spezialist-fur-weiterbildung-und-personalentwicklung-efg-international-ag-lugano"
-        ],
-        "fr": [
-          "learning-development-spezialist-efg-international-ag-lugano-n932z9",
-          "specialiste-du-developpement-et-de-la-formation-efg-international-ag-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:28:21.959Z",
-      "country": "CH",
-      "salarySource": "reported",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6163",
-      "postingDateSource": "unknown"
-    },
-    {
-      "id": "efg-5892",
-      "slug": "data-ingegnere-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Data Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "General Info\n\nDepartment: IT Data Department\nWork time Percentage: 100%\nLocation: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nIntroduction to the Team\n\n- Data Ops Services’ mission is to ensure adequate servicing of all data interfaces supported by our data platform. It covers a large spectrum of interfaces, from very critical order processing to more regular analytical systems.\n\n- The Data Ops team is supporting global systems serving the entire group worldwide.\n\n- As our platform and data landscape evolve, we would like to strengthen our team with a skilled Data Engineer specialised in Talend and enterprise‑grade ETL / ESB integrations.\n\n- As the technological landscape continues to evolve, our integration framework is modernising likewise. Microservices, API gateway management and Kafka are all technologies at the centre of this team.\n\nMain Responsibilities\n\n- Design, implement and maintain ETL/ELT data pipelines (batch and near real time) using Qlik Talend and related integration components.\n\n- Develop and operate ESB‑style integrations between core banking systems, data platforms and downstream applications, ensuring robustness, scalability and reusability.\n\n- Take operational ownership of Talend (change management, data quality management, SLA monitoring, SOPs and runbooks).\n\n- Monitor and ensure the smooth operation of critical data pipelines, including incident analysis, root cause identification and implementation of preventive measures.\n\n- Apply CI/CD practices using the existing framework to automate and streamline deployments and configuration changes.\n\n- Implement controls using the observability framework, ensuring service continuity and accuracy.\n\n- Create, maintain and improve documentation and operational procedures for the data integrations under your ownership.\n\n- Collaborate with cross‑functional teams (application owners, architects, business analysts, data consumers) to design integration patterns and improve governance around data flows.\n\n- Contribute to the standardisation and industrialisation of integration patterns, promoting convergence, normalisation and reusability across projects.\n\n- Stay current with advancements in data engineering, ETL/ESB technologies and cloud‑based integration platforms to support continuous improvement of our DataOps capabilities.\n\nSkills and Experience\n\n- At least 5 years of proven hands‑on experience in data engineering and data integration, with a strong focus on ETL/ELT pipelines and ESB‑style integrations.\n\n- Solid experience with Qlik Talend ETL and ESB on‑premise, including job design, orchestration, error handling and performance optimisation.\n\n- Strong ETL / data modelling skills, including handling of large datasets, complex transformations and integration of heterogeneous data sources.\n\n- Good knowledge of SQL and experience working with relational databases and/or cloud data platforms.\n\n- Experience with CI/CD practices and tools in a hybrid environment (e.g. Azure DevOps, GitHub Actions) applied to data integration components.\n\n- Familiarity with ESB concepts, API‑based integrations, messaging and event‑driven patterns is a strong plus.\n\n- Experience with data quality, metadata management and data lineage tools or frameworks is an asset.\n\n- Enjoy providing operational support on Talend jobs and data integration workflows (incident analysis, troubleshooting).\n\n- Good communication and collaboration skills, able to work closely with both technical and business stakeholders.\n\n- Rigorous and methodical in documentation, process creation and change management.\n\n- High interest in standardisation, convergence and reusability of integration components.\n\n- Curious, enthusiastic and proactive, with a hands‑on mindset and a strong desire to learn and grow in a demanding environment.\n\n- Passionate about data processing and integration technologies.\n\n- Fluent in spoken and written English; French is an asset.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n\n- Passionate: Being committed and striving for excellence.\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5892",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Data Engineer",
-        "it": "Data Ingegnere",
-        "de": "Data Ingenieur",
-        "fr": "Data Ingénieur"
-      },
-      "descriptionByLocale": {
-        "en": "General Info\n\nDepartment: IT Data Department\nWork time Percentage: 100%\nLocation: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nIntroduction to the Team\n- Data Ops Services’ mission is to ensure adequate servicing of all data interfaces supported by our data platform. It covers a large spectrum of interfaces, from very critical order processing to more regular analytical systems.\n- The Data Ops team is supporting global systems serving the entire group worldwide.\n- As our platform and data landscape evolve, we would like to strengthen our team with a skilled Data Engineer specialised in Talend and enterprise‑grade ETL / ESB integrations.\n- As the technological landscape continues to evolve, our integration framework is modernising likewise. Microservices, API gateway management and Kafka are all technologies at the centre of this team.\n\nMain Responsibilities\n- Design, implement and maintain ETL/ELT data pipelines (batch and near real time) using Qlik Talend and related integration components.\n- Develop and operate ESB‑style integrations between core banking systems, data platforms and downstream applications, ensuring robustness, scalability and reusability.\n- Take operational ownership of Talend (change management, data quality management, SLA monitoring, SOPs and runbooks).\n- Monitor and ensure the smooth operation of critical data pipelines, including incident analysis, root cause identification and implementation of preventive measures.\n- Apply CI/CD practices using the existing framework to automate and streamline deployments and configuration changes.\n- Implement controls using the observability framework, ensuring service continuity and accuracy.\n- Create, maintain and improve documentation and operational procedures for the data integrations under your ownership.\n- Collaborate with cross‑functional teams (application owners, architects, business analysts, data consumers) to design integration patterns and improve governance around data flows.\n- Contribute to the standardisation and industrialisation of integration patterns, promoting convergence, normalisation and reusability across projects.\n- Stay current with advancements in data engineering, ETL/ESB technologies and cloud‑based integration platforms to support continuous improvement of our DataOps capabilities.\n\nSkills and Experience\n- At least 5 years of proven hands‑on experience in data engineering and data integration, with a strong focus on ETL/ELT pipelines and ESB‑style integrations.\n- Solid experience with Qlik Talend ETL and ESB on‑premise, including job design, orchestration, error handling and performance optimisation.\n- Strong ETL / data modelling skills, including handling of large datasets, complex transformations and integration of heterogeneous data sources.\n- Good knowledge of SQL and experience working with relational databases and/or cloud data platforms.\n- Experience with CI/CD practices and tools in a hybrid environment (e.g. Azure DevOps, GitHub Actions) applied to data integration components.\n- Familiarity with ESB concepts, API‑based integrations, messaging and event‑driven patterns is a strong plus.\n- Experience with data quality, metadata management and data lineage tools or frameworks is an asset.\n- Enjoy providing operational support on Talend jobs and data integration workflows (incident analysis, troubleshooting).\n- Good communication and collaboration skills, able to work closely with both technical and business stakeholders.\n- Rigorous and methodical in documentation, process creation and change management.\n- High interest in standardisation, convergence and reusability of integration components.\n- Curious, enthusiastic and proactive, with a hands‑on mindset and a strong desire to learn and grow in a demanding environment.\n- Passionate about data processing and integration technologies.\n- Fluent in spoken and written English; French is an asset.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.\n- Hands-on: Being proactive to rapidly deliver high-quality results.\n- Passionate: Being committed and striving for excellence.\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Informazioni generali\n\nDipartimento: IT Data Department\nTempo di lavoro Percentuale: 100%\nUbicazione: Ginevra\n\nLa nostra azienda\n\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nIntroduzione al Team\n- La missione di Data Ops Services è quella di garantire un servizio adeguato di tutte le interfacce di dati supportate dalla nostra piattaforma dati. Esso copre un ampio spettro di interfacce, da elaborazione di ordine molto critico a sistemi analitici più regolari.\n- Il team Data Ops sostiene sistemi globali che servono l'intero gruppo in tutto il mondo.\n- Mentre la nostra piattaforma e il panorama dei dati si evolvono, vorremmo rafforzare il nostro team con un esperto Data Engineer specializzato nelle integrazioni di Talend e enterprise-grade ETL / ESB.\n- Mentre il paesaggio tecnologico continua ad evolversi, il nostro quadro di integrazione si sta modernizzando allo stesso modo. Microservices, API gateway management e Kafka sono tutte tecnologie al centro di questo team.\n\nPrincipali responsabilità\n- Progettare, implementare e mantenere i datadotti ETL/ELT (batch e quasi in tempo reale) utilizzando Qlik Talend e i relativi componenti di integrazione.\n- Sviluppare e gestire integrazioni in stile ESB tra sistemi core banking, piattaforme di dati e applicazioni a valle, garantendo robustezza, scalabilità e riutilizzabilità.\n- Assumere la proprietà operativa di Talend (gestione del cambiamento, gestione della qualità dei dati, monitoraggio SLA, SOP e runbook).\n- Monitorare e garantire il buon funzionamento delle pipeline di dati critici, tra cui l'analisi degli incidenti, l'identificazione e l'implementazione delle misure preventive.\n- Applicare pratiche CI/CD utilizzando il framework esistente per automatizzare e snellire le implementazioni e le modifiche di configurazione.\n- Controlli di implementazione utilizzando il framework di osservanza, garantendo continuità e precisione di servizio.\n- Creare, mantenere e migliorare la documentazione e le procedure operative per le integrazioni dei dati sotto la vostra proprietà.\n- Collabora con team interfunzionali (proprietari delle applicazioni, architetti, analisti aziendali, consumatori di dati) per progettare modelli di integrazione e migliorare la governance intorno ai flussi di dati.\n- Contribuire alla standardizzazione e all'industrializzazione dei modelli di integrazione, promuovendo la convergenza, la normalizzazione e la riutilizzabilità dei progetti.\n- Resta aggiornato con i progressi nell'ingegneria dei dati, tecnologie ETL/ESB e piattaforme di integrazione basate su cloud per supportare il miglioramento continuo delle nostre capacità DataOps.\n\nCompetenze ed Esperienza\n- Almeno 5 anni di comprovata esperienza pratica nell'ingegneria dei dati e nell'integrazione dei dati, con un forte focus sulle pipeline ETL/ELT e sulle integrazioni in stile ESB.\n- Esperienza solida con Qlik Talend ETL e ESB on-premise, tra cui progettazione del lavoro, orchestrazione, gestione degli errori e ottimizzazione delle prestazioni.\n- Forte ETL / capacità di modellazione dei dati, tra cui la gestione di grandi dataset, trasformazioni complesse e l'integrazione di fonti di dati eterogenee.\n- Buona conoscenza di SQL e esperienza di lavoro con database relazionali e/o piattaforme di dati cloud.\n- Esperienza con pratiche e strumenti CI/CD in un ambiente ibrido (ad esempio Azure DevOps, GitHub Actions) applicata ai componenti di integrazione dei dati.\n- La familiarità con i concetti ESB, le integrazioni basate sulle API, i modelli di messaggistica e quelli basati sugli eventi è un vantaggio forte.\n- L'esperienza con la qualità dei dati, la gestione dei metadati e gli strumenti o i quadri di linea di dati è un bene.\n- Approfitta del supporto operativo sui flussi di lavoro di Talend e integrazione dei dati (analisi degli incidenti, risoluzione dei problemi).\n- Buone capacità di comunicazione e collaborazione, in grado di lavorare a stretto contatto con gli stakeholder tecnici e aziendali.\n- Rigoroso e metodico nella documentazione, nella creazione di processi e nella gestione dei cambiamenti.\n- Alto interesse per la standardizzazione, la convergenza e la riutilizzabilità dei componenti di integrazione.\n- Curioso, entusiasta e proattivo, con una mentalità hands-on e un forte desiderio di imparare e crescere in un ambiente esigente.\n- Appassionato al trattamento dei dati e alle tecnologie di integrazione.\n- Fluente in inglese parlato e scritto; il francese è un bene.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, così come la ricerca di un miglioramento continuo.\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità.\n- Appassionato: Impegnarsi e lottare per l'eccellenza.\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole.\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Allgemeine Informationen\n\nAbteilung: IT Data Department\nArbeitszeit Prozentsatz: 100%\nStandort: Genf\n\nUnser Unternehmen\n\nEFG International ist eine globale Private Banking Gruppe, die Private Banking und Asset Management Services anbietet. Wir bedienen Kunden an über 40 Standorten weltweit. EFG International bietet ein anregendes und dynamisches Arbeitsumfeld und ist bestrebt, ein Arbeitgeber der Wahl zu sein.\n\nUnser Ziel und unsere Mission\n\nUnternehmergeist befähigen, Werte zu schaffen – heute und für die Zukunft.\n\nEinführung in das Team\n- Die Mission von Data Ops Services ist es, eine angemessene Wartung aller Datenschnittstellen sicherzustellen, die von unserer Datenplattform unterstützt werden. Es deckt ein breites Spektrum von Schnittstellen ab, von einer sehr kritischen Auftragsverarbeitung bis hin zu reguläreren Analysesystemen.\n- Das Data Ops-Team unterstützt globale Systeme, die die gesamte Gruppe weltweit bedienen.\n- Da sich unsere Plattform- und Datenlandschaft weiterentwickelt, möchten wir unser Team mit einem erfahrenen Data Engineer stärken, der auf Talend- und Enterprise-Level-ETL / ESB-Integrationen spezialisiert ist.\n- Da sich die technologische Landschaft weiterentwickelt, modernisiert sich auch unser Integrationsrahmen. Microservices, API Gateway Management und Kafka sind alles Technologien, die im Zentrum dieses Teams stehen.\n\nHauptzuständigkeiten\n- Entwerfen, Implementieren und Pflegen von ETL/ELT-Datenpipelines (Batch und nahezu in Echtzeit) unter Verwendung von Qlik Talend und zugehörigen Integrationskomponenten.\n- Entwicklung und Betrieb von Integrationen im ESB-Stil zwischen Kernbanksystemen, Datenplattformen und nachgelagerten Anwendungen, um Robustheit, Skalierbarkeit und Wiederverwendbarkeit zu gewährleisten.\n- Übernahme des operativen Eigentums an Talend (Änderungsmanagement, Datenqualitätsmanagement, SLA-Monitoring, SOPs und Runbooks).\n- Überwachung und Gewährleistung des reibungslosen Betriebs kritischer Datenpipelines, einschließlich der Analyse von Vorfällen, der Ursachenermittlung und der Umsetzung von Präventionsmaßnahmen.\n- Anwendung von CI/CD-Praktiken unter Verwendung des vorhandenen Frameworks zur Automatisierung und Optimierung von Bereitstellungen und Konfigurationsänderungen.\n- Implementieren Sie Kontrollen unter Verwendung des Beobachtbarkeits-Frameworks, um die Kontinuität und Genauigkeit des Dienstes zu gewährleisten.\n- Erstellen, pflegen und verbessern Sie Dokumentation und Betriebsverfahren für die Datenintegrationen in Ihrem Besitz.\n- Zusammenarbeit mit funktionsübergreifenden Teams (Application Owner, Architekten, Business Analysten, Datenkonsumenten), um Integrationsmuster zu entwerfen und die Governance rund um Datenflüsse zu verbessern.\n- Beitrag zur Standardisierung und Industrialisierung von Integrationsmustern, Förderung von Konvergenz, Normalisierung und Wiederverwendbarkeit über Projekte hinweg.\n- Bleiben Sie auf dem Laufenden mit Fortschritten in den Bereichen Data Engineering, ETL/ESB-Technologien und Cloud-basierten Integrationsplattformen, um die kontinuierliche Verbesserung unserer DataOps-Funktionen zu unterstützen.\n\nFähigkeiten und Erfahrung\n- Mindestens 5 Jahre Erfahrung im Bereich Data Engineering und Datenintegration mit einem starken Fokus auf ETL/ELT-Pipelines und Integrationen im ESB-Stil.\n- Solide Erfahrung mit Qlik Talend ETL und ESB on-premise, einschließlich Jobdesign, Orchestrierung, Fehlerbehandlung und Leistungsoptimierung.\n- Starke ETL / Datenmodellierung Fähigkeiten, einschließlich der Handhabung von großen Datensätzen, komplexe Transformationen und Integration von heterogenen Datenquellen.\n- Gute Kenntnisse in SQL und Erfahrung im Umgang mit relationalen Datenbanken und/oder Cloud-Datenplattformen.\n- Erfahrung mit CI/CD-Praktiken und -Tools in einer hybriden Umgebung (z. B. Azure DevOps, GitHub-Aktionen), die auf Datenintegrationskomponenten angewendet werden.\n- Die Vertrautheit mit ESB-Konzepten, API-basierten Integrationen, Messaging und ereignisgesteuerten Mustern ist ein starkes Plus.\n- Erfahrung mit Datenqualität, Metadatenmanagement und Data Lineage Tools oder Frameworks ist eine Bereicherung.\n- Genießen Sie operative Unterstützung bei Talend-Jobs und Datenintegrations-Workflows (Incident-Analyse, Fehlerbehebung).\n- Gute Kommunikations- und Zusammenarbeitsfähigkeiten, die eng mit technischen und geschäftlichen Stakeholdern zusammenarbeiten können.\n- Streng und methodisch in Dokumentation, Prozesserstellung und Change Management.\n- Hohes Interesse an Standardisierung, Konvergenz und Wiederverwendbarkeit von Integrationskomponenten.\n- Neugierig, enthusiastisch und proaktiv, mit einer praktischen Denkweise und einem starken Wunsch, in einem anspruchsvollen Umfeld zu lernen und zu wachsen.\n- Leidenschaft für Datenverarbeitungs- und Integrationstechnologien.\n- Fließend in gesprochenem und geschriebenem Englisch; Französisch ist ein Asset.\n\nUnsere Werte\n- Verantwortlichkeit: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie die Suche nach kontinuierlicher Verbesserung.\n- Hands-on: Proaktiv sein, um schnell qualitativ hochwertige Ergebnisse zu liefern.\n- Leidenschaftlich: Engagiert sein und nach Exzellenz streben.\n- Lösungsorientiert: Fokussierung auf Kundenergebnisse und faire Behandlung von Kunden mit einer risikobewussten Denkweise.\n- Partnerschaftsorientiert: Zusammenarbeit und Teamwork fördern. Zusammenarbeit mit Unternehmergeist.",
-        "fr": "Informations générales\n\nDépartement: Département des données informatiques\nTemps de travail Pourcentage: 100%\nLieu : Genève\n\nNotre société\n\nEFG International est un groupe mondial de banques privées qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nAutoriser les esprits entrepreneurs à créer de la valeur – aujourd'hui et pour l'avenir.\n\nPrésentation à l ' Équipe\n- Data Ops Services La mission est d'assurer un service adéquat de toutes les interfaces de données prises en charge par notre plateforme de données. Il couvre un large éventail d'interfaces, du traitement d'ordre très critique aux systèmes d'analyse plus réguliers.\n- L'équipe de Data Ops soutient des systèmes mondiaux desservant l'ensemble du groupe dans le monde entier.\n- Au fur et à mesure que notre plateforme et notre paysage de données évoluent, nous souhaitons renforcer notre équipe avec un ingénieur de données spécialisé dans les intégrations Talend et ETL / ESB.\n- À mesure que le paysage technologique évolue, notre cadre d'intégration se modernise également. Microservices, gestion des passerelles API et Kafka sont toutes les technologies au centre de cette équipe.\n\nPrincipales responsabilités\n- Concevoir, mettre en œuvre et entretenir des pipelines de données ETL/ELT (en temps réel et en temps quasi réel) à l'aide de Qlik Talend et de composants d'intégration connexes.\n- Développer et exploiter des intégrations de type ESB entre les systèmes bancaires de base, les plates-formes de données et les applications en aval, en garantissant la robustesse, l'évolutivité et la réutilisation.\n- Prise en charge opérationnelle de Talend (gestion du changement, gestion de la qualité des données, suivi SLA, SOP et runbooks).\n- Surveiller et assurer le bon fonctionnement des pipelines de données critiques, y compris l'analyse des incidents, l'identification des causes profondes et la mise en oeuvre de mesures préventives.\n- Appliquer les pratiques de CI/CD en utilisant le cadre existant pour automatiser et rationaliser les déploiements et les changements de configuration.\n- Mettre en place des contrôles utilisant le cadre d'observation, en assurant la continuité et l'exactitude du service.\n- Créez, maintenez et améliorez la documentation et les procédures opérationnelles pour les intégrations de données sous votre propriété.\n- Collaborer avec des équipes interfonctionnelles (propriétaires d'applications, architectes, analystes d'affaires, consommateurs de données) pour concevoir des modèles d'intégration et améliorer la gouvernance autour des flux de données.\n- Contribuer à la normalisation et à l'industrialisation des schémas d'intégration, en favorisant la convergence, la normalisation et la réutilisation entre les projets.\n- Restez au courant des progrès de l'ingénierie des données, des technologies ETL/ESB et des plateformes d'intégration basées sur le cloud pour soutenir l'amélioration continue de nos capacités DataOps.\n\nCompétences et expérience\n- Au moins 5 ans d'expérience pratique dans le domaine de l'ingénierie des données et de l'intégration des données, l'accent étant mis sur les pipelines ETL/ELT et les intégrations de style ESB.\n- Forte expérience avec Qlik Talend ETL et ESB sur site, y compris la conception de travail, l'orchestration, la gestion des erreurs et l'optimisation des performances.\n- Fortes compétences en matière de modélisation des données et de l'ETL, y compris la gestion de grands ensembles de données, les transformations complexes et l'intégration de sources de données hétérogènes.\n- Bonne connaissance de SQL et expérience de travail avec les bases de données relationnelles et/ou les plateformes de données en nuage.\n- Expérience des pratiques et outils de l'IC/CD dans un environnement hybride (p. ex. Azure DevOps, GitHub Actions) appliqués aux composants d'intégration de données.\n- La familiarité avec les concepts ESB, les intégrations basées sur l'API, la messagerie et les modèles d'événements est un plus fort.\n- L'expérience de la qualité des données, de la gestion des métadonnées et des outils ou cadres de lignage des données est un atout.\n- Profitez de l'assistance opérationnelle sur les tâches Talend et les flux de travail d'intégration de données (analyse des incidents, dépannage).\n- Bonnes compétences en communication et collaboration, capables de travailler en étroite collaboration avec les intervenants techniques et commerciaux.\n- Une documentation rigoureuse et méthodique, la création de processus et la gestion du changement.\n- Intérêt élevé pour la normalisation, la convergence et la réutilisabilité des composants d'intégration.\n- Curieux, enthousiaste et proactif, avec un état d'esprit pratique et un vif désir d'apprendre et de grandir dans un environnement exigeant.\n- Passionné par les technologies de traitement et d'intégration des données.\n- Le français est un atout.\n\nNos valeurs\n- Responsabilité : Prendre en main les tâches et les défis et chercher à les améliorer continuellement.\n- Hands-on: Être proactif pour obtenir rapidement des résultats de haute qualité.\n- Passionné : Être engagé et chercher l'excellence.\n- La solution est axée sur les résultats des clients et le traitement équitable des clients avec un état d'esprit conscient des risques.\n- Orientation vers le partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><p><span>Department: IT Data Department</span><br><span>Work time Percentage: 100%</span><br><span>Location: Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Introduction to the Team</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Data Ops Services’ mission is to ensure adequate servicing of all data interfaces supported by our data platform. It covers a large spectrum of interfaces, from very critical order processing to more regular analytical systems.</span></li><li><span>The Data Ops team is supporting global systems serving the entire group worldwide.</span></li><li><span>As our platform and data landscape evolve, we would like to strengthen our team with a skilled Data Engineer specialised in Talend and enterprise‑grade ETL / ESB integrations.</span></li><li><span>As the technological landscape continues to evolve, our integration framework is modernising likewise. Microservices, API gateway management and Kafka are all technologies at the centre of this team.</span></li></ul><p> </p><p><span><strong>Main Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Design, implement and maintain ETL/ELT data pipelines (batch and near real time) using Qlik Talend and related integration components.</span></li><li><span>Develop and operate ESB‑style integrations between core banking systems, data platforms and downstream applications, ensuring robustness, scalability and reusability.</span></li><li><span>Take operational ownership of Talend (change management, data quality management, SLA monitoring, SOPs and runbooks).</span></li><li><span>Monitor and ensure the smooth operation of critical data pipelines, including incident analysis, root cause identification and implementation of preventive measures.</span></li><li><span>Apply CI/CD practices using the existing framework to automate and streamline deployments and configuration changes.</span></li><li><span>Implement controls using the observability framework, ensuring service continuity and accuracy.</span></li><li><span>Create, maintain and improve documentation and operational procedures for the data integrations under your ownership.</span></li><li><span>Collaborate with cross‑functional teams (application owners, architects, business analysts, data consumers) to design integration patterns and improve governance around data flows.</span></li><li><span>Contribute to the standardisation and industrialisation of integration patterns, promoting convergence, normalisation and reusability across projects.</span></li><li><span>Stay current with advancements in data engineering, ETL/ESB technologies and cloud‑based integration platforms to support continuous improvement of our DataOps capabilities.</span></li></ul><p> </p><p><span><strong>Skills and Experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of proven hands‑on experience in data engineering and data integration, with a strong focus on ETL/ELT pipelines and ESB‑style integrations.</span></li><li><span>Solid experience with Qlik Talend ETL and ESB on‑premise, including job design, orchestration, error handling and performance optimisation.</span></li><li><span>Strong ETL / data modelling skills, including handling of large datasets, complex transformations and integration of heterogeneous data sources.</span></li><li><span>Good knowledge of SQL and experience working with relational databases and/or cloud data platforms.</span></li><li><span>Experience with CI/CD practices and tools in a hybrid environment (e.g. Azure DevOps, GitHub Actions) applied to data integration components.</span></li><li><span>Familiarity with ESB concepts, API‑based integrations, messaging and event‑driven patterns is a strong plus.</span></li><li><span>Experience with data quality, metadata management and data lineage tools or frameworks is an asset.</span></li><li><span>Enjoy providing operational support on Talend jobs and data integration workflows (incident analysis, troubleshooting).</span></li><li><span>Good communication and collaboration skills, able to work closely with both technical and business stakeholders.</span></li><li><span>Rigorous and methodical in documentation, process creation and change management.</span></li><li><span>High interest in standardisation, convergence and reusability of integration components.</span></li><li><span>Curious, enthusiastic and proactive, with a hands‑on mindset and a strong desire to learn and grow in a demanding environment.</span></li><li><span>Passionate about data processing and integration technologies.</span></li><li><span>Fluent in spoken and written English; French is an asset.</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results.</span></li><li><span>Passionate: Being committed and striving for excellence.</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><br> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-09-01T23:07:28.487Z",
-      "slugByLocale": {
-        "it": "data-ingegnere-efg-international-ag-geneve",
-        "en": "data-engineer-efg-geneve",
-        "de": "data-ingenieur-efg-international-ag-geneve",
-        "fr": "data-engineer-efg-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "country": "CH",
-      "firstSeenAt": "2026-06-24T11:14:17.928Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "data-engineer-efg-geneve"
-        ],
-        "de": [
-          "data-engineer-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "data-engineer-efg-geneve"
-      ],
-      "salarySource": "estimated",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5892",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-10-06T22:46:56.129Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

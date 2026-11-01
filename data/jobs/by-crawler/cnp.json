@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cnp",
-  "assembledAt": "2026-10-31T09:54:44.217Z",
-  "runId": "41187673067",
+  "assembledAt": "2026-11-01T09:18:09.880Z",
+  "runId": "41292050097",
   "jobs": [
     {
       "id": "cnp-9eb815e758d3",
@@ -34,7 +34,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1e590793-a3c6-47ba-8698-e8e49e92b47f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:40.000Z",
+      "crawledAt": "2026-11-01T09:18:01.876Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -136,7 +136,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:01.876Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-b56cd21978d4",
@@ -170,7 +174,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/18a3c8be-9f30-410c-9605-e85ace2d1a5d",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:39.275Z",
+      "crawledAt": "2026-11-01T09:18:01.053Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -241,7 +245,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:18:01.053Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-837ff7897282",
@@ -274,7 +282,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/8fcc75d9-563d-4a8c-9735-9b25ba5b6c47",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:38.542Z",
+      "crawledAt": "2026-11-01T09:18:00.293Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -314,7 +322,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:18:00.293Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-793ce0c0ba24",
@@ -348,7 +360,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/92b0c580-9c7f-464d-b8ea-44daa4e14bc4",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:37.781Z",
+      "crawledAt": "2026-11-01T09:17:59.505Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -466,7 +478,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "La Tène",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:59.505Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-fe8c28e61f67",
@@ -500,7 +516,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/169ef49e-3313-4826-9235-0bd4191de3a3",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:37.000Z",
+      "crawledAt": "2026-11-01T09:17:58.778Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -540,7 +556,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:17:58.778Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-8eda2acc290a",
@@ -574,7 +594,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/9a95c92e-a6bf-4bf9-923e-14779738be50",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:35.903Z",
+      "crawledAt": "2026-11-01T09:17:57.933Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -645,7 +665,11 @@
           "maxValue": 72000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "La Tène",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:57.933Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-0eef0b4297fe",
@@ -679,7 +703,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7fecbd7e-56c3-4e73-859b-c097ccc9ad19",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:35.125Z",
+      "crawledAt": "2026-11-01T09:17:57.198Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -727,7 +751,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:57.198Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-fbfedcc76db8",
@@ -760,7 +788,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ef0972ca-bb17-4df1-9d69-ce3ac128b71f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:34.308Z",
+      "crawledAt": "2026-11-01T09:17:56.414Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -806,7 +834,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "La Tène",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:56.414Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-160bb3bc4e80",
@@ -839,7 +871,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/b7bcca27-9e8c-4905-bbb4-a98e7f67b955",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:32.850Z",
+      "crawledAt": "2026-11-01T09:17:55.645Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -885,7 +917,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:55.645Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-024ad378d4f9",
@@ -918,7 +954,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e9598a12-17e9-46a9-815c-2daa636351e1",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:32.000Z",
+      "crawledAt": "2026-11-01T09:17:54.869Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -976,7 +1012,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:54.869Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-7aa9f29e6e83",
@@ -1009,7 +1049,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/62abf0ca-ffe6-4fab-92a6-6fd127202969",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:28.197Z",
+      "crawledAt": "2026-11-01T09:17:53.896Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1055,7 +1095,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:53.896Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-ba0c4bde0296",
@@ -1088,7 +1132,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/106403b3-c271-47fa-adbd-b44bff48f062",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:27.455Z",
+      "crawledAt": "2026-11-01T09:17:52.913Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1136,7 +1180,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:17:52.913Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-ca661e72ca20",
@@ -1169,7 +1217,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91e830ee-eefc-434a-81d0-774c11c09834",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:26.677Z",
+      "crawledAt": "2026-11-01T09:17:52.176Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1217,7 +1265,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:17:52.176Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-6d27d590bf95",
@@ -1250,7 +1302,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ea1b3520-3059-482b-937d-23286572b932",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:25.903Z",
+      "crawledAt": "2026-11-01T09:17:51.095Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1317,7 +1369,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:17:51.095Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-a87bdfb80169",
@@ -1351,7 +1407,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/b8d31886-b49a-442e-a4bc-80d3b1eb9b8d",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:24.965Z",
+      "crawledAt": "2026-11-01T09:17:50.344Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1399,7 +1455,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:17:50.344Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-5fce9f45c9ab",
@@ -1432,7 +1492,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ced2aea0-6ef9-4819-9e41-cc290a808ad5",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:24.142Z",
+      "crawledAt": "2026-11-01T09:17:49.589Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1478,7 +1538,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:17:49.589Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-43d0ca12a73b",
@@ -1512,7 +1576,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e6a03c89-522c-4182-9336-8b95a0c97f05",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:23.259Z",
+      "crawledAt": "2026-11-01T09:17:48.801Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1567,7 +1631,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:17:48.801Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-a0f314aecd14",
@@ -1600,7 +1668,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/c6a18c36-d464-43b1-9e13-b4522c74e806",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:22.527Z",
+      "crawledAt": "2026-11-01T09:17:48.056Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1646,7 +1714,11 @@
           "maxValue": 60000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:17:48.056Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-e168731a3acd",
@@ -1679,7 +1751,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e3a732a6-f15a-4dab-bea9-68e376b12a2f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:21.770Z",
+      "crawledAt": "2026-11-01T09:17:47.286Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1725,7 +1797,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:17:47.286Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-7f9ca7e005d7",
@@ -1759,7 +1835,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/775db87f-4cde-497e-b741-ee63e55d240e",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:20.834Z",
+      "crawledAt": "2026-11-01T09:17:46.541Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1805,7 +1881,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:17:46.541Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-ddb241d16197",
@@ -1839,7 +1919,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/bfff143b-a5e0-484c-9509-e14ab96dd8a5",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:19.709Z",
+      "crawledAt": "2026-11-01T09:17:45.769Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1885,7 +1965,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:17:45.769Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-78f650b40bbb",
@@ -1918,7 +2002,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/684846cc-2a1a-4304-902e-0234a1b172f9",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:18.896Z",
+      "crawledAt": "2026-11-01T09:17:44.845Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1966,7 +2050,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:17:44.845Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-4507f50467f6",
@@ -2000,7 +2088,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/41fecae3-b748-45ef-b208-e8ba76bdb78f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:17.962Z",
+      "crawledAt": "2026-11-01T09:17:44.055Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2046,7 +2134,11 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:17:44.055Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-7dd6d3c60965",
@@ -2080,7 +2172,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/acabcbce-3c58-4870-a2fa-67a77af9aa99",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:17.222Z",
+      "crawledAt": "2026-11-01T09:17:43.308Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2128,7 +2220,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:17:43.308Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-e5253046ba20",
@@ -2162,7 +2258,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1caca73d-ed87-499b-b256-4e70573862aa",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:16.515Z",
+      "crawledAt": "2026-11-01T09:17:42.560Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2208,7 +2304,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:17:42.560Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cnp-5825b5122b6a",
@@ -2241,7 +2341,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/34520cde-4995-42a4-b558-c21737e73512",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:54:15.787Z",
+      "crawledAt": "2026-11-01T09:17:41.786Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2291,7 +2391,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin-Epagnier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:17:41.786Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

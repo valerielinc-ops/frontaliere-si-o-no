@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ergolz-klinik",
-  "assembledAt": "2026-10-31T09:18:50.429Z",
-  "runId": "41187143984",
+  "assembledAt": "2026-11-01T09:13:00.177Z",
+  "runId": "41291485249",
   "jobs": [
     {
       "id": "ergolz-klinik-9afa70b1ddcc",
@@ -35,7 +35,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:44.822Z",
+      "crawledAt": "2026-11-01T09:12:55.400Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -75,7 +75,21 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Ergolz Klinik",
+        "streetAddress": "Hammerstrasse 35",
+        "postalCode": "4410",
+        "addressLocality": "Liestal",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:48:40.863Z"
+      },
+      "streetAddress": "Hammerstrasse 35",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:12:55.400Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ergolz-klinik-551f89ed3b5f",
@@ -109,7 +123,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/Inserat-Dipl.-Pflege-HF-50-100_10.07.2026.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:44.176Z",
+      "crawledAt": "2026-11-01T09:12:54.697Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -149,7 +163,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Ergolz Klinik",
+        "streetAddress": "Hammerstrasse 35",
+        "postalCode": "4410",
+        "addressLocality": "Liestal",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:48:40.863Z"
+      },
+      "streetAddress": "Hammerstrasse 35",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-04T09:12:54.697Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ergolz-klinik-8f4ed738b56e",
@@ -182,7 +210,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/Inserat-MPA-Patientenmanagement-50-60.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:43.518Z",
+      "crawledAt": "2026-11-01T09:12:53.984Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -228,7 +256,21 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Ergolz Klinik",
+        "streetAddress": "Hammerstrasse 35",
+        "postalCode": "4410",
+        "addressLocality": "Liestal",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:48:40.863Z"
+      },
+      "streetAddress": "Hammerstrasse 35",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-23T09:12:53.984Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

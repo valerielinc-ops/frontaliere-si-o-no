@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-oberengadin",
-  "assembledAt": "2026-10-31T09:20:49.306Z",
-  "runId": "41187520287",
+  "assembledAt": "2026-11-01T09:18:19.828Z",
+  "runId": "41291881160",
   "jobs": [
     {
       "id": "spital-oberengadin-a5ec184795c9",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4076262",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:42.523Z",
+      "crawledAt": "2026-11-01T09:18:11.338Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -78,7 +78,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Samedan",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:18:11.338Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-oberengadin-ad42568a5698",
@@ -112,7 +116,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4076992",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:41.893Z",
+      "crawledAt": "2026-11-01T09:18:10.626Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -156,7 +160,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Samedan",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:10.626Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-oberengadin-f539b754af76",
@@ -190,7 +198,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4084342",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:41.174Z",
+      "crawledAt": "2026-11-01T09:18:09.975Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -240,7 +248,11 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Samedan",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:18:09.975Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-oberengadin-efcf093b6b4a",
@@ -274,7 +286,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4084397",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:40.246Z",
+      "crawledAt": "2026-11-01T09:18:09.248Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -325,7 +337,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Samedan",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:18:09.248Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-oberengadin-b9ee3df31762",
@@ -358,7 +374,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4084910",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:39.527Z",
+      "crawledAt": "2026-11-01T09:18:08.597Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -407,7 +423,11 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Samedan",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:18:08.597Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-oberengadin-75930e4a5723",
@@ -441,7 +461,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4089847",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:38.879Z",
+      "crawledAt": "2026-11-01T09:18:07.944Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -495,7 +515,11 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Samedan",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:18:07.944Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-oberengadin-1f7b20ab2266",
@@ -529,7 +553,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4088639",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:38.213Z",
+      "crawledAt": "2026-11-01T09:18:07.296Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -579,7 +603,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Samedan",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:18:07.296Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-oberengadin-358080138fb9",
@@ -613,7 +641,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4092861",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:20:37.497Z",
+      "crawledAt": "2026-11-01T09:18:06.444Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -663,7 +691,11 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Samedan",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:18:06.444Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

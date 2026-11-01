@@ -1,7 +1,7 @@
 {
   "crawlerKey": "swiss-timing-swatch-group",
-  "assembledAt": "2026-10-31T09:30:28.793Z",
-  "runId": "41187297189",
+  "assembledAt": "2026-11-01T09:24:00.336Z",
+  "runId": "41291644918",
   "jobs": [
     {
       "id": "company-f5up2w",
@@ -89,7 +89,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "2606",
       "addressLocality": "2606 Corgémont",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "2606 Corgémont",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:23:49.431Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-xbt61g",
@@ -185,7 +189,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "2606",
       "addressLocality": "2606 Corgémont",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "2606 Corgémont",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:23:49.431Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-hqgznk",
@@ -258,7 +266,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "2606",
       "addressLocality": "2606 Corgémont",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "2606 Corgémont",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-29T09:23:49.431Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

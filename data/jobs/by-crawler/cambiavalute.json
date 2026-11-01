@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-10-31T09:50:47.690Z",
-  "runId": "41188424656",
+  "assembledAt": "2026-11-01T09:48:35.608Z",
+  "runId": "41292859129",
   "jobs": [
     {
       "id": "company-a24znt",
@@ -28,7 +28,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-31T09:50:43.321Z",
+      "crawledAt": "2026-11-01T09:48:31.655Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
@@ -98,7 +98,11 @@
       "sourceIdentity": "url:https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:48:31.655Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-fooban",
@@ -125,7 +129,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-30T09:49:47.347Z",
+      "crawledAt": "2026-11-01T09:48:31.655Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
@@ -192,7 +196,10 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6500",
-      "crawlerMissStreak": 1
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:48:31.655Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

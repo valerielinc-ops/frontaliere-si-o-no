@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gz-dielsdorf",
-  "assembledAt": "2026-10-31T09:45:58.288Z",
-  "runId": "41188271558",
+  "assembledAt": "2026-11-01T09:43:50.825Z",
+  "runId": "41292695324",
   "jobs": [
     {
       "id": "gz-dielsdorf-e1db42728d12",
@@ -35,13 +35,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/41427caf-48cd-4b48-8042-a98f049f9e8d",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:49.068Z",
+      "crawledAt": "2026-11-01T09:43:39.811Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8157",
-      "streetAddress": "",
+      "streetAddress": "Dielsdorf",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -84,7 +84,10 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:43:39.811Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-2ae3e085d18f",
@@ -117,13 +120,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b1c73df1-bba5-47bb-a4ce-aae61d6f316b",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:49.064Z",
+      "crawledAt": "2026-11-01T09:43:39.806Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8157",
-      "streetAddress": "",
+      "streetAddress": "Dielsdorf",
       "category": "Ospitalità",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -164,7 +167,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:43:39.806Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-4b685baadaef",
@@ -197,13 +203,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/40f16983-a20e-41f2-86c4-84680efa2218",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:49.060Z",
+      "crawledAt": "2026-11-01T09:43:39.803Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8105",
-      "streetAddress": "",
+      "streetAddress": "Regensdorf",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -246,7 +252,10 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:43:39.803Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-d040264e32e6",
@@ -280,13 +289,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/8f551c5a-87eb-41fb-aeb6-69b25719b70f",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:49.056Z",
+      "crawledAt": "2026-11-01T09:43:39.799Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8157",
-      "streetAddress": "",
+      "streetAddress": "Dielsdorf",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -328,7 +337,10 @@
           "maxValue": 138400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:43:39.799Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-49654237aba4",
@@ -361,13 +373,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/95c4d58f-6a7a-4f58-b379-850fda14f411",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:49.052Z",
+      "crawledAt": "2026-11-01T09:43:39.796Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8105",
-      "streetAddress": "",
+      "streetAddress": "Regensdorf",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -408,7 +420,10 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:43:39.796Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-f7c2f23043e5",
@@ -442,13 +457,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/37878915-a625-4a99-835e-163765318811",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:49.046Z",
+      "crawledAt": "2026-11-01T09:43:39.792Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8105",
-      "streetAddress": "",
+      "streetAddress": "Regensdorf",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -513,7 +528,10 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:39.792Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-d4b1df3e7162",
@@ -547,13 +565,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ccff2188-a83e-467d-a774-222e2d4b4400",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:49.036Z",
+      "crawledAt": "2026-11-01T09:43:39.785Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8157",
-      "streetAddress": "",
+      "streetAddress": "Dielsdorf",
       "category": "Ospitalità",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -602,7 +620,10 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:39.785Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-a53f2bf0ee39",
@@ -636,13 +657,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e9219be9-3764-498e-9af7-cfb63d934b58",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:49.031Z",
+      "crawledAt": "2026-11-01T09:43:39.779Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8157",
-      "streetAddress": "",
+      "streetAddress": "Dielsdorf",
       "category": "Ospitalità",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -691,7 +712,10 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:39.779Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-6440dae1c75b",
@@ -724,13 +748,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/64d35c69-bd5e-4994-ae19-7a4f6749f018",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:49.026Z",
+      "crawledAt": "2026-11-01T09:43:39.775Z",
       "addressLocality": "Dielsdorf/Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8157",
-      "streetAddress": "",
+      "streetAddress": "Dielsdorf/Regensdorf",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -772,7 +796,10 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:43:39.775Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-aeab9167a250",
@@ -806,13 +833,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/98bf11f9-62ad-4a25-8ae5-620b5dc23c43",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:49.018Z",
+      "crawledAt": "2026-11-01T09:43:39.764Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8157",
-      "streetAddress": "",
+      "streetAddress": "Dielsdorf",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -853,7 +880,10 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:39.764Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-6e3231b16f44",
@@ -886,13 +916,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/7bc60c9a-530a-4d7e-9476-6c851fb89646",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:49.012Z",
+      "crawledAt": "2026-11-01T09:43:39.758Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8157",
-      "streetAddress": "",
+      "streetAddress": "Dielsdorf",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -935,7 +965,10 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:43:39.758Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-a5ec22751229",
@@ -969,13 +1002,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/86f428f2-bab8-4733-b56f-239d594e5e83",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:49.005Z",
+      "crawledAt": "2026-11-01T09:43:39.752Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8105",
-      "streetAddress": "",
+      "streetAddress": "Regensdorf",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -1016,7 +1049,10 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:43:39.752Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-2d52f5684205",
@@ -1049,13 +1085,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b634c3ff-2de5-499f-a9fa-da05f217adad",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:48.997Z",
+      "crawledAt": "2026-11-01T09:43:39.746Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8105",
-      "streetAddress": "",
+      "streetAddress": "Regensdorf",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1092,7 +1128,10 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:39.746Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-79a55c65efa0",
@@ -1126,13 +1165,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/9b3f44bc-f4dd-47eb-8c35-18d89025052a",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:48.988Z",
+      "crawledAt": "2026-11-01T09:43:39.739Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8157",
-      "streetAddress": "",
+      "streetAddress": "Dielsdorf",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1173,7 +1212,10 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:43:39.739Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-3321edaa6457",
@@ -1207,13 +1249,13 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/172b5cc3-c67c-4508-a422-a7738fc75827",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:48.974Z",
+      "crawledAt": "2026-11-01T09:43:39.725Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8105",
-      "streetAddress": "",
+      "streetAddress": "Regensdorf",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1254,7 +1296,10 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:43:39.725Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "lombard-odier",
   "label": "Lombard Odier",
-  "generatedAt": "2026-10-31T09:50:44.954Z",
+  "generatedAt": "2026-11-01T09:48:52.483Z",
   "total": 50,
   "discovered": null,
   "parsed": 50,
@@ -13,60 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 49,
-  "durationMs": 57774,
-  "avgDurationMs": 57774,
+  "unchangedCount": 50,
+  "durationMs": 52018,
+  "avgDurationMs": 52018,
   "durationHistory": [
-    57774
+    52018
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "lombard-odier-f16d5faa819f",
-      "slug": "internship-ai-software-ingegnere-ai-powered-relationship-intelligence-for-private-banking-lombard-odier-geneva",
-      "company": "Lombard Odier",
-      "companyKey": "lombard-odier",
-      "companyDomain": "lombardodier.com",
-      "title": "Internship – AI Software Engineer - AI-Powered Relationship Intelligence for Private Banking",
-      "needsRetranslation": true,
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Powered-Relationship-Intelligence-for-Private-Banking_R0007641",
-      "source": "Lombard Odier Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:07.450Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Banking",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-24",
-      "postedDate": "2026-09-24",
-      "postingDateSource": "reported",
-      "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Powered-Relationship-Intelligence-for-Private-Banking_R0007641",
-      "jobReqId": "R0007641",
-      "firstSeenAt": "2026-09-24T14:52:28.459Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "postalCode": "1204",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -82,7 +38,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Private-Assets-Investment-Analyst_R0006952",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:29.308Z",
+      "crawledAt": "2026-11-01T09:48:38.568Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -104,12 +60,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:48:38.568Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -125,7 +85,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Head-of-Spain_R0007129",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:28.615Z",
+      "crawledAt": "2026-11-01T09:48:37.921Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -147,12 +107,16 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:48:37.921Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -168,7 +132,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Zrich/EAM-Banker---Business-Developer--80-100--_R0007469",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:27.568Z",
+      "crawledAt": "2026-11-01T09:48:36.990Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -190,12 +154,16 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:48:36.990Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -211,7 +179,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Operational-Risk-Officer--80-100--_R0007529",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:26.863Z",
+      "crawledAt": "2026-11-01T09:48:36.352Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -233,12 +201,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:48:36.352Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -254,7 +226,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Cross-Border-Officer--80-100--_R0007525",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:26.163Z",
+      "crawledAt": "2026-11-01T09:48:35.716Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -276,12 +248,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:48:35.716Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -296,7 +272,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Business-Application-Support-Specialist---Finance--80-100--_R0006770",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:24.764Z",
+      "crawledAt": "2026-11-01T09:48:34.486Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -318,12 +294,16 @@
       "salaryMax": 183500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:48:34.486Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -339,7 +319,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/IT-Production-Engineer--80-100--_R0007478",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:23.703Z",
+      "crawledAt": "2026-11-01T09:48:33.526Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -361,12 +341,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:33.526Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -381,7 +365,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Senior-Charg-e-de-Comptes-Global-Custody--80-100--_R0007568-1",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:50:23.002Z",
+      "crawledAt": "2026-11-01T09:48:32.872Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -403,12 +387,16 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:48:32.872Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 23,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -423,7 +411,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Business-Risk---Support-Manager--80-100--_R0007652-1",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:22.299Z",
+      "crawledAt": "2026-11-01T09:48:32.216Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -445,12 +433,16 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:48:32.216Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -466,7 +458,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Responsable-de-l-Offre-Suisse_R0007545-1",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:50:21.593Z",
+      "crawledAt": "2026-11-01T09:48:31.570Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -488,12 +480,16 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:48:31.570Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -509,7 +505,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Quantitative-Research-Intern---AI-for-Investment-Research_R0007657",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:20.839Z",
+      "crawledAt": "2026-11-01T09:48:30.923Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -531,12 +527,16 @@
       "salaryMax": 74500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:48:30.923Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -552,7 +552,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Generative-AI-Intern_R0007656",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:20.006Z",
+      "crawledAt": "2026-11-01T09:48:30.219Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -574,12 +574,16 @@
       "salaryMax": 77500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:48:30.219Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -594,7 +598,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Quantitative-Analyst-Intern-Multi-Asset_R0007658",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:19.253Z",
+      "crawledAt": "2026-11-01T09:48:29.524Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -616,12 +620,16 @@
       "salaryMax": 77500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:48:29.524Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -637,7 +645,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Senior-Full-Stack-Engineer_R0007683",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:18.129Z",
+      "crawledAt": "2026-11-01T09:48:28.516Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -659,12 +667,16 @@
       "salaryMax": 148000,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:48:28.516Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -679,7 +691,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Collaborateur--trice-Trsor--Caisse-et-Cartes_R0007679",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:50:17.420Z",
+      "crawledAt": "2026-11-01T09:48:27.879Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -701,12 +713,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:48:27.879Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -721,7 +737,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Software-Engineer---Global-Markets-Services-AI-Project_R0007627-1",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:16.711Z",
+      "crawledAt": "2026-11-01T09:48:27.236Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -743,12 +759,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:27.236Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -763,7 +783,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Powered-Portfolio-Intelligence--PMS-_R0007628",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:15.938Z",
+      "crawledAt": "2026-11-01T09:48:26.545Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -785,12 +805,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:48:26.545Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -805,7 +829,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Machine-Learning-Engineer---Action-Dashboard-Ranking-Engine_R0007629",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:15.160Z",
+      "crawledAt": "2026-11-01T09:48:25.827Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -827,12 +851,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:25.827Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -847,7 +875,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Software-engineer---Cash-Management-Tool-Redevelopment_R0007630",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:14.400Z",
+      "crawledAt": "2026-11-01T09:48:25.136Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -869,12 +897,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:25.136Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -889,7 +921,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Software-Engineer---Application-Monitoring---Observability_R0007631",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:13.644Z",
+      "crawledAt": "2026-11-01T09:48:24.452Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -911,12 +943,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:24.452Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -931,7 +967,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Driven-Batch-to-Service-Migration-for-Securities-Settlement_R0007632",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:12.882Z",
+      "crawledAt": "2026-11-01T09:48:23.732Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -953,12 +989,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:23.732Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -973,7 +1013,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Powered-Non-Regression-Test-Case-Generation_R0007633",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:12.117Z",
+      "crawledAt": "2026-11-01T09:48:23.041Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -995,12 +1035,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:23.041Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1015,7 +1059,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---Contribution-to-the-Design-and-Implementation-of-an-Agentic-Sandbox-Platform_R0007634",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:11.330Z",
+      "crawledAt": "2026-11-01T09:48:22.340Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1037,12 +1081,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:22.340Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1057,7 +1105,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Data-Engineer---Optimization-of-Data-Delivery_R0007637",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:10.551Z",
+      "crawledAt": "2026-11-01T09:48:21.636Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1079,12 +1127,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:21.636Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1100,7 +1152,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Data-Engineer---Accelerating-Adoption-of-Microsoft-Fabric_R0007638",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:09.778Z",
+      "crawledAt": "2026-11-01T09:48:20.958Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1122,12 +1174,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:20.958Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1143,7 +1199,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Engineer---AI-Powered-CRM--Engagement---Churn-Analysis_R0007639",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:09.009Z",
+      "crawledAt": "2026-11-01T09:48:20.273Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1165,12 +1221,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:20.273Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1185,7 +1245,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Engineer---AI-Powered-CRM---Data-Extraction---KYC-Support_R0007640",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:08.249Z",
+      "crawledAt": "2026-11-01T09:48:19.575Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1207,12 +1267,63 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:19.575Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
+      }
+    },
+    {
+      "id": "lombard-odier-f16d5faa819f",
+      "slug": "internship-ai-software-ingegnere-ai-powered-relationship-intelligence-for-private-banking-lombard-odier-geneva",
+      "company": "Lombard Odier",
+      "companyKey": "lombard-odier",
+      "companyDomain": "lombardodier.com",
+      "title": "Internship – AI Software Engineer - AI-Powered Relationship Intelligence for Private Banking",
+      "needsRetranslation": true,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Powered-Relationship-Intelligence-for-Private-Banking_R0007641",
+      "source": "Lombard Odier Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-01T09:48:18.902Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Banking",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-24",
+      "postedDate": "2026-09-24",
+      "postingDateSource": "reported",
+      "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Powered-Relationship-Intelligence-for-Private-Banking_R0007641",
+      "jobReqId": "R0007641",
+      "firstSeenAt": "2026-09-24T14:52:28.459Z",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:18.902Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -1227,7 +1338,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Software-Engineer---AI-Powered-CRM---Mobile-CRM-Features--Voice-Notes---Smart-Notifications-_R0007642",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:06.688Z",
+      "crawledAt": "2026-11-01T09:48:18.216Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1249,12 +1360,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:18.216Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1269,7 +1384,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---Software-Engineer---Competency-Graph-Administration-Platform-Modernization_R0007643",
       "source": "Lombard Odier Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:05.912Z",
+      "crawledAt": "2026-11-01T09:48:17.516Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1291,56 +1406,18 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:48:17.516Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "lombard-odier-4a6b078c8499",
-      "slug": "internship-ai-ingegnere-ai-in-enterprise-java-application-frameworks-lombard-odier-geneva",
-      "company": "Lombard Odier",
-      "companyKey": "lombard-odier",
-      "companyDomain": "lombardodier.com",
-      "title": "Internship – AI Engineer - AI in Enterprise Java Application Frameworks",
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Engineer---AI-in-Enterprise-Java-Application-Frameworks_R0007635",
-      "source": "Lombard Odier Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:50:05.141Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Banking",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-24",
-      "postedDate": "2026-09-24",
-      "postingDateSource": "reported",
-      "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en-US/Lombard_Odier_Careers/job/Geneva/Internship---AI-Engineer---AI-in-Enterprise-Java-Application-Frameworks_R0007635",
-      "jobReqId": "R0007635",
-      "firstSeenAt": "2026-09-24T14:52:20.552Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "postalCode": "1204",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rennbahnklinik",
-  "assembledAt": "2026-10-31T09:37:28.153Z",
-  "runId": "41187978199",
+  "assembledAt": "2026-11-01T09:33:18.181Z",
+  "runId": "41292374401",
   "jobs": [
     {
       "id": "rennbahnklinik-56d6e1ef71bf",
@@ -34,7 +34,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/assistenzarzt-aerztin-sport-orthopaedie",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:22.263Z",
+      "crawledAt": "2026-11-01T09:33:11.515Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -108,7 +108,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:33:11.515Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-3d9ef18a62e5",
@@ -142,7 +145,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/technische-operationsfachkraft-toa",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:21.365Z",
+      "crawledAt": "2026-11-01T09:33:10.504Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -228,7 +231,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:33:10.504Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-2bb6a8f768ae",
@@ -262,7 +268,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/praktikum-biomechanik",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:20.436Z",
+      "crawledAt": "2026-11-01T09:33:09.474Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -302,7 +308,10 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-30T09:33:09.474Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-44aacd7c7eb2",
@@ -335,7 +344,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/unterassistenz",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:19.529Z",
+      "crawledAt": "2026-11-01T09:33:08.483Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -394,7 +403,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:33:08.483Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-789220b61924",
@@ -427,7 +439,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/physiotherapeut-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:18.634Z",
+      "crawledAt": "2026-11-01T09:33:07.528Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -474,7 +486,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:33:07.528Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-1b691dd5bebc",
@@ -508,7 +523,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegepraktikum-fuer-medizinstudierende",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:17.727Z",
+      "crawledAt": "2026-11-01T09:33:06.536Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -561,7 +576,10 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:33:06.536Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-a92ddbd0cad4",
@@ -595,7 +613,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/empfangsmitarbeiter-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:16.811Z",
+      "crawledAt": "2026-11-01T09:33:05.491Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -636,7 +654,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-07T09:33:05.491Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-ebecf2ba958a",
@@ -670,7 +691,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/medizinische-praxisassistent-in-efz-im-labor",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:15.889Z",
+      "crawledAt": "2026-11-01T09:33:04.615Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -717,7 +738,10 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:33:04.615Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-b01f610f6207",
@@ -751,7 +775,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/reinigungsfachkraft-auf-abruf",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:14.998Z",
+      "crawledAt": "2026-11-01T09:33:03.758Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -798,7 +822,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-29T09:33:03.758Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rehaklinik-seewis",
-  "assembledAt": "2026-10-31T09:45:42.448Z",
-  "runId": "41188565736",
+  "assembledAt": "2026-11-01T09:49:19.861Z",
+  "runId": "41293009398",
   "jobs": [
     {
       "id": "rehaklinik-seewis-3893d44b24a8",
@@ -34,7 +34,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2087506-oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:38.500Z",
+      "crawledAt": "2026-11-01T09:49:13.474Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -81,7 +81,10 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:49:13.474Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehaklinik-seewis-8079a59da204",
@@ -114,7 +117,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2561019-oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:38.499Z",
+      "crawledAt": "2026-11-01T09:49:13.472Z",
       "addressLocality": "Dussnang",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -163,7 +166,10 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:49:13.472Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehaklinik-seewis-250cf050995a",
@@ -196,7 +202,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2570816-psychologe-psychologin-a-80-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:38.497Z",
+      "crawledAt": "2026-11-01T09:49:13.468Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -243,7 +249,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:49:13.468Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

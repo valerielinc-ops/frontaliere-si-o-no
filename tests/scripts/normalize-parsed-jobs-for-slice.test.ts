@@ -150,11 +150,12 @@ describe('normalizeParsedJobsForSlice', () => {
     expect(report.sourceGeographyReconciled).toBe(1);
   });
 
-  it('never forges postalCode or streetAddress', () => {
+  it('keeps the locality as a to-enrich street value without inventing a postal code', () => {
     const jobs: JobLike[] = [{ location: 'Lugano', canton: 'TI' }];
     normalizeParsedJobsForSlice(jobs);
     expect(jobs[0].postalCode).toBeUndefined();
-    expect(jobs[0].streetAddress).toBeUndefined();
+    expect(jobs[0].streetAddress).toBe('Lugano');
+    expect(jobs[0].streetAddressSource).toBe('to-enrich');
   });
 
   it('does not overwrite an existing addressCountry/addressRegion', () => {

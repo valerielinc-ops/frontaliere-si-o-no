@@ -1,7 +1,7 @@
 {
   "crawlerKey": "recruitingapp-2563",
-  "assembledAt": "2026-10-31T09:35:42.102Z",
-  "runId": "41187978199",
+  "assembledAt": "2026-11-01T09:31:40.474Z",
+  "runId": "41292374401",
   "jobs": [
     {
       "id": "recruitingapp-2563-153e731c4d63",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2563.umantis.com/Vacancies/560/Description/1",
       "source": "Switch Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:35:36.189Z",
+      "crawledAt": "2026-11-01T09:31:33.225Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,7 +78,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:31:33.225Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

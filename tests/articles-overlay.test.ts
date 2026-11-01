@@ -173,7 +173,7 @@ describe('fetchArticleOverlay — escalates past the published window', () => {
     vi.stubGlobal('fetch', fn);
     const out = await fetchArticleOverlay('frontaliere', 'it', 2999);
     expect(out.map((a) => a.id)).toEqual(['r1']);
-    expect(fn).toHaveBeenCalledTimes(2);
+    expect(fn).toHaveBeenCalledTimes(3);
     expect(fn.mock.calls.map((call) => String(call[0])).every((url) => !url.includes('-full'))).toBe(true);
   });
 
@@ -231,7 +231,72 @@ describe('fetchArticleOverlay — the date trigger catches what the count misses
     vi.stubGlobal('fetch', fn);
     const out = await fetchArticleOverlay('frontaliere', 'it', 3073, '2026-08-01');
     expect(out.map((a) => a.id)).toEqual(['r1']);
-    expect(fn).toHaveBeenCalledTimes(2);
+    expect(fn).toHaveBeenCalledTimes(3);
+  });
+});
+
+describe('fetchArticleOverlay — detects an index behind the published corpus', () => {
+  beforeEach(() => { vi.restoreAllMocks(); });
+
+  it('escalates when the manifest is newer even if the recent index total matches the bundle', async () => {
+    const recent = {
+      total: 15,
+      articles: [{ id: 'recent', title: 'Recente' }],
+    };
+    const full = {
+      total: 16,
+      articles: [
+        { id: 'recent', title: 'Recente' },
+        { id: 'startup-innovazione-sociale-open-call', title: 'Startup e innovazione sociale' },
+      ],
+    };
+    const fn = vi.fn((u: string) => {
+      const url = String(u);
+      const body = url.includes('/manifest.json')
+        ? { counts: { swissArticles: 16 } }
+        : url.includes('-full') ? full : recent;
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(body),
+      } as unknown as Response);
+    });
+    vi.stubGlobal('fetch', fn);
+
+    const out = await fetchArticleOverlay('svizzera', 'it', 15);
+
+    expect(out.map((a) => a.id)).toEqual(['recent', 'startup-innovazione-sociale-open-call']);
+    expect(fn.mock.calls.some(([url]) => String(url).includes('/manifest.json?v='))).toBe(true);
+    expect(fn.mock.calls.some(([url]) => String(url).includes('-full.json'))).toBe(true);
+  });
+
+  it('escalates when the recent total is current but its rows are incomplete', async () => {
+    const recent = {
+      total: 16,
+      articles: [{ id: 'recent', title: 'Recente' }],
+    };
+    const full = {
+      total: 16,
+      articles: [
+        { id: 'recent', title: 'Recente' },
+        { id: 'startup-innovazione-sociale-open-call', title: 'Startup e innovazione sociale' },
+      ],
+    };
+    const fn = vi.fn((u: string) => {
+      const url = String(u);
+      const body = url.includes('/manifest.json')
+        ? { counts: { swissArticles: 16 } }
+        : url.includes('-full') ? full : recent;
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(body),
+      } as unknown as Response);
+    });
+    vi.stubGlobal('fetch', fn);
+
+    const out = await fetchArticleOverlay('svizzera', 'it', 15);
+
+    expect(out.map((a) => a.id)).toEqual(['recent', 'startup-innovazione-sociale-open-call']);
+    expect(fn.mock.calls.some(([url]) => String(url).includes('-full.json'))).toBe(true);
   });
 });
 

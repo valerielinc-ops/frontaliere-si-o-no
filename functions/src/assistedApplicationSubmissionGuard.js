@@ -13,12 +13,46 @@
  *   markSent  the send went through (before the evidence and the event), or
  *             the employer's e-mail later proved that an unconfirmed one did
  *             (`confirmedBy: 'acknowledgement'`)
- *   release   the send failed for certain: a later run may try again
+ *   release   the send failed for certain: writes `confirmedNotSent`, keeps
+ *             click evidence, and lets a later run try again
  */
 
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 
 export const SUBMISSION_DOC_ID = 'submission';
+
+// Account failures are deliberately a closed, retention-safe vocabulary. The
+// runner may report only these two fields: no portal text, locator, URL,
+// credential or candidate answer crosses the event boundary.
+export const ACCOUNT_FAILURE_CODES = Object.freeze([
+  'no_create_button',
+  'no_sign_in_button',
+  'login_unobserved',
+  'create_unanswered',
+  'create_refused',
+  'locator_control_error',
+  'verification_timeout',
+  'verification_unobserved',
+  'verification_rejected',
+  'auth_steps_exhausted',
+  'unknown',
+]);
+export const ACCOUNT_FAILURE_STAGES = Object.freeze(['login', 'registration', 'verification', 'application', 'unknown']);
+const ACCOUNT_FAILURE_FIELDS = Object.freeze(['code', 'stage']);
+
+/** Serialize only the finite admin/read-only account diagnostic shape. */
+export function serializeAccountFailure(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const keys = Object.keys(value);
+  if (keys.length !== ACCOUNT_FAILURE_FIELDS.length || keys.some(key => !ACCOUNT_FAILURE_FIELDS.includes(key))) return null;
+  if (!ACCOUNT_FAILURE_CODES.includes(value.code) || !ACCOUNT_FAILURE_STAGES.includes(value.stage)) return null;
+  return { code: value.code, stage: value.stage };
+}
+
+/** Read a stored diagnostic without exposing or accepting any extra fields. */
+export function getAccountFailure(record) {
+  return serializeAccountFailure(record?.accountFailure);
+}
 
 export function submissionRefFor(db, orderId) {
   return db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).collection('automation').doc(SUBMISSION_DOC_ID);
@@ -26,11 +60,12 @@ export function submissionRefFor(db, orderId) {
 
 /**
  * The submission may have reached the employer, and nothing confirmed it: a
- * portal after its final click, or an e-mail whose send started (it is left
- * "sending" only when its outcome is unknown). Before the click nothing left.
+ * portal after its final click, or an e-mail whose send started. A durable
+ * release records the separate proof that the employer did not receive it.
  */
 export function isUnconfirmedSubmission(record) {
-  return record?.state === 'sending' && (Boolean(record.clickedAt) || record.channel === 'email');
+  if (record?.state === 'failed' && record.confirmedNotSent === true) return false;
+  return record?.state !== 'sent' && (Boolean(record?.clickedAt) || (record?.state === 'sending' && record.channel === 'email'));
 }
 
 /** When an unconfirmed submission left: the final click, or the start of the e-mail send. */
@@ -63,16 +98,35 @@ export function submissionGuard(db, orderId, round) {
           outcome = { status: 'withdrawn' };
           return;
         }
-        const current = submission?.[key];
+        let current = submission?.[key];
         if (current?.state === 'sent') {
           outcome = { status: 'already_sent', record: current };
+          return;
+        }
+        // Before confirmedNotSent was persisted, release() already meant that
+        // a portal failure was proven before the next retry. Migrate only that
+        // narrow legacy shape: an explicit portal failure with click evidence
+        // and no field at all. A current `confirmedNotSent: false` remains an
+        // unknown outcome and must stay locked.
+        const legacyReleasedPortal = current?.state === 'failed'
+          && current.channel === 'portal'
+          && Number(current.clickedAt) > 0
+          && !Object.prototype.hasOwnProperty.call(current, 'confirmedNotSent');
+        if (legacyReleasedPortal) {
+          transaction.set(ref, { [key]: { confirmedNotSent: true } }, { merge: true });
+          current = { ...current, confirmedNotSent: true };
+        }
+        // Keep click evidence, but allow a retry only when release() also
+        // recorded a definitive no-send outcome. An unconfirmed click stays locked.
+        if (isUnconfirmedSubmission(current)) {
+          outcome = { status: 'in_flight', record: current };
           return;
         }
         if (current?.state === 'sending' && !(resumable && !current.clickedAt)) {
           outcome = { status: 'in_flight', record: current };
           return;
         }
-        transaction.set(ref, { [key]: { state: 'sending', channel, startedAt: nowMs, clickedAt: null } }, { merge: true });
+        transaction.set(ref, { [key]: { state: 'sending', channel, startedAt: nowMs, clickedAt: null, confirmedNotSent: false } }, { merge: true });
         outcome = { status: 'claimed', resumed: current?.state === 'sending' };
       });
       return outcome;
@@ -92,8 +146,16 @@ export function submissionGuard(db, orderId, round) {
     async markSent(record = {}, nowMs = Date.now()) {
       await ref.set({ [key]: { state: 'sent', sentAt: nowMs, ...record } }, { merge: true });
     },
-    async release(reason, nowMs = Date.now()) {
-      await ref.set({ [key]: { state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs } }, { merge: true });
+    async release(reason, nowMs = Date.now(), metadata = {}) {
+      const failure = Object.prototype.hasOwnProperty.call(metadata || {}, 'accountFailure')
+        ? serializeAccountFailure(metadata.accountFailure)
+        : undefined;
+      const record = {
+        state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs,
+        confirmedNotSent: true,
+      };
+      if (failure) record.accountFailure = failure;
+      await ref.set({ [key]: record }, { merge: true });
     },
   };
 }

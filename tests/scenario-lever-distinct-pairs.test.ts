@@ -177,6 +177,7 @@ describe('nessuna pagina nomina due volte la stessa coppia ordinata di leve', ()
           const named = labelsIn(sentence, labels);
           // Se l'estrattore smette di riconoscere due etichette, il test
           // passerebbe senza aver confrontato niente: qui diventa rosso.
+          // cron-count-ok: due etichette per coppia di scenari, non un dato dello snapshot del cambio.
           expect(
             named.length,
             `${idOf(scenario)}: «${prefix}…» nomina ${named.length} etichette invece di 2`,

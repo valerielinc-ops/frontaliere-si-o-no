@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fnz",
-  "assembledAt": "2026-10-31T09:29:40.362Z",
-  "runId": "41187373855",
+  "assembledAt": "2026-11-01T09:17:08.174Z",
+  "runId": "41291723109",
   "jobs": [
     {
       "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Production-Support-Developer_REQ-17649",
@@ -65,7 +65,7 @@
         ]
       },
       "firstSeenAt": "2026-10-16T21:17:20.610Z",
-      "crawledAt": "2026-10-31T09:29:36.892Z",
+      "crawledAt": "2026-11-01T09:17:03.927Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -80,7 +80,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6830"
+      "postalCode": "6830",
+      "streetAddress": "Chiasso",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:17:03.927Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Production-engineer_REQ-17625-1",
@@ -144,7 +148,7 @@
         ]
       },
       "firstSeenAt": "2026-10-08T21:16:03.321Z",
-      "crawledAt": "2026-10-31T09:29:36.892Z",
+      "crawledAt": "2026-11-01T09:17:03.927Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -159,7 +163,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6830"
+      "postalCode": "6830",
+      "streetAddress": "Chiasso",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:17:03.927Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Solution-Consultant-CRM_REQ-16005",
@@ -217,7 +225,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:24.249Z",
-      "crawledAt": "2026-10-31T09:29:36.892Z",
+      "crawledAt": "2026-11-01T09:17:03.927Z",
       "salaryMin": 61000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -232,7 +240,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6830"
+      "postalCode": "6830",
+      "streetAddress": "Chiasso",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:17:03.927Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

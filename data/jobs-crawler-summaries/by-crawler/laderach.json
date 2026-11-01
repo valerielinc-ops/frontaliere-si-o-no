@@ -1,95 +1,19 @@
 {
   "key": "laderach",
   "label": "Läderach",
-  "generatedAt": "2026-10-31T09:24:30.892Z",
-  "total": 40,
+  "generatedAt": "2026-11-01T09:23:34.183Z",
+  "total": 31,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 1,
-  "unchangedCount": 36,
-  "durationMs": 26965,
-  "avgDurationMs": 26965,
+  "updatedCount": 2,
+  "removedCount": 0,
+  "unchangedCount": 29,
+  "durationMs": 27334,
+  "avgDurationMs": 27334,
   "durationHistory": [
-    26965
+    27334
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "laderach-404cc3b4b128",
-      "slug": "rilievo-di-natale-40-80-chocolaterie-st-gallen-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-st-gallen-sankt",
-      "company": "Läderach (Schweiz) AG",
-      "companyKey": "laderach-schweiz-ag",
-      "companyDomain": "laderach.com",
-      "title": "Weihnachtsaushilfe 40-80% Chocolaterie St. Gallen (befristet von Oktober bis Dezember 2026)",
-      "sourceLang": "de",
-      "location": "St. Gallen, Sankt Gallen, Schweiz",
-      "canton": "SG",
-      "addressLocality": "St. Gallen, Sankt Gallen, Schweiz",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://laderach.career.softgarden.de/jobs/67408727/Weihnachtsaushilfe-40-80-Chocolaterie-St-Gallen-befristet-von-Oktober-bis-Dezember-2026-/",
-      "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:16.529Z",
-      "firstSeenAt": "2026-09-16T09:21:34.818Z",
-      "salaryMin": 51600,
-      "salaryMax": 69600,
-      "salarySource": "estimated",
-      "postalCode": "9000",
-      "applyUrl": "https://laderach.career.softgarden.de/jobs/67408727/Weihnachtsaushilfe-40-80-Chocolaterie-St-Gallen-befristet-von-Oktober-bis-Dezember-2026-/",
-      "addressRegion": "SG",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "laderach-466d2e203293",
-      "slug": "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz",
-      "company": "Läderach (Schweiz) AG",
-      "companyKey": "laderach-schweiz-ag",
-      "companyDomain": "laderach.com",
-      "title": "Verkäufer Chocolaterie Uster 60% (w/m/d)",
-      "sourceLang": "de",
-      "location": "Uster, Zürich, Schweiz",
-      "canton": "ZH",
-      "addressLocality": "Uster, Zürich, Schweiz",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://laderach.career.softgarden.de/jobs/68465307/Verk%C3%A4ufer-Chocolaterie-Uster-60-w-m-d-/",
-      "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:16.287Z",
-      "firstSeenAt": "2026-10-30T21:22:32.019Z",
-      "salaryMin": 45600,
-      "salaryMax": 61500,
-      "salarySource": "estimated",
-      "postalCode": "8610",
-      "applyUrl": "https://laderach.career.softgarden.de/jobs/68465307/Verk%C3%A4ufer-Chocolaterie-Uster-60-w-m-d-/",
-      "addressRegion": "ZH",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
     {
       "id": "laderach-d638f6ff59b7",
       "slug": "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
@@ -112,7 +36,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67232685/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:07.203Z",
+      "crawledAt": "2026-11-01T09:23:09.330Z",
       "firstSeenAt": "2026-09-05T12:44:43.974Z",
       "salaryMin": 55000,
       "salaryMax": 74500,
@@ -120,12 +44,16 @@
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67232685/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich, -, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-05T09:23:09.330Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -150,7 +78,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66510273/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:06.148Z",
+      "crawledAt": "2026-11-01T09:23:08.403Z",
       "firstSeenAt": "2026-09-05T12:44:43.974Z",
       "salaryMin": 55000,
       "salaryMax": 74500,
@@ -158,57 +86,20 @@
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66510273/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich, Zürich, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-05T09:23:08.403Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "laderach-c4f57c56a715",
-      "slug": "proprietario-del-prodotto-tecnico-proprietario-del-servizio-potenza-bi-data-warehouse-m-f-d-laderach-schweiz-ag-bilten",
-      "company": "Läderach (Schweiz) AG",
-      "companyKey": "laderach-schweiz-ag",
-      "companyDomain": "laderach.com",
-      "title": "Technical Product Owner / Service Owner Power BI & Data Warehouse (m/w/d)",
-      "sourceLang": "de",
-      "location": "Bilten",
-      "canton": "GL",
-      "addressLocality": "Bilten",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://laderach.career.softgarden.de/jobs/66096098/Technical-Product-Owner-Service-Owner-Power-BI-Data-Warehouse-m-w-d-/",
-      "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-28T22:05:44.500Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-15T10:59:47.100Z",
-      "salaryMin": 118500,
-      "salaryMax": 159500,
-      "salarySource": "estimated",
-      "postalCode": "8865",
-      "applyUrl": "https://laderach.career.softgarden.de/jobs/66096098/Technical-Product-Owner-Service-Owner-Power-BI-Data-Warehouse-m-w-d-/",
-      "addressRegion": "GL",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "laderach-3e32b80f41c2",
@@ -232,7 +123,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68442112/Finance-Director-Spain/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:16.754Z",
+      "crawledAt": "2026-11-01T09:23:17.752Z",
       "firstSeenAt": "2026-10-30T09:30:57.034Z",
       "salaryMin": 118500,
       "salaryMax": 159500,
@@ -240,12 +131,100 @@
       "postalCode": "8752",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68442112/Finance-Director-Spain/",
       "addressRegion": "GL",
-      "_qualityScore": 90,
+      "streetAddress": "Glarus Nord, Glarus, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:17.752Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
+      }
+    },
+    {
+      "id": "laderach-404cc3b4b128",
+      "slug": "rilievo-di-natale-40-80-chocolaterie-st-gallen-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-st-gallen-sankt",
+      "company": "Läderach (Schweiz) AG",
+      "companyKey": "laderach-schweiz-ag",
+      "companyDomain": "laderach.com",
+      "title": "Weihnachtsaushilfe 40-80% Chocolaterie St. Gallen (befristet von Oktober bis Dezember 2026)",
+      "sourceLang": "de",
+      "location": "St. Gallen, Sankt Gallen, Schweiz",
+      "canton": "SG",
+      "addressLocality": "St. Gallen, Sankt Gallen, Schweiz",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://laderach.career.softgarden.de/jobs/67408727/Weihnachtsaushilfe-40-80-Chocolaterie-St-Gallen-befristet-von-Oktober-bis-Dezember-2026-/",
+      "source": "Läderach Dedicated Parser",
+      "crawledAt": "2026-11-01T09:23:17.540Z",
+      "firstSeenAt": "2026-09-16T09:21:34.818Z",
+      "salaryMin": 51600,
+      "salaryMax": 69600,
+      "salarySource": "estimated",
+      "postalCode": "9000",
+      "applyUrl": "https://laderach.career.softgarden.de/jobs/67408727/Weihnachtsaushilfe-40-80-Chocolaterie-St-Gallen-befristet-von-Oktober-bis-Dezember-2026-/",
+      "addressRegion": "SG",
+      "streetAddress": "St. Gallen, Sankt Gallen, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:23:17.540Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
+      "id": "laderach-466d2e203293",
+      "slug": "venditore-chocolaterie-uster-60-m-f-d-laderach-schweiz-ag-uster-zurich-schweiz",
+      "company": "Läderach (Schweiz) AG",
+      "companyKey": "laderach-schweiz-ag",
+      "companyDomain": "laderach.com",
+      "title": "Verkäufer Chocolaterie Uster 60% (w/m/d)",
+      "sourceLang": "de",
+      "location": "Uster, Zürich, Schweiz",
+      "canton": "ZH",
+      "addressLocality": "Uster, Zürich, Schweiz",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://laderach.career.softgarden.de/jobs/68465307/Verk%C3%A4ufer-Chocolaterie-Uster-60-w-m-d-/",
+      "source": "Läderach Dedicated Parser",
+      "crawledAt": "2026-11-01T09:23:17.314Z",
+      "firstSeenAt": "2026-10-30T21:22:32.019Z",
+      "salaryMin": 45600,
+      "salaryMax": 61500,
+      "salarySource": "estimated",
+      "postalCode": "8610",
+      "applyUrl": "https://laderach.career.softgarden.de/jobs/68465307/Verk%C3%A4ufer-Chocolaterie-Uster-60-w-m-d-/",
+      "addressRegion": "ZH",
+      "streetAddress": "Uster, Zürich, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:17.314Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 23
       }
     },
     {
@@ -270,7 +249,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68444882/Facharbeiter-Confiserie-Massenraum-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:16.049Z",
+      "crawledAt": "2026-11-01T09:23:17.086Z",
       "firstSeenAt": "2026-10-30T09:30:57.386Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
@@ -278,12 +257,16 @@
       "postalCode": "8755",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68444882/Facharbeiter-Confiserie-Massenraum-w-m-d-/",
       "addressRegion": "GL",
-      "_qualityScore": 88,
+      "streetAddress": "Ennenda, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:17.086Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -308,7 +291,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/65307461/HR-Business-Partner-Retail-Schweiz-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:15.811Z",
+      "crawledAt": "2026-11-01T09:23:16.859Z",
       "firstSeenAt": "2026-10-15T09:22:47.504Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
@@ -316,12 +299,16 @@
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/65307461/HR-Business-Partner-Retail-Schweiz-w-m-d-/",
       "addressRegion": "GL",
-      "_qualityScore": 88,
+      "streetAddress": "Bilten, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:23:16.859Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -346,7 +333,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68343123/Team-Lead-IT-Standard-Applications/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:15.344Z",
+      "crawledAt": "2026-11-01T09:23:16.415Z",
       "firstSeenAt": "2026-10-28T09:31:28.501Z",
       "salaryMin": 118500,
       "salaryMax": 159500,
@@ -354,12 +341,16 @@
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68343123/Team-Lead-IT-Standard-Applications/",
       "addressRegion": "GL",
-      "_qualityScore": 88,
+      "streetAddress": "Bilten, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:23:16.415Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -384,7 +375,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68334738/IT-Infrastructure-Architect-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:15.109Z",
+      "crawledAt": "2026-11-01T09:23:16.187Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-28T09:31:28.350Z",
       "salaryMin": 67000,
@@ -393,12 +384,16 @@
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68334738/IT-Infrastructure-Architect-/",
       "addressRegion": "GL",
-      "_qualityScore": 90,
+      "streetAddress": "Bilten, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:23:16.187Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -423,7 +418,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68295918/Sales-Assistant-Verk%C3%A4ufer-zur-Aushilfe-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:14.278Z",
+      "crawledAt": "2026-11-01T09:23:15.507Z",
       "firstSeenAt": "2026-10-30T09:30:56.007Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -431,12 +426,16 @@
       "postalCode": "5400",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68295918/Sales-Assistant-Verk%C3%A4ufer-zur-Aushilfe-m-w-d-/",
       "addressRegion": "AG",
-      "_qualityScore": 88,
+      "streetAddress": "Sindelfingen, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:15.507Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -461,7 +460,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68250326/Tour-Guide-Schokoladenmuseum-und-Fabrik-40-Bilten-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:13.569Z",
+      "crawledAt": "2026-11-01T09:23:14.812Z",
       "firstSeenAt": "2026-10-22T09:24:40.420Z",
       "salaryMin": 26800,
       "salaryMax": 36200,
@@ -469,12 +468,16 @@
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68250326/Tour-Guide-Schokoladenmuseum-und-Fabrik-40-Bilten-w-m-d-/",
       "addressRegion": "GL",
-      "_qualityScore": 88,
+      "streetAddress": "Bilten, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:23:14.812Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -499,7 +502,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68032872/Verk%C3%A4ufer-40-60-Chocolaterie-Stadelhofen-Z%C3%BCrich-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:12.451Z",
+      "crawledAt": "2026-11-01T09:23:13.913Z",
       "firstSeenAt": "2026-10-13T09:21:26.659Z",
       "salaryMin": 45600,
       "salaryMax": 61500,
@@ -507,12 +510,16 @@
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68032872/Verk%C3%A4ufer-40-60-Chocolaterie-Stadelhofen-Z%C3%BCrich-w-m-d-/",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich, Zürich, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:23:13.913Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -537,7 +544,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67940192/Sales-Assistant-Verk%C3%A4ufer-Weihnachtsaushilfe---befristet-von-November-bis-Dezember-2026-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:12.208Z",
+      "crawledAt": "2026-11-01T09:23:13.686Z",
       "firstSeenAt": "2026-10-30T09:30:54.601Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -545,12 +552,16 @@
       "postalCode": "5400",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67940192/Sales-Assistant-Verk%C3%A4ufer-Weihnachtsaushilfe---befristet-von-November-bis-Dezember-2026-m-w-d-/",
       "addressRegion": "AG",
-      "_qualityScore": 88,
+      "streetAddress": "Konstanz, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:13.686Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -575,19 +586,23 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67857587/Filialleitung-in-Vollzeit-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:11.602Z",
+      "crawledAt": "2026-11-01T09:23:13.231Z",
       "firstSeenAt": "2026-10-30T09:30:54.270Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
       "salarySource": "estimated",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67857587/Filialleitung-in-Vollzeit-m-w-d-/",
       "addressRegion": "FR",
-      "_qualityScore": 85,
+      "streetAddress": "Freiburg im Breisgau, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:13.231Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -612,7 +627,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67828162/Sales-Assistant-Verk%C3%A4ufer-Weihnachtsaushilfe---befristet-von-November-bis-Dezember-2026-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:11.125Z",
+      "crawledAt": "2026-11-01T09:23:12.772Z",
       "firstSeenAt": "2026-10-30T09:30:53.929Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -620,12 +635,16 @@
       "postalCode": "5400",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67828162/Sales-Assistant-Verk%C3%A4ufer-Weihnachtsaushilfe---befristet-von-November-bis-Dezember-2026-m-w-d-/",
       "addressRegion": "AG",
-      "_qualityScore": 88,
+      "streetAddress": "Mannheim, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:12.772Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -650,19 +669,23 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67261930/Weihnachtsaushilfe-20-60-Chocolaterie-Landquart-Outlet-befristet-von-Oktober-bis-Dezember-2026-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:10.351Z",
+      "crawledAt": "2026-11-01T09:23:12.085Z",
       "salaryMin": 38700,
       "salaryMax": 52200,
       "salarySource": "estimated",
       "postalCode": "7302",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67261930/Weihnachtsaushilfe-20-60-Chocolaterie-Landquart-Outlet-befristet-von-Oktober-bis-Dezember-2026-/",
       "addressRegion": "GR",
-      "_qualityScore": 88,
+      "streetAddress": "Landquart, Graubünden, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:23:12.085Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -687,7 +710,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67565702/Sales-Assistant-Verk%C3%A4ufer-in-Voll--und-Teilzeit-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:09.814Z",
+      "crawledAt": "2026-11-01T09:23:11.637Z",
       "firstSeenAt": "2026-10-30T09:30:52.600Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -695,12 +718,16 @@
       "postalCode": "5400",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67565702/Sales-Assistant-Verk%C3%A4ufer-in-Voll--und-Teilzeit-m-w-d-/",
       "addressRegion": "AG",
-      "_qualityScore": 88,
+      "streetAddress": "Stuttgart, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:11.637Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -725,7 +752,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67556327/Verk%C3%A4ufer-50-Chocolaterie-Basel-Freie-Strasse-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:09.572Z",
+      "crawledAt": "2026-11-01T09:23:11.411Z",
       "firstSeenAt": "2026-09-21T16:03:55.089Z",
       "salaryMin": 34800,
       "salaryMax": 46800,
@@ -733,12 +760,16 @@
       "postalCode": "4001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67556327/Verk%C3%A4ufer-50-Chocolaterie-Basel-Freie-Strasse-w-m-d-/",
       "addressRegion": "BS",
-      "_qualityScore": 88,
+      "streetAddress": "Basel, Basel-Stadt, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:23:11.411Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -763,19 +794,23 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67462767/Sales-Assistant-Verk%C3%A4ufer-in-Voll--und-Teilzeit-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:09.090Z",
+      "crawledAt": "2026-11-01T09:23:10.943Z",
       "firstSeenAt": "2026-10-30T09:30:51.737Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
       "salarySource": "estimated",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67462767/Sales-Assistant-Verk%C3%A4ufer-in-Voll--und-Teilzeit-m-w-d-/",
       "addressRegion": "FR",
-      "_qualityScore": 85,
+      "streetAddress": "Freiburg im Breisgau, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:10.943Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -800,7 +835,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67413612/Stv-Filialleiter-Chocolaterie-Oerlikon-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:08.787Z",
+      "crawledAt": "2026-11-01T09:23:10.718Z",
       "firstSeenAt": "2026-09-16T09:21:35.541Z",
       "salaryMin": 134000,
       "salaryMax": 180500,
@@ -808,12 +843,16 @@
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67413612/Stv-Filialleiter-Chocolaterie-Oerlikon-w-m-d-/",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich, Zürich, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:23:10.718Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -838,7 +877,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67271955/Ganzj%C3%A4hrig-Sales-Assitant-Verk%C3%A4ufer-in-Voll--und-Teilzeit-m-w-d-Sylt/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:08.551Z",
+      "crawledAt": "2026-11-01T09:23:10.484Z",
       "firstSeenAt": "2026-10-30T09:30:51.218Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -846,12 +885,16 @@
       "postalCode": "4434",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67271955/Ganzj%C3%A4hrig-Sales-Assitant-Verk%C3%A4ufer-in-Voll--und-Teilzeit-m-w-d-Sylt/",
       "addressRegion": "BL",
-      "_qualityScore": 88,
+      "streetAddress": "Sylt, Schleswig-Holstein, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:10.484Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -876,7 +919,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67270550/Sales-Assistant-Verk%C3%A4ufer-in-Aushilfe-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:07.762Z",
+      "crawledAt": "2026-11-01T09:23:09.788Z",
       "firstSeenAt": "2026-10-30T09:30:50.645Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -884,12 +927,16 @@
       "postalCode": "5400",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67270550/Sales-Assistant-Verk%C3%A4ufer-in-Aushilfe-m-w-d-/",
       "addressRegion": "AG",
-      "_qualityScore": 88,
+      "streetAddress": "Mannheim, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:09.788Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -914,7 +961,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67139555/Saisonaushilfe-20-100-flexibel-Chocolaterie-Zermatt-01-12-2026-31-03-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:06.962Z",
+      "crawledAt": "2026-11-01T09:23:09.098Z",
       "firstSeenAt": "2026-09-02T13:39:14.682Z",
       "salaryMin": 68000,
       "salaryMax": 92000,
@@ -922,12 +969,16 @@
       "postalCode": "3920",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67139555/Saisonaushilfe-20-100-flexibel-Chocolaterie-Zermatt-01-12-2026-31-03-2027-/",
       "addressRegion": "VS",
-      "_qualityScore": 88,
+      "streetAddress": "Zermatt, Wallis, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:23:09.098Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -952,7 +1003,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66510088/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:05.904Z",
+      "crawledAt": "2026-11-01T09:23:08.173Z",
       "firstSeenAt": "2026-08-04T11:34:01.020Z",
       "salaryMin": 55000,
       "salaryMax": 74500,
@@ -960,12 +1011,16 @@
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66510088/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich-Flughafen, Zürich, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:08.173Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -990,7 +1045,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66510048/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:05.664Z",
+      "crawledAt": "2026-11-01T09:23:07.941Z",
       "firstSeenAt": "2026-09-05T12:44:43.974Z",
       "salaryMin": 55000,
       "salaryMax": 74500,
@@ -998,12 +1053,16 @@
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66510048/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "addressRegion": "ZH",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich, Zürich, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-05T09:23:07.941Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1028,7 +1087,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66509728/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:05.422Z",
+      "crawledAt": "2026-11-01T09:23:07.709Z",
       "firstSeenAt": "2026-08-04T11:34:00.687Z",
       "salaryMin": 50500,
       "salaryMax": 68000,
@@ -1036,12 +1095,16 @@
       "postalCode": "4001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66509728/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "addressRegion": "BS",
-      "_qualityScore": 88,
+      "streetAddress": "Basel, Basel-Stadt, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:07.709Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1066,7 +1129,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66508228/Zusatzausbildung-Fachrichtung-Confiserie-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:05.181Z",
+      "crawledAt": "2026-11-01T09:23:07.483Z",
       "firstSeenAt": "2026-08-04T11:34:00.420Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
@@ -1074,12 +1137,16 @@
       "postalCode": "8755",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66508228/Zusatzausbildung-Fachrichtung-Confiserie-2027-w-m-d-/",
       "addressRegion": "GL",
-      "_qualityScore": 88,
+      "streetAddress": "Ennenda, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:07.483Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1104,7 +1171,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66507453/Lehrstelle-Lebensmitteltechnologe-in-EFZ-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:04.866Z",
+      "crawledAt": "2026-11-01T09:23:07.244Z",
       "firstSeenAt": "2026-08-04T11:34:00.275Z",
       "salaryMin": 48500,
       "salaryMax": 65500,
@@ -1112,12 +1179,16 @@
       "postalCode": "8755",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66507453/Lehrstelle-Lebensmitteltechnologe-in-EFZ-2027-/",
       "addressRegion": "GL",
-      "_qualityScore": 88,
+      "streetAddress": "Ennenda, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:07.244Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1142,7 +1213,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66506288/Lehrstelle-Logistiker-in-EFZ-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:04.625Z",
+      "crawledAt": "2026-11-01T09:23:07.010Z",
       "firstSeenAt": "2026-08-04T11:33:59.952Z",
       "salaryMin": 48500,
       "salaryMax": 65500,
@@ -1150,12 +1221,16 @@
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66506288/Lehrstelle-Logistiker-in-EFZ-2027-/",
       "addressRegion": "GL",
-      "_qualityScore": 88,
+      "streetAddress": "Bilten, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:07.010Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1180,7 +1255,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/65493251/Stv-Filialleiter-60-Chocolaterie-Mall-of-Switzerland-Ebikon-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:04.058Z",
+      "crawledAt": "2026-11-01T09:23:06.545Z",
       "firstSeenAt": "2026-06-23T11:53:19.361Z",
       "salaryMin": 76200,
       "salaryMax": 102600,
@@ -1188,12 +1263,16 @@
       "postalCode": "6030",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/65493251/Stv-Filialleiter-60-Chocolaterie-Mall-of-Switzerland-Ebikon-w-m-d-/",
       "addressRegion": "LU",
-      "_qualityScore": 88,
+      "streetAddress": "Ebikon, Luzern, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:06.545Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1218,7 +1297,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/64633953/Confiseur-f%C3%BCr-Live-Produktion-im-House-of-L%C3%A4derach-60-100-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T09:24:03.814Z",
+      "crawledAt": "2026-11-01T09:23:06.305Z",
       "firstSeenAt": "2026-05-11T12:02:24.820Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
@@ -1226,133 +1305,18 @@
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/64633953/Confiseur-f%C3%BCr-Live-Produktion-im-House-of-L%C3%A4derach-60-100-w-m-d-/",
       "addressRegion": "GL",
-      "_qualityScore": 88,
+      "streetAddress": "Bilten, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:06.305Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "laderach-1416a625d5ff",
-      "slug": "rilievo-di-natale-60-80-chocolaterie-st-moritz-temporaneo-da-dicembre-2026-a-marzo-2027-laderach-schweiz-ag-sankt-moritz",
-      "company": "Läderach (Schweiz) AG",
-      "companyKey": "laderach-schweiz-ag",
-      "companyDomain": "laderach.com",
-      "title": "Weihnachtsaushilfe 60-80% Chocolaterie St. Moritz (befristet von Dezember 2026 bis März 2027)",
-      "sourceLang": "de",
-      "location": "Sankt Moritz, Graubünden, Schweiz",
-      "canton": "GR",
-      "addressLocality": "Sankt Moritz, Graubünden, Schweiz",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://laderach.career.softgarden.de/jobs/67756917/Weihnachtsaushilfe-60-80-Chocolaterie-St-Moritz-befristet-von-Dezember-2026-bis-M%C3%A4rz-2027-/",
-      "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-30T09:30:53.273Z",
-      "firstSeenAt": "2026-09-30T21:19:28.780Z",
-      "salaryMin": 51600,
-      "salaryMax": 69600,
-      "salarySource": "estimated",
-      "postalCode": "7000",
-      "applyUrl": "https://laderach.career.softgarden.de/jobs/67756917/Weihnachtsaushilfe-60-80-Chocolaterie-St-Moritz-befristet-von-Dezember-2026-bis-M%C3%A4rz-2027-/",
-      "addressRegion": "GR",
-      "needsRetranslation": true,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "laderach-e7e0551edb5e",
-      "slug": "rilievo-di-natale-60-80-chocolaterie-st-moritz-temporaneo-da-novembre-2026-a-marzo-2027-laderach-schweiz-ag-sankt-moritz",
-      "company": "Läderach (Schweiz) AG",
-      "companyKey": "laderach-schweiz-ag",
-      "companyDomain": "laderach.com",
-      "title": "Weihnachtsaushilfe 60-80% Chocolaterie St. Moritz (befristet von November 2026 bis März 2027)",
-      "sourceLang": "de",
-      "location": "Sankt Moritz, Graubünden, Schweiz",
-      "canton": "GR",
-      "addressLocality": "Sankt Moritz, Graubünden, Schweiz",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://laderach.career.softgarden.de/jobs/67756762/Weihnachtsaushilfe-60-80-Chocolaterie-St-Moritz-befristet-von-November-2026-bis-M%C3%A4rz-2027-/",
-      "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-30T09:30:53.100Z",
-      "firstSeenAt": "2026-09-30T21:19:28.611Z",
-      "salaryMin": 51600,
-      "salaryMax": 69600,
-      "salarySource": "estimated",
-      "postalCode": "7000",
-      "applyUrl": "https://laderach.career.softgarden.de/jobs/67756762/Weihnachtsaushilfe-60-80-Chocolaterie-St-Moritz-befristet-von-November-2026-bis-M%C3%A4rz-2027-/",
-      "addressRegion": "GR",
-      "needsRetranslation": true,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "laderach-15d9e2b1697c",
-      "slug": "rilievo-di-natale-20-40-chocolaterie-thun-temporaneo-fino-a-dicembre-2026-laderach-schweiz-ag-thun",
-      "company": "Läderach (Schweiz) AG",
-      "companyKey": "laderach-schweiz-ag",
-      "companyDomain": "laderach.com",
-      "title": "Weihnachtsaushilfe 20-40% Chocolaterie Thun (befristet bis Dezember 2026)",
-      "sourceLang": "de",
-      "location": "Thun, Bern, Schweiz",
-      "canton": "BE",
-      "addressLocality": "Thun, Bern, Schweiz",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://laderach.career.softgarden.de/jobs/67554032/Weihnachtsaushilfe-20-40-Chocolaterie-Thun-befristet-bis-Dezember-2026-/",
-      "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-30T09:30:52.257Z",
-      "firstSeenAt": "2026-09-21T16:03:54.182Z",
-      "salaryMin": 28400,
-      "salaryMax": 38200,
-      "salarySource": "estimated",
-      "postalCode": "3600",
-      "applyUrl": "https://laderach.career.softgarden.de/jobs/67554032/Weihnachtsaushilfe-20-40-Chocolaterie-Thun-befristet-bis-Dezember-2026-/",
-      "addressRegion": "BE",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

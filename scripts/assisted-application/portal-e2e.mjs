@@ -28,6 +28,19 @@ import { registerCookieSessionRecovery } from './lib/portal/cookie-session.mjs';
 import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
+// Synthetic-portal diagnostics only: never serialize values, credentials or
+// arbitrary evidence when a checked lifecycle stops before its expected phase.
+const stopContext = ({ event = {}, evidence = {} }) => ({
+  type: event.type, reason: event.reason, stage: event.stage,
+  questions: (Array.isArray(event.questions) ? event.questions : []).map(question =>
+    typeof question === 'string' ? question : question.question || question.label || question.fieldId || question.id),
+  steps: (evidence.steps || []).slice(-2).map(step => ({
+    step: step.step, fields: step.fields, requiredFieldsUnfilled: step.requiredFieldsUnfilled,
+    failures: (step.failures || []).length,
+    ...(step.auth ? { auth: { kind: step.auth.kind, outcome: step.auth.outcome, privacy: step.auth.privacy } } : {}),
+  })),
+});
+
 // The tenant id in the address names no company: the posting is checked on the form.
 const SF_JOB = '/sf/career?company=tenant1000103&career_ns=job_application&career_job_req_id=170044';
 // SuccessFactors' password policy (8–18 characters) follows its host name.
@@ -898,7 +911,7 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   const sent = workday.forms.at(-1) || {};
   check('Workday: the country is chosen first, the redrawn form planned again, the phone code picked from its late matches',
     sent.country === 'Switzerland' && sent.street === 'Via Esempio' && sent.postcode === '6830' && sent.phoneCode === 'Switzerland (+41)'
-    && again.evidence.steps.some((step) => step.redrawn) && !again.evidence.steps.some((step) => (step.failures || []).length));
+    && again.evidence.steps.some((step) => step.redrawn) && !again.evidence.steps.some((step) => (step.failures || []).length), stopContext(again));
   // The posting's page says only the brand: the employer is the order's by the posting's own data, and the
   // form behind the account (whose title is still the account page's) is the posting's by its role.
   check('Workday: the form is the posting’s by the employer its data names, another entity of the order’s company',
@@ -1410,7 +1423,7 @@ async function main() {
     check('Coop: the account is created (16-character password, country, privacy statement accepted, no job alert) and the application sent with «Bewerben»',
       coopFirst.event.type === 'submit_succeeded' && coop.accounts.size === 1 && coop.privacyAccepted === 1 && !coop.jobAbo
       && coop.refused.length === 0 && coop.outsideAccept === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
-      && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca');
+      && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca', stopContext(coopFirst));
     check('Coop: SuccessFactors’ picklists, its UI5 birth date and «Vermittlungsbüro?» (always Nein) are filled',
       coop.applications[0]?.anrede === 'Herr' && coop.applications[0]?.birth === '12.05.1990' && coop.applications[0]?.agency === 'Nein');
     check('Coop: the closed sections are opened and the CV goes in through «Lebenslauf hochladen» before «Bewerben»',
@@ -1434,8 +1447,9 @@ async function main() {
     // Review of #11015: a lost first click gets its own 8 s retry window.
     const slowBrowser = await launchChromium({ headless: true, executablePath });
     const slowPage = await slowBrowser.newPage();
-    await slowPage.setContent(`<a role="button" tabindex="0" id="t">Datenschutzerklärung lesen und akzeptieren.</a>
-      <div role="dialog" id="d" hidden><button type="button" id="ok">Akzeptieren</button></div><input type="hidden" id="v" value="">
+    await slowPage.setContent(`<form><a role="button" tabindex="0" id="t">Datenschutzerklärung lesen und akzeptieren.</a>
+      <input type="hidden" id="v" value=""><button type="button">Konto anlegen</button></form>
+      <div role="dialog" id="d" hidden><h2>Datenschutzerklärung</h2><button type="button" id="ok">Akzeptieren</button></div>
       <script>
         // The first click is lost. Only the second click starts the 6 s open.
         let clicks = 0;
@@ -1460,7 +1474,7 @@ async function main() {
     const hotelDry = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
     check('umantis: a dry run fills the form that asks for its own password up to the send button, and keeps no account', hotelDry.event.type === 'dry_run_ready'
       && !hotelDry.event.stage && hotelDry.evidence.finalButton?.label === 'Submit final application' && hotelSaved.size === 0 && umantis.applications.length === 0
-      && hotelDry.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run'));
+      && hotelDry.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run'), stopContext(hotelDry));
     check('umantis: the company is read on the posting, the role on the form it opened', hotelDry.evidence.postingMatch === 'match' && hotelDry.evidence.postingMatchVia === 'posting_page');
     let guardCalls = 0;
     const hotel = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, onBeforeSubmit: async () => { guardCalls += 1; } });

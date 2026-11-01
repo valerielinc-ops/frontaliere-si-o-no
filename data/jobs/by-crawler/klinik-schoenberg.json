@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-schoenberg",
-  "assembledAt": "2026-10-31T09:24:46.106Z",
-  "runId": "41187447043",
+  "assembledAt": "2026-11-01T09:25:01.911Z",
+  "runId": "41291802731",
   "jobs": [
     {
       "id": "klinik-schoenberg-ce0c4d120a1f",
@@ -35,7 +35,7 @@
       "url": "https://my.jobalino.ch/job/a16ce66f550cacf4f12a8e90df158121/berufswahl-schnupperpraktikant-in-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:39.926Z",
+      "crawledAt": "2026-11-01T09:24:56.446Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -97,7 +97,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schönberg AG",
+        "streetAddress": "Schönbergstrasse 40",
+        "postalCode": "3654",
+        "addressLocality": "Gunten",
+        "addressRegion": "BE",
+        "checkedAt": "2026-10-31T20:49:32.819Z"
+      },
+      "streetAddress": "Schönbergstrasse 40",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:24:56.446Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schoenberg-6848b85cd009",
@@ -130,7 +144,7 @@
       "url": "https://my.jobalino.ch/job/5e090767e44850d6090241204609188f/diaetkoch-diaetkoechin-w-m-d_1615",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:39.495Z",
+      "crawledAt": "2026-11-01T09:24:56.015Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -184,7 +198,21 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schönberg AG",
+        "streetAddress": "Schönbergstrasse 40",
+        "postalCode": "3654",
+        "addressLocality": "Gunten",
+        "addressRegion": "BE",
+        "checkedAt": "2026-10-31T20:49:32.819Z"
+      },
+      "streetAddress": "Schönbergstrasse 40",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:24:56.015Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schoenberg-21708d402e2c",
@@ -217,7 +245,7 @@
       "url": "https://my.jobalino.ch/job/69c4bb84d066fd5ff0b285fbb090f162/lehrstelle-2027-fachfrau-fachmann-gesundheit-fage-fage-e-efz",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:38.931Z",
+      "crawledAt": "2026-11-01T09:24:55.443Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -266,7 +294,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schönberg AG",
+        "streetAddress": "Schönbergstrasse 40",
+        "postalCode": "3654",
+        "addressLocality": "Gunten",
+        "addressRegion": "BE",
+        "checkedAt": "2026-10-31T20:49:32.819Z"
+      },
+      "streetAddress": "Schönbergstrasse 40",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-07T09:24:55.443Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schoenberg-fff7770dc676",
@@ -299,7 +341,7 @@
       "url": "https://my.jobalino.ch/job/8dc96aab4414d5022026e1963a9434f4/lehrstelle-2027-assistent-in-gesundheit-und-soziales-ags-eba_1428",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:38.367Z",
+      "crawledAt": "2026-11-01T09:24:54.870Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -348,7 +390,21 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schönberg AG",
+        "streetAddress": "Schönbergstrasse 40",
+        "postalCode": "3654",
+        "addressLocality": "Gunten",
+        "addressRegion": "BE",
+        "checkedAt": "2026-10-31T20:49:32.819Z"
+      },
+      "streetAddress": "Schönbergstrasse 40",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-07T09:24:54.870Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schoenberg-89fbd08a5eb2",
@@ -381,7 +437,7 @@
       "url": "https://my.jobalino.ch/job/6cedfaf9d1f127606f659865988e923a/office-mitarbeiter-in-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:37.791Z",
+      "crawledAt": "2026-11-01T09:24:54.297Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -429,7 +485,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schönberg AG",
+        "streetAddress": "Schönbergstrasse 40",
+        "postalCode": "3654",
+        "addressLocality": "Gunten",
+        "addressRegion": "BE",
+        "checkedAt": "2026-10-31T20:49:32.819Z"
+      },
+      "streetAddress": "Schönbergstrasse 40",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:24:54.297Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schoenberg-a436084f76ed",
@@ -462,7 +532,7 @@
       "url": "https://my.jobalino.ch/job/80e424e55beb9566fa7b9d166549929e/dipl-pflegefachperson-hf-fh-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:37.354Z",
+      "crawledAt": "2026-11-01T09:24:53.868Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -535,7 +605,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schönberg AG",
+        "streetAddress": "Schönbergstrasse 40",
+        "postalCode": "3654",
+        "addressLocality": "Gunten",
+        "addressRegion": "BE",
+        "checkedAt": "2026-10-31T20:49:32.819Z"
+      },
+      "streetAddress": "Schönbergstrasse 40",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:24:53.868Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schoenberg-7f15c9809cc1",
@@ -569,7 +653,7 @@
       "url": "https://my.jobalino.ch/job/e7485250903f75718f577817aa1a483a/fachperson-gesundheit-fage-w-m-d_227",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:36.785Z",
+      "crawledAt": "2026-11-01T09:24:53.283Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -617,7 +701,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schönberg AG",
+        "streetAddress": "Schönbergstrasse 40",
+        "postalCode": "3654",
+        "addressLocality": "Gunten",
+        "addressRegion": "BE",
+        "checkedAt": "2026-10-31T20:49:32.819Z"
+      },
+      "streetAddress": "Schönbergstrasse 40",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:24:53.283Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schoenberg-48fb956c4e1a",
@@ -651,7 +749,7 @@
       "url": "https://my.jobalino.ch/job/78552fe65af10c48ef99344fceaae9bf/sachbearbeiter-in-patientenaufnahme-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:36.217Z",
+      "crawledAt": "2026-11-01T09:24:52.709Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -704,7 +802,21 @@
           "maxValue": 72800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schönberg AG",
+        "streetAddress": "Schönbergstrasse 40",
+        "postalCode": "3654",
+        "addressLocality": "Gunten",
+        "addressRegion": "BE",
+        "checkedAt": "2026-10-31T20:49:32.819Z"
+      },
+      "streetAddress": "Schönbergstrasse 40",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-21T09:24:52.709Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schoenberg-4f17eb0a7d76",
@@ -737,7 +849,7 @@
       "url": "https://my.jobalino.ch/job/d377ec5e3dcd50e041dee7135160a127/medizinische-r-masseur-in-w-m-d_316",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:35.652Z",
+      "crawledAt": "2026-11-01T09:24:52.131Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -789,7 +901,21 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schönberg AG",
+        "streetAddress": "Schönbergstrasse 40",
+        "postalCode": "3654",
+        "addressLocality": "Gunten",
+        "addressRegion": "BE",
+        "checkedAt": "2026-10-31T20:49:32.819Z"
+      },
+      "streetAddress": "Schönbergstrasse 40",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-27T09:24:52.131Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schoenberg-efb2336d5a1d",
@@ -822,7 +948,7 @@
       "url": "https://my.jobalino.ch/job/7f8c93ff068084dedcfa539b92bc4521/assistent-in-gesundheit-und-soziales-ags-oder-pflegehelfer-in-w-m-d_4915",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:35.220Z",
+      "crawledAt": "2026-11-01T09:24:51.690Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -928,7 +1054,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schönberg AG",
+        "streetAddress": "Schönbergstrasse 40",
+        "postalCode": "3654",
+        "addressLocality": "Gunten",
+        "addressRegion": "BE",
+        "checkedAt": "2026-10-31T20:49:32.819Z"
+      },
+      "streetAddress": "Schönbergstrasse 40",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:24:51.690Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schoenberg-e06896668b0c",
@@ -962,7 +1102,7 @@
       "url": "https://my.jobalino.ch/job/ad9827b92dcdcf1fdd96bf6bb8cc6c02/lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:34.656Z",
+      "crawledAt": "2026-11-01T09:24:51.109Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1010,7 +1150,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schönberg AG",
+        "streetAddress": "Schönbergstrasse 40",
+        "postalCode": "3654",
+        "addressLocality": "Gunten",
+        "addressRegion": "BE",
+        "checkedAt": "2026-10-31T20:49:32.819Z"
+      },
+      "streetAddress": "Schönbergstrasse 40",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:24:51.109Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schoenberg-c42535418e48",
@@ -1043,7 +1197,7 @@
       "url": "https://my.jobalino.ch/job/73659d11d66726d34baa1203b951e13a/lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:34.070Z",
+      "crawledAt": "2026-11-01T09:24:50.515Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1091,7 +1245,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schönberg AG",
+        "streetAddress": "Schönbergstrasse 40",
+        "postalCode": "3654",
+        "addressLocality": "Gunten",
+        "addressRegion": "BE",
+        "checkedAt": "2026-10-31T20:49:32.819Z"
+      },
+      "streetAddress": "Schönbergstrasse 40",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:24:50.515Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

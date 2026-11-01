@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ricola",
-  "assembledAt": "2026-10-31T09:45:33.500Z",
-  "runId": "41188424656",
+  "assembledAt": "2026-11-01T09:42:50.756Z",
+  "runId": "41292859129",
   "jobs": [
     {
       "id": "ricola-6e3762cab55f",
@@ -34,7 +34,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:45:27.090Z",
+      "crawledAt": "2026-11-01T09:42:44.876Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -81,7 +81,10 @@
           "maxValue": 103600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:42:44.876Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ricola-27641e5cd373",
@@ -115,7 +118,7 @@
       "url": "https://career.ricola.com/Vacancies/1065/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:45:26.685Z",
+      "crawledAt": "2026-11-01T09:42:44.538Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -162,7 +165,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-06T09:42:44.538Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ricola-eec16289faf4",
@@ -196,7 +202,7 @@
       "url": "https://career.ricola.com/Vacancies/1068/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:45:26.224Z",
+      "crawledAt": "2026-11-01T09:42:44.160Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -245,7 +251,10 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:42:44.160Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

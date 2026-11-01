@@ -9,13 +9,15 @@
  * output. No Vite build, no real dist/ mutation — the plugin wiring itself
  * is covered by the end-to-end `npm run build:ci` in CI.
  */
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
   buildSitemapIndexXml,
   discoverSitemapFiles,
+  reconcileFinalSitemapsWithDist,
+  reconcileRemainingSitemapsWithDist,
   reconcileSitemapFuelWithDist,
   type DiscoveredSitemap,
 } from '@/build-plugins/sitemapAliasPlugin';
@@ -173,9 +175,37 @@ describe('sitemapAliasPlugin — auto-discovery', () => {
   it('derives lastmod from the newest entry of each file, not from its mtime', async () => {
     fs.writeFileSync(path.join(distDir, 'sitemap-pages.xml'), '<urlset><url><lastmod>2026-04-15</lastmod></url></urlset>');
     fs.utimesSync(path.join(distDir, 'sitemap-pages.xml'), new Date('2026-10-30T10:00:00Z'), new Date('2026-10-30T10:00:00Z'));
+    seedSitemap(distDir, 'sitemap-eventi.xml', new Date('2026-10-30T10:00:00Z'));
 
     const discovered = await discoverSitemapFiles(distDir);
-    expect(discovered[0].lastmod).toBe('2026-04-15');
+
+    expect(discovered).toEqual([
+      { file: 'sitemap-eventi.xml', lastmod: undefined },
+      { file: 'sitemap-pages.xml', lastmod: '2026-04-15' },
+    ]);
+    const xml = buildSitemapIndexXml(discovered, BASE_URL);
+    expect(xml).toContain(`<loc>${BASE_URL}/sitemap-eventi.xml</loc>\n  </sitemap>`);
+    expect(xml).toContain('<lastmod>2026-04-15</lastmod>');
+    expect(xml.match(/<lastmod>/g)).toHaveLength(1);
+  });
+
+  it('keeps every emitted recovery family in the sitemap index', async () => {
+    const restored = [
+      'sitemap-orphan-landings.xml',
+      'sitemap-profession-cantons.xml',
+      'sitemap-profession-cities.xml',
+      'sitemap-fuel-italian-stations.xml',
+      'sitemap-job-market.xml',
+      'sitemap-topics-frontaliere.xml',
+      'sitemap-topics-svizzera.xml',
+    ];
+    for (const file of [...restored, 'sitemap-moduli.xml']) seedSitemap(distDir, file);
+
+    const names = (await discoverSitemapFiles(distDir)).map((s) => s.file);
+
+    expect(names).toEqual([...restored, 'sitemap-moduli.xml'].sort());
+    const index = buildSitemapIndexXml(await discoverSitemapFiles(distDir), BASE_URL);
+    for (const file of restored) expect(index).toContain(`<loc>${BASE_URL}/${file}</loc>`);
   });
 
   it('does not include duplicate entries when called twice on the same dist', async () => {
@@ -255,6 +285,76 @@ describe('sitemapAliasPlugin — index XML builder', () => {
   });
 });
 
+describe('sitemapAliasPlugin — recovered-family URL eligibility', () => {
+  let distDir: string;
+
+  beforeEach(() => {
+    distDir = makeTmpDist();
+  });
+
+  afterEach(() => {
+    if (distDir && fs.existsSync(distDir)) fs.rmSync(distDir, { recursive: true, force: true });
+  });
+
+  it('uses strict all-locale URL checks after CI rehydrates the final dist', () => {
+    const source = fs.readFileSync(
+      new URL('../scripts/ci/reconcile-rehydrated-sitemaps.ts', import.meta.url),
+      'utf8',
+    );
+    expect(source).toMatch(/reconcileFinalSitemapsWithDist\(distDir, \[\], \{\s*keepMissing: false,\s*ignoreShardOwnership: true,\s*\}\)/);
+  });
+
+  it('keeps healthy recovered URLs and removes noindex, noncanonical, and final-dist 404 URLs', async () => {
+    const healthy = `${BASE_URL}/it/professioni/ticino/infermiere/`;
+    const noindex = `${BASE_URL}/it/professioni/ticino/placeholder/`;
+    const noncanonical = `${BASE_URL}/it/professioni/ticino/legacy-slug/`;
+    const missing = `${BASE_URL}/it/professioni/ticino/missing-page/`;
+    const file = 'sitemap-profession-cantons.xml';
+    seedSitemapWithLocs(distDir, file, [healthy, noindex, noncanonical, missing]);
+    seedHtmlPage(distDir, '/it/professioni/ticino/infermiere/');
+    seedHtmlPage(distDir, '/it/professioni/ticino/placeholder/', { noindex: true });
+    seedHtmlPage(distDir, '/it/professioni/ticino/legacy-slug/', {
+      canonical: `${BASE_URL}/contact/`,
+    });
+
+    await reconcileRemainingSitemapsWithDist(distDir);
+    const shardBuildLocs = [...fs.readFileSync(path.join(distDir, file), 'utf8').matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
+      .map((match) => match[1]!);
+    expect(shardBuildLocs).toEqual([healthy, missing]);
+
+    await reconcileFinalSitemapsWithDist(distDir, [], {
+      keepMissing: false,
+      ignoreShardOwnership: true,
+    });
+    const finalLocs = [...fs.readFileSync(path.join(distDir, file), 'utf8').matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)]
+      .map((match) => match[1]!);
+    expect(finalLocs).toEqual([healthy]);
+  });
+
+  it('checks absent foreign-locale URLs in the complete dist even under a shard environment', async () => {
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    vi.resetModules();
+    try {
+      const sitemapAlias = await import('../build-plugins/sitemapAliasPlugin');
+      const foreign = `${BASE_URL}/en/professioni/ticino/infermiere/`;
+      const file = 'sitemap-profession-cantons.xml';
+      seedSitemapWithLocs(distDir, file, [foreign]);
+
+      await sitemapAlias.reconcileFinalSitemapsWithDist(distDir, [], {
+        keepMissing: false,
+        ignoreShardOwnership: true,
+      });
+
+      expect(fs.existsSync(path.join(distDir, file))).toBe(false);
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      vi.resetModules();
+    }
+  });
+});
+
 describe('sitemapAliasPlugin — integration: discover + build', () => {
   let distDir: string;
 
@@ -275,11 +375,9 @@ describe('sitemapAliasPlugin — integration: discover + build', () => {
       'sitemap-glossario.xml',
       'sitemap-guides.xml',
       'sitemap-health-premiums.xml',
-      'sitemap-job-market.xml',
       'sitemap-jobs-expired.xml',
       'sitemap-jobs.xml',
       'sitemap-news.xml',
-      'sitemap-orphan-landings.xml',
       'sitemap-pages.xml',
       'sitemap-recency.xml',
       'sitemap-salary-hub.xml',

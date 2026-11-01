@@ -1,7 +1,7 @@
 {
   "crawlerKey": "huber-suhner",
-  "assembledAt": "2026-10-31T09:52:29.140Z",
-  "runId": "41188195639",
+  "assembledAt": "2026-11-01T09:39:03.401Z",
+  "runId": "41292611758",
   "jobs": [
     {
       "id": "huber-suhner-dc95c9b6a90f",
@@ -35,7 +35,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8112/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:22.158Z",
+      "crawledAt": "2026-11-01T09:38:58.167Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -84,7 +84,10 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-06T09:38:58.167Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "huber-suhner-4f79b17e895f",
@@ -118,7 +121,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8194/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:21.116Z",
+      "crawledAt": "2026-11-01T09:38:57.250Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -165,7 +168,10 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-08T09:38:57.250Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "huber-suhner-eb247820b080",
@@ -199,7 +205,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7957/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:20.112Z",
+      "crawledAt": "2026-11-01T09:38:56.336Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -244,7 +250,10 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-15T09:38:56.336Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "huber-suhner-c06b22e14232",
@@ -277,7 +286,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7542/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:19.147Z",
+      "crawledAt": "2026-11-01T09:38:55.765Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -324,7 +333,10 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-21T09:38:55.765Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "huber-suhner-4e1b09a0b325",
@@ -358,7 +370,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8259/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:18.143Z",
+      "crawledAt": "2026-11-01T09:38:54.730Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -403,7 +415,10 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-23T09:38:54.730Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "huber-suhner-4fbcd607bf1e",
@@ -436,7 +451,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7783/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:17.119Z",
+      "crawledAt": "2026-11-01T09:38:53.698Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -481,7 +496,10 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T09:38:53.698Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "huber-suhner-ac81693fa4d4",
@@ -515,7 +533,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8273/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:16.079Z",
+      "crawledAt": "2026-11-01T09:38:52.686Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -560,7 +578,10 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-05T09:38:52.686Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "huber-suhner-450aeb48d698",
@@ -594,7 +615,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8333/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:52:15.063Z",
+      "crawledAt": "2026-11-01T09:38:51.641Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -647,7 +668,10 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:38:51.641Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

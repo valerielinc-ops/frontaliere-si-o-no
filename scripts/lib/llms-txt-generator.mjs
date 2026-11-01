@@ -277,6 +277,14 @@ export function categorizeUrls(urls, locale = 'it') {
   return categories;
 }
 
+/** Replace every curated article count with the sitemap-derived locale count. */
+function replaceBlogArticleCounts(content, count) {
+  const countText = count.toLocaleString('en-US');
+  return content
+    .replace(/^(\s*-\s*\*\*)(?:[\d,]+\+?\s+)?Blog Articles(\*\*)/m, `$1${countText} Blog Articles$2`)
+    .replace(/\*\*[\d,]+\+? in-depth articles\*\*/g, `**${countText} in-depth articles**`);
+}
+
 /**
  * Generate/patch the llms.txt family in `distDir` (in place). `distDir` must
  * already contain `llms.txt` / `llms-full.txt` (seeded from `publicDir` by
@@ -368,6 +376,16 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     return lines.join('\n');
   }
 
+  /** Conteggi per categoria di una lingua: l'elenco completo resta in /llms-index.txt. */
+  function buildLocaleIndexSummary(urls, locale) {
+    const lines = ['', '---', '', '## Page Index (Auto-Generated Summary)', '', `- **Index Generated**: ${isoDate}`, `- **Pages in this language**: ${urls.length}`];
+    for (const [category, catUrls] of categorizeUrls(urls, locale)) {
+      if (catUrls.length > 0) lines.push(`- **${category}**: ${catUrls.length} pages`);
+    }
+    lines.push(`- **Full URL index**: [/llms-index.txt](${BASE_URL}/llms-index.txt)`, '');
+    return lines.join('\n');
+  }
+
   const pageIndexSection = buildPageIndex(allUrls, 'it');
   const pageIndexSummarySection = buildPageIndexSummary(allUrls);
   // llms-full.txt is the knowledge reference: 1.78 of its 1.83 MB used to be
@@ -408,7 +426,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
   const llmsPath = path.join(distDir, 'llms.txt');
   if (fs.existsSync(llmsPath)) {
     let content = fs.readFileSync(llmsPath, 'utf-8');
-    if (articleCount > 0) content = content.replace(/\d[\d,]*\+?\s*Blog Articles/, `${articleCount} Blog Articles`);
+    content = replaceBlogArticleCounts(content, articleCount);
     // Inject dynamic job board statistics from actual data
     content = injectJobBoardStats(content, distDir);
     // Append auto-generated page-index SUMMARY (#3527) — replace an existing
@@ -435,7 +453,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     // Editorial/source dates belong to the seed. Building an index is not a source verification.
     // Inject dynamic job board statistics from actual data
     content = injectJobBoardStats(content, distDir);
-    if (articleCount > 0) content = content.replace(/\d[\d,]*\+? in-depth articles/, `${articleCount} in-depth articles`);
+    content = replaceBlogArticleCounts(content, articleCount);
     // The index moved to llms-index.txt: replace a pointer or a legacy index.
     const markerIdx = [content.indexOf('## Page Index'), content.indexOf('## Complete Page Index (Auto-Generated)')]
       .filter((i) => i !== -1)
@@ -481,9 +499,16 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
   let localeCount = 0;
   for (const [locale, header] of Object.entries(localeHeaders)) {
     const localeUrls = parseSitemapUrls(publicDir, fs, locale, distDir, sitemapFiles);
+    const localeArticleCount = categorizeUrls(localeUrls, locale).get('Blog Articles').length;
+    const localeDir = path.join(distDir, locale);
+    const localeFullPath = path.join(localeDir, 'llms-full.txt');
+    if (fs.existsSync(localeFullPath)) {
+      const localeFull = fs.readFileSync(localeFullPath, 'utf8');
+      fs.writeFileSync(localeFullPath, replaceBlogArticleCounts(localeFull, localeArticleCount));
+    }
     if (localeUrls.length === 0) continue;
 
-    const localeIndex = buildPageIndex(localeUrls, locale);
+    const localeIndex = buildLocaleIndexSummary(localeUrls, locale);
     const otherLocales = ['it', 'en', 'de', 'fr'].filter((l) => l !== locale);
     const alternateLinks = otherLocales.map((l) =>
       l === 'it'
@@ -491,7 +516,13 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
         : `- ${l === 'en' ? 'English' : l === 'de' ? 'German' : 'French'}: [/${l}/llms.txt](${BASE_URL}/${l}/llms.txt)`,
     ).join('\n');
 
-    const content = `# Frontaliere Ticino (${header.lang})
+    // Il testo curato in public/<lingua>/llms.txt porta Key Facts e FAQ: va
+    // conservato. L'elenco per URL ne faceva un file da 7 MB senza Key Facts.
+    const localeSeedPath = path.join(publicDir, locale, 'llms.txt');
+    const localeSeed = fs.existsSync(localeSeedPath)
+      ? replaceBlogArticleCounts(fs.readFileSync(localeSeedPath, 'utf8').trimEnd(), localeArticleCount)
+      : '';
+    const content = localeSeed ? `${localeSeed}\n${localeIndex}` : `# Frontaliere Ticino (${header.lang})
 
 > ${header.description}
 
@@ -512,7 +543,6 @@ ${alternateLinks}
 - Sitemap: [/sitemap.xml](${BASE_URL}/sitemap.xml)
 ${localeIndex}`;
 
-    const localeDir = path.join(distDir, locale);
     fs.mkdirSync(localeDir, { recursive: true });
     fs.writeFileSync(path.join(localeDir, 'llms.txt'), content);
     localeCount++;

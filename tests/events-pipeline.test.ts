@@ -434,7 +434,6 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld['@type']).toBe('Event');
     expect(ld.name).toBeTruthy();
     expect(ld.startDate).toBeTruthy();
-    expect(ld.endDate).toBeTruthy();
     expect(ld.eventStatus).toBe('https://schema.org/EventScheduled');
     expect(ld.eventAttendanceMode).toBe('https://schema.org/OfflineEventAttendanceMode');
     expect(ld.location?.address?.addressLocality).toBeTruthy();
@@ -448,11 +447,14 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       name: 'Tio.ch Agenda',
       url: 'https://www.tio.ch/agenda',
     });
-    expect(ld.performer).toMatchObject({ '@type': 'Organization', name: expect.any(String) });
-    expect(ld.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
+    expect(ld.performer).toBeUndefined();
+    expect(ld.offers).toBeUndefined();
     expect(ld.isAccessibleForFree).toBeUndefined();
-    // endDate must never precede startDate (Google Rich Results validity).
-    expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
+    // When the source provides an end date, its calendar day must not precede
+    // the source start day; date-only values intentionally carry no end time.
+    if (ld.endDate !== undefined) {
+      expect(String(ld.endDate).slice(0, 10) >= String(ld.startDate).slice(0, 10)).toBe(true);
+    }
   };
 
   it('emits every required Event field for a full event', () => {
@@ -462,6 +464,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
           id: 'tio-agenda:1',
           title: 'Concerto sinfonico',
           startDate: '2026-07-04',
+          endDate: '2026-07-04',
           startTime: '20:00',
           category: 'musica',
           venue: 'Teatro Sociale Bellinzona',
@@ -523,7 +526,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     });
   });
 
-  it('single-day timed event: endDate equals startDate datetime, CEST offset in summer', () => {
+  it('single-day timed event with no source end date does not invent an end time', () => {
     const ld = eventLd(
       {
         id: 'tio-agenda:3',
@@ -539,7 +542,27 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     ) as Record<string, any>;
     // July → CEST (+02:00), not the winter +01:00.
     expect(ld.startDate).toBe('2026-07-04T20:00:00+02:00');
-    expect(ld.endDate).toBe(ld.startDate);
+    expect(ld.endDate).toBeUndefined();
+  });
+
+  it('single-day timed event normalizes the source end date to the start timestamp', () => {
+    const ld = eventLd(
+      {
+        id: 'tio-agenda:3b',
+        title: 'Concerto',
+        startDate: '2026-11-15',
+        endDate: '2026-11-15',
+        startTime: '12:00',
+        recurring: false,
+        canton: 'TI',
+        url: 'https://www.tio.ch/agenda/day/20261115/62103',
+        sourceKey: 'tio-agenda',
+        sourceName: 'Tio.ch Agenda',
+      },
+      'it',
+    ) as Record<string, any>;
+    expect(ld.startDate).toBe('2026-11-15T12:00:00+01:00');
+    expect(ld.endDate).toBe('2026-11-15T12:00:00+01:00');
   });
 
   it('multi-day event keeps a distinct later endDate', () => {
@@ -677,20 +700,20 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.offers?.url).toBe(baseEvent.url);
   });
 
-  it('emits the zero-price Offer when price is present but not machine-parseable', () => {
+  it('emits no Offer when price is present but not machine-parseable', () => {
     // e.g. tio.ch "Prezzo:" label says "su richiesta" / "CHF" with no digits —
     // parsePriceText returns amount: null, isFree: false for this bucket.
     const ld = eventLd({ ...baseEvent, price: { amount: null, currency: 'CHF', isFree: false } }, 'it') as Record<string, any>;
-    expect(ld.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
+    expect(ld.offers).toBeUndefined();
     expect(ld.isAccessibleForFree).toBeUndefined();
   });
 
-  it('emits the zero-price Offer when the detail page has no verifiable amount', () => {
+  it('emits no Offer when the detail page has no verifiable amount', () => {
     const ld = eventLd({
       ...baseEvent,
       price: { amount: null, currency: 'CHF', isFree: false },
     }, 'it') as Record<string, any>;
-    expect(ld.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
+    expect(ld.offers).toBeUndefined();
     expect(ld.isAccessibleForFree).toBeUndefined();
   });
 });
@@ -767,7 +790,7 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
       name: 'Tio.ch Agenda',
       url: 'https://www.tio.ch/agenda',
     });
-    expect(out[0].performer).toEqual({ '@type': 'Organization', name: 'Tio.ch Agenda' });
+    expect(out[0].performer).toBeUndefined();
     expect(out[1].price).toBeUndefined();
     expect(out[1].organizer).toEqual({
       '@type': 'Organization',

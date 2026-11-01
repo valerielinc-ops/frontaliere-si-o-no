@@ -1,7 +1,7 @@
 {
   "crawlerKey": "neoproconseils",
-  "assembledAt": "2026-10-31T09:14:27.783Z",
-  "runId": "41187221286",
+  "assembledAt": "2026-11-01T09:13:10.229Z",
+  "runId": "41291565146",
   "jobs": [
     {
       "id": "neoproconseils-14fdde329346",
@@ -34,7 +34,7 @@
       "url": "https://neoproconseils.ch/emplois/macon-genie-civil-h-f-ref-75114/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:19.442Z",
+      "crawledAt": "2026-11-01T09:13:05.351Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -74,7 +74,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:05.351Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "neoproconseils-3813e5ada334",
@@ -107,7 +111,7 @@
       "url": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:19.440Z",
+      "crawledAt": "2026-11-01T09:13:05.350Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -153,7 +157,11 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-14T09:13:05.350Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "neoproconseils-2d5de1ea0740",
@@ -186,7 +194,7 @@
       "url": "https://neoproconseils.ch/emplois/macon-coffreur-h-f-ref-75128/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:19.438Z",
+      "crawledAt": "2026-11-01T09:13:05.349Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -232,7 +240,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:13:05.349Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "neoproconseils-35b796fb3625",
@@ -265,7 +277,7 @@
       "url": "https://neoproconseils.ch/emplois/electricien-du-batiment-h-f-ref-75131/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:19.436Z",
+      "crawledAt": "2026-11-01T09:13:05.348Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -311,7 +323,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:13:05.348Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

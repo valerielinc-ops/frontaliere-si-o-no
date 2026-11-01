@@ -1,7 +1,7 @@
 {
   "key": "technic-emplois",
   "label": "Technic Emplois SA",
-  "generatedAt": "2026-10-31T09:25:57.682Z",
+  "generatedAt": "2026-11-01T09:43:12.902Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13719,
-  "avgDurationMs": 13719,
+  "durationMs": 13662,
+  "avgDurationMs": 13662,
   "durationHistory": [
-    13719
+    13662
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ee9a274f-5f47-4cb2-b7ad-3ce9b1532b82/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:25:38.720Z",
+      "crawledAt": "2026-11-01T09:42:57.626Z",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -58,12 +58,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1201",
-      "_qualityScore": 94,
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:42:57.626Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -82,7 +86,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/5edd81f1-0ca1-4303-a921-af73073f18cd/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:25:37.654Z",
+      "crawledAt": "2026-11-01T09:42:56.447Z",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -100,16 +104,20 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1003",
-      "_qualityScore": 94,
+      "streetAddress": "Vaud",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:42:56.447Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

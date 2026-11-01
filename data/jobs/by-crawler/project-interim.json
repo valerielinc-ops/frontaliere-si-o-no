@@ -1,7 +1,7 @@
 {
   "crawlerKey": "project-interim",
-  "assembledAt": "2026-10-31T09:34:50.451Z",
-  "runId": "41188495912",
+  "assembledAt": "2026-11-01T09:36:37.682Z",
+  "runId": "41292933668",
   "jobs": [
     {
       "id": "project-interim-495",
@@ -38,12 +38,12 @@
       "addressRegion": "GE",
       "country": "CH",
       "postalCode": "1201",
-      "streetAddress": "",
+      "streetAddress": "Genève",
       "url": "https://projectinterim.ch/work/macon-genie-civil-h-f/",
       "applyUrl": "https://projectinterim.ch/work/macon-genie-civil-h-f/",
       "source": "Project Interim Dedicated Parser (official WordPress work record)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:34:46.563Z",
+      "crawledAt": "2026-11-01T09:36:29.178Z",
       "hiringOrganizationName": "Project Interim Sàrl",
       "category": "Muratore",
       "sector": "Edilizia / Costruzioni",
@@ -86,7 +86,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:36:29.178Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "project-interim-1062",
@@ -122,12 +125,12 @@
       "addressRegion": "GE",
       "country": "CH",
       "postalCode": "1201",
-      "streetAddress": "",
+      "streetAddress": "Genève",
       "url": "https://projectinterim.ch/work/macon-construction-h-f/",
       "applyUrl": "https://projectinterim.ch/work/macon-construction-h-f/",
       "source": "Project Interim Dedicated Parser (official WordPress work record)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:34:46.563Z",
+      "crawledAt": "2026-11-01T09:36:29.178Z",
       "hiringOrganizationName": "Project Interim Sàrl",
       "category": "Muratore",
       "sector": "Edilizia / Costruzioni",
@@ -170,7 +173,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:36:29.178Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

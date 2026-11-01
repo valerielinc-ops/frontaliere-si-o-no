@@ -1,7 +1,7 @@
 {
   "crawlerKey": "teo-jakob-ag",
-  "assembledAt": "2026-10-31T09:25:51.305Z",
-  "runId": "41187598975",
+  "assembledAt": "2026-11-01T09:24:23.208Z",
+  "runId": "41291964879",
   "jobs": [
     {
       "id": "teo-jakob-ag-a461d4d63ea7",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/6627a44879cd0/teo-jakob-ag/lernende-detailhandel-efz-moebel-m-w",
       "source": "Teo Jakob AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:25:45.276Z",
+      "crawledAt": "2026-11-01T09:24:17.191Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -89,7 +89,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:24:17.191Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

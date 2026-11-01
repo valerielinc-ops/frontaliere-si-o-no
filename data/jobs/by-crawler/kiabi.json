@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kiabi",
-  "assembledAt": "2026-10-31T09:19:59.908Z",
-  "runId": "41187598975",
+  "assembledAt": "2026-11-01T09:16:14.264Z",
+  "runId": "41291964879",
   "jobs": [
     {
       "id": "kiabi-8372070d20fb",
@@ -34,10 +34,10 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000153728909-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:19:54.156Z",
+      "crawledAt": "2026-11-01T09:16:07.523Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
-      "streetAddress": "",
+      "streetAddress": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
       "country": "CH",
@@ -82,7 +82,10 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:07.523Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clinica-holistica-engiadina",
-  "assembledAt": "2026-10-31T09:32:18.780Z",
-  "runId": "41188495912",
+  "assembledAt": "2026-11-01T09:37:06.229Z",
+  "runId": "41292933668",
   "jobs": [
     {
       "id": "clinica-holistica-engiadina-72c9c3974d19",
@@ -50,7 +50,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/oberaerztin-oder-oberarzt-mit-facharzttitel-psychiatrie-und-psychotherapie-80-100-bei",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:11.409Z",
+      "crawledAt": "2026-11-01T09:36:56.676Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "oberarztin-oder-oberarzt-mit-facharzttitel-in-psychiatrie-und-psychotherapie-80-100-bei",
@@ -89,7 +89,11 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Susch",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:36:56.676Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clinica-holistica-engiadina-fb15ab723e90",
@@ -138,7 +142,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/node/293",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:08.817Z",
+      "crawledAt": "2026-11-01T09:36:53.589Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "somatische-arztin-oder-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin",
@@ -177,7 +181,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Susch",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:36:53.589Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clinica-holistica-engiadina-951970b03b21",
@@ -226,7 +234,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hilfskoch-kuechenhilfe-mwd",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:06.584Z",
+      "crawledAt": "2026-11-01T09:36:51.102Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "hilfskoch-kuchenhilfe-m-w-d-clinica-holistica-engiadina-susch",
@@ -263,7 +271,11 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Susch",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:36:51.102Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clinica-holistica-engiadina-3ae5161d1bd1",
@@ -312,7 +324,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/leiterin-kunsttherapie",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:04.196Z",
+      "crawledAt": "2026-11-01T09:36:48.116Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "leiter-in-kunsttherapie-clinica-holistica-engiadina-susch"
@@ -341,7 +353,11 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Susch",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:36:48.116Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clinica-holistica-engiadina-ec7d47b8a370",
@@ -390,7 +406,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/tanz-und-bewegungstherapeutin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:01.535Z",
+      "crawledAt": "2026-11-01T09:36:44.441Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "tanz-und-bewegungstherapeut-in-clinica-holistica-engiadina-susch"
@@ -419,7 +435,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Susch",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:36:44.441Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,10 +1,10 @@
 {
   "key": "kanton-solothurn",
   "label": "Kanton Solothurn",
-  "generatedAt": "2026-10-31T09:37:38.650Z",
+  "generatedAt": "2026-11-01T09:29:20.776Z",
   "total": 22,
   "discovered": null,
-  "parsed": 22,
+  "parsed": 21,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -13,103 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 20,
-  "durationMs": 13139,
-  "avgDurationMs": 13139,
+  "unchangedCount": 22,
+  "durationMs": 29395,
+  "avgDurationMs": 29395,
   "durationHistory": [
-    13139
+    29395
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "kanton-solothurn-17ec8c735f78",
-      "slug": "responsabile-dei-casi-con-compiti-speciali-nell-esecuzione-1-80-100-kanton-solothurn-solothurn",
-      "company": "Kanton Solothurn",
-      "companyKey": "kanton-solothurn",
-      "companyDomain": "so.ch",
-      "title": "Fallverantwortliche/-r mit besonderen Aufgaben Vollzug 1, 80-100%",
-      "needsRetranslation": false,
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://job.so.ch/offene-stellen/fallverantwortliche-r-mit-besonderen-aufgaben-vollzug-1/a89b4e12-a432-4085-a95b-6cd530061ef1",
-      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:20.057Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "streetAddress": "",
-      "postalCode": "4500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza & Giustizia",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-21",
-      "postedDate": "2026-10-21",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job.so.ch/offene-stellen/fallverantwortliche-r-mit-besonderen-aufgaben-vollzug-1/a89b4e12-a432-4085-a95b-6cd530061ef1",
-      "firstSeenAt": "2026-10-21T09:24:11.105Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "kanton-solothurn-051c68675a0c",
-      "slug": "impiegato-a-amministrativo-a-100-kanton-solothurn-solothurn",
-      "company": "Kanton Solothurn",
-      "companyKey": "kanton-solothurn",
-      "companyDomain": "so.ch",
-      "title": "Sachbearbeiter/-in, 100 %",
-      "needsRetranslation": false,
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in/94bc7a9a-7acb-41bb-b11e-da900608eb72",
-      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:16.146Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "streetAddress": "",
-      "postalCode": "4500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza & Giustizia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job.so.ch/offene-stellen/sachbearbeiter-in/94bc7a9a-7acb-41bb-b11e-da900608eb72",
-      "firstSeenAt": "2026-10-30T21:27:55.557Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -124,10 +37,10 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz/065b6048-21b7-4eda-b46e-718abf7d3725",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:23.826Z",
+      "crawledAt": "2026-11-01T09:29:04.436Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -146,12 +59,15 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:29:04.436Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -167,10 +83,10 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/f9d698a8-5442-4fd9-8576-c7c9c9b4bd00",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:23.477Z",
+      "crawledAt": "2026-11-01T09:29:03.429Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -189,12 +105,15 @@
       "salaryMin": 66000,
       "salaryMax": 112000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:29:03.429Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -209,10 +128,10 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-uhrmacher-in-efz/35eac920-78d1-4fa2-b308-ea4121b54715",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:23.164Z",
+      "crawledAt": "2026-11-01T09:29:02.434Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Grenchen",
       "postalCode": "2540",
       "addressCountry": "CH",
       "country": "CH",
@@ -231,12 +150,15 @@
       "salaryMin": 49500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:29:02.434Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -252,10 +174,10 @@
       "url": "https://job.so.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in-gesundheitsversorgung/a376905e-f70b-4168-ab91-d8e13f30ea3f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:22.839Z",
+      "crawledAt": "2026-11-01T09:29:01.438Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -274,12 +196,15 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:29:01.438Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -294,10 +219,10 @@
       "url": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in/a22afa7f-b24e-4bb3-80f9-42627bd15834",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:22.453Z",
+      "crawledAt": "2026-11-01T09:29:00.963Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -316,12 +241,15 @@
       "salaryMin": 54800,
       "salaryMax": 83200,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:29:00.963Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -337,10 +265,10 @@
       "url": "https://job.so.ch/offene-stellen/schulische-r-heilpaedagoge-heilpaedagogin/79f58a36-175d-48da-9d58-4936a7b8f091",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:22.060Z",
+      "crawledAt": "2026-11-01T09:29:00.444Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
       "country": "CH",
@@ -359,12 +287,15 @@
       "salaryMin": 20100,
       "salaryMax": 36900,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:29:00.444Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -379,10 +310,10 @@
       "url": "https://job.so.ch/offene-stellen/polizeiliche-r-sicherheitsassistent-in/35766ab7-54e0-4891-9851-9cc68d65d763",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:21.732Z",
+      "crawledAt": "2026-11-01T09:28:58.428Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -401,12 +332,15 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:28:58.428Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -422,10 +356,10 @@
       "url": "https://job.so.ch/offene-stellen/sozialpaedagoge-sozialpaedagogin/cab5d338-f59b-495b-84eb-f97a6281aa0a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:21.405Z",
+      "crawledAt": "2026-11-01T09:28:56.949Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
       "country": "CH",
@@ -444,12 +378,15 @@
       "salaryMin": 47200,
       "salaryMax": 86800,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:28:56.949Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -465,10 +402,10 @@
       "url": "https://job.so.ch/offene-stellen/jurist-in/3dd6e5c2-d168-4fe1-8bf9-88f579d61c34",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:21.091Z",
+      "crawledAt": "2026-11-01T09:28:55.855Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -487,12 +424,15 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:28:55.855Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -508,10 +448,10 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-betriebswirtschaftliche-dienste/645380d1-b805-4693-be22-33857cd25cff",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:20.781Z",
+      "crawledAt": "2026-11-01T09:28:55.346Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -530,12 +470,15 @@
       "salaryMin": 175000,
       "salaryMax": 307500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:28:55.346Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -551,10 +494,10 @@
       "url": "https://job.so.ch/offene-stellen/fachexperte-fachexpertin-alter-und-pflege/7966534f-d285-45ed-b0aa-288db7691925",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:20.440Z",
+      "crawledAt": "2026-11-01T09:28:54.936Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -572,12 +515,61 @@
       "salaryMin": 68000,
       "salaryMax": 95200,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:28:54.936Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
+      }
+    },
+    {
+      "id": "kanton-solothurn-17ec8c735f78",
+      "slug": "responsabile-dei-casi-con-compiti-speciali-nell-esecuzione-1-80-100-kanton-solothurn-solothurn",
+      "company": "Kanton Solothurn",
+      "companyKey": "kanton-solothurn",
+      "companyDomain": "so.ch",
+      "title": "Fallverantwortliche/-r mit besonderen Aufgaben Vollzug 1, 80-100%",
+      "needsRetranslation": false,
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://job.so.ch/offene-stellen/fallverantwortliche-r-mit-besonderen-aufgaben-vollzug-1/a89b4e12-a432-4085-a95b-6cd530061ef1",
+      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:28:54.448Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "streetAddress": "Solothurn",
+      "postalCode": "4500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sicurezza & Giustizia",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21",
+      "postedDate": "2026-10-21",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job.so.ch/offene-stellen/fallverantwortliche-r-mit-besonderen-aufgaben-vollzug-1/a89b4e12-a432-4085-a95b-6cd530061ef1",
+      "firstSeenAt": "2026-10-21T09:24:11.105Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:28:54.448Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -593,10 +585,10 @@
       "url": "https://job.so.ch/offene-stellen/juristische-r-fallverantwortliche-r-vollzug-2/83337e06-9f79-4131-a297-3a4b758c68ed",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:19.650Z",
+      "crawledAt": "2026-11-01T09:28:53.948Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -615,12 +607,15 @@
       "salaryMin": 75600,
       "salaryMax": 114400,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:28:53.948Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -636,10 +631,10 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-amt-fuer-raumplanung-kantonsplaner-in/18e3681a-4c40-4c13-925f-20fa41b7167d",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:19.264Z",
+      "crawledAt": "2026-11-01T09:28:50.337Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -657,12 +652,15 @@
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:28:50.337Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -678,10 +676,10 @@
       "url": "https://job.so.ch/offene-stellen/kommunikationsspezialist-in/b8166cd9-da9a-4e61-a979-88e38dbb8ee0",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:18.882Z",
+      "crawledAt": "2026-11-01T09:28:49.934Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -700,12 +698,15 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:28:49.934Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -721,10 +722,10 @@
       "url": "https://job.so.ch/offene-stellen/mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik/d77455fc-9741-4ef9-bdd7-38db3598e0f9",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:18.496Z",
+      "crawledAt": "2026-11-01T09:28:49.444Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -743,12 +744,15 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:28:49.444Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -764,10 +768,10 @@
       "url": "https://job.so.ch/offene-stellen/fachbereichsleiter-in-aufsichtsbehoerde-kesb/175f4537-89a6-4dec-b092-7d857bcc224a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:18.097Z",
+      "crawledAt": "2026-11-01T09:28:48.929Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -786,12 +790,15 @@
       "salaryMin": 57500,
       "salaryMax": 80000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:28:48.929Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -807,10 +814,10 @@
       "url": "https://job.so.ch/offene-stellen/informatiker-in-efz-systemadministration-pc-support/f0e0bce1-4953-4d42-8938-7e34027903c1",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:17.710Z",
+      "crawledAt": "2026-11-01T09:28:48.444Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -829,12 +836,15 @@
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:28:48.444Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -849,10 +859,10 @@
       "url": "https://job.so.ch/offene-stellen/case-manager-in/3d4d248d-9130-4e0c-8fed-c81fcb09d7d5",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:17.326Z",
+      "crawledAt": "2026-11-01T09:28:47.946Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -871,12 +881,15 @@
       "salaryMin": 70400,
       "salaryMax": 130000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:28:47.946Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -891,10 +904,10 @@
       "url": "https://job.so.ch/offene-stellen/stv-schlosswart-in/781df1de-77e0-4f97-a057-d94abd28a914",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:16.931Z",
+      "crawledAt": "2026-11-01T09:28:47.455Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
       "country": "CH",
@@ -913,12 +926,61 @@
       "salaryMin": 5900,
       "salaryMax": 10900,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:28:47.455Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
+      }
+    },
+    {
+      "id": "kanton-solothurn-051c68675a0c",
+      "slug": "impiegato-a-amministrativo-a-100-kanton-solothurn-solothurn",
+      "company": "Kanton Solothurn",
+      "companyKey": "kanton-solothurn",
+      "companyDomain": "so.ch",
+      "title": "Sachbearbeiter/-in, 100 %",
+      "needsRetranslation": false,
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in/94bc7a9a-7acb-41bb-b11e-da900608eb72",
+      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:28:47.007Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "streetAddress": "Solothurn",
+      "postalCode": "4500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sicurezza & Giustizia",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job.so.ch/offene-stellen/sachbearbeiter-in/94bc7a9a-7acb-41bb-b11e-da900608eb72",
+      "firstSeenAt": "2026-10-30T21:27:55.557Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:28:47.007Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -934,10 +996,10 @@
       "url": "https://job.so.ch/offene-stellen/stv-dienstchef-in-polizeiliche-lage-und-fachverantwortliche-r-integriertes-lagebild/90bad929-9af3-4eb9-84f8-bee5f711144d",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:37:16.532Z",
+      "crawledAt": "2026-10-31T22:04:18.395Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -956,14 +1018,18 @@
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "crawlerMissStreak": 1,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T22:04:18.395Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-barmelweid",
-  "assembledAt": "2026-10-31T09:19:18.954Z",
-  "runId": "41187520287",
+  "assembledAt": "2026-11-01T09:21:04.615Z",
+  "runId": "41291881160",
   "jobs": [
     {
       "id": "klinik-barmelweid-6787ac7ee07f",
@@ -34,7 +34,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a268817b7e0168f08d561747e4",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:19:12.229Z",
+      "crawledAt": "2026-11-01T09:20:55.628Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -101,7 +101,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:55.628Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-d7d287ba2b4f",
@@ -135,7 +139,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8191efe30181ed9d439b6b2c",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:19:11.209Z",
+      "crawledAt": "2026-11-01T09:20:54.568Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -202,7 +206,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:54.568Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-8cb691a1a1df",
@@ -236,7 +244,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8191efe30181eddd0b376d64",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:19:10.189Z",
+      "crawledAt": "2026-11-01T09:20:53.504Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -306,7 +314,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:53.504Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-c912a3462958",
@@ -340,7 +352,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb8966019173f53b8f4a57",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:19:09.159Z",
+      "crawledAt": "2026-11-01T09:20:52.430Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -417,7 +429,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:52.430Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-aa2e3ab827d4",
@@ -450,7 +466,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e80de5ccf01814e033043117e",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:19:08.144Z",
+      "crawledAt": "2026-11-01T09:20:51.373Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -522,7 +538,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:51.373Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-d9c0a5002940",
@@ -556,7 +576,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb89660191556c2b5368a4",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:19:07.112Z",
+      "crawledAt": "2026-11-01T09:20:50.276Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -631,7 +651,11 @@
           "maxValue": 67000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:50.276Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-65d4670bb157",
@@ -664,7 +688,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39dbbb177019dddf6c8d6176e",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:19:06.037Z",
+      "crawledAt": "2026-11-01T09:20:49.228Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -738,7 +762,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:49.228Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-3c683f45164b",
@@ -772,7 +800,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39ac6f43b019ae9b5d2981a20",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:19:04.987Z",
+      "crawledAt": "2026-11-01T09:20:48.166Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -845,7 +873,11 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:48.166Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-48c2b7aabbe0",
@@ -878,7 +910,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39e6fddb5019ed0e0a7507901",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:19:03.965Z",
+      "crawledAt": "2026-11-01T09:20:47.101Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -922,7 +954,11 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:47.101Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-4a0d79b59acd",
@@ -956,7 +992,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39d8964ea019d9bb31dec69ee",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:19:02.901Z",
+      "crawledAt": "2026-11-01T09:20:46.038Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1041,7 +1077,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:46.038Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-1f432e9438c1",
@@ -1075,7 +1115,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39dbbb177019e3a161c9620da",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:19:01.857Z",
+      "crawledAt": "2026-11-01T09:20:44.989Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1133,7 +1173,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:44.989Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-5c08e4a7c3e8",
@@ -1167,7 +1211,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e90eb896601919e19edb47961",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:19:00.798Z",
+      "crawledAt": "2026-11-01T09:20:43.904Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1207,7 +1251,11 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:20:43.904Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-03a12898127b",
@@ -1241,7 +1289,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b396a617590196aa10b8fa64a2",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:59.765Z",
+      "crawledAt": "2026-11-01T09:20:42.801Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1321,7 +1369,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:42.801Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-48c1692055b1",
@@ -1355,7 +1407,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a056d1d8c74f37",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:58.707Z",
+      "crawledAt": "2026-11-01T09:20:41.695Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1403,7 +1455,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:41.695Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-f6cff4d678b6",
@@ -1437,7 +1493,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39d2bb2d5019d6c6daa583d5c",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:57.657Z",
+      "crawledAt": "2026-11-01T09:20:40.604Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1514,7 +1570,11 @@
           "maxValue": 67000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:40.604Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-82a90e231802",
@@ -1547,7 +1607,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8908887f018968e9bbe138e6",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:56.627Z",
+      "crawledAt": "2026-11-01T09:20:39.546Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1593,7 +1653,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:39.546Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-70d21be00513",
@@ -1627,7 +1691,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a26a538778016a53a0004200a8",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:55.571Z",
+      "crawledAt": "2026-11-01T09:20:38.482Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1667,7 +1731,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:38.482Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-6965b2609be4",
@@ -1700,7 +1768,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a0c2aaac3b3f22",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:54.540Z",
+      "crawledAt": "2026-11-01T09:20:37.413Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1740,7 +1808,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:20:37.413Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-6e096f09fb33",
@@ -1774,7 +1846,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a0d74abb01a0e7e9d4e56634",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:53.523Z",
+      "crawledAt": "2026-11-01T09:20:36.354Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1814,7 +1886,11 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:20:36.354Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-c19293577897",
@@ -1848,7 +1924,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab1a249cf10d2014a395e97a634cc",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:52.479Z",
+      "crawledAt": "2026-11-01T09:20:35.276Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1923,7 +1999,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:35.276Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-f609ea72a34c",
@@ -1957,7 +2037,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3983dcc2b01989e2395da6cca",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:51.462Z",
+      "crawledAt": "2026-11-01T09:20:34.177Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2028,7 +2108,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:34.177Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-65919705caea",
@@ -2062,7 +2146,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a0d74abb01a0f2edc82c6b81",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:50.442Z",
+      "crawledAt": "2026-11-01T09:20:33.109Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2104,7 +2188,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:20:33.109Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-ced531284b45",
@@ -2138,7 +2226,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e885441f801889f5835e4478d",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:49.353Z",
+      "crawledAt": "2026-11-01T09:20:32.026Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2186,7 +2274,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:20:32.026Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-62f223503ad4",
@@ -2219,7 +2311,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a0d74abb01a0d772fcc8006e",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:48.313Z",
+      "crawledAt": "2026-11-01T09:20:30.929Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2259,7 +2351,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:20:30.929Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-740ffc17ad13",
@@ -2292,7 +2388,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e6eb38d72016ecbe4cd3e3848",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:47.255Z",
+      "crawledAt": "2026-11-01T09:20:29.836Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2348,7 +2444,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:29.836Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-fc4c699af27a",
@@ -2382,7 +2482,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a0d34a35a24597",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:46.199Z",
+      "crawledAt": "2026-11-01T09:20:28.695Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2422,7 +2522,11 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:20:28.695Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-cc4ad091b013",
@@ -2456,7 +2560,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a0c2e71def3fde",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:45.171Z",
+      "crawledAt": "2026-11-01T09:20:27.633Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2496,7 +2600,11 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:20:27.633Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-06acb4aee9ac",
@@ -2530,7 +2638,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8998ab9d018a03555e2f5cac",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:44.125Z",
+      "crawledAt": "2026-11-01T09:20:26.569Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2570,7 +2678,11 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:20:26.569Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-6582c2737317",
@@ -2603,7 +2715,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b39e6fddb5019ef8b0d4462241",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:43.114Z",
+      "crawledAt": "2026-11-01T09:20:25.467Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2643,7 +2755,11 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:25.467Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-a40fe9a42b44",
@@ -2677,7 +2793,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a044812101a086e9acea2b9d",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:42.072Z",
+      "crawledAt": "2026-11-01T09:20:24.383Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2721,7 +2837,11 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:20:24.383Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-9cb33e50a926",
@@ -2755,7 +2875,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a0d74abb01a187f50eb514f9",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:41.038Z",
+      "crawledAt": "2026-11-01T09:20:23.318Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2803,7 +2923,11 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:20:23.318Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-3c8761dc87fb",
@@ -2836,7 +2960,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8ab14e8b6d55b6018b95e3f8f65ed6",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:40.022Z",
+      "crawledAt": "2026-11-01T09:20:22.263Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2883,7 +3007,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:22.263Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-barmelweid-c8d484e8c151",
@@ -2917,7 +3045,7 @@
       "url": "https://jobs.barmelweid.ch/offene-stellen/stellenangebot/8a8b95b3a189324601a18d574e397b55",
       "source": "Klinik Barmelweid Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:39.001Z",
+      "crawledAt": "2026-11-01T09:20:21.200Z",
       "addressLocality": "Barmelweid",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2962,7 +3090,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barmelweid",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:20:21.200Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

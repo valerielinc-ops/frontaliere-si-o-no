@@ -1,7 +1,7 @@
 {
   "key": "lindt-spruengli",
   "label": "Lindt & Sprüngli",
-  "generatedAt": "2026-10-31T09:24:29.157Z",
+  "generatedAt": "2026-11-01T09:20:03.625Z",
   "total": 18,
   "discovered": null,
   "parsed": 18,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 18,
-  "durationMs": 16562,
-  "avgDurationMs": 16562,
+  "durationMs": 15016,
+  "avgDurationMs": 15016,
   "durationHistory": [
-    16562
+    15016
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR101051",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:13.948Z",
+      "crawledAt": "2026-11-01T09:19:47.038Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -60,6 +60,9 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:19:47.038Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,7 +83,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Spontaneous-Application_JR102189",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:24:13.237Z",
+      "crawledAt": "2026-11-01T09:19:46.396Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -103,6 +106,9 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:19:46.396Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -123,10 +129,10 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Altendorf-Switzerland/Lehrstelle-als-Logistiker-in-EFZ-Lehrbeginn-Sommer-2027_JR101256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:12.566Z",
+      "crawledAt": "2026-11-01T09:19:45.786Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
-      "streetAddress": "",
+      "streetAddress": "Altendorf",
       "postalCode": "8852",
       "addressCountry": "CH",
       "country": "CH",
@@ -146,12 +152,15 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:19:45.786Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -166,7 +175,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmitteltechnologe--login-EFZ---Lehrbeginn-ab-Sommer-2027_JR102079",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:11.888Z",
+      "crawledAt": "2026-11-01T09:19:45.165Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -189,6 +198,9 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:19:45.165Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -209,7 +221,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102101",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:11.204Z",
+      "crawledAt": "2026-11-01T09:19:44.545Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -232,6 +244,9 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:19:44.545Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -252,10 +267,10 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Retail---Lindt-Shop-City---Luzern/Retail-Store-Manager_JR101237",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:10.507Z",
+      "crawledAt": "2026-11-01T09:19:43.923Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
-      "streetAddress": "",
+      "streetAddress": "Luzern",
       "postalCode": "6003",
       "addressCountry": "CH",
       "country": "CH",
@@ -275,12 +290,15 @@
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:19:43.923Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -295,10 +313,10 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Olten-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102995-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:09.788Z",
+      "crawledAt": "2026-11-01T09:19:43.291Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
       "country": "CH",
@@ -318,12 +336,15 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:19:43.291Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -338,7 +359,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:09.100Z",
+      "crawledAt": "2026-11-01T09:19:42.680Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -361,6 +382,9 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:19:42.680Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -381,7 +405,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Praktikant-in-Controlling--1-Jahr-befristet-_JR101189-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:08.416Z",
+      "crawledAt": "2026-11-01T09:19:42.068Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -404,6 +428,9 @@
       "salaryMin": 79000,
       "salaryMax": 138500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-06T09:19:42.068Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -424,10 +451,10 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Assistant-Shop-Manager--60-80--_JR103772-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:07.740Z",
+      "crawledAt": "2026-11-01T09:19:41.450Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
-      "streetAddress": "",
+      "streetAddress": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
       "country": "CH",
@@ -447,12 +474,15 @@
       "salaryMin": 76800,
       "salaryMax": 118000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:19:41.450Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -467,7 +497,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Grundfabrikation_JR103638-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:07.055Z",
+      "crawledAt": "2026-11-01T09:19:40.819Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -489,6 +519,9 @@
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T09:19:40.819Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -509,7 +542,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Betriebsmechaniker-in_JR103724-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:06.369Z",
+      "crawledAt": "2026-11-01T09:19:40.199Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -532,6 +565,9 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-04T09:19:40.199Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -552,10 +588,10 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Aubonne-Switzerland/Assistant-Shop-Manager-Aubonne--80--_JR103769-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:05.683Z",
+      "crawledAt": "2026-11-01T09:19:39.584Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
-      "streetAddress": "",
+      "streetAddress": "Aubonne",
       "postalCode": "1170",
       "addressCountry": "CH",
       "country": "CH",
@@ -575,12 +611,15 @@
       "salaryMin": 81200,
       "salaryMax": 124800,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:19:39.584Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -595,7 +634,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Aushilfsmitarbeiter-in-Personalrestaurant_JR103978-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:04.993Z",
+      "crawledAt": "2026-11-01T09:19:38.944Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -618,6 +657,9 @@
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-11T09:19:38.944Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -638,7 +680,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Group-Category-Manager-Business-Services_JR103887-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:24:04.316Z",
+      "crawledAt": "2026-11-01T09:19:38.317Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -661,6 +703,9 @@
       "salaryMin": 97500,
       "salaryMax": 122500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-18T09:19:38.317Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -681,7 +726,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Buyer-Packaging-100-_JR104005-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:03.642Z",
+      "crawledAt": "2026-11-01T09:19:37.696Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -705,6 +750,9 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:19:37.696Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -725,10 +773,10 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Lindt-Chocolate-Advisor--20-40--_JR104109-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:02.959Z",
+      "crawledAt": "2026-11-01T09:19:37.073Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
-      "streetAddress": "",
+      "streetAddress": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
       "country": "CH",
@@ -749,12 +797,15 @@
       "salaryMin": 23000,
       "salaryMax": 34800,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:19:37.073Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -769,10 +820,10 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Lindt-Chocolate-Advisor--40-60--_JR104108-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:24:02.261Z",
+      "crawledAt": "2026-11-01T09:19:36.434Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
-      "streetAddress": "",
+      "streetAddress": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
       "country": "CH",
@@ -793,14 +844,17 @@
       "salaryMin": 34500,
       "salaryMax": 52200,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:19:36.434Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

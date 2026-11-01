@@ -1,79 +1,29 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-10-31T09:12:09.861Z",
-  "total": 5,
+  "generatedAt": "2026-11-01T09:11:42.431Z",
+  "total": 4,
   "discovered": null,
   "parsed": 4,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 5,
+  "written": 4,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 5,
-  "durationMs": 6039,
-  "avgDurationMs": 6039,
+  "removedCount": 0,
+  "unchangedCount": 4,
+  "durationMs": 2709,
+  "avgDurationMs": 2709,
   "durationHistory": [
-    6039
+    2709
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "vaxcyte-f57d2d8f4e2b",
-      "slug": "senior-manager-assicurazione-qualita-vaxcyte-visp",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Senior Manager, Quality Assurance",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-29T21:17:52.420Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "3930",
-      "country": "CH",
-      "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-22T11:58:37-04:00",
-      "postedDate": "2026-06-22T11:58:37-04:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
-      "department": "Quality",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-22T23:49:52.547Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "retranslationAttempts": 0,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "vaxcyte-6b03024d1766",
@@ -87,7 +37,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:11:42.698Z",
+      "crawledAt": "2026-11-01T09:11:23.227Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -113,12 +63,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T09:11:23.227Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -133,7 +87,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:11:42.666Z",
+      "crawledAt": "2026-11-01T09:11:23.213Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -159,12 +113,16 @@
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:11:23.213Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -179,7 +137,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:11:42.657Z",
+      "crawledAt": "2026-11-01T09:11:23.208Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -205,12 +163,16 @@
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:23.208Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -225,7 +187,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5464246008?gh_jid=5464246008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:11:42.525Z",
+      "crawledAt": "2026-11-01T09:11:23.149Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -251,61 +213,18 @@
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:11:23.149Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "vaxcyte-5e9432d3d081",
-      "slug": "associate-direttore-qc-global-analytics-vaxcyte-visp",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Associate Director, QC Global Analytics",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5352094008?gh_jid=5352094008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:45:47.139Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "3930",
-      "country": "CH",
-      "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-20T12:25:35-04:00",
-      "postedDate": "2026-07-20T12:25:35-04:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5352094008?gh_jid=5352094008",
-      "department": "Analytical",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "firstSeenAt": "2026-10-19T21:15:11.762Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

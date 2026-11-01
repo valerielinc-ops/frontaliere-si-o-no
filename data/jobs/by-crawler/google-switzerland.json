@@ -1,7 +1,7 @@
 {
   "crawlerKey": "google-switzerland",
-  "assembledAt": "2026-10-31T09:19:04.973Z",
-  "runId": "41187143984",
+  "assembledAt": "2026-11-01T09:13:27.288Z",
+  "runId": "41291485249",
   "jobs": [
     {
       "id": "google-switzerland-93a8572772f9",
@@ -34,7 +34,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/128594980477248198-security-sales-specialist-google-cloud-german",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:54.270Z",
+      "crawledAt": "2026-11-01T09:13:21.829Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -80,7 +80,10 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-25T09:13:21.829Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-30025ee810c0",
@@ -113,7 +116,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105458081579573958-software-engineer-iii-aiml-dsphtp-optimisation",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:53.749Z",
+      "crawledAt": "2026-11-01T09:13:21.300Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -156,7 +159,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:13:21.300Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-7175faa5b9c3",
@@ -189,7 +195,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/77684590197514950-data-science-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:53.190Z",
+      "crawledAt": "2026-11-01T09:13:20.744Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -231,7 +237,91 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:13:20.744Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "google-switzerland-bae93388287a",
+      "slug": "search-traffic-integrity-engineering-analyst-google-switzerland-zurich",
+      "slugByLocale": {
+        "it": "search-traffic-integrity-engineering-analyst-google-switzerland-zurich",
+        "en": "search-traffic-integrity-engineering-analyst-google-switzerland-zurich",
+        "de": "suche-verkehrsintegritat-engineering-google-switzerland-zurich",
+        "fr": "search-traffic-integrity-engineering-analyst-google-switzerland-zurich"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "Search Traffic Integrity Engineering Analyst",
+      "titleByLocale": {
+        "it": "Search Traffic Integrity Engineering Analista",
+        "en": "Search Traffic Integrity Engineering Analyst",
+        "de": "Suche Verkehrsintegrität Engineering",
+        "fr": "Search Traffic Integrity Engineering Analyste"
+      },
+      "description": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Mountain View, CA, USA; Zürich, Switzerland; New York, NY, USA.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 7 years of experience in data analysis including identifying trends, generating summary statistics and drawing insights from quantitative and qualitative data.\n\n• 7 years of experience in managing projects and defining project scope, goals and deliverables.\n\n• Experience with data analysis, statistical analysis and data science.\n\nPreferred qualifications:\n\n• Master's degree in Statistics, Computer Science, Mathematics, Engineering, or a related quantitative field.\n\n• 10 years of experience in a data-related role such as threat intelligence, data science, trust and safety, or fraud analysis.\n\n• Experience with threat intelligence, anti-abuse, security, network analysis, fraud detection or Search Engine Optimization (SEO).\n\n• Experience with SQL, JavaScript, Python or C++.\n\n• Experience with machine learning systems and concepts.\n\n• Experience with abuse detection, spam, web development or project management.\n\nAbout the job\n As a Traffic Integrity Analyst, you will be at the forefront of protecting Google Search. You'll use your problem solving skills to understand the evolving bot and scraper landscape, identify new abuse and inorganic traffic patterns, and measure the effectiveness of our protections and suggest improvements. You will collaborate closely with Software Engineers, Data Scientists, and Site Reliability Engineers to develop, deploy, and refine countermeasures. You will identify abuse trends, track threat actors and measure the effectiveness of our protections against bots, as well as impact on real users through extensive data analysis and ML/AI.\n In Google Search, we're reimagining what it means to search for information – any way and anywhere. To do that, we need to solve complex engineering challenges and expand our infrastructure, while maintaining a universally accessible and useful experience that people around the world rely on. In joining the Search team, you'll have an opportunity to make an impact on billions of people globally.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $188000 - $274000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Investigate and analyze patterns of abuse on Google Search, utilizing data-motivated insights to develop countermeasures and enhance platform security. Analyze datasets to identify trends, patterns and anomalies that may indicate abuse within Google Search.\n\n• Develop and track metrics to measure scraper impact and the effectiveness of anti-scraping defenses. Collaborate with engineering teams to design, test and launch new anti-scraper rules, models and system enhancements.\n\n• Investigate proof-of-concept attacks and research reports that identify blind spots and guide the engineering team's development priorities. Evaluate the effectiveness of existing and proposed detection mechanisms, understanding the impact on scrapers and real users.\n\n• Contribute to the development of signals and features for machine learning models to detect abusive behavior. Develop and maintain threat intelligence on scraper actors, motivations, tactics and the scraper ecosystem.",
+      "descriptionByLocale": {
+        "it": "Nota: Applicando a questa posizione avrai l'opportunità di condividere la tua posizione di lavoro preferita da: Mountain View, CA, USA; Zürich, Switzerland; New York, NY, USA.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 7 anni di esperienza nell'analisi dei dati, tra cui l'individuazione delle tendenze, la generazione di statistiche di sintesi e il disegno di informazioni da dati quantitativi e qualitativi.\n\n• 7 anni di esperienza nella gestione dei progetti e nella definizione della portata, degli obiettivi e dei risultati del progetto.\n\n• Esperienza con analisi dei dati, analisi statistica e scienza dei dati.\n\nQualifiche preferenziali:\n\n• Laurea magistrale in Statistica, Informatica, Matematica, Ingegneria, o un campo quantitativo relativo.\n\n• 10 anni di esperienza in un ruolo relativo ai dati, come l'intelligenza delle minacce, la scienza dei dati, la fiducia e la sicurezza, o l'analisi delle frodi.\n\n• Esperienza con intelligenza delle minacce, anti-abuso, sicurezza, analisi di rete, rilevamento delle frodi o ottimizzazione del motore di ricerca (SEO).\n\n• Esperienza con SQL, JavaScript, Python o C++.\n\n• Esperienza con sistemi e concetti di machine learning.\n\n• Esperienza con rilevamento abusivo, spam, sviluppo web o project management.\n\nRiguardo al lavoro\nCome analista di Integrity Traffic, sarete in prima linea nella protezione di Google Search. Userai le tue capacità di problem solving per capire il panorama dei bot e dei raschietti in evoluzione, identificare nuovi abusi e modelli di traffico inorganici, e misurare l'efficacia delle nostre protezioni e suggerire miglioramenti. Collaborerai a stretto contatto con gli ingegneri software, gli scienziati dei dati e gli ingegneri di affidabilità del sito per sviluppare, distribuire e affinare le contromisure. Identificherai le tendenze degli abusi, traccia gli attori delle minacce e misura l'efficacia delle nostre protezioni contro i bot, così come l'impatto sugli utenti reali attraverso una vasta analisi dei dati e ML/AI.\nIn Google Search, stiamo rivisitando ciò che significa cercare informazioni – in qualsiasi modo e ovunque. Per fare questo, dobbiamo risolvere complesse sfide ingegneristiche ed espandere la nostra infrastruttura, pur mantenendo un'esperienza universalmente accessibile e utile su cui le persone di tutto il mondo si affidano. Entrando nel team di ricerca, avrai l'opportunità di avere un impatto su miliardi di persone a livello globale.\nLa retribuzione individuale è determinata da fattori, tra cui competenze, esperienze, istruzione o formazione rilevanti.\n\nUS: $188000 - $274000 (USD) + 20% target bonus + equità + benefici\n\nScopri di più sui vantaggi di Google .\nresponsabilità\n\n• Indagare e analizzare modelli di abuso su Google Search, utilizzando informazioni motivate dai dati per sviluppare contromisure e migliorare la sicurezza della piattaforma. Analizzare i set di dati per identificare tendenze, modelli e anomalie che possono indicare abusi all'interno di Google Search.\n\n• Sviluppare e tracciare metriche per misurare l'impatto del raschietto e l'efficacia delle difese anti-scraping. Collabora con i team di ingegneria per progettare, testare e lanciare nuove regole anti-graffio, modelli e miglioramenti del sistema.\n\n• Indaga gli attacchi e i rapporti di ricerca che identificano i punti ciechi e guidano le priorità di sviluppo del team di ingegneria. Valutare l'efficacia dei meccanismi di rilevamento esistenti e proposti, comprendere l'impatto sui raschietti e sugli utenti reali.\n\n• Contribuisci allo sviluppo di segnali e caratteristiche per i modelli di apprendimento automatico per rilevare comportamenti abusivi. Sviluppare e mantenere l'intelligenza delle minacce su attori raschietto, motivazioni, tattiche e l'ecosistema raschiatore.",
+        "en": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Mountain View, CA, USA; Zürich, Switzerland; New York, NY, USA.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 7 years of experience in data analysis including identifying trends, generating summary statistics and drawing insights from quantitative and qualitative data.\n\n• 7 years of experience in managing projects and defining project scope, goals and deliverables.\n\n• Experience with data analysis, statistical analysis and data science.\n\nPreferred qualifications:\n\n• Master's degree in Statistics, Computer Science, Mathematics, Engineering, or a related quantitative field.\n\n• 10 years of experience in a data-related role such as threat intelligence, data science, trust and safety, or fraud analysis.\n\n• Experience with threat intelligence, anti-abuse, security, network analysis, fraud detection or Search Engine Optimization (SEO).\n\n• Experience with SQL, JavaScript, Python or C++.\n\n• Experience with machine learning systems and concepts.\n\n• Experience with abuse detection, spam, web development or project management.\n\nAbout the job\nAs a Traffic Integrity Analyst, you will be at the forefront of protecting Google Search. You'll use your problem solving skills to understand the evolving bot and scraper landscape, identify new abuse and inorganic traffic patterns, and measure the effectiveness of our protections and suggest improvements. You will collaborate closely with Software Engineers, Data Scientists, and Site Reliability Engineers to develop, deploy, and refine countermeasures. You will identify abuse trends, track threat actors and measure the effectiveness of our protections against bots, as well as impact on real users through extensive data analysis and ML/AI.\nIn Google Search, we're reimagining what it means to search for information – any way and anywhere. To do that, we need to solve complex engineering challenges and expand our infrastructure, while maintaining a universally accessible and useful experience that people around the world rely on. In joining the Search team, you'll have an opportunity to make an impact on billions of people globally.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $188000 - $274000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\nResponsibilities\n\n• Investigate and analyze patterns of abuse on Google Search, utilizing data-motivated insights to develop countermeasures and enhance platform security. Analyze datasets to identify trends, patterns and anomalies that may indicate abuse within Google Search.\n\n• Develop and track metrics to measure scraper impact and the effectiveness of anti-scraping defenses. Collaborate with engineering teams to design, test and launch new anti-scraper rules, models and system enhancements.\n\n• Investigate proof-of-concept attacks and research reports that identify blind spots and guide the engineering team's development priorities. Evaluate the effectiveness of existing and proposed detection mechanisms, understanding the impact on scrapers and real users.\n\n• Contribute to the development of signals and features for machine learning models to detect abusive behavior. Develop and maintain threat intelligence on scraper actors, motivations, tactics and the scraper ecosystem.",
+        "de": "Hinweis: Wenn Sie sich für diese Position bewerben, haben Sie die Möglichkeit, Ihren bevorzugten Arbeitsstandort unter den folgenden Adressen zu teilen: Mountain View, CA, USA; Zürich, Schweiz; New York, NY, USA.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 7 Jahre Erfahrung in der Datenanalyse, einschließlich der Identifizierung von Trends, der Erstellung zusammenfassender Statistiken und der Gewinnung von Erkenntnissen aus quantitativen und qualitativen Daten.\n\n• 7 Jahre Erfahrung im Management von Projekten und der Definition von Projektumfang, Zielen und Leistungen.\n\n• Erfahrung mit Datenanalyse, statistischer Analyse und Data Science.\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss in Statistik, Informatik, Mathematik, Ingenieurwesen oder einem verwandten quantitativen Bereich.\n\n• 10 Jahre Erfahrung in einer datenbezogenen Rolle wie Threat Intelligence, Data Science, Trust and Safety oder Betrugsanalyse.\n\n• Erfahrung mit Threat Intelligence, Anti-Missbrauch, Sicherheit, Netzwerkanalyse, Betrugserkennung oder Suchmaschinenoptimierung (SEO).\n\n• Erfahrung mit SQL, JavaScript, Python oder C++.\n\n• Erfahrung mit Machine Learning Systemen und Konzepten.\n\n• Erfahrung mit Missbrauchserkennung, Spam, Webentwicklung oder Projektmanagement.\n\nÜber den Job\nAls Traffic Integrity Analyst stehen Sie an vorderster Front beim Schutz der Google-Suche. Sie werden Ihre Problemlösungsfähigkeiten nutzen, um die sich entwickelnde Bot- und Scraper-Landschaft zu verstehen, neue Missbrauchs- und anorganische Verkehrsmuster zu identifizieren und die Wirksamkeit unserer Schutzmaßnahmen zu messen und Verbesserungen vorzuschlagen. Sie arbeiten eng mit Software Engineers, Data Scientists und Site Reliability Engineers zusammen, um Gegenmaßnahmen zu entwickeln, bereitzustellen und zu verfeinern. Sie identifizieren Missbrauchstrends, verfolgen Bedrohungsakteure und messen die Wirksamkeit unserer Schutzmaßnahmen gegen Bots sowie die Auswirkungen auf echte Benutzer durch umfangreiche Datenanalysen und ML / AI.\nIn der Google-Suche überdenken wir, was es bedeutet, nach Informationen zu suchen - auf jede Weise und überall. Um dies zu erreichen, müssen wir komplexe technische Herausforderungen lösen und unsere Infrastruktur erweitern, während wir eine allgemein zugängliche und nützliche Erfahrung beibehalten, auf die sich Menschen auf der ganzen Welt verlassen. Wenn Sie dem Suchteam beitreten, haben Sie die Möglichkeit, Einfluss auf Milliarden von Menschen weltweit zu nehmen.\nDie individuelle Bezahlung wird durch Faktoren wie berufsbezogene Fähigkeiten, Erfahrung und relevante Aus- oder Weiterbildung bestimmt.\n\nUS: $188000 - $274000 (USD) + 20% Bonusziel + Eigenkapital + Vorteile\n\nErfahren Sie mehr über die Vorteile bei Google.\nZuständigkeiten\n\n• Untersuchen und analysieren Sie Missbrauchsmuster in der Google-Suche und nutzen Sie datenmotivierte Erkenntnisse, um Gegenmaßnahmen zu entwickeln und die Sicherheit der Plattform zu verbessern. Analysieren Sie Datensätze, um Trends, Muster und Anomalien zu identifizieren, die auf Missbrauch in der Google-Suche hinweisen können.\n\n• Entwickeln und verfolgen Sie Metriken, um die Auswirkungen von Scrapern und die Wirksamkeit von Anti-Scraping-Abwehrmaßnahmen zu messen. Arbeiten Sie mit Engineering-Teams zusammen, um neue Anti-Scraper-Regeln, Modelle und Systemverbesserungen zu entwerfen, zu testen und einzuführen.\n\n• Untersuchen Sie Proof-of-Concept-Angriffe und Forschungsberichte, die blinde Flecken identifizieren und die Entwicklungsprioritäten des Engineering-Teams leiten. Bewerten Sie die Wirksamkeit bestehender und vorgeschlagener Erkennungsmechanismen und verstehen Sie die Auswirkungen auf Schaber und echte Benutzer.\n\n• Tragen Sie zur Entwicklung von Signalen und Funktionen für maschinelle Lernmodelle bei, um missbräuchliches Verhalten zu erkennen. Entwicklung und Pflege von Threat Intelligence zu Scraper-Akteuren, Motivationen, Taktiken und dem Scraper-Ökosystem.",
+        "fr": "Remarque : En postulant à ce poste, vous aurez l'occasion de partager votre lieu de travail préféré parmi les suivants : Mountain View, CA, USA; Zürich, Suisse; New York, NY, USA.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 7 années d'expérience dans l'analyse des données, y compris l'identification des tendances, la production de statistiques sommaires et l'exploitation de données quantitatives et qualitatives.\n\n• 7 ans d'expérience dans la gestion des projets et la définition de la portée, des objectifs et des résultats attendus.\n\n• Expérience en analyse de données, en analyse statistique et en science des données.\n\nTitres préférés:\n\n• Maîtrise en statistique, informatique, mathématiques, génie ou un domaine quantitatif connexe.\n\n• 10 ans d'expérience dans un rôle lié aux données comme le renseignement sur les menaces, la science des données, la confiance et la sécurité, ou l'analyse de la fraude.\n\n• Expérience du renseignement sur les menaces, de la lutte contre les abus, de la sécurité, de l'analyse de réseau, de la détection de fraude ou de l'optimisation des moteurs de recherche.\n\n• Expérience avec SQL, JavaScript, Python ou C++.\n\n• Expérience des systèmes et des concepts d'apprentissage automatique.\n\n• Expérience de la détection d'abus, spam, développement web ou gestion de projet.\n\nSur le travail\nEn tant qu'analyste de l'intégrité du trafic, vous serez à l'avant-garde de la protection de Google Search. Vous utiliserez vos compétences de résolution de problèmes pour comprendre l'évolution du paysage des robots et des racleurs, identifier de nouveaux abus et modèles de trafic inorganique, et mesurer l'efficacité de nos protections et suggérer des améliorations. Vous collaborerez étroitement avec les ingénieurs en logiciels, les spécialistes des données et les ingénieurs en fiabilité du site pour élaborer, déployer et affiner les contre-mesures. Vous identifierez les tendances d'abus, suivrez les acteurs de la menace et mesurerez l'efficacité de nos protections contre les robots, ainsi que l'impact sur les utilisateurs réels grâce à une analyse approfondie des données et ML/AI.\nDans Google Search, nous réinventons ce que cela signifie de rechercher des informations – de n'importe quelle façon et n'importe où. Pour ce faire, nous devons résoudre des problèmes complexes d'ingénierie et développer notre infrastructure, tout en maintenant une expérience universellement accessible et utile sur laquelle les gens du monde entier comptent. En vous joignant à l'équipe de recherche, vous aurez l'occasion de faire un impact sur des milliards de personnes dans le monde.\nLa rémunération individuelle est déterminée par des facteurs tels que les compétences professionnelles, l'expérience et les études ou la formation pertinentes.\n\nÉtats-Unis : 188 000 $ - 274 000 $ (USD) + 20% de bonus + capitaux propres + avantages\n\nEn savoir plus sur les avantages chez Google .\nResponsabilités\n\n• Enquêter et analyser les modèles d'abus sur Google Search, en utilisant des informations motivées par les données pour développer des contre-mesures et améliorer la sécurité de la plateforme. Analysez les ensembles de données pour identifier les tendances, les tendances et les anomalies qui peuvent indiquer un abus dans Google Search.\n\n• Élaborer et suivre des mesures pour mesurer l'impact du racleur et l'efficacité des défenses anti-craquage. Collaborer avec les équipes d'ingénierie pour concevoir, tester et lancer de nouvelles règles, modèles et améliorations du système anti-scrate.\n\n• Enquêter sur les attaques à l'épreuve des concepts et les rapports de recherche qui identifient les points morts et guident les priorités de développement de l'équipe d'ingénierie. Évaluer l'efficacité des mécanismes de détection existants et proposés, comprendre l'impact sur les racleurs et les utilisateurs réels.\n\n• Contribuer au développement de signaux et de fonctionnalités pour les modèles d'apprentissage automatique pour détecter les comportements abusifs. Élaborer et maintenir des renseignements sur les menaces sur les acteurs, les motivations, les tactiques et l'écosystème des racleurs."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/99554498975802054-search-traffic-integrity-engineering-analyst",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-01T09:13:20.220Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/99554498975802054-search-traffic-integrity-engineering-analyst",
+      "jobReqId": "99554498975802054",
+      "requirements": [
+        "Bachelor's degree or equivalent practical experience.",
+        "7 years of experience in data analysis including identifying trends, generating summary statistics and drawing insights from quantitative and qualitative data.",
+        "7 years of experience in managing projects and defining project scope, goals and deliverables.",
+        "Experience with data analysis, statistical analysis and data science."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor's degree or equivalent practical experience.",
+          "7 years of experience in managing projects and defining project scope, goals and deliverables.",
+          "Experience with data analysis, statistical analysis and data science."
+        ]
+      },
+      "firstSeenAt": "2026-10-29T21:19:34.308Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:13:20.220Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-293893df0fa7",
@@ -264,7 +354,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123047855462982342-research-scientist-gemini-vision-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:52.648Z",
+      "crawledAt": "2026-11-01T09:13:19.694Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -312,85 +402,10 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "google-switzerland-bae93388287a",
-      "slug": "search-traffic-integrity-engineering-analyst-google-switzerland-zurich",
-      "slugByLocale": {
-        "it": "search-traffic-integrity-engineering-analyst-google-switzerland-zurich",
-        "en": "search-traffic-integrity-engineering-analyst-google-switzerland-zurich",
-        "de": "suche-verkehrsintegritat-engineering-google-switzerland-zurich",
-        "fr": "search-traffic-integrity-engineering-analyst-google-switzerland-zurich"
       },
-      "company": "Google Switzerland",
-      "companyKey": "google-switzerland",
-      "companyDomain": "google.com",
-      "title": "Search Traffic Integrity Engineering Analyst",
-      "titleByLocale": {
-        "it": "Search Traffic Integrity Engineering Analista",
-        "en": "Search Traffic Integrity Engineering Analyst",
-        "de": "Suche Verkehrsintegrität Engineering",
-        "fr": "Search Traffic Integrity Engineering Analyste"
-      },
-      "description": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Mountain View, CA, USA; Zürich, Switzerland; New York, NY, USA.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 7 years of experience in data analysis including identifying trends, generating summary statistics and drawing insights from quantitative and qualitative data.\n\n• 7 years of experience in managing projects and defining project scope, goals and deliverables.\n\n• Experience with data analysis, statistical analysis and data science.\n\nPreferred qualifications:\n\n• Master's degree in Statistics, Computer Science, Mathematics, Engineering, or a related quantitative field.\n\n• 10 years of experience in a data-related role such as threat intelligence, data science, trust and safety, or fraud analysis.\n\n• Experience with threat intelligence, anti-abuse, security, network analysis, fraud detection or Search Engine Optimization (SEO).\n\n• Experience with SQL, JavaScript, Python or C++.\n\n• Experience with machine learning systems and concepts.\n\n• Experience with abuse detection, spam, web development or project management.\n\nAbout the job\n As a Traffic Integrity Analyst, you will be at the forefront of protecting Google Search. You'll use your problem solving skills to understand the evolving bot and scraper landscape, identify new abuse and inorganic traffic patterns, and measure the effectiveness of our protections and suggest improvements. You will collaborate closely with Software Engineers, Data Scientists, and Site Reliability Engineers to develop, deploy, and refine countermeasures. You will identify abuse trends, track threat actors and measure the effectiveness of our protections against bots, as well as impact on real users through extensive data analysis and ML/AI.\n In Google Search, we're reimagining what it means to search for information – any way and anywhere. To do that, we need to solve complex engineering challenges and expand our infrastructure, while maintaining a universally accessible and useful experience that people around the world rely on. In joining the Search team, you'll have an opportunity to make an impact on billions of people globally.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $188000 - $274000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\n Responsibilities\n\n• Investigate and analyze patterns of abuse on Google Search, utilizing data-motivated insights to develop countermeasures and enhance platform security. Analyze datasets to identify trends, patterns and anomalies that may indicate abuse within Google Search.\n\n• Develop and track metrics to measure scraper impact and the effectiveness of anti-scraping defenses. Collaborate with engineering teams to design, test and launch new anti-scraper rules, models and system enhancements.\n\n• Investigate proof-of-concept attacks and research reports that identify blind spots and guide the engineering team's development priorities. Evaluate the effectiveness of existing and proposed detection mechanisms, understanding the impact on scrapers and real users.\n\n• Contribute to the development of signals and features for machine learning models to detect abusive behavior. Develop and maintain threat intelligence on scraper actors, motivations, tactics and the scraper ecosystem.",
-      "descriptionByLocale": {
-        "it": "Nota: Applicando a questa posizione avrai l'opportunità di condividere la tua posizione di lavoro preferita da: Mountain View, CA, USA; Zürich, Switzerland; New York, NY, USA.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 7 anni di esperienza nell'analisi dei dati, tra cui l'individuazione delle tendenze, la generazione di statistiche di sintesi e il disegno di informazioni da dati quantitativi e qualitativi.\n\n• 7 anni di esperienza nella gestione dei progetti e nella definizione della portata, degli obiettivi e dei risultati del progetto.\n\n• Esperienza con analisi dei dati, analisi statistica e scienza dei dati.\n\nQualifiche preferenziali:\n\n• Laurea magistrale in Statistica, Informatica, Matematica, Ingegneria, o un campo quantitativo relativo.\n\n• 10 anni di esperienza in un ruolo relativo ai dati, come l'intelligenza delle minacce, la scienza dei dati, la fiducia e la sicurezza, o l'analisi delle frodi.\n\n• Esperienza con intelligenza delle minacce, anti-abuso, sicurezza, analisi di rete, rilevamento delle frodi o ottimizzazione del motore di ricerca (SEO).\n\n• Esperienza con SQL, JavaScript, Python o C++.\n\n• Esperienza con sistemi e concetti di machine learning.\n\n• Esperienza con rilevamento abusivo, spam, sviluppo web o project management.\n\nRiguardo al lavoro\nCome analista di Integrity Traffic, sarete in prima linea nella protezione di Google Search. Userai le tue capacità di problem solving per capire il panorama dei bot e dei raschietti in evoluzione, identificare nuovi abusi e modelli di traffico inorganici, e misurare l'efficacia delle nostre protezioni e suggerire miglioramenti. Collaborerai a stretto contatto con gli ingegneri software, gli scienziati dei dati e gli ingegneri di affidabilità del sito per sviluppare, distribuire e affinare le contromisure. Identificherai le tendenze degli abusi, traccia gli attori delle minacce e misura l'efficacia delle nostre protezioni contro i bot, così come l'impatto sugli utenti reali attraverso una vasta analisi dei dati e ML/AI.\nIn Google Search, stiamo rivisitando ciò che significa cercare informazioni – in qualsiasi modo e ovunque. Per fare questo, dobbiamo risolvere complesse sfide ingegneristiche ed espandere la nostra infrastruttura, pur mantenendo un'esperienza universalmente accessibile e utile su cui le persone di tutto il mondo si affidano. Entrando nel team di ricerca, avrai l'opportunità di avere un impatto su miliardi di persone a livello globale.\nLa retribuzione individuale è determinata da fattori, tra cui competenze, esperienze, istruzione o formazione rilevanti.\n\nUS: $188000 - $274000 (USD) + 20% target bonus + equità + benefici\n\nScopri di più sui vantaggi di Google .\nresponsabilità\n\n• Indagare e analizzare modelli di abuso su Google Search, utilizzando informazioni motivate dai dati per sviluppare contromisure e migliorare la sicurezza della piattaforma. Analizzare i set di dati per identificare tendenze, modelli e anomalie che possono indicare abusi all'interno di Google Search.\n\n• Sviluppare e tracciare metriche per misurare l'impatto del raschietto e l'efficacia delle difese anti-scraping. Collabora con i team di ingegneria per progettare, testare e lanciare nuove regole anti-graffio, modelli e miglioramenti del sistema.\n\n• Indaga gli attacchi e i rapporti di ricerca che identificano i punti ciechi e guidano le priorità di sviluppo del team di ingegneria. Valutare l'efficacia dei meccanismi di rilevamento esistenti e proposti, comprendere l'impatto sui raschietti e sugli utenti reali.\n\n• Contribuisci allo sviluppo di segnali e caratteristiche per i modelli di apprendimento automatico per rilevare comportamenti abusivi. Sviluppare e mantenere l'intelligenza delle minacce su attori raschietto, motivazioni, tattiche e l'ecosistema raschiatore.",
-        "en": "Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Mountain View, CA, USA; Zürich, Switzerland; New York, NY, USA.\n\nMinimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 7 years of experience in data analysis including identifying trends, generating summary statistics and drawing insights from quantitative and qualitative data.\n\n• 7 years of experience in managing projects and defining project scope, goals and deliverables.\n\n• Experience with data analysis, statistical analysis and data science.\n\nPreferred qualifications:\n\n• Master's degree in Statistics, Computer Science, Mathematics, Engineering, or a related quantitative field.\n\n• 10 years of experience in a data-related role such as threat intelligence, data science, trust and safety, or fraud analysis.\n\n• Experience with threat intelligence, anti-abuse, security, network analysis, fraud detection or Search Engine Optimization (SEO).\n\n• Experience with SQL, JavaScript, Python or C++.\n\n• Experience with machine learning systems and concepts.\n\n• Experience with abuse detection, spam, web development or project management.\n\nAbout the job\nAs a Traffic Integrity Analyst, you will be at the forefront of protecting Google Search. You'll use your problem solving skills to understand the evolving bot and scraper landscape, identify new abuse and inorganic traffic patterns, and measure the effectiveness of our protections and suggest improvements. You will collaborate closely with Software Engineers, Data Scientists, and Site Reliability Engineers to develop, deploy, and refine countermeasures. You will identify abuse trends, track threat actors and measure the effectiveness of our protections against bots, as well as impact on real users through extensive data analysis and ML/AI.\nIn Google Search, we're reimagining what it means to search for information – any way and anywhere. To do that, we need to solve complex engineering challenges and expand our infrastructure, while maintaining a universally accessible and useful experience that people around the world rely on. In joining the Search team, you'll have an opportunity to make an impact on billions of people globally.\nIndividual pay is determined by factors including job-related skills, experience, and relevant education or training.\n\nUS: $188000 - $274000 (USD) + 20% bonus target + equity + benefits\n\nLearn more about benefits at Google .\nResponsibilities\n\n• Investigate and analyze patterns of abuse on Google Search, utilizing data-motivated insights to develop countermeasures and enhance platform security. Analyze datasets to identify trends, patterns and anomalies that may indicate abuse within Google Search.\n\n• Develop and track metrics to measure scraper impact and the effectiveness of anti-scraping defenses. Collaborate with engineering teams to design, test and launch new anti-scraper rules, models and system enhancements.\n\n• Investigate proof-of-concept attacks and research reports that identify blind spots and guide the engineering team's development priorities. Evaluate the effectiveness of existing and proposed detection mechanisms, understanding the impact on scrapers and real users.\n\n• Contribute to the development of signals and features for machine learning models to detect abusive behavior. Develop and maintain threat intelligence on scraper actors, motivations, tactics and the scraper ecosystem.",
-        "de": "Hinweis: Wenn Sie sich für diese Position bewerben, haben Sie die Möglichkeit, Ihren bevorzugten Arbeitsstandort unter den folgenden Adressen zu teilen: Mountain View, CA, USA; Zürich, Schweiz; New York, NY, USA.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 7 Jahre Erfahrung in der Datenanalyse, einschließlich der Identifizierung von Trends, der Erstellung zusammenfassender Statistiken und der Gewinnung von Erkenntnissen aus quantitativen und qualitativen Daten.\n\n• 7 Jahre Erfahrung im Management von Projekten und der Definition von Projektumfang, Zielen und Leistungen.\n\n• Erfahrung mit Datenanalyse, statistischer Analyse und Data Science.\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss in Statistik, Informatik, Mathematik, Ingenieurwesen oder einem verwandten quantitativen Bereich.\n\n• 10 Jahre Erfahrung in einer datenbezogenen Rolle wie Threat Intelligence, Data Science, Trust and Safety oder Betrugsanalyse.\n\n• Erfahrung mit Threat Intelligence, Anti-Missbrauch, Sicherheit, Netzwerkanalyse, Betrugserkennung oder Suchmaschinenoptimierung (SEO).\n\n• Erfahrung mit SQL, JavaScript, Python oder C++.\n\n• Erfahrung mit Machine Learning Systemen und Konzepten.\n\n• Erfahrung mit Missbrauchserkennung, Spam, Webentwicklung oder Projektmanagement.\n\nÜber den Job\nAls Traffic Integrity Analyst stehen Sie an vorderster Front beim Schutz der Google-Suche. Sie werden Ihre Problemlösungsfähigkeiten nutzen, um die sich entwickelnde Bot- und Scraper-Landschaft zu verstehen, neue Missbrauchs- und anorganische Verkehrsmuster zu identifizieren und die Wirksamkeit unserer Schutzmaßnahmen zu messen und Verbesserungen vorzuschlagen. Sie arbeiten eng mit Software Engineers, Data Scientists und Site Reliability Engineers zusammen, um Gegenmaßnahmen zu entwickeln, bereitzustellen und zu verfeinern. Sie identifizieren Missbrauchstrends, verfolgen Bedrohungsakteure und messen die Wirksamkeit unserer Schutzmaßnahmen gegen Bots sowie die Auswirkungen auf echte Benutzer durch umfangreiche Datenanalysen und ML / AI.\nIn der Google-Suche überdenken wir, was es bedeutet, nach Informationen zu suchen - auf jede Weise und überall. Um dies zu erreichen, müssen wir komplexe technische Herausforderungen lösen und unsere Infrastruktur erweitern, während wir eine allgemein zugängliche und nützliche Erfahrung beibehalten, auf die sich Menschen auf der ganzen Welt verlassen. Wenn Sie dem Suchteam beitreten, haben Sie die Möglichkeit, Einfluss auf Milliarden von Menschen weltweit zu nehmen.\nDie individuelle Bezahlung wird durch Faktoren wie berufsbezogene Fähigkeiten, Erfahrung und relevante Aus- oder Weiterbildung bestimmt.\n\nUS: $188000 - $274000 (USD) + 20% Bonusziel + Eigenkapital + Vorteile\n\nErfahren Sie mehr über die Vorteile bei Google.\nZuständigkeiten\n\n• Untersuchen und analysieren Sie Missbrauchsmuster in der Google-Suche und nutzen Sie datenmotivierte Erkenntnisse, um Gegenmaßnahmen zu entwickeln und die Sicherheit der Plattform zu verbessern. Analysieren Sie Datensätze, um Trends, Muster und Anomalien zu identifizieren, die auf Missbrauch in der Google-Suche hinweisen können.\n\n• Entwickeln und verfolgen Sie Metriken, um die Auswirkungen von Scrapern und die Wirksamkeit von Anti-Scraping-Abwehrmaßnahmen zu messen. Arbeiten Sie mit Engineering-Teams zusammen, um neue Anti-Scraper-Regeln, Modelle und Systemverbesserungen zu entwerfen, zu testen und einzuführen.\n\n• Untersuchen Sie Proof-of-Concept-Angriffe und Forschungsberichte, die blinde Flecken identifizieren und die Entwicklungsprioritäten des Engineering-Teams leiten. Bewerten Sie die Wirksamkeit bestehender und vorgeschlagener Erkennungsmechanismen und verstehen Sie die Auswirkungen auf Schaber und echte Benutzer.\n\n• Tragen Sie zur Entwicklung von Signalen und Funktionen für maschinelle Lernmodelle bei, um missbräuchliches Verhalten zu erkennen. Entwicklung und Pflege von Threat Intelligence zu Scraper-Akteuren, Motivationen, Taktiken und dem Scraper-Ökosystem.",
-        "fr": "Remarque : En postulant à ce poste, vous aurez l'occasion de partager votre lieu de travail préféré parmi les suivants : Mountain View, CA, USA; Zürich, Suisse; New York, NY, USA.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 7 années d'expérience dans l'analyse des données, y compris l'identification des tendances, la production de statistiques sommaires et l'exploitation de données quantitatives et qualitatives.\n\n• 7 ans d'expérience dans la gestion des projets et la définition de la portée, des objectifs et des résultats attendus.\n\n• Expérience en analyse de données, en analyse statistique et en science des données.\n\nTitres préférés:\n\n• Maîtrise en statistique, informatique, mathématiques, génie ou un domaine quantitatif connexe.\n\n• 10 ans d'expérience dans un rôle lié aux données comme le renseignement sur les menaces, la science des données, la confiance et la sécurité, ou l'analyse de la fraude.\n\n• Expérience du renseignement sur les menaces, de la lutte contre les abus, de la sécurité, de l'analyse de réseau, de la détection de fraude ou de l'optimisation des moteurs de recherche.\n\n• Expérience avec SQL, JavaScript, Python ou C++.\n\n• Expérience des systèmes et des concepts d'apprentissage automatique.\n\n• Expérience de la détection d'abus, spam, développement web ou gestion de projet.\n\nSur le travail\nEn tant qu'analyste de l'intégrité du trafic, vous serez à l'avant-garde de la protection de Google Search. Vous utiliserez vos compétences de résolution de problèmes pour comprendre l'évolution du paysage des robots et des racleurs, identifier de nouveaux abus et modèles de trafic inorganique, et mesurer l'efficacité de nos protections et suggérer des améliorations. Vous collaborerez étroitement avec les ingénieurs en logiciels, les spécialistes des données et les ingénieurs en fiabilité du site pour élaborer, déployer et affiner les contre-mesures. Vous identifierez les tendances d'abus, suivrez les acteurs de la menace et mesurerez l'efficacité de nos protections contre les robots, ainsi que l'impact sur les utilisateurs réels grâce à une analyse approfondie des données et ML/AI.\nDans Google Search, nous réinventons ce que cela signifie de rechercher des informations – de n'importe quelle façon et n'importe où. Pour ce faire, nous devons résoudre des problèmes complexes d'ingénierie et développer notre infrastructure, tout en maintenant une expérience universellement accessible et utile sur laquelle les gens du monde entier comptent. En vous joignant à l'équipe de recherche, vous aurez l'occasion de faire un impact sur des milliards de personnes dans le monde.\nLa rémunération individuelle est déterminée par des facteurs tels que les compétences professionnelles, l'expérience et les études ou la formation pertinentes.\n\nÉtats-Unis : 188 000 $ - 274 000 $ (USD) + 20% de bonus + capitaux propres + avantages\n\nEn savoir plus sur les avantages chez Google .\nResponsabilités\n\n• Enquêter et analyser les modèles d'abus sur Google Search, en utilisant des informations motivées par les données pour développer des contre-mesures et améliorer la sécurité de la plateforme. Analysez les ensembles de données pour identifier les tendances, les tendances et les anomalies qui peuvent indiquer un abus dans Google Search.\n\n• Élaborer et suivre des mesures pour mesurer l'impact du racleur et l'efficacité des défenses anti-craquage. Collaborer avec les équipes d'ingénierie pour concevoir, tester et lancer de nouvelles règles, modèles et améliorations du système anti-scrate.\n\n• Enquêter sur les attaques à l'épreuve des concepts et les rapports de recherche qui identifient les points morts et guident les priorités de développement de l'équipe d'ingénierie. Évaluer l'efficacité des mécanismes de détection existants et proposés, comprendre l'impact sur les racleurs et les utilisateurs réels.\n\n• Contribuer au développement de signaux et de fonctionnalités pour les modèles d'apprentissage automatique pour détecter les comportements abusifs. Élaborer et maintenir des renseignements sur les menaces sur les acteurs, les motivations, les tactiques et l'écosystème des racleurs."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.google.com/about/careers/applications/jobs/results/99554498975802054-search-traffic-integrity-engineering-analyst",
-      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:52.121Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brandschenkestrasse 110",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Tecnologia / R&D",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/99554498975802054-search-traffic-integrity-engineering-analyst",
-      "jobReqId": "99554498975802054",
-      "requirements": [
-        "Bachelor's degree or equivalent practical experience.",
-        "7 years of experience in data analysis including identifying trends, generating summary statistics and drawing insights from quantitative and qualitative data.",
-        "7 years of experience in managing projects and defining project scope, goals and deliverables.",
-        "Experience with data analysis, statistical analysis and data science."
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Bachelor's degree or equivalent practical experience.",
-          "7 years of experience in managing projects and defining project scope, goals and deliverables.",
-          "Experience with data analysis, statistical analysis and data science."
-        ]
-      },
-      "firstSeenAt": "2026-10-29T21:19:34.308Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      }
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:13:19.694Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-642a1cc69cfe",
@@ -423,7 +438,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/119732976081609414-software-engineer-ii-coop-and-marketplaces",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:51.554Z",
+      "crawledAt": "2026-11-01T09:13:19.168Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -468,7 +483,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T09:13:19.168Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-725ea41d362e",
@@ -501,7 +519,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79730131723002566-software-engineer-iii-shopping-graph-feeds-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:51.024Z",
+      "crawledAt": "2026-11-01T09:13:18.619Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -545,7 +563,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T09:13:18.619Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-4221e9f81a91",
@@ -578,7 +599,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/108135834237969094-principal-engineer-hybrid-cloud-environment",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:50.458Z",
+      "crawledAt": "2026-11-01T09:13:18.096Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -620,7 +641,10 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:13:18.096Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-9f1ce7d787a1",
@@ -653,7 +677,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81313308207915718-group-product-manager-search-content-platform",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:49.839Z",
+      "crawledAt": "2026-11-01T09:13:17.547Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -708,7 +732,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:13:17.547Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-38c1d198445c",
@@ -741,7 +768,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/142200254949663430-senior-software-engineer-search-ads-in-ai-experiences",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:49.125Z",
+      "crawledAt": "2026-11-01T09:13:17.033Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -787,7 +814,10 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-08T09:13:17.033Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-b16be32bec0d",
@@ -820,7 +850,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86601143093732038-software-engineering-manager-securityprivacy",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:48.598Z",
+      "crawledAt": "2026-11-01T09:13:16.500Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -868,7 +898,10 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:13:16.500Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-982bef0d825b",
@@ -901,7 +934,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/122439536427836102-software-engineer-iii-youtube-viewcount-and-aggregations",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:48.076Z",
+      "crawledAt": "2026-11-01T09:13:15.993Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -942,7 +975,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-23T09:13:15.993Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-5f70ae5840e0",
@@ -975,7 +1011,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/115399839411249862-applied-ml-graph-neural-network-research-software-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:47.528Z",
+      "crawledAt": "2026-11-01T09:13:15.468Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1031,7 +1067,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-08T09:13:15.468Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-9c5fefe20bb4",
@@ -1064,7 +1103,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/101053210633872070-senior-software-engineer-search-quality",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:46.992Z",
+      "crawledAt": "2026-11-01T09:13:14.954Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1109,7 +1148,10 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:13:14.954Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-1d7094e08a0a",
@@ -1142,7 +1184,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/130911348950213318-software-engineer-iii-centerpiece",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:46.244Z",
+      "crawledAt": "2026-11-01T09:13:14.409Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1185,7 +1227,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-09T09:13:14.409Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-155d055faee4",
@@ -1218,7 +1263,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/117969264941376198-privacy-engineer-iii-platforms-security-and-privacy",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:45.721Z",
+      "crawledAt": "2026-11-01T09:13:13.856Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1260,7 +1305,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-18T09:13:13.856Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-0050c05dc287",
@@ -1293,7 +1341,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104587629684499142-software-engineer-iii-data-protection-acceleration",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:45.213Z",
+      "crawledAt": "2026-11-01T09:13:13.338Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1334,7 +1382,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:13:13.338Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-f7d986481684",
@@ -1367,7 +1418,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/110546686085866182-staff-software-engineer-shopping-graph",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:44.694Z",
+      "crawledAt": "2026-11-01T09:13:12.809Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1425,7 +1476,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:13:12.809Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-b30e86e155a0",
@@ -1458,7 +1512,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79953021198312134-senior-ux-design-manager-youtube-studio-and-support",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:44.177Z",
+      "crawledAt": "2026-11-01T09:13:12.291Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1506,7 +1560,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-24T09:13:12.291Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-8e043affda06",
@@ -1539,7 +1596,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86715874555110086-senior-software-engineer-site-reliability-engineering",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:43.646Z",
+      "crawledAt": "2026-11-01T09:13:11.752Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1585,7 +1642,10 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-02T09:13:11.752Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-08343e23938c",
@@ -1618,7 +1678,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/115149447918166726-xr-world-context-research-scientist",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:43.118Z",
+      "crawledAt": "2026-11-01T09:13:11.218Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1662,7 +1722,10 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-23T09:13:11.218Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-80fd553a821c",
@@ -1695,7 +1758,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/92934080961618630-security-engineer-operational-technology-google-cloud-ciso",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:42.596Z",
+      "crawledAt": "2026-11-01T09:13:10.707Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1742,7 +1805,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-15T09:13:10.707Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-68fbb4905f03",
@@ -1775,7 +1841,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79119194099983046-software-engineer-iii-merchant-shopping-intelligence-and-agents",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:42.057Z",
+      "crawledAt": "2026-11-01T09:13:10.194Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1817,7 +1883,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-06T09:13:10.194Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-0cd1379e1df4",
@@ -1850,7 +1919,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/97084041571771078-infotasks-productivity-agents-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:41.505Z",
+      "crawledAt": "2026-11-01T09:13:09.657Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1903,7 +1972,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-18T09:13:09.657Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-db15c1333934",
@@ -1936,7 +2008,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/100862281352389318-senior-product-manager-shopping-graph",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:40.976Z",
+      "crawledAt": "2026-11-01T09:13:09.137Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1993,7 +2065,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:13:09.137Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-141900d55413",
@@ -2026,7 +2101,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/111285665542349510-research-scientist-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:40.442Z",
+      "crawledAt": "2026-11-01T09:13:08.604Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2094,7 +2169,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:13:08.604Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-4ef4b3328ea6",
@@ -2127,7 +2205,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/138300785422148294-manager-ai-outcome-customer-engineering-north",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:39.929Z",
+      "crawledAt": "2026-11-01T09:13:08.080Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2176,7 +2254,10 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-04T09:13:08.080Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-c8404a69c343",
@@ -2209,7 +2290,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123274137962455750-senior-security-engineer-google-threat-intelligence-group-threat-analyst",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:39.369Z",
+      "crawledAt": "2026-11-01T09:13:07.558Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2264,7 +2345,10 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-05T09:13:07.558Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-f43f40773b5d",
@@ -2297,7 +2381,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/112693881165750982-software-engineer-iii-aiml-youtube-shopping-creator",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:38.828Z",
+      "crawledAt": "2026-11-01T09:13:07.050Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2341,7 +2425,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-06T09:13:07.050Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-37d259d9c249",
@@ -2374,7 +2461,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81658813362381510-staff-research-data-scientist-manager-ads-metrics",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:38.298Z",
+      "crawledAt": "2026-11-01T09:13:06.500Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2417,7 +2504,10 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:13:06.500Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-2ed5c9d9a027",
@@ -2450,7 +2540,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/131768088625324742-senior-staff-software-engineer-site-reliability-engineering-privacy-security-and-safety",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:37.750Z",
+      "crawledAt": "2026-11-01T09:13:05.968Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2504,7 +2594,10 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-02T09:13:05.968Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-d6febc10f9d1",
@@ -2537,7 +2630,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/110222556983632582-software-engineer-iii-site-reliability-engineering-prod-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:37.201Z",
+      "crawledAt": "2026-11-01T09:13:05.430Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2579,7 +2672,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-04T09:13:05.430Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-df4b7146711f",
@@ -2612,7 +2708,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/84561862556820166-data-scientist-product-ms-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:36.066Z",
+      "crawledAt": "2026-11-01T09:13:04.323Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2654,7 +2750,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-02T09:13:04.323Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-2d8aedfa3920",
@@ -2687,7 +2786,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/93078491720753862-software-engineering-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:35.552Z",
+      "crawledAt": "2026-11-01T09:13:03.800Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2729,7 +2828,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:13:03.800Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-d7c201e47d33",
@@ -2762,7 +2864,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123236883416130246-staff-research-engineer-generative-ai-cloud-ai-research-coscientist",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:34.875Z",
+      "crawledAt": "2026-11-01T09:13:03.244Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2820,7 +2922,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-08T09:13:03.244Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-e2f5144f579d",
@@ -2853,7 +2958,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86733690079453894-student-researcher-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:34.359Z",
+      "crawledAt": "2026-11-01T09:13:02.719Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2898,7 +3003,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-04T09:13:02.719Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-2c2e1c0698df",
@@ -2931,7 +3039,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/82143346071347910-software-engineer-iii-search-ads-quality-and-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:33.823Z",
+      "crawledAt": "2026-11-01T09:13:02.174Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2997,7 +3105,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:13:02.174Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-a16734efb5ed",
@@ -3030,7 +3141,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/102577022080819910-senior-software-engineer-health-and-home-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:33.258Z",
+      "crawledAt": "2026-11-01T09:13:01.622Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3073,7 +3184,10 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:13:01.622Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-9ae9b19aac56",
@@ -3106,7 +3220,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104448828152652486-research-scientist-user-signals-from-agentic-logs-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:32.715Z",
+      "crawledAt": "2026-11-01T09:13:01.104Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3165,7 +3279,10 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:13:01.104Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-6e2b5c6cf427",
@@ -3198,7 +3315,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/72456132160824006-solution-architect-capital-markets-and-exchanges-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:32.017Z",
+      "crawledAt": "2026-11-01T09:13:00.568Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3241,7 +3358,10 @@
           "maxValue": 136000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:13:00.568Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-02c659492c42",
@@ -3274,7 +3394,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81427103366423238-staff-software-engineer-generative-ai-commerce",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:31.480Z",
+      "crawledAt": "2026-11-01T09:13:00.025Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3320,7 +3440,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-03T09:13:00.025Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "google-switzerland-9777c4779c16",
@@ -3353,7 +3476,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/75492331247018694-software-engineer-iii-information-security",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:18:30.923Z",
+      "crawledAt": "2026-11-01T09:12:59.479Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3396,242 +3519,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "google-switzerland-9f9d5522dc81",
-      "slug": "forward-deployed-engineer-iii-applied-ai-google-switzerland-zurich",
-      "slugByLocale": {
-        "it": "forward-deployed-engineer-iii-applied-ai-google-switzerland-zurich",
-        "en": "forward-deployed-engineer-iii-applied-ai-google-switzerland-zurich",
-        "de": "forward-deployed-engineer-iii-applied-ai-google-switzerland-zurich",
-        "fr": "forward-deployed-engineer-iii-applied-ai-google-switzerland-zurich"
       },
-      "company": "Google Switzerland",
-      "companyKey": "google-switzerland",
-      "companyDomain": "google.com",
-      "title": "Forward Deployed Engineer III, Applied AI",
-      "titleByLocale": {
-        "it": "Forward Deployed Ingegnere III, Applied AI",
-        "en": "Forward Deployed Engineer III, Applied AI",
-        "de": "Forward Deployed Ingenieur III, Applied AI",
-        "fr": "Forward Deployed Ingénieur III, Applied AI"
-      },
-      "description": "In most instances, this position requires in-person interviews as part of the hiring process.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Zürich, Switzerland; London, UK.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages (e.g., Python or C++).\n\n• 2 years of experience with GenAI techniques (e.g., LLMs, Multi-Modal, Large Vision Models) or with GenAI-related concepts (language modeling, computer vision).\n\n• 1 year of experience with AI/ML infrastructure (e.g., model deployment, model evaluation, model optimization, data processing, or debugging).\n\n• Experience developing and deploying multilingual natural language processing models.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science, AI, Machine Learning, or a related technical field.\n\n• Expertise in debugging Agent logic (ReAct loops, Chain of Thought) and optimizing tool selection.\n\n• Experience implementing multi-agent systems using frameworks (e.g., LangGraph, CrewAI, or Google’s Agent Development Kit (ADK)) and complex patterns like ReAct, self-reflection, and hierarchical delegation.\n\n• Experience connecting agents to enterprise knowledge bases and optimizing RAG chunking to prevent hallucinations.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n As a Forward Deployed Engineer (FDE) in Applied AI, you are the \"Agent Engineer\" and the primary delivery arm for our customers' most critical AI initiatives. You will take initial conversational prototypes and transform them into production-ready solutions, owning the end-to-end engineering life-cycle.\nThe Cloud Applied AI (AAI) powers business growth with Gemini Enterprise. Our portfolio includes Gemini Enterprise for Customer Experience (Shopping Agent, CX Agent Studio, Agent Assist, Vertex AI Search - Commerce, Customer Experience Insights), along with other vertical and domain packaged solutions. We enable high adoption and speed to value by building solutions that are quickly deployed, delivering new 0-to-1 capabilities with startup agility. Team members operate at the forefront of AI, collaborating directly with model builders with unprecedented speed. Join us to work on cutting-edge projects and shape the future of AI in a fast-paced, collaborative, and impactful environment.\n Responsibilities\n\n• Serve as the delivery lead for conversational AI pilots, taking initial proof-of-value code and refactoring it for production by replacing stubs with secure, real-world integrations.\n\n• Own the delivery of the initial Customer User Journeys (CUJs), ensuring that conversational flows are not just functional, but optimized for (top customer/industry priorities).\n\n• Architect and optimize complex agentic workloads, focusing on reasoning loops, tool selection, and reducing latency while maintaining production-grade security and networking.\n\n• Implement critical infrastructure, including rate limiting, error management, and regional failover strategies; develop monitoring systems and alerting dashboards during \"Go-Live\" windows to ensure stability as traffic scales.\n\n• Architect security perimeters (VPC, IAM, CMEK) to satisfy CISO requirements and optimize RAG strategies to balance latency, accuracy, and cost.",
-      "descriptionByLocale": {
-        "it": "Nella maggior parte dei casi, questa posizione richiede colloqui in presenza come parte del processo di assunzione. Nota: Candidandoti per questa posizione avrai l'opportunità di condividere la tua posizione di lavoro preferita dai seguenti posti: Zurigo, Svizzera; Londra, Regno Unito.\n\nRequisiti minimi:\n\n• Laurea triennale o esperienza pratica equivalente.\n\n• 2 anni di esperienza nello sviluppo software in uno o più linguaggi di programmazione (ad esempio Python o C++).\n\n• 2 anni di esperienza con tecniche GenAI (ad esempio, LLM, Multimodali, Large Vision Models) o con concetti correlati alla GenAI (modellazione del linguaggio, visione artificiale).\n\n• 1 anno di esperienza con infrastrutture AI/ML (ad esempio, deployment di modelli, valutazione di modelli, ottimizzazione di modelli, elaborazione dati o debug).\n\n• Esperienza nello sviluppo e nella distribuzione di modelli multilingue di elaborazione del linguaggio naturale.\n\nQualifiche preferite:\n\n• Master o dottorato in Informatica, IA, Machine Learning o in un campo tecnico correlato.\n\n• Competenza nel debug della logica degli agenti (cicli ReAct, Chain of Thought) e nell'ottimizzazione della selezione degli strumenti.\n\n• Esperienza nell'implementazione di sistemi multi-agente utilizzando framework (ad esempio, LangGraph, CrewAI o Google Agent Development Kit (ADK)) e pattern complessi come ReAct, auto-riflessione e delega gerarchica.\n\n• Esperienza nel collegare gli agenti a database di conoscenza aziendale e nell'ottimizzare il blocco RAG per prevenire allucinazioni.\n\nInformazioni sul lavoro\nGli ingegneri software di Google sviluppano tecnologie di nuova generazione che cambiano il modo in cui miliardi di utenti si connettono, esplorano e interagiscono con le informazioni e tra loro. I nostri prodotti devono gestire le informazioni su larga scala e andare ben oltre la ricerca web. Cerchiamo ingegneri che portino idee fresche da tutti i settori, tra cui il recupero delle informazioni, il calcolo distribuito, la progettazione di sistemi su larga scala, la rete e l'archiviazione dati, la sicurezza, l'intelligenza artificiale, l'elaborazione del linguaggio naturale, il design UI e il mobile; la lista continua e cresce ogni giorno. Come ingegnere del software, lavorerai su un progetto specifico critico per le esigenze di Google, con opportunità di cambiare team e progetti mentre tu e il nostro business dinamico crescete ed evolvi. Abbiamo bisogno che i nostri ingegneri siano versatili, mostrino qualità di leadership e siano entusiasti nell'affrontare nuovi problemi nel full-stack mentre continuiamo a far progredire la tecnologia.\nCome Forward Deploy Engineer (FDE) nell'IA applicata, sei l'\"Agent Engineer\" e il principale braccio di consegna per le iniziative di IA più critiche dei nostri clienti. Prenderai prototipi conversazionali iniziali e li trasformerai in soluzioni pronte per la produzione, controllando il ciclo di vita ingegneristico end-to-end.\nL'IA applicata al cloud (AAI) guida la crescita aziendale con Gemini Enterprise. Il nostro portafoglio include Gemini Enterprise for Customer Experience (Shopping Agent, CX Agent Studio, Agent Assist, Vertex AI Search - Commerce, Customer Experience Insights), insieme ad altre soluzioni verticali e di dominio confezionate. Consentiamo un'elevata adozione e velocità di valore costruendo soluzioni che vengono rapidamente implementate, offrendo nuove capacità 0-to-1 con agilità startup. I membri del team operano all'avanguardia dell'IA, collaborando direttamente con i creatori di modelli con una velocità senza precedenti. Unisciti a noi per lavorare su progetti all'avanguardia e plasmare il futuro dell'IA in un ambiente dinamico, collaborativo e d'impatto.\nResponsabilità\n\n• Svolgere il ruolo di responsabile della consegna per i piloti di IA conversazionali, prendendo il codice di prova di valore iniziale e rifattorizzandolo per la produzione sostituendo gli stub con integrazioni sicure e reali.\n\n• Gestire la consegna dei Customer User Journeys (CUJ) iniziali, assicurando che i flussi conversazionali non siano solo funzionali, ma ottimizzati per (priorità principali clienti/settore).\n\n• Progettare e ottimizzare carichi di lavoro agentici complessi, concentrandosi su loop di ragionamento, selezione degli strumenti e riduzione della latenza mantenendo al contempo la sicurezza e la rete di livello produttivo.\n\n• Implementare infrastrutture critiche, inclusi limiti di velocità, gestione degli errori e strategie di failover regionale; sviluppare sistemi di monitoraggio e dashboard di allarme durante le finestre di \"Go-Live\" per garantire stabilità con l'aumentare del traffico.\n\n• Architetto i perimetri di sicurezza (VPC, IAM, CMEK) per soddisfare i requisiti CISO e ottimizzare le strategie RAG per bilanciare latenza, accuratezza e costi.",
-        "en": "In most instances, this position requires in-person interviews as part of the hiring process.Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Zürich, Switzerland; London, UK.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages (e.g., Python or C++).\n\n• 2 years of experience with GenAI techniques (e.g., LLMs, Multi-Modal, Large Vision Models) or with GenAI-related concepts (language modeling, computer vision).\n\n• 1 year of experience with AI/ML infrastructure (e.g., model deployment, model evaluation, model optimization, data processing, or debugging).\n\n• Experience developing and deploying multilingual natural language processing models.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science, AI, Machine Learning, or a related technical field.\n\n• Expertise in debugging Agent logic (ReAct loops, Chain of Thought) and optimizing tool selection.\n\n• Experience implementing multi-agent systems using frameworks (e.g., LangGraph, CrewAI, or Google’s Agent Development Kit (ADK)) and complex patterns like ReAct, self-reflection, and hierarchical delegation.\n\n• Experience connecting agents to enterprise knowledge bases and optimizing RAG chunking to prevent hallucinations.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\nAs a Forward Deployed Engineer (FDE) in Applied AI, you are the \"Agent Engineer\" and the primary delivery arm for our customers' most critical AI initiatives. You will take initial conversational prototypes and transform them into production-ready solutions, owning the end-to-end engineering life-cycle.\nThe Cloud Applied AI (AAI) powers business growth with Gemini Enterprise. Our portfolio includes Gemini Enterprise for Customer Experience (Shopping Agent, CX Agent Studio, Agent Assist, Vertex AI Search - Commerce, Customer Experience Insights), along with other vertical and domain packaged solutions. We enable high adoption and speed to value by building solutions that are quickly deployed, delivering new 0-to-1 capabilities with startup agility. Team members operate at the forefront of AI, collaborating directly with model builders with unprecedented speed. Join us to work on cutting-edge projects and shape the future of AI in a fast-paced, collaborative, and impactful environment.\nResponsibilities\n\n• Serve as the delivery lead for conversational AI pilots, taking initial proof-of-value code and refactoring it for production by replacing stubs with secure, real-world integrations.\n\n• Own the delivery of the initial Customer User Journeys (CUJs), ensuring that conversational flows are not just functional, but optimized for (top customer/industry priorities).\n\n• Architect and optimize complex agentic workloads, focusing on reasoning loops, tool selection, and reducing latency while maintaining production-grade security and networking.\n\n• Implement critical infrastructure, including rate limiting, error management, and regional failover strategies; develop monitoring systems and alerting dashboards during \"Go-Live\" windows to ensure stability as traffic scales.\n\n• Architect security perimeters (VPC, IAM, CMEK) to satisfy CISO requirements and optimize RAG strategies to balance latency, accuracy, and cost.",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Vorstellungsgespräche im Rahmen des Einstellungsprozesses. Hinweis: Mit der Bewerbung auf diese Position haben Sie die Möglichkeit, Ihren bevorzugten Arbeitsort aus folgenden Ländern mitzuteilen: Zürich, Schweiz; London, Großbritannien.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 2 Jahre Erfahrung in der Softwareentwicklung in einer oder mehreren Programmiersprachen (z. B. Python oder C++).\n\n• 2 Jahre Erfahrung mit GenAI-Techniken (z. B. LLMs, Multi-Modal, Large Vision Models) oder mit GenAI-bezogenen Konzepten (Sprachmodellierung, Computer Vision).\n\n• 1 Jahr Erfahrung mit KI/ML-Infrastruktur (z. B. Modellbereitstellung, Modellbewertung, Modelloptimierung, Datenverarbeitung oder Debugging).\n\n• Erfahrung in der Entwicklung und Implementierung von mehrsprachigen Modellen zur Verarbeitung natürlicher Sprache.\n\nBevorzugte Qualifikationen:\n\n• Master- oder PhD-Abschluss in Informatik, KI, maschinellem Lernen oder einem verwandten technischen Fachgebiet.\n\n• Expertise im Debuggen der Agentenlogik (React-Schleifen, Chain of Thought) und Optimierung der Werkzeugauswahl.\n\n• Erfahrung in der Implementierung von Multi-Agenten-Systemen mit Frameworks (z. B. LangGraph, CrewAI oder Googles Agent Development Kit (ADK)) und komplexen Mustern wie ReAct, Selbstreflexion und hierarchischer Delegation.\n\n• Erfahrung darin, Agenten mit Unternehmenswissensdatenbanken zu verbinden und RAG-Chunking zu optimieren, um Halluzinationen zu verhindern.\n\nÜber die Arbeit\nGoogles Softwareingenieure entwickeln die Technologien der nächsten Generation, die verändern, wie Milliarden von Nutzern sich verbinden, erkunden und miteinander interagieren. Unsere Produkte müssen Informationen in großem Maßstab verarbeiten und weit über die Websuche hinausgehen. Wir suchen Ingenieure, die frische Ideen aus allen Bereichen einbringen, darunter Informationsabruf, verteiltes Rechnen, groß angelegtes Systemdesign, Netzwerke und Datenspeicherung, Sicherheit, künstliche Intelligenz, natürliche Sprachverarbeitung, UI-Design und Mobilgeräte; die Liste ist immer weiter und wächst jeden Tag. Als Softwareingenieur arbeiten Sie an einem spezifischen Projekt, das für Googles Bedürfnisse entscheidend ist, mit Möglichkeiten, Teams und Projekte zu wechseln, während Sie und unser schnelllebiges Unternehmen wachsen und sich weiterentwickeln. Wir brauchen unsere Ingenieure vielseitig, zeigen Führungsqualitäten und sind begeistert, neue Probleme im gesamten Fullstack anzugehen, während wir die Technologie weiter vorantreiben.\nAls Forward Deployed Engineer (FDE) im Bereich Angewandte KI sind Sie der \"Agent Engineer\" und der primäre Lieferarm für die wichtigsten KI-Initiativen unserer Kunden. Sie nehmen erste konversationelle Prototypen und verwandeln sie in produktionsreife Lösungen, wobei Sie den End-to-End-Engineering-Lebenszyklus übernehmen.\nDie Cloud Applied AI (AAI) treibt das Geschäftswachstum mit Gemini Enterprise voran. Unser Portfolio umfasst Gemini Enterprise für Customer Experience (Shopping Agent, CX Agent Studio, Agent Assist, Vertex AI Search – Commerce, Customer Experience Insights) sowie weitere vertikale und domänenübergreifende Paketlösungen. Wir ermöglichen eine hohe Akzeptanz und Geschwindigkeit zur Wertsteigerung, indem wir Lösungen entwickeln, die schnell implementiert werden und neue 0-zu-1-Fähigkeiten mit Startup-Agilität bieten. Die Teammitglieder arbeiten an der Spitze der KI und arbeiten mit beispielloser Geschwindigkeit direkt mit Modellentwicklern zusammen. Schließen Sie sich uns an, um an Spitzenprojekten zu arbeiten und die Zukunft der KI in einer schnelllebigen, kollaborativen und wirkungsvollen Umgebung zu gestalten.\nVerantwortlichkeiten\n\n• Fungieren Sie als Lieferleiter für konversationelle KI-Piloten, indem Sie den anfänglichen Proof-of-Value-Code nehmen und ihn für die Produktion refaktorisieren, indem Sie Stubs durch sichere, reale Integrationen ersetzen.\n\n• Übernehmen Sie die Bereitstellung der ersten Customer User Journeys (CUJs) und stellen Sie sicher, dass Gesprächsabläufe nicht nur funktional, sondern auch für die wichtigsten Prioritäten von Kunden und Branchen optimiert sind.\n\n• Architektur und Optimierung komplexer agentischer Workloads, wobei der Fokus auf Schlussschleifen, Werkzeugauswahl und Reduzierung der Latenz liegt, während gleichzeitig Produktionssicherheit und Netzwerke erhalten bleiben.\n\n• Implementierung kritischer Infrastruktur, einschließlich Rate-Limiting, Fehlermanagement und regionalen Failover-Strategien; Entwicklung von Überwachungssystemen und Warn-Dashboards während der \"Go-Live\"-Fenster, um Stabilität beim steigenden Verkehr zu gewährleisten.\n\n• Architekten Sicherheitsperimeter (VPC, IAM, CMEK), um CISO-Anforderungen zu erfüllen und RAG-Strategien zu optimieren, um Latenz, Genauigkeit und Kosten auszubalancieren.",
-        "fr": "Dans la plupart des cas, ce poste nécessite des entretiens en personne dans le cadre du processus de recrutement. Note : En postulant à ce poste, vous aurez l'opportunité de partager votre lieu de travail préféré parmi les lieux suivants : Zurich, Suisse ; Londres, Royaume-Uni.\n\nQualifications minimales :\n\n• Licence ou expérience pratique équivalente.\n\n• 2 ans d'expérience en développement logiciel dans un ou plusieurs langages de programmation (par exemple, Python ou C++).\n\n• 2 ans d'expérience avec les techniques GenAI (par exemple, LLM, Multi-Modal, Large Vision Models) ou avec des concepts liés à GenAI (modélisation du langage, vision par ordinateur).\n\n• 1 an d'expérience avec l'infrastructure IA/ML (par exemple, déploiement de modèles, évaluation de modèles, optimisation de modèles, traitement de données ou débogage).\n\n• Expérience du développement et du déploiement de modèles de traitement du langage naturel multilingues.\n\nQualifications préférées :\n\n• Un master ou un doctorat en informatique, IA, apprentissage automatique ou un domaine technique connexe.\n\n• Expertise dans le débogage de la logique des agents (boucles ReAct, chaîne de pensée) et l'optimisation du choix des outils.\n\n• Expérience de la mise en œuvre de systèmes multi-agents utilisant des frameworks (par exemple, LangGraph, CrewAI ou Google Agent Development Kit (ADK)) et des schémas complexes comme ReAct, l'auto-réflexion et la délégation hiérarchique.\n\n• Acquérir de l'expérience en connectant des agents à des bases de connaissances d'entreprise et optimiser le fragment RAG pour éviter les hallucinations.\n\nÀ propos du travail\nLes ingénieurs logiciels de Google développent les technologies de nouvelle génération qui changent la manière dont des milliards d'utilisateurs se connectent, explorent et interagissent avec l'information et entre eux. Nos produits doivent gérer l'information à grande échelle, et bien au-delà de la recherche web. Nous recherchons des ingénieurs qui apportent des idées fraîches dans tous les domaines, y compris la recherche d'information, l'informatique distribuée, la conception de systèmes à grande échelle, le réseau et le stockage de données, la sécurité, l'intelligence artificielle, le traitement du langage naturel, la conception d'interfaces utilisateur et le mobile ; la liste continue et s'allonge chaque jour. En tant qu'ingénieur logiciel, vous travaillerez sur un projet spécifique critique pour les besoins de Google, avec des opportunités de changer d'équipe et de projets, à mesure que vous et notre entreprise dynamique grandissez et évoluez. Nous avons besoin que nos ingénieurs soient polyvalents, fassent preuve de qualités de leadership et soient enthousiastes à l'idée de relever de nouveaux problèmes dans le full-stack alors que nous continuons à faire avancer la technologie.\nEn tant qu'Ingénieur Déployé Avancé (FDE) en IA appliquée, vous êtes l'« Ingénieur Agent » et le principal bras de livraison des initiatives d'IA les plus cruciales de nos clients. Vous prendrez les prototypes conversationnels initiaux et les transformerez en solutions prêtes à la production, en assumant le cycle de vie d'ingénierie de bout en bout.\nL'IA appliquée dans le cloud (AAI) stimule la croissance de l'entreprise avec Gemini Enterprise. Notre portefeuille comprend Gemini Enterprise for Customer Experience (Agent Shopping, CX Agent Studio, Agent Assist, Vertex AI Search - Commerce, Customer Experience Insights), ainsi que d'autres solutions intégrées verticalement et par domaine. Nous favorisons une adoption élevée et une rapidité de rapport qualité-prix en développant des solutions rapidement déployées, offrant de nouvelles capacités 0-à-1 avec l'agilité des startups. Les membres de l'équipe opèrent à la pointe de l'IA, collaborant directement avec les constructeurs de modèles à une vitesse sans précédent. Rejoignez-nous pour travailler sur des projets de pointe et façonner l'avenir de l'IA dans un environnement rapide, collaboratif et percutant.\nResponsabilités\n\n• Être responsable de la livraison pour les pilotes d'IA conversationnelle, en prenant le code initial de preuve de valeur et en le refactorisant pour la production en remplaçant les stubs par des intégrations sécurisées et réelles.\n\n• Prendre en charge la mise en œuvre des parcours utilisateurs clients initiaux (CUJ), en veillant à ce que les flux conversationnels ne soient pas seulement fonctionnels, mais optimisés pour (priorités principales client/secteur).\n\n• Architecter et optimiser des charges de travail agentiques complexes, en se concentrant sur les boucles de raisonnement, la sélection des outils et la réduction de la latence tout en maintenant la sécurité et le réseau de niveau production.\n\n• Mettre en œuvre des infrastructures critiques, y compris la limitation de débit, la gestion des erreurs et les stratégies de basculement régional ; développer des systèmes de surveillance et des tableaux de bord d'alerte lors des fenêtres de « mise en service » afin d'assurer la stabilité à mesure que le trafic augmente.\n\n• Architecte des périmètres de sécurité (VPC, IAM, CMEK) pour satisfaire aux exigences CISO et optimiser les stratégies RAG pour équilibrer latence, précision et coût."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.google.com/about/careers/applications/jobs/results/106113082882695878-forward-deployed-engineer-iii-applied-ai",
-      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:32:49.932Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brandschenkestrasse 110",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / R&D",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/106113082882695878-forward-deployed-engineer-iii-applied-ai",
-      "jobReqId": "106113082882695878",
-      "requirements": [
-        "Bachelor’s degree or equivalent practical experience.",
-        "2 years of experience with software development in one or more programming languages (e.g., Python or C++).",
-        "2 years of experience with GenAI techniques (e.g., LLMs, Multi-Modal, Large Vision Models) or with GenAI-related concepts (language modeling, computer vision).",
-        "1 year of experience with AI/ML infrastructure (e.g., model deployment, model evaluation, model optimization, data processing, or debugging).",
-        "Experience developing and deploying multilingual natural language processing models."
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Bachelor’s degree or equivalent practical experience.",
-          "2 years of experience with software development in one or more programming languages (e.g., Python or C++).",
-          "Experience developing and deploying multilingual natural language processing models."
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:40:40.108Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "google-switzerland-f9857a04c47f",
-      "slug": "software-engineer-iii-youtube-shopping-search-ai-google-switzerland-zurich",
-      "slugByLocale": {
-        "it": "software-engineer-iii-youtube-shopping-search-ai-google-switzerland-zurich",
-        "en": "software-engineer-iii-youtube-shopping-search-ai-google-switzerland-zurich",
-        "de": "software-engineer-iii-youtube-shopping-search-ai-google-switzerland-zurich",
-        "fr": "software-engineer-iii-youtube-shopping-search-ai-google-switzerland-zurich"
-      },
-      "company": "Google Switzerland",
-      "companyKey": "google-switzerland",
-      "companyDomain": "google.com",
-      "title": "Software Engineer III, YouTube Shopping Search, AI",
-      "titleByLocale": {
-        "it": "Software Ingegnere III, YouTube Shopping Search, AI",
-        "en": "Software Engineer III, YouTube Shopping Search, AI",
-        "de": "Software Ingenieur III, YouTube Shopping Search, AI",
-        "fr": "Software Ingénieur III, YouTube Shopping Search, AI"
-      },
-      "description": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.\n\n• 2 years of experience with full stack development, across back-end such as Java, Python, Golang, or C++ codebases, and front-end experience including JavaScript or TypeScript, HTML, CSS or equivalent.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical fields.\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience developing accessible technologies.\n\n• Experience integrating generative AI tools or LLM interfaces into workflows.\n\nAbout the job\n Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nIn this role, you will design, build, and launch end-to-end generative AI and agentic capabilities that help viewers research, compare, and buy products recommended by creators they trust. Working across the YouTube Shopping and Search stack, you will develop LLM prompts, modular skills, tool integrations (such as live product catalog and affiliate offer retrieval), and interactive shopping UI components (such as product comparison tables, shoppable video indicators, and seamless Search-to-Watch handoffs). You will partner closely with engineers, TLs, PMs, and UX designers across YouTube Shopping and core YouTube Search/Ask teams to take features from rapid prototyping and offline evaluation (Autoraters) to A/B experimentation and global production launch.\n At YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n\nResponsibilities\n\n• Build agentic workflows, modular LLM skills, prompts, and backend tool integrations for conversational responses in live, verified YouTube Shopping product metadata and creator perspectives.\n\n• Improve the retrieval, ranking, and personalization of shopping results—ensuring shoppable videos and product offers are tailored to user preferences across both Ask YouTube and traditional YouTube Search.\n\n• Build evaluation pipelines (LLM Autoraters, golden datasets) and run live A/B experiments to optimize answer quality, factuality, latency, and core shopping metrics (such as Shopping DAU and Good Offer Clicks).\n\n• Collaborate with partner teams across YouTube Search, Ask YouTube, and Shopping Infrastructure, and cross-functional peers in PM and UX, to shape technical designs and deliver outcomes.\n\n• Design and launch AI shopping experiences on YouTube search and Ask YouTube (together with TLs, PMs, UXDs), including product comparisons, shoppable video treatments, and seamless Search-to-Watch handoffs.",
-      "descriptionByLocale": {
-        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 2 anni di esperienza con lo sviluppo software in uno o più linguaggi di programmazione, o 1 anno di esperienza con un grado avanzato.\n\n• 2 anni di esperienza con lo sviluppo di stack completo, attraverso back-end come Java, Python, Golang, o codebase C++, e l'esperienza di front-end tra cui JavaScript o TypeScript, HTML, CSS o equivalente.\n\nQualifiche preferenziali:\n\n• Laurea magistrale o dottorato in Informatica o campi tecnici correlati.\n\n• 2 anni di esperienza con strutture dati e algoritmi.\n\n• Esperienza nello sviluppo di tecnologie accessibili.\n\n• Esperienza di integrazione di strumenti generativi AI o interfacce LLM in flussi di lavoro.\n\nRiguardo al lavoro\nGli ingegneri software di Google sviluppano le tecnologie di nuova generazione che cambiano come miliardi di utenti si connettono, esplorano e interagiscono con le informazioni e l'un l'altro. I nostri prodotti hanno bisogno di gestire le informazioni su vasta scala, e estendere ben oltre la ricerca web. Siamo alla ricerca di ingegneri che portano idee fresche da tutte le aree, tra cui il recupero di informazioni, il calcolo distribuito, la progettazione di sistemi su larga scala, la rete e l'archiviazione di dati, la sicurezza, l'intelligenza artificiale, l'elaborazione del linguaggio naturale, il design dell'interfaccia utente e il mobile; la lista va avanti e sta crescendo ogni giorno. Come ingegnere del software, lavorerai su un progetto specifico critico per le esigenze di Google con le opportunità di cambiare team e progetti mentre tu e il nostro business veloce crescere ed evolvere. Abbiamo bisogno che i nostri ingegneri siano versatili, esibiscano qualità di leadership e siano entusiasti di affrontare nuovi problemi in tutto il mondo, mentre continuiamo a spingere avanti la tecnologia.\n\nIn questo ruolo, si progetta, costruisce, e lanciare end-to-end generative AI e agentic capacità che aiutano gli spettatori ricerca, confrontare, e acquistare prodotti consigliati dai creatori di cui si fidano. Lavorando attraverso lo stack YouTube Shopping and Search, svilupperai i prompt LLM, le competenze modulari, le integrazioni degli strumenti (come il catalogo dei prodotti dal vivo e l'affiliata offrono il recupero), e i componenti UI dello shopping interattivi (come le tabelle di confronto dei prodotti, gli indicatori video shoppable, e senza soluzione di continuità i handoff di Search-to-Watch). Potrai collaborare a stretto contatto con ingegneri, TL, PM e progettisti UX attraverso YouTube Shopping e core YouTube Search/Ask team di prendere le caratteristiche da prototipazione rapida e valutazione offline (Autoraters) alla sperimentazione A/B e lancio di produzione globale.\nSu YouTube, crediamo che tutti meritino di avere una voce, e che il mondo è un posto migliore quando ascoltiamo, condividiamo e costruiamo la comunità attraverso le nostre storie. Lavoriamo insieme per dare a tutti il potere di condividere la loro storia, esplorare ciò che amano, e connettersi tra loro nel processo. Lavorando all'incrocio tra tecnologia all'avanguardia e creatività senza limiti, ci muoviamo alla velocità della cultura con un obiettivo comune per mostrare alle persone il mondo. Esploriamo nuove idee, risolviamo problemi reali, e divertiamo — e lo facciamo tutti insieme.\n\nresponsabilità\n\n• Costruire flussi di lavoro agentici, capacità LLM modulari, suggerimenti e integrazioni degli strumenti di backend per le risposte di conversazione in live, verificato YouTube Shopping metadati di prodotto e prospettive di creatore.\n\n• Migliorare il recupero, la graduatoria e la personalizzazione dei risultati della spesa, assicurando i video e le offerte di prodotti acquistabili sono adattati alle preferenze dell'utente sia su Ask YouTube che su YouTube tradizionale.\n\n• Costruisci pipeline di valutazione (LLM Autoraters, dataset dorati) ed esegui esperimenti live A/B per ottimizzare la qualità della risposta, la fattibilità, la latenza e metriche di core shopping (come Shopping DAU e Good Offer Clicks).\n\n• Collabora con i team partner di YouTube Search, Ask YouTube, and Shopping Infrastructure, and cross-functional peers in PM e UX, per modellare progetti tecnici e fornire risultati.\n\n• Progettare e lanciare esperienze di acquisto AI sulla ricerca di YouTube e chiedere a YouTube (insieme a TL, PM, UXD), compresi i confronti dei prodotti, i trattamenti video shoppable, e senza interruzioni di ricerca-to-Watch.",
-        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.\n\n• 2 years of experience with full stack development, across back-end such as Java, Python, Golang, or C++ codebases, and front-end experience including JavaScript or TypeScript, HTML, CSS or equivalent.\n\nPreferred qualifications:\n\n• Master's degree or PhD in Computer Science or related technical fields.\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience developing accessible technologies.\n\n• Experience integrating generative AI tools or LLM interfaces into workflows.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nIn this role, you will design, build, and launch end-to-end generative AI and agentic capabilities that help viewers research, compare, and buy products recommended by creators they trust. Working across the YouTube Shopping and Search stack, you will develop LLM prompts, modular skills, tool integrations (such as live product catalog and affiliate offer retrieval), and interactive shopping UI components (such as product comparison tables, shoppable video indicators, and seamless Search-to-Watch handoffs). You will partner closely with engineers, TLs, PMs, and UX designers across YouTube Shopping and core YouTube Search/Ask teams to take features from rapid prototyping and offline evaluation (Autoraters) to A/B experimentation and global production launch.\nAt YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n\nResponsibilities\n\n• Build agentic workflows, modular LLM skills, prompts, and backend tool integrations for conversational responses in live, verified YouTube Shopping product metadata and creator perspectives.\n\n• Improve the retrieval, ranking, and personalization of shopping results—ensuring shoppable videos and product offers are tailored to user preferences across both Ask YouTube and traditional YouTube Search.\n\n• Build evaluation pipelines (LLM Autoraters, golden datasets) and run live A/B experiments to optimize answer quality, factuality, latency, and core shopping metrics (such as Shopping DAU and Good Offer Clicks).\n\n• Collaborate with partner teams across YouTube Search, Ask YouTube, and Shopping Infrastructure, and cross-functional peers in PM and UX, to shape technical designs and deliver outcomes.\n\n• Design and launch AI shopping experiences on YouTube search and Ask YouTube (together with TLs, PMs, UXDs), including product comparisons, shoppable video treatments, and seamless Search-to-Watch handoffs.",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 2 Jahre Erfahrung mit Softwareentwicklung in einer oder mehreren Programmiersprachen oder 1 Jahr Erfahrung mit einem fortgeschrittenen Abschluss.\n\n• 2 Jahre Erfahrung mit Full-Stack-Entwicklung, über Back-End wie Java, Python, Golang oder C++-Codebasen und Front-End-Erfahrung einschließlich JavaScript oder TypeScript, HTML, CSS oder gleichwertig.\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss oder PhD in Informatik oder verwandten technischen Bereichen.\n\n• 2 Jahre Erfahrung mit Datenstrukturen und Algorithmen.\n\n• Erfahrung in der Entwicklung zugänglicher Technologien.\n\n• Erleben Sie die Integration generativer KI-Tools oder LLM-Schnittstellen in Workflows.\n\nÜber den Job\nDie Software-Ingenieure von Google entwickeln Technologien der nächsten Generation, die die Art und Weise verändern, wie Milliarden von Nutzern Informationen miteinander verbinden, erforschen und interagieren. Unsere Produkte müssen Informationen in großem Umfang verarbeiten und weit über die Websuche hinausgehen. Wir suchen Ingenieure, die frische Ideen aus allen Bereichen einbringen, einschließlich Informationsabruf, verteiltes Computing, groß angelegtes Systemdesign, Netzwerk- und Datenspeicherung, Sicherheit, künstliche Intelligenz, Verarbeitung natürlicher Sprache, UI-Design und Mobile; Die Liste geht weiter und wächst jeden Tag. Als Software-Ingenieur arbeiten Sie an einem bestimmten Projekt, das für die Bedürfnisse von Google von entscheidender Bedeutung ist, mit Möglichkeiten, Teams und Projekte zu wechseln, während Sie und unser schnelllebiges Geschäft wachsen und sich weiterentwickeln. Wir brauchen unsere Ingenieure, um vielseitig zu sein, Führungsqualitäten zu zeigen und begeistert zu sein, neue Probleme auf dem gesamten Stapel anzunehmen, während wir die Technologie weiter vorantreiben.\n\nIn dieser Rolle entwerfen, bauen und starten Sie Ende-zu-Ende-generative KI- und Agentenfunktionen, die den Zuschauern helfen, Produkte zu recherchieren, zu vergleichen und zu kaufen, die von Schöpfern empfohlen werden, denen sie vertrauen. Arbeiten über den YouTube Shopping und Search Stack, werden Sie LLM-Anweisungen, modulare Fähigkeiten, Tool-Integrationen (wie Live-Produktkatalog und Affiliate-Angebotsabruf) und interaktive Shopping-Benutzeroberflächenkomponenten (wie Produktvergleichstabellen, shoppable Videoindikatoren und nahtlose Search-to-Watch Handoffs) entwickeln. Sie werden eng mit Ingenieuren, TLs, PMs und UX-Designern über YouTube Shopping und YouTube Search / Ask-Teams zusammenarbeiten, um Funktionen von Rapid Prototyping und Offline-Evaluation (Autoraters) bis hin zu A / B-Experimenten und globalem Produktionsstart zu übernehmen.\nBei YouTube glauben wir, dass jeder eine Stimme verdient und dass die Welt ein besserer Ort ist, wenn wir durch unsere Geschichten zuhören, teilen und eine Gemeinschaft aufbauen. Wir arbeiten zusammen, um jedem die Kraft zu geben, seine Geschichte zu teilen, zu erforschen, was er liebt, und sich dabei miteinander zu verbinden. An der Schnittstelle von Spitzentechnologie und grenzenloser Kreativität bewegen wir uns mit der Geschwindigkeit der Kultur mit dem gemeinsamen Ziel, den Menschen die Welt zu zeigen. Wir erforschen neue Ideen, lösen echte Probleme und haben Spaß - und das alles zusammen.\n\nZuständigkeiten\n\n• Erstellen Sie agentische Workflows, modulare LLM-Fähigkeiten, Eingabeaufforderungen und Backend-Tool-Integrationen für Konversationsantworten in Live-, verifizierten YouTube Shopping-Produktmetadaten und Creator-Perspektiven.\n\n• Verbessern Sie das Abrufen, Ranking und die Personalisierung von Einkaufsergebnissen - stellen Sie sicher, dass Shoppable-Videos und Produktangebote auf die Benutzerpräferenzen von Ask YouTube und der traditionellen YouTube-Suche zugeschnitten sind.\n\n• Erstellen Sie Evaluationspipelines (LLM Autoraters, Golden Datasets) und führen Sie Live-A/B-Experimente durch, um die Antwortqualität, die Faktizität, die Latenz und die wichtigsten Einkaufsmetriken (wie Shopping DAU und Good Offer Clicks) zu optimieren.\n\n• Arbeiten Sie mit Partnerteams in YouTube Search, Ask YouTube und Shopping Infrastructure sowie funktionsübergreifenden Peers in PM und UX zusammen, um technische Designs zu gestalten und Ergebnisse zu liefern.\n\n• Entwerfen und starten Sie KI-Shopping-Erlebnisse auf der YouTube-Suche und Ask YouTube (zusammen mit TLs, PMs, UXDs), einschließlich Produktvergleichen, Shoppable-Video-Behandlungen und nahtlosen Search-to-Watch-Handoffs.",
-        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 2 ans d'expérience en développement logiciel dans un ou plusieurs langages de programmation, ou 1 an d'expérience avec un diplôme avancé.\n\n• 2 ans d'expérience avec le développement complet de la pile, à travers back-end tels que Java, Python, Golang, ou C++ bases de code, et l'expérience front-end y compris JavaScript ou TypeScript, HTML, CSS ou équivalent.\n\nQualifications privilégiées:\n\n• Maîtrise ou doctorat en informatique ou domaines techniques connexes.\n\n• 2 ans d'expérience dans les structures de données et les algorithmes.\n\n• Expérience du développement de technologies accessibles.\n\n• Expérience d'intégration d'outils d'IA génératifs ou d'interfaces LLM dans les workflows.\n\nSur le travail\nLes ingénieurs logiciels de Google développent les technologies de prochaine génération qui changent comment des milliards d'utilisateurs se connectent, explorent et interagissent avec l'information et les autres. Nos produits doivent traiter l'information à grande échelle, et s'étendre bien au-delà de la recherche web. Nous recherchons des ingénieurs qui apportent de nouvelles idées dans tous les domaines, y compris la recherche d'information, l'informatique distribuée, la conception de systèmes à grande échelle, le réseautage et le stockage de données, la sécurité, l'intelligence artificielle, le traitement du langage naturel, la conception d'interface utilisateur et mobile; la liste continue et augmente chaque jour. En tant qu'ingénieur logiciel, vous travaillerez sur un projet spécifique critique pour les besoins de Google avec des occasions de changer d'équipes et de projets que vous et notre entreprise à rythme rapide croître et évoluer. Nous avons besoin de nos ingénieurs pour être polyvalents, faire preuve de qualités de leadership et être enthousiastes à affronter de nouveaux problèmes à travers la pile pleine alors que nous continuons à faire avancer la technologie.\n\nDans ce rôle, vous concevez, construisez et lancez de bout en bout des capacités d'intelligence artificielle et d'agents qui aident les téléspectateurs à rechercher, à comparer et à acheter des produits recommandés par les créateurs en confiance. En travaillant à travers la pile d'achats et de recherche YouTube, vous développerez des invites LLM, des compétences modulaires, des intégrations d'outils (comme le catalogue de produits en direct et l'offre d'affiliation de récupération), et des composants d'interface utilisateur d'achat interactifs (comme des tables de comparaison de produits, des indicateurs vidéo shoppable, et des handoffs de recherche à regarder sans couture). Vous travaillerez en étroite collaboration avec des ingénieurs, des TL, des PM et des concepteurs d'UX à travers YouTube Shopping et les principales équipes de recherche/demande YouTube pour prendre en charge des fonctionnalités allant du prototypage rapide et de l'évaluation hors ligne (Autoraters) à l'expérimentation A/B et au lancement de la production mondiale.\nSur YouTube, nous croyons que tout le monde mérite d'avoir une voix, et que le monde est un meilleur endroit lorsque nous écoutons, partageons et construisons la communauté à travers nos histoires. Nous travaillons ensemble pour donner à chacun le pouvoir de partager son histoire, d'explorer ce qu'il aime et de se connecter dans le processus. Travaillant à l'intersection d'une technologie de pointe et d'une créativité illimitée, nous agissons à la vitesse de la culture avec un objectif commun de montrer aux gens le monde. Nous explorons de nouvelles idées, résolvons de vrais problèmes et nous nous amusons — et nous le faisons tous ensemble.\n\nResponsabilités\n\n• Construisez des workflows d'agents, des compétences LLM modulaires, des invites et des intégrations d'outils de backend pour des réponses conversationnelles en direct, des métadonnées de produits YouTube Shopping vérifiées et des perspectives de créateurs.\n\n• Améliorer l'extraction, le classement et la personnalisation des résultats d'achats – assurer des vidéos et des offres de produits commercialisables sont adaptés aux préférences des utilisateurs sur Ask YouTube et sur YouTube Search.\n\n• Construisez des pipelines d'évaluation (LLM Autoraters, ensembles de données dorés) et exécutez des expériences A/B en direct pour optimiser la qualité des réponses, la réalité, la latence et les mesures d'achat de base (comme Shopping DAU et Good Offer Clicks).\n\n• Collaborer avec des équipes partenaires dans YouTube Search, Ask YouTube et Shopping Infrastructure, et des pairs interfonctionnels en PM et UX, pour façonner des conceptions techniques et produire des résultats.\n\n• Concevoir et lancer des expériences d'achat d'IA sur YouTube search et Ask YouTube (avec les TL, les PM, les UXD), y compris des comparaisons de produits, des traitements vidéo shoppingpable, et sans couture Search-to-Watch handoffs."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.google.com/about/careers/applications/jobs/results/72080349097534150-software-engineer-iii-youtube-shopping-search-ai",
-      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:32:30.225Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brandschenkestrasse 110",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / R&D",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/72080349097534150-software-engineer-iii-youtube-shopping-search-ai",
-      "jobReqId": "72080349097534150",
-      "requirements": [
-        "Bachelor’s degree or equivalent practical experience.",
-        "2 years of experience with software development in one or more programming languages, or 1 year of experience with an advanced degree.",
-        "2 years of experience with full stack development, across back-end such as Java, Python, Golang, or C++ codebases, and front-end experience including JavaScript or TypeScript, HTML, CSS or equivalent."
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Bachelor’s degree or equivalent practical experience."
-        ]
-      },
-      "firstSeenAt": "2026-10-29T09:21:12.645Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "google-switzerland-bce051db7a97",
-      "slug": "staff-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich",
-      "slugByLocale": {
-        "it": "staff-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich",
-        "en": "staff-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich",
-        "de": "staff-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich",
-        "fr": "staff-forward-deployed-engineer-genai-google-cloud-google-switzerland-zurich"
-      },
-      "company": "Google Switzerland",
-      "companyKey": "google-switzerland",
-      "companyDomain": "google.com",
-      "title": "Staff Forward Deployed Engineer, GenAI, Google Cloud",
-      "titleByLocale": {
-        "it": "Staff Forward Deployed Ingegnere, GenAI, Google Cloud",
-        "en": "Staff Forward Deployed Engineer, GenAI, Google Cloud",
-        "de": "Staff Forward Deployed Ingenieur, GenAI, Google Cloud",
-        "fr": "Staff Forward Deployed Ingénieur, GenAI, Google Cloud"
-      },
-      "description": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree in Engineering, Computer Science, a related field, or equivalent practical experience.\n\n• 8 years of experience building and shipping production-grade AI-driven solutions to external or internal customers using Python, TypeScript or comparable languages.\n\n• Experience leading technical discovery sessions with business stakeholders and engineering teams to define AI and hardware infrastructure requirements.\n\n• Experience designing and building AI systems on cloud platforms (e.g., Google Cloud Platform (GCP)).\n\n• Experience building pipelines for structured, unstructured data, incorporating vector databases and retrieval-augmented generation retrieval-augmented generation (RAG)-like architectures to power enterprise-grade AI solutions.\n\nPreferred qualifications:\n\n• Master’s degree or PhD in AI, Computer Science, or a related technical field.\n\n• Experience implementing multi-agent systems using frameworks (e.g., LangGraph, CrewAI, or Google’s Agent Development Kit (ADK)) and patterns like ReAct, self-reflection, and hierarchical delegation.\n\n• Knowledge of large language model native metrics (tokens/sec, cost-per-request) and techniques for optimizing state management and granular tracing.\n\nAbout the job\n As a GenAI Forward Deployed Engineer at Google Cloud, you will be an embedded builder bridging the gap between frontier AI products and production-grade reality for our customers. You will function as a builder-consultant, moving beyond high-level architecture to code, debug, and jointly ship bespoke agentic solutions directly within the customer’s environment.\n In this role, you will manage blockers to production including solving the integration complexities, data readiness issues, and state-management issues that prevent AI from reaching enterprise-grade maturity. By embedding with accounts, you will serve a dual purpose: providing white-glove deployment of AI systems and acting as a critical feedback loop, transforming real-world field insights into Google Cloud’s future product roadmap.\n It's an exciting time to join Google Cloud’s Go-To-Market team, leading the AI revolution for businesses worldwide. You’ll excel by leveraging Google's brand credibility—a legacy built on inventing foundational technologies and proven at scale. We’ll provide you with the world's most advanced AI portfolio, including frontier Gemini models, and the complete Vertex AI platform, helping you to solve business problems. We’re a collaborative culture providing direct access to DeepMind's engineering and research minds, empowering you to solve customer challenges. Join us to be the catalyst for our mission, drive customer success, and define the new cloud era—the market is yours.\n\nResponsibilities\n\n• Serve as the lead developer for AI applications, transitioning from rapid prototypes to production-grade agentic workflows (e.g., multi-agent systems, model context protocol servers) that drive measurable return on investment.\n\n• Architect and code the connective tissue between Google’s AI products and customer's live infrastructure, including APIs, legacy data silos, and security perimeters.\n\n• Build high-performance evaluation pipelines and observability frameworks to ensure agentic systems meet rigorous requirements for accuracy, safety, and latency.\n\n• Identify repeatable field patterns and technical friction points in Google’s AI stack, converting them into reusable modules or product feature requests for the Engineering teams.\n\n• Drive engineering excellence by mentoring talent, co-building with customer teams, and influencing cross-functional strategies to uplevel organizational technical capabilities.",
-      "descriptionByLocale": {
-        "it": "Nella maggior parte dei casi, questa posizione richiede colloqui in presenza come parte del processo di assunzione.\n\nRequisiti minimi:\n\n• Laurea triennale in Ingegneria, Informatica, un campo correlato, o esperienza pratica equivalente.\n\n• 8 anni di esperienza nella creazione e nel trasporto di soluzioni di livello produttivo guidate dall'IA a clienti esterni o interni utilizzando Python, TypeScript o linguaggi simili.\n\n• Esperienza nella guida di sessioni di scoperta tecnica con stakeholder aziendali e team di ingegneria per definire i requisiti di infrastruttura di IA e hardware.\n\n• Esperienza nella progettazione e costruzione di sistemi AI su piattaforme cloud (ad esempio, Google Cloud Platform (GCP)).\n\n• Esperienza nella costruzione di pipeline per dati strutturati e non strutturati, nell'incorporazione di database vettoriali e architetture simili a RAG (retrieval-augmented generation-retrieval) per alimentare soluzioni di intelligenza artificiale di livello enterprise.\n\nQualifiche preferite:\n\n• Master o dottorato in IA, Informatica o in un campo tecnico correlato.\n\n• Esperienza nell'implementazione di sistemi multi-agente utilizzando framework (ad esempio, LangGraph, CrewAI o Google Agent Development Kit (ADK)) e pattern come ReAct, auto-riflessione e delega gerarchica.\n\n• Conoscenza di metriche native di grandi modelli linguistici (token/sec, cost-per-request) e tecniche per ottimizzare la gestione dello stato e il tracciamento granulare.\n\nInformazioni sul lavoro\nCome GenAI Forward Deployed Engineer presso Google Cloud, sarai un builder embedded che colma il divario tra i prodotti AI d'avanguardia e la realtà di livello produttivo per i nostri clienti. Svolgerai il ruolo di builder-consulente, andando oltre l'architettura di alto livello per codificare, debug e congiuntamente fornire soluzioni agentiche su misura direttamente all'interno dell'ambiente del cliente.\nIn questo ruolo, gestirai i blocchi alla produzione, inclusa la risoluzione delle complessità di integrazione, problemi di prontezza dei dati e problemi di gestione dello stato che impediscono all'IA di raggiungere la maturità di livello enterprise. Integrando con account, svolgerai un duplice scopo: fornire un dispiegamento rapido dei sistemi di IA e agire come un ciclo critico di feedback, trasformando le analisi reali del campo nella roadmap futura di Google Cloud.\nÈ un momento entusiasmante per unirsi al team Go-To-Market di Google Cloud, che guida la rivoluzione dell'IA per le aziende di tutto il mondo. Eccellerai sfruttando la credibilità del marchio di Google—un'eredità costruita sull'inventare tecnologie fondamentali e dimostrata su larga scala. Ti forniremo il portafoglio di IA più avanzato al mondo, inclusi modelli Gemini di punta, e l'intera piattaforma Vertex AI, aiutandoti a risolvere problemi aziendali. Siamo una cultura collaborativa che offre accesso diretto alle menti ingegneristiche e di ricerca di DeepMind, dandoti la possibilità di risolvere le sfide dei clienti. Unisciti a noi per essere il catalizzatore della nostra missione, guidare il successo dei clienti e definire la nuova era cloud—il mercato è tuo.\n\nResponsabilità\n\n• Svolgere il ruolo di sviluppatore principale per applicazioni di IA, passando da prototipi rapidi a flussi di lavoro agentici di livello produttivo (ad esempio, sistemi multi-agente, server di protocollo contestuale modello) che generano un ritorno sull'investimento misurabile.\n\n• Progetta e codifica il tessuto connesso tra i prodotti di IA di Google e l'infrastruttura live dei clienti, inclusi API, silos dati legacy e perimetri di sicurezza.\n\n• Costruire pipeline di valutazione ad alte prestazioni e framework di osservabilità per garantire che i sistemi agentici soddisfino requisiti rigorosi di accuratezza, sicurezza e latenza.\n\n• Identifica pattern di campo ripetibili e punti di attrito tecnici nello stack AI di Google, convertendoli in moduli riutilizzabili o richieste di funzionalità di prodotto per i team di ingegneria.\n\n• Guidare l'eccellenza ingegneristica guidando i talenti, co-costruendo con i team clienti e influenzando strategie trasversali per migliorare le capacità tecniche organizzative.",
-        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree in Engineering, Computer Science, a related field, or equivalent practical experience.\n\n• 8 years of experience building and shipping production-grade AI-driven solutions to external or internal customers using Python, TypeScript or comparable languages.\n\n• Experience leading technical discovery sessions with business stakeholders and engineering teams to define AI and hardware infrastructure requirements.\n\n• Experience designing and building AI systems on cloud platforms (e.g., Google Cloud Platform (GCP)).\n\n• Experience building pipelines for structured, unstructured data, incorporating vector databases and retrieval-augmented generation retrieval-augmented generation (RAG)-like architectures to power enterprise-grade AI solutions.\n\nPreferred qualifications:\n\n• Master’s degree or PhD in AI, Computer Science, or a related technical field.\n\n• Experience implementing multi-agent systems using frameworks (e.g., LangGraph, CrewAI, or Google’s Agent Development Kit (ADK)) and patterns like ReAct, self-reflection, and hierarchical delegation.\n\n• Knowledge of large language model native metrics (tokens/sec, cost-per-request) and techniques for optimizing state management and granular tracing.\n\nAbout the job\nAs a GenAI Forward Deployed Engineer at Google Cloud, you will be an embedded builder bridging the gap between frontier AI products and production-grade reality for our customers. You will function as a builder-consultant, moving beyond high-level architecture to code, debug, and jointly ship bespoke agentic solutions directly within the customer’s environment.\nIn this role, you will manage blockers to production including solving the integration complexities, data readiness issues, and state-management issues that prevent AI from reaching enterprise-grade maturity. By embedding with accounts, you will serve a dual purpose: providing white-glove deployment of AI systems and acting as a critical feedback loop, transforming real-world field insights into Google Cloud’s future product roadmap.\nIt's an exciting time to join Google Cloud’s Go-To-Market team, leading the AI revolution for businesses worldwide. You’ll excel by leveraging Google's brand credibility—a legacy built on inventing foundational technologies and proven at scale. We’ll provide you with the world's most advanced AI portfolio, including frontier Gemini models, and the complete Vertex AI platform, helping you to solve business problems. We’re a collaborative culture providing direct access to DeepMind's engineering and research minds, empowering you to solve customer challenges. Join us to be the catalyst for our mission, drive customer success, and define the new cloud era—the market is yours.\n\nResponsibilities\n\n• Serve as the lead developer for AI applications, transitioning from rapid prototypes to production-grade agentic workflows (e.g., multi-agent systems, model context protocol servers) that drive measurable return on investment.\n\n• Architect and code the connective tissue between Google’s AI products and customer's live infrastructure, including APIs, legacy data silos, and security perimeters.\n\n• Build high-performance evaluation pipelines and observability frameworks to ensure agentic systems meet rigorous requirements for accuracy, safety, and latency.\n\n• Identify repeatable field patterns and technical friction points in Google’s AI stack, converting them into reusable modules or product feature requests for the Engineering teams.\n\n• Drive engineering excellence by mentoring talent, co-building with customer teams, and influencing cross-functional strategies to uplevel organizational technical capabilities.",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Vorstellungsgespräche im Rahmen des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss in Ingenieurwesen, Informatik, einem verwandten Fachgebiet oder gleichwertige praktische Erfahrung.\n\n• 8 Jahre Erfahrung im Bau und Versand von produktionsfähigen, KI-gesteuerten Lösungen an externe oder interne Kunden mit Python, TypeScript oder vergleichbaren Sprachen.\n\n• Erfahrung in der Leitung technischer Entdeckungssitzungen mit Geschäftspartnern und Ingenieurteams, um KI- und Hardware-Infrastrukturanforderungen zu definieren.\n\n• Erfahrung in der Entwicklung und Entwicklung von KI-Systemen auf Cloud-Plattformen (z. B. Google Cloud Platform (GCP)).\n\n• Erfahrung im Aufbau von Pipelines für strukturierte, unstrukturierte Daten, mit der Integration von Vektordatenbanken und Retrieval-Augmented Generation Retrieval-Augmented Generation (RAG)-ähnlichen Architekturen, um KI-Lösungen auf Unternehmensniveau zu ermöglichen.\n\nBevorzugte Qualifikationen:\n\n• Master- oder PhD-Abschluss in KI, Informatik oder einem verwandten technischen Fachgebiet.\n\n• Erfahrung in der Implementierung von Multi-Agenten-Systemen mit Frameworks (z. B. LangGraph, CrewAI oder Googles Agent Development Kit (ADK)) und Mustern wie ReAct, Selbstreflexion und hierarchischer Delegation.\n\n• Kenntnis der nativen Metriken großer Sprachmodelle (Tokens/Sekunde, Kosten pro Anfrage) und Techniken zur Optimierung des Zustandsmanagements und granularer Nachverfolgung.\n\nÜber die Arbeit\nAls GenAI Forward Deployed Engineer bei Google Cloud sind Sie ein eingebetteter Entwickler, der für unsere Kunden die Lücke zwischen Frontier-AI-Produkten und produktionsreifer Realität schließt. Sie werden als Builder-Consultant fungieren und über die hochrangige Architektur hinausgehen und maßgeschneiderte agentische Lösungen direkt innerhalb der Kundenumgebung programmieren, debuggen und gemeinsam ausliefern.\nIn dieser Rolle verwalten Sie Hindernisse für die Produktion, einschließlich der Lösung von Integrationskomplexitäten, Datenbereitschaftsproblemen und State-Management-Problemen, die verhindern, dass KI eine unternehmensweite Reife erreicht. Indem Sie mit Konten einbetten, erfüllen Sie eine doppelte Funktion: Sie bereitstellen eine erstklassige Einführung von KI-Systemen und fungieren als kritische Rückkopplungsschleife, die reale Feldeinblicke in Google Clouds zukünftige Produktroadmap umwandelt.\nEs ist eine spannende Zeit, dem Go-To-Market-Team von Google Cloud beizutreten und die KI-Revolution für Unternehmen weltweit anzuführen. Sie werden sich auszeichnen, indem Sie Googles Markenglaubwürdigkeit nutzen – ein Vermächtnis, das auf der Erfindung grundlegender Technologien basiert und sich in großem Maßstab bewährt hat. Wir stellen Ihnen das weltweit fortschrittlichste KI-Portfolio zur Verfügung, einschließlich innovativer Gemini-Modelle, sowie die komplette Vertex AI-Plattform, die Ihnen bei der Lösung von Geschäftsproblemen hilft. Wir sind eine kollaborative Kultur, die direkten Zugang zu den Ingenieur- und Forschungsköpfen von DeepMind bietet und Sie befähigt, Kundenprobleme zu lösen. Schließen Sie sich uns an, um der Katalysator für unsere Mission zu sein, den Kundenerfolg voranzutreiben und die neue Cloud-Ära zu definieren – der Markt gehört Ihnen.\n\nVerantwortlichkeiten\n\n• Fungieren Sie als leitender Entwickler für KI-Anwendungen und wechseln Sie von schnellen Prototypen zu produktionsfähigen agentischen Workflows (z. B. Multi-Agent-Systeme, Modellkontextprotokoll-Server), die messbare Rendite erzielen.\n\n• Architekt und kodiert das verbindende Gewebe zwischen Googles KI-Produkten und der Live-Infrastruktur des Kunden, einschließlich APIs, Altdatensilos und Sicherheitsperimetern.\n\n• Entwickeln Sie leistungsstarke Bewertungspipelines und Observabilitätsrahmen, um sicherzustellen, dass agentische Systeme strenge Anforderungen an Genauigkeit, Sicherheit und Latenz erfüllen.\n\n• Identifizieren Sie wiederholbare Feldmuster und technische Reibungspunkte im KI-Stack von Google, indem Sie sie in wiederverwendbare Module oder Produktanfragen für die Engineering-Teams umwandeln.\n\n• Fördern Sie technische Exzellenz durch Mentoring von Talenten, Co-Aufbau mit Kundenteams und die Einflussnahme interfunktionaler Strategien, um die technischen Fähigkeiten der Organisation zu verbessern.",
-        "fr": "Dans la plupart des cas, ce poste nécessite des entretiens en personne dans le cadre du processus de recrutement.\n\nQualifications minimales :\n\n• Licence en ingénierie, informatique, domaine connexe, ou expérience pratique équivalente.\n\n• 8 ans d'expérience dans la conception et la livraison de solutions de production pilotées par IA à des clients externes ou internes utilisant Python, TypeScript ou des langages comparables.\n\n• Expérience de la direction de sessions de découverte technique avec des parties prenantes métier et des équipes d'ingénierie pour définir les besoins en IA et en infrastructure matérielle.\n\n• Expérience dans la conception et la construction de systèmes d'IA sur des plateformes cloud (par exemple, Google Cloud Platform (GCP)).\n\n• Expérience acquise dans la construction de pipelines pour des données structurées et non structurées, en intégrant des bases de données vectorielles et des architectures de type RAG (génération augmentée par récupération) pour alimenter des solutions d'IA de niveau entreprise.\n\nQualifications préférées :\n\n• Un master ou un doctorat en IA, informatique ou un domaine technique connexe.\n\n• Expérience de la mise en œuvre de systèmes multi-agents utilisant des frameworks (par exemple, LangGraph, CrewAI ou le Agent Development Kit (ADK) de Google) et des schémas comme ReAct, l'auto-réflexion et la délégation hiérarchique.\n\n• Connaissance des métriques natives de grands modèles de langage (tokens/sec, coût par requête) et des techniques pour optimiser la gestion de l'état et le traçage granulaire.\n\nÀ propos du travail\nEn tant qu'ingénieur déployé en avant GenAI chez Google Cloud, vous serez un constructeur embarqué faisant le lien entre les produits d'IA de pointe et la réalité de qualité production pour nos clients. Vous agirez en tant que constructeur-consultant, dépassant l'architecture de haut niveau pour coder, déboguer et livrer conjointement des solutions agèntiques sur mesure directement dans l'environnement client.\nDans ce rôle, vous gérerez les obstacles à la production, notamment la résolution des complexités d'intégration, des problèmes de préparation des données et des problèmes de gestion de l'état qui empêchent l'IA d'atteindre une maturité de niveau entreprise. En intégrant des comptes, vous remplirez un double objectif : fournir un déploiement éclair des systèmes d'IA et agir comme une boucle de rétroaction critique, transformant les insights réels du terrain en la feuille de route future des produits Google Cloud.\nC'est un moment passionnant pour rejoindre l'équipe Go-To-Market de Google Cloud, qui mène la révolution de l'IA pour les entreprises du monde entier. Vous excellerez en tirant parti de la crédibilité de la marque Google — un héritage fondé sur l'invention de technologies fondamentales et éprouvé à grande échelle. Nous vous fournirons le portefeuille d'IA le plus avancé au monde, incluant des modèles Gemini de pointe, ainsi que la plateforme complète Vertex AI, vous aidant à résoudre des problèmes métier. Nous formons une culture collaborative offrant un accès direct aux esprits ingénieurs et chercheurs de DeepMind, vous donnant les moyens de résoudre les défis clients. Rejoignez-nous pour être le catalyseur de notre mission, stimuler le succès client et définir la nouvelle ère cloud — le marché est à vous.\n\nResponsabilités\n\n• Être le développeur principal pour les applications d'IA, passant de prototypes rapides à des flux de travail agents de qualité production (par exemple, systèmes multi-agents, serveurs de protocoles contextuels modélisés) qui génèrent un retour sur investissement mesurable.\n\n• Architectez et codez le lien entre les produits d'IA de Google et l'infrastructure en ligne des clients, y compris les API, les silos de données hérités et les périmètres de sécurité.\n\n• Construire des pipelines d'évaluation haute performance et des cadres d'observabilité afin de garantir que les systèmes agents respectent des exigences rigoureuses en matière de précision, de sécurité et de latence.\n\n• Identifiez les schémas de champ répétables et les points de friction techniques dans la pile IA de Google, en les convertissant en modules réutilisables ou en demandes de fonctionnalités produit pour les équipes d'ingénierie.\n\n• Favoriser l'excellence en ingénierie en encadrant les talents, en co-construisant avec les équipes clients et en influençant des stratégies transversales pour améliorer les capacités techniques de l'organisation."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.google.com/about/careers/applications/jobs/results/111514322084995782-staff-forward-deployed-engineer-genai-google-cloud",
-      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:32:27.979Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brandschenkestrasse 110",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Tecnologia / R&D",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/111514322084995782-staff-forward-deployed-engineer-genai-google-cloud",
-      "jobReqId": "111514322084995782",
-      "requirements": [
-        "Bachelor’s degree in Engineering, Computer Science, a related field, or equivalent practical experience.",
-        "8 years of experience building and shipping production-grade AI-driven solutions to external or internal customers using Python, TypeScript or comparable languages.",
-        "Experience leading technical discovery sessions with business stakeholders and engineering teams to define AI and hardware infrastructure requirements.",
-        "Experience designing and building AI systems on cloud platforms (e.g., Google Cloud Platform (GCP)).",
-        "Experience building pipelines for structured, unstructured data, incorporating vector databases and retrieval-augmented generation retrieval-augmented generation (RAG)-like architectures to power enterprise-grade AI solutions."
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Bachelor’s degree in Engineering, Computer Science, a related field, or equivalent practical experience.",
-          "Experience designing and building AI systems on cloud platforms (e.g., Google Cloud Platform (GCP))."
-        ]
-      },
-      "firstSeenAt": "2026-09-30T21:13:07.256Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:12:59.479Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

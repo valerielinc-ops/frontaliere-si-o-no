@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lups",
-  "assembledAt": "2026-10-31T09:12:27.174Z",
-  "runId": "41186993103",
+  "assembledAt": "2026-11-01T09:17:44.186Z",
+  "runId": "41291333597",
   "jobs": [
     {
       "id": "lups-815a9238f256",
@@ -34,7 +34,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-assistent-klinikschule/e6ac78a5-a124-4aab-8a68-9959273ad101",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:18.203Z",
+      "crawledAt": "2026-11-01T09:17:36.100Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -94,7 +94,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:36.100Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-f4afd9601355",
@@ -127,7 +131,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-pflegehilfe/9debbdcc-4eaa-4c7d-a508-d58b26454d70",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:18.012Z",
+      "crawledAt": "2026-11-01T09:17:35.355Z",
       "addressLocality": "Luzern 16",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -189,7 +193,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern 16",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:35.355Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-04f1d8b2ec45",
@@ -222,7 +230,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-betreuungsassistent/b385c234-0a72-4811-9b1f-454396755a8d",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:17.562Z",
+      "crawledAt": "2026-11-01T09:17:34.351Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -275,7 +283,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:34.351Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-d39f593fe2b4",
@@ -308,7 +320,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-betreuungsassistent-menschen-mit-beeintraechtigung-m-w-d/a20d1db6-cc8b-43c1-9710-c73be317a48d",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:17.083Z",
+      "crawledAt": "2026-11-01T09:17:33.339Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -360,7 +372,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:33.339Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-875d3f7069d5",
@@ -394,7 +410,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberaerztin-mit-co-stellenleitung-w-m-d/d1150d47-46f4-48c9-8296-8b4ba449d331",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:16.619Z",
+      "crawledAt": "2026-11-01T09:17:32.394Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -438,7 +454,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:32.394Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-5fb47435c3f0",
@@ -472,7 +492,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/praktikum-in-der-begleitung-von-menschen-mit-beeintraechtigung-w-m-d-80/fe790031-795a-4532-9c8d-dce77f22c9d5",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:16.134Z",
+      "crawledAt": "2026-11-01T09:17:31.319Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -528,7 +548,11 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:31.319Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-6e8410dbf351",
@@ -561,7 +585,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-betreuungsassistent/3d554689-c4aa-4db7-a551-e620c9f160f7",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:15.704Z",
+      "crawledAt": "2026-11-01T09:17:30.357Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -622,7 +646,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:30.357Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-c0a6c42baa0f",
@@ -656,7 +684,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-pflegehilfe/d757ee28-67c8-4e83-949e-ce1085f5d79c",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:15.258Z",
+      "crawledAt": "2026-11-01T09:17:29.346Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -696,7 +724,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:29.346Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-3670d71dceae",
@@ -729,7 +761,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-betreuungsassistent/58363b0e-9e37-49c5-81fd-1debb1a950fe",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:14.812Z",
+      "crawledAt": "2026-11-01T09:17:28.334Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -773,7 +805,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:28.334Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-62cf9835a12a",
@@ -807,7 +843,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-m-w-d/184d404c-9a2c-4472-9dc5-59eaa49e8890",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:14.359Z",
+      "crawledAt": "2026-11-01T09:17:27.342Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -882,7 +918,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:27.342Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-3767fbe180a4",
@@ -915,7 +955,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-m-w-d/c461b08c-e656-42f0-ad52-dcaa7c4fac71",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:13.929Z",
+      "crawledAt": "2026-11-01T09:17:26.349Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1035,7 +1075,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sursee",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:26.349Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-fe0e290c4716",
@@ -1068,7 +1112,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-w-m-d/9a3e9ba1-1ff6-41cf-8304-c246ce7e07ef",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:13.456Z",
+      "crawledAt": "2026-11-01T09:17:25.347Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1137,7 +1181,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:25.347Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-396ac3487c42",
@@ -1171,7 +1219,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/leitender-arzt-m-w-d/bef76132-ec2c-4bf3-afb9-0c2820e5fef6",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:13.010Z",
+      "crawledAt": "2026-11-01T09:17:24.393Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1255,7 +1303,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:24.393Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-280d70d571ba",
@@ -1288,7 +1340,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegeexpertin-apn-w-m-d/da352ceb-3a3f-43b5-995d-6830f2636a3d",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:12.520Z",
+      "crawledAt": "2026-11-01T09:17:23.341Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1357,7 +1409,11 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:23.341Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-1f275abe441b",
@@ -1390,7 +1446,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberaerztin-co-stellenleitung-w-m-d/6e23fdd4-1386-4ad2-88ed-b986ad1ed5d0",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:12.071Z",
+      "crawledAt": "2026-11-01T09:17:22.389Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1433,7 +1489,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sursee",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:22.389Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-9c2dba1717d1",
@@ -1467,7 +1527,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-oder-sozialpaedagoge-nachtwache-m-w-d-befristet/e312d763-abd6-425e-a53e-b6a6d1efecb5",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:11.596Z",
+      "crawledAt": "2026-11-01T09:17:21.394Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1524,7 +1584,11 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:21.394Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-52274dcb7192",
@@ -1557,7 +1621,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/lernende-fachperson-reinigungstechnik-efz-ab-august-2027-m-w-d/cffaad89-8355-4b5c-8cd7-c84cbe896f12",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:11.105Z",
+      "crawledAt": "2026-11-01T09:17:20.403Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1597,7 +1661,11 @@
           "maxValue": 69000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:20.403Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-c2f541da527e",
@@ -1631,7 +1699,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/psychomotorik-therapeutin-m-w-d/146278b7-697f-43fd-aa82-b1deb6eea60d",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:10.617Z",
+      "crawledAt": "2026-11-01T09:17:19.332Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1675,7 +1743,11 @@
           "maxValue": 48200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:19.332Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-bcf3514927e0",
@@ -1708,7 +1780,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-w-m-d/0867d27f-2a91-41fe-85c4-beaf37b4af55",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:10.165Z",
+      "crawledAt": "2026-11-01T09:17:18.348Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1807,7 +1879,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:18.348Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-76a9f28b8e63",
@@ -1841,7 +1917,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/fabe-oder-arbeitsagoge-m-w-d/572d9170-54a5-4cb9-9b0a-6fd5170cc282",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:09.721Z",
+      "crawledAt": "2026-11-01T09:17:17.438Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1894,7 +1970,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:17.438Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-97c7d4d6524f",
@@ -1928,7 +2008,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberarzt-oder-spitalfacharzt-m-w-d-psychiatrie-oder-paediatrie/7a54a4c3-bb01-4ea1-81fc-33935866b956",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:09.193Z",
+      "crawledAt": "2026-11-01T09:17:16.402Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1974,7 +2054,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:16.402Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-038d149b9e54",
@@ -2007,7 +2091,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-m-w-d/d9502190-e8e2-4a6c-acfb-df14b55b4bd5",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:08.681Z",
+      "crawledAt": "2026-11-01T09:17:15.342Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2064,7 +2148,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:15.342Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-0deb2baf70bf",
@@ -2097,7 +2185,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberaerztin-oberarzt-m-w-d/ff119cf2-6c53-4c04-bc52-3d077d57ce00",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:08.237Z",
+      "crawledAt": "2026-11-01T09:17:14.376Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2165,7 +2253,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:14.376Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-91fe31593a81",
@@ -2199,7 +2291,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegeexpertin-apn-w-m-d/1f277034-f792-41e9-a2f2-8cc250470f83",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:07.740Z",
+      "crawledAt": "2026-11-01T09:17:13.348Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2239,7 +2331,11 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:13.348Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-380eea0e923c",
@@ -2272,7 +2368,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberaerztin-co-stellenleitung-w-m-d/6cdd37f6-b185-435f-a065-02ac4365ab1c",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:07.293Z",
+      "crawledAt": "2026-11-01T09:17:12.378Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2312,7 +2408,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sursee",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:12.378Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-8dead0683e94",
@@ -2346,7 +2446,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-oder-sozialpaedagogin-im-spaetdienst-und-in-der-nacht-m-w-d/7799b9ee-d5b5-4487-9873-0284dcb93959",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:06.783Z",
+      "crawledAt": "2026-11-01T09:17:11.381Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2392,7 +2492,11 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:11.381Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-e7cfe049b484",
@@ -2425,7 +2529,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-m-w-d/e1686a3e-d21e-4ee9-962b-57de105c510c",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:06.302Z",
+      "crawledAt": "2026-11-01T09:17:10.343Z",
       "addressLocality": "Wolhusen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2482,7 +2586,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wolhusen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:10.343Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-c481cd3e05b6",
@@ -2515,7 +2623,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-hf-w-m-d/e19e61d5-53e6-4e0c-937e-0c8c3eef8020",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:05.857Z",
+      "crawledAt": "2026-11-01T09:17:09.377Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -2555,7 +2663,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:09.377Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-f2bc06743e8c",
@@ -2589,7 +2701,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-oder-sozialpaedagogin-als-nachtwache-m-w-d/171afdc8-0298-4c1b-a8db-ec442fbf9eec",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:05.406Z",
+      "crawledAt": "2026-11-01T09:17:08.386Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2674,7 +2786,11 @@
           "maxValue": 48200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:08.386Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-4af2f6d4c070",
@@ -2708,7 +2824,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberarzt-oder-spitalfacharzt-m-w-d/d5a42442-108b-402b-9f8f-90aeef988181",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:04.905Z",
+      "crawledAt": "2026-11-01T09:17:07.396Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2759,7 +2875,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:07.396Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-6ecede9d0991",
@@ -2793,7 +2913,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/co-stationsleitung-w-m-d/c09fd2fe-03c5-4551-9eb2-020dc5a6e849",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:04.420Z",
+      "crawledAt": "2026-11-01T09:17:06.380Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2841,7 +2961,11 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:06.380Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-d1b1a630ed92",
@@ -2875,7 +2999,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberarzt-oder-spitalfacharzt-m-w-d/5832d371-6613-45ec-a14f-8106a3e20457",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:03.935Z",
+      "crawledAt": "2026-11-01T09:17:05.387Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2921,7 +3045,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:05.387Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-17a302acbab5",
@@ -2954,7 +3082,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/klinik-seelsorger-kath-m-w-d/af3aaa42-e7a9-4788-8f77-975efde0534f",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:03.434Z",
+      "crawledAt": "2026-11-01T09:17:04.340Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2994,7 +3122,11 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:04.340Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-3d0968262989",
@@ -3028,7 +3160,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-nachtwache-m-w-d/688f35ab-4e89-4905-98bc-f187d90e5ef7",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:02.981Z",
+      "crawledAt": "2026-11-01T09:17:03.360Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -3068,7 +3200,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:03.360Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-8357eea1ec87",
@@ -3102,7 +3238,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-m-w-d/99f58ea1-7200-4709-8b8f-e6679a1ab06a",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:02.521Z",
+      "crawledAt": "2026-11-01T09:17:02.373Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3189,7 +3325,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:02.373Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-274e87082957",
@@ -3223,7 +3363,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-w-m-d-60/bfbf89e1-93fd-4c1e-ac9c-158e039b09fe",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:02.048Z",
+      "crawledAt": "2026-11-01T09:17:01.348Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3265,7 +3405,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:01.348Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-b93634683d91",
@@ -3298,7 +3442,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzarzt-m-w-d/8d89afdb-96fa-44c7-a585-4d5d5e4ed44a",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:01.604Z",
+      "crawledAt": "2026-11-01T09:17:00.365Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3338,7 +3482,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:00.365Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-2b7976f21bf1",
@@ -3372,7 +3520,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberarzt-oder-spitalfacharzt-m-w-d/c0cd79b7-2b2b-4129-8484-63f554068256",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:01.150Z",
+      "crawledAt": "2026-11-01T09:16:59.372Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3414,7 +3562,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:59.372Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-5eee0ab09ddf",
@@ -3447,7 +3599,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberaerztin-m-w-d/5b0eafb9-81df-49a5-8c74-d034ac5c2fbf",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:00.677Z",
+      "crawledAt": "2026-11-01T09:16:58.370Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3487,7 +3639,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:58.370Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-8252347e4944",
@@ -3521,7 +3677,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/arbeitsagoge-m-w-d/2a7ddef2-5660-4c65-bc56-2b34d2822168",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:00.102Z",
+      "crawledAt": "2026-11-01T09:16:57.384Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3583,7 +3739,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:57.384Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-35dbf98f38fb",
@@ -3616,7 +3776,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-m-w-d/684a450e-4736-4476-b268-db0f5aee8258",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:59.626Z",
+      "crawledAt": "2026-11-01T09:16:56.335Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3656,7 +3816,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:56.335Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-b114b157bd48",
@@ -3690,7 +3854,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/sozialpaedagoge-oder-pflegefachperson-w-m-d-im-tag-und-nachtdienst/9252f377-69d1-46ad-b10b-7b886422c47e",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:59.180Z",
+      "crawledAt": "2026-11-01T09:16:55.501Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3732,7 +3896,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:16:55.501Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-fe57f5b504e8",
@@ -3765,7 +3933,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/fachperson-apotheke-efz-medizinische-praxisassistenz-efz-m-w-d/2aea3952-2aa7-49c6-9055-d7e07581a288",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:58.695Z",
+      "crawledAt": "2026-11-01T09:16:54.385Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3805,7 +3973,11 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:16:54.385Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-33655047a82f",
@@ -3838,7 +4010,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/psychologe-m-w-d/91611e3f-ffae-45c1-b1c7-d17a7763c53a",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:58.200Z",
+      "crawledAt": "2026-11-01T09:16:53.322Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3878,7 +4050,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:16:53.322Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-4ac9a7082b04",
@@ -3912,7 +4088,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberarzt-co-stellenleitung-m-w-d/2d6746d3-f7f2-4f2f-b683-1134b83b6ed2",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:57.783Z",
+      "crawledAt": "2026-11-01T09:16:52.378Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3960,7 +4136,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sursee",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:16:52.378Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-695b5bbc1028",
@@ -3994,7 +4174,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/sachbearbeiterin-patientenadministration-w-m-d/69595aec-cce6-4df0-8362-dcd1f4bd6ae2",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:57.312Z",
+      "crawledAt": "2026-11-01T09:16:51.352Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4034,7 +4214,11 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:16:51.352Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-5489a8da4c12",
@@ -4068,7 +4252,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/leiter-landschaft-und-gaertnerei-m-w-d/b2d4fdeb-7667-4c39-8214-20c6c703e53c",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:56.877Z",
+      "crawledAt": "2026-11-01T09:16:50.312Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4110,7 +4294,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:16:50.312Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-f36907a8c737",
@@ -4144,7 +4332,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/fachaerztin-fuer-psychiatrie-und-psychotherapie-fortgeschrittene-assistenzaerztin-m-w-d/a80372c6-5d63-4e54-a0af-d3155a8dade6",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:56.454Z",
+      "crawledAt": "2026-11-01T09:16:49.346Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4186,7 +4374,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:16:49.346Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-da314f1d2d92",
@@ -4219,7 +4411,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/ergotherapeutin-m-w-d/e0b90a23-5313-4621-8528-da13b482657c",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:56.011Z",
+      "crawledAt": "2026-11-01T09:16:48.335Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4267,7 +4459,11 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:16:48.335Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-b9c4290ffb3f",
@@ -4300,7 +4496,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/psychologin-m-w-d/06c8bcb4-166c-489a-a584-fb702e38c633",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:55.543Z",
+      "crawledAt": "2026-11-01T09:16:47.347Z",
       "addressLocality": "Hochdorf",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4340,7 +4536,11 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Hochdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:16:47.347Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-ebca559e142e",
@@ -4373,7 +4573,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/klinik-seelsorger-ref-m-w-d/0776d0c0-6e29-4013-9b49-b6f8005cc2e8",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:55.104Z",
+      "crawledAt": "2026-11-01T09:16:46.342Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4413,7 +4613,11 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:16:46.342Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-94871511b1e0",
@@ -4446,7 +4650,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-w-m-d/ac8b58fb-e257-43e0-bc94-d296c291f232",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:54.631Z",
+      "crawledAt": "2026-11-01T09:16:45.343Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -4486,7 +4690,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:16:45.343Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-9863b8cb155c",
@@ -4519,7 +4727,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/leitende-psychologin-oder-oberaerztin-m-w-d/96b7f7eb-9662-4489-acab-f83825e16d13",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:54.191Z",
+      "crawledAt": "2026-11-01T09:16:44.383Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4561,7 +4769,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:16:44.383Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-43b3a6ccb2ae",
@@ -4594,7 +4806,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-m-w-d/be011024-3a9f-4d88-bc37-f32e2f52d0b5",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:53.679Z",
+      "crawledAt": "2026-11-01T09:16:43.335Z",
       "addressLocality": "Wolhusen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4634,7 +4846,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wolhusen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:16:43.335Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-56234a81ecaf",
@@ -4667,7 +4883,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-oder-psychologin-m-w-d/04b56fd6-40ba-4065-bed2-eb70937bc0b8",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:53.222Z",
+      "crawledAt": "2026-11-01T09:16:42.356Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4709,7 +4925,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:16:42.356Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-7e248bc417a9",
@@ -4743,7 +4963,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/sozialpaedagoge-oder-pflegefachperson-w-m-d/5f83e27a-56e0-4fe1-aa18-38186659cc16",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:52.790Z",
+      "crawledAt": "2026-11-01T09:16:41.404Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4791,7 +5011,11 @@
           "maxValue": 60300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:16:41.404Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-47c7346df4bb",
@@ -4825,7 +5049,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/praktikant-in-ausbildung-sozialpaedagogik-m-w-d/a680ccec-923b-4593-ad2e-6e79d37232e2",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:52.315Z",
+      "crawledAt": "2026-11-01T09:16:40.335Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4871,7 +5095,11 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:16:40.335Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-5f135ab06aba",
@@ -4905,7 +5133,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-w-m-d/16aa6abf-48d7-4acf-a87a-594113cec7ec",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:51.867Z",
+      "crawledAt": "2026-11-01T09:16:39.354Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4951,7 +5179,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:16:39.354Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-9f3e226de415",
@@ -4984,7 +5216,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-w-m-d-80/8d3c7af1-3fbd-4feb-8358-2a862300f84b",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:51.416Z",
+      "crawledAt": "2026-11-01T09:16:38.461Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5029,7 +5261,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:16:38.461Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-55d34bd1d25a",
@@ -5063,7 +5299,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/koch-m-w-d/cf66804b-33d4-4a4a-af0f-eee45c97c1ae",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:50.960Z",
+      "crawledAt": "2026-11-01T09:16:37.406Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5109,7 +5345,11 @@
           "maxValue": 86500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:16:37.406Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-6682959e9a8b",
@@ -5143,7 +5383,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/sozialpaedagogin-oder-pflegefachperson-w-m-d/34d280c3-a9e0-409a-b3aa-f87275776b93",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:50.482Z",
+      "crawledAt": "2026-11-01T09:16:36.387Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5191,7 +5431,11 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:16:36.387Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-39145467b9f0",
@@ -5224,7 +5468,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/arztsekretaerin-m-w-d/82e2fadf-ae5b-44d4-93ce-405c567b8cd1",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:49.982Z",
+      "crawledAt": "2026-11-01T09:16:35.354Z",
       "addressLocality": "Hochdorf",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5271,7 +5515,11 @@
           "maxValue": 48200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Hochdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:16:35.354Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-524bd40137b8",
@@ -5305,7 +5553,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/fachperson-payroll-m-w-d/92c1e6d0-cd17-4f5f-aad8-7674fa3798d7",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:49.553Z",
+      "crawledAt": "2026-11-01T09:16:34.369Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5348,7 +5596,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:16:34.369Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-33150f984294",
@@ -5381,7 +5633,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzarzt-m-w-d/5787c073-67d8-4880-ace4-0ed8c69359ea",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:49.103Z",
+      "crawledAt": "2026-11-01T09:16:31.345Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5427,86 +5679,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "lups-983523c8fac9",
-      "slug": "segretario-medico-m-f-d-60-100-luzerner-psychiatrie-lups-luzern",
-      "slugByLocale": {
-        "it": "segretario-medico-m-f-d-60-100-luzerner-psychiatrie-lups-luzern",
-        "en": "medical-secretary-m-f-d-60-100-luzerner-psychiatrie-lups-luzern",
-        "de": "arztsekretarin-m-w-d-60-100-lups-luzern",
-        "fr": "secretaire-medical-h-f-d-60-100-luzerner-psychiatrie-lups-luzern"
       },
-      "company": "Luzerner Psychiatrie (LUPS)",
-      "companyKey": "lups",
-      "companyDomain": "lups.ch",
-      "title": "Arztsekretärin (m/w/d) 60-100%",
-      "titleByLocale": {
-        "it": "Segretario medico (m/f/d) 60-100 %",
-        "en": "Medical Secretary (m/f/d) 60-100 %",
-        "de": "Arztsekretärin (m/w/d) 60-100%",
-        "fr": "Secrétaire médical (h/f/d) 60-100 %"
-      },
-      "description": "Die Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\nArztsekretärin (m/w/d) 60-100%\n\nIhre Aufgaben\n\n• Empfang und Betreuung von Patientinnen und Patienten am Schalter\n\n• Entgegennahme und Bearbeitung von Telefonanrufen sowie E-Mail-Anfragen\n\n• Durchführung allgemeiner administrativer Tätigkeiten und Korrespondenz\n\n• Planung, Organisation und Koordination von Terminen\n\n• Formatierung sowie Korrektur von medizinischen und therapeutischen Berichten\n\nIhr Profil\n\n• Abgeschlossene kaufmännische Ausbildung (EBA / EFZ) oder abgeschlossene Handelsschule\n\n• Erfahrung im kaufmännischen Bereich in einer Klinik von Vorteil\n\n• Umfassende PC-Kenntnisse (Word, Excel)\n\n• Sehr gute, sichere Deutschkenntnisse (mündlich und schriftlich)\n\n• Teamfähigkeit, Hilfsbereitschaft und selbständige Arbeitsweise\n\n• Offene, flexible und anpassungsfähige Persönlichkeit mit vernetztem Denken\n\nVorteile\n\n• Vielfältiges und interessantes Wirkungsfeld\n\n• Sinnstiftende Tätigkeit\n\n• Gute ÖV-Anbindung\n\n• Fortschrittliche Arbeitsbedingungen mit attraktiven Sozialleistungen (Übernahme der KTG-Prämie und 2/3 der PK-Prämie)\n\nKontakt\n\nWünschen Sie detailliertere Informationen zu dieser Stelle? Jessica Fischler, Teamleiterin Arztsekretariat, T 058 856 65 48, freut sich auf Ihre Kontaktaufnahme.\n\nÜber die Luzerner Psychiatrie AG\n\nDie Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\n\nAufgaben:\n• Empfang und Betreuung von Patientinnen und Patienten am Schalter\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung (EBA / EFZ) oder abgeschlossene Handelsschule",
-      "descriptionByLocale": {
-        "it": "Lucerna Psychiatry AG è un ospedale didattico dell'Università di Lucerna ed è rappresentata con le sue offerte in varie località del Cantone di Lucerna e a Sarnen, Cantone di Obwalden. Più di 1.600 dipendenti da una vasta gamma di gruppi e dipartimenti professionali sono umanamente e competentimente impegnati al benessere dei pazienti. Le offerte sono rivolte a bambini, adolescenti e adulti fino alla vecchiaia.\nSegretario medico (m/f/d) 60-100 %\n\nI loro compiti\n\n• Ricezione e cura dei pazienti al banco\n\n• Ricezione e elaborazione di telefonate e richieste di posta elettronica\n\n• Gestione delle attività amministrative generali e della corrispondenza\n\n• Pianificazione, organizzazione e coordinamento degli appuntamenti\n\n• Formattazione e correzione delle relazioni mediche e terapeutiche\n\nIl tuo profilo\n\n• Formazione commerciale completa (EBA / EFZ) o scuola commerciale completa\n\n• L'esperienza nel settore commerciale in una clinica è vantaggiosa\n\n• Conoscenza completa del PC (Word, Excel)\n\n• Conoscenza molto buona e sicura del tedesco (verbale e scritto)\n\n• Lavoro di squadra, disponibilità ad aiutare e lavorare in modo indipendente\n\n• Personalità aperta, flessibile e adattabile con il pensiero in rete\n\nVantaggi\n\n• Campo di attività diverso e interessante\n\n• Attività significativa\n\n• Buona connessione con i trasporti pubblici\n\n• Condizioni di lavoro progressive con benefici sociali attraenti (acquisizione del premio KTG e 2/3 del premio PK)\n\nInformazioni di contatto\n\nVuoi informazioni più dettagliate su questa posizione? Jessica Fischler, Team Leader Medical Secretariat, T 058 856 65 48, è impaziente di contattare.\n\nInformazioni su Lucerna Psychiatry AG\n\nLucerna Psychiatry AG è un ospedale didattico dell'Università di Lucerna ed è rappresentata con le sue offerte in varie località del Cantone di Lucerna e a Sarnen, Cantone di Obwalden. Più di 1.600 dipendenti da una vasta gamma di gruppi e dipartimenti professionali sono umanamente e competentimente impegnati al benessere dei pazienti. Le offerte sono rivolte a bambini, adolescenti e adulti fino alla vecchiaia.\n\nCompiti:\n• Ricezione e cura dei pazienti al banco\n\nRequisiti\n• Formazione commerciale completa (EBA / EFZ) o scuola commerciale completa",
-        "en": "Lucerne Psychiatry AG is a teaching hospital of the University of Lucerne and is represented with its offers at various locations in the Canton of Lucerne and in Sarnen, Canton of Obwalden. More than 1,600 employees from a wide range of professional groups and departments are humanely and competently committed to the well-being of patients. The offers are aimed at children, adolescents and adults up to old age.\nMedical Secretary (m/f/d) 60-100 %\n\nTheir tasks\n\n• Reception and care of patients at the counter\n\n• Receiving and processing telephone calls and e-mail requests\n\n• Conduct of general administrative activities and correspondence\n\n• Planning, organisation and coordination of appointments\n\n• Formatting and correction of medical and therapeutic reports\n\nYour profile\n\n• Completed commercial education (EBA / EFZ) or completed commercial school\n\n• Experience in the commercial sector in a clinic is advantageous\n\n• Comprehensive PC knowledge (Word, Excel)\n\n• Very good, secure knowledge of German (verbal and written)\n\n• Teamwork, willingness to help and working independently\n\n• Open, flexible and adaptable personality with networked thinking\n\nBenefits\n\n• Diverse and interesting field of activity\n\n• Meaningful activity\n\n• Good public transport connection\n\n• Progressive working conditions with attractive social benefits (takeover of the KTG premium and 2/3 of the PK premium)\n\nContact details\n\nDo you want more detailed information about this position? Jessica Fischler, Team Leader Medical Secretariat, T 058 856 65 48, is looking forward to your contact.\n\nAbout Lucerne Psychiatry AG\n\nLucerne Psychiatry AG is a teaching hospital of the University of Lucerne and is represented with its offers at various locations in the Canton of Lucerne and in Sarnen, Canton of Obwalden. More than 1,600 employees from a wide range of professional groups and departments are humanely and competently committed to the well-being of patients. The offers are aimed at children, adolescents and adults up to old age.\n\nTasks:\n• Reception and care of patients at the counter\n\nRequirements\n• Completed commercial education (EBA / EFZ) or completed commercial school",
-        "de": "Die Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\nArztsekretärin (m/w/d) 60-100%\n\nIhre Aufgaben\n\n• Empfang und Betreuung von Patientinnen und Patienten am Schalter\n\n• Entgegennahme und Bearbeitung von Telefonanrufen sowie E-Mail-Anfragen\n\n• Durchführung allgemeiner administrativer Tätigkeiten und Korrespondenz\n\n• Planung, Organisation und Koordination von Terminen\n\n• Formatierung sowie Korrektur von medizinischen und therapeutischen Berichten\n\nIhr Profil\n\n• Abgeschlossene kaufmännische Ausbildung (EBA / EFZ) oder abgeschlossene Handelsschule\n\n• Erfahrung im kaufmännischen Bereich in einer Klinik von Vorteil\n\n• Umfassende PC-Kenntnisse (Word, Excel)\n\n• Sehr gute, sichere Deutschkenntnisse (mündlich und schriftlich)\n\n• Teamfähigkeit, Hilfsbereitschaft und selbständige Arbeitsweise\n\n• Offene, flexible und anpassungsfähige Persönlichkeit mit vernetztem Denken\n\nVorteile\n\n• Vielfältiges und interessantes Wirkungsfeld\n\n• Sinnstiftende Tätigkeit\n\n• Gute ÖV-Anbindung\n\n• Fortschrittliche Arbeitsbedingungen mit attraktiven Sozialleistungen (Übernahme der KTG-Prämie und 2/3 der PK-Prämie)\n\nKontakt\n\nWünschen Sie detailliertere Informationen zu dieser Stelle? Jessica Fischler, Teamleiterin Arztsekretariat, T 058 856 65 48, freut sich auf Ihre Kontaktaufnahme.\n\nÜber die Luzerner Psychiatrie AG\n\nDie Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\n\nAufgaben:\n• Empfang und Betreuung von Patientinnen und Patienten am Schalter\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung (EBA / EFZ) oder abgeschlossene Handelsschule",
-        "fr": "Lucerne Psychiatry AG est un hôpital d'enseignement de l'Université de Lucerne et est représenté par ses offres à différents endroits dans le canton de Lucerne et à Sarnen, canton d'Obwalden. Plus de 1 600 employés provenant d'un large éventail de groupes et de départements professionnels s'engagent avec humanité et compétence dans le bien-être des patients. Les offres sont destinées aux enfants, aux adolescents et aux adultes jusqu'à la vieillesse.\nSecrétaire médical (h/f/d) 60-100 %\n\nLeurs tâches\n\n• Réception et soins des patients au comptoir\n\n• Réception et traitement des appels téléphoniques et des demandes de courrier électronique\n\n• Activités administratives générales et correspondance\n\n• Planification, organisation et coordination des nominations\n\n• Formatage et correction des rapports médicaux et thérapeutiques\n\nVotre profil\n\n• Études commerciales terminées (EBA / EFZ) ou écoles commerciales terminées\n\n• L'expérience du secteur commercial dans une clinique est avantageuse\n\n• Connaissance PC complète (Word, Excel)\n\n• Très bonne connaissance, sûre de l'allemand (verbal et écrit)\n\n• Travail d'équipe, volonté d'aider et de travailler de manière indépendante\n\n• Personnalité ouverte, flexible et adaptable avec une pensée en réseau\n\nAvantages\n\n• Domaine d'activité diversifié et intéressant\n\n• Activité significative\n\n• Bonne connexion aux transports publics\n\n• Conditions de travail progressives avec avantages sociaux attractifs (reprise de la prime KTG et 2/3 de la prime PK)\n\nCoordonnées\n\nVoulez-vous des informations plus détaillées sur ce poste? Jessica Fischler, chef d'équipe, Secrétariat médical, T 058 856 65 48, attend avec impatience votre contact.\n\nÀ propos de Lucerne Psychiatry AG\n\nLucerne Psychiatry AG est un hôpital d'enseignement de l'Université de Lucerne et est représenté par ses offres à différents endroits dans le canton de Lucerne et à Sarnen, canton d'Obwalden. Plus de 1 600 employés provenant d'un large éventail de groupes et de départements professionnels s'engagent avec humanité et compétence dans le bien-être des patients. Les offres sont destinées aux enfants, aux adolescents et aux adultes jusqu'à la vieillesse.\n\nTâches:\n• Réception et soins des patients au comptoir\n\nExigences\n• Études commerciales terminées (EBA / EFZ) ou écoles commerciales terminées"
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.lups.ch/offene-stellen/arztsekretaerin-m-w-d/dac00e83-07bc-4d66-97f3-b97475ac71aa",
-      "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:48.668Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-21",
-      "postedDate": "2026-10-21",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.lups.ch/offene-stellen/arztsekretaerin-m-w-d/dac00e83-07bc-4d66-97f3-b97475ac71aa",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "arztsekretarin-m-w-d-60-100-lups-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "arztsekretarin-m-w-d-60-100-lups-luzern"
-        ],
-        "en": [
-          "arztsekretarin-m-w-d-60-100-lups-luzern"
-        ],
-        "fr": [
-          "arztsekretarin-m-w-d-60-100-lups-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:12:25.135Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
+      "streetAddress": "Sursee",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:16:31.345Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-e41df639369c",
@@ -5540,7 +5717,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/fallfuehrende-pflegefachperson-im-hometreatment-m-w-d/bac3cef1-22d8-4b27-a94d-26db8ab1816b",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:48.223Z",
+      "crawledAt": "2026-11-01T09:16:25.845Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5586,7 +5763,95 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sursee",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:16:25.845Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "lups-983523c8fac9",
+      "slug": "segretario-medico-m-f-d-60-100-luzerner-psychiatrie-lups-luzern",
+      "slugByLocale": {
+        "it": "segretario-medico-m-f-d-60-100-luzerner-psychiatrie-lups-luzern",
+        "en": "medical-secretary-m-f-d-60-100-luzerner-psychiatrie-lups-luzern",
+        "de": "arztsekretarin-m-w-d-60-100-lups-luzern",
+        "fr": "secretaire-medical-h-f-d-60-100-luzerner-psychiatrie-lups-luzern"
+      },
+      "company": "Luzerner Psychiatrie (LUPS)",
+      "companyKey": "lups",
+      "companyDomain": "lups.ch",
+      "title": "Arztsekretärin (m/w/d) 60-100%",
+      "titleByLocale": {
+        "it": "Segretario medico (m/f/d) 60-100 %",
+        "en": "Medical Secretary (m/f/d) 60-100 %",
+        "de": "Arztsekretärin (m/w/d) 60-100%",
+        "fr": "Secrétaire médical (h/f/d) 60-100 %"
+      },
+      "description": "Die Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\nArztsekretärin (m/w/d) 60-100%\n\nIhre Aufgaben\n\n• Empfang und Betreuung von Patientinnen und Patienten am Schalter\n\n• Entgegennahme und Bearbeitung von Telefonanrufen sowie E-Mail-Anfragen\n\n• Durchführung allgemeiner administrativer Tätigkeiten und Korrespondenz\n\n• Planung, Organisation und Koordination von Terminen\n\n• Formatierung sowie Korrektur von medizinischen und therapeutischen Berichten\n\nIhr Profil\n\n• Abgeschlossene kaufmännische Ausbildung (EBA / EFZ) oder abgeschlossene Handelsschule\n\n• Erfahrung im kaufmännischen Bereich in einer Klinik von Vorteil\n\n• Umfassende PC-Kenntnisse (Word, Excel)\n\n• Sehr gute, sichere Deutschkenntnisse (mündlich und schriftlich)\n\n• Teamfähigkeit, Hilfsbereitschaft und selbständige Arbeitsweise\n\n• Offene, flexible und anpassungsfähige Persönlichkeit mit vernetztem Denken\n\nVorteile\n\n• Vielfältiges und interessantes Wirkungsfeld\n\n• Sinnstiftende Tätigkeit\n\n• Gute ÖV-Anbindung\n\n• Fortschrittliche Arbeitsbedingungen mit attraktiven Sozialleistungen (Übernahme der KTG-Prämie und 2/3 der PK-Prämie)\n\nKontakt\n\nWünschen Sie detailliertere Informationen zu dieser Stelle? Jessica Fischler, Teamleiterin Arztsekretariat, T 058 856 65 48, freut sich auf Ihre Kontaktaufnahme.\n\nÜber die Luzerner Psychiatrie AG\n\nDie Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\n\nAufgaben:\n• Empfang und Betreuung von Patientinnen und Patienten am Schalter\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung (EBA / EFZ) oder abgeschlossene Handelsschule",
+      "descriptionByLocale": {
+        "it": "Lucerna Psychiatry AG è un ospedale didattico dell'Università di Lucerna ed è rappresentata con le sue offerte in varie località del Cantone di Lucerna e a Sarnen, Cantone di Obwalden. Più di 1.600 dipendenti da una vasta gamma di gruppi e dipartimenti professionali sono umanamente e competentimente impegnati al benessere dei pazienti. Le offerte sono rivolte a bambini, adolescenti e adulti fino alla vecchiaia.\nSegretario medico (m/f/d) 60-100 %\n\nI loro compiti\n\n• Ricezione e cura dei pazienti al banco\n\n• Ricezione e elaborazione di telefonate e richieste di posta elettronica\n\n• Gestione delle attività amministrative generali e della corrispondenza\n\n• Pianificazione, organizzazione e coordinamento degli appuntamenti\n\n• Formattazione e correzione delle relazioni mediche e terapeutiche\n\nIl tuo profilo\n\n• Formazione commerciale completa (EBA / EFZ) o scuola commerciale completa\n\n• L'esperienza nel settore commerciale in una clinica è vantaggiosa\n\n• Conoscenza completa del PC (Word, Excel)\n\n• Conoscenza molto buona e sicura del tedesco (verbale e scritto)\n\n• Lavoro di squadra, disponibilità ad aiutare e lavorare in modo indipendente\n\n• Personalità aperta, flessibile e adattabile con il pensiero in rete\n\nVantaggi\n\n• Campo di attività diverso e interessante\n\n• Attività significativa\n\n• Buona connessione con i trasporti pubblici\n\n• Condizioni di lavoro progressive con benefici sociali attraenti (acquisizione del premio KTG e 2/3 del premio PK)\n\nInformazioni di contatto\n\nVuoi informazioni più dettagliate su questa posizione? Jessica Fischler, Team Leader Medical Secretariat, T 058 856 65 48, è impaziente di contattare.\n\nInformazioni su Lucerna Psychiatry AG\n\nLucerna Psychiatry AG è un ospedale didattico dell'Università di Lucerna ed è rappresentata con le sue offerte in varie località del Cantone di Lucerna e a Sarnen, Cantone di Obwalden. Più di 1.600 dipendenti da una vasta gamma di gruppi e dipartimenti professionali sono umanamente e competentimente impegnati al benessere dei pazienti. Le offerte sono rivolte a bambini, adolescenti e adulti fino alla vecchiaia.\n\nCompiti:\n• Ricezione e cura dei pazienti al banco\n\nRequisiti\n• Formazione commerciale completa (EBA / EFZ) o scuola commerciale completa",
+        "en": "Lucerne Psychiatry AG is a teaching hospital of the University of Lucerne and is represented with its offers at various locations in the Canton of Lucerne and in Sarnen, Canton of Obwalden. More than 1,600 employees from a wide range of professional groups and departments are humanely and competently committed to the well-being of patients. The offers are aimed at children, adolescents and adults up to old age.\nMedical Secretary (m/f/d) 60-100 %\n\nTheir tasks\n\n• Reception and care of patients at the counter\n\n• Receiving and processing telephone calls and e-mail requests\n\n• Conduct of general administrative activities and correspondence\n\n• Planning, organisation and coordination of appointments\n\n• Formatting and correction of medical and therapeutic reports\n\nYour profile\n\n• Completed commercial education (EBA / EFZ) or completed commercial school\n\n• Experience in the commercial sector in a clinic is advantageous\n\n• Comprehensive PC knowledge (Word, Excel)\n\n• Very good, secure knowledge of German (verbal and written)\n\n• Teamwork, willingness to help and working independently\n\n• Open, flexible and adaptable personality with networked thinking\n\nBenefits\n\n• Diverse and interesting field of activity\n\n• Meaningful activity\n\n• Good public transport connection\n\n• Progressive working conditions with attractive social benefits (takeover of the KTG premium and 2/3 of the PK premium)\n\nContact details\n\nDo you want more detailed information about this position? Jessica Fischler, Team Leader Medical Secretariat, T 058 856 65 48, is looking forward to your contact.\n\nAbout Lucerne Psychiatry AG\n\nLucerne Psychiatry AG is a teaching hospital of the University of Lucerne and is represented with its offers at various locations in the Canton of Lucerne and in Sarnen, Canton of Obwalden. More than 1,600 employees from a wide range of professional groups and departments are humanely and competently committed to the well-being of patients. The offers are aimed at children, adolescents and adults up to old age.\n\nTasks:\n• Reception and care of patients at the counter\n\nRequirements\n• Completed commercial education (EBA / EFZ) or completed commercial school",
+        "de": "Die Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\nArztsekretärin (m/w/d) 60-100%\n\nIhre Aufgaben\n\n• Empfang und Betreuung von Patientinnen und Patienten am Schalter\n\n• Entgegennahme und Bearbeitung von Telefonanrufen sowie E-Mail-Anfragen\n\n• Durchführung allgemeiner administrativer Tätigkeiten und Korrespondenz\n\n• Planung, Organisation und Koordination von Terminen\n\n• Formatierung sowie Korrektur von medizinischen und therapeutischen Berichten\n\nIhr Profil\n\n• Abgeschlossene kaufmännische Ausbildung (EBA / EFZ) oder abgeschlossene Handelsschule\n\n• Erfahrung im kaufmännischen Bereich in einer Klinik von Vorteil\n\n• Umfassende PC-Kenntnisse (Word, Excel)\n\n• Sehr gute, sichere Deutschkenntnisse (mündlich und schriftlich)\n\n• Teamfähigkeit, Hilfsbereitschaft und selbständige Arbeitsweise\n\n• Offene, flexible und anpassungsfähige Persönlichkeit mit vernetztem Denken\n\nVorteile\n\n• Vielfältiges und interessantes Wirkungsfeld\n\n• Sinnstiftende Tätigkeit\n\n• Gute ÖV-Anbindung\n\n• Fortschrittliche Arbeitsbedingungen mit attraktiven Sozialleistungen (Übernahme der KTG-Prämie und 2/3 der PK-Prämie)\n\nKontakt\n\nWünschen Sie detailliertere Informationen zu dieser Stelle? Jessica Fischler, Teamleiterin Arztsekretariat, T 058 856 65 48, freut sich auf Ihre Kontaktaufnahme.\n\nÜber die Luzerner Psychiatrie AG\n\nDie Luzerner Psychiatrie AG ist Lehrspital der Universität Luzern und mit Ihren Angeboten an verschiedenen Standorten im Kanton Luzern und in Sarnen, Kanton Obwalden vertreten. Über 1600 Mitarbeitende verschiedenster Berufsgruppen und Fachbereiche setzen sich menschlich und kompetent für das Wohl der Patientinnen und Patienten ein. Die Angebote richten sich an Kinder, Jugendliche und Erwachsene bis ins hohe Alter.\n\nAufgaben:\n• Empfang und Betreuung von Patientinnen und Patienten am Schalter\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung (EBA / EFZ) oder abgeschlossene Handelsschule",
+        "fr": "Lucerne Psychiatry AG est un hôpital d'enseignement de l'Université de Lucerne et est représenté par ses offres à différents endroits dans le canton de Lucerne et à Sarnen, canton d'Obwalden. Plus de 1 600 employés provenant d'un large éventail de groupes et de départements professionnels s'engagent avec humanité et compétence dans le bien-être des patients. Les offres sont destinées aux enfants, aux adolescents et aux adultes jusqu'à la vieillesse.\nSecrétaire médical (h/f/d) 60-100 %\n\nLeurs tâches\n\n• Réception et soins des patients au comptoir\n\n• Réception et traitement des appels téléphoniques et des demandes de courrier électronique\n\n• Activités administratives générales et correspondance\n\n• Planification, organisation et coordination des nominations\n\n• Formatage et correction des rapports médicaux et thérapeutiques\n\nVotre profil\n\n• Études commerciales terminées (EBA / EFZ) ou écoles commerciales terminées\n\n• L'expérience du secteur commercial dans une clinique est avantageuse\n\n• Connaissance PC complète (Word, Excel)\n\n• Très bonne connaissance, sûre de l'allemand (verbal et écrit)\n\n• Travail d'équipe, volonté d'aider et de travailler de manière indépendante\n\n• Personnalité ouverte, flexible et adaptable avec une pensée en réseau\n\nAvantages\n\n• Domaine d'activité diversifié et intéressant\n\n• Activité significative\n\n• Bonne connexion aux transports publics\n\n• Conditions de travail progressives avec avantages sociaux attractifs (reprise de la prime KTG et 2/3 de la prime PK)\n\nCoordonnées\n\nVoulez-vous des informations plus détaillées sur ce poste? Jessica Fischler, chef d'équipe, Secrétariat médical, T 058 856 65 48, attend avec impatience votre contact.\n\nÀ propos de Lucerne Psychiatry AG\n\nLucerne Psychiatry AG est un hôpital d'enseignement de l'Université de Lucerne et est représenté par ses offres à différents endroits dans le canton de Lucerne et à Sarnen, canton d'Obwalden. Plus de 1 600 employés provenant d'un large éventail de groupes et de départements professionnels s'engagent avec humanité et compétence dans le bien-être des patients. Les offres sont destinées aux enfants, aux adolescents et aux adultes jusqu'à la vieillesse.\n\nTâches:\n• Réception et soins des patients au comptoir\n\nExigences\n• Études commerciales terminées (EBA / EFZ) ou écoles commerciales terminées"
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.lups.ch/offene-stellen/arztsekretaerin-m-w-d/dac00e83-07bc-4d66-97f3-b97475ac71aa",
+      "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-31T21:23:12.679Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21",
+      "postedDate": "2026-10-21",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.lups.ch/offene-stellen/arztsekretaerin-m-w-d/dac00e83-07bc-4d66-97f3-b97475ac71aa",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "arztsekretarin-m-w-d-60-100-lups-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-m-w-d-60-100-lups-luzern"
+        ],
+        "en": [
+          "arztsekretarin-m-w-d-60-100-lups-luzern"
+        ],
+        "fr": [
+          "arztsekretarin-m-w-d-60-100-lups-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-10-22T09:12:25.135Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T21:23:12.679Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-1e8c681c956d",
@@ -5620,7 +5885,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/stationsleitung-demenzabteilung-w-m-d/a06de50f-967f-4ea3-a30d-952b9ea7b472",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:47.762Z",
+      "crawledAt": "2026-10-31T21:23:06.769Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5666,7 +5931,12 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T21:23:06.769Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "lups-fe104ac95ea3",
@@ -5700,7 +5970,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-w-m-d/811aaac2-5df2-435e-b80f-9769f46c7c66",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:47.253Z",
+      "crawledAt": "2026-10-31T21:23:01.245Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5748,7 +6018,12 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "streetAddress": "St. Urban",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T21:23:01.245Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sanatorium-kilchberg",
-  "assembledAt": "2026-10-31T09:28:00.723Z",
-  "runId": "41187750242",
+  "assembledAt": "2026-11-01T09:19:11.931Z",
+  "runId": "41292128544",
   "jobs": [
     {
       "id": "sanatorium-kilchberg-57bc0cc78487",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/289/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:54.551Z",
+      "crawledAt": "2026-11-01T09:19:04.431Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -120,7 +120,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:19:04.431Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-0e4e4e0f5e5d",
@@ -154,7 +158,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/344/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:52.549Z",
+      "crawledAt": "2026-11-01T09:19:02.431Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -219,7 +223,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:19:02.431Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-9d7b5fd4744c",
@@ -253,7 +261,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/528/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:50.550Z",
+      "crawledAt": "2026-11-01T09:19:00.422Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -324,7 +332,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:19:00.422Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-27ac27e9eae8",
@@ -357,7 +369,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/542/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:48.562Z",
+      "crawledAt": "2026-11-01T09:18:58.439Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -423,7 +435,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:58.439Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-356e0f5506b1",
@@ -456,7 +472,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/587/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:47.399Z",
+      "crawledAt": "2026-11-01T09:18:56.408Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -528,7 +544,11 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:56.408Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-7a158fff9cff",
@@ -562,7 +582,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/629/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:46.506Z",
+      "crawledAt": "2026-11-01T09:18:54.424Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -607,7 +627,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:54.424Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-1c2f76ea153e",
@@ -640,7 +664,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/644/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:45.620Z",
+      "crawledAt": "2026-11-01T09:18:52.423Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -681,7 +705,11 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:52.423Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-f51d92b553f6",
@@ -715,7 +743,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/652/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:44.738Z",
+      "crawledAt": "2026-11-01T09:18:50.422Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -796,7 +824,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:50.422Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-11a5e19f0f00",
@@ -830,7 +862,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/655/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:43.836Z",
+      "crawledAt": "2026-11-01T09:18:48.436Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -876,7 +908,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:48.436Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-ad2a286928b6",
@@ -909,7 +945,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/667/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:42.964Z",
+      "crawledAt": "2026-11-01T09:18:46.427Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -954,7 +990,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:18:46.427Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-9a9af16c5117",
@@ -987,7 +1027,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/673/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:42.091Z",
+      "crawledAt": "2026-11-01T09:18:44.423Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1028,7 +1068,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:44.423Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-de4d9ebaf506",
@@ -1062,7 +1106,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/682/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:41.208Z",
+      "crawledAt": "2026-11-01T09:18:42.420Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1108,7 +1152,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:42.420Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-27baae9b0aaa",
@@ -1141,7 +1189,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/688/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:40.306Z",
+      "crawledAt": "2026-11-01T09:18:40.425Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1182,7 +1230,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:18:40.425Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-da839348d091",
@@ -1216,7 +1268,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/691/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:39.405Z",
+      "crawledAt": "2026-11-01T09:18:38.426Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1257,7 +1309,11 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:18:38.426Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-018e60c33d43",
@@ -1290,7 +1346,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/694/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:38.527Z",
+      "crawledAt": "2026-11-01T09:18:36.428Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1338,7 +1394,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:18:36.428Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-7df7510e7b96",
@@ -1371,7 +1431,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/695/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:37.639Z",
+      "crawledAt": "2026-11-01T09:18:34.435Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1418,7 +1478,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:18:34.435Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-6ac5c7d708e1",
@@ -1452,7 +1516,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/702/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:27:36.605Z",
+      "crawledAt": "2026-11-01T09:18:28.437Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1503,7 +1567,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:28.437Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

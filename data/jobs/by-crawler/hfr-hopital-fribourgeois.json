@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-10-31T09:48:50.713Z",
-  "runId": "41188271558",
+  "assembledAt": "2026-11-01T09:40:40.322Z",
+  "runId": "41292695324",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-1dbca3e8d552",
@@ -34,7 +34,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/d2681ffd1dcf-sage-femme-ou-infirmier-ere-sage-femme-80-100-hebamme-oder-pflegefachperson-hebamme-80-100-unbefristet",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:43.432Z",
+      "crawledAt": "2026-11-01T09:40:32.219Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -90,7 +90,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:40:32.219Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-c97d1ba83852",
@@ -123,7 +127,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/87e5ea8ad742-responsable-applicatif-domaine-du-laboratoire-80-100-verantwortliche-r-anwendungen-labor-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:48:42.640Z",
+      "crawledAt": "2026-11-01T09:40:31.572Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -170,7 +174,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:40:31.572Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-85bbeef1d414",
@@ -203,7 +211,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/53fa4d4fabeb-pharmacien-ne-chef-fe-adjoint-e-80-100-stellvertretende-r-chefapotheker-in-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:41.953Z",
+      "crawledAt": "2026-11-01T09:40:30.957Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -250,7 +258,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:40:30.957Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-a23f8840ce01",
@@ -284,7 +296,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/42355f3111eb-oracle-hcm-cloud-specialist-50",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:48:41.282Z",
+      "crawledAt": "2026-11-01T09:40:30.364Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -328,7 +340,11 @@
           "maxValue": 59500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:30.364Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-6419dccd40fc",
@@ -362,7 +378,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/e609ca49ff11-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in-tafers-60-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:40.667Z",
+      "crawledAt": "2026-11-01T09:40:29.670Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -416,7 +432,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "HFR Tafers",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:29.670Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-ab7297895d04",
@@ -450,7 +470,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c2eb0e06320a-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-60-100-innere-medizin-service-de-la-medecine-interne",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:39.868Z",
+      "crawledAt": "2026-11-01T09:40:29.073Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -497,7 +517,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:29.073Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-7286e564210b",
@@ -530,7 +554,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/242853171754-oberarzt-in-oder-stv-oberarzt-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:39.264Z",
+      "crawledAt": "2026-11-01T09:40:28.481Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -571,7 +595,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "HFR Tafers",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:28.481Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-d1d1dc288493",
@@ -604,7 +632,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/929d3767a1d6-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:48:38.680Z",
+      "crawledAt": "2026-11-01T09:40:27.870Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -645,7 +673,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "HFR Riaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:27.870Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-ce162dc73d8b",
@@ -678,7 +710,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/02b03762cca8-medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-leitende-arztin-leitenden-arzt-der-respiratorischen-rehabilitation-70-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:37.937Z",
+      "crawledAt": "2026-11-01T09:40:27.255Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -737,7 +769,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "HFR Riaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:40:27.255Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-2d06e35b0abb",
@@ -770,7 +806,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/47e753d5686b-medizinische-praxisassistentin-medizinischen-praxisassistenten-kardiologie-40-assistant-e-medical-e-en-cardiologie-40",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:37.352Z",
+      "crawledAt": "2026-11-01T09:40:26.656Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -824,7 +860,11 @@
           "maxValue": 47600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "HFR Tafers",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:40:26.656Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-37bd23b43f2d",
@@ -857,7 +897,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/4bbcaebb9771-medizinische-praxisassistentin-medizinischen-praxisassistenten-50-assistant-e-medical-e-50",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:36.742Z",
+      "crawledAt": "2026-11-01T09:40:25.850Z",
       "addressLocality": "HFR Meyriez-Murten",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -909,7 +949,11 @@
           "maxValue": 59500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "HFR Meyriez-Murten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:40:25.850Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-79c8ac4cc609",
@@ -943,7 +987,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/442cd30627ad-infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:35.954Z",
+      "crawledAt": "2026-11-01T09:40:25.245Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -988,7 +1032,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:25.245Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-2afb1c801bb3",
@@ -1021,7 +1069,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/8ff645b7c14b-infirmier-ere-praticien-ne-specialise-e-ips-nurse-practitioner-np",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:35.361Z",
+      "crawledAt": "2026-11-01T09:40:24.625Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1068,7 +1116,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:40:24.625Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-65e52e26e895",
@@ -1102,7 +1154,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/6e1db079dce0-infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100-pflegefachperson-operationsbereich-oder-fachperson-operationstechnik-toa-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:48:34.565Z",
+      "crawledAt": "2026-11-01T09:40:24.014Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1168,7 +1220,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:24.014Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-504cbdd9044a",
@@ -1201,7 +1257,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/39b47f127a1e-infirmier-ere-60-pflegefachfrau-pflegefachmann-60",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:48:33.869Z",
+      "crawledAt": "2026-11-01T09:40:23.396Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1254,7 +1310,11 @@
           "maxValue": 71400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "HFR Riaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:40:23.396Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-2d0ad211d085",
@@ -1288,7 +1348,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/703af3d75d2d-gestionnaire-rh-paie-et-assurances-sociales-hr-sachbearbeiter-in-lohnadministration-und-sozialversicherungen",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:33.259Z",
+      "crawledAt": "2026-11-01T09:40:22.806Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1339,7 +1399,11 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:40:22.806Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-ecbc1574f8c8",
@@ -1373,7 +1437,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/ddb97171bcd7-fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante-communautaire-assc-contrat-a-duree-indeterminee-a-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:32.581Z",
+      "crawledAt": "2026-11-01T09:40:22.120Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1448,7 +1512,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "HFR Tafers",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:22.120Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-bc93850bea82",
@@ -1482,7 +1550,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/2c19e7fb73f5-dipl-pflegefachfrau-mann-40-100-unbefristeter-vertrag-infirmier-ere-diplome-e-40-100-contrat-a-duree-indeterminee",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:48:31.796Z",
+      "crawledAt": "2026-11-01T09:40:21.449Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1552,7 +1620,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "HFR Tafers",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:21.449Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-6de1045cface",
@@ -1586,7 +1658,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/d70bf23869f0-collaborateur-trice-service-technique-et-maintenance-80-100-mitarbeiterin-mitarbeiter-technischer-dienst-und-instandhaltung-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:31.113Z",
+      "crawledAt": "2026-11-01T09:40:20.651Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1638,7 +1710,11 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:40:20.651Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-984c803dd531",
@@ -1672,7 +1748,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/f3c19e2c6baf-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-neurologie-60-70",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:30.524Z",
+      "crawledAt": "2026-11-01T09:40:19.332Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1733,7 +1809,11 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:19.332Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-5d0b3e262685",
@@ -1767,7 +1847,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c7c6506715de-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:48:29.762Z",
+      "crawledAt": "2026-11-01T09:40:18.593Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1815,7 +1895,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "HFR Riaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:18.593Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-ef67494b6229",
@@ -1849,7 +1933,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/919980102cd5-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:48:29.034Z",
+      "crawledAt": "2026-11-01T09:40:16.995Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1911,7 +1995,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "HFR Riaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:16.995Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-9f31f7882911",
@@ -1945,7 +2033,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/986b30dc5421-chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:28.229Z",
+      "crawledAt": "2026-11-01T09:40:16.228Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2005,7 +2093,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:16.228Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-c873995d6fa1",
@@ -2039,7 +2131,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/0cb89529dd2e-chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische-infektiologie-50-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:27.426Z",
+      "crawledAt": "2026-11-01T09:40:15.585Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2080,7 +2172,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:15.585Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-51ff5fed2338",
@@ -2113,7 +2209,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/9f2b7f59d46b-assistenzarztin-oder-assistenzarzt-100-teilzeit-oder-jobsharing-moglich-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:26.629Z",
+      "crawledAt": "2026-11-01T09:40:14.881Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2172,7 +2268,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "HFR Tafers",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:14.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-7ba5bc452613",
@@ -2205,7 +2305,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/7195b7311b2a-assistant-e-en-soins-et-sante-communautaire-remplacant-e-assc-fachfrau-mann-gesundheit-fage-im-ersatz-fur-absenzen",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:26.040Z",
+      "crawledAt": "2026-11-01T09:40:14.248Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2277,7 +2377,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:14.248Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-2aab7fd2d635",
@@ -2310,7 +2414,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c235a4f18fc5-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische-operationsassistentin-technischen-operationsassistenten-90-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:48:25.259Z",
+      "crawledAt": "2026-11-01T09:40:13.502Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2378,7 +2482,11 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:13.502Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

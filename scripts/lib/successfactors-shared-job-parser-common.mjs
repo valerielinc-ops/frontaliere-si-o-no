@@ -766,7 +766,7 @@ export function createSuccessFactorsParser(config) {
         continue;
       }
       // defaultPostalCode is the HQ CAP: only for a vacancy at the HQ (#9841).
-      const postalCode = detail?.postalCode || hqPostalCodeForLocality(city, defaultCity, defaultPostalCode);
+      const postalCode = detail?.postalCode || hqPostalCodeForLocality(city, defaultCity, defaultPostalCode, defaultCanton);
 
       const sourceLang = (trustPageLangAttr && detail?.language && /^(de|fr|it|en)$/.test(detail.language))
         ? detail.language

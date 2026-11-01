@@ -9,12 +9,14 @@
  */
 
 import '../../extension/apply-control.js';
-const { isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
+const { isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose } = globalThis.AssistedApplyControls;
 
 import { operationalDefaultAnswer, operationalAnswerForOption, operationalQuestionTopic, equivalentOperationalAnswers, isOperationalDefaultValue } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
+import { hasConsentContradiction, isConsentPurpose, isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isPrivacyReviewAcknowledgment, isRequiredNotice, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } from '../../../../functions/src/lib/applicationConsent.js';
 import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
 import {
@@ -42,6 +44,7 @@ import {
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { countryCodeOfLabel, formatInternationalPhone, phoneCountryCode, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
+export { BIRTH_FIELD_RE };
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -87,7 +90,7 @@ export function candidateRules(candidateLocale) {
 - Native language: an explicitly native/mother-tongue entry is sufficient. When profile.cvLanguage identifies the language the CV is written in, and the profile also lists at least one different language with an explicit level while giving no conflicting level for cvLanguage, treat cvLanguage as native/mother tongue for that language's level questions. Do not infer a native language from the CV language alone, and do not infer any other level.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given. For a date field, use a full calendar date only. Never type an ongoing or partial-period marker such as "ad oggi", "2015", "present" or "current" into a date field; leave the end blank. Do not invent an end date for an ongoing or overlapping CV entry; if the portal requires a full end date and the candidate did not state one, put it in missingRequired.
 - Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
-- Operational preferences, only when no candidate answer exists: 3 months for an unconditional notice-period question, 100% preferred workload, and Yes to contact about this application via WhatsApp. Use policy_default as source. Never infer a start date, qualification or marketing/privacy consent from these preferences. The deterministic field guard verifies the exact question and available options.
+- Operational preferences, only when no candidate answer exists: 3 months for an unconditional notice-period question, 100% preferred workload, and Yes to contact about this application via WhatsApp. Use policy_default as source. Never infer a start date, qualification, marketing, talent-pool, third-party, subscription or broad data-processing consent from these preferences. A sole imperative checkbox acknowledgement that the candidate read this application's privacy notice may use policy_default under the deterministic privacy-review grammar; it is not a broader consent. The deterministic field guard verifies the exact question and available options.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
 - Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): use answers.salutation, filled from an explicit personal statement in the CV, an answer/correction, or a clearly gendered first name in the candidate's locale. Leave it unknown for ambiguous or unfamiliar names. This rule applies only to the form of address, never to gender identity questions. Choose the equivalent option in the form's language. If no value is available, a required one is missing.
 - Marital or civil status (Marital status, Zivilstand, Stato civile, État civil): only from profile.civilStatus (the candidate's CV, in its own words) or an answer in portalQuestionsAnswered, choosing the option that means the same in the form's language. Never guess it: when the candidate data does not say, a required one is missing and an optional one is skipped.
@@ -116,6 +119,7 @@ const trimField = (field) => ({
   kind: field.kind,
   label: field.label,
   ...(field.context ? { context: field.context } : {}),
+  ...(Object.hasOwn(field, 'addressContext') ? { addressContext: addressContextContract(field) } : {}),
   required: Boolean(field.required),
   ...(field.value ? { currentValue: field.value } : {}),
   ...(field.maxLength ? { maxLength: field.maxLength } : {}),
@@ -158,14 +162,15 @@ const CONTACT_ADDRESS_ONLY_RE = /^\s*(?:e[-\s]?mail|email|courriel|correo)(?:\s*
 const IDENTITY_EMAIL_RE = /\b(?:e[-\s]?mail|email|courriel|correo)\b/i;
 const EMAIL_CONFIRMATION_RE = /\b(?:re[- ]?enter|enter again|repeat|confirm(?:ation)?|again|erneut|wiederholen|bestätigen|bestaetigen|nochmals|ripeti|conferma|répéter|repeter|confirmer|à nouveau|de nouveau)\b/i;
 const STREET_NAME_ONLY_RE = /\b(?:street|road|strasse|straße|rue)\s+name\b|\b(?:name|nom|nome)\s+(?:of\s+)?(?:the\s+)?(?:street|road|rue|via)\b/i;
-const SENSITIVE_TERMS = String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}|${ADDRESS_FIELD_RE.source}`;
+export const DATE_OF_BIRTH_RE = /(?<![\p{L}\p{N}_])(?:dob|date\s+(?:of\s+)?birth|birth\s*date|birthday|geburts(?:datum|tag)|(?:datum|tag)\s+(?:der\s+)?geburt|data\s+(?:di\s+)?nascita|date\s+(?:de\s+)?naissance|when\s+(?:were|was)\s+(?:you|i|the\s+candidate)\s+born|quando\s+(?:sei|è|e|siete)\s+nat[oa]|nat[oa]\s+il|n[ée]e?\s+le|geboren\s+am|wann\s+(?:sind|bist|wurden|wurdest)\s+(?:sie|du)\s+geboren)(?![\p{L}\p{N}_])/iu;
+const SENSITIVE_TERMS = String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|\bdob\b|ethnic|criminal|strafregister|casellario|${DATE_OF_BIRTH_RE.source}|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}|${ADDRESS_FIELD_RE.source}`;
 // Contact e-mail labels contain the word «adresse/address», but are ordinary
 // identity fields and must not be blocked by the residence-address guard.
-export const SENSITIVE = new RegExp(String.raw`^(?!${CONTACT_ADDRESS_ONLY_RE.source})[\s\S]*(?:${SENSITIVE_TERMS})`, 'i');
+export const SENSITIVE = new RegExp(String.raw`^(?!${CONTACT_ADDRESS_ONLY_RE.source})[\s\S]*(?:${SENSITIVE_TERMS})`, 'iu');
 
 export function isAddressLikeQuestion(question) {
   const label = questionFromLabel(question);
-  return ADDRESS_FIELD_RE.test(label) && !CONTACT_ADDRESS_ONLY_RE.test(label);
+  return ADDRESS_FIELD_RE.test(label) && !CONTACT_ADDRESS_ONLY_RE.test(label) && !isIdentityEmailCaption(label);
 }
 // Questions that can rule the candidate out (career-ops apply.md, knock-outs), a CEFR level ("Deutsch C1?") among them:
 // answered only with a quote of the candidate's data that supports the answer.
@@ -175,12 +180,11 @@ export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (profession
 // notice, the processing of the data, the terms. Never what the candidate may refuse and still
 // apply, nor a box that also declares a fact (a permit, a licence, a level).
 const OWN_CONSENT = /(privacy|datenschutz|data protection|data processing|protezione dei dati|trattamento dei (miei |tuoi |propri )?dati|informativa|protection des données|traitement de(s| mes| vos) données|terms|nutzungsbedingungen|teilnahmebedingungen|termini e condizioni|conditions (générales|d.utilisation))/i;
-const OPTIONAL_CONSENT = /(newsletter|marketing|job.?alert|job.?abo|talent.?pool|future (openings|opportunities|positions|vacancies)|other (companies|vacancies|positions)|weitere stellen|andere stellen|altre (posizioni|offerte|società)|autres (postes|offres|sociétés)|third part|dritte|\bterzi\b|\btiers\b)/i;
 // Some classic portals enforce their application privacy agreement without
 // adding `required` to the checkbox (Ticino Rexx: `agbs_check`). An explicit
 // acceptance sentence is still the application's own consent, not a fact the
 // candidate must supply. Optional marketing/talent-pool wording is excluded
-// below by OPTIONAL_CONSENT.
+// below by isOptionalPurpose.
 const CONSENT_ACCEPTANCE = /\b(accett[oa]|accept(?:e|ed)?|agree(?:d)?|consent(?:o|ire)|j['’]?accepte|ich akzeptiere|ich stimme zu)\b/i;
 const APPLICATION_CONSENT_NAME_RE = /^(?:agbs?|privacy(?:[_:-]?(?:policy|statement|notice))?|consent(?:[_:-]?(?:privacy|data))?|terms?)(?:[_:-]|$)/i;
 const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t|cannot|can['’]?t|can\s+not|unable\s+to|not\s+able\s+to|will\s+not|won['’]?t|shall\s+not|shan['’]?t)\s+(?:accept|agree|consent)|\b(?:non|nein|nicht)\s+(?:accett|acconsent|accept|agree|consent|akzept|stimm)|\bn['’]?accepte\s+pas|\b(?:accepte|akzeptiere|stimme)\s+nicht|\b(?:refus(?:e|al)?|rifiut[oa]|verweigere)\b/i;
@@ -191,14 +195,29 @@ const DECLARES_FACT = new RegExp(String.raw`(permit|bewilligung|permesso di (lav
 
 /** A required checkbox that is the application's own consent, and nothing else. */
 export function ownConsent(field) {
-  const label = String(field?.label || '');
+  // A soft hyphen or a decomposed accent must not hide a refusal or a declared fact from the checks below.
+  const label = String(field?.label || '').replace(/\p{Cf}/gu, '').normalize('NFC');
   const name = `${field?.name || ''} ${field?.autocomplete || ''}`.trim();
+  const fieldId = String(field?.id || '').trim();
   const legacyApplicationConsent = APPLICATION_CONSENT_NAME_RE.test(name);
-  const consentText = `${label} ${name}`;
-  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent;
-  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent) && ownText
-    && !NEGATED_CONSENT.test(consentText) && !OPTIONAL_CONSENT.test(consentText) && !DECLARES_FACT.test(`${label} ${name}`);
+  const privacyIdentifiers = privacySemanticIdentifiers(field);
+  const privacyRepresentations = [field?.question, field?.label, field?.applicationQuestion]
+    .filter(value => typeof value === 'string' && value.trim());
+  const supplementalPrivacyLabels = Array.isArray(field?.labels)
+    ? field.labels.filter(value => typeof value === 'string' && value.trim()) : [];
+  const consentText = `${[...privacyRepresentations, ...supplementalPrivacyLabels].join(' ')} ${privacyIdentifiers.join(' ')}`.trim();
+  const privacyReviewAck = privacyRepresentations.length > 0
+    && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
+    && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, field, ...privacyRepresentations, ...supplementalPrivacyLabels));
+  const privacyReviewShape = privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
+  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || privacyReviewAck || isConsentPurpose(label);
+  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent || privacyReviewAck) && ownText
+    && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(consentText)
+    && !(privacyReviewShape && !privacyReviewAck)
+    && !hasConsentContradiction(consentText, field);
 }
+// A notice printed as a control is read by the same grammar as a box.
+Object.assign(ownConsent, { isNoticeDialog, isNoticeRequest, isNoticeReview, isOptionalPurpose, isRequiredNotice });
 
 // A current job is explicit when the CV's experience period says "ad oggi",
 // "present", "heute", etc. It is not inferred from the first experience entry:
@@ -608,12 +627,13 @@ const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\
 const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street)\b\s*(?:and|et|e|und|&|\/)\s*(?:(?:house|street)\s*)?(?:number|no\.?|n[°ºo]?|numero|numéro|nummer)(?=\s|$|[?.,;:)])/i;
 const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|code\s+postal|npa)\b/i;
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
-const CITY_RE = /\b(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)\b/i;
+const CITY_RE = /(?<![\p{L}\p{N}_])(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)(?![\p{L}\p{N}_])/iu;
 const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indirizz\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 // A generic personal-data section can also contain unrelated labels such as
 // «Data di nascita». Only these residence-specific words override that noise
 // when a sibling-label context contains both kinds of information.
-const PERSONAL_ADDRESS_CONTEXT_RE = /\b(?:my\s+information|personal\s+(?:information|details|data)|contact\s+(?:details|information)|candidate\s+(?:personal\s+)?(?:information|details|data|profile)|dati\s+personali|données\s+personnelles|persönliche\s+(?:daten|angaben))\b/i;
+const PERSONAL_ADDRESS_CONTEXT_RE = /\b(?:my\s+information|personal\s+(?:information|details|data)|contact\s+(?:details|information)|candidate\s+(?:personal\s+)?(?:information|details|data|profile)|(?:dati|informazioni)\s+personali|(?:données|informations|coordonnées)\s+personnelles|persönliche\s+(?:daten|angaben|informationen))\b/i;
+export const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|town|country)|(?:city|town|country)\s+of\s+birth|(?:luogo|comune|citt[àa]|paese|provincia|nazione)\s+(?:di\s+)?nascita|geburts(?:ort|land|stadt)|(?:lieu|ville|pays|commune)\s+de\s+naissance)\b/iu;
 const EXPLICIT_RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|employeur|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro|emergency\s+contact|contact\s+d['’]urgence|contatto\s+di\s+emergenza|reference|referee|next\s+of\s+kin|contact\s+person|supervisor|recruiter|interviewer)\b/i;
 const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|(?:work|employment|professional|career|job)\s+(?:history|experience)|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
@@ -647,23 +667,40 @@ const PHONE_COUNTRY_CODE_LABEL_RE = /\b(?:country|nazione|paese|pays|land)\s+(?:
 
 function isPhoneCountryQuestion(value, context = '', metadata = {}) {
   const label = String(value || '');
+  const hasOwner = Object.hasOwn(metadata || {}, 'addressContext');
+  const owner = addressContextContract(metadata);
+  if (hasOwner && !hasAddressContextOwnership(metadata)) return false;
   const fieldContext = [context, metadata?.section].filter(Boolean).join(' ');
-  const explicitPhoneCountry = (PHONE_COUNTRY_CODE_LABEL_RE.test(label)
-    && (PHONE_CODE_FIELD_RE.test(label)
-      || (PHONE_CODE_FIELD_RE.test(fieldContext) && !RESIDENCE_CONTEXT_RE.test(fieldContext))))
-    || (COUNTRY_RE.test(label) && PHONE_CODE_FIELD_RE.test(label));
+  const ownedContext = hasOwner ? [owner.section, ...owner.owners].join(' ') : fieldContext;
+  if (hasOwner && (NON_RESIDENCE_ADDRESS_RE.test(ownedContext) || WORK_HISTORY_SECTION_RE.test(ownedContext))) return false;
+  // A phone sibling in a generic personal section does not own the country
+  // selector. A named phone scope (or the label itself) must establish prefix intent.
+  const phoneScope = hasOwner ? hasTelephonePurpose([...owner.owners, owner.section]) : PHONE_CODE_FIELD_RE.test(ownedContext);
+  const phoneLabel = PHONE_CODE_FIELD_RE.test(label);
+  const explicitPhoneCountry = (PHONE_COUNTRY_CODE_LABEL_RE.test(label) && (phoneLabel || phoneScope))
+    || (COUNTRY_RE.test(label) && phoneLabel);
   if (explicitPhoneCountry) return !RESIDENCE_CONTEXT_RE.test(label);
-  return COUNTRY_RE.test(label)
-    && PHONE_CODE_FIELD_RE.test(fieldContext)
-    && !RESIDENCE_CONTEXT_RE.test(label)
-    && !RESIDENCE_CONTEXT_RE.test(fieldContext);
+  return residenceFieldRole(label) === 'country' && COUNTRY_RE.test(label)
+    && phoneScope && !RESIDENCE_CONTEXT_RE.test(label)
+    && (hasOwner || !RESIDENCE_CONTEXT_RE.test(fieldContext));
 }
 
 export function addressQuestionTopic(text, context = '', metadata = {}) {
   const value = String(text || '');
+  const role = residenceFieldRole(value);
+  if (!role) return '';
   const surrounding = String(context || '').trim();
-  const section = String(metadata?.section || '').trim();
-  const fieldContext = [surrounding, section].filter(Boolean).join(' ');
+  const hasOwnership = Object.hasOwn(metadata || {}, 'addressContext');
+  const ownership = addressContextContract(metadata);
+  if (hasOwnership && !hasAddressContextOwnership(metadata)) return '';
+  const section = hasOwnership ? ownership.section : String(metadata?.section || '').trim();
+  // Only explicit owners of this control can establish or veto residence.
+  // Legacy callers retain their former section/context contract. The native
+  // reader supplies separate ownership so flattened sibling labels are not
+  // mistaken for the candidate/employer/birthplace owning this address.
+  const fieldContext = hasOwnership ? [section, ...ownership.owners].filter(Boolean).join(' ')
+    : [surrounding, section].filter(Boolean).join(' ');
+  if (hasOwnership && (NON_RESIDENCE_ADDRESS_RE.test(fieldContext) || WORK_HISTORY_SECTION_RE.test(fieldContext))) return '';
   const nonResidenceContext = NON_RESIDENCE_ADDRESS_RE.test(fieldContext);
   const explicitResidenceContext = EXPLICIT_RESIDENCE_CONTEXT_RE.test(fieldContext);
   const employmentContext = EMPLOYMENT_CONTEXT_RE.test(fieldContext) || WORK_HISTORY_SECTION_RE.test(section);
@@ -671,7 +708,7 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   // distinguish it from residence country. The portal context is often a
   // flattened list of every sibling label, though, so do not let a phone
   // label suppress a real residence address in the same personal section.
-  const phoneCodeContext = PHONE_CODE_FIELD_RE.test(fieldContext)
+  const phoneCodeContext = PHONE_CODE_FIELD_RE.test([surrounding, fieldContext].join(' '))
     && PHONE_COUNTRY_CODE_LABEL_RE.test(value);
   // `fieldContext` is a flattened list of sibling labels. A candidate-owned
   // label in that list must not reclassify an emergency/contact-person field
@@ -681,33 +718,36 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   const contactAddress = CONTACT_ADDRESS_RE.test(value) || CONTACT_ADDRESS_RE.test(fieldContext);
   if ((contactAddress && !candidateContactAddress) || PHONE_CODE_FIELD_RE.test(value) || phoneCodeContext || NON_RESIDENCE_ADDRESS_RE.test(value)
     || employmentContext || (nonResidenceContext && !explicitResidenceContext && !candidateContactAddress)) return '';
-  const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(fieldContext)
-    || (PERSONAL_ADDRESS_CONTEXT_RE.test(fieldContext) && !nonResidenceContext);
+  const residenceContext = hasOwnership
+    ? hasResidencePurpose([...ownership.owners, section], value)
+    : RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(fieldContext)
+      || (PERSONAL_ADDRESS_CONTEXT_RE.test(fieldContext) && !nonResidenceContext);
   // `autocomplete=postal-code` identifies the kind of value, not whose
   // address it belongs to. The field's own label, section, or explicit nearby
   // context must still identify candidate residence before reusing the CV.
-  const candidateResidenceProvenance = RESIDENCE_CONTEXT_RE.test(section)
+  const candidateResidenceProvenance = hasOwnership ? residenceContext : RESIDENCE_CONTEXT_RE.test(section)
     || PERSONAL_ADDRESS_CONTEXT_RE.test(section);
   // A standalone postal label needs positive residence provenance from its
   // section or nearby residence context. The field extractor's section also
   // keeps an employer/work-history postal field out.
   // Bare «CAP» still needs explicit residence context.
-  if (STANDALONE_POSTAL_CODE_FIELD_RE.test(value) && (residenceContext || candidateResidenceProvenance)) return 'residence_postal_code';
-  if (STANDALONE_RESIDENCE_POSTAL_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
-  if (POSTAL_CODE_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
-  if (COUNTRY_RE.test(value) && !isNationalityField(value)) return residenceContext ? 'residence_country' : '';
-  if (CITY_RE.test(value)) return residenceContext ? 'residence_city' : '';
-  const street = STREET_ADDRESS_RE.test(text);
-  const houseNumber = HOUSE_NUMBER_RE.test(text);
-  const streetNumberPair = STREET_NUMBER_PAIR_RE.test(text);
-  if (!street && !houseNumber) return '';
-  if ((street && houseNumber) || streetNumberPair) return 'address';
-  return houseNumber ? 'address_house_number' : 'address_street';
+  if (role === 'postalCode') return residenceContext || candidateResidenceProvenance ? 'residence_postal_code' : '';
+  if (role === 'country') return residenceContext && !isNationalityField(value) ? 'residence_country' : '';
+  if (role === 'city') return residenceContext ? 'residence_city' : '';
+  // Native street/house captions identify a type, not whose address it is.
+  if (hasOwnership && !residenceContext) return '';
+  if (role === 'address') return 'address';
+  return role === 'houseNumber' ? 'address_house_number' : role === 'street' ? 'address_street' : '';
 }
 
 /** A stable topic for portal questions whose wording/field id varies by ATS or language. */
 export function questionTopic(label, context = '', metadata = {}) {
   const text = questionFromLabel(label);
+  const nativeBirthDate = /^(?:birth|nascita|geburt|naissance)$/iu.test(text)
+    && (metadata?.inputType === 'date' || metadata?.kind === 'date');
+  // Any birth fact without positive date semantics stays distinct from
+  // current nationality and residence, including mixed/compound captions.
+  if (BIRTH_LOCATION_RE.test(text) || (BIRTH_FIELD_RE.test(text) && !DATE_OF_BIRTH_RE.test(text) && !nativeBirthDate)) return '';
   // `context` is a flattened list of nearby sibling labels, not a trusted
   // parent label. Use it only for the narrowly scoped aliases below; it must
   // not assign another sibling's semantic topic to this question.
@@ -746,8 +786,14 @@ export function questionTopic(label, context = '', metadata = {}) {
   if (isCivilStatusField(text)) return 'civil_status';
   if (isNationalityField(text)) return 'nationality';
   if (isPermitField(text) && asksHeldStatus(text)) return 'permit';
-  if (BIRTH_FIELD_RE.test(text)) return 'birth_date';
+  // Birthplace is a separate hard fact. Neither the residence city nor the
+  // known date of birth answers it; an explicit matching answer can still be
+  // reused without assigning all birthplace questions a shared date topic.
+  // A broad "birth/nascita" marker identifies sensitive data, not a date.
+  // A native date control can resolve an otherwise bare birth caption.
+  if (DATE_OF_BIRTH_RE.test(text) || nativeBirthDate) return 'birth_date';
   if (isPhoneCountryQuestion(text, context, metadata)) return 'phone_country';
+  if (PHONE_COUNTRY_CODE_LABEL_RE.test(text)) return '';
   if (PHONE_CODE_FIELD_RE.test(text)) return 'phone';
   const ageTopic = ageQuestionTopic(text);
   if (ageTopic) return ageTopic;
@@ -758,7 +804,7 @@ export function questionTopic(label, context = '', metadata = {}) {
 }
 
 function comparableAnswer(value) {
-  return String(value || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
+  return String(value ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
 }
 
 function ageQuestionTopic(text) {
@@ -835,7 +881,7 @@ function ageAnswerMatches(candidate, question, answer) {
 }
 
 function comparableContext(context) {
-  return String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+  return String(context || '').slice(0, 240).normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
 function topicNeedsMatchingContext(topic) {
@@ -981,9 +1027,30 @@ function equivalentAnswer(question, left, right, context = '', metadata = {}) {
   return false;
 }
 
+/** Address-like controls require a statement bound to this native owner, even after semantic fallback. */
+export function addressAnswerNeedsOwnership(question, metadata = {}) {
+  if (isIdentityEmailCaption(question)) return false;
+  if (isPhoneCountryQuestion(question, metadata?.context || '', metadata)) return false;
+  return mentionsResidenceFieldRole(question) || isAddressLikeQuestion(question) || CITY_RE.test(String(question || '')) || COUNTRY_RE.test(String(question || '')) || BIRTH_LOCATION_RE.test(String(question || ''))
+    || (BIRTH_FIELD_RE.test(String(question || '')) && questionTopic(question, metadata?.context || '', metadata) !== 'birth_date')
+    || /(?:^|\s)(?:address-level[1-4]|street-address|address-line[1-3]|postal-code|country|country-name)(?:$|\s)/i.test(String(metadata?.autocomplete || ''));
+}
+
+function ownedRecordedAnswer(item, question, metadata) {
+  if (!addressAnswerNeedsOwnership(question, metadata)) return true;
+  // A previous projection of CV/profile data is not a candidate statement
+  // about another person's address. It must never be relabelled as one.
+  if (!['answers', 'candidate', 'user'].includes(item?.source)) return false;
+  const current = addressContextContract(metadata);
+  const previous = addressContextContract(item);
+  if (current === undefined && previous === undefined) return true; // legacy exact-context questions
+  if (!hasAddressContextOwnership(metadata) || !hasAddressContextOwnership(item)) return false;
+  return JSON.stringify(current) === JSON.stringify(previous);
+}
+
 /** The candidate already answered this question, including a wording/ID variant. */
-function recordedAnswerForQuestion(candidate, question, context = '', metadata = {}) {
-  const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.source !== 'policy_default' && String(item?.answer || '').trim());
+function recordedAnswerForQuestion(candidate, question, context = '', metadata = {}, currentOnly = false) {
+  const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.source !== 'policy_default' && String(item?.answer ?? '').trim());
   // A portal can discover a new question while submitting, after the draft's
   // question list was built. Keep the semantic fallback usable in that path
   // too: the answer id still carries the portal question's wording as a slug.
@@ -991,7 +1058,7 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
   // Its candidate-language value is not a second, conflicting statement.
   const mappedAnswerIds = new Set(recorded.map((item) => item.answerId).filter(Boolean));
   const fromAnswerIds = Object.entries(candidate?.answers || {})
-    .filter(([id, answer]) => /^portal_/i.test(id) && !mappedAnswerIds.has(id) && String(answer || '').trim())
+    .filter(([id, answer]) => /^portal_/i.test(id) && !mappedAnswerIds.has(id) && String(answer ?? '').trim())
     .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer, source: 'answer-id' }));
   const items = [...recorded, ...fromAnswerIds];
   const normalized = comparableAnswer(questionFromLabel(question));
@@ -1000,11 +1067,13 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
   const topic = questionTopic(question, context, metadata);
   if (topic === 'start_date_contextual' && !requestedContext) return '';
   const requestedSection = comparableContext(metadata?.section);
-  const requestedAutocomplete = comparableContext(metadata?.autocomplete);
+  const requestedAutocomplete = comparableContext(String(metadata?.autocomplete || '').slice(0, 100));
   const sameContext = (item) => comparableContext(item.context) === requestedContext
     && comparableContext(item.section) === requestedSection
     && comparableContext(item.autocomplete) === requestedAutocomplete;
   const matches = items.filter((item) => {
+    if (currentOnly && item.current !== true) return false;
+    if (!ownedRecordedAnswer(item, question, metadata)) return false;
     const itemQuestion = comparableAnswer(questionFromLabel(item.question));
     const itemTopic = questionTopic(item.question, item.context, item);
     const exact = (sameContext(item) && itemQuestion === normalized)
@@ -1036,7 +1105,8 @@ export function candidateAnswerForQuestion(candidate, question, context = '', me
   // Contact/address facts are canonical identity data. A prior portal answer
   // is only a compatibility fallback when the current candidate record has no
   // value; it must not overwrite a corrected country from the CV/profile.
-  return addressQuestionAnswer(candidate, topic)
+  return (addressQuestionAnswer(candidate, topic) && recordedAnswerForQuestion(candidate, question, context, metadata, true))
+    || addressQuestionAnswer(candidate, topic)
     || recordedAnswerForQuestion(candidate, question, context, metadata);
 }
 
@@ -1075,6 +1145,17 @@ function isChoiceField(field) {
   return Boolean(field?.options?.length || ['combobox', 'select', 'radio'].includes(field?.kind) || field?.selectLike);
 }
 
+function isCheckboxField(field) {
+  return field?.kind === 'checkbox' || field?.inputType === 'checkbox' || field?.type === 'checkbox';
+}
+
+function privacyCheckboxAction(field, value) {
+  if (operationalQuestionTopic(field) !== 'privacy_review_ack'
+    || !isCheckboxField(field)) return null;
+  const checked = booleanAnswer(value);
+  return checked === null ? null : checked ? 'check' : 'uncheck';
+}
+
 function hasExplicitOperationalAnswer(candidate, field) {
   const topic = operationalQuestionTopic(field);
   if (!topic) return false;
@@ -1102,7 +1183,7 @@ function optionForAnswer(field, answer) {
     const permitAnswer = permitAnswerForStatus(field, status);
     if (permitAnswer) return permitAnswer;
   }
-  if (!options.length) return String(answer || '').trim();
+  if (!options.length) return String(answer ?? '').trim();
   if (topic === 'notice_period') return operationalAnswerForOption(field, answer) || '';
   const exact = options.find((option) => comparableAnswer(option.label) === comparableAnswer(answer));
   if (exact) return exact.label;
@@ -1379,7 +1460,8 @@ export function candidateAnswerForField(candidate, field) {
   if (referralSource) return referralSource;
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const canonical = addressQuestionAnswer(candidate, topic);
-    const stated = canonical || previous;
+    const current = recordedAnswerForQuestion(candidate, field?.label, field?.context, field, true);
+    const stated = current || canonical || previous;
     if (!stated) return null;
     let value = field?.options?.length ? optionForAnswer(field, stated) : stated;
     // Workday and similar ATSs split «Street Name» from the house number.
@@ -1391,7 +1473,7 @@ export function candidateAnswerForField(candidate, field) {
         .replace(/\s+[0-9]{1,5}[A-Za-z]?\s*$/, '')
         .trim();
     }
-    return value ? { value, source: canonical ? 'identity' : 'answers' } : null;
+    return value ? { value, source: current ? 'answers' : canonical ? 'identity' : 'answers' } : null;
   }
   if (previous) {
     const value = optionForAnswer(field, previous);
@@ -1679,6 +1761,9 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
+    const plannedPrivacyCheckboxAction = ['fill', 'select'].includes(action.action)
+      ? privacyCheckboxAction(field, action.value) : null;
+    if (plannedPrivacyCheckboxAction) action = { ...action, action: plannedPrivacyCheckboxAction };
     if (['check', 'uncheck'].includes(action.action) && operationalQuestionTopic(field)) {
       const known = candidateAnswerForField(candidate, field);
       const stated = known ? booleanAnswer(known.value) : null;
@@ -1696,7 +1781,8 @@ export function guardPlan(plan, fields, candidate = null) {
         ask(field);
         continue;
       }
-      if (known?.value) action = { ...action, action: isChoiceField(field) ? 'select' : 'fill', value: known.value, source: known.source, evidence: '' };
+      const knownHasValue = known && known.value !== undefined && known.value !== null && String(known.value).trim();
+      if (knownHasValue) action = { ...action, action: privacyCheckboxAction(field, known.value) || (isChoiceField(field) ? 'select' : 'fill'), value: known.value, source: known.source, evidence: '' };
     }
     if (action.action === 'fill' && isDateField(field)) {
       const normalized = normalizeDateAnswer(field, action.value);
@@ -1721,7 +1807,13 @@ export function guardPlan(plan, fields, candidate = null) {
     }
     const addressTopic = questionTopic(field.label, field.context, field);
     const isAddressTopic = ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic);
-    const addressNeedsProvenance = isAddressLikeQuestion(field.label) && !isAddressTopic;
+    const addressNeedsProvenance = addressAnswerNeedsOwnership(field.label, field) && !isAddressTopic;
+    if (addressNeedsProvenance && ['fill', 'select'].includes(action.action)
+      && !answeredByCandidate(candidate, field.label, action.value, field.context, field)) {
+      rejectedActionFields.add(field.id);
+      ask(field);
+      continue;
+    }
     if (['fill', 'select'].includes(action.action) && isAddressTopic) {
       const answer = candidateAnswerForField(candidate, field);
       if (answer) {
@@ -1792,39 +1884,57 @@ export function guardPlan(plan, fields, candidate = null) {
     if (!field.required || answered.has(field.id) || holdsValue(field) || rejectedActionFields.has(field.id)) continue;
     const answer = candidateAnswerForField(candidate, field);
     if (!answer) continue;
-    const value = field.options?.length ? answer.value : normalizeDateAnswer(field, answer.value);
+    const value = isCheckboxField(field)
+      ? String(answer.value ?? '').trim()
+      : field.options?.length ? answer.value : normalizeDateAnswer(field, answer.value);
     if (!value) {
       ask(field);
       continue;
     }
-    actions.push({
+    const recoveryAction = {
       fieldId: field.id,
-      action: isChoiceField(field) ? 'select' : 'fill',
+      action: privacyCheckboxAction(field, value) || (isChoiceField(field) ? 'select' : 'fill'),
       value,
       document: 'none',
       source: answer.source,
       evidence: '',
-    });
-    answered.add(field.id);
+    };
+    actions.push(recoveryAction);
+    if (recoveryAction.action !== 'uncheck') answered.add(field.id);
   }
   // A required field the plan leaves empty (omitted or skipped) is never
   // submitted blank: unless the page already holds a value, it is a question.
+  const pendingUnchecks = new Set(actions.filter((action) => action.action === 'uncheck').map((action) => action.fieldId));
   for (const field of fields) {
+    const answer = candidateAnswerForField(candidate, field);
+    const stated = isCheckboxField(field) && operationalQuestionTopic(field) === 'privacy_review_ack' && answer
+      ? booleanAnswer(answer.value) : null;
+    // A candidate's explicit refusal remains authoritative even if the native
+    // page arrived with the box already ticked from an earlier round.
+    if (stated === false && holdsValue(field) && !pendingUnchecks.has(field.id)) {
+      actions.push({ fieldId: field.id, action: 'uncheck', value: answer.value, document: 'none', source: answer.source, evidence: '' });
+      pendingUnchecks.add(field.id);
+    }
+    const holdsAfterActions = holdsValue(field) && !pendingUnchecks.has(field.id);
     // The application's own consent is no question for the candidate: the
     // mandate covers it, so the box the plan left alone is ticked here (umantis,
     // 2026-10-03: «I agree to the Privacy Policy Statement» came back skipped,
     // and went to the candidate as a text question).
-    if (!answered.has(field.id) && !holdsValue(field) && ownConsent(field)) {
+    if (!answered.has(field.id) && !holdsAfterActions && ownConsent(field)
+      && !hasExplicitOperationalAnswer(candidate, field)) {
       actions.push({ fieldId: field.id, action: 'check', value: '', document: 'none', source: 'consent', evidence: '' });
       answered.add(field.id);
       continue;
     }
-    if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
+    if (!field.required || answered.has(field.id) || holdsAfterActions) continue;
     ask(field);
   }
   const asked = new Set(missing.filter((item) => byId.has(item.fieldId) && !answered.has(item.fieldId)).map((item) => item.fieldId));
   return {
-    actions: actions.filter((action) => !asked.has(action.fieldId)),
+    // Keep an explicit privacy refusal visible to the native filler even when
+    // the required box still holds the candidate; the missing hold remains the
+    // gate and prevents a refusal from becoming an automatic submission.
+    actions: actions.filter((action) => !asked.has(action.fieldId) || action.action === 'uncheck'),
     missingRequired: missing.filter((item) => asked.has(item.fieldId)),
   };
 }

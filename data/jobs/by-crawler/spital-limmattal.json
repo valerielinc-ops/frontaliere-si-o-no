@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-limmattal",
-  "assembledAt": "2026-10-31T09:18:10.360Z",
-  "runId": "41187143984",
+  "assembledAt": "2026-11-01T09:12:01.911Z",
+  "runId": "41291485249",
   "jobs": [
     {
       "id": "spital-limmattal-1d5d5d142e95",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/486538/0895/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:02.195Z",
+      "crawledAt": "2026-11-01T09:11:55.926Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -81,7 +81,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:11:55.926Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-95cd8727bb76",
@@ -115,7 +119,7 @@
       "url": "https://apply.refline.ch/486538/0894/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:01.771Z",
+      "crawledAt": "2026-11-01T09:11:55.457Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -164,7 +168,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:11:55.457Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-8e942442c456",
@@ -198,7 +206,7 @@
       "url": "https://apply.refline.ch/486538/0896/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:01.351Z",
+      "crawledAt": "2026-11-01T09:11:54.987Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -244,7 +252,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:11:54.987Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-b65b195b414f",
@@ -278,7 +290,7 @@
       "url": "https://apply.refline.ch/486538/0893/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:00.928Z",
+      "crawledAt": "2026-11-01T09:11:53.898Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -335,7 +347,11 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:11:53.898Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-7c2f69f792da",
@@ -368,7 +384,7 @@
       "url": "https://apply.refline.ch/486538/0889/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:00.506Z",
+      "crawledAt": "2026-11-01T09:11:53.430Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -417,7 +433,11 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:11:53.430Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-bdbf993092ec",
@@ -451,7 +471,7 @@
       "url": "https://apply.refline.ch/486538/0888/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:00.083Z",
+      "crawledAt": "2026-11-01T09:11:52.961Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -502,7 +522,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:11:52.961Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-9f3d9a3ce8fe",
@@ -535,7 +559,7 @@
       "url": "https://apply.refline.ch/486538/0749/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:59.661Z",
+      "crawledAt": "2026-11-01T09:11:52.491Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -589,7 +613,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:52.491Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-1db8fd1566ca",
@@ -623,7 +651,7 @@
       "url": "https://apply.refline.ch/486538/0711/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:59.237Z",
+      "crawledAt": "2026-11-01T09:11:52.022Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -669,7 +697,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:52.022Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-86eb75b8c770",
@@ -702,7 +734,7 @@
       "url": "https://apply.refline.ch/486538/0779/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:58.814Z",
+      "crawledAt": "2026-11-01T09:11:51.554Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -748,7 +780,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:51.554Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-250247a57efc",
@@ -782,7 +818,7 @@
       "url": "https://apply.refline.ch/486538/0887/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:58.392Z",
+      "crawledAt": "2026-11-01T09:11:51.086Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -828,7 +864,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:11:51.086Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-3146d5d0a34b",
@@ -862,7 +902,7 @@
       "url": "https://apply.refline.ch/486538/0840/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:57.970Z",
+      "crawledAt": "2026-11-01T09:11:50.618Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -911,7 +951,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:50.618Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-bb54889aef3c",
@@ -945,7 +989,7 @@
       "url": "https://apply.refline.ch/486538/0880/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:57.548Z",
+      "crawledAt": "2026-11-01T09:11:50.149Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -994,7 +1038,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:11:50.149Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-b1b3436107f8",
@@ -1028,7 +1076,7 @@
       "url": "https://apply.refline.ch/486538/0883/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:57.125Z",
+      "crawledAt": "2026-11-01T09:11:49.679Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1074,7 +1122,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:11:49.679Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-b5e1bdedd6d7",
@@ -1108,7 +1160,7 @@
       "url": "https://apply.refline.ch/486538/0882/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:56.704Z",
+      "crawledAt": "2026-11-01T09:11:49.210Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1154,7 +1206,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:11:49.210Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-7e4ff3b4957b",
@@ -1188,7 +1244,7 @@
       "url": "https://apply.refline.ch/486538/0886/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:56.281Z",
+      "crawledAt": "2026-11-01T09:11:48.740Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1234,7 +1290,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:11:48.740Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-2cf5c9766338",
@@ -1268,7 +1328,7 @@
       "url": "https://apply.refline.ch/486538/0885/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:55.860Z",
+      "crawledAt": "2026-11-01T09:11:48.270Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1314,7 +1374,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:11:48.270Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-37473eac01a5",
@@ -1348,7 +1412,7 @@
       "url": "https://apply.refline.ch/486538/0884/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:55.433Z",
+      "crawledAt": "2026-11-01T09:11:47.802Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1394,7 +1458,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:11:47.802Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-e59747443729",
@@ -1428,7 +1496,7 @@
       "url": "https://apply.refline.ch/486538/0879/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:54.976Z",
+      "crawledAt": "2026-11-01T09:11:47.333Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1474,7 +1542,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:11:47.333Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-2d2696b89bee",
@@ -1508,7 +1580,7 @@
       "url": "https://apply.refline.ch/486538/0878/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:53.929Z",
+      "crawledAt": "2026-11-01T09:11:46.857Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1554,7 +1626,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:11:46.857Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-4fc67529f8c3",
@@ -1588,7 +1664,7 @@
       "url": "https://apply.refline.ch/486538/0870/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:53.505Z",
+      "crawledAt": "2026-11-01T09:11:46.388Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1637,7 +1713,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:11:46.388Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-9341221d4d86",
@@ -1671,7 +1751,7 @@
       "url": "https://apply.refline.ch/486538/0876/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:53.082Z",
+      "crawledAt": "2026-11-01T09:11:45.916Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1717,7 +1797,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:11:45.916Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-3a8e1a11b2c6",
@@ -1751,7 +1835,7 @@
       "url": "https://apply.refline.ch/486538/0877/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:52.660Z",
+      "crawledAt": "2026-11-01T09:11:45.432Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1797,7 +1881,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:11:45.432Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-df58693f5e53",
@@ -1831,7 +1919,7 @@
       "url": "https://apply.refline.ch/486538/0872/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:52.235Z",
+      "crawledAt": "2026-11-01T09:11:43.919Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1880,7 +1968,11 @@
           "maxValue": 103800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:11:43.919Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-e5fc2c19798f",
@@ -1913,7 +2005,7 @@
       "url": "https://apply.refline.ch/486538/0868/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:51.809Z",
+      "crawledAt": "2026-11-01T09:11:43.450Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1959,7 +2051,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:11:43.450Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-f0b547bb6e64",
@@ -1993,7 +2089,7 @@
       "url": "https://apply.refline.ch/486538/0860/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:51.387Z",
+      "crawledAt": "2026-11-01T09:11:42.980Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2042,7 +2138,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-14T09:11:42.980Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-ff1d0208fd13",
@@ -2075,7 +2175,7 @@
       "url": "https://apply.refline.ch/486538/0864/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:50.965Z",
+      "crawledAt": "2026-11-01T09:11:42.512Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2129,7 +2229,11 @@
           "maxValue": 138400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:11:42.512Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-02ad5d03d2b7",
@@ -2163,7 +2267,7 @@
       "url": "https://apply.refline.ch/486538/0866/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:50.537Z",
+      "crawledAt": "2026-11-01T09:11:42.042Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2214,7 +2318,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:11:42.042Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-77c7c890a47c",
@@ -2248,7 +2356,7 @@
       "url": "https://apply.refline.ch/486538/0616/pub/10/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:50.115Z",
+      "crawledAt": "2026-11-01T09:11:41.573Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2339,7 +2447,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:41.573Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-d5ac99e7cfef",
@@ -2373,7 +2485,7 @@
       "url": "https://apply.refline.ch/486538/0859/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:49.685Z",
+      "crawledAt": "2026-11-01T09:11:41.103Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2437,7 +2549,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-14T09:11:41.103Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-22365b5be5c8",
@@ -2471,7 +2587,7 @@
       "url": "https://apply.refline.ch/486538/0855/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:49.262Z",
+      "crawledAt": "2026-11-01T09:11:40.634Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2517,7 +2633,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:11:40.634Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-9377baf2fc55",
@@ -2551,7 +2671,7 @@
       "url": "https://apply.refline.ch/486538/0854/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:48.838Z",
+      "crawledAt": "2026-11-01T09:11:40.165Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2629,7 +2749,11 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:11:40.165Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-9a9656f70e23",
@@ -2663,7 +2787,7 @@
       "url": "https://apply.refline.ch/486538/0845/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:48.414Z",
+      "crawledAt": "2026-11-01T09:11:39.695Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2711,7 +2835,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:39.695Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-d9c48eceea3f",
@@ -2744,7 +2872,7 @@
       "url": "https://apply.refline.ch/486538/0851/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:47.991Z",
+      "crawledAt": "2026-11-01T09:11:39.226Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2790,7 +2918,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:39.226Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-7a3669f0d113",
@@ -2824,7 +2956,7 @@
       "url": "https://apply.refline.ch/486538/0850/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:47.568Z",
+      "crawledAt": "2026-11-01T09:11:38.756Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2873,7 +3005,11 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:38.756Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-8ef5818d464e",
@@ -2907,7 +3043,7 @@
       "url": "https://apply.refline.ch/486538/0853/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:47.143Z",
+      "crawledAt": "2026-11-01T09:11:38.281Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2956,7 +3092,11 @@
           "maxValue": 138400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:38.281Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-0d6bf9326818",
@@ -2989,7 +3129,7 @@
       "url": "https://apply.refline.ch/486538/0708/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:46.720Z",
+      "crawledAt": "2026-11-01T09:11:37.803Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3038,7 +3178,11 @@
           "maxValue": 103800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:37.803Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-315da7e54413",
@@ -3072,7 +3216,7 @@
       "url": "https://apply.refline.ch/486538/0803/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:46.293Z",
+      "crawledAt": "2026-11-01T09:11:37.334Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3121,7 +3265,11 @@
           "maxValue": 103800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:37.334Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-94ec1c91913f",
@@ -3155,7 +3303,7 @@
       "url": "https://apply.refline.ch/486538/0627/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:45.848Z",
+      "crawledAt": "2026-11-01T09:11:36.866Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3201,7 +3349,11 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:36.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-265840c32e3d",
@@ -3235,7 +3387,7 @@
       "url": "https://apply.refline.ch/486538/0694/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:45.423Z",
+      "crawledAt": "2026-11-01T09:11:36.398Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3283,7 +3435,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:36.398Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-70aa93654f48",
@@ -3317,7 +3473,7 @@
       "url": "https://apply.refline.ch/486538/0841/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:43.794Z",
+      "crawledAt": "2026-11-01T09:11:35.927Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3366,7 +3522,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:35.927Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-caed8e4f5f2b",
@@ -3400,7 +3560,7 @@
       "url": "https://apply.refline.ch/486538/0835/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:43.372Z",
+      "crawledAt": "2026-11-01T09:11:35.455Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3471,7 +3631,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:35.455Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-cb3c558301a8",
@@ -3505,7 +3669,7 @@
       "url": "https://apply.refline.ch/486538/0836/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:42.947Z",
+      "crawledAt": "2026-11-01T09:11:34.987Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3555,7 +3719,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:34.987Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-b856bb2436ca",
@@ -3588,7 +3756,7 @@
       "url": "https://apply.refline.ch/486538/0819/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:42.526Z",
+      "crawledAt": "2026-11-01T09:11:33.879Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3638,7 +3806,11 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:33.879Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-4790b81daa15",
@@ -3672,7 +3844,7 @@
       "url": "https://apply.refline.ch/486538/0410/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:42.104Z",
+      "crawledAt": "2026-11-01T09:11:33.405Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3725,7 +3897,11 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:33.405Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-314319298817",
@@ -3759,7 +3935,7 @@
       "url": "https://apply.refline.ch/486538/0831/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:41.678Z",
+      "crawledAt": "2026-11-01T09:11:32.935Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3808,7 +3984,11 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:32.935Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-d66a33da5d10",
@@ -3842,7 +4022,7 @@
       "url": "https://apply.refline.ch/486538/0824/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:41.254Z",
+      "crawledAt": "2026-11-01T09:11:32.466Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3888,7 +4068,11 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:32.466Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-292e0772ed13",
@@ -3922,7 +4106,7 @@
       "url": "https://apply.refline.ch/486538/0738/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:40.832Z",
+      "crawledAt": "2026-11-01T09:11:31.995Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3975,7 +4159,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:31.995Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-a29288cdb0c7",
@@ -4009,7 +4197,7 @@
       "url": "https://apply.refline.ch/486538/0710/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:40.407Z",
+      "crawledAt": "2026-11-01T09:11:31.523Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4055,7 +4243,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:31.523Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-a493e6e5f0c9",
@@ -4089,7 +4281,7 @@
       "url": "https://apply.refline.ch/486538/0795/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:39.982Z",
+      "crawledAt": "2026-11-01T09:11:31.051Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4139,7 +4331,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:31.051Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-29510a954175",
@@ -4172,7 +4368,7 @@
       "url": "https://apply.refline.ch/486538/0782/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:39.561Z",
+      "crawledAt": "2026-11-01T09:11:30.581Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4235,7 +4431,11 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:30.581Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-e326dbfbdb83",
@@ -4269,7 +4469,7 @@
       "url": "https://apply.refline.ch/486538/0624/pub/5/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:39.138Z",
+      "crawledAt": "2026-11-01T09:11:30.110Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4322,7 +4522,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:30.110Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-2270bb035705",
@@ -4355,7 +4559,7 @@
       "url": "https://apply.refline.ch/486538/0748/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:38.711Z",
+      "crawledAt": "2026-11-01T09:11:29.637Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4422,7 +4626,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:29.637Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-e3f5ba9caf14",
@@ -4456,7 +4664,7 @@
       "url": "https://apply.refline.ch/486538/0552/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:38.283Z",
+      "crawledAt": "2026-11-01T09:11:29.168Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4518,7 +4726,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:29.168Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-a8e3a1553c37",
@@ -4552,7 +4764,7 @@
       "url": "https://apply.refline.ch/486538/0665/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:37.860Z",
+      "crawledAt": "2026-11-01T09:11:28.698Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4613,7 +4825,11 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:28.698Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-697fa64a50fc",
@@ -4647,7 +4863,7 @@
       "url": "https://apply.refline.ch/486538/0551/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:37.432Z",
+      "crawledAt": "2026-11-01T09:11:28.226Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4708,7 +4924,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:28.226Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-b89075272c02",
@@ -4742,7 +4962,7 @@
       "url": "https://apply.refline.ch/486538/0550/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:37.004Z",
+      "crawledAt": "2026-11-01T09:11:27.751Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4804,7 +5024,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:27.751Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-11f9b0ecc8ae",
@@ -4838,7 +5062,7 @@
       "url": "https://apply.refline.ch/486538/0549/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:36.573Z",
+      "crawledAt": "2026-11-01T09:11:27.279Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4926,7 +5150,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:27.279Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-5ac0c89b718d",
@@ -4960,7 +5188,7 @@
       "url": "https://apply.refline.ch/486538/0492/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:36.138Z",
+      "crawledAt": "2026-11-01T09:11:26.807Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5020,7 +5248,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:26.807Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-limmattal-cc23fdf84eac",
@@ -5054,7 +5286,7 @@
       "url": "https://apply.refline.ch/486538/0484/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:35.670Z",
+      "crawledAt": "2026-11-01T09:11:26.318Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5114,105 +5346,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "spital-limmattal-69d6dd7561d7",
-      "slug": "dipl-soccorso-sanitarioater-in-hf-fur-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren",
-      "slugByLocale": {
-        "it": "dipl-soccorso-sanitarioater-in-hf-fur-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren",
-        "en": "dipl-rescue-sanitater-in-hf-fur-our-emergency-station-40-70-spital-limmattal-schlieren",
-        "de": "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-schlieren",
-        "fr": "dipl-sain-de-sauvetageater-en-hf-fur-notre-station-d-urgence-40-70-spital-limmattal-schlieren"
       },
-      "company": "Spital Limmattal",
-      "companyKey": "spital-limmattal",
-      "companyDomain": "spital-limmattal.ch",
-      "title": "Dipl. Rettungssanitäter:in HF für unsere Notfallstation (40-70%)",
-      "titleByLocale": {
-        "it": "Dipl. Salvataggio paramedico HF per il nostro reparto di emergenza (40-70%)",
-        "en": "Dipl. Rescue paramedic HF for our emergency department (40-70%)",
-        "de": "Dipl. Rettungssanitäter:in HF für unsere Notfallstation (40-70%)",
-        "fr": "Dipl. Paramédics: en HF pour notre service d'urgence (40-70%)"
-      },
-      "description": "40% - 70%, nach Vereinbarung\n365 Tage im Jahr, 24 Stunden pro Tag ist das Notfallzentrum für die medizinische Notfallversorgung von über 35'000 Notfallpatient:innen jährlich zuständig. Wir sind stolz auf unsere effiziente, effektive und auf unsere Patient:innen abgestimmte, gesamtheitliche und umfassende Betreuung. Wir freuen uns auf Sie als neues Mitglied in unserem Team.\nUnsere Notfallstation umfasst 14 Überwachungsplätze und einen Schockraum mit 2 Plätzen sowie eine integrierte Notfallpraxis mit 4 Behandlungsräumen.\nExterne Stellenvermittlungsbüros werden nicht berücksichtigt.\nHier engagieren Sie sich\n• Übernahme der Triagefunktion\n• Ersteinschätzung mit ESI Algorythmus und Erstversorgung (Medikamentenabgabe, Infusionen anlegen, Blutentnahmen) aller Patientinnen und Patienten der Notfallstation und Notfallpraxis (umfasst die Fachgebiete Innere Medizin inkl. Stroke Unit, Chirurgie, Orthopädie, Traumatologie, Pädiatrie, Gynäkologie)\n• Lösungsorientierte interdisziplinäre Zusammenarbeit\nSie\n• haben eine abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF\n• verfügen über mehrjährige Berufserfahrung im Rettungsdienst\n• sind eine selbstständige, belastbare und flexible Persönlichkeit\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 98’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’600 Mitarbeitende aus 57 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
-      "descriptionByLocale": {
-        "it": "• Dipl. Paramedici: in HF per il nostro reparto di emergenza (40-70%) 40% - 70%, d'accordo Applicare ora 365 giorni all'anno, 24 ore al giorno, il centro di emergenza è responsabile dell'assistenza medica di oltre 35.000 pazienti di emergenza ogni anno. Siamo orgogliosi della nostra cura efficiente, efficace e coordinata, completa e completa per i nostri pazienti. Non vediamo l'ora di vederti come nuovo membro della nostra squadra. Il nostro reparto di emergenza comprende 14 stazioni di monitoraggio e uno shock room con 2 stazioni e una pratica di emergenza integrata con 4 sale di trattamento. Qui si impegnano\n• Assumere la funzione di triage\n• Stime iniziali con algoritmo ESI e cura primaria (consegna ondulare, infusioni, campionatura del sangue) di tutti i pazienti nel reparto di emergenza e nella pratica di emergenza (include i campi della medicina interna incl. Unità di strozzatura, chirurgia, ortopedia, traumatologia, pediatrica, ginecologia\n• Cooperazione interdisciplinare orientata alle soluzioni\n• hanno completato la formazione come Dipl. EMT/RF\n• hanno diversi anni di esperienza professionale nei servizi di emergenza\n• sono una personalità indipendente, resiliente e flessibile\n• Parcheggio ridotto dei dipendenti\n• Parcheggio moto, parcheggio biciclette chiuso\n• Con ZVV Bonus Pass / Z-Bonus Pass offriamo un attraente e un abbonamento V per i dipendenti",
-        "en": "• Dipl. Paramedics: in HF for our emergency department (40-70%) 40% - 70%, by agreement Apply now 365 days a year, 24 hours a day, the Emergency Center is responsible for the medical emergency care of over 35,000 emergency patients every year. We are proud of our efficient, effective and coordinated, comprehensive and comprehensive care for our patients. We look forward to seeing you as a new member of our team. Our emergency department comprises 14 monitoring stations and a shock room with 2 stations as well as an integrated emergency practice with 4 treatment rooms. Here they engage\n• Taking over the triage function\n• Initial estimate with ESI algorithm and primary care (drug delivery, infusions, blood sampling) of all patients in the emergency department and emergency practice (includes the fields of internal medicine incl. Stroke unit, surgery, orthopaedics, traumatology, pediatrics, gynecology\n• Solution-oriented interdisciplinary cooperation\n• have completed training as a Dipl. EMT/RF\n• have several years of professional experience in emergency services\n• are an independent, resilient and flexible personality\n• Reduced employee parking\n• Motorcycle parking, lockable bicycle parking\n• With the ZVV Bonus Pass / Z-Bonus Pass we offer an attractive ÖV subscription for employees",
-        "de": "40% - 70%, nach Vereinbarung\n365 Tage im Jahr, 24 Stunden pro Tag ist das Notfallzentrum für die medizinische Notfallversorgung von über 35'000 Notfallpatient:innen jährlich zuständig. Wir sind stolz auf unsere effiziente, effektive und auf unsere Patient:innen abgestimmte, gesamtheitliche und umfassende Betreuung. Wir freuen uns auf Sie als neues Mitglied in unserem Team.\nUnsere Notfallstation umfasst 14 Überwachungsplätze und einen Schockraum mit 2 Plätzen sowie eine integrierte Notfallpraxis mit 4 Behandlungsräumen.\nExterne Stellenvermittlungsbüros werden nicht berücksichtigt.\nHier engagieren Sie sich\n• Übernahme der Triagefunktion\n• Ersteinschätzung mit ESI Algorythmus und Erstversorgung (Medikamentenabgabe, Infusionen anlegen, Blutentnahmen) aller Patientinnen und Patienten der Notfallstation und Notfallpraxis (umfasst die Fachgebiete Innere Medizin inkl. Stroke Unit, Chirurgie, Orthopädie, Traumatologie, Pädiatrie, Gynäkologie)\n• Lösungsorientierte interdisziplinäre Zusammenarbeit\nSie\n• haben eine abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF\n• verfügen über mehrjährige Berufserfahrung im Rettungsdienst\n• sind eine selbstständige, belastbare und flexible Persönlichkeit\nIhr neuer Arbeitsort\nUnsere Top-Lage (Limmattalbahn, 4 S-Bahnen, 1 Buslinie in unmittelbarer Nähe) wird durch das LIMMI-Mobilitätskonzept ergänzt:\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an\ns'LIMMI: Ihr Partner fürs Leben\nAls bedeutender Gesundheitspartner mit umfassendem Ausbildungsauftrag übernimmt der Spitalverband Limmattal die erweiterte medizinische Grundversorgung von über 98’000 Patientinnen und Patienten jährlich, in allen Lebensphasen. Das LIMMI ist breit spezialisiert und bietet eine qualitativ hochstehende medizinische Versorgung sowie vertieftes Expertenwissen in zahlreichen chirurgischen, medizinischen und pflegerischen Fach- und Spezialdisziplinen. Der Spitalverband verfügt über 188 Betten im Akutbereich, 126 Betten in der Langzeitpflege, einen spitalgebundenen Rettungsdienst sowie neun Operationssäle und acht Intensivpflegeplätze. Mehr als 1’600 Mitarbeitende aus 57 Nationen erbringen täglich ausgezeichnete und vielfältige Leistungen.",
-        "fr": "• Dipl. Paramédics: en HF pour notre service d'urgence (40-70%) 40% - 70%, par accord Appliquer maintenant 365 jours par an, 24 heures sur 24, le Centre d'urgence est responsable des soins médicaux d'urgence de plus de 35 000 patients chaque année. Nous sommes fiers de nos soins efficaces, efficaces et coordonnés, complets et complets pour nos patients. Nous sommes impatients de vous voir comme un nouveau membre de notre équipe. Notre service d'urgence comprend 14 stations de surveillance et une salle de choc avec 2 stations ainsi qu'une pratique d'urgence intégrée avec 4 salles de traitement. Ici ils s'engagent\n• Reprise de la fonction de triage\n• Estimation initiale à l'aide de l'algorithme ESI et des soins primaires (livraison de médicaments, perfusions, prélèvement de sang) de tous les patients du service d'urgence et de la pratique d'urgence (comprend les domaines de la médecine interne, y compris : Unité d'AVC, chirurgie, orthopédie, traumatologie, pédiatrie, gynécologie\n• Coopération interdisciplinaire orientée vers la solution\n• ont terminé la formation comme dipl. EMT/RF\n• ont plusieurs années d'expérience professionnelle dans les services d'urgence\n• sont une personnalité indépendante, résistante et flexible\n• Stationnement réduit des employés\n• Parking moto, parking vélo verrouillable\n• Avec le ZVV Bonus Pass / Z-Bonus Pass nous offrons un abonnement attrayant ÖV pour les employés"
-      },
-      "needsRetranslation": false,
-      "location": "Schlieren",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/486538/0579/pub/5/index.html",
-      "source": "Spital Limmattal Dedicated Parser (Refline)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:30:29.235Z",
-      "addressLocality": "Schlieren",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8952",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2025-06-30T07:26:58.235629+00:00",
-      "postedDate": "2025-06-30T07:26:58.235629+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/486538/0579/pub/5/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 40,
-      "pensumMax": 70,
-      "pensum": "40 - 70%",
-      "previousSlugs": [
-        "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
-        "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-schlieren",
-        "dipl-soccorso-sanitario-u00e4ter-in-hf-f-u00fcr-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren",
-        "dipl-rescue-sanit-u00e4ter-in-hf-f-u00fcr-our-emergency-station-40-70-spital-limmattal-schlieren",
-        "dipl-sain-de-sauvetage-u00e4ter-en-hf-f-u00fcr-notre-station-d-urgence-40-70-spital-limmattal-schlieren",
-        "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch",
-        "dipl-rettungssanitater-in-hf-per-la-nostra-notfallstation-40-70-spital-limmattal-schlieren"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
-          "dipl-soccorso-sanitario-u00e4ter-in-hf-f-u00fcr-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren",
-          "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch",
-          "dipl-rettungssanitater-in-hf-per-la-nostra-notfallstation-40-70-spital-limmattal-schlieren"
-        ],
-        "en": [
-          "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
-          "dipl-rescue-sanit-u00e4ter-in-hf-f-u00fcr-our-emergency-station-40-70-spital-limmattal-schlieren"
-        ],
-        "de": [
-          "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch"
-        ],
-        "fr": [
-          "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
-          "dipl-sain-de-sauvetage-u00e4ter-en-hf-f-u00fcr-notre-station-d-urgence-40-70-spital-limmattal-schlieren"
-        ]
-      },
-      "firstSeenAt": "2026-06-30T23:19:47.706Z",
-      "salaryMin": 64000,
-      "salaryMax": 89600,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 64000,
-          "maxValue": 89600,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:26.318Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,25 +1,25 @@
 {
   "key": "kanton-gr",
   "label": "Kantonale Verwaltung Graubünden",
-  "generatedAt": "2026-10-31T09:18:19.904Z",
-  "total": 42,
+  "generatedAt": "2026-11-01T09:14:49.669Z",
+  "total": 41,
   "discovered": null,
-  "parsed": 43,
+  "parsed": 42,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 42,
+  "written": 41,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 41,
-  "durationMs": 36087,
-  "avgDurationMs": 36087,
+  "removedCount": 1,
+  "unchangedCount": 40,
+  "durationMs": 36626,
+  "avgDurationMs": 36626,
   "durationHistory": [
-    36087
+    36626
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/514915/2889/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:50.609Z",
+      "crawledAt": "2026-11-01T09:14:15.308Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -61,6 +61,59 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:14:15.308Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [
+    {
+      "id": "kanton-gr-27df76d55106",
+      "slug": "segretario-a-dell-ispettorato-scolastico-kantonale-verwaltung-graubunden-thusis",
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Sekretär/-in Schulinspektorat",
+      "location": "Thusis",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2871/pub/2/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-30T21:15:54.366Z",
+      "addressLocality": "Thusis",
+      "postalCode": "7430",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-06T09:17:21.092479+00:00",
+      "postedDate": "2026-10-06T09:17:21.092479+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/514915/2871/pub/2/index.html",
+      "department": "Amt für Volksschule und Sport",
+      "applicationDeadline": "2026-10-30",
+      "pensumMin": 40,
+      "pensumMax": 40,
+      "pensum": "40%",
+      "firstSeenAt": "2026-10-08T09:16:54.650Z",
+      "salaryMin": 48500,
+      "salaryMax": 89500,
+      "salarySource": "estimated",
+      "addressRegion": "GR",
+      "crawlerMissStreak": 2,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -70,7 +123,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "kanton-gr-b176b2910754",
@@ -84,7 +136,7 @@
       "url": "https://apply.refline.ch/514915/2817/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:06.243Z",
+      "crawledAt": "2026-11-01T09:14:31.502Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -107,12 +159,16 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Scuol",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:31.502Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -127,7 +183,7 @@
       "url": "https://apply.refline.ch/514915/2778/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:05.575Z",
+      "crawledAt": "2026-11-01T09:14:30.833Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -150,12 +206,16 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:30.833Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -170,7 +230,7 @@
       "url": "https://apply.refline.ch/514915/2763/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:04.239Z",
+      "crawledAt": "2026-11-01T09:14:29.494Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -193,12 +253,16 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:29.494Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -213,7 +277,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/9/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:03.568Z",
+      "crawledAt": "2026-11-01T09:14:28.230Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -236,12 +300,16 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Landquart",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:28.230Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -256,7 +324,7 @@
       "url": "https://apply.refline.ch/514915/2773/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:02.888Z",
+      "crawledAt": "2026-11-01T09:14:27.562Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -279,12 +347,16 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:27.562Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -299,7 +371,7 @@
       "url": "https://apply.refline.ch/514915/2768/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:02.217Z",
+      "crawledAt": "2026-11-01T09:14:26.893Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -322,12 +394,16 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Samedan",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:26.893Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -342,7 +418,7 @@
       "url": "https://apply.refline.ch/514915/2770/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:01.547Z",
+      "crawledAt": "2026-11-01T09:14:26.225Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -365,12 +441,16 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Ilanz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:26.225Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -385,7 +465,7 @@
       "url": "https://apply.refline.ch/514915/2769/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:00.862Z",
+      "crawledAt": "2026-11-01T09:14:25.515Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -408,12 +488,16 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Scuol",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:25.515Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -428,7 +512,7 @@
       "url": "https://apply.refline.ch/514915/2767/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:00.192Z",
+      "crawledAt": "2026-11-01T09:14:24.846Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -451,12 +535,16 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:24.846Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -471,7 +559,7 @@
       "url": "https://apply.refline.ch/514915/2765/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:57.979Z",
+      "crawledAt": "2026-11-01T09:14:23.510Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -494,12 +582,16 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Scuol",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:23.510Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -514,7 +606,7 @@
       "url": "https://apply.refline.ch/514915/2893/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:57.309Z",
+      "crawledAt": "2026-11-01T09:14:22.840Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -540,12 +632,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:14:22.840Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -560,7 +656,7 @@
       "url": "https://apply.refline.ch/514915/2892/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:56.638Z",
+      "crawledAt": "2026-11-01T09:14:22.171Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -586,12 +682,16 @@
       "salaryMax": 73000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:14:22.171Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -606,7 +706,7 @@
       "url": "https://apply.refline.ch/514915/2902/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:55.967Z",
+      "crawledAt": "2026-11-01T09:14:21.497Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -632,12 +732,16 @@
       "salaryMax": 174000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:14:21.497Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -652,7 +756,7 @@
       "url": "https://apply.refline.ch/514915/2899/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:55.298Z",
+      "crawledAt": "2026-11-01T09:14:20.830Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -678,12 +782,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:20.830Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -698,7 +806,7 @@
       "url": "https://apply.refline.ch/514915/2903/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:54.628Z",
+      "crawledAt": "2026-11-01T09:14:20.161Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -724,12 +832,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:14:20.161Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -744,7 +856,7 @@
       "url": "https://apply.refline.ch/514915/2898/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:53.960Z",
+      "crawledAt": "2026-11-01T09:14:19.493Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -769,12 +881,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:19.493Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -789,7 +905,7 @@
       "url": "https://apply.refline.ch/514915/2897/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:53.290Z",
+      "crawledAt": "2026-11-01T09:14:17.985Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -815,12 +931,16 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:17.985Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -835,7 +955,7 @@
       "url": "https://apply.refline.ch/514915/2896/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:52.621Z",
+      "crawledAt": "2026-11-01T09:14:17.316Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -861,12 +981,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:17.316Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -881,7 +1005,7 @@
       "url": "https://apply.refline.ch/514915/2895/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:51.952Z",
+      "crawledAt": "2026-11-01T09:14:16.648Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -907,12 +1031,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:14:16.648Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -927,7 +1055,7 @@
       "url": "https://apply.refline.ch/514915/2887/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:51.282Z",
+      "crawledAt": "2026-11-01T09:14:15.977Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -953,12 +1081,16 @@
       "salaryMax": 174000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:14:15.977Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -973,7 +1105,7 @@
       "url": "https://apply.refline.ch/514915/2885/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:49.939Z",
+      "crawledAt": "2026-11-01T09:14:14.640Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -999,12 +1131,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:14:14.640Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1019,7 +1155,7 @@
       "url": "https://apply.refline.ch/514915/2891/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:48.284Z",
+      "crawledAt": "2026-11-01T09:14:13.970Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1045,12 +1181,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:14:13.970Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1065,7 +1205,7 @@
       "url": "https://apply.refline.ch/514915/2890/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:47.614Z",
+      "crawledAt": "2026-11-01T09:14:13.297Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1091,12 +1231,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:14:13.297Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1111,7 +1255,7 @@
       "url": "https://apply.refline.ch/514915/2888/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:46.945Z",
+      "crawledAt": "2026-11-01T09:14:12.626Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1137,12 +1281,16 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:14:12.626Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1157,7 +1305,7 @@
       "url": "https://apply.refline.ch/514915/2878/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:46.280Z",
+      "crawledAt": "2026-11-01T09:14:11.955Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -1183,12 +1331,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Landquart",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:14:11.955Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1203,7 +1355,7 @@
       "url": "https://apply.refline.ch/514915/2884/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:45.611Z",
+      "crawledAt": "2026-11-01T09:14:11.284Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1229,12 +1381,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:14:11.284Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1249,7 +1405,7 @@
       "url": "https://apply.refline.ch/514915/2883/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:44.933Z",
+      "crawledAt": "2026-11-01T09:14:10.614Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1275,12 +1431,16 @@
       "salaryMax": 174000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:14:10.614Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1295,7 +1455,7 @@
       "url": "https://apply.refline.ch/514915/2879/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:44.265Z",
+      "crawledAt": "2026-11-01T09:14:09.944Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1321,12 +1481,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:14:09.944Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1341,7 +1505,7 @@
       "url": "https://apply.refline.ch/514915/2881/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:43.590Z",
+      "crawledAt": "2026-11-01T09:14:08.432Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1367,12 +1531,16 @@
       "salaryMax": 89500,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:14:08.432Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1387,7 +1555,7 @@
       "url": "https://apply.refline.ch/514915/2880/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:42.925Z",
+      "crawledAt": "2026-11-01T09:14:07.754Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1413,14 +1581,18 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:14:07.754Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

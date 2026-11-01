@@ -1,7 +1,7 @@
 {
   "key": "eraneos",
   "label": "Eraneos Switzerland AG",
-  "generatedAt": "2026-10-31T09:14:45.496Z",
+  "generatedAt": "2026-11-01T09:12:50.451Z",
   "total": 52,
   "discovered": null,
   "parsed": 52,
@@ -13,150 +13,17 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 2,
-  "unchangedCount": 51,
-  "durationMs": 54839,
-  "avgDurationMs": 54839,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 52,
+  "durationMs": 53912,
+  "avgDurationMs": 53912,
   "durationHistory": [
-    54839
+    53912
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "eraneos-491b28309bc0",
-      "slug": "senior-consulente-public-procurement-80-100-eraneos-switzerland-ag-zurich",
-      "company": "Eraneos Switzerland AG",
-      "companyKey": "eraneos",
-      "companyDomain": "eraneos.com",
-      "title": "(Senior) Consultant Public Procurement 80-100%",
-      "needsRetranslation": false,
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/XMLNAME--Senior--Consultant-Public-Procurement-80-100-_JR100315",
-      "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:13:46.175Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Consulenza IT / Digital",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/XMLNAME--Senior--Consultant-Public-Procurement-80-100-_JR100315",
-      "jobReqId": "JR100315",
-      "firstSeenAt": "2026-10-30T21:15:50.487Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "eraneos-0fc953c8e65b",
-      "slug": "cyber-security-senior-consulente-transport-logistica-80-100-eraneos-switzerland-ag-zurich",
-      "company": "Eraneos Switzerland AG",
-      "companyKey": "eraneos",
-      "companyDomain": "eraneos.com",
-      "title": "Cyber Security Senior Consultant Transport & Logistics 80-100%",
-      "needsRetranslation": true,
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Cyber-Security-Senior-Consultant-Transport---Logistics-80-100-_JR100243",
-      "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:19:11.232Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Consulenza IT / Digital",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-04-02",
-      "postedDate": "2026-04-02",
-      "postingDateSource": "reported",
-      "applyUrl": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Cyber-Security-Senior-Consultant-Transport---Logistics-80-100-_JR100243",
-      "jobReqId": "JR100243",
-      "firstSeenAt": "2026-07-04T10:48:24.622Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "eraneos-2d59a90a3d52",
-      "slug": "ai-solution-architetto-80-100-eraneos-switzerland-ag-zurich",
-      "company": "Eraneos Switzerland AG",
-      "companyKey": "eraneos",
-      "companyDomain": "eraneos.com",
-      "title": "AI Solution Architect 80-100%",
-      "needsRetranslation": true,
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/AI-Solution-Architect-80-100-_JR100312",
-      "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:18:31.454Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Consulenza IT / Digital",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-28",
-      "postedDate": "2026-10-28",
-      "postingDateSource": "reported",
-      "applyUrl": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/AI-Solution-Architect-80-100-_JR100312",
-      "jobReqId": "JR100312",
-      "firstSeenAt": "2026-10-28T09:15:37.940Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "updatedJobs": [],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "eraneos-4cecf26017c6",
@@ -165,13 +32,12 @@
       "companyKey": "eraneos",
       "companyDomain": "eraneos.com",
       "title": "Senior Consultant / Project Manager Telecom (Data Network/5G/FRMCS) – Public Transport",
-      "needsRetranslation": true,
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Senior-Projektleiter-in-Public-Transportation-Schwerpunkt-Telekom-80-100-_JR100240",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:23.192Z",
+      "crawledAt": "2026-11-01T09:12:34.246Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -193,12 +59,16 @@
       "salaryMax": 206500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:34.246Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -214,7 +84,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Cloud-Consultant---Cloud-Architect--60-100---all-genders-_JR100030",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:22.429Z",
+      "crawledAt": "2026-11-01T09:12:33.313Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -236,12 +106,16 @@
       "salaryMax": 134500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:33.313Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -257,7 +131,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/XMLNAME--Senior--Manager-Digital-Infrastructure---Workplace-80-100-_JR100209",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:21.410Z",
+      "crawledAt": "2026-11-01T09:12:32.453Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -279,12 +153,16 @@
       "salaryMax": 206500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:32.453Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -299,7 +177,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Lausanne/Senior-Manager---Principal-Industrial-Products---Consumer-Goods-80---100-_JR100212",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:14:20.692Z",
+      "crawledAt": "2026-11-01T09:12:31.693Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -321,12 +199,26 @@
       "salaryMax": 163000,
       "salarySource": "estimated",
       "postalCode": "1003",
-      "_qualityScore": 94,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Eraneos Switzerland AG",
+        "streetAddress": "Avenue de la Rasude 5",
+        "postalCode": "1003",
+        "addressLocality": "Lausanne",
+        "addressRegion": "VD",
+        "checkedAt": "2026-10-31T20:48:40.863Z"
+      },
+      "streetAddress": "Avenue de la Rasude 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:12:31.693Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -341,7 +233,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Senior-Consultant-Solution----Integrations-Architektur-80-100-_JR100262",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:19.962Z",
+      "crawledAt": "2026-11-01T09:12:30.939Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -363,12 +255,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:30.939Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -384,7 +280,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/XMLNAME--Senior--Consultant-ERP-Strategy---Architecture--80-100---all-genders-_JR100037",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:19.169Z",
+      "crawledAt": "2026-11-01T09:12:30.107Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -409,12 +305,16 @@
       "salaryMax": 134500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 96,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:30.107Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -430,7 +330,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Enterprise-Solution-Architect-80-100-_JR100263",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:18.415Z",
+      "crawledAt": "2026-11-01T09:12:29.315Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -452,12 +352,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 96,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:29.315Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -472,7 +376,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Senior-Manager---Principal-Fertigungsindustrie---Consumer-Goods-80-100-_JR100227",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:17.703Z",
+      "crawledAt": "2026-11-01T09:12:28.555Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -494,12 +398,16 @@
       "salaryMax": 172000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:28.555Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -515,7 +423,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/XMLNAME--Senior--Cloud-Solution-Architect-80-100-_JR100253",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:16.974Z",
+      "crawledAt": "2026-11-01T09:12:27.814Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -537,12 +445,16 @@
       "salaryMax": 206500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 96,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:27.814Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -557,7 +469,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Consultant-Enterprise-Architektur--60-100---all-genders-_JR100018",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:16.214Z",
+      "crawledAt": "2026-11-01T09:12:26.990Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -579,12 +491,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:26.990Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -599,7 +515,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/XMLNAME--Senior--Consultant-Life-Science-R-D-80-100-_JR100194",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:14:15.474Z",
+      "crawledAt": "2026-11-01T09:12:26.207Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -621,12 +537,16 @@
       "salaryMax": 172000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:26.207Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -641,7 +561,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/XMLNAME--Senior--Consultant-Datacenter---Digitale-Infrastruktur---Real-Estate-80-100-_JR100254",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:14.660Z",
+      "crawledAt": "2026-11-01T09:12:25.368Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -663,12 +583,16 @@
       "salaryMax": 206500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:25.368Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -684,7 +608,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Senior-Manager-Digital-Manufacturing-Consulting-100-_JR100266",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:13.886Z",
+      "crawledAt": "2026-11-01T09:12:24.578Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -706,12 +630,16 @@
       "salaryMax": 172000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.578Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -726,7 +654,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Consultant-Identity---Access-Management--60-100---all-genders-_JR100067",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:13.153Z",
+      "crawledAt": "2026-11-01T09:12:23.834Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -748,12 +676,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:23.834Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -768,7 +700,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/AI-Security---Consultant---Manager-80-100-_JR100286",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:12.178Z",
+      "crawledAt": "2026-11-01T09:12:23.028Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -790,12 +722,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:23.028Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -811,7 +747,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Medical-Affairs---Commercial-Expert-80--100-_JR100290",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:14:11.432Z",
+      "crawledAt": "2026-11-01T09:12:22.261Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -833,12 +769,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:22.261Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -854,7 +794,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Cloud-Security-Consultant---Manager-80-100-_JR100292-1",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:10.715Z",
+      "crawledAt": "2026-11-01T09:12:21.501Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -876,12 +816,16 @@
       "salaryMax": 206500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:21.501Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -896,7 +840,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Senior-Consultant-CIO-Advisory-80-100-_JR100216",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:09.959Z",
+      "crawledAt": "2026-11-01T09:12:20.749Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -918,12 +862,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:20.749Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -938,7 +886,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/IT-Conusltant-PLM-und-R-D--80-100---all-genders-_JR100125",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:09.214Z",
+      "crawledAt": "2026-11-01T09:12:19.968Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -960,12 +908,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 96,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:19.968Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -980,7 +932,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Consultant-Telecom---Network-Transformation-70-100-_JR100277",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:08.478Z",
+      "crawledAt": "2026-11-01T09:12:19.173Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1002,12 +954,16 @@
       "salaryMax": 134500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:19.173Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1023,7 +979,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Business-Analyst-Transport---Logistics--80-100--_JR100299-1",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:07.743Z",
+      "crawledAt": "2026-11-01T09:12:18.383Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1045,12 +1001,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:18.383Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1066,7 +1026,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Legal-Strategy--Senior--Consultant-80-100-_JR100300",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:06.987Z",
+      "crawledAt": "2026-11-01T09:12:17.567Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1088,12 +1048,16 @@
       "salaryMax": 225500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:17.567Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1109,7 +1073,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Defence--Senior--Consultant--80-100---all-genders-_JR100012",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:06.244Z",
+      "crawledAt": "2026-11-01T09:12:16.772Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1131,12 +1095,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 94,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:12:16.772Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1152,7 +1120,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Einstieg-in-die-Beratung-fr-Hochschulabgnger-innen--80-100---all-genders-_JR100052",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:05.532Z",
+      "crawledAt": "2026-11-01T09:12:15.997Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1174,12 +1142,16 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:12:15.997Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1195,7 +1167,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Security-Architecture---Zero-Trust----Senior--Consultant---Manager-80-100-_JR100267",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:04.796Z",
+      "crawledAt": "2026-11-01T09:12:15.244Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1217,12 +1189,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:12:15.244Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1238,7 +1214,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/XMLNAME--Senior--Data---AI-Delivery-Lead-80-100-_JR100302",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:04.028Z",
+      "crawledAt": "2026-11-01T09:12:14.429Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1260,12 +1236,16 @@
       "salaryMax": 206500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:12:14.429Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1275,12 +1255,13 @@
       "companyKey": "eraneos",
       "companyDomain": "eraneos.com",
       "title": "(Senior) Forward Deployed Data & AI Engineer 80-100%",
+      "needsRetranslation": false,
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/XMLNAME--Senior--Forward-Deployed-Data---AI-Engineer-80-100-_JR100303",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:03.221Z",
+      "crawledAt": "2026-11-01T09:12:13.649Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1302,12 +1283,16 @@
       "salaryMax": 172000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:12:13.649Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1322,7 +1307,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/Projektleiter-in--60-100---all-genders-_JR100054",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:02.392Z",
+      "crawledAt": "2026-11-01T09:12:12.748Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1344,12 +1329,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:12:12.748Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1365,7 +1354,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/XMLNAME--Senior--Data-Platform----Data-Engineering-Consultant-60-100-_JR100181",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:01.350Z",
+      "crawledAt": "2026-11-01T09:12:11.949Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1387,12 +1376,16 @@
       "salaryMax": 206500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 96,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:12:11.949Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1408,7 +1401,7 @@
       "url": "https://eraneos.wd3.myworkdayjobs.com/en-US/Eraneos_External_Career_Site/job/Zurich/XMLNAME--Senior--Business-Analyst-ffentliche-Verwaltung-60-100-_JR100229",
       "source": "Eraneos Switzerland AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:00.591Z",
+      "crawledAt": "2026-11-01T09:12:11.071Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1430,14 +1423,18 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:12:11.071Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

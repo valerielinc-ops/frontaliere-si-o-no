@@ -238,6 +238,53 @@ describe('hub freshness regression from the stale site copy', () => {
     expect(verdict.note).toContain('live hub and corpus-main identities converge');
     expect(fetchMock).toHaveBeenCalledTimes(3);
   });
+
+  it('publishes only the live-proven client subset when a handoff is mixed', async () => {
+    const fetchMock = vi.fn(async (input: string | URL) => {
+      const url = String(input);
+      if (url.endsWith('/manifest.json')) {
+        return { ok: true, json: async () => ({ counts: { swissArticles: 3 } }) };
+      }
+      if (url.endsWith('/slugs.json')) {
+        return {
+          ok: true,
+          json: async () => ({ swiss: { stable: { it: 'stable' } } }),
+        };
+      }
+      if (url === 'https://frontaliereticino.ch/articoli-svizzera/') {
+        return {
+          ok: true,
+          text: async () => [
+            '<main class="ssg-article-grid">',
+            '<a class="ssg-art-card" href="/articoli-svizzera/already-live/"></a>',
+            '<a class="ssg-art-card" href="/articoli-svizzera/stable/"></a>',
+            '</main>',
+          ].join(''),
+        };
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const recent = freshTimestamp();
+    const verdict = await checkCorpusFreshness(
+      'svizzera',
+      3,
+      {
+        localRegistry: registryFor(['stable', 'already-live', 'not-yet-live']),
+        changeAtById: { 'already-live': recent, 'not-yet-live': recent },
+      },
+    );
+
+    expect(verdict.ok).toBe(false);
+    expect(verdict.deferred).toBe(true);
+    expect(verdict.clientOnly).toBe(true);
+    expect(verdict.clientArticleIds).toEqual(['stable', 'already-live']);
+    expect(verdict.note).toContain('already-live');
+    expect(verdict.note).toContain('not-yet-live');
+    expect(verdict.note).toContain('proven client registry subset');
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
 });
 
 describe('hub freshness quantity limits come before any history lookup', () => {

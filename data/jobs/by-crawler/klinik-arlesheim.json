@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-arlesheim",
-  "assembledAt": "2026-10-31T09:26:37.413Z",
-  "runId": "41188121331",
+  "assembledAt": "2026-11-01T09:41:46.520Z",
+  "runId": "41292532779",
   "jobs": [
     {
       "id": "klinik-arlesheim-0da3ec875850",
@@ -35,7 +35,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/fb81d846-baa0-4569-bcac-e1d37e8221c8/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:30.704Z",
+      "crawledAt": "2026-11-01T09:41:39.930Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -116,7 +116,21 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Arlesheim",
+        "streetAddress": "Pfeffingerweg 1",
+        "postalCode": "4144",
+        "addressLocality": "Arlesheim",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:49:32.445Z"
+      },
+      "streetAddress": "Pfeffingerweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-03T09:41:39.930Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-arlesheim-cd6ee4c52912",
@@ -150,7 +164,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/40ed87b2-7458-45c7-86ca-bcbdd434ae7b/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:30.316Z",
+      "crawledAt": "2026-11-01T09:41:39.480Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -206,7 +220,21 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Arlesheim",
+        "streetAddress": "Pfeffingerweg 1",
+        "postalCode": "4144",
+        "addressLocality": "Arlesheim",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:49:32.445Z"
+      },
+      "streetAddress": "Pfeffingerweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-30T09:41:39.480Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-arlesheim-b76ebba9f296",
@@ -240,7 +268,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/ece50152-606a-4d7f-b7e8-afa88e34e616/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:29.920Z",
+      "crawledAt": "2026-11-01T09:41:38.918Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -290,7 +318,21 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Arlesheim",
+        "streetAddress": "Pfeffingerweg 1",
+        "postalCode": "4144",
+        "addressLocality": "Arlesheim",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:49:32.445Z"
+      },
+      "streetAddress": "Pfeffingerweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-30T09:41:38.918Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-arlesheim-fe5b826200df",
@@ -323,7 +365,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/53d7d098-9ffd-4a26-8846-aaee9439e20e/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:29.522Z",
+      "crawledAt": "2026-11-01T09:41:38.464Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -380,7 +422,21 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Arlesheim",
+        "streetAddress": "Pfeffingerweg 1",
+        "postalCode": "4144",
+        "addressLocality": "Arlesheim",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:49:32.445Z"
+      },
+      "streetAddress": "Pfeffingerweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-30T09:41:38.464Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-arlesheim-d9e1612b7d04",
@@ -413,7 +469,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/231a7f8d-bd7b-4f12-923b-144c31173006/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:26:29.131Z",
+      "crawledAt": "2026-11-01T09:41:37.995Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -455,7 +511,21 @@
           "maxValue": 110700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Arlesheim",
+        "streetAddress": "Pfeffingerweg 1",
+        "postalCode": "4144",
+        "addressLocality": "Arlesheim",
+        "addressRegion": "BL",
+        "checkedAt": "2026-10-31T20:49:32.445Z"
+      },
+      "streetAddress": "Pfeffingerweg 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-30T09:41:37.995Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

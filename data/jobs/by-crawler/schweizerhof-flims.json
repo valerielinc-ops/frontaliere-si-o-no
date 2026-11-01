@@ -1,7 +1,7 @@
 {
   "crawlerKey": "schweizerhof-flims",
-  "assembledAt": "2026-10-31T09:14:38.530Z",
-  "runId": "41187068114",
+  "assembledAt": "2026-11-01T09:17:58.821Z",
+  "runId": "41291409806",
   "jobs": [
     {
       "id": "schweizerhof-flims-f2f02441a96d",
@@ -34,7 +34,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18877",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:32.819Z",
+      "crawledAt": "2026-11-01T09:17:51.674Z",
       "addressLocality": "Flims",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -81,7 +81,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:51.674Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

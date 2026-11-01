@@ -1,7 +1,7 @@
 {
   "key": "bms-building",
   "label": "BMS Building Materials",
-  "generatedAt": "2026-10-31T09:15:23.953Z",
+  "generatedAt": "2026-11-01T09:12:49.160Z",
   "total": 40,
   "discovered": null,
   "parsed": 41,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 40,
-  "durationMs": 56206,
-  "avgDurationMs": 56206,
+  "durationMs": 52205,
+  "avgDurationMs": 52205,
   "durationHistory": [
-    56206
+    52205
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/241-mitarbeiter/in-hr-administration-60-80-w/m/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:59.736Z",
+      "crawledAt": "2026-11-01T09:12:33.278Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -58,12 +58,16 @@
       "salaryMax": 89200,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 95,
+      "streetAddress": "Rümlang",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:12:33.278Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -78,7 +82,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/240-kundenberatung-aussendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:58.619Z",
+      "crawledAt": "2026-11-01T09:12:32.145Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -99,12 +103,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "addressRegion": "BE",
-      "_qualityScore": 95,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:12:32.145Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -119,7 +127,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/238-verkaufsstellenleitung-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:57.349Z",
+      "crawledAt": "2026-11-01T09:12:30.929Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -140,12 +148,16 @@
       "salaryMax": 105000,
       "salarySource": "estimated",
       "addressRegion": "SG",
-      "_qualityScore": 95,
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:12:30.929Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -160,7 +172,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/237-conseiller-de-vente-interne-materiaux-genie-civil-a-100-h/f/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:56.090Z",
+      "crawledAt": "2026-11-01T09:12:29.717Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -181,12 +193,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "addressRegion": "FR",
-      "_qualityScore": 95,
+      "streetAddress": "Bulle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:12:29.717Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -201,7 +217,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/236-transportfachfrau/-mann-mit-stv-disposition-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:54.950Z",
+      "crawledAt": "2026-11-01T09:12:28.473Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -222,12 +238,16 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "addressRegion": "SG",
-      "_qualityScore": 95,
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:12:28.473Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -242,7 +262,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/235-head-of-it-operations-100-w/m/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:53.760Z",
+      "crawledAt": "2026-11-01T09:12:27.397Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,12 +283,16 @@
       "salaryMax": 180500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 95,
+      "streetAddress": "Rümlang",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:12:27.397Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -283,7 +307,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/234-head-of-it-operations-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:52.417Z",
+      "crawledAt": "2026-11-01T09:12:26.140Z",
       "addressLocality": "Saint-Légier-La Chiésaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -304,12 +328,16 @@
       "salaryMax": 162000,
       "salarySource": "estimated",
       "addressRegion": "VD",
-      "_qualityScore": 95,
+      "streetAddress": "Saint-Légier-La Chiésaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:12:26.140Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -324,7 +352,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/233-conseiller-de-vente-shop-materiaux-bussigny-nord-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:51.141Z",
+      "crawledAt": "2026-11-01T09:12:24.892Z",
       "addressLocality": "Bussigny-près-Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -345,12 +373,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "addressRegion": "VD",
-      "_qualityScore": 95,
+      "streetAddress": "Bussigny-près-Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:12:24.892Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -365,7 +397,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/232-logisticien-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:50.019Z",
+      "crawledAt": "2026-11-01T09:12:23.820Z",
       "addressLocality": "Bussigny-près-Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -386,12 +418,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "addressRegion": "VD",
-      "_qualityScore": 95,
+      "streetAddress": "Bussigny-près-Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:12:23.820Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -406,7 +442,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/231-verkaufsberater-innendienst-wand-und-bodenbelaege-100-m/w/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:48.936Z",
+      "crawledAt": "2026-11-01T09:12:22.749Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -427,12 +463,16 @@
       "salaryMax": 111000,
       "salarySource": "estimated",
       "addressRegion": "VS",
-      "_qualityScore": 95,
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:12:22.749Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -447,7 +487,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/230-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:47.870Z",
+      "crawledAt": "2026-11-01T09:12:21.666Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -468,12 +508,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 95,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:21.666Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -488,7 +532,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/228-key-account-management-innenausbau-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:46.785Z",
+      "crawledAt": "2026-11-01T09:12:20.561Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -509,12 +553,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 95,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:12:20.561Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -529,7 +577,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/227-kundenberatung-aussendienst-platten-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:45.466Z",
+      "crawledAt": "2026-11-01T09:12:19.332Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -550,12 +598,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "SG",
-      "_qualityScore": 95,
+      "streetAddress": "Rapperswil-Jona",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:12:19.332Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -570,7 +622,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/225-teamleitung-innendienst-sanitaer-m/w/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:42.953Z",
+      "crawledAt": "2026-11-01T09:12:16.908Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -591,12 +643,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 95,
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:12:16.908Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -611,7 +667,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/224-key-account-manager-second-oeuvre-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:41.685Z",
+      "crawledAt": "2026-11-01T09:12:15.681Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -632,12 +688,16 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "addressRegion": "VD",
-      "_qualityScore": 95,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:12:15.681Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -652,7 +712,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/223-representant-metiers-du-bois-valais-central-f/h/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:40.408Z",
+      "crawledAt": "2026-11-01T09:12:14.493Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -674,12 +734,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "addressRegion": "VS",
-      "_qualityScore": 95,
+      "streetAddress": "Conthey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:12:14.493Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -694,7 +758,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/221-conseiller-de-vente-interne-bois-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:39.120Z",
+      "crawledAt": "2026-11-01T09:12:13.284Z",
       "addressLocality": "Bussigny-près-Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -715,12 +779,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "addressRegion": "VD",
-      "_qualityScore": 95,
+      "streetAddress": "Bussigny-près-Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:13.284Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -735,7 +803,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/219-conseillerere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f/h/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:38.021Z",
+      "crawledAt": "2026-11-01T09:12:12.222Z",
       "addressLocality": "Villeneuve",
       "addressCountry": "CH",
       "country": "CH",
@@ -756,12 +824,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "addressRegion": "VD",
-      "_qualityScore": 95,
+      "streetAddress": "Villeneuve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:12.222Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -776,7 +848,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/218-kundenberatung-aussendienst-baustoffe-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:36.895Z",
+      "crawledAt": "2026-11-01T09:12:11.121Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -797,12 +869,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 95,
+      "streetAddress": "Rümlang",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:12:11.121Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -817,7 +893,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/213-conseiller-de-vente-shop-materiaux-de-construction-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:35.523Z",
+      "crawledAt": "2026-11-01T09:12:09.906Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -838,12 +914,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "addressRegion": "FR",
-      "_qualityScore": 95,
+      "streetAddress": "Bulle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:12:09.906Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -858,7 +938,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/211-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:34.418Z",
+      "crawledAt": "2026-11-01T09:12:08.848Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -879,12 +959,16 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "addressRegion": "BS",
-      "_qualityScore": 95,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:08.848Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -899,7 +983,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/209-product-data-specialist-sanitaer-w/m/d-80-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:33.245Z",
+      "crawledAt": "2026-11-01T09:12:07.740Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -920,12 +1004,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "addressRegion": "BE",
-      "_qualityScore": 95,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:07.740Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -940,7 +1028,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/204-teamleitung-im-baubedarf-shop-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:31.818Z",
+      "crawledAt": "2026-11-01T09:12:06.477Z",
       "addressLocality": "Grenchen",
       "addressCountry": "CH",
       "country": "CH",
@@ -961,12 +1049,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "addressRegion": "SO",
-      "_qualityScore": 95,
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:06.477Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -981,7 +1073,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/203-product-manager-revetements-de-sol-portes-et-amenagement-exterieur-bois-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:30.584Z",
+      "crawledAt": "2026-11-01T09:12:05.360Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -1002,12 +1094,16 @@
       "salaryMax": 143000,
       "salarySource": "estimated",
       "addressRegion": "FR",
-      "_qualityScore": 95,
+      "streetAddress": "Bulle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:05.360Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1022,7 +1118,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/201-conseiller-de-vente-exposition-sanitaire-et-revetements-sols-murs-f/h/d-a-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:29.157Z",
+      "crawledAt": "2026-11-01T09:12:04.143Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1043,12 +1139,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "addressRegion": "FR",
-      "_qualityScore": 95,
+      "streetAddress": "Givisiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:04.143Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1063,7 +1163,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/198-logistiker-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:27.951Z",
+      "crawledAt": "2026-11-01T09:12:03.000Z",
       "addressLocality": "Fideris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1084,12 +1184,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 95,
+      "streetAddress": "Fideris",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:03.000Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1104,7 +1208,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/197-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:14:26.801Z",
+      "crawledAt": "2026-11-01T09:12:01.893Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1125,12 +1229,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 95,
+      "streetAddress": "Volketswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:01.893Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1145,7 +1253,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/196-conseiller-vente-exposition-sanitaire-et-carrelage-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:25.657Z",
+      "crawledAt": "2026-11-01T09:12:00.776Z",
       "addressLocality": "Etoy",
       "addressCountry": "CH",
       "country": "CH",
@@ -1166,12 +1274,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "addressRegion": "VD",
-      "_qualityScore": 95,
+      "streetAddress": "Etoy",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:00.776Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1186,7 +1298,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/195-representant-externe-pour-le-canton-de-vaud-departement-des-cuisines-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:24.508Z",
+      "crawledAt": "2026-11-01T09:11:59.674Z",
       "addressLocality": "Etoy",
       "addressCountry": "CH",
       "country": "CH",
@@ -1207,12 +1319,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "addressRegion": "VD",
-      "_qualityScore": 95,
+      "streetAddress": "Etoy",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:59.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1227,7 +1343,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/191-sales-manager-customer-care-technique-du-batiment-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:14:23.241Z",
+      "crawledAt": "2026-11-01T09:11:58.574Z",
       "addressLocality": "Saint-Légier-La Chiésaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1248,14 +1364,18 @@
       "salaryMax": 148000,
       "salarySource": "estimated",
       "addressRegion": "VD",
-      "_qualityScore": 95,
+      "streetAddress": "Saint-Légier-La Chiésaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:11:58.574Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

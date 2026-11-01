@@ -1,25 +1,25 @@
 {
   "key": "hopital-de-lavaux",
   "label": "Hôpital de Lavaux",
-  "generatedAt": "2026-10-31T09:23:30.123Z",
-  "total": 4,
+  "generatedAt": "2026-11-01T09:22:34.194Z",
+  "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 4,
+  "written": 3,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 4039,
-  "avgDurationMs": 4039,
+  "unchangedCount": 3,
+  "durationMs": 3852,
+  "avgDurationMs": 3852,
   "durationHistory": [
-    4039
+    3852
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:23:14.919Z",
+      "crawledAt": "2026-11-01T09:22:15.310Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -59,12 +59,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Bourg-en-Lavaux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:22:15.310Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -80,7 +84,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:23:14.918Z",
+      "crawledAt": "2026-11-01T09:22:15.307Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -104,12 +108,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Bourg-en-Lavaux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:22:15.307Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -125,7 +133,7 @@
       "url": "https://app.beehire.com/invite/SQHUP0Mz6",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:23:14.915Z",
+      "crawledAt": "2026-11-01T09:22:15.302Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -147,57 +155,18 @@
       "salaryMin": 116500,
       "salaryMax": 162500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Bourg-en-Lavaux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:22:15.302Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "hopital-de-lavaux-5611a94471ae",
-      "slug": "contabile-cdi-60-80-hopital-de-lavaux-bourg-en-lavaux",
-      "company": "Hôpital de Lavaux",
-      "companyKey": "hopital-de-lavaux",
-      "companyDomain": "hopitaldelavaux.ch",
-      "title": "Comptable – CDI - 60-80%",
-      "location": "Bourg-en-Lavaux",
-      "canton": "VD",
-      "url": "https://app.beehire.com/invite/CTb1_gVt5",
-      "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:37:05.181Z",
-      "addressLocality": "Bourg-en-Lavaux",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1091",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://app.beehire.com/invite/CTb1_gVt5",
-      "careerSiteUrl": "https://www.hopitaldelavaux.ch/jcms/lav_5237/emplois",
-      "firstSeenAt": "2026-10-01T09:17:25.162Z",
-      "salaryMin": 69200,
-      "salaryMax": 96400,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

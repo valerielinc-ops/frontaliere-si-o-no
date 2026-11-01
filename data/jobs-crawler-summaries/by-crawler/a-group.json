@@ -1,7 +1,7 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-10-31T09:53:52.095Z",
+  "generatedAt": "2026-11-01T09:16:53.504Z",
   "total": 5,
   "discovered": 7,
   "parsed": 5,
@@ -13,10 +13,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4835,
-  "avgDurationMs": 4835,
+  "durationMs": 5326,
+  "avgDurationMs": 5326,
   "durationHistory": [
-    4835
+    5326
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "location": "Lugano Svizzera",
       "addressLocality": "Lugano Svizzera",
       "postalCode": "6900",
-      "streetAddress": "",
+      "streetAddress": "Lugano Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "canton": "TI",
@@ -43,7 +43,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-29T21:18:38.350Z",
       "id": "a-group-b849e7fb9f65",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -53,12 +53,14 @@
       "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/governante-housekeeping-lugano-724679/en",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 94,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -84,7 +86,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-29T21:18:38.350Z",
       "id": "a-group-cf1b4e6d7133",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -94,6 +96,8 @@
       "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -129,7 +133,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-11-26T05:26:25.994Z",
       "id": "a-group-3ed7b9973902",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -139,6 +143,8 @@
       "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/booking-revenue-specialist-luxury-hospitality-724674/en",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -158,7 +164,7 @@
       "location": "Andermatt Svizzera",
       "addressLocality": "Andermatt Svizzera",
       "postalCode": "6900",
-      "streetAddress": "",
+      "streetAddress": "Andermatt Svizzera",
       "addressRegion": "UR",
       "addressCountry": "CH",
       "canton": "UR",
@@ -170,7 +176,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-29T21:18:38.350Z",
       "id": "a-group-f6cc88ac0649",
       "needsRetranslation": true,
       "salaryMin": 69500,
@@ -181,12 +187,14 @@
       "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/front-office-724678/en",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 94,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -212,7 +220,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-11-26T05:26:25.994Z",
       "id": "a-group-555f4c55dbc7",
       "salaryMin": 73000,
       "salaryMax": 121500,
@@ -222,6 +230,8 @@
       "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/hospitality-manager-luxury-hospitality-724675/en",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -231,5 +241,5 @@
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

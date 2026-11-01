@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-10-31T09:18:12.340Z",
-  "runId": "41186993103",
+  "assembledAt": "2026-11-01T09:14:39.998Z",
+  "runId": "41291333597",
   "jobs": [
     {
       "id": "kanton-gr-b176b2910754",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/514915/2817/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:06.243Z",
+      "crawledAt": "2026-11-01T09:14:31.502Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -82,7 +82,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Scuol",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:31.502Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-60840280f0cd",
@@ -115,7 +119,7 @@
       "url": "https://apply.refline.ch/514915/2778/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:05.575Z",
+      "crawledAt": "2026-11-01T09:14:30.833Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -163,7 +167,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:30.833Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-ea5060ea169e",
@@ -196,7 +204,7 @@
       "url": "https://apply.refline.ch/514915/2763/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:04.239Z",
+      "crawledAt": "2026-11-01T09:14:29.494Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -245,7 +253,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:29.494Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-4456d3c4af43",
@@ -278,7 +290,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/9/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:03.568Z",
+      "crawledAt": "2026-11-01T09:14:28.230Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -326,7 +338,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Landquart",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:28.230Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-bd076621ff73",
@@ -359,7 +375,7 @@
       "url": "https://apply.refline.ch/514915/2773/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:02.888Z",
+      "crawledAt": "2026-11-01T09:14:27.562Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -407,7 +423,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:27.562Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-52bf8e0cfd90",
@@ -440,7 +460,7 @@
       "url": "https://apply.refline.ch/514915/2768/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:02.217Z",
+      "crawledAt": "2026-11-01T09:14:26.893Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -489,7 +509,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Samedan",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:26.893Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-81886053e0af",
@@ -522,7 +546,7 @@
       "url": "https://apply.refline.ch/514915/2770/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:01.547Z",
+      "crawledAt": "2026-11-01T09:14:26.225Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -573,7 +597,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Ilanz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:26.225Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-172c74c9755a",
@@ -606,7 +634,7 @@
       "url": "https://apply.refline.ch/514915/2769/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:00.862Z",
+      "crawledAt": "2026-11-01T09:14:25.515Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -672,7 +700,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Scuol",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:25.515Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-2d0ed0c8aa9e",
@@ -705,7 +737,7 @@
       "url": "https://apply.refline.ch/514915/2767/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:18:00.192Z",
+      "crawledAt": "2026-11-01T09:14:24.846Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -754,7 +786,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:24.846Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-f53ad4e765b7",
@@ -787,7 +823,7 @@
       "url": "https://apply.refline.ch/514915/2765/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:57.979Z",
+      "crawledAt": "2026-11-01T09:14:23.510Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -835,7 +871,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Scuol",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:23.510Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-1ace449b55d8",
@@ -868,7 +908,7 @@
       "url": "https://apply.refline.ch/514915/2893/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:57.309Z",
+      "crawledAt": "2026-11-01T09:14:22.840Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -946,7 +986,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:14:22.840Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-bac64f047ec6",
@@ -979,7 +1023,7 @@
       "url": "https://apply.refline.ch/514915/2892/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:56.638Z",
+      "crawledAt": "2026-11-01T09:14:22.171Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1057,7 +1101,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:14:22.171Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-af6cb0a41775",
@@ -1090,7 +1138,7 @@
       "url": "https://apply.refline.ch/514915/2902/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:55.967Z",
+      "crawledAt": "2026-11-01T09:14:21.497Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1173,7 +1221,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:14:21.497Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-25670acbab49",
@@ -1206,7 +1258,7 @@
       "url": "https://apply.refline.ch/514915/2899/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:55.298Z",
+      "crawledAt": "2026-11-01T09:14:20.830Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1291,7 +1343,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:20.830Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-881746a696b7",
@@ -1324,7 +1380,7 @@
       "url": "https://apply.refline.ch/514915/2903/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:54.628Z",
+      "crawledAt": "2026-11-01T09:14:20.161Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1414,7 +1470,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:14:20.161Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-853dc9d3a9d0",
@@ -1447,7 +1507,7 @@
       "url": "https://apply.refline.ch/514915/2898/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:53.960Z",
+      "crawledAt": "2026-11-01T09:14:19.493Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1537,7 +1597,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:19.493Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-1b60cc7d103b",
@@ -1570,7 +1634,7 @@
       "url": "https://apply.refline.ch/514915/2897/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:53.290Z",
+      "crawledAt": "2026-11-01T09:14:17.985Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1658,7 +1722,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:17.985Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-c658f5c74c86",
@@ -1691,7 +1759,7 @@
       "url": "https://apply.refline.ch/514915/2896/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:52.621Z",
+      "crawledAt": "2026-11-01T09:14:17.316Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1750,7 +1818,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:17.316Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-beabdd358455",
@@ -1783,7 +1855,7 @@
       "url": "https://apply.refline.ch/514915/2895/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:51.952Z",
+      "crawledAt": "2026-11-01T09:14:16.648Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1836,7 +1908,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:14:16.648Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-9af8555686d9",
@@ -1869,7 +1945,7 @@
       "url": "https://apply.refline.ch/514915/2887/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:51.282Z",
+      "crawledAt": "2026-11-01T09:14:15.977Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1922,7 +1998,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:14:15.977Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-166dd468a7c5",
@@ -1955,7 +2035,7 @@
       "url": "https://apply.refline.ch/514915/2889/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:50.609Z",
+      "crawledAt": "2026-11-01T09:14:15.308Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2010,7 +2090,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:14:15.308Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-17876a88291a",
@@ -2043,7 +2127,7 @@
       "url": "https://apply.refline.ch/514915/2885/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:49.939Z",
+      "crawledAt": "2026-11-01T09:14:14.640Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2094,7 +2178,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:14:14.640Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-46b8777d8d7b",
@@ -2127,7 +2215,7 @@
       "url": "https://apply.refline.ch/514915/2891/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:48.284Z",
+      "crawledAt": "2026-11-01T09:14:13.970Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2178,7 +2266,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:14:13.970Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-60815c55f316",
@@ -2211,7 +2303,7 @@
       "url": "https://apply.refline.ch/514915/2890/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:47.614Z",
+      "crawledAt": "2026-11-01T09:14:13.297Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2268,7 +2360,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:14:13.297Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-9900172a0567",
@@ -2301,7 +2397,7 @@
       "url": "https://apply.refline.ch/514915/2888/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:46.945Z",
+      "crawledAt": "2026-11-01T09:14:12.626Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2354,7 +2450,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:14:12.626Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-2b60481941f1",
@@ -2387,7 +2487,7 @@
       "url": "https://apply.refline.ch/514915/2878/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:46.280Z",
+      "crawledAt": "2026-11-01T09:14:11.955Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -2440,7 +2540,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Landquart",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:14:11.955Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-ca12df59dfb9",
@@ -2473,7 +2577,7 @@
       "url": "https://apply.refline.ch/514915/2884/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:45.611Z",
+      "crawledAt": "2026-11-01T09:14:11.284Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2526,7 +2630,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:14:11.284Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-0d4ee4504d00",
@@ -2559,7 +2667,7 @@
       "url": "https://apply.refline.ch/514915/2883/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:44.933Z",
+      "crawledAt": "2026-11-01T09:14:10.614Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2610,7 +2718,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:14:10.614Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-50e546c02ed3",
@@ -2643,7 +2755,7 @@
       "url": "https://apply.refline.ch/514915/2879/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:44.265Z",
+      "crawledAt": "2026-11-01T09:14:09.944Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2696,7 +2808,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:14:09.944Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-e514f9670eb3",
@@ -2729,7 +2845,7 @@
       "url": "https://apply.refline.ch/514915/2881/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:43.590Z",
+      "crawledAt": "2026-11-01T09:14:08.432Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2780,7 +2896,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:14:08.432Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-1d4a78e2e06b",
@@ -2813,7 +2933,7 @@
       "url": "https://apply.refline.ch/514915/2880/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:42.925Z",
+      "crawledAt": "2026-11-01T09:14:07.754Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2861,7 +2981,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:14:07.754Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-0a61427953e6",
@@ -2894,7 +3018,7 @@
       "url": "https://apply.refline.ch/514915/2882/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:42.235Z",
+      "crawledAt": "2026-11-01T09:14:07.084Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2939,7 +3063,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:14:07.084Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-a5d8c28c44a0",
@@ -2972,7 +3100,7 @@
       "url": "https://apply.refline.ch/514915/2875/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:41.563Z",
+      "crawledAt": "2026-11-01T09:14:06.409Z",
       "addressLocality": "Mesocco",
       "postalCode": "6563",
       "addressCountry": "CH",
@@ -3023,7 +3151,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Mesocco",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:14:06.409Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-91cebd0a9c1f",
@@ -3056,7 +3188,7 @@
       "url": "https://apply.refline.ch/514915/2874/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:40.891Z",
+      "crawledAt": "2026-11-01T09:14:05.735Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3106,7 +3238,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Ilanz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:14:05.735Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-74a97250cd9e",
@@ -3139,7 +3275,7 @@
       "url": "https://apply.refline.ch/514915/2872/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:40.179Z",
+      "crawledAt": "2026-11-01T09:14:05.038Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3192,7 +3328,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:14:05.038Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-20165131809e",
@@ -3225,7 +3365,7 @@
       "url": "https://apply.refline.ch/514915/2870/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:38.367Z",
+      "crawledAt": "2026-11-01T09:14:04.362Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3276,7 +3416,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:14:04.362Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-cd36d6659b58",
@@ -3309,7 +3453,7 @@
       "url": "https://apply.refline.ch/514915/2877/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:37.637Z",
+      "crawledAt": "2026-11-01T09:14:03.690Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3356,7 +3500,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:14:03.690Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-5ac60bb74e3c",
@@ -3389,7 +3537,7 @@
       "url": "https://apply.refline.ch/514915/2859/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:36.966Z",
+      "crawledAt": "2026-11-01T09:14:03.018Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3442,7 +3590,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:14:03.018Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-9b0f6f8d3938",
@@ -3475,7 +3627,7 @@
       "url": "https://apply.refline.ch/514915/2861/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:36.296Z",
+      "crawledAt": "2026-11-01T09:14:02.330Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3528,91 +3680,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "kanton-gr-a9e38801034c",
-      "slug": "fachspezialist-in-previdenza-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "fachspezialist-in-previdenza-kantonale-verwaltung-graubunden-chur",
-        "en": "specialist-pension-kantonale-verwaltung-graubunden-chur",
-        "de": "fachspezialist-in-vorsorge-kanton-gr-ch",
-        "fr": "specialiste-pension-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Fachspezialist/-in Vorsorge",
-      "titleByLocale": {
-        "it": "Specialista/pensione",
-        "en": "Specialist/pension",
-        "de": "Fachspezialist/-in Vorsorge",
-        "fr": "Spécialiste/pension"
-      },
-      "description": "Zu unseren Versicherten zählen unter anderem die Mitarbeitenden des Kantons Graubünden, der öffentlich-rechtlichen Anstalten, von Gemeinden, Schulen und Institutionen aus dem Gesundheits- und Sozialbereich. Diese Vielfalt macht unsere Arbeit abwechslungsreich und sorgt täglich für spannende und anspruchsvolle Fragestellungen.\n\nFür unser Vorsorgeteam suchen wir per sofort oder nach Vereinbarung eine engagierte, dienstleistungsorientierte Persönlichkeit als Fachspezialist/-in Vorsorge.\nIn diesem vielseitigen Job sind Sie die Anlaufstelle für unsere Versicherten und Arbeitgeber. Mit Ihrer kompetenten und lösungsorientierten Beratung prägen Sie den ersten Eindruck der PKGR.\n\nAufgaben\n• Bewirtschaftung des Versicherten- und Arbeitgeberportals «myPKGR»\n\n• Verarbeitung der monatlichen Lohnschnittstellen\n\n• Verarbeitung von Zahlungsein- und Ausgängen (Eintritts-/Austrittsleistungen, Einkäufe, WEF-Vorbezüge und -Verpfändungen)\n\n• Durchführung von Vorsorgeausgleichen bei Scheidung sowie Bearbeitung von Begünstigungs- und Lebenspartnerschaftserklärungen\n\n• Unterstützung bei Leistungsfällen in Zusammenarbeit mit unserer Rückversicherung\n\n• Planung und Durchführung von Arbeitgeberbesuchen, Informationsveranstaltungen, Referaten und Webinaren\n\n• Aktive Mitgestaltung bei Projekten, der Weiterentwicklung unserer Prozesse und der Digitalisierung\n\nAnforderungen\n• Berufserfahrung und Weiterbildung in der beruflichen Vorsorge (Fachperson für Personalvorsorge mit FA)\n\n• Freude daran, komplexe Fragestellungen zu analysieren und praxisnahe Lösungen zu entwickeln\n\n• Selbstständige, strukturierte und verantwortungsbewusste Arbeitsweise sowie analytisches und vernetztes Denken\n\n• Hohe Kunden- und Dienstleistungsorientierung\n\n• Sicheres Auftreten und Freude daran, die PKGR bei Arbeitgeberbesuchen, Informationsveranstaltungen, Referaten und Webinaren zu vertreten\n\n• Kenntnisse unseres Verwaltungssystems SwissPension sind von Vorteil\n\n• Teamplayer mit Freude an einer offenen und respektvollen Zusammenarbeit mit kurzen Entscheidungswegen\n\n• Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
-      "descriptionByLocale": {
-        "it": "I nostri assicurati comprendono i dipendenti del cantone di Grigioni, le istituzioni pubbliche, i comuni, le scuole e le istituzioni nel settore sanitario e sociale. Questa diversità rende il nostro lavoro variegato e crea domande emozionanti e stimolanti ogni giorno.\n\nPer la nostra squadra di pensione stiamo cercando 1. Ottobre 2026 o d'accordo una personalità dedicata e orientata al servizio come specialista di fornitura.\nIn questo lavoro versatile, sei il punto di contatto per i nostri assicurati e datori di lavoro. Con il vostro consiglio competente e orientato alla soluzione, modellate la prima impressione del PKGR.\n\nCompiti\n• Gestione del portale di assicurazione e datore di lavoro \"myPKGR\"\n\n• Elaborazione di interfacce a pagamento mensili\n\n• Elaborazione dei pagamenti in entrata e in uscita (servizi in arrivo/in uscita, acquisti, pagamenti anticipati WEF e impegni)\n\n• Attuazione della compensazione pensionistica in caso di divorzio e di trattamento delle dichiarazioni di trattamento favorevole e di partenariato civile\n\n• Sostegno ai casi di beneficio in collaborazione con la nostra riassicurazione\n\n• Pianificazione e attuazione delle visite dei datori di lavoro, eventi informativi, presentazioni e webinar\n\n• Partecipazione attiva ai progetti, ulteriore sviluppo dei nostri processi e digitalizzazione\n\nRequisiti\n• Esperienza professionale e formazione continua nell'offerta professionale (specialista per il personale con la FA)\n\n• Godere di analizzare domande complesse e sviluppare soluzioni pratiche\n\n• Metodi di lavoro indipendenti, strutturati e responsabili, nonché pensiero analitico e in rete\n\n• Alto orientamento al cliente e al servizio\n\n• L'aspetto sicuro e il piacere di rappresentare il PKGR nelle visite del datore di lavoro, eventi informativi, presentazioni e webinar\n\n• Conoscenza del nostro sistema di gestione SwissPension è un vantaggio\n\n• Giocatore di squadra con piacere in una collaborazione aperta e rispettosa con brevi percorsi decisionali\n\n• Buona conoscenza di diverse lingue cantonali è un vantaggio",
-        "en": "Our insured include the employees of the canton of Graubünden, public institutions, municipalities, schools and institutions in the health and social sector. This diversity makes our work varied and creates exciting and challenging questions every day.\n\nFor our pension team we are looking for 1. October 2026 or by agreement a dedicated, service-oriented personality as a specialist provision specialist.\nIn this versatile job, you are the contact point for our insured and employers. With your competent and solution-oriented advice, you shape the first impression of the PKGR.\n\nTasks\n• Management of the insured and employer portal \"myPKGR\"\n\n• Processing of monthly pay interfaces\n\n• Processing of incoming and outgoing payments (incoming/outgoing services, purchases, WEF advance payments and pledges)\n\n• Implementation of pension compensation in the event of divorce and processing of declarations of favourable treatment and civil partnership\n\n• Support for benefit cases in cooperation with our reinsurance\n\n• Planning and implementation of employer visits, information events, presentations and webinars\n\n• Active participation in projects, the further development of our processes and digitalization\n\nRequirements\n• Professional experience and further training in occupational provision (specialist for personnel provision with FA)\n\n• Enjoy analysing complex questions and developing practical solutions\n\n• Independent, structured and responsible working methods as well as analytical and networked thinking\n\n• High customer and service orientation\n\n• Safe appearance and pleasure in representing the PKGR at employer visits, information events, presentations and webinars\n\n• Knowledge of our management system SwissPension is an advantage\n\n• Team player with pleasure in an open and respectful cooperation with short decision paths\n\n• Good knowledge of several cantonal languages is an advantage",
-        "de": "Zu unseren Versicherten zählen unter anderem die Mitarbeitenden des Kantons Graubünden, der öffentlich-rechtlichen Anstalten, von Gemeinden, Schulen und Institutionen aus dem Gesundheits- und Sozialbereich. Diese Vielfalt macht unsere Arbeit abwechslungsreich und sorgt täglich für spannende und anspruchsvolle Fragestellungen.\n\nFür unser Vorsorgeteam suchen wir per sofort oder nach Vereinbarung eine engagierte, dienstleistungsorientierte Persönlichkeit als Fachspezialist/-in Vorsorge.\nIn diesem vielseitigen Job sind Sie die Anlaufstelle für unsere Versicherten und Arbeitgeber. Mit Ihrer kompetenten und lösungsorientierten Beratung prägen Sie den ersten Eindruck der PKGR.\n\nAufgaben\n• Bewirtschaftung des Versicherten- und Arbeitgeberportals «myPKGR»\n\n• Verarbeitung der monatlichen Lohnschnittstellen\n\n• Verarbeitung von Zahlungsein- und Ausgängen (Eintritts-/Austrittsleistungen, Einkäufe, WEF-Vorbezüge und -Verpfändungen)\n\n• Durchführung von Vorsorgeausgleichen bei Scheidung sowie Bearbeitung von Begünstigungs- und Lebenspartnerschaftserklärungen\n\n• Unterstützung bei Leistungsfällen in Zusammenarbeit mit unserer Rückversicherung\n\n• Planung und Durchführung von Arbeitgeberbesuchen, Informationsveranstaltungen, Referaten und Webinaren\n\n• Aktive Mitgestaltung bei Projekten, der Weiterentwicklung unserer Prozesse und der Digitalisierung\n\nAnforderungen\n• Berufserfahrung und Weiterbildung in der beruflichen Vorsorge (Fachperson für Personalvorsorge mit FA)\n\n• Freude daran, komplexe Fragestellungen zu analysieren und praxisnahe Lösungen zu entwickeln\n\n• Selbstständige, strukturierte und verantwortungsbewusste Arbeitsweise sowie analytisches und vernetztes Denken\n\n• Hohe Kunden- und Dienstleistungsorientierung\n\n• Sicheres Auftreten und Freude daran, die PKGR bei Arbeitgeberbesuchen, Informationsveranstaltungen, Referaten und Webinaren zu vertreten\n\n• Kenntnisse unseres Verwaltungssystems SwissPension sind von Vorteil\n\n• Teamplayer mit Freude an einer offenen und respektvollen Zusammenarbeit mit kurzen Entscheidungswegen\n\n• Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
-        "fr": "Nos assurés comprennent les employés du canton des Grisons, les institutions publiques, les municipalités, les écoles et les institutions du secteur de la santé et de la société. Cette diversité rend notre travail varié et crée chaque jour des questions passionnantes et stimulantes.\n\nPour notre équipe de retraite, nous cherchons 1. Octobre 2026 ou par accord une personnalité dédiée, orientée vers le service en tant que spécialiste de la fourniture.\nDans ce travail polyvalent, vous êtes le point de contact pour nos assurés et employeurs. Avec vos conseils compétents et orientés vers la solution, vous façonnez la première impression du PKGR.\n\nTâche\n• Gestion du portail assuré et employeur \"myPKGR\"\n\n• Traitement des interfaces de paye mensuelles\n\n• Traitement des paiements entrants et sortants (services entrants et sortants, achats, avances du Fonds mondial de développement et annonces de contributions)\n\n• Mise en œuvre de l'indemnisation des pensions en cas de divorce et traitement des déclarations de traitement favorable et de partenariat civil\n\n• Soutien aux prestations en coopération avec notre réassurance\n\n• Planification et mise en oeuvre des visites des employeurs, des événements d'information, des présentations et des webinaires\n\n• Participation active aux projets, développement de nos processus et numérisation\n\nExigences\n• Expérience professionnelle et formation continue dans le domaine de la formation professionnelle (spécialiste de la formation du personnel avec l'AF)\n\n• Profitez de l'analyse de questions complexes et de l'élaboration de solutions pratiques\n\n• Méthodes de travail indépendantes, structurées et responsables ainsi que réflexion analytique et en réseau\n\n• Orientation client et service élevée\n\n• Aspect sûr et plaisir de représenter le PKGR lors des visites des employeurs, des événements d'information, des présentations et des webinaires\n\n• Connaissance de notre système de gestion SwissPension est un avantage\n\n• Joueur d'équipe avec plaisir dans une coopération ouverte et respectueuse avec des chemins de décision courts\n\n• Une bonne connaissance de plusieurs langues cantonales est un avantage"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2803/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:35.624Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-06T07:22:24.841576+00:00",
-      "postedDate": "2026-08-06T07:22:24.841576+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/514915/2803/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Pensionskasse Graubünden PKGR",
-      "applicationDeadline": "2026-10-31",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugs": [
-        "fachspezialist-in-vorsorge-kanton-gr-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-vorsorge-kanton-gr-ch"
-        ],
-        "en": [
-          "fachspezialist-in-vorsorge-kanton-gr-ch"
-        ],
-        "fr": [
-          "fachspezialist-in-vorsorge-kanton-gr-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-06T11:34:51.397Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:14:02.330Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-1a4dadc055e0",
@@ -3645,7 +3717,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:34.949Z",
+      "crawledAt": "2026-11-01T09:14:01.644Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3728,94 +3800,100 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:01.644Z",
+      "validThroughSource": "last-observed-window"
     },
     {
-      "id": "kanton-gr-27df76d55106",
-      "slug": "segretario-a-dell-ispettorato-scolastico-kantonale-verwaltung-graubunden-thusis",
+      "id": "kanton-gr-a9e38801034c",
+      "slug": "fachspezialist-in-previdenza-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "segretario-a-dell-ispettorato-scolastico-kantonale-verwaltung-graubunden-thusis",
-        "en": "secretary-of-the-school-inspectorate-kantonale-verwaltung-graubunden-thusis",
-        "de": "sekretar-in-schulinspektorat-kanton-gr-ch",
-        "fr": "secretaire-de-l-inspectorat-scolaire-kantonale-verwaltung-graubunden-thusis"
+        "it": "fachspezialist-in-previdenza-kantonale-verwaltung-graubunden-chur",
+        "en": "specialist-pension-kantonale-verwaltung-graubunden-chur",
+        "de": "fachspezialist-in-vorsorge-kanton-gr-ch",
+        "fr": "specialiste-pension-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
       "companyDomain": "gr.ch",
-      "title": "Sekretär/-in Schulinspektorat",
+      "title": "Fachspezialist/-in Vorsorge",
       "titleByLocale": {
-        "it": "Segretario/a dell'ispettorato scolastico",
-        "en": "Secretary of the School Inspectorate",
-        "de": "Sekretär/-in Schulinspektorat",
-        "fr": "Secrétaire de l'inspectorat scolaire"
+        "it": "Specialista/pensione",
+        "en": "Specialist/pension",
+        "de": "Fachspezialist/-in Vorsorge",
+        "fr": "Spécialiste/pension"
       },
-      "description": "Das Amt für Volksschule und Sport (AVS) gehört zum Erziehungs-, Kultur- und Umweltschutzdepartement des Kantons Graubünden.\n\nDas Schulinspektorat ist eine Abteilung des AVS. Es überprüft die Einhaltung der kantonalen Vorgaben und evaluiert die Volksschulen. Gleichzeitig berät und unterstützt es Lehrpersonen, Schulleitungen und Schulbehörden.\n\nFür den Bezirk I Plessur-Mittelbünden suchen wir auf den 1. Februar 2027 oder nach Vereinbarung eine/n Sekretär/in.\n\nAufgaben\n• Selbstständige Bearbeitung administrativer und organisatorischer Aufgaben\n\n• Erteilung telefonischer Auskünfte sowie Vereinbarung und Koordination von Terminen\n\n• Erstellung und Bearbeitung von Korrespondenz\n\n• Betreuung und Pflege der Schuldatenbank\n\n• Allgemeine Büro- und Administrationsarbeiten\n\nAnforderungen\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation\n\n• Sehr gute mündliche und schriftliche Ausdrucksweise in Deutsch\n\n• Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil\n\n• Sorgfältige, strukturierte und zuverlässige Arbeitsweise\n\n• Sicherer Umgang mit MS Office, CMI-Kenntnisse von Vorteil",
+      "description": "Zu unseren Versicherten zählen unter anderem die Mitarbeitenden des Kantons Graubünden, der öffentlich-rechtlichen Anstalten, von Gemeinden, Schulen und Institutionen aus dem Gesundheits- und Sozialbereich. Diese Vielfalt macht unsere Arbeit abwechslungsreich und sorgt täglich für spannende und anspruchsvolle Fragestellungen.\n\nFür unser Vorsorgeteam suchen wir per sofort oder nach Vereinbarung eine engagierte, dienstleistungsorientierte Persönlichkeit als Fachspezialist/-in Vorsorge.\nIn diesem vielseitigen Job sind Sie die Anlaufstelle für unsere Versicherten und Arbeitgeber. Mit Ihrer kompetenten und lösungsorientierten Beratung prägen Sie den ersten Eindruck der PKGR.\n\nAufgaben\n• Bewirtschaftung des Versicherten- und Arbeitgeberportals «myPKGR»\n\n• Verarbeitung der monatlichen Lohnschnittstellen\n\n• Verarbeitung von Zahlungsein- und Ausgängen (Eintritts-/Austrittsleistungen, Einkäufe, WEF-Vorbezüge und -Verpfändungen)\n\n• Durchführung von Vorsorgeausgleichen bei Scheidung sowie Bearbeitung von Begünstigungs- und Lebenspartnerschaftserklärungen\n\n• Unterstützung bei Leistungsfällen in Zusammenarbeit mit unserer Rückversicherung\n\n• Planung und Durchführung von Arbeitgeberbesuchen, Informationsveranstaltungen, Referaten und Webinaren\n\n• Aktive Mitgestaltung bei Projekten, der Weiterentwicklung unserer Prozesse und der Digitalisierung\n\nAnforderungen\n• Berufserfahrung und Weiterbildung in der beruflichen Vorsorge (Fachperson für Personalvorsorge mit FA)\n\n• Freude daran, komplexe Fragestellungen zu analysieren und praxisnahe Lösungen zu entwickeln\n\n• Selbstständige, strukturierte und verantwortungsbewusste Arbeitsweise sowie analytisches und vernetztes Denken\n\n• Hohe Kunden- und Dienstleistungsorientierung\n\n• Sicheres Auftreten und Freude daran, die PKGR bei Arbeitgeberbesuchen, Informationsveranstaltungen, Referaten und Webinaren zu vertreten\n\n• Kenntnisse unseres Verwaltungssystems SwissPension sind von Vorteil\n\n• Teamplayer mit Freude an einer offenen und respektvollen Zusammenarbeit mit kurzen Entscheidungswegen\n\n• Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
       "descriptionByLocale": {
-        "it": "L'Ufficio per le Scuole Primarie e lo Sport (AVS) fa parte del Dipartimento di Istruzione, Cultura e Protezione Ambientale del Cantone dei Grigioni.\n\nL'ispettore scolastico è un dipartimento dell'AVS. Controlla il rispetto dei requisiti cantonali e valuta le scuole elementari. Allo stesso tempo, consiglia e sostiene gli insegnanti, la gestione scolastica e le autorità scolastiche.\n\nPer il distretto I Plessur-Mittelbünden stiamo cercando una segretaria il 1o febbraio 2027 o d'accordo.\n\nCompiti\n• Trattamento indipendente dei compiti amministrativi e organizzativi\n\n• Fornire informazioni telefoniche e concordare e coordinare gli appuntamenti\n\n• Creazione e elaborazione della corrispondenza\n\n• Supervisione e manutenzione del database scolastico\n\n• Lavori generali di ufficio e amministrazione\n\nRequisiti\n• Istruzione commerciale o qualifica equivalente completata\n\n• Molto buona espressione orale e scritta in tedesco\n\n• Buona conoscenza di diverse lingue cantonali è un vantaggio\n\n• Flusso di lavoro accurato, strutturato e affidabile\n\n• Gestione sicura di MS Office, la conoscenza CMI è un vantaggio",
-        "en": "The Office for Primary Schools and Sports (AVS) is part of the Department of Education, Culture and Environmental Protection of the Canton of Graubünden.\n\nThe School Inspectorate is a department of the AVS. It checks compliance with cantonal requirements and evaluates elementary schools. At the same time, it advises and supports teachers, school management and school authorities.\n\nFor the district I Plessur-Mittelbünden we are looking for a secretary on 1 February 2027 or by agreement.\n\nTasks\n• Independent processing of administrative and organisational tasks\n\n• Providing telephone information and agreeing and coordinating appointments\n\n• Creation and processing of correspondence\n\n• Supervision and maintenance of the school database\n\n• General office and administration work\n\nRequirements\n• Commercial education or equivalent qualification completed\n\n• Very good oral and written expression in German\n\n• Good knowledge of several cantonal languages is an advantage\n\n• Careful, structured and reliable workflow\n\n• Secure handling of MS Office, CMI knowledge is an advantage",
-        "de": "Das Amt für Volksschule und Sport (AVS) gehört zum Erziehungs-, Kultur- und Umweltschutzdepartement des Kantons Graubünden.\n\nDas Schulinspektorat ist eine Abteilung des AVS. Es überprüft die Einhaltung der kantonalen Vorgaben und evaluiert die Volksschulen. Gleichzeitig berät und unterstützt es Lehrpersonen, Schulleitungen und Schulbehörden.\n\nFür den Bezirk I Plessur-Mittelbünden suchen wir auf den 1. Februar 2027 oder nach Vereinbarung eine/n Sekretär/in.\n\nAufgaben\n• Selbstständige Bearbeitung administrativer und organisatorischer Aufgaben\n\n• Erteilung telefonischer Auskünfte sowie Vereinbarung und Koordination von Terminen\n\n• Erstellung und Bearbeitung von Korrespondenz\n\n• Betreuung und Pflege der Schuldatenbank\n\n• Allgemeine Büro- und Administrationsarbeiten\n\nAnforderungen\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation\n\n• Sehr gute mündliche und schriftliche Ausdrucksweise in Deutsch\n\n• Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil\n\n• Sorgfältige, strukturierte und zuverlässige Arbeitsweise\n\n• Sicherer Umgang mit MS Office, CMI-Kenntnisse von Vorteil",
-        "fr": "L'Office des écoles primaires et des sports (AVS) fait partie du Département de l'éducation, de la culture et de la protection de l'environnement du canton des Grisons.\n\nL'Inspection scolaire est un département de l'AVS. Il vérifie le respect des exigences cantonales et évalue les écoles primaires. Parallèlement, il conseille et soutient les enseignants, la direction de l'école et les autorités scolaires.\n\nPour le district I Plessur-Mittelbünden nous sommes à la recherche d'un secrétaire le 1er février 2027 ou par accord.\n\nTâche\n• Traitement indépendant des tâches administratives et organisationnelles\n\n• Fournir des informations par téléphone et accepter et coordonner les nominations\n\n• Création et traitement de la correspondance\n\n• Supervision et tenue à jour de la base de données scolaire\n\n• Travaux généraux et administratifs\n\nExigences\n• Études commerciales ou qualifications équivalentes complétées\n\n• Très bonne expression orale et écrite en allemand\n\n• Une bonne connaissance de plusieurs langues cantonales est un avantage\n\n• Déroulement soigné, structuré et fiable\n\n• Gestion sécurisée de MS Office, la connaissance CMI est un avantage"
+        "it": "I nostri assicurati comprendono i dipendenti del cantone di Grigioni, le istituzioni pubbliche, i comuni, le scuole e le istituzioni nel settore sanitario e sociale. Questa diversità rende il nostro lavoro variegato e crea domande emozionanti e stimolanti ogni giorno.\n\nPer la nostra squadra di pensione stiamo cercando 1. Ottobre 2026 o d'accordo una personalità dedicata e orientata al servizio come specialista di fornitura.\nIn questo lavoro versatile, sei il punto di contatto per i nostri assicurati e datori di lavoro. Con il vostro consiglio competente e orientato alla soluzione, modellate la prima impressione del PKGR.\n\nCompiti\n• Gestione del portale di assicurazione e datore di lavoro \"myPKGR\"\n\n• Elaborazione di interfacce a pagamento mensili\n\n• Elaborazione dei pagamenti in entrata e in uscita (servizi in arrivo/in uscita, acquisti, pagamenti anticipati WEF e impegni)\n\n• Attuazione della compensazione pensionistica in caso di divorzio e di trattamento delle dichiarazioni di trattamento favorevole e di partenariato civile\n\n• Sostegno ai casi di beneficio in collaborazione con la nostra riassicurazione\n\n• Pianificazione e attuazione delle visite dei datori di lavoro, eventi informativi, presentazioni e webinar\n\n• Partecipazione attiva ai progetti, ulteriore sviluppo dei nostri processi e digitalizzazione\n\nRequisiti\n• Esperienza professionale e formazione continua nell'offerta professionale (specialista per il personale con la FA)\n\n• Godere di analizzare domande complesse e sviluppare soluzioni pratiche\n\n• Metodi di lavoro indipendenti, strutturati e responsabili, nonché pensiero analitico e in rete\n\n• Alto orientamento al cliente e al servizio\n\n• L'aspetto sicuro e il piacere di rappresentare il PKGR nelle visite del datore di lavoro, eventi informativi, presentazioni e webinar\n\n• Conoscenza del nostro sistema di gestione SwissPension è un vantaggio\n\n• Giocatore di squadra con piacere in una collaborazione aperta e rispettosa con brevi percorsi decisionali\n\n• Buona conoscenza di diverse lingue cantonali è un vantaggio",
+        "en": "Our insured include the employees of the canton of Graubünden, public institutions, municipalities, schools and institutions in the health and social sector. This diversity makes our work varied and creates exciting and challenging questions every day.\n\nFor our pension team we are looking for 1. October 2026 or by agreement a dedicated, service-oriented personality as a specialist provision specialist.\nIn this versatile job, you are the contact point for our insured and employers. With your competent and solution-oriented advice, you shape the first impression of the PKGR.\n\nTasks\n• Management of the insured and employer portal \"myPKGR\"\n\n• Processing of monthly pay interfaces\n\n• Processing of incoming and outgoing payments (incoming/outgoing services, purchases, WEF advance payments and pledges)\n\n• Implementation of pension compensation in the event of divorce and processing of declarations of favourable treatment and civil partnership\n\n• Support for benefit cases in cooperation with our reinsurance\n\n• Planning and implementation of employer visits, information events, presentations and webinars\n\n• Active participation in projects, the further development of our processes and digitalization\n\nRequirements\n• Professional experience and further training in occupational provision (specialist for personnel provision with FA)\n\n• Enjoy analysing complex questions and developing practical solutions\n\n• Independent, structured and responsible working methods as well as analytical and networked thinking\n\n• High customer and service orientation\n\n• Safe appearance and pleasure in representing the PKGR at employer visits, information events, presentations and webinars\n\n• Knowledge of our management system SwissPension is an advantage\n\n• Team player with pleasure in an open and respectful cooperation with short decision paths\n\n• Good knowledge of several cantonal languages is an advantage",
+        "de": "Zu unseren Versicherten zählen unter anderem die Mitarbeitenden des Kantons Graubünden, der öffentlich-rechtlichen Anstalten, von Gemeinden, Schulen und Institutionen aus dem Gesundheits- und Sozialbereich. Diese Vielfalt macht unsere Arbeit abwechslungsreich und sorgt täglich für spannende und anspruchsvolle Fragestellungen.\n\nFür unser Vorsorgeteam suchen wir per sofort oder nach Vereinbarung eine engagierte, dienstleistungsorientierte Persönlichkeit als Fachspezialist/-in Vorsorge.\nIn diesem vielseitigen Job sind Sie die Anlaufstelle für unsere Versicherten und Arbeitgeber. Mit Ihrer kompetenten und lösungsorientierten Beratung prägen Sie den ersten Eindruck der PKGR.\n\nAufgaben\n• Bewirtschaftung des Versicherten- und Arbeitgeberportals «myPKGR»\n\n• Verarbeitung der monatlichen Lohnschnittstellen\n\n• Verarbeitung von Zahlungsein- und Ausgängen (Eintritts-/Austrittsleistungen, Einkäufe, WEF-Vorbezüge und -Verpfändungen)\n\n• Durchführung von Vorsorgeausgleichen bei Scheidung sowie Bearbeitung von Begünstigungs- und Lebenspartnerschaftserklärungen\n\n• Unterstützung bei Leistungsfällen in Zusammenarbeit mit unserer Rückversicherung\n\n• Planung und Durchführung von Arbeitgeberbesuchen, Informationsveranstaltungen, Referaten und Webinaren\n\n• Aktive Mitgestaltung bei Projekten, der Weiterentwicklung unserer Prozesse und der Digitalisierung\n\nAnforderungen\n• Berufserfahrung und Weiterbildung in der beruflichen Vorsorge (Fachperson für Personalvorsorge mit FA)\n\n• Freude daran, komplexe Fragestellungen zu analysieren und praxisnahe Lösungen zu entwickeln\n\n• Selbstständige, strukturierte und verantwortungsbewusste Arbeitsweise sowie analytisches und vernetztes Denken\n\n• Hohe Kunden- und Dienstleistungsorientierung\n\n• Sicheres Auftreten und Freude daran, die PKGR bei Arbeitgeberbesuchen, Informationsveranstaltungen, Referaten und Webinaren zu vertreten\n\n• Kenntnisse unseres Verwaltungssystems SwissPension sind von Vorteil\n\n• Teamplayer mit Freude an einer offenen und respektvollen Zusammenarbeit mit kurzen Entscheidungswegen\n\n• Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil",
+        "fr": "Nos assurés comprennent les employés du canton des Grisons, les institutions publiques, les municipalités, les écoles et les institutions du secteur de la santé et de la société. Cette diversité rend notre travail varié et crée chaque jour des questions passionnantes et stimulantes.\n\nPour notre équipe de retraite, nous cherchons 1. Octobre 2026 ou par accord une personnalité dédiée, orientée vers le service en tant que spécialiste de la fourniture.\nDans ce travail polyvalent, vous êtes le point de contact pour nos assurés et employeurs. Avec vos conseils compétents et orientés vers la solution, vous façonnez la première impression du PKGR.\n\nTâche\n• Gestion du portail assuré et employeur \"myPKGR\"\n\n• Traitement des interfaces de paye mensuelles\n\n• Traitement des paiements entrants et sortants (services entrants et sortants, achats, avances du Fonds mondial de développement et annonces de contributions)\n\n• Mise en œuvre de l'indemnisation des pensions en cas de divorce et traitement des déclarations de traitement favorable et de partenariat civil\n\n• Soutien aux prestations en coopération avec notre réassurance\n\n• Planification et mise en oeuvre des visites des employeurs, des événements d'information, des présentations et des webinaires\n\n• Participation active aux projets, développement de nos processus et numérisation\n\nExigences\n• Expérience professionnelle et formation continue dans le domaine de la formation professionnelle (spécialiste de la formation du personnel avec l'AF)\n\n• Profitez de l'analyse de questions complexes et de l'élaboration de solutions pratiques\n\n• Méthodes de travail indépendantes, structurées et responsables ainsi que réflexion analytique et en réseau\n\n• Orientation client et service élevée\n\n• Aspect sûr et plaisir de représenter le PKGR lors des visites des employeurs, des événements d'information, des présentations et des webinaires\n\n• Connaissance de notre système de gestion SwissPension est un avantage\n\n• Joueur d'équipe avec plaisir dans une coopération ouverte et respectueuse avec des chemins de décision courts\n\n• Une bonne connaissance de plusieurs langues cantonales est un avantage"
       },
-      "location": "Thusis",
+      "location": "Chur",
       "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2871/pub/2/index.html",
+      "url": "https://apply.refline.ch/514915/2803/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:15:54.366Z",
-      "addressLocality": "Thusis",
-      "postalCode": "7430",
+      "crawledAt": "2026-10-31T21:20:51.672Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Formazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-06T09:17:21.092479+00:00",
-      "postedDate": "2026-10-06T09:17:21.092479+00:00",
+      "datePosted": "2026-08-06T07:22:24.841576+00:00",
+      "postedDate": "2026-08-06T07:22:24.841576+00:00",
       "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/514915/2871/pub/2/index.html",
+      "applyUrl": "https://apply.refline.ch/514915/2803/pub/1/index.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "department": "Amt für Volksschule und Sport",
-      "applicationDeadline": "2026-10-30",
-      "pensumMin": 40,
-      "pensumMax": 40,
-      "pensum": "40%",
+      "department": "Pensionskasse Graubünden PKGR",
+      "applicationDeadline": "2026-10-31",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
       "previousSlugs": [
-        "sekretar-in-schulinspektorat-kanton-gr-ch",
-        "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis"
+        "fachspezialist-in-vorsorge-kanton-gr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sekretar-in-schulinspektorat-kanton-gr-ch",
-          "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis"
+          "fachspezialist-in-vorsorge-kanton-gr-ch"
         ],
         "en": [
-          "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis"
+          "fachspezialist-in-vorsorge-kanton-gr-ch"
         ],
         "fr": [
-          "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis"
+          "fachspezialist-in-vorsorge-kanton-gr-ch"
         ]
       },
-      "firstSeenAt": "2026-10-08T09:16:54.650Z",
-      "salaryMin": 48500,
-      "salaryMax": 89500,
+      "firstSeenAt": "2026-08-06T11:34:51.397Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48500,
-          "maxValue": 89500,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-30T21:20:51.672Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

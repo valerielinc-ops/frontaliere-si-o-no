@@ -25,6 +25,7 @@
  */
 
 import { cdnDataUrl, cdnFreshUrl } from '@/services/cdnDataBase';
+import { articlesApiBase } from '@/services/articlesApiBase';
 import { mergeArticleMetaOverlay } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import type { ArticleSection } from '@/services/articleSections';
@@ -169,6 +170,38 @@ async function fetchIndex(path: string): Promise<OverlayIndex | null> {
 }
 
 /**
+ * Read the corpus manifest count for the two site-rendered article sections.
+ * The recent overlay index carries its own `total`, but that value can be an
+ * older publication snapshot than the hub/client chunks. The manifest is the
+ * publisher's cross-surface count and is therefore the only safe signal that
+ * can reveal that silent handoff. A failed read remains fail-open: the index's
+ * existing count/date guards still decide whether to escalate.
+ */
+async function fetchPublishedArticleCount(section: OverlaySection): Promise<number | null> {
+  const countKey = section === 'svizzera'
+    ? 'swissArticles'
+    : section === 'frontaliere'
+      ? 'articles'
+      : null;
+  if (!countKey) return null;
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  try {
+    const url = cdnFreshUrl(`${articlesApiBase()}/manifest.json`);
+    const res = await fetch(url, { signal: controller.signal });
+    if (!res.ok) return null;
+    const body = await res.json() as { counts?: Record<string, unknown> };
+    const count = body?.counts?.[countKey];
+    return typeof count === 'number' && Number.isSafeInteger(count) && count >= 0 ? count : null;
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
  * Fetch the overlay for one section+locale. Resolves to `[]` on any problem.
  *
  * `bundledCount` — how many articles this build shipped — turns the published
@@ -181,8 +214,10 @@ async function fetchIndex(path: string): Promise<OverlayIndex | null> {
  *
  * So: if the window provably cannot close the gap — the bundle plus the whole
  * window still totals less than the corpus — fetch the complete index instead.
- * On the common path (`bundledCount` current) the comparison is false and not
- * a byte more is downloaded. Omit `bundledCount` to keep the old behaviour.
+ * The manifest also escalates when its corpus count has advanced past the
+ * bundle, even if the recent index has already published that newer total but
+ * is still missing one of its rows. Omit `bundledCount` to keep the old
+ * behaviour.
  */
 export async function fetchArticleOverlay(
   section: OverlaySection,
@@ -190,7 +225,10 @@ export async function fetchArticleOverlay(
   bundledCount?: number,
   bundledNewest?: string,
 ): Promise<OverlayArticle[]> {
-  const recent = await fetchIndex(`/data/blog-index-${section}-${locale}.json`);
+  const [recent, publishedCount] = await Promise.all([
+    fetchIndex(`/data/blog-index-${section}-${locale}.json`),
+    typeof bundledCount === 'number' ? fetchPublishedArticleCount(section) : Promise.resolve(null),
+  ]);
   if (!recent) return [];
 
   // Two independent triggers, because the count on its own has a blind spot.
@@ -206,8 +244,14 @@ export async function fetchArticleOverlay(
     typeof bundledCount === 'number' && bundledCount + recent.articles.length < recent.total;
   const dateSaysGap =
     typeof bundledNewest === 'string' && recent.oldest !== null && bundledNewest < recent.oldest;
+  // The recent index can report the publisher's current total while still
+  // missing a row during a cross-surface handoff. Compare the manifest with
+  // the client bundle before accepting that result; `recent.total` alone
+  // cannot prove that every published row is present in the recent index.
+  const manifestSaysGap =
+    typeof bundledCount === 'number' && publishedCount !== null && publishedCount > bundledCount;
 
-  if (countSaysGap || dateSaysGap) {
+  if (countSaysGap || dateSaysGap || manifestSaysGap) {
     const full = await fetchIndex(`/data/blog-index-${section}-${locale}-full.json`);
     // Still fail-open: a missing or malformed full index leaves the window's
     // entries in place rather than dropping the overlay altogether.

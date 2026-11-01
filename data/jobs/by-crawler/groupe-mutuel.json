@@ -1,7 +1,7 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-10-31T09:30:17.273Z",
-  "runId": "41187373855",
+  "assembledAt": "2026-11-01T09:16:38.875Z",
+  "runId": "41291723109",
   "jobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4454?c=groupemutuel&lang=fr-FR",
@@ -33,7 +33,7 @@
         "fr": "charge-de-developpement-reseaux-partenariats-expertise-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-29",
       "postedDate": "2026-10-29",
       "postingDateSource": "reported",
@@ -79,7 +79,11 @@
       },
       "postalCode": "1003",
       "addressLocality": "Lausanne",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4391?c=groupemutuel&lang=fr-FR",
@@ -111,7 +115,7 @@
         "fr": "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel"
       },
       "category": "administration",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-28",
       "postedDate": "2026-10-28",
       "postingDateSource": "reported",
@@ -157,7 +161,11 @@
       },
       "postalCode": "1920",
       "addressLocality": "Martigny",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "streetAddress": "Martigny",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4442?c=groupemutuel&lang=fr-FR",
@@ -189,7 +197,7 @@
         "fr": "stagiaire-mpe-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
@@ -235,7 +243,11 @@
       },
       "postalCode": "1003",
       "addressLocality": "Lausanne",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4440?c=groupemutuel&lang=fr-FR",
@@ -267,7 +279,7 @@
         "fr": "stagiaire-mpe-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
@@ -315,71 +327,11 @@
       },
       "postalCode": "1700",
       "addressLocality": "Fribourg",
-      "addressRegion": "FR"
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4438?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4438?c=groupemutuel&lang=fr-FR",
-      "title": "Compliance Officer - DPO Office (h/f) 60%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "description": "En soutien de l'équipe Protection des données de la Conformité, tu interviens sur des sujets variés : assistance des métiers sur les questions de protection des données, gestion des demandes LPD (droit d'accès, droit de suppression, etc.), analyse des risques en matière de protection des données (pour les partenaires et les projets), formations et sensibilisation des métiers, etc. Le conseil aux équipes en matière de protection des données fait partie intégrante de ton quotidien Tu t’assures que les mesures nécessaires à la mise en conformité et notamment à la LPD soient bien implémentées dans les projets et les processus La documentation interne reste à jour grâce à ton suivi rigoureux L’échange au sein de l’entreprise sur les sujets de protection des données est entre de bonnes mains : tu l’animes, tu l’alimentes et tu réponds aux questions avec réactivité",
-      "descriptionByLocale": {
-        "it": "A sostegno del team Compliance Data Protection, interviene su una varietà di argomenti: assistenza dalle professioni in materia di protezione dei dati, gestione delle richieste di LPD (diritto di accesso, diritto di cancellazione, ecc.), analisi dei rischi di protezione dei dati (per partner e progetti), formazione e sensibilizzazione degli scambi, ecc. Il consiglio ai team di protezione dei dati è parte integrante della vostra vita quotidiana. Assicurarsi che le misure necessarie per la conformità, inclusa la HPA, siano adeguatamente implementate in progetti e processi. La documentazione interna rimane aggiornata grazie al suo rigoroso monitoraggio Lo scambio all'interno dell'azienda sui problemi di protezione dei dati è in buone mani: si vive, si alimenta e risponde alle domande con reattività",
-        "en": "In support of the Compliance Data Protection team, you intervene on a variety of topics: assistance from the professions on data protection issues, management of LPD requests (right of access, right of deletion, etc.), analysis of data protection risks (for partners and projects), training and awareness of trades, etc. The advice to data protection teams is an integral part of your daily life. You ensure that the necessary measures for compliance, including the HPA, are properly implemented in projects and processes. Internal documentation remains up to date thanks to your rigorous monitoring The exchange within the company on data protection issues is in good hands: you live, feed and answer questions with reactivity",
-        "de": "Zur Unterstützung des Compliance-Datenschutzteams intervenieren Sie zu verschiedenen Themen: Unterstützung der Berufsgruppen zu datenschutzrechtlichen Fragen, Verwaltung von LPD-Anfragen (Recht auf Zugang, Recht auf Löschung, etc.), Analyse von Datenschutzrisiken (für Partner und Projekte), Schulung und Sensibilisierung für den Handel, etc. Die Beratung von Datenschutzteams ist ein fester Bestandteil Ihres täglichen Lebens. Sie stellen sicher, dass die notwendigen Maßnahmen zur Compliance, einschließlich der HPA, ordnungsgemäß in Projekten und Prozessen umgesetzt werden. Interne Dokumentation bleibt auf dem neuesten Stand dank Ihrer strengen Überwachung Der Austausch innerhalb des Unternehmens zu Datenschutzfragen ist in guten Händen: Sie leben, füttern und beantworten Fragen mit Reaktivität",
-        "fr": "En soutien de l'équipe Protection des données de la Conformité, tu interviens sur des sujets variés : assistance des métiers sur les questions de protection des données, gestion des demandes LPD (droit d'accès, droit de suppression, etc.), analyse des risques en matière de protection des données (pour les partenaires et les projets), formations et sensibilisation des métiers, etc. Le conseil aux équipes en matière de protection des données fait partie intégrante de ton quotidien Tu t’assures que les mesures nécessaires à la mise en conformité et notamment à la LPD soient bien implémentées dans les projets et les processus La documentation interne reste à jour grâce à ton suivi rigoureux L’échange au sein de l’entreprise sur les sujets de protection des données est entre de bonnes mains : tu l’animes, tu l’alimentes et tu réponds aux questions avec réactivité"
-      },
-      "titleByLocale": {
-        "it": "Compliance Officer - DPO Office (m/f) 60%",
-        "en": "Compliance Officer - DPO Office (m/f) 60%",
-        "de": "Compliance Officer - DPO Office (m/w) 60%",
-        "fr": "Compliance Officer - DPO Office (h/f) 60%"
-      },
-      "slug": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
-      "slugByLocale": {
-        "it": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
-        "en": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
-        "de": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
-        "fr": "compliance-officer-dpo-office-h-f-60-groupe-mutuel"
-      },
-      "category": "legal",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
-      "datePosted": "2026-10-20",
-      "postedDate": "2026-10-20",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Lausanne"
-      },
-      "jobReqId": "4438",
-      "id": "groupe-mutuel-53976a0ffa93",
-      "firstSeenAt": "2026-10-20T21:17:52.856Z",
-      "salaryMin": 41400,
-      "salaryMax": 70800,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41400,
-          "maxValue": 70800,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD"
+      "addressRegion": "FR",
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4428?c=groupemutuel&lang=fr-FR",
@@ -411,7 +363,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-chur"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
@@ -459,7 +411,11 @@
       },
       "postalCode": "7000",
       "addressLocality": "Chur",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4383?c=groupemutuel&lang=fr-FR",
@@ -491,7 +447,7 @@
         "fr": "h-f-50-consultant-en-securite-sociale-groupe-mutuel-paradiso"
       },
       "category": "general",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-16",
       "postedDate": "2026-10-16",
       "postingDateSource": "reported",
@@ -523,7 +479,11 @@
       },
       "postalCode": "6900",
       "addressLocality": "Paradiso",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "streetAddress": "Paradiso",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4427?c=groupemutuel&lang=fr-FR",
@@ -555,7 +515,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-thun"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -605,7 +565,11 @@
       },
       "postalCode": "3600",
       "addressLocality": "Thun",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4426?c=groupemutuel&lang=fr-FR",
@@ -637,7 +601,7 @@
         "fr": "conseillers-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-bern"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -685,7 +649,11 @@
       },
       "postalCode": "3004",
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4411?c=groupemutuel&lang=fr-FR",
@@ -717,7 +685,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-100-groupe-mutuel-luzern"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -765,71 +733,11 @@
       },
       "postalCode": "6003",
       "addressLocality": "Luzern",
-      "addressRegion": "LU"
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4408?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4408?c=groupemutuel&lang=fr-FR",
-      "title": "Portfolio Manager Senior (h/f) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Martigny",
-      "canton": "VS",
-      "country": "CH",
-      "description": "Tu réalises des analyses et recherches macro- et micro-économiques en lien avec les actifs de l’univers d’investissement défini La gestion de portefeuille sur une ou plusieurs classes d’actifs ainsi que la mise en œuvre des investissements au travers de solutions directes et indirectes constituent un volet clé de tes compétences L’établissement de propositions d’investissement, l’interprétation et la présentation des rapports de performance et de risque font partie intégrante de tes activités Dans ton activité, tu veilles au respect et au contrôle des prescriptions légales et réglementaires Tu participes au développement et au suivi de nouvelles solutions d’investissement",
-      "descriptionByLocale": {
-        "it": "Si eseguono analisi macroeconomiche e microeconomiche e ricerche relative ai beni dell'universo di investimento definito Gestione Portfolio su una o più classi di asset e l'implementazione di investimenti attraverso soluzioni dirette e indirette sono una parte fondamentale delle vostre competenze La preparazione delle proposte di investimento, l'interpretazione e la presentazione delle performance e dei rapporti di rischio sono parte integrante delle vostre attività. Nella vostra attività, assicuratevi che i requisiti legali e normativi siano rispettati e monitorati. Sei coinvolto nello sviluppo e nel monitoraggio di nuove soluzioni di investimento",
-        "en": "You perform macro- and micro-economic analyses and research related to the assets of the defined investment universe Portfolio management on one or more asset classes and the implementation of investments through direct and indirect solutions are a key part of your skills The preparation of investment proposals, interpretation and presentation of performance and risk reports are an integral part of your activities. In your activity, you ensure that legal and regulatory requirements are respected and monitored. You are involved in developing and monitoring new investment solutions",
-        "de": "Sie führen makro- und mikroökonomische Analysen und Untersuchungen zu den Vermögenswerten des definierten Anlageuniversums durch Portfoliomanagement in einer oder mehreren Anlageklassen und die Umsetzung von Investitionen durch direkte und indirekte Lösungen sind ein wesentlicher Bestandteil Ihrer Fähigkeiten Die Erstellung von Anlagevorschlägen, Interpretation und Präsentation von Performance- und Risikoberichten sind fester Bestandteil Ihrer Aktivitäten. In Ihrer Tätigkeit stellen Sie sicher, dass gesetzliche und regulatorische\n• Anforderungen eingehalten und überwacht werden. Sie sind an der Entwicklung und Überwachung neuer Anlagelösungen beteiligt",
-        "fr": "Tu réalises des analyses et recherches macro- et micro-économiques en lien avec les actifs de l’univers d’investissement défini La gestion de portefeuille sur une ou plusieurs classes d’actifs ainsi que la mise en œuvre des investissements au travers de solutions directes et indirectes constituent un volet clé de tes compétences L’établissement de propositions d’investissement, l’interprétation et la présentation des rapports de performance et de risque font partie intégrante de tes activités Dans ton activité, tu veilles au respect et au contrôle des prescriptions légales et réglementaires Tu participes au développement et au suivi de nouvelles solutions d’investissement"
-      },
-      "titleByLocale": {
-        "it": "Portfolio Manager Senior (m/f) 80-100%",
-        "en": "Portfolio Manager Senior (m/f) 80-100%",
-        "de": "Portfoliomanager Senior (m/w) 80-100%",
-        "fr": "Portfolio Manager Senior (h/f) 80-100%"
-      },
-      "slug": "portfolio-manager-senior-h-f-80-100-groupe-mutuel",
-      "slugByLocale": {
-        "it": "portfolio-manager-senior-h-f-80-100-groupe-mutuel",
-        "en": "portfolio-manager-senior-h-f-80-100-groupe-mutuel",
-        "de": "portfoliomanager-senior-m-w-80-100-groupe-mutuel-martigny",
-        "fr": "portfolio-manager-senior-h-f-80-100-groupe-mutuel"
-      },
-      "category": "management",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
-      "datePosted": "2026-10-14",
-      "postedDate": "2026-10-14",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Martigny"
-      },
-      "jobReqId": "4408",
-      "id": "groupe-mutuel-be7af5ed4f7c",
-      "firstSeenAt": "2026-10-14T21:14:04.677Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1920",
-      "addressLocality": "Martigny",
-      "addressRegion": "VS"
+      "addressRegion": "LU",
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4402?c=groupemutuel&lang=fr-FR",
@@ -861,7 +769,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-07",
       "postedDate": "2026-10-07",
       "postingDateSource": "reported",
@@ -907,7 +815,11 @@
       },
       "postalCode": "2000",
       "addressLocality": "Neuchâtel",
-      "addressRegion": "NE"
+      "addressRegion": "NE",
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4398?c=groupemutuel&lang=fr-FR",
@@ -939,7 +851,7 @@
         "fr": "assistant-medical-temporaire-12-mois-h-f-100-groupe-mutuel-sion"
       },
       "category": "general",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-06",
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
@@ -979,7 +891,11 @@
       },
       "postalCode": "1950",
       "addressLocality": "Sion",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4382?c=groupemutuel&lang=fr-FR",
@@ -1011,7 +927,7 @@
         "fr": "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-30",
       "postedDate": "2026-09-30",
       "postingDateSource": "reported",
@@ -1051,7 +967,11 @@
       },
       "postalCode": "1023",
       "addressLocality": "Crissier",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Crissier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4390?c=groupemutuel&lang=fr-FR",
@@ -1083,7 +1003,7 @@
         "fr": "apprentissage-employee-de-commerce-cfc-services-et-administration-100-groupe-mutuel-sion"
       },
       "category": "claims",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -1133,7 +1053,11 @@
       },
       "postalCode": "1950",
       "addressLocality": "Sion",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4389?c=groupemutuel&lang=fr-FR",
@@ -1165,7 +1089,7 @@
         "fr": "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -1205,7 +1129,11 @@
       },
       "postalCode": "1003",
       "addressLocality": "Lausanne",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4376?c=groupemutuel&lang=fr-FR",
@@ -1237,7 +1165,7 @@
         "fr": "conseiller-de-precaution-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "general",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
       "postingDateSource": "reported",
@@ -1277,7 +1205,11 @@
       },
       "postalCode": "8001",
       "addressLocality": "Zürich",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4287?c=groupemutuel&lang=fr-FR",
@@ -1309,7 +1241,7 @@
         "fr": "conseiller-clientele-agence-h-f-60-100-groupe-mutuel"
       },
       "category": "customer-service",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
       "postingDateSource": "reported",
@@ -1357,7 +1289,11 @@
       },
       "postalCode": "1700",
       "addressLocality": "Fribourg",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4370?c=groupemutuel&lang=fr-FR",
@@ -1389,7 +1325,7 @@
         "fr": "agences-de-service-a-la-clientele-h-f-80-100-groupe-mutuel-biel-bienne"
       },
       "category": "customer-service",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-22",
       "postedDate": "2026-09-22",
       "postingDateSource": "reported",
@@ -1429,7 +1365,11 @@
       },
       "postalCode": "2502",
       "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4373?c=groupemutuel&lang=fr-FR",
@@ -1461,7 +1401,7 @@
         "fr": "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-st-gallen"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -1515,7 +1455,11 @@
       },
       "postalCode": "9000",
       "addressLocality": "St. Gallen",
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4372?c=groupemutuel&lang=fr-FR",
@@ -1547,7 +1491,7 @@
         "fr": "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-wil"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -1595,7 +1539,11 @@
       },
       "postalCode": "9500",
       "addressLocality": "Wil",
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4371?c=groupemutuel&lang=fr-FR",
@@ -1627,7 +1575,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -1672,7 +1620,11 @@
       },
       "postalCode": "1630",
       "addressLocality": "Bulle",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "streetAddress": "Bulle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4357?c=groupemutuel&lang=fr-FR",
@@ -1704,7 +1656,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-16",
       "postedDate": "2026-09-16",
       "postingDateSource": "reported",
@@ -1749,7 +1701,11 @@
       },
       "postalCode": "2800",
       "addressLocality": "Delémont",
-      "addressRegion": "JU"
+      "addressRegion": "JU",
+      "streetAddress": "Delémont",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4348?c=groupemutuel&lang=fr-FR",
@@ -1781,7 +1737,7 @@
         "fr": "agences-de-service-a-la-clientele-h-f-80-100-groupe-mutuel-olten"
       },
       "category": "customer-service",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-07",
       "postedDate": "2026-09-07",
       "postingDateSource": "reported",
@@ -1832,7 +1788,11 @@
       },
       "postalCode": "4600",
       "addressLocality": "Olten",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
@@ -1864,7 +1824,7 @@
         "fr": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
       },
       "category": "it",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
       "postingDateSource": "reported",
@@ -1904,7 +1864,11 @@
       },
       "postalCode": "1920",
       "addressLocality": "Martigny",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "streetAddress": "Martigny",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4332?c=groupemutuel&lang=fr-FR",
@@ -1936,7 +1900,7 @@
         "fr": "stagiaire-mpe-h-f-100-groupe-mutuel"
       },
       "category": "general",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-08-27",
       "postedDate": "2026-08-27",
       "postingDateSource": "reported",
@@ -1976,7 +1940,11 @@
       },
       "postalCode": "1920",
       "addressLocality": "Martigny",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "streetAddress": "Martigny",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4282?c=groupemutuel&lang=fr-FR",
@@ -2008,7 +1976,7 @@
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-08-06",
       "postedDate": "2026-08-06",
       "postingDateSource": "reported",
@@ -2082,7 +2050,11 @@
       },
       "postalCode": "1870",
       "addressLocality": "Monthey",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "streetAddress": "Monthey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4259?c=groupemutuel&lang=fr-FR",
@@ -2114,7 +2086,7 @@
         "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-winterthur"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-07-23",
       "postedDate": "2026-07-23",
       "postingDateSource": "reported",
@@ -2160,8 +2132,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
-          "conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-wil",
           "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-wil",
           "consulente-assicurativo-e-previdenziale-m-w-80-100-groupe-mutuel-aarau",
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2",
@@ -2179,7 +2149,9 @@
           "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-solothurn",
           "conseiller-en-assurance-et-prevoyance-h-f-80-100-groupe-mutuel-solothurn",
           "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-wil",
-          "versicherungs-und-vorsorgeberater-m-w-100-groupe-mutuel"
+          "versicherungs-und-vorsorgeberater-m-w-100-groupe-mutuel",
+          "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
+          "conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-wil"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
@@ -2206,7 +2178,11 @@
       },
       "postalCode": "8400",
       "addressLocality": "Winterthur",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4212?c=groupemutuel&lang=fr-FR",
@@ -2238,7 +2214,7 @@
         "fr": "conseiller-en-soins-m-f-60-100-groupe-mutuel-sargans"
       },
       "category": "general",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-07-10",
       "postedDate": "2026-07-10",
       "postingDateSource": "reported",
@@ -2278,7 +2254,11 @@
       },
       "postalCode": "7320",
       "addressLocality": "Sargans",
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "streetAddress": "Sargans",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4177?c=groupemutuel&lang=fr-FR",
@@ -2310,7 +2290,7 @@
         "fr": "conseillers-en-assurance-et-retraite-m-f-80-100-groupe-mutuel-solothurn"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-06-25",
       "postedDate": "2026-06-25",
       "postingDateSource": "reported",
@@ -2356,7 +2336,11 @@
       },
       "postalCode": "4500",
       "addressLocality": "Solothurn",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4138?c=groupemutuel&lang=fr-FR",
@@ -2388,7 +2372,7 @@
         "fr": "entraineur-commercial-specialiste-des-pensions-m-f-80-100-groupe-mutuel-st-gallen"
       },
       "category": "sales",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-06-15",
       "postedDate": "2026-06-15",
       "postingDateSource": "reported",
@@ -2428,7 +2412,11 @@
       },
       "postalCode": "9000",
       "addressLocality": "St. Gallen",
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4082?c=groupemutuel&lang=fr-FR",
@@ -2460,7 +2448,7 @@
         "fr": "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-05-22",
       "postedDate": "2026-05-22",
       "postingDateSource": "reported",
@@ -2500,7 +2488,11 @@
       },
       "postalCode": "1201",
       "addressLocality": "Genève",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3980?c=groupemutuel&lang=fr-FR",
@@ -2532,7 +2524,7 @@
         "fr": "conseiller-en-assurance-et-prevoyance-h-f-80-100-groupe-mutuel-zurich"
       },
       "category": "insurance",
-      "crawledAt": "2026-10-31T09:30:14.167Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-04-16",
       "postedDate": "2026-04-16",
       "postingDateSource": "reported",
@@ -2580,7 +2572,149 @@
       },
       "postalCode": "8001",
       "addressLocality": "Zürich",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4438?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4438?c=groupemutuel&lang=fr-FR",
+      "title": "Compliance Officer - DPO Office (h/f) 60%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "description": "En soutien de l'équipe Protection des données de la Conformité, tu interviens sur des sujets variés : assistance des métiers sur les questions de protection des données, gestion des demandes LPD (droit d'accès, droit de suppression, etc.), analyse des risques en matière de protection des données (pour les partenaires et les projets), formations et sensibilisation des métiers, etc. Le conseil aux équipes en matière de protection des données fait partie intégrante de ton quotidien Tu t’assures que les mesures nécessaires à la mise en conformité et notamment à la LPD soient bien implémentées dans les projets et les processus La documentation interne reste à jour grâce à ton suivi rigoureux L’échange au sein de l’entreprise sur les sujets de protection des données est entre de bonnes mains : tu l’animes, tu l’alimentes et tu réponds aux questions avec réactivité",
+      "descriptionByLocale": {
+        "it": "A sostegno del team Compliance Data Protection, interviene su una varietà di argomenti: assistenza dalle professioni in materia di protezione dei dati, gestione delle richieste di LPD (diritto di accesso, diritto di cancellazione, ecc.), analisi dei rischi di protezione dei dati (per partner e progetti), formazione e sensibilizzazione degli scambi, ecc. Il consiglio ai team di protezione dei dati è parte integrante della vostra vita quotidiana. Assicurarsi che le misure necessarie per la conformità, inclusa la HPA, siano adeguatamente implementate in progetti e processi. La documentazione interna rimane aggiornata grazie al suo rigoroso monitoraggio Lo scambio all'interno dell'azienda sui problemi di protezione dei dati è in buone mani: si vive, si alimenta e risponde alle domande con reattività",
+        "en": "In support of the Compliance Data Protection team, you intervene on a variety of topics: assistance from the professions on data protection issues, management of LPD requests (right of access, right of deletion, etc.), analysis of data protection risks (for partners and projects), training and awareness of trades, etc. The advice to data protection teams is an integral part of your daily life. You ensure that the necessary measures for compliance, including the HPA, are properly implemented in projects and processes. Internal documentation remains up to date thanks to your rigorous monitoring The exchange within the company on data protection issues is in good hands: you live, feed and answer questions with reactivity",
+        "de": "Zur Unterstützung des Compliance-Datenschutzteams intervenieren Sie zu verschiedenen Themen: Unterstützung der Berufsgruppen zu datenschutzrechtlichen Fragen, Verwaltung von LPD-Anfragen (Recht auf Zugang, Recht auf Löschung, etc.), Analyse von Datenschutzrisiken (für Partner und Projekte), Schulung und Sensibilisierung für den Handel, etc. Die Beratung von Datenschutzteams ist ein fester Bestandteil Ihres täglichen Lebens. Sie stellen sicher, dass die notwendigen Maßnahmen zur Compliance, einschließlich der HPA, ordnungsgemäß in Projekten und Prozessen umgesetzt werden. Interne Dokumentation bleibt auf dem neuesten Stand dank Ihrer strengen Überwachung Der Austausch innerhalb des Unternehmens zu Datenschutzfragen ist in guten Händen: Sie leben, füttern und beantworten Fragen mit Reaktivität",
+        "fr": "En soutien de l'équipe Protection des données de la Conformité, tu interviens sur des sujets variés : assistance des métiers sur les questions de protection des données, gestion des demandes LPD (droit d'accès, droit de suppression, etc.), analyse des risques en matière de protection des données (pour les partenaires et les projets), formations et sensibilisation des métiers, etc. Le conseil aux équipes en matière de protection des données fait partie intégrante de ton quotidien Tu t’assures que les mesures nécessaires à la mise en conformité et notamment à la LPD soient bien implémentées dans les projets et les processus La documentation interne reste à jour grâce à ton suivi rigoureux L’échange au sein de l’entreprise sur les sujets de protection des données est entre de bonnes mains : tu l’animes, tu l’alimentes et tu réponds aux questions avec réactivité"
+      },
+      "titleByLocale": {
+        "it": "Compliance Officer - DPO Office (m/f) 60%",
+        "en": "Compliance Officer - DPO Office (m/f) 60%",
+        "de": "Compliance Officer - DPO Office (m/w) 60%",
+        "fr": "Compliance Officer - DPO Office (h/f) 60%"
+      },
+      "slug": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
+      "slugByLocale": {
+        "it": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
+        "en": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
+        "de": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
+        "fr": "compliance-officer-dpo-office-h-f-60-groupe-mutuel"
+      },
+      "category": "legal",
+      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "datePosted": "2026-10-20",
+      "postedDate": "2026-10-20",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Lausanne"
+      },
+      "jobReqId": "4438",
+      "id": "groupe-mutuel-53976a0ffa93",
+      "firstSeenAt": "2026-10-20T21:17:52.856Z",
+      "salaryMin": 41400,
+      "salaryMax": 70800,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41400,
+          "maxValue": 70800,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "crawlerMissStreak": 1,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T21:39:51.476Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4408?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4408?c=groupemutuel&lang=fr-FR",
+      "title": "Portfolio Manager Senior (h/f) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Martigny",
+      "canton": "VS",
+      "country": "CH",
+      "description": "Tu réalises des analyses et recherches macro- et micro-économiques en lien avec les actifs de l’univers d’investissement défini La gestion de portefeuille sur une ou plusieurs classes d’actifs ainsi que la mise en œuvre des investissements au travers de solutions directes et indirectes constituent un volet clé de tes compétences L’établissement de propositions d’investissement, l’interprétation et la présentation des rapports de performance et de risque font partie intégrante de tes activités Dans ton activité, tu veilles au respect et au contrôle des prescriptions légales et réglementaires Tu participes au développement et au suivi de nouvelles solutions d’investissement",
+      "descriptionByLocale": {
+        "it": "Si eseguono analisi macroeconomiche e microeconomiche e ricerche relative ai beni dell'universo di investimento definito Gestione Portfolio su una o più classi di asset e l'implementazione di investimenti attraverso soluzioni dirette e indirette sono una parte fondamentale delle vostre competenze La preparazione delle proposte di investimento, l'interpretazione e la presentazione delle performance e dei rapporti di rischio sono parte integrante delle vostre attività. Nella vostra attività, assicuratevi che i requisiti legali e normativi siano rispettati e monitorati. Sei coinvolto nello sviluppo e nel monitoraggio di nuove soluzioni di investimento",
+        "en": "You perform macro- and micro-economic analyses and research related to the assets of the defined investment universe Portfolio management on one or more asset classes and the implementation of investments through direct and indirect solutions are a key part of your skills The preparation of investment proposals, interpretation and presentation of performance and risk reports are an integral part of your activities. In your activity, you ensure that legal and regulatory requirements are respected and monitored. You are involved in developing and monitoring new investment solutions",
+        "de": "Sie führen makro- und mikroökonomische Analysen und Untersuchungen zu den Vermögenswerten des definierten Anlageuniversums durch Portfoliomanagement in einer oder mehreren Anlageklassen und die Umsetzung von Investitionen durch direkte und indirekte Lösungen sind ein wesentlicher Bestandteil Ihrer Fähigkeiten Die Erstellung von Anlagevorschlägen, Interpretation und Präsentation von Performance- und Risikoberichten sind fester Bestandteil Ihrer Aktivitäten. In Ihrer Tätigkeit stellen Sie sicher, dass gesetzliche und regulatorische\n• Anforderungen eingehalten und überwacht werden. Sie sind an der Entwicklung und Überwachung neuer Anlagelösungen beteiligt",
+        "fr": "Tu réalises des analyses et recherches macro- et micro-économiques en lien avec les actifs de l’univers d’investissement défini La gestion de portefeuille sur une ou plusieurs classes d’actifs ainsi que la mise en œuvre des investissements au travers de solutions directes et indirectes constituent un volet clé de tes compétences L’établissement de propositions d’investissement, l’interprétation et la présentation des rapports de performance et de risque font partie intégrante de tes activités Dans ton activité, tu veilles au respect et au contrôle des prescriptions légales et réglementaires Tu participes au développement et au suivi de nouvelles solutions d’investissement"
+      },
+      "titleByLocale": {
+        "it": "Portfolio Manager Senior (m/f) 80-100%",
+        "en": "Portfolio Manager Senior (m/f) 80-100%",
+        "de": "Portfoliomanager Senior (m/w) 80-100%",
+        "fr": "Portfolio Manager Senior (h/f) 80-100%"
+      },
+      "slug": "portfolio-manager-senior-h-f-80-100-groupe-mutuel",
+      "slugByLocale": {
+        "it": "portfolio-manager-senior-h-f-80-100-groupe-mutuel",
+        "en": "portfolio-manager-senior-h-f-80-100-groupe-mutuel",
+        "de": "portfoliomanager-senior-m-w-80-100-groupe-mutuel-martigny",
+        "fr": "portfolio-manager-senior-h-f-80-100-groupe-mutuel"
+      },
+      "category": "management",
+      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "datePosted": "2026-10-14",
+      "postedDate": "2026-10-14",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Martigny"
+      },
+      "jobReqId": "4408",
+      "id": "groupe-mutuel-be7af5ed4f7c",
+      "firstSeenAt": "2026-10-14T21:14:04.677Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1920",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "crawlerMissStreak": 1,
+      "streetAddress": "Martigny",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T21:39:51.476Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,10 +1,10 @@
 {
   "key": "coopers",
   "label": "Coopers Group AG",
-  "generatedAt": "2026-10-31T09:29:58.517Z",
+  "generatedAt": "2026-11-01T09:20:58.337Z",
   "total": 43,
   "discovered": null,
-  "parsed": 43,
+  "parsed": 42,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -13,102 +13,17 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 42,
-  "durationMs": 43521,
-  "avgDurationMs": 43521,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 43,
+  "durationMs": 39890,
+  "avgDurationMs": 39890,
   "durationHistory": [
-    43521
+    39890
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "coopers-87ef4891f703",
-      "slug": "recruitment-consulente-it-public-m-w-d-coopers-group-ag-basel-stadt",
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Recruitment Consultant IT Public (m/w/d)",
-      "location": "Basel-Stadt",
-      "canton": "BS",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3Z1HK0",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:05.243Z",
-      "addressLocality": "Basel-Stadt",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-30T00:00:00Z",
-      "postedDate": "2026-10-30T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=3Z1HK0",
-      "firstSeenAt": "2026-10-30T21:29:07.251Z",
-      "salaryMin": 64500,
-      "salaryMax": 110000,
-      "salarySource": "estimated",
-      "postalCode": "4001",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "coopers-cae621ecef50",
-      "slug": "1st-2nd-level-supporter-m-w-d-coopers-thurgau",
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "1st & 2nd-Level-Supporter (m/w/d)",
-      "location": "Thurgau",
-      "canton": "TG",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=V90UI0",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-29T21:31:58.939Z",
-      "addressLocality": "Thurgau",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-21T00:00:00Z",
-      "postedDate": "2026-10-21T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=V90UI0",
-      "firstSeenAt": "2026-10-22T09:27:36.875Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "postalCode": "8500",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "updatedJobs": [],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "coopers-76e7d5c21035",
@@ -122,7 +37,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:43.223Z",
+      "crawledAt": "2026-11-01T09:20:42.081Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -144,12 +59,16 @@
       "salaryMax": 162500,
       "salarySource": "estimated",
       "postalCode": "6003",
-      "_qualityScore": 93,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:42.081Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -164,7 +83,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:42.335Z",
+      "crawledAt": "2026-11-01T09:20:41.236Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -186,12 +105,16 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "postalCode": "6300",
-      "_qualityScore": 93,
+      "streetAddress": "Zug",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:41.236Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -206,7 +129,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:41.447Z",
+      "crawledAt": "2026-11-01T09:20:40.410Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -227,12 +150,16 @@
       "salaryMax": 156500,
       "salarySource": "estimated",
       "postalCode": "8500",
-      "_qualityScore": 93,
+      "streetAddress": "Thurgau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:40.410Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -247,7 +174,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:40.536Z",
+      "crawledAt": "2026-11-01T09:20:39.591Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -269,12 +196,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "postalCode": "8500",
-      "_qualityScore": 93,
+      "streetAddress": "Thurgau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:39.591Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -289,7 +220,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:39.650Z",
+      "crawledAt": "2026-11-01T09:20:38.759Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -310,12 +241,16 @@
       "salaryMax": 38400,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 93,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:38.759Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -330,7 +265,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:38.763Z",
+      "crawledAt": "2026-11-01T09:20:37.946Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -351,12 +286,16 @@
       "salaryMax": 143000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 93,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:37.946Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -371,7 +310,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:37.871Z",
+      "crawledAt": "2026-11-01T09:20:37.114Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -392,12 +331,16 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "_qualityScore": 93,
+      "streetAddress": "Basel-Stadt",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:37.114Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -412,7 +355,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:36.975Z",
+      "crawledAt": "2026-11-01T09:20:36.268Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -432,12 +375,16 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel-Landschaft",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:36.268Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -452,7 +399,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:36.082Z",
+      "crawledAt": "2026-11-01T09:20:35.447Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -473,12 +420,16 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "5000",
-      "_qualityScore": 93,
+      "streetAddress": "Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:35.447Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -493,7 +444,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JMN86",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:35.197Z",
+      "crawledAt": "2026-11-01T09:20:34.624Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -514,12 +465,16 @@
       "salaryMax": 160000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 93,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:34.624Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -534,7 +489,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=80N9VI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:34.305Z",
+      "crawledAt": "2026-11-01T09:20:33.810Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -554,12 +509,16 @@
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel-Landschaft",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:33.810Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -574,7 +533,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R1HY31",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:33.415Z",
+      "crawledAt": "2026-11-01T09:20:32.995Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -595,12 +554,16 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "5000",
-      "_qualityScore": 93,
+      "streetAddress": "Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:32.995Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -615,7 +578,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=873AAR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:29:32.117Z",
+      "crawledAt": "2026-11-01T09:20:32.175Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -636,12 +599,16 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1950",
-      "_qualityScore": 93,
+      "streetAddress": "Wallis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:32.175Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -656,7 +623,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HWB224",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:31.230Z",
+      "crawledAt": "2026-11-01T09:20:31.354Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -677,12 +644,16 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "5000",
-      "_qualityScore": 93,
+      "streetAddress": "Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:31.354Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -697,7 +668,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8A0OK8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:30.339Z",
+      "crawledAt": "2026-11-01T09:20:30.526Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -718,12 +689,16 @@
       "salaryMax": 167000,
       "salarySource": "estimated",
       "postalCode": "4500",
-      "_qualityScore": 93,
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:30.526Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -738,7 +713,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SC117T",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:29.416Z",
+      "crawledAt": "2026-11-01T09:20:29.673Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -759,12 +734,16 @@
       "salaryMax": 159500,
       "salarySource": "estimated",
       "postalCode": "5000",
-      "_qualityScore": 93,
+      "streetAddress": "Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T09:20:29.673Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -779,7 +758,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B3LB50",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:28.521Z",
+      "crawledAt": "2026-11-01T09:20:28.848Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -800,12 +779,16 @@
       "salaryMax": 162500,
       "salarySource": "estimated",
       "postalCode": "6003",
-      "_qualityScore": 93,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:20:28.848Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -820,7 +803,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5LY2U0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:27.618Z",
+      "crawledAt": "2026-11-01T09:20:28.020Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -841,12 +824,16 @@
       "salaryMax": 110500,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "_qualityScore": 93,
+      "streetAddress": "Basel-Stadt",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:20:28.020Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -861,7 +848,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=T5ME25",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:26.724Z",
+      "crawledAt": "2026-11-01T09:20:27.185Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -882,12 +869,16 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "postalCode": "6300",
-      "_qualityScore": 93,
+      "streetAddress": "Zug",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:20:27.185Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -902,7 +893,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9OIT77",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:29:25.829Z",
+      "crawledAt": "2026-11-01T09:20:26.355Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -923,53 +914,16 @@
       "salaryMax": 129500,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "_qualityScore": 93,
+      "streetAddress": "Basel-Stadt",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:20:26.355Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "coopers-ebaa6d26e920",
-      "slug": "enablement-ingegnere-m-w-d-coopers-group-ag-schaffhausen",
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Enablement Engineer (m/w/d)",
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2Y3C1X",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:29:24.943Z",
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-19T00:00:00Z",
-      "postedDate": "2026-10-19T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=2Y3C1X",
-      "firstSeenAt": "2026-10-19T21:18:10.095Z",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "postalCode": "8200",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -984,7 +938,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8ADY23",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:29:24.050Z",
+      "crawledAt": "2026-11-01T09:20:25.512Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1005,12 +959,16 @@
       "salaryMax": 146000,
       "salarySource": "estimated",
       "postalCode": "6300",
-      "_qualityScore": 93,
+      "streetAddress": "Zug",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:20:25.512Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1025,7 +983,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0VTZ20",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:23.161Z",
+      "crawledAt": "2026-11-01T09:20:24.689Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1046,12 +1004,16 @@
       "salaryMax": 124500,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 93,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:20:24.689Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1066,7 +1028,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:22.274Z",
+      "crawledAt": "2026-11-01T09:20:23.871Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1087,12 +1049,16 @@
       "salaryMax": 116500,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 93,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:23.871Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1107,7 +1073,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=60UUR1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:21.381Z",
+      "crawledAt": "2026-11-01T09:20:23.052Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1129,12 +1095,16 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "5000",
-      "_qualityScore": 93,
+      "streetAddress": "Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:23.052Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1149,7 +1119,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OH3F98",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:20.491Z",
+      "crawledAt": "2026-11-01T09:20:22.224Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1170,12 +1140,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 93,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:22.224Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1190,7 +1164,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=D6GR56",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:19.604Z",
+      "crawledAt": "2026-11-01T09:20:21.404Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1211,12 +1185,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 93,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:21.404Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1231,7 +1209,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2JN4D0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:18.714Z",
+      "crawledAt": "2026-11-01T09:20:20.574Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1252,12 +1230,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 93,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:20.574Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1272,7 +1254,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6HR98P",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:17.824Z",
+      "crawledAt": "2026-11-01T09:20:19.731Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1293,12 +1275,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 93,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:19.731Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1313,7 +1299,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8WU85W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:29:16.926Z",
+      "crawledAt": "2026-11-01T09:20:18.911Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1334,14 +1320,63 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "_qualityScore": 93,
+      "streetAddress": "Basel-Stadt",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:18.911Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
+      }
+    },
+    {
+      "id": "coopers-83384329db18",
+      "slug": "scrum-master-safe-m-w-d-coopers-bern",
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Scrum Master (SAFe) (m/w/d)",
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=H3E57F",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:20:18.094Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "contracting",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21T00:00:00Z",
+      "postedDate": "2026-10-21T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=H3E57F",
+      "firstSeenAt": "2026-10-22T09:27:37.755Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:20:18.094Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

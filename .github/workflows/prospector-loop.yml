@@ -30,8 +30,8 @@ on:
         description: 'Cantoni per DISCOVER (lista, oppure "all")'
         default: 'all'
       sources:
-        description: 'Sorgenti: own,seco,osm,web'
-        default: 'own,seco,web,osm'
+        description: 'Sorgenti: own,seco,osm,web,zefix'
+        default: 'own,seco,web,osm,zefix'
       trace_limit:
         description: 'Quanti candidati tracciare; 1.000 riduce il backlog lasciando margine al run'
         default: '1000'
@@ -66,7 +66,7 @@ env:
   # ne rende 5'923 — e la copertura nazionale e' l'obiettivo del loop. `web` e
   # `own` erano gia' nazionali per costruzione.
   CANTONS: ${{ github.event.inputs.cantons || 'all' }}
-  SOURCES: ${{ github.event.inputs.sources || 'own,seco,web,osm' }}
+  SOURCES: ${{ github.event.inputs.sources || 'own,seco,web,osm,zefix' }}
   TRACE_LIMIT: ${{ github.event.inputs.trace_limit || '1000' }}
   EXPAND_PLATFORMS: ${{ github.event.inputs.expand_platforms || '4' }}
   WEB_PAGES: ${{ github.event.inputs.web_pages || '40' }}

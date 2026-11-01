@@ -20,6 +20,7 @@ const { sanitizeTailoredCv } = await import('../functions/src/assistedApplicatio
 const { DOCX_CONTENT_TYPE, paragraphInventory } = await import('../functions/src/assistedApplicationDocxInPlace.js');
 const { entryData, readZip } = await import('../functions/src/lib/zipArchive.js');
 const { formatLetterDate } = await import('../functions/src/assistedApplicationAiPrompts.js');
+const { localizedQuestionWarning } = await import('../services/assistedApplicationQuestionLocalization');
 const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
 const { runAutomationAdminAction } = await import('../services/assistedApplicationAdminService');
 
@@ -80,6 +81,38 @@ describe('candidate review API', () => {
     for (const secret of ['verdict', 'summaryIt', 'checksIt', 'factCheck', 'Profilo debole', 'Chiedere il diploma']) {
       expect(serialized).not.toContain(secret);
     }
+  });
+
+  it('preserves the native ATS question and marks failed translation for the candidate page', async () => {
+    const applicationQuestion = 'Welche Region ist dein Herkunftskanton?';
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      questions: [{
+        id: 'origin_region', question: applicationQuestion, applicationQuestion,
+        applicationQuestionLocale: 'de', localizationStatus: 'fallback',
+        why: 'Il portale richiede questa informazione.', type: 'text', options: [], required: true,
+      }],
+    }));
+    const { status, body } = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(status).toBe(200);
+    expect(body.questions).toMatchObject([{
+      id: 'origin_region', localizationStatus: 'fallback',
+      applicationQuestion, applicationQuestionLocale: 'de',
+    }]);
+  });
+
+  it('uses the candidate communication locale for the untranslated-question warning', () => {
+    expect(localizedQuestionWarning('it-CH', 'de')).toMatchObject({
+      message: expect.stringContaining('(DE)'), originalTextLabel: 'Testo originale del portale',
+    });
+    expect(localizedQuestionWarning('de', null)).toMatchObject({
+      message: expect.stringContaining('Sprache nicht verifiziert'), originalTextLabel: 'Originaltext des Portals',
+    });
+    expect(localizedQuestionWarning('fr', null)).toMatchObject({
+      message: expect.stringContaining('langue non vérifiée'), originalTextLabel: 'Texte original du portail',
+    });
+    expect(localizedQuestionWarning('en', null)).toMatchObject({
+      message: expect.stringContaining('language not verified'), originalTextLabel: 'Portal original text',
+    });
   });
 
   it('omits a stale required language question when the complete CV language list proves absence', async () => {

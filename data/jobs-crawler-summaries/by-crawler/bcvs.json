@@ -1,7 +1,7 @@
 {
   "key": "bcvs",
   "label": "Banque Cantonale du Valais",
-  "generatedAt": "2026-10-31T09:31:12.719Z",
+  "generatedAt": "2026-11-01T09:42:39.701Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 6487,
-  "avgDurationMs": 6487,
+  "durationMs": 6581,
+  "avgDurationMs": 6581,
   "durationHistory": [
-    6487
+    6581
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:30:55.387Z",
+      "crawledAt": "2026-11-01T09:42:21.112Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -59,12 +59,26 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "postalCode": "1950",
-      "_qualityScore": 91,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Banque Cantonale du Valais",
+        "streetAddress": "Rue des Cèdres 8",
+        "postalCode": "1950",
+        "addressLocality": "Sion",
+        "addressRegion": "VS",
+        "checkedAt": "2026-10-31T20:47:57.017Z"
+      },
+      "streetAddress": "Rue des Cèdres 8",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-28T09:42:21.112Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -79,7 +93,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:30:54.975Z",
+      "crawledAt": "2026-11-01T09:42:20.604Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -102,12 +116,26 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1950",
-      "_qualityScore": 91,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Banque Cantonale du Valais",
+        "streetAddress": "Rue des Cèdres 8",
+        "postalCode": "1950",
+        "addressLocality": "Sion",
+        "addressRegion": "VS",
+        "checkedAt": "2026-10-31T20:47:57.017Z"
+      },
+      "streetAddress": "Rue des Cèdres 8",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-28T09:42:20.604Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -122,7 +150,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:30:54.470Z",
+      "crawledAt": "2026-11-01T09:42:20.189Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -144,12 +172,26 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "postalCode": "1950",
-      "_qualityScore": 89,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Banque Cantonale du Valais",
+        "streetAddress": "Rue des Cèdres 8",
+        "postalCode": "1950",
+        "addressLocality": "Sion",
+        "addressRegion": "VS",
+        "checkedAt": "2026-10-31T20:47:57.017Z"
+      },
+      "streetAddress": "Rue des Cèdres 8",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:42:20.189Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 23,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -164,7 +206,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/chef-fe-de-projets-it-business-analyste-2701",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:30:54.058Z",
+      "crawledAt": "2026-11-01T09:42:19.680Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -186,12 +228,26 @@
       "salaryMax": 165500,
       "salarySource": "estimated",
       "postalCode": "1950",
-      "_qualityScore": 91,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Banque Cantonale du Valais",
+        "streetAddress": "Rue des Cèdres 8",
+        "postalCode": "1950",
+        "addressLocality": "Sion",
+        "addressRegion": "VS",
+        "checkedAt": "2026-10-31T20:47:57.017Z"
+      },
+      "streetAddress": "Rue des Cèdres 8",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-30T09:42:19.680Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -206,7 +262,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-ia-2693",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:30:53.647Z",
+      "crawledAt": "2026-11-01T09:42:19.270Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -228,12 +284,26 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1950",
-      "_qualityScore": 91,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Banque Cantonale du Valais",
+        "streetAddress": "Rue des Cèdres 8",
+        "postalCode": "1950",
+        "addressLocality": "Sion",
+        "addressRegion": "VS",
+        "checkedAt": "2026-10-31T20:47:57.017Z"
+      },
+      "streetAddress": "Rue des Cèdres 8",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-01T09:42:19.270Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -248,7 +318,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2671",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:30:53.235Z",
+      "crawledAt": "2026-11-01T09:42:18.853Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -270,14 +340,28 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1950",
-      "_qualityScore": 91,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Banque Cantonale du Valais",
+        "streetAddress": "Rue des Cèdres 8",
+        "postalCode": "1950",
+        "addressLocality": "Sion",
+        "addressRegion": "VS",
+        "checkedAt": "2026-10-31T20:47:57.017Z"
+      },
+      "streetAddress": "Rue des Cèdres 8",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:42:18.853Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

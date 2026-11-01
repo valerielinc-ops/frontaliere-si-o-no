@@ -1,16 +1,16 @@
 {
   "key": "rapelli",
   "label": "Rapelli",
-  "generatedAt": "2026-10-31T09:46:38.668Z",
+  "generatedAt": "2026-11-01T09:41:52.486Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 6262,
-  "avgDurationMs": 6262,
+  "durationMs": 6414,
+  "avgDurationMs": 6414,
   "durationHistory": [
-    6262
+    6414
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Collaboratore-Pulizia-%28100%29-TI/1375847433/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:46:21.889Z",
+      "crawledAt": "2026-11-01T09:41:34.187Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "firstSeenAt": "2026-10-05T21:44:40.325Z",
@@ -46,12 +46,16 @@
       "salarySource": "estimated",
       "postalCode": "6855",
       "addressRegion": "TI",
-      "_qualityScore": 88,
+      "streetAddress": "Stabio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:41:34.187Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -75,7 +79,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-ManutentoreMaintenance-Technician-%28100%29-TI/1375847133/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:46:21.662Z",
+      "crawledAt": "2026-11-01T09:41:33.935Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "firstSeenAt": "2026-10-05T21:44:40.025Z",
@@ -84,12 +88,16 @@
       "salarySource": "estimated",
       "postalCode": "6855",
       "addressRegion": "TI",
-      "_qualityScore": 88,
+      "streetAddress": "Stabio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:41:33.935Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -113,7 +121,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:46:21.382Z",
+      "crawledAt": "2026-11-01T09:41:33.693Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "firstSeenAt": "2026-09-08T23:33:45.493Z",
@@ -122,12 +130,16 @@
       "salarySource": "estimated",
       "postalCode": "6855",
       "addressRegion": "TI",
-      "_qualityScore": 90,
+      "streetAddress": "Stabio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:41:33.693Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -151,7 +163,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Collaboratore-Confezionamento-Crudi-%28100%29-TI/1408373633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:46:21.146Z",
+      "crawledAt": "2026-11-01T09:41:33.436Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "firstSeenAt": "2026-09-19T23:17:53.063Z",
@@ -160,12 +172,16 @@
       "salarySource": "estimated",
       "postalCode": "6855",
       "addressRegion": "TI",
-      "_qualityScore": 88,
+      "streetAddress": "Stabio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:41:33.436Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -189,7 +205,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Responsabile-Intermedio-Produzione-%28100%29-TI/1431352833/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:46:20.910Z",
+      "crawledAt": "2026-11-01T09:41:33.191Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "firstSeenAt": "2026-08-31T17:32:26.004Z",
@@ -198,12 +214,16 @@
       "salarySource": "estimated",
       "postalCode": "6855",
       "addressRegion": "TI",
-      "_qualityScore": 88,
+      "streetAddress": "Stabio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:33.191Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -227,7 +247,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Head-of-Logistics-&-Shipping-%28100%29-TI/1441755033/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:46:20.668Z",
+      "crawledAt": "2026-11-01T09:41:32.935Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "firstSeenAt": "2026-09-28T21:24:44.993Z",
@@ -236,12 +256,16 @@
       "salarySource": "estimated",
       "postalCode": "6855",
       "addressRegion": "TI",
-      "_qualityScore": 88,
+      "streetAddress": "Stabio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:41:32.935Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -265,7 +289,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Key-Account-Manager-Retail-%28100%29-TI/1452134233/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:46:20.439Z",
+      "crawledAt": "2026-11-01T09:41:32.692Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "firstSeenAt": "2026-10-28T21:44:24.726Z",
@@ -274,12 +298,16 @@
       "salarySource": "estimated",
       "postalCode": "6855",
       "addressRegion": "TI",
-      "_qualityScore": 88,
+      "streetAddress": "Stabio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:41:32.692Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -303,7 +331,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Collaboratricecollaboratore-Spedizione-%28100%29-TI/1390401733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:46:20.203Z",
+      "crawledAt": "2026-11-01T09:41:32.442Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "firstSeenAt": "2026-10-28T21:44:27.951Z",
@@ -312,12 +340,16 @@
       "salarySource": "estimated",
       "postalCode": "6855",
       "addressRegion": "TI",
-      "_qualityScore": 88,
+      "streetAddress": "Stabio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:41:32.442Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -341,7 +373,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Tecnologo-Alimentare-%28100%29-TI/1375846933/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:46:19.977Z",
+      "crawledAt": "2026-11-01T09:41:32.168Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "firstSeenAt": "2026-10-28T21:44:27.515Z",
@@ -350,14 +382,18 @@
       "salarySource": "estimated",
       "postalCode": "6855",
       "addressRegion": "TI",
-      "_qualityScore": 88,
+      "streetAddress": "Stabio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:41:32.168Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

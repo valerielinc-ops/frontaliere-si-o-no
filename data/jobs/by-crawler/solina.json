@@ -1,7 +1,7 @@
 {
   "crawlerKey": "solina",
-  "assembledAt": "2026-10-31T09:17:44.169Z",
-  "runId": "41187520287",
+  "assembledAt": "2026-11-01T09:17:47.673Z",
+  "runId": "41291881160",
   "jobs": [
     {
       "id": "solina-e0e02df7e063",
@@ -35,7 +35,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/praktikantin-wh3pi42l",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:35.580Z",
+      "crawledAt": "2026-11-01T09:17:40.189Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -101,7 +101,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Standortübergreifend",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:40.189Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-9538262d34c6",
@@ -135,7 +139,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/vorpraktikantin-hthofbkc",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:35.197Z",
+      "crawledAt": "2026-11-01T09:17:39.761Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -177,7 +181,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:39.761Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-60fcb6f41178",
@@ -211,7 +219,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-gesundheit-8ph7l588",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:34.819Z",
+      "crawledAt": "2026-11-01T09:17:39.339Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -251,7 +259,11 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Ziegelei",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:39.339Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-0d8071ca140c",
@@ -285,7 +297,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-gesundheit-43ghowzt",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:34.439Z",
+      "crawledAt": "2026-11-01T09:17:38.915Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -325,7 +337,11 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:38.915Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-4377ed484c68",
@@ -359,7 +375,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-betreuung-dahbks3c",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:34.060Z",
+      "crawledAt": "2026-11-01T09:17:38.493Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -399,7 +415,11 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:38.493Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-6fd27a07bdb2",
@@ -433,7 +453,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/praktikantin-x959hdzq",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:33.683Z",
+      "crawledAt": "2026-11-01T09:17:38.070Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -473,7 +493,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Kirchbühl",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:17:38.070Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-92ebe19519c8",
@@ -506,7 +530,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-fax39qeg",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:33.301Z",
+      "crawledAt": "2026-11-01T09:17:37.648Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -546,7 +570,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:37.648Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-bfa5fb757003",
@@ -580,7 +608,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachfrau-pflegefachmann-pn26ljh7",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:32.924Z",
+      "crawledAt": "2026-11-01T09:17:37.226Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -630,7 +658,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:37.226Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-33c0cb1878bf",
@@ -664,7 +696,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-tb2xa9yv",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:32.544Z",
+      "crawledAt": "2026-11-01T09:17:36.803Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -775,7 +807,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:36.803Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-3444b0406178",
@@ -809,7 +845,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-pc99jrf8",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:32.160Z",
+      "crawledAt": "2026-11-01T09:17:36.381Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -851,7 +887,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:36.381Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-064274b035bf",
@@ -885,7 +925,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-s0jnwdrh",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:31.775Z",
+      "crawledAt": "2026-11-01T09:17:35.956Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -932,7 +972,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Ziegelei",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:35.956Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-84815790248e",
@@ -966,7 +1010,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-f2mc96am",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:31.378Z",
+      "crawledAt": "2026-11-01T09:17:35.531Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1012,7 +1056,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Kirchbühl",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:35.531Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-37c2f181e858",
@@ -1046,7 +1094,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-betreuung-3ca3t28y",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:30.999Z",
+      "crawledAt": "2026-11-01T09:17:35.107Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1113,7 +1161,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:35.107Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-719e498af811",
@@ -1146,7 +1198,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachperson-fachperson-gesundheit-nachtdienst-ja0t5x3v",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:30.622Z",
+      "crawledAt": "2026-11-01T09:17:34.685Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1186,7 +1238,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:34.685Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-4f13d23c1c99",
@@ -1219,7 +1275,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/wohnbereichsleiterin-ez10o2q4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:30.244Z",
+      "crawledAt": "2026-11-01T09:17:34.264Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1265,7 +1321,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Kirchbühl",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:34.264Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-460daa09dbe8",
@@ -1299,7 +1359,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/sozialpaedagogin-sozialpaedagoge-qo6r5vk5",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:29.864Z",
+      "crawledAt": "2026-11-01T09:17:33.840Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1341,7 +1401,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:33.840Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-7c69d0b71567",
@@ -1362,11 +1426,11 @@
         "de": "Stv. Wohnbereichsleitung",
         "fr": "Ligne résidentielle urbaine"
       },
-      "description": "Stv. Wohnbereichsleitung\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nStv. Wohnbereichsleitung RAI-Supervisor:in, Fachverantwortliche:r ab 80% Steffisburg Ziegelei ab November 2026 oder nach Vereinbarung\nWir bieten erwachsenen Menschen mit Unterstützungsbedarf eine Perspektive in einem Umfeld, in dem sie sich geborgen fühlen und wo sie individuell und professionell umsorgt werden. Das gelingt nur gemeinsam.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Verantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Ziegelei in Steffisburg arbeiten 210 Mitarbeitende und wohnen 130 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Du übernimmst die Fachverantwortung auf dem Wohnbereich\n• Du begleitest den RAI-Prozess auf dem Wohnbereich\n• Du unterstützt die Wohnbereichsleitung und vertrittst die Wohnbereichsleitung in Abwesenheit\n• Du unterstützt die Wohnbereichsleitung bei der Umsetzung der Jahresziele\n• Pflege und Betreuung unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und/oder krankheitsbedingten Beeinträchtigungen\n• Übernahme der Tagesverantwortung auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Mithilfe bei der Weiterentwicklung des Caring Prozesses\n• Du arbeitest mit Freude in Projekten und Arbeitsgruppen mit\n## Was dich ausmacht\n• Erfahrung in der Fachverantwortung oder Interesse Fachverantwortung zu sammeln und zu festigen\n• Erfahrung in der Ausführung als Fachverantwortliche oder Interesse dies zu erlernen\n• Erste Erfahrungen mit RAI sind wünschenswert\n• Du hast einen Abschluss als Pflegefachfrau/Pflegefachmann HF/FH\n• Du verfügst über gute IT-Anwenderkenntnisse\n• Autonomie und Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Du arbeitest gerne im Team und hast Freude daran, Verantwortung zu übernehmen und spezifische Kompetenzen einzubringen\n• Du bist lösungs-, prozess- und ergebnisorientiert und bringst eine vermittelnde und kommunikative Art ins Team\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch",
+      "description": "Stv. Wohnbereichsleitung\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nStv. Wohnbereichsleitung RAI-Supervisor:in, Fachverantwortliche:r ab 80% Steffisburg Ziegelei ab sofort oder nach Vereinbarung\nWir bieten erwachsenen Menschen mit Unterstützungsbedarf eine Perspektive in einem Umfeld, in dem sie sich geborgen fühlen und wo sie individuell und professionell umsorgt werden. Das gelingt nur gemeinsam.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Verantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Ziegelei in Steffisburg arbeiten 210 Mitarbeitende und wohnen 130 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Du übernimmst die Fachverantwortung auf dem Wohnbereich\n• Du begleitest den RAI-Prozess auf dem Wohnbereich\n• Du unterstützt die Wohnbereichsleitung und vertrittst die Wohnbereichsleitung in Abwesenheit\n• Du unterstützt die Wohnbereichsleitung bei der Umsetzung der Jahresziele\n• Pflege und Betreuung unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und/oder krankheitsbedingten Beeinträchtigungen\n• Übernahme der Tagesverantwortung auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Mithilfe bei der Weiterentwicklung des Caring Prozesses\n• Du arbeitest mit Freude in Projekten und Arbeitsgruppen mit\n## Was dich ausmacht\n• Erfahrung in der Fachverantwortung oder Interesse Fachverantwortung zu sammeln und zu festigen\n• Erfahrung in der Ausführung als Fachverantwortliche oder Interesse dies zu erlernen\n• Erste Erfahrungen mit RAI sind wünschenswert\n• Du hast einen Abschluss als Pflegefachfrau/Pflegefachmann HF/FH\n• Du verfügst über gute IT-Anwenderkenntnisse\n• Autonomie und Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Du arbeitest gerne im Team und hast Freude daran, Verantwortung zu übernehmen und spezifische Kompetenzen einzubringen\n• Du bist lösungs-, prozess- und ergebnisorientiert und bringst eine vermittelnde und kommunikative Art ins Team\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch",
       "descriptionByLocale": {
         "it": "Stv. Linea di soggiorno\n\n## Più di Care Quality inizia con voi\nStv. gestione residenziale RAI supervisore:in, specialista responsabile:r da 80% Steffisburg Ziegelei da novembre 2026 o da accordo\nOffriamo agli adulti bisognosi di sostenere una prospettiva in un ambiente in cui si sentono sicuri e dove sono curati individualmente e professionalmente. Questo può essere raggiunto solo lavorando insieme.\nAbbiamo la nostra squadra notturna. Quindi lavori solo da prima a tardi. Le notti prendono il controllo degli altri.\nCon i nostri due modelli di pool, creiamo flessibilità nella pianificazione operativa e alleviamo i dipendenti permanenti. Così che i giorni liberi rimangono davvero liberi.\nCi fidiamo di te. Puoi contribuire attivamente alla tua conoscenza e assumerti la responsabilità quotidiana. Per domande, una persona di contatto professionale in casa aiuterà.\nScopri tutti i vantaggi\n## Il tuo posto di lavoro\nLa Solina Ziegelei di Steffisburg ha 210 dipendenti e 130 residenti.\nUlteriori informazioni sulla posizione\n## Come funziona\n• Si assume la responsabilità professionale nella zona giorno\n• Accompagnate il processo RAI nella zona giorno\n• Supporti la gestione della zona giorno e rappresenta la gestione della zona giorno in assenteia\n• Supporti la gestione della zona giorno nell'attuazione degli obiettivi annuali\n• Cura e cura dei nostri residenti con diverse età e/o disturbi legati alla malattia\n• Assunzione di responsabilità quotidiana nella zona giorno\n• Partecipazione al sistema di riferimento e al lavoro familiare\n• Cooperazione interdisciplinare\n• Assistenza nell'ulteriore sviluppo del processo di cura\n• Lavori con piacere in progetti e gruppi di lavoro\n## Cosa ti fa\n• Acquisire e consolidare l'esperienza nella responsabilità professionale o nell'interesse della responsabilità professionale\n• Esperienza nell'esecuzione come specialista responsabile o interessato a imparare questo\n• La prima esperienza con RAI è auspicabile\n• Hai una laurea come specialista in infermiera/nurse HF/FH\n• Hai una buona conoscenza degli utenti IT\n• Autonomia e benessere dei nostri residenti sono una questione di cuore per voi\n• Ti piace lavorare in una squadra e godere di prendere la responsabilità e contribuire competenze specifiche\n• Siete soluzione-, processo- e orientato al risultato e portare un modo mediatore e comunicativo nel team\n## Preferireste applicare per posta o per posta?\nlavori solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• Tu mandi il Bewerbu ng\n• Controlliamo i vostri documenti\n• In una conversazione personale ci conosciamo\n• Il giorno in cui si vive la vita quotidiana con noi\n• Firma il contratto\n• Tu prendi il posto\n+41 33 439 94 36 lavoro solina ch",
         "en": "Stv. Living area line\n\n## More than Care Quality Starts with You\nStv. residential management RAI supervisor:in, specialist responsible:r from 80% Steffisburg Ziegelei from November 2026 or by agreement\nWe offer adult people in need of support a perspective in an environment where they feel secure and where they are cared for individually and professionally. This can only be achieved by working together.\nWe have our own night team. So you only work from early to late. The nights take over others.\nWith our two pool models, we create flexibility in operational planning and relieve permanent employees. So that free days really remain free.\nWe trust you. You can actively contribute your knowledge and take on daily responsibility. For questions, a professional contact person in the house will help.\nDiscover all the advantages\n## Your place of work\nThe Solina Ziegelei in Steffisburg has 210 employees and 130 residents.\nMore about the location\n## How you work\n• You take on the professional responsibility in the living area\n• You accompany the RAI process in the living area\n• You support the living area management and represent the living area management in absentia\n• You support the living area management in the implementation of the annual goals\n• Care and care of our residents with different age and/or disease-related impairments\n• Assumption of day-to-day responsibility in the living area\n• Participation in the reference person system and in family work\n• Interdisciplinary cooperation\n• Assistance in the further development of the caring process\n• You work with pleasure in projects and working groups\n## What makes you\n• Gain and consolidate experience in professional responsibility or interest professional responsibility\n• Experience in execution as a specialist responsible or interested in learning this\n• First experience with RAI is desirable\n• You have a degree as a nurse/nurse specialist HF/FH\n• You have good IT user knowledge\n• Autonomy and well-being of our residents are a matter of the heart for you\n• You enjoy working in a team and enjoy taking on responsibility and contributing specific skills\n• You are solution-, process- and result-oriented and bring a mediating and communicative way into the team\n## Would you rather apply by mail or post?\njobs solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• You send the Bewerbu ng\n• We check your documents\n• In a personal conversation we get to know each other\n• On the day you experience the everyday life with us\n• You sign the contract\n• You take the place\n+41 33 439 94 36 jobs solina ch",
-        "de": "Stv. Wohnbereichsleitung\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nStv. Wohnbereichsleitung RAI-Supervisor:in, Fachverantwortliche:r ab 80% Steffisburg Ziegelei ab November 2026 oder nach Vereinbarung\nWir bieten erwachsenen Menschen mit Unterstützungsbedarf eine Perspektive in einem Umfeld, in dem sie sich geborgen fühlen und wo sie individuell und professionell umsorgt werden. Das gelingt nur gemeinsam.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Verantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Ziegelei in Steffisburg arbeiten 210 Mitarbeitende und wohnen 130 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Du übernimmst die Fachverantwortung auf dem Wohnbereich\n• Du begleitest den RAI-Prozess auf dem Wohnbereich\n• Du unterstützt die Wohnbereichsleitung und vertrittst die Wohnbereichsleitung in Abwesenheit\n• Du unterstützt die Wohnbereichsleitung bei der Umsetzung der Jahresziele\n• Pflege und Betreuung unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und/oder krankheitsbedingten Beeinträchtigungen\n• Übernahme der Tagesverantwortung auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Mithilfe bei der Weiterentwicklung des Caring Prozesses\n• Du arbeitest mit Freude in Projekten und Arbeitsgruppen mit\n## Was dich ausmacht\n• Erfahrung in der Fachverantwortung oder Interesse Fachverantwortung zu sammeln und zu festigen\n• Erfahrung in der Ausführung als Fachverantwortliche oder Interesse dies zu erlernen\n• Erste Erfahrungen mit RAI sind wünschenswert\n• Du hast einen Abschluss als Pflegefachfrau/Pflegefachmann HF/FH\n• Du verfügst über gute IT-Anwenderkenntnisse\n• Autonomie und Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Du arbeitest gerne im Team und hast Freude daran, Verantwortung zu übernehmen und spezifische Kompetenzen einzubringen\n• Du bist lösungs-, prozess- und ergebnisorientiert und bringst eine vermittelnde und kommunikative Art ins Team\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch",
+        "de": "Stv. Wohnbereichsleitung\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nStv. Wohnbereichsleitung RAI-Supervisor:in, Fachverantwortliche:r ab 80% Steffisburg Ziegelei ab sofort oder nach Vereinbarung\nWir bieten erwachsenen Menschen mit Unterstützungsbedarf eine Perspektive in einem Umfeld, in dem sie sich geborgen fühlen und wo sie individuell und professionell umsorgt werden. Das gelingt nur gemeinsam.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Verantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Ziegelei in Steffisburg arbeiten 210 Mitarbeitende und wohnen 130 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Du übernimmst die Fachverantwortung auf dem Wohnbereich\n• Du begleitest den RAI-Prozess auf dem Wohnbereich\n• Du unterstützt die Wohnbereichsleitung und vertrittst die Wohnbereichsleitung in Abwesenheit\n• Du unterstützt die Wohnbereichsleitung bei der Umsetzung der Jahresziele\n• Pflege und Betreuung unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und/oder krankheitsbedingten Beeinträchtigungen\n• Übernahme der Tagesverantwortung auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Mithilfe bei der Weiterentwicklung des Caring Prozesses\n• Du arbeitest mit Freude in Projekten und Arbeitsgruppen mit\n## Was dich ausmacht\n• Erfahrung in der Fachverantwortung oder Interesse Fachverantwortung zu sammeln und zu festigen\n• Erfahrung in der Ausführung als Fachverantwortliche oder Interesse dies zu erlernen\n• Erste Erfahrungen mit RAI sind wünschenswert\n• Du hast einen Abschluss als Pflegefachfrau/Pflegefachmann HF/FH\n• Du verfügst über gute IT-Anwenderkenntnisse\n• Autonomie und Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Du arbeitest gerne im Team und hast Freude daran, Verantwortung zu übernehmen und spezifische Kompetenzen einzubringen\n• Du bist lösungs-, prozess- und ergebnisorientiert und bringst eine vermittelnde und kommunikative Art ins Team\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch",
         "fr": "Ligne de la zone habitable Stv.\n\n## Plus que la qualité des soins commence avec vous\nStv. gestion résidentielle RAI superviseur:in, spécialiste responsable:r de 80% Steffisburg Ziegelei à partir de novembre 2026 ou par accord\nNous offrons aux adultes qui ont besoin de soutien une perspective dans un environnement où ils se sentent en sécurité et où ils sont pris en charge individuellement et professionnellement. Cela ne peut se faire qu'en travaillant ensemble.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nLe Solina Ziegelei à Steffisburg compte 210 employés et 130 résidents.\nEn savoir plus sur l'emplacement\n## Comment vous travaillez\n• Vous assumez la responsabilité professionnelle dans le salon\n• Vous accompagnez le processus RAI dans le salon\n• Vous soutenez la gestion de la zone de vie et représentez la gestion de la zone de vie par défaut\n• Vous soutenez la gestion de la zone de vie dans la réalisation des objectifs annuels\n• Soins et soins à nos résidents ayant des déficiences d'âge et/ou de maladie différentes\n• Assomption de la responsabilité quotidienne dans la zone de vie\n• Participation au système des personnes de référence et au travail familial\n• Coopération interdisciplinaire\n• Aide au développement du processus de prise en charge\n• Vous travaillez avec plaisir dans des projets et des groupes de travail\n## Qu'est-ce qui te fait\n• Acquérir et consolider l'expérience en matière de responsabilité professionnelle ou de responsabilité professionnelle d'intérêt\n• Expérience dans l'exécution en tant que spécialiste responsable ou intéressé à apprendre ceci\n• Une première expérience de RAI est souhaitable\n• Vous avez un diplôme d'infirmière/infirmière spécialiste HF/FH\n• Vous avez une bonne connaissance de l'utilisateur informatique\n• L'autonomie et le bien-être de nos résidents sont une question de cœur pour vous\n• Vous aimez travailler en équipe et prendre des responsabilités et apporter des compétences spécifiques\n• Vous êtes orienté solution, processus et résultats et apportez une façon médiatrice et communicative dans l'équipe\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 439 94 36 emplois solina ch"
       },
       "needsRetranslation": false,
@@ -1375,7 +1439,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleitung-ugb7iwhs",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:29.486Z",
+      "crawledAt": "2026-11-01T09:17:33.418Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1432,7 +1496,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Ziegelei",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:33.418Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-5680cdfcf37f",
@@ -1466,7 +1534,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-embpvyh4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:29.109Z",
+      "crawledAt": "2026-11-01T09:17:32.995Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1512,7 +1580,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Ziegelei",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:32.995Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-cf04d162e22a",
@@ -1545,7 +1617,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-gyd1ax2m",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:28.729Z",
+      "crawledAt": "2026-11-01T09:17:32.570Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1585,7 +1657,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Ziegelei",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:32.570Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-6e1be73012c1",
@@ -1619,7 +1695,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachfrau-pflegefachmann-6wryvsu8",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:28.346Z",
+      "crawledAt": "2026-11-01T09:17:32.146Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1659,7 +1735,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Kirchbühl",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:17:32.146Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-c5492bb4182a",
@@ -1693,7 +1773,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-15lpybev",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:27.968Z",
+      "crawledAt": "2026-11-01T09:17:31.721Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1733,7 +1813,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Kirchbühl",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:17:31.721Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-6230d405ce60",
@@ -1767,7 +1851,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-jvvhh4o6",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:27.589Z",
+      "crawledAt": "2026-11-01T09:17:31.296Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1807,7 +1891,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Kirchbühl",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:17:31.296Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-c35c6f2fb081",
@@ -1840,7 +1928,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/dipl-physiotherapeutin-hvg2ob2q",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:27.204Z",
+      "crawledAt": "2026-11-01T09:17:30.872Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1888,7 +1976,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Standortübergreifend",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:17:30.872Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-f31e697c58fd",
@@ -1922,7 +2014,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/hotellerie-gastronomie/mitarbeiterin-hauswirtschaft-5mlj7z2k",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:26.800Z",
+      "crawledAt": "2026-11-01T09:17:30.429Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1965,7 +2057,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:17:30.429Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-94070d4c6685",
@@ -1998,7 +2094,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/wohnbereichsleitung-uffrmq4l",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:26.420Z",
+      "crawledAt": "2026-11-01T09:17:30.004Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2044,7 +2140,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Ziegelei",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:17:30.004Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-1d2f68f5dce8",
@@ -2077,7 +2177,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-c1pzot5c",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:26.039Z",
+      "crawledAt": "2026-11-01T09:17:29.581Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2122,7 +2222,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Steffisburg Ziegelei",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:17:29.581Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "solina-f2d3c2708df2",
@@ -2155,7 +2259,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/weitere-bereiche/fuehrungsverantwortlicher-front-office-81b6pn15",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:17:25.649Z",
+      "crawledAt": "2026-11-01T09:17:29.153Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2199,7 +2303,11 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Standortübergreifend",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:17:29.153Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

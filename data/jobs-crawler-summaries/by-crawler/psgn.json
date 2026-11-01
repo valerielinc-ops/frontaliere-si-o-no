@@ -1,71 +1,28 @@
 {
   "key": "psgn",
   "label": "Psychiatrie St.Gallen",
-  "generatedAt": "2026-10-31T09:29:09.661Z",
-  "total": 11,
+  "generatedAt": "2026-11-01T09:20:43.783Z",
+  "total": 10,
   "discovered": null,
   "parsed": 10,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 11,
+  "written": 10,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 10594,
-  "avgDurationMs": 10594,
+  "durationMs": 9085,
+  "avgDurationMs": 9085,
   "durationHistory": [
-    10594
+    9085
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "psgn-2ec21f5dadaa",
-      "slug": "responsabile-gestione-dell-ospitalita-psychiatrie-st-gallen-wil",
-      "company": "Psychiatrie St.Gallen",
-      "companyKey": "psgn",
-      "companyDomain": "psychiatrie-sg.ch",
-      "title": "Leiterin / Leiter Hospitality Management",
-      "needsRetranslation": false,
-      "location": "Wil",
-      "canton": "SG",
-      "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/leiterin-leiter-hospitality-management/1e2b9504-4c8e-4a56-a2e3-f9ac8635f270",
-      "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:46.662Z",
-      "addressLocality": "Wil",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9500",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/leiterin-leiter-hospitality-management/1e2b9504-4c8e-4a56-a2e3-f9ac8635f270",
-      "firstSeenAt": "2026-10-30T21:15:56.729Z",
-      "salaryMin": 110500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -80,7 +37,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/sporttherapeutin-sporttherapeut/2970d489-c7e4-436e-8c00-fd94dde0b07e",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:52.087Z",
+      "crawledAt": "2026-11-01T09:20:28.499Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -101,12 +58,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:20:28.499Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -121,7 +82,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/4c3c51ab-c9a0-47ec-aabc-2fddf79c8a64",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:51.496Z",
+      "crawledAt": "2026-11-01T09:20:27.968Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -142,12 +103,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:20:27.968Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -162,7 +127,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/194e3c61-2b60-40f5-a17c-c172269f4f3b",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:50.989Z",
+      "crawledAt": "2026-11-01T09:20:27.520Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -183,12 +148,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Pfäfers",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:20:27.520Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -204,7 +173,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/852ca4c1-993b-46b5-be35-27c2586d4fab",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:50.364Z",
+      "crawledAt": "2026-11-01T09:20:26.985Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -225,12 +194,16 @@
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Pfäfers",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:20:26.985Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -246,7 +219,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/stationsleiterin-stationsleiter/915fd5fd-66cb-42d6-afe3-3c13ffb46991",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:49.768Z",
+      "crawledAt": "2026-11-01T09:20:26.449Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -267,12 +240,16 @@
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:20:26.449Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -288,7 +265,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-berufsbildung-hf/eefa223a-d2f9-4c93-a16c-643192187af6",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:49.178Z",
+      "crawledAt": "2026-11-01T09:20:25.919Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -309,12 +286,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Pfäfers",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:20:25.919Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -330,7 +311,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-oder-fachperson-gesundheit-fuer-pflegepool/8fa7e1e2-fa8f-4937-be50-fd4905c73de4",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:48.545Z",
+      "crawledAt": "2026-11-01T09:20:25.379Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -351,12 +332,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Pfäfers",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:20:25.379Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -371,7 +356,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ergotherapeutin-ergotherapeut/3a36a846-4ab0-4891-b158-c1d115a1139d",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:47.932Z",
+      "crawledAt": "2026-11-01T09:20:24.846Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -392,12 +377,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Pfäfers",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:20:24.846Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -412,7 +401,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/49fe9cb9-a69e-4747-9fd4-40c6c4da8da5",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:47.317Z",
+      "crawledAt": "2026-11-01T09:20:24.315Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -433,56 +422,64 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Pfäfers",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:20:24.315Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
-      "id": "psgn-c2a5ca74c004",
-      "slug": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
+      "id": "psgn-2ec21f5dadaa",
+      "slug": "responsabile-gestione-dell-ospitalita-psychiatrie-st-gallen-wil",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
-      "title": "Ergotherapeutin / Ergotherapeut",
-      "location": "Pfäfers",
+      "title": "Leiterin / Leiter Hospitality Management",
+      "needsRetranslation": false,
+      "location": "Wil",
       "canton": "SG",
-      "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ergotherapeutin-ergotherapeut/1f8f2673-ca9c-4f25-ae2b-b9f658d4f8e2",
+      "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/leiterin-leiter-hospitality-management/1e2b9504-4c8e-4a56-a2e3-f9ac8635f270",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:31:16.459Z",
-      "addressLocality": "Pfäfers",
+      "crawledAt": "2026-11-01T09:20:23.774Z",
+      "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "7312",
+      "postalCode": "9500",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ergotherapeutin-ergotherapeut/1f8f2673-ca9c-4f25-ae2b-b9f658d4f8e2",
-      "firstSeenAt": "2026-10-19T09:16:46.377Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
+      "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/leiterin-leiter-hospitality-management/1e2b9504-4c8e-4a56-a2e3-f9ac8635f270",
+      "firstSeenAt": "2026-10-30T21:15:56.729Z",
+      "salaryMin": 110500,
+      "salaryMax": 154000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:20:23.774Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ecam",
-  "assembledAt": "2026-10-31T09:41:07.390Z",
-  "runId": "41188565736",
+  "assembledAt": "2026-11-01T09:48:14.489Z",
+  "runId": "41293009398",
   "jobs": [
     {
       "id": "ecam-590be7c475e5",
@@ -34,7 +34,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/01/Concorso-generale-sito-ECAM-2026.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:41:02.801Z",
+      "crawledAt": "2026-11-01T09:48:07.269Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -48,7 +48,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "",
-      "validThrough": "2026-12-31",
+      "validThrough": "2026-12-31T00:00:00.000Z",
       "applyUrl": "https://www.ecam.swiss/lavora-con-noi/opportunita-dimpiego/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -67,7 +67,10 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Mendrisio",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "ecam-e0954917bf67",
@@ -100,7 +103,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/08/2026.03.08_Concorso-RU-ECAM-80-100_-002_def.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T09:41:02.590Z",
+      "crawledAt": "2026-11-01T09:48:06.820Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -114,7 +117,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "",
-      "validThrough": "2026-09-18",
+      "validThrough": "2026-12-24T09:48:06.820Z",
       "applyUrl": "https://www.ecam.swiss/lavora-con-noi/opportunita-dimpiego/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -133,7 +136,10 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Mendrisio",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

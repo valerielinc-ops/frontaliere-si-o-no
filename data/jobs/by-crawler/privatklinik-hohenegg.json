@@ -1,7 +1,7 @@
 {
   "crawlerKey": "privatklinik-hohenegg",
-  "assembledAt": "2026-10-31T09:21:41.960Z",
-  "runId": "41187297189",
+  "assembledAt": "2026-11-01T09:15:28.645Z",
+  "runId": "41291644918",
   "jobs": [
     {
       "id": "privatklinik-hohenegg-ab3fc3a8544f",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/6/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:35.042Z",
+      "crawledAt": "2026-11-01T09:15:21.192Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Meilen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:21.192Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "privatklinik-hohenegg-dcfb55bdfc33",
@@ -117,7 +121,7 @@
       "url": "https://apply.refline.ch/640332/0038/pub/15/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:34.615Z",
+      "crawledAt": "2026-11-01T09:15:20.770Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -165,7 +169,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Meilen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:20.770Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "privatklinik-hohenegg-79e7c681ed1e",
@@ -199,7 +207,7 @@
       "url": "https://apply.refline.ch/640332/0057/pub/5/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:34.191Z",
+      "crawledAt": "2026-11-01T09:15:20.346Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -250,7 +258,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Meilen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:20.346Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "privatklinik-hohenegg-2c9323d6be7b",
@@ -283,7 +295,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.768Z",
+      "crawledAt": "2026-11-01T09:15:19.923Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -336,7 +348,11 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Meilen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:19.923Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "privatklinik-hohenegg-63d8db42b814",
@@ -370,7 +386,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:21:33.312Z",
+      "crawledAt": "2026-11-01T09:15:19.464Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -423,7 +439,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Meilen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:19.464Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

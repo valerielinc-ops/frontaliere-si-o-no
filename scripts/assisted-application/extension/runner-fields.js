@@ -3,7 +3,23 @@
 (function (root) {
   'use strict';
   root.CompilaRunnerFields = function extractFieldsInPage({ channelType = '', includeHidden = false } = {}) {
+  // Serialized from functions/src/lib/nativeQuestionText.js; parity is tested.
+function nativeQuestionText(value, counter = null) {
+  const text = String(value ?? '').normalize('NFKC').replace(/\s+/g, ' ').trim();
+  if (!counter || !Number.isSafeInteger(counter.currentLength) || !Number.isSafeInteger(counter.maxLength)
+    || counter.currentLength < 0 || counter.maxLength < 0) return text;
+  const match = /^(\d{1,6})\s*\/\s*(\d{1,6})\s*(Zeichen|characters?|chars?|caratteri|caract[eè]res)$/iu.exec(text);
+  return match && Number(match[1]) === counter.currentLength && Number(match[2]) === counter.maxLength
+    ? `max ${counter.maxLength} ${match[3]}` : text;
+}
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  // These identifiers are part of the control's own DOM contract. Read only
+  // scalar attributes from the element itself: ancestor/global IDs are not
+  // evidence for the question represented by this field.
+  const semanticIdentifiers = (element) => ({
+    controlId: clean(element.getAttribute('data-control-id') || ''),
+    semanticId: clean(element.getAttribute('data-semantic-id') || ''),
+  });
   const nativeOption = (option, select) => ({
     value: option.value,
     label: clean(option.textContent),
@@ -234,20 +250,49 @@
         && (linked.length > 0 || oneQuestion);
     });
   };
+  // Only a counter leaf belonging unambiguously to this control may lose
+  // its live numerator. Requirements containing ratios remain literal text.
+  const captionText = (node, element) => {
+    let text = nativeQuestionText(node?.innerText || node?.textContent || '');
+    const maximum = element?.getAttribute('maxlength');
+    if (!node || !element || !/^\d{1,6}$/.test(maximum || '') || typeof element.value !== 'string') return text;
+    const unique = id => [...document.querySelectorAll('[id]')].filter(candidate => candidate.id === id).length === 1;
+    const direct = node.matches('label') && questionControls(node).every(control => control === element)
+      && ((node.control === element && element.id && unique(element.id))
+      || node.contains(element) && questionControls(node).length === 1);
+    const referenced = node.id && unique(node.id) && (element.getAttribute('aria-labelledby') || '').split(/\s+/).includes(node.id)
+      && [...document.querySelectorAll('[aria-labelledby]')].filter(candidate =>
+        (candidate.getAttribute('aria-labelledby') || '').split(/\s+/).includes(node.id)).every(candidate => candidate === element);
+    if (!direct && !referenced) return text;
+    const counter = { currentLength: element.value.length, maxLength: Number(maximum) };
+    for (const leaf of node.querySelectorAll('span, output, [role="status"], [aria-live]')) {
+      if (leaf.children.length || leaf.closest('[hidden], [aria-hidden="true"]')) continue;
+      const style = window.getComputedStyle(leaf);
+      if (style.display === 'none' || style.visibility === 'hidden') continue;
+      const raw = nativeQuestionText(leaf.innerText || leaf.textContent || '');
+      const canonical = nativeQuestionText(raw, counter);
+      if (!raw || canonical === raw || text.indexOf(raw) !== text.lastIndexOf(raw)) continue;
+      text = nativeQuestionText(text.replace(raw, ` ${canonical} `));
+    }
+    return nativeQuestionText(text);
+  };
   const labelFor = (element) => {
     const mirrorLabel = mirroredQuestionLabel(element);
     if (mirrorLabel) return clean(mirrorLabel.innerText || mirrorLabel.textContent);
     if (element.id) {
       const direct = document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
-      const directText = direct && clean(direct.innerText || direct.textContent);
+      const directText = direct && clean(captionText(direct, element));
       if (directText) return directText;
     }
-    const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/).map(textOf).filter(Boolean).join(' ');
+    const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/).map(id => {
+      const nodes = [...document.querySelectorAll('[id]')].filter(node => node.id === id);
+      return nodes.length === 1 ? clean(captionText(nodes[0], element)) : '';
+    }).filter(Boolean).join(' ');
     if (labelledBy) return labelledBy;
     const ariaLabel = clean(element.getAttribute('aria-label'));
     if (ariaLabel) return ariaLabel;
     const wrapping = element.closest('label');
-    const wrappingText = wrapping && clean(wrapping.innerText || wrapping.textContent);
+    const wrappingText = wrapping && clean(captionText(wrapping, element));
     if (wrappingText) return wrappingText;
     const group = element.closest(QUESTION_GROUP_SELECTOR);
     for (const legend of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
@@ -266,11 +311,21 @@
     const names = [element.getAttribute('name'), element.id].map(clean).filter(Boolean);
     const technical = names.find((value) => !GENERATED_ID_RE.test(value));
     if (technical) return technical;
-    if (!ownContext || !hasSingleQuestionContext(element)) return names[0] || '';
-    // No label, only a generated id (JOIN's CV drop zone: "file:_r_3_:input"):
-    // the heading the control sits under and the text of its zone say what it
-    // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
-    return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
+    const isolatedContext = ownContext && hasSingleQuestionContext(element);
+    const isDatePicker = Boolean(element.closest(DATE_QUESTION_SELECTOR));
+    const zone = isDatePicker ? '' : zoneText(element);
+    if (zone) {
+      // A file drop zone can be the only control in its own question even when
+      // the page has other fields. For sibling questions, the local text is
+      // enough and a document-wide heading would name both fields alike.
+      const heading = element.type === 'file' || isolatedContext ? headingBefore(element) : '';
+      return [...new Set([heading, zone].filter(Boolean))].join(' · ') || names[0] || '';
+    }
+    if (!isolatedContext) return names[0] || '';
+    // A section heading can name an isolated field only when it reads like a
+    // question or field caption, not a generic instruction for the whole form.
+    const heading = headingBefore(element);
+    return heading && isQuestionLabelText(heading) ? heading : names[0] || '';
   };
   const hasRequiredMarker = (element, labelText) => {
     if (element.hasAttribute('data-required')) return true;
@@ -398,7 +453,7 @@
       const section = heading.closest(SECTIONS);
       if (section && !section.contains(element)) continue;
       // eslint-disable-next-line no-bitwise
-      if ((heading.compareDocumentPosition(element) & FOLLOWING) && shown(heading)) found = clean(heading.innerText || heading.textContent);
+      if ((heading.compareDocumentPosition(element) & FOLLOWING) && shown(heading)) found = clean(captionText(heading, element));
     }
     return found;
   };
@@ -416,31 +471,230 @@
       // Rexx/Ticino puts «Indirizzo» and «CAP» in sibling labels under the
       // generic «Dati anagrafici» legend. Labels carry field semantics but no
       // candidate values, so they are safe context for the classifier.
-      parts.push([...section.querySelectorAll('label')].map((label) => clean(label.innerText || label.textContent)).filter(Boolean).join(' · '));
+      parts.push([...section.querySelectorAll('label')].map((label) => captionText(label, label.control || element)).filter(Boolean).join(' · '));
     }
     parts.push(headingBefore(element));
     return [...new Set(parts.map(clean).filter(Boolean))].join(' · ').slice(0, 240);
   };
-  // The words of the control's own zone (NodeFilter.SHOW_TEXT = 4): the text
-  // nearest before it, else the first after it, so two unnamed fields in one
-  // zone never share the first one's question.
+  // A few ATSes put the sole form after its caption instead of wrapping both
+  // in a semantic section. Trust only an explicit personal/contact heading;
+  // generic page headings such as "My Information" remain unowned.
+  const EXTERNAL_FORM_SECTION_RE = /\b(?:personal\s+(?:details|information|data)|contact\s+(?:details|information)|dati\s+(?:personali|anagrafici)|informazioni\s+personali|donn[ée]es\s+personnelles|informations\s+personnelles|pers[öo]nliche\s+(?:daten|angaben|informationen))\b/i;
+  const headingBeforeSoleForm = (form, element) => [...document.querySelectorAll('h1, h2, h3, h4, legend')]
+    .filter((heading) => {
+      if (!shown(heading) || inSiteChrome(heading)) return false;
+      if (!(heading.compareDocumentPosition(form) & FOLLOWING)) return false;
+      if (heading.closest('form') && heading.closest('form') !== form) return false;
+      const section = heading.closest(SECTIONS);
+      if (section && !section.contains(form)) return false;
+      return EXTERNAL_FORM_SECTION_RE.test(clean(captionText(heading, element)));
+    })
+    .map((heading) => clean(captionText(heading, element))).at(-1) || '';
+  // Address ownership is distinct from the flattened sibling-question text.
+  // A work-history or birthplace ancestor must survive an inner field group;
+  // a birth-date sibling must not become the owner of a residence control.
+  const ownedAddressContext = (element) => {
+    const result = { section: '', owners: [], unknown: false };
+    const containingForm = element.closest('form');
+    const actualForm = element.form || containingForm;
+    if ((actualForm && containingForm && actualForm !== containingForm)
+      || ('form' in element && element.hasAttribute('form') && !element.form)) {
+      result.unknown = true;
+      return result;
+    }
+    let boundary = actualForm || element.closest('[role="form"], dialog, [role="dialog"], main, [role="main"]') || document.body;
+    if (actualForm) {
+      const container = actualForm.closest('main, [role="main"], section');
+      const forms = container ? [...container.querySelectorAll('form')] : [];
+      // A containing semantic section with one actual form can own its
+      // preceding heading. A document body or another form cannot.
+      if (container?.contains(element) && forms.length === 1 && forms[0] === actualForm) boundary = container;
+      else if (!containingForm) { result.unknown = true; return result; }
+    }
+    if (!boundary) return result;
+    const scopes = `${QUESTION_GROUP_SELECTOR}, form, [role="form"], section, article, dialog, [role="dialog"], [role="tabpanel"], [role="region"], main, [role="main"], [aria-label], [aria-labelledby]`;
+    const add = (value) => {
+      if (String(value || '').replace(/\s+/g, ' ').trim().length > 300) { result.unknown = true; return false; }
+      const name = clean(value);
+      if (name && !result.owners.includes(name)) result.owners.push(name);
+      if (result.owners.length > 16) { result.owners = []; result.unknown = true; return false; }
+      return true;
+    };
+    const ownQuestion = clean(labelFor(element));
+    const scopesToRead = [];
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      // A control explicitly associated with this sole form keeps the
+      // submitted form's own names as well as its visible containing scopes.
+      if (node === boundary && actualForm && !containingForm) scopesToRead.push(actualForm);
+      scopesToRead.push(node);
+      if (node === boundary) break;
+    }
+    for (const node of scopesToRead) {
+      if (node.matches(scopes)) {
+        const names = [];
+        const addName = value => {
+          const raw = String(value || '').replace(/\s+/g, ' ').trim();
+          if (raw.length > 300) { result.unknown = true; return false; }
+          if (raw && !names.includes(raw)) {
+            if (names.length >= 16) { result.unknown = true; return false; }
+            names.push(raw);
+          }
+          return true;
+        };
+        const heading = [...node.children].filter(child => /^H[1-4]$/.test(child.tagName)
+          && shown(child) && (node === actualForm && !containingForm || child.compareDocumentPosition(element) & FOLLOWING)).at(-1);
+        if (heading && clean(captionText(heading, element)) !== ownQuestion
+          && !addName(captionText(heading, element))) return result;
+        if (!addName(node.getAttribute('aria-label') || '')) return result;
+        for (const id of (node.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
+          const matches = node.ownerDocument.querySelectorAll(`[id="${CSS.escape(id)}"]`);
+          if (matches.length !== 1) { result.unknown = true; return result; }
+          const named = matches[0];
+          const name = captionText(named, element);
+          if (!name) { result.unknown = true; return result; }
+          if (!addName(name)) return result;
+        }
+        const legend = [...node.children].find(child => child.tagName === 'LEGEND');
+        if (legend && !addName(captionText(legend, element))) return result;
+        if (!add(names.join(' · '))) return result;
+      }
+      if (node === boundary) break;
+    }
+    const section = headingBefore(element);
+    const externalSection = actualForm && boundary === actualForm
+      ? headingBeforeSoleForm(actualForm, element) : '';
+    const owned = [...boundary.querySelectorAll('h1, h2, h3, h4, legend')].some(heading => {
+      const owner = heading.closest(scopes);
+      const matches = owner?.contains(element) && shown(heading)
+        && Boolean(heading.compareDocumentPosition(element) & FOLLOWING)
+        && clean(captionText(heading, element)) === section;
+      if (matches && String(heading.innerText || heading.textContent || '').replace(/\s+/g, ' ').trim().length > 300) result.unknown = true;
+      return matches;
+    });
+    result.section = owned ? section : externalSection;
+    return result;
+  };
+  // The words of a bounded question/upload zone, or a short, immediate
+  // sibling question. Page-level copy is not evidence for a generated-id label.
+  const normalizeInstructionText = (value) => clean(value).normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+  const GLOBAL_FORM_ACTION_RE = /^(?:(?:(?:please|bitte|veuillez|merci de|si prega di|per favore|per cortesia)\s+)?(?:complete|finish|review|check|read|fill(?:\s+in)?|submit|apply|continue|ensure|make\s+sure|complet\w*|compil\w*|termin\w*|finisc\w*|rived\w*|controll\w*|legg\w*|invi\w*|candidat\w*|prosegu\w*|assicur\w*|rempl\w*|verifi\w*|soumett\w*|postul\w*|poursuiv\w*|assur\w*|vollstand\w*|vervollstand\w*|full\w*|pruf\w*|les\w*|reich\w*|bewerb\w*|stell\s+sicher)\b|bitte\s+(?:das|die|den|der|ein|eine|einen|dieses|diese|diesen)?\s*formular\w*(?:\s+vollstand\w*)?\s+ausfull\w*\b)[^.!?…]*(?:[.!?…]+)?$/;
+  const GLOBAL_FORM_SCOPE_RE = /\b(?:all|every|remaining|following)\b.{0,45}\b(?:sections?|steps?|fields?|questions?)\b|\b(?:tutti|tutte|ogni|restanti|seguenti|rimanenti)\b.{0,45}\b(?:sezion\w*|passagg\w*|camp\w*|domand\w*|informazion\w*)\b|\b(?:alle|jeden|verbleibenden|folgenden|samtlich\w*)\b.{0,45}\b(?:abschnitt\w*|schritt\w*|feld\w*|frag\w*|angab\w*|information\w*)\b|\b(?:tous|toutes|chaque|restants|restantes|suivants|suivantes)\b.{0,45}\b(?:sections?|etapes?|champs?|questions?|informations?)\b/;
+  const GLOBAL_FORM_BEFORE_SUBMIT_RE = /\b(?:before|prior to)\b.{0,60}\b(?:applying|submitting|you submit)\b|\b(?:prima di|prima dell[aeiou]|prima dell['’])\b.{0,60}\b(?:candidat\w*|invi\w*|present\w*)\b|\b(?:avant de|avant d)\b.{0,60}\b(?:postul\w*|soumett\w*|envoy\w*|valid\w*)\b|\b(?:bevor|vor dem)\b.{0,60}\b(?:bewerb\w*|absend\w*|einreich\w*|senden)\b/;
+  const GENERIC_FORM_SCOPE_RE = /\b(?:this|the|a|your)\s+form\b|\b(?:il|lo|la|un|una|questo|questa)\s+modulo\b|\b(?:das|dieses|ein|dein|ihr)\s+formular\b|\b(?:ce|cette|le|la|un|une|votre)\s+formulaire\b/;
+  const PRIVACY_ACK_QUESTION_HINT_RE = /^(?:(?:please|bitte|veuillez)\s+)?(?:select|check|tick|mark|seleziona(?:re)?|spunta|contrassegna|aktivieren|markieren|kreuzen|wahlen|cochez|cocher|selectionnez|selectionner|coche|selectionne)\b.{0,220}\b(?:privacy|datenschutz\w*|informativa|confidentialite)\b/;
+  const isGlobalFormInstruction = (value) => {
+    const text = normalizeInstructionText(value);
+    return GLOBAL_FORM_ACTION_RE.test(text)
+      && (GLOBAL_FORM_SCOPE_RE.test(text) || GLOBAL_FORM_BEFORE_SUBMIT_RE.test(text) || GENERIC_FORM_SCOPE_RE.test(text));
+  };
+  const isQuestionLabelText = (value) => {
+    const text = normalizeInstructionText(value);
+    const punctuationIsPartOfPrivacyQuestion = PRIVACY_ACK_QUESTION_HINT_RE.test(text);
+    return value.length <= 120
+      && (!/[.!…]\s*$/.test(value) || punctuationIsPartOfPrivacyQuestion)
+      && !isGlobalFormInstruction(value);
+  };
   const zoneText = (element) => {
-    let node = element.parentElement;
-    for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
+    const parent = element.parentElement;
+    if (!parent) return '';
+    const file = element.type === 'file';
+    const dropZone = file && element.closest('[class*="dropzone"], [class*="drop-zone"], [class*="file-upload"], [data-dropzone], [data-file-dropzone]');
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    const singleQuestionGroup = group && oneQuestionGroup(group, element) ? group : null;
+    const containers = [];
+    if (dropZone) containers.push(dropZone);
+    for (let node = parent, depth = 0; node && depth < 6; node = node.parentElement, depth += 1) {
+      if (node.matches('body, main, [role="main"]')) {
+        if (node === dropZone && !containers.includes(node)) containers.push(node);
+        break;
+      }
+      if (node !== parent && node.matches('section, article, dialog, [role="dialog"], [role="region"], [role="tabpanel"]')) break;
+      if (!containers.includes(node)) containers.push(node);
+      if (node === dropZone || node === group || node.matches('form, [role="form"]')) break;
+    }
+    const childUnder = (container) => {
+      let child = element;
+      while (child.parentElement && child.parentElement !== container) child = child.parentElement;
+      return child.parentElement === container ? child : null;
+    };
+    for (const node of containers) {
+      const bounded = node === dropZone || node === singleQuestionGroup;
       const walker = document.createTreeWalker(node, 4);
-      let before = '';
-      let after = '';
+      const controls = [...node.querySelectorAll(QUESTION_CONTROL_SELECTOR)];
+      const branch = childUnder(node);
+      const isQuestionSibling = (sibling) => sibling?.matches('span, [class*="label"], [class*="question"], [role="heading"]')
+        && !sibling.matches(QUESTION_CONTROL_SELECTOR) && !sibling.querySelector(QUESTION_CONTROL_SELECTOR);
+      const siblingRun = (start, direction) => {
+        const siblings = [];
+        for (let sibling = start; isQuestionSibling(sibling); sibling = direction === 'before'
+          ? sibling.previousElementSibling : sibling.nextElementSibling) siblings.push(sibling);
+        return direction === 'before' ? siblings.reverse() : siblings;
+      };
+      const joinSiblingParts = (parts) => parts.reduce((joined, part) => {
+        if (!joined || !part) return joined + part;
+        const needsSpace = !/\s$/.test(joined) && !/^\s/.test(part)
+          && !/['’`-]$/.test(joined) && !/^[,.;!?):\]}]/.test(part);
+        return `${joined}${needsSpace ? ' ' : ''}${part}`;
+      }, '');
+      const questionRuns = [
+        siblingRun(branch?.previousElementSibling, 'before'),
+        siblingRun(branch?.nextElementSibling, 'after'),
+      ].filter((siblings) => siblings.length > 0);
+      const questionSiblings = questionRuns.flat();
+      let siblingBefore = '';
+      let siblingAfter = '';
+      let contextBefore = '';
+      let contextAfter = '';
+      for (const siblings of questionRuns) {
+        const parts = [];
+        for (const sibling of siblings) {
+          const siblingWalker = document.createTreeWalker(sibling, 4);
+          const siblingParts = [];
+          for (let siblingText = siblingWalker.nextNode(); siblingText; siblingText = siblingWalker.nextNode()) {
+            if (siblingText.parentElement?.closest(`${QUESTION_CONTROL_SELECTOR}, select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend`)) continue;
+            siblingParts.push(siblingText.textContent || '');
+          }
+          parts.push(siblingParts.join(''));
+        }
+        const value = clean(joinSiblingParts(parts));
+        if (!value || !isQuestionLabelText(value)) continue;
+        const boundary = siblings[0];
+        // eslint-disable-next-line no-bitwise
+        const isBefore = Boolean(boundary.compareDocumentPosition(element) & FOLLOWING);
+        const crossesControl = controls.some((control) => control !== element && (isBefore
+          ? (boundary.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(element) & FOLLOWING)
+          : (element.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(boundary) & FOLLOWING)));
+        const belongsAfterAnotherControl = !isBefore && controls.some((control) => control !== element
+          && (siblings[siblings.length - 1].compareDocumentPosition(control) & FOLLOWING));
+        if (crossesControl || belongsAfterAnotherControl) continue;
+        if (isBefore && !siblingBefore) siblingBefore = value;
+        else if (!isBefore && !siblingAfter) siblingAfter = value;
+      }
+      const fileZoneParent = file && node === parent && questionSiblings.length > 0
+        && !parent.matches('form, [role="form"]');
       for (let text = walker.nextNode(); text; text = walker.nextNode()) {
         // Never from inside a control: a select's first option is an answer, not a question.
-        if (text.parentElement?.closest('select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend')) continue;
+        const owner = text.parentElement;
+        if (owner?.closest(`${QUESTION_CONTROL_SELECTOR}, select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend`)) continue;
+        if (questionSiblings.some((sibling) => sibling.contains(owner))) continue;
         const value = clean(text.textContent);
         if (!value) continue;
+        if (isGlobalFormInstruction(value)) continue;
+        if (bounded && node !== dropZone && !isQuestionLabelText(value)) continue;
+        if (!bounded && !(node === parent && fileZoneParent)) continue;
         // eslint-disable-next-line no-bitwise
-        if (text.compareDocumentPosition(element) & FOLLOWING) before = value;
-        else if (!after) after = value;
+        const isBefore = Boolean(text.compareDocumentPosition(element) & FOLLOWING);
+        const crossesControl = controls.some((control) => control !== element && (isBefore
+          ? (text.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(element) & FOLLOWING)
+          : (element.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(text) & FOLLOWING)));
+        if (crossesControl) continue;
+        if (isBefore) contextBefore = value;
+        else if (!isBefore && !contextAfter) contextAfter = value;
       }
-      const words = before || after;
-      if (words) return words.slice(0, 80);
+      const words = node === dropZone
+        ? contextBefore || siblingBefore || contextAfter || siblingAfter
+        : siblingBefore || contextBefore || siblingAfter || contextAfter;
+      if (words) return words.slice(0, 240);
     }
     return '';
   };
@@ -500,6 +754,7 @@
       name: clean(picker.getAttribute('name') || ''),
       label,
       context: sectionContext(picker),
+      addressContext: ownedAddressContext(picker),
       required: picker.getAttribute('aria-required') !== 'false' && !picker.hasAttribute('data-optional'),
       value: clean(selected),
       search: false,
@@ -532,7 +787,7 @@
     if (type === 'radio') {
       const name = element.name || element.id;
       const question = groupQuestion(element);
-      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), section: headingBefore(element), required, value: '', options: [] };
+      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), addressContext: ownedAddressContext(element), section: headingBefore(element), required, value: '', options: [] };
       // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
       entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question))
         || hasRequiredMarker(element, question || labelFor(element));
@@ -554,9 +809,11 @@
       ...dialogMeta(element),
       inputType: type,
       form: formOf(element),
+      domId: element.id || '',
+      ...semanticIdentifiers(element),
       name: clean(element.getAttribute('name') || ''),
       label,
-      context: sectionContext(element),
+      context: sectionContext(element), addressContext: ownedAddressContext(element),
       section: headingBefore(element),
       required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
@@ -620,7 +877,7 @@
       inputType: 'date',
       name: '',
       label,
-      context: sectionContext(element),
+      context: sectionContext(element), addressContext: ownedAddressContext(element),
       required: element.hasAttribute('required') || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: clean(element.value || element.getAttribute('value') || ''),
       search: false,
@@ -654,7 +911,7 @@
     if (!entry) {
       const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element)
         || (hasSingleQuestionContext(element) ? headingBefore(element) : '');
-      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
+      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), addressContext: ownedAddressContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
       ariaGroups.set(container, entry);
     }
     entry.options.push({ value: label, label, aaId: idFor(element) });
@@ -684,7 +941,7 @@
       inputType: 'listbox',
       name: clean(element.getAttribute('name') || ''),
       label: fieldLabel,
-      context: sectionContext(element),
+      context: sectionContext(element), addressContext: ownedAddressContext(element),
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
@@ -730,6 +987,24 @@
     }
     return '';
   };
+  // What a control says for itself about a notice: the label bound to it by `for`, never a heading or a
+  // text around it, and whether pressing it, as an anchor, takes the page off the form.
+  const leavesDocument = (element) => {
+    if (element.tagName !== 'A') return false;
+    if (!['', '_self'].includes((element.getAttribute('target') || '').toLowerCase())) return true;
+    const raw = element.getAttribute('href');
+    if (raw === null || /^\s*javascript:/i.test(raw)) return false;
+    try {
+      const url = new URL(raw, document.baseURI);
+      return !raw.includes('#') || `${url.origin}${url.pathname}${url.search}` !== `${location.origin}${location.pathname}${location.search}`;
+    } catch { return true; }
+  };
+  const noticeMetadata = (element) => {
+    const bound = element.id && document.getElementById(element.id) === element
+      ? [...document.querySelectorAll('label[for]')].filter((label) => label.htmlFor === element.id) : [];
+    const ownLabel = clean(bound.map((label) => label.innerText || label.textContent).join(' '));
+    return { form: forms.indexOf(element.form || element.closest('form')), ...(ownLabel ? { ownLabel } : {}), ...(leavesDocument(element) ? { leavesDocument: true } : {}) };
+  };
   const hiddenFromPeople = (element) => Boolean(element.closest('[aria-hidden="true"]'));
   const underClickFilter = (element) => {
     if (!hiddenFromPeople(element) || !(Number(element.getAttribute('tabindex')) < 0)) return false;
@@ -765,9 +1040,23 @@
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
       ...(isSiteChromeControl(element) ? { chrome: true } : {}),
+      ...noticeMetadata(element),
     }))
     .filter((button) => button.text)
     .slice(0, 60);
+  // A plain link is no button, so that no button search meets an ordinary link, yet a required notice can
+  // be printed as one. Read apart and without its address: nothing follows it (portal.mjs, clickButton).
+  const links = [...document.querySelectorAll('a[href]')]
+    .filter((element) => !actionControl(element) && visible(element) && !behindModal(element) && !isSiteChromeControl(element) && buttonName(element))
+    .slice(0, 60)
+    .map((element) => ({
+      id: idFor(element),
+      text: buttonName(element),
+      label: buttonAccessibleLabel(element),
+      title: clean(element.getAttribute('title') || ''),
+      ariaLabel: clean(element.getAttribute('aria-label') || ''),
+      ...noticeMetadata(element),
+    }));
   // Saved after the buttons got their ids too, or the next scan hands them out again.
   document.documentElement.setAttribute('data-aa-counter', String(counter));
   // Only a CAPTCHA a person must act on counts (career-ops: fill, and hand
@@ -841,6 +1130,8 @@
     title: document.title,
     fields,
     buttons,
+    links,
+    dialogs: [...document.querySelectorAll(DIALOG_SELECTOR)].filter(visible).map(dialog => dialogMeta(dialog)),
     captcha,
     passwordVisible,
     errors,

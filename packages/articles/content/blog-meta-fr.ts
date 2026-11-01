@@ -13618,7 +13618,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate aura près de 500 mila euro de moins au titre des rétrocessions.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.mozione-ticino-ristorni-salute.title': 'Motion au Tessin contre la taxe sur la santé',
-    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Motion interpartite déposée au Grand Conseil La mesure italienne est contestée sur l\'article 9 Le Tessin menace le blocage des restaurants Objet',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Motion interpartite déposée au Grand Conseil La mesure italienne est contestée sur l\'article 9 Le Tessin menace le blocage des restaurants.',
     'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.ristorni-malnate-meno-500mila.title': 'Restaurants frontaliers, 500 000 euros de moins à Malnate',
     'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate recevra près de 500 000 euros de moins Le fonds national passe de 89 à 108 millions Les restaurations arriveront début novembre Près de 1 700 malnatesi',
@@ -13641,6 +13641,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cassa-pensione-snl-sev-attacca.title': 'Caisse de pension SNL : le SEV conteste l’interprétation des résultats',
     'blog.article.cassa-pensione-snl-sev-attacca.excerpt': 'UBS gérera le patrimoine de la Caisse de pension SNL ATIOZ a imposé une nouvelle procédure après un conflit d’intérêts Le taux de couverture était de 104,1% à la fin',
     'blog.article.cassa-pensione-snl-sev-attacca.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.lavori-barriere-antirumore-a8.title': 'Travaux sur des barrières antibruit sur l’A8 et la D08 : guide des fermetures',
+    'blog.article.lavori-barriere-antirumore-a8.excerpt': 'Fermetures nocturnes sur l’A8 et la D08 du 2 au 6 novembre Premiers créneaux : de 23:00 à 5:00 Gallarate, Besnate et Busto Arsizio sur les itinéraires indiqués Deuxième phase',
+    'blog.article.lavori-barriere-antirumore-a8.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.bellinzona-imposte-piu-salate-2028.title': 'À Bellinzona, des impôts plus élevés dès 2028',
+    'blog.article.bellinzona-imposte-piu-salate-2028.excerpt': 'La Municipalité de Bellinzona a annoncé des impôts plus élevés dès 2028, en concomitance avec le budget 2026, qui affiche un déficit de 10,6 millions.',
+    'blog.article.bellinzona-imposte-piu-salate-2028.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.infermieri-osc-sindacati-stipendi.title': 'Infirmiers Osc et syndicats demandent le déblocage des salaires',
+    'blog.article.infermieri-osc-sindacati-stipendi.excerpt': 'La reclassification Osc est bloquée depuis des années 2019 : classe 4→5 pour les infirmiers, 5→6 pour les spécialités Augmentations annuelles de 5\'159 à 8\'941 francs Assemblée le 10 novembre',
+    'blog.article.infermieri-osc-sindacati-stipendi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

@@ -1,16 +1,16 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-10-31T09:25:42.638Z",
+  "generatedAt": "2026-11-01T09:20:45.367Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 3445,
-  "avgDurationMs": 3445,
+  "durationMs": 3277,
+  "avgDurationMs": 3277,
   "durationHistory": [
-    3445
+    3277
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-07T00:00:00.000Z",
-      "validThrough": "",
+      "validThrough": "2026-10-08T22:17:27.323Z",
       "benefits": [
         "Being part of a company where innovation, collaboration, and impact aren’t just values — they’re how we work every day",
         "Partner with teams across disciplines, at the forefront of oncology and anti-infective development",
@@ -53,15 +53,17 @@
       "salarySource": "estimated",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/0c581ccba8",
       "postalCode": "1003",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 97,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -85,7 +87,7 @@
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-07T00:00:00.000Z",
-      "validThrough": "",
+      "validThrough": "2026-10-08T22:17:27.323Z",
       "benefits": [
         "International, highly dynamic environment with a long-term vision.",
         "Cross-functional collaboration at the forefront of the most advanced scientific developments in oncology and anti-bacterial industry",
@@ -102,15 +104,17 @@
       "salarySource": "estimated",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/59653399e4",
       "postalCode": "1003",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 97,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -134,7 +138,7 @@
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-07T00:00:00.000Z",
-      "validThrough": "",
+      "validThrough": "2026-10-08T22:17:27.323Z",
       "benefits": [],
       "id": "debiopharm-60b50584043a",
       "salaryMin": 86500,
@@ -144,15 +148,17 @@
       "salarySource": "estimated",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/d4af57df23",
       "postalCode": "1003",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -176,7 +182,7 @@
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-07T00:00:00.000Z",
-      "validThrough": "",
+      "validThrough": "2026-08-17T19:56:19.283Z",
       "benefits": [],
       "id": "debiopharm-da23c8b1f25f",
       "salaryMin": 68000,
@@ -186,15 +192,17 @@
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/2ebaf3007d",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 92,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -218,7 +226,7 @@
       "source": "debiopharm-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-07T00:00:00.000Z",
-      "validThrough": "",
+      "validThrough": "2026-08-17T19:56:19.283Z",
       "benefits": [
         "Being part of a company where innovation, collaboration, and impact aren’t just values — they’re how we work every day",
         "Partner with teams across disciplines, at the forefront of oncology and anti-infective development",
@@ -234,17 +242,19 @@
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/6024013bc6",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 97,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

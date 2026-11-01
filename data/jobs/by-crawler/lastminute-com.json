@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-10-31T09:28:15.463Z",
-  "runId": "41188050421",
+  "assembledAt": "2026-11-01T09:28:40.395Z",
+  "runId": "41292451365",
   "jobs": [
     {
       "title": "Administrative B2B Specialist",
@@ -63,6 +63,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T21:34:09.718Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-29T21:34:09.718Z"
     },
     {
@@ -133,7 +136,10 @@
       },
       "previousSlugs": [
         "genie-logiciel-finance-core-platform-lastminute-com-chiasso"
-      ]
+      ],
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:27:56.864Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "title": "Junior Accountant",
@@ -215,10 +221,14 @@
       },
       "previousSlugs": [
         "junior-buchhalter-lastminute-com-chiasso",
+        "junior-comptable-lastminute-com-chiasso",
         "comptable-junior-lastminute-com-chiasso",
         "junior-accountant-lastminute-com-chiasso",
         "junior-accountant-chiasso"
-      ]
+      ],
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T21:24:59.633Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "title": "Data Engineer",
@@ -292,7 +302,10 @@
       "previousSlugs": [
         "data-ingenieur-lastminute-com-chiasso",
         "data-engineer-chiasso"
-      ]
+      ],
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:15:31.648Z",
+      "validThroughSource": "job-type-cap"
     },
     {
       "title": "AI Automation Engineer",
@@ -367,7 +380,10 @@
       "previousSlugs": [
         "ai-automation-ingenieur-lastminute-com-chiasso",
         "ai-automation-engineer-chiasso"
-      ]
+      ],
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-09T07:39:25.798Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "title": "Global Payroll & HR Systems Manager",
@@ -458,6 +474,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-10-19T07:39:25.798Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T07:39:25.798Z"
     }
   ]

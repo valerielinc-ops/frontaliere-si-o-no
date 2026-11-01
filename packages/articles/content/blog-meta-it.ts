@@ -13617,7 +13617,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate avrà quasi 500 mila euro in meno dai ristorni.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
     'blog.article.mozione-ticino-ristorni-salute.title': 'Mozione in Ticino contro la tassa sulla salute',
-    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni.',
     'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
     'blog.article.ristorni-malnate-meno-500mila.title': 'Ristorni frontalieri, 500mila euro in meno a Malnate',
     'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate riceverà quasi 500mila euro in meno Il fondo nazionale passa da 89 a 108 milioni I ristorni arriveranno ai primi di novembre Quasi 1.700 malnatesi',
@@ -13640,6 +13640,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cassa-pensione-snl-sev-attacca.title': 'Cassa pensione SNL: SEV contesta lettura risultati',
     'blog.article.cassa-pensione-snl-sev-attacca.excerpt': 'UBS gestirà il patrimonio della Cassa pensione SNL ATIOZ impose una nuova procedura dopo un conflitto d\'interessi Il grado di copertura era del 104,1% a fine',
     'blog.article.cassa-pensione-snl-sev-attacca.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.lavori-barriere-antirumore-a8.title': 'Lavori su barriere antirumore in A8 e D08: guida alle chiusure',
+    'blog.article.lavori-barriere-antirumore-a8.excerpt': 'Chiusure notturne su A8 e D08 dal 2 al 6 novembre Prime fasce: dalle 23:00 alle 5:00 Gallarate, Besnate e Busto Arsizio nei percorsi indicati Seconda fase',
+    'blog.article.lavori-barriere-antirumore-a8.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.bellinzona-imposte-piu-salate-2028.title': 'A Bellinzona imposte più salate dal 2028',
+    'blog.article.bellinzona-imposte-piu-salate-2028.excerpt': 'Il Municipio di Bellinzona ha annunciato imposte più salate dal 2028, in concomitanza con il Preventivo 2026 che mostra un disavanzo di 10,6 milioni.',
+    'blog.article.bellinzona-imposte-piu-salate-2028.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.infermieri-osc-sindacati-stipendi.title': 'Infermieri Osc e sindacati chiedono sblocco stipendi',
+    'blog.article.infermieri-osc-sindacati-stipendi.excerpt': 'La riclassificazione Osc è ferma da anni 2019: classe 4→5 per infermieri, 5→6 per specialità Aumenti annui da 5\'159 a 8\'941 franchi Assemblea il 10 novembre',
+    'blog.article.infermieri-osc-sindacati-stipendi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

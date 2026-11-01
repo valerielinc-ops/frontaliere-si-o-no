@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zuger-kantonsspital",
-  "assembledAt": "2026-10-31T09:51:45.202Z",
-  "runId": "41188195639",
+  "assembledAt": "2026-11-01T09:39:35.037Z",
+  "runId": "41292611758",
   "jobs": [
     {
       "id": "zuger-kantonsspital-eff6e929b00f",
@@ -34,7 +34,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Medizin-Privatabteilung-80-100--de-j895.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:36.947Z",
+      "crawledAt": "2026-11-01T09:39:28.451Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -85,7 +85,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:39:28.451Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-8389675d21ed",
@@ -118,7 +121,7 @@
       "url": "https://jobs.zgks.ch/Technische-Sterilisationsassistentin-80-100-mw-de-j899.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:36.323Z",
+      "crawledAt": "2026-11-01T09:39:27.882Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -165,7 +168,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:39:27.882Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-fa8010e3fd8e",
@@ -199,7 +205,7 @@
       "url": "https://jobs.zgks.ch/Radiologiefachperson-HF-80-100--de-j901.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:35.742Z",
+      "crawledAt": "2026-11-01T09:39:27.318Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -246,7 +252,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T09:39:27.318Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-fd59a9344c28",
@@ -279,7 +288,7 @@
       "url": "https://jobs.zgks.ch/Spitalapothekerin-60-80-mw-de-j900.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:35.135Z",
+      "crawledAt": "2026-11-01T09:39:26.724Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -324,7 +333,10 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T09:39:26.724Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-7c4a56e2329c",
@@ -358,7 +370,7 @@
       "url": "https://jobs.zgks.ch/Chefarztsekretaerin-Frauenklinik-100--de-j897.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:34.542Z",
+      "crawledAt": "2026-11-01T09:39:26.159Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -405,7 +417,10 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-06T09:39:26.159Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-7b7178a33fe2",
@@ -439,7 +454,7 @@
       "url": "https://jobs.zgks.ch/Expertin-Notfallpflege-NDS-HF-80-100-mw-de-j848.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:33.956Z",
+      "crawledAt": "2026-11-01T09:39:25.600Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -480,7 +495,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-08T09:39:25.600Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-9aa520e2497a",
@@ -514,7 +532,7 @@
       "url": "https://jobs.zgks.ch/WMS-Praktikantin-mw-de-j893.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:33.337Z",
+      "crawledAt": "2026-11-01T09:39:24.998Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -563,7 +581,10 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-10T09:39:24.998Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-1df4848484e3",
@@ -596,7 +617,7 @@
       "url": "https://jobs.zgks.ch/Med-Praxisassistentin-Pneumologie-80--de-j869.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:32.886Z",
+      "crawledAt": "2026-11-01T09:39:24.573Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -664,7 +685,10 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-10T09:39:24.573Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-f7be031a4616",
@@ -697,7 +721,7 @@
       "url": "https://jobs.zgks.ch/Medizinische-Praxisassistentin-Frauenarztpraxis-Baar-30--de-j902.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:32.294Z",
+      "crawledAt": "2026-11-01T09:39:24.005Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -744,7 +768,10 @@
           "maxValue": 36200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-11T09:39:24.005Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-6718954305c3",
@@ -777,7 +804,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Chirurgie-80-100-mw-de-j892.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:31.818Z",
+      "crawledAt": "2026-11-01T09:39:23.559Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -847,7 +874,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-11T09:39:23.559Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-2a272b0e0280",
@@ -881,7 +911,7 @@
       "url": "https://jobs.zgks.ch/Leitung-Pflege-Notfallzentrum-80-100--de-j903.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:31.195Z",
+      "crawledAt": "2026-11-01T09:39:22.989Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -928,7 +958,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T09:39:22.989Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-cfaf12defedd",
@@ -962,7 +995,7 @@
       "url": "https://jobs.zgks.ch/Ernaehrungsberaterin-therapeutin-100-mw-de-j891.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:30.717Z",
+      "crawledAt": "2026-11-01T09:39:22.524Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1009,7 +1042,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-17T09:39:22.524Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-140e002c0029",
@@ -1042,7 +1078,7 @@
       "url": "https://jobs.zgks.ch/Medizinische-Praxisassistentin-Frauenarztpraxis-Rotkreuz-6-de-j906.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:30.132Z",
+      "crawledAt": "2026-11-01T09:39:21.934Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1089,7 +1125,10 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-20T09:39:21.934Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-223e0aca36a4",
@@ -1123,7 +1162,7 @@
       "url": "https://jobs.zgks.ch/Oberarzt-Handchirurgie-Orthopaedie-60-100-mw-de-j905.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:29.539Z",
+      "crawledAt": "2026-11-01T09:39:21.356Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1172,7 +1211,10 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-20T09:39:21.356Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-bc605d251d6c",
@@ -1206,7 +1248,7 @@
       "url": "https://jobs.zgks.ch/Expertin-Anaesthesiepflege-NDS-HF-80-100-mw-de-j904.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:29.071Z",
+      "crawledAt": "2026-11-01T09:39:20.909Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1253,7 +1295,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-20T09:39:20.909Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-8606e925d15b",
@@ -1286,7 +1331,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Medizin-Allgemein-80-100-mw-de-j907.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:28.480Z",
+      "crawledAt": "2026-11-01T09:39:20.328Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1333,15 +1378,18 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-24T09:39:20.328Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zuger-kantonsspital-732d99692d94",
       "slug": "neurologia-fisica-unita-di-cura-intensiva-80-100-m-f-zuger-kantonsspital-baar",
       "slugByLocale": {
-        "de": "physiotherapeutin-neurologie-intensivstation-80-100-m-w-zuger-kantonsspital-baar",
         "it": "neurologia-fisica-unita-di-cura-intensiva-80-100-m-f-zuger-kantonsspital-baar",
         "en": "physiotherapist-neurology-intensive-care-unit-80-100-m-f-zuger-kantonsspital-baar",
+        "de": "physiotherapeutin-neurologie-intensivstation-80-100-m-w-zuger-kantonsspital-baar",
         "fr": "neurologie-physiotherapeute-unite-de-soins-intensifs-80-100-h-f-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
@@ -1349,24 +1397,25 @@
       "companyDomain": "zgks.ch",
       "title": "Physiotherapeutin Neurologie / Intensivstation 80 - 100 % (m/w)",
       "titleByLocale": {
-        "de": "Physiotherapeutin Neurologie / Intensivstation 80 - 100 % (m/w)",
         "it": "Neurologia fisica/unità di cura intensiva 80 - 100% (m/f)",
         "en": "Physiotherapist Neurology / Intensive Care Unit 80 - 100% (m/f)",
+        "de": "Physiotherapeutin Neurologie / Intensivstation 80 - 100 % (m/w)",
         "fr": "Neurologie physiothérapeute / Unité de soins intensifs 80 - 100% (h/f)"
       },
       "description": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Abteilung Therapien suchen wir wir per 1. Januar 2027 oder nach Vereinbarung eine Physiotherapeutin Neurologie / Intensivstation 80 - 100% (m/w ) Ihre Aufgaben\n• Fachgerechte Durchführung von individuellen, patientenbezogenen physiotherapeutischen Behandlungen mit zielgerichteten und diagnosebezogenen Massnahmen\n• Behandlung stationärer und ambulanter Patienten schwerpunktmässig aus der Neurologie (inkl. Stroke Unit), Medizin und der Intensivstation\n• Gewährleisten einer interdisziplinären Zusammenarbeit und Kommunikation innerhalb des Therapieteams und zwischen den verschiedenen Berufsgruppen\n• Erfahrung in bzw. Bereitschaft für die Ausbildung von Physiotherapiestudenten Ihr Profil\n• Abgeschlossene Ausbildung als Physiotherapeutin\n• Zusatzausbildung und Berufserfahrung im Bereich Neurologie und Medizin\n• Hohe Patientenorientierung und Sozialkompetenz Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem kollegialen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an externen fachlichen Weiterbildungen, wöchentliche interne Fortbildungen sowie sehr guten Sozialleistungen. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T +41 41 399 43 02.",
       "descriptionByLocale": {
-        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Abteilung Therapien suchen wir wir per 1. Januar 2027 oder nach Vereinbarung eine Physiotherapeutin Neurologie / Intensivstation 80 - 100% (m/w ) Ihre Aufgaben\n• Fachgerechte Durchführung von individuellen, patientenbezogenen physiotherapeutischen Behandlungen mit zielgerichteten und diagnosebezogenen Massnahmen\n• Behandlung stationärer und ambulanter Patienten schwerpunktmässig aus der Neurologie (inkl. Stroke Unit), Medizin und der Intensivstation\n• Gewährleisten einer interdisziplinären Zusammenarbeit und Kommunikation innerhalb des Therapieteams und zwischen den verschiedenen Berufsgruppen\n• Erfahrung in bzw. Bereitschaft für die Ausbildung von Physiotherapiestudenten Ihr Profil\n• Abgeschlossene Ausbildung als Physiotherapeutin\n• Zusatzausbildung und Berufserfahrung im Bereich Neurologie und Medizin\n• Hohe Patientenorientierung und Sozialkompetenz Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem kollegialen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an externen fachlichen Weiterbildungen, wöchentliche interne Fortbildungen sowie sehr guten Sozialleistungen. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T +41 41 399 43 02.",
         "it": "L'Ospedale di Zug Canton serve la salute della popolazione del Cantone di Zug e delle regioni circostanti. Circa 1.200 dipendenti, 180 di loro in istruzione e formazione, lavorano in una vasta gamma di settori. Ogni anno trattiamo e curiamo più di 11.500 pazienti e più di 70.000 pazienti. Nel centro di emergenza interdisciplinare, più di 27.500 persone vengono trattate ogni anno. Per il nostro dipartimento di terapie stiamo cercando 1. Gennaio 2027 o su appuntamento una neurologia fisioterapista / terapia intensiva 80 - 100% (m/f) I tuoi compiti\n• Applicazione professionale dei singoli trattamenti fisioterapeutici relativi al paziente con misure mirate e diagnostiche\n• Trattamento di pazienti malati e pazienti ambulatoriali principalmente da neurologia (inclusa l'Unità Stroke), medicina e terapia intensiva\n• Assicurare la cooperazione interdisciplinare e la comunicazione all'interno del team di terapia e tra i vari gruppi professionali\n• Esperienza o disponibilità per l'allenamento degli studenti di terapia fisica il tuo profilo\n• Formazione completa come fisioterapista\n• Formazione aggiuntiva e esperienza professionale in neurologia e medicina\n• Alto orientamento paziente e competenza sociale La nostra offerta Vi offriamo un lavoro vario e impegnativo in un team collegiale. Essi beneficiano di condizioni di lavoro interessanti, come più di 5 settimane di vacanze, vari benefici, generosa partecipazione alla formazione professionale esterna, formazione interna settimanale e benefici sociali molto buoni. Interessante? Attendiamo con ansia la vostra applicazione elettronica a Gaby Jans, Stv. Head of Human Resources. Saranno prese in considerazione solo applicazioni dirette. Per ulteriori informazioni sulla funzione, fare riferimento ad Anett Neubert, Head of Care/therapies, T +41 41 399 43 02.",
         "en": "The Zug Canton Hospital serves the health of the population of the Canton of Zug and the surrounding regions. Around 1,200 employees, 180 of them in education and training, work in a wide range of fields. Every year, we treat and care for more than 11,500 inpatient and more than 70,000 outpatients. In the interdisciplinary emergency center, more than 27,500 people are treated annually. For our department of therapies we are looking for 1. January 2027 or by appointment a physiotherapist neurology / intensive care unit 80 - 100% (m/f) Your tasks\n• Professional implementation of individual patient-related physiotherapeutic treatments with targeted and diagnostic measures\n• Treatment of inpatient and outpatient patients mainly from neurology (incl. Stroke Unit), medicine and intensive care\n• Ensure interdisciplinary cooperation and communication within the therapy team and between the various professional groups\n• Experience in or Readiness for training physical therapy students your profile\n• Completed training as a physiotherapist\n• Additional training and professional experience in neurology and medicine\n• High patient orientation and social competence Our offer We offer you a varied and demanding job in a collegial team. They benefit from attractive employment conditions, such as more than 5 weeks of holidays, various benefits, generous participation in external professional training, weekly internal training and very good social benefits. Interested? We look forward to your electronic application to Gaby Jans, Stv. Head of Human Resources. Only direct applications will be considered. For more information on the function, please refer to Anett Neubert, Head of Care/therapies, T +41 41 399 43 02.",
+        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1'200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. Für unsere Abteilung Therapien suchen wir wir per 1. Januar 2027 oder nach Vereinbarung eine Physiotherapeutin Neurologie / Intensivstation 80 - 100% (m/w ) Ihre Aufgaben\n• Fachgerechte Durchführung von individuellen, patientenbezogenen physiotherapeutischen Behandlungen mit zielgerichteten und diagnosebezogenen Massnahmen\n• Behandlung stationärer und ambulanter Patienten schwerpunktmässig aus der Neurologie (inkl. Stroke Unit), Medizin und der Intensivstation\n• Gewährleisten einer interdisziplinären Zusammenarbeit und Kommunikation innerhalb des Therapieteams und zwischen den verschiedenen Berufsgruppen\n• Erfahrung in bzw. Bereitschaft für die Ausbildung von Physiotherapiestudenten Ihr Profil\n• Abgeschlossene Ausbildung als Physiotherapeutin\n• Zusatzausbildung und Berufserfahrung im Bereich Neurologie und Medizin\n• Hohe Patientenorientierung und Sozialkompetenz Unser Angebot Wir bieten Ihnen eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem kollegialen Team. Sie profitieren von attraktiven Anstellungsbedingungen, wie z.B. mehr als 5 Wochen Ferien, diverse Vergünstigungen, grosszügige Beteiligung an externen fachlichen Weiterbildungen, wöchentliche interne Fortbildungen sowie sehr guten Sozialleistungen. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Gaby Jans, Stv. Leiterin Personal. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Anett Neubert, Gesamtleiterin Pflege/Therapien, T +41 41 399 43 02.",
         "fr": "L'hôpital du canton de Zug sert la santé de la population du canton de Zug et des régions environnantes. Environ 1 200 employés, dont 180 en éducation et formation, travaillent dans un large éventail de domaines. Chaque année, nous traitons et prenons soin de plus de 11 500 patients hospitalisés et de plus de 70 000 patients externes. Dans le centre interdisciplinaire d'urgence, plus de 27 500 personnes sont traitées chaque année. Pour notre département de thérapies, nous cherchons 1. Janvier 2027 ou sur rendez-vous une neurologie physiothérapeute / unité de soins intensifs 80 - 100% (h/f) Vos tâches\n• Mise en œuvre professionnelle de traitements physiothérapeutiques individuels avec des mesures ciblées et diagnostiques\n• Traitement des patients hospitalisés et externes principalement de la neurologie (y compris l'Unité des accidents cérébrovasculaires), de la médecine et des soins intensifs\n• Assurer la coopération et la communication interdisciplinaires au sein de l'équipe thérapeutique et entre les différents groupes professionnels\n• Expérience ou préparation pour la formation des étudiants en physiothérapie votre profil\n• Formation complète en physiothérapeute\n• Formation complémentaire et expérience professionnelle en neurologie et médecine\n• Haute orientation des patients et compétence sociale Notre offre Nous vous proposons un travail varié et exigeant dans une équipe collégiale. Ils bénéficient de conditions d'emploi attrayantes, telles que plus de 5 semaines de vacances, diverses prestations, une participation généreuse à une formation professionnelle externe, une formation interne hebdomadaire et de très bons avantages sociaux. Intéressé? Nous attendons avec impatience votre candidature électronique à Gaby Jans, responsable des ressources humaines à Stv. Seules les demandes directes seront examinées. Pour plus d'informations sur la fonction, veuillez vous référer à Anett Neubert, responsable des soins/thérapies, T +41 41 399 43 02."
       },
+      "needsRetranslation": false,
       "location": "Baar",
       "canton": "ZG",
       "url": "https://jobs.zgks.ch/Physiotherapeutin-Neurologie-Intensivstation-80-100-mw-de-j908.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:51:27.866Z",
+      "crawledAt": "2026-11-01T09:39:19.732Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1386,6 +1435,21 @@
       "applyUrl": "https://jobs.zgks.ch/Physiotherapeutin-Neurologie-Intensivstation-80-100-mw-de-j908.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "physiotherapeutin-neurologie-intensivstation-80-100-m-w-zuger-kantonsspital-baar"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeutin-neurologie-intensivstation-80-100-m-w-zuger-kantonsspital-baar"
+        ],
+        "en": [
+          "physiotherapeutin-neurologie-intensivstation-80-100-m-w-zuger-kantonsspital-baar"
+        ],
+        "fr": [
+          "physiotherapeutin-neurologie-intensivstation-80-100-m-w-zuger-kantonsspital-baar"
+        ]
+      },
+      "firstSeenAt": "2026-10-30T21:38:42.238Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1399,21 +1463,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-30T21:38:42.238Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "physiotherapeutin-neurologie-intensivstation-80-100-m-w-zuger-kantonsspital-baar"
-        ],
-        "en": [
-          "physiotherapeutin-neurologie-intensivstation-80-100-m-w-zuger-kantonsspital-baar"
-        ],
-        "fr": [
-          "physiotherapeutin-neurologie-intensivstation-80-100-m-w-zuger-kantonsspital-baar"
-        ]
-      },
-      "previousSlugs": [
-        "physiotherapeutin-neurologie-intensivstation-80-100-m-w-zuger-kantonsspital-baar"
-      ]
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:39:19.732Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

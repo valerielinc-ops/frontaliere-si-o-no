@@ -1,17 +1,17 @@
 {
   "key": "swiss-timing-swatch-group",
   "label": "swiss-timing-swatch-group",
-  "generatedAt": "2026-10-31T09:30:36.364Z",
+  "generatedAt": "2026-11-01T09:24:09.117Z",
   "total": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 355817,
-  "avgDurationMs": 355817,
+  "durationMs": 415696,
+  "avgDurationMs": 415696,
   "durationHistory": [
-    355817
+    415696
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -46,12 +46,16 @@
       "postalCode": "2606",
       "addressLocality": "2606 Corgémont",
       "addressRegion": "BE",
-      "_qualityScore": 95,
+      "streetAddress": "2606 Corgémont",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:23:49.431Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -83,12 +87,16 @@
       "postalCode": "2606",
       "addressLocality": "2606 Corgémont",
       "addressRegion": "BE",
-      "_qualityScore": 95,
+      "streetAddress": "2606 Corgémont",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:23:49.431Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -120,14 +128,18 @@
       "postalCode": "2606",
       "addressLocality": "2606 Corgémont",
       "addressRegion": "BE",
-      "_qualityScore": 94,
+      "streetAddress": "2606 Corgémont",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-29T09:23:49.431Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

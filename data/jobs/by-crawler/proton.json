@@ -1,7 +1,7 @@
 {
   "crawlerKey": "proton",
-  "assembledAt": "2026-10-31T09:24:30.055Z",
-  "runId": "41188121331",
+  "assembledAt": "2026-11-01T09:40:00.261Z",
+  "runId": "41292532779",
   "jobs": [
     {
       "id": "proton-3c306b854149",
@@ -34,7 +34,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953188101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:24:20.617Z",
+      "crawledAt": "2026-11-01T09:39:53.445Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -75,7 +75,11 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:53.445Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "proton-548fc6c7342d",
@@ -108,7 +112,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4766179101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:24:20.315Z",
+      "crawledAt": "2026-11-01T09:39:53.143Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -155,7 +159,11 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:53.143Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "proton-4a8c0ac3123a",
@@ -188,7 +196,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4962235101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:24:20.009Z",
+      "crawledAt": "2026-11-01T09:39:52.839Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -231,7 +239,11 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:52.839Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "proton-6565c2255033",
@@ -264,7 +276,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4864462101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:24:19.674Z",
+      "crawledAt": "2026-11-01T09:39:52.517Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -309,7 +321,11 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:52.517Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "proton-413579452a2b",
@@ -342,7 +358,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4999112101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:24:19.371Z",
+      "crawledAt": "2026-11-01T09:39:52.214Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -382,7 +398,11 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:39:52.214Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "proton-e8fc8bcc059c",
@@ -415,7 +435,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4936072101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:24:19.029Z",
+      "crawledAt": "2026-11-01T09:39:51.857Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -462,7 +482,11 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:51.857Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "proton-375e455f983d",
@@ -495,7 +519,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4868059101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:24:18.708Z",
+      "crawledAt": "2026-11-01T09:39:51.546Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -539,7 +563,11 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:51.546Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

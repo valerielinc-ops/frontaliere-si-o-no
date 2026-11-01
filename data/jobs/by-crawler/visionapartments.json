@@ -1,7 +1,7 @@
 {
   "crawlerKey": "visionapartments",
-  "assembledAt": "2026-10-31T09:28:52.790Z",
-  "runId": "41188347631",
+  "assembledAt": "2026-11-01T09:40:43.687Z",
+  "runId": "41292779854",
   "jobs": [
     {
       "id": "visionapartments-a6f2cb44f0b0",
@@ -35,7 +35,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/d14022be-0fb5-48ab-b907-196c83d223a0/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:28:46.340Z",
+      "crawledAt": "2026-11-01T09:40:37.103Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -81,7 +81,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:40:37.103Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "visionapartments-8ba295514d0c",
@@ -115,7 +118,7 @@
       "url": "https://www.jobs.ch/fr/offres-emplois/detail/56071e0e-15da-4919-beea-4424c39f31ef/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:28:45.509Z",
+      "crawledAt": "2026-11-01T09:40:36.244Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -164,7 +167,10 @@
           "maxValue": 92400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-17T09:40:36.244Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

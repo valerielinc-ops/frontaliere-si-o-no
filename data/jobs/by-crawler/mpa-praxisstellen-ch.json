@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mpa-praxisstellen-ch",
-  "assembledAt": "2026-10-31T09:32:36.836Z",
-  "runId": "41187373855",
+  "assembledAt": "2026-11-01T09:18:30.690Z",
+  "runId": "41291723109",
   "jobs": [
     {
       "id": "mpa-praxisstellen-ch-445577b9d250",
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/disponent-internationale-landverkehre-100-basel/basel/logistik-spedition/90afef0b",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:30.610Z",
+      "crawledAt": "2026-11-01T09:18:23.627Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -82,7 +82,11 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Binningen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:18:23.627Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "mpa-praxisstellen-ch-876d78ae4997",
@@ -115,7 +119,7 @@
       "url": "https://www.pks-personal.ch/stellen/zolldeklarant-in-import-export-50/basel/logistik-spedition/74191d9a",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:30.608Z",
+      "crawledAt": "2026-11-01T09:18:23.625Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -163,7 +167,11 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Binningen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:18:23.625Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "mpa-praxisstellen-ch-70ea7625f26a",
@@ -196,7 +204,7 @@
       "url": "https://www.pks-personal.ch/stellen/sachbearbeiter-in-spedition-export-100/basel/logistik-spedition/e5809283",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:32:30.606Z",
+      "crawledAt": "2026-11-01T09:18:23.623Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -244,7 +252,11 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Binningen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:18:23.623Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

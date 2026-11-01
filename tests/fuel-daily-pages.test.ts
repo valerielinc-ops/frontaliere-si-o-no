@@ -19,7 +19,9 @@ import {
   FUEL_TYPES,
   FUEL_ZONES,
   buildFuelArchivePath,
+  buildFuelStationPath,
   buildFuelTodayPath,
+  buildStationSlug,
   isFuelDailyPath,
   isFuelMonthArchivePath,
   isFuelSitemapFile,
@@ -400,7 +402,7 @@ describe('fuel-daily page generation — content quality', () => {
       expect(targets.jsonLd, `page ${path} has no JSON-LD breadcrumbs`).not.toHaveLength(0);
       expect(targets.visible, `page ${path} has no visible breadcrumbs`).not.toHaveLength(0);
       for (const target of [...targets.jsonLd, ...targets.visible]) {
-        if (target === '/') continue;
+        if (/^\/(?:(?:en|de|fr)\/)?$/.test(target)) continue;
         expect(isFuelDailyPath(target), `${path} breadcrumb target ${target}`).toBe(true);
       }
     }
@@ -558,6 +560,63 @@ describe('fuel-daily page generation — content quality', () => {
 
 describe('fuel-daily page generation — diesel data sourcing (F6 real diesel)', () => {
   const today = new Date('2026-04-20T06:00:00.000Z');
+
+  it('links only to fuel-specific detail contexts and keeps collision suffixes', () => {
+    const sharedIdentity = {
+      name: 'ECSA Chiasso',
+      brand: 'ECSA',
+      address: 'Via Chiasso 1, 6830 Chiasso',
+      sp95PriceChf: 1.8,
+    };
+    const collisionA = {
+      id: 'shell-a',
+      name: 'Shell Chiasso A',
+      brand: 'SHELL',
+      address: 'Autostrada A2, 6830 Chiasso',
+      sp95PriceChf: 1.81,
+      dieselPriceChf: 2.01,
+      dieselSource: 'api' as const,
+    };
+    const collisionB = {
+      ...collisionA,
+      id: 'shell-b',
+      name: 'Shell Chiasso B',
+      dieselPriceChf: 2.02,
+    };
+    const pages = generateFuelDailyPages({
+      rootDir: '/tmp/frontaliere-fuel-link-contexts-test',
+      dataset: {
+        municipalities: [{
+          swiss: {
+            nearbyStations: [
+              { id: 'ecsa-inventory', ...sharedIdentity },
+              {
+                id: 'ecsa-diesel',
+                ...sharedIdentity,
+                dieselPriceChf: 2.2,
+                dieselSource: 'api' as const,
+              },
+              collisionA,
+              collisionB,
+            ],
+          },
+        }],
+      },
+      history: [],
+      today,
+    });
+    const html = pages['/prezzi-diesel/chiasso/oggi/'];
+    const ecsaPath = buildFuelStationPath('it', 'diesel', 'chiasso', buildStationSlug(sharedIdentity));
+    const shellBaseSlug = buildStationSlug(collisionA);
+
+    // The first ECSA identity wins detail-page deduplication and has no
+    // diesel price, so the later diesel row must not create a bridge link.
+    expect(html).not.toContain(`href="${ecsaPath}"`);
+    // Two real detail contexts share a base slug; the second card must use the
+    // collision-safe `-2` context slug rather than linking both cards to one page.
+    expect(html).toContain(`href="${buildFuelStationPath('it', 'diesel', 'chiasso', shellBaseSlug)}"`);
+    expect(html).toContain(`href="${buildFuelStationPath('it', 'diesel', 'chiasso', `${shellBaseSlug}-2`)}"`);
+  });
 
   it('uses real per-station dieselPriceChf when available (not SP95+offset)', () => {
     // Isolated dataset: single Chiasso station with a non-derivable diesel
@@ -934,7 +993,7 @@ describe('fuel-daily archive generation', () => {
       const targets = extractFuelBreadcrumbTargets(html);
       expect(targets.jsonLd, `page ${path} has no JSON-LD breadcrumbs`).not.toHaveLength(0);
       for (const target of targets.jsonLd) {
-        if (target === '/') continue;
+        if (/^\/(?:(?:en|de|fr)\/)?$/.test(target)) continue;
         expect(isFuelDailyPath(target), `${path} breadcrumb target ${target}`).toBe(true);
       }
     }

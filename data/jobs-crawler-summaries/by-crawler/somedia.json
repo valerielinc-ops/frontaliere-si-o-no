@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-10-31T09:22:41.875Z",
+  "generatedAt": "2026-11-01T09:27:18.583Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 7810,
-  "avgDurationMs": 7810,
+  "durationMs": 8188,
+  "avgDurationMs": 8188,
   "durationHistory": [
-    7810
+    8188
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.somedia.ch/Instructional-Designerin-E-Learning-80-100-de-j432.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:22:29.642Z",
+      "crawledAt": "2026-11-01T09:26:59.839Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -53,7 +53,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "validThrough": "2027-05-01",
+      "validThrough": "2027-05-01T00:00:00.000Z",
       "applyUrl": "https://jobs.somedia.ch/Instructional-Designerin-E-Learning-80-100-de-f432.html",
       "_somediaMeta": {
         "rexxId": "432",
@@ -65,6 +65,8 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -85,7 +87,7 @@
       "url": "https://jobs.somedia.ch/Polygrafin-oder-Grafikerin-100-mit-Lernendenbetreuung-de-j427.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:22:28.586Z",
+      "crawledAt": "2026-11-01T09:26:58.808Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -101,7 +103,7 @@
       "datePosted": "2026-10-13",
       "postedDate": "2026-10-13",
       "postingDateSource": "reported",
-      "validThrough": "2027-05-01",
+      "validThrough": "2027-05-01T00:00:00.000Z",
       "applyUrl": "https://jobs.somedia.ch/Polygrafin-oder-Grafikerin-100-mit-Lernendenbetreuung-de-f427.html",
       "_somediaMeta": {
         "rexxId": "427",
@@ -113,6 +115,8 @@
       "salaryMax": 70500,
       "salarySource": "estimated",
       "addressRegion": "GR",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -133,7 +137,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:22:27.646Z",
+      "crawledAt": "2026-11-01T09:26:57.852Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -149,7 +153,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "validThrough": "2027-05-01",
+      "validThrough": "2027-05-01T00:00:00.000Z",
       "applyUrl": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-f416.html",
       "_somediaMeta": {
         "rexxId": "416",
@@ -161,6 +165,8 @@
       "salaryMax": 152000,
       "salarySource": "estimated",
       "addressRegion": "GL",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -181,7 +187,7 @@
       "url": "https://jobs.somedia.ch/Senior-Subscription-Digital-Marketing-Managerin-80-100-de-j430.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:22:26.597Z",
+      "crawledAt": "2026-11-01T09:26:56.815Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -197,7 +203,7 @@
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
-      "validThrough": "2027-05-01",
+      "validThrough": "2027-05-01T00:00:00.000Z",
       "applyUrl": "https://jobs.somedia.ch/Senior-Subscription-Digital-Marketing-Managerin-80-100-de-f430.html",
       "_somediaMeta": {
         "rexxId": "430",
@@ -210,6 +216,8 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "addressRegion": "GR",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -219,5 +227,5 @@
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

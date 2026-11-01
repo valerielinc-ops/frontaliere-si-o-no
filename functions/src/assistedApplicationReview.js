@@ -131,9 +131,15 @@ export function defaultStartDate(nowMs = Date.now()) {
 }
 
 function questionView(question, nowMs = Date.now()) {
+  const localizationFallback = question.localizationStatus === 'fallback';
   return {
     id: question.id,
     question: question.question,
+    ...(localizationFallback ? {
+      localizationStatus: 'fallback',
+      applicationQuestion: question.applicationQuestion || question.question,
+      applicationQuestionLocale: question.applicationQuestionLocale || null,
+    } : {}),
     why: question.why || '',
     type: question.type,
     options: question.options || [],

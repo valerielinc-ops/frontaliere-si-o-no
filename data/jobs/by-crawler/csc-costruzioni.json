@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csc-costruzioni",
-  "assembledAt": "2026-10-31T09:22:27.320Z",
-  "runId": "41187520287",
+  "assembledAt": "2026-11-01T09:23:01.929Z",
+  "runId": "41291881160",
   "jobs": [
     {
       "id": "company-j2eigp",
@@ -31,7 +31,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-31T09:22:21.697Z",
+      "crawledAt": "2026-11-01T09:22:56.066Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "titleByLocale": {
         "it": "Responsabile pianificazione senior",
@@ -97,7 +97,21 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "CSC Costruzioni SA",
+        "streetAddress": "Via Pioda 5",
+        "postalCode": "6900",
+        "addressLocality": "Lugano",
+        "addressRegion": "TI",
+        "checkedAt": "2026-10-31T20:48:38.732Z"
+      },
+      "streetAddress": "Via Pioda 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-14T09:22:56.066Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-vwqmw",
@@ -126,7 +140,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-31T09:22:21.697Z",
+      "crawledAt": "2026-11-01T09:22:56.066Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "titleByLocale": {
         "it": "Accountant di cantiere",
@@ -187,7 +201,21 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "CSC Costruzioni SA",
+        "streetAddress": "Via Pioda 5",
+        "postalCode": "6900",
+        "addressLocality": "Lugano",
+        "addressRegion": "TI",
+        "checkedAt": "2026-10-31T20:48:38.732Z"
+      },
+      "streetAddress": "Via Pioda 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-28T09:22:56.066Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-fmdin5",
@@ -215,7 +243,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-31T09:22:21.697Z",
+      "crawledAt": "2026-11-01T09:22:56.066Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "titleByLocale": {
         "en": "Quality Assistant - MEP",
@@ -273,7 +301,21 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "CSC Costruzioni SA",
+        "streetAddress": "Via Pioda 5",
+        "postalCode": "6900",
+        "addressLocality": "Lugano",
+        "addressRegion": "TI",
+        "checkedAt": "2026-10-31T20:48:38.732Z"
+      },
+      "streetAddress": "Via Pioda 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-14T09:22:56.066Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-ega1k",
@@ -296,7 +338,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-31T09:22:21.697Z",
+      "crawledAt": "2026-11-01T09:22:56.066Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "titleByLocale": {
         "it": "Business Sviluppatore – Suisse Romande & Suisse Alémanique",
@@ -342,7 +384,21 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "CSC Costruzioni SA",
+        "streetAddress": "Via Pioda 5",
+        "postalCode": "6900",
+        "addressLocality": "Lugano",
+        "addressRegion": "TI",
+        "checkedAt": "2026-10-31T20:48:38.732Z"
+      },
+      "streetAddress": "Via Pioda 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-14T09:22:56.066Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-gkno24",
@@ -372,7 +428,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-31T09:22:21.697Z",
+      "crawledAt": "2026-11-01T09:22:56.066Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "titleByLocale": {
         "en": "Electrical Engineer",
@@ -430,7 +486,21 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "CSC Costruzioni SA",
+        "streetAddress": "Via Pioda 5",
+        "postalCode": "6900",
+        "addressLocality": "Lugano",
+        "addressRegion": "TI",
+        "checkedAt": "2026-10-31T20:48:38.732Z"
+      },
+      "streetAddress": "Via Pioda 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-14T09:22:56.066Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-a34t6f",
@@ -460,7 +530,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-31T09:22:21.697Z",
+      "crawledAt": "2026-11-01T09:22:56.066Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "titleByLocale": {
         "it": "Tecnico Opere in Sotterraneo",
@@ -518,7 +588,21 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "CSC Costruzioni SA",
+        "streetAddress": "Via Pioda 5",
+        "postalCode": "6900",
+        "addressLocality": "Lugano",
+        "addressRegion": "TI",
+        "checkedAt": "2026-10-31T20:48:38.732Z"
+      },
+      "streetAddress": "Via Pioda 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-14T09:22:56.066Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-19cm1t",
@@ -547,7 +631,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "csc-costruzioni-sa",
       "companyDomain": "csc-sa.ch",
-      "crawledAt": "2026-10-29T21:28:13.561Z",
+      "crawledAt": "2026-11-01T09:22:56.066Z",
       "firstSeenAt": "2026-10-29T16:15:31.347Z",
       "titleByLocale": {
         "en": "Design Manager Mechanical",
@@ -616,7 +700,21 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "CSC Costruzioni SA",
+        "streetAddress": "Via Pioda 5",
+        "postalCode": "6900",
+        "addressLocality": "Lugano",
+        "addressRegion": "TI",
+        "checkedAt": "2026-10-31T20:48:38.732Z"
+      },
+      "streetAddress": "Via Pioda 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-14T09:22:56.066Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

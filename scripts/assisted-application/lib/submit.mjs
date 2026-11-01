@@ -1,3 +1,4 @@
+import { addressContextContract } from '../../../functions/src/lib/addressContextContract.js';
 /**
  * Submit mode of the assisted-application agent (GitHub Actions).
  *
@@ -24,7 +25,7 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
-import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from '../../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
@@ -35,6 +36,7 @@ import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
+import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { postingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
@@ -67,16 +69,25 @@ export function openRequiredQuestions(draft, answers = {}, { deferPortal = false
 }
 
 /** Project answers already recorded by the portal onto the current draft ids. */
-function portalAnswersForFlow(questions, answers, recordedAnswers) {
+function portalAnswersForFlow(questions, answers, recordedAnswers, memory = {}) {
   const result = { ...(answers && typeof answers === 'object' ? answers : {}) };
   const records = Array.isArray(recordedAnswers) ? recordedAnswers : [];
   for (const question of Array.isArray(questions) ? questions : []) {
     if (!question?.id || String(result[question.id] ?? '').trim()) continue;
+    if (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question)
+      && (Object.hasOwn(result, question.id) || (Object.hasOwn(memory, candidateQuestionAnswerKey(question))
+        && !String(memory[candidateQuestionAnswerKey(question)] ?? '').trim()))) continue;
     const key = portalQuestionKey(question);
     if (!key) continue;
     const values = new Map();
     for (const item of records) {
-      if (!item || typeof item !== 'object' || item.source === 'policy_default' || !String(item.answer || '').trim()) continue;
+      if (!item || typeof item !== 'object' || item.source === 'policy_default' || !String(item.answer ?? '').trim()) continue;
+      if (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question)) {
+        const currentOwner = addressContextContract(question);
+        const previousOwner = addressContextContract(item);
+        if (!['answers', 'candidate', 'user'].includes(item.source) || !currentOwner || currentOwner.unknown
+          || !previousOwner || previousOwner.unknown || JSON.stringify(currentOwner) !== JSON.stringify(previousOwner)) continue;
+      }
       const itemKey = String(item.semanticKey || '').trim() || portalQuestionKey(item);
       if (itemKey !== key) continue;
       const answer = String(item.answer).trim();
@@ -210,20 +221,26 @@ export async function submitApplication(ctx) {
   // Resolve facts that the CV already states before the generic required-question gate.
   // Older drafts can contain a newly discovered portal question with an empty answer;
   // waiting for the planner would never work because the gate returns first.
+  // Only persisted nonempty candidate answers can attest a current statement.
+  // Automatic and remembered projections below never enlarge this set.
+  const originalCurrentAnswerIds = Object.entries(flow?.answers || {})
+    .filter(([, value]) => String(value ?? '').trim()).map(([id]) => id);
   const initialEdited = candidateWithEdits({ order, draft, flow });
   const portalQuestions = (draft?.questions || []).filter((question) => question.source === 'portal');
   const initialCandidate = candidateForForm({
     identity: initialEdited.identity,
     profile: initialEdited.profile,
     answers: initialEdited.answers,
+    currentAnswerIds: originalCurrentAnswerIds,
     draft,
     portalQuestions,
     language: draft?.language,
     personal: initialEdited.personal,
     job: { title: draft?.job?.title || order.jobTitle || '', company: order.companyName || '' },
   });
-  const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers });
-  const rememberedAnswers = portalAnswersForFlow(portalQuestions, initialEdited.answers, initialCandidate.portalQuestionsAnswered);
+  const autoAnswerSources = Object.create(null);
+  const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers, sources: autoAnswerSources });
+  const rememberedAnswers = portalAnswersForFlow(portalQuestions, initialEdited.answers, initialCandidate.portalQuestionsAnswered, flow?.questionAnswers || {});
   const mergedAnswers = { ...(flow?.answers || {}), ...rememberedAnswers, ...autoAnswers };
   const submitFlow = Object.keys(mergedAnswers).length
     ? { ...(flow || {}), answers: mergedAnswers }
@@ -273,6 +290,7 @@ export async function submitApplication(ctx) {
       ...(question.context ? { context: question.context } : {}),
       ...(question.section ? { section: question.section } : {}),
       ...(question.autocomplete ? { autocomplete: question.autocomplete } : {}),
+      ...(Object.hasOwn(question, 'addressContext') ? { addressContext: addressContextContract(question) } : {}),
       ...(question.type ? { type: question.type } : {}),
       ...(portalQuestionKey(question) ? { semanticKey: portalQuestionKey(question) } : {}),
       ...(Array.isArray(question.options) && question.options.length ? { options: question.options } : {}),
@@ -429,10 +447,11 @@ export async function submitApplication(ctx) {
   }
   if (WAVE1_CHANNELS.has(channelType) && applyUrl && ctx.codex) {
     // The same durable guard as the e-mail: a re-dispatched run never submits
-    // twice. A run that died before the final click may start again.
+    // twice. A run may restart only after a confirmed pre-click failure
+    // released the claim; an unreconciled `sending` claim may still be live.
     const guard = ctx.dryRun ? null : ctx.submissionGuard || null;
     if (guard) {
-      const claim = await guard.claim('portal', nowMs, { resumable: true });
+      const claim = await guard.claim('portal', nowMs);
       if (claim.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
       if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channelType, replayed: true, ...(claim.record?.sent ? { sent: claim.record.sent } : {}) };
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };
@@ -485,8 +504,8 @@ export async function submitApplication(ctx) {
         return recordOfSend({ at: nowMs, channel: channelType, packaging: 'portal', letterRenderer: letterLeft ? letter.renderer : null, ...kept });
       };
       // A round the guard releases sent nothing: the attempt recorded at its final click is no record.
-      const release = async (reason) => {
-        await guard.release(reason);
+      const release = async (reason, accountFailure = null) => {
+        await guard.release(reason, undefined, accountFailure ? { accountFailure } : {});
         if (attemptKept) await keepAttempt(null);
       };
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
@@ -499,7 +518,7 @@ export async function submitApplication(ctx) {
         skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,
@@ -538,9 +557,9 @@ export async function submitApplication(ctx) {
         // 2026-10-03) sent nothing either.
         const refusedByValidation = (evidence.finalOutcomes || []).length > 0 && evidence.finalOutcomes.every((outcome) => outcome === 'validation');
         if (event.type === 'submit_succeeded') await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null, sent: sentRecord });
-        else if (event.type === 'submit_failed' && event.error === 'portal_refused') await release('portal_refused');
-        else if (refusedByValidation && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release('portal_validation');
-        else if (!clicked && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release(event.error || event.reason || event.type);
+        else if (event.type === 'submit_failed' && event.error === 'portal_refused') await release('portal_refused', event.accountFailure);
+        else if (refusedByValidation && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release('portal_validation', event.accountFailure);
+        else if (!clicked && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await release(event.error || event.reason || event.type, event.accountFailure);
       }
       await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence, cvSent, ...(sentRecord ? { sent: sentRecord } : {}) }, key: runKey, nowMs });
       // What went into the form, for the interview prep and for Valerie: agent.mjs
@@ -591,5 +610,9 @@ export async function submitApplication(ctx) {
     nowMs,
   });
   const reason = channelType === 'pastahr' ? 'whatsapp' : channel.requiresAccount ? 'account' : 'portal_needs_candidate';
-  return { type: 'submit_handoff', reason };
+  return {
+    type: 'submit_handoff',
+    reason,
+    ...(reason === 'account' ? { accountFailure: { code: 'unknown', stage: 'unknown' } } : {}),
+  };
 }

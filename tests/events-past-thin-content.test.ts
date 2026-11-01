@@ -79,7 +79,7 @@ function findEventDetail(distDir: string): { urlPath: string; html: string } {
 }
 
 describe('historical event content floor', () => {
-  it('keeps a 49-word past detail out of the index and sitemap', async () => {
+  it('keeps a 49-word past detail out of the index and historical sitemap', async () => {
     const direct = renderEventDetailPage({
       locale: 'it',
       event: THIN_PAST_EVENT as never,
@@ -102,7 +102,7 @@ describe('historical event content floor', () => {
     await close.call({} as never);
 
     const detail = findEventDetail(path.join(root, 'dist'));
-    const sitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-eventi.xml'), 'utf8');
+    const sitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-eventi-storici.xml'), 'utf8');
     expect(detail.html).toMatch(/noindex,follow/);
     expect(sitemap).not.toContain(`<loc>https://frontaliereticino.ch${detail.urlPath}</loc>`);
   });

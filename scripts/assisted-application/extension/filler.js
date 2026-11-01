@@ -22,15 +22,15 @@
   'use strict';
 
   const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|continuer|nächster schritt|save and continue|speichern und weiter|proceed)\b/i;
-  const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|^senden$|bewerbung (absenden|senden|abschicken)|jetzt bewerben|^bewerben$|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
-  const PLAIN_FINAL_RE = /(submit application|send application|bewerbung (absenden|senden|abschicken)|invia( la)? candidatura|envoyer( ma)? candidature)/i;
+  const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|^senden$|bewerbung (absenden|senden|abschicken)|jetzt bewerben|^bewerben$|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia(?:re)?$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
+  const PLAIN_FINAL_RE = /(submit application|send application|bewerbung (absenden|senden|abschicken)|invia( la)? candidatura|^inviare$|envoyer( ma)? candidature)/i;
   const FILE_UPLOAD_RE = /\b(attach|upload|choose|carica|allega|scegli|seleziona)\b/i;
   const FILE_BROWSE_RE = /\bbrowse\b/i;
   const START_DATE_AVAILABILITY_RE = /\b(earliest available|start date|available from|notice period|preavviso|data di inizio|data d entrata|date de debut|date d entree|eintritt|verfugbar ab)\b/i;
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   // The portal waits for the address to be verified (JOIN after the send
@@ -40,7 +40,7 @@
   const SOCIAL_RE = /(google|linkedin|facebook|apple|microsoft|xing|indeed|github)/i;
 
   const DATE_OF_BIRTH_RE = /(?<![\p{L}\p{N}_])(?:dob|date\s+(?:of\s+)?birth|birth\s*date|birthday|geburts(?:datum|tag)|(?:datum|tag)\s+(?:der\s+)?geburt|data\s+(?:di\s+)?nascita|date\s+(?:de\s+)?naissance|when\s+(?:were|was)\s+(?:you|i|the\s+candidate)\s+born|quando\s+(?:sei|è|e|siete)\s+nat[oa]|nat[oa]\s+il|n[ée]e?\s+le|geboren\s+am|wann\s+(?:sind|bist|wurden|wurdest)\s+(?:sie|du)\s+geboren)(?![\p{L}\p{N}_])/iu;
-  const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|town|country)|(?:city|town|country)\s+of\s+birth|(?:luogo|comune|citt[àa]|paese|provincia)\s+(?:di\s+)?nascita|geburts(?:ort|land|stadt)|(?:lieu|ville|pays|commune)\s+de\s+naissance)\b/iu;
+  const BIRTH_LOCATION_RE = /\b(?:place\s+of\s+birth|birth\s*(?:place|city|town|country)|(?:city|town|country)\s+of\s+birth|(?:luogo|comune|citt[àa]|paese|provincia|nazione)\s+(?:di\s+)?nascita|geburts(?:ort|land|stadt)|(?:lieu|ville|pays|commune)\s+de\s+naissance)\b/iu;
 
   const BIRTH_FIELD_RE = /birth|geburt|nascita|\bnat[oa]\b|naissance/i;
 
@@ -73,7 +73,6 @@
   const CANDIDATE_ADDRESS_CONTEXT_RE = /\b(candidate|applicant|personal|home|residen(?:ce|tial)|current address|your address|your details|private address|contact details|contact information|(?:dati|informazioni) personali|dati anagrafici|indirizzo personale|indirizzo di residenza|recapiti personali|personliche (?:angaben|daten|informationen)|private adresse|wohnadresse|adresse personnelle|(?:informations|coordonnees) personnelles|adresse du candidat)\b/;
   const NON_CANDIDATE_ADDRESS_CONTEXT_RE = /\b(employer|company|organization|work history|employment|professional experience|reference|school|university|emergency contact|billing|shipping|delivery|recipient|supplier|customer|client|datore di lavoro|esperienza professionale|fatturazione|spedizione|fornitore|cliente|riferimento|scuola|universita|arbeitgeber|unternehmen|berufserfahrung|rechnungsadresse|lieferadresse|notfallkontakt|referenz|schule|arbeitgeberadresse|adresse de facturation|adresse de livraison|employeur|experience professionnelle|reference|ecole|universite|contact d urgence)\b/;
   const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
-  const MARKETING_RE = /\b(newsletter|marketing|werbung|pubblicit|promozion|promotion|offerte|angebote|job alert|talent pool|talentpool)\b/;
   // Keep the same required-marker vocabulary as the portal snapshot. A
   // SuccessFactors label may carry only “(erforderlich)” while the input has
   // neither native nor ARIA requiredness.
@@ -850,13 +849,22 @@
     // Autocomplete identifies the value type, not whose address it is. Only
     // visible labels and the surrounding section may establish residence
     // provenance; a section-personal token alone must stay ownerless.
-    const nativeOwner = validAddressContext(entry.addressContext) ? [entry.addressContext.section, ...entry.addressContext.owners].join(' ') : '';
+    const hasNativeAddressContext = Object.hasOwn(entry, 'addressContext');
+    const nativeAddressContext = hasNativeAddressContext && validAddressContext(entry.addressContext) ? entry.addressContext : null;
+    const nativeAddressScopes = nativeAddressContext
+      ? [...nativeAddressContext.owners, nativeAddressContext.section] : entry.purposeScopes || [];
+    const nativeOwner = nativeAddressContext ? [nativeAddressContext.section, ...nativeAddressContext.owners].join(' ') : '';
     const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''} ${nativeOwner}`);
     const addressRole = residenceFieldRole(primaryLabel);
+    // Once the native reader has supplied an ownership contract, an address
+    // role may use it only when that contract itself proves candidate
+    // residence. Do not let flattened labels or entry.section rehabilitate an
+    // employer/birthplace owner.
+    if (addressRole && hasNativeAddressContext
+      && (!nativeAddressContext || !hasResidencePurpose(nativeAddressScopes, primaryLabel))) return null;
     const candidateAddress = Boolean(addressRole) && entry.section !== null
-      && (!Object.hasOwn(entry, 'addressContext') || validAddressContext(entry.addressContext))
-      && hasResidencePurpose(validAddressContext(entry.addressContext)
-        ? [...entry.addressContext.owners, entry.addressContext.section] : entry.purposeScopes || [], primaryLabel)
+      && (!hasNativeAddressContext || Boolean(nativeAddressContext))
+      && hasResidencePurpose(nativeAddressScopes, primaryLabel)
       && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
       && !BIRTHPLACE_RE.test(addressContext)
       // A browser autocomplete token describes a type, not its owner. An
@@ -955,12 +963,39 @@
     }
     if (entry.kind === 'checkbox') {
       if (entry.consentOwnershipUnknown === true) return null;
+      const explicitNegativeAnswer = fromKit && fromKit.source !== 'policy_default'
+        && /^(?:0|false|no|nein|non)$/i.test(normalize(fromKit.answer));
+      if (explicitNegativeAnswer) return null;
       // JazzHR/Resumator (Fincons) puts the required privacy statement in the
       // label immediately before a separate «I agree» checkbox. Use all the
       // control's labels, but keep marketing/newsletter opt-ins excluded.
-      const label = normalize((entry.labels || [entry.label]).join(' '));
+      const rawLabel = (entry.labels || [entry.label]).join(' ');
+      const label = normalize(rawLabel);
+      const element = entry.element;
+      const attr = name => element?.getAttribute?.(name) || '';
+      const privacyMetadata = {
+        ...entry,
+        name: entry.name || attr('name'),
+        autocomplete: entry.autocomplete || attr('autocomplete'),
+        domId: entry.domId || element?.id || attr('id'),
+        controlId: entry.controlId || attr('controlId') || attr('data-control-id') || attr('data-controlid'),
+        semanticId: entry.semanticId || attr('semanticId') || attr('data-semantic-id') || attr('data-semanticid'),
+      };
+      const privacyIdentifiers = privacySemanticIdentifiers(privacyMetadata);
+      const privacyRepresentations = [entry.question, entry.label, entry.applicationQuestion]
+        .filter(value => typeof value === 'string' && value.trim());
+      const supplementalPrivacyLabels = Array.isArray(entry.labels)
+        ? entry.labels.filter(value => typeof value === 'string' && value.trim()) : [];
+      const privacyReviewAck = typeof isPrivacyReviewAcknowledgment === 'function'
+        && typeof privacyReviewAcknowledgmentShape === 'function'
+        && privacyRepresentations.length > 0
+        && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
+        && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels));
+      const privacyReviewShape = typeof privacyReviewAcknowledgmentShape === 'function'
+        && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
       // Only the required acceptance of the portal's terms: never a newsletter or a talent pool.
-      return entry.required && CONSENT_RE.test(label) && !MARKETING_RE.test(label) ? { check: true } : null;
+      return (entry.required || privacyReviewAck) && (privacyReviewAck || (CONSENT_RE.test(label) && !privacyReviewShape)) && typeof hasConsentContradiction === 'function' && !hasConsentContradiction([...privacyRepresentations, ...supplementalPrivacyLabels].join(' ') || rawLabel,
+        ...privacyIdentifiers) ? { check: true } : null;
     }
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
     // Contact facts are canonical identity data, not answers copied from the

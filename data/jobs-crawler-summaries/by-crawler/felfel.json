@@ -1,7 +1,7 @@
 {
   "key": "felfel",
   "label": "FELFEL",
-  "generatedAt": "2026-10-31T09:12:14.737Z",
+  "generatedAt": "2026-11-01T09:12:18.789Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 11888,
-  "avgDurationMs": 11888,
+  "durationMs": 9729,
+  "avgDurationMs": 9729,
   "durationHistory": [
-    11888
+    9729
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://felfel.jobs.personio.de/job/2798583",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:55.362Z",
+      "crawledAt": "2026-11-01T09:11:55.090Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -60,6 +60,9 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-27T09:11:55.090Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,7 +83,7 @@
       "url": "https://felfel.jobs.personio.de/job/2816710",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:11:55.357Z",
+      "crawledAt": "2026-11-01T09:11:55.085Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -103,6 +106,9 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:11:55.085Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -123,7 +129,7 @@
       "url": "https://felfel.jobs.personio.de/job/2842697",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:55.353Z",
+      "crawledAt": "2026-11-01T09:11:55.082Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -147,6 +153,9 @@
       "salaryMin": 65500,
       "salaryMax": 100500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T09:11:55.082Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -167,7 +176,7 @@
       "url": "https://felfel.jobs.personio.de/job/2834630",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:11:55.347Z",
+      "crawledAt": "2026-11-01T09:11:55.079Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -190,6 +199,9 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-06T09:11:55.079Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -210,7 +222,7 @@
       "url": "https://felfel.jobs.personio.de/job/2842832",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:55.337Z",
+      "crawledAt": "2026-11-01T09:11:55.072Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -233,6 +245,9 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-13T09:11:55.072Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -253,10 +268,10 @@
       "url": "https://felfel.jobs.personio.de/job/2829366",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T09:11:55.324Z",
+      "crawledAt": "2026-11-01T09:11:55.063Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "postalCode": "1003",
       "addressCountry": "CH",
       "country": "CH",
@@ -276,12 +291,15 @@
       "salaryMin": 57000,
       "salaryMax": 87500,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:11:55.063Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -296,7 +314,7 @@
       "url": "https://felfel.jobs.personio.de/job/2829409",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:11:55.318Z",
+      "crawledAt": "2026-11-01T09:11:55.059Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -319,6 +337,9 @@
       "salaryMin": 65500,
       "salaryMax": 100500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:11:55.059Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -339,10 +360,10 @@
       "url": "https://felfel.jobs.personio.de/job/2626851",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T09:11:55.305Z",
+      "crawledAt": "2026-11-01T09:11:55.051Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "postalCode": "1003",
       "addressCountry": "CH",
       "country": "CH",
@@ -362,14 +383,17 @@
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:11:55.051Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

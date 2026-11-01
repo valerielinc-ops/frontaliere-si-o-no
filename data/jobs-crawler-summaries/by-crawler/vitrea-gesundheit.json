@@ -1,7 +1,7 @@
 {
   "key": "vitrea-gesundheit",
   "label": "Vitrea Gesundheit",
-  "generatedAt": "2026-10-31T09:14:03.659Z",
+  "generatedAt": "2026-11-01T09:13:27.498Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 23072,
-  "avgDurationMs": 23072,
+  "durationMs": 24313,
+  "avgDurationMs": 24313,
   "durationHistory": [
-    23072
+    24313
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/g8v0il8oipya608e4bte80w18xfprka",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:13:44.038Z",
+      "crawledAt": "2026-11-01T09:13:16.347Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -59,12 +59,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Zihlschlacht-Sitterdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:13:16.347Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -80,7 +84,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ff4p38yxswahnwtbj0qnskopi7lfgaq",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:13:42.868Z",
+      "crawledAt": "2026-11-01T09:13:14.701Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -101,12 +105,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Seewis im Prättigau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:13:14.701Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -121,7 +129,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/uh8032hdkhzw0no7a1qevnvz4ooypse",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:13:41.200Z",
+      "crawledAt": "2026-11-01T09:13:13.070Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -141,12 +149,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "streetAddress": "Dussnang",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:13:13.070Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -161,7 +173,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/mycubn7y0iv658o7pavr48xvje6am2b",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:13:39.923Z",
+      "crawledAt": "2026-11-01T09:13:11.438Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -182,12 +194,16 @@
       "salaryMin": 76500,
       "salaryMax": 107100,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Tschugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:13:11.438Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -203,7 +219,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/gjj21a42hg7skg88wgmyelxo2zyrgin",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:13:38.246Z",
+      "crawledAt": "2026-11-01T09:13:09.806Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -224,12 +240,16 @@
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Zihlschlacht-Sitterdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:13:09.806Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -245,7 +265,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/tl5y7k7s748tvd0kis0732cbj9wge5j",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:13:36.102Z",
+      "crawledAt": "2026-11-01T09:13:07.700Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -266,12 +286,16 @@
       "salaryMin": 40500,
       "salaryMax": 50700,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Tschugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:13:07.700Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -287,7 +311,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/a143j5ar8dozsh791a81pv7aicp092r",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:13:34.397Z",
+      "crawledAt": "2026-11-01T09:13:06.043Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -307,12 +331,16 @@
       "salaryMin": 36000,
       "salaryMax": 61200,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Zihlschlacht-Sitterdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:13:06.043Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -327,7 +355,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/62jd5528qfv14pf0j2l9en6cjwy9724",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:13:32.764Z",
+      "crawledAt": "2026-11-01T09:13:04.325Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -348,12 +376,16 @@
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "streetAddress": "Dussnang",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:13:04.325Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -368,7 +400,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/roejxv4lwkyn7ijqizatcb1z0nqj2jw",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:13:31.034Z",
+      "crawledAt": "2026-11-01T09:13:02.213Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -389,12 +421,16 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Tschugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:13:02.213Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -410,7 +446,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/gqznl6n51n2t4vhe4wncfeyd0q1fpkp",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:13:28.894Z",
+      "crawledAt": "2026-11-01T09:13:00.407Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -431,14 +467,18 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Seewis im Prättigau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:13:00.407Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

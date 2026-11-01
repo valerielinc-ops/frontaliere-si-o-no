@@ -339,6 +339,17 @@ describe('fill extension: JOIN steps', () => {
     expect(review.F.textOf(state.final)).toBe('Invia candidatura');
   });
 
+  it('recognizes AMAG’s Italian infinitive send button after the application fields', () => {
+    const amag = page('<form><label>Nome *<input required></label><label>Curriculum vitae *<input type="file" required></label><button type="submit">Inviare</button></form>', 'https://jobs.amag-group.ch/apply');
+    const state = amag.F.pageState(amag.document, { sawForm: true });
+    expect(state.kind).toBe('final');
+    expect(amag.F.textOf(state.final)).toBe('Inviare');
+    expect(amag.F.pageState(amag.document, { sawForm: true }).kind).not.toBe('confirmed');
+
+    const upload = page('<form><button type="submit">Inviare i documenti</button></form>', 'https://jobs.amag-group.ch/apply');
+    expect(upload.F.pageState(upload.document, { sawForm: true }).kind).toBe('unknown');
+  });
+
   it('starts Coop’s application with «Jetzt bewerben», never «Später bewerben»', () => {
     // jobs.coopjobs.ch (Prospective.ch), 2026-10-02: the bookmark comes first in the page.
     const coop = page('<header><a role="button" aria-label="Später bewerben">Später bewerben</a></header><main><h1>Bäcker:in</h1><a class="main-btn apply" target="_blank" href="https://ohws.prospective.ch/public/v1/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/">Jetzt bewerben</a></main>', 'https://jobs.coopjobs.ch/offene-stellen/baecker/20d53107-db26-4a35-8f4c-b4d15bb4bb31');
@@ -924,8 +935,10 @@ describe('fill extension: the runner’s reading on any portal', () => {
     const { F, document, read } = runnerPage(`<div data-automation-id="applyFlowPage">
       <div data-automation-id="formField-source"><label id="lbl-src" for="src">How did you hear about us?<abbr title="required">*</abbr></label>
         <button id="src" type="button" aria-haspopup="listbox" aria-required="true" aria-labelledby="lbl-src">Select One</button></div>
-      <div data-automation-id="formField-country"><label for="country">Country of residence<abbr title="required">*</abbr></label>
-        <input id="country" type="search" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="ms1" aria-required="true"></div>
+      <section aria-label="Personal information">
+        <div data-automation-id="formField-country"><label for="country">Country of residence<abbr title="required">*</abbr></label>
+          <input id="country" type="search" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="ms1" aria-required="true"></div>
+      </section>
       <div id="pills"></div><div id="popup"></div>
       <input type="search" id="site-search" placeholder="Search jobs">
       <button type="button" data-automation-id="bottom-navigation-next-button">Save and Continue</button></div>`, 'https://acme.wd3.myworkdayjobs.com/en-US/careers/job/1/apply');
@@ -1261,4 +1274,98 @@ it.each([true, false])('retries only the failed CV control when labels and names
   expect(requests).toBe(3);
   expect(options.uploaded.size).toBe(2);
   expect(inputs[1].files?.[0]?.name).toBe('CV.pdf');
+});
+
+
+describe('fill extension: optional purposes share the runner consent guard', () => {
+  it.each([
+    'I accept privacy and cookies',
+    'I accept privacy and data sharing with partners',
+    'Ich akzeptiere Datenschutz und Weitergabe an Partnerfirmen',
+    'Accetto la privacy e la condivisione con i partner',
+    'J accepte la confidentialité et le partage avec nos partenaires',
+    'Accetto la privacy e la condivisione con terzi',
+    'Ich akzeptiere Datenschutz und Weitergabe an Dritte',
+    'J accepte la confidentialité et le partage avec des tiers',
+    'I accept privacy and third party marketing',
+    'I accept privacy and news\u00adletter',
+  ])('leaves a required mixed consent to the candidate: %s', (label) => {
+    const { document, F } = page(`<label><input id="mixedConsent" type="checkbox" required> ${label}</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'mixedConsent');
+    expect(entry.required).toBe(true);
+    expect(F.answerFor(entry, kit)).toBe(null);
+    expect((document.getElementById('mixedConsent') as HTMLInputElement).checked).toBe(false);
+  });
+});
+
+
+describe('fill extension: shared privacy-reading acknowledgement', () => {
+  it.each([
+    'Seleziona questa casella per confermare di aver letto l’Informativa sulla privacy per i candidati.',
+    'Aktivieren Sie dieses Kontrollkästchen, um zu bestätigen, dass Sie die Datenschutzerklärung für Bewerber gelesen haben.',
+    'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.',
+    'Veuillez cocher cette case pour confirmer que vous avez pris connaissance de l’avis de confidentialité destiné aux candidats.',
+    'Please check this box to acknowledge that you have read the Applicant Privacy Notice.',
+  ])('checks the sole privacy-reading acknowledgement even without required metadata: %s', label => {
+    const { document, F } = page(`<label><input id="privacyAck" type="checkbox"> ${label}</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(F.answerFor(entry, kit)).toEqual({ check: true });
+  });
+
+  it('keeps a native privacy label unresolved when another question representation is factual', () => {
+    const label = 'Please check this box to acknowledge that you have read the Applicant Privacy Notice.';
+    const { document, F } = page(`<label><input id="privacyAck" type="checkbox"> ${label}</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(F.answerFor({ ...entry, question: label, applicationQuestion: 'Country of residence' }, kit)).toBe(null);
+  });
+
+  it.each(['false', 'No'])('does not overwrite an explicit negative privacy answer: %s', answer => {
+    const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    const { document, F } = page(`<label><input id="privacyAck" type="checkbox"> ${label}</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(F.answerFor(entry, { ...kit, answers: [...kit.answers, { question: label, answer, source: 'answers' }] })).toBe(null);
+  });
+
+  it.each([
+    ['extra word', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and agree to the terms.', {}],
+    ['fact', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and have 5 years of experience.', {}],
+    ['optional purpose', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates for marketing.', {}],
+    ['talent pool', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates for the talent pool.', {}],
+    ['third party sharing', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and share data with third parties.', {}],
+    ['subscription', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates and agree to the subscription.', {}],
+    ['country id', 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.', { name: 'country' }],
+  ])('does not check a non-sole acknowledgement: %s', (_name, label, attrs) => {
+    const attributeText = Object.entries(attrs).map(([key, value]) => `${key}="${value}"`).join(' ');
+    const { document, F } = page(`<label><input id="privacyAck" type="checkbox" ${attributeText}> ${label}</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(F.answerFor(entry, kit)).toBe(null);
+  });
+});
+
+
+describe('fill extension: native fact metadata vetoes a privacy label', () => {
+  it.each([
+    ['name', 'workPermit'], ['name', 'experienceYears'], ['name', 'experience\u00adYears'],
+    ['name', 'ｗｏｒｋＰｅｒｍｉｔ'], ['autocomplete', 'bday'], ['autocomplete', 'sex'],
+  ])('leaves %s=%s unchecked', (key, value) => {
+    const { document, F } = page(`<label><input id="nativeFact" type="checkbox" required ${key}="${value}"> I agree to the privacy policy</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'nativeFact');
+    expect(F.answerFor(entry, kit)).toBe(null);
+    expect((document.getElementById('nativeFact') as HTMLInputElement).checked).toBe(false);
+  });
+  it('includes a contradictory native ID in the shared veto', () => {
+    const { document, F } = page('<label><input id="workPermitCheckbox" type="checkbox" required> I agree to the privacy policy</label>');
+    const entry = F.collect(document).find((item: any) => item.element.id === 'workPermitCheckbox');
+    expect(F.answerFor(entry, kit)).toBe(null);
+  });
+  it.each([
+    ['data-control-id', 'country-of-residence'],
+    ['data-semantic-id', 'workpermit'],
+  ])('propagates the real native %s veto through the extension consumer', (attribute, value) => {
+    const label = 'Please check this box to acknowledge that you have read the Applicant Privacy Notice.';
+    const { document, F } = page(`<label><input id="privacyAck" type="checkbox" required ${attribute}="${value}"> ${label}</label>`);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(F.answerFor(entry, kit)).toBe(null);
+    expect((document.getElementById('privacyAck') as HTMLInputElement).checked).toBe(false);
+  });
 });

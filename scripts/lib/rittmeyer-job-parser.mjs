@@ -3,7 +3,10 @@ import { JSDOM } from 'jsdom';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
-import { extractJobPostingDescription } from './jobposting-jsonld.mjs';
+import { extractJobPostingDescription, extractJobPostingNodes } from './jobposting-jsonld.mjs';
+import { parseOnlyfyListing } from './onlyfy-listing-common.mjs';
+
+const RITTMEYER_ONLYFY_PORTAL_BASE = 'https://brugg.onlyfy.jobs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -62,34 +65,88 @@ function blockParagraphs(block) {
     .filter(Boolean);
 }
 
+function isRittmeyerListingHref(rawHref = '') {
+  try {
+    const parsed = new URL(rawHref, 'https://brugg.onlyfy.jobs/');
+    if (!['brugg.onlyfy.jobs', 'karriere.rittmeyer.com', 'rittmeyer.com'].includes(parsed.hostname.toLowerCase())) {
+      return false;
+    }
+    const pathname = parsed.pathname;
+    return /^\/offene-stellen\/[^/?#]+\/?$/i.test(pathname)
+      || /^\/(?:[a-z]{2}\/)?job\/[^/?#]+\/?$/i.test(pathname);
+  } catch {
+    return false;
+  }
+}
+
 export function parseRittmeyerListingsPage(html = '') {
   const document = new JSDOM(html).window.document;
   const byHref = new Map();
   let skippedMalformedRows = 0;
-  for (const anchor of document.querySelectorAll('a[href^="/offene-stellen/"]')) {
-    const href = String(anchor.getAttribute('href') || '').trim();
-    if (!href || href === '/offene-stellen/') continue;
-    const text = normalizeSpace(anchor.textContent || '');
-    if (!text) {
-      skippedMalformedRows += 1;
-      continue;
+  const onlyfyCards = [...document.querySelectorAll('a[data-testid="job-card"]')];
+  if (onlyfyCards.length > 0) {
+    // The redesigned onlyfy.jobs card is shared by the other tenants. Reuse
+    // its parser so the title/location fields stay clean and a markup change
+    // cannot make this tenant silently drift from the common contract.
+    const parsedOnlyfyRows = parseOnlyfyListing(html, {
+      portalBase: RITTMEYER_ONLYFY_PORTAL_BASE,
+      defaultLocation: 'Schweiz',
+    });
+    const parsedUrls = new Set(parsedOnlyfyRows.map((row) => row.url));
+    for (const card of onlyfyCards) {
+      const rawHref = String(card.getAttribute('href') || '').trim();
+      let normalizedHref = '';
+      try {
+        normalizedHref = new URL(rawHref, RITTMEYER_ONLYFY_PORTAL_BASE).toString();
+      } catch {
+        // Counted below as malformed so the source-completeness guard fails
+        // closed instead of publishing a partial Onlyfy listing.
+      }
+      if (!isRittmeyerListingHref(rawHref) || !parsedUrls.has(normalizedHref)) {
+        skippedMalformedRows += 1;
+      }
     }
-    const prev = byHref.get(href);
-    if (!prev || text.length > prev.snippet.length) {
-      byHref.set(href, {
-        href,
-        title: text.split(/\s{2,}|\n/)[0].trim(),
-        snippet: text,
+    for (const row of parsedOnlyfyRows) {
+      byHref.set(row.url, {
+        href: row.url,
+        title: row.title,
+        snippet: [row.title, row.location, row.employmentTypeStr].filter(Boolean).join(' | '),
+        location: row.location,
+        employmentTypeStr: row.employmentTypeStr,
       });
+    }
+  } else {
+    // The legacy Rittmeyer board has no Onlyfy card markers; retain its
+    // explicit anchor parser as a source fallback, not as a second Onlyfy
+    // implementation.
+    for (const anchor of document.querySelectorAll('a[href]')) {
+      const href = String(anchor.getAttribute('href') || '').trim();
+      if (!isRittmeyerListingHref(href)) continue;
+      const text = normalizeSpace(anchor.textContent || '');
+      if (!text) {
+        skippedMalformedRows += 1;
+        continue;
+      }
+      const prev = byHref.get(href);
+      if (!prev || text.length > prev.snippet.length) {
+        byHref.set(href, {
+          href,
+          title: text.split(/\s{2,}|\n/)[0].trim(),
+          snippet: text,
+        });
+      }
     }
   }
   const rows = [...byHref.values()];
   const listingContainer = document.querySelector(
-    'ul.rex-navi2, .job-list, [data-job-list], [class*="job-list"], [class*="stellen"], [class*="career"]',
+    '#jobList, .results, ul.rex-navi2, .job-list, [data-job-list], [data-testid="job-card"], [class*="job-list"], [class*="stellen"], [class*="career"]',
   );
+  const listingText = normalizeSpace(document.body?.textContent || listingContainer?.textContent || '');
+  const advertisedCount = listingText.match(/\b(\d+)\s+(?:jobs?|stellen(?:angebote)?|posti|postes?)\s+(?:found|gefunden|trovati|trouv[eé]s)\b/i)?.[1];
   Object.defineProperties(rows, {
     rittmeyerListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
     rittmeyerListingRecordCount: { value: rows.length, enumerable: false },
+    rittmeyerListingAdvertisedCount: { value: advertisedCount == null ? null : Number(advertisedCount), enumerable: false },
     rittmeyerListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
     rittmeyerListingEmptyStateObserved: {
       value: hasExplicitEmptyJobListing(listingContainer, {
@@ -107,10 +164,27 @@ export function isRittmeyerTicinoListing(listing = {}) {
 }
 
 export function parseRittmeyerJobDetail(html = '') {
+  return parseRittmeyerJobDetailWithUrl(html, '');
+}
+
+export function parseRittmeyerJobDetailWithUrl(html = '', pageUrl = '') {
   const document = new JSDOM(html).window.document;
-  const title = normalizeSpace(document.querySelector('h1')?.textContent || '');
-  const applyUrl =
-    [...document.querySelectorAll('a[href*="onlyfy.jobs/job/"]')].map((link) => link.href).find(Boolean) || '';
+  const jsonLd = extractJobPostingNodes(html)[0] || {};
+  const address = Array.isArray(jsonLd.jobLocation)
+    ? (jsonLd.jobLocation[0]?.address || {})
+    : (jsonLd.jobLocation?.address || {});
+  const title = normalizeSpace(jsonLd.title || document.querySelector('h1')?.textContent || '');
+  const rawApplyUrl = [...document.querySelectorAll('a[href]')]
+    .map((link) => String(link.getAttribute('href') || '').trim())
+    .find((href) => /(?:onlyfy\.jobs\/(?:job|application)\/|\/application\/)/i.test(href)) || '';
+  let applyUrl = rawApplyUrl;
+  if (rawApplyUrl && pageUrl) {
+    try {
+      applyUrl = new URL(rawApplyUrl, pageUrl).toString();
+    } catch {
+      applyUrl = rawApplyUrl;
+    }
+  }
 
   const facts = {};
   const paragraphs = [...document.querySelectorAll('p')].map((node) => normalizeSpace(node.textContent || '')).filter(Boolean);
@@ -155,8 +229,12 @@ export function parseRittmeyerJobDetail(html = '') {
     summary,
     applyUrl,
     area: facts.Bereich || '',
-    location: facts.Schweiz || '',
+    location: facts.Schweiz || normalizeSpace(address.addressLocality || address.addressRegion || ''),
     workload: facts.Pensum || '',
+    employmentType: normalizeSpace(Array.isArray(jsonLd.employmentType)
+      ? jsonLd.employmentType.join(' ')
+      : jsonLd.employmentType || ''),
+    datePosted: jsonLd.datePosted || '',
     company: blockParagraphs(companyBlock).join('\n\n'),
     responsibilitiesHeading: blockHeading(impact),
     responsibilities: blockListItems(impact),

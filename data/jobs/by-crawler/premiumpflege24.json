@@ -1,7 +1,7 @@
 {
   "crawlerKey": "premiumpflege24",
-  "assembledAt": "2026-10-31T09:45:15.308Z",
-  "runId": "41188565736",
+  "assembledAt": "2026-11-01T09:49:47.398Z",
+  "runId": "41293009398",
   "jobs": [
     {
       "id": "premiumpflege24-7a7d139b5aeb",
@@ -34,13 +34,13 @@
       "url": "https://premiumpflege24.ch/job-registrierung/",
       "source": "PremiumPflege24 GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:45:10.224Z",
+      "crawledAt": "2026-11-01T09:49:41.905Z",
       "addressLocality": "Schweiz",
       "addressRegion": "",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "",
-      "streetAddress": "",
+      "streetAddress": "Schweiz",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -81,7 +81,10 @@
           "jobs-in-der-seniorenbetreuung-premiumpflege24-schweiz-premiumpflege24-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T14:26:12.841Z"
+      "firstSeenAt": "2026-09-26T14:26:12.841Z",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:49:41.905Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
