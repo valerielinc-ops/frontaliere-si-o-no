@@ -1397,19 +1397,18 @@
           fire(element, 'keydown', { key: 'Enter', code: 'Enter' });
           return waitFor(findOption);
         };
-        let option = await open();
-        if (!option) return false;
         // Some Workday tenants leave the option node mounted while the first
         // synthetic press is swallowed during the popup redraw. Others close
-        // the popup and replace it without committing a pill. Retry once with
-        // a fresh option, reopening the query only when the popup disappeared;
-        // the pill remains the only proof that the choice was accepted.
+        // the popup and replace it without committing a pill. Reopen the
+        // query for each bounded attempt so a redraw cannot make us press the
+        // same stale option node twice; the pill remains the only proof that
+        // the choice was accepted.
         for (let attempt = 0; attempt < 2; attempt += 1) {
+          if (!isEmpty(entry)) return true;
+          const option = await open();
+          if (!option) return false;
           press(option.element);
           if (await waitFor(() => !isEmpty(entry))) return true;
-          if (attempt === 1) return false;
-          option = await waitFor(findOption) || await open();
-          if (!option) return false;
         }
         return false;
       }
