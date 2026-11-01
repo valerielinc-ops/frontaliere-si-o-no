@@ -46,6 +46,17 @@ describe('application stage ownership', () => {
     expect(applicationStage(titleOnlyReview, { applyUrl, job }).kind).toBe('unknown_apply');
   });
 
+  it('does not treat an arbitrary observed same-origin route as a title-bound receipt', () => {
+    const handoff = `${origin}/review/`;
+    const arbitrary = {
+      ...receipt,
+      url: `${origin}/other/`,
+      text: `Thank you for applying to ${job.title}.`,
+    };
+    expect(applicationReceipt(arbitrary, { applyUrl: `${origin}/job?jobid=42`, submissionUrl: handoff, job })).toBe(false);
+    expect(applicationStage(arbitrary, { applyUrl: `${origin}/job?jobid=42`, job }).kind).toBe('unknown_apply');
+  });
+
   it.each([
     ['site search field', { ...profile, text: 'Thank you for your interest.', fields: [{ kind: 'text', inputType: 'search', label: 'Search jobs', formId: 'site-search' }], buttons: [{ text: 'Apply', formId: 'other' }] }],
     ['required field beside navigation', { ...profile, fields: [{ kind: 'text', inputType: 'text', label: 'First name', required: true, value: '' }] }],

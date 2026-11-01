@@ -37,6 +37,10 @@ const APPLICATION_ANAPHORIC_BRIDGE_RE = new RegExp([
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
+// With no posting key, a submission handoff can bind only a recognized receipt
+// endpoint. A same-origin `/other/` page repeating the role title is not a
+// receipt proof, even when the preceding review route was observed.
+const RECEIPT_PATH_RE = /(?:^|\/)(?:thank[-_ ]?you|receipt|complete(?:d)?|confirmation|success|submitted)\/?$/i;
 
 /** The directory containing a route, treating a canonical trailing slash as decoration. */
 export function routeDirectory(pathname) {
@@ -175,7 +179,8 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
   // not evidence that this application was received.
   const observedSubmissionRoute = Boolean(submissionUrl && source && source.origin === actual.origin
     && !source.username && !source.password && !source.hash);
-  return samePostingKey || (observedSubmissionRoute && receiptTitleBound(snapshot.text, job.title));
+  return samePostingKey || (observedSubmissionRoute && RECEIPT_PATH_RE.test(actual.pathname)
+    && receiptTitleBound(snapshot.text, job.title));
 }
 
 /**
@@ -192,6 +197,9 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   const mismatchedJob = parsed(url)?.origin === parsed(applyUrl)?.origin
     && portalJobKey(url) && portalJobKey(applyUrl, sourceProtocol) && portalJobKey(url) !== portalJobKey(applyUrl, sourceProtocol);
   if (mismatchedJob) return { kind: 'posting_mismatch' };
+  // A thank-you page with an unbound route is still an observed application
+  // surface, but it cannot be treated as a normal form or a receipt.
+  if (CONFIRM_RE.test(text) && titleBound(text, job.title)) return { kind: 'unknown_apply' };
   const quotedSource = avaturePostingJobKey(applyUrl, sourceProtocol);
   if (quotedSource && !sameAvaturePortal(sourceProtocol, snapshot?.protocol, url)
     && buttons.some(button => GENERIC_APPLY_RE.test(button.text || ''))) return { kind: 'unknown_apply', prefinal: true };
