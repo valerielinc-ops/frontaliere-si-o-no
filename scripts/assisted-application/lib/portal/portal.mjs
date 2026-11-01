@@ -3044,7 +3044,10 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   let registrationSnapshot = snapshot;
   let registrationPlan = plan;
   let registrationReplans = 0;
+  let privacySurfaceReplans = 0;
+  const appliedRegistrationUploads = new Set();
   const knownAnswerMatches = (field, action) => {
+    if (action.action === 'skip') return true;
     if (!field) return false;
     if (action.action === 'check') return field.checked === true;
     if (action.action === 'uncheck') return field.checked === false;
@@ -3052,6 +3055,13 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const normalize = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
     const selected = (field.options || []).find((option) => option.value === field.value)?.label;
     return [field.value, selected].some((value) => normalize(value) === normalize(action.value));
+  };
+  const registrationActionSatisfied = (field, action) => action.action === 'upload'
+    ? appliedRegistrationUploads.has(action.fieldId)
+    : knownAnswerMatches(field, action);
+  const parkRegistrationCredential = async (reason) => {
+    if (retryingUnverifiedAccount) await ctx.accounts.mark(host, { status: 'unanswered' });
+    else await ctx.accounts.discard(host, reason);
   };
   // A known registration answer can reveal more required fields (Coop's
   // country selection is one example). Apply only guarded, non-upload answers
@@ -3084,8 +3094,9 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // trigger a second redraw by reapplying them after the candidate responds.
   registrationPlan = {
     ...registrationPlan,
-    actions: registrationPlan.actions.filter((action) => action.action === 'upload'
-      || !knownAnswerMatches(registrationSnapshot.fields.find((field) => field.id === action.fieldId), action)),
+    actions: registrationPlan.actions.filter((action) => !registrationActionSatisfied(
+      registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
+    )),
   };
   const initialRequirements = portalRequirementsFromMissingRequired(registrationSnapshot.fields, registrationPlan.missingRequired);
   if (initialRequirements.unreadableFields?.length) return { handoff: 'question_label_unreadable' };
@@ -3107,10 +3118,17 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   let repairAttempts = 0;
   const noted = (result) => (privacy === 'none' ? result : { ...result, privacy });
   while (true) {
+    const plannedActions = registrationPlan.actions.filter((action) => !registrationActionSatisfied(
+      registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
+    ));
     const passwordActions = registrationSnapshot.fields.filter((field) => field.inputType === 'password')
       .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
-    await applyActions(page, registrationSnapshot.fields, [...registrationPlan.actions, ...passwordActions], ctx.files);
+    const applied = await applyActions(page, registrationSnapshot.fields, [...plannedActions, ...passwordActions], ctx.files);
+    for (const action of plannedActions.filter((item) => item.action === 'upload')) {
+      if (applied.some((result) => result.fieldId === action.fieldId && result.ok)) appliedRegistrationUploads.add(action.fieldId);
+    }
     // After the fields: SuccessFactors opens its statement only for a chosen country.
+    const privacyStartUrl = page.url();
     const preflight = await registrationPrivacyPreflight(page, { accepted: privacy === 'accepted' });
     if (preflight.privacy !== 'none') privacy = preflight.privacy;
     if (preflight.blocked) {
@@ -3120,14 +3138,91 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       return noted({ handoff: 'privacy_not_accepted' });
     }
     const { filled } = preflight;
+    if (page.url() !== privacyStartUrl || filled.url !== privacyStartUrl) {
+      await parkRegistrationCredential('privacy_question_surface_moved');
+      return noted({ handoff: 'portal_needs_candidate' });
+    }
+    // Blur and accepting the notice can both reveal required controls. A fresh,
+    // stable read and plan must prove that the account form is still complete
+    // before the Create/Submit CTA is allowed.
+    const privacyUrl = privacyStartUrl;
+    const stableAfterPrivacy = await waitForStableQuestionSurface(page, filled, privacyUrl);
+    if (stableAfterPrivacy.status !== 'stable') {
+      await parkRegistrationCredential('privacy_question_surface_unstable');
+      return noted({ handoff: 'portal_needs_candidate' });
+    }
+    const stableRegistrationSnapshot = stableAfterPrivacy.snapshot;
+    const stablePlan = await planPage({
+      snapshot: { ...stableRegistrationSnapshot, fields: stableRegistrationSnapshot.fields.filter((field) => field.inputType !== 'password') },
+      candidate,
+      candidateLocale: ctx.candidateLocale,
+      codex: ctx.codex,
+    });
+    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired);
+    if (stableRequirements.unreadableFields?.length) {
+      await parkRegistrationCredential('privacy_question_unreadable');
+      return noted({ handoff: 'question_label_unreadable' });
+    }
+    const stableRequest = await portalRequirementsForCandidate(stableRequirements, {
+      candidateLocale: ctx.candidateLocale,
+      applicationLocale: ctx.language,
+      codex: ctx.codex,
+      log: ctx.log,
+    });
+    if (stableRequest) {
+      await parkRegistrationCredential('privacy_question_missing');
+      return noted(stableRequest);
+    }
+    const newlyRequiredActions = stablePlan.actions.filter((action) => !registrationActionSatisfied(
+      stableRegistrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
+    ));
+    if (newlyRequiredActions.length) {
+      if (privacySurfaceReplans >= MAX_REDRAWS_PER_PAGE) {
+        await parkRegistrationCredential('privacy_question_surface_unstable');
+        return noted({ handoff: 'portal_needs_candidate' });
+      }
+      const appliedAfterPrivacy = await applyActions(page, stableRegistrationSnapshot.fields, newlyRequiredActions, ctx.files);
+      if (newlyRequiredActions.some((action) => !appliedAfterPrivacy.some((result) => result.fieldId === action.fieldId && result.ok))) {
+        await parkRegistrationCredential('privacy_question_answer_unconfirmed');
+        return noted({ handoff: 'portal_needs_candidate' });
+      }
+      for (const action of newlyRequiredActions.filter((item) => item.action === 'upload')) {
+        appliedRegistrationUploads.add(action.fieldId);
+      }
+      if (page.url() !== privacyUrl) {
+        await parkRegistrationCredential('privacy_question_surface_moved');
+        return noted({ handoff: 'portal_needs_candidate' });
+      }
+      const afterPrivacyActions = await waitForStableQuestionSurface(page, stableRegistrationSnapshot, privacyUrl);
+      if (afterPrivacyActions.status !== 'stable') {
+        await parkRegistrationCredential('privacy_question_surface_unstable');
+        return noted({ handoff: 'portal_needs_candidate' });
+      }
+      registrationSnapshot = afterPrivacyActions.snapshot;
+      registrationPlan = {
+        ...stablePlan,
+        actions: stablePlan.actions.filter((action) => !registrationActionSatisfied(
+          registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
+        )),
+      };
+      privacySurfaceReplans += 1;
+      continue;
+    }
+    registrationSnapshot = stableRegistrationSnapshot;
+    registrationPlan = {
+      ...stablePlan,
+      actions: stablePlan.actions.filter((action) => !registrationActionSatisfied(
+        registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
+      )),
+    };
     diagnostics?.beforeClick('account');
-    if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
+    if (!await clickFirst(page, registrationSnapshot, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
       // A retry is still the same unverified account: keep its encrypted
       // password so the owner can retry after the portal exposes its button.
       if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'no_create_button');
       return noted(accountHandoff('account', 'no_create_button', 'registration'));
     }
-    const after = await awaitAuthOutcome(page, 'create', filled.errors, filled.fields);
+    const after = await awaitAuthOutcome(page, 'create', registrationSnapshot.errors, registrationSnapshot.fields);
     diagnostics?.afterClick();
     const outcome = registrationOutcome(after);
     if (outcome !== 'refused') {
