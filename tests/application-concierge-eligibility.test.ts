@@ -56,6 +56,12 @@ describe('qualification before proposal publication', () => {
 
     expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: {} }, 'IT Manager, Example Systems, 2020–2025')).toBe(true);
     expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'IT Manager, Example Systems, 2020–2025')).toBe(true);
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'Previously enrolled as a third-year commercial-school student, 2016–2017. IT Manager, 2020–2025.')).toBe(true);
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'Completed the third year at a commercial school in 2018; currently enrolled at university in the third year.')).toBe(true);
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'Currently enrolled at university in the third year.\nCommercial school.')).toBe(true);
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'Currently enrolled in the third year of commercial school, 2016–2017.')).toBe(true);
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'Attended the third year of commercial school.')).toBe(true);
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'Enrolled as a third-year commercial-school student.')).toBe(true);
     expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'Currently enrolled as a third-year commercial-school student.')).toBe(false);
     expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year at university' } }, 'Currently enrolled in the third year at university.')).toBe(true);
     const germanSchool = 'Diese Stelle ist exklusiv für Schülerinnen im dritten Jahr der kaufmännischen Schule.';
@@ -180,6 +186,7 @@ describe('qualification before proposal publication', () => {
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Candidates must apply online only.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'French is a plus.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'At least 5 years of experience would be useful.')).toBe(false);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Qualifications\nAt least 5 years of experience would be useful.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'French is not necessary.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Qualifiche\nLa conoscenza del francese non è obbligatoria.')).toBe(false);
   });
