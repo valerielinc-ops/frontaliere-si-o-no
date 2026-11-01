@@ -318,7 +318,7 @@ describe('qualification before proposal publication', () => {
     const f = fixture(match);
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
     const result = await check({ id: 'it-lead', title: 'IT Manager', company: 'Example', url: 'https://example.test/jobs/it/' });
-    expect(result.status).toBe('incompatible');
+    expect(result.status).toBe('clarification_required');
     expect(fitNoticeOf({ ...match, requirements: requirements.requirements })).not.toBeNull();
     // The late requirement at >8,000 chars is preserved, unlike the old public generation endpoint cap.
     expect(f.generate.mock.calls[1][1].length).toBeGreaterThan(8000);

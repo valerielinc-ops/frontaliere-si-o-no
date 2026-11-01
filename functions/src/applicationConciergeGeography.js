@@ -54,9 +54,29 @@ function locationParts(value) {
     const encoded = suffix.match(/^(.+) \(([A-Z]{2})\)$/);
     const country = namedCountry(encoded?.[1] || suffix);
     // Georgia can mean a US state. The residence control marks the country GE.
-    if (country && (encoded ? country === encoded[2] : country !== 'GE')) return { town: text.slice(0, split), country };
+    const suffixCountry = encoded ? structuredCountry(encoded[2]) : country;
+    if (country && (encoded ? suffixCountry === country && country === encoded[2] : country !== 'GE')) {
+      return { town: text.slice(0, split), country };
+    }
   }
   return { town: text, country: '', unknownCountry: /[,;|/]/.test(text) };
+}
+
+function candidateLocationParts(value, countryCode) {
+  const text = String(value || '');
+  const explicitCountry = structuredCountry(countryCode);
+  if (countryCode && !explicitCountry) return { town: text, country: '', unknownCountry: true };
+  for (let split = text.indexOf(','); split >= 0; split = text.indexOf(',', split + 1)) {
+    const suffix = text.slice(split + 1).trim();
+    const encoded = suffix.match(/^(.+) \(([A-Z]{2})\)$/);
+    const country = namedCountry(encoded?.[1] || suffix);
+    const suffixCountry = encoded ? structuredCountry(encoded[2]) : country;
+    if (country && (encoded ? suffixCountry === country && country === encoded[2] : country !== 'GE')) {
+      if (!explicitCountry || explicitCountry !== country) return { town: text, country: explicitCountry, unknownCountry: true };
+      return { town: text.slice(0, split), country: explicitCountry };
+    }
+  }
+  return { town: text, country: explicitCountry, unknownCountry: /[,;|/]/.test(text) };
 }
 
 function locality(value, country) {
@@ -70,11 +90,11 @@ function postcode(value) {
   return String(value || '').match(/\b(\d{4,5})\b/)?.[1] || '';
 }
 
-export function locationMatchPoints(candidateLocation, job) {
+export function locationMatchPoints(candidateLocation, job, candidateCountryCode = '') {
   if (!candidateLocation) return 0;
   const jobLocation = [job?.postalCode, job?.addressLocality || job?.location].filter(Boolean).join(' ');
   if (!jobLocation) return 0;
-  const candidate = locationParts(candidateLocation);
+  const candidate = candidateLocationParts(candidateLocation, candidateCountryCode);
   const posting = locationParts(jobLocation);
   const country = structuredCountry(job?.addressCountry);
   // An explicit posting country resolves compound locality names too. Keep

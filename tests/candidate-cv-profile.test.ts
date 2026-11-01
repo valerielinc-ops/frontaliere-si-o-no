@@ -11,6 +11,8 @@ import {
 } from '../functions/src/applicationConciergeMatching.js';
 import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
 import { CONCIERGE_ELIGIBILITY_VERSION } from '../functions/src/applicationConciergeEligibility.js';
+import { conciergeProposalEligibility } from '../functions/src/assistedApplicationFitNotice.js';
+import { guardMobilityMatch } from '../functions/src/lib/mobilityRequirements.js';
 
 function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
   const documents = new Map(Object.entries(seed));
@@ -258,13 +260,17 @@ describe('application concierge matching', () => {
     const profile = { workPosition: 'Infermiere', skills: ['triage'], experienceSummary: ['reparto medicina'] };
     const job = { title: 'Infermiere reparto medicina', requirements: 'triage', location: 'Como', addressCountry: 'IT' };
     const baseline = scoreJobForProfile(job, profile);
-    const sameTown = scoreJobForProfile(job, profile, 'Como (Lombardy), Italia');
+    const sameTown = scoreJobForProfile(job, profile, 'Como (Lombardy), Italia', 'IT');
     const otherCountry = scoreJobForProfile(job, profile, 'Como, Österreich');
+    const legacySuffix = scoreJobForProfile(job, profile, 'Como, Italia');
+    const conflictingCountry = scoreJobForProfile(job, profile, 'Como, Italia', 'CH');
     expect(sameTown.rankScore).toBe(baseline.rankScore + 8);
     expect(otherCountry.rankScore).toBe(baseline.rankScore);
+    expect(legacySuffix.rankScore).toBe(baseline.rankScore);
+    expect(conflictingCountry.rankScore).toBe(baseline.rankScore);
     expect(otherCountry.score).toBeGreaterThan(0);
     expect(sameTown.evidenceStrength).toBe(baseline.evidenceStrength);
-    expect(scoreJobForProfile(job, { skills: ['construction'] }, 'Como (Lombardy), Italia').score).toBe(0);
+    expect(scoreJobForProfile(job, { skills: ['construction'] }, 'Como (Lombardy), Italia', 'IT').score).toBe(0);
   });
 
   it('keeps the proximity tie-breaker when the displayed match score is capped', () => {
@@ -291,9 +297,10 @@ describe('application concierge matching', () => {
   });
 
   it('re-runs matching when the uploaded CV or the candidate locality changes', () => {
-    const before = { cvStorageKey: 'application-concierge-uploads/service-1/cv.pdf', applicantLocation: 'Lugano 6900' };
+    const before = { cvStorageKey: 'application-concierge-uploads/service-1/cv.pdf', applicantLocation: 'Lugano 6900', applicantLocationCountry: 'CH' };
 
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, applicantLocation: 'Mendrisio 6850' })).toBe(true);
+    expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, applicantLocationCountry: 'IT' })).toBe(true);
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, matchingStatus: 'queued' })).toBe(false);
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, cvStorageKey: 'application-concierge-uploads/service-1/new-cv.pdf' })).toBe(true);
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate({ applicantLocation: 'Lugano 6900' }, { applicantLocation: 'Mendrisio 6850' })).toBe(false);
@@ -355,7 +362,11 @@ describe('application concierge matching', () => {
     }
   });
 
-  it('fails matching when an HTTP-200 job index has an unknown JSON shape', async () => {
+  it.each([
+    ['HTTP 429', { ok: false, status: 429 }, 'job_index_http_429'],
+    ['unknown JSON shape', { ok: true, json: async () => ({ error: 'upstream unavailable' }) }, 'job_index_invalid_shape'],
+  ])('preserves an existing proposal when the job index fails with %s', async (_failure, response, error) => {
+    const existingProposalPath = 'application_concierge_services/service-shape/proposals/existing-job';
     const { db, documents } = createMatchingDb({
       'application_concierge_services/service-shape': {
         userId: 'candidate-shape',
@@ -363,26 +374,35 @@ describe('application concierge matching', () => {
         serviceStatus: 'active',
         maxPositions: 10,
         acceptedPositionsCount: 0,
+        matchingStatus: 'complete',
+        cvStorageKey: 'application-concierge-uploads/service-shape/cv.pdf',
         expiresAt: new Date(Date.now() + 60_000),
       },
       'user_cv_profiles/candidate-shape': {
         status: 'ready',
         profile: { searchText: 'infermiere triage', workPosition: 'Infermiere', skills: ['triage'] },
       },
+      [existingProposalPath]: {
+        jobId: 'existing-job', jobUrl: 'https://jobs.example.test/existing-job',
+        jobTitle: 'Infermiere', status: 'proposed', eligibilityStatus: 'compatible',
+        eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+        eligibilityCvStorageKey: 'application-concierge-uploads/service-shape/cv.pdf',
+      },
     });
-    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, async json() { return { error: 'upstream unavailable' }; } })));
+    const existingProposal = documents.get(existingProposalPath);
+    vi.stubGlobal('fetch', vi.fn(async () => response));
 
     try {
       await expect(runApplicationConciergeMatching({
         db: db as never,
         serviceId: 'service-shape',
         jobIndexUrl: 'https://jobs.example.test/index.json',
-      })).rejects.toThrow('job_index_invalid_shape');
+      })).rejects.toThrow(error);
       expect(documents.get('application_concierge_services/service-shape')).toMatchObject({
         matchingStatus: 'failed',
         matchingError: 'job_search_failed',
       });
-      expect([...documents.keys()].some((path) => path.startsWith('application_concierge_services/service-shape/proposals/'))).toBe(false);
+      expect(documents.get(existingProposalPath)).toEqual(existingProposal);
     } finally {
       vi.unstubAllGlobals();
     }
@@ -397,6 +417,7 @@ describe('application concierge matching', () => {
         maxPositions: 1,
         acceptedPositionsCount: 0,
         applicantLocation: 'Mendrisio 6850',
+        applicantLocationCountry: 'CH',
         expiresAt: new Date(Date.now() + 60_000),
       },
       'user_cv_profiles/candidate-nearby': {
@@ -410,8 +431,8 @@ describe('application concierge matching', () => {
       },
     });
     const jobs = [
-      { id: 'job-far', url: 'https://jobs.example.test/job-far', title: 'Infermiere reparto medicina', requirements: 'triage assistenza', location: 'Zurigo', postalCode: '8000' },
-      { id: 'job-near', url: 'https://jobs.example.test/job-near', title: 'Infermiere reparto medicina', requirements: 'triage assistenza', location: 'Mendrisio', postalCode: '6850' },
+      { id: 'job-far', url: 'https://jobs.example.test/job-far', title: 'Infermiere reparto medicina', requirements: 'triage assistenza', location: 'Zurigo', postalCode: '8000', addressCountry: 'CH' },
+      { id: 'job-near', url: 'https://jobs.example.test/job-near', title: 'Infermiere reparto medicina', requirements: 'triage assistenza', location: 'Mendrisio', postalCode: '6850', addressCountry: 'CH' },
     ];
     vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, async json() { return jobs; } })));
 
@@ -640,7 +661,7 @@ describe('application concierge matching', () => {
     )).toEqual({ score: 0, reasons: [] });
   });
 
-  it('re-scores pending proposals and retracts weak legacy matches without changing decisions', async () => {
+  it('re-scores pending proposals without treating a weak profile rank as proof of incompatibility', async () => {
     const matchingProfile = {
       searchText: 'Senior IT Manager Group Application',
       workPosition: 'Senior IT Manager Group Application at Swatch Group',
@@ -696,7 +717,7 @@ describe('application concierge matching', () => {
       const weak = documents.get('application_concierge_services/service-1/proposals/legacy-weak');
       const accepted = documents.get('application_concierge_services/service-1/proposals/already-accepted');
 
-      expect(result).toEqual({ status: 'complete', proposals: 1, retracted: 1 });
+      expect(result).toEqual({ status: 'complete', proposals: 1, retracted: 0 });
       expect(relevant).toEqual(expect.objectContaining({
         status: 'proposed',
         matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
@@ -704,10 +725,9 @@ describe('application concierge matching', () => {
       }));
       expect((relevant?.matchScore as number)).toBeLessThan(99);
       expect(weak).toEqual(expect.objectContaining({
-        status: 'retracted',
-        retractionReason: 'match_below_threshold',
-        matchScore: 0,
-        matchReasons: [],
+        status: 'proposed',
+        eligibilityStatus: 'unverified',
+        matchScore: 99,
       }));
       expect(accepted).toEqual(expect.objectContaining({ status: 'accepted', matchScore: 99 }));
     } finally {
@@ -789,7 +809,7 @@ describe('dated historical positions as matching evidence', () => {
 });
 
 describe('progress through the complete relevant job pool', () => {
-  it('revalidates a stale proposed job and retracts it when the current eligibility pass is not compatible', async () => {
+  it('keeps an existing proposal visible but non-acceptable when provider qualification is unavailable', async () => {
     const now = Date.now();
     const path = 'application_concierge_services/service-stale-proposal';
     const jobUrl = 'https://jobs.example.test/eligible-internship/';
@@ -804,10 +824,216 @@ describe('progress through the complete relevant job pool', () => {
       { id: 'old-placement', url: jobUrl, title: 'IT Support Manager', description: 'IT support responsibilities' },
     ] })));
     try {
-      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-stale-proposal', eligibility: async () => ({ status: 'unverified' }) });
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-stale-proposal', eligibility: async () => {
+        throw new Error('eligibility_provider_unavailable');
+      } });
+      expect(result).toMatchObject({ status: 'complete', retracted: 0 });
+      expect(documents.get(`${path}/proposals/old-placement`)).toMatchObject({
+        status: 'proposed', eligibilityStatus: 'unverified', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+      });
+      expect(documents.get(path)).toMatchObject({ matchingStatus: 'complete', matchingUnverifiedCount: 1 });
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it.each([
+    ['provider HTTP 429', { status: 'unverified', reason: 'provider_rate_limited' }],
+    ['provider timeout', { status: 'unverified', reason: 'analysis_deferred' }],
+  ])('does not retract an existing proposal after a transient %s', async (_failure, qualification) => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-transient-qualification';
+    const jobUrl = 'https://jobs.example.test/transient-qualification/';
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-transient', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-transient': { status: 'ready', profile: { searchText: 'IT support manager', workPosition: 'IT Support Manager', skills: ['IT', 'support'] } },
+      [`${path}/proposals/existing-job`]: { jobId: 'existing-job', jobUrl, jobTitle: 'IT Support Manager', companyName: 'Example',
+        status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+        eligibilityCvStorageKey: 'private/current-cv.pdf' },
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => [
+      { id: 'existing-job', url: jobUrl, title: 'IT Support Manager', description: 'IT support responsibilities' },
+    ] })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-transient-qualification', eligibility: async () => qualification });
+      expect(result).toMatchObject({ status: 'complete', retracted: 0 });
+      expect(documents.get(`${path}/proposals/existing-job`)).toMatchObject({ status: 'proposed', eligibilityStatus: 'unverified' });
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it('does not skip hard requirements or retract when their source evidence is incomplete', async () => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-hard-evidence';
+    const jobUrl = 'https://jobs.example.test/hard-evidence/';
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-hard-evidence', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-hard-evidence': { status: 'ready', profile: { searchText: 'IT support manager', workPosition: 'IT Support Manager', skills: ['IT', 'support'] } },
+      [`${path}/proposals/existing-job`]: { jobId: 'existing-job', jobUrl, jobTitle: 'IT Support Manager', companyName: 'Example',
+        status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+        eligibilityCvStorageKey: 'private/current-cv.pdf' },
+    });
+    const qualification = conciergeProposalEligibility({ requirements: [{ requirement: 'At least five years of IT support experience',
+      importance: 'critical', basis: 'stated', quote: 'At least five years of IT support experience' }] },
+    { matches: [{ index: 0, status: 'met', evidence: '', evidenceUnverified: true }], verdict: 'strong' });
+    expect(qualification).toMatchObject({ status: 'unverified', reason: 'evidence_incomplete' });
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => [
+      { id: 'existing-job', url: jobUrl, title: 'IT Support Manager', description: 'IT support responsibilities' },
+      { id: 'new-job', url: 'https://jobs.example.test/new-hard-evidence/', title: 'IT Support Manager', description: 'IT support responsibilities' },
+    ] })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-hard-evidence', eligibility: async () => qualification });
+      expect(result).toMatchObject({ status: 'complete', retracted: 0 });
+      expect(documents.get(`${path}/proposals/existing-job`)).toMatchObject({ status: 'proposed', eligibilityStatus: 'unverified' });
+      expect([...documents.keys()].filter(key => key.startsWith(`${path}/proposals/`))).toHaveLength(1);
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it('retracts a proposal when the job index explicitly marks the job closed', async () => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-closed-job';
+    const jobUrl = 'https://jobs.example.test/closed-job/';
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-closed-job', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-closed-job': { status: 'ready', profile: { searchText: 'IT support manager', workPosition: 'IT Support Manager', skills: ['IT', 'support'] } },
+      [`${path}/proposals/closed-job`]: { jobId: 'closed-job', jobUrl, jobTitle: 'IT Support Manager', companyName: 'Example',
+        status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+        eligibilityCvStorageKey: 'private/current-cv.pdf' },
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => [
+      { id: 'closed-job', url: jobUrl, title: 'IT Support Manager', description: 'IT support responsibilities', status: 'closed' },
+    ] })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-closed-job', eligibility: async () => ({ status: 'compatible' }) });
+      expect(result).toMatchObject({ status: 'complete', retracted: 1 });
+      expect(documents.get(`${path}/proposals/closed-job`)).toMatchObject({ status: 'retracted', retractionReason: 'job_closed' });
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it('does not close a proposal before the end of its inclusive validThrough date', async () => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-valid-through-today';
+    const jobUrl = 'https://jobs.example.test/valid-through-today/';
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-valid-through-today', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-valid-through-today': { status: 'ready', profile: { searchText: 'IT support manager', workPosition: 'IT Support Manager', skills: ['IT', 'support'] } },
+      [`${path}/proposals/today-job`]: { jobId: 'today-job', jobUrl, jobTitle: 'IT Support Manager', companyName: 'Example',
+        status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+        eligibilityCvStorageKey: 'private/current-cv.pdf' },
+    });
+    const validThrough = `${new Date().toISOString().slice(0, 10)}T00:00:00.000Z`;
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => [
+      { id: 'today-job', url: jobUrl, title: 'IT Support Manager', description: 'IT support responsibilities', validThrough, validThroughSource: 'source' },
+    ] })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-valid-through-today', eligibility: async () => ({ status: 'compatible' }) });
+      expect(result).toMatchObject({ status: 'complete', retracted: 0 });
+      expect(documents.get(`${path}/proposals/today-job`)).toMatchObject({ status: 'proposed', eligibilityStatus: 'compatible' });
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it('retracts an existing proposal only after a decisive incompatible result', async () => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-incompatible-proposal';
+    const jobUrl = 'https://jobs.example.test/hard-requirement/';
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-incompatible', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-incompatible': { status: 'ready', profile: { searchText: 'IT support', workPosition: 'IT Support Manager', skills: ['support', 'IT'] } },
+      [`${path}/proposals/old-placement`]: { jobId: 'old-placement', jobUrl, jobTitle: 'IT Support Manager', companyName: 'Example',
+        status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+        eligibilityCvStorageKey: 'private/current-cv.pdf' },
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => [
+      { id: 'old-placement', url: jobUrl, title: 'IT Support Manager', description: 'IT support responsibilities' },
+    ] })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-incompatible-proposal', eligibility: async () => ({
+        status: 'incompatible', reason: 'decisive_requirement_missing', gaps: [{ requirement: 'German C1', knownMissing: true }],
+      }) });
       expect(result).toMatchObject({ status: 'complete', retracted: 1 });
       expect(documents.get(`${path}/proposals/old-placement`)).toMatchObject({
-        status: 'retracted', eligibilityStatus: 'unverified', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+        status: 'retracted', eligibilityStatus: 'incompatible', retractionReason: 'decisive_requirement_missing',
+      });
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it('keeps a proposal non-acceptable when a poor verdict has no demonstrated decisive gap', async () => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-poor-without-gap';
+    const jobUrl = 'https://jobs.example.test/poor-without-gap/';
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-poor-without-gap', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-poor-without-gap': { status: 'ready', profile: { searchText: 'IT support manager', workPosition: 'IT Support Manager', skills: ['IT', 'support'] } },
+      [`${path}/proposals/existing-job`]: { jobId: 'existing-job', jobUrl, jobTitle: 'IT Support Manager', companyName: 'Example',
+        status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+        eligibilityCvStorageKey: 'private/current-cv.pdf' },
+    });
+    const qualification = conciergeProposalEligibility({ requirements: [{ requirement: 'IT support experience',
+      importance: 'critical', basis: 'stated', quote: 'IT support experience' }] },
+    { matches: [{ index: 0, status: 'met', evidence: 'IT support experience' }], verdict: 'poor' });
+    expect(qualification).toMatchObject({ status: 'unverified', reason: 'incompatibility_not_proven', gaps: [] });
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => [
+      { id: 'existing-job', url: jobUrl, title: 'IT Support Manager', description: 'IT support responsibilities' },
+    ] })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-poor-without-gap', eligibility: async () => qualification });
+      expect(result).toMatchObject({ status: 'complete', retracted: 0 });
+      expect(documents.get(`${path}/proposals/existing-job`)).toMatchObject({ status: 'proposed', eligibilityStatus: 'unverified' });
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it('retracts a proposal when the candidate explicitly rejects a hard mobility condition', async () => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-mobility-negative';
+    const jobUrl = 'https://jobs.example.test/mobility-negative/';
+    const requirements = { requirements: [{ requirement: 'Resident in Switzerland or willingness to relocate.',
+      importance: 'critical', basis: 'stated', quote: 'Resident in Switzerland or willingness to relocate.' }] };
+    const unanswered = guardMobilityMatch(requirements,
+      { matches: [{ index: 0, status: 'met', evidence: 'Permit G', evidenceUnverified: false }], verdict: 'good', questions: [] });
+    const negative = guardMobilityMatch(requirements, unanswered, { answers: { [unanswered.questions[0].id]: false } });
+    const qualification = conciergeProposalEligibility(requirements, negative);
+    expect(qualification).toMatchObject({ status: 'incompatible', gaps: [expect.objectContaining({ knownMissing: true })] });
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-mobility-negative', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-mobility-negative': { status: 'ready', profile: { searchText: 'IT support manager', workPosition: 'IT Support Manager', skills: ['IT', 'support'] } },
+      [`${path}/proposals/existing-job`]: { jobId: 'existing-job', jobUrl, jobTitle: 'IT Support Manager', companyName: 'Example',
+        status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+        eligibilityCvStorageKey: 'private/current-cv.pdf' },
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => [
+      { id: 'existing-job', url: jobUrl, title: 'IT Support Manager', description: 'IT support responsibilities' },
+    ] })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-mobility-negative', eligibility: async () => qualification });
+      expect(result).toMatchObject({ status: 'complete', retracted: 1 });
+      expect(documents.get(`${path}/proposals/existing-job`)).toMatchObject({ status: 'retracted', retractionReason: 'decisive_requirement_missing' });
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it('keeps a proposal pending when the current complete index no longer contains its job', async () => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-missing-index-job';
+    const jobUrl = 'https://jobs.example.test/not-in-current-index/';
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-missing-index-job', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-missing-index-job': { status: 'ready', profile: { searchText: 'IT support', workPosition: 'IT Support Manager', skills: ['support', 'IT'] } },
+      [`${path}/proposals/old-placement`]: { jobId: 'old-placement', jobUrl, jobTitle: 'IT Support Manager', companyName: 'Example',
+        status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+        eligibilityCvStorageKey: 'private/current-cv.pdf' },
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => [
+      { id: 'other-job', url: 'https://jobs.example.test/other-job/', title: 'IT Support Manager', description: 'IT support responsibilities' },
+    ] })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-missing-index-job', eligibility: async () => ({ status: 'compatible' }) });
+      expect(result).toMatchObject({ status: 'complete', retracted: 0 });
+      expect(documents.get(`${path}/proposals/old-placement`)).toMatchObject({
+        status: 'proposed', eligibilityStatus: 'unverified', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
       });
     } finally { vi.unstubAllGlobals(); }
   });

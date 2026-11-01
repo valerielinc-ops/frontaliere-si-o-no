@@ -80,6 +80,32 @@ describe('slim index no longer duplicates the slug-rename history', () => {
     expect(SLIM_INDEX_FIELDS.has('salarySource')).toBe(true);
   });
 
+  it('projects explicit closure signals and omits synthetic JobPosting deadlines', () => {
+    for (const field of ['status', 'active', 'isActive', 'expiredAt', 'validThrough', 'validThroughSource']) {
+      expect(SLIM_INDEX_FIELDS.has(field)).toBe(true);
+    }
+    const employerDeadline = buildLocaleJobSlim({
+      id: 'employer-deadline',
+      status: 'closed',
+      active: false,
+      isActive: false,
+      expiredAt: '2026-10-31T10:00:00.000Z',
+      validThrough: '2026-10-31T00:00:00.000Z',
+      validThroughSource: 'source',
+    });
+    expect(employerDeadline).toMatchObject({
+      status: 'closed', active: false, isActive: false,
+      expiredAt: '2026-10-31T10:00:00.000Z',
+      validThrough: '2026-10-31T00:00:00.000Z', validThroughSource: 'source',
+    });
+
+    const syntheticDeadline = buildLocaleJobSlim({
+      id: 'synthetic-deadline', validThrough: '2026-10-31T00:00:00.000Z', validThroughSource: 'build-clock-fallback',
+    });
+    expect(syntheticDeadline).not.toHaveProperty('validThrough');
+    expect(syntheticDeadline).not.toHaveProperty('validThroughSource');
+  });
+
   it('a slim index record drops both fields but keeps slug + routing identity', () => {
     const slim = buildLocaleJobSlim(renamedJob as Record<string, unknown>);
     expect(slim).not.toHaveProperty('previousSlugs');

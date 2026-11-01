@@ -90,7 +90,8 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
     const evidence = found.get(index);
     if (row.basis !== 'stated' || !row.quote || row.quoteUnverified || !evidence || evidence.evidenceUnverified
       || evidence.status !== 'met' || !String(evidence.evidence || '').trim()) {
-      return [{ index, requirement: row.requirement, importance: row.importance, status: evidence?.status || 'unknown' }];
+      return [{ index, requirement: row.requirement, importance: row.importance, status: evidence?.status || 'unknown',
+        ...(evidence?.status === 'missing' && evidence.knownMissing === true ? { knownMissing: true } : {}) }];
     }
     return [];
   });
@@ -160,7 +161,9 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
   }
   const notice = fitNoticeOf({ requirements: rows, matches: match.matches, verdict: match.verdict });
   if (gaps.length || notice) {
-    return { status: match.verdict === 'poor' || gaps.some(gap => gap.knownMissing) ? 'incompatible' : 'clarification_required', gaps, questions: match.questions || [] };
+    if (gaps.some(gap => gap.knownMissing === true)) return { status: 'incompatible', gaps, questions: match.questions || [] };
+    if (gaps.length) return { status: 'clarification_required', gaps, questions: match.questions || [] };
+    return { status: 'unverified', reason: 'incompatibility_not_proven', gaps: [], questions: match.questions || [] };
   }
   if (!['strong', 'good'].includes(match.verdict)) return { status: 'unverified', gaps: [] };
   return { status: 'compatible', gaps: [] };

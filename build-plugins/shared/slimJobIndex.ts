@@ -49,6 +49,10 @@ export const SLIM_INDEX_FIELDS: ReadonlySet<string> = new Set([
   'category', 'contract', 'department',
   'salaryMin', 'salaryMax', 'currency', 'salarySource',
   'postingDateSource', 'datePosted', 'postedDate', 'crawledAt', 'firstSeenAt',
+  // Concierge matching uses only explicit closure evidence from the active
+  // index. Synthetic JobPosting deadlines are deliberately not projected as
+  // employer closure signals.
+  'status', 'active', 'isActive', 'expiredAt', 'validThrough', 'validThroughSource',
   'featured', 'source', 'qualityScore',
   // Publisher-ad fields: card logo + the apply-mode trio the detail view needs
   // to mount the in-house apply form (PublisherApplyForm).
@@ -122,7 +126,9 @@ export function buildLocaleJob(job: JobEntry, locale: string): Record<string, un
 /** Keep only SLIM_INDEX_FIELDS from a (locale-flattened) job record. */
 export function buildLocaleJobSlim(localeJob: Record<string, unknown>): Record<string, unknown> {
   const slim: Record<string, unknown> = {};
+  const hasExplicitEmployerDeadline = localeJob.validThroughSource === 'source';
   for (const key of SLIM_INDEX_FIELDS) {
+    if ((key === 'validThrough' || key === 'validThroughSource') && !hasExplicitEmployerDeadline) continue;
     if (key === 'descriptionPreview') {
       slim[key] = typeof localeJob.descriptionPreview === 'string'
         ? localeJob.descriptionPreview

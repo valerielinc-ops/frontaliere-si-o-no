@@ -100,6 +100,7 @@ export function guardMobilityMatch(requirements, match, { profile = {}, sourceTe
     const proof = answer === null ? cvProof(row, previous?.evidence, profile, sourceText) : null;
     const status = answer === true || proof ? 'met' : answer === false ? 'missing' : 'partial';
     const record = { index, status, evidence: answer !== null ? String(confirmed[question.id]) : proof || '',
+      ...(answer === false ? { knownMissing: true } : {}),
       evidenceUnverified: answer === null && !proof && (!previous || previous.evidenceUnverified === true
         || (previous.status !== 'missing' && !String(previous.evidence || '').trim())) };
     if (at < 0) result.matches.push(record); else result.matches[at] = record;

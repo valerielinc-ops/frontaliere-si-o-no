@@ -351,6 +351,29 @@ describe('application concierge candidate API', () => {
     expect([...mocks.files].some(path => path.startsWith('assisted-application-uploads/'))).toBe(false);
   });
 
+  it('keeps a proposal visible but blocks acceptance while the latest matching run failed', async () => {
+    mocks.documents.get('application_concierge_services/service-1')!.matchingStatus = 'failed';
+
+    const listed = await handleApplicationConcierge({
+      method: 'GET',
+      query: { serviceId: 'service-1' },
+      get: () => 'Bearer candidate-token',
+    });
+    expect((listed.body as any).service.proposals[0]).toMatchObject({ status: 'proposed', eligibilityStatus: 'needs_verification' });
+
+    const accepted = await handleApplicationConcierge({
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' },
+      get: () => 'Bearer candidate-token',
+    });
+    expect(accepted).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
+    expect(mocks.documents.get('application_concierge_services/service-1/proposals/proposal-1')).toMatchObject({
+      status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+    });
+    expect([...mocks.files].some(path => path.startsWith('assisted-application-uploads/'))).toBe(false);
+    expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
+  });
+
   it('rejects an acceptance when the service CV changes while the proposal CV is being copied', async () => {
     mocks.setCopyHook(() => {
       mocks.documents.get('application_concierge_services/service-1')!.cvStorageKey = 'application-concierge-uploads/service-1/new-cv.pdf';

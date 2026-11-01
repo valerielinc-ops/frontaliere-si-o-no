@@ -71,7 +71,10 @@ it('requires the whole qualified clause and keeps its answer specific to that cl
   expect(qualified.questions[0].id).not.toBe(question.id);
   expect(qualified.questions[0].applicationQuestion).toContain('30 days');
   const negative = guardMobilityMatch(requirements, match, { ...context, answers: { [question.id]: false } });
-  expect(conciergeProposalEligibility(requirements, negative, context).status).toBe('incompatible');
+  expect(conciergeProposalEligibility(requirements, negative, context)).toMatchObject({
+    status: 'incompatible',
+    gaps: [expect.objectContaining({ knownMissing: true })],
+  });
 });
 
 
