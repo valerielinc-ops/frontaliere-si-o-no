@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csl-immobilien-ag",
-  "assembledAt": "2026-11-01T09:49:09.582Z",
-  "runId": "41293089603",
+  "assembledAt": "2026-11-01T21:43:20.979Z",
+  "runId": "41351947084",
   "jobs": [
     {
       "id": "csl-immobilien-ag-5ac1fb422b96",
@@ -34,7 +34,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/bbd3d75a-b43f-7a18-7bde-02cdebbadb22?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:48:57.459Z",
+      "crawledAt": "2026-11-01T21:43:14.910Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -54,6 +54,20 @@
       "applyUrl": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/bbd3d75a-b43f-7a18-7bde-02cdebbadb22?jp=ABACUS",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
+        ],
+        "en": [
+          "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
+        ],
+        "fr": [
+          "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
+        ]
+      },
       "firstSeenAt": "2026-10-31T22:00:04.411Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -69,22 +83,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-03T09:48:57.459Z",
-      "validThroughSource": "last-observed-window",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
-        ],
-        "en": [
-          "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
-        ],
-        "fr": [
-          "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
-        ]
-      },
-      "previousSlugs": [
-        "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
-      ]
+      "validThrough": "2026-12-03T21:43:14.910Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
