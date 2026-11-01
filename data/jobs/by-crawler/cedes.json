@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-11-01T09:14:03.061Z",
-  "runId": "41291565146",
+  "assembledAt": "2026-11-01T22:06:52.987Z",
+  "runId": "41350168358",
   "jobs": [
     {
       "id": "cedes-586f99785859",
@@ -48,7 +48,7 @@
       "url": "https://www.cedes.com/en/career/jobs/production-assistant/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:13:58.871Z",
+      "crawledAt": "2026-11-01T22:06:45.771Z",
       "previousSlugs": [
         "smd-assembly-operator-production-assistant-cedes-ag-landquart"
       ],
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:13:58.871Z",
+      "validThrough": "2027-01-25T22:06:45.771Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -132,7 +132,7 @@
       "url": "https://www.cedes.com/en/career/jobs/hr-intern-60-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:13:58.543Z",
+      "crawledAt": "2026-11-01T22:06:45.419Z",
       "previousSlugs": [
         "hr-intern-60-100-cedes-landquart"
       ],
@@ -174,7 +174,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-07T09:13:58.543Z",
+      "validThrough": "2027-01-07T22:06:45.419Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -222,7 +222,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:13:58.220Z",
+      "crawledAt": "2026-11-01T22:06:45.062Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart"
@@ -266,7 +266,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-01T09:13:58.220Z",
+      "validThrough": "2026-12-01T22:06:45.062Z",
       "validThroughSource": "last-observed-window"
     }
   ]
