@@ -346,6 +346,17 @@ describe('fill extension: JOIN steps', () => {
     expect(review.F.textOf(state.final)).toBe('Invia candidatura');
   });
 
+  it('recognizes AMAG’s Italian infinitive send button after the application fields', () => {
+    const amag = page('<form><label>Nome *<input required></label><label>Curriculum vitae *<input type="file" required></label><button type="submit">Inviare</button></form>', 'https://jobs.amag-group.ch/apply');
+    const state = amag.F.pageState(amag.document, { sawForm: true });
+    expect(state.kind).toBe('final');
+    expect(amag.F.textOf(state.final)).toBe('Inviare');
+    expect(amag.F.pageState(amag.document, { sawForm: true }).kind).not.toBe('confirmed');
+
+    const upload = page('<form><button type="submit">Inviare i documenti</button></form>', 'https://jobs.amag-group.ch/apply');
+    expect(upload.F.pageState(upload.document, { sawForm: true }).kind).toBe('unknown');
+  });
+
   it('starts Coop’s application with «Jetzt bewerben», never «Später bewerben»', () => {
     // jobs.coopjobs.ch (Prospective.ch), 2026-10-02: the bookmark comes first in the page.
     const coop = page('<header><a role="button" aria-label="Später bewerben">Später bewerben</a></header><main><h1>Bäcker:in</h1><a class="main-btn apply" target="_blank" href="https://ohws.prospective.ch/public/v1/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/">Jetzt bewerben</a></main>', 'https://jobs.coopjobs.ch/offene-stellen/baecker/20d53107-db26-4a35-8f4c-b4d15bb4bb31');
