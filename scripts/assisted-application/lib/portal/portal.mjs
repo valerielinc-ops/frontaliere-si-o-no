@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
 import '../../extension/apply-control.js';
@@ -673,7 +674,21 @@ function questionSurfaceSignature(snapshot = {}) {
     pageMarker: String(snapshot.pageMarker || ''),
     fields: fields.map((field) => [
       Number.isInteger(field.frame) ? field.frame : '', field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
-      field.context || '', field.section || '', field.required === true, field.invalid === true,
+      field.context || '', field.section || '',
+      String(field.ariaLabel || '').replace(/\s+/g, ' ').trim(),
+      String(field.description || '').replace(/\s+/g, ' ').trim(),
+      String(field.ariaDescription || '').replace(/\s+/g, ' ').trim(),
+      String(field.title || '').replace(/\s+/g, ' ').trim(),
+      String(field.placeholder || '').replace(/\s+/g, ' ').trim(),
+      (Array.isArray(field.labels) ? field.labels : []).map((label) => String(label || '').replace(/\s+/g, ' ').trim()),
+      field.privacyMetadataIncomplete === true,
+      String(field.autocomplete || '').replace(/\s+/g, ' ').trim(),
+      Number.isFinite(field.maxLength) ? field.maxLength : null,
+      String(field.accept || '').replace(/\s+/g, ' ').trim(),
+      Object.hasOwn(field, 'addressContext') ? addressContextContract(field) : null,
+      createHash('sha256').update(String(field.value ?? '')).digest('hex'),
+      field.checked === true,
+      field.required === true, field.invalid === true,
       (Array.isArray(field.options) ? field.options : []).map((option) => [
         String(typeof option === 'string' ? option : option?.label || ''),
         String(typeof option === 'string' ? '' : option?.value || ''),
@@ -3399,9 +3414,10 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   const registrationActionSatisfied = (field, action) => action.action === 'upload'
     ? uploadIsSatisfied(field)
     : knownAnswerMatches(field, action);
+  let credentialSaved = retryingUnverifiedAccount;
   const parkRegistrationCredential = async (reason) => {
     if (retryingUnverifiedAccount) await ctx.accounts.mark(host, { status: 'unanswered' });
-    else await ctx.accounts.discard(host, reason);
+    else if (credentialSaved) await ctx.accounts.discard(host, reason);
   };
   const planStableRegistrationSurface = async (startingSnapshot, expectedUrl) => {
     let current = startingSnapshot;
@@ -3467,13 +3483,18 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   };
   const password = account?.password || newPortalPassword({ portal: host });
   const sinceMs = Date.now();
+  const saveCredentialBeforeCreate = async () => {
+    if (credentialSaved) return;
+    // Do not persist a fresh credential while the stable surface is still
+    // asking the candidate questions: a question request must not leave
+    // save/discard residue.
+    await ctx.accounts.save(host, { email: candidate.identity.email, password });
+    credentialSaved = true;
+  };
   if (retryingUnverifiedAccount) {
     // Keep the existing encrypted password: the registration retry is the
     // continuation of the same candidate account, not a new credential.
     await ctx.accounts.mark(host, { status: 'pending' });
-  } else {
-    // Stored (encrypted) before the click: a run that dies afterwards still knows it.
-    await ctx.accounts.save(host, { email: candidate.identity.email, password });
   }
   let privacy = 'none';
   let repairAttempts = 0;
@@ -3498,7 +3519,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (preflight.blocked) {
       // Nothing was pressed, so no account came of this: as with no button, a
       // retry keeps the same unverified account's encrypted password.
-      if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'privacy_not_accepted');
+      if (!retryingUnverifiedAccount && credentialSaved) await ctx.accounts.discard(host, 'privacy_not_accepted');
       return noted({ handoff: 'privacy_not_accepted' });
     }
     const { filled } = preflight;
@@ -3510,14 +3531,19 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     // stable read and plan must prove that the account form is still complete
     // before the Create/Submit CTA is allowed.
     const privacyUrl = privacyStartUrl;
-    const registrationUploadApplied = plannedActions.some((action) => action.action === 'upload'
-      && applied.some((result) => result.fieldId === action.fieldId && result.ok));
-    const privacyPlan = preflight.privacy === 'none' && !registrationUploadApplied
-      // No notice was accepted or changed on this pass. The registration
-      // loop already planned this stable surface after every known answer;
-      // reuse that plan instead of asking the planner again needlessly.
-      ? { status: 'stable', snapshot: accountRegistrationSnapshot(filled), plan: registrationPlan }
-      : await planStableRegistrationSurface(filled, privacyUrl);
+    let privacyPlan;
+    if (preflight.privacy !== 'none') {
+      privacyPlan = await planStableRegistrationSurface(filled, privacyUrl);
+    } else {
+      const settled = await waitForStableQuestionSurface(page, filled, privacyUrl);
+      if (settled.status !== 'stable') {
+        await parkRegistrationCredential('privacy_question_surface_unstable');
+        return noted({ handoff: 'portal_needs_candidate' });
+      }
+      privacyPlan = questionSurfaceSignature(settled.snapshot) === questionSurfaceSignature(registrationSnapshot)
+        ? { status: 'stable', snapshot: accountRegistrationSnapshot(settled.snapshot), plan: registrationPlan }
+        : await planStableRegistrationSurface(settled.snapshot, privacyUrl);
+    }
     if (privacyPlan.status !== 'stable') {
       await parkRegistrationCredential('privacy_question_surface_unstable');
       return noted({ handoff: 'portal_needs_candidate' });
@@ -3577,10 +3603,15 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         await parkRegistrationCredential('privacy_question_surface_unstable');
         return noted({ handoff: 'portal_needs_candidate' });
       }
-      registrationSnapshot = accountRegistrationSnapshot(afterPrivacyActions.snapshot);
+      const replanned = await planStableRegistrationSurface(afterPrivacyActions.snapshot, privacyUrl);
+      if (replanned.status !== 'stable') {
+        await parkRegistrationCredential('privacy_question_surface_unstable');
+        return noted({ handoff: 'portal_needs_candidate' });
+      }
+      registrationSnapshot = accountRegistrationSnapshot(replanned.snapshot);
       registrationPlan = {
-        ...stablePlan,
-        actions: stablePlan.actions.filter((action) => !registrationActionSatisfied(
+        ...replanned.plan,
+        actions: replanned.plan.actions.filter((action) => !registrationActionSatisfied(
           registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
         )),
       };
@@ -3594,11 +3625,12 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
       )),
     };
+    await saveCredentialBeforeCreate();
     diagnostics?.beforeClick('account');
     if (!await clickFirst(page, registrationSnapshot, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
       // A retry is still the same unverified account: keep its encrypted
       // password so the owner can retry after the portal exposes its button.
-      if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'no_create_button');
+      if (!retryingUnverifiedAccount && credentialSaved) await ctx.accounts.discard(host, 'no_create_button');
       return noted(accountHandoff('account', 'no_create_button', 'registration'));
     }
     const after = await awaitAuthOutcome(page, 'create', registrationSnapshot.errors, registrationSnapshot.fields);

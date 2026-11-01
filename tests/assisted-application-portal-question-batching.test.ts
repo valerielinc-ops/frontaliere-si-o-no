@@ -23,8 +23,8 @@ function inWindow<T>(window: any, run: () => T): T {
   }
 }
 
-function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false, privacyRevealsRequiredFile = false, uploadRevealsUnknown = false } = {}) {
-  const privacyReveals = privacyRevealsUnknown || privacyRevealsRequiredFile;
+function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false, privacyRevealsRequiredFile = false, privacyRevealsKnownAnswer = false, uploadRevealsUnknown = false, passwordRevealsUnknown = false, asyncRevealsUnknown = false, asyncDescriptionChanges = false, asyncValueChanges = false } = {}) {
+  const privacyReveals = privacyRevealsUnknown || privacyRevealsRequiredFile || privacyRevealsKnownAnswer;
   const url = 'https://careers.example.test/apply';
   const uploadedReceipts = new Set<string>();
   let uploadQuestionRevealed = false;
@@ -193,6 +193,13 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
     if (registration) {
       element('#create').addEventListener('click', () => { element('#create').dataset.clicked = 'true'; ctaClicks.push('create'); });
       element('#submit')?.addEventListener('click', () => { element('#submit').dataset.clicked = 'true'; ctaClicks.push('submit'); });
+      if (passwordRevealsUnknown) {
+        element('#password-confirm').addEventListener('change', () => {
+          if (!element('#password-question')) {
+            element('form')?.insertAdjacentHTML('beforeend', '<label for="password-question">Which security clearance do you hold? *</label><input id="password-question" name="password-question" required>');
+          }
+        });
+      }
     }
     else element('#next').addEventListener('click', () => { element('#next').dataset.clicked = 'true'; });
     if (privacyReveals) {
@@ -210,9 +217,19 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
         review.addEventListener('change', () => { accept.disabled = !review.checked; });
         accept.addEventListener('click', () => {
           element('#privacy-dialog').remove();
+          element('#privacy')?.remove();
           formElement.insertAdjacentHTML('beforeend', privacyRevealsRequiredFile
             ? '<label for="required-cv">Curriculum Vitae *</label><input id="required-cv" name="required-cv" type="file" required>'
-            : '<label for="unknown-requirement">Which professional certification do you hold? *</label><input id="unknown-requirement" name="unknown-requirement" required>');
+            : privacyRevealsKnownAnswer
+              ? '<label for="origin-region">Region of origin *</label><select id="origin-region" name="origin-region" required><option value="">Choose one</option><option value="TI">Ticino</option><option value="LO">Lombardy</option></select>'
+              : '<label for="unknown-requirement">Which professional certification do you hold? *</label><input id="unknown-requirement" name="unknown-requirement" required>');
+          if (privacyRevealsKnownAnswer) {
+            element('#origin-region').addEventListener('change', () => {
+              if (element('#origin-region').value === 'LO' && !element('#origin-question')) {
+                formElement.insertAdjacentHTML('beforeend', '<label for="origin-question">Which certification is recognized in Lombardy? *</label><input id="origin-question" name="origin-question" required>');
+              }
+            });
+          }
         });
       });
     }
@@ -230,6 +247,21 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
         }
       });
     }
+  }
+  if (asyncRevealsUnknown) {
+    page.after(3500, () => element('form')?.insertAdjacentHTML('beforeend', '<label for="late-question">Which professional certification do you hold? *</label><input id="late-question" name="late-question" required>'));
+  }
+  if (asyncDescriptionChanges) {
+    element('label[for="motivation"]').textContent = 'Additional information *';
+    page.after(3500, () => element('#motivation')?.setAttribute('aria-description', 'Describe your experience leading regional teams.'));
+  }
+  if (asyncValueChanges) {
+    page.after(3500, () => {
+      const field = element('#motivation');
+      if (!field) return;
+      field.value = 'Autofilled by the application';
+      field.dispatchEvent(new window.Event('input', { bubbles: true }));
+    });
   }
   return { page, window, extractionTrace, ctaClicks };
 }
@@ -471,6 +503,8 @@ describe('assisted portal question batching', () => {
   it('replans after a successful CV upload reveals a hard required question', async () => {
     const fixture = fakePage({ registration: true, uploadRevealsUnknown: true });
     const { page, window } = fixture;
+    (window.document.getElementById('country') as HTMLSelectElement).value = 'IT';
+    (window.document.getElementById('motivation') as HTMLTextAreaElement).value = 'I want this role.';
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
     const codex = async ({ prompt }: any) => {
@@ -506,6 +540,216 @@ describe('assisted portal question batching', () => {
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
       'Which professional certification do you hold? *',
+    ]);
+    expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
+  });
+
+  it('replans after a privacy-revealed known answer exposes another hard question', async () => {
+    const fixture = fakePage({ registration: true, privacyRevealsKnownAnswer: true });
+    const { page, window } = fixture;
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    let plannerCalls = 0;
+    const codex = async ({ prompt }: any) => {
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      plannerCalls += 1;
+      return {
+        actions: plannerCalls === 2
+          ? [{ fieldId: fieldId('origin-region'), action: 'select', value: 'Lombardy', source: 'candidate_profile', evidence: 'profile region' }]
+          : [],
+        missingRequired: plannerCalls > 2
+          ? [{ fieldId: fieldId('origin-question'), question: 'Which certification is recognized in Lombardy?', why: '', type: 'text', options: [] }]
+          : [],
+      };
+    };
+    const result = await handleAuth({
+      page,
+      snapshot: await extractFields(page, { listboxOptions: false }),
+      ctx: {
+        candidate: { identity: { email: 'candidate@example.test' }, profile: { region: 'Lombardy' } },
+        candidateLocale: 'en',
+        language: 'en',
+        files: {},
+        codex,
+        accounts: {
+          load: async () => null,
+          save: async () => {},
+          mark: async () => {},
+          discard: async () => {},
+        },
+      },
+    });
+
+    expect(plannerCalls).toBe(3);
+    expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Which certification is recognized in Lombardy? *',
+    ]);
+    expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
+  });
+
+  it('replans after password entry reveals a hard required question', async () => {
+    const fixture = fakePage({ registration: true, passwordRevealsUnknown: true });
+    const { page, window } = fixture;
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    let plannerCalls = 0;
+    const codex = async ({ prompt }: any) => {
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      plannerCalls += 1;
+      return {
+        actions: [],
+        missingRequired: plannerCalls > 1
+          ? [{ fieldId: fieldId('password-question'), question: 'Which security clearance do you hold?', why: '', type: 'text', options: [] }]
+          : [],
+      };
+    };
+    const result = await handleAuth({
+      page,
+      snapshot: await extractFields(page, { listboxOptions: false }),
+      ctx: {
+        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+        candidateLocale: 'en',
+        language: 'en',
+        files: {},
+        codex,
+        accounts: {
+          load: async () => null,
+          save: async () => {},
+          mark: async () => {},
+          discard: async () => {},
+        },
+      },
+    });
+
+    expect(plannerCalls).toBe(2);
+    expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Which security clearance do you hold? *',
+    ]);
+    expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
+  });
+
+  it('replans when a hard question appears asynchronously without a planned answer action', async () => {
+    const fixture = fakePage({ registration: true, asyncRevealsUnknown: true });
+    const { page, window } = fixture;
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    let plannerCalls = 0;
+    const codex = async ({ prompt }: any) => {
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      plannerCalls += 1;
+      return {
+        actions: [],
+        missingRequired: plannerCalls > 1
+          ? [{ fieldId: fieldId('late-question'), question: 'Which professional certification do you hold?', why: '', type: 'text', options: [] }]
+          : [],
+      };
+    };
+    const result = await handleAuth({
+      page,
+      snapshot: await extractFields(page, { listboxOptions: false }),
+      ctx: {
+        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+        candidateLocale: 'en',
+        language: 'en',
+        files: {},
+        codex,
+        accounts: {
+          load: async () => null,
+          save: async () => {},
+          mark: async () => {},
+          discard: async () => {},
+        },
+      },
+    });
+
+    expect(plannerCalls).toBe(2);
+    expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Which professional certification do you hold? *',
+    ]);
+    expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
+  });
+
+  it('replans when a field description changes without adding a control', async () => {
+    const fixture = fakePage({ registration: true, asyncDescriptionChanges: true });
+    const { page, window } = fixture;
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    let plannerCalls = 0;
+    const plannerInputs: string[] = [];
+    const codex = async ({ prompt }: any) => {
+      const serializedPrompt = JSON.stringify(prompt);
+      if (serializedPrompt.includes('You localize questions from an online job application')) return { questions: [] };
+      plannerCalls += 1;
+      plannerInputs.push(serializedPrompt);
+      return {
+        actions: [],
+        missingRequired: plannerCalls > 1
+          ? [{ fieldId: fieldId('motivation'), question: 'Describe your experience leading regional teams.', why: '', type: 'text', options: [] }]
+          : [],
+      };
+    };
+    const result = await handleAuth({
+      page,
+      snapshot: await extractFields(page, { listboxOptions: false }),
+      ctx: {
+        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+        candidateLocale: 'en',
+        language: 'en',
+        files: {},
+        codex,
+        accounts: {
+          load: async () => null,
+          save: async () => {},
+          mark: async () => {},
+          discard: async () => {},
+        },
+      },
+    });
+
+    expect(plannerCalls).toBe(2);
+    expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Describe your experience leading regional teams. *',
+    ]);
+    expect(plannerInputs.some((input) => input.includes('Describe your experience leading regional teams.'))).toBe(true);
+    expect(plannerInputs.some((input) => input.includes('Additional information *'))).toBe(true);
+    expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
+  });
+
+  it('replans when autofill changes only a field value without adding markup', async () => {
+    const fixture = fakePage({ registration: true, asyncValueChanges: true });
+    const { page, window } = fixture;
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    const initialControlCount = window.document.querySelectorAll('input, textarea, select').length;
+    let plannerCalls = 0;
+    const codex = async ({ prompt }: any) => {
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      plannerCalls += 1;
+      return {
+        actions: [],
+        missingRequired: plannerCalls > 1
+          ? [{ fieldId: fieldId('motivation'), question: 'Describe the autofilled answer before applying.', why: '', type: 'text', options: [] }]
+          : [],
+      };
+    };
+    const result = await handleAuth({
+      page,
+      snapshot: await extractFields(page, { listboxOptions: false }),
+      ctx: {
+        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+        candidateLocale: 'en',
+        language: 'en',
+        files: {},
+        codex,
+        accounts: {
+          load: async () => null,
+          save: async () => {},
+          mark: async () => {},
+          discard: async () => {},
+        },
+      },
+    });
+
+    expect(plannerCalls).toBe(2);
+    expect(window.document.querySelectorAll('input, textarea, select')).toHaveLength(initialControlCount);
+    expect(elementValue(window, '#motivation')).toBe('Autofilled by the application');
+    expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Describe the autofilled answer before applying. *',
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
   });

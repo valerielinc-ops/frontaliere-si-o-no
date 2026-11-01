@@ -928,7 +928,7 @@ export async function applyActions(page, fields, actions, files, {
             ? (await visibleOptions.allInnerTexts().catch(() => [])).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean)
             : [];
           const exact = labels.find((label) => normalizedChoice(label) === normalizedChoice(action.value));
-          const selectedLabel = exact || (isNationalityField(field.label)
+          selectedLabel = exact || (isNationalityField(field.label)
             ? nationalityOptionLabel(action.value, labels, nationalityFieldLanguage(field.label))
             : isPhoneCountryField(field)
               ? phoneCountryOptionLabel(action.value, labels)
