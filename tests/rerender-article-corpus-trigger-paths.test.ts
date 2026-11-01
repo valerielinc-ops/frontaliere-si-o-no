@@ -258,7 +258,7 @@ describe('rerender-article-hubs entrypoint budget', () => {
       step.name === 'Ensure the static shell scripts are on the CDN',
     );
 
-    expect(renderStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBe('600');
+    expect(renderStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBe('1800');
     expect(shellAssetsStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBeUndefined();
   });
 });
