@@ -44,8 +44,7 @@ function matchingFixture() {
     },
     'user_cv_profiles/candidate-1': {
       status: 'ready',
-      searchText: 'IT Manager SAP',
-      profile: { workPosition: 'IT Manager', skills: ['SAP'] },
+      profile: { searchText: 'IT Manager SAP', workPosition: 'IT Manager', skills: ['SAP'] },
     },
     [PROPOSAL_PATH]: {
       jobId: 'job-1',
