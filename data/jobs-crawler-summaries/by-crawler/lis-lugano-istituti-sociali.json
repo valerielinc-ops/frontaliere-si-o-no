@@ -1,7 +1,7 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-10-31T21:36:18.311Z",
+  "generatedAt": "2026-11-01T09:18:47.412Z",
   "total": 13,
   "discovered": 13,
   "parsed": 13,
@@ -11,10 +11,10 @@
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 38851,
-  "avgDurationMs": 38851,
+  "durationMs": 45452,
+  "avgDurationMs": 45452,
   "durationHistory": [
-    38851
+    45452
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -39,7 +39,7 @@
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
-      "crawledAt": "2026-10-31T21:35:44.741Z",
+      "crawledAt": "2026-11-01T09:18:06.543Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -59,6 +59,8 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=43-addetti-servizi-alla-casa-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -80,7 +82,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -88,7 +90,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-10-31T21:35:39.803Z",
+      "crawledAt": "2026-11-01T09:18:00.981Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -108,6 +110,8 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=39-operatori-socioassistenziali-infanza-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -129,7 +133,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -137,7 +141,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-10-31T21:35:38.579Z",
+      "crawledAt": "2026-11-01T09:17:59.526Z",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
@@ -158,6 +162,8 @@
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
       "needsRetranslation": true,
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -179,7 +185,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-26",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -187,7 +193,7 @@
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
-      "crawledAt": "2026-10-31T21:35:36.073Z",
+      "crawledAt": "2026-11-01T09:17:56.792Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -207,6 +213,8 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=36-operatori-settore-animazione-pregassona&language=it",
       "postedDate": "2026-01-26",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -228,7 +236,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -236,7 +244,7 @@
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
-      "crawledAt": "2026-10-31T21:35:34.858Z",
+      "crawledAt": "2026-11-01T09:17:55.432Z",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
@@ -256,6 +264,8 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=35-collaboratori-sanitari-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -277,7 +287,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -285,7 +295,7 @@
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
-      "crawledAt": "2026-10-31T21:35:33.606Z",
+      "crawledAt": "2026-11-01T09:17:54.057Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -305,6 +315,8 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -329,7 +341,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -337,7 +349,7 @@
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
-      "crawledAt": "2026-10-31T21:35:43.508Z",
+      "crawledAt": "2026-11-01T09:18:05.197Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -357,6 +369,8 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=42-cuochi-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -378,7 +392,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -386,7 +400,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-10-31T21:35:42.273Z",
+      "crawledAt": "2026-11-01T09:18:03.771Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -406,6 +420,8 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=41-capisquadra-chef-di-cucina-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -427,7 +443,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -435,7 +451,7 @@
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
-      "crawledAt": "2026-10-31T21:35:41.026Z",
+      "crawledAt": "2026-11-01T09:18:02.391Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -455,6 +471,8 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=40-educatori-dell-infanzia-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -476,7 +494,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -484,7 +502,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-10-31T21:35:37.303Z",
+      "crawledAt": "2026-11-01T09:17:58.140Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -504,6 +522,8 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=37-fisioterapisti-ergoterapisti-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -525,7 +545,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -533,7 +553,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-10-31T21:35:32.359Z",
+      "crawledAt": "2026-11-01T09:17:52.638Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -553,6 +573,8 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=33-operatori-sociosanitari-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -574,7 +596,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -582,7 +604,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-10-31T21:35:31.123Z",
+      "crawledAt": "2026-11-01T09:17:51.408Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -602,6 +624,8 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=29-infermieri-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -623,7 +647,7 @@
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
       "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
+      "validThrough": "2026-12-13T00:00:00.000Z",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
@@ -631,7 +655,7 @@
       "salaryMax": 109645,
       "salaryCurrency": "CHF",
       "salaryClass": "16",
-      "crawledAt": "2026-10-31T21:35:29.873Z",
+      "crawledAt": "2026-11-01T09:17:50.214Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -651,6 +675,8 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -660,5 +686,5 @@
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

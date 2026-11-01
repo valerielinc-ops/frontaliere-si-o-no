@@ -1,7 +1,7 @@
 {
   "key": "medbase",
   "label": "Medbase",
-  "generatedAt": "2026-10-31T21:34:04.977Z",
+  "generatedAt": "2026-11-01T09:23:24.438Z",
   "total": 133,
   "discovered": null,
   "parsed": 133,
@@ -14,12 +14,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 125,
-  "durationMs": 118290,
-  "avgDurationMs": 118290,
+  "durationMs": 122695,
+  "avgDurationMs": 122695,
   "durationHistory": [
-    118290
+    122695
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Dbendorf/Fachfrau---Fachmann-Apotheke--a--60---80-_JR06924-2",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:29.955Z",
+      "crawledAt": "2026-11-01T09:22:48.368Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -58,12 +58,16 @@
       "salaryMax": 89200,
       "salarySource": "estimated",
       "postalCode": "8600",
-      "_qualityScore": 90,
+      "streetAddress": "Dübendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:48.368Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -79,7 +83,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Vevey/Apprentie-assistante-mdicale--tous-genres-_JR07151",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:13.682Z",
+      "crawledAt": "2026-11-01T09:22:31.089Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -101,12 +105,16 @@
       "salaryMax": 77500,
       "salarySource": "estimated",
       "postalCode": "1800",
-      "_qualityScore": 90,
+      "streetAddress": "Vevey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:31.089Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -122,7 +130,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Apprentie-assistante-mdicale--tous-genres-_JR07037",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:13.019Z",
+      "crawledAt": "2026-11-01T09:22:30.379Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -144,12 +152,16 @@
       "salaryMax": 77500,
       "salarySource": "estimated",
       "postalCode": "1003",
-      "_qualityScore": 90,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:30.379Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -165,7 +177,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bulle/Apprenti-e-assistant-e-mdical-e_JR06840",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:11.651Z",
+      "crawledAt": "2026-11-01T09:22:28.914Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -187,12 +199,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "postalCode": "1630",
-      "_qualityScore": 90,
+      "streetAddress": "Bulle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:28.914Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -208,7 +224,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Basel/Apotheker-in--a--40-60-_JR06625",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:04.878Z",
+      "crawledAt": "2026-11-01T09:22:21.619Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -230,12 +246,16 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:21.619Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -251,7 +271,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Uzwil/Physiotherapeut-in--a--40-_JR07141",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:54.838Z",
+      "crawledAt": "2026-11-01T09:22:11.294Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -273,12 +293,16 @@
       "salaryMax": 34800,
       "salarySource": "estimated",
       "postalCode": "9240",
-      "_qualityScore": 90,
+      "streetAddress": "Uzwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:22:11.294Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -294,7 +318,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Schaffhausen/Medizinische-Praxisassistenz--a--60-80-_JR07219",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:53.478Z",
+      "crawledAt": "2026-11-01T09:22:09.879Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -316,12 +340,16 @@
       "salaryMax": 69600,
       "salarySource": "estimated",
       "postalCode": "8200",
-      "_qualityScore": 90,
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:22:09.879Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -337,7 +365,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Baden/Facharzt-Endokrinologie-50-60---m-w-d-_JR04333",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:49.773Z",
+      "crawledAt": "2026-11-01T09:22:05.933Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -359,53 +387,10 @@
       "salaryMax": 56400,
       "salarySource": "estimated",
       "postalCode": "5400",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "medbase-7e74222b6880",
-      "slug": "specialista-payroll-a-80-100-medbase-winterthur",
-      "company": "Medbase",
-      "companyKey": "medbase",
-      "companyDomain": "medbase.ch",
-      "title": "Payroll Spezialist:in (a) 80-100%",
-      "needsRetranslation": false,
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Payroll-Spezialist-in--a--80-100-_JR07819",
-      "source": "Medbase Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:28:33.404Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Farmacie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02",
-      "postedDate": "2026-10-02",
-      "postingDateSource": "reported",
-      "applyUrl": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Payroll-Spezialist-in--a--80-100-_JR07819",
-      "jobReqId": "JR07819",
-      "firstSeenAt": "2026-10-03T09:17:59.024Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "streetAddress": "Schützenstrasse 3",
-      "postalCode": "8400",
-      "crawlerMissStreak": 2,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:22:05.933Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -415,6 +400,7 @@
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "medbase-a355712f9f21",
@@ -429,7 +415,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Facharzt--w-m-d--fr-Dermatologie-100-_JR03952",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:45.711Z",
+      "crawledAt": "2026-11-01T09:23:04.870Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -452,6 +438,9 @@
       "salarySource": "estimated",
       "streetAddress": "Schützenstrasse 3",
       "postalCode": "8400",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:23:04.870Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -473,7 +462,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Eglisau/Facharzt-Allgemeine-Innere-Medizin-60-80---w-m-d-_JR03532",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:45.037Z",
+      "crawledAt": "2026-11-01T09:23:04.148Z",
       "addressLocality": "Eglisau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -495,12 +484,16 @@
       "salaryMax": 89200,
       "salarySource": "estimated",
       "postalCode": "8193",
-      "_qualityScore": 90,
+      "streetAddress": "Eglisau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:04.148Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -516,7 +509,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Weinfelden/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--w-m-d--50-100-_JR03728",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:44.354Z",
+      "crawledAt": "2026-11-01T09:23:03.444Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -538,12 +531,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "postalCode": "8570",
-      "_qualityScore": 90,
+      "streetAddress": "Weinfelden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:03.444Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -559,7 +556,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Frauenfeld/Fachrztin---Facharzt-Dermatologie--a--40-80-_JR05383",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:43.539Z",
+      "crawledAt": "2026-11-01T09:23:02.669Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -581,12 +578,16 @@
       "salaryMax": 69600,
       "salarySource": "estimated",
       "postalCode": "8500",
-      "_qualityScore": 90,
+      "streetAddress": "Frauenfeld",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:02.669Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -602,7 +603,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Mdecin-spcialiste-en-rhumatologie--f-m-d-_JR04192",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:42.863Z",
+      "crawledAt": "2026-11-01T09:23:01.962Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -624,12 +625,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1003",
-      "_qualityScore": 90,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:01.962Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -645,7 +650,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Mdecin-spcialiste-en-dermatologie--f-m-d-_JR04191",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:42.181Z",
+      "crawledAt": "2026-11-01T09:23:01.207Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -667,12 +672,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1003",
-      "_qualityScore": 90,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:01.207Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -688,7 +697,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Genve/Psychologue---Psychothrapeute-indpendante--m-f-d--50--100-_JR05146",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:41.498Z",
+      "crawledAt": "2026-11-01T09:23:00.473Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -710,12 +719,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1201",
-      "_qualityScore": 90,
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:00.473Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -731,7 +744,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Mdecin-spcialiste-en-cardiologie--f-m-d-_JR04195",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:40.822Z",
+      "crawledAt": "2026-11-01T09:22:59.763Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -753,12 +766,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1003",
-      "_qualityScore": 90,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:59.763Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -774,7 +791,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bern/Unterassistent--w-m-d--100-_JR03921",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:40.118Z",
+      "crawledAt": "2026-11-01T09:22:59.048Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -796,12 +813,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 90,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:59.048Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -817,7 +838,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bern/Assistenzarzt--m-w-d-_JR04012",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:39.467Z",
+      "crawledAt": "2026-11-01T09:22:58.358Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -839,12 +860,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 90,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:58.358Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -860,7 +885,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Gampelen/Fachrztin---Facharzt-Allgemeine-Innere-Medizin-Praktische-rztin---Praktischer-Arzt--a--50-100-_JR05760",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:38.806Z",
+      "crawledAt": "2026-11-01T09:22:57.651Z",
       "addressLocality": "Gampelen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -882,12 +907,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3236",
-      "_qualityScore": 90,
+      "streetAddress": "Gampelen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:57.651Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -903,7 +932,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Schaffhausen/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a--50-100-_JR06115",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:38.116Z",
+      "crawledAt": "2026-11-01T09:22:56.935Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -925,12 +954,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "postalCode": "8200",
-      "_qualityScore": 90,
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:56.935Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -946,7 +979,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Neuchtel/Chef-de-clinique-adjoint_JR04113",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:37.048Z",
+      "crawledAt": "2026-11-01T09:22:55.854Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -968,12 +1001,16 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "postalCode": "2000",
-      "_qualityScore": 90,
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:55.854Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -989,7 +1026,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Mdecin-spcialiste-en-mdecin-interne-gnrale--tous-genres--100-_JR05893",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:36.380Z",
+      "crawledAt": "2026-11-01T09:22:55.145Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1011,12 +1048,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1860",
-      "_qualityScore": 90,
+      "streetAddress": "Aigle (MC)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:55.145Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1032,7 +1073,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Mdecin-spcialiste-en-cardiologie--tous-genres--80---100-_JR05894",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:35.697Z",
+      "crawledAt": "2026-11-01T09:22:54.424Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1054,12 +1095,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1860",
-      "_qualityScore": 90,
+      "streetAddress": "Aigle (MC)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:54.424Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1075,7 +1120,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Teufen/Fachrztin-Facharzt-fr-Dermatologie--a--50-60-_JR05673",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:35.013Z",
+      "crawledAt": "2026-11-01T09:22:53.688Z",
       "addressLocality": "Teufen",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1097,12 +1142,16 @@
       "salaryMax": 59100,
       "salarySource": "estimated",
       "postalCode": "9053",
-      "_qualityScore": 90,
+      "streetAddress": "Teufen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:53.688Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1118,7 +1167,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wetzikon/Fachrztin---Facharzt-Dermatologie--a--60-100-_JR06348",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:34.357Z",
+      "crawledAt": "2026-11-01T09:22:52.978Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1140,12 +1189,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8620",
-      "_qualityScore": 90,
+      "streetAddress": "Wetzikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:52.978Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1161,7 +1214,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Gampelen/Assistenzarzt--w-m-d--80-100-_JR03870",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:33.699Z",
+      "crawledAt": "2026-11-01T09:22:52.280Z",
       "addressLocality": "Gampelen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1183,12 +1236,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3236",
-      "_qualityScore": 90,
+      "streetAddress": "Gampelen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:52.280Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1204,7 +1261,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zweisimmen/Medizinische-Praxisassistenz--a--80-100-_JR06496",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:33.028Z",
+      "crawledAt": "2026-11-01T09:22:51.587Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1226,12 +1283,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3770",
-      "_qualityScore": 90,
+      "streetAddress": "Zweisimmen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:51.587Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1247,7 +1308,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Kriens/Fachrztin---Facharzt-Allergologie-und-klinische-Immunologie--a--40-100-_JR06605-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:32.353Z",
+      "crawledAt": "2026-11-01T09:22:50.902Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1269,12 +1330,16 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "postalCode": "6010",
-      "_qualityScore": 90,
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:50.902Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1290,7 +1355,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Mdecins-spcialistes-avec-titre-FMH--tous-genres--40---100-_JR06839",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:31.686Z",
+      "crawledAt": "2026-11-01T09:22:50.209Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1312,12 +1377,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1860",
-      "_qualityScore": 90,
+      "streetAddress": "Aigle (MC)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:50.209Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1333,7 +1402,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Bulle/Mdecin-spcialiste-en-mdecin-interne-gnrale--f-m-d-_JR04269",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:30.702Z",
+      "crawledAt": "2026-11-01T09:22:49.083Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1355,12 +1424,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "1630",
-      "_qualityScore": 90,
+      "streetAddress": "Bulle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:49.083Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1376,7 +1449,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wil/Physiotherapeut-in--a--40---60-_JR05506",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:29.271Z",
+      "crawledAt": "2026-11-01T09:22:47.632Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1398,12 +1471,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "postalCode": "9500",
-      "_qualityScore": 90,
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:47.632Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1419,7 +1496,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Wil/Fachrztin---Facharzt-Allgemeine-Innere-Medizin--a----80-100--_JR07112",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:28.611Z",
+      "crawledAt": "2026-11-01T09:22:46.911Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1441,12 +1518,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "postalCode": "9500",
-      "_qualityScore": 90,
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:46.911Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1462,7 +1543,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Ddingen/Facharzt-Allgemeine-Innere-Medizin-oder-erweiterte-Grundversorgung_JR05342",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:27.926Z",
+      "crawledAt": "2026-11-01T09:22:46.191Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1484,12 +1565,16 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3186",
-      "_qualityScore": 90,
+      "streetAddress": "Düdingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:46.191Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1505,7 +1590,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Aigle-MC/Assistante-mdicale--tous-genres--100-_JR06221",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:27.252Z",
+      "crawledAt": "2026-11-01T09:22:45.477Z",
       "addressLocality": "Aigle (MC)",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1527,12 +1612,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1860",
-      "_qualityScore": 90,
+      "streetAddress": "Aigle (MC)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:45.477Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1548,7 +1637,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Diepoldsau/Fachrztin-Arzt-Allgemeine-Innere-Medizin-oder-Praktische-rztin-Arzt--a--50-100-_JR07128-1",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:26.564Z",
+      "crawledAt": "2026-11-01T09:22:44.745Z",
       "addressLocality": "Diepoldsau",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1570,12 +1659,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "postalCode": "9444",
-      "_qualityScore": 90,
+      "streetAddress": "Diepoldsau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:44.745Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1591,7 +1684,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Rorschach/Fachrztin-Arzt-AIM-oder-Praktische-rztin-Arzt--a--60-100-_JR07024",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:25.878Z",
+      "crawledAt": "2026-11-01T09:22:44.009Z",
       "addressLocality": "Rorschach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1613,12 +1706,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "postalCode": "9400",
-      "_qualityScore": 90,
+      "streetAddress": "Rorschach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:44.009Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1634,7 +1731,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Amriswil/Professional-Medical_JR04098",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:25.206Z",
+      "crawledAt": "2026-11-01T09:22:43.296Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1656,12 +1753,16 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "postalCode": "8580",
-      "_qualityScore": 90,
+      "streetAddress": "Amriswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:43.296Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1677,7 +1778,7 @@
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Lausanne/Assistante-mdicale--tous-genres--ou-autre-professionnelle-de-la-sant-50-100---pour-notre-service-de-tlmdecine-innovant_JR07222",
       "source": "Medbase Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:24.500Z",
+      "crawledAt": "2026-11-01T09:22:42.568Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1699,14 +1800,18 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1003",
-      "_qualityScore": 90,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:42.568Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }
