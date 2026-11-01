@@ -88,7 +88,8 @@ function QuestionField({ question, value, onChange, disabled, error, locale, sav
   const localizationWarning = question.localizationStatus === 'fallback'
     ? localizedQuestionWarning(locale, question.applicationQuestionLocale)
     : null;
-  const showingSuggestion = !savedAnswer || value.trim() === String(question.suggestedAnswer || '').trim();
+  const showingSuggestion = Boolean(question.suggestedAnswer)
+    && value.trim() === String(question.suggestedAnswer || '').trim();
   const originalPortalQuestion = question.localizationStatus !== 'fallback'
     && question.applicationQuestion
     && question.applicationQuestion.trim() !== question.question.trim()
@@ -157,7 +158,7 @@ function QuestionField({ question, value, onChange, disabled, error, locale, sav
           aria-invalid={error ? true : undefined}
         />
       )}
-      {question.suggestedAnswer && !savedAnswer && (
+      {question.suggestedAnswer && !savedAnswer && showingSuggestion && (
         <span className="mt-1 block text-xs font-normal text-subtle">{t('jobBoard.assisted.review.answerDraftNotice')}</span>
       )}
       {question.answerEvidence?.length && showingSuggestion ? (
@@ -269,8 +270,11 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       loadedToken.current = token;
       setData(review);
       // Drafted values stay local to the form; only an explicit save writes them as answers.
+      const dismissedAnswerSuggestions = new Set(review.dismissedAnswerSuggestionIds || []);
       const proposed = Object.fromEntries((review.questions || [])
-        .filter((question) => (question.suggestedAnswer || question.suggested) && !String(review.answers?.[question.id] || '').trim())
+        .filter((question) => (question.suggestedAnswer || question.suggested)
+          && !dismissedAnswerSuggestions.has(question.id)
+          && !String(review.answers?.[question.id] || '').trim())
         .map((question) => [question.id, String(question.suggestedAnswer || question.suggested || '')]));
       setAnswers({ ...(review.answers || {}), ...proposed });
       setError(null);

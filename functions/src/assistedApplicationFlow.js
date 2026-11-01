@@ -230,6 +230,16 @@ function base(flow) {
     questionAnswers: flow?.questionAnswers && typeof flow.questionAnswers === 'object' && !Array.isArray(flow.questionAnswers)
       ? { ...flow.questionAnswers }
       : {},
+    answerSuggestionDismissals: flow?.answerSuggestionDismissals
+      && Number.isInteger(Number(flow.answerSuggestionDismissals.round))
+      && Number(flow.answerSuggestionDismissals.round) > 0
+      && Array.isArray(flow.answerSuggestionDismissals.ids)
+      ? {
+        round: Number(flow.answerSuggestionDismissals.round),
+        ids: [...new Set(flow.answerSuggestionDismissals.ids
+          .filter(id => typeof id === 'string' && id.length > 0 && id.length <= 160))].slice(0, 80),
+      }
+      : null,
     // The last wait for the candidate that ended (round, since, until), and when the ad was found closed
     // during one: see the end of transition, and the tick.
     lastWait: Number(flow?.lastWait?.until) ? { round: Number(flow.lastWait.round) || 1, since: Number(flow.lastWait.since) || null, until: Number(flow.lastWait.until) } : null,

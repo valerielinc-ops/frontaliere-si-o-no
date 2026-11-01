@@ -191,6 +191,8 @@ export interface ReviewPayload {
   /** The posting’s decisive requirements the CV does not show, said above the questions (null: a full match). */
   fit?: ReviewFitNotice | null;
   answers: Record<string, string>;
+  /** CV answer suggestions the candidate explicitly cleared in this draft round. */
+  dismissedAnswerSuggestionIds?: string[];
   /** Opaque version of the exact question payload shown; contains no answer values. */
   answerQuestionSnapshots?: Record<string, string>;
   /** School reports, test results… the posting requires besides the CV and the letter. */
