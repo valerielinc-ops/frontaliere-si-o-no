@@ -29,6 +29,12 @@
         ],
         "createdAt": "2026-10-29T20:17:06.515Z",
         "reason": "Project DESIGN.md Typography explicitly prescribes Inter for body text; agent preserves the documented system during email deliverability fixes"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "manrope",
+        "createdAt": "2026-10-31T19:39:30.003Z",
+        "reason": "The value appears only in a negative test assertion that verifies the remote Google Fonts loader is absent; it does not declare or use a font."
       }
     ]
   }

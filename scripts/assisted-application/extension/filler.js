@@ -30,7 +30,7 @@
   const WORK_SCHEDULE_ONLY_RE = /^(full[ -]?time|part[ -]?time|full[ -]?time\/part[ -]?time|tempo pieno|tempo parziale|a tempo pieno|a tempo parziale|vollzeit|teilzeit|temps plein|temps partiel)$/i;
   const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|many thanks for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|you have successfully applied|vielen dank für (ihre|deine) bewerbung|(ihre|deine) bewerbung (?:auf das stellenangebot (?:(?!\bwurde\b)[^.!?\r\n]){1,240} )?(ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet|eingereicht))|\b(sie haben sich|du hast dich) erfolgreich (auf [^.]{0,80} )?beworben|grazie per (la tua|la sua|aver inviato|esserti candidat)|(?:la|ti|vi) ringraziamo per (?:la|l['’])\s*(?:(?:sua|tua|vostra)\s+)?candidatur\w*|candidatura (è stata )?(inviata|ricevuta)|ti sei candidat[oa] con successo|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise)|vous avez postulé avec succès)/i;
   const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
-  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction } = root.AssistedApplyControls;
+  const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   const COOKIE_CUSTOMIZE_RE = /^(customi[sz]e cookies|cookie (?:settings|preferences)|manage cookies|modify cookie preferences)$/i;
@@ -955,13 +955,39 @@
     }
     if (entry.kind === 'checkbox') {
       if (entry.consentOwnershipUnknown === true) return null;
+      const explicitNegativeAnswer = fromKit && fromKit.source !== 'policy_default'
+        && /^(?:0|false|no|nein|non)$/i.test(normalize(fromKit.answer));
+      if (explicitNegativeAnswer) return null;
       // JazzHR/Resumator (Fincons) puts the required privacy statement in the
       // label immediately before a separate «I agree» checkbox. Use all the
       // control's labels, but keep marketing/newsletter opt-ins excluded.
-      const label = normalize((entry.labels || [entry.label]).join(' '));
+      const rawLabel = (entry.labels || [entry.label]).join(' ');
+      const label = normalize(rawLabel);
+      const element = entry.element;
+      const attr = name => element?.getAttribute?.(name) || '';
+      const privacyMetadata = {
+        ...entry,
+        name: entry.name || attr('name'),
+        autocomplete: entry.autocomplete || attr('autocomplete'),
+        domId: entry.domId || element?.id || attr('id'),
+        controlId: entry.controlId || attr('controlId') || attr('data-control-id') || attr('data-controlid'),
+        semanticId: entry.semanticId || attr('semanticId') || attr('data-semantic-id') || attr('data-semanticid'),
+      };
+      const privacyIdentifiers = privacySemanticIdentifiers(privacyMetadata);
+      const privacyRepresentations = [entry.question, entry.label, entry.applicationQuestion]
+        .filter(value => typeof value === 'string' && value.trim());
+      const supplementalPrivacyLabels = Array.isArray(entry.labels)
+        ? entry.labels.filter(value => typeof value === 'string' && value.trim()) : [];
+      const privacyReviewAck = typeof isPrivacyReviewAcknowledgment === 'function'
+        && typeof privacyReviewAcknowledgmentShape === 'function'
+        && privacyRepresentations.length > 0
+        && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
+        && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels));
+      const privacyReviewShape = typeof privacyReviewAcknowledgmentShape === 'function'
+        && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
       // Only the required acceptance of the portal's terms: never a newsletter or a talent pool.
-      return entry.required && CONSENT_RE.test(label) && typeof hasConsentContradiction === 'function' && !hasConsentContradiction((entry.labels || [entry.label]).join(' '),
-        entry.element?.getAttribute?.('name'), entry.element?.getAttribute?.('autocomplete'), entry.element?.id) ? { check: true } : null;
+      return (entry.required || privacyReviewAck) && (privacyReviewAck || (CONSENT_RE.test(label) && !privacyReviewShape)) && typeof hasConsentContradiction === 'function' && !hasConsentContradiction([...privacyRepresentations, ...supplementalPrivacyLabels].join(' ') || rawLabel,
+        ...privacyIdentifiers) ? { check: true } : null;
     }
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
     // Contact facts are canonical identity data, not answers copied from the

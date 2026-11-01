@@ -23,9 +23,8 @@ describe('public JobPosting emitter census', () => {
   });
 
   it('keeps the hydrated JobBoard address tuple aligned with static output', () => {
-    // Both paths hand the canonical builder the source street/CAP as stated;
-    // the builder alone decides coherence (#9108, #9841) and never fills them
-    // from lookup tables (owner decision 2026-10-24).
+    // Both paths hand the canonical builder the source street/CAP and internal
+    // provenance; one shared resolver applies the same-city enrichment (#9108).
     const jobBoardSource = readFileSync('components/community/JobBoard.tsx', 'utf8');
     expect(jobBoardSource).toContain("const postalCode = String(job.postalCode || '').trim();");
     expect(jobBoardSource).toContain("streetAddress: isValidAddr(rawStreet) ? rawStreet : ''");
@@ -41,6 +40,7 @@ describe('public JobPosting emitter census', () => {
       canton: 'GR',
       postalCode: '8600',
       streetAddress: 'Hauptsitzstrasse 1',
+      crawledAt: new Date(Date.now() - 86400000).toISOString(),
     };
     const opts = {
       locale: 'it',
@@ -50,15 +50,15 @@ describe('public JobPosting emitter census', () => {
     const staticAddress = buildJobPostingSchema(job, opts).jobLocation.address;
 
     expect(hydrated).toEqual(staticAddress);
-    // 8600 is Dübendorf's CAP: the stamped HQ tuple is dropped as a pair and
-    // replaced by the coherent Chur canton-capital tuple.
+    // 8600 is not Chur's CAP, so the place keeps Chur's CAP and the source
+    // street stays present instead of being discarded with the bad CAP.
     expect(hydrated).toEqual({
       '@type': 'PostalAddress',
+      streetAddress: 'Hauptsitzstrasse 1',
       addressLocality: 'Chur',
       addressRegion: 'GR',
       addressCountry: 'CH',
       postalCode: '7000',
-      streetAddress: 'Poststrasse 33',
     });
   });
 });

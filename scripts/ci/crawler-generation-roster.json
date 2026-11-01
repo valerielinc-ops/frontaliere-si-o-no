@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 669,
+  "crawlerCount": 670,
   "groups": {
     "10": [
       "atec-personal",
@@ -456,6 +456,7 @@
     "24": [
       "asanti-ch",
       "bb-trading-werbeartikel-ag",
+      "comuni-ticino",
       "csl-immobilien-ag",
       "seco-jobroom"
     ],
@@ -859,6 +860,7 @@
     "clinique-le-noirmont": "data/jobs/by-crawler/clinique-le-noirmont.json",
     "cnp": "data/jobs/by-crawler/cnp.json",
     "colin-cie": "data/jobs/by-crawler/colin-cie.json",
+    "comuni-ticino": "data/jobs/by-crawler/comuni-ticino.json",
     "concara": "data/jobs/by-crawler/concara.json",
     "concordia": "data/jobs/by-crawler/concordia.json",
     "confederazione-ticino": "data/jobs/by-crawler/confederazione-ticino.json",
@@ -1394,5 +1396,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:df5adaf7b43ffa08e40d9f97496e25f3afbd9e5d8352c519221be85997148aea"
+  "digest": "sha256:c8e5c35e7c731c0a61ab49728370ee466ac3724c38e62aacbc2b1e3b18767a1f"
 }

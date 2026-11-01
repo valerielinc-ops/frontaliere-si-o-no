@@ -57,18 +57,62 @@ function decodeRfc2231(value) {
   }
 }
 
+const ENCODED_WORD_PATTERN = /=\?([^\s?]+)\?([bqBQ])\?([\x21-\x3e\x40-\x7e]+)\?=/g;
+const ENCODED_WORD_MAX_LENGTH = 75;
+const HEADER_CONTROL = /[\u0000-\u001f\u007f]/;
+const RFC2047_CHARSET_TOKEN = /^[\x21-\x7e]+$/;
+const RFC2047_CHARSET_SPECIALS = '()<>@,;:\"/?.=';
+const RFC2231_LANGUAGE_TAG = /^[A-Za-z]{1,8}(?:-[A-Za-z0-9]{1,8})*$/;
+
+function encodedWordCharsetName(charset) {
+  const languageSeparator = charset.indexOf('*');
+  const charsetName = languageSeparator === -1 ? charset : charset.slice(0, languageSeparator);
+  const language = languageSeparator === -1 ? '' : charset.slice(languageSeparator + 1);
+  if (!RFC2047_CHARSET_TOKEN.test(charsetName)
+    || [...charsetName].some((character) => RFC2047_CHARSET_SPECIALS.includes(character))) return null;
+  if (languageSeparator !== -1
+    && (charset.indexOf('*', languageSeparator + 1) !== -1 || !RFC2231_LANGUAGE_TAG.test(language))) return null;
+  return charsetName;
+}
+
+function decodeEncodedWord(charset, encoding, text) {
+  try {
+    const charsetName = encodedWordCharsetName(charset);
+    if (!charsetName || text.length === 0) return null;
+    let bytes;
+    if (encoding.toLowerCase() === 'b') {
+      if (!/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(text)) return null;
+      bytes = Buffer.from(text, 'base64');
+    } else {
+      if (/=(?![0-9A-Fa-f]{2})/.test(text)) return null;
+      bytes = Buffer.from(text.replace(/_/g, ' ').replace(/=([0-9A-Fa-f]{2})/g, (_, hex) => String.fromCharCode(Number.parseInt(hex, 16))), 'latin1');
+    }
+    const normalizedCharset = /^utf-?8$/i.test(charsetName) ? 'utf-8' : charsetName;
+    const decoded = new TextDecoder(normalizedCharset, { fatal: true }).decode(bytes);
+    return HEADER_CONTROL.test(decoded) ? null : decoded;
+  } catch {
+    return null;
+  }
+}
+
 /** RFC 2047 encoded words (=?utf-8?B?...?= / =?utf-8?Q?...?=). */
 export function decodeEncodedWords(value) {
-  return String(value || '').replace(/=\?([^?]+)\?([bqBQ])\?([^?]*)\?=/g, (_, charset, encoding, text) => {
-    try {
-      const bytes = encoding.toLowerCase() === 'b'
-        ? Buffer.from(text, 'base64')
-        : Buffer.from(text.replace(/_/g, ' ').replace(/=([0-9A-Fa-f]{2})/g, (__, hex) => String.fromCharCode(Number.parseInt(hex, 16))), 'latin1');
-      return new TextDecoder(/utf-?8/i.test(charset) ? 'utf-8' : 'latin1').decode(bytes);
-    } catch {
-      return text;
-    }
-  });
+  const input = String(value || '');
+  let decoded = '';
+  let cursor = 0;
+  let previousWordDecoded = false;
+  for (const match of input.matchAll(ENCODED_WORD_PATTERN)) {
+    const start = match.index ?? 0;
+    const separator = input.slice(cursor, start);
+    const word = match[0].length <= ENCODED_WORD_MAX_LENGTH
+      ? decodeEncodedWord(match[1], match[2], match[3])
+      : null;
+    if (!(previousWordDecoded && word !== null && /^[ \t\r\n]*$/.test(separator))) decoded += separator;
+    decoded += word ?? match[0];
+    previousWordDecoded = word !== null;
+    cursor = start + match[0].length;
+  }
+  return decoded + input.slice(cursor);
 }
 
 function decodeBody(body, transferEncoding) {

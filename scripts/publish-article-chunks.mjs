@@ -209,6 +209,19 @@ function readCliValue(flag) {
   return process.argv[index + 1];
 }
 
+function readIncludedIds(file) {
+  let parsed;
+  try {
+    parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch (err) {
+    throw new Error(`[publish-article-chunks] cannot read --include-ids-file ${file}: ${err.message}`);
+  }
+  if (!Array.isArray(parsed) || parsed.length === 0 || parsed.some((id) => typeof id !== 'string' || id.length === 0)) {
+    throw new Error(`[publish-article-chunks] --include-ids-file ${file} must contain a non-empty JSON array of article ids`);
+  }
+  return new Set(parsed);
+}
+
 export function chunksForSection(section) {
   if (section === undefined) {
     return { registries: REGISTRIES, companions: COMPANION_CHUNKS };
@@ -243,18 +256,39 @@ function getEsbuildApi() {
  * point this at the real repo without any network/CDN side effect.
  * `namespaceExport` (see REGISTRIES) adds the module namespace under that
  * name, next to the module's own exports, through a generated entry.
+ * `includeIds` is the bounded, live-proven subset used when a hub handoff is
+ * mixed: the source registry remains untouched, but the CDN list cannot name
+ * an article whose hub card is not yet served.
  */
-export async function buildRegistryChunk(rootDir, sourceRel, outFile, { namespaceExport } = {}) {
+export async function buildRegistryChunk(
+  rootDir,
+  sourceRel,
+  outFile,
+  { namespaceExport, exportName, includeIds } = {},
+) {
   const moduleFile = path.join(rootDir, sourceRel);
   let src = moduleFile;
   let entryDir = null;
-  if (namespaceExport) {
+  if (includeIds && (!namespaceExport || !exportName)) {
+    throw new Error('[publish-article-chunks] filtered registry rebuild requires namespaceExport and exportName');
+  }
+  if (namespaceExport || includeIds) {
     entryDir = fs.mkdtempSync(path.join(os.tmpdir(), 'publish-article-chunks-entry-'));
     src = path.join(entryDir, 'entry.mjs');
     const specifier = JSON.stringify(moduleFile);
+    const entrySource = includeIds
+      ? [
+        `import * as source from ${specifier};`,
+        `const includedIds = new Set(${JSON.stringify([...includeIds])});`,
+        `const ${exportName} = source.${exportName}.filter((article) => includedIds.has(article.id));`,
+        `const ${namespaceExport} = { ...source, ${exportName} };`,
+        `export { ${exportName}, ${namespaceExport} };`,
+        '',
+      ].join('\n')
+      : `export * from ${specifier};\nimport * as namespace from ${specifier};\nexport { namespace as ${namespaceExport} };\n`;
     fs.writeFileSync(
       src,
-      `export * from ${specifier};\nimport * as namespace from ${specifier};\nexport { namespace as ${namespaceExport} };\n`,
+      entrySource,
     );
   }
   try {
@@ -380,10 +414,19 @@ async function main() {
   const strict = process.argv.includes('--strict');
   const noTicker = process.argv.includes('--no-ticker');
   const section = readCliValue('--section');
+  const hasIncludeIdsFile = process.argv.includes('--include-ids-file');
+  const includeIdsFile = readCliValue('--include-ids-file');
   if (tickerOnly && (strict || noTicker || section !== undefined)) {
     throw new Error('[publish-article-chunks] --ticker-only cannot be combined with --strict, --no-ticker, or --section');
   }
+  if (hasIncludeIdsFile && !includeIdsFile) {
+    throw new Error('[publish-article-chunks] --include-ids-file requires a file path');
+  }
+  if (includeIdsFile && section === undefined) {
+    throw new Error('[publish-article-chunks] --include-ids-file requires --section');
+  }
   const selected = chunksForSection(section);
+  const includedIds = includeIdsFile ? readIncludedIds(includeIdsFile) : null;
   const cfApiToken = process.env.CF_API_TOKEN;
   // Strict mode must fail before the first CDN upload. Otherwise a missing
   // purge credential can leave the client companions/registry ahead of the
@@ -430,7 +473,11 @@ async function main() {
     const outFile = path.join(tmpDir, path.basename(registry.cdnKey));
     try {
       console.log(`[publish-article-chunks] rebuilding ${registry.source} -> ${outFile}`);
-      await buildRegistryChunk(ROOT_DIR, registry.source, outFile, { namespaceExport: registry.namespaceExport });
+      await buildRegistryChunk(ROOT_DIR, registry.source, outFile, {
+        namespaceExport: registry.namespaceExport,
+        exportName: registry.exportName,
+        includeIds: includedIds,
+      });
       const value = await validateRegistryChunk(outFile, registry.exportName, 'array', registry.namespaceExport);
       console.log(`[publish-article-chunks] ${registry.exportName}: ${value.length} entries`);
       if (registry.exportName === 'ARTICLES') blogArticles = value;

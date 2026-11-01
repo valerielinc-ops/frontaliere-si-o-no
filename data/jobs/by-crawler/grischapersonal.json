@@ -1,7 +1,7 @@
 {
   "crawlerKey": "grischapersonal",
-  "assembledAt": "2026-10-31T09:12:36.852Z",
-  "runId": "41186993103",
+  "assembledAt": "2026-10-31T21:24:09.841Z",
+  "runId": "41241671182",
   "jobs": [
     {
       "id": "grischapersonal-b676cd369d35",
@@ -34,7 +34,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=b3db3e633a3c#:~:text=GER%C3%9CSTBAUHELFER%20MIT%20BERUFSERFAHRUNG%20(m%2Fw)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.559Z",
+      "crawledAt": "2026-10-31T21:24:00.196Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=a49cb87c8254#:~:text=GEB%C3%84UDEH%C3%9CLLENGEWERBE%3A%20DACHDECKER%20FLACHDACH%20%2F%20STEILDACH%20%2F%20SPENGLER",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.558Z",
+      "crawledAt": "2026-10-31T21:24:00.195Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=dfeef8f594f1#:~:text=BETRIEBSMITARBEITER%20FLEISCHVERARBEITUNG%20(m%2Fw)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.557Z",
+      "crawledAt": "2026-10-31T21:24:00.194Z",
       "addressLocality": "Region Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -292,7 +292,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=2e2ef90e9506#:~:text=BETRIEBSELEKTRIKER%20PRODUKTIONSANLAGEN%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.556Z",
+      "crawledAt": "2026-10-31T21:24:00.192Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -376,7 +376,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=bcacbaccad00#:~:text=HEIZUNGSINSTALLATEUR%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.555Z",
+      "crawledAt": "2026-10-31T21:24:00.191Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -460,7 +460,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=e1b24c878123#:~:text=BAUF%C3%9CHRER%20GER%C3%9CSTBAU%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.555Z",
+      "crawledAt": "2026-10-31T21:24:00.191Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -544,7 +544,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=0a1b3b10e76b#:~:text=METALLBAUMONTEUR%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.554Z",
+      "crawledAt": "2026-10-31T21:24:00.189Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -621,7 +621,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=21d79ad5ccda#:~:text=ISOLEUR%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.553Z",
+      "crawledAt": "2026-10-31T21:24:00.188Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -698,7 +698,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=c17af59addb5#:~:text=HOLZBAU%20POLIER%20%2F%20TECHNIKER%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.552Z",
+      "crawledAt": "2026-10-31T21:24:00.187Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -754,90 +754,6 @@
       "postalCode": "7000"
     },
     {
-      "id": "grischapersonal-8238ca317c24",
-      "slug": "montatore-di-ponteggi-efz-m-f-d-grischa-personal-ag-zurich",
-      "slugByLocale": {
-        "it": "montatore-di-ponteggi-efz-m-f-d-grischa-personal-ag-zurich",
-        "en": "scaffolder-scaffold-erector-efz-m-f-d-grischa-personal-ag-zurich",
-        "de": "gerustbauer-gerustmonteur-efz-m-w-d-zurich-grischapersonal-ch",
-        "fr": "monteur-d-echafaudages-efz-h-f-d-grischa-personal-ag-zurich"
-      },
-      "company": "Grischa Personal AG",
-      "companyKey": "grischapersonal",
-      "companyDomain": "grischapersonal.ch",
-      "title": "GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)",
-      "titleByLocale": {
-        "it": "Montatore di ponteggi EFZ (m/f/d)",
-        "en": "Scaffolder / Scaffold Erector EFZ (m/f/d)",
-        "de": "GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)",
-        "fr": "Monteur d'échafaudages EFZ (h/f/d)"
-      },
-      "description": "Wir suchen per sofort oder nach Vereinbarung eine/n engagierte/n\nGERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)\nArbeitsort: Zürich\nAufgaben\n• Montage- und Demontagearbeiten Fassadengerüsten\n• Beladen und Entladen von Fahrzeugen\n• Instandhaltung der Gerüste\n• Anbringen von Planen, Netzten und Notdächern\nProfil\n• Abgeschlossene Ausbildung als Gerüstmonteur/Gerüstbauer EFZ\n• Selbständiges, verantwortungsbewusstes und zuverlässiges Arbeiten\n• Teamplayer\n• Hohe körperliche Belastbarkeit\n• Führerschein Kat. B und Auto\n• Gute Deutschkenntnisse\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen gerne zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/f/d) posto di lavoro: Zurigo Compiti\n• Servizi di installazione e smontaggio di ponteggio facciate\n• Caricamento e scarico di veicoli\n• Manutenzione del ponteggio\n• Attaccamento di teloni, reti e tetti di emergenza\n• Allenamento completo come scaffolder/scaffolder EFZ\n• Lavoro indipendente, responsabile e affidabile\n• Giocatore di squadra\n• Elevata forza fisica\n• Patente di guida Cat B e auto\n• Buona conoscenza del tedesco interessato? Contattaci oggi! Inviate i vostri documenti di applicazione completi a Ivo Januth, ma le domande per posta non saranno restituite. Se avete domande, siamo a vostra disposizione.",
-        "en": "We are looking for an engaged GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/f/d) place of work: Zurich Tasks\n• Installation and dismantling services of facade scaffolding\n• Loading and unloading of vehicles\n• Scaffolding maintenance\n• Attachment of tarpaulins, nets and emergency roofs\n• Completed training as scaffolder/scaffolder EFZ\n• Independent, responsible and reliable work\n• Teamplayer\n• High physical strength\n• Driving licence Cat B and car\n• Good knowledge of German Interested? Contact us today! You send your complete application documents to Ivo Januth, but applications by post will not be returned. If you have any questions, we are at your disposal.",
-        "de": "Wir suchen per sofort oder nach Vereinbarung eine/n engagierte/n\nGERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)\nArbeitsort: Zürich\nAufgaben\n• Montage- und Demontagearbeiten Fassadengerüsten\n• Beladen und Entladen von Fahrzeugen\n• Instandhaltung der Gerüste\n• Anbringen von Planen, Netzten und Notdächern\nProfil\n• Abgeschlossene Ausbildung als Gerüstmonteur/Gerüstbauer EFZ\n• Selbständiges, verantwortungsbewusstes und zuverlässiges Arbeiten\n• Teamplayer\n• Hohe körperliche Belastbarkeit\n• Führerschein Kat. B und Auto\n• Gute Deutschkenntnisse\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen gerne zur Verfügung.",
-        "fr": "Nous recherchons un lieu de travail engagé GERÜSTBAUER / GERÜSTMONTEUR EFZ (h/f/d): Zurich Tâches\n• Installation et démontage d'échafaudages de façade\n• Chargement et déchargement des véhicules\n• Entretien des échafaudages\n• Fixation des bâches, des filets et des toits de secours\n• Formation terminée en tant qu'échafaudeur/scaffoldeur EFZ\n• Travail indépendant, responsable et fiable\n• Joueur d'équipe\n• Haute force physique\n• Permis de conduire Cat B et voiture\n• Bonne connaissance de l'allemand Intéressé? Contactez-nous aujourd'hui! Vous envoyez vos documents de candidature complets à Ivo Januth, mais les demandes par la poste ne seront pas retournées. Si vous avez des questions, nous sommes à votre disposition."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://grischapersonal.ch/stellen/?jobid=97928a1b821f#:~:text=GER%C3%9CSTBAUER%20%2F%20GER%C3%9CSTMONTEUR%20EFZ%20(m%2Fw%2Fd)",
-      "source": "Grischa Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.551Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-09-30T12:00:08+02:00",
-      "postedDate": "2024-09-30T12:00:08+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=97928a1b821f#:~:text=GER%C3%9CSTBAUER%20%2F%20GER%C3%9CSTMONTEUR%20EFZ%20(m%2Fw%2Fd)",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich",
-        "gerustbauer-gerustmonteur-efz-m-w-d-zurich-grischapersonal-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich",
-          "gerustbauer-gerustmonteur-efz-m-w-d-zurich-grischapersonal-ch"
-        ],
-        "en": [
-          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich"
-        ],
-        "de": [
-          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich"
-        ],
-        "fr": [
-          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-27T05:13:26.238Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001"
-    },
-    {
       "id": "grischapersonal-96fde9e7990a",
       "slug": "lavoratori-di-construzione-m-f-d-grischa-personal-ag-graubunden",
       "slugByLocale": {
@@ -868,7 +784,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=bc5132ca89a7#:~:text=BAUARBEITER%20LAWINENVERBAUUNGEN%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.551Z",
+      "crawledAt": "2026-10-31T21:24:00.186Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -952,7 +868,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=5cd9d69cb14a#:~:text=SANIT%C3%84RINSTALLATEUR%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.550Z",
+      "crawledAt": "2026-10-31T21:24:00.184Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1008,6 +924,90 @@
       "postalCode": "7000"
     },
     {
+      "id": "grischapersonal-8238ca317c24",
+      "slug": "montatore-di-ponteggi-efz-m-f-d-grischa-personal-ag-zurich",
+      "slugByLocale": {
+        "it": "montatore-di-ponteggi-efz-m-f-d-grischa-personal-ag-zurich",
+        "en": "scaffolder-scaffold-erector-efz-m-f-d-grischa-personal-ag-zurich",
+        "de": "gerustbauer-gerustmonteur-efz-m-w-d-zurich-grischapersonal-ch",
+        "fr": "monteur-d-echafaudages-efz-h-f-d-grischa-personal-ag-zurich"
+      },
+      "company": "Grischa Personal AG",
+      "companyKey": "grischapersonal",
+      "companyDomain": "grischapersonal.ch",
+      "title": "GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)",
+      "titleByLocale": {
+        "it": "Montatore di ponteggi EFZ (m/f/d)",
+        "en": "Scaffolder / Scaffold Erector EFZ (m/f/d)",
+        "de": "GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)",
+        "fr": "Monteur d'échafaudages EFZ (h/f/d)"
+      },
+      "description": "Wir suchen per sofort oder nach Vereinbarung eine/n engagierte/n\nGERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)\nArbeitsort: Zürich\nAufgaben\n• Montage- und Demontagearbeiten Fassadengerüsten\n• Beladen und Entladen von Fahrzeugen\n• Instandhaltung der Gerüste\n• Anbringen von Planen, Netzten und Notdächern\nProfil\n• Abgeschlossene Ausbildung als Gerüstmonteur/Gerüstbauer EFZ\n• Selbständiges, verantwortungsbewusstes und zuverlässiges Arbeiten\n• Teamplayer\n• Hohe körperliche Belastbarkeit\n• Führerschein Kat. B und Auto\n• Gute Deutschkenntnisse\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen gerne zur Verfügung.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/f/d) posto di lavoro: Zurigo Compiti\n• Servizi di installazione e smontaggio di ponteggio facciate\n• Caricamento e scarico di veicoli\n• Manutenzione del ponteggio\n• Attaccamento di teloni, reti e tetti di emergenza\n• Allenamento completo come scaffolder/scaffolder EFZ\n• Lavoro indipendente, responsabile e affidabile\n• Giocatore di squadra\n• Elevata forza fisica\n• Patente di guida Cat B e auto\n• Buona conoscenza del tedesco interessato? Contattaci oggi! Inviate i vostri documenti di applicazione completi a Ivo Januth, ma le domande per posta non saranno restituite. Se avete domande, siamo a vostra disposizione.",
+        "en": "We are looking for an engaged GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/f/d) place of work: Zurich Tasks\n• Installation and dismantling services of facade scaffolding\n• Loading and unloading of vehicles\n• Scaffolding maintenance\n• Attachment of tarpaulins, nets and emergency roofs\n• Completed training as scaffolder/scaffolder EFZ\n• Independent, responsible and reliable work\n• Teamplayer\n• High physical strength\n• Driving licence Cat B and car\n• Good knowledge of German Interested? Contact us today! You send your complete application documents to Ivo Januth, but applications by post will not be returned. If you have any questions, we are at your disposal.",
+        "de": "Wir suchen per sofort oder nach Vereinbarung eine/n engagierte/n\nGERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)\nArbeitsort: Zürich\nAufgaben\n• Montage- und Demontagearbeiten Fassadengerüsten\n• Beladen und Entladen von Fahrzeugen\n• Instandhaltung der Gerüste\n• Anbringen von Planen, Netzten und Notdächern\nProfil\n• Abgeschlossene Ausbildung als Gerüstmonteur/Gerüstbauer EFZ\n• Selbständiges, verantwortungsbewusstes und zuverlässiges Arbeiten\n• Teamplayer\n• Hohe körperliche Belastbarkeit\n• Führerschein Kat. B und Auto\n• Gute Deutschkenntnisse\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen gerne zur Verfügung.",
+        "fr": "Nous recherchons un lieu de travail engagé GERÜSTBAUER / GERÜSTMONTEUR EFZ (h/f/d): Zurich Tâches\n• Installation et démontage d'échafaudages de façade\n• Chargement et déchargement des véhicules\n• Entretien des échafaudages\n• Fixation des bâches, des filets et des toits de secours\n• Formation terminée en tant qu'échafaudeur/scaffoldeur EFZ\n• Travail indépendant, responsable et fiable\n• Joueur d'équipe\n• Haute force physique\n• Permis de conduire Cat B et voiture\n• Bonne connaissance de l'allemand Intéressé? Contactez-nous aujourd'hui! Vous envoyez vos documents de candidature complets à Ivo Januth, mais les demandes par la poste ne seront pas retournées. Si vous avez des questions, nous sommes à votre disposition."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://grischapersonal.ch/stellen/?jobid=97928a1b821f#:~:text=GER%C3%9CSTBAUER%20%2F%20GER%C3%9CSTMONTEUR%20EFZ%20(m%2Fw%2Fd)",
+      "source": "Grischa Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-31T21:24:00.184Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-09-30T12:00:08+02:00",
+      "postedDate": "2024-09-30T12:00:08+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=97928a1b821f#:~:text=GER%C3%9CSTBAUER%20%2F%20GER%C3%9CSTMONTEUR%20EFZ%20(m%2Fw%2Fd)",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich",
+        "gerustbauer-gerustmonteur-efz-m-w-d-zurich-grischapersonal-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich",
+          "gerustbauer-gerustmonteur-efz-m-w-d-zurich-grischapersonal-ch"
+        ],
+        "en": [
+          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich"
+        ],
+        "de": [
+          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich"
+        ],
+        "fr": [
+          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-27T05:13:26.238Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001"
+    },
+    {
       "id": "grischapersonal-39fb566c8ad2",
       "slug": "macellaio-efz-m-f-d-grischa-personal-ag-region-chur",
       "slugByLocale": {
@@ -1038,7 +1038,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=34e311e0657c#:~:text=METZGER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.549Z",
+      "crawledAt": "2026-10-31T21:24:00.182Z",
       "addressLocality": "Region Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1124,7 +1124,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=ee39a05cf019#:~:text=POLIER%20STRASSENBAU%2FTIEFBAU%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.548Z",
+      "crawledAt": "2026-10-31T21:24:00.179Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1206,7 +1206,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=019125e7f174#:~:text=GER%C3%9CSTBAUER%20EFZ%20MIT%20LKW%2DF%C3%9CHRERSCHEIN%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.548Z",
+      "crawledAt": "2026-10-31T21:24:00.179Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1284,7 +1284,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=1e7165c66c1a#:~:text=BAUMASCHINENF%C3%9CHRER%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.547Z",
+      "crawledAt": "2026-10-31T21:24:00.177Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1368,7 +1368,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=ba1896af07b7#:~:text=STRASSENBAUER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.546Z",
+      "crawledAt": "2026-10-31T21:24:00.176Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1452,7 +1452,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=b54030455bbb#:~:text=VORARBEITER%20ZIMMERMANN%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.545Z",
+      "crawledAt": "2026-10-31T21:24:00.175Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1530,7 +1530,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=0ac7c2b89d28#:~:text=DACHDECKER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.544Z",
+      "crawledAt": "2026-10-31T21:24:00.173Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1608,7 +1608,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=9e7f96cbd38c#:~:text=BAUSPENGLER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.543Z",
+      "crawledAt": "2026-10-31T21:24:00.172Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1698,7 +1698,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=0aee309cb88d#:~:text=Maurer%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.542Z",
+      "crawledAt": "2026-10-31T21:24:00.171Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1776,7 +1776,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=42943d2bbf37#:~:text=METALLBAUER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.541Z",
+      "crawledAt": "2026-10-31T21:24:00.169Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1830,84 +1830,6 @@
       "postalCode": "7000"
     },
     {
-      "id": "grischapersonal-49663e5caf92",
-      "slug": "zimmermann-cfc-m-w-d-grischa-personal-ag-graubunden",
-      "slugByLocale": {
-        "it": "zimmermann-cfc-m-w-d-grischa-personal-ag-graubunden",
-        "en": "zimmermann-efz-m-w-d-grischa-personal-ag-graubunden",
-        "de": "zimmermann-efz-m-w-d-graubunden-grischapersonal-ch",
-        "fr": "zimmermann-efz-m-w-d-grischa-personal-ag-graubunden"
-      },
-      "company": "Grischa Personal AG",
-      "companyKey": "grischapersonal",
-      "companyDomain": "grischapersonal.ch",
-      "title": "ZIMMERMANN EFZ (m/w/d)",
-      "titleByLocale": {
-        "it": "ZIMMERMANN CFC (m/w/d)",
-        "en": "ZIMMERMANN EFZ (m/f/d)",
-        "de": "ZIMMERMANN EFZ (m/w/d)",
-        "fr": "ZIMMERMANN EFZ (h/f/d)"
-      },
-      "description": "Wir suchen per sofort oder nach Vereinbarung motivierte Berufsleute!\nZIMMERMANN EFZ (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Selbstständiges Anfertigen und Montieren von Holzkonstruktionen wie Dachstühle, Fassaden, Treppen, Wände, Decken und Böden\n- Verarbeiten von Massivholz, Holzwerkstoffen sowie weiteren Baumaterialien\n- Durchführung von Renovationsarbeiten an Altbauten sowie Neubauten\n- Erstellen und sanieren von verschiedenen Bauwerken im Innen- und Aussenbereich\n- Arbeiten in Werkstatt und auf Baustellen, je nach Projektanforderung\n- Verantwortlich für die qualitativ einwandfreie, technische und termingerechte Ausführung der Arbeiten\n- Bedienen von verschiedenen Maschinen und Geräten zur Holzbearbeitung\nProfil\n- Abgeschlossene Ausbildung als Zimmermann EFZ\n- Handwerkliches Geschick und technisches Verständnis\n- Körperliche Belastbarkeit und Freude an der Arbeit im Freien\n- Selbständige, sorgfältige und zuverlässige Arbeitsweise\n- Führerschein Kat. B und Auto\n- Gute Deutschkenntnisse\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen gerne zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Siamo alla ricerca di professionisti motivati immediatamente o di accordo!\nZIMMERMANN EFZ (m/f/d)\nUbicazione: Grigioni\nCompiti\n- Fabbricazione e montaggio di strutture in legno come coperture, facciate, scale, pareti, soffitti e pavimenti\n- Lavorazione di legno massiccio, materiali a base di legno e altri materiali da costruzione\n- Attuazione di ristrutturazioni di vecchi edifici e nuovi edifici\n- Edilizia e ristrutturazione di vari edifici interni ed esterni\n- Lavoro in laboratori e su cantieri, a seconda dei requisiti di progetto\n- Responsabile per la qualità, tecnica e tempestiva esecuzione del lavoro\n- Funzionamento di vari macchinari e attrezzature per la lavorazione del legno\nProfilo\n- Allenamento completo come falegname EFZ\n- Artigianato e comprensione tecnica\n- Resilienza fisica e gioia al lavoro all'aperto\n- Lavoro autonomo, attento e affidabile\n- Patente di guida Cat B e auto\n- Buona conoscenza del tedesco\nSi prega di inviare i documenti di richiesta completa a Ivo Januth, bewerbung@grischapersonal.ch\nLe domande per posta non saranno comunque restituite.\nSe avete domande, siamo a vostra disposizione.",
-        "en": "We are looking for motivated professionals immediately or by agreement! ZIMMERMANN EFZ (m/f/d) Place of work: Graubünden\n• Tasks - Independent production and assembly of wooden structures such as roof trusses, facades, stairs, walls, ceilings and floors - Processing of solid wood, wood-based materials and other building materials - Carrying out renovation work on old buildings as well as new buildings - Building and renovation of various buildings in the interior and exterior areas - Work in workshops and on construction sites, depending on the project requirement - Responsible for the quality-impeccable, technical and timely execution of the work - Operation of various machines and equipment for woodworking profile - Completed training as carpenter EFZ - Craftsman skill and technical understanding - Physical resilience and pleasure in working outdoors - Self-employed, careful and reliable work - Driving licence Cat. B and Auto - Good knowledge of German You can send your complete application documents to Ivo Januth, bewerbung@grischapersonal.ch Applications by post will be considered but will not be returned. If you have any questions, we are at your disposal.",
-        "de": "Wir suchen per sofort oder nach Vereinbarung motivierte Berufsleute!\nZIMMERMANN EFZ (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Selbstständiges Anfertigen und Montieren von Holzkonstruktionen wie Dachstühle, Fassaden, Treppen, Wände, Decken und Böden\n- Verarbeiten von Massivholz, Holzwerkstoffen sowie weiteren Baumaterialien\n- Durchführung von Renovationsarbeiten an Altbauten sowie Neubauten\n- Erstellen und sanieren von verschiedenen Bauwerken im Innen- und Aussenbereich\n- Arbeiten in Werkstatt und auf Baustellen, je nach Projektanforderung\n- Verantwortlich für die qualitativ einwandfreie, technische und termingerechte Ausführung der Arbeiten\n- Bedienen von verschiedenen Maschinen und Geräten zur Holzbearbeitung\nProfil\n- Abgeschlossene Ausbildung als Zimmermann EFZ\n- Handwerkliches Geschick und technisches Verständnis\n- Körperliche Belastbarkeit und Freude an der Arbeit im Freien\n- Selbständige, sorgfältige und zuverlässige Arbeitsweise\n- Führerschein Kat. B und Auto\n- Gute Deutschkenntnisse\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen gerne zur Verfügung.",
-        "fr": "Nous sommes à la recherche de professionnels motivés immédiatement ou par accord! ZIMMERMANN EFZ (h/f/d) Lieu de travail: Graubünden\n• Tâches - Production et assemblage indépendants de structures en bois telles que des fermes de toit, des façades, des escaliers, des murs, des plafonds et des planchers - Transformation du bois massif, des matériaux à base de bois et d'autres matériaux de construction - Réalisation de travaux de rénovation sur des bâtiments anciens ainsi que de nouveaux bâtiments - Construction et rénovation de divers bâtiments dans l'intérieur et l'extérieur - Travaux dans des ateliers et sur des chantiers de construction, selon les besoins du projet - Responsable de l'exécution des travaux de qualité, impeccables, techniques et en temps utile - Exploitation de diverses machines et équipements pour le profil de travail du bois - Formation complète en tant que charpentier EFZ - Compétences et compréhension technique - Résilience physique et plaisir dans le travail à l'extérieur - Travail indépendant, soigné et fiable - Permis de conduire Cat. B et Auto - Bonne connaissance de l'allemand Vous pouvez envoyer vos documents de candidature complets à Ivo Januth, bewerbung@grischapersonal.ch Les demandes par poste seront examinées mais ne seront pas retournées. Si vous avez des questions, nous sommes à votre disposition."
-      },
-      "location": "Graubünden",
-      "canton": "GR",
-      "url": "https://grischapersonal.ch/stellen/?jobid=ce5a71eb054c#:~:text=ZIMMERMANN%20EFZ%20(m%2Fw%2Fd)",
-      "source": "Grischa Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.540Z",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-09-30T12:00:42+02:00",
-      "postedDate": "2024-09-30T12:00:42+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=ce5a71eb054c#:~:text=ZIMMERMANN%20EFZ%20(m%2Fw%2Fd)",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "zimmermann-efz-m-w-d-grischa-personal-ag-graubunden",
-        "zimmermann-efz-m-w-d-graubunden-grischapersonal-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "zimmermann-efz-m-w-d-grischa-personal-ag-graubunden",
-          "zimmermann-efz-m-w-d-graubunden-grischapersonal-ch"
-        ],
-        "de": [
-          "zimmermann-efz-m-w-d-grischa-personal-ag-graubunden"
-        ]
-      },
-      "firstSeenAt": "2026-09-27T05:13:26.228Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7000"
-    },
-    {
       "id": "grischapersonal-47a5477bfd28",
       "slug": "sviluppo-del-gruppo-m-f-d-grischa-personal-ag-zurich",
       "slugByLocale": {
@@ -1938,7 +1860,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=f17adb7c9740#:~:text=GRUPPENLEITER%20GER%C3%9CSTBAU%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.540Z",
+      "crawledAt": "2026-10-31T21:24:00.168Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1992,6 +1914,84 @@
       "postalCode": "8001"
     },
     {
+      "id": "grischapersonal-49663e5caf92",
+      "slug": "zimmermann-cfc-m-w-d-grischa-personal-ag-graubunden",
+      "slugByLocale": {
+        "it": "zimmermann-cfc-m-w-d-grischa-personal-ag-graubunden",
+        "en": "zimmermann-efz-m-w-d-grischa-personal-ag-graubunden",
+        "de": "zimmermann-efz-m-w-d-graubunden-grischapersonal-ch",
+        "fr": "zimmermann-efz-m-w-d-grischa-personal-ag-graubunden"
+      },
+      "company": "Grischa Personal AG",
+      "companyKey": "grischapersonal",
+      "companyDomain": "grischapersonal.ch",
+      "title": "ZIMMERMANN EFZ (m/w/d)",
+      "titleByLocale": {
+        "it": "ZIMMERMANN CFC (m/w/d)",
+        "en": "ZIMMERMANN EFZ (m/f/d)",
+        "de": "ZIMMERMANN EFZ (m/w/d)",
+        "fr": "ZIMMERMANN EFZ (h/f/d)"
+      },
+      "description": "Wir suchen per sofort oder nach Vereinbarung motivierte Berufsleute!\nZIMMERMANN EFZ (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Selbstständiges Anfertigen und Montieren von Holzkonstruktionen wie Dachstühle, Fassaden, Treppen, Wände, Decken und Böden\n- Verarbeiten von Massivholz, Holzwerkstoffen sowie weiteren Baumaterialien\n- Durchführung von Renovationsarbeiten an Altbauten sowie Neubauten\n- Erstellen und sanieren von verschiedenen Bauwerken im Innen- und Aussenbereich\n- Arbeiten in Werkstatt und auf Baustellen, je nach Projektanforderung\n- Verantwortlich für die qualitativ einwandfreie, technische und termingerechte Ausführung der Arbeiten\n- Bedienen von verschiedenen Maschinen und Geräten zur Holzbearbeitung\nProfil\n- Abgeschlossene Ausbildung als Zimmermann EFZ\n- Handwerkliches Geschick und technisches Verständnis\n- Körperliche Belastbarkeit und Freude an der Arbeit im Freien\n- Selbständige, sorgfältige und zuverlässige Arbeitsweise\n- Führerschein Kat. B und Auto\n- Gute Deutschkenntnisse\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen gerne zur Verfügung.",
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di professionisti motivati immediatamente o di accordo!\nZIMMERMANN EFZ (m/f/d)\nUbicazione: Grigioni\nCompiti\n- Fabbricazione e montaggio di strutture in legno come coperture, facciate, scale, pareti, soffitti e pavimenti\n- Lavorazione di legno massiccio, materiali a base di legno e altri materiali da costruzione\n- Attuazione di ristrutturazioni di vecchi edifici e nuovi edifici\n- Edilizia e ristrutturazione di vari edifici interni ed esterni\n- Lavoro in laboratori e su cantieri, a seconda dei requisiti di progetto\n- Responsabile per la qualità, tecnica e tempestiva esecuzione del lavoro\n- Funzionamento di vari macchinari e attrezzature per la lavorazione del legno\nProfilo\n- Allenamento completo come falegname EFZ\n- Artigianato e comprensione tecnica\n- Resilienza fisica e gioia al lavoro all'aperto\n- Lavoro autonomo, attento e affidabile\n- Patente di guida Cat B e auto\n- Buona conoscenza del tedesco\nSi prega di inviare i documenti di richiesta completa a Ivo Januth, bewerbung@grischapersonal.ch\nLe domande per posta non saranno comunque restituite.\nSe avete domande, siamo a vostra disposizione.",
+        "en": "We are looking for motivated professionals immediately or by agreement! ZIMMERMANN EFZ (m/f/d) Place of work: Graubünden\n• Tasks - Independent production and assembly of wooden structures such as roof trusses, facades, stairs, walls, ceilings and floors - Processing of solid wood, wood-based materials and other building materials - Carrying out renovation work on old buildings as well as new buildings - Building and renovation of various buildings in the interior and exterior areas - Work in workshops and on construction sites, depending on the project requirement - Responsible for the quality-impeccable, technical and timely execution of the work - Operation of various machines and equipment for woodworking profile - Completed training as carpenter EFZ - Craftsman skill and technical understanding - Physical resilience and pleasure in working outdoors - Self-employed, careful and reliable work - Driving licence Cat. B and Auto - Good knowledge of German You can send your complete application documents to Ivo Januth, bewerbung@grischapersonal.ch Applications by post will be considered but will not be returned. If you have any questions, we are at your disposal.",
+        "de": "Wir suchen per sofort oder nach Vereinbarung motivierte Berufsleute!\nZIMMERMANN EFZ (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Selbstständiges Anfertigen und Montieren von Holzkonstruktionen wie Dachstühle, Fassaden, Treppen, Wände, Decken und Böden\n- Verarbeiten von Massivholz, Holzwerkstoffen sowie weiteren Baumaterialien\n- Durchführung von Renovationsarbeiten an Altbauten sowie Neubauten\n- Erstellen und sanieren von verschiedenen Bauwerken im Innen- und Aussenbereich\n- Arbeiten in Werkstatt und auf Baustellen, je nach Projektanforderung\n- Verantwortlich für die qualitativ einwandfreie, technische und termingerechte Ausführung der Arbeiten\n- Bedienen von verschiedenen Maschinen und Geräten zur Holzbearbeitung\nProfil\n- Abgeschlossene Ausbildung als Zimmermann EFZ\n- Handwerkliches Geschick und technisches Verständnis\n- Körperliche Belastbarkeit und Freude an der Arbeit im Freien\n- Selbständige, sorgfältige und zuverlässige Arbeitsweise\n- Führerschein Kat. B und Auto\n- Gute Deutschkenntnisse\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen gerne zur Verfügung.",
+        "fr": "Nous sommes à la recherche de professionnels motivés immédiatement ou par accord! ZIMMERMANN EFZ (h/f/d) Lieu de travail: Graubünden\n• Tâches - Production et assemblage indépendants de structures en bois telles que des fermes de toit, des façades, des escaliers, des murs, des plafonds et des planchers - Transformation du bois massif, des matériaux à base de bois et d'autres matériaux de construction - Réalisation de travaux de rénovation sur des bâtiments anciens ainsi que de nouveaux bâtiments - Construction et rénovation de divers bâtiments dans l'intérieur et l'extérieur - Travaux dans des ateliers et sur des chantiers de construction, selon les besoins du projet - Responsable de l'exécution des travaux de qualité, impeccables, techniques et en temps utile - Exploitation de diverses machines et équipements pour le profil de travail du bois - Formation complète en tant que charpentier EFZ - Compétences et compréhension technique - Résilience physique et plaisir dans le travail à l'extérieur - Travail indépendant, soigné et fiable - Permis de conduire Cat. B et Auto - Bonne connaissance de l'allemand Vous pouvez envoyer vos documents de candidature complets à Ivo Januth, bewerbung@grischapersonal.ch Les demandes par poste seront examinées mais ne seront pas retournées. Si vous avez des questions, nous sommes à votre disposition."
+      },
+      "location": "Graubünden",
+      "canton": "GR",
+      "url": "https://grischapersonal.ch/stellen/?jobid=ce5a71eb054c#:~:text=ZIMMERMANN%20EFZ%20(m%2Fw%2Fd)",
+      "source": "Grischa Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-31T21:24:00.167Z",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-09-30T12:00:42+02:00",
+      "postedDate": "2024-09-30T12:00:42+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=ce5a71eb054c#:~:text=ZIMMERMANN%20EFZ%20(m%2Fw%2Fd)",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "zimmermann-efz-m-w-d-grischa-personal-ag-graubunden",
+        "zimmermann-efz-m-w-d-graubunden-grischapersonal-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-efz-m-w-d-grischa-personal-ag-graubunden",
+          "zimmermann-efz-m-w-d-graubunden-grischapersonal-ch"
+        ],
+        "de": [
+          "zimmermann-efz-m-w-d-grischa-personal-ag-graubunden"
+        ]
+      },
+      "firstSeenAt": "2026-09-27T05:13:26.228Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7000"
+    },
+    {
       "id": "grischapersonal-3aa6526cb7a5",
       "slug": "gipser-cfc-m-w-d-grischa-personal-ag-7000-chur",
       "slugByLocale": {
@@ -2022,7 +2022,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=6909d4c416b9#:~:text=GIPSER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.539Z",
+      "crawledAt": "2026-10-31T21:24:00.165Z",
       "addressLocality": "7000 Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2100,7 +2100,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=49229573c0b4#:~:text=MALER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.537Z",
+      "crawledAt": "2026-10-31T21:24:00.162Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2154,83 +2154,6 @@
       "postalCode": "7000"
     },
     {
-      "id": "grischapersonal-29c8d9260041",
-      "slug": "flachdachisoleur-cfc-m-w-d-grischa-personal-ag-zurich-oder-graubunden",
-      "slugByLocale": {
-        "it": "flachdachisoleur-cfc-m-w-d-grischa-personal-ag-zurich-oder-graubunden",
-        "en": "flachdachisoleur-efz-m-w-d-grischa-personal-ag-zurich-oder-graubunden",
-        "de": "flachdachisoleur-efz-m-w-d-zurich-oder-graubunden-grischapersonal-ch",
-        "fr": "flachdachisoleur-efz-m-w-d-grischa-personal-ag-zurich-oder-graubunden"
-      },
-      "company": "Grischa Personal AG",
-      "companyKey": "grischapersonal",
-      "companyDomain": "grischapersonal.ch",
-      "title": "FLACHDACHISOLEUR EFZ (m/w/d)",
-      "titleByLocale": {
-        "it": "FLACHDACHISOLEUR CFC (m/w/d)",
-        "en": "FLACHDACHISOLEUR (m/f/d)",
-        "de": "FLACHDACHISOLEUR EFZ (m/w/d)",
-        "fr": "FLACHDACHISOLEUR (h/f/d)"
-      },
-      "description": "Wir suchen per sofort oder nach Vereinbarung eine/n engagierte/n\nFLACHDACHISOLEUR EFZ (m/w/d)\nArbeitsort: Zürich oder Graubünden\nAufgaben\n• Ausführung von Abdichtungsarbeiten, Bekleiden von Aussenwänden zur Wärmedämmung\n• Verschweissen von Bitumen und Kunststoffbahnen\n• Allgemeine Reparatur- und Dachdeckerarbeiten, Unterhaltsarbeiten\n• Rapportwesen\nProfil\n• Abgeschlossene Ausbildung als Flachdachisoleur EFZ mit mehrjähriger Berufserfahrung\n• Selbständiges, verantwortungsbewusstes und zuverlässiges Arbeiten\n• Führerschein Kat. B und Auto\n• Gute Deutschkenntnisse\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen jederzeit gerne zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Siamo alla ricerca di un posto di lavoro FLACHDACHISOLEUR EFZ (m/f/d) impegnato: compiti di Zurigo o Grigioni\n• Eseguire impermeabilizzazione e rivestimento di pareti esterne per isolamento termico\n• Saldatura dei web bitume e plastica\n• Lavori generali di riparazione e copertura, lavori di manutenzione\n• Profilo del report\n• Allenamento completo come sospensione per tetto piatto EFZ con diversi anni di esperienza professionale\n• Lavoro indipendente, responsabile e affidabile\n• Patente di guida Cat B e auto\n• Buona conoscenza del tedesco interessato? Contattaci oggi! Inviate i vostri documenti di applicazione completi a Ivo Januth, ma le domande per posta non saranno restituite. Se avete domande, siamo sempre a vostra disposizione.",
-        "en": "We are looking for an engaged FLACHDACHISOLEUR EFZ (m/f/d) place of work: Zurich or Graubünden tasks\n• Performing waterproofing and cladding of external walls for thermal insulation\n• Welding of bitumen and plastic webs\n• General repair and roofing work, maintenance work\n• Report profile\n• Completed training as a flat roof insoleur EFZ with several years of professional experience\n• Independent, responsible and reliable work\n• Driving licence Cat B and car\n• Good knowledge of German Interested? Contact us today! You send your complete application documents to Ivo Januth, but applications by post will not be returned. If you have any questions, we are always at your disposal.",
-        "de": "Wir suchen per sofort oder nach Vereinbarung eine/n engagierte/n\nFLACHDACHISOLEUR EFZ (m/w/d)\nArbeitsort: Zürich oder Graubünden\nAufgaben\n• Ausführung von Abdichtungsarbeiten, Bekleiden von Aussenwänden zur Wärmedämmung\n• Verschweissen von Bitumen und Kunststoffbahnen\n• Allgemeine Reparatur- und Dachdeckerarbeiten, Unterhaltsarbeiten\n• Rapportwesen\nProfil\n• Abgeschlossene Ausbildung als Flachdachisoleur EFZ mit mehrjähriger Berufserfahrung\n• Selbständiges, verantwortungsbewusstes und zuverlässiges Arbeiten\n• Führerschein Kat. B und Auto\n• Gute Deutschkenntnisse\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen jederzeit gerne zur Verfügung.",
-        "fr": "Nous recherchons un lieu de travail FLACHDACHISOLEUR EFZ (h/f/d) engagé: Zurich ou Graubünden tâches\n• Imperméabilisation et revêtement des parois extérieures pour l'isolation thermique\n• Soudage de bitume et de toiles en plastique\n• Travaux généraux de réparation et de toiture, d'entretien\n• Profil du rapport\n• Formation terminée en tant qu'insolateur à toit plat EFZ avec plusieurs années d'expérience professionnelle\n• Travail indépendant, responsable et fiable\n• Permis de conduire Cat B et voiture\n• Bonne connaissance de l'allemand Intéressé? Contactez-nous aujourd'hui! Vous envoyez vos documents de candidature complets à Ivo Januth, mais les demandes par la poste ne seront pas retournées. Si vous avez des questions, nous sommes toujours à votre disposition."
-      },
-      "location": "Zürich oder Graubünden",
-      "canton": "GR",
-      "url": "https://grischapersonal.ch/stellen/?jobid=2a6b2ad6fada#:~:text=FLACHDACHISOLEUR%20EFZ%20(m%2Fw%2Fd)",
-      "source": "Grischa Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.536Z",
-      "addressLocality": "Zürich oder Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-09-30T12:00:54+02:00",
-      "postedDate": "2024-09-30T12:00:54+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=2a6b2ad6fada#:~:text=FLACHDACHISOLEUR%20EFZ%20(m%2Fw%2Fd)",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "flachdachisoleur-efz-m-w-d-zurich-oder-graubunden-grischapersonal-ch",
-        "flachdachisoleur-efz-m-w-d-grischa-personal-ag-zurich-oder-graubunden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "flachdachisoleur-efz-m-w-d-zurich-oder-graubunden-grischapersonal-ch"
-        ],
-        "de": [
-          "flachdachisoleur-efz-m-w-d-grischa-personal-ag-zurich-oder-graubunden"
-        ]
-      },
-      "firstSeenAt": "2026-09-27T05:13:26.224Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7000"
-    },
-    {
       "id": "grischapersonal-85c7dabf1ff0",
       "slug": "light-efz-m-f-d-grischa-personal-ag-graubunden",
       "slugByLocale": {
@@ -2261,7 +2184,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=adf9c2d321a4#:~:text=SCHREINER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.536Z",
+      "crawledAt": "2026-10-31T21:24:00.161Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2312,6 +2235,83 @@
       "postalCode": "7000"
     },
     {
+      "id": "grischapersonal-29c8d9260041",
+      "slug": "flachdachisoleur-cfc-m-w-d-grischa-personal-ag-zurich-oder-graubunden",
+      "slugByLocale": {
+        "it": "flachdachisoleur-cfc-m-w-d-grischa-personal-ag-zurich-oder-graubunden",
+        "en": "flachdachisoleur-efz-m-w-d-grischa-personal-ag-zurich-oder-graubunden",
+        "de": "flachdachisoleur-efz-m-w-d-zurich-oder-graubunden-grischapersonal-ch",
+        "fr": "flachdachisoleur-efz-m-w-d-grischa-personal-ag-zurich-oder-graubunden"
+      },
+      "company": "Grischa Personal AG",
+      "companyKey": "grischapersonal",
+      "companyDomain": "grischapersonal.ch",
+      "title": "FLACHDACHISOLEUR EFZ (m/w/d)",
+      "titleByLocale": {
+        "it": "FLACHDACHISOLEUR CFC (m/w/d)",
+        "en": "FLACHDACHISOLEUR (m/f/d)",
+        "de": "FLACHDACHISOLEUR EFZ (m/w/d)",
+        "fr": "FLACHDACHISOLEUR (h/f/d)"
+      },
+      "description": "Wir suchen per sofort oder nach Vereinbarung eine/n engagierte/n\nFLACHDACHISOLEUR EFZ (m/w/d)\nArbeitsort: Zürich oder Graubünden\nAufgaben\n• Ausführung von Abdichtungsarbeiten, Bekleiden von Aussenwänden zur Wärmedämmung\n• Verschweissen von Bitumen und Kunststoffbahnen\n• Allgemeine Reparatur- und Dachdeckerarbeiten, Unterhaltsarbeiten\n• Rapportwesen\nProfil\n• Abgeschlossene Ausbildung als Flachdachisoleur EFZ mit mehrjähriger Berufserfahrung\n• Selbständiges, verantwortungsbewusstes und zuverlässiges Arbeiten\n• Führerschein Kat. B und Auto\n• Gute Deutschkenntnisse\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen jederzeit gerne zur Verfügung.",
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di un posto di lavoro FLACHDACHISOLEUR EFZ (m/f/d) impegnato: compiti di Zurigo o Grigioni\n• Eseguire impermeabilizzazione e rivestimento di pareti esterne per isolamento termico\n• Saldatura dei web bitume e plastica\n• Lavori generali di riparazione e copertura, lavori di manutenzione\n• Profilo del report\n• Allenamento completo come sospensione per tetto piatto EFZ con diversi anni di esperienza professionale\n• Lavoro indipendente, responsabile e affidabile\n• Patente di guida Cat B e auto\n• Buona conoscenza del tedesco interessato? Contattaci oggi! Inviate i vostri documenti di applicazione completi a Ivo Januth, ma le domande per posta non saranno restituite. Se avete domande, siamo sempre a vostra disposizione.",
+        "en": "We are looking for an engaged FLACHDACHISOLEUR EFZ (m/f/d) place of work: Zurich or Graubünden tasks\n• Performing waterproofing and cladding of external walls for thermal insulation\n• Welding of bitumen and plastic webs\n• General repair and roofing work, maintenance work\n• Report profile\n• Completed training as a flat roof insoleur EFZ with several years of professional experience\n• Independent, responsible and reliable work\n• Driving licence Cat B and car\n• Good knowledge of German Interested? Contact us today! You send your complete application documents to Ivo Januth, but applications by post will not be returned. If you have any questions, we are always at your disposal.",
+        "de": "Wir suchen per sofort oder nach Vereinbarung eine/n engagierte/n\nFLACHDACHISOLEUR EFZ (m/w/d)\nArbeitsort: Zürich oder Graubünden\nAufgaben\n• Ausführung von Abdichtungsarbeiten, Bekleiden von Aussenwänden zur Wärmedämmung\n• Verschweissen von Bitumen und Kunststoffbahnen\n• Allgemeine Reparatur- und Dachdeckerarbeiten, Unterhaltsarbeiten\n• Rapportwesen\nProfil\n• Abgeschlossene Ausbildung als Flachdachisoleur EFZ mit mehrjähriger Berufserfahrung\n• Selbständiges, verantwortungsbewusstes und zuverlässiges Arbeiten\n• Führerschein Kat. B und Auto\n• Gute Deutschkenntnisse\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen jederzeit gerne zur Verfügung.",
+        "fr": "Nous recherchons un lieu de travail FLACHDACHISOLEUR EFZ (h/f/d) engagé: Zurich ou Graubünden tâches\n• Imperméabilisation et revêtement des parois extérieures pour l'isolation thermique\n• Soudage de bitume et de toiles en plastique\n• Travaux généraux de réparation et de toiture, d'entretien\n• Profil du rapport\n• Formation terminée en tant qu'insolateur à toit plat EFZ avec plusieurs années d'expérience professionnelle\n• Travail indépendant, responsable et fiable\n• Permis de conduire Cat B et voiture\n• Bonne connaissance de l'allemand Intéressé? Contactez-nous aujourd'hui! Vous envoyez vos documents de candidature complets à Ivo Januth, mais les demandes par la poste ne seront pas retournées. Si vous avez des questions, nous sommes toujours à votre disposition."
+      },
+      "location": "Zürich oder Graubünden",
+      "canton": "GR",
+      "url": "https://grischapersonal.ch/stellen/?jobid=2a6b2ad6fada#:~:text=FLACHDACHISOLEUR%20EFZ%20(m%2Fw%2Fd)",
+      "source": "Grischa Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-31T21:24:00.159Z",
+      "addressLocality": "Zürich oder Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-09-30T12:00:54+02:00",
+      "postedDate": "2024-09-30T12:00:54+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=2a6b2ad6fada#:~:text=FLACHDACHISOLEUR%20EFZ%20(m%2Fw%2Fd)",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "flachdachisoleur-efz-m-w-d-zurich-oder-graubunden-grischapersonal-ch",
+        "flachdachisoleur-efz-m-w-d-grischa-personal-ag-zurich-oder-graubunden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "flachdachisoleur-efz-m-w-d-zurich-oder-graubunden-grischapersonal-ch"
+        ],
+        "de": [
+          "flachdachisoleur-efz-m-w-d-grischa-personal-ag-zurich-oder-graubunden"
+        ]
+      },
+      "firstSeenAt": "2026-09-27T05:13:26.224Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7000"
+    },
+    {
       "id": "grischapersonal-d349f879ba08",
       "slug": "kranfuhrer-suva-kat-b-m-w-d-grischa-personal-ag-graubunden",
       "slugByLocale": {
@@ -2342,7 +2342,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=e3367af786da#:~:text=KRANF%C3%9CHRER%20SUVA%20KAT.%20B%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.533Z",
+      "crawledAt": "2026-10-31T21:24:00.156Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2415,7 +2415,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=3bc35678b9c3#:~:text=ELEKTROINSTALLATEUR%20EFZ%20%2F%20MONTAGEELEKTRIKER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.532Z",
+      "crawledAt": "2026-10-31T21:24:00.154Z",
       "addressLocality": "7000 Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2492,7 +2492,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=74e180f1a9c7#:~:text=ZEICHNER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.530Z",
+      "crawledAt": "2026-10-31T21:24:00.148Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2575,7 +2575,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=5da83c901c61#:~:text=BETRIEBSMECHANIKER%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.529Z",
+      "crawledAt": "2026-10-31T21:24:00.147Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2659,7 +2659,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=2e4d80201b5a#:~:text=ELEKTRO%2DSICHERHEITSBERATER%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.527Z",
+      "crawledAt": "2026-10-31T21:24:00.146Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2743,7 +2743,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=84cad7e37d95#:~:text=CNC%2DMASCHINENBEDIENER%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.526Z",
+      "crawledAt": "2026-10-31T21:24:00.144Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2827,7 +2827,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=a4ee54123d00#:~:text=NETZELEKTIKER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.525Z",
+      "crawledAt": "2026-10-31T21:24:00.143Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2913,7 +2913,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=00a110864d90#:~:text=ANLAGEN%2D%20UND%20APPARATEBAUER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.523Z",
+      "crawledAt": "2026-10-31T21:24:00.141Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2998,7 +2998,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=a5041a2622ca#:~:text=BAUF%C3%9CHRER%20TIEF%2D%20%2F%20STRASSENBAU%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.522Z",
+      "crawledAt": "2026-10-31T21:24:00.139Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -3083,7 +3083,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=c51cc0441fec#:~:text=CAD%2DZEICHNER%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T09:12:29.520Z",
+      "crawledAt": "2026-10-31T21:24:00.136Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",

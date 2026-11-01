@@ -16,7 +16,10 @@
  * and CAP coherent as one address tuple.
  */
 
-import { inferAnyCanton } from '../../scripts/lib/target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  sameSwissLocalityLabel,
+} from '../../scripts/lib/target-swiss-locations.mjs';
 
 /**
  * Canonical company-slug → HQ address. Keep in sync with new employer
@@ -176,27 +179,14 @@ export function deriveCantonFromCity(city) {
 
 /**
  * True when the job's city is empty (no signal — HQ is the best guess) or
- * names the HQ's own city (#3513). Case/diacritic-insensitive, tolerates
- * decorated localities ("Bellinzona (TI)", "Bellinzona, Ticino").
+ * exactly names the HQ's own city (#3513). A canton decoration is accepted
+ * only when its code/name agrees with the curated HQ region.
  */
 export function localityMatchesHq(
   city,
   hq,
 ) {
-  const norm = (s) => s
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z ]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  const cityNorm = norm(String(city || ''));
-  if (!cityNorm) return true;
-  const hqNorm = norm(String(hq.addressLocality || ''));
-  if (!hqNorm) return false;
-  return cityNorm === hqNorm
-    || cityNorm.startsWith(`${hqNorm} `)
-    || cityNorm.includes(` ${hqNorm}`);
+  return sameSwissLocalityLabel(city, hq?.addressLocality, hq?.addressRegion);
 }
 
 /**

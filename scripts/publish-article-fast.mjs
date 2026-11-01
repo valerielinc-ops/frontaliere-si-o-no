@@ -363,6 +363,9 @@ async function main() {
     });
     console.log(`[publish-article-fast] ${freshness.note}`);
     if (!freshness.ok) {
+      // The hub rerenderer may publish a filtered client-only registry while
+      // leaving mixed hub HTML deferred. This fast path owns the article HTML
+      // as well, so it must remain fail-closed for that partial verdict.
       throw new Error(
         `[publish-article-fast] corpus/client handoff is not publishable: ${freshness.note}`,
       );

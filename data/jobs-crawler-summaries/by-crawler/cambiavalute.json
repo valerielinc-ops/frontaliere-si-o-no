@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-10-31T09:50:55.240Z",
+  "generatedAt": "2026-10-31T21:50:15.498Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 345991,
-  "avgDurationMs": 345991,
+  "durationMs": 152573,
+  "avgDurationMs": 152573,
   "durationHistory": [
-    345991
+    152573
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-31T09:50:43.321Z",
+      "crawledAt": "2026-10-31T21:50:02.833Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
@@ -82,7 +82,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-30T09:49:47.347Z",
+      "crawledAt": "2026-10-31T21:50:02.833Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
@@ -98,7 +98,6 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6500",
-      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -108,5 +107,5 @@
       }
     }
   ],
-  "codeCommit": "ef06a9a70573e0783ffd1af8d3e5b1dd491c7a8c"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

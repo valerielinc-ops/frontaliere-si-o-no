@@ -225,6 +225,7 @@ import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
 import { firstPageIndexFileName } from '@/build-plugins/shared/slimJobIndex';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
 import { buildJobPostingFacts, buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
+import { isFullyRemoteListing } from '@/scripts/lib/jobposting-field-provenance.mjs';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
 import { salaryProvenanceSuffix } from '@/build-plugins/shared/salaryEstimateSuffix';
@@ -516,8 +517,12 @@ export interface JobListing {
  sourceContract?: string;
  employmentType?: string;
  contractType?: string;
+ /** Canonical employer slug carried by the job-detail payload. */
+ companySlug?: JobInput['companySlug'];
  /** Source deadline hint; the canonical builder supplies a fallback when absent. */
  validThrough?: string;
+ /** Provenance of the source or derived deadline; never emitted in JSON-LD. */
+ validThroughSource?: JobInput['validThroughSource'];
  salaryMin?: number;
  salaryMax?: number;
  /** Provenance of the salary band — 'estimated' bands get an «(stima)»-style
@@ -539,6 +544,10 @@ export interface JobListing {
  requirements: string[];
  requirementsByLocale?: Partial<Record<Locale, string[]>>;
  streetAddress?: string;
+ /** Internal provenance for the retained street value; never emitted in JSON-LD. */
+ streetAddressSource?: JobInput['streetAddressSource'];
+ companyRegisteredAddress?: JobInput['companyRegisteredAddress'];
+ companyKnownAddress?: JobInput['companyKnownAddress'];
  postalCode?: string;
  addressLocality?: string;
  addressCountry?: string;
@@ -550,6 +559,10 @@ export interface JobListing {
  postedDate: string;
  crawledAt?: string;
  firstSeenAt?: string;
+ lastSeenAt?: JobInput['lastSeenAt'];
+ lastObservedAt?: JobInput['lastObservedAt'];
+ scrapedAt?: JobInput['scrapedAt'];
+ updatedAt?: JobInput['updatedAt'];
  url?: string;
  applyUrl?: string;
  source?: string;
@@ -3022,12 +3035,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
  requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
  cancelIdleCallback?: (handle: number) => void;
  };
- if (typeof w.requestIdleCallback === 'function') {
- const handle = w.requestIdleCallback(start, { timeout: 5000 });
- return () => { cancelled = true; w.cancelIdleCallback?.(handle); };
- }
- const timer = setTimeout(start, 2000);
- return () => { cancelled = true; clearTimeout(timer); };
+ let firstFrame = 0;
+ let secondFrame = 0;
+ let idleHandle: number | null = null;
+ let fallbackTimer: ReturnType<typeof setTimeout> | null = null;
+ const scheduleAtIdle = (): void => {
+  if (cancelled) return;
+  if (typeof w.requestIdleCallback === 'function') {
+   idleHandle = w.requestIdleCallback(start, { timeout: 8000 });
+  } else {
+   fallbackTimer = setTimeout(start, 2000);
+  }
+ };
+ // Do not let this enhancement compete with JobBoard's first committed and
+ // painted frame, even when React flushes a mount effect before the browser's
+ // first paint opportunity on a busy mobile main thread.
+ firstFrame = window.requestAnimationFrame(() => {
+  secondFrame = window.requestAnimationFrame(scheduleAtIdle);
+ });
+ return () => {
+  cancelled = true;
+  if (firstFrame) window.cancelAnimationFrame(firstFrame);
+  if (secondFrame) window.cancelAnimationFrame(secondFrame);
+  if (idleHandle !== null) w.cancelIdleCallback?.(idleHandle);
+  if (fallbackTimer !== null) clearTimeout(fallbackTimer);
+ };
  }, [enablePersonalization]);
 
  // Keep one previous-visit boundary stable across board remounts in this tab.
@@ -6373,26 +6405,48 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, [expiredJob, sortedJobs]);
 
- // Load blog meta translations + articles data for cross-linking (only when job selected).
- // preloadBlogData in the same gate: blogMetaReady implies BLOG_SLUGS present,
- // so the related-article hrefs below are canonical by construction (the slug
- // map no longer preloads unconditionally at App mount — #3528/#3532). Failure
- // swallowed: degrade to id-fallback hrefs instead of hiding the section.
+ // The related-article section is below the fold and is absent from the gated
+ // detail. Do not pay for its 2 MB metadata chunk (or article registry) until
+ // an authorized reader approaches it. Crawlers keep the eager path so their
+ // hydrated links remain available alongside the complete static HTML.
  const [blogMetaReady, setBlogMetaReady] = useState(false);
  const [blogArticles, setBlogArticles] = useState<Article[]>([]);
+ const relatedArticleMetadataRef = useRef<HTMLDivElement>(null);
+ const [relatedArticleMetadataRequestedFor, setRelatedArticleMetadataRequestedFor] = useState<string | null>(null);
  useEffect(() => {
- if (!selectedJob) return;
- Promise.all([
+ if (!selectedJob || !hasAccess || blogMetaReady) return;
+ const jobId = selectedJob.id;
+ if (isCrawlerVisitor || typeof IntersectionObserver === 'undefined') {
+  setRelatedArticleMetadataRequestedFor(jobId);
+  return;
+ }
+ const target = relatedArticleMetadataRef.current;
+ if (!target) return;
+ const observer = new IntersectionObserver(([entry]) => {
+  if (!entry?.isIntersecting) return;
+  setRelatedArticleMetadataRequestedFor(jobId);
+  observer.disconnect();
+ }, { rootMargin: '900px 0px' });
+ observer.observe(target);
+ return () => observer.disconnect();
+ }, [selectedJob?.id, hasAccess, blogMetaReady, isCrawlerVisitor]);
+ useEffect(() => {
+ if (!selectedJob || !hasAccess || blogMetaReady
+  || relatedArticleMetadataRequestedFor !== selectedJob.id) return;
+ let cancelled = false;
+ void Promise.all([
  loadBlogMeta(),
  preloadBlogData().catch(() => {}),
  // #4176: resilientImport so a transient CDN deploy-window failure on the
  // non-hashed blog-articles-data.js chunk self-heals instead of surfacing.
  resilientImport(() => import('@/data/blog-articles-data'), m => Array.isArray(m.ARTICLES)).then(m => m.ARTICLES),
  ]).then(([, , data]) => {
+  if (cancelled) return;
  setBlogArticles(data);
  setBlogMetaReady(true);
  }).catch(() => {});
- }, [selectedJob]);
+ return () => { cancelled = true; };
+ }, [selectedJob?.id, hasAccess, blogMetaReady, relatedArticleMetadataRequestedFor]);
 
  const relatedArticles = useMemo(() => {
  if (!selectedJob || !blogMetaReady || blogArticles.length === 0) return [];
@@ -6457,9 +6511,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ''
  ).trim();
  const localizedTitle = sanitizeJobTitle(jobDisplayTitle(job));
- const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
- `${localizedTitle} ${description || ''} ${job.location || ''}`
- );
+ const isRemote = isFullyRemoteListing({ title: job.title, location: job.location });
  // JSON-LD hiringOrganization.logo needs a fetchable URL — companyLogoUrl can
  // now return an inlined initials data: URI (fine for <img>, not for schema),
  // so fall back to the site icon for those rather than emitting a data URI.
@@ -6499,6 +6551,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  description,
  company: job.company,
  companyKey: job.companyKey,
+ companySlug: job.companySlug,
  companyDomain: job.companyDomain,
  companyLogoUrl: logo,
  addressLocality,
@@ -6506,16 +6559,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  addressCountry: job.addressCountry,
  postalCode,
  streetAddress: isValidAddr(rawStreet) ? rawStreet : '',
+ streetAddressSource: job.streetAddressSource,
+ companyRegisteredAddress: job.companyRegisteredAddress,
+ companyKnownAddress: job.companyKnownAddress,
  postingDateSource: job.postingDateSource,
  datePosted: job.datePosted,
  postedDate: job.postedDate,
  firstSeenAt: job.firstSeenAt,
+ lastSeenAt: job.lastSeenAt,
+ lastObservedAt: job.lastObservedAt,
  crawledAt: job.crawledAt,
+ scrapedAt: job.scrapedAt,
+ updatedAt: job.updatedAt,
  // Source contract values, not the 'full-time'-defaulting filter bucket.
  employmentType: job.employmentType,
  contract: job.sourceContract,
  contractType: job.contractType,
  validThrough: job.validThrough,
+ validThroughSource: job.validThroughSource,
  salaryMin,
  salaryMax,
  salaryCurrency,
@@ -10109,7 +10170,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <a
  href={gateCompanyHref}
  onClickCapture={openGateCompanyFilter}
- className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ className="inline-flex min-h-[44px] items-center gap-1 px-2 py-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  ><Building2 size={14} />{companyName}</a>
  {jobLocation && gateLocationHref && (
  <a
@@ -10123,7 +10184,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_location_filter_open', jobLocation);
  }}
- className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
+ className="inline-flex min-h-[44px] items-center gap-1 px-2 py-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  ><MapPin size={14} />{jobLocation}</a>
  )}
  {jobLocation && !gateLocationHref && <span className="inline-flex items-center gap-1"><MapPin size={14} />{jobLocation}</span>}
@@ -10673,9 +10734,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // deterministic template + canonical schema builder that services/seoService.ts
  // uses for the runtime FAQPage JSON-LD on client-side navigation, so the
  // visible accordion here never desyncs from the structured data (or from the
- // SSG-prerendered static page for this same job). isRemote detection mirrors
- // the regex used elsewhere for the same purpose (jobsSeoPagesPlugin.ts,
- // services/seoService.ts).
+ // SSG-prerendered static page for this same job). isRemote detection uses the
+ // predicate shared with jobsSeoPagesPlugin.ts and services/seoService.ts.
  const faqJobInput: JobInput = {
  id: selectedJob.id,
  slug: selectedJob.slug,
@@ -10683,18 +10743,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  description: detailDescription,
  company: selectedJob.company,
  companyKey: selectedJob.companyKey,
+ companySlug: selectedJob.companySlug,
  companyDomain: selectedJob.companyDomain,
  addressLocality: selectedJob.addressLocality || selectedJob.location,
  addressRegion: detailJobCanton,
  addressCountry: selectedJob.addressCountry,
  postalCode: selectedJob.postalCode,
  streetAddress: selectedJob.streetAddress,
+ streetAddressSource: selectedJob.streetAddressSource,
+ companyRegisteredAddress: selectedJob.companyRegisteredAddress,
+ companyKnownAddress: selectedJob.companyKnownAddress,
  postingDateSource: selectedJob.postingDateSource,
  datePosted: selectedJob.datePosted,
  validThrough: selectedJob.validThrough,
+ validThroughSource: selectedJob.validThroughSource,
  postedDate: selectedJob.postedDate,
  firstSeenAt: selectedJob.firstSeenAt,
+ lastSeenAt: selectedJob.lastSeenAt,
+ lastObservedAt: selectedJob.lastObservedAt,
  crawledAt: selectedJob.crawledAt,
+ scrapedAt: selectedJob.scrapedAt,
+ updatedAt: selectedJob.updatedAt,
  employmentType: selectedJob.employmentType,
  contract: selectedJob.sourceContract,
  contractType: selectedJob.contractType,
@@ -10707,9 +10776,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  url: selectedJob.url,
  applyUrl: selectedJob.applyUrl,
  };
- const faqIsRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
- `${selectedJobTitle} ${detailDescription} ${selectedJob.location || ''}`
- );
+ const faqIsRemote = isFullyRemoteListing({ title: selectedJob.title, location: selectedJob.location });
  const faqIsTicino = detailJobCanton === 'TI';
  const faqCantonDisplay = getCantonDisplayName(detailJobCanton, locale);
  const faqSchema = buildJobPostingFacts(faqJobInput, locale, { fallbackUrl: detailPageUrl });
@@ -11073,7 +11140,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_location_filter_open', selectedJob.location);
  }}
- className="hover:text-accent hover:underline underline-offset-2 transition-colors"
+ className="inline-flex min-h-[44px] items-center py-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  >{selectedJob.location} ({selectedJob.canton})</a>
  ) : (
  <>{selectedJob.location} ({selectedJob.canton})</>
@@ -11437,6 +11504,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  )}
 
+ <div ref={relatedArticleMetadataRef} aria-hidden="true" className="h-0" />
  {relatedArticles.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-5">
  <div className="flex items-center justify-between mb-4">

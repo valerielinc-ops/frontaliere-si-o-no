@@ -13,6 +13,13 @@
 /* eslint-disable no-undef -- runs in the browser */
 export function extractFieldsInPage({ channelType = '', includeHidden = false } = {}) {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  // These identifiers are part of the control's own DOM contract. Read only
+  // scalar attributes from the element itself: ancestor/global IDs are not
+  // evidence for the question represented by this field.
+  const semanticIdentifiers = (element) => ({
+    controlId: clean(element.getAttribute('data-control-id') || ''),
+    semanticId: clean(element.getAttribute('data-semantic-id') || ''),
+  });
   const nativeOption = (option, select) => ({
     value: option.value,
     label: clean(option.textContent),
@@ -564,6 +571,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       inputType: type,
       form: formOf(element),
       domId: element.id || '',
+      ...semanticIdentifiers(element),
       name: clean(element.getAttribute('name') || ''),
       label,
       context: sectionContext(element),

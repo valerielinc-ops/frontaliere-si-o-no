@@ -20,6 +20,7 @@ import {
   isTargetSwissLocation,
   isTargetCanton,
   inferAnyCanton,
+  sameSwissLocalityLabel,
   isKnownSwissMunicipality,
   isKnownSwissMunicipalityInCanton,
   isKnownSwissCity,
@@ -4431,26 +4432,11 @@ export function healTruncatedStLocalities(jobs) {
  */
 /**
  * True when the job's city is empty (no signal — HQ is the best guess) or
- * names the HQ's own city (#3513). Local twin of `localityMatchesHq` in
- * build-plugins/shared/companyHqAddresses.mjs (this module imports only from
- * scripts/lib per its contract). Case/diacritic-insensitive, tolerates
- * decorated localities ("Bellinzona (TI)", "Bellinzona, Ticino").
+ * exactly names the HQ's own city (#3513). Canton decorations need the HQ
+ * canton as proof; prefixes and nearby-place names are not city matches.
  */
-export function sameLocalityAsHq(city, hqLocality) {
-  const norm = (v) => String(v || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z ]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  const cityNorm = norm(city);
-  if (!cityNorm) return true;
-  const hqNorm = norm(hqLocality);
-  if (!hqNorm) return false;
-  return cityNorm === hqNorm
-    || cityNorm.startsWith(`${hqNorm} `)
-    || cityNorm.includes(` ${hqNorm}`);
+export function sameLocalityAsHq(city, hqLocality, hqRegion = '') {
+  return sameSwissLocalityLabel(city, hqLocality, hqRegion);
 }
 
 /**
@@ -4465,9 +4451,9 @@ export function sameLocalityAsHq(city, hqLocality) {
  * on record, and the job pages never print a CAP next to a locality it does
  * not belong to (`postalCodeBelongsToLocality`).
  */
-export function hqPostalCodeForLocality(city, hqLocality, hqPostalCode) {
+export function hqPostalCodeForLocality(city, hqLocality, hqPostalCode, hqRegion = '') {
   if (!hqPostalCode) return hqPostalCode;
-  if (sameLocalityAsHq(city, hqLocality)) return hqPostalCode;
+  if (sameLocalityAsHq(city, hqLocality, hqRegion)) return hqPostalCode;
   return isKnownSwissCity(city) ? '' : hqPostalCode;
 }
 
@@ -4495,7 +4481,7 @@ export function applyCompanyDefaults(job, companySlug) {
     // stamped with 'Viale Officina 3'/'6500': the emitted PostalAddress
     // would pair a Bellinzona street+CAP with the Lugano locality. Stamp HQ
     // street/CAP only when the job has no own city or sits in the HQ city.
-    if (sameCanton && sameLocalityAsHq(cityForCanton, defaults.addressLocality)) {
+    if (sameCanton && sameLocalityAsHq(cityForCanton, defaults.addressLocality, defaults.addressRegion)) {
       if (!job.streetAddress)  job.streetAddress = defaults.streetAddress;
       if (!job.postalCode)     job.postalCode    = defaults.postalCode;
     }
@@ -4607,7 +4593,7 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     // Bellinzona). Strip the HQ pair so the PLZ enrichment below and the
     // build-time city fallback re-derive values coherent with the job's
     // own locality.
-    const crossLocality = !sameLocalityAsHq(city, hq.addressLocality);
+    const crossLocality = !sameLocalityAsHq(city, hq.addressLocality, hq.addressRegion);
     if (!crossCanton && !crossLocality) continue;
     let touched = false;
     if (job.postalCode === hq.postalCode) { job.postalCode = ''; touched = true; }
