@@ -53,7 +53,83 @@ const RECEIPT_CATEGORIES = new Set([
 const MAX_RAW_BYTES = 12 * 1024 * 1024;
 const MAX_FORWARD_ATTACHMENTS_BYTES = 10 * 1024 * 1024;
 const OWNER_MAILBOX = 'valerie@frontaliereticino.ch';
-const MESSAGE_ID_RE = /^<[^<>\r\n]{1,998}>$/;
+
+function isMessageIdAtext(character) {
+  return /[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~]/.test(character);
+}
+
+function isMessageIdDotAtom(value) {
+  const atoms = String(value || '').split('.');
+  return atoms.length > 0 && atoms.every((atom) => atom.length > 0 && [...atom].every(isMessageIdAtext));
+}
+
+function isMessageIdQuotedString(value) {
+  const text = String(value || '');
+  if (text.length < 2 || text[0] !== '"' || text.at(-1) !== '"') return false;
+  let escaped = false;
+  for (const character of text.slice(1, -1)) {
+    const code = character.charCodeAt(0);
+    if (escaped) {
+      if (!(code === 9 || (code >= 32 && code <= 126))) return false;
+      escaped = false;
+      continue;
+    }
+    if (character === '\\') {
+      escaped = true;
+      continue;
+    }
+    // RFC 5322 qtext: WSP, !, and printable ASCII except DQUOTE and "\\".
+    if (!(code === 9 || code === 32 || code === 33 || (code >= 35 && code <= 126))) return false;
+  }
+  return !escaped;
+}
+
+function isMessageIdDomainLiteral(value) {
+  const text = String(value || '');
+  if (text.length < 2 || text[0] !== '[' || text.at(-1) !== ']') return false;
+  return [...text.slice(1, -1)].every((character) => {
+    const code = character.charCodeAt(0);
+    // RFC 5322 dtext: printable ASCII except [, \\, and ].
+    return code >= 33 && code <= 126 && !['[', '\\', ']'].includes(character);
+  });
+}
+
+function messageIdAtSigns(value) {
+  const positions = [];
+  let quoted = false;
+  let escaped = false;
+  for (let index = 0; index < value.length; index += 1) {
+    const character = value[index];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (quoted && character === '\\') {
+      escaped = true;
+      continue;
+    }
+    if (character === '"') {
+      quoted = !quoted;
+      continue;
+    }
+    if (!quoted && character === '@') positions.push(index);
+  }
+  return quoted || escaped ? [] : positions;
+}
+
+/** Conservative RFC 5322 msg-id validation before using it as a deduplication key. */
+function isValidMessageId(value) {
+  const text = String(value || '').trim();
+  if (text.length < 5 || text.length > 1000 || text[0] !== '<' || text.at(-1) !== '>') return false;
+  const inner = text.slice(1, -1);
+  return messageIdAtSigns(inner).some((at) => {
+    const left = inner.slice(0, at);
+    const right = inner.slice(at + 1);
+    const validLeft = isMessageIdDotAtom(left) || isMessageIdQuotedString(left);
+    const validRight = isMessageIdDotAtom(right) || isMessageIdDomainLiteral(right);
+    return validLeft && validRight;
+  });
+}
 
 const CLASSIFICATION_SCHEMA = {
   type: 'object',
@@ -452,7 +528,7 @@ export function inboundMessageIdentity(raw) {
   const separator = /\r?\n\r?\n/.exec(text);
   const headers = parseHeaders(separator ? text.slice(0, separator.index) : text);
   const messageIds = headers.filter(([name]) => name === 'message-id').map(([, value]) => value.trim());
-  const sourceMessageId = messageIds.length === 1 && MESSAGE_ID_RE.test(messageIds[0]) ? messageIds[0] : '';
+  const sourceMessageId = messageIds.length === 1 && isValidMessageId(messageIds[0]) ? messageIds[0] : '';
   const identity = sourceMessageId ? `message-id:${sourceMessageId}` : raw;
   return {
     messageId: `in-${createHash('sha256').update(identity).digest('hex')}`,

@@ -203,6 +203,15 @@ describe('employer messages on the alias', () => {
     expect(inboundMessageIdentity(first).sourceMessageId).toBe('<reply-123@example.test>');
   });
 
+  it('falls back to raw bytes for malformed RFC Message-ID values', () => {
+    for (const sourceMessageId of ['<foo>', '<shared id>', '<foo@example.test extra>']) {
+      const first = Buffer.from(`Message-ID: ${sourceMessageId}\r\nSubject: A\r\n\r\nA`);
+      const second = Buffer.from(`Message-ID: ${sourceMessageId}\r\nSubject: B\r\n\r\nB`);
+      expect(inboundMessageIdentity(first)).not.toHaveProperty('sourceMessageId');
+      expect(inboundMessageIdentity(first).messageId).not.toBe(inboundMessageIdentity(second).messageId);
+    }
+  });
+
   it('puts a message back to received when processing fails, and processes it once on the retry', async () => {
     const { store, alias } = await setupInbound();
     const bucket = fakeBucket();
