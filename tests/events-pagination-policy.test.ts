@@ -3,7 +3,7 @@
 // P1 noindex plan (paginationIndexPolicy, 2026-10-24) on the two paginated
 // event listings: the historical archive (`/eventi/archivio/page-N/`) and the
 // overflow ladders (`<bucket>/page-N/`). Page 11+ ships `noindex,follow`; no
-// page 2+ is listed in sitemap-eventi.xml.
+// page 2+ is listed in the historical sitemap.
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -11,6 +11,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { BUILD_DATE_STAMP } from '../build-plugins/constants';
 import {
   buildSitemap,
+  buildHistoricalSitemap,
   historicalEventsArchivePath,
   overflowLadderPath,
   renderHistoricalEventsArchivePage,
@@ -43,16 +44,17 @@ describe('events pagination policy (P1)', () => {
     expect(robotsOf(render(12).html)).toBe('noindex,follow');
   });
 
-  it('lists only page 1 of the archive and no ladder page in sitemap-eventi.xml', () => {
-    const xml = buildSitemap(
+  it('lists archive page 1 only in the historical sitemap, never a ladder page', () => {
+    const upcomingXml = buildSitemap(
       [{ canton: 'TI', comuni: [], digests: [], hasOtherEvents: false, ladders: [] }],
-      [],
-      12,
     );
-    expect(xml).toContain(`<loc>https://frontaliereticino.ch${historicalEventsArchivePath('it', 1)}</loc>`);
+    const historicalXml = buildHistoricalSitemap([], 12);
+    expect(upcomingXml).not.toContain(historicalEventsArchivePath('it', 1));
+    expect(historicalXml).toContain(`<loc>https://frontaliereticino.ch${historicalEventsArchivePath('it', 1)}</loc>`);
     for (const page of [2, 10, 11, 12]) {
-      expect(xml).not.toContain(`<loc>https://frontaliereticino.ch${historicalEventsArchivePath('it', page)}</loc>`);
+      expect(historicalXml).not.toContain(`<loc>https://frontaliereticino.ch${historicalEventsArchivePath('it', page)}</loc>`);
     }
-    expect(xml).not.toContain(overflowLadderPath('it', 'TI', undefined, 2));
+    expect(upcomingXml).not.toContain(overflowLadderPath('it', 'TI', undefined, 2));
+    expect(historicalXml).not.toContain(overflowLadderPath('it', 'TI', undefined, 2));
   });
 });

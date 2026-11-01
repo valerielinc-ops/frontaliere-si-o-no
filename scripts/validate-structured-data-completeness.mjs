@@ -130,7 +130,7 @@ function validateJobPosting(schema, filePath) {
 
   // Consumer-specific address quality checks. The shared contract already
   // reports a missing jobLocation/address/addressLocality/addressCountry,
-  // malformed postalCode/streetAddress, and invalid validThrough.
+  // a malformed postalCode, a placeholder street and an invalid validThrough.
   const address = schema.jobLocation?.address;
   if (address && typeof address === 'object') {
     // GSC quality issue: missing addressRegion flagged as non-critical but

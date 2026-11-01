@@ -81,6 +81,19 @@ describe('job-popularity is not bundled into the JobBoard chunk', () => {
     for (const d of dirs) walk(path.join(ROOT, d));
     expect(offenders).toEqual([]);
   });
+
+  it('starts the runtime fetch after the first rendered frames and at idle', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf8');
+    const effectStart = src.indexOf('// Fetch it at idle, and only when personalization is on');
+    const effectEnd = src.indexOf('// Keep one previous-visit boundary stable', effectStart);
+    const effect = src.slice(effectStart, effectEnd);
+
+    expect(effectStart).toBeGreaterThanOrEqual(0);
+    expect(effectEnd).toBeGreaterThan(effectStart);
+    expect(effect).toMatch(/firstFrame = window\.requestAnimationFrame\(\(\) =>\s*\{\s*secondFrame = window\.requestAnimationFrame\(scheduleAtIdle\)/);
+    expect(effect).toContain("w.requestIdleCallback(start, { timeout: 8000 })");
+    expect(effect).toMatch(/if \(idleHandle !== null\) w\.cancelIdleCallback\?\.\(idleHandle\)/);
+  });
 });
 
 describe('the map is shipped as a runtime data file', () => {
