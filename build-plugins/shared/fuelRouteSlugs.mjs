@@ -20,6 +20,20 @@ export const FUEL_TODAY_SLUG = Object.freeze({
   fr: 'aujourd-hui',
 });
 
+export const FUEL_STATIONS_SLUG = Object.freeze({
+  it: 'stazioni',
+  en: 'stations',
+  de: 'tankstellen',
+  fr: 'stations',
+});
+
+export const FUEL_ITALY_SLUG = Object.freeze({
+  it: 'italia',
+  en: 'italy',
+  de: 'italien',
+  fr: 'italie',
+});
+
 export const FUEL_ZONES = Object.freeze(/** @type {const} */ ([
   'chiasso', 'mendrisio', 'lugano', 'bellinzona', 'locarno',
 ]));
