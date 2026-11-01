@@ -19,13 +19,14 @@ import { candidateQuestionAnswerKey, candidateWithEdits, questionsForCandidate }
 import { extraDocumentFileName } from './assistedApplicationExtraDocuments.js';
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from './lib/permitStatus.js';
+import { operationalAnswerForOption, operationalQuestionTopic } from './assistedApplicationOperationalAnswers.js';
 import { portalAnswerForApplication } from './lib/portalQuestionMapping.js';
 import { countryCodeOfLabel, countryLabelForCode, formatInternationalPhone, phoneCountryLabel } from './lib/phoneNormalization.js';
 
 const text = (value, max = 500) => String(value ?? '').trim().slice(0, max);
 
 function applicationAnswer(question, answer) {
-  return text(portalAnswerForApplication(question, answer), 2000);
+  return text(portalAnswerForApplication(question, operationalAnswerForOption(question, answer) || answer), 2000);
 }
 
 /**
@@ -42,7 +43,16 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
   const fromPortal = (draft.portalAnswers?.answers || [])
     .map((item) => ({ ...item, question: item?.applicationQuestion || item?.question, answer: item?.answer, source: item?.source || 'portal', current: false }));
   const fromDraft = questionsForCandidate(draft.questions, profile, answers, flow.questionAnswers, draft)
-    .map((question) => ({ ...question, question: question.applicationQuestion || question.question, answer: applicationAnswer(question, answers[question.id]), source: 'answers', current: Object.hasOwn(flow.answers || {}, question.id) }));
+    .map((question) => ({
+      ...question,
+      questionAnswerKey: candidateQuestionAnswerKey(question),
+      question: question.applicationQuestion || question.question,
+      answer: applicationAnswer(question, answers[question.id]),
+      source: 'answers',
+      operational: Boolean(operationalQuestionTopic(question)),
+      current: Object.hasOwn(flow.answers || {}, question.id)
+        || Object.hasOwn(flow.questionAnswers || {}, candidateQuestionAnswerKey(question)),
+    }));
   const boundedAnswer = item => ({
     question: text(item.question, 300), answer: text(item.answer, 2000), source: text(item.source, 20),
     ...(text(item.context, 240) ? { context: text(item.context, 240) } : {}),
@@ -54,14 +64,16 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
   const scopeKey = item => JSON.stringify([item.question.toLowerCase(), item.context || '', item.section || '', item.autocomplete || '',
     Object.hasOwn(item, 'addressContext') ? item.addressContext : 'missing']);
   const declared = fromDraft.filter(item => item.answer || Object.hasOwn(flow.answers || {}, item.id)
-    || Object.hasOwn(flow.questionAnswers || {}, candidateQuestionAnswerKey(item))).map(boundedAnswer);
+    || (item.questionAnswerKey && Object.hasOwn(flow.questionAnswers || {}, item.questionAnswerKey)));
   const current = declared.filter(item => item.question && item.answer);
   // An explicitly cleared field blocks the past value without sending an
   // empty answer. A never-answered question does not erase prior evidence.
   const currentKeys = new Set(declared.map(scopeKey));
-  const previous = fromPortal.map(boundedAnswer).filter(item => !currentKeys.has(scopeKey(item)));
+  const previous = fromPortal.filter(item => !currentKeys.has(scopeKey(item)));
   const seen = new Set();
-  const kitAnswers = [...current, ...previous]
+  const operationalCurrent = current.filter(item => item.operational);
+  const kitAnswers = [...operationalCurrent, ...current, ...previous]
+    .map(boundedAnswer)
     .filter((item) => {
       const key = JSON.stringify([scopeKey(item), item.source, item.answer]);
       if (!item.question || !item.answer || seen.has(key)) return false;
