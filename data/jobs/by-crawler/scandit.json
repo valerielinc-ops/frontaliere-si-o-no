@@ -1,7 +1,7 @@
 {
   "crawlerKey": "scandit",
-  "assembledAt": "2026-10-31T22:12:10.535Z",
-  "runId": "41243370189",
+  "assembledAt": "2026-11-01T09:39:23.872Z",
+  "runId": "41292933668",
   "jobs": [
     {
       "id": "scandit-c390254cf662",
@@ -34,7 +34,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8333916",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:12:04.001Z",
+      "crawledAt": "2026-11-01T09:39:17.604Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -81,7 +81,11 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:39:17.604Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "scandit-08ee2b53999e",
@@ -114,7 +118,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7552679",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:12:03.696Z",
+      "crawledAt": "2026-11-01T09:39:17.299Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -165,7 +169,11 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:17.299Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

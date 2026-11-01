@@ -1,7 +1,7 @@
 {
   "crawlerKey": "oerlikon",
-  "assembledAt": "2026-10-31T22:09:03.967Z",
-  "runId": "41243370189",
+  "assembledAt": "2026-11-01T09:38:44.778Z",
+  "runId": "41292933668",
   "jobs": [
     {
       "id": "oerlikon-3e7f80f0bc32",
@@ -34,7 +34,7 @@
       "url": "https://careers.oerlikon.com/job/Global-OPS-Continuous-Improvement-Manager-%28gn%29/104472-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:08:57.712Z",
+      "crawledAt": "2026-11-01T09:38:37.498Z",
       "addressLocality": "Barchfeld, DEU",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -80,7 +80,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Barchfeld, DEU",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-15T09:38:37.498Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-4777cad32119",
@@ -113,7 +117,7 @@
       "url": "https://careers.oerlikon.com/job/Receptionist/104921-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T22:08:57.042Z",
+      "crawledAt": "2026-11-01T09:38:36.859Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -145,7 +149,11 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Mendrisio, TI",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:38:36.859Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-6f58f20dbe72",
@@ -178,7 +186,7 @@
       "url": "https://careers.oerlikon.com/job/Team-Lead-Electrical-Engineering/105195-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:56.398Z",
+      "crawledAt": "2026-11-01T09:38:36.219Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -222,7 +230,11 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:38:36.219Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-36b0a730fba6",
@@ -255,7 +267,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:55.756Z",
+      "crawledAt": "2026-11-01T09:38:35.565Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -297,7 +309,11 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:35.565Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-356e3fe4d231",
@@ -330,7 +346,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:55.110Z",
+      "crawledAt": "2026-11-01T09:38:34.920Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -375,7 +391,11 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:38:34.920Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-77272637dd1f",
@@ -408,7 +428,7 @@
       "url": "https://careers.oerlikon.com/job/Techniker-%28gn%29-Pr%C3%BCffeld/104517-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:54.472Z",
+      "crawledAt": "2026-11-01T09:38:34.281Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -454,7 +474,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:38:34.281Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-69b1abc884fd",
@@ -487,7 +511,7 @@
       "url": "https://careers.oerlikon.com/job/MonteurMechaniker-%28gn%29-f%C3%BCr-den-Anlagenbau/104513-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:53.830Z",
+      "crawledAt": "2026-11-01T09:38:33.646Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -536,7 +560,11 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:38:33.646Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-f6087624a04b",
@@ -569,7 +597,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:53.161Z",
+      "crawledAt": "2026-11-01T09:38:32.987Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -616,7 +644,11 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:38:32.987Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-934beb8e0afc",
@@ -649,7 +681,7 @@
       "url": "https://careers.oerlikon.com/job/Inbetriebnahme-%28gn%29-Engineer/104461-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:52.510Z",
+      "crawledAt": "2026-11-01T09:38:32.354Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -696,7 +728,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:38:32.354Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "oerlikon-e3b44d1050bb",
@@ -729,7 +765,7 @@
       "url": "https://careers.oerlikon.com/job/Teamleiter-Elektrofertigung-%28gn%29/104960-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:51.707Z",
+      "crawledAt": "2026-11-01T09:38:31.684Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -773,7 +809,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:38:31.684Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-10-31T22:12:15.058Z",
+  "generatedAt": "2026-11-01T09:39:53.709Z",
   "total": 14,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 4251,
-  "avgDurationMs": 4251,
+  "durationMs": 3697,
+  "avgDurationMs": 3697,
   "durationHistory": [
-    4251
+    3697
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:11:58.894Z",
+      "crawledAt": "2026-11-01T09:39:37.051Z",
       "firstSeenAt": "2026-08-14T10:12:28.238Z",
       "needsRetranslation": true,
       "salaryMin": 83000,
@@ -45,12 +45,16 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8304",
       "applyUrl": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
-      "_qualityScore": 91,
+      "streetAddress": "Wallisellen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:37.051Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -74,7 +78,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-100-ref-111611361138",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:11:58.890Z",
+      "crawledAt": "2026-11-01T09:39:37.047Z",
       "firstSeenAt": "2026-10-16T21:51:25.384Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
@@ -85,6 +89,9 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/fi-administration-business-support-100-ref-111611361138",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-15T09:39:37.047Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -114,7 +121,7 @@
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:11:58.888Z",
+      "crawledAt": "2026-11-01T09:39:37.044Z",
       "firstSeenAt": "2026-08-04T11:44:57.049Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
@@ -125,6 +132,9 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:39:37.044Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -154,7 +164,7 @@
       "url": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:11:58.885Z",
+      "crawledAt": "2026-11-01T09:39:37.038Z",
       "firstSeenAt": "2026-10-03T09:31:01.819Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -164,6 +174,9 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-01T09:39:37.038Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -193,7 +206,7 @@
       "url": "https://jobs.corner.ch/o/corporate-actions-specialist-ref-1132",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:11:58.883Z",
+      "crawledAt": "2026-11-01T09:39:37.037Z",
       "firstSeenAt": "2026-10-08T22:30:28.470Z",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -203,6 +216,9 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/corporate-actions-specialist-ref-1132",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:39:37.037Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -212,47 +228,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "corner-banca-77211b116743",
-      "slug": "customer-consulente-100-team-zurich-corner-banca-wallisellen-6f4b0e7b74",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Customer Advisor 100% Team Zurich",
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich-1",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:42:30.108Z",
-      "firstSeenAt": "2026-10-22T09:42:14.142Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "salarySource": "estimated",
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8304",
-      "applyUrl": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich-1",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "corner-banca-a80c5e7e66b5",
@@ -275,7 +251,7 @@
       "url": "https://jobs.corner.ch/o/commercial-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T22:11:58.895Z",
+      "crawledAt": "2026-11-01T09:39:37.053Z",
       "firstSeenAt": "2026-05-17T10:02:58.679Z",
       "salaryMin": 59500,
       "salaryMax": 104000,
@@ -284,12 +260,16 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6500",
       "applyUrl": "https://jobs.corner.ch/o/commercial-apprenticeship",
-      "_qualityScore": 91,
+      "streetAddress": "Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:37.053Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -313,7 +293,7 @@
       "url": "https://jobs.corner.ch/o/it-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T22:11:58.894Z",
+      "crawledAt": "2026-11-01T09:39:37.052Z",
       "firstSeenAt": "2026-10-30T21:57:21.399Z",
       "salaryMin": 59500,
       "salaryMax": 104000,
@@ -322,12 +302,16 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6500",
       "applyUrl": "https://jobs.corner.ch/o/it-apprenticeship",
-      "_qualityScore": 91,
+      "streetAddress": "Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:39:37.052Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -351,7 +335,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:11:58.893Z",
+      "crawledAt": "2026-11-01T09:39:37.050Z",
       "firstSeenAt": "2026-08-14T10:12:28.233Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -360,12 +344,16 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8304",
       "applyUrl": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
-      "_qualityScore": 91,
+      "streetAddress": "Wallisellen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:37.050Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -389,7 +377,7 @@
       "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:11:58.891Z",
+      "crawledAt": "2026-11-01T09:39:37.048Z",
       "firstSeenAt": "2026-08-14T10:12:28.229Z",
       "salaryMin": 142000,
       "salaryMax": 249500,
@@ -399,6 +387,9 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:39:37.048Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -428,7 +419,7 @@
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:11:58.889Z",
+      "crawledAt": "2026-11-01T09:39:37.045Z",
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -438,6 +429,9 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:39:37.045Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -467,7 +461,7 @@
       "url": "https://jobs.corner.ch/o/online-campaign-manager-ref-1102",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:11:58.887Z",
+      "crawledAt": "2026-11-01T09:39:37.042Z",
       "firstSeenAt": "2026-08-25T21:51:32.218Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -477,6 +471,9 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/online-campaign-manager-ref-1102",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:39:37.042Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -506,7 +503,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-60-ref-1014",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:11:58.886Z",
+      "crawledAt": "2026-11-01T09:39:37.040Z",
       "firstSeenAt": "2026-09-19T23:09:44.967Z",
       "salaryMin": 49800,
       "salaryMax": 76500,
@@ -515,12 +512,16 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8304",
       "applyUrl": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-60-ref-1014",
-      "_qualityScore": 91,
+      "streetAddress": "Wallisellen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:39:37.040Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -544,7 +545,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich-ref-1133",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:11:58.881Z",
+      "crawledAt": "2026-11-01T09:39:37.034Z",
       "firstSeenAt": "2026-10-22T09:42:14.142Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -553,12 +554,16 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8304",
       "applyUrl": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich-ref-1133",
-      "_qualityScore": 91,
+      "streetAddress": "Wallisellen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:39:37.034Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -582,7 +587,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:11:58.880Z",
+      "crawledAt": "2026-11-01T09:39:37.032Z",
       "firstSeenAt": "2026-10-29T21:48:09.819Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -591,14 +596,18 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8304",
       "applyUrl": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano-1",
-      "_qualityScore": 91,
+      "streetAddress": "Wallisellen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:39:37.032Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

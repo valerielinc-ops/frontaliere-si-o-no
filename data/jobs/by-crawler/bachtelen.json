@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bachtelen",
-  "assembledAt": "2026-10-31T22:07:41.863Z",
-  "runId": "41243370189",
+  "assembledAt": "2026-11-01T09:37:37.190Z",
+  "runId": "41292933668",
   "jobs": [
     {
       "id": "bachtelen-696d214df72c",
@@ -35,7 +35,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagoge-sozialpaedagogin-fh-hf-80/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:07:33.015Z",
+      "crawledAt": "2026-11-01T09:37:28.745Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -77,7 +77,11 @@
           "maxValue": 99600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:37:28.745Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-4837e191cd07",
@@ -111,7 +115,7 @@
       "url": "https://www.bachtelen.ch/stelle/fachangestellter-betreuung-kindheit-sozialpaedagogin-40-60/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:07:33.013Z",
+      "crawledAt": "2026-11-01T09:37:28.742Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -153,7 +157,11 @@
           "maxValue": 71400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:37:28.742Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-7e84c9bca835",
@@ -186,7 +194,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagogin-sozialpaedagoge-fh-hf-70-80/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:07:33.011Z",
+      "crawledAt": "2026-11-01T09:37:28.740Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -226,7 +234,11 @@
           "maxValue": 99600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Hägendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:37:28.740Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-80970a31d42e",
@@ -259,7 +271,7 @@
       "url": "https://www.bachtelen.ch/stelle/heilpaedagogen-heilpaedagoginnen-resp-lehrpersonen-60-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:07:32.997Z",
+      "crawledAt": "2026-11-01T09:37:28.719Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -301,7 +313,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:37:28.719Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-ccc1394f236d",
@@ -335,7 +351,7 @@
       "url": "https://www.bachtelen.ch/stelle/praktikantinnen-schulsozialpaedagogik-70/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:07:32.996Z",
+      "crawledAt": "2026-11-01T09:37:28.718Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -381,7 +397,11 @@
           "maxValue": 74200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:37:28.718Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-c63bf5236e17",
@@ -415,7 +435,7 @@
       "url": "https://www.bachtelen.ch/stelle/fruehlogopaedin-fruehlogopaede-50-70/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:07:32.995Z",
+      "crawledAt": "2026-11-01T09:37:28.716Z",
       "addressLocality": "Solothurn und Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -455,7 +475,11 @@
           "maxValue": 83300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn und Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:37:28.716Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-834896f22e47",
@@ -489,7 +513,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-resp-lehrperson-einer-zyklusdurchmischten-klasse-zyklus-1-und-2/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:07:32.993Z",
+      "crawledAt": "2026-11-01T09:37:28.714Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -537,7 +561,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:37:28.714Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-7eb69d7df2a3",
@@ -571,7 +599,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-resp-lehrperson/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:07:32.992Z",
+      "crawledAt": "2026-11-01T09:37:28.712Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -617,7 +645,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:37:28.712Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-008199975844",
@@ -651,7 +683,7 @@
       "url": "https://www.bachtelen.ch/stelle/geschaeftsleiterin-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:07:32.990Z",
+      "crawledAt": "2026-11-01T09:37:28.709Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -697,7 +729,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:37:28.709Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-58298d2a2c1c",
@@ -731,7 +767,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagogin-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:07:32.987Z",
+      "crawledAt": "2026-11-01T09:37:28.704Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -779,7 +815,11 @@
           "maxValue": 99600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Hägendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:37:28.704Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
