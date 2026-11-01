@@ -110,6 +110,8 @@ const LIVE_HUB_TIMEOUT_MS = 20_000;
 const FETCH_HEADERS = {
   'User-Agent': 'frontaliere-article-hub-refresh/1.0',
 };
+const LIVE_ARTICLE_INDEX_CDN_BASE = (process.env.ARTICLE_HUB_CDN_BASE ?? 'https://cdn.frontaliereticino.ch').replace(/\/$/, '');
+const LIVE_ARTICLE_INDEX_FRESHNESS_BUCKET_MS = 5 * 60 * 1000;
 
 export async function fetchPublishedCorpusCommit({
   manifestUrl = MANIFEST_URL,
@@ -192,6 +194,85 @@ async function fetchLiveHubSlugs(section) {
   const slugs = renderedSlugs(await response.text(), hubPath);
   if (slugs.length === 0) throw new Error(`no article cards found in the live hub ${url}`);
   return { url, slugs };
+}
+
+function rotatingArticleIndexUrl(url) {
+  const bucket = Math.floor(Date.now() / LIVE_ARTICLE_INDEX_FRESHNESS_BUCKET_MS);
+  return `${url}?v=${bucket}`;
+}
+
+function liveArticleIndexUrl(section, full = false) {
+  const suffix = full ? '-full' : '';
+  return `${LIVE_ARTICLE_INDEX_CDN_BASE}/data/blog-index-${section}-it${suffix}.json`;
+}
+
+function usableLiveArticleIndexEntry(entry) {
+  if (!entry || typeof entry !== 'object') return false;
+  const row = entry;
+  return typeof row.id === 'string' && row.id.trim().length > 0
+    && typeof row.title === 'string' && row.title.trim().length > 0;
+}
+
+/**
+ * Read the same two CDN cache identities the runtime overlay reads. A live
+ * hub can be published by the fast path before the corpus API registry catches
+ * up; the overlay is the independent publication surface that proves this is
+ * that bounded handoff rather than an unexplained stale card.
+ */
+async function fetchLiveArticleIndexEntries(section, full = false) {
+  const baseUrl = liveArticleIndexUrl(section, full);
+  const urls = [baseUrl, rotatingArticleIndexUrl(baseUrl)];
+  const variants = await Promise.all(urls.map(async (url) => {
+    try {
+      const response = await fetch(url, {
+        headers: {
+          ...FETCH_HEADERS,
+          Origin: LIVE_SITE_BASE,
+          Referer: `${LIVE_SITE_BASE}${ARTICLE_PATH_BASE[section]?.it ?? '/'}`,
+        },
+        signal: AbortSignal.timeout(LIVE_HUB_TIMEOUT_MS),
+      });
+      if (!response.ok) return null;
+      const payload = await response.json();
+      return Array.isArray(payload?.articles)
+        ? payload.articles.filter(usableLiveArticleIndexEntry)
+        : null;
+    } catch {
+      return null;
+    }
+  }));
+  const usableVariants = variants.filter((entries) => entries !== null);
+  if (usableVariants.length === 0) {
+    throw new Error(`runtime article index unavailable for ${section}${full ? ' (full)' : ''}`);
+  }
+  return usableVariants.flat();
+}
+
+/**
+ * Match a live Italian card to the overlay without guessing across locales.
+ * New overlay rows normally use their id as the Italian slug; when a publisher
+ * supplies an explicit slug, that declaration is authoritative and the id is
+ * not used as a fallback.
+ */
+function overlayProvesItalianSlug(entries, slug) {
+  return entries.some((entry) => {
+    const declaredSlug = typeof entry.slug === 'string' ? entry.slug.trim() : '';
+    if (declaredSlug) return declaredSlug === slug;
+    return entry.id.trim() === slug;
+  });
+}
+
+async function proveLiveOnlySlugs(section, slugs) {
+  let entries = await fetchLiveArticleIndexEntries(section);
+  let proven = slugs.filter((slug) => overlayProvesItalianSlug(entries, slug));
+  if (proven.length === slugs.length) return proven;
+
+  // The recent index is the normal runtime path. Only inspect the complete
+  // index for the unresolved remainder, so a large payload is fetched solely
+  // on the anomaly path and never becomes part of the ordinary rerender.
+  entries = await fetchLiveArticleIndexEntries(section, true);
+  proven = slugs.filter((slug) => overlayProvesItalianSlug(entries, slug));
+  return proven;
 }
 
 function missingPublishedIds(localRegistry, publishedIds) {
@@ -790,13 +871,36 @@ export async function checkCorpusFreshness(
   }
   const missingLiveSlugs = missingLiveHubSlugs(localRegistry, liveHub.slugs);
   if (missingLiveSlugs.length > 0) {
+    let provenLiveOnlySlugs;
+    try {
+      provenLiveOnlySlugs = await proveLiveOnlySlugs(section, missingLiveSlugs);
+    } catch (err) {
+      return {
+        ok: false,
+        note:
+          `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from corpus main ` +
+          `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); runtime overlay proof unavailable (${err.message}), ` +
+          'refusing to move the client behind the hub',
+      };
+    }
+    const provenSet = new Set(provenLiveOnlySlugs);
+    const unprovenLiveOnlySlugs = missingLiveSlugs.filter((slug) => !provenSet.has(slug));
+    if (unprovenLiveOnlySlugs.length > 0) {
+      return {
+        ok: false,
+        note:
+          `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from corpus main ` +
+          `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); runtime overlay did not prove ` +
+          `${unprovenLiveOnlySlugs.slice(0, 5).join(', ')}, refusing to move the client behind the hub`,
+      };
+    }
     return {
       ok: false,
       deferred: true,
       note:
         `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from the pinned corpus snapshot ` +
-        `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); refusing to move the client behind the hub and ` +
-        'deferring hub and client publication until the snapshot catches up',
+        `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); the runtime overlay proves ` +
+        `${provenLiveOnlySlugs.join(', ')} as a live publication handoff — deferring hub and client publication until corpus main converges`,
     };
   }
 
