@@ -864,6 +864,21 @@ describe('account failure observability', () => {
     expect(await clickedGuard.read()).toMatchObject({ state: 'sending', clickedAt: T0 + 1 });
   });
 
+  it('keeps a verified send terminal over an earlier or late confirmed failure', async () => {
+    const guard = submissionGuard(store.db, ORDER, 3);
+    await guard.claim('portal', T0, { resumable: true });
+    await guard.release('portal_validation', T0 + 1);
+    expect(await guard.read()).toMatchObject({ state: 'failed', confirmedNotSent: true });
+
+    await guard.markSent({ channel: 'portal', confirmedBy: 'acknowledgement' }, T0 + 2);
+    expect(await guard.read()).toMatchObject({
+      state: 'sent', channel: 'portal', confirmedBy: 'acknowledgement', confirmedNotSent: false,
+    });
+
+    await guard.release('late_failure_event', T0 + 3);
+    expect(await guard.read()).toMatchObject({ state: 'sent', confirmedNotSent: false });
+  });
+
   it('emits diagnostics from the real account stop and throw branches', async () => {
     const missingCreateLink = {
       url: () => 'https://ats.example/login',
