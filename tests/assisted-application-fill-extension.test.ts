@@ -1361,6 +1361,27 @@ describe('fill extension: shared privacy-reading acknowledgement', () => {
     window.close();
   });
 
+  it('fails closed when the native field reader loses an ARIA reference', () => {
+    const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    const { window, document, F } = page('<label for="privacyAck">' + label
+      + '</label><input id="privacyAck" type="checkbox" aria-labelledby="missing-dob-label" required>');
+    nativeFieldReading(window);
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(entry.privacyMetadata).toMatchObject({ privacyMetadataIncomplete: true });
+    expect(F.answerFor(entry, kit)).toBe(null);
+    window.close();
+  });
+
+  it('fails closed when the fallback field reader loses an ARIA reference', () => {
+    const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    const { window, document, F } = page('<label for="privacyAck">' + label
+      + '</label><input id="privacyAck" type="checkbox" aria-labelledby="missing-dob-label" required>');
+    const entry = F.collect(document).find((item: any) => item.element.id === 'privacyAck');
+    expect(entry.privacyMetadata).toMatchObject({ privacyMetadataIncomplete: true });
+    expect(F.answerFor(entry, kit)).toBe(null);
+    window.close();
+  });
+
   it('reads contradictory privacy metadata directly when the injected reader is unavailable', () => {
     const label = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
     const { window, document, F } = page('<label for="privacyAck">' + label

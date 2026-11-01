@@ -110,6 +110,16 @@ describe('portal field extraction', () => {
     expect(operationalQuestionTopic(markerOnlyDescriptionQuestion)).toBeNull();
     expect(operationalQuestionTopic({ ...markerOnlyDescriptionQuestion, privacyMetadataIncomplete: false }))
       .toBe('privacy_review_ack');
+
+    const missingReference = extract('<form><label for="privacy-ack">' + prompt
+      + '</label><input id="privacy-ack" type="checkbox" aria-labelledby="missing-dob-label" required></form>');
+    const missingReferenceField = missingReference.fields.find((entry: any) => entry.domId === 'privacy-ack');
+    expect(missingReferenceField.privacyMetadataIncomplete).toBe(true);
+    const missingReferenceQuestion = portalRequirementsFromMissingRequired(missingReference.fields, [{
+      fieldId: missingReferenceField.id, question: prompt, applicationQuestion: prompt, type: 'yes_no', required: true,
+    }]).questions[0];
+    expect(missingReferenceQuestion.privacyMetadataIncomplete).toBe(true);
+    expect(operationalQuestionTopic(missingReferenceQuestion)).toBeNull();
   });
 
   it('recognizes the Deloitte login fields and optional-cookie controls', () => {
