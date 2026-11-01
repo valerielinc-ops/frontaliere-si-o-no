@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fondation-soins-lausanne",
-  "assembledAt": "2026-10-31T21:47:05.838Z",
-  "runId": "41242693248",
+  "assembledAt": "2026-11-01T09:24:53.818Z",
+  "runId": "41292289555",
   "jobs": [
     {
       "id": "fondation-soins-lausanne-655eb4adad37",
@@ -34,7 +34,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/a27178ef-0a0e-41ee-bb3d-19783f4aeeb9/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:01.911Z",
+      "crawledAt": "2026-11-01T09:24:45.659Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -83,7 +83,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:24:45.659Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-b212065e97c3",
@@ -116,7 +120,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/0149f398-f947-45bb-b638-9e37f465fc1f/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:00.986Z",
+      "crawledAt": "2026-11-01T09:24:44.872Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -163,7 +167,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:24:44.872Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-a119cc1d4157",
@@ -196,7 +204,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e6698032-dcf0-4f85-a33c-f16480b5169e/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:00.091Z",
+      "crawledAt": "2026-11-01T09:24:44.020Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -243,7 +251,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:24:44.020Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-a2571aaaa489",
@@ -277,7 +289,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/4cd3ad4f-0050-48a4-898f-202e2cfb16ac/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:59.312Z",
+      "crawledAt": "2026-11-01T09:24:43.369Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -323,7 +335,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:24:43.369Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-a122c10623e6",
@@ -357,7 +373,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/492a41be-1f59-4982-a023-87cf042025dc/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:58.631Z",
+      "crawledAt": "2026-11-01T09:24:42.506Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -398,7 +414,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:24:42.506Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-d7ea5f33a48d",
@@ -431,7 +451,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/f0e35efa-2832-4fb9-a55f-b619e6c5069a/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:57.976Z",
+      "crawledAt": "2026-11-01T09:24:41.745Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -479,7 +499,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:24:41.745Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-20c814d0afc0",
@@ -513,7 +537,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/43c1c32d-6f86-4c53-a7f1-bda1af702767/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:57.312Z",
+      "crawledAt": "2026-11-01T09:24:41.106Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -554,7 +578,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:24:41.106Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-5661b943ba17",
@@ -587,7 +615,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/17c5deb0-8092-4b63-9ac3-daa215f11c20/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:56.625Z",
+      "crawledAt": "2026-11-01T09:24:40.461Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -633,7 +661,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:24:40.461Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-586055ac6704",
@@ -666,7 +698,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ccdabdbf-b801-40b1-97f6-d7b111a07f9f/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:55.751Z",
+      "crawledAt": "2026-11-01T09:24:39.756Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -719,7 +751,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:24:39.756Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "fondation-soins-lausanne-1b666f06ad4f",
@@ -752,7 +788,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/6f2aef65-0c51-4024-a827-ddc4f69165e5/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:54.762Z",
+      "crawledAt": "2026-11-01T09:24:38.995Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -793,7 +829,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:24:38.995Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ksow",
-  "assembledAt": "2026-10-31T21:48:01.064Z",
-  "runId": "41242693248",
+  "assembledAt": "2026-11-01T09:24:16.069Z",
+  "runId": "41292289555",
   "jobs": [
     {
       "id": "ksow-553b13e21c9c",
@@ -34,7 +34,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fmh-allgemeine-innere-medizin-ca/1rn6v8yexqoha8aa0h3j3v8fwsaljtvz2lq36nnjyhbnst2trkc5tt3golid0m7f",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:56.664Z",
+      "crawledAt": "2026-11-01T09:24:03.427Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -97,7 +97,11 @@
           "maxValue": 12100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:03.427Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksow-f155573c4581",
@@ -130,7 +134,7 @@
       "url": "https://link.ostendis.com/publication/hebamme-hf-als-beleghebamme/sps0tnlmko6qyyzaidf5ejsnjh7al617qbyx6zmrt55d5etvj0mii5e50rdf3bib",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:55.319Z",
+      "crawledAt": "2026-11-01T09:24:01.610Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -200,7 +204,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:01.610Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksow-4221766af345",
@@ -233,7 +241,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf/zvlnudeefxpj3lstnn3rdi0v7fzfv2o6zek40f7yq80ioqeoz2vdodv14sbiie2l",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:53.927Z",
+      "crawledAt": "2026-11-01T09:23:59.678Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -307,7 +315,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:59.678Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksow-5701ea8c0df9",
@@ -340,7 +352,7 @@
       "url": "https://link.ostendis.com/publication/leitende-arzt-aerztin-innere-medizin-schwerpunkt-geriatrie/vs7xfcnesedeepbf3eazkakjmfzj286ocmhfx8sm67absaxp6r2b4m2q4yyoprvc",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:52.503Z",
+      "crawledAt": "2026-11-01T09:23:58.014Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -383,7 +395,11 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:58.014Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksow-fb59f76714a8",
@@ -416,7 +432,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf/cltooq170hv1mlpf74ma4qorps5m7365vh2wprt4vphrz7gfqlkehwozvtr2jhv7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:50.725Z",
+      "crawledAt": "2026-11-01T09:23:56.243Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -503,7 +519,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:56.243Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksow-1202da82a680",
@@ -536,7 +556,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-fachfrau-fachmann-hauswirtschaft-efz/mhpe6got6kp8aehvbhvrutqet94iqlvveti51x2mzy0czw1etpot27jvsddb54w2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:49.295Z",
+      "crawledAt": "2026-11-01T09:23:54.499Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -578,7 +598,11 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:54.499Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksow-7c363e194ca4",
@@ -611,7 +635,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-koechin-koch-efz/pkihhblzupj8tzcuezrj0x6dvyd4l66pc5to2p54fimn1cifw3r4e8anlzpsh653",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:47.203Z",
+      "crawledAt": "2026-11-01T09:23:52.363Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -657,7 +681,11 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:52.363Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksow-4e682c6f7d2e",
@@ -690,7 +718,7 @@
       "url": "https://link.ostendis.com/publication/vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf/uivc5rdvnw5u75bub47fcsvf1qy0d33dzjw5xpokd0t1uewhxn6eb1dhue0z83xw",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:45.403Z",
+      "crawledAt": "2026-11-01T09:23:50.605Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -730,7 +758,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:50.605Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksow-f833632b0ee5",
@@ -763,7 +795,7 @@
       "url": "https://link.ostendis.com/publication/sozialarbeiter-in-fh-hfs/yelztwd6hssenpdynxyf2qpypop26353103e6c82a5lkjfmp0yssn4d3nfis2ado",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:44.116Z",
+      "crawledAt": "2026-11-01T09:23:48.920Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -808,7 +840,11 @@
           "maxValue": 48200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:23:48.920Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksow-dc09ec1e7959",
@@ -841,7 +877,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-restaurant/e5ezu23qdm35hmmqetx0gv9tvvuffkr0pex87rcm5ixergj583jcm0iwmim4eu42",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:42.128Z",
+      "crawledAt": "2026-11-01T09:23:47.034Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -891,7 +927,11 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:23:47.034Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksow-9402256c92e8",
@@ -924,7 +964,7 @@
       "url": "https://link.ostendis.com/publication/diaetkoch-koechin-koch-koechin-efz/kpcey41rlkhrag7d4oc0tdteobgw8o0qxwzmhexksvbkxbxy8ct0cexmpmc4uduo",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:40.218Z",
+      "crawledAt": "2026-11-01T09:23:45.225Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -978,7 +1018,11 @@
           "maxValue": 86500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:23:45.225Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksow-afa51edee705",
@@ -1011,7 +1055,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-abwaschkueche/itshiaa8qw3fp2fsw4myyjhbshkp2huom26hgiob7sl50qzx5ct7vkczac0p7j73",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:38.268Z",
+      "crawledAt": "2026-11-01T09:23:43.460Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1061,7 +1105,11 @@
           "maxValue": 86500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:23:43.460Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksow-fae562bf03b0",
@@ -1094,7 +1142,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-ueberwachungsstation-hf/by3ccdt48c1qc7bhytzj0jsgmjly737v42chv5kc2sw677ofpjrb5jkjy76zjjx4",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:36.233Z",
+      "crawledAt": "2026-11-01T09:23:41.244Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1146,7 +1194,11 @@
           "maxValue": 84400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:23:41.244Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
