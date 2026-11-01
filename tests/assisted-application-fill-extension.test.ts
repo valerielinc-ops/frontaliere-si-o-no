@@ -935,8 +935,10 @@ describe('fill extension: the runner’s reading on any portal', () => {
     const { F, document, read } = runnerPage(`<div data-automation-id="applyFlowPage">
       <div data-automation-id="formField-source"><label id="lbl-src" for="src">How did you hear about us?<abbr title="required">*</abbr></label>
         <button id="src" type="button" aria-haspopup="listbox" aria-required="true" aria-labelledby="lbl-src">Select One</button></div>
-      <div data-automation-id="formField-country"><label for="country">Country of residence<abbr title="required">*</abbr></label>
-        <input id="country" type="search" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="ms1" aria-required="true"></div>
+      <section aria-label="Personal information">
+        <div data-automation-id="formField-country"><label for="country">Country of residence<abbr title="required">*</abbr></label>
+          <input id="country" type="search" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="ms1" aria-required="true"></div>
+      </section>
       <div id="pills"></div><div id="popup"></div>
       <input type="search" id="site-search" placeholder="Search jobs">
       <button type="button" data-automation-id="bottom-navigation-next-button">Save and Continue</button></div>`, 'https://acme.wd3.myworkdayjobs.com/en-US/careers/job/1/apply');

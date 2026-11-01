@@ -78,7 +78,7 @@ function individualApplicationOriginQuestion(value) {
     const country = /^(?:country(?: of residence)?|residence country|country\s*\/\s*region|(?:paese|nazione)(?: di residenza)?|stato di residenza|pays(?: de residence)?|land(?:\s*\/\s*region)?(?: des wohnorts| des wohnsitzes)?|wohnland|wohnsitzland)$/;
     const postalCode = /^(?:zip(?: code)?|postal code|postalcode|post code|postcode|zip\s*(?:\/|or)\s*postal code|postal\s*\/\s*zip code|cap|codice (?:di avviamento )?postale|plz|postleitzahl|npa|code postal)$/;
     const streetNumber = /^(?:(?:street|address|via|indirizzo|rue|strasse|straße)\s+(?:and|e|et|und|&)\s+(?:(?:the|il|le|die)\s+)?(?:house number|number|numero(?: civico)?|hausnummer))$/;
-    const street = /^(?:street(?: address| name)?|road name|address(?: line 1)?|residential address|residence address|(?:via|indirizzo)(?: di residenza| stradale| completo)?|nome (?:della )?via|strasse|straße|strassenname|adresse|wohnadresse|rue|nom de (?:la )?rue|adresse (?:personnelle|de residence))$/;
+    const street = /^(?:street(?: address| name)?|road name|address(?: line 1)?|residential address|residence address|(?:via(?:\s*\/\s*(?:piazza|viale))?|indirizzo)(?: di residenza| stradale| completo)?|nome (?:della )?via|strasse|straße|strassenname|adresse|wohnadresse|rue|nom de (?:la )?rue|adresse (?:personnelle|de residence))$/;
     const number = /^(?:house number|street number|numero civico|civico|hausnummer|numero (?:civique|de la rue))$/;
     if (city.test(caption)) return 'city';
     if (country.test(caption)) return 'country';
@@ -216,5 +216,5 @@ function isPrivacyReviewAcknowledgment(value, ...semanticIds) {
   return Boolean(exact && !hasConsentContradiction(value, ...semanticIds));
 }
   // consent-purpose:end
-  root.AssistedApplyControls = Object.freeze({ APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, nativeQuestionText, individualApplicationOriginQuestion, addressContextContract, hasAddressContextOwnership, isOptionalPurpose, privacySemanticIdentifiers, hasConsentContradiction, privacyReviewAcknowledgmentShape, isPrivacyReviewAcknowledgment });
+  root.AssistedApplyControls = Object.freeze({ APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, nativeQuestionText, individualApplicationOriginQuestion, addressContextContract, hasAddressContextOwnership, isOptionalPurpose, privacySemanticIdentifiers, hasConsentContradiction, privacyReviewAcknowledgmentShape, isPrivacyReviewAcknowledgment });
 })(globalThis);

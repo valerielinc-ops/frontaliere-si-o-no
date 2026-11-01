@@ -468,14 +468,14 @@ describe('static job-board root visibility — issue 13044', () => {
     expect(perf.mark).toHaveBeenCalledWith(STATIC_HANDOFF_PRESERVE_MARK);
   });
 
-  it('crossfades the mobile JobBoard root after static LCP, preserving desktop handoff', () => {
+  it('keeps the JobBoard root visible through mobile and desktop handoff', () => {
     const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
     expect(entry).toContain('keepStaticRootVisible = staticHandoff.shouldKeepStaticRootVisible(rootElement, fallback)');
-    expect(entry).toContain('crossfadeStaticRoot = keepStaticRootVisible && shouldWaitForJobBoardStaticLcp');
     expect(entry).toContain('staticHandoff.preserveRootForPaint(rootElement)');
-    expect(entry).toContain('if (keepStaticRootVisible && !crossfadeStaticRoot) {');
+    expect(entry).toContain('if (keepStaticRootVisible) {');
     expect(entry).toContain('staticHandoff.hideRootForCrossfade(rootElement)');
-    expect(entry).toContain('if (!keepStaticRootVisible || crossfadeStaticRoot) {');
+    expect(entry).toContain('if (!keepStaticRootVisible) {');
+    expect(entry).not.toContain('crossfadeStaticRoot');
   });
 });
 
