@@ -131,17 +131,28 @@ describe('qualification before proposal publication', () => {
       'Exigences\nFacultatif:\n- Français B2',
       'Exigences facultatives\n- Français B2',
       'Optionale Anforderungen\n- Deutsch B2',
+      'Qualifiche opzionali\n- Almeno 5 anni di esperienza.',
+      'Exigences\nUn plus:\n- Plus de 5 ans d’expérience.',
+      'Un plus:\nPlus de 5 ans d’expérience.',
+      'Opzionale\nAlmeno 5 anni di esperienza costituiscono un plus.',
+      'Qualifications\nOptional\n- German C1 is required for this preferred profile.',
     ]) expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, optional)).toBe(false);
 
     const posting = 'Qualifications\n- German C1\nVotre mission\n- Support customer projects';
     const covered = { requirements: [{ requirement: 'Tedesco C1', sourceRequirement: 'German C1', importance: 'critical', basis: 'stated', quote: 'German C1' }] };
     expect(hasUncoveredHardEligibilityStatements(covered, posting)).toBe(false);
+
+    for (const heading of ['Tätigkeiten', 'Ihre Tätigkeiten']) {
+      const resetPosting = `Qualifications\n- German C1\n${heading}\n- Manage multilingual support projects`;
+      expect(hasUncoveredHardEligibilityStatements(covered, resetPosting)).toBe(false);
+    }
   });
 
   it('does not treat application channel instructions or preferred skills as hard eligibility', () => {
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Applications must be submitted online only.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Candidates must apply online only.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'French is a plus.')).toBe(false);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'At least 5 years of experience would be useful.')).toBe(false);
   });
 
   it('allows all three bounded primary/fallback attempts without the long-running Codex rung', async () => {
