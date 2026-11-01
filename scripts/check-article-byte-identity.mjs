@@ -18,25 +18,31 @@ import { realpathSync } from 'node:fs';
 // paper over with broader normalization.
 //
 // NORMALIZED FIELDS (exhaustive — nothing else is touched before diffing):
-//   TWO structural normalizations, both added for issue #5444, both scoped as
-//   tightly as they can be, both of the same shape (a permutation of a
-//   multiset of substrings — see the safety argument on each):
-//     1. the ORDER of `<meta>` tags inside `<head>` — canonicalizeHeadMetaOrder().
+//   THREE structural normalizations, each scoped as tightly as it can be:
+//     1. the exact deploy-time CDN data envelope in the active head
+//        (canonicalizeCdnDataEnvelope). Fast-rendered scratch pages run the
+//        same offload pass as deploys, while a live page can be from the
+//        previous deployment generation. Only the canonical CDN origin's
+//        generated preconnect, dns-prefetch, and window.__CDN_DATA_BASE__
+//        assignment are ignored; a different origin or value remains a
+//        mismatch. The scanner skips comments, templates, and raw text, so a
+//        string containing the marker is not treated as an active envelope.
+//     2. the ORDER of `<meta>` tags inside `<head>` — canonicalizeHeadMetaOrder().
 //        The two render paths emit the SAME `<meta>` tags in a DIFFERENT
 //        sequence, which made every single comparison fail on a difference no
 //        consumer of the page can observe. Measured on run 31324948161: 12
 //        comparisons, 12 with IDENTICAL byte length, first divergence always
 //        at offset 1572-1795 — i.e. inside the `<meta>` block. Same length +
 //        different bytes = a permutation, not a content change.
-//     2. the ORDER of the comma-separated DIRECTIVES inside the `content=`
+//     3. the ORDER of the comma-separated DIRECTIVES inside the `content=`
 //        value of a robots-family `<meta>` — canonicalizeRobotsDirectiveOrder().
-//        Same defect one level down, found by (1): with the tag order absorbed,
+//        Same defect one level down, found by (2): with the tag order absorbed,
 //        run 31328174202 diverged at offset 713 on
 //          fast: content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
 //          live: content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 //        — the same five directives, permuted.
-//   THE PATTERN, and it matters more than either normalization (read this
-//   before adding a third): each normalization here has revealed the next
+//   THE PATTERN, and it matters more than any normalization (read this
+//   before adding another): each normalization here has revealed the next
 //   layer of non-determinism rather than removing it. Tag order hid directive
 //   order; directive order may well be hiding something below it. The upstream
 //   cause is untouched and is one sentence long — THE TWO RENDER PATHS DO NOT
@@ -51,7 +57,7 @@ import { realpathSync } from 'node:fs';
 //   different byte-identity test once already. So: what you are reading is a
 //   CHASE, not a fix. Pinning the orders at the emission points would end it;
 //   normalizing here only lets the audit see past it.
-//   Both normalizations are applied ONLY as later passes, after an exact
+//   All normalizations are applied ONLY as later passes, after an exact
 //   comparison has already failed, so a genuinely byte-identical pair is
 //   still reported as such — and the log names which pass produced a match, so
 //   how often the renderers disagree, and about what, stays visible instead of
@@ -69,9 +75,9 @@ import { realpathSync } from 'node:fs';
 //   are identical build-to-build for the same commit. Net effect: for a
 //   well-formed article, the fast path's output and a full build's output
 //   carry the SAME bytes; #5444 established that they do not always carry
-//   them in the same ORDER — of the `<meta>` tags inside <head>, and of the
-//   directives inside a robots `content=` value — which is what the two
-//   normalizations above absorb, and only that.
+//   them in the same ORDER — of the deploy envelope, the `<meta>` tags inside
+//   <head>, and the directives inside a robots `content=` value — which is
+//   what the three normalizations above absorb, and only that.
 //   A trailing-newline-only diff (curl transport vs local fs.writeFileSync)
 //   is the one transport artifact tolerated below — not a content
 //   normalization, just whitespace at the very end of the byte stream.
@@ -136,6 +142,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import { CDN_ASSET_ORIGIN } from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -203,6 +210,229 @@ function firstDiffOffsetContext(a, b, contextChars = 200) {
     fast: a.slice(start, offset + contextChars),
     live: b.slice(start, offset + contextChars),
   };
+}
+
+// The offload pass injects this exact active-head envelope into every page. The
+// audit compares a freshly rendered page with a live page that can belong to a
+// different deploy generation, so the envelope is a deployment boundary rather
+// than article content. Keep the origin exact: a wrong CDN base is a real
+// runtime defect and must remain visible to this audit.
+const CDN_DATA_BASE_SCRIPT =
+  '<script>window.__CDN_DATA_BASE__=' + JSON.stringify(CDN_ASSET_ORIGIN) + '</script>';
+const CDN_PRECONNECT_HINT =
+  '<link rel="preconnect" href="' + CDN_ASSET_ORIGIN + '" crossorigin>';
+const CDN_DNS_PREFETCH_HINT =
+  '<link rel="dns-prefetch" href="' + CDN_ASSET_ORIGIN + '">';
+
+function isHtmlWhitespace(char) {
+  return char === ' ' || char === '\t' || char === '\n' || char === '\r' || char === '\f';
+}
+
+function isHtmlTagNameChar(char) {
+  if (!char) return false;
+  const code = char.charCodeAt(0);
+  return (
+    (code >= 65 && code <= 90) ||
+    (code >= 97 && code <= 122) ||
+    (code >= 48 && code <= 57) ||
+    char === ':' || char === '-' || char === '_'
+  );
+}
+
+function findHtmlTagEnd(html, start) {
+  let quote = '';
+  for (let i = start + 1; i < html.length; i++) {
+    const char = html[i];
+    if (quote) {
+      if (char === quote) quote = '';
+    } else if (char === '"' || char === "'") {
+      quote = char;
+    } else if (char === '>') {
+      return i;
+    }
+  }
+  return -1;
+}
+
+function readHtmlTag(html, start) {
+  if (html[start] !== '<') return null;
+  let i = start + 1;
+  const closing = html[i] === '/';
+  if (closing) i++;
+  const nameStart = i;
+  while (i < html.length && isHtmlTagNameChar(html[i])) i++;
+  if (i === nameStart) return null;
+  const nameEnd = i;
+  const boundary = html[i] ?? '';
+  if (boundary && !isHtmlWhitespace(boundary) && boundary !== '/' && boundary !== '>') return null;
+  const end = findHtmlTagEnd(html, start);
+  if (end < 0) return null;
+  let beforeEnd = end - 1;
+  while (beforeEnd >= nameEnd && isHtmlWhitespace(html[beforeEnd])) beforeEnd--;
+  return {
+    closing,
+    end,
+    nameEnd,
+    nameStart,
+    selfClosing: !closing && html[beforeEnd] === '/',
+  };
+}
+
+function htmlTagNamed(html, tag, expected) {
+  if (!tag || tag.nameEnd - tag.nameStart !== expected.length) return false;
+  for (let i = 0; i < expected.length; i++) {
+    let actual = html.charCodeAt(tag.nameStart + i);
+    const wanted = expected.charCodeAt(i);
+    if (actual >= 65 && actual <= 90) actual += 32;
+    if (actual !== wanted) return false;
+  }
+  return true;
+}
+
+function skipHtmlComment(html, start) {
+  const end = html.indexOf('-->', start + 4);
+  return end < 0 ? -1 : end + 3;
+}
+
+function findHtmlRawTextClose(html, afterOpening, name) {
+  let searchFrom = afterOpening;
+  while (searchFrom < html.length) {
+    const start = html.indexOf('<', searchFrom);
+    if (start < 0) return null;
+    const tag = readHtmlTag(html, start);
+    if (tag && tag.closing && htmlTagNamed(html, tag, name)) {
+      return { start, end: tag.end + 1 };
+    }
+    searchFrom = start + 1;
+  }
+  return null;
+}
+
+const HTML_RAW_TEXT_NAMES = ['script', 'style', 'textarea', 'title'];
+
+function skipHtmlTemplate(html, afterOpening) {
+  let depth = 1;
+  let searchFrom = afterOpening;
+  while (searchFrom < html.length) {
+    const start = html.indexOf('<', searchFrom);
+    if (start < 0) return { end: -1, malformed: true };
+    if (html.startsWith('<!--', start)) {
+      const afterComment = skipHtmlComment(html, start);
+      if (afterComment < 0) return { end: -1, malformed: true };
+      searchFrom = afterComment;
+      continue;
+    }
+    const tag = readHtmlTag(html, start);
+    if (!tag) {
+      searchFrom = start + 1;
+      continue;
+    }
+    if (htmlTagNamed(html, tag, 'template')) {
+      if (tag.closing) {
+        depth--;
+        if (depth === 0) return { end: tag.end + 1, malformed: false };
+      } else if (!tag.selfClosing) {
+        depth++;
+      }
+    } else if (!tag.closing && !tag.selfClosing) {
+      const rawName = HTML_RAW_TEXT_NAMES.find((name) => htmlTagNamed(html, tag, name));
+      if (rawName) {
+        const afterRawText = findHtmlRawTextClose(html, tag.end + 1, rawName)?.end;
+        if (afterRawText === undefined) return { end: -1, malformed: true };
+        searchFrom = afterRawText;
+        continue;
+      }
+    }
+    searchFrom = tag.end + 1;
+  }
+  return { end: -1, malformed: true };
+}
+
+function findCdnEnvelopeRanges(html, headStart, headEnd) {
+  const ranges = [];
+  const seen = new Set();
+  let searchFrom = headStart;
+  while (searchFrom < headEnd) {
+    const start = html.indexOf('<', searchFrom);
+    if (start < 0 || start >= headEnd) break;
+    if (html.startsWith('<!--', start)) {
+      const afterComment = skipHtmlComment(html, start);
+      if (afterComment < 0 || afterComment > headEnd) return { ranges, malformed: true };
+      searchFrom = afterComment;
+      continue;
+    }
+
+    const tag = readHtmlTag(html, start);
+    if (!tag || tag.end + 1 > headEnd) {
+      searchFrom = start + 1;
+      continue;
+    }
+    if (!tag.closing && !tag.selfClosing && htmlTagNamed(html, tag, 'template')) {
+      const templateScan = skipHtmlTemplate(html, tag.end + 1);
+      if (templateScan.malformed || templateScan.end > headEnd) {
+        return { ranges, malformed: true };
+      }
+      searchFrom = templateScan.end;
+      continue;
+    }
+    if (!tag.closing && !tag.selfClosing && htmlTagNamed(html, tag, 'script')) {
+      const close = findHtmlRawTextClose(html, tag.end + 1, 'script');
+      if (!close || close.end > headEnd) return { ranges, malformed: true };
+      const sourceScript = html.slice(start, close.end);
+      if (sourceScript === CDN_DATA_BASE_SCRIPT) {
+        if (seen.has(sourceScript)) return { ranges, malformed: true };
+        seen.add(sourceScript);
+        ranges.push({ start, end: close.end });
+      }
+      searchFrom = close.end;
+      continue;
+    }
+    if (!tag.closing && htmlTagNamed(html, tag, 'link')) {
+      const sourceTag = html.slice(start, tag.end + 1);
+      if (sourceTag === CDN_PRECONNECT_HINT || sourceTag === CDN_DNS_PREFETCH_HINT) {
+        if (seen.has(sourceTag)) return { ranges, malformed: true };
+        seen.add(sourceTag);
+        ranges.push({ start, end: tag.end + 1 });
+      }
+    }
+    if (!tag.closing && !tag.selfClosing) {
+      const rawName = HTML_RAW_TEXT_NAMES.find((name) => htmlTagNamed(html, tag, name));
+      if (rawName) {
+        const afterRawText = findHtmlRawTextClose(html, tag.end + 1, rawName)?.end;
+        if (afterRawText === undefined) return { ranges, malformed: true };
+        searchFrom = afterRawText;
+        continue;
+      }
+    }
+    searchFrom = tag.end + 1;
+  }
+  return { ranges, malformed: false };
+}
+
+/**
+ * Removes only the active, canonical CDN data envelope from the document head.
+ *
+ * This is deliberately a deletion of exact source ranges, not a regex replace:
+ * comments, templates, raw-text elements, body content, and a wrong CDN origin
+ * must remain observable. Malformed head markup returns unchanged, so the
+ * normalizer fails closed with a mismatch rather than guessing at scope.
+ */
+export function canonicalizeCdnDataEnvelope(html) {
+  const open = /<head\b[^>]*>/i.exec(html);
+  if (!open) return html;
+  const headStart = open.index + open[0].length;
+  const headEnd = html.toLowerCase().indexOf('</head>', headStart);
+  if (headEnd === -1) return html;
+
+  const scan = findCdnEnvelopeRanges(html, headStart, headEnd);
+  if (scan.malformed || scan.ranges.length === 0) return html;
+
+  let normalized = html;
+  for (let i = scan.ranges.length - 1; i >= 0; i--) {
+    const { start, end } = scan.ranges[i];
+    normalized = normalized.slice(0, start) + normalized.slice(end);
+  }
+  return normalized;
 }
 
 // `<meta>` tags whose POSITION is itself meaningful, and which are therefore
@@ -457,19 +687,24 @@ export function canonicalizeRobotsDirectiveOrder(html) {
 
 /**
  * The full second-pass normalization the comparison below applies, in the one
- * order that composes correctly: DIRECTIVES FIRST, THEN TAGS.
+ * order that composes correctly: CDN ENVELOPE FIRST, DIRECTIVES, THEN TAGS.
  *
  * Not interchangeable. canonicalizeHeadMetaOrder sorts whole raw tag strings,
  * so two sides whose robots tag differs only by directive order carry two
  * different sort KEYS; a third tag sorting between them would land in a
  * different slot on each side and the two heads would still differ after both
- * passes. Normalizing the directives first makes the two robots tags one
+ * passes. Normalizing the CDN envelope first makes the two renderings
+ * comparable at the deployment boundary; normalizing the directives then
+ * makes the two robots tags one
  * identical string, after which the tag sort sees identical multisets on both
  * sides and the result is order-free. Each pass preserves length, so neither
- * disturbs the other's slot arithmetic.
+ * disturbs the other's slot arithmetic (the envelope pass removes only
+ * explicitly generated ranges before these permutation passes).
  */
 export function canonicalizeForComparison(html) {
-  return canonicalizeHeadMetaOrder(canonicalizeRobotsDirectiveOrder(html));
+  return canonicalizeHeadMetaOrder(
+    canonicalizeRobotsDirectiveOrder(canonicalizeCdnDataEnvelope(html)),
+  );
 }
 
 async function main() {
@@ -535,44 +770,54 @@ async function main() {
         continue;
       }
 
-      // Later passes, and only now: the same bytes in a different order — of
-      // the <head> <meta> tags, then of the directives inside a robots
-      // content= value. Kept as fallbacks rather than folded into the first
-      // comparison so that "byte-identical" above keeps meaning literally
-      // that, and applied one at a time so the log says WHICH kind of
-      // reordering it took: the renderers' non-determinism is a real (if
-      // harmless) finding and should stay visible, not be erased. A run whose
-      // OK lines are all "modulo … directive ORDER" is telling you the chase
-      // described in the header comment has moved a level, not that it ended.
-      const tagOrderA = canonicalizeHeadMetaOrder(a);
-      const tagOrderB = canonicalizeHeadMetaOrder(b);
-      if (tagOrderA === tagOrderB) {
+      // Later passes, and only now: first remove the exact deploy-time CDN
+      // envelope, then compare the same bytes in a different order — the
+      // <head> <meta> tags and the directives inside a robots content= value.
+      // Kept as fallbacks rather than folded into the first comparison so
+      // "byte-identical" above keeps meaning literally that. The log names
+      // every normalization that produced a match, so a new harmless
+      // deployment-boundary difference remains visible instead of disappearing.
+      const cdnA = canonicalizeCdnDataEnvelope(a);
+      const cdnB = canonicalizeCdnDataEnvelope(b);
+      const cdnEnvelopeChanged = a !== cdnA || b !== cdnB;
+      if (cdnA === cdnB) {
         console.log(
-          `[byte-identity] ${shard.locale}: OK — identical modulo <head> <meta> ORDER (${a.length} bytes, same tags, same values) — ${shard.url}`,
+          `[byte-identity] ${shard.locale}: OK — identical modulo deploy-time CDN data envelope (${a.length}B fast, ${b.length}B live) — ${shard.url}`,
         );
         continue;
       }
 
-      const canonA = canonicalizeForComparison(a);
-      const canonB = canonicalizeForComparison(b);
-      if (canonA === canonB) {
-        console.log(
-          `[byte-identity] ${shard.locale}: OK — identical modulo <head> <meta> ORDER + robots DIRECTIVE ORDER (${a.length} bytes, same tags, same directives, same values) — ${shard.url}`,
-        );
-        continue;
-      }
+      const tagOrderA = canonicalizeHeadMetaOrder(cdnA);
+      const tagOrderB = canonicalizeHeadMetaOrder(cdnB);
+      if (tagOrderA === tagOrderB) {
+        const prefix = cdnEnvelopeChanged ? 'deploy-time CDN data envelope + ' : '';
+       console.log(
+          `[byte-identity] ${shard.locale}: OK — identical modulo ${prefix}<head> <meta> ORDER (${a.length}B fast, ${b.length}B live, same tags, same values) — ${shard.url}`,
+       );
+       continue;
+     }
+
+     const canonA = canonicalizeForComparison(a);
+     const canonB = canonicalizeForComparison(b);
+     if (canonA === canonB) {
+        const prefix = cdnEnvelopeChanged ? 'deploy-time CDN data envelope + ' : '';
+       console.log(
+          `[byte-identity] ${shard.locale}: OK — identical modulo ${prefix}<head> <meta> ORDER + robots DIRECTIVE ORDER (${a.length}B fast, ${b.length}B live, same tags, same directives, same values) — ${shard.url}`,
+       );
+       continue;
+     }
 
       anyMismatch = true;
       console.error(`[byte-identity] ${shard.locale}: MISMATCH — fast=${a.length}B live=${b.length}B — ${shard.url}`);
       // Diffed on the fully canonicalized text: on the raw text the <head>
       // <meta> permutation is always the FIRST divergence, so every
-      // offset/context block would point at it and hide whatever else differs
-      // further down — which is precisely how run 31324948161 read as 20/20
-      // drift, and then how run 31328174202 pointed every one of its 15
-      // mismatches at the robots directive order at offset 713.
-      console.error(
-        '  (offsets below are into the text canonicalized for <meta> ORDER and robots DIRECTIVE ORDER, not the raw response)',
-      );
+     // offset/context block would point at it and hide whatever else differs
+     // further down — which is precisely how run 31324948161 read as 20/20
+     // drift, and then how run 31328174202 pointed every one of its 15
+     // mismatches at the robots directive order at offset 713.
+     console.error(
+        '  (offsets below are into the text canonicalized for the deploy-time CDN envelope, <meta> ORDER, and robots DIRECTIVE ORDER, not the raw response)',
+     );
       const offsetCtx = firstDiffOffsetContext(canonA, canonB);
       if (offsetCtx) {
         console.error(`  first diff at char offset ${offsetCtx.offset}`);
