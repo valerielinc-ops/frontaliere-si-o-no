@@ -6,6 +6,13 @@ import { CONFIRM_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 // suffix under an unknown parent such as ApplicationSave/ApplicationReview.
 const REVIEW_PATH_RE = /^(?:application\/|application)?(?:review|preview|summary)\/?$/i;
 const PROFILE_CONTINUATION_RE = /(?:already submitted your personal information|(?:account|profile|personal information) (?:has been |was |is )?(?:created|saved|updated)).{0,300}(?:application|apply|review|continue)/i;
+const INCOMPLETE_APPLICATION_RE = new RegExp([
+  String.raw`\b(?:continue|resume|proceed|complete|finish)\b.{0,100}\b(?:application|candidature|bewerbung)\b`,
+  String.raw`\bapplication\b.{0,120}\b(?:incomplete|unfinished|not (?:yet )?(?:complete|finished|submitted|sent)|has not been (?:completed|submitted|sent)|still (?:needs|requires) completion|to be completed|to complete)\b`,
+  String.raw`\bbewerbung\b.{0,120}\b(?:unvollständig(?:e|en)?|nicht (?:vollständig|abgeschlossen|eingereicht|gesendet|fertig)|noch nicht (?:abgeschlossen|eingereicht|vollständig|fertig)|fortsetzen|vervollständigen)\b`,
+  String.raw`\bcandidature\b.{0,120}\b(?:incomplète|inachevée|pas encore (?:terminée|envoyée|complète|soumise)|n['’]est pas (?:encore )?(?:complète|terminée|envoyée|soumise)|(?:à|a) compléter|poursuivre|compléter)\b`,
+  String.raw`\bcandidatura\b.{0,120}\b(?:incomplet[ao]|non (?:è|e')\s+(?:ancora\s+)?(?:stata\s+)?(?:completat[ao]|inviat[ao]|complet[ao])|non (?:ancora\s+)?(?:completat[ao]|inviat[ao]|complet[ao])|da completare|continua|completa|prosegui)\b`,
+].join('|'), 'iu');
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
@@ -78,7 +85,8 @@ function receiptTitleBound(text, title) {
 /** Receipt copy must explicitly describe an application received for this posting. */
 export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, submissionUrl, sourceProtocol = null, job = {} } = {}) {
   const text = String(snapshot?.text || '');
-  if (!snapshot || invalidPostingKey(url) || invalidPostingKey(submissionUrl || applyUrl, sourceProtocol) || !CONFIRM_RE.test(text) || REFUSED_RE.test(text) || PROFILE_CONTINUATION_RE.test(snapshot.text || '')
+  if (!snapshot || invalidPostingKey(url) || invalidPostingKey(submissionUrl || applyUrl, sourceProtocol) || !CONFIRM_RE.test(text) || REFUSED_RE.test(text)
+    || PROFILE_CONTINUATION_RE.test(text) || INCOMPLETE_APPLICATION_RE.test(text)
     || REVIEW_INSTRUCTIONS_RE.test(snapshot.text || '') || BEFORE_SEND_RE.test(snapshot.text || '')) return false;
   if ((snapshot.buttons || []).some(button => !button.chrome && SUBMIT_RE.test(button.text || ''))) return false;
   const actualJobKey = portalJobKey(url);
@@ -113,13 +121,14 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   const bound = boundRoute(url, applyUrl, sourceProtocol) || titleBound(text, job.title);
   const finalReview = bound && REVIEW_INSTRUCTIONS_RE.test(text);
   if (finalReview) return { kind: 'final_review' };
-  const pending = PROFILE_CONTINUATION_RE.test(text) || BEFORE_SEND_RE.test(text);
+  const pending = PROFILE_CONTINUATION_RE.test(text) || INCOMPLETE_APPLICATION_RE.test(text) || BEFORE_SEND_RE.test(text);
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
     && boundRoute(url, applyUrl, sourceProtocol) && reviewNavigationRoute(button.href, applyUrl, sourceProtocol)
     && !parsed(button.href)?.hash
     && [...parsed(button.href).searchParams.keys()].every(key => /^(?:jobid|job_id|requisitionid|requisition_id|postingid)$/i.test(key))
     && button.href !== url);
   if (pending && links.length === 1 && !(snapshot?.fields || []).some(field => !field.disabled && !['hidden', 'submit', 'button'].includes(field.inputType))) return { kind: 'review_navigation', control: links[0], destination: links[0].href };
+  if (pending) return { kind: 'unknown_apply', prefinal: true };
   // A form's Apply can be a final send. A bare Apply on a profile/summary is
   // insufficient, even if an agent or a learned button calls it a submission.
   const apply = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || ''));

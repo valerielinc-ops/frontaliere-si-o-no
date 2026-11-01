@@ -119,4 +119,29 @@ describe('application stage ownership', () => {
     expect(result.submit).toBeNull();
     expect(result.next).toBeNull();
   });
+
+  it.each([
+    'Thank you for applying. Continue to complete your application.',
+    'Vielen Dank für Ihre Bewerbung. Ihre Bewerbung ist unvollständig.',
+    'Grazie per la tua candidatura. La candidatura non è completa.',
+    "Merci pour votre candidature. Votre candidature n'est pas complète.",
+  ])('does not treat a same-job acknowledgement of an incomplete application as a receipt: %s', text => {
+    const label = 'Finish application';
+    const incomplete = { ...receipt, text, buttons: [{ text: label }] };
+    const learned = { nextButtons: [], finalButtons: [{ path: '/careers/applicationcomplete', label }] };
+    expect(applicationReceipt(incomplete, { applyUrl, job })).toBe(false);
+    const result = pageControls(incomplete.buttons, learned, incomplete.url, { snapshot: incomplete, applyUrl, job });
+    expect(result.stage).toMatchObject({ kind: 'unknown_apply', prefinal: true });
+    expect(result.submit).toBeNull();
+    expect(result.next).toBeNull();
+  });
+
+  it.each([
+    'Thank you for your application for Infrastructure Strategy Manager.',
+    'Vielen Dank für Ihre Bewerbung als Infrastructure Strategy Manager.',
+    'Grazie per la tua candidatura per Infrastructure Strategy Manager.',
+    'Merci pour votre candidature pour Infrastructure Strategy Manager.',
+  ])('continues to accept a completed receipt in the selected communication language: %s', text => {
+    expect(applicationReceipt({ ...receipt, text }, { applyUrl, job })).toBe(true);
+  });
 });
