@@ -2827,6 +2827,13 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
 
+  const canResendVerification = Boolean(findButton(snapshot.buttons || [], RESEND_VERIFICATION_RE)
+    || (snapshot.links || []).some((link) => [link.text, link.label, link.ariaLabel, link.title]
+      .some((value) => RESEND_VERIFICATION_RE.test(String(value || '')))));
+  if (kind === 'sign_in' && account && !account.verifiedAt && canResendVerification) {
+    return verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot });
+  }
+
   if (kind === 'sign_in' && !account) {
     if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return accountHandoff('account', 'no_create_button', 'login');
     return { snapshot: await awaitAuthView(page, snapshot) };
