@@ -429,10 +429,11 @@ export async function submitApplication(ctx) {
   }
   if (WAVE1_CHANNELS.has(channelType) && applyUrl && ctx.codex) {
     // The same durable guard as the e-mail: a re-dispatched run never submits
-    // twice. A run that died before the final click may start again.
+    // twice. A run may restart only after a confirmed pre-click failure
+    // released the claim; an unreconciled `sending` claim may still be live.
     const guard = ctx.dryRun ? null : ctx.submissionGuard || null;
     if (guard) {
-      const claim = await guard.claim('portal', nowMs, { resumable: true });
+      const claim = await guard.claim('portal', nowMs);
       if (claim.status === 'withdrawn') return { type: 'submit_failed', error: 'candidate_withdrawn' };
       if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channelType, replayed: true, ...(claim.record?.sent ? { sent: claim.record.sent } : {}) };
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };

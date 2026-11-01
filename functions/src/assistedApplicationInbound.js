@@ -199,10 +199,17 @@ function ownMessageText(text) {
   return own.join('\n');
 }
 
+// A single unbroken token is not an employer sentence. Skipping rule matching
+// for an oversized one prevents Unicode word-boundary patterns from spending
+// seconds backtracking over hostile token streams while leaving ordinary long
+// prose (which contains spaces) fully classified.
+const MAX_UNBROKEN_RULE_SENTENCE = 2_000;
+
 /** Sentences of a text wrapped at any width; a date such as "12. Oktober" does not end one. */
 function sentencesOf(text) {
   return text.split(/(?<=[^\d\s][.!?;])\s+|\n\s*\n/u)
     .map((sentence) => sentence.replace(COURTESY_RE, ' ').replace(/\s+/g, ' ').trim())
+    .map((sentence) => sentence.length > MAX_UNBROKEN_RULE_SENTENCE && !/\s/u.test(sentence) ? '' : sentence)
     .filter(Boolean)
     .slice(0, 200);
 }
