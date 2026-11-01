@@ -199,6 +199,14 @@ export function ownConsent(field) {
   const label = String(field?.label || '').replace(/\p{Cf}/gu, '').normalize('NFC');
   const name = `${field?.name || ''} ${field?.autocomplete || ''}`.trim();
   const fieldId = String(field?.id || '').trim();
+  // A privacy-looking checkbox can still carry a language-level control id
+  // when the portal reuses its native metadata. Treat that as a candidate
+  // fact only when the metadata itself names the language and CEFR level;
+  // opaque ids such as `c1` remain non-semantic.
+  const semanticMetadata = [fieldId, field?.name, field?.fieldId, field?.controlId]
+    .filter(value => typeof value === 'string' && value.trim())
+    .join(' ').replace(/[_:.-]+/g, ' ');
+  const languageFactMetadata = /\b(?:language|lingua|sprache|langue|german|deutsch|tedesco|allemand)\b.{0,80}\b[abc][12]\b/i.test(semanticMetadata);
   const legacyApplicationConsent = APPLICATION_CONSENT_NAME_RE.test(name);
   const privacyIdentifiers = privacySemanticIdentifiers(field);
   const privacyRepresentations = [field?.question, field?.label, field?.applicationQuestion]
@@ -213,6 +221,7 @@ export function ownConsent(field) {
   const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || privacyReviewAck || isConsentPurpose(label);
   return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent || privacyReviewAck) && ownText
     && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(consentText)
+    && !languageFactMetadata
     && !(privacyReviewShape && !privacyReviewAck)
     && !hasConsentContradiction(consentText, field);
 }
@@ -679,7 +688,7 @@ function isPhoneCountryQuestion(value, context = '', metadata = {}) {
   const phoneLabel = PHONE_CODE_FIELD_RE.test(label);
   const explicitPhoneCountry = (PHONE_COUNTRY_CODE_LABEL_RE.test(label) && (phoneLabel || phoneScope))
     || (COUNTRY_RE.test(label) && phoneLabel);
-  if (explicitPhoneCountry) return !RESIDENCE_CONTEXT_RE.test(label);
+  if (explicitPhoneCountry) return !RESIDENCE_CONTEXT_RE.test(label) && !RESIDENCE_CONTEXT_RE.test(fieldContext);
   return residenceFieldRole(label) === 'country' && COUNTRY_RE.test(label)
     && phoneScope && !RESIDENCE_CONTEXT_RE.test(label)
     && (hasOwner || !RESIDENCE_CONTEXT_RE.test(fieldContext));
@@ -687,7 +696,8 @@ function isPhoneCountryQuestion(value, context = '', metadata = {}) {
 
 export function addressQuestionTopic(text, context = '', metadata = {}) {
   const value = String(text || '');
-  const role = residenceFieldRole(value);
+  const role = residenceFieldRole(value)
+    || (POSTAL_CODE_RE.test(value) && RESIDENCE_CONTEXT_RE.test(value) ? 'postalCode' : '');
   if (!role) return '';
   const surrounding = String(context || '').trim();
   const hasOwnership = Object.hasOwn(metadata || {}, 'addressContext');

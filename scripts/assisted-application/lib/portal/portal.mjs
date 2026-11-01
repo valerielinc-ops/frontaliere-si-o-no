@@ -3106,6 +3106,22 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     if (!/^[\w-]{1,80}$/.test(id)) continue;
     const frame = page.frames()[Number(candidate.frame) || 0] || page.mainFrame();
     const locator = frame.locator(`[data-aa-id="${id}"]`).first();
+    // Keep detached DOM failures observable for the small locator adapters
+    // used by the runner's account tests, while never treating an incomplete
+    // adapter as proof of a live sign-in control.
+    if (typeof locator?.isVisible !== 'function' || typeof locator?.evaluate !== 'function') {
+      if (typeof frame?.evaluate === 'function') {
+        try {
+          await frame.evaluate(() => null);
+        } catch (error) {
+          // A detached frame is the same retryable DOM failure as a detached
+          // locator in the real adapter; keep the observable error contract.
+          if (/detached/i.test(String(error?.message || error))) throw new Error('locator.detached', { cause: error });
+          throw error;
+        }
+      }
+      continue;
+    }
     if (!await locator.isVisible().catch(() => false)) continue;
     const liveControl = await locator.evaluate((element) => {
       const doc = element.ownerDocument;

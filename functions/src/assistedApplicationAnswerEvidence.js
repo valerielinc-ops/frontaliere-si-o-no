@@ -100,7 +100,6 @@ export function orderQuestionAnswerContext({ orderId, flow = {}, draft = {}, now
   const oldQuestionIds = trusted ? object(flow.questionAnswerSnapshotIds) : {};
   const oldCompatibility = trusted ? object(flow.questionAnswerCompatibility) : {};
   const flowAnswers = trusted ? object(flow.answers) : {};
-  const directAnswers = object(flow.answers);
   const previous = {};
   const answers = {};
   const snapshots = {};
@@ -133,13 +132,10 @@ export function orderQuestionAnswerContext({ orderId, flow = {}, draft = {}, now
     for (const question of group) if (confirmedIds.includes(question.id) && oldSnapshots[key] === hashes[0]
       && Object.hasOwn(flowAnswers, question.id)) answers[question.id] = flowAnswers[question.id];
   }
-  // Same-order answers are usable for this order even when an old flow has no
-  // evidence marker; they are never copied into the candidate-wide ledger.
-  const directOrderAnswers = rememberCandidateQuestionAnswers({ questions: snapshotQuestions,
-    answers: Object.fromEntries(snapshotQuestions.filter(question => Object.hasOwn(directAnswers, question.id))
-      .map(question => [question.id, directAnswers[question.id]])), changed: directAnswers });
-  const orderAnswers = { ...directOrderAnswers,
-    ...rememberCandidateQuestionAnswers({ questions: snapshotQuestions, answers, previous, changed: answers }) };
+  // An old flow without the writer marker is not evidence for either the
+  // candidate-wide ledger or the owner fill kit. Only the confirmed snapshot
+  // path above may project answers into the current order.
+  const orderAnswers = rememberCandidateQuestionAnswers({ questions: snapshotQuestions, answers, previous, changed: answers });
   return { answers, orderAnswers, questionAnswerSnapshots: snapshots, questionAnswerSnapshotIds: snapshotIds,
     questionAnswerCompatibility: compatibility };
 }
@@ -350,13 +346,10 @@ export async function loadRunnerAnswerContext({ db, orderId, order, flow, draft,
   const context = contextFor ? contextFor(order, { purpose: 'form' }) : { answers: {}, answerEvidence: [] };
   const orderContext = orderRetained ? orderQuestionAnswerContext({ orderId, flow, draft, nowMs })
     : { answers: {}, orderAnswers: {}, questionAnswerSnapshots: {}, questionAnswerSnapshotIds: {}, questionAnswerCompatibility: {} };
-  // `answers` belongs to this order and is already candidate/owner supplied;
-  // only the cross-order question ledger needs the stricter evidence contract.
-  // Keep it while the order is retained, then clear both projections once the
-  // retention purge has won.
-  const localAnswers = orderRetained && flow?.answers && typeof flow.answers === 'object' && !Array.isArray(flow.answers)
-    ? flow.answers : {};
-  return { flow: { ...flow, answers: { ...localAnswers, ...orderContext.answers },
+  // Both projections are restricted to the confirmed writer contract. An
+  // unmarked legacy flow can still be inspected for recovery, but must not
+  // become fill-kit input or candidate evidence.
+  return { flow: { ...flow, answers: orderContext.answers,
     questionAnswers: { ...context.answers, ...orderContext.orderAnswers } },
   orderAnswers: orderContext.orderAnswers, orderAnswerSnapshots: orderContext.questionAnswerSnapshots,
   orderAnswerSnapshotIds: orderContext.questionAnswerSnapshotIds, orderAnswerCompatibility: orderContext.questionAnswerCompatibility,
