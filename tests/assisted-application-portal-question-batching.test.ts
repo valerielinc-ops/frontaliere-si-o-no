@@ -754,7 +754,7 @@ describe('assisted portal question batching', () => {
 
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
-      'Describe your experience leading regional teams. *',
+      'Describe your experience leading regional teams.',
       'Country of residence *',
     ]);
     expect(plannerInputs.some((input) => input.includes('Describe your experience leading regional teams.'))).toBe(true);
