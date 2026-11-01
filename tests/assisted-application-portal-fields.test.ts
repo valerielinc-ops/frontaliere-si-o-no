@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType, unresolvedTurnstileFrame } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { COOKIE_ACCEPT_RE, COOKIE_REJECT_RE, openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_REJECT_RE, dismissCookieBanner, openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { operationalDefaultAnswer } from '../functions/src/assistedApplicationOperationalAnswers.js';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
@@ -57,6 +57,118 @@ describe('portal field extraction', () => {
     ]));
     expect(findButton(snapshot.buttons, COOKIE_REJECT_RE)?.text).toBe('Decline optional cookies');
     expect(findButton(snapshot.buttons, COOKIE_ACCEPT_RE)?.text).toBe('Accept optional cookies');
+  });
+
+  it('recognizes cookie preference entry points used across portal locales', () => {
+    for (const label of [
+      'Customise Cookies',
+      'Cookie settings',
+      'Cookie-Einstellungen ändern',
+      'Impostazioni cookie',
+      'Paramètres des cookies',
+      'Cookie-instellingen',
+    ]) expect(COOKIE_CUSTOMIZE_RE.test(label)).toBe(true);
+  });
+
+  it('marks only an active cookie surface, not a persistent preferences section', () => {
+    const active = extract('<div id="cookie-banner"><button type="button">Customise Cookies</button></div>');
+    expect(active.buttons.find((button: any) => button.text === 'Customise Cookies')).toMatchObject({ cookieSurface: 'banner' });
+    const persistent = extract('<main><div class="cookie-preferences"><button type="button">Customise Cookies</button></div></main>');
+    expect(persistent.buttons.find((button: any) => button.text === 'Customise Cookies')).not.toHaveProperty('cookieSurface');
+  });
+
+  it('opens an active preference center, then applies only its explicit cookie choice', async () => {
+    const url = 'https://careers.example/apply';
+    let stage = 0;
+    const clicks: string[] = [];
+    const currentSnapshot = () => stage === 0
+      ? { url, fields: [], buttons: [{ id: 'customize', text: '', label: 'Cookie-Einstellungen ändern', ariaLabel: '', dialog: true, dialogId: 'd1', disabled: false }], links: [], dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false }
+      : stage === 1
+        ? { url, fields: [], buttons: [{ id: 'reject', text: 'Alle Cookies ablehnen', dialog: true, dialogId: 'd1', disabled: false }], links: [], dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false }
+        : { url, fields: [], buttons: [{ id: 'login', text: 'Anmelden', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        innerText: vi.fn(async () => 'Cookie-Einstellungen'),
+        first: () => ({
+          click: vi.fn(async () => {
+            clicks.push(selector);
+            stage += 1;
+          }),
+        }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(clicks).toEqual(['[data-aa-id="customize"]', '[data-aa-id="reject"]']);
+  });
+
+  it('hands off when preferences reveal no explicit cookie decision', async () => {
+    const url = 'https://careers.example/apply';
+    let stage = 0;
+    const clicks: string[] = [];
+    const currentSnapshot = () => stage === 0
+        ? { url, fields: [], buttons: [{ id: 'customize', text: 'Customise Cookies', cookieSurface: 'banner', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false }
+      : { url, fields: [], buttons: [{ id: 'save', text: 'Save preferences', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: vi.fn(async () => {
+            clicks.push(selector);
+            stage += 1;
+          }),
+        }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('unresolved');
+    expect(clicks).toEqual(['[data-aa-id="customize"]']);
+  });
+
+  it('does not open site chrome preferences or accept an unrelated privacy dialog', async () => {
+    const url = 'https://careers.example/apply';
+    const privacy = {
+      url,
+      buttons: [
+        { id: 'site', text: 'Cookie settings', chrome: true, disabled: false },
+        { id: 'accept', text: 'Accept', dialog: true, dialogId: 'd1', context: 'Data privacy notice', disabled: false },
+      ],
+      dialogs: [{ dialogId: 'd1' }],
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => privacy),
+      locator: vi.fn(() => ({ innerText: vi.fn(async () => 'Data privacy notice') })),
+    };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, privacy as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('does not click a footer cookie-preferences link without an active banner', async () => {
+    const url = 'https://careers.example/apply';
+    const footer = {
+      url,
+      buttons: [{ id: 'footer-cookie', text: 'Cookie Preferences', label: 'Cookie Preferences', context: 'Cookie banner', section: 'Footer', disabled: false }],
+      dialogs: [],
+    };
+    const frame = { url: () => url, evaluate: vi.fn(async () => footer) };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, footer as any);
+
+    expect(result.status).toBe('none');
   });
 
   it('uses the extracted SuccessFactors marker when a private-use upload button has only a generated snapshot id', async () => {

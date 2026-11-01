@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { APPLY_LATER_RE, APPLY_RE, COOKIE_REJECT_RE } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { APPLY_LATER_RE, APPLY_RE, COOKIE_CUSTOMIZE_RE, COOKIE_REJECT_RE } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { NOT_ADVANCE_RE } from '../scripts/assisted-application/lib/portal/agent.mjs';
 
 const extension = resolve(fileURLToPath(new URL('..', import.meta.url)), 'scripts/assisted-application/extension');
@@ -296,9 +296,20 @@ describe('fill extension: patterns', () => {
 
   it('uses the runner’s own patterns', () => {
     const { F } = page('');
-    for (const [name, pattern] of Object.entries({ NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE })) {
+    for (const [name, pattern] of Object.entries({ NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, COOKIE_CUSTOMIZE_RE })) {
       expect(`${name}: ${F[name].source}/${F[name].flags}`).toBe(`${name}: ${pattern.source}/${pattern.flags}`);
     }
+  });
+
+  it('opens a Deloitte cookie preference center before refusing optional cookies', () => {
+    const { F, document } = page('<div id="cookie-banner"><button type="button">Customise Cookies</button></div>');
+    expect(F.cookieRefusal(document)?.textContent).toBe('Customise Cookies');
+    document.body.innerHTML = '<button type="button">Decline optional cookies</button>';
+    expect(F.cookieRefusal(document)).toBeNull();
+    document.body.innerHTML = '<main><div class="cookie-preferences"><button type="button">Customise Cookies</button></div></main>';
+    expect(F.cookieRefusal(document)).toBeNull();
+    document.body.innerHTML = '<div id="cookie-banner"><button type="button">Decline optional cookies</button></div>';
+    expect(F.cookieRefusal(document)?.textContent).toBe('Decline optional cookies');
   });
 
   it('recognizes the Ticino portal’s classic online-application link', () => {
@@ -945,6 +956,7 @@ describe('fill extension: the runner’s reading on any portal', () => {
     const popup = document.getElementById('popup')!;
     const button = document.getElementById('src')!;
     const country = document.getElementById('country') as HTMLInputElement;
+    let countryPresses = 0;
     const open = (labels: string[], choose: (label: string) => void) => {
       popup.innerHTML = '<div role="listbox">' + labels.map((label) => '<div role="option">' + label + '</div>').join('') + '</div>';
       popup.querySelectorAll('[role="option"]').forEach((option) => option.addEventListener('click', () => { choose(option.textContent || ''); popup.innerHTML = ''; }));
@@ -953,6 +965,9 @@ describe('fill extension: the runner’s reading on any portal', () => {
     country.addEventListener('keydown', (event) => {
       if ((event as KeyboardEvent).key !== 'Enter') return;
       open(['Switzerland', 'Swaziland'].filter((name) => name.toLowerCase().startsWith(country.value.toLowerCase().slice(0, 3))), (label) => {
+        // Workday can consume the first synthetic option press while it redraws
+        // the popup. The extension must reopen once and verify the committed pill.
+        if (countryPresses++ === 0) return;
         document.getElementById('pills')!.innerHTML = '<div data-uxi-widget-type="selectinputlistitem" data-uxi-multiselect-id="ms1">' + label + '</div>';
         country.value = '';
       });
