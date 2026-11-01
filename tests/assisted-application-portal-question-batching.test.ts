@@ -37,6 +37,7 @@ function fakePage({ multiStep = false, conditional = true } = {}) {
       </form>`;
   const dom = new JSDOM(`<!doctype html><html><body>${form}</body></html>`, { url, runScripts: 'outside-only' });
   const { window } = dom;
+  const extractionTrace: any[] = [];
   let currentUrl = url;
   let frameReadFailures = 0;
   Object.defineProperty(window.HTMLElement.prototype, 'innerText', { configurable: true, get() { return this.textContent || ''; } });
@@ -81,7 +82,17 @@ function fakePage({ multiStep = false, conditional = true } = {}) {
   };
   const frame: any = {
     url: () => currentUrl,
-    evaluate: async (run: any, argument: any) => inWindow(window, () => run(argument)),
+    evaluate: async (run: any, argument: any) => inWindow(window, () => {
+      const result = run(argument);
+      if (result && Array.isArray(result.fields) && Array.isArray(result.buttons)) {
+        const snapshot = {
+          fields: result.fields.map(({ id, kind, label, required }: any) => ({ id, kind, label, required })),
+          buttons: result.buttons.map(({ id, text }: any) => ({ id, text })),
+        };
+        if (JSON.stringify(extractionTrace.at(-1)) !== JSON.stringify(snapshot)) extractionTrace.push(snapshot);
+      }
+      return result;
+    }),
     locator,
   };
   const page: any = {
@@ -166,10 +177,10 @@ function fakePage({ multiStep = false, conditional = true } = {}) {
       });
     }
   }
-  return { page, window };
+  return { page, window, extractionTrace };
 }
 
-function portalRunSummary(result: any, plannerTrace: any[] = []) {
+function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace: any[] = []) {
   const steps = result.evidence.steps.map(({ step, fields, actions, redrawn, url, errors }: any) => ({
     step, fields, actions, redrawn, url, errors,
   }));
@@ -182,13 +193,13 @@ function portalRunSummary(result: any, plannerTrace: any[] = []) {
     errors: report.errors,
     agent: report.agent,
   } : undefined;
-  return JSON.stringify({ event: result.event, steps, stopReport, plannerTrace });
+  return JSON.stringify({ event: result.event, steps, stopReport, plannerTrace, extractionTrace });
 }
 
 describe('assisted portal question batching', () => {
   it('applies known answers, waits for conditional fields, and sends one stable question batch', async () => {
     const fixture = fakePage();
-    const { page, window } = fixture;
+    const { page, window, extractionTrace } = fixture;
     const context: any = {
       on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page,
       close: async () => {}, waitForEvent: async () => null,
@@ -235,7 +246,7 @@ describe('assisted portal question batching', () => {
       accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
     });
 
-    expect(result.event.type, portalRunSummary(result, plannerTrace)).toBe('submit_needs_candidate');
+    expect(result.event.type, portalRunSummary(result, plannerTrace, extractionTrace)).toBe('submit_needs_candidate');
     expect(elementValue(window, '#country')).toBe('IT');
     expect(result.event.questions.map((question: any) => question.question)).toEqual([
       'Why are you interested in this role?',
@@ -248,7 +259,7 @@ describe('assisted portal question batching', () => {
 
   it('resets the bounded redraw budget after a new SPA step that reuses the same URL', async () => {
     const fixture = fakePage({ multiStep: true });
-    const { page, window } = fixture;
+    const { page, window, extractionTrace } = fixture;
     const context: any = {
       on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page,
       close: async () => {}, waitForEvent: async () => null,
@@ -296,7 +307,7 @@ describe('assisted portal question batching', () => {
       accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
     });
 
-    expect(window.document.querySelector('form')?.getAttribute('data-page'), portalRunSummary(result, plannerTrace)).toBe('2');
+    expect(window.document.querySelector('form')?.getAttribute('data-page'), portalRunSummary(result, plannerTrace, extractionTrace)).toBe('2');
     expect(result.event.type).toBe('submit_needs_candidate');
     expect(result.event.questions.map((question: any) => question.question)).toEqual(['When could you start?']);
   });
