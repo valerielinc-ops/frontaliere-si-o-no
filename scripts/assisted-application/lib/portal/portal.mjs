@@ -26,6 +26,7 @@ import '../../extension/apply-control.js';
  */
 
 import path from 'node:path';
+import { applicationReceipt, applicationStage } from './stages.mjs';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields, registerPortalChannelType } from './fields.mjs';
@@ -1030,12 +1031,19 @@ export async function dismissCookieBanner(page, snapshot) {
  * "Manuell bewerben"; a cookie banner can come back on each page). A new tab
  * opened by the apply button is followed.
  */
-async function openApplicationForm(context, page, snapshot) {
+async function openApplicationForm(context, page, snapshot, stageContext = null) {
   for (let hop = 0; hop < 3; hop += 1) {
     const cookies = await dismissCookieBanner(page, snapshot);
     snapshot = cookies.snapshot || snapshot;
     if (cookies.status === 'unresolved') return { page, snapshot, handoff: 'cookie_preferences_unresolved' };
     if (hasApplicationForm(snapshot)) return { page, snapshot };
+    if (stageContext) {
+      const stage = applicationStage({ ...snapshot, text: await pageText(page) }, { ...stageContext, url: page.url() });
+      // A resumed account/review page is already inside the application.
+      // Its Apply belongs to the stage classifier and final guard below.
+      if (['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
+        || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return { page, snapshot };
+    }
     const manual = findButton(snapshot.buttons, MANUAL_APPLY_RE);
     const apply = manual ? null : snapshot.buttons.find((button) => !button.disabled && startsApplication(button.text)) || null;
     const link = manual || apply ? null : page.getByRole('link', { name: APPLY_RE }).filter({ hasNotText: APPLY_LATER_RE }).first();
@@ -1355,12 +1363,18 @@ const portalQuestionMetadata = field => {
 function questionsFrom(missingRequired) {
   const questions = [];
   const seen = new Set();
+  const readableQuestionCandidate = value => {
+    const text = readablePortalQuestionText(value);
+    return text && !machineLabel(text) ? text : '';
+  };
   for (const item of missingRequired) {
     const id = portalQuestionId(item);
     const key = portalQuestionKey(item) || id;
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
-    const applicationQuestion = String(item.applicationQuestion || item.portalQuestion || item.question || '').trim().slice(0, 300);
+    const applicationQuestion = [item.applicationQuestion, item.portalQuestion, item.question]
+      .map(readableQuestionCandidate)
+      .find(Boolean)?.slice(0, 300) || '';
     const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
       : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
@@ -1368,7 +1382,7 @@ function questionsFrom(missingRequired) {
     const optionMap = portalOptionMap({ options, applicationOptions, optionMap: item.optionMap });
     questions.push({
       id,
-      question: item.question,
+      question: readableQuestionCandidate(item.question) || applicationQuestion,
       applicationQuestion,
       ...(applicationOptions.length ? { applicationOptions } : {}),
       ...(optionMap.length ? { optionMap } : {}),
@@ -3179,17 +3193,16 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     if (!/^[\w-]{1,80}$/.test(id)) continue;
     const frame = page.frames()[Number(candidate.frame) || 0] || page.mainFrame();
     const locator = frame.locator(`[data-aa-id="${id}"]`).first();
-    // Keep detached DOM failures observable for the small locator adapters
-    // used by the runner's account tests, while never treating an incomplete
-    // adapter as proof of a live sign-in control.
+    // Keep detached DOM failures observable while tolerating minimal locator
+    // adapters used by the account-navigation contract tests.
     if (typeof locator?.isVisible !== 'function' || typeof locator?.evaluate !== 'function') {
       if (typeof frame?.evaluate === 'function') {
         try {
           await frame.evaluate(() => null);
         } catch (error) {
-          // A detached frame is the same retryable DOM failure as a detached
-          // locator in the real adapter; keep the observable error contract.
-          if (/detached/i.test(String(error?.message || error))) throw new Error('locator.detached', { cause: error });
+          if (/detached/i.test(String(error?.message || error))) {
+            throw new Error('locator.detached', { cause: error });
+          }
           throw error;
         }
       }
@@ -3724,7 +3737,12 @@ async function requiredLeftEmpty(page, uploaded = new Set()) {
  * #10741: a label is a control of the page it was learned on, not of every
  * page of the host). A taught send button never counts next to a step button.
  */
-export function pageControls(buttons, known, url) {
+export function pageControls(buttons, known, url, context = null) {
+  const stage = context ? applicationStage(context.snapshot, { ...context, url }) : null;
+  if (stage) {
+    if (stage.kind === 'review_navigation') return { submit: null, next: stage.control, stage };
+    if (['receipt', 'unknown_apply', 'posting_mismatch'].includes(stage.kind)) return { submit: null, next: null, stage };
+  }
   const here = anonymizePath(url);
   const submit = findButton(buttons, SUBMIT_RE);
   const usualNext = findButton(buttons, NEXT_RE);
@@ -3732,6 +3750,7 @@ export function pageControls(buttons, known, url) {
   return {
     submit: submit || (usualNext || taughtNext ? null : learnedButton(buttons, labelsAt(known.finalButtons, here))),
     next: usualNext || taughtNext,
+    ...(stage ? { stage } : {}),
   };
 }
 
@@ -3763,12 +3782,12 @@ function invisibleRecaptcha(page) {
 const DONE_URL_RE = /(thank|danke|grazie|merci|success|confirmation|submitted|received|complete)/i;
 const REVIEW_URL_RE = /(review|preview|summary|riepilogo|zusammenfassung|überprüf|ueberpruef|vérif|verif|resume|récap)/i;
 
-/** The address alone confirms only once the page holds no send button any more. */
-export function urlConfirms(url, snapshot) {
-  return DONE_URL_RE.test(url) && !REVIEW_URL_RE.test(url) && Boolean(snapshot) && !findButton(snapshot.buttons || [], SUBMIT_RE, { includeDisabled: true });
+/** Completion URLs are only supplementary: explicit receipt copy must bind the same posting. */
+export function urlConfirms(url, snapshot, context = {}) {
+  return DONE_URL_RE.test(url) && !REVIEW_URL_RE.test(url) && applicationReceipt(snapshot, { ...context, url });
 }
 
-async function waitForOutcome(page, captchaEnabled = false) {
+async function waitForOutcome(page, captchaEnabled = false, context = {}) {
   const started = Date.now();
   const deadline = started + OUTCOME_TIMEOUT_MS + (captchaEnabled ? CAPTCHA_TIMEOUT_MS : 0);
   while (Date.now() < deadline) {
@@ -3777,15 +3796,15 @@ async function waitForOutcome(page, captchaEnabled = false) {
     // The portal says it did not send: nothing left, by its own word.
     if (REFUSED_RE.test(text)) return 'refused';
     // Refusal takes precedence when an error page retains generic thank-you copy.
-    if (CONFIRM_RE.test(text)) return 'confirmed';
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
+    if (snapshot && applicationReceipt({ ...snapshot, text }, { ...context, url: page.url() })) return 'confirmed';
     if (snapshot?.captcha && captchaEnabled) {
       snapshot = await awaitCaptcha(page, snapshot, { enabled: true, timeoutMs: Math.max(0, deadline - Date.now()) });
       // Solving may have submitted the original request: observe its outcome,
       // never press the final button a second time.
       if (!snapshot.captcha) continue;
     }
-    if (urlConfirms(page.url(), snapshot)) return 'confirmed';
+    if (urlConfirms(page.url(), snapshot && { ...snapshot, text }, context)) return 'confirmed';
     if (snapshot?.captcha) return 'captcha';
     if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return 'validation';
   }
@@ -3891,7 +3910,12 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
       if (!field || (field.kind !== 'file' && field.inputType !== 'file')) {
         // A live field is authoritative. An agent's candidate-language copy
         // must never replace the exact label/options read from the ATS.
-        const applicationQuestion = String(field ? field.label || '' : item.applicationQuestion || item.portalQuestion || item.question || '').trim();
+        const liveQuestionCandidates = field
+          ? [field.label, field.description, field.ariaDescription]
+          : [item.applicationQuestion, item.portalQuestion, item.question];
+        const applicationQuestion = liveQuestionCandidates
+          .map(value => String(value || '').trim())
+          .find(value => readablePortalQuestionText(value) && !machineLabel(value)) || '';
         if (!readablePortalQuestionText(applicationQuestion) || machineLabel(applicationQuestion)) {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
           continue;
@@ -3979,7 +4003,7 @@ export async function readPortalRequirements(ctx) {
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot;
-    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION));
+    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, job: ctx.job });
     ({ page, snapshot } = opened);
     if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
     // Solique keeps the later steps mounted with zero-sized controls. The
@@ -4046,8 +4070,13 @@ export async function submitViaPortal(ctx) {
   const browser = extensionPath ? null : await launch();
   let context = null;
   let page = null;
+  let sourceProtocol = null;
   let diagnostics = null;
   let finalClickAttempted = false;
+  // Some ATSes replace the file input with a non-file token after accepting
+  // the upload. Keep that proof bound to the page URL so the stage guard can
+  // still prove the same form owns the final Apply button.
+  const uploadedCvUrls = new Set();
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason, metadata = {}) => {
     reason = portalHandoffReason(reason, { diagnostics: evidence.diagnostics, attempt: diagnostics?.currentAttempt(), finalClickAttempted });
@@ -4074,6 +4103,29 @@ export async function submitViaPortal(ctx) {
     if (!ctx.knowledge) return NO_PORTAL_KNOWLEDGE;
     if (!knowledge.has(host)) knowledge.set(host, await ctx.knowledge.load(host).catch(() => NO_PORTAL_KNOWLEDGE));
     return knowledge.get(host);
+  };
+  const controlsFor = async (current, known) => {
+    const snapshot = { ...current, text: await pageText(page), uploadedCv: uploadedCvUrls.has(page.url()) };
+    const controls = pageControls(current.buttons, known, page.url(), { snapshot, applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
+    if (controls.stage) {
+      const stageEvidence = { kind: controls.stage.kind, ...(controls.stage.destination ? { destination: controls.stage.destination } : {}) };
+      const lastStep = evidence.steps.at(-1);
+      if (lastStep) lastStep.applicationStage = stageEvidence;
+      else evidence.steps.push({ url: page.url(), applicationStage: stageEvidence });
+    }
+    return controls;
+  };
+  const confirmedReceipt = async (current) => {
+    const snapshot = { ...current, text: await pageText(page) };
+    const stage = applicationStage(snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job, url: page.url() });
+    if (stage.kind !== 'receipt') return null;
+    const lastStep = evidence.steps.at(-1);
+    if (lastStep) lastStep.applicationStage = { kind: 'receipt' };
+    else evidence.steps.push({ url: page.url(), applicationStage: { kind: 'receipt' } });
+    evidence.finalOutcomes = [...(evidence.finalOutcomes || []), 'confirmed'];
+    evidence.finalUrl = page.url();
+    evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
+    return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence };
   };
   // Step buttons the agent named in this run, with their page: learned only once the portal confirms.
   const namedNext = [];
@@ -4102,6 +4154,8 @@ export async function submitViaPortal(ctx) {
     const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
+    sourceProtocol = snapshot.protocol || null;
+    if (sourceProtocol) evidence.sourceProtocol = sourceProtocol;
     snapshot = await awaitCaptcha(page, snapshot, { enabled: Boolean(extensionPath) });
     // The posting as a browser renders it (career-ops liveness-browser): the
     // fetch before the run sees only the empty shell of a JavaScript portal.
@@ -4126,9 +4180,11 @@ export async function submitViaPortal(ctx) {
     // the page: the posting is the order's.
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
-    const opened = await openApplicationForm(context, page, snapshot);
+    const opened = await openApplicationForm(context, page, snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
     ({ page, snapshot } = opened);
     if (opened.handoff) return await handoff(opened.handoff);
+    const initialReceipt = await confirmedReceipt(snapshot);
+    if (initialReceipt) return initialReceipt;
     if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
     const formHandoff = initialPortalHandoffReason({ snapshot });
     if (formHandoff) return await handoff(formHandoff);
@@ -4315,10 +4371,14 @@ export async function submitViaPortal(ctx) {
     for (let step = 1; step <= maxSteps; step += 1) {
       if (loopAttemptStarted) await diagnostics?.beginAttempt();
       else loopAttemptStarted = true;
+      const existingReceipt = await confirmedReceipt(snapshot);
+      if (existingReceipt) return existingReceipt;
       snapshot = await awaitCaptcha(page, snapshot, { enabled: Boolean(extensionPath) });
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
+      const observedReceipt = await confirmedReceipt(snapshot);
+      if (observedReceipt) return observedReceipt;
       // The portal's own «refresh the page and try again»: loaded again, as it asks.
       const again = await refreshed(snapshot);
       if (again) {
@@ -4349,7 +4409,7 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION));
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
@@ -4367,6 +4427,7 @@ export async function submitViaPortal(ctx) {
           if (opened.cv === 'uploaded') {
             record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
             noteUpload('cv');
+            uploadedCvUrls.add(page.url());
           }
           if (opened.cv !== 'unavailable' && opened.cvFieldKey) uploaded.add(opened.cvFieldKey);
           if (opened.cv !== 'uploaded') return await handoff('cv_upload_failed');
@@ -4441,7 +4502,7 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION));
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), { applyUrl: ctx.applyUrl, sourceProtocol, job: ctx.job });
           ({ page, snapshot } = reopened);
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
@@ -4596,7 +4657,10 @@ export async function submitViaPortal(ctx) {
         for (const result of results) {
           if (result.ok && actions.some((action) => action.fieldId === result.fieldId && action.action === 'upload')) uploaded.add(uploadKey(result.fieldId));
           const uploadAction = result.ok && actions.find((item) => item.fieldId === result.fieldId && item.action === 'upload');
-          if (uploadAction) noteUpload(uploadAction.document, result.files);
+          if (uploadAction) {
+            noteUpload(uploadAction.document, result.files);
+            if (uploadAction.document === 'cv') uploadedCvUrls.add(page.url());
+          }
           const action = result.ok && actions.find((item) => item.fieldId === result.fieldId);
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
@@ -4689,7 +4753,11 @@ export async function submitViaPortal(ctx) {
       if (after.captcha) return await handoff('captcha');
       // A usual name, or one this portal taught a confirmed submission (level 2).
       const known = await knownFor(page.url());
-      let { submit, next } = pageControls(after.buttons, known, page.url());
+      let { submit, next, stage } = await controlsFor(after, known);
+      const receiptResult = await confirmedReceipt(after);
+      if (receiptResult) return receiptResult;
+      if (stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
+      if (stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
       let advance = null;
       let finalByAgent = null;
       // The filler cannot move this page on (its Next stays disabled: JOIN's
@@ -4721,7 +4789,11 @@ export async function submitViaPortal(ctx) {
             await page.waitForTimeout(2000);
             after = await extractFields(page, NAVIGATION);
           }
-          ({ submit, next } = pageControls(after.buttons, known, page.url()));
+          ({ submit, next, stage } = await controlsFor(after, known));
+          const receiptResult = await confirmedReceipt(after);
+          if (receiptResult) return receiptResult;
+          if (stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
+          if (stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
           // A step button with an unusual name ("Salva e prosegui"), never one that may send.
           if (!submit && !next && agent.advanceRef) advance = await advanceLocator(page, agent.advanceRef);
           // The last page's send button with an unusual name («Conferma e applica», level 1):
@@ -4747,7 +4819,11 @@ export async function submitViaPortal(ctx) {
           privacyAcceptedPages.add(privacyPage);
           privacyAcceptedPages.add(page.url());
           after = await extractFields(page, NAVIGATION);
-          ({ submit, next } = pageControls(after.buttons, known, page.url()));
+          ({ submit, next, stage } = await controlsFor(after, known));
+          const receiptResult = await confirmedReceipt(after);
+          if (receiptResult) return receiptResult;
+          if (stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
+          if (stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
           advance = null;
           finalByAgent = null;
           if (!submit && !next) {
@@ -4760,7 +4836,11 @@ export async function submitViaPortal(ctx) {
       if ((next || advance) && !submit) {
         const before = pageSignature(page, after);
         const beforePageMarker = String(after.pageMarker || '');
-        if (next) await clickButton(page, next);
+        if (stage?.kind === 'review_navigation') {
+          // Follow the owned review href with GET; an onclick handler cannot
+          // turn this navigation into a hidden application commit.
+          await page.goto(stage.destination, { waitUntil: 'domcontentloaded' });
+        } else if (next) await clickButton(page, next);
         else {
           const from = anonymizePath(page.url());
           await advance.locator.click({ timeout: 6_000 });
@@ -4827,7 +4907,11 @@ export async function submitViaPortal(ctx) {
         }
         after = await extractFields(page, NAVIGATION);
         if (await requiredLeftEmpty(page, uploaded)) return await handoff('portal_required_fields_unfilled');
-        const repairedControls = pageControls(after.buttons, known, page.url());
+        const repairedControls = await controlsFor(after, known);
+        const receiptResult = await confirmedReceipt(after);
+        if (receiptResult) return receiptResult;
+        if (repairedControls.stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
+        if (repairedControls.stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
         if (repairedControls.next && !repairedControls.submit) {
           snapshot = after;
           step -= 1;
@@ -4858,7 +4942,7 @@ export async function submitViaPortal(ctx) {
       finalClickAttempted = true;
       diagnostics.finalClick();
       await final.click();
-      const outcome = await waitForOutcome(page, Boolean(extensionPath));
+      const outcome = await waitForOutcome(page, Boolean(extensionPath), { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job });
       (evidence.finalOutcomes ||= []).push(outcome);
       await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');

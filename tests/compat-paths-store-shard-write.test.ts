@@ -5,6 +5,7 @@ import path from 'node:path';
 
 import {
   readCompatPaths,
+  iterateCompatPaths,
   readCompatPathsStrict,
   readCompatPathsStrictAfterMerge,
   writeCompatPaths,
@@ -73,6 +74,22 @@ describe('writeCompatPaths — shard write minimization', () => {
 
     const read = readCompatPaths(rootDir);
     expect(new Set(read.paths)).toEqual(new Set(['/x/', '/y/', '/z/']));
+  });
+
+  it('streams shard paths without requiring the full logical array', () => {
+    const paths = ['/stream-a/', '/stream-b/', '/stream-c/'];
+    writeCompatPaths({ paths }, rootDir);
+
+    expect([...iterateCompatPaths(rootDir)]).toEqual(expect.arrayContaining(paths));
+    expect([...iterateCompatPaths(rootDir)]).toHaveLength(paths.length);
+  });
+
+  it('streams the legacy monolith when shards are not present', () => {
+    const legacyFile = path.join(rootDir, 'data', 'seo-404-compat-paths.json');
+    fs.mkdirSync(path.dirname(legacyFile), { recursive: true });
+    fs.writeFileSync(legacyFile, JSON.stringify({ paths: ['/legacy-a/', 42, '/legacy-b/'] }));
+
+    expect([...iterateCompatPaths(rootDir)]).toEqual(['/legacy-a/', '/legacy-b/']);
   });
 
   it('propagates a non-ENOENT error reading a shard instead of silently forcing a write (issue #6696)', () => {

@@ -1136,6 +1136,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.fit.missing': "non risulta dal CV",
  'jobBoard.assisted.review.fit.partial': "risulta solo in parte",
  'jobBoard.assisted.review.questionsTitle': "Informazioni che servono all’azienda",
+ 'jobBoard.assisted.review.originalPortalQuestion': "Testo originale del portale",
  'jobBoard.assisted.review.yes': "Sì",
  'jobBoard.assisted.review.no': "No",
  'jobBoard.assisted.review.saveAnswers': "Salva le risposte",

@@ -221,6 +221,55 @@ it.each(['text', 'radio'])('preserves the readable question and its required mar
 });
 
 it.each([
+  ['aria-describedby', 'What is your preferred work schedule?', '<span id="question-copy">What is your preferred work schedule?</span>'],
+  ['aria-description', 'Qual è la tua disponibilità oraria?', ''],
+  ['aria-details', 'Welche Region ist dein Herkunftskanton?', '<div id="question-copy">Welche Region ist dein Herkunftskanton?</div>'],
+])('uses the exact accessible question text for %s in every field reader', (attribute, question, description) => {
+  const value = attribute === 'aria-description' ? `${attribute}="${question}"` : `${attribute}="question-copy"`;
+  const { dom, source, bundle, filler } = allQuestionReaders(`<form>${description}<input id="q" name="q" required ${value}></form>`);
+  for (const fields of [source, bundle, filler]) expect(fields[0]).toMatchObject({ label: question, required: true });
+  const reduced = portalRequirementsFromMissingRequired(source, [{
+    fieldId: source[0].id, question: PORTAL_QUESTION_PLACEHOLDERS.it, type: 'text', required: true,
+  }]);
+  expect(reduced).toMatchObject({ questions: [expect.objectContaining({ question, applicationQuestion: question })] });
+  dom.window.close();
+});
+
+it('keeps an unresolved accessible question unknown instead of falling back to a nearby title or generated name', () => {
+  const { dom, source, bundle, filler } = allQuestionReaders('<form><h2>Unrelated application section</h2><input id="q" name="q" required aria-describedby="missing-question"></form>');
+  for (const fields of [source, bundle, filler]) expect(fields[0]).toMatchObject({ label: '', required: true });
+  const result = portalRequirementsFromMissingRequired(source, [{
+    fieldId: source[0].id, question: PORTAL_QUESTION_PLACEHOLDERS.it, type: 'text', required: true,
+  }]);
+  expect(result).toMatchObject({ questions: [], unreadableFields: [source[0].id] });
+  dom.window.close();
+});
+
+it('keeps accessible questions bound to their own conditional field', () => {
+  const { dom, snapshot } = extract('<form><span id="q1-copy">What is your current employer?</span><input id="q1" required aria-describedby="q1-copy">'
+    + '<span id="q2-copy">Welche Region ist dein Herkunftskanton?</span><input id="q2" required aria-describedby="q2-copy"></form>');
+  const source = snapshot.fields;
+  const result = portalRequirementsFromMissingRequired(source, [{
+    fieldId: source.find((field: any) => field.domId === 'q2').id,
+    question: PORTAL_QUESTION_PLACEHOLDERS.it, type: 'text', required: true,
+  }]);
+  expect(result.questions).toMatchObject([expect.objectContaining({ applicationQuestion: 'Welche Region ist dein Herkunftskanton?' })]);
+  dom.window.close();
+});
+
+it('prefers readable ATS evidence over a generated question label', () => {
+  const result = portalRequirementsFromMissingRequired([
+    { id: 'f', label: 'Do you have a Swiss work permit?', required: true, kind: 'text' },
+  ], [{
+    id: 'f', question: 'input-7', applicationQuestion: 'Do you have a Swiss work permit?', type: 'text', required: true,
+  }]);
+  expect(result.questions).toMatchObject([{
+    question: 'Do you have a Swiss work permit?',
+    applicationQuestion: 'Do you have a Swiss work permit?',
+  }]);
+});
+
+it.each([
   '<label for="y">I accept the Privacy Policy. *</label><input id="y" type="checkbox" required>',
   '<label>I accept the Privacy Policy. *<input id="y" type="checkbox" required></label>',
   '<label for="y"><span class="label">I accept the Privacy Policy. *</span></label><input id="y" type="checkbox" required>',
@@ -569,5 +618,10 @@ describe('legacy unreadable portal waits', () => {
   });
   it('repairs a stored generic translation when its original question is available', () => {
     expect(questionsForCandidate([{ ...placeholder, applicationQuestion: 'What is your notice period?' }], {})[0].question).toBe('What is your notice period?');
+  });
+  it('does not expose a generic ATS question when a legacy draft lacks its source marker', () => {
+    expect(questionsForCandidate([{ ...placeholder, source: undefined }], {})).toEqual([]);
+    expect(questionsForCandidate([{ ...placeholder, source: undefined, applicationQuestion: 'What is your notice period?' }], {})[0].question)
+      .toBe('What is your notice period?');
   });
 });

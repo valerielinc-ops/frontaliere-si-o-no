@@ -1074,6 +1074,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.fit.missing': "ne ressort pas du CV",
  'jobBoard.assisted.review.fit.partial': "ressort seulement en partie",
  'jobBoard.assisted.review.questionsTitle': "Informations demandées par l’entreprise",
+ 'jobBoard.assisted.review.originalPortalQuestion': "Texte original du portail",
  'jobBoard.assisted.review.yes': "Oui",
  'jobBoard.assisted.review.no': "Non",
  'jobBoard.assisted.review.saveAnswers': "Enregistrer les réponses",

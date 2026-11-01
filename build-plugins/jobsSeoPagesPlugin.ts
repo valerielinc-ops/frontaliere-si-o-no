@@ -55,7 +55,7 @@ import {
 } from './shared/categoryListingInventory';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { isListingInventoryJob, normalizeListingIdentity, selectJobBoardInventory } from '../services/jobBoardInventory';
-import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
+import { iterateCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 import { readOrphanEnriched } from '../scripts/lib/orphan-enriched-store.mjs';
@@ -393,15 +393,19 @@ type JobSeoLocale = (typeof JOB_SEO_LOCALES)[number];
 type JobRouteTracking = Record<string, Partial<Record<JobSeoLocale, string>>>;
 const normalizedRoutePath = (value: string): string => `/${String(value || '').replace(/^\/+|\/+$/g, '')}/`;
 
-/** Snapshot native ownership before compat aliases overwrite tracking paths. */
+/** Snapshot native ownership for tracking rows eligible for compat overwrite. */
 export function buildNativeJobPrefixIndex(
  tracking: JobRouteTracking,
  localePrefix: Record<JobSeoLocale, string>,
  sectionByLocale: Record<JobSeoLocale, string>,
+ compatEligibleTrackingSlugs?: ReadonlySet<string>,
 ): Map<string, string> {
  const index = new Map<string, string>();
  const prefixes = new Map<string, string>();
- for (const paths of Object.values(tracking)) {
+ for (const trackingSlug in tracking) {
+  if (!Object.prototype.hasOwnProperty.call(tracking, trackingSlug)) continue;
+  if (compatEligibleTrackingSlugs && !compatEligibleTrackingSlugs.has(trackingSlug)) continue;
+  const paths = tracking[trackingSlug];
   for (const locale of JOB_SEO_LOCALES) {
    // IT never consults the snapshot; retain every other locale even in a
    // single-locale build, whose ownership/hreflang passes read foreign paths.
@@ -12721,12 +12725,18 @@ ${staticAnalyticsHtml}
  }
  // Snapshot native non-Ticino registry paths before the compatibility merge
  // below is allowed to overwrite a locale entry with its legacy-TI alias.
- // `tracking[slug][locale]` alone cannot answer whether a legacy path should
- // be emitted: after the merge it is, by definition, equal to the path being
- // rendered. The Worker needs the native path to remain the sole owner of a
- // non-IT job's URL, so both the expired loop and the self-healing fallback use
- // this immutable route index.
- const nativeJobPrefixByLocaleAndSlug = buildNativeJobPrefixIndex(tracking, localePrefix, sectionByLocale);
+ // `currentSlugs` is the merge's overwrite guard; historical tracking rows
+ // cannot be changed there and do not need a native-path snapshot.
+ const nativeJobPrefixByLocaleAndSlug = buildNativeJobPrefixIndex(
+  tracking,
+  localePrefix,
+  sectionByLocale,
+  currentSlugs,
+ );
+ logJobsSeoMem('after-native-route-index', {
+  currentSlugs: currentSlugs.size,
+  nativeJobPrefixEntries: nativeJobPrefixByLocaleAndSlug.size,
+ });
  // Remove search combo slugs from tracking — these are handled by the search
  // combo section, not the job crawler pipeline. They were incorrectly imported
  // from orphan-indexed-job-slugs.json in previous builds.
@@ -12909,7 +12919,6 @@ ${staticAnalyticsHtml}
  // is a prefix/suffix-ambiguous of an existing different-locale one).
  const activeDriftRealPathByCompat = new Map<string, string>();
  try {
- const compatPaths: string[] = readCompatPaths(rootDir).paths;
  let compatAdded = 0;
  const COMPAT_JOB_PATTERNS: { re: RegExp; locale: string; prefix: string }[] = [
  { re: /\/cerca-lavoro-ticino\/([^/]+)\/?$/, locale: 'it', prefix: '/cerca-lavoro-ticino/' },
@@ -12921,7 +12930,13 @@ ${staticAnalyticsHtml}
  { re: /\/fr\/recherche-emploi-tessin\/([^/]+)\/?$/, locale: 'fr', prefix: '/fr/trouver-emploi-tessin/' },
  ];
  const SKIP_PREFIX_RE = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
- for (const p of compatPaths) {
+ // Stream the sharded accumulator one file at a time. The logical set is now
+ // >4M paths; materialising the complete logical array here duplicated
+ // millions of path references while the jobs route registry and expired
+ // archive index were already resident, which pushed the DE build over the
+ // V8 heap ceiling. This loop only needs to inspect each path, so retaining the
+ // complete accumulator provides no value.
+ for (const p of iterateCompatPaths(rootDir)) {
  const raw = String(p || '');
  for (const { re, locale, prefix } of COMPAT_JOB_PATTERNS) {
  const m = raw.match(re);

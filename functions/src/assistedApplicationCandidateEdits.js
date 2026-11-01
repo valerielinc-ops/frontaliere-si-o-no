@@ -1,6 +1,6 @@
 import { addressContextContract } from './lib/addressContextContract.js';
 import { candidateAnswerFact, candidateFactAnswerForQuestion, candidateFactIdentity, candidateQuestionFact } from './lib/candidateAnswerFacts.js';
-import { portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
+import { hasPortalQuestionEvidence, portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
 import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
 /**
  * What the candidate may change on the review page before approving (owner
@@ -224,7 +224,7 @@ export function questionNeedsCandidateAnswer(question, profile, draft) {
 export function questionsForCandidate(questions, profile, answers = {}, memory = {}, draft = null) {
   const projectedAnswers = candidateAnswersForQuestions(questions, answers, memory);
   const candidates = (Array.isArray(questions) ? questions : []).filter((question) => questionNeedsCandidateAnswer(question, profile, draft))
-    .map(question => question?.source === 'portal' ? { ...question, question: portalQuestionText(question),
+    .map(question => hasPortalQuestionEvidence(question) ? { ...question, question: portalQuestionText(question),
       ...(question.portalNativeContract && question.required === false
         && !provenOptionalOperationalPortalQuestion(question, draft) ? { required: true } : {}) } : question);
   const answerValues = new Map();

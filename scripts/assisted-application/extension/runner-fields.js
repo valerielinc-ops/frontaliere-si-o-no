@@ -309,6 +309,24 @@ function nativeQuestionText(value, counter = null) {
         && (linked.length > 0 || oneQuestion);
     });
   };
+  const accessibleDescriptionFor = (element) => {
+    const values = [];
+    const direct = clean(element.getAttribute('aria-description'));
+    if (direct) values.push(direct);
+    let ambiguous = false;
+    for (const id of ['aria-describedby', 'aria-details'].flatMap(attribute =>
+      (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean))) {
+      const nodes = [...document.querySelectorAll('[id]')].filter(node => node.id === id);
+      if (nodes.length !== 1) {
+        ambiguous = true;
+        continue;
+      }
+      const text = clean(nodes[0].innerText || nodes[0].textContent);
+      if (!text) ambiguous = true;
+      else values.push(text);
+    }
+    return { text: [...new Set(values)].join(' '), ambiguous };
+  };
   // Only a counter leaf belonging unambiguously to this control may lose
   // its live numerator. Requirements containing ratios remain literal text.
   const captionText = (node, element) => {
@@ -358,6 +376,11 @@ function nativeQuestionText(value, counter = null) {
       const legendText = !legend.contains(element) && clean(legend.innerText || legend.textContent);
       if (legendText) return legendText;
     }
+    const accessibleDescription = accessibleDescriptionFor(element);
+    // An unresolved accessible reference is not evidence for a nearby name or
+    // generated id. Keep the question unknown until the live form can be read.
+    if (accessibleDescription.ambiguous) return '';
+    if (accessibleDescription.text) return accessibleDescription.text;
     const placeholder = element.getAttribute('placeholder');
     if (placeholder) return clean(placeholder);
     const ownContext = hasSingleQuestionContext(element, group);
@@ -1104,11 +1127,26 @@ function nativeQuestionText(value, counter = null) {
       fileContext: fileContext(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
+      formId: element.form || element.closest('form') ? idFor(element.form || element.closest('form')) : '',
       ...(isSiteChromeControl(element) ? { chrome: true } : {}),
       ...noticeMetadata(element),
     }))
     .filter((button) => button.text)
     .slice(0, 60);
+  // Bind every field and action to its actual owner, so a site-search field
+  // cannot turn a nearby Apply link into the application's final form.
+  for (const field of fields) {
+    // Widget ownership was proved by the producer. Its nativeSelectId is a
+    // raw DOM id: never borrow the span/button proxy's surrounding form, or
+    // choose the first of several controls carrying the native id.
+    const native = field.nativeSelectId
+      ? [...document.querySelectorAll('[id]')].filter(element => element.id === field.nativeSelectId) : null;
+    const node = native
+      ? (native.length === 1 && native[0].tagName === 'SELECT' ? native[0] : null)
+      : document.querySelector(`[data-aa-id="${field.id}"]`);
+    const form = native ? node?.form : node?.form || node?.closest('form');
+    field.formId = form ? idFor(form) : '';
+  }
   // A plain link is no button, so that no button search meets an ordinary link, yet a required notice can
   // be printed as one. Read apart and without its address: nothing follows it (portal.mjs, clickButton).
   const links = [...document.querySelectorAll('a[href]')]
