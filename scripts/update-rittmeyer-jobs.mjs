@@ -70,6 +70,7 @@ const DETAIL_BASE = 'https://brugg.onlyfy.jobs/';
 const LEGACY_CAREERS_URL = 'https://karriere.rittmeyer.com/offene-stellen/';
 const LEGACY_DETAIL_BASE = 'https://karriere.rittmeyer.com/';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const ONLYFY_LISTING_MAX_PAGES = 50;
 
 // Rittmeyer publishes jobs across multiple Swiss sites; address attribution
 // must follow the `Schweiz` field extracted from the detail page, not the HQ
@@ -161,6 +162,104 @@ async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
   });
 }
 
+export function buildRittmeyerOnlyfyListingPageUrl(sourceUrl, page) {
+  const pageNumber = Number(page);
+  if (!Number.isInteger(pageNumber) || pageNumber < 1) {
+    throw new Error(`Rittmeyer: invalid Onlyfy listing page ${page}`);
+  }
+  const url = new URL(sourceUrl);
+  if (url.hostname.toLowerCase() !== ONLYFY_HOST) {
+    throw new Error(`Rittmeyer: Onlyfy pagination requested for untrusted host ${url.hostname}`);
+  }
+  if (pageNumber === 1) return url.toString();
+  url.searchParams.set('page', String(pageNumber));
+  return url.toString();
+}
+
+export function mergeRittmeyerListingPages(pages, expectedCount = null) {
+  if (!Array.isArray(pages) || pages.length === 0) {
+    throw new Error('Rittmeyer: no listing pages were read');
+  }
+  if (expectedCount != null && (!Number.isInteger(expectedCount) || expectedCount < 0)) {
+    throw new Error(`Rittmeyer: invalid advertised listing count ${expectedCount}`);
+  }
+
+  const byHref = new Map();
+  let advertisedCount = expectedCount;
+  let skippedMalformedRows = 0;
+  let listingMarkupSeen = true;
+  let listingEmptyStateObserved = false;
+  for (const page of pages) {
+    if (!Array.isArray(page)) {
+      throw new Error('Rittmeyer: listing page parser returned a non-array result');
+    }
+    const pageAdvertisedCount = page.rittmeyerListingAdvertisedCount;
+    if (pageAdvertisedCount != null) {
+      if (advertisedCount == null) advertisedCount = pageAdvertisedCount;
+      if (advertisedCount !== pageAdvertisedCount) {
+        throw new Error('Rittmeyer: advertised listing count changed while paging');
+      }
+    }
+    skippedMalformedRows += page.rittmeyerListingSkippedMalformedRows || 0;
+    listingMarkupSeen = listingMarkupSeen && page.rittmeyerListingMarkupSeen === true;
+    listingEmptyStateObserved = listingEmptyStateObserved || page.rittmeyerListingEmptyStateObserved === true;
+    for (const row of page) {
+      const href = String(row?.href || '').trim();
+      if (!href) throw new Error('Rittmeyer: listing row has no detail URL');
+      if (byHref.has(href)) {
+        throw new Error(`Rittmeyer: duplicate listing row while paging (${href})`);
+      }
+      byHref.set(href, row);
+    }
+  }
+
+  const rows = [...byHref.values()];
+  if (advertisedCount != null && rows.length !== advertisedCount) {
+    throw new Error(`Rittmeyer: paginated listing count ${rows.length} does not match advertised ${advertisedCount}`);
+  }
+  Object.defineProperties(rows, {
+    rittmeyerListingMarkupSeen: { value: listingMarkupSeen, enumerable: false },
+    rittmeyerListingRecordCount: { value: rows.length, enumerable: false },
+    rittmeyerListingAdvertisedCount: { value: advertisedCount, enumerable: false },
+    rittmeyerListingSkippedMalformedRows: { value: skippedMalformedRows, enumerable: false },
+    rittmeyerListingEmptyStateObserved: { value: listingEmptyStateObserved, enumerable: false },
+  });
+  return rows;
+}
+
+export async function fetchRittmeyerOnlyfyListingSource(source, fetchPage = fetchText) {
+  const firstUrl = buildRittmeyerOnlyfyListingPageUrl(source.url, 1);
+  const firstPage = parseRittmeyerListingsPage(await fetchPage(firstUrl));
+  const advertisedCount = firstPage.rittmeyerListingAdvertisedCount;
+  if (advertisedCount == null) return mergeRittmeyerListingPages([firstPage]);
+  if (firstPage.length > advertisedCount) {
+    throw new Error(`Rittmeyer: first listing page has ${firstPage.length} rows, advertised ${advertisedCount}`);
+  }
+  if (firstPage.length === advertisedCount) {
+    return mergeRittmeyerListingPages([firstPage], advertisedCount);
+  }
+  if (firstPage.length === 0) {
+    throw new Error(`Rittmeyer: first listing page is empty but advertises ${advertisedCount} jobs`);
+  }
+
+  const pageSize = firstPage.length;
+  const pageCount = Math.ceil(advertisedCount / pageSize);
+  if (pageCount > ONLYFY_LISTING_MAX_PAGES) {
+    throw new Error(`Rittmeyer: advertised listing requires ${pageCount} pages (maximum ${ONLYFY_LISTING_MAX_PAGES})`);
+  }
+
+  const pages = [firstPage];
+  for (let pageNumber = 2; pageNumber <= pageCount; pageNumber += 1) {
+    const pageUrl = buildRittmeyerOnlyfyListingPageUrl(source.url, pageNumber);
+    const pageRows = parseRittmeyerListingsPage(await fetchPage(pageUrl));
+    if (pageRows.length === 0) {
+      throw new Error(`Rittmeyer: Onlyfy listing page ${pageNumber} was empty before reaching ${advertisedCount} jobs`);
+    }
+    pages.push(pageRows);
+  }
+  return mergeRittmeyerListingPages(pages, advertisedCount);
+}
+
 function absoluteUrl(raw = '', base = DETAIL_BASE) {
   if (!raw) return '';
   const resolved = new URL(raw, base);
@@ -191,7 +290,7 @@ function isTrustedDomain(rawUrl = '') {
 async function fetchListings() {
   console.log('🔍 Fetching Rittmeyer jobs from the public employer board...');
   const sources = [
-    { url: CAREERS_URL, detailBase: DETAIL_BASE, label: 'Onlyfy employer board' },
+    { url: CAREERS_URL, detailBase: DETAIL_BASE, label: 'Onlyfy employer board', onlyfy: true },
     { url: LEGACY_CAREERS_URL, detailBase: LEGACY_DETAIL_BASE, label: 'Rittmeyer careers page' },
   ];
   let lastError;
@@ -199,8 +298,9 @@ async function fetchListings() {
   let sourceLabel;
   for (const source of sources) {
     try {
-      const html = await fetchText(source.url);
-      const parsedRows = parseRittmeyerListingsPage(html);
+      const parsedRows = source.onlyfy
+        ? await fetchRittmeyerOnlyfyListingSource(source)
+        : parseRittmeyerListingsPage(await fetchText(source.url));
       for (const row of parsedRows) row.sourceBase = source.detailBase;
       const sourceReadComplete = Boolean(
         parsedRows.rittmeyerListingSkippedMalformedRows === 0
