@@ -122,9 +122,13 @@ describe('application stage ownership', () => {
 
   it.each([
     'Thank you for applying. Continue to complete your application.',
+    "Thank you for applying. Your application hasn’t been submitted yet.",
     'Vielen Dank für Ihre Bewerbung. Ihre Bewerbung ist unvollständig.',
+    'Vielen Dank für Ihre Bewerbung. Ihre Bewerbung wurde noch nicht eingereicht.',
     'Grazie per la tua candidatura. La candidatura non è completa.',
+    'Grazie per la tua candidatura. La candidatura non è stata inviata.',
     "Merci pour votre candidature. Votre candidature n'est pas complète.",
+    "Merci pour votre candidature. Votre candidature n'a pas été envoyée.",
   ])('does not treat a same-job acknowledgement of an incomplete application as a receipt: %s', text => {
     const label = 'Finish application';
     const incomplete = { ...receipt, text, buttons: [{ text: label }] };

@@ -6,11 +6,17 @@ import { CONFIRM_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 // suffix under an unknown parent such as ApplicationSave/ApplicationReview.
 const REVIEW_PATH_RE = /^(?:application\/|application)?(?:review|preview|summary)\/?$/i;
 const PROFILE_CONTINUATION_RE = /(?:already submitted your personal information|(?:account|profile|personal information) (?:has been |was |is )?(?:created|saved|updated)).{0,300}(?:application|apply|review|continue)/i;
+const NOT_SUBMITTED_APPLICATION_RE = new RegExp([
+  String.raw`\bapplication\b.{0,120}\b(?:(?:has|was|is)(?:\s+(?:not|n['’]t)|n['’]t)\s+(?:been\s+)?(?:submitted|sent|received|completed)|not\s+(?:yet\s+)?(?:submitted|sent|received|completed))\b`,
+  String.raw`\bbewerbung\b.{0,120}\b(?:nicht|noch nicht)\b.{0,60}\b(?:eingereicht|gesendet|übermittelt|abgeschickt|abgeschlossen)\b`,
+  String.raw`\bcandidatura\b.{0,120}\bnon\b.{0,60}\b(?:inviata|presentata|trasmessa|completata)\b`,
+  String.raw`\bcandidature\b.{0,120}\bn['’](?:a pas été|est pas)(?=$|[^\p{L}\p{N}]).{0,60}\b(?:envoyée|soumise|transmise|terminée)(?=$|[^\p{L}\p{N}])`,
+].join('|'), 'iu');
 const INCOMPLETE_APPLICATION_RE = new RegExp([
   String.raw`\b(?:continue|resume|proceed|complete|finish)\b.{0,100}\b(?:application|candidature|bewerbung)\b`,
   String.raw`\bapplication\b.{0,120}\b(?:incomplete|unfinished|not (?:yet )?(?:complete|finished|submitted|sent)|has not been (?:completed|submitted|sent)|still (?:needs|requires) completion|to be completed|to complete)\b`,
   String.raw`\bbewerbung\b.{0,120}\b(?:unvollständig(?:e|en)?|nicht (?:vollständig|abgeschlossen|eingereicht|gesendet|fertig)|noch nicht (?:abgeschlossen|eingereicht|vollständig|fertig)|fortsetzen|vervollständigen)\b`,
-  String.raw`\bcandidature\b.{0,120}\b(?:incomplète|inachevée|pas encore (?:terminée|envoyée|complète|soumise)|n['’]est pas (?:encore )?(?:complète|terminée|envoyée|soumise)|(?:à|a) compléter|poursuivre|compléter)\b`,
+  String.raw`\bcandidature\b.{0,120}\b(?:incomplète|inachevée|pas encore (?:terminée|envoyée|complète|soumise)|n['’]est pas (?:encore )?(?:complète|terminée|envoyée|soumise)|(?:à|a) compléter|poursuivre|compléter)(?=$|[^\p{L}\p{N}])`,
   String.raw`\bcandidatura\b.{0,120}\b(?:incomplet[ao]|non (?:è|e')\s+(?:ancora\s+)?(?:stata\s+)?(?:completat[ao]|inviat[ao]|complet[ao])|non (?:ancora\s+)?(?:completat[ao]|inviat[ao]|complet[ao])|da completare|continua|completa|prosegui)\b`,
 ].join('|'), 'iu');
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
@@ -85,7 +91,8 @@ function receiptTitleBound(text, title) {
 /** Receipt copy must explicitly describe an application received for this posting. */
 export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, submissionUrl, sourceProtocol = null, job = {} } = {}) {
   const text = String(snapshot?.text || '');
-  if (!snapshot || invalidPostingKey(url) || invalidPostingKey(submissionUrl || applyUrl, sourceProtocol) || !CONFIRM_RE.test(text) || REFUSED_RE.test(text)
+  if (!snapshot || invalidPostingKey(url) || invalidPostingKey(submissionUrl || applyUrl, sourceProtocol) || NOT_SUBMITTED_APPLICATION_RE.test(text)
+    || REFUSED_RE.test(text) || !CONFIRM_RE.test(text)
     || PROFILE_CONTINUATION_RE.test(text) || INCOMPLETE_APPLICATION_RE.test(text)
     || REVIEW_INSTRUCTIONS_RE.test(snapshot.text || '') || BEFORE_SEND_RE.test(snapshot.text || '')) return false;
   if ((snapshot.buttons || []).some(button => !button.chrome && SUBMIT_RE.test(button.text || ''))) return false;
@@ -121,7 +128,8 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   const bound = boundRoute(url, applyUrl, sourceProtocol) || titleBound(text, job.title);
   const finalReview = bound && REVIEW_INSTRUCTIONS_RE.test(text);
   if (finalReview) return { kind: 'final_review' };
-  const pending = PROFILE_CONTINUATION_RE.test(text) || INCOMPLETE_APPLICATION_RE.test(text) || BEFORE_SEND_RE.test(text);
+  const pending = NOT_SUBMITTED_APPLICATION_RE.test(text) || PROFILE_CONTINUATION_RE.test(text)
+    || INCOMPLETE_APPLICATION_RE.test(text) || BEFORE_SEND_RE.test(text);
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
     && boundRoute(url, applyUrl, sourceProtocol) && reviewNavigationRoute(button.href, applyUrl, sourceProtocol)
     && !parsed(button.href)?.hash
