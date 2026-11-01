@@ -65,12 +65,24 @@ describe('failed executor reconciliation', () => {
 
   it('does not let a runner reclaim a failed portal attempt after its click', async () => {
     const store = fixture();
-    store.docs.set(`${base}/automation/submission`, { r1: { state: 'failed', channel: 'portal', clickedAt: now, releasedAt: now + 1 } });
+    store.docs.set(`${base}/automation/submission`, { r1: { state: 'failed', channel: 'portal', clickedAt: now, confirmedNotSent: false, releasedAt: now + 1 } });
 
     const result = await submissionGuard(store.db, orderId, 1).claim('portal', now + 2, { resumable: true });
 
     expect(result).toMatchObject({ status: 'in_flight', record: { state: 'failed', clickedAt: now } });
     expect(store.read(`${base}/automation/submission`)?.r1).toMatchObject({ state: 'failed', clickedAt: now });
+  });
+
+  it('migrates a legacy released portal click before retrying it', async () => {
+    const store = fixture();
+    store.docs.set(`${base}/automation/submission`, { r1: { state: 'failed', channel: 'portal', clickedAt: now } });
+
+    const result = await submissionGuard(store.db, orderId, 1).claim('portal', now + 2);
+
+    expect(result).toMatchObject({ status: 'claimed' });
+    expect(store.read(`${base}/automation/submission`)?.r1).toMatchObject({
+      state: 'sending', clickedAt: null, confirmedNotSent: false,
+    });
   });
 
   it('reclaims a click only after release recorded a confirmed no-send outcome', async () => {

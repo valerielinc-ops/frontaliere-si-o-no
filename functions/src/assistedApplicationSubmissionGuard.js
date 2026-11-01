@@ -98,10 +98,23 @@ export function submissionGuard(db, orderId, round) {
           outcome = { status: 'withdrawn' };
           return;
         }
-        const current = submission?.[key];
+        let current = submission?.[key];
         if (current?.state === 'sent') {
           outcome = { status: 'already_sent', record: current };
           return;
+        }
+        // Before confirmedNotSent was persisted, release() already meant that
+        // a portal failure was proven before the next retry. Migrate only that
+        // narrow legacy shape: an explicit portal failure with click evidence
+        // and no field at all. A current `confirmedNotSent: false` remains an
+        // unknown outcome and must stay locked.
+        const legacyReleasedPortal = current?.state === 'failed'
+          && current.channel === 'portal'
+          && Number(current.clickedAt) > 0
+          && !Object.prototype.hasOwnProperty.call(current, 'confirmedNotSent');
+        if (legacyReleasedPortal) {
+          transaction.set(ref, { [key]: { confirmedNotSent: true } }, { merge: true });
+          current = { ...current, confirmedNotSent: true };
         }
         // Keep click evidence, but allow a retry only when release() also
         // recorded a definitive no-send outcome. An unconfirmed click stays locked.
