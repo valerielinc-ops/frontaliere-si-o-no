@@ -67,10 +67,11 @@ export const POPULATION_SOURCE =
  * `expectedSlots` is the mean of the two 2026-08-11 measurements (91,297 and
  * 90,528), which sit 0.8% apart across a full crawl wave.
  *
- * RE-DERIVED 2026-09-29 (issue #9102): the assembled corpus measured 115,907
- * slots. The served wrong-locale rate was 36 / 115,907 = 0.031%; the 0.30%
- * quality cap remains unchanged, so this is a denominator re-baseline and not
- * a loosened gate.
+ * RE-DERIVED 2026-11-01 (issue #16405): the assembled corpus measured 138,160
+ * slots, including 5,708 slots held for translation outside the served
+ * artefact. The served wrong-locale rate was 39 / 132,452 = 0.029% with
+ * 94.4% of the assembled slots served; the 0.30% quality cap remains
+ * unchanged, so this is a denominator re-baseline and not a loosened gate.
  *
  * TOLERANCE 15%. Sized to make the historical failure impossible rather than
  * to a round number: the old assembled baseline's slice reading was 107,808
@@ -89,9 +90,9 @@ export const DESCRIPTION_POPULATION = {
   id: 'descriptions-wrong-locale',
   source: POPULATION_SOURCE,
   filter: 'descriptionByLocale[it|en|de|fr] with >= 120 trimmed chars, for every job, independent of needsRetranslation',
-  expectedSlots: 115907,
+  expectedSlots: 138160,
   tolerance: 0.15,
-  measuredOn: '2026-09-29',
+  measuredOn: '2026-11-01',
 };
 
 /**
