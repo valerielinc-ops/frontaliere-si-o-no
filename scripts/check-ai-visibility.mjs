@@ -131,10 +131,8 @@ function getOpenRouterKey() { return (process.env.OPENROUTER_API_KEY || '').trim
 // $0.007 per request, 20 requests cost about **$0.14**, plus the few cents of
 // prompt/answer tokens.
 //
-// OPENROUTER_WEB_MAX_RESULTS = 3 therefore buys no per-result charge on either
-// path: it sits under Exa's included allowance of 10, and native search does
-// not meter by result at all. It is kept as a payload-size bound, not as a cost
-// lever.
+// OPENROUTER_WEB_MAX_RESULTS = 3 sits under Exa's included allowance of 10, so
+// it is a payload-size bound, not a per-result cost lever.
 //
 // Failed calls are not billed, so fetchWithRetry's bounded retries do not move
 // the money — but they DO move the request count, which is why the cap is
