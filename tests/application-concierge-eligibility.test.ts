@@ -104,6 +104,11 @@ describe('qualification before proposal publication', () => {
     const germanSchool = 'Diese Stelle ist exklusiv für Schülerinnen im dritten Jahr der kaufmännischen Schule.';
     expect(hasUnverifiedCurrentStudentEligibility(germanSchool, { ...rawProfile, currentEducation: { degree: 'Drittes Jahr', institution: 'Universität' } }, 'Derzeit studiere ich im dritten Jahr an einer Universität.')).toBe(true);
     expect(hasUnverifiedCurrentStudentEligibility(germanSchool, { ...rawProfile, currentEducation: { degree: 'Drittes Jahr', institution: 'Kaufmännische Schule' } }, 'Derzeit besuche ich das dritte Jahr der kaufmännischen Schule.')).toBe(false);
+    for (const internshipPosting of [
+      'This internship is open exclusively to applicants with a nursing degree.',
+      'This traineeship is open exclusively to applicants with a nursing degree.',
+      'This apprenticeship is open exclusively to applicants with a nursing degree.',
+    ]) expect(hasUnverifiedCurrentStudentEligibility(internshipPosting, { currentEducation: { degree: 'Nursing degree' } }, 'Nursing degree, Example School, 2019')).toBe(false);
     expect(await check({ id: 'current-student-placement' })).toMatchObject({ status: 'unverified', reason: 'current_education_unverified' });
     expect(f.generate).toHaveBeenCalledTimes(3);
     expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
