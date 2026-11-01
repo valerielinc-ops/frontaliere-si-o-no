@@ -182,7 +182,8 @@ describe('automatic recovery after a portal fix', () => {
     const sourceFiles = [
       'scripts/lib/prospector/public-fetch-policy.mjs',
       'scripts/assisted-application/verify-portal.mjs',
-      'scripts/assisted-application/reconcile-portal-code.mjs', 'scripts/assisted-application/agent.mjs', 'scripts/assisted-application/lib/submit.mjs',
+      'scripts/assisted-application/reconcile-portal-code.mjs', 'scripts/assisted-application/reconcile-portal-questions.mjs',
+      'scripts/assisted-application/agent.mjs', 'scripts/assisted-application/lib/submit.mjs',
       'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
       'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
       ...['assistedApplicationConstants.js', 'assistedApplicationPortalSites.js', 'assistedApplicationRetention.js', 'assistedApplicationExtraDocuments.js',
