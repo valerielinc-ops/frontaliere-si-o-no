@@ -69,6 +69,7 @@ describe('qualification before proposal publication', () => {
     ['resident', 'Only Swiss residents may apply.'],
     ['apply-if-resident', 'Candidates may apply only if they are Swiss residents.'],
     ['fr-minimum', 'Plus de 5 ans d’expérience en gestion de projets sont exigés.'],
+    ['internship-placement', 'This internship requires a 52-week placement at a commercial school.'],
     ['holders', 'This role is exclusively for holders of a valid Swiss work permit.'],
     ['graduates', 'Only graduates of an accredited nursing programme are eligible.'],
     ['people', 'The programme is reserved for people currently enrolled in vocational school.'],
@@ -155,6 +156,8 @@ describe('qualification before proposal publication', () => {
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Candidates must apply online only.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'French is a plus.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'At least 5 years of experience would be useful.')).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'French is not necessary.')).toBe(false);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Qualifiche\nLa conoscenza del francese non è obbligatoria.')).toBe(false);
   });
 
   it('segments mixed hard and soft clauses without letting a soft cue suppress hard eligibility', () => {
