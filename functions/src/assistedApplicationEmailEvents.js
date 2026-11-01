@@ -50,6 +50,11 @@ const LAST_AT = {
   complaint: 'complainedAt',
 };
 const PAYMENT_RECOVERY_DIGEST_RE = /^digest-[A-Za-z0-9_-]{1,64}$/;
+const TERMINAL_DELIVERY_STATUSES = new Set(['delivered', 'bounced', 'complained']);
+
+export function hasTerminalDeliveryEvidence(status) {
+  return TERMINAL_DELIVERY_STATUSES.has(status);
+}
 
 function campaignId(prefix, identifier, key) {
   const cleanIdentifier = String(identifier || '').replace(/[^A-Za-z0-9_-]/g, '') || 'unknown';
