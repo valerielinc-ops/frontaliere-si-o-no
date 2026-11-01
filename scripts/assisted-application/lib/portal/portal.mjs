@@ -618,9 +618,16 @@ async function awaitFields(page, snapshot, unchanged = () => false) {
   return current;
 }
 
-/** A page is the same page when the URL and the field labels are (Workday's steps share one URL). */
+/**
+ * A page is the same page when its URL and controls are the same.  Workday's
+ * steps share one URL, and a few single-page ATS flows also reuse the labels;
+ * the stable DOM control ids distinguish a replaced wizard step from a redraw
+ * of the current one without treating a typed value as navigation.
+ */
 function pageSignature(page, snapshot) {
-  return `${page.url()}|${snapshot.fields.map((field) => field.label).join('|')}`;
+  return `${page.url()}|${snapshot.fields.map((field) => [
+    field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
+  ].join(':')).join('|')}`;
 }
 
 /** The visible question contract, without values the runner has just filled. */
