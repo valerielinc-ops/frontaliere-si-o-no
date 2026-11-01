@@ -214,8 +214,10 @@ async function fetchPublishedArticleCount(section: OverlaySection): Promise<numb
  *
  * So: if the window provably cannot close the gap — the bundle plus the whole
  * window still totals less than the corpus — fetch the complete index instead.
- * On the common path (`bundledCount` current) the comparison is false and not
- * a byte more is downloaded. Omit `bundledCount` to keep the old behaviour.
+ * The manifest also escalates when its corpus count has advanced past the
+ * bundle, even if the recent index has already published that newer total but
+ * is still missing one of its rows. Omit `bundledCount` to keep the old
+ * behaviour.
  */
 export async function fetchArticleOverlay(
   section: OverlaySection,
