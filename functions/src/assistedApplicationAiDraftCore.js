@@ -151,7 +151,7 @@ const ELIGIBILITY_SUBJECT_RE = /\b(?:candidate\w*|applicant\w*|student\w*|pupil\
 const NEGATED_HARD_REQUIREMENT_RE = /\b(?:not\s+(?:be\s+)?(?:required|mandatory|essential|necessary|obligatory)|nicht\s+(?:erforderlich|notwendig|obligatorisch|zwingend)|pas\s+(?:obligatoire|necessaire)|non\s+(?:e\s+)?(?:richiest\w*|obbligator\w*|necessar\w*))\b/gi;
 const EXPLICIT_MANDATORY_RE = /\b(?:must|requir(?:e|ed|es|ement|ements)|mandatory|essential|necessary|obbligator\w*|indispensabil\w*|richiest\w*|necessar\w*|deve|devono|devo|dovr\w+|dovete|requis\w*|obligatoir\w*|indispensable|doiv?\w*|exig\w*|erforderlich|zwingend|voraussetz\w*|notwendig|muss|mussen)\b/i;
 const THRESHOLD_REQUIREMENT_RE = /\b(?:at\s+least|minimum|plus\s+(?:de|di)\s+\d+|piu\s+di\s+\d+|more\s+than\s+\d+|over\s+\d+|mehr\s+als\s+\d+|au\s+moins\s+\d+|almeno\s+\d+|mindestens)\b/i;
-const QUALIFICATION_CONTEXT_RE = /\b(?:experience|erfahrung|exp[ée]rience|esperienz\w*|year\w*|week\w*|jahre?\w*|ann[ée]e\w*|anni|language\w*|sprach\w*|lingu\w*|english|german|deutsch|fran[cç]ais|italian|italien\w*|degree|diplom\w*|diplome\w*|laurea|education|educazion\w*|bildung|school|scuola|schule|scolair\w*|student\w*|schuler\w*|eleve\w*|etudiant\w*|intern\w*|placement\w*|permit\w*|bewilligung\w*|arbeitsbewilligung\w*|arbeitserlaubnis\w*|visa|nationalit\w*|citizenship|passport|residen\w*|wohnort|domicil\w*|license|licence|fuehrerschein|fuhrerschein|fahrausweis|patente|competenc\w*|kompetenz\w*|skill\w*|connaissance\w*|kenntnis\w*|conoscenz\w*|office|crm|sap|certificat\w*|certification\w*|qualification\w*|qualifikation\w*|abilit\w*|aptitude\w*)\b/i;
+const QUALIFICATION_CONTEXT_RE = /\b(?:experience|erfahrung|exp[ée]rience|esperienz\w*|year\w*|week\w*|jahre?\w*|ann[ée]e\w*|anni|language\w*|sprach\w*|lingu\w*|english|german|deutsch|french|fran[cç]ais|italian|italien\w*|degree|diplom\w*|diplome\w*|laurea|education|educazion\w*|bildung|school|scuola|schule|scolair\w*|student\w*|schuler\w*|eleve\w*|etudiant\w*|intern\w*|placement\w*|permit\w*|bewilligung\w*|arbeitsbewilligung\w*|arbeitserlaubnis\w*|visa|nationalit\w*|citizenship|passport|residen\w*|wohnort|domicil\w*|license|licence|fuehrerschein|fuhrerschein|fahrausweis|patente|competenc\w*|kompetenz\w*|skill\w*|connaissance\w*|kenntnis\w*|conoscenz\w*|office|crm|sap|certificat\w*|certification\w*|qualification\w*|qualifikation\w*|abilit\w*|aptitude\w*)\b/i;
 const HARD_QUALIFICATION_HEADING_RE = /^(?:required\s+)?(?:qualifications?|requirements?|essential\s+criteria|your\s+profile|votre\s+profil|il\s+tuo\s+profilo?|candidate\s+profile|profile\s+requirements|what\s+you\s+bring|requisiti(?:\s+richiesti)?|qualifiche|profilo\s+richiesto|anforderungen|qualifikationen|voraussetzungen|ihr\s+profil|profil\s+recherche|profil\s+recherch[eé]|conditions\s+requises|exigences|criteres?\s+requis)(?:\s+(?:and|&|\/)\s+(?:experience|skills|requirements?))?\s*:?$/i;
 const OPTIONAL_QUALIFICATION_HEADING_RE = /^(?:optional(?:\w*|\s+(?:qualifications?|requirements?|skills?|criteria?))?|opzional[ei](?:\s+(?:requisiti|qualifiche|competenze))?|qualifiche\s+opzionali|competenze\s+facoltative|facultatif(?:s)?|facultativ(?:e|es)|qualifications?\s+facultatives?|exigences?\s+facultatives?|requisiti\s+opzionali|optionale?\s+(?:anforderungen|qualifikationen|kenntnisse|faehigkeiten)|un\s+plus|a\s+plus)\s*:?$/i;
 const OTHER_SECTION_HEADING_RE = /^(?:your\s+tasks?|your\s+responsibilities|tasks?|responsibilities|job\s+description|about\s+(?:us|the\s+company)|our\s+company|our\s+mission|our\s+offer|what\s+we\s+offer|benefits|nice\s+to\s+have|preferred\s+qualifications?|desirable\s+skills|aufgaben|taetigkeiten|tatigkeiten|ihre\s+aufgaben|ihre\s+taetigkeiten|ihre\s+tatigkeiten|wir\s+bieten|vorteile|wuenschenswert|wunschprofil|missions?|votre\s+mission|vos\s+missions|votre\s+quotidien|votre\s+environnement|nos\s+missions|vos\s+avantages|nous\s+offrons|atouts|responsabilites|cosa\s+offriamo|offriamo|la\s+tua\s+missione|le\s+tue\s+attivita|le\s+vostre\s+attivita|mansioni|compiti|responsabilita|costituisce\s+un\s+plus)\s*:?$/i;
@@ -160,7 +160,7 @@ const APPLICATION_METHOD_ONLY_RE = /\b(?:apply|applications?|submit(?:ted)?|appl
 const CURRENT_STUDENT_CUE_RE = /\b(?:student\w*|pupil\w*|trainee\w*|intern\w*|apprentice\w*|studente\w*|alliev\w*|schueler\w*|schuler\w*|auszubildende\w*|eleve\w*|etudiant\w*|stagiaire\w*|apprenti\w*)\b/i;
 const CURRENT_ENROLLMENT_CUE_RE = /\b(?:current(?:ly)?|enroll\w*|attend\w*|studying|ongoing|presently|attualmente|frequent\w*|iscritt\w*|derzeit|aktuell|besuch\w*|actuellement|inscrit\w*|scolarise\w*)\b/i;
 const CURRENT_YEAR_CUE_RE = /\b(?:(?:third|3rd|troisieme|3e|terzo|terza|drittes?|dritten)[-\s]+(?:school[-\s]+)?(?:year|jahr|anno|annee|klasse)|(?:3|three|third|3rd)\s*(?:rd\s*)?(?:year|jahr|anno|annee|klasse)|(?:year|jahr|anno|annee|klasse)\s+(?:3|third|3rd))\b/i;
-const COMMERCIAL_SCHOOL_CUE_RE = /\b(?:commercial[-\s]+school|scuola[-\s]+commerciale|ecole[-\s]+(?:de[-\s]+)?commerce|handelsschule|kaufmaennische[-\s]+schule)\b/i;
+const COMMERCIAL_SCHOOL_CUE_RE = /\b(?:commercial[-\s]+school|scuola[-\s]+commerciale|ecole[-\s]+(?:de[-\s]+)?commerce|handelsschule|kaufmaennisch\w*[-\s]+schule|kaufmannisch\w*[-\s]+schule)\b/i;
 
 function normalizeEligibilityEvidence(value) {
   return String(value || '').replace(/\p{Cf}/gu, '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
@@ -179,6 +179,17 @@ function classifyHardEligibilityCues(statement) {
   };
 }
 
+function splitHardAndSoftConjunction(statement) {
+  const conjunction = /\s+(?:and|und|et|e)\s+/iu.exec(statement);
+  if (!conjunction) return [statement];
+  const hardClause = statement.slice(0, conjunction.index).trim();
+  const softClause = statement.slice(conjunction.index + conjunction[0].length).trim();
+  const hardCues = classifyHardEligibilityCues(hardClause);
+  const hasHardClause = hardCues.exclusive || hardCues.mandatory || hardCues.threshold;
+  if (!hasHardClause || !PREFERENCE_CUE_RE.test(softClause) || !QUALIFICATION_CONTEXT_RE.test(softClause)) return [statement];
+  return [hardClause, softClause];
+}
+
 function postingEligibilityStatements(postingText) {
   const result = [];
   const softClauses = [];
@@ -188,7 +199,8 @@ function postingEligibilityStatements(postingText) {
   let block = '';
   const flush = () => {
     if (!block.trim()) return;
-    const clauses = block.split(/\s*;\s*|(?<=[.!?])\s+/u).map(normalizeEligibilityEvidence).filter(Boolean);
+    const clauses = block.split(/\s*;\s*|(?<=[.!?])\s+/u).map(normalizeEligibilityEvidence).filter(Boolean)
+      .flatMap(splitHardAndSoftConjunction);
     for (const statement of clauses) {
       if (APPLICATION_METHOD_ONLY_RE.test(statement)) continue;
       const hardCues = classifyHardEligibilityCues(statement);
@@ -196,7 +208,7 @@ function postingEligibilityStatements(postingText) {
       const explicitHard = hardCues.exclusive || hardCues.mandatory;
       const thresholdHard = hardCues.threshold;
       if (preference) softClauses.push(statement);
-      if (preference && (explicitHard || (thresholdHard && !underOptionalHeading))) ambiguous = true;
+      if (preference && explicitHard) ambiguous = true;
       const headingRequires = underQualificationHeading && !underOptionalHeading && !preference;
       if (explicitHard || (!underOptionalHeading && !preference && thresholdHard) || headingRequires) result.push(statement);
     }
@@ -295,8 +307,8 @@ export function hasUncoveredHardEligibilityStatements(requirements, postingText)
     item.quote.includes(statement) && item.sourceRequirement === statement));
 }
 
-/** Past employment cannot prove eligibility for an exclusive current-student placement. */
-export function hasUnverifiedCurrentStudentEligibility(postingText, profile = {}) {
+/** Past employment or model-only profile fields cannot prove a current student placement. */
+export function hasUnverifiedCurrentStudentEligibility(postingText, profile = {}, sourceText = '') {
   const statements = postingEligibilityStatements(postingText).statements;
   const currentStudentRequirements = statements.filter((statement) =>
     EXCLUSIVE_ELIGIBILITY_RE.test(statement)
@@ -309,11 +321,30 @@ export function hasUnverifiedCurrentStudentEligibility(postingText, profile = {}
     currentEducation.degree, currentEducation.institution, currentEducation.start,
     currentEducation.end, currentEducation.grade,
   ].filter(Boolean).join(' '));
-  if (!currentEducationText) return true;
+  const source = normalizeEligibilityEvidence(sourceText);
+  if (!currentEducationText || !source) return true;
 
-  return currentStudentRequirements.some((statement) =>
-    (CURRENT_YEAR_CUE_RE.test(statement) && !CURRENT_YEAR_CUE_RE.test(currentEducationText))
-    || (COMMERCIAL_SCHOOL_CUE_RE.test(statement) && !COMMERCIAL_SCHOOL_CUE_RE.test(currentEducationText)));
+  return currentStudentRequirements.some((statement) => {
+    const needsYear = CURRENT_YEAR_CUE_RE.test(statement);
+    const needsSchool = COMMERCIAL_SCHOOL_CUE_RE.test(statement);
+    if ((needsYear && !CURRENT_YEAR_CUE_RE.test(currentEducationText))
+      || (needsSchool && !COMMERCIAL_SCHOOL_CUE_RE.test(currentEducationText))) return true;
+
+    const anchorPattern = needsYear ? CURRENT_YEAR_CUE_RE : needsSchool ? COMMERCIAL_SCHOOL_CUE_RE : CURRENT_STUDENT_CUE_RE;
+    const sourceAnchor = new RegExp(anchorPattern.source, 'gi');
+    let anchor;
+    let sourceProvesCurrentEducation = false;
+    while ((anchor = sourceAnchor.exec(source)) !== null) {
+      const context = source.slice(Math.max(0, anchor.index - 160), Math.min(source.length, anchor.index + anchor[0].length + 160));
+      if (CURRENT_ENROLLMENT_CUE_RE.test(context)
+        && (!needsYear || CURRENT_YEAR_CUE_RE.test(context))
+        && (!needsSchool || COMMERCIAL_SCHOOL_CUE_RE.test(context))) {
+        sourceProvesCurrentEducation = true;
+        break;
+      }
+    }
+    return !sourceProvesCurrentEducation;
+  });
 }
 
 /** A quote the posting does not contain verbatim is dropped, not trusted. */

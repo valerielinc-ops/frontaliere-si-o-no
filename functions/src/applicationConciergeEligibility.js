@@ -83,7 +83,7 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
     postingExcerpt: posting.text, candidateSourceExcerpts: candidateSources.excerpts }), citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources));
   const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, `${evidenceText}\n${JSON.stringify(answers)}`),
     { profile: normalizedProfile, sourceText: evidenceText, answers, memory: answers, locale });
-  if (hasUnverifiedCurrentStudentEligibility(posting.text, normalizedProfile)) {
+  if (hasUnverifiedCurrentStudentEligibility(posting.text, normalizedProfile, sourceText)) {
     return { status: 'unverified', reason: 'current_education_unverified', gaps: [], postingHash, requirements, match, posting };
   }
   const result = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });

@@ -54,8 +54,12 @@ describe('qualification before proposal publication', () => {
         : { matches: [{ index: 0, status: 'met', evidence: 'IT Manager, Example Systems, 2020–2025' }], verdict: 'strong' });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
 
-    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: {} })).toBe(true);
-    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } })).toBe(false);
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: {} }, 'IT Manager, Example Systems, 2020–2025')).toBe(true);
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'Currently enrolled as a third-year commercial-school student.')).toBe(false);
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year at university' } }, 'Currently enrolled in the third year at university.')).toBe(true);
+    const germanSchool = 'Diese Stelle ist exklusiv für Schülerinnen im dritten Jahr der kaufmännischen Schule.';
+    expect(hasUnverifiedCurrentStudentEligibility(germanSchool, { ...rawProfile, currentEducation: { degree: 'Drittes Jahr', institution: 'Universität' } }, 'Derzeit studiere ich im dritten Jahr an einer Universität.')).toBe(true);
+    expect(hasUnverifiedCurrentStudentEligibility(germanSchool, { ...rawProfile, currentEducation: { degree: 'Drittes Jahr', institution: 'Kaufmännische Schule' } }, 'Derzeit besuche ich das dritte Jahr der kaufmännischen Schule.')).toBe(false);
     expect(await check({ id: 'current-student-placement' })).toMatchObject({ status: 'unverified', reason: 'current_education_unverified' });
     expect(f.generate).toHaveBeenCalledTimes(3);
     expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
@@ -174,7 +178,7 @@ describe('qualification before proposal publication', () => {
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Applications must be submitted online only.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Candidates must apply online only.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'French is a plus.')).toBe(false);
-    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'At least 5 years of experience would be useful.')).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'At least 5 years of experience would be useful.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'French is not necessary.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Qualifiche\nLa conoscenza del francese non è obbligatoria.')).toBe(false);
   });
@@ -201,6 +205,13 @@ describe('qualification before proposal publication', () => {
       requirement: 'Tedesco C1', sourceRequirement: 'German C1 required',
       importance: 'critical', basis: 'stated', quote: 'German C1 required',
     }] }, languages)).toBe(false);
+
+    const permitAndLanguage = 'Candidates must hold a valid work permit and German B2 is a plus.';
+    expect(hasUncoveredHardEligibilityStatements(empty, permitAndLanguage)).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [{
+      requirement: 'Permesso di lavoro valido', sourceRequirement: 'Candidates must hold a valid work permit',
+      importance: 'critical', basis: 'stated', quote: 'Candidates must hold a valid work permit',
+    }] }, permitAndLanguage)).toBe(false);
 
     const optionalMandatory = 'Optional → Candidates must hold a valid Swiss work permit.';
     expect(hasUncoveredHardEligibilityStatements(empty, optionalMandatory)).toBe(true);
