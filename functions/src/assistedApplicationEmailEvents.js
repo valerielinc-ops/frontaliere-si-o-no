@@ -194,6 +194,13 @@ export async function recordAssistedEmailEvent(db, { campaign, type, provider, m
   if (link) update[`${base}.lastClickUrl`] = link;
   const notificationBase = `notifications.${target.key}`;
   const currentDeliveryStatus = order.get(`${notificationBase}.deliveryStatus`);
+  if (target.serviceId && ['send', 'delivered', 'bounce', 'complaint'].includes(eventType)) {
+    // A provider event is durable evidence that the claimed receipt reached
+    // the provider. Close a claim that was still `sending` before a webhook
+    // arrived, so the backstop cannot send it a second time.
+    update[`${notificationBase}.status`] = 'sent';
+    update[`${notificationBase}.providerStatus`] = 'accepted';
+  }
   if (eventType === 'send') {
     update[`${notificationBase}.providerStatus`] = 'accepted';
     update[`${notificationBase}.providerAcceptedAt`] = at;

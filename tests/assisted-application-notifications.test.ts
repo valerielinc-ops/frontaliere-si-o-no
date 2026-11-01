@@ -849,7 +849,7 @@ describe('paid 30-day concierge notifications', () => {
 
     expect(payloads()).toHaveLength(0);
     expect(store[key].notifications.concierge_paid_customer).toMatchObject({
-      status: 'sent', providerStatus: 'accepted', deliveryStatus: 'delivered',
+      status: 'sending', providerStatus: 'accepted', deliveryStatus: 'delivered',
     });
   });
 
