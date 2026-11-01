@@ -1,19 +1,65 @@
 {
   "key": "la-fonte",
   "label": "La Fonte",
-  "generatedAt": "2026-11-01T09:17:01.717Z",
+  "generatedAt": "2026-11-01T21:23:16.230Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 2970,
-  "avgDurationMs": 2970,
+  "unchangedCount": 2,
+  "durationMs": 2896,
+  "avgDurationMs": 2896,
   "durationHistory": [
-    2970
+    2896
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "title": "Stagiaire",
+      "slug": "apprendistato-fondazione-la-fonte-luganese-malcantone",
+      "company": "Fondazione La Fonte",
+      "companyKey": "la-fonte",
+      "location": "Luganese, Malcantone",
+      "canton": "TI",
+      "country": "CH",
+      "url": "https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-luganese-malcantone#:~:text=Stagiaire",
+      "applyUrl": "https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-luganese-malcantone#:~:text=Stagiaire",
+      "category": "internship",
+      "sector": "Servizi sociali / Non-profit",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "source": "la-fonte-crawler",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "sourceLang": "it",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "2026-11-01T21:22:58.920Z",
+      "id": "fondazione-la-fonte-8ea3b422c946",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Luganese, Malcantone",
+      "addressRegion": "TI",
+      "postalCode": "6500",
+      "firstSeenAt": "2026-05-17T10:35:50.358Z",
+      "streetAddress": "Luganese, Malcantone",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T21:22:58.920Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -39,7 +85,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-01T09:16:48.883Z",
+      "crawledAt": "2026-11-01T21:22:58.920Z",
       "id": "fondazione-la-fonte-319213f47039",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -51,58 +97,13 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-10-17T21:20:49.576Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-16T09:16:48.883Z",
+      "validThrough": "2027-01-15T21:22:58.920Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 23,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "Stagiaire",
-      "slug": "apprendistato-fondazione-la-fonte-luganese-malcantone",
-      "company": "Fondazione La Fonte",
-      "companyKey": "la-fonte",
-      "location": "Luganese, Malcantone",
-      "canton": "TI",
-      "country": "CH",
-      "url": "https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-luganese-malcantone#:~:text=Stagiaire",
-      "applyUrl": "https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-luganese-malcantone#:~:text=Stagiaire",
-      "category": "internship",
-      "sector": "Servizi sociali / Non-profit",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "source": "la-fonte-crawler",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "sourceLang": "it",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "2026-11-01T09:16:48.883Z",
-      "id": "fondazione-la-fonte-8ea3b422c946",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Luganese, Malcantone",
-      "addressRegion": "TI",
-      "postalCode": "6500",
-      "firstSeenAt": "2026-05-17T10:35:50.358Z",
-      "streetAddress": "Luganese, Malcantone",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:48.883Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
         "completeness": 20
       }
     },
@@ -129,7 +130,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-01T09:16:48.883Z",
+      "crawledAt": "2026-11-01T21:22:58.920Z",
       "id": "fondazione-la-fonte-485211a481ee",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -141,7 +142,7 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:48.883Z",
+      "validThrough": "2026-12-01T21:22:58.920Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -152,5 +153,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }
