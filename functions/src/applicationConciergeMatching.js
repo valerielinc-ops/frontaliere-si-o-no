@@ -7,7 +7,7 @@
  * application child is created.
  */
 
-import { normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
+import { CONCIERGE_ELIGIBILITY_VERSION, normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
 import { locationMatchPoints } from './applicationConciergeGeography.js';
 import { MAX_ELIGIBILITY_RETRIES_PER_RUN, dueEligibilityRetries, eligibilityRetryRef, eligibilityRetrySummary, recordEligibilityRetry } from './applicationConciergeEligibilityRetry.js';
 import { createHash } from 'node:crypto';
@@ -395,11 +395,55 @@ async function updateExistingProposal(db, ref, update, expectedStatus, nextStatu
     transaction.set(ref, {
       ...update,
       ...(nextStatus ? { status: nextStatus } : {}),
-      ...(nextStatus === 'retracted' ? { retractedAt: FieldValue.serverTimestamp(), retractionReason: update.matchScore < MIN_MATCH_SCORE ? 'match_below_threshold' : update.eligibilityStatus && update.eligibilityStatus !== 'compatible' ? 'decisive_requirements_unverified' : 'match_below_threshold' } : {}),
+      ...(nextStatus === 'retracted' ? {
+        retractedAt: FieldValue.serverTimestamp(),
+        retractionReason: update.retractionReason || (update.matchScore < MIN_MATCH_SCORE
+          ? 'match_below_threshold'
+          : update.eligibilityStatus && update.eligibilityStatus !== 'compatible'
+            ? 'decisive_requirements_unverified'
+            : 'match_below_threshold'),
+      } : {}),
       ...(nextStatus === 'proposed' && current.status === 'retracted' ? { reactivatedAt: FieldValue.serverTimestamp() } : {}),
     }, { merge: true });
     return true;
   });
+}
+
+function expiryTimestamp(value, { calendarDateInclusive = false } = {}) {
+  if (value instanceof Date) return value.getTime();
+  if (typeof value !== 'string') return Number(value?.toMillis?.());
+  const normalized = value.trim();
+  const dateOnly = /^(\d{4})-(\d{2})-(\d{2})(?:T00:00:00(?:\.000)?Z)?$/.exec(normalized);
+  if (dateOnly && calendarDateInclusive) {
+    const [, year, month, day] = dateOnly;
+    const startOfDate = Date.UTC(Number(year), Number(month) - 1, Number(day));
+    const datePrefix = normalized.slice(0, 10);
+    return new Date(startOfDate).toISOString().slice(0, 10) === datePrefix
+      ? startOfDate + 86_400_000 - 1
+      : Number.NaN;
+  }
+  return Date.parse(normalized);
+}
+
+function explicitlyClosedJob(job, nowMs = Date.now()) {
+  const status = String(job?.status || '').trim().toLowerCase();
+  if (['closed', 'expired', 'inactive', 'withdrawn', 'filled', 'retracted'].includes(status)) return true;
+  if (job?.isActive === false || job?.active === false) return true;
+  const archivedAt = expiryTimestamp(job?.expiredAt);
+  if (Number.isFinite(archivedAt) && archivedAt > 0 && archivedAt <= nowMs) return true;
+  // Only an employer-supplied validThrough is proof of closure. The build's
+  // observation/type-cap deadlines are JobPosting metadata, not ATS evidence.
+  if (job?.validThroughSource === 'source') {
+    const validThrough = expiryTimestamp(job.validThrough, { calendarDateInclusive: true });
+    if (Number.isFinite(validThrough) && validThrough > 0 && validThrough <= nowMs) return true;
+  }
+  return false;
+}
+
+function decisiveIncompatibility(result) {
+  return result?.status === 'incompatible'
+    && Array.isArray(result.gaps)
+    && result.gaps.some(gap => gap?.knownMissing === true);
 }
 
 export async function runApplicationConciergeMatching({ db = getAdminDb(), serviceId, jobIndexUrl, eligibility = null, deadlineMs = Date.now() + 480_000 } = {}) {
@@ -434,6 +478,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     }));
     const available = Math.max(0, (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS) - acceptedPositionsCount(service));
     const candidateLocation = String(service.applicantLocation || '').trim();
+    const matchingNowMs = Date.now();
     const existingData = existing.map(doc => doc.data() || {});
     const excludedUrls = new Set(existingData.filter(data => !['proposed', 'retracted'].includes(data.status)).map(data => data.jobUrl));
     const rankedWork = jobs.map((job) => {
@@ -441,7 +486,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       const scored = scoreJobForProfile(job, profile, candidateLocation);
       const preference = scored.score > 0 ? approvedRolePreference(job, existingData) : 0;
       return { job, url, ...scored, rankScore: (scored.rankScore || 0) + preference };
-    }).filter((entry) => entry.score > 0 && validJobUrl(entry.url) && !excludedUrls.has(entry.url))
+    }).filter((entry) => entry.score > 0 && validJobUrl(entry.url) && !excludedUrls.has(entry.url)
+      && !explicitlyClosedJob(entry.job, matchingNowMs))
       .sort((left, right) => right.rankScore - left.rankScore
         || right.score - left.score
         || right.evidenceStrength - left.evidenceStrength
@@ -452,7 +498,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const jobsByUrl = new Map(jobs.map((job) => [jobUrl(job), job]).filter(([url]) => Boolean(url)));
     const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord, background: true, signal: eligibilitySignal });
     const checks = new Map();
-    const scanContext = createHash('sha256').update(JSON.stringify([APPLICATION_CONCIERGE_MATCHING_VERSION, service.cvStorageKey, profile, profileRecord.applicationQuestionAnswers || {}])).digest('hex');
+    const scanContext = createHash('sha256').update(JSON.stringify([APPLICATION_CONCIERGE_MATCHING_VERSION, service.cvStorageKey, profile])).digest('hex');
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
     const dueRetries = await dueEligibilityRetries(serviceRef, Date.now());
     const relevantUrls = new Set(rankedWork.map(entry => entry.url));
@@ -472,6 +518,9 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         else {
           try { result = await evaluate(job); }
           catch { result = { status: 'unverified', reason: eligibilitySignal.aborted ? 'analysis_deferred' : 'analysis_unavailable' }; }
+        }
+        if (result?.status === 'incompatible' && !decisiveIncompatibility(result)) {
+          result = { status: 'unverified', reason: 'incompatibility_not_proven' };
         }
         await recordEligibilityRetry({ db, serviceRef, url, result, context: scanContext, nowMs: Date.now() });
         checks.set(url, result);
@@ -493,6 +542,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       .slice(0, Math.min(available, MAX_PROPOSALS_PER_RUN));
     const eligibilityFields = (result = { status: 'unverified' }) => ({
       eligibilityStatus: result.status,
+      eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
       eligibilityFingerprint: result.fingerprint || null,
       eligibilityCacheId: result.cacheId || null,
       eligibilityCvStorageKey: service.cvStorageKey || null,
@@ -507,7 +557,9 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       const rescored = job ? scoreJobForProfile(job, profile, candidateLocation) : { score: 0, reasons: [] };
       const result = checks.get(data.jobUrl) || { status: 'unverified' };
       const proposalRef = doc.ref || doc;
-      if (rescored.score >= MIN_MATCH_SCORE && result.status === 'compatible') {
+      const jobClosed = Boolean(job && explicitlyClosedJob(job, matchingNowMs));
+      const isDecisivelyIncompatible = decisiveIncompatibility(result);
+      if (!jobClosed && rescored.score >= MIN_MATCH_SCORE && result.status === 'compatible') {
         const changed = await updateExistingProposal(
           db,
           proposalRef,
@@ -525,21 +577,42 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         );
         if (changed) refreshedProposals += 1;
       } else if (data.status === 'proposed') {
-        const changed = await updateExistingProposal(
-          db,
-          proposalRef,
-          {
-            matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
-            ...eligibilityFields(result),
-            matchScore: rescored.score,
-            matchRankingScore: rescored.rankScore ?? rescored.score,
-            matchReasons: rescored.reasons,
-            updatedAt: FieldValue.serverTimestamp(),
-          },
-          'proposed',
-          'retracted',
-        );
-        if (changed) retractedProposals += 1;
+        if (jobClosed || isDecisivelyIncompatible) {
+          const changed = await updateExistingProposal(
+            db,
+            proposalRef,
+            {
+              matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
+              ...eligibilityFields(result),
+              retractionReason: jobClosed ? 'job_closed' : 'decisive_requirement_missing',
+              matchScore: rescored.score,
+              matchRankingScore: rescored.rankScore ?? rescored.score,
+              matchReasons: rescored.reasons,
+              updatedAt: FieldValue.serverTimestamp(),
+            },
+            'proposed',
+            'retracted',
+          );
+          if (changed) retractedProposals += 1;
+        } else {
+          // A failed or incomplete qualification is not proof that an existing
+          // proposal is incompatible. Keep its stable row visible; the API
+          // serializes non-compatible eligibility as needs_verification, and
+          // acceptProposal independently rejects it until a fresh compatible
+          // result is durably recorded.
+          await updateExistingProposal(
+            db,
+            proposalRef,
+            {
+              matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
+              ...eligibilityFields(result.status === 'compatible' || result.status === 'incompatible'
+                ? { ...result, status: 'unverified', reason: result.status === 'compatible' ? 'match_below_threshold' : 'incompatibility_not_proven' }
+                : result),
+              updatedAt: FieldValue.serverTimestamp(),
+            },
+            'proposed',
+          );
+        }
       }
     }
 
@@ -592,11 +665,9 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     }, { merge: true });
     return { status: 'complete', proposals: createdProposals + refreshedProposals, retracted: retractedProposals };
   } catch (error) {
-    const pending = await serviceRef.collection('proposals').get();
-    for (const doc of pending.docs || []) {
-      if (doc.data()?.status === 'proposed') await updateExistingProposal(db, doc.ref || doc,
-        { eligibilityStatus: 'unverified', updatedAt: FieldValue.serverTimestamp() }, 'proposed', 'retracted');
-    }
+    // A failed top-level fetch/write is not evidence that any existing job is
+    // incompatible or closed. Preserve proposal rows and let the lifecycle's
+    // failed-run retry re-evaluate them on a later pass.
     await serviceRef.set({ matchingStatus: 'failed', matchingError: 'job_search_failed', matchingCompletedAt: FieldValue.serverTimestamp(), updatedAt: FieldValue.serverTimestamp() }, { merge: true });
     throw error;
   }

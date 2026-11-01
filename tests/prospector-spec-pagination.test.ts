@@ -50,6 +50,22 @@ function listingPage({ ids, page, total, next, fragments = {} }: {
   return `<html><head><title>Jobs</title></head><body>${counter}${cards}${nextLink}</body></html>`;
 }
 
+function numberedListingPage({ ids, total, controls }: {
+  ids: string[],
+  total: number,
+  controls: number[],
+}) {
+  const cards = ids.map((id) => (
+    `<div class="job"><h2><a href="${ORIGIN}/job/${id}/" class="listing_link">`
+    + `Posizione ${id} a Lugano</a></h2></div>`
+  )).join('\n');
+  const counter = `<p class="jobs_found"><span class="jobs_number">${total}</span> Jobs gefunden</p>`;
+  const pageLinks = controls.map((page) => (
+    `<a href="${ORIGIN}/Vacancyboard/${page}?jobtitle=&occupationGroup=0&place=0">${page}</a>`
+  )).join(' ');
+  return `<html><head><title>Jobs</title></head><body>${counter}${cards}${pageLinks}</body></html>`;
+}
+
 // A page is its HTML body, or a bare HTTP status the source answers with.
 type SitePages = Record<string, string | number>;
 
@@ -135,6 +151,37 @@ describe('spec.pagination', () => {
       `${ORIGIN}/?sf_paged=2`,
       `${ORIGIN}/?sf_paged=3`,
     ]);
+  });
+
+  it('segue controlli numerici solo quando la spec dichiara la loro route', async () => {
+    const seed = `${ORIGIN}/Vacancyboard/`;
+    const secondPage = `${ORIGIN}/Vacancyboard/2?jobtitle=&occupationGroup=0&place=0`;
+    const pages = {
+      [seed]: numberedListingPage({ ids: ['sa1', 'sa2'], total: 4, controls: [2] }),
+      [secondPage]: numberedListingPage({ ids: ['sa3', 'sa4'], total: 4, controls: [1, 2] }),
+    };
+    const { rows, fetched } = await collect(specWith({
+      seedUrls: [seed],
+      pagination: {
+        ...PAGINATION,
+        numberedPagePattern: '/Vacancyboard/(\\d+)$',
+      },
+    }), pages);
+
+    expect(rows.map((row) => row.url)).toEqual([
+      `${ORIGIN}/job/sa1/`,
+      `${ORIGIN}/job/sa2/`,
+      `${ORIGIN}/job/sa3/`,
+      `${ORIGIN}/job/sa4/`,
+    ]);
+    expect(fetched.filter((url) => !url.endsWith('/robots.txt'))).toEqual([seed, secondPage]);
+  });
+
+  it('non interpreta link numerici come paginazione senza un contratto esplicito', () => {
+    expect(findNextListingPageUrl(
+      `<a href="${ORIGIN}/Vacancyboard/2">2</a>`,
+      `${ORIGIN}/Vacancyboard/`,
+    )).toBeNull();
   });
 
   it('deduplica lo stesso annuncio tra pagine anche se i link hanno fragment diversi', async () => {

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdag",
-  "assembledAt": "2026-11-01T09:43:55.855Z",
+  "assembledAt": "2026-11-01T12:23:05.569Z",
   "runId": "41292859129",
   "jobs": [
     {
@@ -171,7 +171,7 @@
       "id": "pdag-ce9c143bc3fd",
       "slug": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
         "en": "dipl-nursing-specialist-hf-fh-clinic-for-forensic-psychiatry-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-clinique-de-psychiatrie-legale-psychiatrische-dienste-aargau-pdag-windisch"
@@ -1326,7 +1326,7 @@
       "slug": "terapeuta-psicomotore-terapeuta-psicomotore-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "it": "terapeuta-psicomotore-terapeuta-psicomotore-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "psychomotoriktherapeutin-psychomotoriktherapeut-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "psychomotoriktherapeutin-psychomotoriktherapeut-pdag-windisch",
         "fr": "psychomotherapeute-psychomotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
       },
@@ -1387,7 +1387,7 @@
       "previousSlugs": [
         "psychomotor-therapist-psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch",
         "psychomotoriktherapeutin-psychomotoriktherapeut-pdag-windisch",
-        "psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch"
+        "psychomotoriktherapeutin-psychomotoriktherapeut-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1395,7 +1395,7 @@
         ],
         "en": [
           "psychomotor-therapist-psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch",
-          "psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch"
+          "psychomotoriktherapeutin-psychomotoriktherapeut-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.569Z",
@@ -3195,7 +3195,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:42:32.205Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "pdag-81df04b9e2ff",
@@ -4266,7 +4267,7 @@
       "id": "pdag-a3e59a5cafcc",
       "slug": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-f0c3f2bf89",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-f0c3f2bf89",
         "en": "dipl-nursing-specialist-hf-fh-clinic-for-forensic-psychiatry-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-fur-forensische-psychiatrie-pdag-windisch",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-clinique-de-psychiatrie-legale-psychiatrische-dienste-aargau-pdag-windisch"
@@ -6158,9 +6159,9 @@
       "slug": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
+        "en": "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "fr": "ergotherapeutin-ergotherapeut-pdag-windisch-2"
+        "fr": "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -6206,18 +6207,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch",
-        "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
+        "ergotherapeutin-ergotherapeut-pdag-windisch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeut-pdag-windisch"
         ],
         "en": [
-          "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch"
+          "ergotherapeutin-ergotherapeut-pdag-windisch-2"
         ],
         "fr": [
-          "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
+          "ergotherapeutin-ergotherapeut-pdag-windisch-2"
         ]
       },
       "firstSeenAt": "2026-06-11T13:15:23.507Z",

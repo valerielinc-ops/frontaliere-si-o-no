@@ -105,7 +105,7 @@ describe('job-locale population identity', () => {
 
     it('rejects an inflated population too — the slice/assembled swap', () => {
       // The historical 107,808 slice figure belonged to the old 90,900
-      // baseline and is now inside the re-derived band. Keep the documented
+      // baseline and is below the current re-derived band. Keep the documented
       // +18.6% slice/assembled swap as a synthetic out-of-band fixture.
       const inflatedDescriptionSlots = Math.round(DESCRIPTION_POPULATION.expectedSlots * 1.186);
       expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, inflatedDescriptionSlots)).toThrow(/\[population-changed\]/);
@@ -118,9 +118,9 @@ describe('job-locale population identity', () => {
     });
 
     it('holds both shipped populations at their real measured sizes', () => {
-      // Descriptions, assembled, 2026-09-29: 115,907 in CI and 115,899 in
-      // the local re-measurement of the same corpus wave.
-      for (const n of [115907, 115899]) {
+      // Descriptions, assembled, 2026-11-01: 138,160 including the held
+      // translation population recorded by the live-data run.
+      for (const n of [138160]) {
         expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, n)).not.toThrow();
       }
       // Titles, assembled, latest full-checkout measurement on 2026-09-30.
@@ -273,15 +273,14 @@ describe('job-locale population identity', () => {
       expect(() => runDescriptionGate(makeJobs(100, { queued: 90 }), 400, 0.02)).not.toThrow(/\[quality-regression\]/);
     });
 
-    it('SCENARIO D — the real 2026-09-29 numbers do not trip the population guard', () => {
-      // The two current assembled measurements are both inside the band, so
-      // the gate stays on the quality question, which is the point.
-      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 115907)).not.toThrow();
-      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 115899)).not.toThrow();
-      // ...while the old denominators would both have been flagged as what they
-      // were: a different set.
-      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 62944)).toThrow(/\[population-changed\]/);
-      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 34594)).toThrow(/\[population-changed\]/);
+    it('SCENARIO D — the real 2026-11-01 number does not trip the population guard', () => {
+      // The current assembled measurement, including held translation slots,
+      // stays inside the band, so the gate stays on the quality question.
+      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 138160)).not.toThrow();
+      // ...while the old baseline denominators are now correctly flagged as a
+      // different set rather than silently treated as comparable.
+      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 115907)).toThrow(/\[population-changed\]/);
+      expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 115899)).toThrow(/\[population-changed\]/);
     });
   });
 });

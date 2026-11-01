@@ -1,7 +1,8 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcilePortalQuestions } from '../scripts/assisted-application/reconcile-portal-questions.mjs';
-import { revalidatedPortalQuestions, relaxablePortalQuestionTopic, legacyPortalContractEligible } from '../scripts/assisted-application/lib/portal/question-contract-reconciliation.mjs';
+import { PORTAL_CONTRACT_RECONCILIATION_VERSION, portalContractContextHash, portalContractEpisode, portalContractSourceUrl,
+  revalidatedPortalQuestions, relaxablePortalQuestionTopic, legacyPortalContractEligible } from '../scripts/assisted-application/lib/portal/question-contract-reconciliation.mjs';
 import { buildReviewPayload } from '../functions/src/assistedApplicationReview.js';
 import { candidateWithEdits, questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
@@ -131,6 +132,29 @@ it('keeps clicked, uncertain, sent, refunded and withdrawn rounds out of recover
 });
 
 describe('legacy operational portal contract reconciliation', () => {
+  it('does not let an unattested legacy answer suppress recovery of an optional portal question', async () => {
+    const store = fixture();
+    const flowPath = `${base}/automation/flow`;
+    const legacyFlow = { ...store.read(flowPath), answers: { [question.id]: 'Company website' },
+      questionAnswers: { question_legacy: 'Company website' } };
+    store.docs.set(flowPath, legacyFlow);
+    const current = context(store);
+    const oldEpisode = portalContractContextHash(['native-contract-v1', current.flow.round, portalContractSourceUrl(current.draft)]);
+    const oldContextHash = portalContractContextHash({ ...current, submission: {
+      ...current.submission, portalQuestionContractRecovery: undefined,
+    } });
+    store.docs.set(`${base}/automation/submission`, { ...current.submission, portalQuestionContractRecovery: {
+      version: 'native-contract-v1', episode: oldEpisode, contextHash: oldContextHash, outcome: 'unknown', attempts: 1,
+    } });
+
+    expect(await reconcilePortalQuestions({ ...options(store), apply: true })).toMatchObject({ changed: 1, queued: 1 });
+    expect(PORTAL_CONTRACT_RECONCILIATION_VERSION).toBe('native-contract-v1:answer-evidence-v2');
+    expect(portalContractEpisode(current)).not.toBe(oldEpisode);
+    expect(store.read(`${base}/ai_drafts/current`).questions[0]).toMatchObject({ id: question.id, required: false });
+    expect(store.read(flowPath).answers).toEqual(legacyFlow.answers);
+    expect(store.read(flowPath).questionAnswers).toEqual(legacyFlow.questionAnswers);
+  });
+
   it('updates only proven metadata, hides the optional question and queues the existing approved clock', async () => {
     const store = fixture();
     const originalFlow = structuredClone(store.read(`${base}/automation/flow`));
@@ -318,11 +342,12 @@ describe('legacy operational portal contract reconciliation', () => {
     expect(store.read(base).automationDueAt).toBeNull();
   });
 
-  it.each(['paid', 'retention', 'withdrawn', 'submitting', 'sent', 'sending', 'clicked', 'sent_attempt', 'round', 'unapproved'])('fails closed when eligibility changes: %s', kind => {
+  it.each(['paid', 'retention', 'retention_purging', 'withdrawn', 'submitting', 'sent', 'sending', 'clicked', 'sent_attempt', 'round', 'unapproved'])('fails closed when eligibility changes: %s', kind => {
     const store = fixture();
     const current: any = context(store);
     if (kind === 'paid') current.order.paymentStatus = 'pending';
     if (kind === 'retention') current.order.cvUploadedAt = daysAgo(91);
+    if (kind === 'retention_purging') current.order.retentionPurgingAt = now;
     if (kind === 'withdrawn') current.order.withdrawnAt = now;
     if (kind === 'submitting') current.flow.state = 'submitting';
     if (kind === 'sent') current.submission.r1.state = 'sent';

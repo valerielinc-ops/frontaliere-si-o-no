@@ -3,8 +3,9 @@ import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType, unresolvedTurnstileFrame } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { COOKIE_ACCEPT_RE, COOKIE_REJECT_RE, openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
-import { operationalDefaultAnswer } from '../functions/src/assistedApplicationOperationalAnswers.js';
+import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_REJECT_RE, dismissCookieBanner, openFormSections, portalRequirementsFromMissingRequired, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { operationalDefaultAnswer, operationalQuestionTopic } from '../functions/src/assistedApplicationOperationalAnswers.js';
+import { mergeLivePortalQuestions } from '../scripts/assisted-application/lib/portal/merge-live-requirements.mjs';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
 function extract(html: string, url = 'https://jobs.example/apply', context: Record<string, unknown> = {}) {
@@ -33,6 +34,105 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  it('preserves accessible field metadata through question reduction and live refresh', () => {
+    const prompt = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    const snapshot = extract(`<form>
+      <label for="privacy-ack">${prompt}</label>
+      <input id="privacy-ack" name="privacy-ack" type="checkbox" aria-label="Email" aria-describedby="privacy-hint" required>
+      <small id="privacy-hint">Use your email address.</small>
+    </form>`);
+    const field = snapshot.fields.find((entry: any) => entry.domId === 'privacy-ack');
+    expect(field).toBeTruthy();
+    expect(field).toMatchObject({
+      ariaLabel: 'Email', description: 'Use your email address.',
+      labels: expect.arrayContaining([prompt, 'Email', 'Use your email address.']),
+    });
+    const reduced = portalRequirementsFromMissingRequired(snapshot.fields, [{
+      fieldId: field.id, question: prompt, applicationQuestion: prompt, type: 'yes_no', required: true,
+    }]).questions[0];
+    expect(reduced).toMatchObject({ ariaLabel: 'Email', labels: expect.arrayContaining(['Email']) });
+    expect(operationalQuestionTopic(reduced)).toBeNull();
+
+    const old = { ...reduced };
+    delete old.ariaLabel;
+    delete old.ariaDescription;
+    delete old.title;
+    delete old.placeholder;
+    delete old.description;
+    delete old.labels;
+    const refreshed = mergeLivePortalQuestions([old], [reduced]);
+    expect(refreshed.ambiguous).toBe(false);
+    expect(refreshed.questions[0]).toMatchObject({ ariaLabel: 'Email', description: 'Use your email address.' });
+    expect(operationalQuestionTopic(refreshed.questions[0])).toBeNull();
+  });
+
+  it('fails closed when accessible metadata exceeds extraction limits', () => {
+    const prompt = 'Select this checkbox to confirm that you have read the Privacy Notice for Candidates.';
+    const longEmailLabel = 'x'.repeat(296) + ' Email';
+    const snapshot = extract('<form><label for="privacy-ack">' + prompt
+      + '</label><input id="privacy-ack" name="privacy-ack" type="checkbox" aria-label="'
+      + longEmailLabel + '" required></form>');
+    const field = snapshot.fields.find((entry: any) => entry.domId === 'privacy-ack');
+    expect(field).toMatchObject({ ariaLabel: 'x'.repeat(296) + ' Ema', privacyMetadataIncomplete: true });
+    const question = portalRequirementsFromMissingRequired(snapshot.fields, [{
+      fieldId: field.id, question: prompt, applicationQuestion: prompt, type: 'yes_no', required: true,
+    }]).questions[0];
+    expect(question.privacyMetadataIncomplete).toBe(true);
+    expect(operationalQuestionTopic(question)).toBeNull();
+
+    const hintIds = Array.from({ length: 13 }, (_value, index) => 'privacy-hint-' + index);
+    const hintElements = hintIds.map((id, index) => '<span id="' + id + '">' + (index === 12 ? 'Email' : 'Hint ' + index) + '</span>').join('');
+    const manyLabels = extract('<form><label for="privacy-ack">' + prompt + '</label>'
+      + '<input id="privacy-ack" type="checkbox" aria-labelledby="' + hintIds.join(' ') + '" required>'
+      + hintElements + '</form>');
+    const manyLabelsField = manyLabels.fields.find((entry: any) => entry.domId === 'privacy-ack');
+    expect(manyLabelsField.privacyMetadataIncomplete).toBe(true);
+    const manyLabelsQuestion = portalRequirementsFromMissingRequired(manyLabels.fields, [{
+      fieldId: manyLabelsField.id, question: prompt, applicationQuestion: prompt, type: 'yes_no', required: true,
+    }]).questions[0];
+    expect(manyLabelsQuestion.privacyMetadataIncomplete).toBe(true);
+    expect(operationalQuestionTopic(manyLabelsQuestion)).toBeNull();
+    const descriptionParts = ['x'.repeat(297), 'x'.repeat(297), 'Email'];
+    const descriptionSnapshot = extract('<form><label for="privacy-ack">' + prompt + '</label>'
+      + '<input id="privacy-ack" type="checkbox" aria-describedby="privacy-hint-1 privacy-hint-2 privacy-hint-3" required>'
+      + descriptionParts.map((part, index) => '<span id="privacy-hint-' + (index + 1) + '">' + part + '</span>').join('')
+      + '</form>');
+    const descriptionField = descriptionSnapshot.fields.find((entry: any) => entry.domId === 'privacy-ack');
+    expect(descriptionField.description).toHaveLength(600);
+    expect(descriptionField.privacyMetadataIncomplete).toBe(true);
+    const descriptionQuestion = portalRequirementsFromMissingRequired(descriptionSnapshot.fields, [{
+      fieldId: descriptionField.id, question: prompt, applicationQuestion: prompt, type: 'yes_no', required: true,
+    }]).questions[0];
+    expect(descriptionQuestion.privacyMetadataIncomplete).toBe(true);
+    expect(operationalQuestionTopic(descriptionQuestion)).toBeNull();
+    // Isolate the fail-closed marker from the full Email label preserved by extraction.
+    const markerOnlyDescriptionQuestion = { ...descriptionQuestion, labels: [prompt] };
+    expect(operationalQuestionTopic(markerOnlyDescriptionQuestion)).toBeNull();
+    expect(operationalQuestionTopic({ ...markerOnlyDescriptionQuestion, privacyMetadataIncomplete: false }))
+      .toBe('privacy_review_ack');
+
+    const missingReference = extract('<form><label for="privacy-ack">' + prompt
+      + '</label><input id="privacy-ack" type="checkbox" aria-labelledby="missing-dob-label" required></form>');
+    const missingReferenceField = missingReference.fields.find((entry: any) => entry.domId === 'privacy-ack');
+    expect(missingReferenceField.privacyMetadataIncomplete).toBe(true);
+    const missingReferenceQuestion = portalRequirementsFromMissingRequired(missingReference.fields, [{
+      fieldId: missingReferenceField.id, question: prompt, applicationQuestion: prompt, type: 'yes_no', required: true,
+    }]).questions[0];
+    expect(missingReferenceQuestion.privacyMetadataIncomplete).toBe(true);
+    expect(operationalQuestionTopic(missingReferenceQuestion)).toBeNull();
+
+    for (const target of [
+      '<span id="missing-dob-label"></span>',
+      '<span id="missing-dob-label" aria-label="Email address"></span>',
+    ]) {
+      const emptyReference = extract('<form><label for="privacy-ack">' + prompt
+        + '</label><input id="privacy-ack" type="checkbox" aria-labelledby="missing-dob-label" required>'
+        + target + '</form>');
+      const emptyReferenceField = emptyReference.fields.find((entry: any) => entry.domId === 'privacy-ack');
+      expect(emptyReferenceField).toMatchObject({ privacyMetadataIncomplete: true });
+    }
+  });
+
   it('recognizes the Deloitte login fields and optional-cookie controls', () => {
     const snapshot = extract(`
       <form aria-label="Deloitte login">
@@ -57,6 +157,120 @@ describe('portal field extraction', () => {
     ]));
     expect(findButton(snapshot.buttons, COOKIE_REJECT_RE)?.text).toBe('Decline optional cookies');
     expect(findButton(snapshot.buttons, COOKIE_ACCEPT_RE)?.text).toBe('Accept optional cookies');
+  });
+
+  it('recognizes cookie preference entry points used across portal locales', () => {
+    for (const label of [
+      'Customise Cookies',
+      'Cookie settings',
+      'Cookie-Einstellungen ändern',
+      'Impostazioni cookie',
+      'Paramètres des cookies',
+      'Cookie-instellingen',
+    ]) expect(COOKIE_CUSTOMIZE_RE.test(label)).toBe(true);
+  });
+
+  it('marks only an active cookie surface, not a persistent preferences section', () => {
+    const active = extract('<div id="cookie-banner"><button type="button">Customise Cookies</button></div>');
+    expect(active.buttons.find((button: any) => button.text === 'Customise Cookies')).toMatchObject({ cookieSurface: 'banner' });
+    const successFactors = extract('<div role="region" class="cookiePolicy cookiemanager"><button type="button">Alle Cookies ablehnen</button></div>');
+    expect(successFactors.buttons.find((button: any) => button.text === 'Alle Cookies ablehnen')).toMatchObject({ cookieSurface: 'banner' });
+    const persistent = extract('<main><div class="cookie-preferences"><button type="button">Customise Cookies</button></div></main>');
+    expect(persistent.buttons.find((button: any) => button.text === 'Customise Cookies')).not.toHaveProperty('cookieSurface');
+  });
+
+  it('opens an active preference center, then applies only its explicit cookie choice', async () => {
+    const url = 'https://careers.example/apply';
+    let stage = 0;
+    const clicks: string[] = [];
+    const currentSnapshot = () => stage === 0
+      ? { url, fields: [], buttons: [{ id: 'customize', text: '', label: 'Cookie-Einstellungen ändern', ariaLabel: '', dialog: true, dialogId: 'd1', disabled: false }], links: [], dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false }
+      : stage === 1
+        ? { url, fields: [], buttons: [{ id: 'reject', text: 'Alle Cookies ablehnen', dialog: true, dialogId: 'd1', disabled: false }], links: [], dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false }
+        : { url, fields: [], buttons: [{ id: 'login', text: 'Anmelden', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        innerText: vi.fn(async () => 'Cookie-Einstellungen'),
+        first: () => ({
+          click: vi.fn(async () => {
+            clicks.push(selector);
+            stage += 1;
+          }),
+        }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(clicks).toEqual(['[data-aa-id="customize"]', '[data-aa-id="reject"]']);
+  });
+
+  it('hands off when preferences reveal no explicit cookie decision', async () => {
+    const url = 'https://careers.example/apply';
+    let stage = 0;
+    const clicks: string[] = [];
+    const currentSnapshot = () => stage === 0
+        ? { url, fields: [], buttons: [{ id: 'customize', text: 'Customise Cookies', cookieSurface: 'banner', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false }
+      : { url, fields: [], buttons: [{ id: 'save', text: 'Save preferences', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => currentSnapshot()),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: vi.fn(async () => {
+            clicks.push(selector);
+            stage += 1;
+          }),
+        }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, currentSnapshot() as any);
+
+    expect(result.status).toBe('unresolved');
+    expect(clicks).toEqual(['[data-aa-id="customize"]']);
+  });
+
+  it('does not open site chrome preferences or accept an unrelated privacy dialog', async () => {
+    const url = 'https://careers.example/apply';
+    const privacy = {
+      url,
+      buttons: [
+        { id: 'site', text: 'Cookie settings', chrome: true, disabled: false },
+        { id: 'accept', text: 'Accept', dialog: true, dialogId: 'd1', context: 'Data privacy notice', disabled: false },
+      ],
+      dialogs: [{ dialogId: 'd1' }],
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => privacy),
+      locator: vi.fn(() => ({ innerText: vi.fn(async () => 'Data privacy notice') })),
+    };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, privacy as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('does not click a footer cookie-preferences link without an active banner', async () => {
+    const url = 'https://careers.example/apply';
+    const footer = {
+      url,
+      buttons: [{ id: 'footer-cookie', text: 'Cookie Preferences', label: 'Cookie Preferences', context: 'Cookie banner', section: 'Footer', disabled: false }],
+      dialogs: [],
+    };
+    const frame = { url: () => url, evaluate: vi.fn(async () => footer) };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, footer as any);
+
+    expect(result.status).toBe('none');
   });
 
   it('uses the extracted SuccessFactors marker when a private-use upload button has only a generated snapshot id', async () => {

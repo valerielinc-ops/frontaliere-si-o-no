@@ -2120,6 +2120,45 @@ function locationFieldContainsForeignSegment(value = '') {
 }
 
 /**
+ * Restore a concrete per-posting locality before the Swiss whitelist runs.
+ *
+ * Dedicated crawlers attach `_targetScope` when they have already selected a
+ * physical workplace for the posting. A stale slice can still carry an
+ * aggregate `addressLocality`/`location` from an older crawl; letting the
+ * whitelist reduce that aggregate with description text (or a later canton
+ * marker) makes the structured locality disagree with the crawler's own
+ * primary target. Adapter seed metadata is deliberately excluded: it describes
+ * the crawl entry point, not this posting.
+ *
+ * Only a target scope that resolves to a known Swiss locality in its declared
+ * canton is accepted. No first-match or free-text fallback is allowed here.
+ *
+ * @param {object} job
+ * @returns {boolean} whether the structured locality was repaired
+ */
+function reconcileVerifiedTargetScopeLocality(job) {
+  const scope = job?._targetScope;
+  if (!scope || scope.type === 'adapter_seed_meta') return false;
+
+  const scopeCanton = String(scope.canton || '').trim().toUpperCase();
+  const scopeLocation = String(scope.location || '').trim();
+  if (!isTargetCanton(scopeCanton) || !scopeLocation) return false;
+
+  const scopedLocality = swissCityFromLocationField(scopeLocation, scopeCanton);
+  if (!scopedLocality || !isKnownSwissMunicipalityInCanton(scopedLocality, scopeCanton, {
+    allowOfficialLocality: true,
+  })) return false;
+
+  const alreadyAligned = String(job.addressLocality || '').trim() === scopedLocality
+    && String(job.addressRegion || '').trim().toUpperCase() === scopeCanton;
+  if (alreadyAligned) return false;
+
+  job.addressLocality = scopedLocality;
+  job.addressRegion = scopeCanton;
+  return true;
+}
+
+/**
  * Foreign filter + Swiss-municipality whitelist of the assembly, as a pure
  * function over the deduped jobs. Mutates the locality of a job the whitelist
  * rescues (step 4) and returns the survivors with per-reason counts plus the
@@ -2165,6 +2204,10 @@ export function applySwissLocationGate(jobs) {
   let droppedCantonOnlyNoCity = 0;
   let droppedForeignAddress = 0;
   const swissValidated = foreignFiltered.filter((job) => {
+    // A verified per-posting target is stronger than a stale aggregate
+    // locality. Apply it after the explicit foreign-location filter so a
+    // mixed foreign list cannot be hidden by the repair.
+    reconcileVerifiedTargetScopeLocality(job);
     const haystack = `${job.description || ''} ${job.descriptionByLocale?.it || ''} ${job.descriptionByLocale?.en || ''} ${job.descriptionByLocale?.de || ''} ${job.descriptionByLocale?.fr || ''} ${job.streetAddress || ''}`;
 
     // (1) Strong negative: description body explicitly states a foreign

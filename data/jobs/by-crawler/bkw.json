@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bkw",
-  "assembledAt": "2026-11-01T09:23:20.654Z",
+  "assembledAt": "2026-11-01T12:21:46.338Z",
   "runId": "41291333597",
   "jobs": [
     {
@@ -2294,7 +2294,7 @@
       "id": "bkw-66333e4aacee",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "construction-manager-in-electric-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
@@ -2343,15 +2343,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "bauleiter-in-elektro-alle-bkw-zuchwil",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+        "bauleiter-in-elektro-alle-bkw-zuchwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleiter-in-elektro-alle-bkw-ch",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
           "bauleiter-in-elektro-alle-bkw-zuchwil"
@@ -2665,7 +2661,7 @@
       "id": "bkw-9374b9282a4f",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "electrical-site-manager-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "conducteur-rice-de-travaux-en-electricite-tous-bkw-zuchwil"
@@ -2713,15 +2709,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bauleiter-in-elektro-alle-bkw-ch",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+        "bauleiter-in-elektro-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleiter-in-elektro-alle-bkw-ch",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
           "bauleiter-in-elektro-alle-bkw-ch"
@@ -7745,7 +7737,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -7794,7 +7786,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7802,7 +7794,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -22190,7 +22182,7 @@
       "slugByLocale": {
         "it": "elettricista-di-rete-tutti-bkw-wangen-an-der-aare",
         "en": "network-electrician-all-genders-bkw-wangen-an-der-aare",
-        "de": "netzelektriker-in-alle-bkw-ch",
+        "de": "netzelektriker-in-alle-bkw-wangen-an-der-aare",
         "fr": "electricien-ne-de-reseau-tous-genres-bkw-wangen-an-der-aare"
       },
       "company": "BKW",
@@ -22236,8 +22228,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "netzelektriker-in-alle-bkw-ch",
-        "netzelektriker-in-alle-bkw-wangen-an-der-aare"
+        "netzelektriker-in-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22247,7 +22238,7 @@
           "netzelektriker-in-alle-bkw-ch"
         ],
         "de": [
-          "netzelektriker-in-alle-bkw-wangen-an-der-aare"
+          "netzelektriker-in-alle-bkw-ch"
         ],
         "fr": [
           "netzelektriker-in-alle-bkw-ch"
@@ -26260,7 +26251,7 @@
       "slugByLocale": {
         "it": "capo-del-dipartimento-tecnologia-edilizia-bkw-volketswil",
         "en": "head-of-department-building-technology-bkw-volketswil",
-        "de": "abteilungsleiter-in-gebaudetechnik-bkw-ch",
+        "de": "abteilungsleiter-in-gebaudetechnik-bkw-volketswil",
         "fr": "chef-de-departement-technologie-du-batiment-bkw-volketswil"
       },
       "company": "BKW",
@@ -26351,6 +26342,9 @@
         "fr": [
           "responsable-de-la-technique-du-batiment-bkw-volketswil",
           "abteilungsleiter-in-gebaudetechnik-bkw-volketswil"
+        ],
+        "de": [
+          "abteilungsleiter-in-gebaudetechnik-bkw-ch"
         ]
       },
       "firstSeenAt": "2026-10-29T22:49:49.221Z",
@@ -26544,7 +26538,7 @@
       "slugByLocale": {
         "it": "progettista-elettrico-a-in-alle-bkw-dubendorf-99d19939ec",
         "en": "electrical-planner-all-bkw-dubendorf",
-        "de": "elektroplaner-in-alle-bkw-ch",
+        "de": "elektroplaner-in-alle-bkw-dubendorf",
         "fr": "planificateur-rice-electrique-tous-bkw-dubendorf"
       },
       "company": "BKW",
@@ -26602,6 +26596,9 @@
           "elektroplaner-in-alle-bkw-ch"
         ],
         "fr": [
+          "elektroplaner-in-alle-bkw-ch"
+        ],
+        "de": [
           "elektroplaner-in-alle-bkw-ch"
         ]
       },

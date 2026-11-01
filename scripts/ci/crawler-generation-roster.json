@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 670,
+  "crawlerCount": 673,
   "groups": {
     "10": [
       "atec-personal",
@@ -455,10 +455,13 @@
     ],
     "24": [
       "asanti-ch",
+      "avantgarten-ch",
       "bb-trading-werbeartikel-ag",
+      "bodmerfischer-ch",
       "comuni-ticino",
       "csl-immobilien-ag",
-      "seco-jobroom"
+      "seco-jobroom",
+      "sintio-ch"
     ],
     "25": [
       "protectas"
@@ -773,6 +776,7 @@
     "atec-personal": "data/jobs/by-crawler/atec-personal.json",
     "audemars-piguet": "data/jobs/by-crawler/audemars-piguet.json",
     "avaloq": "data/jobs/by-crawler/avaloq.json",
+    "avantgarten-ch": "data/jobs/by-crawler/avantgarten-ch.json",
     "axa-svizzera": "data/jobs/by-crawler/axa-svizzera.json",
     "axpo-group": "data/jobs/by-crawler/axpo-group.json",
     "bachem": "data/jobs/by-crawler/bachem.json",
@@ -803,6 +807,7 @@
     "bms-building": "data/jobs/by-crawler/bms-building.json",
     "board-international": "data/jobs/by-crawler/board-international.json",
     "bobst": "data/jobs/by-crawler/bobst.json",
+    "bodmerfischer-ch": "data/jobs/by-crawler/bodmerfischer-ch.json",
     "bosch-thermotechnik-ag": "data/jobs/by-crawler/bosch-thermotechnik-ag.json",
     "bossard": "data/jobs/by-crawler/bossard.json",
     "bps-suisse": "data/jobs/by-crawler/bps-suisse.json",
@@ -1256,6 +1261,7 @@
     "siemens-healthineers": "data/jobs/by-crawler/siemens-healthineers.json",
     "sika": "data/jobs/by-crawler/sika.json",
     "sintetica": "data/jobs/by-crawler/sintetica.json",
+    "sintio-ch": "data/jobs/by-crawler/sintio-ch.json",
     "six-group": "data/jobs/by-crawler/six-group.json",
     "skyguide-sa": "data/jobs/by-crawler/skyguide-sa.json",
     "smg-swiss-marketplace-group": "data/jobs/by-crawler/smg-swiss-marketplace-group.json",
@@ -1396,5 +1402,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:c8e5c35e7c731c0a61ab49728370ee466ac3724c38e62aacbc2b1e3b18767a1f"
+  "digest": "sha256:fefa12f0b5fb6718b7429f83f40feebc4c4973626008efaddaa9dd9bcbe12276"
 }

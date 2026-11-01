@@ -1,3 +1,5 @@
+import { addressContextContract } from './lib/addressContextContract.js';
+import { candidateAnswerFact, candidateFactAnswerForQuestion, candidateFactIdentity, candidateQuestionFact } from './lib/candidateAnswerFacts.js';
 import { portalQuestionText, unreadablePortalQuestion } from './lib/portalQuestionText.js';
 import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
 /**
@@ -34,7 +36,7 @@ import { answerMessage, safePattern, validateAnswer } from './lib/answerRules.js
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitOptions, permitStatusOf } from './lib/permitStatus.js';
 import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
-import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
+import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, isLanguageNameOnly, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
 const LANGUAGE_LEVEL_RE = /\b(?:level|proficiency|fluency|fluent|niveau|livello|grado|kenntnis|kenntnisse|maitrise|maîtrise)\b/i;
@@ -86,6 +88,7 @@ function answerValueKey(value) {
 }
 
 function answerFitsQuestion(value, question) {
+  if (candidateQuestionFact(question) && (!candidateAnswerFact(question, value) || !validateAnswer(value, question, { todayIso: new Date().toISOString().slice(0, 10) }).ok)) return false;
   if (isPreferredWorkloadQuestion(question?.question)) {
     const text = String(value ?? '').trim();
     if (!/^\d{1,3}(?:[.,]\d{1,2})?\s*%?$/.test(text)) return false;
@@ -111,26 +114,49 @@ export function isPreferredWorkloadQuestion(value) {
 }
 
 const WORKLOAD_PREFERENCE_KEY = 'preference_workload_percentage_v1';
+/** Only this writer version marks the per-order semantic map as candidate/owner confirmed. */
+export const ORDER_QUESTION_ANSWER_EVIDENCE_VERSION = 'order-confirmed-question-answers-v2';
+
+/** Complete general questions only: additional domain, future or employer clauses retain their own key. */
+export function isGeneralCandidateLanguageQuestion(value) {
+  const text = normalizeQuestionValue(value).split(' ').map(word => languageCodesIn(word).length === 1 && isLanguageNameOnly(word) ? 'language_target' : word).join(' ');
+  return /^(?:what is your (?:current )?(?:(?:written|spoken|oral) )?language_target (?:proficiency(?: level)?|fluency level|level)|what is your (?:current )?level of language_target|do you speak language_target(?: if so how would you describe your proficiency level)?|qual e il tuo (?:attuale )?livello di language_target|parli language_target|wie ist (?:ihr|dein) (?:aktuelles )?niveau in language_target|sprechen sie language_target|quel est votre niveau (?:actuel )?(?:en|de) language_target|parlez vous language_target)$/.test(text);
+}
 
 /** Stable fact key for an answer, independent of a model or ATS field id. */
 export function candidateQuestionAnswerKey(question) {
+  const fact = candidateQuestionFact(question);
+  if (fact) return `fact_${questionHash(candidateFactIdentity(fact))}`;
   const text = String(question?.question ?? '').trim();
   if (!text) return '';
+  const context = questionContextKey(question?.context);
+  const section = normalizeQuestionValue(question?.section);
+  const autocomplete = normalizeQuestionValue(question?.autocomplete);
+  const originalQuestion = normalizeQuestionValue(question?.applicationQuestion);
+  const originalContext = originalQuestion && originalQuestion !== normalizeQuestionValue(text) ? originalQuestion : '';
+  const ownership = addressContextContract(question);
+  if (ownership === null || ownership?.unknown) return '';
+  const ownershipKey = ownership === undefined ? '' : JSON.stringify(ownership);
   const languageCodes = languageCodesIn(text);
-  if (languageCodes.length === 1 && isLanguageAbilityQuestion(text)) {
+  if (!context && !section && !autocomplete && !originalContext && !ownershipKey && languageCodes.length === 1 && isLanguageAbilityQuestion(text) && isGeneralCandidateLanguageQuestion(text)) {
     const normalized = normalizeQuestionValue(text);
     const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|minimum|minimo)\s*(?:level\s*)?([abc][12])\b/i.exec(normalized)?.[1] || '';
     const modality = LANGUAGE_MODALITY_RE.test(normalized) ? 'written' : LANGUAGE_ORAL_RE.test(normalized) ? 'oral' : 'any';
     const kind = threshold ? `threshold_${threshold}` : LANGUAGE_LEVEL_RE.test(normalized) ? 'proficiency' : 'ability';
-    return `language_${languageCodes[0]}_${modality}_${kind}`;
+    const levelField = kind === 'proficiency' && ['text', 'choice'].includes(question?.type || 'text')
+      && !optionValues(question).some(option => /^(?:yes|no|si|ja|nein|oui|non|true|false)$/.test(option));
+    const binaryField = kind === 'ability' && ['yes_no', 'checkbox'].includes(question?.type);
+    if (levelField || binaryField) return `language_${languageCodes[0]}_${modality}_${kind}`;
   }
   const normalized = normalizeQuestionValue(text);
   if (!normalized) return '';
-  if (isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
-  const context = questionContextKey(question?.context);
+  if (!context && !section && !autocomplete && !originalContext && !ownershipKey && isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
+  const metadataContext = section || autocomplete ? `${context}\u0000${section}\u0000${autocomplete}` : context;
+  const originalQuestionContext = originalContext ? `${metadataContext}\u0000${originalContext}` : metadataContext;
+  const scopedContext = ownershipKey ? `${originalQuestionContext}\u0000${ownershipKey}` : originalQuestionContext;
   const type = normalizeQuestionValue(question?.type) || 'unknown';
   const options = [...new Set(optionValues(question))].sort().join('|');
-  return `question_${questionHash(`${type}\u0000${context}\u0000${normalized}\u0000${options}`)}`;
+  return `question_${questionHash(`${type}\u0000${scopedContext}\u0000${normalized}\u0000${options}`)}`;
 }
 
 /** Reuse answers across changed ids only when their topic is unambiguous and the answer fits. */
@@ -152,7 +178,8 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
     if (!key || conflicts.has(key)) continue;
     const remembered = Object.hasOwn(memory || {}, key) ? memory[key] : undefined;
     if (Object.hasOwn(memory || {}, key) && !hasQuestionAnswer(remembered)) continue;
-    const source = currentValues.get(key)?.value ?? remembered;
+    const recorded = currentValues.get(key)?.value ?? remembered;
+    const source = candidateQuestionFact(question) ? candidateFactAnswerForQuestion(question, recorded) : recorded;
     if (hasQuestionAnswer(source) && answerFitsQuestion(source, question)) {
       result[question.id] = key === WORKLOAD_PREFERENCE_KEY && question.type === 'number'
         ? String(Number(String(source).replace('%', '').trim().replace(',', '.')))

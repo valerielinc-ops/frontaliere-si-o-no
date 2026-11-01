@@ -4,6 +4,7 @@ import {
   ANKER_SWISS_COMPANY_NAME,
   ANKER_SWISS_HOST_DELAY_MS,
   isAnkerSwissJob,
+  isAnkerSwissExpectedDetailFilter,
   isTrustedDomain,
   extractAnkerSwissDetailFields,
   buildSlugDisambiguator,
@@ -31,6 +32,7 @@ describe('Anker Swiss Ticino AG crawler parser', () => {
         address: {
           '@type': 'PostalAddress',
           addressRegion: 'Lyss',
+          addressCountry: 'CH',
         },
       },
     })}</script>`;
@@ -68,6 +70,77 @@ describe('Anker Swiss Ticino AG crawler parser', () => {
       addressLocality: '',
       addressCountry: '',
     });
+  });
+
+  it('does not promote a known municipality when the source country is foreign', () => {
+    const url = 'https://anker-swiss.ch/stellen/foreign-location/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Foreign role',
+      description: 'Eine ausführliche Stellenbeschreibung mit Aufgaben, Anforderungen und Angaben zur Bewerbung für diese konkrete Stelle.',
+      url,
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: 'Lyss',
+          addressCountry: 'DE',
+        },
+      },
+    })}</script>`;
+
+    const detail = extractAnkerSwissDetailFields(html, url);
+
+    expect(detail.locationCandidates[0]).toMatchObject({
+      addressRegion: 'Lyss',
+      addressLocality: '',
+      addressCountry: 'DE',
+    });
+  });
+
+  it('classifies only complete, explicitly unlocated vacancies as source filters', () => {
+    const base = {
+      reason: 'geography' as const,
+      row: {},
+      detail: { hasStructuredVacancy: true },
+      descriptionSufficient: true,
+      decision: { geography: null, explicitlyForeign: false },
+    };
+    expect(isAnkerSwissExpectedDetailFilter(base)).toBe(true);
+
+    for (const locationEvidence of [
+      { location: 'Lugano' },
+      { addressRegion: 'Lyss' },
+      { addressCountry: 'CH' },
+      { locationCandidates: [{ location: 'Bern' }] },
+      { workplaceLabels: ['Zürich'] },
+    ]) {
+      expect(isAnkerSwissExpectedDetailFilter({
+        ...base,
+        detail: { hasStructuredVacancy: true, ...locationEvidence },
+      })).toBe(false);
+    }
+
+    expect(isAnkerSwissExpectedDetailFilter({
+      ...base,
+      row: { location: 'Bellinzona' },
+    })).toBe(false);
+    expect(isAnkerSwissExpectedDetailFilter({
+      ...base,
+      decision: { geography: null, explicitlyForeign: true },
+    })).toBe(false);
+    expect(isAnkerSwissExpectedDetailFilter({
+      ...base,
+      detail: {},
+    })).toBe(false);
+    expect(isAnkerSwissExpectedDetailFilter({
+      ...base,
+      descriptionSufficient: false,
+    })).toBe(false);
+    expect(isAnkerSwissExpectedDetailFilter({
+      ...base,
+      reason: 'description',
+    })).toBe(false);
   });
 
   // ── Constants ──

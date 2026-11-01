@@ -90,6 +90,7 @@ describe('Post.ch SuccessFactors detail parser', () => {
     const parsed = parsePostJobDetail(html, 'https://job.post.ch/default/job/post/74012-de_DE');
 
     expect(parsed.city).toBe('Sirnach');
+    expect(parsed.region).toBe('TG');
     expect(parsed.places.map((place) => place.city)).toEqual(['Sirnach', 'Wil SG']);
     expect(formatPostJobLocation(parsed.places, parsed.city)).toBe('Sirnach, Wil SG');
   });

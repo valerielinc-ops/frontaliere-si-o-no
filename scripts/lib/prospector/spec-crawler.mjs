@@ -1027,9 +1027,13 @@ function parseListingEndpointResponse(body, companyKey, endpoint = {}) {
  * are stripped, so a real detail parameter (`lang`, a tenant id) survives.
  * `declaredPageCountPattern` and `stopAfterDeclaredPageCount` are the
  * corresponding source-backed terminal guard for generated `rel="next"` links.
+ * `numberedPagePattern` is an explicit source contract for indexes whose
+ * continuation is exposed as adjacent numeric `<a>` controls instead of
+ * `rel="next"`; it is applied to the URL pathname and must capture the page
+ * number in group 1.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
- * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, declaredPageCountRx: RegExp|null, stopAfterDeclaredPageCount: boolean, pageStateParams: string[], selfNextIsTerminal: boolean, countDuplicateRowsForCoverage: boolean }}
+ * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, declaredPageCountRx: RegExp|null, numberedPageRx: RegExp|null, stopAfterDeclaredPageCount: boolean, pageStateParams: string[], selfNextIsTerminal: boolean, countDuplicateRowsForCoverage: boolean }}
  */
 export function normalizeSpecPagination(spec) {
   const raw = spec?.pagination && typeof spec.pagination === 'object' ? spec.pagination : {};
@@ -1043,6 +1047,9 @@ export function normalizeSpecPagination(spec) {
   const declaredPageCountRx = raw.declaredPageCountPattern
     ? new RegExp(String(raw.declaredPageCountPattern), 'i')
     : null;
+  const numberedPageRx = raw.numberedPagePattern
+    ? new RegExp(String(raw.numberedPagePattern), 'i')
+    : null;
   const stopAfterDeclaredPageCount = raw.stopAfterDeclaredPageCount === true;
   const pageStateParams = Array.isArray(raw.pageStateParams)
     ? raw.pageStateParams.map((name) => String(name || '').trim()).filter(Boolean)
@@ -1054,6 +1061,7 @@ export function normalizeSpecPagination(spec) {
     minCoverage,
     declaredTotalRx,
     declaredPageCountRx,
+    numberedPageRx,
     stopAfterDeclaredPageCount,
     pageStateParams,
     selfNextIsTerminal,
@@ -1144,16 +1152,57 @@ function listingIdentityUrl(rawUrl) {
 }
 
 /**
- * The listing's next page, from an `<a>` or `<link>` carrying `rel="next"`.
- *
- * Only a same-origin target counts: a next link to another host is not the
- * continuation of this listing.
+ * Follow the next adjacent numbered page when a source explicitly declares
+ * that URL shape in its pagination contract.
  *
  * @param {string} html
  * @param {string} pageUrl
+ * @param {{ numberedPageRx?: RegExp|null }} [pagination]
  * @returns {string|null}
  */
-export function findNextListingPageUrl(html, pageUrl) {
+function findNumberedNextListingPageUrl(html, pageUrl, pagination) {
+  const numberedPageRx = pagination?.numberedPageRx;
+  if (!(numberedPageRx instanceof RegExp)) return null;
+  let current;
+  try {
+    current = new URL(pageUrl);
+  } catch {
+    return null;
+  }
+  const currentPage = numberedPageNumber(current, numberedPageRx) ?? 1;
+  const sourceHtml = String(html || '');
+  const tagRx = /<(?:a|link)\b[^>]*>/gi;
+  let tag;
+  while ((tag = tagRx.exec(sourceHtml))) {
+    const control = extractNumberedListingControl(sourceHtml, tag[0], tagRx.lastIndex);
+    if (!control || control.tagName !== 'a') continue;
+    let next;
+    try {
+      next = new URL(control.hrefValue.replace(/&amp;/g, '&'), pageUrl);
+    } catch {
+      continue;
+    }
+    if (next.origin !== current.origin) continue;
+    if (numberedPageNumber(next, numberedPageRx) !== currentPage + 1) continue;
+    next.hash = '';
+    return next.href;
+  }
+  return null;
+}
+
+/**
+ * The listing's next page, from an `<a>` or `<link>` carrying `rel="next"`.
+ *
+ * Only a same-origin target counts: a next link to another host is not the
+ * continuation of this listing. A source may additionally opt into adjacent
+ * numeric controls through `pagination.numberedPagePattern`.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @param {{ numberedPageRx?: RegExp|null }} [pagination]
+ * @returns {string|null}
+ */
+export function findNextListingPageUrl(html, pageUrl, pagination) {
   let current;
   try {
     current = new URL(pageUrl);
@@ -1186,7 +1235,7 @@ export function findNextListingPageUrl(html, pageUrl) {
     if (samePageFragment) continue;
     return next.href;
   }
-  return null;
+  return findNumberedNextListingPageUrl(html, current.href, pagination);
 }
 
 /**
@@ -1243,6 +1292,57 @@ function comparableSearchParams(url, excludedName) {
 }
 
 /**
+ * Parse a source-owned numeric pagination control.
+ *
+ * Numeric links are not pagination evidence on their own: a job/detail URL
+ * can also contain a number. The caller supplies an explicit source route
+ * pattern, while this helper requires the control itself to expose a numeric
+ * label (or a localized page label) and excludes rel=next from the announced
+ * page set.
+ *
+ * @param {string} sourceHtml
+ * @param {string} tag
+ * @param {number} tagEnd
+ * @returns {{ tagName: string, hrefValue: string }|null}
+ */
+function extractNumberedListingControl(sourceHtml, tag, tagEnd) {
+  const tagName = /^<\s*([a-z]+)/i.exec(tag)?.[1]?.toLowerCase() || '';
+  const rel = /\brel\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag);
+  const relValue = rel ? (rel[1] ?? rel[2] ?? rel[3] ?? '') : '';
+  if (relValue.toLowerCase().split(/\s+/).includes('next')) return null;
+  const href = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag);
+  const hrefValue = href ? (href[1] ?? href[2] ?? href[3] ?? '') : '';
+  if (!hrefValue) return null;
+  const closeOffset = tagName === 'a'
+    ? sourceHtml.slice(tagEnd).search(/<\/a\b/i)
+    : -1;
+  const innerText = (closeOffset >= 0 ? sourceHtml.slice(tagEnd, tagEnd + closeOffset) : '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(?:nbsp|amp);/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const ariaLabel = /\baria-label\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag);
+  const ariaValue = ariaLabel ? (ariaLabel[1] ?? ariaLabel[2] ?? ariaLabel[3] ?? '') : '';
+  const title = /\btitle\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag);
+  const titleValue = title ? (title[1] ?? title[2] ?? title[3] ?? '') : '';
+  const controlLabel = [innerText, ariaValue, titleValue].join(' ');
+  if (!/^\d+$/.test(innerText)
+    && !/^\d+$/.test(ariaValue.trim())
+    && !/^\d+$/.test(titleValue.trim())
+    && !/(?:page|seite|pagina)\s*#?\s*\d+/i.test(controlLabel)) return null;
+  return { tagName, hrefValue };
+}
+
+function numberedPageNumber(url, numberedPageRx) {
+  if (!(numberedPageRx instanceof RegExp)) return null;
+  numberedPageRx.lastIndex = 0;
+  const match = numberedPageRx.exec(url.pathname);
+  numberedPageRx.lastIndex = 0;
+  const number = Number(match?.[1] || '');
+  return Number.isInteger(number) && number > 0 ? number : null;
+}
+
+/**
  * The furthest numbered page the current listing announces on `nextUrl`'s
  * route (same path prefix/suffix, or same query parameter and other params).
  *
@@ -1275,36 +1375,9 @@ export function largestAnnouncedListingPage(html, pageUrl, nextUrl) {
   let tag;
   let largest = null;
   while ((tag = tagRx.exec(sourceHtml))) {
-    const tagName = /^<\s*([a-z]+)/i.exec(tag[0])?.[1]?.toLowerCase() || '';
-    const rel = /\brel\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
-    const relValue = rel ? (rel[1] ?? rel[2] ?? rel[3] ?? '') : '';
-    // The next link is the one-past-the-end signal being validated. It is not
-    // independent pagination evidence and must never make itself the largest
-    // announced page.
-    if (relValue.toLowerCase().split(/\s+/).includes('next')) continue;
-    const href = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
-    const hrefValue = href ? (href[1] ?? href[2] ?? href[3] ?? '') : '';
-    if (!hrefValue) continue;
-    const close = tagName === 'a' ? sourceHtml.indexOf('</a', tagRx.lastIndex) : -1;
-    const innerText = (close >= 0 ? sourceHtml.slice(tagRx.lastIndex, close) : '')
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/&(?:nbsp|amp);/gi, ' ')
-      .replace(/\s+/g, ' ')
-      .trim();
-    const ariaLabel = /\baria-label\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
-    const title = /\btitle\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
-    const controlLabel = [
-      innerText,
-      ariaLabel ? (ariaLabel[1] ?? ariaLabel[2] ?? ariaLabel[3] ?? '') : '',
-      title ? (title[1] ?? title[2] ?? title[3] ?? '') : '',
-    ].join(' ');
-    // A same-origin job/detail link can itself contain `/page/<n>` or
-    // `?page=<n>`. Require a distinct numbered control label so those links
-    // do not masquerade as pagination evidence.
-    if (!/^\d+$/.test(innerText)
-      && !/^\d+$/.test(ariaLabel ? (ariaLabel[1] ?? ariaLabel[2] ?? ariaLabel[3] ?? '').trim() : '')
-      && !/^\d+$/.test(title ? (title[1] ?? title[2] ?? title[3] ?? '').trim() : '')
-      && !/(?:page|seite|pagina)\s*#?\s*\d+/i.test(controlLabel)) continue;
+    const control = extractNumberedListingControl(sourceHtml, tag[0], tagRx.lastIndex);
+    if (!control) continue;
+    const { hrefValue } = control;
     let candidate;
     try { candidate = new URL(hrefValue.replace(/&amp;/g, '&'), pageUrl); } catch { continue; }
     if (candidate.origin !== current.origin) continue;
@@ -1735,7 +1808,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       }
       const visited = new Set([effectiveSeedUrl]);
       let pageUrl = effectiveSeedUrl;
-      let nextUrl = findNextListingPageUrl(html, pageUrl);
+      let nextUrl = findNextListingPageUrl(html, pageUrl, pagination);
       let pages = 1;
       let currentPageCandidateCount = candidates.length;
       while (nextUrl) {
@@ -1889,7 +1962,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         }
         html = body;
         currentPageCandidateCount = nextCandidates.length;
-        nextUrl = findNextListingPageUrl(body, pageUrl);
+        nextUrl = findNextListingPageUrl(body, pageUrl, pagination);
       }
       if (pagination.stopAfterDeclaredPageCount
         && declaredPageCount !== null

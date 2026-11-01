@@ -1,0 +1,25 @@
+{
+  "companyKey": "swild-ch",
+  "companyName": "SWILD",
+  "companyHost": "naturschutz.ch",
+  "platform": "naturschutz.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://naturschutz.ch/"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 15,
+  "sampleTitles": [
+    "Fachspezialist/in Gewässerschutz 80% Departement Bau und Umwelt des Kantons Glarus, Abteilung Umweltschutz und Energie Ostschweiz Stellen",
+    "Ressortverantwortliche:r «Events» im Vorstand des WWF Aargau WWF Aargau Nordwestschweiz Ehrenamt",
+    "Freiwillige KI- und Softwareentwickler:innen für den WWF-Grillcheck AI 2.0 WWF Schweiz Ausland Ehrenamt",
+    "Bereichsleitung Bildung (40 – 60 %) ab 1.12.2026 oder nach Vereinbarung Stiftung Wirtschaft und Ökologie SWO Zürich Stellen",
+    "Praktikum Umweltbildung & Naturschutz 80-100% BirdLife-Naturzentrum Klingnauer Stausee Nordwestschweiz Praktika"
+  ],
+  "canton": "ZH",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-01T13:07:47.629Z",
+  "candidateKey": "swild.ch"
+}

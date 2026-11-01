@@ -32,6 +32,7 @@ import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { automationEligibility } from '../../functions/src/assistedApplicationAutomation.js';
+import { loadRunnerAnswerContext } from '../../functions/src/assistedApplicationAnswerEvidence.js';
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
@@ -209,6 +210,14 @@ async function main() {
     return;
   }
 
+  // Cross-posting answers are re-read from their attested sources for this
+  // execution only. Never persist them into the target order's flow, where
+  // they could outlive the source's consent or retention window.
+  const { flow: executionFlow } = await loadRunnerAnswerContext({
+    db, orderId, order, flow, draft: previousDraft, nowMs: Date.now(),
+  });
+  maskValues([Object.values(executionFlow.answers || {}), Object.values(executionFlow.questionAnswers || {})]);
+
   const runKey = runKeyFrom();
   const events = orderRef.collection('automation_events');
   const dryRun = mode === 'dry_run';
@@ -235,7 +244,7 @@ async function main() {
     const started = Date.now();
     try {
       const draft = await buildDraft({
-        db, order, orderId, flow, previousDraft, cvBuffer, cvType, bucket, runKey,
+        db, order, orderId, flow: executionFlow, previousDraft, cvBuffer, cvType, bucket, runKey,
         intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
         codex: (request) => requestCodexBrokerJson(request),
         // A portal form read ahead: its questions and required file fields reach the first review.
@@ -277,7 +286,7 @@ async function main() {
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const event = await submitApplication({
-      order, orderId, flow, draft: submitDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
+      order, orderId, flow: executionFlow, draft: submitDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
       dryRun,
       submissionGuard: dryRun ? null : submissionGuard(db, orderId, round),
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-11-01T09:19:30.637Z",
+  "assembledAt": "2026-11-01T12:22:35.745Z",
   "runId": "41291964879",
   "jobs": [
     {
@@ -12152,7 +12152,7 @@
     },
     {
       "id": "jumbo-1a4a8eb4-098",
-      "slug": "verkaufsberater-in-garten-jumbo-laupen",
+      "slug": "consulente-alle-vendite-giardinaggio-jumbo-laupen",
       "slugByLocale": {
         "de": "verkaufsberater-in-garten-jumbo-laupen-iv8xo9",
         "it": "consulente-alle-vendite-giardinaggio-jumbo-laupen",
@@ -12233,7 +12233,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-11T09:16:04.499Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garten-jumbo-laupen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garten-jumbo-laupen"
+      ]
     },
     {
       "id": "jumbo-8bb90eb1-cf4",
@@ -15522,7 +15530,7 @@
     },
     {
       "id": "jumbo-73cc4860-877",
-      "slug": "consulente-alla-vendita-deco-jumbo-chur-8a142896d7",
+      "slug": "consulente-di-vendita-deco-jumbo-chur",
       "slugByLocale": {
         "de": "verkaufsberater-in-deco-jumbo-chur-xnhah1",
         "it": "consulente-di-vendita-deco-jumbo-chur",
@@ -15588,11 +15596,13 @@
       "needsRetranslation": false,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur"
+        "verkaufsberater-in-deco-jumbo-chur",
+        "consulente-alla-vendita-deco-jumbo-chur-8a142896d7"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-deco-jumbo-chur"
+          "verkaufsberater-in-deco-jumbo-chur",
+          "consulente-alla-vendita-deco-jumbo-chur-8a142896d7"
         ],
         "de": [
           "verkaufsberater-in-deco-jumbo-chur"
@@ -18625,10 +18635,10 @@
     },
     {
       "id": "jumbo-78eb7696-e47",
-      "slug": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-biel",
+      "slug": "conseillere-conseiller-de-vente-do-it-f-m-d-jumbo-vallese",
       "slugByLocale": {
         "fr": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-biel",
-        "it": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-biel",
+        "it": "conseillere-conseiller-de-vente-do-it-f-m-d-jumbo-vallese",
         "en": "sales-advisor-do-it-m-f-d-jumbo-vallese",
         "de": "verkaufsberater-do-it-m-w-d-jumbo-vallese"
       },
@@ -18699,7 +18709,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-28T09:16:04.441Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-biel"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-biel"
+      ]
     },
     {
       "id": "jumbo-c945b24c-be0",

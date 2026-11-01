@@ -33,6 +33,10 @@
   const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, mentionsResidenceFieldRole, isIdentityEmailCaption, hasResidencePurpose, hasTelephonePurpose, hasAddressContextOwnership, hasConsentContradiction, isPrivacyReviewAcknowledgment, privacyReviewAcknowledgmentShape, privacySemanticIdentifiers } = root.AssistedApplyControls;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
+  const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
+  const COOKIE_WORD_RE = /\bcookies?\b/i;
+  const COOKIE_MARKER_RE = /cookies?|consent|onetrust|usercentrics|didomi|trustarc/i;
+  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog|consent)\b|\bcookie[-_]?(?:policy|manager)\b/i;
   // The portal waits for the address to be verified (JOIN after the send
   // click: «Completare la domanda — Verificare l'indirizzo e-mail»).
   const VERIFY_RE = /(verifica(re)? (il tuo |l['’])?indirizzo e-?mail|conferma(re)? (il tuo |l['’])?indirizzo e-?mail|verify your (e-?mail|email address)|confirm your (e-?mail|email address)|check your (e-?mail|inbox)|e-?mail-?adresse (bestätigen|verifizieren)|(bestätigen|verifizieren) sie ihre e-?mail|(bestätige|verifiziere) deine e-?mail|vérifiez votre (adresse )?e-?mail|confirmez votre (adresse )?e-?mail)/i;
@@ -694,6 +698,49 @@
     return entries.map(entry => {
       const id = entry.element.getAttribute('data-aa-id');
       const field = runner.get(id);
+      const privacyMetadata = {};
+      if (entry.kind === 'checkbox') {
+        const rawText = value => String(value || '').replace(/\s+/g, ' ').trim();
+        const rawTextOf = referenceId => {
+          const referenced = doc.getElementById(referenceId);
+          return referenced ? rawText(referenced.innerText || referenced.textContent) : '';
+        };
+        const element = entry.element;
+        const ariaLabelText = rawText(element.getAttribute('aria-label'));
+        const ariaDescriptionText = rawText(element.getAttribute('aria-description'));
+        const titleText = rawText(element.getAttribute('title'));
+        const placeholderText = rawText(element.getAttribute('placeholder'));
+        const referenceAttributes = ['aria-labelledby', 'aria-describedby', 'aria-details'];
+        const referenceIds = referenceAttributes.flatMap(attribute => (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean));
+        const unresolvedReference = referenceIds.some(id => !doc.getElementById(id));
+        const emptyReference = referenceIds.some(id => {
+          const referenced = doc.getElementById(id);
+          return Boolean(referenced) && !rawText(referenced.innerText || referenced.textContent);
+        });
+        const referenceTexts = referenceIds.map(rawTextOf);
+        const description = ['aria-describedby', 'aria-details'].flatMap(attribute =>
+          (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean).map(rawTextOf)).filter(Boolean).join(' ');
+        const associatedLabels = [...(element.labels || [])].map(node => rawText(node.innerText || node.textContent)).filter(Boolean);
+        const labels = [
+          ...(Array.isArray(field?.labels) ? field.labels : []),
+          ...associatedLabels, ...referenceTexts,
+          ariaLabelText, ariaDescriptionText, titleText, placeholderText,
+        ].map(rawText).filter(Boolean);
+        const uniqueLabels = [...new Set(labels.map(value => value.slice(0, 300)))];
+        for (const [key, value] of Object.entries({
+          ariaLabel: field?.ariaLabel || ariaLabelText,
+          ariaDescription: field?.ariaDescription || ariaDescriptionText,
+          title: field?.title || titleText,
+          placeholder: field?.placeholder || placeholderText,
+          description: field?.description || description,
+        })) if (typeof value === 'string' && value) privacyMetadata[key] = value.slice(0, 600);
+        if (uniqueLabels.length) privacyMetadata.labels = uniqueLabels.slice(0, 12);
+        const rawMetadata = [ariaLabelText, ariaDescriptionText, titleText, placeholderText,
+          ...associatedLabels, ...referenceTexts, ...(Array.isArray(field?.labels) ? field.labels : []),
+          ...referenceAttributes.map(attribute => element.getAttribute(attribute) || '')];
+        if (field?.privacyMetadataIncomplete === true || rawMetadata.some(value => rawText(value).length >= 300)
+          || description.length > 600 || uniqueLabels.length > 12 || unresolvedReference || emptyReference) privacyMetadata.privacyMetadataIncomplete = true;
+      }
       const malformedAddressOwner = Object.hasOwn(field || {}, 'addressContext')
         && !validAddressContext(field.addressContext)
         && addressEntryNeedsOwnership({ ...entry, label: field.label || entry.label, addressContext: field.addressContext });
@@ -708,6 +755,7 @@
         return { ...entry, label: '', labels: [], section: null, purposeScopes: null, nativeContractUnavailable: true };
       }
       return { ...entry, ...(field?.consentOwnershipUnknown === true ? { consentOwnershipUnknown: true } : {}),
+        ...(Object.keys(privacyMetadata).length ? { privacyMetadata } : {}),
         section: purpose === null ? null : purpose.section, purposeScopes: purpose === null ? null : purpose.scopes,
         context: field?.context || '', nativeSection: field?.section || '',
         ...(Object.hasOwn(field || {}, 'addressContext') ? { addressContext: field.addressContext } : {}) };
@@ -723,7 +771,10 @@
     if (entry.kind === 'aria-radio') return !entry.options.some((option) => option.element.getAttribute('aria-checked') === 'true');
     if (entry.kind === 'listbox' && entry.nativeSelect) return !entry.nativeSelect.selectedOptions.length;
     if (entry.kind === 'listbox') return LISTBOX_PLACEHOLDER_RE.test(normalize(textOf(element))) || !normalize(textOf(element));
-    if (entry.kind === 'search-select') return !chosenPills(element).length && !String(element.value || '').trim();
+    // Workday keeps the typed query in the input until its async selection is
+    // committed. The query is not a selected answer: only the portal-owned
+    // pill proves that the option was accepted.
+    if (entry.kind === 'search-select') return !chosenPills(element).length;
     if (entry.kind === 'date') return element.hasAttribute('data-empty') || !element.querySelector('[data-selected], [aria-selected="true"]');
     if (entry.kind === 'combobox') {
       // A SuccessFactors picklist holds its choice in the input itself.
@@ -975,6 +1026,7 @@
       const attr = name => element?.getAttribute?.(name) || '';
       const privacyMetadata = {
         ...entry,
+        ...(entry.privacyMetadata && typeof entry.privacyMetadata === 'object' ? entry.privacyMetadata : {}),
         name: entry.name || attr('name'),
         autocomplete: entry.autocomplete || attr('autocomplete'),
         domId: entry.domId || element?.id || attr('id'),
@@ -990,12 +1042,12 @@
         && typeof privacyReviewAcknowledgmentShape === 'function'
         && privacyRepresentations.length > 0
         && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
-        && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels));
+        && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, privacyMetadata, ...privacyIdentifiers, ...privacyRepresentations, ...supplementalPrivacyLabels));
       const privacyReviewShape = typeof privacyReviewAcknowledgmentShape === 'function'
         && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
       // Only the required acceptance of the portal's terms: never a newsletter or a talent pool.
       return (entry.required || privacyReviewAck) && (privacyReviewAck || (CONSENT_RE.test(label) && !privacyReviewShape)) && typeof hasConsentContradiction === 'function' && !hasConsentContradiction([...privacyRepresentations, ...supplementalPrivacyLabels].join(' ') || rawLabel,
-        ...privacyIdentifiers) ? { check: true } : null;
+        privacyMetadata, ...privacyIdentifiers) ? { check: true } : null;
     }
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
     // Contact facts are canonical identity data, not answers copied from the
@@ -1386,20 +1438,56 @@
       }
       case 'search-select': {
         // Type, search with Enter, pick the option the answer names, else the one that contains it.
-        setValue(element, String(answer.value).slice(0, 60));
-        fire(element, 'keydown', { key: 'Enter', code: 'Enter' });
+        const query = String(answer.value).slice(0, 60);
         const wanted = normalize(answer.value);
-        const option = await waitFor(() => {
+        const findOption = () => {
           const options = openOptions(element.ownerDocument);
           const named = bestOption(options, answer.value, answer.family);
           if (named) return named;
           const containing = options.filter((item) => normalize(item.label).includes(wanted));
           return containing.length === 1 ? containing[0] : null;
-        });
-        if (!option) return false;
-        press(option.element);
-        await sleep(config.stepMs * 2);
-        return !isEmpty(entry);
+        };
+        // A related-suite page can lower config.waitMs for fast fixtures, while
+        // Workday may still be redrawing the popup asynchronously. Keep the
+        // retry count bounded but allow one second for each observable phase.
+        const searchWaitMs = Math.max(config.waitMs, 1000);
+        const open = async (reset = false) => {
+          // Workday's controlled input may ignore a repeated identical query
+          // after a swallowed option press. Clear the query first so the
+          // second Enter represents a fresh search, not a duplicate state
+          // update.
+          if (reset) {
+            setValue(element, '');
+            await sleep(config.stepMs);
+          }
+          setValue(element, query);
+          fire(element, 'keydown', { key: 'Enter', code: 'Enter' });
+          return waitFor(findOption, searchWaitMs);
+        };
+        // Some Workday tenants leave the option node mounted while the first
+        // synthetic press is swallowed during the popup redraw. Others close
+        // the popup and replace it without committing a pill. Reopen the
+        // query for each bounded attempt so a redraw cannot make us press the
+        // same stale option node twice; the pill remains the only proof that
+        // the choice was accepted.
+        for (let attempt = 0; attempt < 2; attempt += 1) {
+          if (!isEmpty(entry)) return true;
+          const option = await open(attempt > 0);
+          // A redraw can replace the popup between Enter and the option
+          // becoming readable. Keep the bounded retry contract instead of
+          // reporting a missing answer before the second open.
+          if (!option) {
+            fire(element, 'keydown', { key: 'Escape', code: 'Escape' });
+            continue;
+          }
+          press(option.element);
+          if (await waitFor(() => !isEmpty(entry), searchWaitMs)) return true;
+          // A swallowed press may leave Workday's old listbox open. Close it
+          // before the single bounded re-open so the next Enter starts a fresh
+          // query instead of reusing stale popup state.
+          fire(element, 'keydown', { key: 'Escape', code: 'Escape' });
+        }
+        return false;
       }
       case 'date':
         return chooseDate(element, answer.value);
@@ -1432,6 +1520,20 @@
       .filter(isShown)
       .map((element) => ({ element, text: (textOf(element) || element.getAttribute('value') || element.getAttribute('aria-label') || '').trim() }))
       .filter((button) => button.text);
+  }
+  function cookieControlIsActive(button) {
+    const element = button.element;
+    if (element.closest('header, nav, footer, [role="navigation"], [role="contentinfo"]')) return false;
+    for (let node = element; node && node !== element.ownerDocument.body; node = node.parentElement) {
+      const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+        .filter(Boolean).join(' ');
+      if (COOKIE_MARKER_RE.test(marker)) {
+        if (!COOKIE_ACTIVE_SURFACE_RE.test(marker)) continue;
+        return COOKIE_WORD_RE.test(`${marker} ${textOf(node)}`);
+      }
+      if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')) return COOKIE_WORD_RE.test(textOf(node));
+    }
+    return false;
   }
   const isDisabled = (element) => element.disabled || element.getAttribute('aria-disabled') === 'true';
 
@@ -1529,7 +1631,10 @@
 
   /** A cookie banner in the way: refuse the non-essential cookies when offered. */
   function cookieRefusal(doc) {
-    return buttons(doc).find((button) => COOKIE_REJECT_RE.test(button.text))?.element || null;
+    const available = buttons(doc).filter(cookieControlIsActive);
+    return available.find((button) => COOKIE_REJECT_RE.test(button.text))?.element
+      || available.find((button) => COOKIE_CUSTOMIZE_RE.test(button.text))?.element
+      || null;
   }
 
   /** What changes when the portal moves to another step. */
@@ -1538,7 +1643,7 @@
   }
 
   root.CompilaCandidatura = {
-    BIRTH_FIELD_RE, DATE_OF_BIRTH_RE, BIRTH_LOCATION_RE, NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, VERIFY_RE,
+    BIRTH_FIELD_RE, DATE_OF_BIRTH_RE, BIRTH_LOCATION_RE, NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, COOKIE_CUSTOMIZE_RE, VERIFY_RE,
     config, normalize, textOf, labelOf, questionOf, collect, isEmpty, answerFor, bestOption,
     parseDate, formatForInput, phoneFor, fillEntry, fillPage, pageState, cookieRefusal,
     pageSignature, nextButton, finalButton, press, setValue, sleep,

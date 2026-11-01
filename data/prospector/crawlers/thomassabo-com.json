@@ -1,0 +1,25 @@
+{
+  "companyKey": "thomassabo-com",
+  "companyName": "Thomas Sabo",
+  "companyHost": "karriere.thomassabo.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://karriere.thomassabo.com/vacancies.html"
+  ],
+  "detailTemplate": "/vacancies/detail/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 49,
+  "sampleTitles": [
+    "München Riem Arcaden | Aushilfe (m/w/d)",
+    "Conseiller(e) de vente H/F en CDD - 35h - Roppenheim The Style Outlets",
+    "Sulzbach (Taunus) | Assistant Store Manager (m/w/d)",
+    "Sulzbach (Taunus) | Sales Associate (m/w/d)",
+    "Weihnachtsaushilfe (m/w/d)"
+  ],
+  "canton": "LU",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-01T13:08:21.145Z",
+  "candidateKey": "thomassabo.com"
+}

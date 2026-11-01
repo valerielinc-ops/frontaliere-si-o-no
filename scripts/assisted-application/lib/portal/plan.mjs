@@ -199,6 +199,14 @@ export function ownConsent(field) {
   const label = String(field?.label || '').replace(/\p{Cf}/gu, '').normalize('NFC');
   const name = `${field?.name || ''} ${field?.autocomplete || ''}`.trim();
   const fieldId = String(field?.id || '').trim();
+  // A privacy-looking checkbox can still carry a language-level control id
+  // when the portal reuses its native metadata. Treat that as a candidate
+  // fact only when the metadata itself names the language and CEFR level;
+  // opaque ids such as `c1` remain non-semantic.
+  const semanticMetadata = [fieldId, field?.name, field?.fieldId, field?.controlId]
+    .filter(value => typeof value === 'string' && value.trim())
+    .join(' ').replace(/[_:.-]+/g, ' ');
+  const languageFactMetadata = /\b(?:language|lingua|sprache|langue|german|deutsch|tedesco|allemand)\b.{0,80}\b[abc][12]\b/i.test(semanticMetadata);
   const legacyApplicationConsent = APPLICATION_CONSENT_NAME_RE.test(name);
   const privacyIdentifiers = privacySemanticIdentifiers(field);
   const privacyRepresentations = [field?.question, field?.label, field?.applicationQuestion]
@@ -213,6 +221,7 @@ export function ownConsent(field) {
   const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent || privacyReviewAck || isConsentPurpose(label);
   return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent || privacyReviewAck) && ownText
     && !NEGATED_CONSENT.test(consentText) && !isOptionalPurpose(consentText) && !DECLARES_FACT.test(consentText)
+    && !languageFactMetadata
     && !(privacyReviewShape && !privacyReviewAck)
     && !hasConsentContradiction(consentText, field);
 }
@@ -624,7 +633,7 @@ const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\
 // Its wording is one address question even though «numéro» is not followed by
 // «civique» or «de la rue». Keep the conjunction bounded so a phone number or
 // another unrelated number in a longer label cannot become an address alias.
-const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street)\b\s*(?:and|et|e|und|&|\/)\s*(?:(?:house|street)\s*)?(?:number|no\.?|n[°ºo]?|numero|numéro|nummer)(?=\s|$|[?.,;:)])/i;
+const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street)\b\s*(?:and|et|e|und|&)\s*(?:(?:house|street|the|il|la|die|your|tuo|tua|vostro|vostra)\s*)*(?:number|no\.?|n[°ºo]?|numero|numéro|nummer)(?=\s|$|[?.,;:)])/i;
 const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|code\s+postal|npa)\b/i;
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
 const CITY_RE = /(?<![\p{L}\p{N}_])(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)(?![\p{L}\p{N}_])/iu;
@@ -679,7 +688,7 @@ function isPhoneCountryQuestion(value, context = '', metadata = {}) {
   const phoneLabel = PHONE_CODE_FIELD_RE.test(label);
   const explicitPhoneCountry = (PHONE_COUNTRY_CODE_LABEL_RE.test(label) && (phoneLabel || phoneScope))
     || (COUNTRY_RE.test(label) && phoneLabel);
-  if (explicitPhoneCountry) return !RESIDENCE_CONTEXT_RE.test(label);
+  if (explicitPhoneCountry) return !RESIDENCE_CONTEXT_RE.test(label) && !RESIDENCE_CONTEXT_RE.test(fieldContext);
   return residenceFieldRole(label) === 'country' && COUNTRY_RE.test(label)
     && phoneScope && !RESIDENCE_CONTEXT_RE.test(label)
     && (hasOwner || !RESIDENCE_CONTEXT_RE.test(fieldContext));
@@ -687,7 +696,11 @@ function isPhoneCountryQuestion(value, context = '', metadata = {}) {
 
 export function addressQuestionTopic(text, context = '', metadata = {}) {
   const value = String(text || '');
-  const role = residenceFieldRole(value);
+  const role = residenceFieldRole(value)
+    || (STREET_NUMBER_PAIR_RE.test(value) ? 'address' : '')
+    || (CANDIDATE_CONTACT_ADDRESS_RE.test(value) ? 'street' : '')
+    || (COUNTRY_RE.test(value) && RESIDENCE_CONTEXT_RE.test(value) && !BIRTH_LOCATION_RE.test(value) ? 'country' : '')
+    || (POSTAL_CODE_RE.test(value) && RESIDENCE_CONTEXT_RE.test(value) ? 'postalCode' : '');
   if (!role) return '';
   const surrounding = String(context || '').trim();
   const hasOwnership = Object.hasOwn(metadata || {}, 'addressContext');
@@ -1040,7 +1053,13 @@ function ownedRecordedAnswer(item, question, metadata) {
   if (!addressAnswerNeedsOwnership(question, metadata)) return true;
   // A previous projection of CV/profile data is not a candidate statement
   // about another person's address. It must never be relabelled as one.
-  if (!['answers', 'candidate', 'user'].includes(item?.source)) return false;
+  // Entries from the pre-source-tag portalQuestionsAnswered array have no
+  // source, but are still candidate-entered order-local memories. Accept that
+  // legacy shape only when neither side carries a native ownership contract;
+  // a modern cross-scope record must remain explicitly owned.
+  const legacyUntyped = !item?.source && !hasAddressContextOwnership(metadata) && !hasAddressContextOwnership(item);
+  const legacyAnswerId = item?.source === 'answer-id' && !hasAddressContextOwnership(metadata) && !hasAddressContextOwnership(item);
+  if (!legacyUntyped && !legacyAnswerId && !['answers', 'candidate', 'user'].includes(item?.source)) return false;
   const current = addressContextContract(metadata);
   const previous = addressContextContract(item);
   if (current === undefined && previous === undefined) return true; // legacy exact-context questions
@@ -1747,9 +1766,19 @@ export function guardPlan(plan, fields, candidate = null) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
     if (!field || rejectedActionFields.has(field.id)) continue;
-    // A planner's `consent` provenance never authorizes optional marketing
-    // or a box that also declares a candidate fact. Recheck the actual label.
-    if (action.action === 'check' && action.source === 'consent' && !ownConsent(field)) {
+    // Planner and policy-default checks of a privacy-reading box both pass
+    // through the same native metadata veto before they can answer the field.
+    const privacyRepresentations = [field.question, field.label, field.applicationQuestion]
+      .filter(value => typeof value === 'string');
+    if (Array.isArray(field.labels)) {
+      privacyRepresentations.push(...field.labels.filter(value => typeof value === 'string'));
+    }
+    const policyDefaultPrivacyAcknowledgment = action.action === 'check'
+      && action.source === 'policy_default'
+      && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
+    if (action.action === 'check'
+      && (action.source === 'consent' || policyDefaultPrivacyAcknowledgment)
+      && !ownConsent(field)) {
       rejectedActionFields.add(field.id);
       ask(field);
       continue;

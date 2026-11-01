@@ -36,6 +36,7 @@ import {
   candidateAnswersForQuestions,
   candidateQuestionAnswerKey,
   candidateWithEdits,
+  ORDER_QUESTION_ANSWER_EVIDENCE_VERSION,
   questionsForCandidate,
 } from './assistedApplicationCandidateEdits.js';
 
@@ -207,6 +208,21 @@ function base(flow) {
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
     history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
     shownRounds: roundsShown(flow),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      ? { orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION }
+      : {}),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      && flow?.questionAnswerSnapshots && typeof flow.questionAnswerSnapshots === 'object' && !Array.isArray(flow.questionAnswerSnapshots)
+      ? { questionAnswerSnapshots: { ...flow.questionAnswerSnapshots } }
+      : {}),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      && flow?.questionAnswerSnapshotIds && typeof flow.questionAnswerSnapshotIds === 'object' && !Array.isArray(flow.questionAnswerSnapshotIds)
+      ? { questionAnswerSnapshotIds: { ...flow.questionAnswerSnapshotIds } }
+      : {}),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      && flow?.questionAnswerCompatibility && typeof flow.questionAnswerCompatibility === 'object' && !Array.isArray(flow.questionAnswerCompatibility)
+      ? { questionAnswerCompatibility: { ...flow.questionAnswerCompatibility } }
+      : {}),
     // Keep the semantic answer ledger across every transition.  Older flows
     // may not have the field yet; a plain object is the only shape accepted by
     // the candidate-answer projection and avoids leaking malformed data into

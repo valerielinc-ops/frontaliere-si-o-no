@@ -233,4 +233,42 @@ describe('Swiss locality variants and canton-scoped homonyms', () => {
       fs.rmSync(dir, { recursive: true, force: true });
     }
   });
+
+  it('uses a verified per-posting target instead of a later office in stale multi-location text', () => {
+    const job = {
+      location: 'Bellinzona, Bern, Lausanne, Neuchâtel',
+      addressLocality: 'Bellinzona, Bern, Neuchâtel, Renens VD',
+      addressRegion: 'VD',
+      canton: 'TI',
+      _targetScope: { canton: 'TI', location: 'Bellinzona' },
+      description: 'Ortsunabhängiges Arbeiten ist möglich; Anwesenheit in Bern ist vorgesehen.',
+    };
+
+    const result = applySwissLocationGate([job]);
+
+    expect(result.jobs).toHaveLength(1);
+    expect(job.addressLocality).toBe('Bellinzona');
+    expect(job.addressRegion).toBe('TI');
+    expect(job.location).toBe('Bellinzona');
+  });
+
+  it('does not treat adapter seed metadata as a posting locality', () => {
+    const job = {
+      location: 'Basel',
+      addressLocality: 'Basel',
+      addressRegion: 'BS',
+      canton: 'BS',
+      _targetScope: {
+        type: 'adapter_seed_meta',
+        location: 'Region Zürich (Sihlcity und Umgebung)',
+        canton: 'ZH',
+      },
+    };
+
+    const result = applySwissLocationGate([job]);
+
+    expect(result.jobs).toHaveLength(1);
+    expect(job.addressLocality).toBe('Basel');
+    expect(job.addressRegion).toBe('BS');
+  });
 });

@@ -1,0 +1,24 @@
+{
+  "companyKey": "alter-pflege-schlieren",
+  "companyName": "alter-pflege-schlieren",
+  "companyHost": "recruitingapp-2881.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2881.umantis.com/Jobs/All?DesignID=10010"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Lehrperson Integrative Förderung (IF) / SHP 50% (14 WL) bis Mitte März 2027, danach 30 - 40%",
+    "Schulleitungsassistenz Schule Zelgli, 30 %",
+    "Projektleiter/in Tiefbau 60 - 80 %",
+    "Mitarbeiter/ in Reinigung 15 - 20 %",
+    "Kaufmännische/n Mitarbeiter/in Schulverwaltung: Bereich Finanzen 70 – 80%"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-11-01T13:07:53.012Z",
+  "candidateKey": "alter-pflege-schlieren.ch"
+}

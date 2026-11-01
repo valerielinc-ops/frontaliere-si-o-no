@@ -9,7 +9,10 @@
  */
 
 import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
-import { rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { answerQuestionSnapshotQuestion, answerQuestionSnapshotsFor, orderQuestionAnswerContext, planCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots } from './assistedApplicationAnswerEvidence.js';
+import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
 import { rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvChanges } from './assistedApplicationTailoredCvPdf.js';
 
@@ -38,6 +41,12 @@ export async function deleteStored(bucket, orderId, keys) {
   }));
 }
 
+function retentionWriteAllowed(order, nowMs) {
+  if (!order || order.retentionPurgingAt != null || order.retentionPurgedAt != null || order.retentionPayloadPurgedAt != null) return false;
+  const purgeDueAt = retentionPurgeDueAt(order);
+  return talentPoolConsentActive(order) || purgeDueAt == null || nowMs < purgeDueAt;
+}
+
 /**
  * The commit of the writers that publish a rebuilt PDF (the photo, the line
  * choices, the candidate's edits and answers, the owner's answers): the flow
@@ -59,24 +68,41 @@ export async function deleteStored(bucket, orderId, keys) {
  *   state: the flow state the request read (the review page's writers: candidate_review);
  *   edits: a candidate edit, built also on the letter PDF and the texts of the draft
  */
-export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 'candidate_review', edits = false, created = [], flowPatch = null, draftPatch, nowMs }) {
+function answerSnapshotGuardMatches({ orderId, draft, guard }) {
+  if (!guard) return true;
+  if (Number(guard.draftRound) > 0 && Number(draft?.round) !== Number(guard.draftRound)) return false;
+  const answerIds = Array.isArray(guard.answerIds) ? guard.answerIds : [];
+  const current = answerQuestionSnapshotsFor({ orderId, questions: draft?.questions || [], draft, nowMs: guard.nowMs });
+  return answerIds.every(id => current[id] && guard.snapshots?.[id] === current[id]);
+}
+
+export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 'candidate_review', edits = false, created = [], flowPatch = null, draftPatch, answerSnapshotGuard = null, replaceAnswerMaps = false, nowMs }) {
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
   const same = (left, right) => (left || null) === (right || null);
   const committed = await db.runTransaction(async (transaction) => {
-    const [flowSnapshot, draftSnapshot] = await Promise.all([transaction.get(flowRef), transaction.get(draftRef)]);
+    const [orderSnapshot, flowSnapshot, draftSnapshot] = await Promise.all([
+      transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
+    ]);
+    if (!orderSnapshot.exists || !retentionWriteAllowed(orderSnapshot.data(), Date.now())) return false;
     const current = { flow: flowSnapshot.data() || {}, draft: draftSnapshot.data() || {} };
     const unchanged = current.flow.state === state
       && Number(current.flow.round || 1) === Number(flow.round || 1)
+      && answerSnapshotGuardMatches({ orderId, draft: current.draft, guard: answerSnapshotGuard })
       && same(current.flow.photo?.key, flow.photo?.key)
       && same(current.draft.tailoredCv?.pdfKey, draft.tailoredCv?.pdfKey)
       && (!edits || (same(current.draft.coverLetterPdfKey, draft.coverLetterPdfKey) && same(current.draft.candidateEditedAt, draft.candidateEditedAt)));
     if (!unchanged) return false;
-    if (flowPatch) transaction.set(flowRef, { ...flowPatch, updatedAt: nowMs }, { merge: true });
+    if (flowPatch && replaceAnswerMaps) {
+      const { answers, ...answerMaps } = flowPatch;
+      if (answers !== undefined) transaction.set(flowRef, { answers, updatedAt: nowMs }, { merge: true });
+      if (Object.keys(answerMaps).length) transaction.set(flowRef, answerMaps, { mergeFields: Object.keys(answerMaps) });
+    } else if (flowPatch) transaction.set(flowRef, { ...flowPatch, updatedAt: nowMs }, { merge: true });
     transaction.set(draftRef, draftPatch, { merge: true });
     return true;
   });
-  if (committed) return;
+  if (committed) return true;
   await deleteStored(bucket, orderId, created);
   throw new CvCommitError('changed_meanwhile', 409);
 }
@@ -109,32 +135,70 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
  * renderer or a Storage that fails saves nothing; no bucket, no answers.
  * @returns {Promise<{rebuilt:boolean}>}
  */
-export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, nowMs }) {
+export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, answerQuestionSnapshots = {}, answerSnapshotQuestions = null, nowMs, answerActor = null }) {
   const mergedAnswers = { ...(flow.answers || {}), ...answers };
+  const orderContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
+  const localQuestionDescriptors = Array.isArray(answerSnapshotQuestions) ? answerSnapshotQuestions
+    : (draft?.questions || []).map(question => answerQuestionSnapshotQuestion({ question, draft }));
+  const currentQuestionSnapshots = answerQuestionSnapshotsFor({ orderId, questions: localQuestionDescriptors, draft, nowMs });
+  if (Object.keys(answers || {}).some(id => !currentQuestionSnapshots[id] || answerQuestionSnapshots[id] !== currentQuestionSnapshots[id])) {
+    throw new CvCommitError('changed_meanwhile', 409);
+  }
+  const confirmedQuestionSnapshots = Object.fromEntries(Object.entries(answers || {}).flatMap(([id]) =>
+    answerQuestionSnapshots[id] && answerQuestionSnapshots[id] === currentQuestionSnapshots[id]
+      ? [[id, currentQuestionSnapshots[id]]] : []));
+  const evidenceQuestionSnapshots = answerQuestionSnapshotsFor({ orderId, questions: draft?.questions || [], draft, nowMs });
+  const sourceQuestionSnapshotGuard = evidenceQuestionSnapshots;
+  const allAnswersConfirmed = Object.keys(answers || {}).length > 0
+    && Object.keys(answers || {}).every(id => Boolean(confirmedQuestionSnapshots[id]));
+  const trustedOrderAnswers = ['candidate', 'owner'].includes(answerActor) && allAnswersConfirmed;
+  const previousOrderAnswers = orderContext.orderAnswers;
+  const orderAnswerValues = { ...orderContext.answers, ...answers };
   const questionAnswers = rememberCandidateQuestionAnswers({
-    questions: draft?.questions || [],
-    answers: mergedAnswers,
-    previous: flow.questionAnswers || {},
+    questions: localQuestionDescriptors,
+    answers: orderAnswerValues,
+    previous: previousOrderAnswers,
     changed: answers,
   });
-  const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers };
+  const questionAnswerSnapshots = rememberOrderQuestionAnswerSnapshots({ orderId, questions: localQuestionDescriptors, draft,
+    answers: orderAnswerValues, changed: answers, questionAnswers, previous: orderContext.questionAnswerSnapshots,
+    previousQuestionIds: orderContext.questionAnswerSnapshotIds, previousCompatibility: orderContext.questionAnswerCompatibility,
+    confirmed: confirmedQuestionSnapshots, nowMs });
+  const orderQuestionAnswersEvidenceVersion = trustedOrderAnswers ? ORDER_QUESTION_ANSWER_EVIDENCE_VERSION : null;
+  const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
+    questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
+    orderQuestionAnswersEvidenceVersion };
   const persistCandidateQuestionAnswers = async () => {
     const userId = String(order?.userId || '').trim();
-    if (!userId || !Object.keys(questionAnswers).length) return;
+    if (!userId || !Object.keys(questionAnswers).length || Number(draft?.round) !== Number(flow.round || 1)) return;
+    const changedKeys = new Set((draft?.questions || []).filter(question => Object.hasOwn(answers, question.id)).map(candidateQuestionAnswerKey));
     const profileRef = db.collection('user_cv_profiles').doc(userId);
+    const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
     try {
       await db.runTransaction(async (transaction) => {
-        const snapshot = await transaction.get(profileRef);
+        const [orderSnapshot, snapshot] = await Promise.all([transaction.get(orderRef), transaction.get(profileRef)]);
+        const currentOrder = orderSnapshot.data() || {};
+        const freshNow = Date.now();
+        if (!orderSnapshot.exists || currentOrder.userId !== userId || !retentionWriteAllowed(currentOrder, freshNow)) return;
+        // This writer only augments an existing private projection; account deletion must not recreate it.
+        if (!snapshot.exists) return;
         const current = snapshot.data()?.applicationQuestionAnswers;
+        const update = planCandidateAnswerEvidence({ questions: draft?.questions || [], changed: answers,
+          confirmedQuestionSnapshots: evidenceQuestionSnapshots,
+          previous: snapshot.data()?.applicationQuestionAnswerEvidence, latestWriteAt: Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0,
+          orderId, order: currentOrder, flow, draft: draft || {}, actor: answerActor, nowMs });
+        if (!update.accepted.size) return;
         const merged = { ...(current && typeof current === 'object' && !Array.isArray(current) ? current : {}) };
         for (const [key, value] of Object.entries(questionAnswers)) {
+          if (!changedKeys.has(key) || !update.accepted.has(key)) continue;
           delete merged[key];
-          merged[key] = value;
+          merged[key] = update.records[key]?.cleared ? '' : value;
         }
         transaction.set(profileRef, {
           applicationQuestionAnswers: Object.fromEntries(Object.entries(merged).slice(-80)),
-          applicationQuestionAnswersUpdatedAt: nowMs,
-        }, { merge: true });
+          applicationQuestionAnswerEvidence: update.records,
+          applicationQuestionAnswersUpdatedAt: Math.max(Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0, freshNow),
+        }, { mergeFields: ['applicationQuestionAnswers', 'applicationQuestionAnswerEvidence', 'applicationQuestionAnswersUpdatedAt'] });
       });
     } catch (error) {
       // The order-local answer is already authoritative. A profile-ledger
@@ -145,17 +209,46 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   };
   const live = Boolean(draft) && Number(draft.round) === Number(flow.round || 1) && !['submitted', 'failed'].includes(flow.state);
   if (!live || !tailoredCvChanges({ order, draft, flow, nextFlow })) {
-    await flowRefFor(db, orderId).set({ answers, questionAnswers, updatedAt: nowMs }, { merge: true });
+    const flowRef = flowRefFor(db, orderId);
+    const draftRef = draftRefFor(db, orderId);
+    const committed = await db.runTransaction(async transaction => {
+      const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+      const [currentOrder, currentFlow, currentDraft] = await Promise.all([
+        transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
+      ]);
+      if (!currentOrder.exists || !retentionWriteAllowed(currentOrder.data(), Date.now())
+        || !currentFlow.exists || currentFlow.data()?.state !== flow.state
+        || Number(currentFlow.data()?.round || 1) !== Number(flow.round || 1)
+        || !answerSnapshotGuardMatches({ orderId, draft: currentDraft.data() || {},
+          guard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
+            draftRound: Number(draft?.round) || 1, nowMs } })) return false;
+      transaction.set(flowRef, { answers, updatedAt: nowMs }, { merge: true });
+      transaction.set(flowRef, { questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
+        questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
+        orderQuestionAnswersEvidenceVersion }, { mergeFields: ['questionAnswers', 'questionAnswerSnapshots', 'questionAnswerSnapshotIds',
+        'questionAnswerCompatibility', 'orderQuestionAnswersEvidenceVersion'] });
+      return true;
+    });
+    if (!committed) throw new CvCommitError('changed_meanwhile', 409);
     await persistCandidateQuestionAnswers();
     return { rebuilt: false };
   }
   if (!bucket) throw new CvCommitError('storage_unavailable', 503);
   const rebuilt = await rebuildCvToCommit({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
-  await commitRebuild({
+  const rebuildCommitted = await commitRebuild({
     db, bucket, orderId, flow, draft, state: flow.state, nowMs, created: [rebuilt.pdfKey],
-    flowPatch: { answers, questionAnswers },
+    flowPatch: { answers, questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
+      questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
+      orderQuestionAnswersEvidenceVersion },
+    replaceAnswerMaps: true,
+    answerSnapshotGuard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
+      draftRound: Number(draft?.round) || 1, nowMs },
     draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
   });
+  if (rebuildCommitted === false) {
+    await deleteStored(bucket, orderId, [rebuilt.pdfKey]);
+    throw new CvCommitError('changed_meanwhile', 409);
+  }
   await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);
   await persistCandidateQuestionAnswers();
   return { rebuilt: true };

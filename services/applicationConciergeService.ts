@@ -11,6 +11,7 @@ export interface ApplicationConciergeProposal {
   location?: string | null;
   applyMode?: string | null;
   status: 'proposed' | 'accepted' | 'declined' | 'expired' | 'retracted' | string;
+  eligibilityStatus?: 'compatible' | 'incompatible' | 'unverified' | 'needs_verification' | string | null;
   proposedAt?: string | null;
   acceptedAt?: string | null;
   declinedAt?: string | null;
@@ -81,6 +82,7 @@ export function conciergeProposalDisplayStatus(proposal: ApplicationConciergePro
     if (proposal.childCandidateStatus === 'submitted' || proposal.childSubmissionStatus === 'submitted' || proposal.childSendState === 'sent' || state === 'submitted') return 'submitted';
   }
   if (proposal.withdrawnAt || (proposal.status === 'accepted' && state === 'withdrawn')) return 'withdrawn';
+  if (proposal.status === 'proposed' && proposal.eligibilityStatus === 'needs_verification') return 'needs_verification';
   if (proposal.status !== 'accepted') return proposal.status;
   if (state === 'needs_candidate_action' || state === 'candidate_handoff') return 'needs_answers';
   if (state === 'candidate_review') return 'needs_review';

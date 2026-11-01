@@ -299,10 +299,15 @@ describe('pharmacy SEO after SPA navigation', () => {
     expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(`https://frontaliereticino.ch${path}`);
   });
 
-  it('uses the static generator discriminator for duplicate Sun Store Lugano titles', () => {
-    const duplicates = BORDER_PHARMACIES.filter((pharmacy) => pharmacy.name === 'Farmacia Sun Store' && pharmacy.city === 'Lugano');
-    expect(duplicates.length).toBeGreaterThan(1);
-    for (const pharmacy of duplicates) {
+  it('keeps Sun Store Lugano titles unique across current source names', () => {
+    const sunStores = BORDER_PHARMACIES.filter((pharmacy) => /\bsun store\b/i.test(pharmacy.name) && pharmacy.city === 'Lugano');
+    expect(sunStores.length).toBeGreaterThan(1);
+    const titles = sunStores.map((pharmacy) => buildPharmacyTitle(pharmacy, BORDER_PHARMACIES));
+    expect(new Set(titles).size).toBe(titles.length);
+    const duplicateNameCatalogue = sunStores.map((pharmacy) => ({ ...pharmacy, name: 'Farmacia Sun Store' }));
+    const duplicateNameTitles = duplicateNameCatalogue.map((pharmacy) => buildPharmacyTitle(pharmacy, duplicateNameCatalogue));
+    expect(new Set(duplicateNameTitles).size).toBe(duplicateNameTitles.length);
+    for (const pharmacy of sunStores) {
       const metadata = pharmacySeoRuntime.resolvePharmacySeoMetadata({
         kind: 'pharmacy',
         locale: 'it',

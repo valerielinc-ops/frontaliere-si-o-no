@@ -6,6 +6,7 @@
  *
  *   node scripts/assisted-application/portal-e2e.mjs
  *   (PLAYWRIGHT_CHROMIUM_PATH=<binary> to use a local Chromium build)
+ *   AA_PORTAL_E2E_FOCUS=coop node scripts/assisted-application/portal-e2e.mjs
  *
  * posting → sign-in page → "Konto erstellen" → register (two passwords, the
  * required consent, a newsletter box left alone) → "check your e-mail" →
@@ -16,7 +17,10 @@
  * redirect, SuccessFactors' registration with its privacy-statement dialog.
  */
 import http from 'node:http';
-import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import https from 'node:https';
+import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { launchChromium } from '../lib/ensure-chromium.mjs';
@@ -50,6 +54,54 @@ const UMANTIS_FORM = '/Vacancies/717/Application/New/2';
 // The same form with its photo and documents in sections still closed (review of #11033).
 const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
 const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
+
+async function createWorkdayTlsFixture(directory) {
+  const caKeyPath = path.join(directory, 'workday-test-ca.key');
+  const caCertPath = path.join(directory, 'workday-test-ca.pem');
+  const serverKeyPath = path.join(directory, 'workday.localhost.key');
+  const serverCsrPath = path.join(directory, 'workday.localhost.csr');
+  const serverCertPath = path.join(directory, 'workday.localhost.pem');
+  const extensionsPath = path.join(directory, 'workday-server-extensions.cnf');
+  await writeFile(extensionsPath, [
+    '[server_cert]',
+    'basicConstraints=critical,CA:FALSE',
+    'keyUsage=critical,digitalSignature,keyEncipherment',
+    'extendedKeyUsage=serverAuth',
+    'subjectAltName=DNS:workday.localhost',
+    '',
+  ].join('\n'));
+
+  try {
+    execFileSync('openssl', [
+      'req', '-x509', '-newkey', 'rsa:2048', '-nodes',
+      '-keyout', caKeyPath, '-out', caCertPath, '-days', '1',
+      '-subj', '/CN=Application Concierge E2E Test CA',
+      '-addext', 'basicConstraints=critical,CA:TRUE',
+      '-addext', 'keyUsage=critical,keyCertSign,cRLSign',
+    ], { stdio: 'ignore' });
+    execFileSync('openssl', [
+      'req', '-new', '-newkey', 'rsa:2048', '-nodes',
+      '-keyout', serverKeyPath, '-out', serverCsrPath,
+      '-subj', '/CN=workday.localhost',
+    ], { stdio: 'ignore' });
+    execFileSync('openssl', [
+      'x509', '-req', '-in', serverCsrPath,
+      '-CA', caCertPath, '-CAkey', caKeyPath, '-CAcreateserial',
+      '-out', serverCertPath, '-days', '1', '-sha256',
+      '-extfile', extensionsPath, '-extensions', 'server_cert',
+    ], { stdio: 'ignore' });
+    const publicKey = execFileSync('openssl', ['x509', '-in', serverCertPath, '-pubkey', '-noout']);
+    const spki = execFileSync('openssl', ['pkey', '-pubin', '-outform', 'DER'], { input: publicKey });
+    return {
+      cert: await readFile(serverCertPath),
+      key: await readFile(serverKeyPath),
+      spkiPin: createHash('sha256').update(spki).digest('base64'),
+    };
+  } catch (error) {
+    await rm(directory, { recursive: true, force: true });
+    throw error;
+  }
+}
 
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], rhbApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationInvalidOnlyOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
@@ -234,10 +286,10 @@ function fakePortal() {
   // hundredth of a pixel tall («beecatcher») must stay empty. A click that fails either test does nothing.
   // Above the page, the site's header has a «Sign In» of its own: it opens a dialog over everything, and
   // comes first in the document (dry run of 2026-10-07: the runner pressed it instead of the form's link).
-  // The form's link draws the other form a moment later, in place. The sign-in form is drawn anew once, right
+  // The form's explicit same-site anchor navigates to the other form. The sign-in form is drawn anew once, right
   // after it is typed into (on the real page, when what it loads arrives late): what was typed is gone and
   // its overlay is another element. `workday.cover` puts something over the button: it cannot be pressed.
-  const workdayAccountPage = () => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Careers</title></head><body>
+  const workdayAccountPage = (initialView = 'create') => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Careers</title></head><body>
     <header><button id="util" type="button">Sign In</button></header>
     <div id="popup" role="dialog" aria-modal="true" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:50;background:#fff">
       <label for="pe">Email Address *</label><input id="pe" type="text">
@@ -258,10 +310,10 @@ function fakePortal() {
         ${workday.cover ? '<div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:9"></div>' : ''}
         <button id="go" type="submit" tabindex="-2" aria-hidden="true" style="width:100%;height:40px">Create Account</button>
       </div>
-      <button id="swap" type="button">Sign In</button>
+      <a id="swap" href="${initialView === 'create' ? '/wd/sign-in' : '/wd/apply'}">${initialView === 'create' ? 'Sign In' : 'Create Account'}</a>
     </form>
     <script>
-      let view = 'create';
+      let view = '${initialView}';
       let human = false;
       const el = (id) => document.getElementById(id);
       const show = (next, notice) => {
@@ -272,13 +324,12 @@ function fakePortal() {
         el('go').textContent = name;
         el('filter').setAttribute('aria-label', name);
         el('swap').textContent = next === 'create' ? 'Sign In' : 'Create Account';
+        el('swap').href = next === 'create' ? '/wd/sign-in' : '/wd/apply';
         el('again').style.display = next === 'create' ? '' : 'none';
         el('p2').required = next === 'create';
         el('notice').innerHTML = notice ? '<p role="alert">' + notice + '</p>' : '';
       };
-      // Between two pages nothing is drawn for a moment (in Actions the real page was read right then).
-      const blank = (ms, then) => { el('auth').style.display = 'none'; setTimeout(() => { then(); el('auth').style.display = ''; }, ms); };
-      el('swap').onclick = () => blank(700, () => show(view === 'create' ? 'sign_in' : 'create', ''));
+      show(view);
       el('util').onclick = () => { fetch('/wd/header', { method: 'POST' }); setTimeout(() => { el('popup').style.display = 'block'; }, 800); };
       el('filter').onclick = () => { human = true; el('go').dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })); };
       let redrawn = false;
@@ -475,6 +526,7 @@ function fakePortal() {
     // «Postal Code» is no verification code: taken for one, the run waited for an e-mail nobody sends.
     if (route === 'GET /wd/job') return send(page('Verkaufsberater/in', '<p>Acme Careers</p><h1>Verkaufsberater/in</h1><a href="/wd/apply">Apply</a>'));
     if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage());
+    if (route === 'GET /wd/sign-in') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage('sign_in'));
     // The form behind the account. Its «Country» is a listbox button, and choosing draws the address fields
     // anew for that country a moment later, as other elements («Address Line 1» becomes «Street Name»): what
     // was typed before is gone. Its phone code is a search box whose chosen value is a pill next to it: two
@@ -861,7 +913,7 @@ async function fakeCodex({ prompt }) {
  * after storing its password, while the portal had not answered yet, called it refused and threw the
  * password away.
  */
-async function workdayAccountChecks({ base, state, workday, files, executablePath, check }, assistedOnly = false) {
+async function workdayAccountChecks({ base, state, workday, files, executablePath, browserTlsSpkiPin, check }, assistedOnly = false) {
   const host = new URL(base).hostname;
   const saved = new Map();
   const accounts = {
@@ -875,7 +927,13 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   const job = { title: 'Verkaufsberater/in', company: 'Acme Retail Switzerland', organization: 'Acme Retail Germany GmbH' };
   const run = (order = job, candidate = { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } }) => submitViaPortal({
     applyUrl: `${base}/wd/job`, job: order, language: 'en', candidateLocale: 'it', candidate, files, codex: fakeCodex, accounts,
-    launch: () => launchChromium({ headless: true, executablePath }),
+    // The pin is scoped to this fixture's Chromium instance; the OS trust store
+    // and every other browser used by this suite remain unchanged.
+    launch: () => launchChromium({
+      headless: true,
+      executablePath,
+      args: [`--ignore-certificate-errors-spki-list=${browserTlsSpkiPin}`],
+    }),
   });
   const authOf = (result) => result.evidence.steps.filter((step) => step.auth).map((step) => `${step.auth.kind}:${step.auth.outcome}`).join(',');
 
@@ -904,8 +962,8 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   state.sessions.clear();
   const again = await run();
   check('Workday: a later run signs in with the stored account', again.event.type === 'submit_succeeded' && workday.registrations === 2 && state.applications.length === applications + 2);
-  // With an account stored the runner lands on «Create Account» and must take the form's own «Sign In»
-  // link, then wait for the sign-in form it draws: never the site header's, which opens a dialog over the page.
+  // With an account stored the runner lands on «Create Account» and must follow the form's own verified
+  // «Sign In» anchor by GET, never the site header's control, which opens a dialog over the page.
   // The country is chosen before anything is typed, the form it redraws is planned again, and the phone
   // code's matches are waited for: the address is in the fields of the chosen country, not in ones that are gone.
   const sent = workday.forms.at(-1) || {};
@@ -1016,8 +1074,14 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
 
 async function main() {
   const { server, state, coop, umantis, workday } = fakePortal();
+  const dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-e2e-'));
+  const tlsFixture = await createWorkdayTlsFixture(dir);
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  const requestHandler = server.listeners('request')[0];
+  const workdayServer = https.createServer({ key: tlsFixture.key, cert: tlsFixture.cert }, requestHandler);
+  await new Promise((resolve) => workdayServer.listen(0, '127.0.0.1', resolve));
   const base = `http://127.0.0.1:${server.address().port}`;
+  const workdayBase = `https://workday.localhost:${workdayServer.address().port}`;
   const otpBase = `http://career5.successfactors.localhost:${server.address().port}`;
   const accountHost = '127.0.0.1';
   const otpAccountHost = 'career5.successfactors.localhost';
@@ -1030,7 +1094,6 @@ async function main() {
     // The e-mail the portal would send to the alias, as the inbound handler stores it.
     async waitForVerification() { return state.pending ? { url: `${base}/activate?t=${state.pending.token}`, code: '' } : null; },
   };
-  const dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-e2e-'));
   const files = { cv: path.join(dir, 'CV_Luca_Bianchi.pdf'), cover_letter: path.join(dir, 'Anschreiben_Luca_Bianchi.pdf') };
   await writeFile(files.cv, '%PDF-1.4\n%%EOF\n');
   await writeFile(files.cover_letter, '%PDF-1.4\n%%EOF\n');
@@ -1065,12 +1128,68 @@ async function main() {
     console.log(`${ok ? '✓' : '✗'} ${name}`);
     if (!ok && actual !== undefined) console.log(`  actual: ${JSON.stringify(actual)}`);
   };
-  const focusWorkday = process.env.AA_PORTAL_E2E_FOCUS === 'workday-assisted';
+  const runCoopChecks = async () => {
+    // Coop (2026-10-02): career page → Prospective.ch redirect → SuccessFactors, on an account of its own.
+    const coopSaved = new Map();
+    const coopAccounts = {
+      async load(host) { return coopSaved.get(host) || null; },
+      async save(host, { email, password }) { coopSaved.set(host, { email, password, createdAt: Date.now(), verifiedAt: null }); },
+      async mark(host, patch) { coopSaved.set(host, { ...coopSaved.get(host), ...patch }); },
+      async discard(host) { coopSaved.delete(host); },
+      async waitForVerification() { return null; },
+    };
+    const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' };
+    const coopCandidate = { identity: { email: ALIAS }, profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
+    const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
+    check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
+      && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0);
+    check('Coop: SuccessFactors’ own cookie manager («Alle Cookies ablehnen») is refused, the sign-in page behind it is reached', coop.cookieManager === 'rejected');
+    const coopFirst = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
+    const coopAuth = coopFirst.evidence.steps.filter((step) => step.auth).map((step) => step.auth);
+    check('Coop: the account is created (16-character password, country, privacy statement accepted, no job alert) and the application sent with «Bewerben»',
+      coopFirst.event.type === 'submit_succeeded' && coop.accounts.size === 1 && coop.privacyAccepted === 1 && !coop.jobAbo
+      && coop.refused.length === 0 && coop.outsideAccept === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
+      && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca', {
+        ...stopContext(coopFirst), portal: {
+          refusalReasons: coop.refused.slice(-3), privacyAcceptedCount: coop.privacyAccepted,
+          outsideConsentAcceptedCount: coop.outsideAccept, jobAlertEnabled: coop.jobAbo,
+          accountCount: coop.accounts.size,
+        },
+      });
+    check('Coop: SuccessFactors’ picklists, its UI5 birth date and «Vermittlungsbüro?» (always Nein) are filled',
+      coop.applications[0]?.anrede === 'Herr' && coop.applications[0]?.birth === '12.05.1990' && coop.applications[0]?.agency === 'Nein');
+    check('Coop: the closed sections are opened and the CV goes in through «Lebenslauf hochladen» before «Bewerben»',
+      coop.validationRefusals === 0 && coop.cvUploads === 1 && coopFirst.evidence.steps.some((step) => step.cv === 'uploaded')
+      && (coopFirst.evidence.finalOutcomes || []).join(',') === 'confirmed' && coopFirst.evidence.uploads?.some((item) => item.document === 'cv'));
+    check('Coop: the sign-in page names no company, so the posting is checked on the form behind it', coopFirst.evidence.postingMatch === 'match');
+    // This time the portal drops the first click on the sections and on the CV dialog.
+    coop.flaky = true;
+    const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
+    coop.flaky = false;
+    check('Coop: a dropped first click on the sections or the CV dialog is tried again, never «Bewerben» on a closed form',
+      coopAgain.event.type === 'submit_succeeded' && coop.validationRefusals === 0 && coop.cvUploads === 2
+      && coopAgain.evidence.steps.some((step) => step.cv === 'uploaded'));
+    check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
+      && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
+    coop.privacyValidationRetry = true;
+    const privacyRetry = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
+    check('SuccessFactors reopens and accepts the required privacy statement after same-page validation',
+      privacyRetry.event.type === 'submit_succeeded' && coop.privacyValidationRetries === 1
+      && coop.applicationPrivacySubmissions.slice(-2).join(',') === '1,1');
+  };
+  const workdayFocus = process.env.AA_PORTAL_E2E_FOCUS;
+  const focusWorkday = workdayFocus === 'workday-assisted' || workdayFocus === 'workday-auth';
+  const focusCoop = workdayFocus === 'coop';
   const focusRegistration = process.env.AA_PORTAL_E2E_FOCUS === 'registration-retry';
   try {
     if (focusWorkday) {
-      await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check }, true);
+      await workdayAccountChecks({ base: workdayBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check }, workdayFocus === 'workday-assisted');
+    } else if (focusCoop) {
+      await runCoopChecks();
     } else if (!focusRegistration) {
+    // Keep this timing-sensitive portal first in the full suite; the same
+    // scenarios also run alone through AA_PORTAL_E2E_FOCUS=coop.
+    await runCoopChecks();
     const dry = await run({ dryRun: true });
     check('a dry run stops before creating the account', dry.event.type === 'dry_run_ready' && dry.event.stage === 'account' && state.accounts.size === 0);
     // The portal refuses the registration once: no account is kept, so the next run creates it again.
@@ -1403,47 +1522,6 @@ async function main() {
     const moved = await run({ applyUrl: `${base}/refused-moved` });
     check('a refusal on the error page the portal moved to is a refusal too', moved.event.type === 'submit_failed'
       && moved.event.error === 'portal_refused' && moved.evidence.finalUrl.endsWith('/refused-moved/error'));
-    // Coop (2026-10-02): career page → Prospective.ch redirect → SuccessFactors, on an account of its own.
-    const coopSaved = new Map();
-    const coopAccounts = {
-      async load(host) { return coopSaved.get(host) || null; },
-      async save(host, { email, password }) { coopSaved.set(host, { email, password, createdAt: Date.now(), verifiedAt: null }); },
-      async mark(host, patch) { coopSaved.set(host, { ...coopSaved.get(host), ...patch }); },
-      async discard(host) { coopSaved.delete(host); },
-      async waitForVerification() { return null; },
-    };
-    const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' };
-    const coopCandidate = { identity: { email: ALIAS }, profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
-    const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
-    check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
-      && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0);
-    check('Coop: SuccessFactors’ own cookie manager («Alle Cookies ablehnen») is refused, the sign-in page behind it is reached', coop.cookieManager === 'rejected');
-    const coopFirst = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
-    const coopAuth = coopFirst.evidence.steps.filter((step) => step.auth).map((step) => step.auth);
-    check('Coop: the account is created (16-character password, country, privacy statement accepted, no job alert) and the application sent with «Bewerben»',
-      coopFirst.event.type === 'submit_succeeded' && coop.accounts.size === 1 && coop.privacyAccepted === 1 && !coop.jobAbo
-      && coop.refused.length === 0 && coop.outsideAccept === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
-      && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca', stopContext(coopFirst));
-    check('Coop: SuccessFactors’ picklists, its UI5 birth date and «Vermittlungsbüro?» (always Nein) are filled',
-      coop.applications[0]?.anrede === 'Herr' && coop.applications[0]?.birth === '12.05.1990' && coop.applications[0]?.agency === 'Nein');
-    check('Coop: the closed sections are opened and the CV goes in through «Lebenslauf hochladen» before «Bewerben»',
-      coop.validationRefusals === 0 && coop.cvUploads === 1 && coopFirst.evidence.steps.some((step) => step.cv === 'uploaded')
-      && (coopFirst.evidence.finalOutcomes || []).join(',') === 'confirmed' && coopFirst.evidence.uploads?.some((item) => item.document === 'cv'));
-    check('Coop: the sign-in page names no company, so the posting is checked on the form behind it', coopFirst.evidence.postingMatch === 'match');
-    // This time the portal drops the first click on the sections and on the CV dialog.
-    coop.flaky = true;
-    const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
-    coop.flaky = false;
-    check('Coop: a dropped first click on the sections or the CV dialog is tried again, never «Bewerben» on a closed form',
-      coopAgain.event.type === 'submit_succeeded' && coop.validationRefusals === 0 && coop.cvUploads === 2
-      && coopAgain.evidence.steps.some((step) => step.cv === 'uploaded'));
-    check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
-      && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
-    coop.privacyValidationRetry = true;
-    const privacyRetry = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
-    check('SuccessFactors reopens and accepts the required privacy statement after same-page validation',
-      privacyRetry.event.type === 'submit_succeeded' && coop.privacyValidationRetries === 1
-      && coop.applicationPrivacySubmissions.slice(-2).join(',') === '1,1');
     // Review of #11015: a lost first click gets its own 8 s retry window.
     const slowBrowser = await launchChromium({ headless: true, executablePath });
     const slowPage = await slowBrowser.newPage();
@@ -1499,10 +1577,10 @@ async function main() {
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
-    await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check });
+    await workdayAccountChecks({ base: workdayBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check });
     }
 
-    if (!focusWorkday) {
+    if (!focusWorkday && !focusCoop) {
       const resetRegistration = () => {
         state.accounts.clear();
         state.verified.clear();
@@ -1569,7 +1647,10 @@ async function main() {
       }
     }
   } finally {
-    server.close();
+    await Promise.all([
+      new Promise((resolve) => server.close(resolve)),
+      new Promise((resolve) => workdayServer.close(resolve)),
+    ]);
     await rm(dir, { recursive: true, force: true });
   }
   const failed = checks.filter((item) => !item.ok).length;

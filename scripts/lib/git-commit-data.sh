@@ -2711,6 +2711,33 @@ commit_isolated_from_worktree() {
   # shellcheck disable=SC2064
   trap "rm -f '$tmp_index'; rm -rf '$merge_dir'" RETURN
 
+  # The isolated path can process hundreds of job slices in one invocation.
+  # Keep only the remote ownership view (which is intentionally shared by all
+  # files) between iterations; every other snapshot below is an input/output
+  # for the current file only. Retaining those copies until the function
+  # returns makes the peak scratch usage grow with the whole corpus and can
+  # exhaust the runner filesystem during housekeeping.
+  cleanup_isolated_file_scratch() {
+    local file_path="$1"
+    rm -f -- \
+      "$merge_dir/local/$file_path" \
+      "$merge_dir/candidate/$file_path" \
+      "$merge_dir/base/$file_path" \
+      "$merge_dir/remote/$file_path" \
+      "$merge_dir/out/$file_path" \
+      "$merge_dir/ownership-base/$file_path" \
+      "$merge_dir/ownership-remote/$file_path" \
+      "$merge_dir/ownership-filtered/$file_path" \
+      "$merge_dir/integrity-delete/previous.json" \
+      "$merge_dir/integrity-delete/next.json" \
+      "$merge_dir/integrity/previous.json" \
+      "$merge_dir/integrity/next.json" \
+      "$merge_dir/integrity/candidate.json" \
+      "$merge_dir/canonicalization-base.json" \
+      "$merge_dir/canonicalization-proof.json" \
+      "$merge_dir/ownership-verdict"
+  }
+
   # Conflict-marker guard on the exact worktree files we are about to stage
   # (the staged-diff variant can't be used: nothing is ever staged in the
   # shared index on this path).
@@ -2927,12 +2954,6 @@ commit_isolated_from_worktree() {
         local_blob="$(git hash-object -w -- "$f")"
       fi
 
-      if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then
-        mkdir -p "$merge_dir/candidate/$(dirname "$f")"
-        cp "$local_merge_path" "$merge_dir/candidate/$f"
-        candidate_path="$merge_dir/candidate/$f"
-      fi
-
       # A finalizer always appends a JSONL record before the ledger reaches
       # this step. If an explicit --extra-only caller nevertheless presents a
       # brand-new zero-byte ledger, treat it like the absent path instead of
@@ -3069,6 +3090,7 @@ commit_isolated_from_worktree() {
         fi
         stage_isolated_blob "$tmp_index" "$mode_to_stage" "${_ISOLATED_RESULT_BLOB[$f]}" "$f" || return 1
         reused_count=$((reused_count + 1))
+        cleanup_isolated_file_scratch "$f" || return 1
         continue
       fi
       unset "_ISOLATED_RESULT_KEY[$f]"
@@ -3185,6 +3207,12 @@ commit_isolated_from_worktree() {
       # Archive canonicalization and the integrity guard, measured together.
       isolated_mark file_phase_started
       if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then
+        # Never canonicalize the caller's worktree file in the isolated path.
+        # Copy only the current candidate; cleanup_isolated_file_scratch()
+        # releases it as soon as the integrity proof has been consumed.
+        mkdir -p "$merge_dir/candidate/$(dirname "$f")"
+        cp "$candidate_path" "$merge_dir/candidate/$f"
+        candidate_path="$merge_dir/candidate/$f"
         canonicalization_base_path="$merge_dir/canonicalization-base.json"
         canonicalization_proof_path="$merge_dir/canonicalization-proof.json"
         rm -f "$canonicalization_proof_path"
@@ -3268,6 +3296,7 @@ commit_isolated_from_worktree() {
         _ISOLATED_RESULT_BLOB[$f]="$blob_to_stage"
         _ISOLATED_RESULT_OWNED_BLOB[$f]="$local_blob"
       fi
+      cleanup_isolated_file_scratch "$f" || return 1
     done
     isolated_file_end
     isolated_phase_add files "$phase_started"

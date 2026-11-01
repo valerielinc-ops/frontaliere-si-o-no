@@ -10,6 +10,7 @@ import {
   shouldRunApplicationConciergeMatchingForServiceUpdate,
 } from '../functions/src/applicationConciergeMatching.js';
 import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
+import { CONCIERGE_ELIGIBILITY_VERSION } from '../functions/src/applicationConciergeEligibility.js';
 
 function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
   const documents = new Map(Object.entries(seed));
@@ -639,7 +640,7 @@ describe('application concierge matching', () => {
     )).toEqual({ score: 0, reasons: [] });
   });
 
-  it('re-scores pending proposals and retracts weak legacy matches without changing decisions', async () => {
+  it('re-scores pending proposals and keeps weak legacy matches when current eligibility is unverified', async () => {
     const matchingProfile = {
       searchText: 'Senior IT Manager Group Application',
       workPosition: 'Senior IT Manager Group Application at Swatch Group',
@@ -695,7 +696,7 @@ describe('application concierge matching', () => {
       const weak = documents.get('application_concierge_services/service-1/proposals/legacy-weak');
       const accepted = documents.get('application_concierge_services/service-1/proposals/already-accepted');
 
-      expect(result).toEqual({ status: 'complete', proposals: 1, retracted: 1 });
+      expect(result).toEqual({ status: 'complete', proposals: 1, retracted: 0 });
       expect(relevant).toEqual(expect.objectContaining({
         status: 'proposed',
         matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
@@ -703,10 +704,10 @@ describe('application concierge matching', () => {
       }));
       expect((relevant?.matchScore as number)).toBeLessThan(99);
       expect(weak).toEqual(expect.objectContaining({
-        status: 'retracted',
-        retractionReason: 'match_below_threshold',
-        matchScore: 0,
-        matchReasons: [],
+        status: 'proposed',
+        eligibilityStatus: 'unverified',
+        matchScore: 99,
+        matchReasons: ['senior, manager'],
       }));
       expect(accepted).toEqual(expect.objectContaining({ status: 'accepted', matchScore: 99 }));
     } finally {
@@ -788,6 +789,29 @@ describe('dated historical positions as matching evidence', () => {
 });
 
 describe('progress through the complete relevant job pool', () => {
+  it('keeps a stale proposed job when the current eligibility pass is unverified', async () => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-stale-proposal';
+    const jobUrl = 'https://jobs.example.test/eligible-internship/';
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-stale', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-stale': { status: 'ready', profile: { searchText: 'IT support', workPosition: 'IT Support Manager', skills: ['support', 'IT'] } },
+      [`${path}/proposals/old-placement`]: { jobId: 'old-placement', jobUrl, jobTitle: 'IT Support Manager', companyName: 'Example',
+        status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: 'full-posting-requirements-v3-source-citations-v1' },
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => [
+      { id: 'old-placement', url: jobUrl, title: 'IT Support Manager', description: 'IT support responsibilities' },
+    ] })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-stale-proposal', eligibility: async () => ({ status: 'unverified' }) });
+      expect(result).toMatchObject({ status: 'complete', retracted: 0 });
+      expect(documents.get(`${path}/proposals/old-placement`)).toMatchObject({
+        status: 'proposed', eligibilityStatus: 'unverified', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+      });
+    } finally { vi.unstubAllGlobals(); }
+  });
+
   it('keeps unavailable jobs retryable without letting them pin discovery beyond the old top-40 window', async () => {
     const path = 'application_concierge_services/service-progress';
     const now = Date.now();
@@ -811,7 +835,7 @@ describe('progress through the complete relevant job pool', () => {
         checked.push(job.id);
         attempts.set(job.id, (attempts.get(job.id) || 0) + 1);
         if (job.id === 'job-000') return { status: 'unverified', reason: 'analysis_unavailable' };
-        return job.id === 'job-055' ? { status: 'compatible' } : { status: 'incompatible' };
+        return job.id === 'job-055' ? { status: 'compatible' } : { status: 'incompatible', gaps: [{ knownMissing: true }] };
       } });
       seen.push(checked);
       unverifiedCounts.push(Number(documents.get(path)?.matchingUnverifiedCount || 0));
