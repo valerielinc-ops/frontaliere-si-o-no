@@ -709,6 +709,24 @@ describe('extractEventJsonLd', () => {
     `;
     expect(extractEventJsonLd(html)).toMatchObject({ '@type': ['Thing', 'MusicEvent'], name: 'Test' });
   });
+
+  it('uses the real type attribute and rejects an external Event vocabulary', () => {
+    const event = '{"@type":"Event","startDate":"2026-10-31"}';
+    expect(extractEventJsonLd(`<script data-type="application/ld+json">${event}</script>`)).toBeNull();
+    expect(extractEventJsonLd(`<script type=application/ld+json>${event}</script>`)).toEqual({
+      '@type': 'Event', startDate: '2026-10-31',
+    });
+    expect(extractEventJsonLd(
+      '<script type="application/ld+json">{"@type":"https://example.test/FooEvent","startDate":"2026-10-31"}</script>',
+    )).toBeNull();
+  });
+
+  it('walks a deeply nested valid @graph without recursion overflow', () => {
+    let json = '{"@type":"BreadcrumbList"}';
+    for (let depth = 0; depth < 12_000; depth += 1) json = `{"@graph":${json}}`;
+    expect(() => extractEventJsonLd(`<script type=application/ld+json>${json}</script>`)).not.toThrow();
+    expect(extractEventJsonLd(`<script type=application/ld+json>${json}</script>`)).toBeNull();
+  });
 });
 
 describe('mergeDetailEventMetadata', () => {

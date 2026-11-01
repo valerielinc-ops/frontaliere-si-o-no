@@ -25,6 +25,11 @@ describe('official event booking tariffs', () => {
     });
   });
 
+  it('does not use a non-schema Event vocabulary for booking prices', () => {
+    const externalEvent = { ...node, '@type': 'https://example.test/FooEvent' };
+    expect(extractEventBookingPrice(ld(externalEvent), bookingUrl, event)).toBeUndefined();
+  });
+
   it.each([null, '', ' ', undefined])('never turns an absent price %s into zero', price => {
     expect(extractEventBookingPrice(ld({ ...node, offers: { price, priceCurrency: 'CHF' } }), bookingUrl, event)).toBeUndefined();
   });

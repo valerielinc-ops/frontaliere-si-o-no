@@ -129,6 +129,41 @@ describe('extractEventJsonLdOccurrences', () => {
     expect(occ[0].name).toBe('Real Event');
   });
 
+  it('finds an Event subtype inside an @graph and accepts equivalent script attributes', () => {
+    const html = `<script TYPE='application/ld+json'>${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        { '@type': 'BreadcrumbList', itemListElement: [] },
+        { '@type': ['Thing', 'MusicEvent'], name: 'Live Event', startDate: '2026-07-04T19:00' },
+      ],
+    })}</script>`;
+    const occ = extractEventJsonLdOccurrences(html);
+    expect(occ).toHaveLength(1);
+    expect(occ[0]).toMatchObject({ '@type': ['Thing', 'MusicEvent'], name: 'Live Event' });
+  });
+
+  it('requires the actual type attribute and accepts unquoted JSON-LD MIME values', () => {
+    const event = '{"@type":"Event","startDate":"2026-10-31"}';
+    expect(extractEventJsonLdOccurrences(`<script data-type="application/ld+json">${event}</script>`)).toEqual([]);
+    expect(extractEventJsonLdOccurrences(`<script type=application/ld+json>${event}</script>`)).toHaveLength(1);
+  });
+
+  it('accepts schema.org Event IRIs but rejects an external Event vocabulary', () => {
+    expect(extractEventJsonLdOccurrences(
+      '<script type="application/ld+json">{"@type":"https://schema.org/MusicEvent","startDate":"2026-10-31"}</script>',
+    )).toHaveLength(1);
+    expect(extractEventJsonLdOccurrences(
+      '<script type="application/ld+json">{"@type":"https://example.test/FooEvent","startDate":"2026-10-31"}</script>',
+    )).toEqual([]);
+  });
+
+  it('walks a deeply nested valid @graph without recursion overflow', () => {
+    let json = '{"@type":"BreadcrumbList"}';
+    for (let depth = 0; depth < 12_000; depth += 1) json = `{"@graph":${json}}`;
+    expect(() => extractEventJsonLdOccurrences(`<script type=application/ld+json>${json}</script>`)).not.toThrow();
+    expect(extractEventJsonLdOccurrences(`<script type=application/ld+json>${json}</script>`)).toEqual([]);
+  });
+
   it('returns [] when there is no matching block or malformed JSON', () => {
     expect(extractEventJsonLdOccurrences('')).toEqual([]);
     expect(extractEventJsonLdOccurrences('<html></html>')).toEqual([]);
