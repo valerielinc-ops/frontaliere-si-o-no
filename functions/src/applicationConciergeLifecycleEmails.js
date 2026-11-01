@@ -15,7 +15,20 @@ export function buildConciergeNewJobsEmail(service, serviceId, proposals, { auto
   const locale = Object.hasOwn(COPY, service.locale) ? service.locale : 'it';
   const copy = COPY[locale];
   const href = conciergeServiceUrl(service, serviceId, autologin);
-  const cards = proposals.slice(0, 3).map(p => brandJobCard({ title: p.jobTitle, company: p.companyName, location: p.location || '', locale })).join('');
+  const cards = proposals.slice(0, 3).map(p => brandJobCard({
+    title: p.jobTitle,
+    company: p.companyName,
+    location: p.location || '',
+    logoUrl: p.companyLogo || p.companyLogoUrl || p.logoUrl || '',
+    contract: p.contract || '',
+    salaryMin: p.salaryMin,
+    salaryMax: p.salaryMax,
+    salaryCurrency: p.salaryCurrency || '',
+    baseSalary: p.baseSalary || null,
+    firstSeenAt: p.firstSeenAt || p.postedDate || '',
+    locale,
+    url: p.jobUrl || '',
+  })).join('');
   return { subject: copy.newSubject, text: `${copy.newBody}\n\n${proposals.map(p => `${p.jobTitle} — ${p.companyName}`).join('\n')}\n\n${copy.newCta}: ${href}`,
     html: renderBrandedEmail({ locale, heroTitle: copy.newTitle, preheader: copy.newSubject, bodyHtml: brandParagraph(esc(copy.newBody)) + cards + brandButton(href, copy.newCta) }) };
 }

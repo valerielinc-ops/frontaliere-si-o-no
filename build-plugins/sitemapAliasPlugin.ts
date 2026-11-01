@@ -30,6 +30,7 @@ import { BASE_URL } from './constants';
 import {
   jobsSeoPagesFlushed,
   shouldAwaitJobsSeoPagesFlushed,
+  staticPagesFlushed,
 } from './shared/buildSignals';
 import {
   FUEL_SITEMAP_FILES,
@@ -613,9 +614,14 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
         //    The explicit jobs barrier is required even though this hook is
         //    post/sequential: closeBundle scheduling can otherwise expose a
         //    stale foreign-locale shard before the jobs writer resolves.
-        if (shouldAwaitJobsSeoPagesFlushed()) {
-          await jobsSeoPagesFlushed;
-        }
+        // FAST_BUILD omits the whole SEO plugin block, including the producer
+        // that resolves staticPagesFlushed; waiting there would deadlock the
+        // lightweight build. Full builds must wait for its sitemap backfill.
+        const buildSignals: Promise<void>[] = process.env.FAST_BUILD
+          ? []
+          : [staticPagesFlushed];
+        if (shouldAwaitJobsSeoPagesFlushed()) buildSignals.push(jobsSeoPagesFlushed);
+        await Promise.all(buildSignals);
         await reconcileFinalSitemapsWithDist(distDir, getFinalSitemapMirrorLocs());
 
         // 1. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the

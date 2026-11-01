@@ -5,10 +5,11 @@ import { revalidatedPortalQuestions, relaxablePortalQuestionTopic, legacyPortalC
 import { buildReviewPayload } from '../functions/src/assistedApplicationReview.js';
 import { candidateWithEdits, questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
-import { operationalPortalRecoveryReady } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
+import { operationalPortalRecoveryReady, portalRecoveryDefinitelyUnsent } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import { candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
 
 const now = Date.now();
 const daysAgo = (days: number) => now - days * 86400000;
@@ -49,6 +50,84 @@ const options = (store: ReturnType<typeof fixture>) => ({ db: store.db, now: () 
 it('keeps a mixed owner hold, or one without resolved draft questions, closed', () => {
   expect(operationalPortalRecoveryReady({ flow: { heldBy: ['question:q1', 'portal:portal_needs_candidate'] } })).toBe(false);
   expect(operationalPortalRecoveryReady({ flow: { heldBy: ['portal:portal_needs_candidate'] } })).toBe(false);
+});
+
+const hardRecoveryQuestion = {
+  id: 'employer_question', source: 'portal', required: true,
+  question: 'Employer-specific question', applicationQuestion: 'Employer-specific question',
+  context: 'Additional data', section: 'Additional data', autocomplete: '',
+  type: 'text', options: [], applicationOptions: ['Source A', 'Source B'], validation: {},
+};
+const recoveryPreferenceQuestions = [
+  { id: 'notice', source: 'portal', required: true, question: 'Periodo di preavviso', type: 'text', options: [], validation: {} },
+  { id: 'workload', source: 'portal', required: true, question: 'Grado di occupazione desiderato', type: 'text', options: [], validation: {} },
+  { id: 'whatsapp', source: 'portal', required: true, question: 'Comunicazione via WhatsApp', type: 'yes_no', options: [], validation: {} },
+];
+
+function recoveryContext({ answer = 'Candidate-confirmed answer', question = hardRecoveryQuestion } = {}) {
+  const questions = [...recoveryPreferenceQuestions, question];
+  return {
+    order: { paymentStatus: 'paid', consentVersion: 'assisted-application-v2', consentedAt: daysAgo(1) },
+    flow: {
+      state: 'owner_takeover', round: 1, heldBy: ['portal:portal_needs_candidate'],
+      dispatch: { mode: 'submit', round: 1, requestedAt: now - 1_000 },
+      answers: answer === null ? {} : { [question.id]: answer }, questionAnswers: {},
+    },
+    draft: {
+      status: 'ready', round: 1, completedAt: now - 2_000, questions,
+    },
+  };
+}
+
+it('allows discovery only when an unknown required portal question has a valid saved candidate answer', () => {
+  expect(operationalPortalRecoveryReady(recoveryContext())).toBe(true);
+  expect(operationalPortalRecoveryReady(recoveryContext({ answer: null }))).toBe(false);
+  const invalidChoice = recoveryContext({
+    question: { ...hardRecoveryQuestion, type: 'choice', options: ['A', 'B'] },
+    answer: 'unlisted option',
+  });
+  expect(operationalPortalRecoveryReady(invalidChoice)).toBe(false);
+  const noHardAnswer = recoveryContext({ answer: null });
+  const projected = withOperationalQuestionAnswers(noHardAnswer.draft.questions, noHardAnswer.flow.answers).answers;
+  expect(projected[hardRecoveryQuestion.id]).toBeUndefined();
+  expect(operationalPortalRecoveryReady(noHardAnswer)).toBe(false);
+});
+
+it('keeps the allowlisted preference defaults while never defaulting the hard question', () => {
+  const current = recoveryContext({ answer: null });
+  const projected = withOperationalQuestionAnswers(current.draft.questions, current.flow.answers).answers;
+  expect(projected).toMatchObject({ notice: '3 mesi', workload: '100%', whatsapp: 'Sì' });
+  expect(projected[hardRecoveryQuestion.id]).toBeUndefined();
+  expect(operationalPortalRecoveryReady(current)).toBe(false);
+});
+
+function unsentRecoveryContext() {
+  return {
+    order: { paymentStatus: 'paid', submissionStatus: 'in_progress', consentedAt: daysAgo(1) },
+    flow: {
+      state: 'owner_takeover', round: 1, heldBy: ['portal:portal_needs_candidate'],
+      portalCodeVersion: 'b'.repeat(64), portalRecoveryVersion: null,
+    },
+    draft: { status: 'ready', round: 1, sent: false, sentAttempt: false },
+    submission: { r1: { state: 'failed', channel: 'portal', releasedAt: now - 100 } },
+  };
+}
+
+it('keeps clicked, uncertain, sent, refunded and withdrawn rounds out of recovery', () => {
+  const version = 'a'.repeat(64);
+  expect(portalRecoveryDefinitelyUnsent({ ...unsentRecoveryContext(), version })).toBe(true);
+  const variants = [
+    ['clicked', current => { current.submission.r1.clickedAt = now - 50; }],
+    ['uncertain', current => { current.submission.r1.state = 'sending'; }],
+    ['sent', current => { current.submission.r0 = { state: 'sent' }; }],
+    ['refunded', current => { current.order.refundStatus = 'succeeded'; }],
+    ['withdrawn', current => { current.order.withdrawnAt = now - 50; }],
+  ];
+  for (const [_reason, mutate] of variants) {
+    const current = unsentRecoveryContext();
+    mutate(current);
+    expect(portalRecoveryDefinitelyUnsent({ ...current, version })).toBe(false);
+  }
 });
 
 describe('legacy operational portal contract reconciliation', () => {

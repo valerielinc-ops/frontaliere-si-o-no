@@ -1,3 +1,4 @@
+import { addressContextContract } from '../../../../functions/src/lib/addressContextContract.js';
 import { questionTopic } from './plan.mjs';
 export { portalAnswerForApplication, portalOptionMap } from '../../../../functions/src/lib/portalQuestionMapping.js';
 
@@ -17,8 +18,12 @@ export function normalizedPortalContext(context) {
 }
 
 function portalQuestionHash(question, context) {
+  return questionHash(`${normalizedPortalContext(question)}\u0000${normalizedPortalContext(context)}`);
+}
+
+function questionHash(value) {
   let hash = 2166136261;
-  for (const character of `${normalizedPortalContext(question)}\u0000${normalizedPortalContext(context)}`) {
+  for (const character of value) {
     hash ^= character.codePointAt(0);
     hash = Math.imul(hash, 16777619);
   }
@@ -41,7 +46,11 @@ export function portalQuestionId(question, context = '', section = '', autocompl
   const surrounding = typeof question === 'object' ? question?.context : context;
   const heading = typeof question === 'object' ? question?.section : section;
   const fieldAutocomplete = typeof question === 'object' ? question?.autocomplete : autocomplete;
-  const base = `portal_${slugId(label)}`;
+  const ownership = typeof question === 'object' ? addressContextContract(question) : undefined;
+  // Keep ownership outside the flattened-context bound: a child owner near
+  // the end of a long section must not disappear from the answer id.
+  const ownerKey = ownership === undefined ? '' : `_${questionHash(JSON.stringify(ownership))}`;
+  const base = `portal_${slugId(label)}${ownerKey}`;
   const metadata = [surrounding, heading, fieldAutocomplete].map(normalizedPortalContext).filter(Boolean).join('\u0000');
   return metadata ? `${base}_${portalQuestionHash(label, metadata)}` : base;
 }
@@ -52,12 +61,16 @@ export function portalQuestionKey(question, context = '', section = '', autocomp
   const surrounding = typeof question === 'object' ? question?.context : context;
   const heading = typeof question === 'object' ? question?.section : section;
   const fieldAutocomplete = typeof question === 'object' ? question?.autocomplete : autocomplete;
-  const topic = questionTopic(label, surrounding, { section: heading, autocomplete: fieldAutocomplete });
-  if (!topic) return portalQuestionId(label, surrounding, heading, fieldAutocomplete);
+  const ownership = typeof question === 'object' ? addressContextContract(question) : undefined;
+  if (ownership === null || ownership?.unknown) return '';
+  const ownerKey = ownership === undefined ? '' : `|owner:${questionHash(JSON.stringify(ownership))}`;
+  const metadata = { section: heading, autocomplete: fieldAutocomplete, ...(ownership === undefined ? {} : { addressContext: ownership }) };
+  const topic = questionTopic(label, surrounding, metadata);
+  if (!topic) return portalQuestionId(typeof question === 'object' ? question : label, surrounding, heading, fieldAutocomplete);
   const contextSensitive = /^(?:birth_date|address|address_street|address_house_number|residence_|phone_country$|current_school$|start_date_contextual$)/.test(topic);
   const normalizedContext = normalizedPortalContext(surrounding);
   const normalizedSection = normalizedPortalContext(heading);
-  if (topic === 'start_date_contextual' && !normalizedContext) return portalQuestionId(label, surrounding, heading, fieldAutocomplete);
+  if (topic === 'start_date_contextual' && !normalizedContext) return portalQuestionId(typeof question === 'object' ? question : label, surrounding, heading, fieldAutocomplete);
   const contextKey = [normalizedContext, normalizedSection].filter(Boolean).join('|');
-  return contextSensitive && contextKey ? `${topic}|${contextKey}` : topic;
+  return `${contextSensitive && contextKey ? `${topic}|${contextKey}` : topic}${ownerKey}`;
 }

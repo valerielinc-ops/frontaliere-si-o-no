@@ -169,7 +169,9 @@ function listingTypeCapDays(job) {
 /**
  * Active listing deadline. Plausible source deadlines win; otherwise an
  * observation-based window shrinks with listing age and is extended only when
- * the crawler writes a newer real observation. There is no build-clock floor.
+ * the crawler writes a newer real observation. If no date evidence exists at
+ * all, an employment-type window anchored to the build clock keeps the active
+ * JobPosting contract complete and is marked as a fallback provenance.
  */
 export function resolveActiveJobPostingDeadline(job, now = new Date()) {
   const clock = Number.isFinite(now?.getTime()) ? now : new Date();
@@ -182,7 +184,10 @@ export function resolveActiveJobPostingDeadline(job, now = new Date()) {
 
   const storedSource = job?.validThroughSource === 'last-observed-window'
     || job?.validThroughSource === 'job-type-cap';
-  const explicit = storedSource ? null : resolveSourceDeadline(job?.validThrough, clock);
+  const buildClockFallback = job?.validThroughSource === 'build-clock-fallback';
+  const explicit = storedSource || buildClockFallback
+    ? null
+    : resolveSourceDeadline(job?.validThrough, clock);
   const sourceDate = job?.validThrough ? new Date(String(job.validThrough)) : null;
   const dateOnly = typeof job?.validThrough === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(job.validThrough.trim());
   const todayStart = Date.UTC(clock.getUTCFullYear(), clock.getUTCMonth(), clock.getUTCDate());
@@ -215,6 +220,21 @@ export function resolveActiveJobPostingDeadline(job, now = new Date()) {
     }
   }
 
+  // A build-clock fallback is persisted evidence of the last safe window, not
+  // permission to renew the listing on every normalization pass. Keep it
+  // byte-stable while it is still future so repeated slice assembly remains
+  // idempotent; once it expires, the final fallback below starts a new bounded
+  // window from the current build clock.
+  if (buildClockFallback && job?.validThrough) {
+    const retained = new Date(String(job.validThrough));
+    if (Number.isFinite(retained.getTime()) && retained.getTime() > clock.getTime()) {
+      return {
+        validThrough: retained.toISOString(),
+        validThroughSource: 'build-clock-fallback',
+      };
+    }
+  }
+
   const publicationDate = parseDate(job?.datePosted || job?.postedDate || job?.firstSeenAt, clock);
   if (publicationDate) {
     const capDays = listingTypeCapDays(job);
@@ -224,5 +244,9 @@ export function resolveActiveJobPostingDeadline(job, now = new Date()) {
     };
   }
 
-  return { validThrough: null, validThroughSource: 'job-type-cap' };
+  const fallbackDays = listingTypeCapDays(job);
+  return {
+    validThrough: new Date(clock.getTime() + fallbackDays * DAY_MS).toISOString(),
+    validThroughSource: 'build-clock-fallback',
+  };
 }

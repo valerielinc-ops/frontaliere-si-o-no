@@ -116,6 +116,7 @@ jobs:
       # questions ahead (career-ops apply.md: identify all questions first).
       - name: Install Chromium for the portal runner
         run: npx playwright install --with-deps chromium
+        timeout-minutes: 15
 
       - name: Install NopeCHA for portal submissions
         if: inputs.mode != 'draft'
