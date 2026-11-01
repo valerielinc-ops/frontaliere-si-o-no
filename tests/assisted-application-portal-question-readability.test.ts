@@ -257,6 +257,18 @@ it('keeps accessible questions bound to their own conditional field', () => {
   dom.window.close();
 });
 
+it('prefers readable ATS evidence over a generated question label', () => {
+  const result = portalRequirementsFromMissingRequired([
+    { id: 'f', label: 'Do you have a Swiss work permit?', required: true, kind: 'text' },
+  ], [{
+    id: 'f', question: 'input-7', applicationQuestion: 'Do you have a Swiss work permit?', type: 'text', required: true,
+  }]);
+  expect(result.questions).toMatchObject([{
+    question: 'Do you have a Swiss work permit?',
+    applicationQuestion: 'Do you have a Swiss work permit?',
+  }]);
+});
+
 it.each([
   '<label for="y">I accept the Privacy Policy. *</label><input id="y" type="checkbox" required>',
   '<label>I accept the Privacy Policy. *<input id="y" type="checkbox" required></label>',

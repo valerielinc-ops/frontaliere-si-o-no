@@ -1282,13 +1282,17 @@ const portalQuestionMetadata = field => {
 function questionsFrom(missingRequired) {
   const questions = [];
   const seen = new Set();
+  const readableQuestionCandidate = value => {
+    const text = readablePortalQuestionText(value);
+    return text && !machineLabel(text) ? text : '';
+  };
   for (const item of missingRequired) {
     const id = portalQuestionId(item);
     const key = portalQuestionKey(item) || id;
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
     const applicationQuestion = [item.applicationQuestion, item.portalQuestion, item.question]
-      .map(readablePortalQuestionText)
+      .map(readableQuestionCandidate)
       .find(Boolean)?.slice(0, 300) || '';
     const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
@@ -1297,7 +1301,7 @@ function questionsFrom(missingRequired) {
     const optionMap = portalOptionMap({ options, applicationOptions, optionMap: item.optionMap });
     questions.push({
       id,
-      question: readablePortalQuestionText(item.question) || applicationQuestion,
+      question: readableQuestionCandidate(item.question) || applicationQuestion,
       applicationQuestion,
       ...(applicationOptions.length ? { applicationOptions } : {}),
       ...(optionMap.length ? { optionMap } : {}),
