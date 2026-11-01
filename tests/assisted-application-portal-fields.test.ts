@@ -314,8 +314,14 @@ describe('portal field extraction', () => {
     expect(ancestorQuestion.fields[0].label).toBe('Wrapped question');
     const ancestorPair = extract('<form><div><span>First wrapped question</span><div><input id="input-24"></div><span>Second wrapped question</span><div><input id="input-25"></div></div></form>');
     expect(ancestorPair.fields.map((field: any) => field.label)).toEqual(['First wrapped question', 'Second wrapped question']);
+    const orientedAncestorLabel = extract('<form><div><input id="input-27"></div><span>Second wrapped question</span><div><input id="input-28"></div></form>');
+    expect(orientedAncestorLabel.fields.map((field: any) => field.label)).toEqual(['input-27', 'Second wrapped question']);
     const nestedSiblingQuestion = extract('<form><span>First <span>nested</span> question?</span><input id="input-26"></form>');
     expect(nestedSiblingQuestion.fields[0].label).toBe('First nested question?');
+    const pageParentCopy = extract('<main><span>Careers at Example</span><input id="input-29"></main>');
+    expect(pageParentCopy.fields[0].label).toBe('input-29');
+    const optionNotLabel = extract('<form><div role="group"><input id="input-30" role="combobox" aria-controls="choices"><div id="choices" role="listbox"><div role="option">Open vacancy</div></div></div></form>');
+    expect(optionNotLabel.fields[0].label).toBe('input-30');
     const privacyPrompt = extract('<form><span class="question">Seleziona questa casella per confermare di aver letto l’<span>Informativa sulla privacy</span> per i candidati.</span><input id="input-18" type="checkbox" required></form>');
     const fullPrivacyLabel = 'Seleziona questa casella per confermare di aver letto l’Informativa sulla privacy per i candidati.';
     expect(privacyPrompt.fields[0].label).toBe(fullPrivacyLabel);

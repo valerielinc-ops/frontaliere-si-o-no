@@ -476,7 +476,11 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     const containers = [];
     if (dropZone) containers.push(dropZone);
     for (let node = parent, depth = 0; node && depth < 6; node = node.parentElement, depth += 1) {
-      if (node !== parent && node.matches('body, main, [role="main"], section, article, dialog, [role="dialog"], [role="region"], [role="tabpanel"]')) break;
+      if (node.matches('body, main, [role="main"]')) {
+        if (node === dropZone && !containers.includes(node)) containers.push(node);
+        break;
+      }
+      if (node !== parent && node.matches('section, article, dialog, [role="dialog"], [role="region"], [role="tabpanel"]')) break;
       if (!containers.includes(node)) containers.push(node);
       if (node === dropZone || node === group || node.matches('form, [role="form"]')) break;
     }
@@ -498,14 +502,22 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       let contextBefore = '';
       let contextAfter = '';
       for (const sibling of questionSiblings) {
-        const value = clean(sibling.innerText || sibling.textContent);
+        const siblingWalker = document.createTreeWalker(sibling, 4);
+        const siblingParts = [];
+        for (let siblingText = siblingWalker.nextNode(); siblingText; siblingText = siblingWalker.nextNode()) {
+          if (siblingText.parentElement?.closest(`${QUESTION_CONTROL_SELECTOR}, select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend`)) continue;
+          siblingParts.push(siblingText.textContent || '');
+        }
+        const value = clean(siblingParts.join(''));
         if (!value || !isQuestionLabelText(value)) continue;
         // eslint-disable-next-line no-bitwise
         const isBefore = Boolean(sibling.compareDocumentPosition(element) & FOLLOWING);
         const crossesControl = controls.some((control) => control !== element && (isBefore
           ? (sibling.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(element) & FOLLOWING)
           : (element.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(sibling) & FOLLOWING)));
-        if (crossesControl) continue;
+        const belongsAfterAnotherControl = !isBefore && controls.some((control) => control !== element
+          && (sibling.compareDocumentPosition(control) & FOLLOWING));
+        if (crossesControl || belongsAfterAnotherControl) continue;
         if (isBefore && !siblingBefore) siblingBefore = value;
         else if (!isBefore && !siblingAfter) siblingAfter = value;
       }
@@ -514,7 +526,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       for (let text = walker.nextNode(); text; text = walker.nextNode()) {
         // Never from inside a control: a select's first option is an answer, not a question.
         const owner = text.parentElement;
-        if (owner?.closest(`${QUESTION_CONTROL_SELECTOR}, h1, h2, h3, h4, legend`)) continue;
+        if (owner?.closest(`${QUESTION_CONTROL_SELECTOR}, select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend`)) continue;
         if (questionSiblings.some((sibling) => sibling.contains(owner))) continue;
         const value = clean(text.textContent);
         if (!value) continue;
