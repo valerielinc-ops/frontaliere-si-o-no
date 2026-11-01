@@ -2830,7 +2830,10 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   const canResendVerification = Boolean(findButton(snapshot.buttons || [], RESEND_VERIFICATION_RE)
     || (snapshot.links || []).some((link) => [link.text, link.label, link.ariaLabel, link.title]
       .some((value) => RESEND_VERIFICATION_RE.test(String(value || '')))));
-  if (kind === 'sign_in' && account && !account.verifiedAt && canResendVerification) {
+  // SuccessFactors keeps the pending OTP account in this same sign-in shape;
+  // its dedicated recovery below must restart registration instead of trying
+  // to verify through a mailbox account that does not exist yet.
+  if (kind === 'sign_in' && account && !account.verifiedAt && canResendVerification && !usesOtpAccountCreation(host)) {
     return verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot });
   }
 
