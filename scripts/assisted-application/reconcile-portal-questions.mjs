@@ -13,7 +13,8 @@ import { PORTAL_CONTRACT_RECONCILIATION_VERSION as VERSION, legacyPortalContract
 const RECEIPT = 'portalQuestionContractRecovery';
 const RETRY_MS = [5 * 60_000, 30 * 60_000];
 const plainObject = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
-const stateHash = context => portalContractContextHash({ ...context,
+const stateHash = (context, answerEvidenceFingerprint = '') => portalContractContextHash({ ...context,
+  answerEvidenceFingerprint,
   submission: { ...context.submission, [RECEIPT]: undefined } });
 
 async function readContext(ref, read = item => item.get()) {
@@ -25,12 +26,15 @@ async function readContext(ref, read = item => item.get()) {
 
 async function contextWithVerifiedAnswers(db, orderId, context, nowMs, getDocument) {
   const rawFlow = context.flow || {};
-  const { flow } = await loadRunnerAnswerContext({ db, orderId, order: context.order || {}, flow: context.flow || {},
+  const { flow, answerEvidence } = await loadRunnerAnswerContext({ db, orderId, order: context.order || {}, flow: context.flow || {},
     draft: context.draft || {}, nowMs, getDocument });
+  const answerEvidenceFingerprint = portalContractContextHash((answerEvidence || [])
+    .map(record => String(record?.id || record?.key || '').trim()).filter(Boolean).sort());
   // Keep the marker out of Firestore: it only tells the reconciliation policy
   // that this is a freshly loaded, untrusted legacy projection.
   return { ...context, flow: { ...flow, __answerContextLoaded: true,
-    __legacyAnswers: plainObject(rawFlow.answers), __legacyQuestionAnswers: plainObject(rawFlow.questionAnswers) } };
+    __legacyAnswers: plainObject(rawFlow.answers), __legacyQuestionAnswers: plainObject(rawFlow.questionAnswers),
+    __answerEvidenceFingerprint: answerEvidenceFingerprint } };
 }
 
 export async function reconcilePortalQuestions({ db, apply = false, now = Date.now, isEnabled = null,
@@ -71,7 +75,7 @@ export async function reconcilePortalQuestions({ db, apply = false, now = Date.n
       const initialRaw = await readContext(doc.ref);
       const initial = await contextWithVerifiedAnswers(db, doc.id, initialRaw, now(), ref => ref.get());
       if (!legacyPortalContractEligible(initial, now())) continue;
-      const contextHash = stateHash(initialRaw);
+      const contextHash = stateHash(initialRaw, initial.flow?.__answerEvidenceFingerprint);
       const episode = portalContractEpisode(initialRaw);
       const prior = initialRaw.submission[RECEIPT];
       const sameClass = prior?.version === VERSION && prior?.episode === episode;
@@ -90,7 +94,8 @@ export async function reconcilePortalQuestions({ db, apply = false, now = Date.n
         }
         const currentRaw = await readContext(doc.ref, ref => tx.get(ref));
         const current = await contextWithVerifiedAnswers(db, doc.id, currentRaw, now(), ref => tx.get(ref));
-        if (!legacyPortalContractEligible(current, now()) || stateHash(currentRaw) !== contextHash) return 'raced';
+        if (!legacyPortalContractEligible(current, now())
+          || stateHash(currentRaw, current.flow?.__answerEvidenceFingerprint) !== contextHash) return 'raced';
         const patch = revalidatedPortalQuestions(current, proof, now(), {
           previouslyRelaxed: sameClass ? prior.relaxedQuestionKeys || [] : [],
         });
@@ -102,7 +107,7 @@ export async function reconcilePortalQuestions({ db, apply = false, now = Date.n
         const relaxed = patch.changed ? patch.questions.filter(question => patch.updated.includes(question.id)
           && question.required === false).map(portalContractQuestionKey) : [];
         const receipt = { version: VERSION, episode, attempts, checkedAt: stamp, round: Number(currentRaw.flow.round),
-          contextHash: stateHash({ ...currentRaw, order: nextOrder, draft: nextDraft }),
+          contextHash: stateHash({ ...currentRaw, order: nextOrder, draft: nextDraft }, current.flow?.__answerEvidenceFingerprint),
           outcome: patch.changed ? 'reconciled' : transient ? 'transient' : 'unknown',
           reason: proof.complete ? patch.reason || 'native_contract_observed' : proof.reason || patch.reason,
           proof: { observedAt: proof.observedAt || stamp, complete: Boolean(proof.complete), stable: Boolean(proof.stable),

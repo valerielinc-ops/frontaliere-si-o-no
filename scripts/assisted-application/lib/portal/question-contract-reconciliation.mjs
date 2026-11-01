@@ -54,7 +54,7 @@ export function legacyPortalContractEligible({ order, flow, draft, submission = 
   const send = submission[`r${round}`];
   const eligibilityFlow = flow?.__answerContextLoaded
     && flow?.orderQuestionAnswersEvidenceVersion !== ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
-    ? { ...flow, answers: {}, questionAnswers: {} } : flow;
+    ? { ...flow, answers: {}, questionAnswers: flow.questionAnswers || {} } : flow;
   return order?.paymentStatus === 'paid' && hasAssistedApplicationConsent(order)
     && !order.withdrawnAt && !order.retentionPurgingAt && !order.retentionPurgedAt && !order.retentionPayloadPurgedAt
     && (talentPoolConsentActive(order) || (purgeAt != null && purgeAt > nowMs))
@@ -96,13 +96,14 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
   // The maintenance read marks an untrusted legacy projection so it cannot
   // suppress the question being revalidated. Direct callers still retain the
   // old local answer for compatibility checks and audit-only behavior.
-  const recoveryFlow = ignoreUnattestedAnswers ? { ...flow, answers: {}, questionAnswers: {} } : flow;
+  const recoveryFlow = ignoreUnattestedAnswers
+    ? { ...flow, answers: {}, questionAnswers: flow.questionAnswers || {} } : flow;
   const answers = candidateWithEdits({ order, draft, flow: recoveryFlow }).answers;
   // Compatibility checks may inspect an order's old local answers, but the
-  // strict execution projection above must remain empty until a candidate or
-  // owner writes an attested snapshot.
+  // strict execution projection above excludes those raw values while keeping
+  // any independently verified candidate evidence.
   const preservedFlow = ignoreUnattestedAnswers
-    ? { ...flow, answers: flow.__legacyAnswers || {} }
+    ? { ...flow, answers: flow.__legacyAnswers || {}, questionAnswers: flow.questionAnswers || {} }
     : flow;
   const preservedAnswers = candidateWithEdits({ order, draft, flow: preservedFlow }).answers;
   const held = new Set(ownerPortalQuestionHold(flow)

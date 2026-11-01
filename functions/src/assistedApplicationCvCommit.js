@@ -102,7 +102,7 @@ export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 
     transaction.set(draftRef, draftPatch, { merge: true });
     return true;
   });
-  if (committed) return;
+  if (committed) return true;
   await deleteStored(bucket, orderId, created);
   throw new CvCommitError('changed_meanwhile', 409);
 }
@@ -235,7 +235,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   }
   if (!bucket) throw new CvCommitError('storage_unavailable', 503);
   const rebuilt = await rebuildCvToCommit({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
-  await commitRebuild({
+  const rebuildCommitted = await commitRebuild({
     db, bucket, orderId, flow, draft, state: flow.state, nowMs, created: [rebuilt.pdfKey],
     flowPatch: { answers, questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
       questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
@@ -245,6 +245,10 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
       draftRound: Number(draft?.round) || 1, nowMs },
     draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
   });
+  if (rebuildCommitted === false) {
+    await deleteStored(bucket, orderId, [rebuilt.pdfKey]);
+    throw new CvCommitError('changed_meanwhile', 409);
+  }
   await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);
   await persistCandidateQuestionAnswers();
   return { rebuilt: true };
