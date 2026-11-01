@@ -120,8 +120,7 @@
       "streetAddress": "Conthey",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-la8792",
@@ -844,8 +843,7 @@
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-bf7guf",
@@ -963,8 +961,7 @@
       "streetAddress": "Haute-Nendaz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-yok6fd",
@@ -1424,8 +1421,7 @@
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-pwl1xs",
@@ -2253,8 +2249,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-nmb4sp",
@@ -2381,8 +2376,7 @@
       "streetAddress": "Urtenen-Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-op7ofx",
@@ -2502,8 +2496,7 @@
       "streetAddress": "Ostermundigen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-oe0dhr",
@@ -2842,8 +2835,7 @@
       "streetAddress": "Vuadens",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-iz4m9p",
@@ -3179,8 +3171,7 @@
       "streetAddress": "Chêne-Bougeries",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-lvrefr",
@@ -4201,8 +4192,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-cj9ej6",
@@ -4436,8 +4426,7 @@
       "streetAddress": "Prilly",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-lt51ri",
@@ -5360,8 +5349,7 @@
       "streetAddress": "Genf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-aa4gib",
@@ -5845,8 +5833,7 @@
       "streetAddress": "Route de Payerne 2-4",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-26T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-cb1ybj",
@@ -6416,8 +6403,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-s98wsn",
@@ -7327,8 +7313,7 @@
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-jr7a85",
@@ -7534,14 +7519,12 @@
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
         "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
         "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2",
         "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
           "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
-          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2",
           "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "en": [
@@ -7662,8 +7645,7 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-yk77jn",
@@ -8367,8 +8349,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-hh3vjb",
@@ -10254,8 +10235,7 @@
       "streetAddress": "Bremgarten bei Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-26xj54",
@@ -12190,8 +12170,7 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-o1igpw",
@@ -13282,8 +13261,7 @@
       "streetAddress": "Hochdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-r0kc8h",
@@ -13523,8 +13501,7 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-23T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-301oed",
@@ -14230,8 +14207,7 @@
       "streetAddress": "Gossau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-blotwt",
@@ -14576,8 +14552,7 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-ag305d",
@@ -14924,8 +14899,7 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-z66ikz",
@@ -15152,8 +15126,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-hzlk8f",
@@ -15527,8 +15500,7 @@
       "streetAddress": "Avenches",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-7fzn9f",
@@ -15759,8 +15731,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-82lh82",
@@ -16447,8 +16418,7 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-63gjjh",
@@ -16846,8 +16816,7 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-75tbup",
@@ -16967,8 +16936,7 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-cn9a6a",
@@ -17933,8 +17901,7 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-mthmyp",
@@ -18738,8 +18705,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-egmbpt",
@@ -19466,8 +19432,7 @@
       "streetAddress": "Seidengasse 12",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-eirdbo",
@@ -19584,8 +19549,7 @@
       "streetAddress": "Greifensee",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-tn3myo",
@@ -19945,8 +19909,7 @@
       "streetAddress": "Münchenstein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-auax1x",
@@ -20941,8 +20904,7 @@
       "streetAddress": "Stans",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-tnv20a",
@@ -21169,8 +21131,7 @@
       "streetAddress": "Urtenen-Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-2ywacy",
@@ -21288,8 +21249,7 @@
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-prjk9c",
@@ -21400,8 +21360,7 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-k8tuc7",
@@ -21636,8 +21595,7 @@
       "streetAddress": "Sursee",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-6xgy0h",
@@ -21761,8 +21719,7 @@
       "streetAddress": "Brügg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-gijq64",
@@ -21886,8 +21843,7 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-dbw0fl",
@@ -22343,8 +22299,7 @@
       "streetAddress": "Steinhausen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-s0oq8k",
@@ -23074,8 +23029,7 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-8oa78c",
@@ -24725,8 +24679,7 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-5tp635",
@@ -25437,8 +25390,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-ijtaf9",
@@ -25781,8 +25733,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-svp3nq",
@@ -26481,8 +26432,7 @@
       "streetAddress": "Altstetten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-9hyr6s",
@@ -26607,8 +26557,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-5mcstz",
@@ -26726,8 +26675,7 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-6ysw9o",
@@ -27103,8 +27051,7 @@
       "streetAddress": "Münchenstein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-9xrul7",
@@ -27462,8 +27409,7 @@
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-5jffbi",
@@ -28062,8 +28008,7 @@
       "streetAddress": "Glarus",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-n2hffo",
@@ -28540,8 +28485,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-sy5ygs",
@@ -28752,8 +28696,7 @@
       "streetAddress": "Pfäffikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-1zdc5c",
@@ -29106,8 +29049,7 @@
       "streetAddress": "Oberbuchsiten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-cihd51",
@@ -29462,8 +29404,7 @@
       "streetAddress": "Sissach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-a6xqsw",
@@ -30294,8 +30235,7 @@
       "streetAddress": "Ramsen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-6ptr37",
@@ -31007,8 +30947,7 @@
       "streetAddress": "Zumikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-66rc0n",
@@ -34478,8 +34417,7 @@
       "streetAddress": "Hochdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-11T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-dwov27",
@@ -34921,8 +34859,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-930k3m",
@@ -35286,8 +35223,7 @@
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-zwgul",
@@ -35413,8 +35349,7 @@
       "streetAddress": "Avry-sur-Matran",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-jktnum",
@@ -36324,8 +36259,7 @@
       "streetAddress": "Pfaffikon SZ",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-4malxt",
@@ -37018,8 +36952,7 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-vcb94z",
@@ -39005,8 +38938,7 @@
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-swqeri",
@@ -39518,8 +39450,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-k2q605",
@@ -39859,8 +39790,7 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-f6h7k3",
@@ -41041,8 +40971,7 @@
       "streetAddress": "Birsfelden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-5mfybw",
@@ -41981,8 +41910,7 @@
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-cr200q",
@@ -42215,8 +42143,7 @@
       "streetAddress": "Genf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-oo6fr4",
@@ -42477,8 +42404,7 @@
       "streetAddress": "Pully",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-e1dwca",
@@ -42593,8 +42519,7 @@
       "streetAddress": "Aproz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-twesd5",
@@ -43045,8 +42970,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-5m5rxv",
@@ -44601,8 +44525,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-jlldwu",
@@ -45327,8 +45250,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-13a593",
@@ -46040,8 +45962,7 @@
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-4dtzhe",
@@ -46373,8 +46294,7 @@
       "streetAddress": "Lyss",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-mzvq4k",
@@ -47310,8 +47230,7 @@
       "streetAddress": "Uzwil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-2bmnr1",
@@ -47426,8 +47345,7 @@
       "streetAddress": "Petit-Lancy",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-2jh035",
@@ -47830,8 +47748,7 @@
       "streetAddress": "rue des Perveuils 2",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-4yjwks",
@@ -48182,8 +48099,7 @@
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-5dcg6z",
@@ -48417,8 +48333,7 @@
       "streetAddress": "Bazenheid",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-k1olez",
@@ -48668,8 +48583,7 @@
       "streetAddress": "Steinhausen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-mxpe3j",
@@ -49069,8 +48983,7 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-umtui2",
@@ -49190,8 +49103,7 @@
       "streetAddress": "Neuendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-eairwd",
@@ -49546,8 +49458,7 @@
       "streetAddress": "Rotkreuz (ZG)",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-gdek39",
@@ -50272,8 +50183,7 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-miw0p7",
@@ -51464,8 +51374,7 @@
       "streetAddress": "Thal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-8o7lfw",
@@ -51698,8 +51607,7 @@
       "streetAddress": "Suhr",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-mo0dku",
@@ -52265,7 +52173,6 @@
         "it": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
-          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2",
           "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "en": [
@@ -52279,7 +52186,6 @@
       "previousSlugs": [
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2",
         "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "salarySource": "estimated",
@@ -52781,8 +52687,7 @@
       "streetAddress": "Buchs (AG)",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-p8ztjx",
@@ -56113,8 +56018,7 @@
       "streetAddress": "Köniz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-h4w0rq",
@@ -56215,8 +56119,7 @@
       "streetAddress": "Buchs (AG)",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-wc6ly9",
@@ -56319,8 +56222,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-idiszm",
@@ -56587,8 +56489,7 @@
       "streetAddress": "Bern-Bruennen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-rv21lf",
@@ -56941,8 +56842,7 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-c2wba2",
@@ -57179,8 +57079,7 @@
       "streetAddress": "Gossau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-dlf4oh",
@@ -57895,8 +57794,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-8lg8qz",
@@ -58158,8 +58056,7 @@
       "streetAddress": "Aigle",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-31T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-kf81xv",
@@ -58785,8 +58682,7 @@
       "streetAddress": "Gränichen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-31T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-nhv8cl",
@@ -59295,8 +59191,7 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-31T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-x1t4jq",
@@ -60220,8 +60115,7 @@
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-hdb9cy",
@@ -60472,8 +60366,7 @@
       "streetAddress": "Dietikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-31T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-knbfpq",
@@ -61741,8 +61634,7 @@
       "streetAddress": "Oberbuchsiten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-fll5kv",
@@ -62476,8 +62368,7 @@
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-ovjc5i",
@@ -62586,8 +62477,7 @@
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-aph0ci",
@@ -63852,8 +63742,7 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-or7bzu",
@@ -64085,8 +63974,7 @@
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-r4pwii",
@@ -64564,8 +64452,7 @@
       "streetAddress": "Pfungen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-epqine",
@@ -66252,8 +66139,7 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-9ku1xw",
@@ -67189,8 +67075,7 @@
       "streetAddress": "Matzingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-2z1h8z",
@@ -68369,8 +68254,7 @@
       "streetAddress": "Kreuzlingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-832bmt",
@@ -70012,8 +69896,7 @@
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-pxoq7d",
@@ -71814,8 +71697,7 @@
       "streetAddress": "Windisch",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-9hzpbg",
@@ -74872,8 +74754,7 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-66hgvv",
@@ -75215,8 +75096,7 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-l1fwt3",
@@ -75896,8 +75776,7 @@
       "streetAddress": "Rain",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-52zg9j",
@@ -76013,8 +75892,7 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-8un3fl",
@@ -76362,8 +76240,7 @@
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-wvf9wk",
@@ -76597,8 +76474,7 @@
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-dmnlg5",
@@ -77433,8 +77309,7 @@
       "streetAddress": "Oerlikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-e82lhz",
@@ -79321,8 +79196,7 @@
       "streetAddress": "Ostermundigen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-bfyxub",
@@ -79784,8 +79658,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-sps8zq",
@@ -80139,8 +80012,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-hxcpk9",
@@ -80638,8 +80510,7 @@
       "streetAddress": "Staufen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-2gvhca",
@@ -80987,8 +80858,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-8k2vtb",
@@ -81344,8 +81214,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-4drzdj",
@@ -81586,8 +81455,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-hssg2d",
@@ -82067,8 +81935,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-6q3z07",
@@ -82306,8 +82173,7 @@
       "streetAddress": "Spiez",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-ae4a43",
@@ -82430,8 +82296,7 @@
       "streetAddress": "Belp",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-lj2cve",
@@ -82558,8 +82423,7 @@
       "streetAddress": "Brügg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-qqgd2s",
@@ -83010,8 +82874,7 @@
       "streetAddress": "Abtwil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-2cmwmv",
@@ -83236,8 +83099,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-4s55oo",
@@ -83734,8 +83596,7 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-isdotd",
@@ -83845,8 +83706,7 @@
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-su4gu8",
@@ -84076,8 +83936,7 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-75bx2q",
@@ -84831,8 +84690,7 @@
       "streetAddress": "Dierikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-gwri9t",
@@ -86030,8 +85888,7 @@
       "streetAddress": "Baar",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-jy5wtb",
@@ -87694,8 +87551,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-6xnq3o",
@@ -87810,8 +87666,7 @@
       "streetAddress": "Birsfelden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-i8ziuc",
@@ -88425,8 +88280,7 @@
       "streetAddress": "Mels",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-rgjg2p",
@@ -89741,8 +89595,7 @@
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-64fvlx",
@@ -89904,8 +89757,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-8g6o4g",
@@ -90856,8 +90708,7 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-uhgbvg",
@@ -91113,8 +90964,7 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-yy16d2",
@@ -91352,8 +91202,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-iyjr4s",
@@ -91592,8 +91441,7 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-07T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-1cnlpc",
@@ -92079,8 +91927,7 @@
       "streetAddress": "Belp",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-07T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-hkqilj",
@@ -94704,8 +94551,7 @@
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-rq98eb",
@@ -95951,8 +95797,7 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-cfgeao",
@@ -96067,8 +95912,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-f2iyhs",
@@ -99611,8 +99455,7 @@
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-588iq5",
@@ -100107,8 +99950,7 @@
       "streetAddress": "Sissach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-cbw6wy",
@@ -100465,8 +100307,7 @@
       "streetAddress": "Bern-Brünnen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-wear3v",
@@ -101367,8 +101208,7 @@
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-z0ao1d",
@@ -101613,8 +101453,7 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-8jrw0b",
@@ -101865,8 +101704,7 @@
       "streetAddress": "Küssnacht am Rigi",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-1gtr9b",
@@ -105277,8 +105115,7 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-blzmsh",
@@ -105399,8 +105236,7 @@
       "streetAddress": "Langendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-wyp2ru",
@@ -106213,8 +106049,7 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-ywm2kc",
@@ -107079,8 +106914,7 @@
       "streetAddress": "Steinhausen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-6q3y54",
@@ -108512,8 +108346,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:42:32.484Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-qg19yn",
@@ -108620,8 +108453,7 @@
       "streetAddress": "Vernier",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:42:32.484Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-4ioxs9",
@@ -108858,8 +108690,7 @@
       "streetAddress": "Neuenburg am Rhein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:27.010Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-puw386",
@@ -109479,8 +109310,7 @@
       "streetAddress": "Courtepin",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T22:05:05.543Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-wnug04",

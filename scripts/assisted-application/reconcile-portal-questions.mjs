@@ -4,6 +4,7 @@ import { getRemoteConfig } from 'firebase-admin/remote-config';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from '../../functions/src/assistedApplicationAutomationFlag.js';
+import { loadRunnerAnswerContext } from '../../functions/src/assistedApplicationAnswerEvidence.js';
 import { readOnlyPortalContracts } from './lib/portal/read-only-contracts.mjs';
 import { PORTAL_CONTRACT_RECONCILIATION_VERSION as VERSION, legacyPortalContractEligible,
   portalContractContextHash, portalContractEpisode, portalContractSourceUrl,
@@ -11,7 +12,9 @@ import { PORTAL_CONTRACT_RECONCILIATION_VERSION as VERSION, legacyPortalContract
 
 const RECEIPT = 'portalQuestionContractRecovery';
 const RETRY_MS = [5 * 60_000, 30 * 60_000];
-const stateHash = context => portalContractContextHash({ ...context,
+const plainObject = value => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+const stateHash = (context, answerEvidenceFingerprint = '') => portalContractContextHash({ ...context,
+  answerEvidenceFingerprint,
   submission: { ...context.submission, [RECEIPT]: undefined } });
 
 async function readContext(ref, read = item => item.get()) {
@@ -19,6 +22,19 @@ async function readContext(ref, read = item => item.get()) {
     read(ref.collection('ai_drafts').doc('current')), read(ref.collection('automation').doc('submission')),
     read(ref.collection('automation').doc('execution'))]);
   return { order: order.data(), flow: flow.data(), draft: draft.data(), submission: submission.data() || {}, execution: execution.data() || {} };
+}
+
+async function contextWithVerifiedAnswers(db, orderId, context, nowMs, getDocument) {
+  const rawFlow = context.flow || {};
+  const { flow, answerEvidence } = await loadRunnerAnswerContext({ db, orderId, order: context.order || {}, flow: context.flow || {},
+    draft: context.draft || {}, nowMs, getDocument });
+  const answerEvidenceFingerprint = portalContractContextHash((answerEvidence || [])
+    .map(record => String(record?.id || record?.key || '').trim()).filter(Boolean).sort());
+  // Keep the marker out of Firestore: it only tells the reconciliation policy
+  // that this is a freshly loaded, untrusted legacy projection.
+  return { ...context, flow: { ...flow, __answerContextLoaded: true,
+    __legacyAnswers: plainObject(rawFlow.answers), __legacyQuestionAnswers: plainObject(rawFlow.questionAnswers),
+    __answerEvidenceFingerprint: answerEvidenceFingerprint } };
 }
 
 export async function reconcilePortalQuestions({ db, apply = false, now = Date.now, isEnabled = null,
@@ -56,11 +72,12 @@ export async function reconcilePortalQuestions({ db, apply = false, now = Date.n
       summary.scanned++;
       lastId = doc.id;
       if (!(await isEnabled(doc.id))) continue;
-      const initial = await readContext(doc.ref);
+      const initialRaw = await readContext(doc.ref);
+      const initial = await contextWithVerifiedAnswers(db, doc.id, initialRaw, now(), ref => ref.get());
       if (!legacyPortalContractEligible(initial, now())) continue;
-      const contextHash = stateHash(initial);
-      const episode = portalContractEpisode(initial);
-      const prior = initial.submission[RECEIPT];
+      const contextHash = stateHash(initialRaw, initial.flow?.__answerEvidenceFingerprint);
+      const episode = portalContractEpisode(initialRaw);
+      const prior = initialRaw.submission[RECEIPT];
       const sameClass = prior?.version === VERSION && prior?.episode === episode;
       if (sameClass && (Number(prior.attempts) >= 3 || prior.contextHash === contextHash
         && (prior.outcome !== 'transient' || Number(prior.nextAttemptAt) > now()))) {
@@ -75,26 +92,28 @@ export async function reconcilePortalQuestions({ db, apply = false, now = Date.n
           const lease = (await tx.get(cursorRef)).data();
           if (lease?.owner !== owner || Number(lease.leaseUntil) <= now()) return 'raced';
         }
-        const current = await readContext(doc.ref, ref => tx.get(ref));
-        if (!legacyPortalContractEligible(current, now()) || stateHash(current) !== contextHash) return 'raced';
+        const currentRaw = await readContext(doc.ref, ref => tx.get(ref));
+        const current = await contextWithVerifiedAnswers(db, doc.id, currentRaw, now(), ref => tx.get(ref));
+        if (!legacyPortalContractEligible(current, now())
+          || stateHash(currentRaw, current.flow?.__answerEvidenceFingerprint) !== contextHash) return 'raced';
         const patch = revalidatedPortalQuestions(current, proof, now(), {
           previouslyRelaxed: sameClass ? prior.relaxedQuestionKeys || [] : [],
         });
         const attempts = sameClass ? Number(prior.attempts || 0) + 1 : 1;
         const transient = !proof.complete && String(proof.reason || '').startsWith('transient_');
         const stamp = now();
-        const nextDraft = patch.changed ? { ...current.draft, questions: patch.questions } : current.draft;
-        const nextOrder = patch.changed && patch.queue ? { ...current.order, automationDueAt: stamp } : current.order;
+        const nextDraft = patch.changed ? { ...currentRaw.draft, questions: patch.questions } : currentRaw.draft;
+        const nextOrder = patch.changed && patch.queue ? { ...currentRaw.order, automationDueAt: stamp } : currentRaw.order;
         const relaxed = patch.changed ? patch.questions.filter(question => patch.updated.includes(question.id)
           && question.required === false).map(portalContractQuestionKey) : [];
-        const receipt = { version: VERSION, episode, attempts, checkedAt: stamp, round: Number(current.flow.round),
-          contextHash: stateHash({ ...current, order: nextOrder, draft: nextDraft }),
+        const receipt = { version: VERSION, episode, attempts, checkedAt: stamp, round: Number(currentRaw.flow.round),
+          contextHash: stateHash({ ...currentRaw, order: nextOrder, draft: nextDraft }, current.flow?.__answerEvidenceFingerprint),
           outcome: patch.changed ? 'reconciled' : transient ? 'transient' : 'unknown',
           reason: proof.complete ? patch.reason || 'native_contract_observed' : proof.reason || patch.reason,
           proof: { observedAt: proof.observedAt || stamp, complete: Boolean(proof.complete), stable: Boolean(proof.stable),
             deniedRequests: proof.deniedRequests || [],
             readOnlyProtocol: proof.readOnlyProtocol || null, publicAssetProof: proof.publicAssetProof || null, guestSessionProof: proof.guestSessionProof || null },
-          sourceUrl: portalContractSourceUrl(current.draft),
+          sourceUrl: portalContractSourceUrl(currentRaw.draft),
           relaxedQuestionKeys: [...new Set([...(sameClass ? prior.relaxedQuestionKeys || [] : []), ...relaxed])],
           nextAttemptAt: transient && attempts < 3 ? stamp + RETRY_MS[attempts - 1] : null };
         if (apply) {

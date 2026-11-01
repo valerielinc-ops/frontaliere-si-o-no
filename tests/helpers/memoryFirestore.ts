@@ -19,6 +19,44 @@ function deepMerge(target: Data, patch: Data): Data {
   return out;
 }
 
+function fieldSegments(field: unknown): string[] {
+  if (typeof field === 'string') return field.split('.').filter(Boolean);
+  const segments = (field as any)?._segments;
+  return Array.isArray(segments) ? segments.map(String).filter(Boolean) : [];
+}
+
+function valueAtPath(source: Data, segments: string[]): { found: boolean; value?: unknown } {
+  let current: any = source;
+  for (const segment of segments) {
+    if (!current || typeof current !== 'object' || !Object.hasOwn(current, segment)) return { found: false };
+    current = current[segment];
+  }
+  return { found: true, value: current };
+}
+
+function setAtPath(target: Data, segments: string[], value: unknown): Data {
+  if (!segments.length) return target;
+  let current: any = target;
+  for (const segment of segments.slice(0, -1)) {
+    if (!isPlainObject(current[segment])) current[segment] = {};
+    current = current[segment];
+  }
+  current[segments[segments.length - 1]] = structuredClone(value);
+  return target;
+}
+
+function mergeSelectedFields(target: Data, patch: Data, fields: unknown[]): Data {
+  const out = structuredClone(target);
+  for (const field of fields) {
+    const segments = fieldSegments(field);
+    const selected = valueAtPath(patch, segments);
+    if (selected.found) setAtPath(out, segments, selected.value);
+  }
+  return out;
+}
+
+type SetOptions = { merge?: boolean; mergeFields?: unknown[] };
+
 const OPERATORS: Record<string, (left: any, right: any) => boolean> = {
   'in': (left, right) => Array.isArray(right) && right.includes(left),
   '==': (left, right) => left === right,
@@ -41,9 +79,13 @@ export function createMemoryFirestore(initial: Record<string, Data> = {}) {
         const data = docs.get(path);
         return { id, ref, exists: data !== undefined, data: () => (data === undefined ? undefined : structuredClone(data)) };
       },
-      async set(data: Data, options?: { merge?: boolean }) {
+      async set(data: Data, options?: SetOptions) {
         const current = docs.get(path);
-        docs.set(path, options?.merge && current ? deepMerge(current, data) : { ...data });
+        if (Array.isArray(options?.mergeFields)) {
+          docs.set(path, mergeSelectedFields(current || {}, data, options.mergeFields));
+          return;
+        }
+        docs.set(path, options?.merge && current ? deepMerge(current, data) : structuredClone(data));
       },
       async delete() {
         docs.delete(path);
@@ -93,7 +135,7 @@ export function createMemoryFirestore(initial: Record<string, Data> = {}) {
     async runTransaction<T>(callback: (transaction: any) => Promise<T>): Promise<T> {
       return callback({
         get: (ref: any) => ref.get(),
-        set: (ref: any, data: Data, options?: { merge?: boolean }) => ref.set(data, options),
+        set: (ref: any, data: Data, options?: SetOptions) => ref.set(data, options),
         delete: (ref: any) => ref.delete(),
       });
     },

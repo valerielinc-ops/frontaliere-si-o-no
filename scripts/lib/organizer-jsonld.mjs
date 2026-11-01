@@ -23,8 +23,11 @@
 import { cleanEventText } from './events-utils.mjs';
 import { extractEventOfferMetadata, eventOfferPriceAmount } from './event-metadata.mjs';
 import { parseJsonLdText } from './json-ld-text.mjs';
-
-const JSON_LD_SCRIPT_RE = /<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+import {
+  extractJsonLdScriptContents,
+  isSchemaEventJsonLdType,
+  jsonLdNodes,
+} from './schema-event-jsonld.mjs';
 
 /**
  * Parse one JSON-LD block with the shared tolerant parser (raw line breaks
@@ -40,25 +43,28 @@ export function parseJsonLdBlock(raw) {
   }
 }
 
-function flattenNodes(value, out) {
-  if (Array.isArray(value)) {
-    for (const entry of value) flattenNodes(entry, out);
-    return out;
-  }
-  if (!value || typeof value !== 'object') return out;
-  out.push(value);
-  if (Array.isArray(value['@graph'])) flattenNodes(value['@graph'], out);
-  return out;
-}
-
 /** Every JSON-LD node of a page, `@graph` members included. */
 export function extractJsonLdNodes(html) {
   const nodes = [];
-  for (const match of String(html ?? '').matchAll(JSON_LD_SCRIPT_RE)) {
-    const parsed = parseJsonLdBlock(match[1]);
-    if (parsed !== undefined) flattenNodes(parsed, nodes);
+  for (const raw of extractJsonLdScriptContents(String(html ?? ''))) {
+    const parsed = parseJsonLdBlock(raw);
+    if (parsed !== undefined) nodes.push(...jsonLdNodes(parsed));
   }
   return nodes;
+}
+
+/** schema.org Event and its subtypes (MusicEvent, TheaterEvent, …). */
+export function isEventNode(node) {
+  const types = Array.isArray(node?.['@type']) ? node['@type'] : [node?.['@type']];
+  return types.some((type) => {
+    if (typeof type !== 'string' || /(?:^|[\/#])EventSeries$/.test(type.trim())) return false;
+    return isSchemaEventJsonLdType(type);
+  });
+}
+
+/** The Event nodes of a page. */
+export function extractEventNodes(html) {
+  return extractJsonLdNodes(html).filter(isEventNode);
 }
 
 function schemaTypeName(value) {
@@ -72,16 +78,6 @@ function typesOf(node) {
     .filter((entry) => typeof entry === 'string')
     .map(schemaTypeName)
     .filter(Boolean);
-}
-
-/** schema.org Event and its subtypes (MusicEvent, TheaterEvent, …). */
-export function isEventNode(node) {
-  return typesOf(node).some((type) => /^(?:[A-Z][A-Za-z]*)?Event$/.test(type) && type !== 'EventSeries');
-}
-
-/** The Event nodes of a page. */
-export function extractEventNodes(html) {
-  return extractJsonLdNodes(html).filter(isEventNode);
 }
 
 const ISO_LOCAL_RE = /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/;

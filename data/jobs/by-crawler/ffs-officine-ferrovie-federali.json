@@ -2881,7 +2881,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-avu-fahrbahn-gleisbaumaschinen-region-ost/e124521b-2e29-4b53-a602-d2aed98feca4",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-01T09:30:28.853Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-avu-fahrbahn-gleisbaumaschinen-region-ost-ffs-officine-ferrovie-federali-zurich"
@@ -2992,7 +2991,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/triebfahrzeugfuehrer-in-kat-a-fahrleitungszugmaschine-fzm/e4cb14a5-c841-44c1-a000-baafa0346174",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-01T09:30:34.851Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "triebfahrzeugfuhrer-in-kat-a-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken"
@@ -4082,9 +4080,9 @@
       "slug": "tecnico-per-impianti-elettrici-e-di-telecomunicazione-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "tecnico-per-impianti-elettrici-e-di-telecomunicazione-ffs-officine-ferrovie-federali-olten",
-        "en": "techniker-in-fur-elektro-und-telekommunikationsanlagen-ffs-officine-ferrovie-federali-olten",
+        "en": "electrical-and-telecommunications-systems-technician-ffs-officine-ferrovie-federali-olten",
         "de": "techniker-in-fur-elektro-und-telekommunikationsanlagen-ffs-officine-ferrovie-federali-olten",
-        "fr": "techniker-in-fur-elektro-und-telekommunikationsanlagen-ffs-officine-ferrovie-federali-olten"
+        "fr": "technicien-ne-en-installations-electriques-et-de-telecommunication-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -4150,9 +4148,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-fuer-elektro-und-telekommunikationsanlagen/9cdee9d1-f5cd-431c-8a5a-c76f17177ccd",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-01T09:30:31.846Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "techniker-in-fur-elektro-und-telekommunikationsanlagen-ffs-officine-ferrovie-federali-olten"
+        ],
+        "en": [
+          "techniker-in-fur-elektro-und-telekommunikationsanlagen-ffs-officine-ferrovie-federali-olten"
+        ],
+        "fr": [
           "techniker-in-fur-elektro-und-telekommunikationsanlagen-ffs-officine-ferrovie-federali-olten"
         ]
       },
@@ -5093,9 +5096,9 @@
       "slug": "tecnico-a-della-linea-di-contatto-capo-montatore-trice-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
         "it": "tecnico-a-della-linea-di-contatto-capo-montatore-trice-ffs-officine-ferrovie-federali-biel-bienne",
-        "en": "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne",
+        "en": "overhead-line-technician-chief-fitter-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne",
-        "fr": "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne"
+        "fr": "technicien-ne-de-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-biel-bienne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -5176,9 +5179,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-fahrleitung-chefmonteur-in/0f1bffdc-7a2f-4ce6-b7bb-5eea054cedee",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-01T09:30:31.348Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "en": [
+          "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "fr": [
           "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },
@@ -5311,7 +5319,7 @@
       "id": "sbb-0a827bae2ec2",
       "slug": "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-neuchatel",
       "slugByLocale": {
-        "it": "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-neuchatel",
+        "it": "linea-di-contatto-tecnico-direttore-ffs-officine-ferrovie-federali-neuchatel",
         "en": "contact-line-technician-chief-editor-ffs-officine-ferrovie-federali-neuchatel",
         "de": "contact-line-techniker-chefredakteur-ffs-officine-ferrovie-federali-neuchatel",
         "fr": "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-neuchatel"
@@ -5919,9 +5927,9 @@
       "id": "sbb-6ea3c6a999fb",
       "slug": "technicien-ne-qualifie-e-lignes-de-contact-ffs-officine-ferrovie-federali-neuchatel",
       "slugByLocale": {
-        "it": "technicien-ne-qualifie-e-lignes-de-contact-ffs-officine-ferrovie-federali-neuchatel",
-        "en": "technicien-ne-qualifie-e-lignes-de-contact-ffs-officine-ferrovie-federali-neuchatel",
-        "de": "technicien-ne-qualifie-e-lignes-de-contact-ffs-officine-ferrovie-federali-neuchatel",
+        "it": "tecnico-qualificato-ffs-officine-ferrovie-federali-neuchatel",
+        "en": "qualified-technician-ffs-officine-ferrovie-federali-neuchatel",
+        "de": "qualifizierter-techniker-ffs-officine-ferrovie-federali-neuchatel",
         "fr": "technicien-ne-qualifie-e-lignes-de-contact-ffs-officine-ferrovie-federali-neuchatel"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -6753,10 +6761,10 @@
       "id": "sbb-ebd10104b050",
       "slug": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-brig",
       "slugByLocale": {
-        "it": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-brig",
-        "en": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-brig",
+        "it": "caposquadra-nella-costruzione-dei-binari-ffs-officine-ferrovie-federali-brig",
+        "en": "track-construction-foreperson-ffs-officine-ferrovie-federali-brig",
         "de": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-brig",
-        "fr": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-brig"
+        "fr": "contremaitre-esse-en-construction-de-voies-ferrees-ffs-officine-ferrovie-federali-brig"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -6827,7 +6835,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/vorarbeiter-in-gleisbau/aea4d605-b7cd-4598-b3b1-985e802b6a11",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-01T09:30:36.851Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -7091,7 +7098,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/triebfahrzeugfuehrer-in-kategorie-b-oder-b100-ch/5bd94d73-d29a-41cd-bbe1-3c5a74eb6fa4",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-01T09:30:35.313Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "triebfahrzeugfuhrer-in-kategorie-b-oder-b100-ch-ffs-officine-ferrovie-federali-muttenz"
@@ -7672,10 +7678,10 @@
       "id": "sbb-78af451472dc",
       "slug": "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen",
       "slugByLocale": {
-        "it": "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen",
-        "en": "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen",
+        "it": "capo-squadra-sicurezza-nei-cantieri-ffs-officine-ferrovie-federali-ostermundigen",
+        "en": "team-leader-construction-site-safety-ffs-officine-ferrovie-federali-ostermundigen",
         "de": "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen",
-        "fr": "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen"
+        "fr": "chef-d-equipe-securite-sur-les-chantiers-ffs-officine-ferrovie-federali-ostermundigen"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -7751,7 +7757,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-baustellensicherheit/6c635a45-7636-4854-a32e-233469630f4f",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-01T09:30:29.332Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -8787,9 +8792,9 @@
       "slug": "specialista-nella-manutenzione-dei-binari-ferroviari-ffs-officine-ferrovie-federali-sarnen",
       "slugByLocale": {
         "it": "specialista-nella-manutenzione-dei-binari-ferroviari-ffs-officine-ferrovie-federali-sarnen",
-        "en": "unterhaltsfachmann-frau-von-gleisanlagen-ffs-officine-ferrovie-federali-sarnen",
+        "en": "maintenance-specialist-of-railway-tracks-ffs-officine-ferrovie-federali-sarnen",
         "de": "unterhaltsfachmann-frau-von-gleisanlagen-ffs-officine-ferrovie-federali-sarnen",
-        "fr": "unterhaltsfachmann-frau-von-gleisanlagen-ffs-officine-ferrovie-federali-sarnen"
+        "fr": "specialiste-de-l-entretien-des-voies-ferrees-ffs-officine-ferrovie-federali-sarnen"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -8855,9 +8860,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/unterhaltsfachmann-frau-von-gleisanlagen/0a830a24-58b1-41b5-8728-194c9b003e0b",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-01T09:30:35.851Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "unterhaltsfachmann-frau-von-gleisanlagen-ffs-officine-ferrovie-federali-sarnen"
+        ],
+        "en": [
+          "unterhaltsfachmann-frau-von-gleisanlagen-ffs-officine-ferrovie-federali-sarnen"
+        ],
+        "fr": [
           "unterhaltsfachmann-frau-von-gleisanlagen-ffs-officine-ferrovie-federali-sarnen"
         ]
       },
@@ -11408,7 +11418,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in/1b722e38-412d-48f8-a190-98bdda7c6c62",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-01T09:30:32.873Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in-ffs-officine-ferrovie-federali-zurich"
@@ -13404,9 +13413,9 @@
       "slug": "caposquadra-della-costruzione-dei-binari-ffs-officine-ferrovie-federali-deutschschweiz",
       "slugByLocale": {
         "it": "caposquadra-della-costruzione-dei-binari-ffs-officine-ferrovie-federali-deutschschweiz",
-        "en": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-deutschschweiz",
+        "en": "track-construction-foreman-ffs-officine-ferrovie-federali-deutschschweiz",
         "de": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-deutschschweiz",
-        "fr": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-deutschschweiz"
+        "fr": "contremaitre-de-construction-de-voies-ffs-officine-ferrovie-federali-deutschschweiz"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13472,9 +13481,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/vorarbeiter-in-gleisbau/02a24c36-7d33-4c07-87c6-2e0f5c241bd5",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-01T09:30:36.357Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-deutschschweiz"
+        ],
+        "en": [
+          "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-deutschschweiz"
+        ],
+        "fr": [
           "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-deutschschweiz"
         ]
       },
@@ -13774,7 +13788,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-klimaanlagen-der-sbb-flotte/051e1df0-66b2-457c-a1f8-bb0dcc506d98",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-01T09:30:32.331Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "techniker-in-klimaanlagen-der-sbb-flotte-ffs-officine-ferrovie-federali-olten"

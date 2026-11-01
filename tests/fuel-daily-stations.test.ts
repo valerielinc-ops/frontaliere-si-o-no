@@ -27,6 +27,8 @@ import {
   buildFuelStationPath,
   buildStationSlug,
   extractCityFromAddress,
+  FUEL_DAILY_LOCALES,
+  FUEL_TYPES,
   findItalianCityBySlug,
   isFuelDailyPath,
   isFuelItalianCityPath,
@@ -552,6 +554,22 @@ describe('generateFuelStationPages() — Ticino only', () => {
   it('respects MAX_FUEL_STATION_PAGES_PER_BUILD cap', () => {
     const capped = generateFuelStationPages({ dataset: DATASET, today, maxPages: 3 });
     expect(Object.keys(capped).length).toBe(3);
+  });
+
+  it('raises an undersized deployment cap to the complete station matrix', () => {
+    const previous = process.env.MAX_FUEL_STATION_PAGES_PER_BUILD;
+    process.env.MAX_FUEL_STATION_PAGES_PER_BUILD = '3';
+    try {
+      const contexts = collectSwissStationContexts(DATASET as never);
+      const pages = generateFuelStationPages({ dataset: DATASET, today, contexts: contexts as never });
+      expect(Object.keys(pages)).toHaveLength(contexts.length * FUEL_TYPES.length * FUEL_DAILY_LOCALES.length);
+    } finally {
+      if (previous === undefined) {
+        delete process.env.MAX_FUEL_STATION_PAGES_PER_BUILD;
+      } else {
+        process.env.MAX_FUEL_STATION_PAGES_PER_BUILD = previous;
+      }
+    }
   });
 
   it('keeps the final station across all locales and fuels under the default matrix cap', () => {

@@ -78,8 +78,7 @@
       "streetAddress": "Prilly",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:39:01.202Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sicpa-f0148cc868ea",
@@ -212,14 +211,12 @@
       "previousSlugs": [
         "automaticien-sicpa-chavornay",
         "automatico-sicpa-sa-chavornay-93b886",
-        "automatico-sicpa-sa-chavornay-ad8e6a1279",
         "automatico-sicpa-sa-chavornay"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automaticien-sicpa-chavornay",
           "automatico-sicpa-sa-chavornay-93b886",
-          "automatico-sicpa-sa-chavornay-ad8e6a1279",
           "automatico-sicpa-sa-chavornay"
         ],
         "en": [
@@ -464,13 +461,11 @@
       "previousSlugs": [
         "automaticien-sicpa-chavornay",
         "automaticien-sicpa-chavornay-6r7gzx",
-        "automatico-sicpa-sa-chavornay-d76d2940f0",
         "automatico-sicpa-sa-chavornay"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automaticien-sicpa-chavornay",
-          "automatico-sicpa-sa-chavornay-d76d2940f0",
           "automatico-sicpa-sa-chavornay"
         ],
         "fr": [
@@ -571,8 +566,7 @@
       "streetAddress": "Chavornay",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:38:57.294Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sicpa-056572e48981",

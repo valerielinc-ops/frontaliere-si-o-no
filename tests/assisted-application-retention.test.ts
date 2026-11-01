@@ -12,6 +12,10 @@ const deleteFileMock = vi.fn(async () => {});
 function docRef(id: string) {
   return {
     id,
+    async get() {
+      const data = orders[id];
+      return { id, exists: data != null, data: () => data };
+    },
     async set(data: Record<string, unknown>, options?: { merge?: boolean }) {
       orders[id] = options?.merge ? { ...(orders[id] || {}), ...data } : data;
     },
@@ -21,6 +25,7 @@ function docRef(id: string) {
 const firestore = Object.assign(
   () => ({
     collection: () => ({
+      doc: (id: string) => docRef(id),
       where: (field: string, _operator: string, cutoff: { millis: number }) => {
         let cursorId: string | null = null;
         let pageSize = Number.POSITIVE_INFINITY;
@@ -54,6 +59,12 @@ const firestore = Object.assign(
         return query;
       },
     }),
+    async runTransaction(callback: (transaction: any) => Promise<any>) {
+      return callback({
+        get: (ref: any) => ref.get(),
+        set: (ref: any, data: Record<string, unknown>, options?: { merge?: boolean }) => ref.set(data, options),
+      });
+    },
   }),
   {
     Timestamp: { fromMillis: (millis: number) => ({ millis }) },
@@ -174,6 +185,21 @@ describe('purgeExpiredAssistedApplicationFiles', () => {
       'assisted-application-uploads/abandoned_old/cv.pdf',
       { ignoreNotFound: true },
     );
+  });
+
+  it('persists the purge embargo before deleting any retained payload', async () => {
+    let observedEmbargoBeforeDelete = false;
+    deleteFileMock.mockImplementationOnce(async (path: string) => {
+      const orderId = path.split('/')[1];
+      observedEmbargoBeforeDelete = orders[orderId]?.retentionPurgingAt === '__server_timestamp__';
+    });
+    const { purgeExpiredAssistedApplicationFiles } = await load();
+
+    await purgeExpiredAssistedApplicationFiles(90, NOW);
+
+    expect(observedEmbargoBeforeDelete).toBe(true);
+    expect(orders.submitted_old.retentionPurgingAt).toBeNull();
+    expect(orders.submitted_old.retentionPurgedAt).toBe('__server_timestamp__');
   });
 
   it('preserves talent-pool consent and never deletes a path outside the assisted namespace', async () => {

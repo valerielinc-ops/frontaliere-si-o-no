@@ -56,16 +56,25 @@
       "jobReqId": "1112",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
-          "tirocinio-di-prova-panettiere-pasticcere-pasticcere-con-specializzazione-in-pasticceria-afc-o-eba-confiserie-sprungli-ag"
+          "tirocinio-di-prova-panettiere-pasticcere-pasticcere-con-specializzazione-in-pasticceria-afc-o-eba-confiserie-sprungli-ag",
+          "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon",
+          "tirocinio-di-prova-panettiere-pasticcere-pasticcere-con-specializzazione-in-pasticceria-afc-o-eba-confiserie-sprungli-ag-dietikon-89321833f1"
+        ],
+        "en": [
+          "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba"
+        ],
+        "fr": [
+          "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba"
         ]
       },
       "previousSlugs": [
         "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
-        "tirocinio-di-prova-panettiere-pasticcere-pasticcere-con-specializzazione-in-pasticceria-afc-o-eba-confiserie-sprungli-ag"
+        "tirocinio-di-prova-panettiere-pasticcere-pasticcere-con-specializzazione-in-pasticceria-afc-o-eba-confiserie-sprungli-ag",
+        "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon",
+        "tirocinio-di-prova-panettiere-pasticcere-pasticcere-con-specializzazione-in-pasticceria-afc-o-eba-confiserie-sprungli-ag-dietikon-89321833f1"
       ],
       "salaryMin": 55000,
       "salaryMax": 74500,
@@ -140,11 +149,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-kaufmann-kauffrau-dienstleistung-administration-fur-2027-spruengli-dietikon",
+          "apprendistato-kaufmann-kauffrau-dienstleistung-administration-per-2027-confiserie-sprungli-ag-dietikon"
+        ],
+        "en": [
+          "lehrstelle-kaufmann-kauffrau-dienstleistung-administration-fur-2027-spruengli-dietikon"
+        ],
+        "fr": [
           "lehrstelle-kaufmann-kauffrau-dienstleistung-administration-fur-2027-spruengli-dietikon"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-kaufmann-kauffrau-dienstleistung-administration-fur-2027-spruengli-dietikon"
+        "lehrstelle-kaufmann-kauffrau-dienstleistung-administration-fur-2027-spruengli-dietikon",
+        "apprendistato-kaufmann-kauffrau-dienstleistung-administration-per-2027-confiserie-sprungli-ag-dietikon"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -219,11 +236,26 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-und-basel-fur-2027-spruengli-zurich"
+          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-und-basel-fur-2027-spruengli-zurich",
+          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli",
+          "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich"
+        ],
+        "en": [
+          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
+        ],
+        "de": [
+          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich",
+          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli"
+        ],
+        "fr": [
+          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-und-basel-fur-2027-spruengli-zurich"
+        "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-und-basel-fur-2027-spruengli-zurich",
+        "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli",
+        "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich",
+        "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
       ],
       "salaryMin": 65500,
       "salaryMax": 100500,
@@ -241,7 +273,9 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:23:07.578Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-12T22:16:16.792Z"
+      "firstSeenAt": "2026-08-12T22:16:16.792Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "spruengli-366607266a85",
@@ -296,14 +330,21 @@
       "jobReqId": "0015",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-backer-konditor-confiseur-innen-efz-fachrichtung-confiserie-fur-2027-spruengli",
+          "apprendistato-backer-konditor-confiseur-innen-cfc-specializzazione-confiserie-per-2027-confiserie-sprungli-ag-dietikon"
+        ],
+        "en": [
+          "lehrstelle-backer-konditor-confiseur-innen-efz-fachrichtung-confiserie-fur-2027-spruengli"
+        ],
+        "fr": [
           "lehrstelle-backer-konditor-confiseur-innen-efz-fachrichtung-confiserie-fur-2027-spruengli"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-backer-konditor-confiseur-innen-efz-fachrichtung-confiserie-fur-2027-spruengli"
+        "lehrstelle-backer-konditor-confiseur-innen-efz-fachrichtung-confiserie-fur-2027-spruengli",
+        "apprendistato-backer-konditor-confiseur-innen-cfc-specializzazione-confiserie-per-2027-confiserie-sprungli-ag-dietikon"
       ],
       "salaryMin": 55000,
       "salaryMax": 74500,
@@ -379,12 +420,14 @@
       "previousSlugsByLocale": {
         "it": [
           "konditor-confiseur-in-stv-abteilungsleitung-abteilung-decor-100-spruengli-dietikon",
-          "pasticcere-a-confettiere-a-vice-responsabile-di-reparto-reparto-decor-100-confiserie-sprungli-ag-dietikon"
+          "pasticcere-a-confettiere-a-vice-responsabile-di-reparto-reparto-decor-100-confiserie-sprungli-ag-dietikon",
+          "pasticcere-a-confettiere-a-vice-responsabile-di-reparto-reparto-decor-100-confiserie-sprungli-ag-dietikon-cd7ce03aae"
         ]
       },
       "previousSlugs": [
         "konditor-confiseur-in-stv-abteilungsleitung-abteilung-decor-100-spruengli-dietikon",
-        "pasticcere-a-confettiere-a-vice-responsabile-di-reparto-reparto-decor-100-confiserie-sprungli-ag-dietikon"
+        "pasticcere-a-confettiere-a-vice-responsabile-di-reparto-reparto-decor-100-confiserie-sprungli-ag-dietikon",
+        "pasticcere-a-confettiere-a-vice-responsabile-di-reparto-reparto-decor-100-confiserie-sprungli-ag-dietikon-cd7ce03aae"
       ],
       "salaryMin": 134000,
       "salaryMax": 180500,
@@ -460,12 +503,20 @@
       "previousSlugsByLocale": {
         "it": [
           "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-          "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon"
+          "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon",
+          "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon-6de3ec65e1"
+        ],
+        "en": [
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
+        ],
+        "fr": [
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
         ]
       },
       "previousSlugs": [
         "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-        "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon"
+        "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon",
+        "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon-6de3ec65e1"
       ],
       "salaryMin": 76000,
       "salaryMax": 102500,
@@ -541,12 +592,20 @@
       "previousSlugsByLocale": {
         "it": [
           "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
-          "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon"
+          "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon",
+          "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon-6916e8dd9a"
+        ],
+        "en": [
+          "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon"
+        ],
+        "fr": [
+          "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon"
         ]
       },
       "previousSlugs": [
         "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
-        "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon"
+        "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon",
+        "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon-6916e8dd9a"
       ],
       "salaryMin": 76000,
       "salaryMax": 102500,
@@ -1946,7 +2005,7 @@
       "id": "spruengli-c935c81fcd73",
       "slug": "tirocinio-di-prova-panettiere-pasticcere-pasticcere-con-specializzazione-in-pasticceria-afc-o-eba-confiserie-sprungli-ag-dietikon-89321833f1",
       "slugByLocale": {
-        "it": "tirocinio-di-prova-panettiere-pasticcere-pasticcere-con-specializzazione-in-pasticceria-afc-o-eba-confiserie-sprungli-ag-dietikon-89321833f1",
+        "it": "tirocinio-di-prova-panettiere-pasticcere-pasticcere-con-specializzazione-in-pasticceria-afc-o-eba-confiserie-sprungli-ag",
         "en": "taster-apprenticeship-baker-pastry-confectioner-specialising-in-confectionery-efz-or-eba-confiserie-sprungli-ag-dietikon",
         "de": "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
         "fr": "initiation-boulanger-patissier-confiseur-avec-specialisation-confiserie-cfc-ou-afp-confiserie-sprungli-ag-dietikon"
@@ -1997,14 +2056,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
-        "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon",
-        "tirocinio-di-prova-panettiere-pasticcere-pasticcere-con-specializzazione-in-pasticceria-afc-o-eba-confiserie-sprungli-ag"
+        "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
-          "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon",
-          "tirocinio-di-prova-panettiere-pasticcere-pasticcere-con-specializzazione-in-pasticceria-afc-o-eba-confiserie-sprungli-ag"
+          "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon"
         ],
         "en": [
           "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba"
@@ -2208,7 +2265,7 @@
       "id": "spruengli-8b1da3d0bb71",
       "slug": "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon-6de3ec65e1",
       "slugByLocale": {
-        "it": "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon-6de3ec65e1",
+        "it": "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon",
         "en": "pastryconfectioner-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
         "de": "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
         "fr": "patissier-confiseur-departement-tartes-patisserie-100-confiserie-sprungli-ag-dietikon"
@@ -2258,13 +2315,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-        "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon"
+        "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-          "pasticcere-confettiere-nel-reparto-torte-pasticceria-100-confiserie-sprungli-ag-dietikon"
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
         ],
         "en": [
           "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
@@ -2296,7 +2351,7 @@
       "id": "spruengli-9fd44a817e5f",
       "slug": "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon-6916e8dd9a",
       "slugByLocale": {
-        "it": "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon-6916e8dd9a",
+        "it": "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon",
         "en": "baker-confectioner-department-of-fine-bakery-100-confiserie-sprungli-ag-dietikon",
         "de": "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
         "fr": "departement-de-boulanger-confiseur-de-la-fine-bakery-100-confiserie-sprungli-ag-dietikon"
@@ -2346,13 +2401,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
-        "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon"
+        "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon",
-          "dipartimento-pasticceria-pasticceria-di-fine-bakery-100-confiserie-sprungli-ag-dietikon"
+          "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon"
         ],
         "en": [
           "backer-konditor-in-abteilung-feinbackerei-100-spruengli-dietikon"
@@ -2384,7 +2437,7 @@
       "id": "spruengli-55c820f5ba9b",
       "slug": "pasticcere-a-confettiere-a-vice-responsabile-di-reparto-reparto-decor-100-confiserie-sprungli-ag-dietikon-cd7ce03aae",
       "slugByLocale": {
-        "it": "pasticcere-a-confettiere-a-vice-responsabile-di-reparto-reparto-decor-100-confiserie-sprungli-ag-dietikon-cd7ce03aae",
+        "it": "pasticcere-a-confettiere-a-vice-responsabile-di-reparto-reparto-decor-100-confiserie-sprungli-ag-dietikon",
         "en": "pastryconfectioner-deputy-head-of-department-decor-department-100-confiserie-sprungli-ag-dietikon",
         "de": "konditor-confiseur-in-stv-abteilungsleitung-abteilung-decor-100-spruengli-dietikon",
         "fr": "chef-patissier-confiseur-suppleant-chef-de-departement-departement-deco-100-confiserie-sprungli-ag-dietikon"
@@ -2434,13 +2487,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "konditor-confiseur-in-stv-abteilungsleitung-abteilung-decor-100-spruengli-dietikon",
-        "pasticcere-a-confettiere-a-vice-responsabile-di-reparto-reparto-decor-100-confiserie-sprungli-ag-dietikon"
+        "konditor-confiseur-in-stv-abteilungsleitung-abteilung-decor-100-spruengli-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "konditor-confiseur-in-stv-abteilungsleitung-abteilung-decor-100-spruengli-dietikon",
-          "pasticcere-a-confettiere-a-vice-responsabile-di-reparto-reparto-decor-100-confiserie-sprungli-ag-dietikon"
+          "konditor-confiseur-in-stv-abteilungsleitung-abteilung-decor-100-spruengli-dietikon"
         ]
       },
       "firstSeenAt": "2026-09-30T21:22:52.526Z",

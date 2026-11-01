@@ -26,6 +26,7 @@ const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DEL
 const { autoRetryDelaysForFlow } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
+const { answerQuestionSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 const { getAccountFailure, serializeAccountFailure, submissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
 const { handleAuth, verifyAccount } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
@@ -74,7 +75,7 @@ beforeEach(() => {
 });
 
 describe('starting the flow', () => {
-  it('seeds a new order with the candidate-wide answer ledger', async () => {
+  it('does not reuse an opaque legacy answer without its confirmed source', async () => {
     const userId = 'candidate-1';
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
@@ -85,31 +86,43 @@ describe('starting the flow', () => {
 
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
 
-    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
-      questionAnswers: { [key]: 'Permit G' },
-    });
+    expect(store.read(`${ORDER_PATH}/automation/flow`)?.questionAnswers).toEqual({});
   });
 
-  it('persists an explicit answer in the candidate-wide ledger when the order saves it', async () => {
+  it('persists a typed answer only when its confirmed source is complete', async () => {
     const userId = 'candidate-1';
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
-    store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ userId }) });
+    const order = paidOrder({ userId, jobUrl: 'https://jobs.example.test/roles/permit', cvUploadedAt: T0 });
+    const flow = { state: 'submitted', round: 1, answers: {}, questionAnswers: { legacy_unverified: 'Yes' } };
+    const draft = { round: 1, questions: [question] };
+    store = createMemoryFirestore({
+      [ORDER_PATH]: order,
+      [`${ORDER_PATH}/automation/flow`]: flow,
+      [`${ORDER_PATH}/ai_drafts/current`]: draft,
+      [`user_cv_profiles/${userId}`]: { status: 'ready', profile: { languages: [] } },
+    });
 
     await saveAnswersWithCv({
       db: store.db,
       bucket: null,
       orderId: ORDER,
-      order: paidOrder({ userId }),
-      flow: { state: 'submitted', round: 1, answers: {}, questionAnswers: {} },
-      draft: { round: 1, questions: [question] },
+      order,
+      flow,
+      draft,
       answers: { work_permit: 'Permit G' },
+      answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId: ORDER, questions: [question], draft, nowMs: T0 }),
+      answerActor: 'candidate',
       nowMs: T0,
     });
 
-    expect(store.read(`user_cv_profiles/${userId}`)).toMatchObject({
-      applicationQuestionAnswers: { [key]: 'Permit G' },
+    const profile = store.read(`user_cv_profiles/${userId}`);
+    expect(profile).toMatchObject({ applicationQuestionAnswers: { [key]: 'Permit G' } });
+    expect(profile.applicationQuestionAnswerEvidence[key]).toMatchObject({
+      key, category: 'work_authorization', scope: 'job',
+      provenance: { actor: 'candidate', userId, orderId: ORDER, round: 1 },
     });
+    expect(store.read(`${ORDER_PATH}/automation/flow`).questionAnswers).toEqual({ [key]: 'Permit G' });
   });
 
   it('starts only when the flag is on and a CV has just been verified', async () => {
@@ -659,7 +672,7 @@ describe('sweep', () => {
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
   });
 
-  it('reuses a candidate-wide answer when an older flow did not have the ledger yet', async () => {
+  it('does not reuse a candidate-wide answer without its confirmed source', async () => {
     const userId = 'candidate-1';
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
@@ -686,11 +699,11 @@ describe('sweep', () => {
     });
 
     expect(result).toMatchObject({ ok: true, flow: {
-      state: 'owner_takeover',
-      heldBy: ['portal:portal_needs_candidate'],
-      questionAnswers: { [key]: 'Permit G' },
+      state: 'needs_candidate_action',
+      heldBy: ['question:work_permit'],
+      questionAnswers: {},
     } });
-    expect(effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit', attempts: 2 }]);
+    expect(effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
   });
 
   it('computes no due time for terminal flows', () => {

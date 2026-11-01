@@ -484,7 +484,9 @@ export function buildReservedHubSlugs(): Set<string> {
 function noindexJobAliasHtml(html: string): string {
   const noindexTag = ROBOTS_NOINDEX_FOLLOW.trim();
   const robotsMeta = /<meta\b(?=[^>]*\bname\s*=\s*["']?robots["']?)[^>]*>/i;
-  const noindexHtml = robotsMeta.test(html)
+  const existingRobotsTag = html.match(robotsMeta)?.[0];
+  if (existingRobotsTag === noindexTag) return markJobBoardNoindexTargetHtml(html);
+  const noindexHtml = existingRobotsTag
     ? html.replace(robotsMeta, noindexTag)
     : html.replace('</head>', ` ${noindexTag}\n </head>`);
   return markJobBoardNoindexTargetHtml(noindexHtml);
@@ -5083,6 +5085,9 @@ ${staticAnalyticsHtml}
   jobsSeoHtmlGcRuns,
   jobsSeoHtmlGcIntervalMb: JOBS_SEO_HTML_GC_INTERVAL_MB,
  });
+ const releasedTitleCollisionEntries = sumLocaleSizes(titleCollisionByLocale);
+ for (const locale of localeList) titleCollisionByLocale[locale].clear();
+ logJobsSeoMem('after-active-title-collision-clear', { releasedTitleCollisionEntries });
  logJobsSeoMem('after-canonical-clear');
 
  /* ── Company landing pages ────────────────────────────────── */
@@ -15261,8 +15266,21 @@ ${staticAnalyticsHtml}
 
  let bridgeCount = 0;
  let bridgeSkippedNotWinner = 0;
+ const PREVIOUS_SLUG_BRIDGE_YIELD_INTERVAL = 32;
+ let previousSlugBridgeEmitsSinceYield = 0;
+ let previousSlugPeriodicYieldCount = 0;
+ const shouldYieldPreviousSlugBridgeWrites = (): boolean => {
+  previousSlugBridgeEmitsSinceYield += 1;
+  if (previousSlugBridgeEmitsSinceYield < PREVIOUS_SLUG_BRIDGE_YIELD_INTERVAL) return false;
+  previousSlugBridgeEmitsSinceYield = 0;
+  return true;
+ };
+ const yieldPreviousSlugBridgeWrites = async (): Promise<void> => {
+  await collector.awaitDrainSlot(2);
+  maybeForceJobsSeoHtmlGc();
+  previousSlugPeriodicYieldCount++;
+ };
  for (const job of validJobs) {
-  await collector.awaitDrainSlot(2); // bound flush backlog (#1290; 2 e non 6: heap gia' al picco in coda al plugin, #6134)
  // Collect previous slugs that aren't locale-attributed (legacy flat entries)
  const localeAwareAll = new Set<string>();
  const pslByLocale = (job as any).previousSlugsByLocale;
@@ -15320,14 +15338,12 @@ ${staticAnalyticsHtml}
  // the case where every prevSlug is filtered out below stays a no-op.
  // Every previous-slug alias preserves the canonical job's full static body.
  let bridgeIndexHtml: string | null = null;
- let bridgeFlatHtml: string | null = null;
- const ensureBridgeHtml = (): { indexHtml: string; flatHtml: string } => {
- if (bridgeIndexHtml === null || bridgeFlatHtml === null) {
+ const ensureBridgeHtml = (): string => {
+ if (bridgeIndexHtml === null) {
  const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(currentSlug)};</script>`;
- bridgeIndexHtml = cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
- bridgeFlatHtml = bridgeIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
+ bridgeIndexHtml = noindexJobAliasHtml(cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`));
  }
- return { indexHtml: bridgeIndexHtml, flatHtml: bridgeFlatHtml };
+ return bridgeIndexHtml;
  };
 
  const myJobIdentifier = String((job as any).id || (job as any).slug || currentSlug);
@@ -15428,11 +15444,12 @@ ${staticAnalyticsHtml}
  );
  let indexHtml: string;
  if (previousSlugReuse?.hit && !jobsSeoReuse?.shouldRender(previousSlugReuse)) {
-  indexHtml = jobsSeoReuse.reusedHtml(previousSlugReuse, STATIC_PAGE_BUILD_ID) || previousSlugReuse.html;
+  indexHtml = noindexJobAliasHtml(
+   jobsSeoReuse.reusedHtml(previousSlugReuse, STATIC_PAGE_BUILD_ID) || previousSlugReuse.html,
+  );
  } else {
-  indexHtml = ensureBridgeHtml().indexHtml;
+  indexHtml = ensureBridgeHtml();
  }
- indexHtml = noindexJobAliasHtml(indexHtml);
  jobsSeoReuse?.finish(previousSlugReuse, indexHtml);
  _md(outDir);
  _qw(np.join(outDir, 'index.html'), indexHtml);
@@ -15446,6 +15463,7 @@ ${staticAnalyticsHtml}
 
  bridgeCount++;
  recordEmit('previous-slug-bridge', __tPrevSlugBridge);
+ if (shouldYieldPreviousSlugBridgeWrites()) await yieldPreviousSlugBridgeWrites();
 
  // Pre-cathedral, every job — regardless of resolved canton — was
  // indexed under the legacy TI section (`/cerca-lavoro-ticino/`,
@@ -15526,6 +15544,7 @@ ${staticAnalyticsHtml}
 
  bridgeCount++;
  recordEmit('previous-slug-bridge-legacy-ti', __tPrevSlugLegacyTIBridge);
+ if (shouldYieldPreviousSlugBridgeWrites()) await yieldPreviousSlugBridgeWrites();
  }
  }
  }
@@ -15539,10 +15558,13 @@ ${staticAnalyticsHtml}
  // Backpressure between previousSlugs full-content (~65k pages) and
  // the next big emit (cross-locale-active-bridge ~56k pages).
  await collector.awaitDrainSlot(2);
+ maybeForceJobsSeoHtmlGc();
  }
  logJobsSeoMem('after-previous-slug-bridges', {
   bridgeCount,
   bridgeSkippedNotWinner,
+ previousSlugPeriodicYieldCount,
+ jobsSeoHtmlGcRuns,
   previousSlugEntries: prevSlugEntries.length,
   sitemapEntries: prevSlugEntries.length,
  });

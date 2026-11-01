@@ -2523,7 +2523,8 @@
       ],
       "streetAddress": "Stansstad",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/in Unterwerke (w/m/d)",

@@ -305,7 +305,7 @@
           "senior-product-manager-proton-geneva-switzerland-paris-france"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:07:27.675Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -325,7 +325,8 @@
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:39:52.517Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "retranslationAttempts": 0
     },
     {
       "id": "proton-413579452a2b",
@@ -548,7 +549,7 @@
           "business-development-manager-proton-geneva"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -567,7 +568,8 @@
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:39:51.546Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "retranslationAttempts": 0
     }
   ]
 }

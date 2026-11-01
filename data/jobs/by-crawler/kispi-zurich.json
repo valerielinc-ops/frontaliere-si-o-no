@@ -148,8 +148,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:20:17.160Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-f2070ffbd437",
@@ -304,8 +303,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:20:13.175Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-440f80c824a0",
@@ -476,8 +474,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:20:09.182Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-b6c3c992a05c",
@@ -808,8 +805,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:20:02.166Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-ede2a2aa7d15",
@@ -886,8 +882,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:20:00.153Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-6832f6aa9952",
@@ -976,8 +971,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:19:58.173Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-1a58604068df",
@@ -1583,8 +1577,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:19:42.171Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-6337814c5aec",
@@ -1898,8 +1891,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:19:35.165Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-0a38b3dc1a38",
@@ -2136,8 +2128,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T09:19:29.167Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-bbc26e0a7ef6",
@@ -2470,8 +2461,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:19:22.174Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-82318d6e3455",
@@ -3677,8 +3667,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T09:18:57.135Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-1857a4d7cdf8",
@@ -3755,15 +3744,14 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:18:56.077Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-ac08735a244c",
       "slug": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
         "de": "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
         "fr": "psychomotherapeute-h-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       },
@@ -3810,14 +3798,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
+        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich",
+        "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
         ],
         "en": [
-          "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
+          "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
           "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
@@ -3840,8 +3829,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:18:55.015Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-8529b2a552df",
@@ -4090,8 +4078,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:18:51.842Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-386738192d62",
@@ -4174,8 +4161,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:18:50.748Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-a7c8d95e2e4d",
@@ -4257,8 +4243,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T09:18:49.633Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-8ee5f49744bc",
@@ -4599,8 +4584,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:18:46.120Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
