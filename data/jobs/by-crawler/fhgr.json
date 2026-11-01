@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-11-01T09:25:50.241Z",
-  "runId": "41292451365",
+  "assembledAt": "2026-11-01T22:27:22.943Z",
+  "runId": "41351214962",
   "jobs": [
     {
       "id": "fhgr-b96495651fa4",
@@ -34,7 +34,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:25:44.642Z",
+      "crawledAt": "2026-11-01T22:27:16.333Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-01T09:25:44.642Z",
+      "validThrough": "2026-12-01T22:27:16.333Z",
       "validThroughSource": "last-observed-window"
     }
   ]

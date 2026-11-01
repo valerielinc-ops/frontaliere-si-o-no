@@ -1,7 +1,7 @@
 {
   "crawlerKey": "matterhorn-gotthard-bahn",
-  "assembledAt": "2026-11-01T09:29:35.882Z",
-  "runId": "41292451365",
+  "assembledAt": "2026-11-01T22:25:17.322Z",
+  "runId": "41351214962",
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-8020f490f838",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bvzholding.ch/Werkstattmitarbeiter-Instandhaltung-GGB-mwd-de-j732.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:29:22.761Z",
+      "crawledAt": "2026-11-01T22:25:10.381Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -132,7 +132,7 @@
       "url": "https://jobs.bvzholding.ch/Techniker-Fahrzeuginstandhaltung-mwd-de-j728.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:29:21.777Z",
+      "crawledAt": "2026-11-01T22:25:09.320Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -237,7 +237,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Gleisbau-Instandhaltung-mwd-de-j664.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:29:20.902Z",
+      "crawledAt": "2026-11-01T22:25:08.383Z",
       "addressLocality": "Herbriggen",
       "addressCountry": "CH",
       "country": "CH",
@@ -339,7 +339,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Polymechaniker-mwd-in-Andermatt-de-j719.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:29:19.896Z",
+      "crawledAt": "2026-11-01T22:25:07.312Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -445,7 +445,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Logistiker-EFZ-Lager-mwd-de-j710.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:29:18.895Z",
+      "crawledAt": "2026-11-01T22:25:06.211Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -461,7 +461,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-17T09:29:18.895Z",
+      "validThrough": "2027-01-17T22:25:06.211Z",
       "applyUrl": "https://jobs.bvzholding.ch/Lehrstelle-Logistiker-EFZ-Lager-mwd-de-f710.html",
       "requirements": [
         "Du begeisterst dich für die Welt des öffentlichen Verkehrs und hast ein grosses Interesse an logistischen Abläufen",
@@ -539,7 +539,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Automatiker-EFZ-mwd-de-j730.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:29:17.894Z",
+      "crawledAt": "2026-11-01T22:25:05.110Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -555,7 +555,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-17T09:29:17.894Z",
+      "validThrough": "2027-01-17T22:25:05.110Z",
       "applyUrl": "https://jobs.bvzholding.ch/Lehrstelle-Automatiker-EFZ-mwd-de-f730.html",
       "requirements": [
         "Du tüftelst gerne und interessierst dich für Technik",
@@ -618,7 +618,7 @@
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
       "slug": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
-        "it": "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
+        "it": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
         "en": "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig",
         "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
@@ -645,7 +645,7 @@
       "url": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-j689.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:29:17.002Z",
+      "crawledAt": "2026-11-01T22:25:04.161Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -686,12 +686,14 @@
       },
       "previousSlugs": [
         "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
+        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
+        "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
+          "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
         ]
       },
       "firstSeenAt": "2026-09-07T15:24:41.109Z",
@@ -743,7 +745,7 @@
       "url": "https://jobs.bvzholding.ch/Automobilfachmann-mwd-de-j734.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:29:16.002Z",
+      "crawledAt": "2026-11-01T22:25:03.068Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
