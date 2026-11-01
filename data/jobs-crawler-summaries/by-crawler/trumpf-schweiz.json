@@ -1,16 +1,16 @@
 {
   "key": "trumpf-schweiz",
   "label": "trumpf",
-  "generatedAt": "2026-10-31T21:32:51.829Z",
+  "generatedAt": "2026-11-01T09:38:27.711Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 6248,
-  "avgDurationMs": 6248,
+  "durationMs": 6201,
+  "avgDurationMs": 6201,
   "durationHistory": [
-    6248
+    6201
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,10 +35,10 @@
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-10T09:38:11.375Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:32:35.108Z",
+      "crawledAt": "2026-11-01T09:38:11.375Z",
       "id": "trumpf-schweiz-113baa75a22a",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -46,12 +46,15 @@
       "salarySource": "estimated",
       "postalCode": "7214",
       "firstSeenAt": "2026-10-12T09:22:23.734Z",
-      "_qualityScore": 90,
+      "streetAddress": "Grüsch",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
@@ -76,26 +79,28 @@
       "source": "trumpf-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-06-02",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:38:10.983Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:32:34.665Z",
+      "crawledAt": "2026-11-01T09:38:10.983Z",
       "id": "trumpf-schweiz-1d5e40360c3d",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Bottighofen",
       "postalCode": "8598",
       "firstSeenAt": "2026-05-11T23:05:11.547Z",
       "salarySource": "reported",
       "datePosted": "2026-06-02",
       "postingDateSource": "reported",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -117,10 +122,10 @@
       "source": "trumpf-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-09-30",
-      "validThrough": "",
+      "validThrough": "2026-12-29T09:38:11.731Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:32:35.478Z",
+      "crawledAt": "2026-11-01T09:38:11.731Z",
       "id": "trumpf-schweiz-90996f9fca6d",
       "salaryMin": 58500,
       "salaryMax": 103500,
@@ -130,12 +135,15 @@
       "datePosted": "2026-09-30",
       "postingDateSource": "reported",
       "postalCode": "7214",
-      "_qualityScore": 90,
+      "streetAddress": "Grüsch",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -157,26 +165,28 @@
       "source": "trumpf-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-09-25",
-      "validThrough": "",
+      "validThrough": "2026-12-24T09:38:12.074Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:32:35.894Z",
+      "crawledAt": "2026-11-01T09:38:12.074Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Grüsch",
       "postalCode": "7214",
       "id": "trumpf-schweiz-20b164f028e3",
       "firstSeenAt": "2026-04-13T11:26:19.226Z",
       "salarySource": "reported",
       "datePosted": "2026-09-25",
       "postingDateSource": "reported",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -198,10 +208,10 @@
       "source": "trumpf-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-09-30",
-      "validThrough": "",
+      "validThrough": "2026-12-29T09:38:12.429Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:32:36.312Z",
+      "crawledAt": "2026-11-01T09:38:12.429Z",
       "id": "trumpf-schweiz-7ae5c20dc8af",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -211,12 +221,15 @@
       "datePosted": "2026-09-30",
       "postingDateSource": "reported",
       "postalCode": "7214",
-      "_qualityScore": 90,
+      "streetAddress": "Grüsch",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -238,10 +251,10 @@
       "source": "trumpf-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-09-24",
-      "validThrough": "",
+      "validThrough": "2026-12-23T09:38:12.780Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:32:36.655Z",
+      "crawledAt": "2026-11-01T09:38:12.780Z",
       "id": "trumpf-schweiz-5899fea150e2",
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -251,12 +264,15 @@
       "datePosted": "2026-09-24",
       "postingDateSource": "reported",
       "postalCode": "7214",
-      "_qualityScore": 90,
+      "streetAddress": "Grüsch",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -278,10 +294,10 @@
       "source": "trumpf-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-10-02",
-      "validThrough": "",
+      "validThrough": "2026-12-31T09:38:13.127Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:32:36.957Z",
+      "crawledAt": "2026-11-01T09:38:13.127Z",
       "id": "trumpf-schweiz-fd5af7684016",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -291,12 +307,15 @@
       "datePosted": "2026-10-02",
       "postingDateSource": "reported",
       "postalCode": "7214",
-      "_qualityScore": 90,
+      "streetAddress": "Grüsch",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -320,10 +339,10 @@
       "datePosted": "2026-10-25",
       "postedDate": "2026-10-25",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-23T09:38:13.514Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:32:37.308Z",
+      "crawledAt": "2026-11-01T09:38:13.514Z",
       "id": "trumpf-schweiz-94f4666784f7",
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -331,12 +350,15 @@
       "salarySource": "estimated",
       "postalCode": "7214",
       "firstSeenAt": "2026-10-25T21:33:06.730Z",
-      "_qualityScore": 90,
+      "streetAddress": "Grüsch",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -360,10 +382,10 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-21T09:38:13.848Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:32:37.646Z",
+      "crawledAt": "2026-11-01T09:38:13.848Z",
       "id": "trumpf-schweiz-39c830ed7b9e",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -371,12 +393,15 @@
       "salarySource": "estimated",
       "postalCode": "7214",
       "firstSeenAt": "2026-10-23T21:27:50.614Z",
-      "_qualityScore": 90,
+      "streetAddress": "Grüsch",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -398,26 +423,28 @@
       "source": "trumpf-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-05-01",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:38:14.190Z",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-10-31T21:32:38.051Z",
+      "crawledAt": "2026-11-01T09:38:14.190Z",
       "id": "trumpf-schweiz-36b915dcb2de",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Grüsch",
       "postalCode": "7214",
       "firstSeenAt": "2026-04-30T22:39:57.797Z",
       "salarySource": "reported",
       "datePosted": "2026-05-01",
       "postingDateSource": "reported",
-      "_qualityScore": 92,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -439,10 +466,10 @@
       "source": "trumpf-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-05-01",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:38:14.610Z",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-10-31T21:32:38.454Z",
+      "crawledAt": "2026-11-01T09:38:14.610Z",
       "id": "trumpf-schweiz-2d1e6fc71e7a",
       "salaryMin": 46500,
       "salaryMax": 70500,
@@ -452,14 +479,17 @@
       "salarySource": "estimated",
       "datePosted": "2026-05-01",
       "postingDateSource": "reported",
-      "_qualityScore": 92,
+      "streetAddress": "Grüsch",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }
