@@ -108,7 +108,7 @@ export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed',
 // What Valerie can do on an order that stopped (each event still checks the state it accepts).
 const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted', 'portal_auto_retry']);
 // ...and what settles one without her: the employer's e-mail proving a held submit arrived.
-const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged', 'repair_facts']);
+const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged', 'submission_receipt_reconciled', 'repair_facts']);
 // The submit_failed errors of a send that may have reached the employer (never retried).
 // portal_antibot_ambiguous: the same unknown outcome, on a portal with an invisible reCAPTCHA.
 const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']);
@@ -756,6 +756,17 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       if (state !== 'submitting') return ignore('not_submitting');
       next.factRepairAttempts = 0;
       next.state = 'submitted';
+      effects = [{ type: 'mark_submitted' }];
+      break;
+    case 'submission_receipt_reconciled':
+      if (state !== 'submitting' && state !== 'owner_takeover') return ignore('not_reconcilable');
+      next.factRepairAttempts = 0;
+      next.state = 'submitted';
+      next.deadlineAt = null;
+      next.reminderAt = null;
+      next.portalAutoRetryAt = null;
+      next.heldBy = [];
+      if (typeof event.channel === 'string' && event.channel.trim()) next.submittedVia = event.channel.trim().slice(0, 40);
       effects = [{ type: 'mark_submitted' }];
       break;
     case 'submit_acknowledged':

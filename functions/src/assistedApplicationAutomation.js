@@ -268,6 +268,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         && remoteExecutorReady((await db.collection('assisted_application_executors').doc(REMOTE_EXECUTOR).get()).data(), nowMs);
     } catch { /* Missing policy/readiness retains the existing bounded backoff. */ }
   }
+  const mayReconcileSubmission = ['submit_succeeded', 'submit_failed'].includes(event.type);
   let outcome = null;
   await db.runTransaction(async (transaction) => {
     const orderSnapshot = await transaction.get(orderRef);
@@ -299,13 +300,31 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     const irreversible = submissionIrreversibility({ submission });
     const currentSend = submission[`r${Number(flow.round) || 1}`];
     const currentIrreversible = currentSend?.state === 'sent' || isUnconfirmedSubmission(currentSend);
+    const order = orderSnapshot.data() || {};
+    const canReconcileReceipt = mayReconcileSubmission
+      && currentSend?.state === 'sent'
+      && ['submitting', 'owner_takeover'].includes(flow.state)
+      && !order.withdrawnAt
+      && !submission.withdrawnAt
+      && order.paymentStatus === 'paid'
+      && ['awaiting_upload', 'ready_for_manual_submission', 'in_progress', 'submitted'].includes(order.submissionStatus)
+      && order.refundStatus !== 'pending';
+    const transitionEvent = canReconcileReceipt
+      ? {
+        type: 'submission_receipt_reconciled',
+        ...(typeof currentSend.channel === 'string' && currentSend.channel.trim()
+          ? { channel: currentSend.channel.trim().slice(0, 40) }
+          : {}),
+      }
+      : event;
     const confirmsSubmission = ['submit_succeeded', 'submit_acknowledged', 'owner_submitted', 'candidate_confirmed_submitted'].includes(event.type);
     const recordsOutcome = ['submit_failed', 'submit_handoff'].includes(event.type);
     const ignoreIrreversible = () => {
       // No workflow/round/slot writes, including the event claim, for a refused new execution.
       outcome = { ok: false, ignored: irreversible, state: publicSubmissionState({ order: orderSnapshot.data(), flow, submission }) };
     };
-    if (irreversible && (!currentIrreversible || (!confirmsSubmission && !(irreversible === 'submission_unconfirmed' && recordsOutcome)))) {
+    if (irreversible && !canReconcileReceipt
+      && (!currentIrreversible || (!confirmsSubmission && !(irreversible === 'submission_unconfirmed' && recordsOutcome)))) {
       ignoreIrreversible();
       return;
     }
@@ -353,7 +372,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       outcome = { ok: false, ignored: 'stale_round' };
       return;
     }
-    const result = transition(flowForTransition, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
+    const result = transition(flowForTransition, transitionEvent, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
     // An ambiguous send may record an outcome; it cannot dispatch another attempt or refund a slot.
     if (irreversible && (result.effects.some(effect => ['dispatch', 'refund'].includes(effect.type))
       || (result.flow.state !== 'submitted' && Number(result.flow.portalAutoRetryAt) > 0))) {
@@ -365,8 +384,8 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     // continuing a fact-repair chain, including its candidate-review emails.
     const startsFactRepair = result.effects.some((effect) => effect.type === 'dispatch' && effect.reason === 'fact_repair');
     const continuesFactRepair = Number(flow.factRepairAttempts) > 0
-      && !['submit_succeeded', 'submit_acknowledged', 'owner_takeover'].includes(event.type);
-    const eligibility = automationEligibility(orderSnapshot.data() || {}, orderId);
+      && !['submit_succeeded', 'submit_acknowledged', 'submission_receipt_reconciled', 'owner_takeover'].includes(transitionEvent.type);
+    const eligibility = automationEligibility(order, orderId);
     if ((startsFactRepair || continuesFactRepair) && !eligibility.eligible) {
       claim(`ignored:${eligibility.reason}`);
       transaction.set(orderRef, { automationDueAt: null }, { merge: true });
@@ -381,7 +400,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     const nextFlow = {
       ...flow,
       ...result.flow,
-      ...(patchFlow ? patchFlow(flow) : {}),
+      ...(patchFlow && !canReconcileReceipt ? patchFlow(flow) : {}),
       updatedAt: nowMs,
     };
     if (event.type === 'submit_handoff') {
@@ -417,7 +436,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     transaction.set(orderRef, mirrorFields(nextFlow), { merge: true });
     transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_transition', {
       actor: String(actor).slice(0, 120),
-      eventType: event.type,
+      eventType: transitionEvent.type,
       fromState: flow.state || null,
       toState: nextFlow.state,
       round: nextFlow.round,

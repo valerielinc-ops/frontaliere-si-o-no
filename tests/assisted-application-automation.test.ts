@@ -248,6 +248,112 @@ describe('applying events', () => {
     expect(effects.filter((effect) => effect.kind === 'candidate_review')).toHaveLength(1);
   });
 
+  it('reconciles a durable SENT receipt over a late runner failure exactly once', async () => {
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER);
+    await orderRef.collection('automation').doc('flow').set({
+      state: 'owner_takeover',
+      round: 1,
+      heldBy: ['runner_timeout'],
+      dispatch: { mode: 'submit', round: 1, attempts: 2 },
+    });
+    await orderRef.collection('automation').doc('submission').set({
+      r1: { state: 'sent', channel: 'portal', sentAt: T0, clickedAt: T0 },
+    });
+
+    const events = orderRef.collection('automation_events');
+    const ref = await events.add({ type: 'submit_failed', round: 1, error: 'runner_timeout' });
+    const data = store.read(ref.path);
+    const result = await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data, runEffect, nowMs: T0 + 1 });
+
+    expect(result).toMatchObject({ ok: true, fromState: 'owner_takeover', flow: { state: 'submitted', submittedVia: 'portal' } });
+    expect(store.read(`${ORDER_PATH}/automation/submission`).r1.state).toBe('sent');
+    expect(store.read(ref.path)).toMatchObject({ result: 'applied' });
+    expect(effects).toEqual([{ type: 'mark_submitted' }]);
+
+    const duplicate = await events.add({ type: 'submit_failed', round: 1, error: 'runner_timeout' });
+    expect(await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: duplicate, data: store.read(duplicate.path), runEffect, nowMs: T0 + 2 }))
+      .toMatchObject({ ok: false });
+    expect(store.read(`${ORDER_PATH}/automation/flow`).state).toBe('submitted');
+    expect(effects).toEqual([{ type: 'mark_submitted' }]);
+  });
+
+  it('does not reconcile a receipt from an older round', async () => {
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER);
+    await orderRef.collection('automation').doc('flow').set({
+      state: 'submitting',
+      round: 2,
+      dispatch: { mode: 'submit', round: 2, attempts: 2 },
+    });
+    await orderRef.collection('automation').doc('submission').set({
+      r1: { state: 'sent', channel: 'portal', sentAt: T0, clickedAt: T0 },
+    });
+
+    const ref = await orderRef.collection('automation_events').add({ type: 'submit_failed', round: 2, error: 'runner_timeout' });
+    const result = await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data: store.read(ref.path), runEffect, nowMs: T0 + 1 });
+
+    expect(result).toMatchObject({ ok: true, flow: { state: 'owner_takeover', round: 2 } });
+    expect(effects.some((effect) => effect.type === 'mark_submitted')).toBe(false);
+  });
+
+  it('does not reconcile a sent receipt while a refund is pending', async () => {
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER);
+    await orderRef.set({ refundStatus: 'pending' }, { merge: true });
+    await orderRef.collection('automation').doc('flow').set({
+      state: 'submitting',
+      round: 1,
+      dispatch: { mode: 'submit', round: 1, attempts: 2 },
+    });
+    await orderRef.collection('automation').doc('submission').set({
+      r1: { state: 'sent', channel: 'portal', sentAt: T0, clickedAt: T0 },
+    });
+
+    const ref = await orderRef.collection('automation_events').add({ type: 'submit_failed', round: 1, error: 'runner_timeout' });
+    const result = await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data: store.read(ref.path), runEffect, nowMs: T0 + 1 });
+
+    expect(result).toMatchObject({ ok: true, flow: { state: 'owner_takeover' } });
+    expect(effects.some((effect) => effect.type === 'mark_submitted')).toBe(false);
+  });
+
+  it('does not reconcile a sent receipt after the order was blocked', async () => {
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER);
+    await orderRef.set({ submissionStatus: 'blocked' }, { merge: true });
+    await orderRef.collection('automation').doc('flow').set({
+      state: 'submitting',
+      round: 1,
+      dispatch: { mode: 'submit', round: 1, attempts: 2 },
+    });
+    await orderRef.collection('automation').doc('submission').set({
+      r1: { state: 'sent', channel: 'portal', sentAt: T0, clickedAt: T0 },
+    });
+
+    const ref = await orderRef.collection('automation_events').add({ type: 'submit_failed', round: 1, error: 'runner_timeout' });
+    const result = await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data: store.read(ref.path), runEffect, nowMs: T0 + 1 });
+
+    expect(result).toMatchObject({ ok: true, flow: { state: 'owner_takeover' } });
+    expect(effects.some((effect) => effect.type === 'mark_submitted')).toBe(false);
+  });
+
+  it('keeps a clicked unknown submission outcome unresolved', async () => {
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER);
+    await orderRef.collection('automation').doc('flow').set({
+      state: 'submitting',
+      round: 1,
+      heldBy: [],
+      dispatch: { mode: 'submit', round: 1, attempts: 2 },
+    });
+    await orderRef.collection('automation').doc('submission').set({
+      r1: { state: 'sending', channel: 'portal', startedAt: T0, clickedAt: T0 },
+    });
+
+    const events = orderRef.collection('automation_events');
+    const ref = await events.add({ type: 'submit_failed', round: 1, error: 'portal_ambiguous' });
+    const result = await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data: store.read(ref.path), runEffect, nowMs: T0 + 1 });
+
+    expect(result).toMatchObject({ ok: true, flow: { state: 'owner_takeover', heldBy: ['portal_ambiguous'] } });
+    expect(store.read(`${ORDER_PATH}/automation/submission`).r1).toMatchObject({ state: 'sending', clickedAt: T0 });
+    expect(effects.some((effect) => effect.type === 'mark_submitted')).toBe(false);
+  });
+
   it('passes portal documents from the runner to the candidate hold', async () => {
     const flowRef = store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow');
     await flowRef.set({
