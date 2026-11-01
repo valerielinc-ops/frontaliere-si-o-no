@@ -1,3 +1,4 @@
+import { addressContextContract } from '../../../functions/src/lib/addressContextContract.js';
 /**
  * Submit mode of the assisted-application agent (GitHub Actions).
  *
@@ -24,7 +25,7 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
-import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from '../../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
@@ -35,6 +36,7 @@ import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
+import { addressAnswerNeedsOwnership } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { postingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
@@ -67,16 +69,25 @@ export function openRequiredQuestions(draft, answers = {}, { deferPortal = false
 }
 
 /** Project answers already recorded by the portal onto the current draft ids. */
-function portalAnswersForFlow(questions, answers, recordedAnswers) {
+function portalAnswersForFlow(questions, answers, recordedAnswers, memory = {}) {
   const result = { ...(answers && typeof answers === 'object' ? answers : {}) };
   const records = Array.isArray(recordedAnswers) ? recordedAnswers : [];
   for (const question of Array.isArray(questions) ? questions : []) {
     if (!question?.id || String(result[question.id] ?? '').trim()) continue;
+    if (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question)
+      && (Object.hasOwn(result, question.id) || (Object.hasOwn(memory, candidateQuestionAnswerKey(question))
+        && !String(memory[candidateQuestionAnswerKey(question)] ?? '').trim()))) continue;
     const key = portalQuestionKey(question);
     if (!key) continue;
     const values = new Map();
     for (const item of records) {
       if (!item || typeof item !== 'object' || item.source === 'policy_default' || !String(item.answer ?? '').trim()) continue;
+      if (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question)) {
+        const currentOwner = addressContextContract(question);
+        const previousOwner = addressContextContract(item);
+        if (!['answers', 'candidate', 'user'].includes(item.source) || !currentOwner || currentOwner.unknown
+          || !previousOwner || previousOwner.unknown || JSON.stringify(currentOwner) !== JSON.stringify(previousOwner)) continue;
+      }
       const itemKey = String(item.semanticKey || '').trim() || portalQuestionKey(item);
       if (itemKey !== key) continue;
       const answer = String(item.answer).trim();
@@ -210,20 +221,26 @@ export async function submitApplication(ctx) {
   // Resolve facts that the CV already states before the generic required-question gate.
   // Older drafts can contain a newly discovered portal question with an empty answer;
   // waiting for the planner would never work because the gate returns first.
+  // Only persisted nonempty candidate answers can attest a current statement.
+  // Automatic and remembered projections below never enlarge this set.
+  const originalCurrentAnswerIds = Object.entries(flow?.answers || {})
+    .filter(([, value]) => String(value ?? '').trim()).map(([id]) => id);
   const initialEdited = candidateWithEdits({ order, draft, flow });
   const portalQuestions = (draft?.questions || []).filter((question) => question.source === 'portal');
   const initialCandidate = candidateForForm({
     identity: initialEdited.identity,
     profile: initialEdited.profile,
     answers: initialEdited.answers,
+    currentAnswerIds: originalCurrentAnswerIds,
     draft,
     portalQuestions,
     language: draft?.language,
     personal: initialEdited.personal,
     job: { title: draft?.job?.title || order.jobTitle || '', company: order.companyName || '' },
   });
-  const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers });
-  const rememberedAnswers = portalAnswersForFlow(portalQuestions, initialEdited.answers, initialCandidate.portalQuestionsAnswered);
+  const autoAnswerSources = Object.create(null);
+  const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers, sources: autoAnswerSources });
+  const rememberedAnswers = portalAnswersForFlow(portalQuestions, initialEdited.answers, initialCandidate.portalQuestionsAnswered, flow?.questionAnswers || {});
   const mergedAnswers = { ...(flow?.answers || {}), ...rememberedAnswers, ...autoAnswers };
   const submitFlow = Object.keys(mergedAnswers).length
     ? { ...(flow || {}), answers: mergedAnswers }
@@ -273,6 +290,7 @@ export async function submitApplication(ctx) {
       ...(question.context ? { context: question.context } : {}),
       ...(question.section ? { section: question.section } : {}),
       ...(question.autocomplete ? { autocomplete: question.autocomplete } : {}),
+      ...(Object.hasOwn(question, 'addressContext') ? { addressContext: addressContextContract(question) } : {}),
       ...(question.type ? { type: question.type } : {}),
       ...(portalQuestionKey(question) ? { semanticKey: portalQuestionKey(question) } : {}),
       ...(Array.isArray(question.options) && question.options.length ? { options: question.options } : {}),
@@ -500,7 +518,7 @@ export async function submitApplication(ctx) {
         skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' } }),
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,

@@ -1,3 +1,4 @@
+import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
 import '../../extension/apply-control.js';
 /**
@@ -30,7 +31,7 @@ import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, 
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -366,13 +367,13 @@ export { portalQuestionId, portalQuestionKey, slugId };
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {} }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {}, currentAnswerIds = [], answerSources = {} }) {
   // The split the candidate chose on the review page, else the surname with its particles (splitName).
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = profile.permitStatus || '';
-  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers);
+  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
   const address = resolveResidenceAddress(profile.address, profile.location);
@@ -467,7 +468,13 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
  * Current answers win; canonical topics also reuse an unambiguous answer from
  * the previous portal run when an ATS regenerates its field id.
  */
-function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
+const addressMetadata = (field) => Object.hasOwn(field || {}, 'addressContext') ? { addressContext: addressContextContract(field) } : {};
+const unreadableNativeOwner = field => (field?.kind === 'checkbox' && field?.consentOwnershipUnknown === true)
+  || (addressAnswerNeedsOwnership(field?.label || field?.applicationQuestion || field?.question, field)
+    && Object.hasOwn(field || {}, 'addressContext') && !hasAddressContextOwnership(field));
+
+function portalAnswersForQuestions(questions, answers, previousAnswers = [], currentAnswerIds = [], answerSources = {}) {
+  const attestedIds = new Set(currentAnswerIds);
   const items = questions.map((question) => {
     const raw = String(answers[question.id] ?? '').trim();
     const projected = operationalAnswerForOption(question, raw) || raw;
@@ -484,23 +491,26 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
       context: question.context || '',
       section: question.section || '',
       autocomplete: question.autocomplete || '',
+      ...addressMetadata(question),
       answer,
-      source: 'answers',
+      source: Object.hasOwn(answerSources, question.id) ? answerSources[question.id] : 'answers',
       current: true,
+      attested: attestedIds.has(question.id) && (!Object.hasOwn(answerSources, question.id) || answerSources[question.id] === 'answers'),
     };
   }).filter((item) => String(item.answer ?? '').trim());
   const keyFor = (item) => portalQuestionKey(item) || portalQuestionId(item);
   const currentKeys = new Set(questions
     // An empty value under a regenerated field id is not an answer; keep the
     // previous semantic answer eligible for that same question.
-    .filter((question) => question?.id && String(answers[question.id] ?? '').trim())
-    .map((question) => keyFor({ applicationQuestion: question.applicationQuestion, question: question.question, context: question.context || '', section: question.section || '', autocomplete: question.autocomplete || '' })));
+    .filter((question) => question?.id && (String(answers[question.id] ?? '').trim()
+      || (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question) && Object.hasOwn(answers, question.id))))
+    .map((question) => keyFor({ applicationQuestion: question.applicationQuestion, question: question.question, context: question.context || '', section: question.section || '', autocomplete: question.autocomplete || '', ...addressMetadata(question) })));
   const priorGroups = new Map();
   for (const item of Array.isArray(previousAnswers) ? previousAnswers : []) {
     const question = String(item?.question || '').trim();
     const answer = String(item?.answer ?? '').trim();
     if (!question || !answer) continue;
-    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), answer, source: String(item?.source || 'answers') };
+    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), ...addressMetadata(item), answer, source: String(item?.source || 'answers') };
     const key = keyFor(prior);
     if (currentKeys.has(key)) continue;
     const group = priorGroups.get(key) || [];
@@ -517,13 +527,13 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
     const previous = seen.get(key);
     if (!previous || item.current) seen.set(key, item);
   }
-  return [...seen.values()].map(({ answerId, question, applicationQuestion, candidateQuestion, answer, context, section, autocomplete, source }) => ({
-    ...(answerId ? { answerId } : {}), question, ...(applicationQuestion ? { applicationQuestion } : {}), ...(candidateQuestion ? { candidateQuestion } : {}), answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
+  return [...seen.values()].map(({ answerId, question, applicationQuestion, candidateQuestion, answer, context, section, autocomplete, source, current, attested, ...metadata }) => ({
+    ...(attested === true && Object.hasOwn(metadata, 'addressContext') && addressAnswerNeedsOwnership(question, { ...metadata, autocomplete }) ? { current: true } : {}), ...addressMetadata(metadata), ...(answerId ? { answerId } : {}), question, ...(applicationQuestion ? { applicationQuestion } : {}), ...(candidateQuestion ? { candidateQuestion } : {}), answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
   }));
 }
 
 /** Resolve required portal questions from the candidate data before the submit gate. */
-export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {} } = {}) {
+export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {}, sources = null } = {}) {
   const out = {};
   for (const question of questions) {
     if (question?.source !== 'portal' || !question.required || String(answers?.[question.id] ?? '').trim()) continue;
@@ -539,6 +549,7 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
       context: question.context || '',
       section: question.section || '',
       autocomplete: question.autocomplete || '',
+      ...addressMetadata(question),
       required: true,
       options,
     };
@@ -548,7 +559,10 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
         return no ? { value: no.label, source: 'rule' } : null;
       })();
     // Policy defaults belong to live form filling, never to confirmed CV facts.
-    if (answer?.value && answer.source !== 'policy_default') out[question.id] = answer.value;
+    if (answer?.value && answer.source !== 'policy_default') {
+      out[question.id] = answer.value;
+      if (sources) sources[question.id] = answer.source;
+    }
   }
   return out;
 }
@@ -1077,7 +1091,7 @@ function questionsFrom(missingRequired) {
   const seen = new Set();
   for (const item of missingRequired) {
     const id = portalQuestionId(item);
-    const key = portalQuestionKey(item);
+    const key = portalQuestionKey(item) || id;
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
     const applicationQuestion = String(item.applicationQuestion || item.portalQuestion || item.question || '').trim().slice(0, 300);
@@ -1095,6 +1109,7 @@ function questionsFrom(missingRequired) {
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
       ...(item.section ? { section: String(item.section).slice(0, 240) } : {}),
       ...(item.autocomplete ? { autocomplete: String(item.autocomplete).slice(0, 100) } : {}),
+      ...addressMetadata(item),
       why: item.why || '',
       type: item.type,
       options,
@@ -2980,6 +2995,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       && !['skip', 'uncheck'].includes(action.action));
     const openFields = retryableFields.filter((field) => field.inputType !== 'password'
       && !repairActions.some((action) => action.fieldId === field.id));
+    if (openFields.some(unreadableNativeOwner)) return noted({ handoff: 'question_label_unreadable' });
     if (openFields.length) {
       const why = ({ it: 'Il portale ha rifiutato questo dato. Controllalo o correggilo.', de: 'Das Portal hat diese Angabe abgelehnt. Bitte prüfe oder korrigiere sie.', fr: 'Le portail a refusé cette réponse. Veuillez la vérifier ou la corriger.', en: 'The portal rejected this entry. Please check or correct it.' })[ctx.candidateLocale] || 'Il portale ha rifiutato questo dato. Controllalo o correggilo.';
       const openQuestions = questionsFrom(openFields.filter((field) => String(field.label || '').trim()).map((field) => ({
@@ -2989,6 +3005,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         ...(field.context ? { context: field.context } : {}),
         ...(field.section ? { section: field.section } : {}),
         ...(field.autocomplete ? { autocomplete: field.autocomplete } : {}),
+        ...addressMetadata(field),
         why,
         type: field.options?.length ? 'choice' : field.kind === 'date' || field.inputType === 'date' ? 'date' : field.inputType === 'number' ? 'number' : 'text',
         options: (field.options || []).map((option) => option.label).filter(Boolean),
@@ -3225,6 +3242,10 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
     // A rejected live field remains a request even if it lacks a required marker;
     // missing metadata is unknown, not evidence that the field is optional.
     if (field?.required === false && !field.invalid) continue;
+    if (unreadableNativeOwner(field || item)) {
+      unreadableFields.push(field?.id || item.fieldId || 'unknown');
+      continue;
+    }
     const document = portalRequiredDocumentFromField(field ? { ...field, required: true } : field);
     if (!document) {
       // A field with a generated name is no question for a person: the submit
@@ -3272,6 +3293,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),
+          ...addressMetadata(field || item),
         });
       }
       continue;
@@ -3545,16 +3567,17 @@ export async function submitViaPortal(ctx) {
       const name = String(document);
       evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
-    const record = (question, answer, source, context = '', section = '', autocomplete = '') => {
+    const record = (question, answer, source, context = '', section = '', autocomplete = '', metadata = {}) => {
       if (!question || !String(answer ?? '').trim()) return;
       const label = String(question).slice(0, 200);
       const surrounding = String(context || '').slice(0, 240);
       const heading = String(section || '').slice(0, 240);
       const fieldAutocomplete = String(autocomplete || '').slice(0, 100);
-      const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete };
+      const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete, ...addressMetadata(metadata) };
       const key = portalQuestionKey(item) || portalQuestionId(item) || label;
       given.set(key, {
         question: label,
+        ...addressMetadata(metadata),
         answer: String(answer).slice(0, 2000),
         source: source || '',
         ...(surrounding ? { context: surrounding } : {}),
@@ -3577,13 +3600,14 @@ export async function submitViaPortal(ctx) {
           // planner sees the form. Keep an explicit candidate fact above that
           // default; phone-code defaults are never candidate answers.
           const candidateAnswer = candidateAnswerForField(candidate, field)?.value || '';
-          if (isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
+          if (addressAnswerNeedsOwnership(field.label, field) || isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
           return {
             question: String(field.label || field.name || field.id || '').slice(0, 200),
             answer,
             context: String(field.context || '').slice(0, 240),
             section: String(field.section || '').slice(0, 240),
             autocomplete: String(field.autocomplete || '').slice(0, 100),
+            ...addressMetadata(field),
             source: 'answers',
           };
         })
@@ -3622,7 +3646,7 @@ export async function submitViaPortal(ctx) {
       }
       agentCalls += agent.calls;
       (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
-      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context);
+      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context, item.section, item.autocomplete, item);
       for (const item of (agent.evidence?.rounds || []).flatMap((round) => round.actions || [])) {
         if (item.action === 'upload' && item.ok) noteUpload(item.document, item.files);
       }
@@ -3938,7 +3962,7 @@ export async function submitViaPortal(ctx) {
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
-          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete);
+          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete, field);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
