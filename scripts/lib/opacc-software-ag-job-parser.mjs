@@ -205,8 +205,8 @@ export async function fetchAllOpaccSoftwareAgJobs() {
       // ── Recommended fields ──
       // Prospected runtime rows retain the selected structured candidate;
       // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(addressRegion || canton),
+      addressLocality: normalizeSpace(addressLocality),
+      addressRegion: normalizeSpace(addressRegion),
       addressCountry: normalizeSpace(addressCountry || 'CH'),
       country: normalizeSpace(addressCountry || 'CH'),
       postalCode: normalizeSpace(postalCode),

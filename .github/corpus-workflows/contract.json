@@ -4,20 +4,20 @@
   "generatorSha256": "4b6e7bc072d9cdcb05f0e29555519e095ab5c58029e035826935118e54dd477e",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "28bfa036ac92b710f1d42a2992562b0c958b58e1",
+  "sourceCommit": "b8582765afb2ff9c31ab43b2e5ff166995567b13",
   "artifactObservation": {
     "generatorSha256": "4b6e7bc072d9cdcb05f0e29555519e095ab5c58029e035826935118e54dd477e",
     "sourceRef": "main",
-    "sourceCommit": "28bfa036ac92b710f1d42a2992562b0c958b58e1"
+    "sourceCommit": "b8582765afb2ff9c31ab43b2e5ff166995567b13"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 670,
+  "crawlerCount": 673,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:c8e5c35e7c731c0a61ab49728370ee466ac3724c38e62aacbc2b1e3b18767a1f",
+    "rosterDigest": "sha256:fefa12f0b5fb6718b7429f83f40feebc4c4973626008efaddaa9dd9bcbe12276",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -111,6 +111,7 @@
     "scripts/update-asile-des-aveugles-jobs.mjs",
     "scripts/update-atec-personal-jobs.mjs",
     "scripts/update-audemars-piguet-jobs.mjs",
+    "scripts/update-avantgarten-ch-jobs.mjs",
     "scripts/update-axa-jobs.mjs",
     "scripts/update-bachem-jobs.mjs",
     "scripts/update-bachtelen-jobs.mjs",
@@ -136,6 +137,7 @@
     "scripts/update-bls-jobs.mjs",
     "scripts/update-bms-building-jobs.mjs",
     "scripts/update-bobst-jobs.mjs",
+    "scripts/update-bodmerfischer-ch-jobs.mjs",
     "scripts/update-bossard-jobs.mjs",
     "scripts/update-brack-alltron-jobs.mjs",
     "scripts/update-brefispersonal-jobs.mjs",
@@ -505,6 +507,7 @@
     "scripts/update-siemens-healthineers-jobs.mjs",
     "scripts/update-siemens-jobs.mjs",
     "scripts/update-sika-jobs.mjs",
+    "scripts/update-sintio-ch-jobs.mjs",
     "scripts/update-six-group-jobs.mjs",
     "scripts/update-smg-swiss-marketplace-group-jobs.mjs",
     "scripts/update-sobi-jobs.mjs",
@@ -1565,15 +1568,18 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "41bf1da29b30c930f62fa8c7c1d65d83b0f2d773a4402ade6114d6a39bdbeb23",
-      "artifactSha256": "33c62b4a5a578b0059f93255bb9a0f1142c838c0e271d42aab5c9fe12bfc3d76",
+      "sourceSha256": "5b871a90355256ef515ced9360b561d9db571f204f1553bcd0f5ff0692f62a27",
+      "artifactSha256": "640a75d15ef5a8e8ba379c3def47c705ed55f6e23db2171906c1947183ce1206",
       "generatorSha256": "4b6e7bc072d9cdcb05f0e29555519e095ab5c58029e035826935118e54dd477e",
       "members": [
         "seco-jobroom",
         "asanti-ch",
         "bb-trading-werbeartikel-ag",
         "csl-immobilien-ag",
-        "comuni-ticino"
+        "comuni-ticino",
+        "avantgarten-ch",
+        "bodmerfischer-ch",
+        "sintio-ch"
       ]
     },
     {
