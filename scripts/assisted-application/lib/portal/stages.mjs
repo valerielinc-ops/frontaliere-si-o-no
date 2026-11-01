@@ -199,7 +199,9 @@ export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sour
   if (mismatchedJob) return { kind: 'posting_mismatch' };
   // A thank-you page with an unbound route is still an observed application
   // surface, but it cannot be treated as a normal form or a receipt.
-  if (CONFIRM_RE.test(text) && titleBound(text, job.title)) return { kind: 'unknown_apply' };
+  if (CONFIRM_RE.test(text) && titleBound(text, job.title)) {
+    return { kind: 'unknown_apply', prefinal: incompleteApplication(text) };
+  }
   const quotedSource = avaturePostingJobKey(applyUrl, sourceProtocol);
   if (quotedSource && !sameAvaturePortal(sourceProtocol, snapshot?.protocol, url)
     && buttons.some(button => GENERIC_APPLY_RE.test(button.text || ''))) return { kind: 'unknown_apply', prefinal: true };
