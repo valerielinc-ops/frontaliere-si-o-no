@@ -91024,9 +91024,10 @@
       "lastAttemptAt": "2026-10-08T19:16:26.830Z"
     },
     "sunrise-sede-ticino-c407ce147d39|it|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-28T16:08:13.264Z",
-      "source": "1520d2596e11"
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-01T16:46:29.081Z",
+      "source": "1520d2596e11",
+      "rung": "codex"
     },
     "sunrise-sede-ticino-69e415076299|it|de": {
       "attempts": 3,
@@ -208149,9 +208150,10 @@
       "source": "5771fce6da28"
     },
     "yellowshark-f9ebde9fe681|de|en": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-10-24T16:44:18.430Z",
-      "source": "3422dee5433c"
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-01T16:46:43.093Z",
+      "source": "3422dee5433c",
+      "rung": "unserved"
     },
     "posta-svizzera-centro-regionale-fbcf0b72abea|de|fr": {
       "attempts": 2,
@@ -241253,14 +241255,16 @@
       "source": "b2a9ea6b08a1"
     },
     "suva-c9536ee70d04|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-28T16:08:18.474Z",
-      "source": "55ac40287042"
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-01T16:46:28.446Z",
+      "source": "55ac40287042",
+      "rung": "azure"
     },
     "suva-5c3825d9271e|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-28T16:08:17.422Z",
-      "source": "3b7084a41593"
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-01T16:46:28.094Z",
+      "source": "3b7084a41593",
+      "rung": "azure"
     },
     "stadt-bern-3c2718ab50e7|de|it": {
       "attempts": 1,
