@@ -156,6 +156,33 @@ export default function ApplicationConciergeAdmin() {
                 <div><dt className="text-subtle">Località</dt><dd className="mt-1 text-body">{selected.applicantLocation || 'Non indicata'}</dd></div>
                 <div><dt className="text-subtle">Documento</dt><dd className="mt-1 break-words text-body">{selected.cvFileName || 'Non caricato'}</dd></div>
               </dl>
+              <section className="space-y-3" aria-labelledby="concierge-paid-receipts-title">
+                <div>
+                  <h3 id="concierge-paid-receipts-title" className="text-lg font-semibold text-heading">{t('jobBoard.concierge.admin.receiptsTitle')}</h3>
+                  <p className="mt-1 text-sm text-subtle">{t('jobBoard.concierge.admin.receiptsIntro')}</p>
+                </div>
+                <ul className="grid gap-3 sm:grid-cols-2">
+                  {(selected.paidReceiptEmails || []).map((receipt) => {
+                    const deliveryTone = receipt.deliveryStatus === 'delivered'
+                      ? 'text-success'
+                      : ['bounced', 'complained'].includes(receipt.deliveryStatus) ? 'text-danger' : 'text-warning';
+                    const providerTone = receipt.providerStatus === 'accepted' ? 'text-success' : receipt.providerStatus === 'failed' ? 'text-danger' : 'text-warning';
+                    return (
+                      <li key={receipt.key} className="rounded-stripe border border-edge bg-surface-alt p-3 text-sm">
+                        <p className="font-semibold text-strong">{receipt.audience === 'customer' ? t('jobBoard.concierge.admin.receiptCustomer') : t('jobBoard.concierge.admin.receiptOwner')}</p>
+                        <p className={`mt-1 ${providerTone}`}>
+                          {t('jobBoard.concierge.admin.providerStatus')}: {t(`jobBoard.concierge.admin.provider.${receipt.providerStatus}`)}
+                          {receipt.provider ? ` · ${receipt.provider}` : ''}
+                        </p>
+                        <p className={`mt-1 ${deliveryTone}`}>
+                          {t('jobBoard.concierge.admin.deliveryStatus')}: {t(`jobBoard.concierge.admin.delivery.${receipt.deliveryStatus}`)}
+                        </p>
+                        {(receipt.bounces > 0 || receipt.complaints > 0) && <p className="mt-1 text-xs text-danger">{receipt.bounces > 0 ? `${receipt.bounces} ${t('jobBoard.concierge.admin.bounces')}` : ''}{receipt.bounces > 0 && receipt.complaints > 0 ? ' · ' : ''}{receipt.complaints > 0 ? `${receipt.complaints} ${t('jobBoard.concierge.admin.complaints')}` : ''}</p>}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </section>
               <section aria-labelledby="concierge-proposals-title">
                 <h3 id="concierge-proposals-title" className="text-lg font-semibold text-heading">Proposte ({selected.proposals.length})</h3>
                 {selected.proposals.length === 0 ? <p className="mt-2 text-sm text-subtle">Non sono ancora state proposte posizioni a questo utente.</p> : <ul className="mt-3 divide-y divide-edge">

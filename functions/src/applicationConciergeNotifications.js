@@ -44,6 +44,7 @@ export async function sendConciergePaidNotifications({ db, serviceId, nowMs = Da
   const results = [];
   for (const audience of ['customer', 'owner']) {
     results.push(await send({ db, orderId: serviceId, recordRef, nowMs, audience,
+      trackingTarget: { kind: 'application-concierge', id: serviceId },
       key: `concierge_paid_${audience}`,
       build: (service, options = {}) => buildConciergePaidEmail(service, serviceId, { ...options, audience }),
     }));

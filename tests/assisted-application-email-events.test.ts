@@ -2,6 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
   assistedCampaignId,
   assistedEmailTracking,
+  conciergeCampaignId,
+  conciergeEmailTracking,
+  conciergePaidEmailViews,
   parseAssistedCampaign,
   recordAssistedEmailEvent,
 } from '../functions/src/assistedApplicationEmailEvents.js';
@@ -61,6 +64,13 @@ describe('assisted e-mail events', () => {
       tracking: true,
     });
     expect(assistedEmailTracking(ORDER_ID, 'employer_message_forward', { clicks: false }).tracking).toBe(false);
+    const conciergeCampaign = conciergeCampaignId('bundle-example', 'concierge_paid_customer');
+    expect(conciergeCampaign).toBe('ac--bundle-example--concierge_paid_customer');
+    expect(parseAssistedCampaign(conciergeCampaign)).toEqual({ serviceId: 'bundle-example', key: 'concierge_paid_customer' });
+    expect(conciergeEmailTracking('bundle-example', 'concierge_paid_customer')).toEqual({
+      tags: [{ name: 'type', value: 'application-concierge' }, { name: 'campaign_id', value: conciergeCampaign }],
+      tracking: true,
+    });
   });
 
   it('counts each provider event once, and keeps the signed token out of the clicked link', async () => {
@@ -78,8 +88,38 @@ describe('assisted e-mail events', () => {
     expect(engagement.lastOpenAt.toISOString()).toBe('2026-09-30T19:10:00.000Z');
     expect(JSON.stringify([...docs.values()])).not.toContain('signed-token');
 
-    expect(await recordAssistedEmailEvent(db, { ...first, type: 'send' })).toMatchObject({ recorded: false });
+    expect(await recordAssistedEmailEvent(db, { ...first, type: 'send' })).toMatchObject({ recorded: false, reason: 'untracked_type:send' });
     expect(await recordAssistedEmailEvent(seeded().db, { ...first, campaign: assistedCampaignId('gone', 'x') })).toMatchObject({ recorded: false, reason: 'order_not_found' });
+  });
+
+  it('keeps concierge acceptance separate from delivery and preserves the strongest delivery evidence', async () => {
+    const serviceId = 'bundle-example';
+    const servicePath = `application_concierge_services/${serviceId}`;
+    const key = 'concierge_paid_customer';
+    const campaign = conciergeCampaignId(serviceId, key);
+    const { db, docs } = memoryDb({
+      [servicePath]: { notifications: { [key]: { status: 'sent', provider: 'maileroo', messageId: 'receipt-1' } } },
+    });
+    const event = { campaign, provider: 'maileroo', messageId: 'receipt-1' };
+
+    expect(await recordAssistedEmailEvent(db, { ...event, type: 'send', occurredAt: '2026-10-01T10:00:00Z' })).toEqual({ assisted: true, recorded: true });
+    expect(await recordAssistedEmailEvent(db, { ...event, type: 'send', occurredAt: '2026-10-01T10:00:00Z' })).toMatchObject({ recorded: false, reason: 'duplicate' });
+    expect(conciergePaidEmailViews(docs.get(servicePath))).toEqual(expect.arrayContaining([
+      expect.objectContaining({ audience: 'customer', providerStatus: 'accepted', deliveryStatus: 'unknown', providerAccepted: 1, delivered: 0 }),
+    ]));
+
+    expect(await recordAssistedEmailEvent(db, { ...event, type: 'delivered', occurredAt: '2026-10-01T10:01:00Z' })).toEqual({ assisted: true, recorded: true });
+    expect(await recordAssistedEmailEvent(db, { ...event, type: 'bounce', occurredAt: '2026-10-01T10:02:00Z' })).toEqual({ assisted: true, recorded: true });
+    expect(await recordAssistedEmailEvent(db, { ...event, type: 'delivered', occurredAt: '2026-10-01T10:03:00Z' })).toEqual({ assisted: true, recorded: true });
+    expect(conciergePaidEmailViews(docs.get(servicePath))).toEqual(expect.arrayContaining([
+      expect.objectContaining({ audience: 'customer', providerStatus: 'accepted', deliveryStatus: 'bounced', providerAccepted: 1, delivered: 2, bounces: 1 }),
+    ]));
+
+    expect(await recordAssistedEmailEvent(db, { ...event, type: 'complaint', occurredAt: '2026-10-01T10:04:00Z' })).toEqual({ assisted: true, recorded: true });
+    expect(await recordAssistedEmailEvent(db, { ...event, type: 'bounce', occurredAt: '2026-10-01T10:05:00Z' })).toEqual({ assisted: true, recorded: true });
+    expect(conciergePaidEmailViews(docs.get(servicePath))).toEqual(expect.arrayContaining([
+      expect.objectContaining({ audience: 'customer', providerStatus: 'accepted', deliveryStatus: 'complained', bounces: 2, complaints: 1 }),
+    ]));
   });
 
   it('routes payment-recovery engagement to the digest ledger and keeps the tag bounded', async () => {

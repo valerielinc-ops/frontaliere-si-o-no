@@ -32,7 +32,7 @@ import {
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
 } from './assistedApplicationConstants.js';
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
-import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
+import { assistedEmailTracking, conciergeEmailTracking } from './assistedApplicationEmailEvents.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 import { mintAutologinCode, resolveAutologinPolicy } from './lib/autologinCode.js';
 import { makeAuthenticatedUrl } from './lib/newsletterUrls.js';
@@ -1126,9 +1126,10 @@ async function ensureEmailProviders() {
  *   outside NOTIFICATION_KEYS (the automated flow's per-round messages)
  * @param {number} [args.nowMs]
  * @param {FirebaseFirestore.DocumentReference} [args.recordRef] parent-service ledger; disables order-specific tracking
+ * @param {{kind:'application-concierge', id:string}} [args.trackingTarget] alternate event ledger for a parent service
  * @param {(order:object, transaction:object)=>Promise<boolean>|boolean} [args.eligible] rechecks lifecycle eligibility inside the claim transaction
  */
-export async function sendOrderNotification({ db, orderId, key, build, recipientOverride = '', meta = {}, audience = null, nowMs = Date.now(), recordRef = null, eligible = null }) {
+export async function sendOrderNotification({ db, orderId, key, build, recipientOverride = '', meta = {}, audience = null, nowMs = Date.now(), recordRef = null, trackingTarget = null, eligible = null }) {
   const orderRef = recordRef || orderRefFor(db, orderId);
   const testMode = Boolean(recipientOverride);
 
@@ -1148,14 +1149,20 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     : (isCustomerAudience(key, audience) ? customerEmailFor(order) : ASSISTED_APPLICATION_OWNER_EMAIL);
   if (!to) {
     if (!testMode) {
-      await markNotification(orderRef, key, { status: 'failed', lastError: 'no_recipient', failedAt: new Date(nowMs) });
+      await markNotification(orderRef, key, {
+        status: 'failed', providerStatus: 'failed', deliveryStatus: 'unknown',
+        lastError: 'no_recipient', failedAt: new Date(nowMs),
+      });
     }
     return { ok: false, key, reason: 'no_recipient' };
   }
 
   if (!(await ensureEmailProviders())) {
     if (!testMode) {
-      await markNotification(orderRef, key, { status: 'failed', lastError: 'no_email_provider_configured', failedAt: new Date(nowMs) });
+      await markNotification(orderRef, key, {
+        status: 'failed', providerStatus: 'failed', deliveryStatus: 'unknown',
+        lastError: 'no_email_provider_configured', failedAt: new Date(nowMs),
+      });
     }
     return { ok: false, key, reason: 'no_email_provider_configured' };
   }
@@ -1171,9 +1178,11 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     html: message.html,
     text: message.text,
     ...(message.headers ? { headers: message.headers } : {}),
-    // The candidate's e-mails report opens and clicks to the admin panel
-    // (assistedApplicationEmailEvents.js); the owner's and test copies do not.
-    ...(isCustomer && !testMode && !recordRef ? assistedEmailTracking(orderId, key) : { tracking: false }),
+    // Candidate e-mails and parent-service receipts report provider events to
+    // their own ledger (assistedApplicationEmailEvents.js); test copies do not.
+    ...(trackingTarget?.kind === 'application-concierge' && !testMode
+      ? conciergeEmailTracking(trackingTarget.id, key)
+      : isCustomer && !testMode && !recordRef ? assistedEmailTracking(orderId, key) : { tracking: false }),
     // Never in test mode: a "Reply" on a [TEST] copy would reach the real
     // customer as soon as the cascade falls back to Resend (the provider
     // that honours replyTo).
@@ -1196,6 +1205,8 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     const status = failed[0].ambiguousDelivery ? 'ambiguous' : 'failed';
     await markNotification(orderRef, key, {
       status,
+      providerStatus: failed[0].ambiguousDelivery ? 'unknown' : 'failed',
+      deliveryStatus: 'unknown',
       lastError: String(failed[0].error || 'unknown').slice(0, 300),
       failedAt: new Date(nowMs),
     });
@@ -1205,13 +1216,18 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
   const outcome = sent[0] || {};
   await markNotification(orderRef, key, {
     status: ambiguous.length > 0 ? 'ambiguous' : 'sent',
+    // A successful provider response proves acceptance by that provider, not
+    // delivery to the recipient. Delivery remains unknown until a webhook.
+    providerStatus: 'accepted',
+    providerAcceptedAt: new Date(nowMs),
+    deliveryStatus: 'unknown',
     sentAt: FieldValue.serverTimestamp(),
     provider: outcome.provider || null,
     messageId: outcome.messageId || null,
     to,
     ...meta,
   });
-  return { ok: true, key, to, provider: outcome.provider || null };
+  return { ok: true, key, to, provider: outcome.provider || null, providerStatus: 'accepted', deliveryStatus: 'unknown' };
 }
 
 /** Stable campaign id for one user's order-set and reminder stage. */
