@@ -1002,8 +1002,8 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
 export type ActiveJobReuseFragments = {
  jobPostingDatePosted: string;
  jobPostingDateProvenance: JobPostingDateProvenance;
- /** The source deadline; null when the listing states none. */
- jobPostingValidThrough: string | null;
+ /** Resolved active deadline, including the build-window fallback. */
+ jobPostingValidThrough: string;
  jobPostingCrawledAt: string | null;
  heroBadges: string;
  mobileAction: string;
@@ -1070,11 +1070,12 @@ export function activeJobSourceValidThrough(job: unknown): string | null {
 export function replaceActiveJobPostingDates(
  fragment: string,
  datePosted: string,
- validThrough: string | null,
+ validThrough: string,
  crawledAt?: string | null,
 ): string {
- // An active page never loses a mandatory date on a cache hit: a missing or
- // malformed deadline is a broken input, so fail closed and let reuse re-render.
+ // The active deadline resolver always supplies a source, observation,
+ // publication, or build-window date. Keep this as a guard against malformed
+ // internal calls; missing source dates are handled by the resolver.
  if (!datePosted) throw new Error('active JobPosting datePosted unavailable');
  if (!validThrough || Number.isNaN(new Date(validThrough).getTime())) {
   throw new Error('active JobPosting validThrough unavailable or invalid');

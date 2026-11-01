@@ -23,7 +23,8 @@ import { resolveRolloutSchemaPostingDate } from '../../scripts/lib/job-posting-d
  * address resolver prefers a source street, then a verified same-city
  * employer address, and otherwise preserves the best existing location with
  * `streetAddressSource: 'to-enrich'`. The deadline uses a plausible source
- * date or a bounded window from the last stored active observation.
+ * date, a bounded window from the last stored active observation, a
+ * publication-date cap, or (for date-less active inventory) a build window.
  *
  * Derived values are deliberately conservative: salary bands are marked as
  * estimates in the page data and addresses remain coherent with the resolved
@@ -442,8 +443,8 @@ function toIsoDate(raw: string | null | undefined): string | null {
   return d.toISOString();
 }
 
-/** Resolve the active deadline from source evidence or the last observation. */
-export function resolveJobPostingValidThrough(job: JobInput, now?: Date): string | null {
+/** Resolve a deadline for every active listing, including date-less inventory. */
+export function resolveJobPostingValidThrough(job: JobInput, now?: Date): string {
   return resolveActiveJobPostingDeadline(job, now).validThrough;
 }
 
@@ -690,7 +691,9 @@ function resolveAddress(
       // below remains the locality's own fallback, never a mismatched capital.
       fallback.postalCode;
 
-  const streetAddress = streetResolution.streetAddress;
+  // If no address evidence survives enrichment, the resolved locality remains
+  // an honest location fallback and keeps the mandatory field populated.
+  const streetAddress = streetResolution.streetAddress || addressLocality;
 
   if (!postalCode || !addressLocality || !region) {
     throw new Error(
@@ -862,12 +865,6 @@ export function buildJobPostingSchema(
     opts.locale,
   );
   const validThrough = resolveJobPostingValidThrough(job, opts.now);
-  if (!validThrough) {
-    throw new Error(
-      `buildJobPostingSchema: could not resolve a source or observed deadline for job ` +
-      `"${job.id || job.slug || job.title || companyName}"`,
-    );
-  }
   const resolvedEmploymentTypes = resolveEmploymentTypes(job, title);
   const employmentType = employmentTypeJsonLdValue(
     resolvedEmploymentTypes.length > 0 ? resolvedEmploymentTypes : ['FULL_TIME'],

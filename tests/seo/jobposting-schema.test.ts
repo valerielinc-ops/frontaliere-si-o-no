@@ -768,6 +768,13 @@ describe('buildJobPostingSchema — bounded validThrough coverage', () => {
     expect(fromPosted.validThrough).toBe('2025-12-19T00:00:00.000Z');
   });
 
+  it('uses the build window when an active listing has no date evidence', () => {
+    const now = new Date('2026-10-26T00:00:00.000Z');
+    const schema = buildRawJobPostingSchema(job({ id: 'engel-voelkers-aa68475ac16c' }), { ...OPTS, now });
+    expect(schema.validThrough).toBe('2027-01-24T00:00:00.000Z');
+    assertComplete(schema);
+  });
+
   it('keeps a future source deadline verbatim', () => {
     const deadline = daysFromNow(20).toISOString();
     expect(buildJobPostingSchema(job({ validThrough: deadline }), OPTS).validThrough).toBe(deadline);

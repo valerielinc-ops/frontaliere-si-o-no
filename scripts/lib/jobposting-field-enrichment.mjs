@@ -169,7 +169,8 @@ function listingTypeCapDays(job) {
 /**
  * Active listing deadline. Plausible source deadlines win; otherwise an
  * observation-based window shrinks with listing age and is extended only when
- * the crawler writes a newer real observation. There is no build-clock floor.
+ * the crawler writes a newer real observation. If the active inventory has no
+ * date evidence at all, use the same listing-type window from the build clock.
  */
 export function resolveActiveJobPostingDeadline(job, now = new Date()) {
   const clock = Number.isFinite(now?.getTime()) ? now : new Date();
@@ -181,7 +182,8 @@ export function resolveActiveJobPostingDeadline(job, now = new Date()) {
   }
 
   const storedSource = job?.validThroughSource === 'last-observed-window'
-    || job?.validThroughSource === 'job-type-cap';
+    || job?.validThroughSource === 'job-type-cap'
+    || job?.validThroughSource === 'build-window';
   const explicit = storedSource ? null : resolveSourceDeadline(job?.validThrough, clock);
   const sourceDate = job?.validThrough ? new Date(String(job.validThrough)) : null;
   const dateOnly = typeof job?.validThrough === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(job.validThrough.trim());
@@ -203,9 +205,10 @@ export function resolveActiveJobPostingDeadline(job, now = new Date()) {
     };
   }
 
-  // Retain a prior deadline with its provenance when this snapshot has no
-  // observation timestamp to improve it. This does not renew it on a build.
-  if (storedSource && job?.validThrough) {
+  // Retain an observation/publication tier when this snapshot has no newer
+  // evidence. A build-window is deliberately recalculated from this build's
+  // clock so a still-active inventory entry never loses its deadline.
+  if (storedSource && job?.validThrough && job.validThroughSource !== 'build-window') {
     const retained = new Date(String(job.validThrough));
     if (Number.isFinite(retained.getTime())) {
       return {
@@ -224,5 +227,9 @@ export function resolveActiveJobPostingDeadline(job, now = new Date()) {
     };
   }
 
-  return { validThrough: null, validThroughSource: 'job-type-cap' };
+  const capDays = listingTypeCapDays(job);
+  return {
+    validThrough: new Date(clock.getTime() + capDays * DAY_MS).toISOString(),
+    validThroughSource: 'build-window',
+  };
 }

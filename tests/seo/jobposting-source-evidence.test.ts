@@ -81,6 +81,24 @@ describe('validThrough preserves coverage using source or active observation', (
     expect(rebuilt).toEqual(first);
   });
 
+  it('uses and renews a listing-type build window when an active listing has no dates', () => {
+    const input = { employmentType: 'FULL_TIME' };
+    const first = resolveActiveJobPostingDeadline(input, NOW);
+    expect(first).toEqual({
+      validThrough: new Date(NOW.getTime() + 90 * 86_400_000).toISOString(),
+      validThroughSource: 'build-window',
+    });
+    expect(resolveActiveJobPostingDeadline({ contractType: 'temporary' }, NOW)).toEqual({
+      validThrough: new Date(NOW.getTime() + 45 * 86_400_000).toISOString(),
+      validThroughSource: 'build-window',
+    });
+    const rebuilt = resolveActiveJobPostingDeadline(first, new Date(NOW.getTime() + 20 * 86_400_000));
+    expect(rebuilt).toEqual({
+      validThrough: new Date(NOW.getTime() + 110 * 86_400_000).toISOString(),
+      validThroughSource: 'build-window',
+    });
+  });
+
   it('still rejects a malformed value when the field is present', () => {
     const errors = validateMandatoryJobPostingFields({ ...build(job), validThrough: 'soon' });
     expect(errors.map(({ field }) => field)).toEqual(['validThrough']);
