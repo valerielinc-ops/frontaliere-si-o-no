@@ -73,6 +73,8 @@ describe('portal field extraction', () => {
   it('marks only an active cookie surface, not a persistent preferences section', () => {
     const active = extract('<div id="cookie-banner"><button type="button">Customise Cookies</button></div>');
     expect(active.buttons.find((button: any) => button.text === 'Customise Cookies')).toMatchObject({ cookieSurface: 'banner' });
+    const successFactors = extract('<div role="region" class="cookiePolicy cookiemanager"><button type="button">Alle Cookies ablehnen</button></div>');
+    expect(successFactors.buttons.find((button: any) => button.text === 'Alle Cookies ablehnen')).toMatchObject({ cookieSurface: 'banner' });
     const persistent = extract('<main><div class="cookie-preferences"><button type="button">Customise Cookies</button></div></main>');
     expect(persistent.buttons.find((button: any) => button.text === 'Customise Cookies')).not.toHaveProperty('cookieSurface');
   });
