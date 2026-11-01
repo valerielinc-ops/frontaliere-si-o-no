@@ -1,7 +1,7 @@
 {
   "crawlerKey": "marriott",
-  "assembledAt": "2026-11-01T09:46:24.539Z",
-  "runId": "41292859129",
+  "assembledAt": "2026-11-01T22:04:50.947Z",
+  "runId": "41351679092",
   "jobs": [
     {
       "id": "marriott-69439d84a679",
@@ -34,7 +34,7 @@
       "url": "https://careers.marriott.com/welcome-agent-intern-reception-w-verbier/job/P1-7162107-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.798Z",
+      "crawledAt": "2026-11-01T22:04:33.132Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -86,7 +86,7 @@
       },
       "addressRegion": "WALLI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:46:18.798Z",
+      "validThrough": "2027-01-07T22:04:33.132Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://careers.marriott.com/welcome-agent-receptionist-day-night-winter-26-27-w-verbier/job/P1-6001389-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.798Z",
+      "crawledAt": "2026-11-01T22:04:33.132Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -163,7 +163,7 @@
       },
       "addressRegion": "WALLI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-30T09:46:18.798Z",
+      "validThrough": "2027-01-30T22:04:33.132Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -197,7 +197,7 @@
       "url": "https://careers.marriott.com/welcome-agent-receptionist-day-night-long-term-w-verbier/job/P1-7080043-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.797Z",
+      "crawledAt": "2026-11-01T22:04:33.131Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -249,7 +249,7 @@
       },
       "addressRegion": "WALLI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:46:18.797Z",
+      "validThrough": "2026-12-30T22:04:33.131Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -283,7 +283,7 @@
       "url": "https://careers.marriott.com/university-intern-europe/job/P1-4723585-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.796Z",
+      "crawledAt": "2026-11-01T22:04:33.130Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8001",
@@ -335,7 +335,7 @@
       },
       "addressRegion": "ZH",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:46:18.796Z",
+      "validThrough": "2026-12-19T22:04:33.130Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -344,7 +344,7 @@
       "slugByLocale": {
         "it": "tecnica-di-manutenzione-marriott-international-geneva",
         "en": "technicien-de-maintenance-marriott-geneva",
-        "de": "technik-fur-instandhaltung-marriott-international-geneva",
+        "de": "instandhaltungstechniker-marriott-international-geneva",
         "fr": "technicien-d-entretien-marriott-international-geneva"
       },
       "company": "Marriott International",
@@ -369,7 +369,7 @@
       "url": "https://careers.marriott.com/technicien-de-maintenance/job/P1-7069701-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.795Z",
+      "crawledAt": "2026-11-01T22:04:33.129Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -399,11 +399,11 @@
       },
       "previousSlugs": [
         "technicien-de-maintenance-marriott-geneva",
-        "instandhaltungstechniker-marriott-international-geneva"
+        "technik-fur-instandhaltung-marriott-international-geneva"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "instandhaltungstechniker-marriott-international-geneva"
+          "technik-fur-instandhaltung-marriott-international-geneva"
         ],
         "it": [
           "technicien-de-maintenance-marriott-geneva"
@@ -428,7 +428,7 @@
       },
       "addressRegion": "GE",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:46:18.795Z",
+      "validThrough": "2026-12-28T22:04:33.129Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -462,7 +462,7 @@
       "url": "https://careers.marriott.com/technical-allrounder/job/P1-7562976-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.792Z",
+      "crawledAt": "2026-11-01T22:04:33.123Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8001",
@@ -520,191 +520,7 @@
       },
       "addressRegion": "ZH",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:46:18.792Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "marriott-72d8bfb6f0b3",
-      "slug": "svizzera-programma-di-viaggio-marzo-2027-operazioni-in-camera-marriott-international-verbier",
-      "slugByLocale": {
-        "it": "svizzera-programma-di-viaggio-marzo-2027-operazioni-in-camera-marriott-international-verbier",
-        "en": "switzerland-voyage-program-march-2027-room-operations-marriott-verbier",
-        "de": "schweiz-reiseprogramm-marz-2027-room-operations-marriott-international-verbier",
-        "fr": "suisse-programme-de-voyage-mars-2027-operations-en-salle-marriott-international-verbier"
-      },
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Switzerland - Voyage Program March 2027 - Room Operations",
-      "titleByLocale": {
-        "it": "Svizzera - Programma di viaggio Marzo 2027 - Operazioni in camera",
-        "en": "Switzerland - Voyage Program March 2027 - Room Operations",
-        "de": "Schweiz - Reiseprogramm März 2027 - Room Operations",
-        "fr": "Suisse - Programme de voyage Mars 2027 - Opérations en salle"
-      },
-      "description": "The Voyage Global Leadership Development Program\n\nVoyage: Training tomorrow’s leaders today\n Marriott International welcomes recent university graduates to experience the career development adventure of a lifetime and a world of leadership opportunities. Our global leadership development program, Voyage, propels participants on a mentored, learning-inspired journey to prepare you for a successful career. Voyage is a full-time, paid development program. As an associate and trainee, you’ll build upon the skills you developed in school by participating in real world assignments.\n Ready to embark?\n To become a Voyage participant, you must have graduated with a degree from a university or hotel school within the last 2 years ie. on or after March 2025. If you are currently enrolled in a college/university with an expected graduation date within 12 months of the date of application may also be considered.\n Other qualifications/requirements include:\n\n• Bachelors or Masters degree required (Associates degree acceptable for Culinary). Your application confirms you meet the above degree requirement.\n\n• Superior critical-thinking & interpersonal communication skills\n\n• The ability to foster relationships & work collaboratively\n\n• The ability to self-manage & be a self-starter\n\n• A real desire for personal & professional growth\n\n• Fluency in local language may be required\n\n• All candidates need to have the right to work in the country to which they are applying for with the exception of the United Arab Emirates (work visa provided)\n\nAbout the journey\n Voyage is an elite, award-winning program that provides a combination of hands-on, discipline-specific training and a leadership-focused curriculum. The program takes place at a Marriott International managed hotel, not a classroom, and is offered in 50+ countries.\n Voyage is a leadership development programme, but we do expect you to show you are ready to take on those added responsibilities. Proactivity, open communication and teamwork are all crucial in performing and showcasing you are ready for your next step.\n When you join Voyage, you gain access to Marriott’s senior leaders and coaches and have many opportunities to stand out. You’ll participate in mini-rotations across the disciplines to learn firsthand how to manage various hotel functions and to connect with current and former Voyage participants through our social collaboration tools. Each individual’s Voyage journey is unique, spanning 12-18 months dependent upon your career interests, passions, goals, and location. You’ll immediately be immersed in our rich culture and portfolio of global brands to learn how Marriott sets the standard of industry excellence.\n\nThe experience you’ll gain\n Voyage participants learn by doing! You’ll be fully immersed in the day-to-day operations of a hotel. If accepted into this elite program, you will:\n\n• Cultivate customer relationships\n\n• Be a champion for innovation within the organization\n\n• Get exposure to managing projects & people\n\n• Improve processes & pitch new initiatives through your Voyage project\n\n• Take on special projects that will draw upon all your training\n Destination: Marriott leadership\n You’ll participate in management meetings and collaborate with Voyage participants worldwide. You’ll be expected to solve challenges, as well as offer ideas and innovative solutions. You will also have an opportunity to provide feedback on your curriculum and have an impact on future Voyage hires’ experiences. After graduation, you’ll be well-prepared to pursue your passion and take on new challenges. Many program graduates are ready to step into a Marriott supervisory or entry-level management role right away, because the program has provided a foundation for future leadership.\n Application Process\n\n• Online Application (closes 1 st December)\n\n• Paradox Video Interview\n\n• Management Assessment\n\n• Recruiter Screen\n\n• Final Interview with hotel\n Marriott Associates\n Previous Interns at Marriott, Current Interns, Part Time Associates, Dual students are encouraged to apply provided they meet the above-mentioned criteria. If you are currently a full-time associate at Marriott International, please speak to your HR Team or email voyageemea@marriott.com\n Want to learn more? Visit Early Careers at Marriott International | Find Job & Career Opportunities\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated.   Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n #LI-Onsite\n\nMarriott International is the world’s largest hotel company, with more brands, more hotels and more opportunities for associates to grow and succeed. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-      "descriptionByLocale": {
-        "it": "Il programma di sviluppo della leadership globale di viaggio\n\nViaggio: Formazione dei leader di domani oggi\nMarriott International accoglie i recenti laureati universitari per sperimentare l'avventura di sviluppo di carriera di una vita e un mondo di opportunità di leadership. Il nostro programma globale di sviluppo della leadership, Voyage, spinge i partecipanti a un viaggio di ispirazione mentore e di apprendimento per prepararti a una carriera di successo. Voyage è un programma di sviluppo a tempo pieno e pagato. Come socio e tirocinante, si costruirà sulle competenze sviluppate a scuola partecipando a incarichi reali del mondo.\nPronto per imbarcarsi?\nPer diventare un partecipante di viaggio, devi esserti diplomato in una scuola universitaria o alberghiera negli ultimi 2 anni. su o dopo marzo 2025. Se sei attualmente iscritto in un college / università con una data di laurea prevista entro 12 mesi dalla data di applicazione può anche essere considerato.\nAltre qualifiche / requisiti includono:\n\n• Bachelors o Masters richiesto (Associates Grado accettabile per Culinary). La vostra applicazione conferma di soddisfare il requisito di grado sopra.\n\n• Capacità di comunicazione interpersonali e critica superiore\n\n• La capacità di favorire le relazioni e il lavoro in collaborazione\n\n• La capacità di auto-gestione & essere un auto-starter\n\n• Un vero desiderio di crescita personale e professionale\n\n• Potrebbe essere richiesta una fluidità nella lingua locale\n\n• Tutti i candidati devono avere il diritto di lavorare nel paese a cui si applicano, ad eccezione degli Emirati Arabi Uniti (con visto di lavoro fornito)\n\nInformazioni sul viaggio\nVoyage è un programma d'elite, pluripremiato che offre una combinazione di formazione pratica, disciplina-specifica e un curriculum orientato alla leadership. Il programma si svolge in un Marriott International gestito hotel, non una classe, ed è offerto in 50+ paesi.\nVoyage è un programma di sviluppo di leadership, ma ci aspettiamo che vi mostriate pronti a assumere quelle responsabilità aggiuntive. Proattività, comunicazione aperta e lavoro di squadra sono tutti cruciali per eseguire e mostrare che sei pronto per il tuo prossimo passo.\nQuando si entra in Voyage, si ottiene l'accesso ai dirigenti e agli allenatori di Marriott e hanno molte opportunità di distinguersi. Potrai partecipare a mini-rotazioni attraverso le discipline per imparare in prima persona come gestire varie funzioni alberghiere e per connettersi con i partecipanti attuali ed ex Voyage attraverso i nostri strumenti di collaborazione sociale. Il viaggio di ogni individuo è unico, che dura 12-18 mesi dipende dai vostri interessi di carriera, passioni, obiettivi e posizione. Sarete subito immersi nella nostra ricca cultura e portafoglio di marchi globali per imparare come Marriott definisce lo standard di eccellenza del settore.\n\nL'esperienza che otterrai\nI partecipanti al viaggio imparano facendolo! Sarete completamente immersi nelle operazioni quotidiane di un hotel. Se accettato in questo programma di élite, si:\n\n• Coltivare le relazioni con i clienti\n\n• Essere un campione di innovazione all'interno dell'organizzazione\n\n• Ottenere l'esposizione alla gestione di progetti e persone\n\n• Migliorare i processi e lanciare nuove iniziative attraverso il tuo progetto Voyage\n\n• Prendere progetti speciali che disegnano su tutta la vostra formazione\nDestinazione: Marriott leadership\nPotrai partecipare a riunioni di gestione e collaborare con i partecipanti Voyage in tutto il mondo. Sarete tenuti a risolvere le sfide, così come offrire idee e soluzioni innovative. Avrai anche l'opportunità di fornire feedback sul tuo curriculum e avere un impatto sulle esperienze future dei noleggi di Voyage. Dopo la laurea, sarete ben preparati a perseguire la vostra passione e affrontare nuove sfide. Molti laureati di programma sono pronti a entrare in un controllo Marriott o ruolo di gestione entry-level subito, perché il programma ha fornito una base per la leadership futura.\nProcesso di applicazione\n\n• Applicazione online (chiude 1 dicembre)\n\n• Paradox Video Intervista\n\n• Valutazione\n\n• Schermo di reclutamento\n\n• Intervista finale con hotel\nMarriott Associates\nGli Interni precedenti a Marriott, gli Interni Correnti, gli Associati Part Time, gli Studenti Dual sono incoraggiati ad essere applicati a condizione che soddisfino i criteri sopra indicati. Se sei attualmente un socio a tempo pieno a Marriott International, per favore parla al tuo Team HR o invia un'e-mail a voyageemea@marriott.com\nVuoi saperne di più? Visita le prime carriere a Marriott International | Trova opportunità di lavoro e carriera\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso all'opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n#LI-Onsite\n\nMarriott International è la più grande società alberghiera del mondo, con più marchi, più hotel e più opportunità per i soci di crescere e avere successo. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
-        "en": "The Voyage Global Leadership Development Program\n\nVoyage: Training tomorrow’s leaders today\nMarriott International welcomes recent university graduates to experience the career development adventure of a lifetime and a world of leadership opportunities. Our global leadership development program, Voyage, propels participants on a mentored, learning-inspired journey to prepare you for a successful career. Voyage is a full-time, paid development program. As an associate and trainee, you’ll build upon the skills you developed in school by participating in real world assignments.\nReady to embark?\nTo become a Voyage participant, you must have graduated with a degree from a university or hotel school within the last 2 years ie. on or after March 2025. If you are currently enrolled in a college/university with an expected graduation date within 12 months of the date of application may also be considered.\nOther qualifications/requirements include:\n\n• Bachelors or Masters degree required (Associates degree acceptable for Culinary). Your application confirms you meet the above degree requirement.\n\n• Superior critical-thinking & interpersonal communication skills\n\n• The ability to foster relationships & work collaboratively\n\n• The ability to self-manage & be a self-starter\n\n• A real desire for personal & professional growth\n\n• Fluency in local language may be required\n\n• All candidates need to have the right to work in the country to which they are applying for with the exception of the United Arab Emirates (work visa provided)\n\nAbout the journey\nVoyage is an elite, award-winning program that provides a combination of hands-on, discipline-specific training and a leadership-focused curriculum. The program takes place at a Marriott International managed hotel, not a classroom, and is offered in 50+ countries.\nVoyage is a leadership development programme, but we do expect you to show you are ready to take on those added responsibilities. Proactivity, open communication and teamwork are all crucial in performing and showcasing you are ready for your next step.\nWhen you join Voyage, you gain access to Marriott’s senior leaders and coaches and have many opportunities to stand out. You’ll participate in mini-rotations across the disciplines to learn firsthand how to manage various hotel functions and to connect with current and former Voyage participants through our social collaboration tools. Each individual’s Voyage journey is unique, spanning 12-18 months dependent upon your career interests, passions, goals, and location. You’ll immediately be immersed in our rich culture and portfolio of global brands to learn how Marriott sets the standard of industry excellence.\n\nThe experience you’ll gain\nVoyage participants learn by doing! You’ll be fully immersed in the day-to-day operations of a hotel. If accepted into this elite program, you will:\n\n• Cultivate customer relationships\n\n• Be a champion for innovation within the organization\n\n• Get exposure to managing projects & people\n\n• Improve processes & pitch new initiatives through your Voyage project\n\n• Take on special projects that will draw upon all your training\nDestination: Marriott leadership\nYou’ll participate in management meetings and collaborate with Voyage participants worldwide. You’ll be expected to solve challenges, as well as offer ideas and innovative solutions. You will also have an opportunity to provide feedback on your curriculum and have an impact on future Voyage hires’ experiences. After graduation, you’ll be well-prepared to pursue your passion and take on new challenges. Many program graduates are ready to step into a Marriott supervisory or entry-level management role right away, because the program has provided a foundation for future leadership.\nApplication Process\n\n• Online Application (closes 1 st December)\n\n• Paradox Video Interview\n\n• Management Assessment\n\n• Recruiter Screen\n\n• Final Interview with hotel\nMarriott Associates\nPrevious Interns at Marriott, Current Interns, Part Time Associates, Dual students are encouraged to apply provided they meet the above-mentioned criteria. If you are currently a full-time associate at Marriott International, please speak to your HR Team or email voyageemea@marriott.com\nWant to learn more? Visit Early Careers at Marriott International | Find Job & Career Opportunities\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n#LI-Onsite\n\nMarriott International is the world’s largest hotel company, with more brands, more hotels and more opportunities for associates to grow and succeed. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "Das Voyage Global Leadership Development Program\n\nVoyage: Training der Führungskräfte von morgen heute\nMarriott International begrüßt Hochschulabsolventen, um das Karriereentwicklungsabenteuer ihres Lebens und eine Welt voller Führungsmöglichkeiten zu erleben. Unser globales Führungsentwicklungsprogramm, Voyage, treibt die Teilnehmer auf eine von Mentoren inspirierte Reise an, um Sie auf eine erfolgreiche Karriere vorzubereiten. Voyage ist ein Vollzeit-, bezahlte Entwicklungsprogramm. Als Associate und Trainee bauen Sie auf den Fähigkeiten auf, die Sie in der Schule entwickelt haben, indem Sie an realen Aufgaben teilnehmen.\nBereit zum Einschiffen?\nUm ein Voyage-Teilnehmer zu werden, müssen Sie in den letzten 2 Jahren einen Abschluss an einer Universität oder Hotelschule gemacht haben, dh. ab März 2025. Wenn Sie derzeit an einer Hochschule / Universität mit einem erwarteten Abschlussdatum innerhalb von 12 Monaten nach dem Datum der Bewerbung eingeschrieben sind, kann auch in Betracht gezogen werden.\nWeitere Qualifikationen/Anforderungen sind:\n\n• Bachelor- oder Master-Abschluss erforderlich (Associates Grad akzeptabel für Culinary). Ihre Anwendung bestätigt, dass Sie die oben genannten Grad Anforderung erfüllen.\n\n• Überlegenes kritisches Denken und zwischenmenschliche Kommunikationsfähigkeiten\n\n• Die Fähigkeit, Beziehungen zu pflegen und gemeinsam zu arbeiten\n\n• Die Fähigkeit, sich selbst zu verwalten und ein Selbststarter zu sein\n\n• Ein echter Wunsch nach persönlichem und beruflichem Wachstum\n\n• Flüssigkeit in der lokalen Sprache kann erforderlich sein\n\n• Alle Bewerber müssen das Recht haben, in dem Land zu arbeiten, für das sie sich bewerben, mit Ausnahme der Vereinigten Arabischen Emirate (Arbeitsvisum bereitgestellt)\n\nÜber die Reise\nVoyage ist ein Elite-Programm, das eine Kombination aus praktischen, disziplinspezifischen Schulungen und einem auf Führung ausgerichteten Lehrplan bietet. Das Programm findet in einem von Marriott International geführten Hotel statt, nicht in einem Klassenzimmer, und wird in über 50 Ländern angeboten.\nVoyage ist ein Programm zur Entwicklung von Führungskräften, aber wir erwarten, dass Sie zeigen, dass Sie bereit sind, diese zusätzlichen Aufgaben zu übernehmen. Proaktivität, offene Kommunikation und Teamwork sind entscheidend für die Durchführung und die Präsentation, dass Sie für Ihren nächsten Schritt bereit sind.\nWenn Sie Voyage beitreten, erhalten Sie Zugang zu den leitenden Führungskräften und Trainern von Marriott und haben viele Möglichkeiten, sich abzuheben. Sie nehmen an Mini-Rotationen in allen Disziplinen teil, um aus erster Hand zu lernen, wie Sie verschiedene Hotelfunktionen verwalten und sich mit aktuellen und ehemaligen Voyage-Teilnehmern über unsere Tools für soziale Zusammenarbeit verbinden können. Die Reise jedes Einzelnen ist einzigartig und erstreckt sich über 12-18 Monate, abhängig von Ihren Karriereinteressen, Leidenschaften, Zielen und Ihrem Standort. Sie werden sofort in unsere reiche Kultur und unser Portfolio globaler Marken eingetaucht, um zu erfahren, wie Marriott den Standard für Branchenexzellenz setzt.\n\nDie Erfahrung, die Sie gewinnen werden\nReiseteilnehmer lernen durch Tun! Sie werden vollständig in den täglichen Betrieb eines Hotels eingetaucht sein. Wenn Sie in dieses Elite-Programm aufgenommen werden, werden Sie:\n\n• Kundenbeziehungen pflegen\n\n• Seien Sie ein Champion für Innovationen innerhalb der Organisation\n\n• Machen Sie sich mit der Verwaltung von Projekten und Menschen vertraut\n\n• Verbessern Sie Prozesse und setzen Sie neue Initiativen durch Ihr Voyage-Projekt\n\n• Übernehmen Sie spezielle Projekte, die auf alle Ihre Ausbildung ziehen\nDestination: Marriott Führung\nSie nehmen an Management-Meetings teil und arbeiten mit Voyage-Teilnehmern weltweit zusammen. Von Ihnen wird erwartet, dass Sie Herausforderungen lösen und Ideen und innovative Lösungen anbieten. Sie haben auch die Möglichkeit, Feedback zu Ihrem Lehrplan zu geben und sich auf die Erfahrungen zukünftiger Voyage-Mitarbeiter auszuwirken. Nach dem Abschluss sind Sie gut vorbereitet, um Ihrer Leidenschaft nachzugehen und neue Herausforderungen anzunehmen. Viele Programmabsolventen sind bereit, sofort in eine Marriott-Aufsichts- oder Einstiegsmanagementrolle einzutreten, da das Programm eine Grundlage für die zukünftige Führung geschaffen hat.\nAnwendungsprozess\n\n• Online-Bewerbung (schließt 1. Dezember)\n\n• Paradox Video Interview\n\n• Managementbewertung\n\n• Recruiter Screen\n\n• Abschlussinterview mit Hotel\nMarriott Associates\nFrühere Praktikanten bei Marriott, Current Interns, Part Time Associates, Dual Studenten werden ermutigt, sich zu bewerben, sofern sie die oben genannten Kriterien erfüllen. Wenn Sie derzeit Vollzeitmitarbeiter bei Marriott International sind, sprechen Sie bitte mit Ihrem HR-Team oder per E-Mail an voyageemea@marriott.com\nMöchten Sie mehr erfahren? Besuchen Sie Early Careers bei Marriott International | Job & Karrieremöglichkeiten finden\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n#LI-Onsite\n\nMarriott International ist das weltweit größte Hotelunternehmen mit mehr Marken, mehr Hotels und mehr Möglichkeiten für Mitarbeiter, zu wachsen und erfolgreich zu sein. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
-        "fr": "Programme de développement du leadership mondial Voyage\n\nVoyage: Formation demain\nMarriott International accueille de récents diplômés universitaires pour vivre l'aventure de développement de carrière d'une vie et un monde de possibilités de leadership. Notre programme mondial de perfectionnement en leadership, Voyage, propulse les participants dans un voyage guidé et inspiré par l'apprentissage pour vous préparer à une carrière réussie. Voyage est un programme de développement rémunéré à temps plein. En tant qu'associé et stagiaire, vous vous inspirerez des compétences que vous avez acquises à l'école en participant à des missions dans le monde réel.\nPrêt à embarquer ?\nPour devenir participant au Voyage, vous devez avoir obtenu un diplôme d'une université ou d'une école hôtelière au cours des deux dernières années, c'est-à-dire. le ou après mars 2025. Si vous êtes actuellement inscrit dans un collège/université avec une date de diplôme prévue dans les 12 mois suivant la date de la demande peut également être envisagé.\nVoici d'autres qualifications ou exigences :\n\n• Baccalauréat ou maîtrise requis (Associe diplôme acceptable pour Culinary). Votre demande confirme que vous répondez à l'exigence de diplôme ci-dessus.\n\n• Compétences supérieures en pensée critique et en communication interpersonnelle\n\n• La capacité de favoriser les relations et de travailler en collaboration\n\n• La capacité de gérer soi-même & être un auto-démarrage\n\n• Un véritable désir de croissance personnelle et professionnelle\n\n• Une maîtrise de la langue locale peut être nécessaire\n\n• Tous les candidats doivent avoir le droit de travailler dans le pays dans lequel ils demandent, à l'exception des Émirats arabes unis (visa de travail fourni)\n\nSur le voyage\nVoyage est un programme d'élite primé qui offre une combinaison d'entraînement pratique, spécifique à la discipline et un programme axé sur le leadership. Le programme se déroule dans un hôtel géré par Marriott International, et non dans une salle de classe, et est offert dans plus de 50 pays.\nLe voyage est un programme de développement du leadership, mais nous espérons que vous montrerez que vous êtes prêt à assumer ces responsabilités supplémentaires. La proactivité, la communication ouverte et le travail d'équipe sont tous des éléments essentiels pour jouer et montrer que vous êtes prêt pour votre prochaine étape.\nLorsque vous rejoignez Voyage, vous accédez aux leaders et entraîneurs de Marriott et avez de nombreuses occasions de vous démarquer. Vous participerez à des mini-rotations dans toutes les disciplines pour apprendre directement comment gérer diverses fonctions hôtelières et vous connecter avec les participants actuels et anciens Voyage grâce à nos outils de collaboration sociale. Chaque voyage individuel est unique, de 12 à 18 mois selon vos intérêts professionnels, vos passions, vos objectifs et votre emplacement. Vous serez immédiatement immergés dans notre riche culture et portefeuille de marques mondiales pour apprendre comment Marriott définit le standard de l'excellence de l'industrie.\n\nL'expérience que vous gagnerez\nLes participants au voyage apprennent en faisant! Vous serez pleinement immergé dans les opérations quotidiennes d'un hôtel. Si vous êtes accepté dans ce programme d'élite, vous devrez :\n\n• Culturer les relations avec les clients\n\n• Soyez un champion de l'innovation au sein de l'organisation\n\n• Obtenez l'exposition à la gestion de projets et de personnes\n\n• Améliorer les processus et lancer de nouvelles initiatives grâce à votre projet Voyage\n\n• Prendre des projets spéciaux qui tireront parti de toutes vos formations\nDestination: Leadership Marriott\nVous participerez à des réunions de gestion et collaborerez avec les participants à Voyage dans le monde entier. On s'attend à ce que vous résolviez les défis, qu'il vous propose des idées et des solutions innovantes. Vous aurez également l'occasion de faire part de vos commentaires sur votre programme d'études et d'avoir un impact sur les expériences futures d'embauche de voyage. Après votre diplôme, vous serez bien préparé à poursuivre votre passion et à relever de nouveaux défis. De nombreux diplômés du programme sont prêts à assumer immédiatement un rôle de supervision ou de gestion au niveau d'entrée, parce que le programme a jeté les bases d'un leadership futur.\nProcessus de demande\n\n• Demande en ligne (ferme le 1er décembre)\n\n• Entretien vidéo paradoxe\n\n• Évaluation de la gestion\n\n• Écran de recrutement\n\n• Entretien final avec l'hôtel\nMarriott Associés\nLes stagiaires précédents de Marriott, les stagiaires actuels, les associés à temps partiel, les étudiants dual sont encouragés à présenter une demande à condition qu'ils répondent aux critères susmentionnés. Si vous êtes actuellement associé à temps plein à Marriott International, veuillez contacter votre équipe RH ou envoyer un courriel à voyageemea@marriott.com\nVous voulez en savoir plus? Visitez les carrières en début de carrière à Marriott International\n\nChez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\nSur place\n\nMarriott International est la plus grande entreprise hôtelière du monde, avec plus de marques, plus d'hôtels et plus de possibilités pour les associés de croître et de réussir. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
-      },
-      "location": "Verbier",
-      "canton": "Walli",
-      "url": "https://careers.marriott.com/switzerland-voyage-program-march-2027-room-operations/job/P1-7341519-0",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.791Z",
-      "addressLocality": "Verbier",
-      "streetAddress": "Rue de Medran 70",
-      "postalCode": "1936",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "hospitality",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://careers.marriott.com/switzerland-voyage-program-march-2027-room-operations/job/P1-7341519-0",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_marriottMeta": {
-        "requisitionID": "26129569",
-        "uniqueID": "PDX_MI_A869A4E8-8F15-4A9F-8929-E1894375A32D_22322638",
-        "brandName": "Corporate",
-        "locationName": "W Verbier",
-        "jobField": "College/University",
-        "accountName": "",
-        "publishEndDate": ""
-      },
-      "previousSlugs": [
-        "switzerland-voyage-program-march-2027-room-operations-marriott-verbier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "switzerland-voyage-program-march-2027-room-operations-marriott-verbier"
-        ],
-        "de": [
-          "switzerland-voyage-program-march-2027-room-operations-marriott-verbier"
-        ],
-        "fr": [
-          "switzerland-voyage-program-march-2027-room-operations-marriott-verbier"
-        ]
-      },
-      "firstSeenAt": "2026-10-12T21:36:34.294Z",
-      "salaryMin": 53500,
-      "salaryMax": 67000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53500,
-          "maxValue": 67000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "WALLI",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:46:18.791Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "marriott-c17615c22681",
-      "slug": "svizzera-programma-di-viaggio-marzo-2027-gestione-delle-entrate-marriott-international-verbier",
-      "slugByLocale": {
-        "it": "svizzera-programma-di-viaggio-marzo-2027-gestione-delle-entrate-marriott-international-verbier",
-        "en": "switzerland-voyage-program-march-2027-revenue-management-marriott-verbier",
-        "de": "schweiz-reiseprogramm-marz-2027-revenue-management-marriott-international-verbier",
-        "fr": "suisse-programme-voyage-mars-2027-gestion-des-recettes-marriott-international-verbier"
-      },
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Switzerland - Voyage Program March 2027 - Revenue Management",
-      "titleByLocale": {
-        "it": "Svizzera - Programma di viaggio Marzo 2027 - Gestione delle entrate",
-        "en": "Switzerland - Voyage Program March 2027 - Revenue Management",
-        "de": "Schweiz - Reiseprogramm März 2027 - Revenue Management",
-        "fr": "Suisse - Programme Voyage Mars 2027 - Gestion des recettes"
-      },
-      "description": "The Voyage Global Leadership Development Program\n\nVoyage: Training tomorrow’s leaders today\n Marriott International welcomes recent university graduates to experience the career development adventure of a lifetime and a world of leadership opportunities. Our global leadership development program, Voyage, propels participants on a mentored, learning-inspired journey to prepare you for a successful career. Voyage is a full-time, paid development program. As an associate and trainee, you’ll build upon the skills you developed in school by participating in real world assignments.\n Ready to embark?\n To become a Voyage participant, you must have graduated with a degree from a university or hotel school within the last 2 years ie. on or after March 2025. If you are currently enrolled in a college/university with an expected graduation date within 12 months of the date of application may also be considered.\n Other qualifications/requirements include:\n\n• Bachelors or Masters degree required (Associates degree acceptable for Culinary). Your application confirms you meet the above degree requirement.\n\n• Superior critical-thinking & interpersonal communication skills\n\n• The ability to foster relationships & work collaboratively\n\n• The ability to self-manage & be a self-starter\n\n• A real desire for personal & professional growth\n\n• Fluency in local language may be required\n\n• All candidates need to have the right to work in the country to which they are applying for with the exception of the United Arab Emirates (work visa provided)\n\nAbout the journey\n Voyage is an elite, award-winning program that provides a combination of hands-on, discipline-specific training and a leadership-focused curriculum. The program takes place at a Marriott International managed hotel, not a classroom, and is offered in 50+ countries.\n Voyage is a leadership development programme, but we do expect you to show you are ready to take on those added responsibilities. Proactivity, open communication and teamwork are all crucial in performing and showcasing you are ready for your next step.\n When you join Voyage, you gain access to Marriott’s senior leaders and coaches and have many opportunities to stand out. You’ll participate in mini-rotations across the disciplines to learn firsthand how to manage various hotel functions and to connect with current and former Voyage participants through our social collaboration tools. Each individual’s Voyage journey is unique, spanning 12-18 months dependent upon your career interests, passions, goals, and location. You’ll immediately be immersed in our rich culture and portfolio of global brands to learn how Marriott sets the standard of industry excellence.\n\nThe experience you’ll gain\n Voyage participants learn by doing! You’ll be fully immersed in the day-to-day operations of a hotel. If accepted into this elite program, you will:\n\n• Cultivate customer relationships\n\n• Be a champion for innovation within the organization\n\n• Get exposure to managing projects & people\n\n• Improve processes & pitch new initiatives through your Voyage project\n\n• Take on special projects that will draw upon all your training\n Destination: Marriott leadership\n You’ll participate in management meetings and collaborate with Voyage participants worldwide. You’ll be expected to solve challenges, as well as offer ideas and innovative solutions. You will also have an opportunity to provide feedback on your curriculum and have an impact on future Voyage hires’ experiences. After graduation, you’ll be well-prepared to pursue your passion and take on new challenges. Many program graduates are ready to step into a Marriott supervisory or entry-level management role right away, because the program has provided a foundation for future leadership.\n Application Process\n\n• Online Application (closes 1 st December)\n\n• Paradox Video Interview\n\n• Management Assessment\n\n• Recruiter Screen\n\n• Final Interview with hotel\n Marriott Associates\n Previous Interns at Marriott, Current Interns, Part Time Associates, Dual students are encouraged to apply provided they meet the above-mentioned criteria. If you are currently a full-time associate at Marriott International, please speak to your HR Team or email voyageemea@marriott.com\n Want to learn more? Visit Early Careers at Marriott International | Find Job & Career Opportunities\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated.   Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n #LI-Onsite\n\nMarriott International is the world’s largest hotel company, with more brands, more hotels and more opportunities for associates to grow and succeed. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-      "descriptionByLocale": {
-        "it": "Il programma di sviluppo della leadership globale di viaggio\n\nViaggio: Formazione dei leader di domani oggi\nMarriott International accoglie i recenti laureati universitari per sperimentare l'avventura di sviluppo di carriera di una vita e un mondo di opportunità di leadership. Il nostro programma globale di sviluppo della leadership, Voyage, spinge i partecipanti a un viaggio di ispirazione mentore e di apprendimento per prepararti a una carriera di successo. Voyage è un programma di sviluppo a tempo pieno e pagato. Come socio e tirocinante, si costruirà sulle competenze sviluppate a scuola partecipando a incarichi reali del mondo.\nPronto per imbarcarsi?\nPer diventare un partecipante di viaggio, devi esserti diplomato in una scuola universitaria o alberghiera negli ultimi 2 anni. su o dopo marzo 2025. Se sei attualmente iscritto in un college / università con una data di laurea prevista entro 12 mesi dalla data di applicazione può anche essere considerato.\nAltre qualifiche / requisiti includono:\n\n• Bachelors o Masters richiesto (Associates Grado accettabile per Culinary). La vostra applicazione conferma di soddisfare il requisito di grado sopra.\n\n• Capacità di comunicazione interpersonali e critica superiore\n\n• La capacità di favorire le relazioni e il lavoro in collaborazione\n\n• La capacità di auto-gestione & essere un auto-starter\n\n• Un vero desiderio di crescita personale e professionale\n\n• Potrebbe essere richiesta una fluidità nella lingua locale\n\n• Tutti i candidati devono avere il diritto di lavorare nel paese a cui si applicano, ad eccezione degli Emirati Arabi Uniti (con visto di lavoro fornito)\n\nInformazioni sul viaggio\nVoyage è un programma d'elite, pluripremiato che offre una combinazione di formazione pratica, disciplina-specifica e un curriculum orientato alla leadership. Il programma si svolge in un Marriott International gestito hotel, non una classe, ed è offerto in 50+ paesi.\nVoyage è un programma di sviluppo di leadership, ma ci aspettiamo che vi mostriate pronti a assumere quelle responsabilità aggiuntive. Proattività, comunicazione aperta e lavoro di squadra sono tutti cruciali per eseguire e mostrare che sei pronto per il tuo prossimo passo.\nQuando si entra in Voyage, si ottiene l'accesso ai dirigenti e agli allenatori di Marriott e hanno molte opportunità di distinguersi. Potrai partecipare a mini-rotazioni attraverso le discipline per imparare in prima persona come gestire varie funzioni alberghiere e per connettersi con i partecipanti attuali ed ex Voyage attraverso i nostri strumenti di collaborazione sociale. Il viaggio di ogni individuo è unico, che dura 12-18 mesi dipende dai vostri interessi di carriera, passioni, obiettivi e posizione. Sarete subito immersi nella nostra ricca cultura e portafoglio di marchi globali per imparare come Marriott definisce lo standard di eccellenza del settore.\n\nL'esperienza che otterrai\nI partecipanti al viaggio imparano facendolo! Sarete completamente immersi nelle operazioni quotidiane di un hotel. Se accettato in questo programma di élite, si:\n\n• Coltivare le relazioni con i clienti\n\n• Essere un campione di innovazione all'interno dell'organizzazione\n\n• Ottenere l'esposizione alla gestione di progetti e persone\n\n• Migliorare i processi e lanciare nuove iniziative attraverso il tuo progetto Voyage\n\n• Prendere progetti speciali che disegnano su tutta la vostra formazione\nDestinazione: Marriott leadership\nPotrai partecipare a riunioni di gestione e collaborare con i partecipanti Voyage in tutto il mondo. Sarete tenuti a risolvere le sfide, così come offrire idee e soluzioni innovative. Avrai anche l'opportunità di fornire feedback sul tuo curriculum e avere un impatto sulle esperienze future dei noleggi di Voyage. Dopo la laurea, sarete ben preparati a perseguire la vostra passione e affrontare nuove sfide. Molti laureati di programma sono pronti a entrare in un controllo Marriott o ruolo di gestione entry-level subito, perché il programma ha fornito una base per la leadership futura.\nProcesso di applicazione\n\n• Applicazione online (chiude 1 dicembre)\n\n• Paradox Video Intervista\n\n• Valutazione\n\n• Schermo di reclutamento\n\n• Intervista finale con hotel\nMarriott Associates\nGli Interni precedenti a Marriott, gli Interni Correnti, gli Associati Part Time, gli Studenti Dual sono incoraggiati ad essere applicati a condizione che soddisfino i criteri sopra indicati. Se sei attualmente un socio a tempo pieno a Marriott International, per favore parla al tuo Team HR o invia un'e-mail a voyageemea@marriott.com\nVuoi saperne di più? Visita le prime carriere a Marriott International | Trova opportunità di lavoro e carriera\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso all'opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n#LI-Onsite\n\nMarriott International è la più grande società alberghiera del mondo, con più marchi, più hotel e più opportunità per i soci di crescere e avere successo. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
-        "en": "The Voyage Global Leadership Development Program\n\nVoyage: Training tomorrow’s leaders today\nMarriott International welcomes recent university graduates to experience the career development adventure of a lifetime and a world of leadership opportunities. Our global leadership development program, Voyage, propels participants on a mentored, learning-inspired journey to prepare you for a successful career. Voyage is a full-time, paid development program. As an associate and trainee, you’ll build upon the skills you developed in school by participating in real world assignments.\nReady to embark?\nTo become a Voyage participant, you must have graduated with a degree from a university or hotel school within the last 2 years ie. on or after March 2025. If you are currently enrolled in a college/university with an expected graduation date within 12 months of the date of application may also be considered.\nOther qualifications/requirements include:\n\n• Bachelors or Masters degree required (Associates degree acceptable for Culinary). Your application confirms you meet the above degree requirement.\n\n• Superior critical-thinking & interpersonal communication skills\n\n• The ability to foster relationships & work collaboratively\n\n• The ability to self-manage & be a self-starter\n\n• A real desire for personal & professional growth\n\n• Fluency in local language may be required\n\n• All candidates need to have the right to work in the country to which they are applying for with the exception of the United Arab Emirates (work visa provided)\n\nAbout the journey\nVoyage is an elite, award-winning program that provides a combination of hands-on, discipline-specific training and a leadership-focused curriculum. The program takes place at a Marriott International managed hotel, not a classroom, and is offered in 50+ countries.\nVoyage is a leadership development programme, but we do expect you to show you are ready to take on those added responsibilities. Proactivity, open communication and teamwork are all crucial in performing and showcasing you are ready for your next step.\nWhen you join Voyage, you gain access to Marriott’s senior leaders and coaches and have many opportunities to stand out. You’ll participate in mini-rotations across the disciplines to learn firsthand how to manage various hotel functions and to connect with current and former Voyage participants through our social collaboration tools. Each individual’s Voyage journey is unique, spanning 12-18 months dependent upon your career interests, passions, goals, and location. You’ll immediately be immersed in our rich culture and portfolio of global brands to learn how Marriott sets the standard of industry excellence.\n\nThe experience you’ll gain\nVoyage participants learn by doing! You’ll be fully immersed in the day-to-day operations of a hotel. If accepted into this elite program, you will:\n\n• Cultivate customer relationships\n\n• Be a champion for innovation within the organization\n\n• Get exposure to managing projects & people\n\n• Improve processes & pitch new initiatives through your Voyage project\n\n• Take on special projects that will draw upon all your training\nDestination: Marriott leadership\nYou’ll participate in management meetings and collaborate with Voyage participants worldwide. You’ll be expected to solve challenges, as well as offer ideas and innovative solutions. You will also have an opportunity to provide feedback on your curriculum and have an impact on future Voyage hires’ experiences. After graduation, you’ll be well-prepared to pursue your passion and take on new challenges. Many program graduates are ready to step into a Marriott supervisory or entry-level management role right away, because the program has provided a foundation for future leadership.\nApplication Process\n\n• Online Application (closes 1 st December)\n\n• Paradox Video Interview\n\n• Management Assessment\n\n• Recruiter Screen\n\n• Final Interview with hotel\nMarriott Associates\nPrevious Interns at Marriott, Current Interns, Part Time Associates, Dual students are encouraged to apply provided they meet the above-mentioned criteria. If you are currently a full-time associate at Marriott International, please speak to your HR Team or email voyageemea@marriott.com\nWant to learn more? Visit Early Careers at Marriott International | Find Job & Career Opportunities\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n#LI-Onsite\n\nMarriott International is the world’s largest hotel company, with more brands, more hotels and more opportunities for associates to grow and succeed. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "Das Voyage Global Leadership Development Program\n\nVoyage: Training der Führungskräfte von morgen heute\nMarriott International begrüßt Hochschulabsolventen, um das Karriereentwicklungsabenteuer ihres Lebens und eine Welt voller Führungsmöglichkeiten zu erleben. Unser globales Führungsentwicklungsprogramm, Voyage, treibt die Teilnehmer auf eine von Mentoren inspirierte Reise an, um Sie auf eine erfolgreiche Karriere vorzubereiten. Voyage ist ein Vollzeit-, bezahlte Entwicklungsprogramm. Als Associate und Trainee bauen Sie auf den Fähigkeiten auf, die Sie in der Schule entwickelt haben, indem Sie an realen Aufgaben teilnehmen.\nBereit zum Einschiffen?\nUm ein Voyage-Teilnehmer zu werden, müssen Sie in den letzten 2 Jahren einen Abschluss an einer Universität oder Hotelschule gemacht haben, dh. ab März 2025. Wenn Sie derzeit an einer Hochschule / Universität mit einem erwarteten Abschlussdatum innerhalb von 12 Monaten nach dem Datum der Bewerbung eingeschrieben sind, kann auch in Betracht gezogen werden.\nWeitere Qualifikationen/Anforderungen sind:\n\n• Bachelor- oder Master-Abschluss erforderlich (Associates Grad akzeptabel für Culinary). Ihre Anwendung bestätigt, dass Sie die oben genannten Grad Anforderung erfüllen.\n\n• Überlegenes kritisches Denken und zwischenmenschliche Kommunikationsfähigkeiten\n\n• Die Fähigkeit, Beziehungen zu pflegen und gemeinsam zu arbeiten\n\n• Die Fähigkeit, sich selbst zu verwalten und ein Selbststarter zu sein\n\n• Ein echter Wunsch nach persönlichem und beruflichem Wachstum\n\n• Flüssigkeit in der lokalen Sprache kann erforderlich sein\n\n• Alle Bewerber müssen das Recht haben, in dem Land zu arbeiten, für das sie sich bewerben, mit Ausnahme der Vereinigten Arabischen Emirate (Arbeitsvisum bereitgestellt)\n\nÜber die Reise\nVoyage ist ein Elite-Programm, das eine Kombination aus praktischen, disziplinspezifischen Schulungen und einem auf Führung ausgerichteten Lehrplan bietet. Das Programm findet in einem von Marriott International geführten Hotel statt, nicht in einem Klassenzimmer, und wird in über 50 Ländern angeboten.\nVoyage ist ein Programm zur Entwicklung von Führungskräften, aber wir erwarten, dass Sie zeigen, dass Sie bereit sind, diese zusätzlichen Aufgaben zu übernehmen. Proaktivität, offene Kommunikation und Teamwork sind entscheidend für die Durchführung und die Präsentation, dass Sie für Ihren nächsten Schritt bereit sind.\nWenn Sie Voyage beitreten, erhalten Sie Zugang zu den leitenden Führungskräften und Trainern von Marriott und haben viele Möglichkeiten, sich abzuheben. Sie nehmen an Mini-Rotationen in allen Disziplinen teil, um aus erster Hand zu lernen, wie Sie verschiedene Hotelfunktionen verwalten und sich mit aktuellen und ehemaligen Voyage-Teilnehmern über unsere Tools für soziale Zusammenarbeit verbinden können. Die Reise jedes Einzelnen ist einzigartig und erstreckt sich über 12-18 Monate, abhängig von Ihren Karriereinteressen, Leidenschaften, Zielen und Ihrem Standort. Sie werden sofort in unsere reiche Kultur und unser Portfolio globaler Marken eingetaucht, um zu erfahren, wie Marriott den Standard für Branchenexzellenz setzt.\n\nDie Erfahrung, die Sie gewinnen werden\nReiseteilnehmer lernen durch Tun! Sie werden vollständig in den täglichen Betrieb eines Hotels eingetaucht sein. Wenn Sie in dieses Elite-Programm aufgenommen werden, werden Sie:\n\n• Kundenbeziehungen pflegen\n\n• Seien Sie ein Champion für Innovationen innerhalb der Organisation\n\n• Machen Sie sich mit der Verwaltung von Projekten und Menschen vertraut\n\n• Verbessern Sie Prozesse und setzen Sie neue Initiativen durch Ihr Voyage-Projekt\n\n• Übernehmen Sie spezielle Projekte, die auf alle Ihre Ausbildung ziehen\nDestination: Marriott Führung\nSie nehmen an Management-Meetings teil und arbeiten mit Voyage-Teilnehmern weltweit zusammen. Von Ihnen wird erwartet, dass Sie Herausforderungen lösen und Ideen und innovative Lösungen anbieten. Sie haben auch die Möglichkeit, Feedback zu Ihrem Lehrplan zu geben und sich auf die Erfahrungen zukünftiger Voyage-Mitarbeiter auszuwirken. Nach dem Abschluss sind Sie gut vorbereitet, um Ihrer Leidenschaft nachzugehen und neue Herausforderungen anzunehmen. Viele Programmabsolventen sind bereit, sofort in eine Marriott-Aufsichts- oder Einstiegsmanagementrolle einzutreten, da das Programm eine Grundlage für die zukünftige Führung geschaffen hat.\nAnwendungsprozess\n\n• Online-Bewerbung (schließt 1. Dezember)\n\n• Paradox Video Interview\n\n• Managementbewertung\n\n• Recruiter Screen\n\n• Abschlussinterview mit Hotel\nMarriott Associates\nFrühere Praktikanten bei Marriott, Current Interns, Part Time Associates, Dual Studenten werden ermutigt, sich zu bewerben, sofern sie die oben genannten Kriterien erfüllen. Wenn Sie derzeit Vollzeitmitarbeiter bei Marriott International sind, sprechen Sie bitte mit Ihrem HR-Team oder per E-Mail an voyageemea@marriott.com\nMöchten Sie mehr erfahren? Besuchen Sie Early Careers bei Marriott International | Job & Karrieremöglichkeiten finden\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n#LI-Onsite\n\nMarriott International ist das weltweit größte Hotelunternehmen mit mehr Marken, mehr Hotels und mehr Möglichkeiten für Mitarbeiter, zu wachsen und erfolgreich zu sein. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
-        "fr": "Programme de développement du leadership mondial Voyage\n\nVoyage: Formation demain\nMarriott International accueille de récents diplômés universitaires pour vivre l'aventure de développement de carrière d'une vie et un monde de possibilités de leadership. Notre programme mondial de perfectionnement en leadership, Voyage, propulse les participants dans un voyage guidé et inspiré par l'apprentissage pour vous préparer à une carrière réussie. Voyage est un programme de développement rémunéré à temps plein. En tant qu'associé et stagiaire, vous vous inspirerez des compétences que vous avez acquises à l'école en participant à des missions dans le monde réel.\nPrêt à embarquer ?\nPour devenir participant au Voyage, vous devez avoir obtenu un diplôme d'une université ou d'une école hôtelière au cours des deux dernières années, c'est-à-dire. le ou après mars 2025. Si vous êtes actuellement inscrit dans un collège/université avec une date de diplôme prévue dans les 12 mois suivant la date de la demande peut également être envisagé.\nVoici d'autres qualifications ou exigences :\n\n• Baccalauréat ou maîtrise requis (Associe diplôme acceptable pour Culinary). Votre demande confirme que vous répondez à l'exigence de diplôme ci-dessus.\n\n• Compétences supérieures en pensée critique et en communication interpersonnelle\n\n• La capacité de favoriser les relations et de travailler en collaboration\n\n• La capacité de gérer soi-même & être un auto-démarrage\n\n• Un véritable désir de croissance personnelle et professionnelle\n\n• Une maîtrise de la langue locale peut être nécessaire\n\n• Tous les candidats doivent avoir le droit de travailler dans le pays dans lequel ils demandent, à l'exception des Émirats arabes unis (visa de travail fourni)\n\nSur le voyage\nVoyage est un programme d'élite primé qui offre une combinaison d'entraînement pratique, spécifique à la discipline et un programme axé sur le leadership. Le programme se déroule dans un hôtel géré par Marriott International, et non dans une salle de classe, et est offert dans plus de 50 pays.\nLe voyage est un programme de développement du leadership, mais nous espérons que vous montrerez que vous êtes prêt à assumer ces responsabilités supplémentaires. La proactivité, la communication ouverte et le travail d'équipe sont tous des éléments essentiels pour jouer et montrer que vous êtes prêt pour votre prochaine étape.\nLorsque vous rejoignez Voyage, vous accédez aux leaders et entraîneurs de Marriott et avez de nombreuses occasions de vous démarquer. Vous participerez à des mini-rotations dans toutes les disciplines pour apprendre directement comment gérer diverses fonctions hôtelières et vous connecter avec les participants actuels et anciens Voyage grâce à nos outils de collaboration sociale. Chaque voyage individuel est unique, de 12 à 18 mois selon vos intérêts professionnels, vos passions, vos objectifs et votre emplacement. Vous serez immédiatement immergés dans notre riche culture et portefeuille de marques mondiales pour apprendre comment Marriott définit le standard de l'excellence de l'industrie.\n\nL'expérience que vous gagnerez\nLes participants au voyage apprennent en faisant! Vous serez pleinement immergé dans les opérations quotidiennes d'un hôtel. Si vous êtes accepté dans ce programme d'élite, vous devrez :\n\n• Culturer les relations avec les clients\n\n• Soyez un champion de l'innovation au sein de l'organisation\n\n• Obtenez l'exposition à la gestion de projets et de personnes\n\n• Améliorer les processus et lancer de nouvelles initiatives grâce à votre projet Voyage\n\n• Prendre des projets spéciaux qui tireront parti de toutes vos formations\nDestination: Leadership Marriott\nVous participerez à des réunions de gestion et collaborerez avec les participants à Voyage dans le monde entier. On s'attend à ce que vous résolviez les défis, qu'il vous propose des idées et des solutions innovantes. Vous aurez également l'occasion de faire part de vos commentaires sur votre programme d'études et d'avoir un impact sur les expériences futures d'embauche de voyage. Après votre diplôme, vous serez bien préparé à poursuivre votre passion et à relever de nouveaux défis. De nombreux diplômés du programme sont prêts à assumer immédiatement un rôle de supervision ou de gestion au niveau d'entrée, parce que le programme a jeté les bases d'un leadership futur.\nProcessus de demande\n\n• Demande en ligne (ferme le 1er décembre)\n\n• Entretien vidéo paradoxe\n\n• Évaluation de la gestion\n\n• Écran de recrutement\n\n• Entretien final avec l'hôtel\nMarriott Associés\nLes stagiaires précédents de Marriott, les stagiaires actuels, les associés à temps partiel, les étudiants dual sont encouragés à présenter une demande à condition qu'ils répondent aux critères susmentionnés. Si vous êtes actuellement associé à temps plein à Marriott International, veuillez contacter votre équipe RH ou envoyer un courriel à voyageemea@marriott.com\nVous voulez en savoir plus? Visitez les carrières en début de carrière à Marriott International\n\nChez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\nSur place\n\nMarriott International est la plus grande entreprise hôtelière du monde, avec plus de marques, plus d'hôtels et plus de possibilités pour les associés de croître et de réussir. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
-      },
-      "location": "Verbier",
-      "canton": "Walli",
-      "url": "https://careers.marriott.com/switzerland-voyage-program-march-2027-revenue-management/job/P1-7341566-0",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.790Z",
-      "addressLocality": "Verbier",
-      "streetAddress": "Rue de Medran 70",
-      "postalCode": "1936",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://careers.marriott.com/switzerland-voyage-program-march-2027-revenue-management/job/P1-7341566-0",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_marriottMeta": {
-        "requisitionID": "26129134",
-        "uniqueID": "PDX_MI_BA4D373D-EA06-4F86-A77F-3A3781EF2536_22322638",
-        "brandName": "Corporate",
-        "locationName": "W Verbier",
-        "jobField": "College/University",
-        "accountName": "",
-        "publishEndDate": ""
-      },
-      "previousSlugs": [
-        "switzerland-voyage-program-march-2027-revenue-management-marriott-verbier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "switzerland-voyage-program-march-2027-revenue-management-marriott-verbier"
-        ],
-        "de": [
-          "switzerland-voyage-program-march-2027-revenue-management-marriott-verbier"
-        ],
-        "fr": [
-          "switzerland-voyage-program-march-2027-revenue-management-marriott-verbier"
-        ]
-      },
-      "firstSeenAt": "2026-10-12T21:36:34.293Z",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "WALLI",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T09:46:18.790Z",
+      "validThrough": "2027-01-27T22:04:33.123Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -738,7 +554,7 @@
       "url": "https://careers.marriott.com/sushiman-u-yama-winter-26-27-w-verbier/job/P1-7184690-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.789Z",
+      "crawledAt": "2026-11-01T22:04:33.122Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -796,7 +612,7 @@
       },
       "addressRegion": "WALLI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:46:18.789Z",
+      "validThrough": "2027-01-07T22:04:33.122Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -830,7 +646,7 @@
       "url": "https://careers.marriott.com/supervisor-venues-u-yama-winter-26-27-w-verbier/job/P1-6884326-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.788Z",
+      "crawledAt": "2026-11-01T22:04:33.121Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -882,7 +698,95 @@
       },
       "addressRegion": "WALLI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:46:18.788Z",
+      "validThrough": "2026-12-19T22:04:33.121Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "marriott-304267b0710f",
+      "slug": "agente-di-stile-assistente-in-camera-inverno-26-27-w-verbier-marriott-international-verbier",
+      "slugByLocale": {
+        "it": "agente-di-stile-assistente-in-camera-inverno-26-27-w-verbier-marriott-international-verbier",
+        "en": "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier",
+        "de": "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier",
+        "fr": "agent-de-style-prepose-a-la-salle-hiver-26-27-w-verbier-marriott-international-verbier"
+      },
+      "company": "Marriott International",
+      "companyKey": "marriott",
+      "companyDomain": "marriott.com",
+      "title": "Style Agent / Room attendant (Winter 26/27) - W VERBIER",
+      "titleByLocale": {
+        "it": "Agente di stile / Assistente in camera (inverno 26/27) - W VERBIER",
+        "en": "Style Agent / Room attendant (Winter 26/27) - W VERBIER",
+        "de": "Style-Agent / Zimmerkraft (Winter 26/27) - W VERBIER",
+        "fr": "Agent de style / préposé à la salle (Hiver 26/27) - W VERBIER"
+      },
+      "description": "JOB DESCRIPTION\n\nAs \"Talent\", you represent W lifestyle to our guests. You are the soul behind the brand and you bring it to life. W Talents are as unique as the brand itself and are personally engaged from a lifestyle standpoint to the warm, witty, welcoming environment of the brand.\n\nAN EXCITING CHANCE TO JOIN THE W VERBIER TEAM\n\n• Style our Guests' W Experience.\n • Clean guest rooms in accordance with established quality and performance standards to allow a sufficient quantity of vacant and clean guest rooms for sale.\n • Clean occupied guest rooms.\n • Clean and reset guest bedroom and bathroom areas according to established standards.\n • Organize and stock cleaning cart and organize linen closets on floors assigned.\n\nPROFILE\n\n• You have a prior experience in a 5* hotel in housekeeping.\n • You are highly motivated\n • Fluent in French and English\n • Be detail oriented and have a passion for giving guests an exceptional experience.\n • Real interest in the worlds of taste, sound, body, scene and stance\n • Due to visa restrictions, only applications from Switzerland and the European Union will be considered\n\nPosition to be filled for the Winter season, from December 2026 to March 2027\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+      "descriptionByLocale": {
+        "it": "DESCRIZIONE DELLA JOB\n\nCome \"Talent\", tu rappresenti lo stile di vita W ai nostri ospiti. Sei l'anima dietro il marchio e lo porti alla vita. W Talents sono unici come il marchio stesso e sono personalmente impegnati da un punto di vista lifestyle al caldo, spiritoso, accogliente ambiente del marchio.\n\nUN'ESCITAZIONE PER IL TEAM VERBIER W\n\n• Stili l'esperienza W dei nostri ospiti.\n• Camere pulite in conformità con standard di qualità e prestazioni stabiliti per consentire una quantità sufficiente di camere per gli ospiti vacanti e pulite in vendita.\n• Pulire camere occupate.\n• Pulire e reset camera da letto e bagno aree secondo gli standard stabiliti.\n• Organizzare e magazzino pulizia carrello e organizzare armadi di biancheria su pavimenti assegnati.\n\nPROFESSIONALE\n\n• Hai un'esperienza precedente in un hotel 5* nella pulizia.\n• Sei molto motivato.\n• Fluente in francese e inglese\n• Essere orientati al dettaglio e avere una passione per dare agli ospiti un'esperienza eccezionale.\n• Interesse reale nei mondi del gusto, del suono, del corpo, della scena e della posizione\n• A causa delle restrizioni del visto, solo le domande della Svizzera e dell'Unione europea saranno considerate\n\nPosizione da riempire per la stagione invernale, dal dicembre 2026 al marzo 2027\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n\nLa missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
+        "en": "JOB DESCRIPTION\n\nAs \"Talent\", you represent W lifestyle to our guests. You are the soul behind the brand and you bring it to life. W Talents are as unique as the brand itself and are personally engaged from a lifestyle standpoint to the warm, witty, welcoming environment of the brand.\n\nAN EXCITING CHANCE TO JOIN THE W VERBIER TEAM\n\n• Style our Guests' W Experience.\n• Clean guest rooms in accordance with established quality and performance standards to allow a sufficient quantity of vacant and clean guest rooms for sale.\n• Clean occupied guest rooms.\n• Clean and reset guest bedroom and bathroom areas according to established standards.\n• Organize and stock cleaning cart and organize linen closets on floors assigned.\n\nPROFILE\n\n• You have a prior experience in a 5* hotel in housekeeping.\n• You are highly motivated\n• Fluent in French and English\n• Be detail oriented and have a passion for giving guests an exceptional experience.\n• Real interest in the worlds of taste, sound, body, scene and stance\n• Due to visa restrictions, only applications from Switzerland and the European Union will be considered\n\nPosition to be filled for the Winter season, from December 2026 to March 2027\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+        "de": "BESCHREIBUNG\n\nAls \"Talent\" repräsentieren Sie W Lifestyle für unsere Gäste. Du bist die Seele hinter der Marke und du bringst sie zum Leben. W Talents sind so einzigartig wie die Marke selbst und engagieren sich persönlich vom Lifestyle-Standpunkt bis zur warmen, witzigen, einladenden Umgebung der Marke.\n\nANGABEN ZUM W-VERBIER-TEAM\n\n• Style unsere Gäste W Experience.\n• Reinigen Sie die Gästezimmer in Übereinstimmung mit festgelegten Qualitäts- und Leistungsstandards, um eine ausreichende Menge an freien und sauberen Gästezimmern zum Verkauf zu ermöglichen.\n• Sauber besetzte Gästezimmer.\n• Reinigen und Reset Gästezimmer und Badezimmerbereiche nach festgelegten Standards.\n• Organisieren und Lager Reinigungswagen und organisieren Wäscheschränke auf den zugewiesenen Böden.\n\nPROFIL\n\n• Sie haben eine vorherige Erfahrung in einem 5 * Hotel in Housekeeping.\n• Du bist hoch motiviert\n• Fließend in Französisch und Englisch\n• Seien Sie detailorientiert und haben Sie eine Leidenschaft dafür, Ihren Gästen ein außergewöhnliches Erlebnis zu bieten.\n• Echtes Interesse an den Welten von Geschmack, Klang, Körper, Szene und Haltung\n• Aufgrund von Visabeschränkungen werden nur Anträge aus der Schweiz und der Europäischen Union berücksichtigt\n\nPosition für die Wintersaison, von Dezember 2026 bis März 2027\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n\nDie Mission von W Hotels ist es, Curiosity zu entzünden, Welten zu erweitern. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen und offene Köpfe zu öffnen. Wir werden ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, up-for-anything Geist ist in unserem Kern und hat uns dafür bekannt gemacht, die Normen des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer unsere Kultur und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben erweckt. Wenn Sie originell, innovativ und immer auf die Zukunft des Möglichen ausgerichtet sind, heißen Sie W Hotels willkommen. Wenn Sie W Hotels beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
+        "fr": "DESCRIPTION DE L'EMPLOI\n\nEn tant que \"Talent\", vous représentez W mode de vie à nos invités. Tu es l'âme derrière la marque et tu la fais vivre. W Talents sont aussi uniques que la marque elle-même et sont personnellement engagés du point de vue du style de vie à l'environnement chaleureux, spirituel et accueillant de la marque.\n\nUNE CHANCE EXCITIVE DE S'INSCRIRE DANS L'ÉQUIPE W VERBIER\n\n• Stylez l'expérience W de nos invités.\n• Nettoyer les chambres conformément aux normes de qualité et de performance établies pour permettre une quantité suffisante de chambres d'hôtes vides et propres à vendre.\n• Nettoyer les chambres occupées.\n• Nettoyer et réinitialiser les chambres d'hôtes et les salles de bains selon les normes établies.\n• Organisez et stock de nettoyage chariot et organisez des placards de linge sur les planchers assignés.\n\nPROFIL\n\n• Vous avez une expérience antérieure dans un hôtel 5* en ménage.\n• Vous êtes très motivé\n• Fluent en français et anglais\n• Être orienté vers le détail et avoir une passion pour donner aux invités une expérience exceptionnelle.\n• Un véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position\n• En raison des restrictions de visa, seules les demandes de la Suisse et de l'Union européenne seront examinées.\n\nPosition à pourvoir pour la saison hivernale, de décembre 2026 à mars 2027\n\nÀ Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n\nW Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit branché et haut de gamme est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe dans le monde entier. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant, et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre but, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
+      },
+      "location": "Verbier",
+      "canton": "Walli",
+      "url": "https://careers.marriott.com/style-agent-room-attendant-winter-26-27-w-verbier/job/P1-6269938-0",
+      "source": "Marriott International Dedicated Parser (Paradox API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-01T22:04:33.120Z",
+      "addressLocality": "Verbier",
+      "streetAddress": "Rue de Medran 70",
+      "postalCode": "1936",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "hospitality-housekeeping",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Hôtellerie / Hospitality",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://careers.marriott.com/style-agent-room-attendant-winter-26-27-w-verbier/job/P1-6269938-0",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_marriottMeta": {
+        "requisitionID": "26091693",
+        "uniqueID": "PDX_MI_B0C56968-4064-4F49-B770-7524F79250F5_22322638",
+        "brandName": "W Hotels",
+        "locationName": "W Verbier",
+        "jobField": "Housekeeping",
+        "accountName": "",
+        "publishEndDate": "2026-11-07T06:47:00.000Z"
+      },
+      "previousSlugs": [
+        "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "salaryMin": 53500,
+      "salaryMax": 67000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53500,
+          "maxValue": 67000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "WALLI",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-30T22:04:33.120Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -916,7 +820,7 @@
       "url": "https://careers.marriott.com/style-agent-housekeeper-summer-winter-w-verbier/job/P1-5164602-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.787Z",
+      "crawledAt": "2026-11-01T22:04:33.119Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -973,95 +877,7 @@
       },
       "addressRegion": "WALLI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-30T09:46:18.787Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "marriott-304267b0710f",
-      "slug": "agente-di-stile-assistente-in-camera-inverno-26-27-w-verbier-marriott-international-verbier",
-      "slugByLocale": {
-        "it": "agente-di-stile-assistente-in-camera-inverno-26-27-w-verbier-marriott-international-verbier",
-        "en": "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier",
-        "de": "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "agent-de-style-prepose-a-la-salle-hiver-26-27-w-verbier-marriott-international-verbier"
-      },
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Style Agent / Room attendant (Winter 26/27) - W VERBIER",
-      "titleByLocale": {
-        "it": "Agente di stile / Assistente in camera (inverno 26/27) - W VERBIER",
-        "en": "Style Agent / Room attendant (Winter 26/27) - W VERBIER",
-        "de": "Style-Agent / Zimmerkraft (Winter 26/27) - W VERBIER",
-        "fr": "Agent de style / préposé à la salle (Hiver 26/27) - W VERBIER"
-      },
-      "description": "JOB DESCRIPTION\n\nAs \"Talent\", you represent W lifestyle to our guests. You are the soul behind the brand and you bring it to life. W Talents are as unique as the brand itself and are personally engaged from a lifestyle standpoint to the warm, witty, welcoming environment of the brand.\n\nAN EXCITING CHANCE TO JOIN THE W VERBIER TEAM\n\n• Style our Guests' W Experience.\n • Clean guest rooms in accordance with established quality and performance standards to allow a sufficient quantity of vacant and clean guest rooms for sale.\n • Clean occupied guest rooms.\n • Clean and reset guest bedroom and bathroom areas according to established standards.\n • Organize and stock cleaning cart and organize linen closets on floors assigned.\n\nPROFILE\n\n• You have a prior experience in a 5* hotel in housekeeping.\n • You are highly motivated\n • Fluent in French and English\n • Be detail oriented and have a passion for giving guests an exceptional experience.\n • Real interest in the worlds of taste, sound, body, scene and stance\n • Due to visa restrictions, only applications from Switzerland and the European Union will be considered\n\nPosition to be filled for the Winter season, from December 2026 to March 2027\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-      "descriptionByLocale": {
-        "it": "DESCRIZIONE DELLA JOB\n\nCome \"Talent\", tu rappresenti lo stile di vita W ai nostri ospiti. Sei l'anima dietro il marchio e lo porti alla vita. W Talents sono unici come il marchio stesso e sono personalmente impegnati da un punto di vista lifestyle al caldo, spiritoso, accogliente ambiente del marchio.\n\nUN'ESCITAZIONE PER IL TEAM VERBIER W\n\n• Stili l'esperienza W dei nostri ospiti.\n• Camere pulite in conformità con standard di qualità e prestazioni stabiliti per consentire una quantità sufficiente di camere per gli ospiti vacanti e pulite in vendita.\n• Pulire camere occupate.\n• Pulire e reset camera da letto e bagno aree secondo gli standard stabiliti.\n• Organizzare e magazzino pulizia carrello e organizzare armadi di biancheria su pavimenti assegnati.\n\nPROFESSIONALE\n\n• Hai un'esperienza precedente in un hotel 5* nella pulizia.\n• Sei molto motivato.\n• Fluente in francese e inglese\n• Essere orientati al dettaglio e avere una passione per dare agli ospiti un'esperienza eccezionale.\n• Interesse reale nei mondi del gusto, del suono, del corpo, della scena e della posizione\n• A causa delle restrizioni del visto, solo le domande della Svizzera e dell'Unione europea saranno considerate\n\nPosizione da riempire per la stagione invernale, dal dicembre 2026 al marzo 2027\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n\nLa missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
-        "en": "JOB DESCRIPTION\n\nAs \"Talent\", you represent W lifestyle to our guests. You are the soul behind the brand and you bring it to life. W Talents are as unique as the brand itself and are personally engaged from a lifestyle standpoint to the warm, witty, welcoming environment of the brand.\n\nAN EXCITING CHANCE TO JOIN THE W VERBIER TEAM\n\n• Style our Guests' W Experience.\n• Clean guest rooms in accordance with established quality and performance standards to allow a sufficient quantity of vacant and clean guest rooms for sale.\n• Clean occupied guest rooms.\n• Clean and reset guest bedroom and bathroom areas according to established standards.\n• Organize and stock cleaning cart and organize linen closets on floors assigned.\n\nPROFILE\n\n• You have a prior experience in a 5* hotel in housekeeping.\n• You are highly motivated\n• Fluent in French and English\n• Be detail oriented and have a passion for giving guests an exceptional experience.\n• Real interest in the worlds of taste, sound, body, scene and stance\n• Due to visa restrictions, only applications from Switzerland and the European Union will be considered\n\nPosition to be filled for the Winter season, from December 2026 to March 2027\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "BESCHREIBUNG\n\nAls \"Talent\" repräsentieren Sie W Lifestyle für unsere Gäste. Du bist die Seele hinter der Marke und du bringst sie zum Leben. W Talents sind so einzigartig wie die Marke selbst und engagieren sich persönlich vom Lifestyle-Standpunkt bis zur warmen, witzigen, einladenden Umgebung der Marke.\n\nANGABEN ZUM W-VERBIER-TEAM\n\n• Style unsere Gäste W Experience.\n• Reinigen Sie die Gästezimmer in Übereinstimmung mit festgelegten Qualitäts- und Leistungsstandards, um eine ausreichende Menge an freien und sauberen Gästezimmern zum Verkauf zu ermöglichen.\n• Sauber besetzte Gästezimmer.\n• Reinigen und Reset Gästezimmer und Badezimmerbereiche nach festgelegten Standards.\n• Organisieren und Lager Reinigungswagen und organisieren Wäscheschränke auf den zugewiesenen Böden.\n\nPROFIL\n\n• Sie haben eine vorherige Erfahrung in einem 5 * Hotel in Housekeeping.\n• Du bist hoch motiviert\n• Fließend in Französisch und Englisch\n• Seien Sie detailorientiert und haben Sie eine Leidenschaft dafür, Ihren Gästen ein außergewöhnliches Erlebnis zu bieten.\n• Echtes Interesse an den Welten von Geschmack, Klang, Körper, Szene und Haltung\n• Aufgrund von Visabeschränkungen werden nur Anträge aus der Schweiz und der Europäischen Union berücksichtigt\n\nPosition für die Wintersaison, von Dezember 2026 bis März 2027\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n\nDie Mission von W Hotels ist es, Curiosity zu entzünden, Welten zu erweitern. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen und offene Köpfe zu öffnen. Wir werden ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, up-for-anything Geist ist in unserem Kern und hat uns dafür bekannt gemacht, die Normen des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer unsere Kultur und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben erweckt. Wenn Sie originell, innovativ und immer auf die Zukunft des Möglichen ausgerichtet sind, heißen Sie W Hotels willkommen. Wenn Sie W Hotels beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
-        "fr": "DESCRIPTION DE L'EMPLOI\n\nEn tant que \"Talent\", vous représentez W mode de vie à nos invités. Tu es l'âme derrière la marque et tu la fais vivre. W Talents sont aussi uniques que la marque elle-même et sont personnellement engagés du point de vue du style de vie à l'environnement chaleureux, spirituel et accueillant de la marque.\n\nUNE CHANCE EXCITIVE DE S'INSCRIRE DANS L'ÉQUIPE W VERBIER\n\n• Stylez l'expérience W de nos invités.\n• Nettoyer les chambres conformément aux normes de qualité et de performance établies pour permettre une quantité suffisante de chambres d'hôtes vides et propres à vendre.\n• Nettoyer les chambres occupées.\n• Nettoyer et réinitialiser les chambres d'hôtes et les salles de bains selon les normes établies.\n• Organisez et stock de nettoyage chariot et organisez des placards de linge sur les planchers assignés.\n\nPROFIL\n\n• Vous avez une expérience antérieure dans un hôtel 5* en ménage.\n• Vous êtes très motivé\n• Fluent en français et anglais\n• Être orienté vers le détail et avoir une passion pour donner aux invités une expérience exceptionnelle.\n• Un véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position\n• En raison des restrictions de visa, seules les demandes de la Suisse et de l'Union européenne seront examinées.\n\nPosition à pourvoir pour la saison hivernale, de décembre 2026 à mars 2027\n\nÀ Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n\nW Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit branché et haut de gamme est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe dans le monde entier. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant, et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre but, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
-      },
-      "location": "Verbier",
-      "canton": "Walli",
-      "url": "https://careers.marriott.com/style-agent-room-attendant-winter-26-27-w-verbier/job/P1-6269938-0",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.787Z",
-      "addressLocality": "Verbier",
-      "streetAddress": "Rue de Medran 70",
-      "postalCode": "1936",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "hospitality-housekeeping",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://careers.marriott.com/style-agent-room-attendant-winter-26-27-w-verbier/job/P1-6269938-0",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_marriottMeta": {
-        "requisitionID": "26091693",
-        "uniqueID": "PDX_MI_B0C56968-4064-4F49-B770-7524F79250F5_22322638",
-        "brandName": "W Hotels",
-        "locationName": "W Verbier",
-        "jobField": "Housekeeping",
-        "accountName": "",
-        "publishEndDate": "2026-11-07T06:47:00.000Z"
-      },
-      "previousSlugs": [
-        "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
-        ],
-        "fr": [
-          "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
-        ]
-      },
-      "salaryMin": 53500,
-      "salaryMax": 67000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53500,
-          "maxValue": 67000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "WALLI",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-30T09:46:18.787Z",
+      "validThrough": "2027-01-30T22:04:33.119Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1095,7 +911,7 @@
       "url": "https://careers.marriott.com/stagiaire-superviseur-housekeeping/job/P1-7351596-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.786Z",
+      "crawledAt": "2026-11-01T22:04:33.118Z",
       "addressLocality": "Geneva",
       "streetAddress": "1 Chemin Du Ruisseau",
       "postalCode": "1216",
@@ -1154,7 +970,7 @@
       },
       "addressRegion": "GE",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:46:18.786Z",
+      "validThrough": "2027-01-11T22:04:33.118Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1188,7 +1004,7 @@
       "url": "https://careers.marriott.com/stagiaire-restaurant/job/P1-7351608-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.784Z",
+      "crawledAt": "2026-11-01T22:04:33.115Z",
       "addressLocality": "Geneva",
       "streetAddress": "1 Chemin Du Ruisseau",
       "postalCode": "1216",
@@ -1247,7 +1063,7 @@
       },
       "addressRegion": "GE",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:46:18.784Z",
+      "validThrough": "2027-01-11T22:04:33.115Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1281,7 +1097,7 @@
       "url": "https://careers.marriott.com/stagiaire-mclub/job/P1-7351660-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.783Z",
+      "crawledAt": "2026-11-01T22:04:33.113Z",
       "addressLocality": "Geneva",
       "streetAddress": "1 Chemin Du Ruisseau",
       "postalCode": "1216",
@@ -1340,7 +1156,7 @@
       },
       "addressRegion": "GE",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:46:18.783Z",
+      "validThrough": "2027-01-11T22:04:33.113Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1374,7 +1190,7 @@
       "url": "https://careers.marriott.com/stagiaire-finance/job/P1-7351628-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.781Z",
+      "crawledAt": "2026-11-01T22:04:33.111Z",
       "addressLocality": "Geneva",
       "streetAddress": "1 Chemin Du Ruisseau",
       "postalCode": "1216",
@@ -1438,7 +1254,7 @@
       },
       "addressRegion": "GE",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:46:18.781Z",
+      "validThrough": "2027-01-11T22:04:33.111Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1472,7 +1288,7 @@
       "url": "https://careers.marriott.com/stagiaire-bar/job/P1-7351573-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:46:18.780Z",
+      "crawledAt": "2026-11-01T22:04:33.109Z",
       "addressLocality": "Geneva",
       "streetAddress": "1 Chemin Du Ruisseau",
       "postalCode": "1216",
@@ -1530,7 +1346,7 @@
       },
       "addressRegion": "GE",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:46:18.780Z",
+      "validThrough": "2027-01-11T22:04:33.109Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1564,7 +1380,7 @@
       "url": "https://careers.marriott.com/spa-therapist-welcome-agent-spa-winter-26-27-w-verbier/job/P1-5046299-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.779Z",
+      "crawledAt": "2026-11-01T22:04:33.108Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1616,93 +1432,7 @@
       },
       "addressRegion": "WALLI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:46:18.779Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "marriott-e01faefa8e90",
-      "slug": "notte-audit-clerk-marriott-international-zurich",
-      "slugByLocale": {
-        "it": "notte-audit-clerk-marriott-international-zurich",
-        "en": "night-audit-clerk-marriott-zurich",
-        "de": "nachtprufer-marriott-international-zurich",
-        "fr": "greffier-de-verification-de-nuit-marriott-international-zurich"
-      },
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Night Audit Clerk",
-      "titleByLocale": {
-        "it": "Notte Audit Clerk",
-        "en": "Night Audit Clerk",
-        "de": "Nachtprüfer",
-        "fr": "Greffier de vérification de nuit"
-      },
-      "description": "MANDATORY REQUIREMENTS\n • CH/EU passport holders only\n • LANGUAGE REQUIREMENTS: FLUENT IN GERMAN AND ENGLISH\n\nPOSITION SUMMARY\n\nComplete end-of-day activities including posting charges to accounts, running night audit backup, and roll the date. Process all payment types such as room charges, cash, checks, debit, or credit. Process adjustment vouchers, paid-outs, correction vouchers, and miscellaneous charges. Print contingency lists to have a record of all guests in case of emergency. Sell a room/accommodation to guests without reservations based on availability. Operate telephone switchboard station, process requests for wake-up calls, and advise guest of any messages. Complete the Room Rate Variance Report. Process all guest check-ins and assign room. Activate or reissue room keys using electronic key machine. Count bank at end of shift and secure bank. Balance and drop receipts according to Accounting specifications.\n\nReport accidents, injuries, and unsafe work conditions to manager. Follow all company policies and procedures; ensure uniform and personal appearance are clean and professional; maintain confidentiality of proprietary information; protect company assets. Welcome and acknowledge all guests according to company standards; anticipate and address guests’ service needs; assist individuals with disabilities; thank guests with genuine appreciation. Speak with others using clear and professional language; answer telephones using appropriate etiquette. Develop and maintain positive working relationships with others; support team to reach common goals. Comply with quality assurance expectations and standards. Move, lift, carry, push, pull, and place objects weighing less than or equal to 10 pounds without assistance. Perform other reasonable job duties as requested by Supervisors.\n\nPREFERRED QUALIFICATIONS\n • Education: High school diploma or G.E.D. equivalent.\n • Related Work Experience: Less than 1-year related work experience.\n • Supervisory Experience: No supervisory experience.\n • License or Certification: None\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates.  We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nMarriott Hotels strive to elevate the art of hospitality, innovating at every opportunity while keeping the comfort of the oh-so-familiar all around the globe. As a host with Marriott Hotels, you will help keep the promise of \"Wonderful Hospitality. Always.\" by delivering thoughtful, heartfelt, forward-thinking service that upholds and builds upon this living legacy. With the name that's synonymous with hospitality the world over, we are proud to welcome you to explore a career with Marriott Hotels. In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.\n JW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world. JW believes our associates come first. Because if you're happy, our guests will be happy. JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand's namesake and company founder, J.Willard Marriott. Our hotels offer a work experience unlike any other, where you'll be part of a community and enjoy true camaraderie with a diverse group of co-workers. JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being. Treating guests exceptionally starts with the way we take care of our associates. That's The JW Treatment. In joining JW Marriott, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.",
-      "descriptionByLocale": {
-        "it": "REQUISITI DELLA MANDATORIA\n• Porta passaporto CH/EU solo\n• REQUISITI DI LINGUA: FLUENT IN GERMANA E ITALIANO\n\nSUMMARIO POSIZIONE\n\nCompleta attività di fine giornata, tra cui le spese di spedizione per account, l'esecuzione di backup di audit notturno e la data. Elaborare tutti i tipi di pagamento come spese di camera, contanti, assegni, addebito o credito. Buoni di regolazione del processo, pagamenti, buoni di correzione e spese varie. Stampa liste di contingenza per avere un record di tutti gli ospiti in caso di emergenza. Vendere una camera / alloggio per gli ospiti senza prenotazioni in base alla disponibilità. Operare la stazione degli interruttori telefonici, elaborare le richieste di sveglia, e consigliare gli ospiti di qualsiasi messaggio. Completare il Rapporto Varianza Tassi Camera. Elaborare tutti i check-in e assegnare la stanza. Attivare o ristampare le chiavi della stanza utilizzando la chiave elettronica. Conta banca alla fine del turno e banca sicura. Bilancia e goccia ricevute secondo le specifiche contabili.\n\nSegnala incidenti, lesioni e condizioni di lavoro non sicure al gestore. Seguire tutte le politiche e le procedure aziendali; garantire l'aspetto uniforme e personale sono puliti e professionali; mantenere la riservatezza delle informazioni proprietarie; proteggere le attività aziendali. Accogliere e riconoscere tutti gli ospiti secondo gli standard aziendali; anticipare e soddisfare le esigenze di servizio degli ospiti; assistere gli individui con disabilità; ringraziare gli ospiti con apprezzamento autentico. Parlare con gli altri usando la lingua chiara e professionale; rispondere ai telefoni utilizzando l'etichetta appropriata. Sviluppare e mantenere rapporti di lavoro positivi con gli altri; team di supporto per raggiungere obiettivi comuni. Rispetto alle aspettative e agli standard di garanzia della qualità. Spostare, sollevare, trasportare, spingere, tirare e posizionare oggetti di peso inferiore o uguale a 10 libbre senza assistenza. Eseguire altri ragionevoli compiti di lavoro come richiesto dai Supervisori.\n\nQUALIFICA PREFERRATA\n• Istruzione: diploma di scuola superiore o equivalente G.E.D.\n• Esperienza di lavoro correlata: Meno di un anno di esperienza di lavoro correlati.\n• Esperienza di supervisione: Nessuna esperienza di supervisione.\n• Licenza o Certificazione: Nessuno\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n\nMarriott Hotels si sforza di elevare l'arte dell'ospitalità, innovando in ogni occasione mantenendo il comfort del oh-so-familiare in tutto il mondo. Come ospite di Marriott Hotels, vi aiuterà a mantenere la promessa di \"Ospitalità meravigliosa. Sempre.\" consegnando un servizio pensieroso, sentito, in avanti che sostiene e costruisce su questa eredità vivente. Con il nome che è sinonimo di ospitalità in tutto il mondo, siamo orgogliosi di darvi il benvenuto per esplorare una carriera con Marriott Hotels. Entrando in Marriott Hotels, ti unisci a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.\nJW Marriott fa parte del portafoglio di lusso di Marriott International e si compone di oltre 100 belle proprietà nelle città di gateway e località turistiche distintive in tutto il mondo. JW crede che i nostri associati vengano prima. Perche' se sei felice, i nostri ospiti saranno felici. I soci JW Marriott sono fiduciosi, innovativi, genuini, intuitivi e portano avanti l'eredità dell'omonimo marchio e del fondatore della società, J.Willard Marriott. I nostri hotel offrono un'esperienza di lavoro diversa da qualsiasi altro, dove sarete parte di una comunità e godere di vera camaraderie con un gruppo diversificato di colleghi. JW crea opportunità di formazione, sviluppo, riconoscimento e, soprattutto, un luogo in cui è possibile perseguire le vostre passioni in un ambiente di lusso con un focus sul benessere olistico. Trattare gli ospiti eccezionalmente inizia con il modo in cui ci prendiamo cura dei nostri associati. E' il trattamento JW. Nell'unione di JW Marriott, ti unisci a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
-        "en": "MANDATORY REQUIREMENTS\n• CH/EU passport holders only\n• LANGUAGE REQUIREMENTS: FLUENT IN GERMAN AND ENGLISH\n\nPOSITION SUMMARY\n\nComplete end-of-day activities including posting charges to accounts, running night audit backup, and roll the date. Process all payment types such as room charges, cash, checks, debit, or credit. Process adjustment vouchers, paid-outs, correction vouchers, and miscellaneous charges. Print contingency lists to have a record of all guests in case of emergency. Sell a room/accommodation to guests without reservations based on availability. Operate telephone switchboard station, process requests for wake-up calls, and advise guest of any messages. Complete the Room Rate Variance Report. Process all guest check-ins and assign room. Activate or reissue room keys using electronic key machine. Count bank at end of shift and secure bank. Balance and drop receipts according to Accounting specifications.\n\nReport accidents, injuries, and unsafe work conditions to manager. Follow all company policies and procedures; ensure uniform and personal appearance are clean and professional; maintain confidentiality of proprietary information; protect company assets. Welcome and acknowledge all guests according to company standards; anticipate and address guests’ service needs; assist individuals with disabilities; thank guests with genuine appreciation. Speak with others using clear and professional language; answer telephones using appropriate etiquette. Develop and maintain positive working relationships with others; support team to reach common goals. Comply with quality assurance expectations and standards. Move, lift, carry, push, pull, and place objects weighing less than or equal to 10 pounds without assistance. Perform other reasonable job duties as requested by Supervisors.\n\nPREFERRED QUALIFICATIONS\n• Education: High school diploma or G.E.D. equivalent.\n• Related Work Experience: Less than 1-year related work experience.\n• Supervisory Experience: No supervisory experience.\n• License or Certification: None\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nMarriott Hotels strive to elevate the art of hospitality, innovating at every opportunity while keeping the comfort of the oh-so-familiar all around the globe. As a host with Marriott Hotels, you will help keep the promise of \"Wonderful Hospitality. Always.\" by delivering thoughtful, heartfelt, forward-thinking service that upholds and builds upon this living legacy. With the name that's synonymous with hospitality the world over, we are proud to welcome you to explore a career with Marriott Hotels. In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.\nJW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world. JW believes our associates come first. Because if you're happy, our guests will be happy. JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand's namesake and company founder, J.Willard Marriott. Our hotels offer a work experience unlike any other, where you'll be part of a community and enjoy true camaraderie with a diverse group of co-workers. JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being. Treating guests exceptionally starts with the way we take care of our associates. That's The JW Treatment. In joining JW Marriott, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.",
-        "de": "VERPFLICHTUNGSANFORDERUNGEN\n• Nur Inhaber von CH/EU-Pässen\n• SPRACHENANFORDERUNGEN: FLUENT IN DEUTSCHLAND UND DEUTSCH\n\nZUSAMMENFASSUNG DER POSITION\n\nKomplette Aktivitäten am Ende des Tages, einschließlich der Buchung von Gebühren für Konten, Durchführung von Nacht-Audit-Backups und Roll-Datum. Verarbeiten Sie alle Zahlungsarten wie Zimmergebühren, Bargeld, Schecks, Debit oder Kredit. Prozessanpassungsgutscheine, ausgezahlte Gutscheine, Korrekturgutscheine und verschiedene Gebühren. Drucken Sie Notfalllisten, um eine Aufzeichnung aller Gäste im Notfall zu haben. Verkaufen Sie ein Zimmer / eine Unterkunft an Gäste ohne Reservierung je nach Verfügbarkeit. Betreiben Sie die Telefonzentrale, bearbeiten Sie Anfragen für Weckrufe und informieren Sie den Gast über Nachrichten. Füllen Sie den Room Rate Variance Report aus. Verarbeiten Sie alle Gäste-Check-ins und zuweisen Zimmer. Aktivieren oder neu ausgeben Raumschlüssel mit elektronischen Schlüssel Maschine. Zählen Sie Bank am Ende der Schicht und sichere Bank. Saldo und Drop Quittungen nach Rechnungslegung Spezifikationen.\n\nMelden Sie Unfälle, Verletzungen und unsichere Arbeitsbedingungen an den Manager. Befolgen Sie alle Unternehmensrichtlinien und -verfahren; stellen Sie sicher, dass ein einheitliches und persönliches Erscheinungsbild sauber und professionell ist; wahren Sie die Vertraulichkeit von proprietären Informationen; schützen Sie die Vermögenswerte des Unternehmens. Begrüßen und anerkennen Sie alle Gäste nach Unternehmensstandards; antizipieren und adressieren Sie die Servicebedürfnisse der Gäste; unterstützen Sie Menschen mit Behinderungen; danken Sie den Gästen mit aufrichtiger Wertschätzung. Sprechen sie mit anderen mit klarer und professioneller sprache; telefone mit geeigneter etikette beantworten. Entwickeln und pflegen Sie positive Arbeitsbeziehungen mit anderen; unterstützen Sie das Team, um gemeinsame Ziele zu erreichen. Befolgen Sie die Erwartungen und Standards der Qualitätssicherung. Bewegen, Heben, Tragen, Schieben, Ziehen und Platzieren von Objekten mit einem Gewicht von weniger als oder gleich 10 Pfund ohne Hilfe. Führen Sie andere angemessene Aufgaben aus, wie von den Aufsichtsbehörden verlangt.\n\nPREFERRE QUALIFIKATIONEN\n• Ausbildung: High-School-Diplom oder GED gleichwertig.\n• Verwandte Arbeitserfahrung: Weniger als 1 Jahr verwandte Arbeitserfahrung.\n• Aufsichtserfahrung: Keine Aufsichtserfahrung.\n• Lizenz oder Zertifizierung: Keine\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n\nMarriott Hotels sind bestrebt, die Kunst der Gastfreundschaft zu verbessern, bei jeder Gelegenheit innovativ zu sein und gleichzeitig den Komfort der Bekannten auf der ganzen Welt zu bewahren. Als Gastgeber bei Marriott Hotels werden Sie dazu beitragen, das Versprechen von \"Wonderful Hospitality\" zu halten. Immer. durch nachdenkliche, herzliche, zukunftsorientierte Dienstleistung, die dieses lebendige Erbe aufrechterhält und aufbaut. Mit dem Namen, der weltweit für Gastfreundschaft steht, sind wir stolz darauf, Sie willkommen zu heißen, um eine Karriere bei Marriott Hotels zu erkunden. Wenn Sie Marriott Hotels beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.\nJW Marriott ist Teil des Luxusportfolios von Marriott International und besteht aus mehr als 100 schönen Immobilien in Gateway-Städten und unverwechselbaren Resort-Locations auf der ganzen Welt. JW glaubt, dass unsere Mitarbeiter an erster Stelle stehen. Denn wenn Sie glücklich sind, werden unsere Gäste glücklich sein. Die Mitarbeiter von JW Marriott sind selbstbewusst, innovativ, echt und intuitiv und setzen das Vermächtnis des Namensgebers und Firmengründers der Marke, J.Willard Marriott, fort. Unsere Hotels bieten eine Arbeitserfahrung wie keine andere, wo Sie Teil einer Gemeinschaft sein und echte Kameradschaft mit einer vielfältigen Gruppe von Mitarbeitern genießen werden. JW schafft Möglichkeiten für Training, Entwicklung, Anerkennung und vor allem einen Ort, an dem Sie Ihre Leidenschaften in einer luxuriösen Umgebung mit Schwerpunkt auf ganzheitlichem Wohlbefinden verfolgen können. Die Behandlung von Gästen beginnt außergewöhnlich mit der Art und Weise, wie wir uns um unsere Mitarbeiter kümmern. Das ist die JW-Behandlung. Wenn Sie JW Marriott beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
-        "fr": "PRESCRIPTIONS MANDATOIRES\n• Titulaires de passeports CH/UE uniquement\n• PRESCRIPTIONS LANGUES: FLUENTS EN ALLEMAGNE ET EN ANGLAIS\n\nRÉSUMÉ DE LA POSITION\n\nCompléter les activités de fin de journée, y compris l'affichage des frais sur les comptes, la sauvegarde de la vérification de nuit et le roulement de la date. Traiter tous les types de paiement tels que les frais de chambre, l'argent comptant, les chèques, le débit ou le crédit. Bons d'ajustement du processus, paiements, bons de correction et frais divers. Imprimer les listes d'urgence pour avoir un dossier de tous les invités en cas d'urgence. Vendre une chambre/hébergement aux clients sans réservation selon la disponibilité. Exploiter la station téléphonique, traiter les demandes d'appels de réveil et informer l'invité de tout message. Remplir le rapport d'écart de tarif. Traitez tous les check-in invités et assignez la chambre. Activer ou rééditer les clés de salle à l'aide d'une machine à clé électronique. Compter la banque à la fin du quart de travail et sécuriser la banque. Solde et baisse des recettes selon les spécifications comptables.\n\nSignaler les accidents, les blessures et les conditions de travail dangereuses au gestionnaire. Suivre toutes les politiques et procédures de l'entreprise; veiller à ce que l'apparence personnelle et uniforme soit propre et professionnelle; maintenir la confidentialité des renseignements exclusifs; protéger les biens de l'entreprise. Accueillez et reconnaissez tous les invités selon les normes de l'entreprise; anticipez et répondez aux besoins de service des invités; aidez les personnes handicapées; remerciez les invités avec une appréciation sincère. Parlez avec d'autres en utilisant un langage clair et professionnel; répondez par téléphone en utilisant une étiquette appropriée. Établir et maintenir des relations de travail positives avec les autres; appuyer l'équipe pour atteindre des objectifs communs. Respecter les attentes et les normes en matière d'assurance de la qualité. Déplacer, soulever, transporter, pousser, tirer et placer des objets pesant moins de 10 livres sans assistance. Exécuter d'autres tâches raisonnables à la demande des superviseurs.\n\nQUALIFICATIONS PRÉFÉRÉES\n• Éducation: diplôme d'études secondaires ou équivalent G.E.D.\n• Expérience de travail connexe : moins d'un an d'expérience de travail connexe.\n• Expérience en matière de surveillance: aucune expérience en matière de surveillance.\n• Licence ou certification: Aucun\n\nChez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n\nMarriott Hotels s'efforce d'élever l'art de l'hospitalité, en innovant à toutes les occasions tout en gardant le confort du oh-so-familiar partout dans le monde. En tant qu'hôte avec Marriott Hotels, vous aiderez à tenir la promesse de \"Wonderful Hospitality. Toujours. » en offrant un service réfléchi, sincère et tourné vers l'avenir qui soutient et renforce cet héritage vivant. Avec le nom qui est synonyme d'hospitalité dans le monde entier, nous sommes fiers de vous accueillir pour explorer une carrière avec Marriott Hotels. En rejoignant Marriott Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous.\nJW Marriott fait partie du portefeuille de luxe de Marriott International et se compose de plus de 100 belles propriétés dans des villes portes et des lieux de villégiature distincts à travers le monde. JW croit que nos associés viennent en premier. Parce que si vous êtes heureux, nos invités seront heureux. Les associés de JW Marriott sont confiants, innovateurs, authentiques, intuitifs et perpétuent l'héritage du fondateur de la marque, J.Willard Marriott. Nos hôtels offrent une expérience de travail différente des autres, où vous ferez partie d'une communauté et profiterez d'une véritable camaraderie avec un groupe diversifié de collaborateurs. JW crée des opportunités de formation, de développement, de reconnaissance et surtout, un lieu où vous pouvez poursuivre vos passions dans un environnement de luxe en mettant l'accent sur le bien-être holistique. Le traitement des invités commence exceptionnellement par la façon dont nous prenons soin de nos associés. C'est le traitement JW. En rejoignant JW Marriott, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://careers.marriott.com/night-audit-clerk/job/P1-6914789-0",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.778Z",
-      "addressLocality": "Zurich",
-      "streetAddress": "Neumuehlequai 42",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://careers.marriott.com/night-audit-clerk/job/P1-6914789-0",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_marriottMeta": {
-        "requisitionID": "26123193",
-        "uniqueID": "PDX_MI_4BC31F5C-2F60-48BA-AF97-076E5150CC6C_22320879",
-        "brandName": "Marriott Hotels & Resorts",
-        "locationName": "Zurich Marriott Hotel",
-        "jobField": "Night Audit",
-        "accountName": "",
-        "publishEndDate": ""
-      },
-      "previousSlugs": [
-        "night-audit-clerk-marriott-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "night-audit-clerk-marriott-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-24T00:09:41.777Z",
-      "salaryMin": 113000,
-      "salaryMax": 198500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 198500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:46:18.778Z",
+      "validThrough": "2026-12-19T22:04:33.108Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1736,7 +1466,7 @@
       "url": "https://careers.marriott.com/pastry-cook-long-term-w-verbier/job/P1-6921407-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.778Z",
+      "crawledAt": "2026-11-01T22:04:33.107Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1803,7 +1533,93 @@
       },
       "addressRegion": "WALLI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:46:18.778Z",
+      "validThrough": "2026-12-23T22:04:33.107Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "marriott-e01faefa8e90",
+      "slug": "notte-audit-clerk-marriott-international-zurich",
+      "slugByLocale": {
+        "it": "notte-audit-clerk-marriott-international-zurich",
+        "en": "night-audit-clerk-marriott-zurich",
+        "de": "nachtprufer-marriott-international-zurich",
+        "fr": "greffier-de-verification-de-nuit-marriott-international-zurich"
+      },
+      "company": "Marriott International",
+      "companyKey": "marriott",
+      "companyDomain": "marriott.com",
+      "title": "Night Audit Clerk",
+      "titleByLocale": {
+        "it": "Notte Audit Clerk",
+        "en": "Night Audit Clerk",
+        "de": "Nachtprüfer",
+        "fr": "Greffier de vérification de nuit"
+      },
+      "description": "MANDATORY REQUIREMENTS\n • CH/EU passport holders only\n • LANGUAGE REQUIREMENTS: FLUENT IN GERMAN AND ENGLISH\n\nPOSITION SUMMARY\n\nComplete end-of-day activities including posting charges to accounts, running night audit backup, and roll the date. Process all payment types such as room charges, cash, checks, debit, or credit. Process adjustment vouchers, paid-outs, correction vouchers, and miscellaneous charges. Print contingency lists to have a record of all guests in case of emergency. Sell a room/accommodation to guests without reservations based on availability. Operate telephone switchboard station, process requests for wake-up calls, and advise guest of any messages. Complete the Room Rate Variance Report. Process all guest check-ins and assign room. Activate or reissue room keys using electronic key machine. Count bank at end of shift and secure bank. Balance and drop receipts according to Accounting specifications.\n\nReport accidents, injuries, and unsafe work conditions to manager. Follow all company policies and procedures; ensure uniform and personal appearance are clean and professional; maintain confidentiality of proprietary information; protect company assets. Welcome and acknowledge all guests according to company standards; anticipate and address guests’ service needs; assist individuals with disabilities; thank guests with genuine appreciation. Speak with others using clear and professional language; answer telephones using appropriate etiquette. Develop and maintain positive working relationships with others; support team to reach common goals. Comply with quality assurance expectations and standards. Move, lift, carry, push, pull, and place objects weighing less than or equal to 10 pounds without assistance. Perform other reasonable job duties as requested by Supervisors.\n\nPREFERRED QUALIFICATIONS\n • Education: High school diploma or G.E.D. equivalent.\n • Related Work Experience: Less than 1-year related work experience.\n • Supervisory Experience: No supervisory experience.\n • License or Certification: None\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates.  We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nMarriott Hotels strive to elevate the art of hospitality, innovating at every opportunity while keeping the comfort of the oh-so-familiar all around the globe. As a host with Marriott Hotels, you will help keep the promise of \"Wonderful Hospitality. Always.\" by delivering thoughtful, heartfelt, forward-thinking service that upholds and builds upon this living legacy. With the name that's synonymous with hospitality the world over, we are proud to welcome you to explore a career with Marriott Hotels. In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.\n JW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world. JW believes our associates come first. Because if you're happy, our guests will be happy. JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand's namesake and company founder, J.Willard Marriott. Our hotels offer a work experience unlike any other, where you'll be part of a community and enjoy true camaraderie with a diverse group of co-workers. JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being. Treating guests exceptionally starts with the way we take care of our associates. That's The JW Treatment. In joining JW Marriott, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.",
+      "descriptionByLocale": {
+        "it": "REQUISITI DELLA MANDATORIA\n• Porta passaporto CH/EU solo\n• REQUISITI DI LINGUA: FLUENT IN GERMANA E ITALIANO\n\nSUMMARIO POSIZIONE\n\nCompleta attività di fine giornata, tra cui le spese di spedizione per account, l'esecuzione di backup di audit notturno e la data. Elaborare tutti i tipi di pagamento come spese di camera, contanti, assegni, addebito o credito. Buoni di regolazione del processo, pagamenti, buoni di correzione e spese varie. Stampa liste di contingenza per avere un record di tutti gli ospiti in caso di emergenza. Vendere una camera / alloggio per gli ospiti senza prenotazioni in base alla disponibilità. Operare la stazione degli interruttori telefonici, elaborare le richieste di sveglia, e consigliare gli ospiti di qualsiasi messaggio. Completare il Rapporto Varianza Tassi Camera. Elaborare tutti i check-in e assegnare la stanza. Attivare o ristampare le chiavi della stanza utilizzando la chiave elettronica. Conta banca alla fine del turno e banca sicura. Bilancia e goccia ricevute secondo le specifiche contabili.\n\nSegnala incidenti, lesioni e condizioni di lavoro non sicure al gestore. Seguire tutte le politiche e le procedure aziendali; garantire l'aspetto uniforme e personale sono puliti e professionali; mantenere la riservatezza delle informazioni proprietarie; proteggere le attività aziendali. Accogliere e riconoscere tutti gli ospiti secondo gli standard aziendali; anticipare e soddisfare le esigenze di servizio degli ospiti; assistere gli individui con disabilità; ringraziare gli ospiti con apprezzamento autentico. Parlare con gli altri usando la lingua chiara e professionale; rispondere ai telefoni utilizzando l'etichetta appropriata. Sviluppare e mantenere rapporti di lavoro positivi con gli altri; team di supporto per raggiungere obiettivi comuni. Rispetto alle aspettative e agli standard di garanzia della qualità. Spostare, sollevare, trasportare, spingere, tirare e posizionare oggetti di peso inferiore o uguale a 10 libbre senza assistenza. Eseguire altri ragionevoli compiti di lavoro come richiesto dai Supervisori.\n\nQUALIFICA PREFERRATA\n• Istruzione: diploma di scuola superiore o equivalente G.E.D.\n• Esperienza di lavoro correlata: Meno di un anno di esperienza di lavoro correlati.\n• Esperienza di supervisione: Nessuna esperienza di supervisione.\n• Licenza o Certificazione: Nessuno\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n\nMarriott Hotels si sforza di elevare l'arte dell'ospitalità, innovando in ogni occasione mantenendo il comfort del oh-so-familiare in tutto il mondo. Come ospite di Marriott Hotels, vi aiuterà a mantenere la promessa di \"Ospitalità meravigliosa. Sempre.\" consegnando un servizio pensieroso, sentito, in avanti che sostiene e costruisce su questa eredità vivente. Con il nome che è sinonimo di ospitalità in tutto il mondo, siamo orgogliosi di darvi il benvenuto per esplorare una carriera con Marriott Hotels. Entrando in Marriott Hotels, ti unisci a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.\nJW Marriott fa parte del portafoglio di lusso di Marriott International e si compone di oltre 100 belle proprietà nelle città di gateway e località turistiche distintive in tutto il mondo. JW crede che i nostri associati vengano prima. Perche' se sei felice, i nostri ospiti saranno felici. I soci JW Marriott sono fiduciosi, innovativi, genuini, intuitivi e portano avanti l'eredità dell'omonimo marchio e del fondatore della società, J.Willard Marriott. I nostri hotel offrono un'esperienza di lavoro diversa da qualsiasi altro, dove sarete parte di una comunità e godere di vera camaraderie con un gruppo diversificato di colleghi. JW crea opportunità di formazione, sviluppo, riconoscimento e, soprattutto, un luogo in cui è possibile perseguire le vostre passioni in un ambiente di lusso con un focus sul benessere olistico. Trattare gli ospiti eccezionalmente inizia con il modo in cui ci prendiamo cura dei nostri associati. E' il trattamento JW. Nell'unione di JW Marriott, ti unisci a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
+        "en": "MANDATORY REQUIREMENTS\n• CH/EU passport holders only\n• LANGUAGE REQUIREMENTS: FLUENT IN GERMAN AND ENGLISH\n\nPOSITION SUMMARY\n\nComplete end-of-day activities including posting charges to accounts, running night audit backup, and roll the date. Process all payment types such as room charges, cash, checks, debit, or credit. Process adjustment vouchers, paid-outs, correction vouchers, and miscellaneous charges. Print contingency lists to have a record of all guests in case of emergency. Sell a room/accommodation to guests without reservations based on availability. Operate telephone switchboard station, process requests for wake-up calls, and advise guest of any messages. Complete the Room Rate Variance Report. Process all guest check-ins and assign room. Activate or reissue room keys using electronic key machine. Count bank at end of shift and secure bank. Balance and drop receipts according to Accounting specifications.\n\nReport accidents, injuries, and unsafe work conditions to manager. Follow all company policies and procedures; ensure uniform and personal appearance are clean and professional; maintain confidentiality of proprietary information; protect company assets. Welcome and acknowledge all guests according to company standards; anticipate and address guests’ service needs; assist individuals with disabilities; thank guests with genuine appreciation. Speak with others using clear and professional language; answer telephones using appropriate etiquette. Develop and maintain positive working relationships with others; support team to reach common goals. Comply with quality assurance expectations and standards. Move, lift, carry, push, pull, and place objects weighing less than or equal to 10 pounds without assistance. Perform other reasonable job duties as requested by Supervisors.\n\nPREFERRED QUALIFICATIONS\n• Education: High school diploma or G.E.D. equivalent.\n• Related Work Experience: Less than 1-year related work experience.\n• Supervisory Experience: No supervisory experience.\n• License or Certification: None\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nMarriott Hotels strive to elevate the art of hospitality, innovating at every opportunity while keeping the comfort of the oh-so-familiar all around the globe. As a host with Marriott Hotels, you will help keep the promise of \"Wonderful Hospitality. Always.\" by delivering thoughtful, heartfelt, forward-thinking service that upholds and builds upon this living legacy. With the name that's synonymous with hospitality the world over, we are proud to welcome you to explore a career with Marriott Hotels. In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.\nJW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world. JW believes our associates come first. Because if you're happy, our guests will be happy. JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand's namesake and company founder, J.Willard Marriott. Our hotels offer a work experience unlike any other, where you'll be part of a community and enjoy true camaraderie with a diverse group of co-workers. JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being. Treating guests exceptionally starts with the way we take care of our associates. That's The JW Treatment. In joining JW Marriott, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.",
+        "de": "VERPFLICHTUNGSANFORDERUNGEN\n• Nur Inhaber von CH/EU-Pässen\n• SPRACHENANFORDERUNGEN: FLUENT IN DEUTSCHLAND UND DEUTSCH\n\nZUSAMMENFASSUNG DER POSITION\n\nKomplette Aktivitäten am Ende des Tages, einschließlich der Buchung von Gebühren für Konten, Durchführung von Nacht-Audit-Backups und Roll-Datum. Verarbeiten Sie alle Zahlungsarten wie Zimmergebühren, Bargeld, Schecks, Debit oder Kredit. Prozessanpassungsgutscheine, ausgezahlte Gutscheine, Korrekturgutscheine und verschiedene Gebühren. Drucken Sie Notfalllisten, um eine Aufzeichnung aller Gäste im Notfall zu haben. Verkaufen Sie ein Zimmer / eine Unterkunft an Gäste ohne Reservierung je nach Verfügbarkeit. Betreiben Sie die Telefonzentrale, bearbeiten Sie Anfragen für Weckrufe und informieren Sie den Gast über Nachrichten. Füllen Sie den Room Rate Variance Report aus. Verarbeiten Sie alle Gäste-Check-ins und zuweisen Zimmer. Aktivieren oder neu ausgeben Raumschlüssel mit elektronischen Schlüssel Maschine. Zählen Sie Bank am Ende der Schicht und sichere Bank. Saldo und Drop Quittungen nach Rechnungslegung Spezifikationen.\n\nMelden Sie Unfälle, Verletzungen und unsichere Arbeitsbedingungen an den Manager. Befolgen Sie alle Unternehmensrichtlinien und -verfahren; stellen Sie sicher, dass ein einheitliches und persönliches Erscheinungsbild sauber und professionell ist; wahren Sie die Vertraulichkeit von proprietären Informationen; schützen Sie die Vermögenswerte des Unternehmens. Begrüßen und anerkennen Sie alle Gäste nach Unternehmensstandards; antizipieren und adressieren Sie die Servicebedürfnisse der Gäste; unterstützen Sie Menschen mit Behinderungen; danken Sie den Gästen mit aufrichtiger Wertschätzung. Sprechen sie mit anderen mit klarer und professioneller sprache; telefone mit geeigneter etikette beantworten. Entwickeln und pflegen Sie positive Arbeitsbeziehungen mit anderen; unterstützen Sie das Team, um gemeinsame Ziele zu erreichen. Befolgen Sie die Erwartungen und Standards der Qualitätssicherung. Bewegen, Heben, Tragen, Schieben, Ziehen und Platzieren von Objekten mit einem Gewicht von weniger als oder gleich 10 Pfund ohne Hilfe. Führen Sie andere angemessene Aufgaben aus, wie von den Aufsichtsbehörden verlangt.\n\nPREFERRE QUALIFIKATIONEN\n• Ausbildung: High-School-Diplom oder GED gleichwertig.\n• Verwandte Arbeitserfahrung: Weniger als 1 Jahr verwandte Arbeitserfahrung.\n• Aufsichtserfahrung: Keine Aufsichtserfahrung.\n• Lizenz oder Zertifizierung: Keine\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n\nMarriott Hotels sind bestrebt, die Kunst der Gastfreundschaft zu verbessern, bei jeder Gelegenheit innovativ zu sein und gleichzeitig den Komfort der Bekannten auf der ganzen Welt zu bewahren. Als Gastgeber bei Marriott Hotels werden Sie dazu beitragen, das Versprechen von \"Wonderful Hospitality\" zu halten. Immer. durch nachdenkliche, herzliche, zukunftsorientierte Dienstleistung, die dieses lebendige Erbe aufrechterhält und aufbaut. Mit dem Namen, der weltweit für Gastfreundschaft steht, sind wir stolz darauf, Sie willkommen zu heißen, um eine Karriere bei Marriott Hotels zu erkunden. Wenn Sie Marriott Hotels beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.\nJW Marriott ist Teil des Luxusportfolios von Marriott International und besteht aus mehr als 100 schönen Immobilien in Gateway-Städten und unverwechselbaren Resort-Locations auf der ganzen Welt. JW glaubt, dass unsere Mitarbeiter an erster Stelle stehen. Denn wenn Sie glücklich sind, werden unsere Gäste glücklich sein. Die Mitarbeiter von JW Marriott sind selbstbewusst, innovativ, echt und intuitiv und setzen das Vermächtnis des Namensgebers und Firmengründers der Marke, J.Willard Marriott, fort. Unsere Hotels bieten eine Arbeitserfahrung wie keine andere, wo Sie Teil einer Gemeinschaft sein und echte Kameradschaft mit einer vielfältigen Gruppe von Mitarbeitern genießen werden. JW schafft Möglichkeiten für Training, Entwicklung, Anerkennung und vor allem einen Ort, an dem Sie Ihre Leidenschaften in einer luxuriösen Umgebung mit Schwerpunkt auf ganzheitlichem Wohlbefinden verfolgen können. Die Behandlung von Gästen beginnt außergewöhnlich mit der Art und Weise, wie wir uns um unsere Mitarbeiter kümmern. Das ist die JW-Behandlung. Wenn Sie JW Marriott beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
+        "fr": "PRESCRIPTIONS MANDATOIRES\n• Titulaires de passeports CH/UE uniquement\n• PRESCRIPTIONS LANGUES: FLUENTS EN ALLEMAGNE ET EN ANGLAIS\n\nRÉSUMÉ DE LA POSITION\n\nCompléter les activités de fin de journée, y compris l'affichage des frais sur les comptes, la sauvegarde de la vérification de nuit et le roulement de la date. Traiter tous les types de paiement tels que les frais de chambre, l'argent comptant, les chèques, le débit ou le crédit. Bons d'ajustement du processus, paiements, bons de correction et frais divers. Imprimer les listes d'urgence pour avoir un dossier de tous les invités en cas d'urgence. Vendre une chambre/hébergement aux clients sans réservation selon la disponibilité. Exploiter la station téléphonique, traiter les demandes d'appels de réveil et informer l'invité de tout message. Remplir le rapport d'écart de tarif. Traitez tous les check-in invités et assignez la chambre. Activer ou rééditer les clés de salle à l'aide d'une machine à clé électronique. Compter la banque à la fin du quart de travail et sécuriser la banque. Solde et baisse des recettes selon les spécifications comptables.\n\nSignaler les accidents, les blessures et les conditions de travail dangereuses au gestionnaire. Suivre toutes les politiques et procédures de l'entreprise; veiller à ce que l'apparence personnelle et uniforme soit propre et professionnelle; maintenir la confidentialité des renseignements exclusifs; protéger les biens de l'entreprise. Accueillez et reconnaissez tous les invités selon les normes de l'entreprise; anticipez et répondez aux besoins de service des invités; aidez les personnes handicapées; remerciez les invités avec une appréciation sincère. Parlez avec d'autres en utilisant un langage clair et professionnel; répondez par téléphone en utilisant une étiquette appropriée. Établir et maintenir des relations de travail positives avec les autres; appuyer l'équipe pour atteindre des objectifs communs. Respecter les attentes et les normes en matière d'assurance de la qualité. Déplacer, soulever, transporter, pousser, tirer et placer des objets pesant moins de 10 livres sans assistance. Exécuter d'autres tâches raisonnables à la demande des superviseurs.\n\nQUALIFICATIONS PRÉFÉRÉES\n• Éducation: diplôme d'études secondaires ou équivalent G.E.D.\n• Expérience de travail connexe : moins d'un an d'expérience de travail connexe.\n• Expérience en matière de surveillance: aucune expérience en matière de surveillance.\n• Licence ou certification: Aucun\n\nChez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n\nMarriott Hotels s'efforce d'élever l'art de l'hospitalité, en innovant à toutes les occasions tout en gardant le confort du oh-so-familiar partout dans le monde. En tant qu'hôte avec Marriott Hotels, vous aiderez à tenir la promesse de \"Wonderful Hospitality. Toujours. » en offrant un service réfléchi, sincère et tourné vers l'avenir qui soutient et renforce cet héritage vivant. Avec le nom qui est synonyme d'hospitalité dans le monde entier, nous sommes fiers de vous accueillir pour explorer une carrière avec Marriott Hotels. En rejoignant Marriott Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous.\nJW Marriott fait partie du portefeuille de luxe de Marriott International et se compose de plus de 100 belles propriétés dans des villes portes et des lieux de villégiature distincts à travers le monde. JW croit que nos associés viennent en premier. Parce que si vous êtes heureux, nos invités seront heureux. Les associés de JW Marriott sont confiants, innovateurs, authentiques, intuitifs et perpétuent l'héritage du fondateur de la marque, J.Willard Marriott. Nos hôtels offrent une expérience de travail différente des autres, où vous ferez partie d'une communauté et profiterez d'une véritable camaraderie avec un groupe diversifié de collaborateurs. JW crée des opportunités de formation, de développement, de reconnaissance et surtout, un lieu où vous pouvez poursuivre vos passions dans un environnement de luxe en mettant l'accent sur le bien-être holistique. Le traitement des invités commence exceptionnellement par la façon dont nous prenons soin de nos associés. C'est le traitement JW. En rejoignant JW Marriott, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://careers.marriott.com/night-audit-clerk/job/P1-6914789-0",
+      "source": "Marriott International Dedicated Parser (Paradox API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-01T22:04:33.106Z",
+      "addressLocality": "Zurich",
+      "streetAddress": "Neumuehlequai 42",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Hôtellerie / Hospitality",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://careers.marriott.com/night-audit-clerk/job/P1-6914789-0",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_marriottMeta": {
+        "requisitionID": "26123193",
+        "uniqueID": "PDX_MI_4BC31F5C-2F60-48BA-AF97-076E5150CC6C_22320879",
+        "brandName": "Marriott Hotels & Resorts",
+        "locationName": "Zurich Marriott Hotel",
+        "jobField": "Night Audit",
+        "accountName": "",
+        "publishEndDate": ""
+      },
+      "previousSlugs": [
+        "night-audit-clerk-marriott-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "night-audit-clerk-marriott-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-24T00:09:41.777Z",
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 198500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-23T22:04:33.106Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1837,7 +1653,7 @@
       "url": "https://careers.marriott.com/night-audit/job/P1-7200539-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:46:18.777Z",
+      "crawledAt": "2026-11-01T22:04:33.105Z",
       "addressLocality": "Geneva",
       "streetAddress": "1 Chemin Du Ruisseau",
       "postalCode": "1216",
@@ -1895,7 +1711,7 @@
       },
       "addressRegion": "GE",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-08T09:46:18.777Z",
+      "validThrough": "2027-01-07T22:04:33.105Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1929,7 +1745,7 @@
       "url": "https://careers.marriott.com/lingère-à-30-cdd-de-4-mois/job/P1-7200535-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.774Z",
+      "crawledAt": "2026-11-01T22:04:33.102Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -1984,7 +1800,7 @@
       },
       "addressRegion": "GE",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-08T09:46:18.774Z",
+      "validThrough": "2027-01-07T22:04:33.102Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2018,7 +1834,7 @@
       "url": "https://careers.marriott.com/guest-arrival-expert/job/P1-7373928-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.769Z",
+      "crawledAt": "2026-11-01T22:04:33.096Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8001",
@@ -2076,7 +1892,7 @@
       },
       "addressRegion": "ZH",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T09:46:18.769Z",
+      "validThrough": "2027-01-13T22:04:33.096Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2110,7 +1926,7 @@
       "url": "https://careers.marriott.com/b-f-intern-service-6-months-w-verbier/job/P1-6268408-0",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:46:18.767Z",
+      "crawledAt": "2026-11-01T22:04:33.093Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2162,7 +1978,7 @@
       },
       "addressRegion": "WALLI",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:46:18.767Z",
+      "validThrough": "2026-12-28T22:04:33.093Z",
       "validThroughSource": "last-observed-window"
     }
   ]
