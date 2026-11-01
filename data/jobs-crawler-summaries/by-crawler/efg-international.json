@@ -1,241 +1,20 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-11-01T09:12:47.708Z",
+  "generatedAt": "2026-11-01T21:32:45.428Z",
   "total": 17,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 17,
-  "durationMs": 13507,
-  "avgDurationMs": 13507,
+  "durationMs": 11079,
+  "avgDurationMs": 11079,
   "durationHistory": [
-    13507
+    11079
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "efg-6219",
-      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Data Ops Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6219",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: IT Data Departement</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">DataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack). </span></p><p><span lang=\"EN-GB\">We are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line. </span></p><p><span lang=\"EN-GB\">Key team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.</span></p><p><span lang=\"EN-GB\"><strong>Main Responsibilities</strong></span></p><p><span lang=\"EN-GB\"> As our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders. </span></li><li><span lang=\"EN-GB\">We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python </span></li><li><span lang=\"EN-GB\">By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.</span></li><li><span lang=\"EN-GB\">Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP) </span></li><li><span lang=\"EN-GB\">track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.</span></li><li><span lang=\"EN-GB\">Design, implement, and optimize data pipeline in batch and streaming mode.</span></li><li><span lang=\"EN-GB\">Follow and apply CI/CD practice to automate and streamline deployments and integrations.</span></li><li><span lang=\"EN-GB\">Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.</span></li><li><span lang=\"EN-GB\">Collaborate with cross-functional teams to improve and review governance around integration operations.</span></li><li><span lang=\"EN-GB\">Maintain high standards of data quality, reliability, and performance.</span></li><li><span lang=\"EN-GB\">Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement</span></li></ul><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.</span></li><li><span lang=\"EN-GB\">Comfortable working with Python, SQL, PySpark and Databricks</span></li><li><span lang=\"EN-GB\">Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).</span></li><li><span lang=\"EN-GB\">Familiarity with microservices architecture, API management and observability is a real plus </span></li><li><span lang=\"EN-GB\">Experienced with Azure databricks.</span></li><li><span lang=\"EN-GB\">Good communication and collaboration skills.</span></li><li><span lang=\"EN-GB\">Rigorous and methodical in documentation and process creation</span></li><li><span lang=\"EN-GB\">High interest for convergence, normalization and reusability.</span></li><li><span lang=\"EN-GB\">Curious, enthusiastic and proactive</span></li><li><span lang=\"EN-GB\">Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment</span></li><li><span lang=\"EN-GB\">Fluent in spoken and written English, French is an asset.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-09-01T23:07:28.564Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "streetAddress": "",
-      "postalCode": "1201",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-20T22:46:49.521Z",
-      "country": "CH",
-      "salarySource": "reported",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6219",
-      "postingDateSource": "unknown",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "efg-6163",
-      "slug": "learning-development-specialista-efg-international-ag-lugano-n932z9",
-      "company": "EFG International AG",
-      "title": "Learning & Development Specialist",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6163",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "As a key resource of the Learning & Development team, the <i>Learning & Development Specialist</i> will manage end-to-end the apprentices and interns programmes at EFG, ensuring a best-in-class onboarding and development experience, and provide support and coordinate selected global learning initiatives.",
-              "The resource will interact with all HR functional areas and expected to become a reference person within the organization on the assigned activities.",
-              "This is an excellent opportunity for someone willing to work in an international, fast-paced and client-oriented HR team within a global private banking group.",
-              "Learning & Development Program Delivery (Apprentices & Interns)"
-            ],
-            "responsibilities": [
-              "Design, implement, and continuously improve apprentices and interns programmes, ensuring alignment with EFG’s standards and local requirements.",
-              "Manage the end-to-end hiring process for apprentices in Switzerland and interns globally, partnering with line managers and HR Business Partners/local HR.",
-              "Coordinate and facilitate onboarding and training sessions to build readiness and engagement for apprentices.",
-              "Prepare reports and feedback surveys to measure programme effectiveness; analyse insights to assess impact and identify opportunities for improvement.",
-              "Provide technical support for training-related topics, ensuring effective use of the company’s learning tools and systems.",
-              "Coordinate selected global learning initiatives, supporting design, rollout, communications, and logistics in partnership with the L&D team."
-            ],
-            "requirements": [
-              "University degree, preferably in human resources, organizational development, economics, or a related field",
-              "3+ of relevant experience in early career talent acquisition or development within structured HR departments of international companies",
-              "Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred",
-              "Strong commitment to people development and delivering outstanding customer service",
-              "International mindset and experience working in multicultural environments",
-              "Proactive, positive attitude with energy and intellectual curiosity",
-              "Excellent interpersonal and collaboration skills; proven ability to work with diverse stakeholders across functions and countries",
-              "Strong communication skills, with the ability to clearly and effectively structure key messages",
-              "Exceptional organizational skills; able to work independently, manage multiple priorities, and deliver in a dynamic and demanding environment",
-              "Fluency in English, French, and Italian",
-              "Proficiency in MS Office programs"
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Design, implement, and continuously improve apprentices and interns programmes, ensuring alignment with EFG’s standards and local requirements.",
-              "Manage the end-to-end hiring process for apprentices in Switzerland and interns globally, partnering with line managers and HR Business Partners/local HR.",
-              "Coordinate and facilitate onboarding and training sessions to build readiness and engagement for apprentices.",
-              "University degree, preferably in human resources, organizational development, economics, or a related field",
-              "3+ of relevant experience in early career talent acquisition or development within structured HR departments of international companies",
-              "Demonstrated interest in learning technologies; experience with learning design tools (e.g. Articulate) preferred",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "University degree",
-              "3+ of relevant experience in early career talent acquisition or development within structured HR departments of international companies",
-              "Demonstrated interest in learning technologies",
-              "Strong commitment to people development and delivering outstanding customer service",
-              "International mindset and experience working in multicultural environments",
-              "Design",
-              "Manage the end-to-end hiring process for apprentices in Switzerland and interns globally",
-              "Coordinate and facilitate onboarding and training sessions to build readiness and engagement for apprentices.",
-              "Prepare reports and feedback surveys to measure programme effectiveness"
-            ],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-09-01T23:07:28.553Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "",
-      "firstSeenAt": "2026-04-13T10:28:21.959Z",
-      "country": "CH",
-      "salarySource": "reported",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6163",
-      "postingDateSource": "unknown",
-      "_qualityScore": 98,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "efg-5892",
-      "slug": "data-ingegnere-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Data Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5892",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><p><span>Department: IT Data Department</span><br><span>Work time Percentage: 100%</span><br><span>Location: Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Introduction to the Team</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Data Ops Services’ mission is to ensure adequate servicing of all data interfaces supported by our data platform. It covers a large spectrum of interfaces, from very critical order processing to more regular analytical systems.</span></li><li><span>The Data Ops team is supporting global systems serving the entire group worldwide.</span></li><li><span>As our platform and data landscape evolve, we would like to strengthen our team with a skilled Data Engineer specialised in Talend and enterprise‑grade ETL / ESB integrations.</span></li><li><span>As the technological landscape continues to evolve, our integration framework is modernising likewise. Microservices, API gateway management and Kafka are all technologies at the centre of this team.</span></li></ul><p> </p><p><span><strong>Main Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Design, implement and maintain ETL/ELT data pipelines (batch and near real time) using Qlik Talend and related integration components.</span></li><li><span>Develop and operate ESB‑style integrations between core banking systems, data platforms and downstream applications, ensuring robustness, scalability and reusability.</span></li><li><span>Take operational ownership of Talend (change management, data quality management, SLA monitoring, SOPs and runbooks).</span></li><li><span>Monitor and ensure the smooth operation of critical data pipelines, including incident analysis, root cause identification and implementation of preventive measures.</span></li><li><span>Apply CI/CD practices using the existing framework to automate and streamline deployments and configuration changes.</span></li><li><span>Implement controls using the observability framework, ensuring service continuity and accuracy.</span></li><li><span>Create, maintain and improve documentation and operational procedures for the data integrations under your ownership.</span></li><li><span>Collaborate with cross‑functional teams (application owners, architects, business analysts, data consumers) to design integration patterns and improve governance around data flows.</span></li><li><span>Contribute to the standardisation and industrialisation of integration patterns, promoting convergence, normalisation and reusability across projects.</span></li><li><span>Stay current with advancements in data engineering, ETL/ESB technologies and cloud‑based integration platforms to support continuous improvement of our DataOps capabilities.</span></li></ul><p> </p><p><span><strong>Skills and Experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of proven hands‑on experience in data engineering and data integration, with a strong focus on ETL/ELT pipelines and ESB‑style integrations.</span></li><li><span>Solid experience with Qlik Talend ETL and ESB on‑premise, including job design, orchestration, error handling and performance optimisation.</span></li><li><span>Strong ETL / data modelling skills, including handling of large datasets, complex transformations and integration of heterogeneous data sources.</span></li><li><span>Good knowledge of SQL and experience working with relational databases and/or cloud data platforms.</span></li><li><span>Experience with CI/CD practices and tools in a hybrid environment (e.g. Azure DevOps, GitHub Actions) applied to data integration components.</span></li><li><span>Familiarity with ESB concepts, API‑based integrations, messaging and event‑driven patterns is a strong plus.</span></li><li><span>Experience with data quality, metadata management and data lineage tools or frameworks is an asset.</span></li><li><span>Enjoy providing operational support on Talend jobs and data integration workflows (incident analysis, troubleshooting).</span></li><li><span>Good communication and collaboration skills, able to work closely with both technical and business stakeholders.</span></li><li><span>Rigorous and methodical in documentation, process creation and change management.</span></li><li><span>High interest in standardisation, convergence and reusability of integration components.</span></li><li><span>Curious, enthusiastic and proactive, with a hands‑on mindset and a strong desire to learn and grow in a demanding environment.</span></li><li><span>Passionate about data processing and integration technologies.</span></li><li><span>Fluent in spoken and written English; French is an asset.</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results.</span></li><li><span>Passionate: Being committed and striving for excellence.</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><br> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-09-01T23:07:28.487Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "country": "CH",
-      "firstSeenAt": "2026-06-24T11:14:17.928Z",
-      "salarySource": "estimated",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5892",
-      "postingDateSource": "unknown",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "efg-6488",
@@ -271,7 +50,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-01T09:12:29.120Z",
+      "crawledAt": "2026-11-01T21:32:30.202Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -287,7 +66,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:12:29.120Z",
+      "validThrough": "2026-12-13T21:32:30.202Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -413,7 +192,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-01T09:12:29.113Z",
+      "crawledAt": "2026-11-01T21:32:30.196Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -429,7 +208,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6436",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T09:12:29.113Z",
+      "validThrough": "2026-12-15T21:32:30.196Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -473,7 +252,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-01T09:12:29.073Z",
+      "crawledAt": "2026-11-01T21:32:30.160Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28T09:29:23+00:00",
@@ -490,7 +269,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6071",
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:12:29.073Z",
+      "validThrough": "2026-12-01T21:32:30.160Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -604,7 +383,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-01T09:12:29.069Z",
+      "crawledAt": "2026-11-01T21:32:30.156Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -621,7 +400,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6066",
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:12:29.069Z",
+      "validThrough": "2026-12-01T21:32:30.156Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -665,7 +444,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-01T09:12:29.064Z",
+      "crawledAt": "2026-11-01T21:32:30.152Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -682,7 +461,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6039",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-01T09:12:29.064Z",
+      "validThrough": "2026-12-01T21:32:30.152Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -799,7 +578,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-01T09:12:29.043Z",
+      "crawledAt": "2026-11-01T21:32:30.130Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -827,7 +606,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-01T09:12:29.043Z",
+      "validThrough": "2026-12-01T21:32:30.130Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -874,7 +653,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-01T09:12:29.033Z",
+      "crawledAt": "2026-11-01T21:32:30.120Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 85500,
@@ -896,7 +675,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T09:12:29.033Z",
+      "validThrough": "2027-01-17T21:32:30.120Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -2052,5 +1831,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }
