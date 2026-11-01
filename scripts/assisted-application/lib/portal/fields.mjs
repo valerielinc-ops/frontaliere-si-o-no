@@ -111,6 +111,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     ? !element.closest('[hidden]')
     : visible(element);
   const DIALOG_SELECTOR = 'dialog, [role="dialog"], [aria-modal="true"]';
+  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog|consent)\b/i;
   const dialogIdFor = (element) => {
     const dialog = element.closest(DIALOG_SELECTOR);
     if (!dialog) return '';
@@ -126,6 +127,15 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
   const dialogMeta = (element) => {
     const dialogId = dialogIdFor(element);
     return { dialog: Boolean(dialogId), dialogId };
+  };
+  const cookieSurfaceFor = (element) => {
+    if (element.closest(DIALOG_SELECTOR)) return 'dialog';
+    for (let node = element.parentElement; node; node = node.parentElement) {
+      const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+        .filter(Boolean).join(' ');
+      if (COOKIE_ACTIVE_SURFACE_RE.test(marker)) return 'banner';
+    }
+    return '';
   };
   // The site's own header, navigation and footer, around the page: a «Sign In» up there is the site's (on
   // Workday it opens a dialog over the page), not the link of the form below. A <footer> or a <header>
@@ -889,6 +899,10 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     .filter((element) => (visible(element) && !underClickFilter(element) && !behindModal(element) && element.getAttribute('aria-haspopup') !== 'listbox')
       && actionControl(element))
     .map((element) => ({
+      ...(() => {
+        const cookieSurface = cookieSurfaceFor(element);
+        return cookieSurface ? { cookieSurface } : {};
+      })(),
       id: idFor(element),
       // The generated data-aa-id is kept on the DOM node between snapshots;
       // expose it explicitly so upload-trigger identity survives object

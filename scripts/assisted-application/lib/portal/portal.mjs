@@ -719,11 +719,6 @@ export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptier
 export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
 const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
 const COOKIE_WORD_RE = /\bcookies?\b/i;
-// A generic "cookie manager"/"cookie preferences" section can be a
-// persistent footer entry point. Only an explicitly active surface is enough
-// for the snapshot fallback; dialog controls are verified against their live
-// dialog text above.
-const COOKIE_BANNER_CONTEXT_RE = /\b(?:banner|notice|overlay|modal|dialog)\b/i;
 const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const cookieSupportingContext = (button) => {
   const ownLabels = [button.text, button.label, button.title, button.ariaLabel]
@@ -747,7 +742,8 @@ async function cookieControlHasCookieContext(page, button) {
     }
   }
   const supportingContext = cookieSupportingContext(button);
-  return COOKIE_WORD_RE.test(supportingContext) && COOKIE_BANNER_CONTEXT_RE.test(supportingContext);
+  return button.cookieSurface === 'banner'
+    && COOKIE_WORD_RE.test(`${supportingContext} ${button.text || ''} ${button.label || ''} ${button.ariaLabel || ''}`);
 }
 
 async function findCookieControl(page, snapshot, pattern, { genericPreferences = false } = {}) {
@@ -821,12 +817,22 @@ async function markShadowCookieButton(page, { includePreferences = false } = {})
         shadows.push(element.shadowRoot);
       }
     }
+    const cookieShadowSurfaceIsActive = (host) => {
+      for (let node = host; node && node !== document.body; node = node.parentElement) {
+        const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+          .filter(Boolean).join(' ');
+        if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')
+          || /\b(?:banner|notice|overlay|modal|dialog|consent)\b/i.test(marker)) return true;
+      }
+      return false;
+    };
     const actions = [{ kind: 'decision', source: reject }, { kind: 'decision', source: accept }];
     if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: genericPreferences });
     for (const action of actions) {
       const pattern = new RegExp(action.source, 'i');
       for (const shadow of shadows) {
-        if (action.kind === 'preferences' && shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')) continue;
+        if (action.kind === 'preferences' && (shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')
+          || !cookieShadowSurfaceIsActive(shadow.host))) continue;
         const button = [...shadow.querySelectorAll('button, [role="button"]')]
           .find((element) => {
             const label = String(element.innerText || element.textContent || '').trim();

@@ -70,6 +70,13 @@ describe('portal field extraction', () => {
     ]) expect(COOKIE_CUSTOMIZE_RE.test(label)).toBe(true);
   });
 
+  it('marks only an active cookie surface, not a persistent preferences section', () => {
+    const active = extract('<div id="cookie-banner"><button type="button">Customise Cookies</button></div>');
+    expect(active.buttons.find((button: any) => button.text === 'Customise Cookies')).toMatchObject({ cookieSurface: 'banner' });
+    const persistent = extract('<main><div class="cookie-preferences"><button type="button">Customise Cookies</button></div></main>');
+    expect(persistent.buttons.find((button: any) => button.text === 'Customise Cookies')).not.toHaveProperty('cookieSurface');
+  });
+
   it('opens an active preference center, then applies only its explicit cookie choice', async () => {
     const url = 'https://careers.example/apply';
     let stage = 0;
@@ -105,7 +112,7 @@ describe('portal field extraction', () => {
     let stage = 0;
     const clicks: string[] = [];
     const currentSnapshot = () => stage === 0
-      ? { url, fields: [], buttons: [{ id: 'customize', text: 'Customise Cookies', context: 'Cookie banner', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false }
+        ? { url, fields: [], buttons: [{ id: 'customize', text: 'Customise Cookies', cookieSurface: 'banner', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false }
       : { url, fields: [], buttons: [{ id: 'save', text: 'Save preferences', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false };
     const frame = {
       url: () => url,
@@ -153,7 +160,7 @@ describe('portal field extraction', () => {
     const url = 'https://careers.example/apply';
     const footer = {
       url,
-      buttons: [{ id: 'footer-cookie', text: 'Cookie Preferences', label: 'Cookie Preferences', context: 'Cookie Preferences', disabled: false }],
+      buttons: [{ id: 'footer-cookie', text: 'Cookie Preferences', label: 'Cookie Preferences', context: 'Cookie banner', section: 'Footer', disabled: false }],
       dialogs: [],
     };
     const frame = { url: () => url, evaluate: vi.fn(async () => footer) };
