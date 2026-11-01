@@ -1,4 +1,5 @@
 import { RESUME_ASSISTED_APPLICATION_PAYMENT_URL } from './functionsBase';
+import { withAssistedPaymentResponseShape } from './assistedApplicationResponseShape';
 
 export interface AssistedApplicationPaymentRecoveryStripeResult {
   ok: true;
@@ -88,7 +89,7 @@ export async function resumeAssistedApplicationPayment(
     && data.checkoutId.length > 0;
   if (!response.ok || !data?.ok || !data?.orderId || (!isStripeOpen && !isSumUpOpen && !isPaid)) {
     const code = safeErrorCode(data?.error) || httpErrorCode(response.status) || 'invalid_response';
-    throw recoveryError(code, response.status);
+    throw withAssistedPaymentResponseShape(recoveryError(code, response.status), response.status, data);
   }
   return data as AssistedApplicationPaymentRecoveryResult;
 }

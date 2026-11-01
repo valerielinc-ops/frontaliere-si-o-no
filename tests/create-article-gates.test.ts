@@ -58,15 +58,29 @@ const { evergreenTopicFamily, preFlightEvergreenTopicCheck } = evergreenRunner(
   preFlightEvergreenTopicCheck: (candidate: any, existingArticles: any[]) => any;
 };
 
+const factualitySrc = readFileSync(resolve(ROOT, 'scripts/lib/article-factuality-gates.mjs'), 'utf8');
+const remediationBlock = factualitySrc.match(/export function normalizeRemediationIssues\(issues\) \{[\s\S]*?\n\}\n/);
+if (!remediationBlock) throw new Error('Remediation normalization helper block not found');
+
+const remediationRunner = new Function(
+  `${remediationBlock[0].replace(/^export /, '')}
+return { normalizeRemediationIssues };`,
+);
+
+const { normalizeRemediationIssues } = remediationRunner() as {
+  normalizeRemediationIssues: (issues: any[]) => any[];
+};
+
 const factBlock = src.match(/function issueLooksAffirmative\(issue\) \{[\s\S]*?\n\}\n\nasync function _runSingleFactCheck/);
 if (!factBlock) throw new Error('Fact-check normalization helper block not found');
 
 const factRunner = new Function(
+  'normalizeRemediationIssues',
   `${factBlock[0].replace(/\n\nasync function _runSingleFactCheck[\s\S]*$/, '')}
 return { normalizeFactCheckIssues };`,
 );
 
-const { normalizeFactCheckIssues } = factRunner() as {
+const { normalizeFactCheckIssues } = factRunner(normalizeRemediationIssues) as {
   normalizeFactCheckIssues: (issues: any[], opts?: { isEvergreen?: boolean }) => any[];
 };
 

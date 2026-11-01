@@ -1,16 +1,16 @@
 {
   "key": "la-fonte",
   "label": "La Fonte",
-  "generatedAt": "2026-10-30T21:31:08.516Z",
+  "generatedAt": "2026-10-31T22:13:53.927Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3258,
-  "avgDurationMs": 3258,
+  "durationMs": 2749,
+  "avgDurationMs": 2749,
   "durationHistory": [
-    3258
+    2749
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-30T21:30:59.980Z",
+      "crawledAt": "2026-10-31T22:13:42.317Z",
       "id": "fondazione-la-fonte-8ea3b422c946",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -81,7 +81,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-30T21:30:59.980Z",
+      "crawledAt": "2026-10-31T22:13:42.317Z",
       "id": "fondazione-la-fonte-319213f47039",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -123,7 +123,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-30T21:30:59.980Z",
+      "crawledAt": "2026-10-31T22:13:42.317Z",
       "id": "fondazione-la-fonte-485211a481ee",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -143,5 +143,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

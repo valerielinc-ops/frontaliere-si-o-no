@@ -284,6 +284,7 @@ describe('TikTok video queue contract', () => {
       TREATMENT: 'motion-graphic-v1',
       HOOK: 'hook-3-slides-v1',
       SPOTLIGHT: 'single-stat-v1',
+      ANSWER: 'answer-voice-v1',
     });
   });
 });

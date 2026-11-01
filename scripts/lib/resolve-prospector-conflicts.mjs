@@ -28,6 +28,7 @@ export const PROSPECTOR_PATHS = Object.freeze({
   validation: 'data/prospector/validation.json',
   webChannelHealth: 'data/prospector/web-channel-health.json',
   secoPageCursors: 'data/prospector/seco-page-cursors.json',
+  zefixCursors: 'data/prospector/zefix-cursors.json',
 });
 
 const MISSING = Symbol('missing');
@@ -523,7 +524,7 @@ function mergeChannelHealth(base, upstream, local) {
   return merged;
 }
 
-function mergeSecoPageCursors(base, upstream, local) {
+function mergeCantonCursors(base, upstream, local) {
   const result = documentMeta(base, upstream, local, new Set(['version', 'updatedAt', 'cantons']));
   result.version = Math.max(Number(base?.version) || 1, Number(upstream?.version) || 1, Number(local?.version) || 1);
   result.updatedAt = newest(base?.updatedAt, upstream?.updatedAt, local?.updatedAt);
@@ -597,6 +598,9 @@ function ensureShape(target, value) {
       }
     }
   }
+  if (target === PROSPECTOR_PATHS.zefixCursors && (!isObject(value) || !isObject(value.cantons))) {
+    throw new Error(`${target}: expected an object with a cantons map`);
+  }
   if (target === PROSPECTOR_PATHS.webChannelHealth && !Array.isArray(value)) {
     throw new Error(`${target}: expected an array`);
   }
@@ -613,7 +617,9 @@ function mergePath(target, base, upstream, local) {
   if (target === PROSPECTOR_PATHS.platforms) return mergePlatformsDocument(base, upstream, local);
   if (target === PROSPECTOR_PATHS.validation) return mergeValidationDocument(base, upstream, local);
   if (target === PROSPECTOR_PATHS.webChannelHealth) return mergeChannelHealth(base, upstream, local);
-  if (target === PROSPECTOR_PATHS.secoPageCursors) return mergeSecoPageCursors(base, upstream, local);
+  if (target === PROSPECTOR_PATHS.secoPageCursors || target === PROSPECTOR_PATHS.zefixCursors) {
+    return mergeCantonCursors(base, upstream, local);
+  }
   if (CRAWLER_PATH.test(target)) return mergeCrawlerDocument(base, upstream, local);
   throw new Error(`unsupported Prospector conflict: ${target}`);
 }

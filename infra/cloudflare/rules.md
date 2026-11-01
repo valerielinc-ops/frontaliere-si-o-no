@@ -3,8 +3,9 @@
 Tracking doc for zone-level Cloudflare **Cache Rules** / **Cache Response Rules**
 / **Response Header Transform Rules** that are applied directly via the
 Cloudflare API. The CDN
-cache/header rules below remain foreign rules documented here; the apex security
-rule is managed idempotently by `scripts/cf-locale-failover-setup.mjs`.
+cache rules below remain foreign rules documented here; the apex security rule
+and `cdn-assets-revalidate` are managed idempotently by
+`scripts/cf-locale-failover-setup.mjs`.
 Added for issue #3216 item 3: two `cdn.frontaliereticino.ch/assets/early-boot.js`
 rules existed live with no in-repo record. While auditing them, a third
 rule in the same response-headers ruleset (`cdn-assets-revalidate`) was found
@@ -192,29 +193,31 @@ purpose/rollback. Rule 3 is the subject of this doc:
 
 ## Ruleset `ea906d4f1c7d46f099ad16c15864896b` — phase `http_response_headers_transform`
 
-### `cdn-assets-revalidate` (pre-existing, undocumented before this doc)
+### `cdn-assets-revalidate` (managed by `scripts/cf-locale-failover-setup.mjs`)
 
 - **Rule id:** `593219bc66044a4ca3e571a2e522703a`
-- **Expression:** `(http.host eq "cdn.frontaliereticino.ch" and starts_with(http.request.uri.path, "/assets/"))`
+- **Expression:** `cdn.frontaliereticino.ch`, path under `/assets/`, excluding the
+  prefixes in `CDN_BROWSER_LONG_CACHE_PREFIXES`: `/assets/releases/`,
+  `/assets/gtag-init-`, `/assets/adsense-loader-`, `/assets/partnerize-tag-`.
 - **Action:** rewrite response header `Cache-Control: public, max-age=600, must-revalidate`
-- **Applied:** 2026-06-25
-- **Purpose:** overrides GitHub Pages' default `immutable` cache header on
-  every `/assets/*` file. Vite chunk filenames in this repo are
-  **stable-named, not content-hashed** (see `stable-asset-names.test.ts`), so
-  `immutable` would tell browsers to reuse a cached chunk forever even after a
-  deploy changes its contents — the root cause of the whole version-skew
-  class of bugs this repo works around (issue #3097 and its followups,
-  including #3216). `max-age=600, must-revalidate` caps the staleness window
-  to 10 minutes and forces a conditional GET after that instead of trusting
-  the cache indefinitely. Must match `public/_headers` (kept in sync by hand;
-  no automated parity check exists yet).
-- **Rollback:** delete rule `593219bc66044a4ca3e571a2e522703a` from ruleset
-  `ea906d4f1c7d46f099ad16c15864896b`. Effect: `/assets/*` reverts to GitHub
-  Pages' default (long/immutable) cache header — reopens the stale-chunk
-  window this rule was added to close. Do not roll back without also
-  reverting to content-hashed chunk filenames, or removing this rule
-  reintroduces long-lived stale-chunk skew for every asset, not just
-  `early-boot.js`.
+- **Applied:** 2026-06-25; exclusions added 2026-10-31.
+- **Purpose:** stable-named chunks change bytes under the same URL (see
+  `stable-asset-names.test.ts`), so `max-age=600, must-revalidate` caps the
+  browser's staleness at 10 minutes and forces a conditional GET afterwards.
+- **Why the exclusions:** the rule used to match every `/assets/*` path. Once the
+  executable graph moved to `/assets/releases/<BUILD_ID>/`, R2 and the edge held
+  those objects as immutable (`age: 6055` on a GET, 2026-10-31) while the browser
+  was told 600 s: every repeat visit revalidated the whole module graph. A release
+  URL and a `<name>-<content-hash>.js` loader can never change bytes, so they keep
+  the header R2 stored. The stable aliases (`gtag-init.js`, ...) stay under the
+  rule: the prefixes end in `-`. A hashed key uploaded before this change keeps
+  its 600 s R2 header until its content changes, because rclone skips objects it
+  already holds.
+- **Live check:** `scripts/ci/assert-cdn-cache-policy.mjs` runs after the rule is
+  applied in `deploy-worker.yml`. Measure with GET: HEAD always reports `DYNAMIC`.
+- **Rollback:** remove the prefixes from `CDN_BROWSER_LONG_CACHE_PREFIXES` and
+  rerun the setup script. Do not delete the rule: without it every stable alias
+  takes R2's header directly, and the file has to keep matching `public/_headers`.
 
 ### `early-boot-js-no-cache`
 
@@ -252,8 +255,9 @@ purpose/rollback. Rule 3 is the subject of this doc:
 - **Expression:** `(http.host eq "frontaliereticino.ch")`
 - **Action:** rewrite response headers:
   - `Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; img-src 'self' data: blob: https:; connect-src 'self' https: wss:; frame-src 'self' https:; worker-src 'self' blob:; manifest-src 'self'; form-action 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests`
+  - `Permissions-Policy: camera=(), microphone=(), geolocation=(self)`
   - `Referrer-Policy: strict-origin-when-cross-origin`
-  - `Strict-Transport-Security: max-age=31536000`
+  - `Strict-Transport-Security: max-age=31536000; includeSubDomains`
   - `X-Content-Type-Options: nosniff`
   - `X-Frame-Options: SAMEORIGIN`
 - **Purpose:** closes the live missing-CSP, missing-clickjacking-protection,
@@ -262,9 +266,15 @@ purpose/rollback. Rule 3 is the subject of this doc:
   intentional: Partnerize selects a rotating hostname at runtime and the site
   has multiple user-triggered API integrations. A stricter host list requires a
   browser inventory plus a nonce/hash migration for existing inline scripts.
-- **Migration:** the script recognizes the previous description ending in
-  `CSP/XFO deliberately excluded pending AdSense validation` and replaces it
-  in place while preserving every unrelated response-header rule.
+- **Not in the value:** `preload` is absent on purpose. The preload list is
+  effectively one-way, so adding it needs a check against the authoritative DNS
+  zone export, not only the public certificate logs. Ad-related permissions
+  (`attribution-reporting`, `run-ad-auction`, ...) are absent so AdSense and
+  Funding Choices keep their defaults.
+- **Migration:** the script recognizes both previous descriptions (the one
+  ending in `CSP/XFO deliberately excluded pending AdSense validation` and the
+  one without Permissions-Policy) and replaces the rule in place while
+  preserving every unrelated response-header rule.
 - **Rollback:** run the previous version of
   `scripts/cf-locale-failover-setup.mjs`, or restore this rule's previous header
   values through the same read-modify-write path. Do not delete the whole

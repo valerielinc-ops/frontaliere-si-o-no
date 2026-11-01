@@ -264,8 +264,14 @@ import {
  jobGateSubscriberVariantFor,
  sanitizeAuthReturnPath,
 } from '@/services/authService';
-import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
+import {
+ settleNewsletterAutologin,
+ parseNewsletterAutologin,
+ claimNewsletterAutologinAttempt,
+ newsletterAutologinAttemptKey,
+} from '@/services/newsletterAutologinSignal';
 import { claimOneTapPrompt, ONETAP_PENDING_KEY, ONETAP_PROMPTED_KEY } from '@/services/oneTapPromptGate';
+import { loadStoredUserProfile } from '@/services/userProfileStorage';
 import { subscribeReaderEntitlement } from '@/services/readerEntitlement';
 import { subscribeSavedJobsFirestore } from '@/services/savedJobsService';
 import { syncJobSaveAuth } from '@/services/jobSaveGate';
@@ -401,6 +407,17 @@ const App: React.FC = () => {
  suppressNextRouteSyncForTabRef,
  handleTabChange: navHandleTabChange, handleSearchNavigate,
  } = useNavigationState();
+ const currentArticleRoute = typeof window !== 'undefined'
+  ? parsePath(window.location.pathname).route
+  : null;
+ const isArticleDetailForAuth = activeTab === 'blog' && Boolean(
+  blogArticle || swissArticle || cantonArticle || articleStaticFallbackKey
+  || currentArticleRoute?.blogSlug || currentArticleRoute?.blogArticle
+  || currentArticleRoute?.swissSlug || currentArticleRoute?.swissArticle
+  || currentArticleRoute?.cantonSlug || currentArticleRoute?.cantonArticle
+  || (typeof document !== 'undefined'
+   && document.querySelector('main.seo-static-content article.ft-blog-article')),
+ );
 
  // A direct canton hub already contains a complete corpus-rendered body. Keep
  // that body visible until the version-matched HTTP payload has painted the
@@ -426,12 +443,13 @@ const App: React.FC = () => {
    && typeof document !== 'undefined'
    && !!document.querySelector('main.seo-static-content');
  const articleStaticFallback = !!articleStaticFallbackKey;
- // A static snapshot (article, or canton topic hub) still owns the body. The
- // SPA <main> has to be mounted, or its view could never load and say it is
- // ready, but until then it must take no space and paint nothing: left in the
- // flow it pushed the snapshot down by its own padding and showed the "last
- // updated" line above it (0.05 of layout shift on a desktop article, and
- // 0.86 more when that line jumped below the article at the swap).
+ // A static snapshot (article, or canton topic hub) still owns the body. On a
+ // SPA handoff the React <main> has to mount to load and announce readiness,
+ // but until then it must take no space and paint nothing: left in the flow it
+ // pushed the snapshot down by its own padding and showed the "last updated"
+ // line above it (0.05 of layout shift on a desktop article, and 0.86 more when
+ // that line jumped below the article at the swap). Cold frontaliere articles
+ // stay in staticOverlay mode and skip this duplicate main entirely.
  const staticSnapshotOwnsBody = articleStaticFallback || cantonTopicStaticFallback;
 
  const contextualPath = typeof window !== 'undefined' ? window.location.pathname : '/';
@@ -734,6 +752,9 @@ const App: React.FC = () => {
  const loadProfile = async () => {
  // If URL params set the inputs, don't overwrite with profile
  if (cancelled || urlHydrated.current) return;
+ // Nothing to prefill for an anonymous visitor without a stored profile: the
+ // state above is already the final one, and the two chunks below stay unloaded.
+ if (!authUser?.uid && !loadStoredUserProfile(null)) return;
  try {
  const [{ loadUserProfile, profileToSimInputs }, { loadUserProfile: loadPrivateUserProfile }] = await Promise.all([
   import('@/components/pages/UserProfile'),
@@ -790,7 +811,6 @@ const App: React.FC = () => {
 
  // Auto-login via HMAC autologin code or legacy custom token in newsletter URL
  useEffect(() => {
- let cancelled = false;
  // Newsletter credential params (`ac`/`ne`/…) are stripped from the URL only
  // AFTER the autologin exchange resolves (see `finally`) — never before the
  // await — so a mid-flight reload (e.g. authService's lazyRetry chunk-reload)
@@ -799,6 +819,9 @@ const App: React.FC = () => {
  // (a logged-out visitor fails the prompt's `userId`/`userEmail` guard).
  const NEWSLETTER_PARAMS = ['ac', 'at', 'ne', 'authToken', 'newsletter_email', 'newsletter_autologin', 'newsletter_source', 'subscriber_key'];
  let shouldStripNewsletterParams = false;
+ let ownsAutologinAttempt = false;
+ let cleanupBlocked = false;
+ let claimedAttemptKey: string | null = null;
  (async () => {
  try {
  const url = new URL(window.location.href);
@@ -823,47 +846,70 @@ const App: React.FC = () => {
  if (!autologinCode && !legacyAuthToken) return;
  if (!email || !email.includes('@')) return;
 
- // Emit an attempt marker before the async exchange so an aborted exchange
- // (page reload mid-flight) stays countable: attempts − success − failed −
- // error = aborted autologins.
- Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', 'attempt');
-
- let user = null;
- if (autologinCode) {
- // New flow: exchange HMAC code for a fresh custom token via Cloud Function
- const { exchangeNewsletterAuthCode } = await import('@/services/newsletterSubscribers');
- const result = await exchangeNewsletterAuthCode(email, autologinCode, assistedApplicationOrderId, applicationConciergeServiceId);
- if (result.success && result.authToken) {
- user = await signInWithCustomAuthToken(result.authToken);
+ // Claim the exchange once per credential-bearing URL. React StrictMode and
+ // static-to-live remounts can run this effect twice; only the owner emits
+ // attempt/outcome markers, while both effects await the same auth result.
+ const attemptKey = newsletterAutologinAttemptKey(url.searchParams);
+ if (!attemptKey) return;
+ claimedAttemptKey = attemptKey;
+ const autologinAttempt = claimNewsletterAutologinAttempt(attemptKey, async () => {
+  let user = null;
+  if (autologinCode) {
+   // New flow: exchange HMAC code for a fresh custom token via Cloud Function
+   const { exchangeNewsletterAuthCode } = await import('@/services/newsletterSubscribers');
+   const result = await exchangeNewsletterAuthCode(email, autologinCode, assistedApplicationOrderId, applicationConciergeServiceId);
+   if (result.success && result.authToken) {
+    user = await signInWithCustomAuthToken(result.authToken);
+   }
+  } else if (legacyAuthToken) {
+   // Legacy flow: direct sign-in with pre-generated custom token (may be expired)
+   user = await signInWithCustomAuthToken(legacyAuthToken);
+  }
+  return user;
+ });
+ ownsAutologinAttempt = autologinAttempt.owner;
+ cleanupBlocked = !autologinAttempt.accepted;
+ if (autologinAttempt.owner) {
+  // Emit an attempt marker before the async exchange so an aborted exchange
+  // (page reload mid-flight) stays countable: attempts − success − failed −
+  // error = aborted autologins.
+  Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', 'attempt');
  }
- } else if (legacyAuthToken) {
- // Legacy flow: direct sign-in with pre-generated custom token (may be expired)
- user = await signInWithCustomAuthToken(legacyAuthToken);
- }
 
- if (cancelled) return;
- Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', user ? 'success' : 'failed');
+ const user = await autologinAttempt.promise;
+ if (autologinAttempt.owner) {
+  // The outcome is telemetry-only and must not be dropped when the effect's
+  // component is remounted while Firebase finishes the auth exchange. The
+  // single-flight claim above prevents duplicate terminal markers.
+  Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', user ? 'success' : 'failed');
+ }
  } catch (error) {
  reportCaughtError(error, 'app.newsletterAutologin');
- Analytics.trackUIInteraction('newsletter', 'autologin', 'error');
+ if (ownsAutologinAttempt) {
+  Analytics.trackUIInteraction('newsletter', 'autologin', 'error');
+ }
  } finally {
  // Strip newsletter credential params now that the exchange has resolved
  // (success or failure) — deferred from before the await so an interrupted
  // load keeps `ac`/`ne` for a retry. No-op for excluded actions (flag stays
  // false) and when the URL never carried them.
- if (shouldStripNewsletterParams) {
+ if (!cleanupBlocked && shouldStripNewsletterParams) {
  try {
  const u = new URL(window.location.href);
- for (const p of NEWSLETTER_PARAMS) u.searchParams.delete(p);
- window.history.replaceState(null, '', u.pathname + (u.search || '') + u.hash);
+ const currentAttemptKey = newsletterAutologinAttemptKey(u.searchParams);
+  if (!claimedAttemptKey || currentAttemptKey === claimedAttemptKey) {
+   for (const p of NEWSLETTER_PARAMS) u.searchParams.delete(p);
+   window.history.replaceState(null, '', u.pathname + (u.search || '') + u.hash);
+  }
  } catch { /* replaceState unavailable */ }
  }
  // Re-enable sign-in affordances (One Tap, auth gates) once the exchange
  // resolves — success or failure. Idempotent + no-op when never in flight.
- settleNewsletterAutologin();
+ if (ownsAutologinAttempt || (!claimedAttemptKey && !cleanupBlocked)) {
+  settleNewsletterAutologin();
+ }
  }
  })();
- return () => { cancelled = true; };
  }, []);
 
  // LinkedIn OAuth2 callback handler — processes ?code=XXX&state=YYY returned by LinkedIn.
@@ -1641,6 +1687,14 @@ const App: React.FC = () => {
  cancelOneTap();
  return; // Already signed in
  }
+ // A static article is a reading surface, not a sign-in intent. Leave Google
+ // Identity Services off this route until an explicit auth surface is used;
+ // this also clears a pending replay from an unrelated earlier interaction.
+ if (isArticleDetailForAuth) {
+ window.sessionStorage.removeItem(ONETAP_PENDING_KEY);
+ cancelOneTap();
+ return;
+ }
  // Don't even arm the prompt while a newsletter autologin is exchanging — the
  // user is about to be signed in. Effect re-runs when the signal settles.
  if (newsletterAutologinInFlight) return;
@@ -1685,11 +1739,15 @@ const App: React.FC = () => {
  window.removeEventListener(e, trigger, { capture: true });
  cancelOneTap();
  };
- }, [authLoading, authUser, newsletterAutologinInFlight]);
+ }, [authLoading, authUser, newsletterAutologinInFlight, isArticleDetailForAuth]);
 
  // If the first interaction happened while auth was still loading,
  // trigger One Tap as soon as auth state is resolved.
  useEffect(() => {
+ if (isArticleDetailForAuth) {
+ window.sessionStorage.removeItem(ONETAP_PENDING_KEY);
+ return;
+ }
  if (authLoading || authUser) return;
  if (newsletterAutologinInFlight) return;
  if (window.sessionStorage.getItem(ONETAP_PROMPTED_KEY)) return;
@@ -1697,7 +1755,7 @@ const App: React.FC = () => {
 
  if (!claimOneTapPrompt(window.sessionStorage)) return;
  promptOneTap().catch(() => {});
- }, [authLoading, authUser, newsletterAutologinInFlight]);
+ }, [authLoading, authUser, newsletterAutologinInFlight, isArticleDetailForAuth]);
 
  // Reader no-ads entitlement (#3655, part 2/2 of #2961): mounted ONCE here,
  // keyed off the signed-in uid, NOT per ad slot. Keeps the synchronous
@@ -2327,7 +2385,7 @@ const App: React.FC = () => {
  else if (tab === 'stats' && subTab) setStatsSubTab(subTab as StatsSubTab);
  else if (tab === 'blog' && subTab) setBlogArticle(subTab as BlogArticleId);
  else if (tab === 'job-board' && subTab) setJobSlug(subTab);
- else if (tab === 'autore' && subTab) setAuthor(subTab);
+ else if (tab === 'autore') setAuthor(subTab || null);
  // Programmatic nav into the blog tab defaults to the cross-border section.
  if (tab === 'blog') { setSwissArticle(null); setCantonArticle(null); setCantonTopic(null); setBlogPage(null); setBlogSection('frontaliere'); }
  const route: AppRoute = { activeTab: tab };
@@ -2341,8 +2399,7 @@ const App: React.FC = () => {
  if (tab === 'job-board' && subTab) route.jobSlug = subTab;
  if (tab === 'job-board' && canton) route.jobBoardCanton = canton;
  if (tab === 'autore') {
- const slug = subTab || author || undefined;
- if (slug) route.author = slug;
+ if (subTab) route.author = subTab;
  }
  pushRoute(route);
  // Scroll to top on programmatic navigation, except when returning to the job-board
@@ -2350,7 +2407,7 @@ const App: React.FC = () => {
  if (!(tab === 'job-board' && !subTab)) {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
- }, [calcolatoreSubTab, clearStaticArticleFallback, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab, author]);
+ }, [calcolatoreSubTab, clearStaticArticleFallback, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab]);
 
  // JobAlertForm parks a guest's criteria before sending them to the existing
  // profile auth screen. Re-enter the board after auth so the mounted form can
@@ -3133,7 +3190,7 @@ const App: React.FC = () => {
  <SafeLazy boundary="rail-ad-left"><ArticleRailAdStack side="left" narrow onEmptyResolved={handleLeftRailEmpty} /></SafeLazy>
  </aside>
  )}
- <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10${activeTab === 'plate-auctions' ? ' plate-auctions-main' : ''} ${
+ <main id="main-content" tabIndex={-1} className={`flex-grow min-h-dvh mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10${activeTab === 'plate-auctions' ? ' plate-auctions-main' : ''} ${
  activeTab === 'admin' ? 'w-full px-3 sm:px-6' : activeTab === 'job-board' ? '!max-w-[2400px] w-full min-w-0 px-3 sm:px-4' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${(sideRailEligible || activeTab === 'plate-auctions') ? ' xlw:!w-full' : ''}`
  }`}>
  <Suspense fallback={staticSnapshotOwnsBody ? null : <LazyFallback />}>
@@ -3600,6 +3657,7 @@ const App: React.FC = () => {
  <SafeLazy boundary="footer-newsletter">
   <NewsletterInline
    compact
+   deferGoogleButtonUntilIntent={isArticleDetailForAuth}
    headingOverride={contextualConversion?.newsletterHeading}
    subtitleOverride={contextualConversion?.newsletterSubtitle}
    acquisitionSource={contextualConversion?.source}
@@ -3641,14 +3699,14 @@ const App: React.FC = () => {
  <div className="flex items-center justify-center mt-2 mb-2">
  <a
  ref={commitBadgeRef}
- href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${commitHash || 'unknown'}`}
+ href={commitHash ? `https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${commitHash}` : undefined}
  target="_blank"
  rel="noopener noreferrer"
- className="text-sm font-mono text-muted hover:text-accent px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
+ className={`inline-flex items-center min-h-[44px] text-sm font-mono text-muted hover:text-accent px-1 rounded transition-colors ${commitHash ? '' : 'invisible'}`}
  title="Versione del sito: commit GitHub deploy"
  >
  <span>v</span>
- <span>{commitHash ? commitHash.slice(0, 7) : 'unknown'}</span>
+ <span>{commitHash.slice(0, 7)}</span>
  </a>
  </div>
 
@@ -4421,7 +4479,7 @@ const App: React.FC = () => {
  </div>
  </nav>
 
- <SafeLazy boundary="newsletter-popup"><NewsletterPopup /></SafeLazy>
+ <SafeLazy boundary="newsletter-popup"><NewsletterPopup deferGoogleButtonUntilIntent={isArticleDetailForAuth} /></SafeLazy>
  <SafeLazy boundary="pdf-download-gate"><PdfDownloadGate /></SafeLazy>
  <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
  <SafeLazy boundary="company-follow-mount"><CompanyFollowMount /></SafeLazy>

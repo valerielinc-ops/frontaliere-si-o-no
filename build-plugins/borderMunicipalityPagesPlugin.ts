@@ -889,7 +889,7 @@ function renderMetric(label: string, value: string, detail?: string): string {
   return `<div class="rounded-md border border-edge bg-surface p-4">
     <dt class="text-sm font-medium text-subtle">${esc(label)}</dt>
     <dd class="mt-1 text-2xl font-bold text-heading">${esc(value)}</dd>
-    ${detail ? `<p class="mt-1 text-sm text-muted">${esc(detail)}</p>` : ''}
+    ${detail ? `<dd class="mt-1 text-sm text-muted">${esc(detail)}</dd>` : ''}
   </div>`;
 }
 

@@ -15,6 +15,16 @@ const REFRESH_LEASE_MS = 10 * 60 * 1000;
 function underCap(service) {
   return acceptedPositionsCount(service) < (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS);
 }
+
+export function isFreshConciergeProposalRefreshRequest(before, after) {
+  const requestedBy = after?.proposalRefreshRequestedBy;
+  return Boolean(
+    (requestedBy === 'lifecycle' || requestedBy === 'candidate_withdrawal')
+      && after?.proposalRefreshRequestId
+      && after.proposalRefreshRequestId !== before?.proposalRefreshRequestId,
+  );
+}
+
 async function claimRefresh(db, ref, nowMs, enqueueOnly) {
   const requestId = randomUUID();
   return db.runTransaction(async tx => {
@@ -72,7 +82,8 @@ export async function runConciergeProposalRefresh({ db, serviceId, requestId = n
     if (result.status === 'complete') {
       refreshed = 1;
       const after = await ref.collection('proposals').get();
-      const ids = after.docs.filter(d => !previouslyProposed.has(d.id) && d.data().status === 'proposed').map(d => d.id).sort();
+      const ids = after.docs.filter(d => !previouslyProposed.has(d.id)
+        && d.data().status === 'proposed' && d.data().eligibilityStatus === 'compatible').map(d => d.id).sort();
       const key = `new_proposals_${createHash('sha256').update(`${ids.join('|')}|${requestId || nowMs}`).digest('hex').slice(0, 24)}`;
       await db.runTransaction(async tx => {
         const current = (await tx.get(ref)).data();

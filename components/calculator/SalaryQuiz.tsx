@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useTranslation } from '@/services/i18n';
+import { DEFAULT_EXCHANGE_RATE } from '@/constants';
 import { Briefcase, TrendingUp, MapPin, Share2, ChevronRight, RotateCcw, Award } from 'lucide-react';
 import { unlockAchievement, addXp } from '@/services/gamificationService';
 
@@ -157,7 +158,7 @@ function estimateNet(grossCHF: number): { netCHF: number; netEUR: number } {
  
  const tax = grossCHF * taxRate;
  const netCHF = grossCHF - totalSocial - tax;
- const netEUR = netCHF * 0.94; // approx CHF→EUR rate
+ const netEUR = netCHF * DEFAULT_EXCHANGE_RATE;
  return { netCHF: Math.round(netCHF), netEUR: Math.round(netEUR) };
 }
 

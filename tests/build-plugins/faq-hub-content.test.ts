@@ -218,7 +218,6 @@ describe('FAQ hub — audit title lengths', () => {
       const rendered = __renderFaqEntryPageForTest(
         entry!,
         'it',
-        '2026-10-20',
         new Set<string>(),
         new Set(['it']),
       );

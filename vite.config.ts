@@ -737,6 +737,10 @@ export default defineConfig(({ mode }) => {
  modulePreload: {
  // Prevent eager preloading of lazy vendor chunks (charts, pdf, etc.)
  resolveDependencies: (filename, deps, { hostId, hostType }) => {
+ // No HTML preloads: they would name root aliases, while the executed graph is
+ // under /assets/releases/<BUILD_ID>/ (build-plugins/shared/modulePreloads.ts).
+ // The release bootstrap preloads the same chunks at their real URL.
+ if (hostType === 'html') return [];
  // Only preload deps for the entry point, not for lazy chunks
  // Filter out vendor chunks and locale data that should only load on demand
  return deps.filter(dep => 

@@ -52,13 +52,15 @@ describe('fast-publish workflow invariants', () => {
   });
 
   it('pings search engines only after live verification, never before', () => {
-    const notifyIdx = workflow.indexOf('Notify search engines');
+    const stageIdx = workflow.indexOf('Stage verified URLs for shared Indexing API ledger');
+    const notifyIdx = workflow.indexOf('Notify search engines through the shared ledger');
     const verifyIdx = workflow.indexOf('Verify shard URLs are live');
     expect(verifyIdx).toBeGreaterThan(-1);
-    expect(notifyIdx).toBeGreaterThan(verifyIdx);
-    // and it must be gated on that step's outcome, not merely ordered after it
-    const notifyBlock = workflow.slice(notifyIdx, notifyIdx + 400);
-    expect(notifyBlock).toMatch(/steps\.verify\.outcome\s*==\s*'success'/);
+    expect(stageIdx).toBeGreaterThan(verifyIdx);
+    expect(notifyIdx).toBeGreaterThan(stageIdx);
+    expect(workflow.slice(stageIdx, notifyIdx)).toContain('VERIFY_OUTCOME');
+    expect(workflow.slice(stageIdx, notifyIdx)).toContain('VERIFY_DELAYED');
+    expect(workflow.slice(notifyIdx, notifyIdx + 400)).toContain('indexing-api-jobs-ledger');
   });
 
   it('publishes client article chunks before any locale shard', () => {
@@ -147,7 +149,7 @@ describe('fast-publish workflow invariants', () => {
 
   it('publishes the topic sitemap through a checked stable PR, never direct main', () => {
     const publishIdx = workflow.indexOf('Publish + commit the topic-hub sitemap');
-    const publishBlock = workflow.slice(publishIdx, workflow.indexOf('Notify search engines', publishIdx));
+    const publishBlock = workflow.slice(publishIdx, workflow.indexOf('Stage verified URLs', publishIdx));
     expect(publishIdx).toBeGreaterThan(-1);
     expect(workflow).toContain('pull-requests: write');
     expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
@@ -390,8 +392,10 @@ describe('fast-publish: a delayed publish is not a failure, and not a success ei
     // live". Every side-effecting step must carry it, not just the ping.
     const gated = workflow.match(/steps\.verify\.outputs\.delayed != 'true'/g) ?? [];
     expect(gated.length).toBeGreaterThanOrEqual(3);
-    const notify = workflow.slice(workflow.indexOf('Notify search engines') - 400,
-                                  workflow.indexOf('Notify search engines') + 200);
-    expect(notify).toContain("steps.verify.outputs.delayed != 'true'");
+    const stage = workflow.slice(workflow.indexOf('Stage verified URLs') - 100,
+                                 workflow.indexOf('Hand verified URLs to the shared ledger owner'));
+    expect(stage).toContain('VERIFY_DELAYED');
+    expect(stage).toContain('[ "$VERIFY_DELAYED" != "true" ]');
+    expect(workflow).toContain("needs.fast-publish.outputs.notify_search_engines == 'true'");
   });
 });

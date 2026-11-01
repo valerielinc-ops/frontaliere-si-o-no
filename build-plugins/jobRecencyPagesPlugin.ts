@@ -29,6 +29,7 @@ import {
   robotsMetaEnhancedForContent,
 } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
+import { localeHomeUrl } from './shared/breadcrumbHome';
 import { jobBoardHeadTags } from './jobBoardGpt';
 import {
   JOB_RECENCY_LANDING_SLUGS,
@@ -247,7 +248,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+              { '@type': 'ListItem', position: 1, name: 'Home', item: localeHomeUrl(locale, BASE_URL) },
               { '@type': 'ListItem', position: 2, name: SECTION_NAME[locale], item: sectionRootUrl },
               { '@type': 'ListItem', position: 3, name: model.heading, item: canonicalUrl },
             ],

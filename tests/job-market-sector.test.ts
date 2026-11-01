@@ -15,6 +15,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from '../build-plugins/jobSectorLanding';
 import * as fs from 'fs';
 import * as path from 'path';
 import {
@@ -203,6 +204,19 @@ describe('generateSectorSnapshotPages', () => {
       const words = body.replace(/\s+/g, ' ').trim().split(' ').filter((w) => w.length > 0);
       expect(words.length, `page ${path} has only ${words.length} words`).toBeGreaterThanOrEqual(350);
     }
+  });
+
+  it('links each sector board hub through its localized path, never the Italian leaf', () => {
+    for (const locale of JOB_MARKET_SNAPSHOT_LOCALES) {
+      for (const sector of JOB_MARKET_SECTOR_KEYS) {
+        if (!(SECTOR_HUB_KEYS as readonly string[]).includes(sector)) continue;
+        const html = out.pages[buildSectorSnapshotPath(locale, sector)];
+        expect(html, `${locale}/${sector}`).toContain(`href="${buildSectorHubPath(locale, sector as SectorHubKey)}"`);
+      }
+    }
+    const de = out.pages[buildSectorSnapshotPath('de', 'infermieri')];
+    expect(de).toContain('href="/de/jobs-im-tessin/pflegepersonal/"');
+    expect(de).not.toContain('/de/jobs-im-tessin/infermieri/');
   });
 
   it('every sector page has self-referencing canonical', () => {

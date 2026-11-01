@@ -714,12 +714,7 @@ async function main() {
   if (jobRichResultRegressions.length > 0 && !DRY_RUN) {
     log('🚨', `${jobRichResultRegressions.length} job page(s) lack a Job postings rich result — creating regression issue (P2)`);
     await createJobRichResultIssue(jobRichResultRegressions);
-    const queue = planJobIndexingUrls(jobRichResultRegressions, { limit: MAX_INSPECT });
-    if (queue.length > 0) {
-      log('📨', `Queueing ${queue.length} JobPosting URL(s) for the Google Indexing API`);
-      const outcomes = await notifyGoogleIndexing(queue);
-      log('📊', `JobPosting re-crawl queue: ${outcomes.filter((item) => item.ok).length}/${queue.length} accepted`);
-    }
+    log('📨', 'The shared indexing job will prioritize these URLs through indexing-api-jobs-ledger');
   } else if (jobRichResultRegressions.length > 0 && DRY_RUN) {
     log('ℹ️', `DRY RUN — would open a JobPosting rich-result issue and queue ${jobRichResultRegressions.length} URL(s)`);
   }

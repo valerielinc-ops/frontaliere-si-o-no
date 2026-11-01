@@ -69,9 +69,9 @@ export const COLLECTION_PAGE_TRANSLATIONS: BasicLocaleMap = {
  fr: { name: "Entreprises qui recrutent au Tessin", description: "Principales entreprises qui recrutent des frontaliers au Canton Tessin: technologie, finance, pharmaceutique, industrie et services" }
  },
  "Offerte di Lavoro in Ticino": {
- en: { name: "Job Offers in Ticino", description: "Job board with over 1500 up-to-date offers for cross-border workers in Ticino. Positions in various sectors: technology, finance, pharmaceutical, healthcare, industry." },
- de: { name: "Stellenangebote im Tessin", description: "Stellenboerse mit ueber 1500 aktuellen Angeboten fuer Grenzgaenger im Tessin. Positionen in verschiedenen Branchen: Technologie, Finanzen, Pharmazie, Gesundheitswesen, Industrie." },
- fr: { name: "Offres d'emploi au Tessin", description: "Plateforme de recrutement avec plus de 1500 offres a jour pour les frontaliers au Tessin. Postes dans divers secteurs: technologie, finance, pharmaceutique, sante, industrie." }
+ en: { name: "Job Offers in Ticino", description: "Job board with up-to-date offers for cross-border workers in Ticino. Positions in various sectors: technology, finance, pharmaceutical, healthcare, industry." },
+ de: { name: "Stellenangebote im Tessin", description: "Stellenboerse mit aktuellen Angeboten fuer Grenzgaenger im Tessin. Positionen in verschiedenen Branchen: Technologie, Finanzen, Pharmazie, Gesundheitswesen, Industrie." },
+ fr: { name: "Offres d'emploi au Tessin", description: "Plateforme de recrutement avec des offres a jour pour les frontaliers au Tessin. Postes dans divers secteurs: technologie, finance, pharmaceutique, sante, industrie." }
  },
  "Dialetto Ticinese — Espressioni e Proverbi": {
  en: { name: "Ticinese Dialect — Expressions and Proverbs", description: "Collection of 64 expressions, proverbs and words from the Ticinese dialect for cross-border workers" },

@@ -31,6 +31,9 @@ export const KNOWN_AGGREGATOR_DOMAINS = new Set([
   // Job search engine (formerly neuvoo): its posting pages name one employer
   // each, so the structural listing test alone does not catch them.
   'talent.com',
+  // Multi-employer boards the job-room feed links as an application channel
+  // (hosts ranked by distinct advertisers, 2026-10-31).
+  'job-too.ch', 'jobeo.ch', 'valjob.digital', 'hoteljob-schweiz.de',
 ]);
 
 /**
@@ -62,6 +65,7 @@ export const KNOWN_AGGREGATOR_DOMAINS = new Set([
 export const AGGREGATOR_BACKED_SHARED_CLIENTS = new Map([
   ['jobs-ch-search-common.mjs', true],
   ['jobup-ch-feed-common.mjs', new Set(['createJobupChFeedParser', 'fetchJobupDetailDescription'])],
+  ['prospector/sources/seco-jobroom.mjs', new Set(['fetchSecoAdSnapshot'])],
 ]);
 
 /**

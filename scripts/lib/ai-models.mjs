@@ -2385,6 +2385,50 @@ function providerCooldownDurationMs(severity) {
 // drift apart: the 429 backoff in _callOpenAICompatible, and _hardCallCapMs
 // below, which sizes the per-call hard cap off this same worst-case wait.
 const MAX_RETRY_AFTER_MS = 2 * 60 * 1000;
+const HTTP_DATE_RE = /^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), \d{2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} \d{2}:\d{2}:\d{2} GMT$/;
+
+/**
+ * Parse one Retry-After value without letting Date.parse accept unrelated
+ * locale/date syntaxes or an unsafe numeric value. The cap is applied only
+ * after the input has been proven representable.
+ *
+ * @param {unknown} raw
+ * @param {number} [nowMs]
+ * @returns {number}
+ */
+export function parseStrictRetryAfterValue(raw, nowMs = Date.now()) {
+  if (typeof raw !== 'string' || !Number.isFinite(nowMs)) return 0;
+  const value = raw.trim();
+  if (!value) return 0;
+
+  let delayMs;
+  if (/^\d+$/.test(value)) {
+    const seconds = Number(value);
+    if (!Number.isSafeInteger(seconds)) return 0;
+    if (seconds > MAX_RETRY_AFTER_MS / 1000) return MAX_RETRY_AFTER_MS;
+    delayMs = seconds * 1000;
+  } else {
+    if (!HTTP_DATE_RE.test(value)) return 0;
+    const retryAtMs = Date.parse(value);
+    // Require the canonical IMF-fixdate spelling so Date.parse cannot turn a
+    // locale date or an invalid weekday into a valid retry delay.
+    if (!Number.isFinite(retryAtMs) || new Date(retryAtMs).toUTCString() !== value) return 0;
+    delayMs = retryAtMs - nowMs;
+  }
+  if (!Number.isFinite(delayMs)) return 0;
+  return Math.min(MAX_RETRY_AFTER_MS, Math.max(0, Math.ceil(delayMs)));
+}
+
+/** Convert an HTTP Retry-After header to a bounded delay in milliseconds. */
+export function parseRetryAfter(response, nowMs = Date.now()) {
+  let raw;
+  try {
+    raw = response?.headers?.get?.('retry-after');
+  } catch {
+    return 0;
+  }
+  return parseStrictRetryAfterValue(raw, nowMs);
+}
 
 function isProviderCoolingDown(provider) {
   const until = _providerCooldown.get(provider);
@@ -5585,9 +5629,7 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
           // which would freeze the entire translation pipeline. Shared module
           // constant (MAX_RETRY_AFTER_MS) so the per-call hard cap below can
           // size itself off the same worst-case wait instead of duplicating it.
-          const retryAfterHeader = res.headers?.get?.('retry-after');
-          const retryAfterRaw = retryAfterHeader ? (Number(retryAfterHeader) > 0 ? Number(retryAfterHeader) * 1000 : 0) : 0;
-          const retryAfterMs = Math.min(retryAfterRaw, MAX_RETRY_AFTER_MS);
+          const retryAfterMs = parseRetryAfter(res);
           const baseWaitMs = is429
             ? attempt * opts.backoffMs * 3   // Triple backoff for rate limits
             : attempt * opts.backoffMs;
@@ -6009,6 +6051,28 @@ async function _getLocalDispatcher(timeoutMs) {
   };
 }
 
+function _coerceFiniteDeadlineMs(value) {
+  if (value === undefined || value === null || (typeof value === 'string' && value.trim() === '')) {
+    return undefined;
+  }
+  const normalized = typeof value === 'string' ? Number(value) : value;
+  return Number.isFinite(normalized) ? normalized : undefined;
+}
+
+function _finiteDeadlineMs(opts) {
+  return _coerceFiniteDeadlineMs(opts?.deadlineMs);
+}
+
+// Public callers may construct options from JSON or environment values. Keep a
+// malformed deadline out of every downstream timeout consumer: arithmetic with
+// a truthy non-number otherwise produces NaN and makes setTimeout fail open.
+function _normalizeDeadlineOptions(opts = {}) {
+  const deadlineMs = opts?.deadlineMs;
+  const normalized = _coerceFiniteDeadlineMs(deadlineMs);
+  if (normalized === deadlineMs) return opts;
+  return { ...opts, deadlineMs: normalized };
+}
+
 async function _callLocal(model, messages, opts) {
   const apiModel = getApiModelId(model); // = getLocalLlmModelId()
   // Raise the timeout floor for slow CPU inference (caller's timeout may be ~60s).
@@ -6030,8 +6094,9 @@ async function _callLocal(model, messages, opts) {
   // l'allowance residua e' grande. clamp( max(baseTimeoutMs, min(remaining ×
   // SHARE, MAX)), 15s, remaining ).
   let timeout = baseTimeoutMs;
-  if (opts.deadlineMs) {
-    const remaining = opts.deadlineMs - Date.now();
+  const deadlineMs = _finiteDeadlineMs(opts);
+  if (deadlineMs !== undefined) {
+    const remaining = deadlineMs - Date.now();
     const quota = Math.min(Math.floor(remaining * LOCAL_LLM_ALLOWANCE_SHARE), LOCAL_LLM_MAX_TIMEOUT_MS);
     timeout = Math.max(15_000, Math.min(Math.max(baseTimeoutMs, quota), remaining));
   }
@@ -6114,8 +6179,9 @@ function _codexFallbackTimeoutMs(opts = {}) {
     Number.isFinite(raw) && raw > 0 ? raw : CODEX_CLI_MAX_TIMEOUT_MS,
     CODEX_CLI_MAX_TIMEOUT_MS,
   );
-  if (!opts.deadlineMs) return configured;
-  const remaining = opts.deadlineMs - Date.now();
+  const deadlineMs = _finiteDeadlineMs(opts);
+  if (deadlineMs === undefined) return configured;
+  const remaining = deadlineMs - Date.now();
   if (remaining <= 0) throw new Error('Codex fallback skipped: caller deadline already expired');
   // The minimum is a useful default, never a reason to run past the caller's
   // absolute deadline. A near-expiry caller gets the short amount of time
@@ -6216,7 +6282,8 @@ function _codexTransportError(message) {
 function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs, maxTimeoutMs = CODEX_CLI_MAX_TIMEOUT_MS }) {
   const socketPath = String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim();
   if (!socketPath) return Promise.reject(new Error('CODEX_AUTH_BROKER_SOCKET is not configured'));
-  const remaining = Number(deadlineMs) > 0 ? Number(deadlineMs) - Date.now() : Infinity;
+  const deadlineAt = _coerceFiniteDeadlineMs(deadlineMs);
+  const remaining = deadlineAt === undefined ? Infinity : deadlineAt - Date.now();
   if (remaining <= 0) return Promise.reject(new Error('Codex fallback skipped: caller deadline already expired'));
   const requestTimeoutMs = Math.min(
     Math.max(1, Number.isFinite(Number(timeoutMs)) ? Number(timeoutMs) : maxTimeoutMs),
@@ -6227,6 +6294,7 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs, maxTime
     let response = '';
     let settled = false;
     let client;
+    let deadlineTimer;
     try {
       client = net.createConnection(socketPath);
     } catch (error) {
@@ -6236,6 +6304,7 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs, maxTime
     const finish = (error, value) => {
       if (settled) return;
       settled = true;
+      if (deadlineTimer) clearTimeout(deadlineTimer);
       client.destroy();
       if (error) reject(error);
       else resolve(value);
@@ -6255,14 +6324,22 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs, maxTime
     const queueWaitMs = _codexBrokerQueueWaitMs();
     const boundedByDeadline = (ms) => {
       if (!Number.isFinite(remaining)) return ms;
-      const left = Number(deadlineMs) - Date.now();
+      const left = deadlineAt - Date.now();
       return Math.max(1, Math.min(ms, left));
     };
     let started = false;
     const initialTimeoutMs = boundedByDeadline(queueWaitMs + executionSocketTimeoutMs);
-    client.setTimeout(initialTimeoutMs, () => finish(started
+    const timeoutError = () => finish(started
       ? _codexTransportError(`Codex auth broker execution timed out after ${Math.round(requestTimeoutMs / 1000)}s`)
-      : _codexTransportError(`Codex auth broker queue wait timed out after ${Math.round(initialTimeoutMs / 1000)}s before Codex started`)));
+      : _codexTransportError(`Codex auth broker queue wait timed out after ${Math.round(initialTimeoutMs / 1000)}s before Codex started`));
+    client.setTimeout(initialTimeoutMs, timeoutError);
+    // A socket timeout measures inactivity and can be re-armed by the broker's
+    // control byte. The caller deadline is absolute: keep a separate watchdog
+    // so a queued request or a started request cannot survive activity forever.
+    if (Number.isFinite(remaining)) {
+      deadlineTimer = setTimeout(timeoutError, Math.max(1, Math.floor(remaining)));
+      deadlineTimer.unref?.();
+    }
     client.on('error', (error) => {
       if (settled) return;
       const code = String(error?.code || 'socket error');
@@ -6448,13 +6525,14 @@ function _validateCodexCliResult(result, { wantsJson, schemaApplied }) {
  */
 async function _callCodexCli(messages, opts = {}) {
   const jsonRequest = _codexFallbackJsonRequest(opts);
+  const deadlineMs = _finiteDeadlineMs(opts);
   const result = await _requestCodexExecution({
     prompt: _codexPrompt(messages, { jsonOnly: jsonRequest.wantsJson }),
     timeoutMs: _codexFallbackTimeoutMs(opts),
     schema: jsonRequest.schema,
-    deadlineMs: opts.deadlineMs,
+    deadlineMs,
   });
-  if (opts.deadlineMs && Date.now() >= opts.deadlineMs) {
+  if (deadlineMs !== undefined && Date.now() >= deadlineMs) {
     throw new Error('Codex fallback skipped: caller deadline expired during execution');
   }
   return _validateCodexCliResult(result, jsonRequest);
@@ -6604,8 +6682,9 @@ async function _callClaudeCli(model, messages, opts) {
     // costruzione che una tempesta di timeout sfondi il budget di sezione,
     // qualunque valore prendano il minimo e la soglia del breaker.
     let timeoutMs = baseTimeoutMs;
-    if (opts.deadlineMs) {
-      const remaining = opts.deadlineMs - Date.now();
+    const deadlineMs = _finiteDeadlineMs(opts);
+    if (deadlineMs !== undefined) {
+      const remaining = deadlineMs - Date.now();
       const quota = Math.min(Math.floor(remaining * CLAUDE_CLI_ALLOWANCE_SHARE), CLAUDE_CLI_MAX_TIMEOUT_MS);
       timeoutMs = Math.max(15_000, Math.min(Math.max(baseTimeoutMs, quota), remaining));
     }
@@ -7235,11 +7314,8 @@ async function _callGeminiRaw(model, messages, opts) {
             const cooldownOutcome = cooldownProvider(PROVIDER.GEMINI);
             if (cooldownOutcome === 'created') _stats.providerCooldowns++;
           }
-          // Respect Retry-After header if present (capped at 2 minutes)
-          const MAX_RETRY_AFTER_MS_GEMINI = 2 * 60 * 1000;
-          const retryAfterHeader = res.headers?.get?.('retry-after');
-          const retryAfterRaw = retryAfterHeader ? (Number(retryAfterHeader) > 0 ? Number(retryAfterHeader) * 1000 : 0) : 0;
-          const retryAfterMs = Math.min(retryAfterRaw, MAX_RETRY_AFTER_MS_GEMINI);
+          // Respect Retry-After header if present (capped at 2 minutes).
+          const retryAfterMs = parseRetryAfter(res);
           const waitMs = Math.max(attempt * opts.backoffMs, retryAfterMs);
           console.warn(`⚠️  [${model}] ${res.status} retry ${attempt}/${opts.maxRetriesPerModel} — wait ${waitMs}ms`);
           await sleep(waitMs);
@@ -7301,9 +7377,11 @@ async function _callGeminiRaw(model, messages, opts) {
 // ── Model routing ────────────────────────────────────────────
 
 /**
- * Grace added on top of the computed worst case, so the provider's OWN abort
- * (AbortSignal.timeout / claude-CLI SIGKILL timer) always gets the first shot
- * at ending the call — the hard cap below is the backstop for when it doesn't.
+ * Grace added on top of the computed worst case when the caller did not provide
+ * an absolute deadline, so the provider's OWN abort (AbortSignal.timeout /
+ * claude-CLI SIGKILL timer) always gets the first shot at ending the call — the
+ * hard cap below is the backstop for when it doesn't. A caller deadline is
+ * authoritative and the cap must not outlive it.
  */
 const HARD_CALL_CAP_GRACE_MS = 60_000;
 
@@ -7354,11 +7432,15 @@ function _hardCallCapMs(model, opts) {
   else if (provider === PROVIDER.CODEX_CLI) base = Math.max(base, CODEX_CLI_MAX_TIMEOUT_MS);
   const attempts = Math.max(1, opts?.maxRetriesPerModel || 1);
   let cap = attempts * (base + MAX_RETRY_AFTER_MS) * 2 + HARD_CALL_CAP_GRACE_MS;
-  if (opts?.deadlineMs) {
-    const remaining = opts.deadlineMs - Date.now();
-    // Floor at the grace window so an already-expired deadline still gets one
-    // honest short attempt instead of an instant 0ms abort.
-    cap = Math.min(cap, Math.max(HARD_CALL_CAP_GRACE_MS, remaining + HARD_CALL_CAP_GRACE_MS));
+  const deadlineMs = _finiteDeadlineMs(opts);
+  if (deadlineMs !== undefined) {
+    const remaining = deadlineMs - Date.now();
+    // An absolute caller deadline is a hard boundary. The grace above is only
+    // for calls without one: adding it here lets an in-flight provider survive
+    // past the run deadline and leaves the external workflow kill to collect
+    // the unfinished attempt. Keep one millisecond for an already-expired
+    // deadline so the Promise.race still takes its normal timeout path.
+    cap = Math.min(cap, Math.max(1, remaining));
   }
   return cap;
 }
@@ -7392,19 +7474,26 @@ function _callModel(model, messages, opts) {
   const started = Date.now();
   let heartbeat;
   let capTimer;
+  let raceSettled = false;
   const call = (async () => _routeModelCall(model, messages, effOpts))();
   const capped = new Promise((_resolve, reject) => {
-    capTimer = setTimeout(() => {
-      const err = new Error(
-        `[${model}] hard cap: no response after ${Math.round(capMs / 1000)}s (provider timeout never fired) — abandoning call`,
-      );
-      // Named so the existing timeout branches (retry suppression in the
-      // provider callers, the timeout circuit-breaker in callLLM's catch)
-      // classify it exactly as they classify a provider-side abort.
-      err.name = 'TimeoutError';
-      reject(err);
-    }, capMs);
-    capTimer.unref?.();
+    // Let the provider install its own timeout before arming an equal absolute
+    // deadline. Otherwise the cap timer can win the same-deadline race and
+    // discard provider diagnostics (including Claude stderr).
+    queueMicrotask(() => {
+      if (raceSettled) return;
+      capTimer = setTimeout(() => {
+        const err = new Error(
+          `[${model}] hard cap: no response after ${Math.round(capMs / 1000)}s (provider timeout never fired) — abandoning call`,
+        );
+        // Named so the existing timeout branches (retry suppression in the
+        // provider callers, the timeout circuit-breaker in callLLM's catch)
+        // classify it exactly as they classify a provider-side abort.
+        err.name = 'TimeoutError';
+        reject(err);
+      }, capMs);
+      capTimer.unref?.();
+    });
   });
   heartbeat = setInterval(() => {
     console.warn(`⏳ [${model}] in-flight ${Math.round((Date.now() - started) / 1000)}s (hard cap ${Math.round(capMs / 1000)}s)`);
@@ -7441,6 +7530,7 @@ function _callModel(model, messages, opts) {
       throw err;
     },
   ).finally(() => {
+    raceSettled = true;
     clearTimeout(capTimer);
     clearInterval(heartbeat);
   });
@@ -7510,7 +7600,7 @@ function _routeModelCall(model, messages, opts) {
  * @returns {Promise<string>} — Text content from the model
  */
 export async function callSingleModel(messages, opts = {}) {
-  const o = { ...DEFAULT_OPTS, ...opts };
+  const o = _normalizeDeadlineOptions({ ...DEFAULT_OPTS, ...opts });
   o.recordScore = coerceRecordScore(o.recordScore);
   const model = o.model || AI_MODELS.GPT4O;
 
@@ -7576,7 +7666,8 @@ export async function callSingleModel(messages, opts = {}) {
  * @returns {Promise<string>} — Text content from whichever model succeeded
  */
 export async function callLLM(messages, opts = {}) {
-  const o = { ...DEFAULT_OPTS, ...opts };
+  const o = _normalizeDeadlineOptions({ ...DEFAULT_OPTS, ...opts });
+  const deadlineMs = _finiteDeadlineMs(o);
   o.recordScore = coerceRecordScore(o.recordScore);
 
   // Auto-init score store on first call (no-op if already initialized). Pass
@@ -7698,7 +7789,7 @@ export async function callLLM(messages, opts = {}) {
     // 28611052353: a single such walk alone consumed most of a 109min run
     // before any between-call check got a chance to run. No-op unless the
     // caller opts in via opts.deadlineMs.
-    if (o.deadlineMs && Date.now() > o.deadlineMs) {
+    if (deadlineMs !== undefined && Date.now() > deadlineMs) {
       // Wording matters: classifyExhaustionCause()'s transientRe (below) keys off
       // "timeout"/"aborted" to bucket a cascade's errors as transient (recoverable
       // next run) vs persistent (needs intervention). A budget-exhaustion skip is

@@ -1,9 +1,16 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+
+// Il tasso vero cambia ogni giorno con lo snapshot: le cifre esatte di questo
+// file si verificano su un tasso fissato.
+vi.mock('../../data/exchange-rate-snapshot.json', () => ({ currentRate: 1.096, rateDate: '2026-10-30' }));
+
 import {
   buildSalaryLandingBody,
   _internal,
   type SalaryLocale,
 } from '../../build-plugins/shared/salaryLandingShell';
+import { DEFAULT_INPUTS } from '../../constants';
+import { calculateSimulation } from '../../services/calculationService';
 
 describe('salaryLandingShell · resolver', () => {
   it('matches every IT hub path emitted under /calcola-stipendio/* (per sitemap-pages.xml)', () => {
@@ -58,6 +65,7 @@ describe('salaryLandingShell · resolver', () => {
       expect(r.data.eyebrow).toContain(c.eyebrowSubstr);
       expect(r.data.table?.headers.length).toBe(c.columns);
       expect(r.data.tiles.length).toBe(c.tiles);
+      // cron-count-ok: tre FAQ scritte a mano per pagina, non un conteggio dallo snapshot del cambio.
       expect(r.data.faqs?.length).toBe(3);
     }
   });
@@ -95,6 +103,7 @@ describe('salaryLandingShell · resolver', () => {
       // catch unknown paths under /{locale}/{salary-hub}/anything.
       expect(r.data.table?.headers.length, `missing comparison table for ${c.path}`).toBe(c.columns);
       expect(r.data.tiles.length, `wrong tile count for ${c.path}`).toBe(c.tiles);
+      // cron-count-ok: tre FAQ scritte a mano per pagina, non un conteggio dallo snapshot del cambio.
       expect(r.data.faqs?.length, `wrong FAQ count for ${c.path}`).toBe(3);
     }
   });
@@ -161,6 +170,66 @@ describe('salaryLandingShell · buildSalaryLandingBody', () => {
     expect(html).toContain('<details');
     expect(html).toContain('Domande frequenti');
     expect(html).toContain('extra prose');
+  });
+
+  it('generates no-premium RAL rows with locale formatting and emphasizes CHF 80k', () => {
+    const localeTags = ['it-IT', 'en-US', 'de-DE', 'fr-FR'] as const;
+    const salaries = [60000, 80000, 100000, 120000] as const;
+    const round100 = (value: number) => Math.round(value / 100) * 100;
+
+    for (const tag of localeTags) {
+      const expected = salaries.map((ral) => {
+        const result = calculateSimulation({
+          ...DEFAULT_INPUTS,
+          annualIncomeCHF: ral,
+          healthInsuranceCHF: 0,
+          expensesIT: [],
+          expensesCH: [],
+        });
+        const net = result.itResident.netIncomeAnnual;
+        const format = (value: number) => {
+          const rounded = round100(value);
+          const absolute = Math.abs(rounded);
+          if (absolute >= 1000 && absolute < 10000) {
+            const separator = new Intl.NumberFormat(tag)
+              .formatToParts(10_000)
+              .find((part) => part.type === 'group')?.value;
+            if (separator) {
+              const digits = String(absolute);
+              return `${rounded < 0 ? '-' : ''}${digits.slice(0, -3)}${separator}${digits.slice(-3)}`;
+            }
+          }
+          return rounded.toLocaleString(tag);
+        };
+        return {
+          cells: [
+            format(ral),
+            `~CHF ${format(net / 12)}`,
+            `~CHF ${format(net)}`,
+            `~EUR ${format(net * result.exchangeRate)}`,
+          ],
+          ...(ral === 80000 ? { emphasized: true as const } : {}),
+        };
+      });
+
+      expect(_internal.ralNetRows(tag)).toEqual(expected);
+      expect(_internal.ralNetRows(tag).map((row) => row.emphasized ?? false)).toEqual([
+        false, true, false, false,
+      ]);
+    }
+
+    expect(_internal.ralNetRows('it-IT')[1].cells).toEqual([
+      '80.000', '~CHF 4.000', '~CHF 48.600', '~EUR 53.200',
+    ]);
+    expect(_internal.ralNetRows('en-US')[1].cells).toEqual([
+      '80,000', '~CHF 4,000', '~CHF 48,600', '~EUR 53,200',
+    ]);
+    expect(_internal.ralNetRows('de-DE')[1].cells).toEqual([
+      '80.000', '~CHF 4.000', '~CHF 48.600', '~EUR 53.200',
+    ]);
+    expect(_internal.ralNetRows('fr-FR')[1].cells).toEqual([
+      '80\u202f000', '~CHF 4\u202f000', '~CHF 48\u202f600', '~EUR 53\u202f200',
+    ]);
   });
 
   it('uses semantic OKLCH tokens, never hardcoded hex colors', () => {

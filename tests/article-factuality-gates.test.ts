@@ -1677,7 +1677,23 @@ describe('formatRemediation', () => {
       severity: 'critical',
       category: 'eu_svizzera',
       sourceQuote: 'La Svizzera non è membro dell’Unione europea.',
-    }]))).toContain('ESTRATTO FONTE');
+    }]), {
+      sourceText: 'La Svizzera non è membro dell’Unione europea. Il rapporto con l’Unione europea è regolato dagli Accordi Bilaterali.',
+    })).toContain('ESTRATTO FONTE');
+  });
+
+  it('does not present an unsupported source quote as evidence', () => {
+    const out = formatRemediation([{
+      claim: 'Un dato inventato',
+      reason: 'affermazione falsa',
+      severity: 'critical',
+      category: 'fatti_inventati',
+      sourceQuote: 'La fonte conferma il dato inventato e questa frase non esiste.',
+    }], {
+      sourceText: 'La fonte reale descrive soltanto una procedura amministrativa senza quel dato specifico o quella frase.',
+    });
+
+    expect(out).not.toContain('ESTRATTO FONTE');
   });
 });
 

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   handleMailerooWebhookRequest,
   persistMailerooEvent,
+  routineDeliveryChangesSubscriber,
   verifyMailerooSignature,
 } from '../functions/src/newsletterMailerooWebhookCore.js';
 import crypto from 'crypto';
@@ -602,5 +603,34 @@ describe('newsletterMailerooWebhookCore — a provider event never creates the s
     }
     expect(db.__sets).toEqual([]);
     expect(db.__adds).toEqual([]);
+  });
+});
+
+describe('routineDeliveryChangesSubscriber', () => {
+  const nowMs = Date.UTC(2026, 9, 31);
+  const stamp = (ageDays: number) => ({ toMillis: () => nowMs - ageDays * 86_400_000 });
+  const send = { updated_at: 'ts' };
+  const delivered = { updated_at: 'ts', last_delivered_at: 'ts', soft_bounce_count: 0 };
+
+  it('skips a send, which carries nothing the subscriber does not already hold', () => {
+    expect(routineDeliveryChangesSubscriber(send, { soft_bounce_count: 2 }, nowMs)).toBe(false);
+  });
+
+  it('skips a delivered on a healthy subscriber stamped within the week', () => {
+    expect(routineDeliveryChangesSubscriber(delivered, { last_delivered_at: stamp(6) }, nowMs)).toBe(false);
+  });
+
+  it('writes the first delivered, a stale stamp and an unreadable stamp', () => {
+    expect(routineDeliveryChangesSubscriber(delivered, {}, nowMs)).toBe(true);
+    expect(routineDeliveryChangesSubscriber(delivered, { last_delivered_at: stamp(8) }, nowMs)).toBe(true);
+    expect(routineDeliveryChangesSubscriber(delivered, { last_delivered_at: '2026-10-30' }, nowMs)).toBe(true);
+  });
+
+  it('writes when a soft-bounce streak needs its reset', () => {
+    expect(routineDeliveryChangesSubscriber(delivered, { last_delivered_at: stamp(1), soft_bounce_count: 1 }, nowMs)).toBe(true);
+  });
+
+  it('writes when the recovery adds any other field', () => {
+    expect(routineDeliveryChangesSubscriber({ ...delivered, status: 'active' }, { last_delivered_at: stamp(1) }, nowMs)).toBe(true);
   });
 });

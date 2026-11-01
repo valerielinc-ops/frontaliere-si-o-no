@@ -4128,6 +4128,7 @@ jobs:
           REPO: ${{ github.repository }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
+          REVIEW_PR_FILE: ${{ steps.review_input.outputs.review_pr_file }}
           CODEX_FALLBACK_EVIDENCE_FILE: ${{ steps.codex_review.outputs.fallback_evidence_file }}
           # Single source of truth for the PR body: a model 🔴 anchored only on
           # `PR body:L<n>` does not block when this contract passed.

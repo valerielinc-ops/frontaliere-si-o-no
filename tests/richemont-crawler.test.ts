@@ -1,15 +1,183 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+
+const runtimeState = vi.hoisted(() => {
+  class StubAntiBotBlockError extends Error {}
+  class StubNavigationTimeout extends Error {}
+  return {
+    scenario: 'none' as 'none' | 'partial-listing' | 'listing-failure' | 'detail-failure' | 'over-total-empty' | 'discovery-error',
+    calls: 0,
+    StubAntiBotBlockError,
+    StubNavigationTimeout,
+  };
+});
+
+vi.mock('../scripts/lib/ats-clients/playwright-runtime.mjs', () => {
+  const page = (result: unknown) => ({
+    waitForSelector: async () => {},
+    evaluate: async () => result,
+    content: async () => '<html></html>',
+    close: async () => {},
+  });
+  return {
+    createBrowser: vi.fn(async () => ({})),
+    createPoliteContext: vi.fn(async () => ({})),
+    closeAll: vi.fn(async () => {}),
+    AntiBotBlockError: runtimeState.StubAntiBotBlockError,
+    NavigationTimeout: runtimeState.StubNavigationTimeout,
+    fetchWithRateLimit: vi.fn(async () => {
+      runtimeState.calls += 1;
+      if (runtimeState.scenario === 'listing-failure') {
+        throw new runtimeState.StubNavigationTimeout('listing timeout');
+      }
+      if (runtimeState.scenario === 'partial-listing') {
+        return page({
+          rows: [{ id: 'jr1', title: 'Role', href: '/en/jobs/jr1/', maison: 'Cartier', department: 'IT', location: 'Geneva, CH' }],
+          total: 3,
+        });
+      }
+      if (runtimeState.scenario === 'detail-failure') {
+        if (runtimeState.calls === 1) {
+          return page({
+            rows: [{ id: 'jr1', title: 'Role', href: '/en/jobs/jr1/', maison: 'Cartier', department: 'IT', location: 'Geneva, CH' }],
+            total: 1,
+          });
+        }
+        return page('');
+      }
+      if (runtimeState.scenario === 'over-total-empty') {
+        if (runtimeState.calls === 1) {
+          return page({
+            rows: Array.from({ length: 50 }, (_, index) => ({
+              id: `jr${index + 1}`,
+              title: `Role ${index + 1}`,
+              href: `/en/jobs/jr${index + 1}/`,
+              maison: 'Cartier',
+              department: 'IT',
+              location: 'Geneva, CH',
+            })),
+            total: null,
+          });
+        }
+        return page({ rows: [], total: 10 });
+      }
+      if (runtimeState.scenario === 'discovery-error') {
+        if (runtimeState.calls === 1) {
+          return page({
+            rows: Array.from({ length: 50 }, (_, index) => ({
+              id: `jr${index + 1}`,
+              title: `Role ${index + 1}`,
+              href: `/en/jobs/jr${index + 1}/`,
+              maison: 'Cartier',
+              department: 'IT',
+              location: 'Geneva, CH',
+            })),
+            total: null,
+          });
+        }
+        throw new Error('evaluate failed');
+      }
+      throw new Error('unexpected Richemont runtime call');
+    }),
+  };
+});
+
+// The parser tests exercise the Playwright/listing contract and pure job
+// helpers; JSON-LD extraction is not part of those scenarios. Mocking it also
+// keeps this scoped sparse-checkout test independent of the optional postal
+// snapshot used by the generic prospector extractor.
+vi.mock('../scripts/lib/prospector/extract.mjs', () => ({
+  extractJsonLd: () => [],
+}));
+
+vi.mock('../scripts/lib/crawler-template.mjs', async () => {
+  const { slugify } = await import('../scripts/lib/slugify.mjs');
+  const { normalizeDescriptionBullets } = await import('../scripts/lib/description-artifacts.mjs');
+  return {
+    slugify,
+    stripHtml: (html = '') => String(html || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(),
+    normalizeDescriptionSpace: (value = '') => String(value || '')
+      .replace(/[ \t]+/g, ' ')
+      .replace(/[ \t]*\n[ \t]*/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim(),
+    normalizeDescriptionBullets,
+  };
+});
+
 import {
   RICHEMONT_KEY,
   RICHEMONT_COMPANY_NAME,
   isRichemontJob,
   isTrustedDomain,
+  fetchAllRichemontJobs,
   buildJobDescription,
   detectRichemontSourceLang,
 } from '../scripts/lib/richemont-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { slugify } from '../scripts/lib/slugify.mjs';
+
+afterEach(() => {
+  runtimeState.scenario = 'none';
+  runtimeState.calls = 0;
+  vi.useRealTimers();
+});
 
 describe('Richemont crawler parser', () => {
+  it('fails closed when pagination ends before the declared listing total', async () => {
+    runtimeState.scenario = 'partial-listing';
+
+    await expect(fetchAllRichemontJobs()).rejects.toMatchObject({
+      specListingFailure: true,
+      specDiscoveredCount: 1,
+    });
+    expect(runtimeState.calls).toBe(1);
+  });
+
+  it('fails closed when any listed detail page has no readable vacancy body', async () => {
+    runtimeState.scenario = 'detail-failure';
+
+    await expect(fetchAllRichemontJobs()).rejects.toMatchObject({
+      specDiscoveredCount: 1,
+      specDetailDrop: { candidates: 1, gone: 0, rejected: 1 },
+    });
+    expect(runtimeState.calls).toBe(2);
+  });
+
+  it('fails closed after a listing page fails on both attempts', async () => {
+    runtimeState.scenario = 'listing-failure';
+    vi.useFakeTimers();
+    const rejection = expect(fetchAllRichemontJobs()).rejects.toMatchObject({
+      specListingFailure: true,
+      specDiscoveredCount: 0,
+    });
+    await vi.runAllTimersAsync();
+
+    await rejection;
+    expect(runtimeState.calls).toBe(2);
+  });
+
+  it('fails closed when an empty page reveals a lower declared listing total', async () => {
+    runtimeState.scenario = 'over-total-empty';
+    vi.useFakeTimers();
+    const rejection = expect(fetchAllRichemontJobs()).rejects.toMatchObject({
+      specListingFailure: true,
+      specDiscoveredCount: 50,
+    });
+    await vi.runAllTimersAsync();
+
+    await rejection;
+    expect(runtimeState.calls).toBe(2);
+  });
+
+  it('rethrows an unclassified discovery error after a non-empty prefix', async () => {
+    runtimeState.scenario = 'discovery-error';
+    vi.useFakeTimers();
+    const rejection = expect(fetchAllRichemontJobs()).rejects.toThrow('evaluate failed');
+    await vi.runAllTimersAsync();
+
+    await rejection;
+    expect(runtimeState.calls).toBe(2);
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(RICHEMONT_KEY).toBe('richemont');

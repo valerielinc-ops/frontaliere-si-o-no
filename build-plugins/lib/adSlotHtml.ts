@@ -92,7 +92,7 @@ function infeedAdInnerHtml(): string {
 /** In-feed ad as a list `<li>` — for `<ul role="list">` job/employer lists. */
 export function infeedAdListItemHtml(opts?: { spanFull?: boolean }): string {
   const span = opts?.spanFull ? ' sm:col-span-2 lg:col-span-3' : '';
-  return `<li class="ft-infeed-ad my-3${span}" role="presentation">${infeedAdInnerHtml()}</li>`;
+  return `<li class="ft-infeed-ad my-3${span}">${infeedAdInnerHtml()}</li>`;
 }
 
 /** In-feed ad as a `<div>` block — for grids whose direct children are cards

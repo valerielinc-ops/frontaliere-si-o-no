@@ -67,6 +67,25 @@ describe('cathedral — per-canton sector hubs (Phase 3.2)', () => {
     expect(anyHub, 'No per-canton sector hub emitted under any sampled non-TI canton').toBe(true);
   });
 
+  it('keeps German and French canton-sector titles distinct when labels coincide', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
+    if (!fs.existsSync(DIST)) return;
+    // Appenzell is a stable regression fixture from the live audit: both
+    // locale pages use "Industrie Appenzell" as their sector/canton labels,
+    // so the title must carry an explicit locale marker.
+    const deFile = path.join(DIST, 'de', 'jobs-in-appenzell', 'produktion', 'index.html');
+    const frFile = path.join(DIST, 'fr', 'trouver-emploi-appenzell', 'industrie', 'index.html');
+    if (!fs.existsSync(deFile) || !fs.existsSync(frFile)) return;
+    const readTitle = (file: string): string => {
+      const html = fs.readFileSync(file, 'utf-8');
+      return html.match(/<title[^>]*>([^<]*)<\/title>/i)?.[1]?.trim() ?? '';
+    };
+    const deTitle = readTitle(deFile);
+    const frTitle = readTitle(frFile);
+    expect(deTitle).toBeTruthy();
+    expect(frTitle).toBeTruthy();
+    expect(deTitle).not.toBe(frTitle);
+  });
+
   it('non-TI canton × sector hubs have no job-count floor — every sampled combo is a real, indexed page, never a noindex bridge (owner decision 2026-07-16)', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     const nonTiSections = [

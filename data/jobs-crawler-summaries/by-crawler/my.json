@@ -1,7 +1,7 @@
 {
   "key": "my",
   "label": "Teo Jakob AG",
-  "generatedAt": "2026-10-30T21:49:59.727Z",
+  "generatedAt": "2026-10-31T22:04:22.992Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3168,
-  "avgDurationMs": 3168,
+  "durationMs": 3047,
+  "avgDurationMs": 3047,
   "durationHistory": [
-    3168
+    3047
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://my.jobalino.ch/job/c50bfaa76af2ccf18823f922c7c333ec/gemeinde-reiden/sachbearbeiterin-sachbearbeiter-abteilungen-dienste-und-gesellschaft",
       "source": "Teo Jakob AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:49:50.516Z",
+      "crawledAt": "2026-10-31T22:04:15.049Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -69,5 +69,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

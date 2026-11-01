@@ -1,3 +1,4 @@
+import { JOB_CATEGORY_LABELS, JOB_META_LABELS, jobMetaLocale } from '../services/jobMetaLabels';
 import { buildArchivedJobPosting } from './shared/archivedJobPosting';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { resolveReportedPostingDate, type JobPostingDateProvenance } from '../scripts/lib/job-posting-date.mjs';
@@ -6,7 +7,11 @@ import { resolveRolloutPostingDate, resolveRolloutSchemaPostingDate } from '../s
 import { createActiveJobPostingCoverage } from '../scripts/lib/active-jobposting-coverage.mjs';
 import { validateMandatoryJobPostingFields } from '../scripts/lib/jobposting-mandatory-fields.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
-import { renderJobDescriptionContent } from './shared/jobDescriptionContent';
+import {
+ renderJobDescriptionContent,
+ renderJobDescriptionVariants,
+ renderJobPostingDescription,
+} from './shared/jobDescriptionContent';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
 /**
  * Generate localized static landing pages for every job in data/jobs.json.
@@ -134,6 +139,7 @@ import { CRAWLED_COMPANY_LOGOS, logoUrlForRenderedOutput } from '../services/job
 import {
  renderJobCardHtml,
  renderJobCardListHtml,
+ jobSaveLinkAttrs,
  JOB_CARD_ICON_SYMBOLS,
  type JobCardJob,
  type JobCardLocale,
@@ -164,7 +170,7 @@ import {
 } from './shared/jobDetailHtml';
 import { renderEmployerCtaJobPage } from './shared/employerCtaBlock';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
-import { isSourceStreetAddress } from '../scripts/lib/jobposting-field-provenance.mjs';
+import { isFullyRemoteListing, isSourceStreetAddress } from '../scripts/lib/jobposting-field-provenance.mjs';
 import { formatJobEmploymentTypes, resolveJobEmploymentTypes } from '../scripts/lib/job-employment-type.mjs';
 import { salaryProvenanceSuffix } from './shared/salaryEstimateSuffix';
 import { resolveJobApplicationUrl } from '../services/jobApplicationDestination';
@@ -996,8 +1002,8 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
 export type ActiveJobReuseFragments = {
  jobPostingDatePosted: string;
  jobPostingDateProvenance: JobPostingDateProvenance;
- /** The resolved deadline; active pages always carry validThrough. */
- jobPostingValidThrough: string;
+ /** The source deadline; null when the listing states none. */
+ jobPostingValidThrough: string | null;
  jobPostingCrawledAt: string | null;
  heroBadges: string;
  mobileAction: string;
@@ -1052,7 +1058,7 @@ function replaceActiveJobReuseFragment(
 /**
  * Read the explicit source deadline for legacy provenance callers. Active
  * fragments use `resolveJobPostingValidThrough` below so the cache and fresh
- * render paths share the complete-contract fallback.
+ * render paths share one rule.
  */
 export function activeJobSourceValidThrough(job: unknown): string | null {
  const raw = job && typeof job === 'object' ? (job as Record<string, unknown>).validThrough : null;
@@ -1067,17 +1073,20 @@ export function replaceActiveJobPostingDates(
  validThrough: string | null,
  crawledAt?: string | null,
 ): string {
- // An active page never loses its JobPosting on a cache hit: a missing date
- // is a broken input, so fail closed and let the reuse layer re-render.
+ // An active page never loses a mandatory date on a cache hit: a missing or
+ // malformed deadline is a broken input, so fail closed and let reuse re-render.
  if (!datePosted) throw new Error('active JobPosting datePosted unavailable');
+ if (!validThrough || Number.isNaN(new Date(validThrough).getTime())) {
+  throw new Error('active JobPosting validThrough unavailable or invalid');
+ }
  const scriptMatch = fragment.match(
   /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/i,
  );
  if (!scriptMatch) throw new Error('missing JobPosting JSON-LD fragment');
  let script = scriptMatch[0];
  const fields: Array<[string, string]> = [
-  ['datePosted', datePosted],
-  ['validThrough', validThrough || resolveJobPostingValidThrough({}, datePosted)],
+ ['datePosted', datePosted],
+ ['validThrough', validThrough],
  ];
  // Keep the third field optional for legacy callers/tests. The production
  // active-page rewrite supplies the current crawler heartbeat when available.
@@ -1091,9 +1100,8 @@ export function replaceActiveJobPostingDates(
    script = script.replace(fieldPattern, `$1${JSON.stringify(value)}`);
    continue;
   }
-  // Older cache entries may contain a valid JobPosting but predate the
-  // complete contract. Repair the newly mandatory deadline in place so the
-  // cache hit remains usable; other missing fields still fail closed.
+ // A cached fragment without the field meets a source that now states a
+ // deadline: add it in place. Other missing fields still fail closed.
   if (field === 'validThrough') {
    const datePostedPattern = /("datePosted"\s*:\s*)(?:"[^"]*"|null)/;
    if (datePostedPattern.test(script)) {
@@ -1146,8 +1154,8 @@ function hasCompleteActiveJobPostingContract(fragment: string): boolean {
    if (records.some((record) => {
     // Date fields are deliberately excluded here because the next rewrite
     // step refreshes them on every cache hit. `datePosted` must nevertheless
-    // exist so replaceActiveJobPostingDates can replace it; validThrough may
-    // be absent because that helper repairs this one legacy field in place.
+    // exist so replaceActiveJobPostingDates can replace it. A missing or
+    // invalid resolved deadline makes that rewrite fail closed and rebuild.
     if (!Object.prototype.hasOwnProperty.call(record, 'datePosted')) return false;
     return validateMandatoryJobPostingFields(record)
      .every(({ field }) => field === 'datePosted' || field === 'validThrough');
@@ -3938,11 +3946,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    jobPostingDatePosted: resolvedJobPostingDate.value,
    jobPostingDateProvenance: resolvedJobPostingDate.provenance,
    jobPostingCrawledAt: job?.crawledAt ? String(job.crawledAt) : null,
-   jobPostingValidThrough: resolveJobPostingValidThrough(
-    job as JobInput,
-    resolvedJobPostingDate.value,
-    jobsSeoReuseBuildNow,
-   ),
+ jobPostingValidThrough: resolveJobPostingValidThrough(job as JobInput, jobsSeoReuseBuildNow),
    heroBadges: renderHeroBadges({
     job,
     locale,
@@ -4244,9 +4248,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  + timelineBlocks.reduce((sum, section) => sum + section.paragraphs.length + section.bullets.length, 0);
  const parserOriginalChunks = Math.max(1, descriptionParagraphs.length + mergedRequirements.length);
  const parserCoverage = Math.min(100, Math.round((parserAssignedChunks / parserOriginalChunks) * 100));
- const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
- `${job.title || ''} ${localizedDescription || ''} ${job.location || ''}`
- );
+ const isRemote = isFullyRemoteListing({ title: job.title, location: job.location });
  // Salary data is pre-populated by re-enrich-jobs.mjs (SECTORS estimation) —
  // values hoisted to perJob block since they are job-invariant.
  const salaryMin = perJob_salaryMin;
@@ -4325,14 +4327,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Build the canonical JobPosting schema via the shared builder — required
  // fields and the site's complete non-critical contract always. Extra
  // editorial fields (responsibilities, skills, etc.) are merged on top.
- const fullJobDescriptionHtml = renderJobDescriptionContent(localizedDescriptionRaw, locale, fullRequirements);
+ const {
+ page: fullJobDescriptionHtml,
+ schema: jobPostingSourceDescriptionHtml,
+ } = renderJobDescriptionVariants(localizedDescriptionRaw, locale, fullRequirements);
  const canonicalJobInput: JobInput = {
  id: job.id,
  slug: job.slug,
  title: localizedTitle,
- description: capJsonLdDescription(localizedDescriptionRaw.trim() || fullRequirements.length ? fullJobDescriptionHtml : finalJobPostingDescription),
+ description: capJsonLdDescription(localizedDescriptionRaw.trim() || fullRequirements.length ? jobPostingSourceDescriptionHtml : finalJobPostingDescription),
  company: job.company,
  companyKey: job.companyKey,
+ companySlug: job.companySlug,
  companyWebsite: companyWebsite(job),
  companyDomain: job.companyDomain,
  companyLogoUrl: logoUrl,
@@ -4341,16 +4347,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  addressCountry,
   postalCode: perJob_sourcePostalCode,
  streetAddress,
+ streetAddressSource: job.streetAddressSource,
+ companyRegisteredAddress: job.companyRegisteredAddress,
+ companyKnownAddress: job.companyKnownAddress,
  postingDateSource: job.postingDateSource,
  datePosted: job.datePosted,
  postedDate: job.postedDate,
  firstSeenAt: job.firstSeenAt,
+ lastSeenAt: job.lastSeenAt,
+ lastObservedAt: job.lastObservedAt,
  crawledAt: job.crawledAt,
+ scrapedAt: job.scrapedAt,
  updatedAt: job.updatedAt,
  employmentType: job.employmentType,
  contract: job.contract,
  contractType: job.contractType,
  validThrough: job.validThrough,
+ validThroughSource: job.validThroughSource,
  salaryMin: Number.isFinite(salaryMin) ? salaryMin : null,
  salaryMax: Number.isFinite(salaryMax) ? salaryMax : null,
  salaryCurrency,
@@ -4400,7 +4413,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // optional enrichment data is layered on.
  const jobLd = inlineScriptJson({
  ...canonicalSchema,
- // validThrough: the builder's source-first value or deterministic fallback.
+ // validThrough: the source deadline, already on canonicalSchema when it exists.
  // industry / occupationalCategory / applicantLocationRequirements (the
  // last one scoped to isRemote, never unconditional — see #applicant
  // LocationRequirements hardcode fix) are already present on
@@ -4521,9 +4534,9 @@ ${staticAnalyticsHtml}
  <!-- jobs-seo-reuse:hero-badges:start -->${renderHeroBadges({ job, locale, salaryMin, salaryText, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:hero-badges:end -->
  <div class="hero-sub">${esc(job.company)} · ${esc(formatJobLocation(job.location, job.canton || DEFAULT_CANTON))}</div>
  <div class="hero-meta">
- <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
- <span>${esc(`Contratto: ${formatJobEmploymentTypes(perJob_employmentTypesFor(locale), locale)}`)}</span>
- <span>${esc(`Salario: ${salaryText}`)}</span>
+ <span>${esc(`${JOB_META_LABELS[jobMetaLocale(locale)].category}: ${JOB_CATEGORY_LABELS[String(job.category || 'other')]?.[jobMetaLocale(locale)] ?? String(job.category || 'other')}`)}</span>
+ <span>${esc(`${JOB_META_LABELS[jobMetaLocale(locale)].contract}: ${formatJobEmploymentTypes(perJob_employmentTypesFor(locale), locale)}`)}</span>
+ <span>${esc(`${JOB_META_LABELS[jobMetaLocale(locale)].salary}: ${salaryText}`)}</span>
  </div>
  </section>
  <!-- jobs-seo-reuse:mobile-action:start -->${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:mobile-action:end -->
@@ -6178,7 +6191,7 @@ ${companyFollowHtml}
       : isTender
       ? `I ${jobsCount} concorsi pubblici aperti a ${location} sono accessibili anche ai frontalieri italiani con i titoli equivalenti, ma con regole di residenza più stringenti rispetto al settore privato. Per i ruoli nell'amministrazione cantonale del Ticino, alcune posizioni richiedono la residenza svizzera al momento dell'assunzione (impiegati di concetto, dirigenti); i ruoli operativi e tecnici sono di solito accessibili al frontaliere. Il riconoscimento del titolo italiano (laurea, diploma) presso SBFI/SEFRI richiede 3-6 mesi e va lanciato in parallelo all'invio del CV. Le selezioni pubbliche svizzere prevedono di solito una prova scritta + colloquio + assessment psicometrico, con tempi di chiusura di 4-8 settimane dalla scadenza.`
       : `${jobsCount} ${typeLabel} — ${location}. ${G_PERMIT_FACTS[l]} SPOP: ${G_PERMIT_SOURCE}`,
-    p2: `Stipendio, pendolarismo e cosa controllare nei singoli annunci. Il netto reale di una posizione di ${typeLabel.toLowerCase()} a ${location} dipende dal CCL applicato, dal Nuovo Accordo fiscale Italia-Svizzera 2024 (imposta concorrente con credito d'imposta italiano fino all'80 % sulla ritenuta svizzera), dai contributi sociali (AVS-AI-IPG 5,3 %, disoccupazione 1,1 %, LPP variabile 7-18 % per età) e dal regime fiscale cantonale. La differenza lordo-netto tipica è 18-28 %. Apri ogni annuncio per leggere mansionario, requisiti, sede precisa e tipologia contrattuale, poi calcola il netto effettivo nel <a class="s-U9K6Vf" href="${baseUrl}${calcPath}">simulatore stipendio</a> tenendo conto anche dei costi di pendolarismo verso ${location} (carburante, usura veicolo, tempo perso ai valichi) per un confronto onesto con un'alternativa italiana.`,
+    p2: `Stipendio, pendolarismo e cosa controllare nei singoli annunci. Il netto reale di una posizione di ${typeLabel.toLowerCase()} a ${location} dipende dal CCL applicato, dal Nuovo Accordo fiscale Italia-Svizzera 2024 (ritenuta svizzera fino all'80 % dell'imposta ordinaria e credito italiano entro la quota di IRPEF proporzionale), dai contributi sociali (AVS-AI-IPG 5,3 %, disoccupazione 1,1 %, LPP variabile 7-18 % per età) e dal regime fiscale cantonale. La differenza lordo-netto tipica è 18-28 %. Apri ogni annuncio per leggere mansionario, requisiti, sede precisa e tipologia contrattuale, poi calcola il netto effettivo nel <a class="s-U9K6Vf" href="${baseUrl}${calcPath}">simulatore stipendio</a> tenendo conto anche dei costi di pendolarismo verso ${location} (carburante, usura veicolo, tempo perso ai valichi) per un confronto onesto con un'alternativa italiana.`,
    },
    en: {
     h: `${typeLabel} jobs in ${location} for cross-border workers`,
@@ -6191,7 +6204,7 @@ ${companyFollowHtml}
       : isTender
       ? `The ${jobsCount} public tenders in ${location} are open to Italian cross-border workers with equivalent qualifications, but with stricter residence rules than the private sector. For Ticino cantonal administration roles, some senior positions require Swiss residence at hire (white-collar, executives); operational and technical roles are usually open to cross-border workers. Italian qualification recognition (degree, diploma) at SBFI/SEFRI takes 3-6 months and should be launched in parallel with applications. Swiss public selections typically include a written test + interview + psychometric assessment, with 4-8 week closing times after the deadline.`
       : `${jobsCount} ${typeLabel} — ${location}. ${G_PERMIT_FACTS[l]} SPOP: ${G_PERMIT_SOURCE}`,
-    p2: `Salary, commute and what to read in each listing. The real take-home for a ${typeLabel.toLowerCase()} role in ${location} depends on the applicable collective agreement, the 2024 Italy-Switzerland fiscal agreement (concurrent taxation, Italian tax credit up to 80 % on Swiss withholding), social charges (AVS-AI-IPG 5.3 %, unemployment 1.1 %, LPP rising from 7 % to 18 % by age) and the cantonal tax regime. The typical gross-to-net gap is 18-28 %. Open each listing for the description, requirements, exact location and contract type, then run the actual net figure in the <a class="s-U9K6Vf" href="${baseUrl}${calcPath}">salary simulator</a>, factoring in commute costs to ${location} for an honest comparison with an Italian alternative.`,
+    p2: `Salary, commute and what to read in each listing. The real take-home for a ${typeLabel.toLowerCase()} role in ${location} depends on the applicable collective agreement, the 2024 Italy-Switzerland fiscal agreement (Swiss withholding up to 80 % of the ordinary tax and an Italian credit limited to the proportional IRPEF share), social charges (AVS-AI-IPG 5.3 %, unemployment 1.1 %, LPP rising from 7 % to 18 % by age) and the cantonal tax regime. The typical gross-to-net gap is 18-28 %. Open each listing for the description, requirements, exact location and contract type, then run the actual net figure in the <a class="s-U9K6Vf" href="${baseUrl}${calcPath}">salary simulator</a>, factoring in commute costs to ${location} for an honest comparison with an Italian alternative.`,
    },
    de: {
     h: `${typeLabel} in ${location} für Grenzgänger`,
@@ -6204,7 +6217,7 @@ ${companyFollowHtml}
       : isTender
       ? `Die ${jobsCount} öffentlichen Ausschreibungen in ${location} stehen italienischen Grenzgängern mit gleichwertigen Qualifikationen offen, aber mit strikteren Wohnsitzregeln als im Privatsektor. Bei der Tessiner Kantonsverwaltung erfordern einige Senior-Positionen den Schweizer Wohnsitz bei der Anstellung (Sachbearbeitende, Kader); operative und technische Rollen stehen Grenzgängern in der Regel offen. Die Anerkennung italienischer Titel (Studium, Diplom) beim SBFI/SEFRI dauert 3-6 Monate und sollte parallel zu den Bewerbungen gestartet werden. Schweizerische öffentliche Auswahlverfahren umfassen typischerweise eine schriftliche Prüfung, ein Vorstellungsgespräch und ein psychometrisches Assessment, mit Abschlusszeiten von 4-8 Wochen nach Bewerbungsfrist.`
       : `${jobsCount} ${typeLabel} — ${location}. ${G_PERMIT_FACTS[l]} SPOP: ${G_PERMIT_SOURCE}`,
-    p2: `Lohn, Pendeln und worauf in den einzelnen Inseraten zu achten ist. Der reale Nettolohn einer ${typeLabel.toLowerCase()}-Rolle in ${location} hängt vom anwendbaren GAV, vom neuen Steuerabkommen Italien-Schweiz 2024 (konkurrierende Besteuerung, italienische Steuergutschrift bis zu 80 % auf die schweizerische Quellensteuer), den Sozialabgaben (AHV-IV-EO 5,3 %, ALV 1,1 %, BVG variabel 7-18 % nach Alter) und der kantonalen Steuerregelung ab. Der typische Brutto-Netto-Abstand beträgt 18-28 %. Öffnen Sie jedes Inserat für die Stellenbeschreibung, die Anforderungen, den genauen Arbeitsort und die Vertragsart, berechnen Sie dann den exakten Nettowert im <a class="s-U9K6Vf" href="${baseUrl}${calcPath}">Lohnsimulator</a> und beziehen Sie auch die Pendelkosten nach ${location} ein.`,
+    p2: `Lohn, Pendeln und worauf in den einzelnen Inseraten zu achten ist. Der reale Nettolohn einer ${typeLabel.toLowerCase()}-Rolle in ${location} hängt vom anwendbaren GAV, vom neuen Steuerabkommen Italien-Schweiz 2024 (Schweizer Quellensteuer bis 80 % der ordentlichen Steuer und italienische Anrechnung bis zum proportionalen IRPEF-Anteil), den Sozialabgaben (AHV-IV-EO 5,3 %, ALV 1,1 %, BVG variabel 7-18 % nach Alter) und der kantonalen Steuerregelung ab. Der typische Brutto-Netto-Abstand beträgt 18-28 %. Öffnen Sie jedes Inserat für die Stellenbeschreibung, die Anforderungen, den genauen Arbeitsort und die Vertragsart, berechnen Sie dann den exakten Nettowert im <a class="s-U9K6Vf" href="${baseUrl}${calcPath}">Lohnsimulator</a> und beziehen Sie auch die Pendelkosten nach ${location} ein.`,
    },
    fr: {
     h: `${typeLabel} à ${location} pour les frontaliers`,
@@ -6217,7 +6230,7 @@ ${companyFollowHtml}
       : isTender
       ? `Les ${jobsCount} concours publics à ${location} sont accessibles aux frontaliers italiens disposant des titres équivalents, mais avec des règles de résidence plus strictes que dans le privé. Pour les rôles dans l'administration cantonale tessinoise, certains postes seniors exigent la résidence suisse à l'engagement (employés de concept, cadres) ; les rôles opérationnels et techniques sont généralement ouverts aux frontaliers. La reconnaissance du titre italien (diplôme, licence) auprès du SBFI/SEFRI prend 3 à 6 mois et doit être lancée en parallèle des candidatures. Les sélections publiques suisses comportent typiquement une épreuve écrite, un entretien et une évaluation psychométrique, avec des délais de clôture de 4-8 semaines après la date limite.`
       : `${jobsCount} ${typeLabel} — ${location}. ${G_PERMIT_FACTS[l]} SPOP: ${G_PERMIT_SOURCE}`,
-    p2: `Salaire, trajet et points à vérifier dans chaque annonce. Le net réel d'un poste de ${typeLabel.toLowerCase()} à ${location} dépend de la convention collective applicable, du nouvel accord fiscal Italie-Suisse 2024 (imposition concurrente, crédit d'impôt italien jusqu'à 80 % sur la retenue suisse), des charges sociales (AVS-AI-APG 5,3 %, chômage 1,1 %, LPP variable 7-18 % selon l'âge) et du régime fiscal cantonal. L'écart brut-net typique est de 18-28 %. Ouvrez chaque annonce pour le descriptif, les exigences, le lieu et le type de contrat, puis calculez le net exact dans le <a class="s-U9K6Vf" href="${baseUrl}${calcPath}">simulateur de salaire</a> en tenant compte des coûts du trajet vers ${location}.`,
+    p2: `Salaire, trajet et points à vérifier dans chaque annonce. Le net réel d'un poste de ${typeLabel.toLowerCase()} à ${location} dépend de la convention collective applicable, du nouvel accord fiscal Italie-Suisse 2024 (retenue suisse jusqu'à 80 % de l'impôt ordinaire et crédit italien limité à la part d'IRPEF proportionnelle), des charges sociales (AVS-AI-APG 5,3 %, chômage 1,1 %, LPP variable 7-18 % selon l'âge) et du régime fiscal cantonal. L'écart brut-net typique est de 18-28 %. Ouvrez chaque annonce pour le descriptif, les exigences, le lieu et le type de contrat, puis calculez le net exact dans le <a class="s-U9K6Vf" href="${baseUrl}${calcPath}">simulateur de salaire</a> en tenant compte des coûts du trajet vers ${location}.`,
    },
   };
   const c = copy[l] || copy.it;
@@ -6247,22 +6260,22 @@ ${companyFollowHtml}
    it: {
     h: `Lavorare nel settore ${sectorLabel.toLowerCase()} a ${location} da frontaliere`,
     p1: `${jobsCount} ${sectorLabel} — ${location}. ${G_PERMIT_FACTS[l]} SPOP: ${G_PERMIT_SOURCE}`,
-    p2: `Stipendio e cosa controllare nei singoli annunci. Le ${jobsCount} offerte di ${sectorLabel.toLowerCase()} a ${location} pubblicano la retribuzione come lordo annuo: il netto reale dipende dal CCL applicato, dal Nuovo Accordo fiscale Italia-Svizzera 2024 (imposta concorrente con credito d'imposta italiano fino all'80 % sulla ritenuta svizzera), dai contributi sociali (AVS-AI-IPG 5,3 %, disoccupazione 1,1 % fino a 148.200 CHF/anno, LPP variabile 7-18 % per età) e dal regime fiscale cantonale. La differenza lordo-netto tipica è 18-28 %. Apri ogni annuncio per leggere mansionario, requisiti, sede precisa e tipologia contrattuale, poi calcola il netto effettivo nel <a class="s-U9K6Vf" href="/calcola-stipendio/">simulatore stipendio</a> tenendo conto anche dei costi di pendolarismo verso ${location} (carburante, usura veicolo, tempo perso ai valichi) per un confronto onesto con un'alternativa italiana.`,
+    p2: `Stipendio e cosa controllare nei singoli annunci. Le ${jobsCount} offerte di ${sectorLabel.toLowerCase()} a ${location} pubblicano la retribuzione come lordo annuo: il netto reale dipende dal CCL applicato, dal Nuovo Accordo fiscale Italia-Svizzera 2024 (ritenuta svizzera fino all'80 % dell'imposta ordinaria e credito italiano entro la quota di IRPEF proporzionale), dai contributi sociali (AVS-AI-IPG 5,3 %, disoccupazione 1,1 % fino a 148.200 CHF/anno, LPP variabile 7-18 % per età) e dal regime fiscale cantonale. La differenza lordo-netto tipica è 18-28 %. Apri ogni annuncio per leggere mansionario, requisiti, sede precisa e tipologia contrattuale, poi calcola il netto effettivo nel <a class="s-U9K6Vf" href="/calcola-stipendio/">simulatore stipendio</a> tenendo conto anche dei costi di pendolarismo verso ${location} (carburante, usura veicolo, tempo perso ai valichi) per un confronto onesto con un'alternativa italiana.`,
    },
    en: {
     h: `Working in ${sectorLabel.toLowerCase()} in ${location} as a cross-border worker`,
     p1: `${jobsCount} ${sectorLabel} — ${location}. ${G_PERMIT_FACTS[l]} SPOP: ${G_PERMIT_SOURCE}`,
-    p2: `Salary and what to read in each listing. The ${jobsCount} ${sectorLabel.toLowerCase()} openings in ${location} post compensation as gross annual figures: real take-home depends on the applicable collective agreement, the 2024 Italy-Switzerland fiscal agreement (concurrent taxation, Italian tax credit up to 80 % on the Swiss withholding), social charges (AVS-AI-IPG 5.3 %, unemployment 1.1 % up to CHF 148,200/year, LPP rising from 7 % at 25 to 18 % over 55) and the cantonal tax regime. The typical gross-to-net gap is 18-28 %. Open each listing for the job description, requirements, exact location and contract type, then run the actual net figure in the <a class="s-U9K6Vf" href="/en/calculate-salary/">salary simulator</a>, factoring in commute costs to ${location} (fuel, vehicle wear, time lost at the border) for an honest comparison with an Italian alternative.`,
+    p2: `Salary and what to read in each listing. The ${jobsCount} ${sectorLabel.toLowerCase()} openings in ${location} post compensation as gross annual figures: real take-home depends on the applicable collective agreement, the 2024 Italy-Switzerland fiscal agreement (Swiss withholding up to 80 % of the ordinary tax and an Italian credit limited to the proportional IRPEF share), social charges (AVS-AI-IPG 5.3 %, unemployment 1.1 % up to CHF 148,200/year, LPP rising from 7 % at 25 to 18 % over 55) and the cantonal tax regime. The typical gross-to-net gap is 18-28 %. Open each listing for the job description, requirements, exact location and contract type, then run the actual net figure in the <a class="s-U9K6Vf" href="/en/calculate-salary/">salary simulator</a>, factoring in commute costs to ${location} (fuel, vehicle wear, time lost at the border) for an honest comparison with an Italian alternative.`,
    },
    de: {
     h: `Als Grenzgänger im Sektor ${sectorLabel.toLowerCase()} in ${location} arbeiten`,
     p1: `${jobsCount} ${sectorLabel} — ${location}. ${G_PERMIT_FACTS[l]} SPOP: ${G_PERMIT_SOURCE}`,
-    p2: `Lohn und worauf in den einzelnen Inseraten zu achten ist. Die ${jobsCount} ${sectorLabel.toLowerCase()}-Stellen in ${location} geben Löhne als Bruttojahresgehalt an: der reale Nettolohn hängt vom anwendbaren GAV, vom neuen Steuerabkommen Italien-Schweiz 2024 (konkurrierende Besteuerung, italienische Steuergutschrift bis zu 80 % auf die schweizerische Quellensteuer), den Sozialabgaben (AHV-IV-EO 5,3 %, ALV 1,1 % bis CHF 148'200/Jahr, BVG variabel von 7 % mit 25 Jahren bis 18 % über 55) und der kantonalen Steuerregelung ab. Der typische Brutto-Netto-Abstand beträgt 18-28 %. Öffnen Sie jedes Inserat für die Stellenbeschreibung, die Anforderungen, den genauen Arbeitsort und die Vertragsart, berechnen Sie dann den exakten Nettowert im <a class="s-U9K6Vf" href="/de/gehalt-berechnen/">Lohnsimulator</a> und beziehen Sie auch die Pendelkosten nach ${location} (Treibstoff, Fahrzeugverschleiss, Wartezeit an der Grenze) ein.`,
+    p2: `Lohn und worauf in den einzelnen Inseraten zu achten ist. Die ${jobsCount} ${sectorLabel.toLowerCase()}-Stellen in ${location} geben Löhne als Bruttojahresgehalt an: der reale Nettolohn hängt vom anwendbaren GAV, vom neuen Steuerabkommen Italien-Schweiz 2024 (Schweizer Quellensteuer bis 80 % der ordentlichen Steuer und italienische Anrechnung bis zum proportionalen IRPEF-Anteil), den Sozialabgaben (AHV-IV-EO 5,3 %, ALV 1,1 % bis CHF 148'200/Jahr, BVG variabel von 7 % mit 25 Jahren bis 18 % über 55) und der kantonalen Steuerregelung ab. Der typische Brutto-Netto-Abstand beträgt 18-28 %. Öffnen Sie jedes Inserat für die Stellenbeschreibung, die Anforderungen, den genauen Arbeitsort und die Vertragsart, berechnen Sie dann den exakten Nettowert im <a class="s-U9K6Vf" href="/de/gehalt-berechnen/">Lohnsimulator</a> und beziehen Sie auch die Pendelkosten nach ${location} (Treibstoff, Fahrzeugverschleiss, Wartezeit an der Grenze) ein.`,
    },
    fr: {
     h: `Travailler dans le secteur ${sectorLabel.toLowerCase()} à ${location} en tant que frontalier`,
     p1: `${jobsCount} ${sectorLabel} — ${location}. ${G_PERMIT_FACTS[l]} SPOP: ${G_PERMIT_SOURCE}`,
-    p2: `Salaire et points à vérifier dans chaque annonce. Les ${jobsCount} offres ${sectorLabel.toLowerCase()} à ${location} publient les rémunérations en brut annuel : le net réel dépend de la convention collective applicable, du nouvel accord fiscal Italie-Suisse 2024 (imposition concurrente, crédit d'impôt italien jusqu'à 80 % sur la retenue suisse), des charges sociales (AVS-AI-APG 5,3 %, chômage 1,1 % jusqu'à CHF 148'200/an, LPP variable de 7 % à 25 ans à 18 % au-delà de 55 ans) et du régime fiscal cantonal. L'écart brut-net typique est de 18 à 28 %. Ouvrez chaque annonce pour le descriptif, les exigences, le lieu exact et le type de contrat, puis calculez le net exact dans le <a class="s-U9K6Vf" href="/fr/calculer-salaire/">simulateur de salaire</a> en tenant compte des coûts du trajet vers ${location} (carburant, usure du véhicule, temps perdu à la frontière).`,
+    p2: `Salaire et points à vérifier dans chaque annonce. Les ${jobsCount} offres ${sectorLabel.toLowerCase()} à ${location} publient les rémunérations en brut annuel : le net réel dépend de la convention collective applicable, du nouvel accord fiscal Italie-Suisse 2024 (retenue suisse jusqu'à 80 % de l'impôt ordinaire et crédit italien limité à la part d'IRPEF proportionnelle), des charges sociales (AVS-AI-APG 5,3 %, chômage 1,1 % jusqu'à CHF 148'200/an, LPP variable de 7 % à 25 ans à 18 % au-delà de 55 ans) et du régime fiscal cantonal. L'écart brut-net typique est de 18 à 28 %. Ouvrez chaque annonce pour le descriptif, les exigences, le lieu exact et le type de contrat, puis calculez le net exact dans le <a class="s-U9K6Vf" href="/fr/calculer-salaire/">simulateur de salaire</a> en tenant compte des coûts du trajet vers ${location} (carburant, usure du véhicule, temps perdu à la frontière).`,
    },
   };
   const c = copy[l] || copy.it;
@@ -9213,8 +9226,13 @@ ${staticAnalyticsHtml}
  : `${sectorDisplay} en Suisse (${sJobs.length}) ${year} | Frontaliere Ticino`
  : locale === 'it' ? `${sectorDisplay} ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
  : locale === 'en' ? `${sectorDisplay} jobs ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
- : locale === 'de' ? `${sectorDisplay} ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
- : `${sectorDisplay} ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`;
+ // Keep the locale in the title itself.  German and French can legitimately
+ // share both the sector label and the canton label (e.g. "Industrie Uri"),
+ // so the old templates collapsed two alternate URLs to the same `<title>`.
+ // The preposition/role marker is natural copy and is also the stable
+ // discriminator required by the duplicate-title audit.
+ : locale === 'de' ? `${sectorDisplay} Jobs in ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`
+ : `Emploi ${sectorDisplay} à ${cDisplay} (${sJobs.length}) ${year} | Frontaliere Ticino`;
  const pageDesc = isAggregate
  ? locale === 'it' ? `${sJobs.length} offerte di lavoro ${sectorDisplay.toLowerCase()} in Svizzera. Annunci aggiornati quotidianamente. Cerca il tuo prossimo lavoro come frontaliere.`
  : locale === 'en' ? `${sJobs.length} ${sectorDisplay.toLowerCase()} job openings across Switzerland. Listings updated daily. Find your next cross-border job.`
@@ -14449,7 +14467,7 @@ ${staticAnalyticsHtml}
  const jHref = activeCanonicalJobHref(j, locale);
  if (!jHref) return [];
  const jTitle = stripLiteralMarkdownFromTitle(jobDisplayTitle(j));
- return [`<li><a href="${jHref}">${esc(jTitle)}</a> — ${esc(j.location)}</li>`];
+ return [`<li><a href="${jHref}"${jobSaveLinkAttrs(j)}>${esc(jTitle)}</a> — ${esc(j.location)}</li>`];
  }).join('');
  if (companyJobsList) staticBodyParts.push(`<section><h2>${companyJobsHeading}</h2><ul>${companyJobsList}</ul></section>`);
  }
@@ -14517,7 +14535,7 @@ ${staticAnalyticsHtml}
  const jTitle = stripLiteralMarkdownFromTitle(jobDisplayTitle(j));
  const jCompany = String(j.company || '');
  const jLoc = String(j.location || '');
- return [`<li><a href="${jHref}">${esc(jTitle)}</a>${jCompany ? ` \u2014 ${esc(jCompany)}` : ''}${jLoc ? `, ${esc(jLoc)}` : ''}</li>`];
+ return [`<li><a href="${jHref}"${jobSaveLinkAttrs(j)}>${esc(jTitle)}</a>${jCompany ? ` \u2014 ${esc(jCompany)}` : ''}${jLoc ? `, ${esc(jLoc)}` : ''}</li>`];
  }).join('');
  if (recentList) staticBodyParts.push(`<section><h2>${recentHeading} — ${esc(displayCanton)}</h2><ul>${recentList}</ul></section>`);
  }
@@ -14628,7 +14646,7 @@ ${staticAnalyticsHtml}
  id: ejData?.id,
  slug,
  title: realTitle,
- description: renderJobDescriptionContent(jobDescription, locale, jobRequirements),
+ description: renderJobPostingDescription(jobDescription, locale, jobRequirements),
  company: realCompany,
  companyKey: ejData?.companyKey || slugInfo?.companyKey,
  companySlug: ejData?.companySlug || ejData?.companyKey || slugInfo?.companyKey,
@@ -16046,7 +16064,7 @@ ${staticAnalyticsHtml}
    url: historicalUrl, inLanguage: locale,
   });
   const archivedPosting = recordedIdentity ? buildArchivedJobPosting({
-   ...archive, slug: slugKey, title: titleRaw, company, description: renderJobDescriptionContent(description, locale, archive?.requirements || []),
+   ...archive, slug: slugKey, title: titleRaw, company, description: renderJobPostingDescription(description, locale, archive?.requirements || []),
    addressLocality: location || undefined, addressRegion: canton,
   }, notice, { locale, url: historicalUrl, baseUrl: BASE_URL, knownSlugs: knownEmployerProfileSlugs }) : null;
   const archivePostingLd = archivedPosting ? `<script type="application/ld+json">${inlineScriptJson(archivedPosting)}</script>` : '';

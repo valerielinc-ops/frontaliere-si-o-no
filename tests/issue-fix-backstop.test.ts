@@ -45,6 +45,7 @@ const backstopRun = extractBackstopRun();
 function runBackstop(
   comments: Array<{ createdAt: string; body: string }>,
   dailyItemId: string,
+  evidence: Record<string, unknown> = { status: 'verified-delivery', prNumber: 700 },
 ) {
   const tempRoot = mkdtempSync(join(tmpdir(), 'issue-fix-backstop-'));
   const commentsFile = join(tempRoot, 'comments.json');
@@ -53,7 +54,7 @@ function runBackstop(
   const evidenceFile = join(tempRoot, 'evidence.json');
   writeFileSync(commentsFile, JSON.stringify({ comments }));
   writeFileSync(baselineFile, JSON.stringify({ runStartedAt: '2026-10-19T00:00:00.000Z' }));
-  writeFileSync(evidenceFile, JSON.stringify({ status: 'verified-delivery' }));
+  writeFileSync(evidenceFile, JSON.stringify(evidence));
   const ghStub = String.raw`gh() {
   if [ "$1" = "issue" ] && [ "$2" = "view" ]; then
     cat "$BACKSTOP_COMMENTS_FILE"
@@ -529,7 +530,9 @@ describe('issue-fix FIX_OUTCOME backstop', () => {
       /RUN_STARTED_AT non verificabile dal baseline: backstop non emesso\.[\s\S]*?\n\s+exit 0\n\s+fi/,
     );
     expect(workflow).toContain('lookup commenti issue non disponibile: backstop non emesso.');
-    expect(workflow).toContain('delivery=$DELIVERY_STATUS: backstop non emesso.');
+    expect(workflow).toContain('delivery=$DELIVERY_STATUS:');
+    expect(workflow).toContain('backstop non emesso.');
+    expect(workflow).toContain('pr-delivery-evidence.mjs marker');
     expect(workflow).toContain('jq -r --arg started "$RUN_STARTED_AT"');
     expect(workflow).not.toContain(
       '--jq \'[.comments[].body | select(test("<!-- FIX_OUTCOME:"))] | length\'',
@@ -572,6 +575,16 @@ describe('issue-fix FIX_OUTCOME backstop', () => {
     expect(result.status, result.stderr).toBe(0);
     expect(result.postedBody).toContain('<!-- FIX_OUTCOME: pr-created -->');
     expect(result.postedBody).not.toContain('FOLLOWUP_ITEM');
+  });
+
+  it('emette no-pr-unspecified solo da verified-none e non da evidence unavailable', () => {
+    const none = runBackstop([], '', { status: 'verified-none', reason: 'no-current-delivery-evidence', prNumber: null });
+    expect(none.status, none.stderr).toBe(0);
+    expect(none.postedBody).toContain('<!-- FIX_OUTCOME: no-pr-unspecified -->');
+
+    const unavailable = runBackstop([], '', { status: 'unavailable', reason: 'github-read-failed', prNumber: null });
+    expect(unavailable.status, unavailable.stderr).toBe(0);
+    expect(unavailable.postedBody).toBeNull();
   });
 });
 
@@ -633,9 +646,10 @@ describe('issue-fix PR delivery verification', () => {
     expect(backstop).toContain('lookup commenti issue non disponibile: backstop non emesso.');
     expect(backstop).not.toContain('|| echo \'{"comments":[]}\'');
     expect(backstop).not.toContain('pr list --head');
-    expect(backstop).toContain('verified-delivery');
-    expect(backstop).toContain('verified-none');
-    expect(backstop).toContain('delivery=$DELIVERY_STATUS: backstop non emesso.');
+    expect(backstop).toContain('pr-delivery-evidence.mjs marker');
+    expect(backstop).toContain('--none-outcome no-pr-unspecified');
+    expect(backstop).toContain('delivery=$DELIVERY_STATUS:');
+    expect(backstop).toContain('backstop non emesso.');
   });
 
   it('attribuisce il FIX_OUTCOME del backstop all’item daily selezionato', () => {

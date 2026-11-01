@@ -9,6 +9,7 @@ import {
   verifyPharmacyReleaseContract,
 } from '../scripts/import-pharmacies-border.mjs';
 import { publicDutiesForPharmacy } from '../components/pages/PharmacyDirectory';
+import { nextVerifiedCityDuty } from '../services/pharmacies/cityEnrichment';
 import { validateBorderSnapshot } from '../scripts/check-pharmacy-border-data.mjs';
 import {
   getPharmacyReleaseEvaluation,
@@ -21,6 +22,7 @@ import {
   type PharmacyCatalogueDataset,
   type PharmacyDuty,
   type PharmacyDutiesDataset,
+  type Pharmacy,
 } from '../services/pharmacies/types';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
@@ -371,5 +373,47 @@ describe('pharmacy atomic release contract', () => {
 
     const preserved = makePair({}, { _preservedRegions: ['mendrisiotto'] });
     expect(publicDutiesForPharmacy(preserved.duties, pharmacyId, coverageName, NOW, preserved.catalogue)).toEqual([]);
+  });
+
+  it('attributes a regional city duty only to the pharmacy whose page is being rendered', () => {
+    const region = REGION_DEFINITIONS[0];
+    const pagePharmacy: Pharmacy = {
+      id: 'page-pharmacy',
+      name: 'Page Pharmacy',
+      slug: 'page-pharmacy',
+      address: 'Via Centrale 1',
+      postalCode: '6850',
+      city: 'Mendrisio',
+      canton: 'Ticino',
+      country: 'CH',
+      sourceUrl: 'https://pharmacy.test/page/',
+      sourceType: 'official',
+      lastVerifiedAt: DUTIES_FETCHED_AT,
+    };
+    const otherPharmacy: Pharmacy = {
+      ...pagePharmacy,
+      id: 'other-pharmacy',
+      name: 'Other Pharmacy',
+      slug: 'other-pharmacy',
+    };
+    const pair = makePair({ pharmacies: [pagePharmacy, otherPharmacy] }, {
+      duties: [
+        makeDuty(region, 0, {
+          pharmacyId: otherPharmacy.id,
+          startsAt: '2026-09-14T13:00:00.000Z',
+          endsAt: '2026-09-15T13:00:00.000Z',
+        }),
+        makeDuty(region, 1, {
+          pharmacyId: pagePharmacy.id,
+          startsAt: '2026-09-14T15:00:00.000Z',
+          endsAt: '2026-09-15T15:00:00.000Z',
+        }),
+        ...BASE_DUTIES.filter((duty) => duty.coverageName !== region.name),
+      ],
+    });
+
+    const result = nextVerifiedCityDuty(pagePharmacy, pair.duties, NOW, pair.catalogue);
+
+    expect(result?.duty.pharmacyId).toBe(pagePharmacy.id);
   });
 });

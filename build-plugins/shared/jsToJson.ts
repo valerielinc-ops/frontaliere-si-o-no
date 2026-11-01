@@ -18,7 +18,7 @@
  *   - baseUrl:      origin substituted for `${BASE_URL}` / bare `BASE_URL`
  *   - buildDateIso: ISO timestamp substituted for `BUILD_DATE_ISO`
  */
-import { EXCHANGE_RATE_EUR } from '../../services/seo/exchangeRateMeta';
+import { EXCHANGE_RATE_DATE, EXCHANGE_RATE_EUR } from '../../services/seo/exchangeRateMeta';
 
 export const jsToJson = (
   js: string,
@@ -35,6 +35,7 @@ export const jsToJson = (
   // tests/static-pages-seo-entry-lookup.test.ts guard — resolves it
   // identically by construction.
   s = s.replace(/\bEXCHANGE_RATE_EUR\b/g, `"${EXCHANGE_RATE_EUR}"`);
+  s = s.replace(/\bEXCHANGE_RATE_DATE\b/g, `"${EXCHANGE_RATE_DATE}"`);
   // Replace ${BASE_URL} template literals AND bare BASE_URL variable references
   s = s.replace(/\$\{BASE_URL\}/g, baseUrl);
   s = s.replace(/\bBASE_URL\b/g, `"${baseUrl}"`);

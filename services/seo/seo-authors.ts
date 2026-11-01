@@ -12,6 +12,7 @@
 
 import { AUTHORS, getAuthorBySlug, isRealAuthor, type Author } from '../../data/authors';
 import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor } from '../../data/authorLocales';
+import { AUTHOR_PAGE_COPY } from '../authorPageCopy';
 import { EDITORIAL_TEAM_ID, ORGANIZATION_ID } from './organizationLd';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -148,6 +149,56 @@ export function buildAuthorSeo(authorOrSlug: string | Author, locale: AuthorLoca
     ? buildRealAuthorJsonLd(author, canonical)
     : buildEditorialProfileJsonLd(author, canonical, locale);
   return { title, description, canonical, ogImage, jsonLd };
+}
+
+/** Canonical URL of the `/autori/` hub in a locale. */
+export function buildAuthorsHubCanonical(locale: AuthorLocale = 'it'): string {
+  const prefix = locale === 'it' ? '' : `/${locale}`;
+  return `${BASE_URL}${prefix}/${AUTHOR_SLUG_BY_LOCALE[locale]}/`;
+}
+
+/**
+ * SEO payload for the `/autori/` hub. The list is derived from the registry, so
+ * a new profile cannot miss the hub, and the two kinds keep their own node type:
+ * only real authors are `Person`.
+ */
+export function buildAuthorsHubSeo(locale: AuthorLocale = 'it'): AuthorSeo {
+  const copy = AUTHOR_PAGE_COPY[locale];
+  const canonical = buildAuthorsHubCanonical(locale);
+  const title = `${copy.hubTitle} | ${LOCALE_LABELS[locale].suffix}`;
+  return {
+    title,
+    description: copy.hubDescription,
+    canonical,
+    ogImage: `${BASE_URL}${AUTHORS[0].photoPath}`,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      '@id': `${canonical}#collection`,
+      name: copy.hubTitle,
+      description: copy.hubDescription,
+      url: canonical,
+      inLanguage: locale,
+      publisher: { '@id': ORGANIZATION_ID },
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: AUTHORS.map((author, index) => {
+          const url = buildCanonical(author.slug, locale);
+          return {
+            '@type': 'ListItem',
+            position: index + 1,
+            url,
+            item: {
+              '@type': isRealAuthor(author) ? 'Person' : 'Organization',
+              '@id': `${url}#${isRealAuthor(author) ? 'person' : 'profile'}`,
+              name: author.name,
+              url,
+            },
+          };
+        }),
+      },
+    },
+  };
 }
 
 /** Returns every (slug, locale) pair so build-time generators can iterate. */

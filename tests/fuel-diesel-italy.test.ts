@@ -78,6 +78,14 @@ function countAnchors(html: string, hrefSubstr: string): number {
 describe('diesel Italian city pages — real diesel prices + clickable stations', () => {
   const pages = generateFuelItalianCityPages({ dataset: DATASET, today: TODAY });
 
+  it('dates a city page with the day of its prices, for the sitemap', () => {
+    const lastmodByPath = new Map<string, string>();
+    generateFuelItalianCityPages({ dataset: DATASET, today: TODAY, lastmodByPath });
+    const day = lastmodByPath.get('/prezzi-diesel/italia/como/oggi/');
+    expect(day).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(day).not.toBe(TODAY.toISOString().slice(0, 10));
+  });
+
   it('emits the diesel city page for Como', () => {
     expect(pages['/prezzi-diesel/italia/como/oggi/']).toBeDefined();
   });

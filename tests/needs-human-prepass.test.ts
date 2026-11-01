@@ -37,6 +37,16 @@ describe('needs-human — tracking, non veto della PR', () => {
       .toBe('requeue');
   });
 
+  it('commenti illeggibili → keep fail-closed, senza inventare il verdetto', () => {
+    const d = prepassDecision({
+      title: 'CI Failure: tests',
+      labels: ['needs-human'],
+      commentsRead: false,
+    });
+    expect(d.action).toBe('keep');
+    expect(d.reason).toMatch(/commenti non leggibili|sconosciuti/);
+  });
+
   it('un defer tecnico non riapre alla cieca la stessa run', () => {
     const d = prepassDecision({
       title: 'CI Failure: tests',

@@ -2281,10 +2281,13 @@ export async function upsertNewsletterSubscriber(
  if (!input.skipConfirmationEmail
   && (requestsReconsentEmail || (result.status === 'pending' && !result.hadConfirmationProof))) {
  const confirmation = await requestConfirmationEmail(input.email, requestsReconsentEmail ? 'resubscribe' : undefined);
- if (!confirmation.success) {
+ // `cooldown_active` is stamped only after a successful send, so that mail
+ // left within the last hour: a retry is not a failure.
+ if (!confirmation.success && confirmation.error !== 'cooldown_active') {
   // Do not mark the UI as "email sent" when the endpoint returned a refusal.
   // The caller can retry explicitly; no local pending state is a false promise.
-  const error = new Error('newsletter/confirmation-email-failed');
+  const refusal = /^[a-z0-9_]{1,40}$/.test(confirmation.error || '') ? confirmation.error : 'unknown';
+  const error = new Error(`newsletter/confirmation-email-failed:${refusal}`);
   reportCaughtError(error, 'newsletter.requestConfirmationEmail');
   throw error;
  }

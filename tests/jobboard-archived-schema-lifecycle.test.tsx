@@ -9,7 +9,7 @@ import ts from 'typescript';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { seededJobMatchesSlug } from '../services/seededExpiredJob';
 import { parseSearchSlugFilter } from '../services/relatedSearchClusters';
-import { parseJobRouteSearchFilter } from '../components/community/JobBoard';
+import { isFullyRemoteListing } from '../scripts/lib/jobposting-field-provenance.mjs';
 
 // Execute the production effect's selected and no-selected-job paths without mounting the
 // whole board or replacing its schema cleanup with a test implementation.
@@ -17,6 +17,7 @@ const source = ts.createSourceFile('JobBoard.tsx', readFileSync('components/comm
 const callbacks: ts.ArrowFunction[] = [];
 const filterInitializers = new Map<string, string>();
 let locationParser = '';
+let routeSearchParser = '';
 function visit(node: ts.Node): void {
   if (ts.isCallExpression(node) && node.expression.getText(source) === 'useEffect') {
     const candidate = node.arguments[0];
@@ -27,6 +28,7 @@ function visit(node: ts.Node): void {
     filterInitializers.set(node.name.text, node.initializer.getText(source));
   }
   if (ts.isFunctionDeclaration(node) && node.name?.text === 'parseLocationSlugFilter') locationParser = node.getText(source);
+  if (ts.isFunctionDeclaration(node) && node.name?.text === 'parseJobRouteSearchFilter') routeSearchParser = node.getText(source).replace(/^export\s+/, '');
   ts.forEachChild(node, visit);
 }
 visit(source);
@@ -35,9 +37,10 @@ if (!callback) throw new Error('JobPosting production effect not found');
 const effectCode = ts.transpileModule(`const effect = ${callback.getText(source)}; effect();`, {
   compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
 }).outputText;
-const executeEffect = new Function('document', 'isSeededExpiredDetail', 'selectedJob', 'initialJobSlug', 'searchSlugFilter', 'companySlugFilter', 'locationSlugFilter', 'editorialLandingDescriptor', 'window', 'hasSeededExpiredData', 'bridgeTargetSlug', 'buildJobPath', 'locale', 'sanitizeJobTitle', 'companyLogoUrl', 'resolveJobPostingPostalCode', 'buildJobPostingSchema', 'resolveReportedPostingDate', 'resolveRolloutPostingDate', 'jobDisplayTitle', 'buildJobPostingEditorialFields', effectCode);
-if (!locationParser || filterInitializers.size !== 2) throw new Error('Production slug filter declarations not found');
-const filterCode = ts.transpileModule(`${locationParser}
+const executeEffect = new Function('document', 'isSeededExpiredDetail', 'selectedJob', 'initialJobSlug', 'searchSlugFilter', 'companySlugFilter', 'locationSlugFilter', 'editorialLandingDescriptor', 'window', 'hasSeededExpiredData', 'bridgeTargetSlug', 'buildJobPath', 'locale', 'sanitizeJobTitle', 'companyLogoUrl', 'resolveJobPostingPostalCode', 'buildJobPostingSchema', 'resolveReportedPostingDate', 'resolveRolloutPostingDate', 'jobDisplayTitle', 'buildJobPostingEditorialFields', 'isFullyRemoteListing', effectCode);
+if (!locationParser || !routeSearchParser || filterInitializers.size !== 2) throw new Error('Production slug filter declarations not found');
+const filterCode = ts.transpileModule(`${routeSearchParser}
+  ${locationParser}
   const useMemo = (read: () => unknown) => read();
   const jobs = [];
   const search = ${filterInitializers.get('searchSlugFilter')};
@@ -45,7 +48,7 @@ const filterCode = ts.transpileModule(`${locationParser}
   return { search, location };`, {
   compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
 }).outputText;
-const executeFilters = new Function('initialJobSlug', 'isSeededExpiredDetail', 'isBridgePage', 'parseSearchSlugFilter', 'parseJobRouteSearchFilter', filterCode);
+const executeFilters = new Function('initialJobSlug', 'isSeededExpiredDetail', 'isBridgePage', 'parseSearchSlugFilter', filterCode);
 const seededWindow = window as unknown as { __EXPIRED_JOB_DATA__?: { slug: string; title: string } };
 
 function runEffect(slug?: string, locationFilter: string | null = null) {
@@ -68,7 +71,7 @@ describe('archived JobPosting hydration and list navigation', () => {
     const selected = { id: 'active', slug: 'active', title: 'Infermiere', company: 'Example SA', location: 'Lugano', canton: 'TI', addressLocality: 'Lugano', postingDateSource, datePosted: date, postedDate: date, crawledAt: date, validThrough: new Date(Date.now() + 7 * 86400000).toISOString(), requirements: ['Laurea in infermieristica'], description: 'Assistenza infermieristica ai pazienti nel reparto clinico e collaborazione con il gruppo sanitario.' };
     document.head.insertAdjacentHTML('beforeend', '<script id="faq" type="application/ld+json">{"@type":"FAQPage","mainEntity":[]}</script>');
     document.body.innerHTML = '<h1>Infermiere</h1><a href="https://employer.test/apply/">Candidati</a>';
-    const run = (job: typeof selected) => executeEffect(document, false, job, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle, buildJobPostingEditorialFields);
+    const run = (job: typeof selected) => executeEffect(document, false, job, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle, buildJobPostingEditorialFields, isFullyRemoteListing);
     run(selected);
     expect(document.getElementById('archived-posting')).toBeNull();
     const fallback = document.getElementById('jobposting-structured-data');
@@ -80,7 +83,7 @@ describe('archived JobPosting hydration and list navigation', () => {
     expect(document.querySelector('h1')?.textContent).toBe('Infermiere');
     expect(document.querySelector('a')?.getAttribute('href')).toBe('https://employer.test/apply/');
     // A subsequent genuine source date restores eligible schema without remounting.
-    executeEffect(document, false, { ...selected, postingDateSource: 'reported' }, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle, buildJobPostingEditorialFields);
+    executeEffect(document, false, { ...selected, postingDateSource: 'reported' }, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle, buildJobPostingEditorialFields, isFullyRemoteListing);
     expect(JSON.parse(document.getElementById('jobposting-structured-data')!.textContent!)['@graph'][0].datePosted).toBe(date);
     run(selected);
     // An active detail always retains JobPosting, even when the source date
@@ -106,7 +109,7 @@ describe('archived JobPosting hydration and list navigation', () => {
       expect(input[field]).toBe('');
       return null;
     };
-    executeEffect(document, false, selected, 'invalid', null, null, null, null, window, () => false, null, () => '/lavoro/invalid/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, rejectingBuilder, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle, buildJobPostingEditorialFields);
+    executeEffect(document, false, selected, 'invalid', null, null, null, null, window, () => false, null, () => '/lavoro/invalid/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, rejectingBuilder, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle, buildJobPostingEditorialFields, isFullyRemoteListing);
     expect(document.getElementById('jobposting-structured-data')).toBeNull();
     expect(document.querySelectorAll('script[type="application/ld+json"]')).toHaveLength(0);
   });
@@ -135,13 +138,13 @@ describe('archived JobPosting hydration and list navigation', () => {
 
   it.each(['search-engineer-acme', 'location-manager-acme'])('treats matching archive %s as a detail instead of a filter landing', (slug) => {
     seededWindow.__EXPIRED_JOB_DATA__ = { slug, title: 'Historical vacancy' };
-    expect(executeFilters(slug, seededJobMatchesSlug(slug), false, parseSearchSlugFilter, parseJobRouteSearchFilter)).toEqual({ search: null, location: null });
+    expect(executeFilters(slug, seededJobMatchesSlug(slug), false, parseSearchSlugFilter)).toEqual({ search: null, location: null });
   });
 
   it('keeps real search and location filters available after leaving an archive', () => {
     seededWindow.__EXPIRED_JOB_DATA__ = { slug: 'search-engineer-acme', title: 'Historical vacancy' };
     for (const slug of ['search-infermiere', 'location-lugano']) {
-      const filters = executeFilters(slug, seededJobMatchesSlug(slug), false, parseSearchSlugFilter, parseJobRouteSearchFilter);
+      const filters = executeFilters(slug, seededJobMatchesSlug(slug), false, parseSearchSlugFilter);
       expect(filters.search || filters.location).toBeTruthy();
     }
   });

@@ -35,6 +35,8 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
+  FIX_OUTCOME,
+  FIX_OUTCOME_CODES,
   FIX_OUTCOME_RE,
   STRUCTURAL_OUTCOMES,
   HOLD_MARKER,
@@ -60,6 +62,11 @@ const blockedVerdict = (msAgo = 2 * 3600 * 1000) => ({
 });
 
 describe('FIX_OUTCOME_RE — parses the marker exactly as followup-drainer.mjs does', () => {
+  it('uses the canonical terminal vocabulary, including deterministic delivery outcomes', () => {
+    expect(FIX_OUTCOME_CODES).toContain(FIX_OUTCOME.NO_PR_UNSPECIFIED);
+    expect(FIX_OUTCOME_CODES).toContain(FIX_OUTCOME.MAX_TURNS);
+  });
+
   it('extracts the code from the real marker string found on corpus #76/#77', () => {
     const m = FIX_OUTCOME_RE.exec('bla\n<!-- FIX_OUTCOME: blocked-workflows-scope -->');
     expect(m?.[1]).toBe('blocked-workflows-scope');
@@ -171,6 +178,15 @@ describe('decideStructuralHold — the graveyard valves (the opposite risk)', ()
     for (const code of ['overlap-skip', 'pr-already-open']) {
       expect(decideStructuralHold([{ createdAt: iso(DAY), body: `<!-- FIX_OUTCOME: ${code} -->` }], { now: NOW }).hold, code).toBe(false);
     }
+  });
+
+  it('does NOT hold a verified empty delivery marker', () => {
+    const d = decideStructuralHold([{
+      createdAt: iso(DAY),
+      body: `<!-- FIX_OUTCOME: ${FIX_OUTCOME.NO_PR_UNSPECIFIED} -->`,
+    }], { now: NOW });
+    expect(d.hold).toBe(false);
+    expect(d.code).toBe(FIX_OUTCOME.NO_PR_UNSPECIFIED);
   });
 
   it('TTL: a blocked verdict stale beyond the ceiling closes anyway, with the reason', () => {

@@ -62,7 +62,7 @@ export const ADMIN_SECTIONS: readonly AdminSection[] = [
     slug: 'redazione',
     label: 'Redazione',
     group: 'redazione',
-    description: 'Profili editoriali e cataloghi degli articoli.',
+    description: 'Persone reali, firme editoriali e cataloghi degli articoli.',
   },
   {
     slug: 'giornalisti',

@@ -2,6 +2,15 @@ import { resolveDomain as defaultResolveDomain } from './domain-resolve.mjs';
 import { isRetryableTraceStatus, traceCareers as defaultTraceCareers, traceFromCareersUrl as defaultTraceFromCareersUrl } from './careers-trail.mjs';
 import { registrableDomain } from './registrable.mjs';
 
+function employerIdentity(candidate) {
+  const tried = new Set(candidate.emailDomainHintsTried || []);
+  const hints = candidate.emailDomainHints || [];
+  const identity = { name: candidate.name, city: candidate.city, zip: candidate.zip };
+  if (!hints.length) return identity;
+  // A hint can pass as the owner and then prove unusable: untried ones go first.
+  return { ...identity, domainHints: [...hints.filter((d) => !tried.has(d)), ...hints.filter((d) => tried.has(d))] };
+}
+
 /**
  * Trace one candidate, preferring a supplied careers URL over guessing an
  * employer domain. A URL without an independently known employer domain is
@@ -19,7 +28,7 @@ export async function traceCandidate(candidate, deps = {}) {
   let domain = candidate.domain ? registrableDomain(candidate.domain) : null;
   let resolution = null;
   if (!domain && !candidate.careersUrl) {
-    resolution = await resolve({ name: candidate.name, city: candidate.city, zip: candidate.zip });
+    resolution = await resolve(employerIdentity(candidate));
     domain = resolution.domain;
   }
   if (!domain && !candidate.careersUrl) {
@@ -77,7 +86,7 @@ export async function traceCandidate(candidate, deps = {}) {
   // the employer independently before allowing the candidate into SYNTHESIZE
   // or attributing any outbound host to it.
   if (!domain && candidate.careersUrl) {
-    resolution = await resolve({ name: candidate.name, city: candidate.city, zip: candidate.zip });
+    resolution = await resolve(employerIdentity(candidate));
     domain = resolution?.domain ? registrableDomain(resolution.domain) : null;
   }
   if (!domain) {

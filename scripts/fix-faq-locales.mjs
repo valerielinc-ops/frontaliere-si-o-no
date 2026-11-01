@@ -255,6 +255,177 @@ function hasSourcePassthroughField(left, right) {
     && (isSourcePassthrough(right.q, left.q) || isSourcePassthrough(right.a, left.a));
 }
 
+// The trigram detector can read a translated FAQ as the source language when
+// names, places, or titles dominate the pair.  Keep this corroboration local to
+// the site writer: the corpus helper has different callers and a different
+// contract.  These are distinctive function words, not a general dictionary;
+// two hits are the measured floor for treating a source-language detection as
+// actionable.  Exact source passthrough remains a separate hard failure above.
+const SOURCE_FUNCTIONAL_WORDS = Object.freeze({
+  it: Object.freeze([
+    'dalla', 'dalle', 'dagli', 'della', 'delle', 'degli', 'dello',
+    'nella', 'nelle', 'nello',
+    'presso', 'oppure', 'anche', 'tramite', 'sulla', 'sulle', 'senza',
+  ]),
+  en: Object.freeze([
+    'with', 'and', 'for', 'the', 'your', 'our', 'within', 'including',
+  ]),
+  de: Object.freeze([
+    'mit', 'und', 'fuer', 'fur', 'bei', 'beim', 'oder', 'von', 'vom', 'zur',
+    'zum', 'im', 'der', 'den', 'dem', 'das', 'ein', 'eine', 'einen', 'einem',
+    'einer', 'aus', 'auf', 'nach', 'uber', 'ueber', 'unter', 'sowie', 'als',
+    'zwischen', 'wahrend', 'waehrend', 'inkl', 'gesucht',
+  ]),
+  fr: Object.freeze([
+    'avec', 'pour', 'dans', 'chez', 'ainsi', 'selon', 'aupres', 'notre',
+    'votre', 'entre',
+  ]),
+});
+
+export const SOURCE_FUNCTIONAL_WORD_THRESHOLD = 2;
+
+// A source-language detector result may be caused by a preserved person or
+// locality name, but only when the surrounding words still carry target-
+// language evidence.  These are contextual markers, not a replacement
+// language detector: the source-language branch remains fail-closed unless
+// the entity exception can be demonstrated from the pair itself.
+const TARGET_CONTEXT_WORDS = Object.freeze({
+  en: Object.freeze([
+    'who', 'what', 'where', 'when', 'why', 'how', 'is', 'are', 'was', 'were',
+    'be', 'from', 'can', 'may', 'will', 'the', 'and', 'with', 'for', 'our',
+    'your', 'within', 'including',
+  ]),
+  de: Object.freeze([
+    'wer', 'was', 'wie', 'ist', 'sind', 'wird', 'werden', 'fur', 'uber',
+    'und', 'oder', 'bei', 'mit', 'das', 'ein', 'eine', 'sich', 'auf', 'aus',
+    'ihre', 'unser', 'nach', 'kann', 'dieser',
+  ]),
+  fr: Object.freeze([
+    'qui', 'que', 'quoi', 'ou', 'comment', 'est', 'sont', 'etre', 'avoir',
+    'avec', 'pour', 'dans', 'votre', 'notre', 'une', 'des', 'sur', 'les',
+    'par', 'entre',
+  ]),
+});
+
+const PROPER_NAME_LOCALITY_PREPOSITIONS = new Set([
+  'a', 'ad', 'al', 'alla', 'alle', 'ai', 'agli', 'in', 'da', 'dal', 'dalla',
+  'dalle', 'di', 'del', 'della', 'delle', 'su', 'sul', 'sulla', 'presso',
+  'from', 'at', 'near', 'to', 'on', 'de', 'du', 'des', 'en', 'au',
+  'aux', 'chez',
+]);
+
+const COMMON_SENTENCE_LEADS = new Set([
+  'a', 'ad', 'al', 'alla', 'alle', 'ai', 'agli', 'bisogna', 'come', 'che',
+  'chi', 'cosa', 'dove', 'e', 'il', 'i', 'la', 'le', 'non', 'per',
+  'quale', 'quali', 'quanto', 'the', 'this', 'what', 'where', 'who', 'a',
+  'an', 'and', 'der', 'die', 'das', 'ein', 'eine', 'wer', 'was', 'wie',
+  'le', 'les', 'une', 'qui', 'que', 'ou',
+]);
+
+function normalizedWords(text) {
+  return String(text || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .match(/[\p{L}]+/gu) || [];
+}
+
+function normalizeWord(word) {
+  return String(word || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
+
+function isSentenceStart(text, start) {
+  return /(?:^|[.!?…]\s*|\n\s*)$/u.test(text.slice(0, start));
+}
+
+/**
+ * Allow the low-hit source-language false-positive only for an actual
+ * name/locality context.  A capitalized token alone is not enough: after
+ * masking the candidate, the remaining prose must still show target-language
+ * markers and must no longer be detected as the source language.  This keeps
+ * an Italian paraphrase with a single place name fail-closed.
+ */
+function hasProperNameOrLocalityContext(text, expectedLocale, sourceText, sourceLang) {
+  const tokens = [...String(text || '').matchAll(/[\p{L}]+/gu)].map((match, index) => ({
+    raw: match[0],
+    normalized: normalizeWord(match[0]),
+    start: match.index,
+    end: match.index + match[0].length,
+    sentenceStart: isSentenceStart(text, match.index),
+    index,
+  }));
+  if (!tokens.length) return false;
+
+  const sourceWords = new Set(normalizedWords(sourceText));
+  const entityIndexes = new Set();
+  for (const token of tokens) {
+    if (!/^\p{Lu}/u.test(token.raw)) continue;
+
+    const previous = tokens[token.index - 1];
+    const next = tokens[token.index + 1];
+    const gapBefore = previous
+      ? text.slice(previous.end, token.start)
+      : text.slice(0, token.start);
+    const gapAfter = next ? text.slice(token.end, next.start) : '';
+    const previousWord = previous?.normalized || '';
+    const adjacentCapitalized = (
+      next
+      && /^\p{Lu}/u.test(next.raw)
+      && /^\s+$/u.test(gapAfter)
+    ) || (
+      previous
+      && /^\p{Lu}/u.test(previous.raw)
+      && /^\s+$/u.test(gapBefore)
+    );
+    const localityCue = PROPER_NAME_LOCALITY_PREPOSITIONS.has(previousWord);
+    const commonSentenceLead = token.sentenceStart && COMMON_SENTENCE_LEADS.has(token.normalized);
+    const sourceBackedSentenceLead = token.sentenceStart
+      && sourceWords.has(token.normalized)
+      && !commonSentenceLead;
+
+    if (
+      localityCue
+      || adjacentCapitalized
+      || (!token.sentenceStart && !commonSentenceLead)
+      || sourceBackedSentenceLead
+    ) {
+      entityIndexes.add(token.index);
+    }
+  }
+  if (!entityIndexes.size) return false;
+
+  const remainingWords = tokens
+    .filter((token) => !entityIndexes.has(token.index))
+    .map((token) => token.normalized);
+  if (remainingWords.length < 3) return false;
+
+  const targetMarkers = new Set([
+    ...(SOURCE_FUNCTIONAL_WORDS[expectedLocale] || []),
+    ...(TARGET_CONTEXT_WORDS[expectedLocale] || []),
+  ].map(normalizeWord));
+  const targetEvidence = new Set(remainingWords.filter((word) => targetMarkers.has(word)));
+  if (targetEvidence.size < 2) return false;
+
+  // The second detection uses the source locale as fallback so a short,
+  // masked fragment cannot pass merely because the target was supplied as the
+  // detector fallback.  A target-context marker pair is the positive evidence
+  // for the narrow exception; source-language detection is still a veto.
+  return detectLanguage(text.replace(/[\p{L}]+/gu, (word, offset) => {
+    const token = tokens.find((candidate) => candidate.start === offset);
+    return token && entityIndexes.has(token.index) ? ' '.repeat(word.length) : word;
+  }), sourceLang) !== sourceLang;
+}
+
+/** Count language-specific function-word evidence without a generic fallback. */
+export function countSourceFunctionalWords(text, sourceLang) {
+  const words = new Set(SOURCE_FUNCTIONAL_WORDS[sourceLang] || []);
+  if (!words.size) return 0;
+  return normalizedWords(text).filter((word) => words.has(word)).length;
+}
+
 /**
  * Check the unit that the writer actually translates: one FAQ pair.
  *
@@ -285,7 +456,24 @@ export function wrongLocalePair(faqArray, expectedLocale, sourceFaq = null, sour
     if (text.length < 50) continue; // too short to detect
     const detected = detectLanguage(text, expectedLocale);
     if (detected !== expectedLocale) {
-      return { index, detected, via: 'lingua' };
+      const sourceFunctionalWordHits = detected === sourceLang
+        ? countSourceFunctionalWords(text, sourceLang)
+        : 0;
+      // A source-language detector result without enough source function words
+      // is not sufficient evidence: proper names and place names are allowed
+      // to remain in a real translation. Other wrong-language detections stay
+      // hard failures because they are not this known source-language FP.
+      if (
+        detected === sourceLang
+        && sourceFunctionalWordHits < SOURCE_FUNCTIONAL_WORD_THRESHOLD
+        && hasProperNameOrLocalityContext(
+          text,
+          expectedLocale,
+          sourceFaq?.[index] && `${sourceFaq[index].q || ''} ${sourceFaq[index].a || ''}`,
+          sourceLang,
+        )
+      ) continue;
+      return { index, detected, via: 'lingua', sourceFunctionalWordHits };
     }
   }
 

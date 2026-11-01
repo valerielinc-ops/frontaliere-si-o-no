@@ -100,6 +100,18 @@ const listOf = (n: number, prefix = 'a/f') =>
   Array.from({ length: n }, (_, i) => `${prefix}${String(i).padStart(4, '0')}.ts`);
 
 describe('fetchPrFiles — le tre modalita di gh pr view --json changedFiles,files', () => {
+  it('propaga il verdetto transient tipizzato del review gate', () => {
+    const transient = Object.assign(new Error('review API rate-limited'), {
+      code: 'REVIEW_GATE_TRANSIENT',
+      failureKind: 'transient',
+    });
+    const gh = () => {
+      throw transient;
+    };
+
+    expect(() => fetchPrFiles(1, gh as never, 'o/r')).toThrow(transient);
+  });
+
   it('<=100 file: usa la vista combinata e NON chiama la REST', () => {
     const { fn, calls } = fakeGh({ view: { changedFiles: 12, files: listOf(12) }, rest: 'non-deve-servire\n' });
     const { files, complete } = fetchPrFiles(1, fn as never, 'o/r');

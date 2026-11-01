@@ -33,11 +33,15 @@ function stepRun(file: string, name: string): string {
 export function alwaysPackedMembers(packRun: string): string[] {
   const m = packRun.match(/^\s*members=\(([^)]*)\)/m);
   if (!m) return [];
-  return m[1]
+  const members = m[1]
     .replace(/\$\{\{\s*matrix\.locale\s*\}\}/g, '<loc>')
     .trim()
     .split(/\s+/)
     .map((tok) => tok.replace(/^"|"$/g, ''));
+  if (/^\s*members\+=\(locale-sitemap-manifest\.json\)\s*$/m.test(packRun)) {
+    members.push('locale-sitemap-manifest.json');
+  }
+  return members;
 }
 
 /** dist-relative paths the extract step treats as fatal when missing. */
@@ -63,7 +67,7 @@ describe('non-IT source artifact: the extract requires only what the pack always
   const extractRun = stepRun('deploy-publish.yml', 'Extract non-IT source artifact');
 
   it('the pack always includes the locale subtree and build-id.txt', () => {
-    expect(alwaysPackedMembers(packRun)).toEqual(['<loc>', 'build-id.txt']);
+    expect(alwaysPackedMembers(packRun)).toEqual(['<loc>', 'build-id.txt', 'locale-sitemap-manifest.json']);
   });
 
   it('every fatal check of the extract is covered by an always-packed member', () => {

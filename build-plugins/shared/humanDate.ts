@@ -59,3 +59,18 @@ export function formatUpdatedSentence(dateStamp: string, locale: LandingLocale):
       return `Mis à jour le ${date}`;
   }
 }
+
+/** "Sources checked" sentence: a check against sources, not a human review. */
+export function formatSourcesCheckedSentence(dateStamp: string, locale: LandingLocale): string {
+  const date = formatUpdatedDate(dateStamp, locale);
+  switch (locale) {
+    case 'it':
+      return `Fonti verificate ${[1, 8, 11].includes(Number(dateStamp.slice(8, 10))) ? "l'" : 'il '}${date}`;
+    case 'en':
+      return `Sources checked ${date}`;
+    case 'de':
+      return `Quellen geprüft am ${date}`;
+    case 'fr':
+      return `Sources vérifiées le ${date}`;
+  }
+}

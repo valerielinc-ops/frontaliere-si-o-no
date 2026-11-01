@@ -41,6 +41,7 @@ import {
   type SitemapEntry,
 } from './helpers/sitemapTransitWindow';
 import {
+  indexExcludedArticleIds,
   loadSectionCanonicalOverrides,
   shadowedArticleIds,
 } from '../scripts/lib/article-canonical-overrides.mjs';
@@ -155,7 +156,10 @@ function sitemapFrontier(entries: readonly SitemapEntry[], itPattern: RegExp): s
  */
 function blogShadowedIds(slugs: Record<string, Record<string, string>>): Set<string> {
   const root = path.resolve(__dirname, '..');
-  return shadowedArticleIds(loadSectionCanonicalOverrides(root, 'frontaliere'), slugs);
+  return new Set([
+    ...shadowedArticleIds(loadSectionCanonicalOverrides(root, 'frontaliere'), slugs),
+    ...indexExcludedArticleIds(root, 'frontaliere', slugs),
+  ]);
 }
 
 function announce(what: string, frontierLabel: string, frontier: string | undefined, rows: string[]): void {

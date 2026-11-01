@@ -68,6 +68,16 @@ export type FaqHubEntry = Readonly<{
    * a short form is authored copy, never a machine-clipped question.
    */
   titleShort?: Readonly<Partial<Record<FaqHubLocale, string>>>;
+  /**
+   * ISO date (`YYYY-MM-DD`) on which the answer was actually checked against
+   * the primary sources in `sources`. Set it only when that check happened. It
+   * is shown as "Fonti verificate il …" and says nothing about who checked: it
+   * is not a human review and never becomes `reviewedBy`.
+   *
+   * The date of the last text change is separate and derived, see
+   * `services/contentDates.ts`.
+   */
+  sourcesCheckedAt?: string;
   answer: FaqHubLocalizedString;
   relatedLinks?: ReadonlyArray<FaqHubRelatedLink>;
   sources?: ReadonlyArray<string>;

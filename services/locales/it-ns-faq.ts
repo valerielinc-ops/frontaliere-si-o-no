@@ -21,7 +21,7 @@ const translations: Record<string, string> = {
  'faq.questions.taxes.q3': 'Posso dedurre il 3° pilastro in Italia?',
  'faq.questions.taxes.a3': 'I versamenti al pilastro 3a sono deducibili dall\'imposta alla fonte svizzera. In Italia non sono deducibili ma rientrano nel reddito complessivo.',
  'faq.questions.taxes.q4': 'Cosa sono i ristorni fiscali?',
- 'faq.questions.taxes.a4': 'Sono il 38.8% delle imposte alla fonte pagate in CH, restituiti ai comuni italiani di confine. Non sono un beneficio diretto per il frontaliere.',
+ 'faq.questions.taxes.a4': 'Sono il 40% dell\'imposta lorda dei frontalieri dell\'art. 9, versato dai Cantoni all\'Italia fino all\'anno fiscale 2033. Non sono un beneficio diretto per il lavoratore.',
  'faq.questions.taxes.q5': 'Devo dichiarare il conto bancario svizzero?',
  'faq.questions.taxes.a5': 'Sì, va dichiarato nel quadro RW del Modello Redditi PF per il monitoraggio fiscale. Non si paga IVAFE sui conti correnti svizzeri.',
  'faq.questions.taxes.q6': 'Come funziona il Modello Redditi PF per i frontalieri?',

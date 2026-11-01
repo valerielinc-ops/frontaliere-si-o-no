@@ -160,7 +160,7 @@ describe('editorial transparency disclosure matches how the article was produced
     expect(staticSrc).toMatch(/resolveArticleProvenance\(\{ aiAssisted: en\.aiAssisted \}, authorProfile\)/);
     expect(staticSrc).toMatch(/const articleProvenance = resolvedAuthor\s+\?\s+resolvedAuthor\.provenance/);
     expect(staticSrc).toMatch(/const articleTransparencyAuthorName = en\.authorName\.trim\(\) \|\| resolvedAuthor\?\.name/);
-    expect(staticSrc).toMatch(/buildArticleTransparencyAside\(locale, articleTransparencyAuthorName, articleProvenance\)/);
+    expect(staticSrc).toMatch(/buildArticleTransparencyAside\(locale, articleTransparencyAuthorName, articleProvenance, articleBodyHtml\)/);
     expect(overlaySrc).toMatch(/typeof entry\.aiAssisted === 'boolean' \? \{ aiAssisted: entry\.aiAssisted \}/);
     expect(spaSrc).toMatch(/provenance:\s*resolveArticleProvenance\(article,\s*canonicalAuthor\)/);
   });

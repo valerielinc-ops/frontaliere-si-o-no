@@ -36,6 +36,7 @@ import {
   robotsMetaEnhancedForContent,
 } from './constants';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
+import { localeHomeUrl } from './shared/breadcrumbHome';
 import { jobBoardHeadTags } from './jobBoardGpt';
 import { buildJobBoardUrl } from './cityJobsAggregate';
 import {
@@ -593,7 +594,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: localeHomeUrl(locale, BASE_URL) },
       { '@type': 'ListItem', position: 2, name: SECTION_NAME[locale], item: sectionRootUrl },
       { '@type': 'ListItem', position: 3, name: seo.h1, item: canonicalUrl },
     ],

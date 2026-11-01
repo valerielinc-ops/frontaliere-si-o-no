@@ -197,6 +197,11 @@ async function main() {
     }
     check('it starts from the posting and signs in with the alias, never with Google', state.email === kit.identity.email && state.google === false);
     check('it attaches the CV under its name, never to the avatar', state.file === 'CV_Luigi_Prova.pdf' && state.fileSize === pdf.length);
+    // Fixture values only: keep a combined failure actionable without dumping
+    // the candidate kit, page content or data from a real application.
+    if (state.first !== 'Luigi' || state.last !== 'Prova' || state.city !== 'Como') {
+      console.log('synthetic identity result', JSON.stringify({ first: state.first, last: state.last, city: state.city }));
+    }
     check('it types the names and picks the searched city', state.first === 'Luigi' && state.last === 'Prova' && state.city === 'Como');
     check('it answers the lettered choices and the calendar as the runner did', state.availability === 'Oltre 3 mesi' && state.gender === 'N/A' && state.dob === '1986-09-12');
     check('it never presses the send button', state.submits === 0);

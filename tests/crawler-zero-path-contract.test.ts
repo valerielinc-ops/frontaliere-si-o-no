@@ -58,10 +58,12 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // Giorgio Armani runner too. The budget must EQUAL the count: lower it in
     // the same PR that instruments a runner; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if([...s.matchAll(/registerCrawlerSummaryGuard\(([^()]*)\)/g)].some(m=>m[1].split(',').filter(a=>a.trim()).length===2))n++}console.log(n)"
-    // 104 → 100: update-lis-jobs.mjs, update-pkb-private-bank-jobs.mjs, the
-    // DXT runner, and update-giorgio-armani-jobs.mjs now record their counters
-    // or proven empty snapshot.
-    const TWO_ARGUMENT_GUARD_BUDGET = 100;
+    // 104 → 99: the existing four runners above plus
+    // update-citta-di-lugano-jobs.mjs now pass `summaryCounts` as the third
+    // argument. Its `fetchResult` assignments populate discovered/parsed and
+    // fetch outcome, and the zero path assigns the validated `no-jobs-parsed`
+    // kind, so this runner no longer has the null-counter guard shape.
+    const TWO_ARGUMENT_GUARD_BUDGET = 99;
     const offenders = customRunners
       .filter(({ source }) => summaryGuardCalls(source).some((args) => args.length === 2))
       .map(({ name }) => name);
@@ -89,9 +91,14 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // The budget must EQUAL the count: lower it in the same PR in which a
     // runner starts naming its bail-out; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if(s.includes('registerCrawlerSummaryGuard(')&&!/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(s))n++}console.log(n)"
-    // 113 → 110: update-lis-jobs.mjs, update-pkb-private-bank-jobs.mjs, and
-    // update-giorgio-armani-jobs.mjs now classify their zero-path abort kind.
-    const NO_ABORT_KIND_BUDGET = 110;
+    // 113 → 104: the existing three runners above plus the zero-job exits in
+    // update-casale-jobs.mjs, update-citta-di-lugano-jobs.mjs,
+    // update-ems-chemie-jobs.mjs, update-ferrovia-retica-jobs.mjs,
+    // update-helsinn-jobs.mjs, and update-sintetica-jobs.mjs now name their
+    // bail-out. Each call/assignment is in the runner's pre-return path and
+    // uses the shared `no-jobs-parsed` vocabulary, so the debt count really
+    // decreased rather than the guard being bypassed.
+    const NO_ABORT_KIND_BUDGET = 104;
     const offenders = customRunners
       .filter(({ source }) => !/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(source))
       .map(({ name }) => name);

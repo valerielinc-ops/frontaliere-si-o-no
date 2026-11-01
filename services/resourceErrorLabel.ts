@@ -31,3 +31,22 @@ export const buildResourceErrorLabel = (rawUrl: string): string => {
  if (tailLength <= 0) return label.slice(0, GA4_PARAM_MAX_CHARS);
  return `${host}${ELLIPSIS}${label.slice(-tailLength)}`;
 };
+
+/**
+ * What a failed load looked like, for the registered `details` dimension: the
+ * link rel, whether the page was visible and online, whether it reloaded, and
+ * whether this session has also seen a blocker-pattern resource fail.
+ */
+export const buildResourceErrorDetails = (info: {
+ rel?: string;
+ vis?: string;
+ online?: boolean;
+ triggeredReload?: boolean | string;
+ adBlockSeen?: boolean;
+}): string => [
+ `rel=${info.rel || 'none'}`,
+ `vis=${info.vis || 'unknown'}`,
+ `online=${info.online === false ? 0 : info.online === true ? 1 : 'unknown'}`,
+ `reload=${info.triggeredReload === 'blocked' ? 'blocked' : info.triggeredReload ? 1 : 0}`,
+ `adb=${info.adBlockSeen ? 1 : 0}`,
+].join(';').slice(0, GA4_PARAM_MAX_CHARS);

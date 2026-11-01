@@ -110,7 +110,8 @@ describe('NewFrontierOver20KmHub — striking-distance content', () => {
     expect(
       screen.getByText(/Come si calcolano le tasse del frontaliere oltre 20 km/i),
     ).toBeDefined();
-    expect(container.textContent).toContain('tassazione esclusiva svizzera');
+    expect(container.textContent).toContain('credito per l\'imposta svizzera');
+    expect(container.textContent).not.toContain('tassazione esclusiva svizzera');
   });
 
   it('includes the worked CHF 60\'000 example with concrete net figures', async () => {

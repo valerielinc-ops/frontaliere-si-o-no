@@ -163,7 +163,7 @@ export default function AssistedApplicationAutomationPanel({
       expectedDuration: 'meno di 1 min',
       confirmLabel: 'Segna come inviata',
     });
-    if (confirmed) await act('automationMarkSubmitted', {}, 'Candidatura segnata come inviata: il cliente riceve la conferma.');
+    if (confirmed) await act('automationMarkSubmitted', { via: 'manual_owner', round: flow?.round }, 'Candidatura segnata come inviata: il cliente riceve la conferma.');
   };
 
   const handoffToCandidate = async () => {

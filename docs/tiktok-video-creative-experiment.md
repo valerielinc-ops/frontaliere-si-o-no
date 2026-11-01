@@ -19,8 +19,23 @@ Il trattamento non introduce musica scaricata: l'audio nativo TikTok è un
 esperimento separato. Entrambi gli id sono registrati nel ledger, così il
 risultato può essere segmentato anche per `native-sound=control/treatment`.
 
+| Risposta a voce | `answer-voice-v1` | Una domanda dalla FAQ dell'articolo, voce e stesso testo a schermo, caption con la domanda in prima riga | account, cadenza; il testo è quello pubblicato sul sito |
+
+### Perché la risposta a voce (misura del 31/10/2026)
+
+Su 15 video nostri la mediana è 245 visualizzazioni, con 0 condivisioni, 0
+salvataggi, 0 commenti e 0% di traffico da ricerca. I 61 video che compaiono
+nella ricerca TikTok per «frontalieri», «frontaliere svizzera», «lavorare in
+svizzera», «stipendio svizzera» e «tasse frontalieri» hanno mediana 79.300
+visualizzazioni, 55 secondi, 0,41% di salvataggi e 0,33% di condivisioni; nessuno
+è una presentazione di foto. Anche 25 account sotto i 10.000 follower arrivano
+a una mediana di 33.300. Il confronto mostra i migliori risultati, non la media
+del settore: è un'indicazione di formato, non una previsione di visualizzazioni.
+
 ## Assegnazione e sicurezza
 
+- `TIKTOK_ANSWER_FORMAT_ROLLOUT_PERCENT` assegna il formato a voce con un hash
+  separato; i post fuori quota restano nell'esperimento a slide.
 - Firebase Remote Config controlla modalità, percentuale del pool non-controllo
   e quota dei due nuovi formati.
 - La configurazione consigliata è `experiment` + `40` + `50`: circa 60% di

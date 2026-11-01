@@ -7,9 +7,10 @@
  * (Le ottimizzazioni che vivono in scripts/lib leggono lo stesso valore da
  * scripts/lib/mid-plugins-flag.mjs.)
  */
-export { MID_PLUGINS_FAST } from '../../scripts/lib/mid-plugins-flag.mjs';
+import { MID_PLUGINS_FAST } from '../../scripts/lib/mid-plugins-flag.mjs';
+export { MID_PLUGINS_FAST };
 
 export const EARLY_REJECT_ENV = 'MID_PLUGINS_FAST';
 export function earlyRejectEnabled(): boolean {
-  return process.env.MID_PLUGINS_FAST !== '0';
+  return MID_PLUGINS_FAST;
 }

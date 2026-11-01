@@ -1,0 +1,21 @@
+{
+  "companyKey": "aveniremplois-ch",
+  "companyName": "Avenir Emplois SA",
+  "companyHost": "aveniremplois.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://aveniremplois.ch/job/aide-ferblantier-couvreur-pour-un-poste-fixe"
+  ],
+  "detailTemplate": "/job/aide-ferblantier-couvreur-pour-un-poste-fixe",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Détails"
+  ],
+  "canton": "VS",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-31T12:46:11.210Z",
+  "candidateKey": "avenir-emplois@monthey"
+}

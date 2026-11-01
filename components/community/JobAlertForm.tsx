@@ -844,7 +844,7 @@ export default function JobAlertForm({
  key={loc.value}
  onClick={() => toggleLocation(loc.value)}
  aria-pressed={selectedLocations.includes(loc.value)}
- className={`px-3 py-1 text-xs rounded-full border transition-colors ${
+ className={`px-3 py-1 min-h-[44px] text-xs rounded-full border transition-colors ${
  selectedLocations.includes(loc.value)
  ? 'bg-accent-strong text-on-accent border-accent'
  : 'bg-surface text-subtle border-edge hover:border-accent-border'

@@ -135,12 +135,33 @@ function mailerooEventDocumentId(eventId) {
  * auto-id event path below, because inventing a key from message/type would
  * incorrectly collapse legitimate repeated opens and clicks.
  */
+const ROUTINE_DELIVERY_FIELDS = new Set(['updated_at', 'last_delivered_at', 'soft_bounce_count']);
+const LAST_DELIVERED_REFRESH_MS = 7 * 24 * 60 * 60 * 1000;
+
+/**
+ * `send` and `delivered` arrive for every recipient of every send, and each
+ * write on the subscriber document wakes the three onDocumentWritten triggers
+ * (460k runs each in October 2026) that then exit on their fast path. The
+ * event and the delivery record are written anyway, so the subscriber only
+ * needs a write when something on it changes: a recovery, a soft-bounce streak
+ * to reset, or a `last_delivered_at` that is absent or older than a week.
+ * Readers of that field only ask whether it was ever set (hasProofOfLife).
+ */
+export function routineDeliveryChangesSubscriber(update, current, nowMs) {
+  if (Object.keys(update).some((field) => !ROUTINE_DELIVERY_FIELDS.has(field))) return true;
+  if ('soft_bounce_count' in update && Number(current.soft_bounce_count) > 0) return true;
+  if (!('last_delivered_at' in update)) return false;
+  const lastDeliveredMs = current.last_delivered_at?.toMillis?.();
+  return !(lastDeliveredMs >= nowMs - LAST_DELIVERED_REFRESH_MS);
+}
+
 async function persistMailerooEventAtomically({
   db,
   subscriberRef,
   eventRef,
   subscriberUpdate,
   buildDynamicUpdate,
+  shouldWriteSubscriber = () => true,
   deliveryRef,
   deliveryData,
   eventData,
@@ -169,7 +190,9 @@ async function persistMailerooEventAtomically({
     if (typeof buildDynamicUpdate === 'function') {
       Object.assign(update, buildDynamicUpdate(current));
     }
-    tx.set(subscriberRef, protectAccountDeletedSubscriberUpdate(update, current), { merge: true });
+    if (shouldWriteSubscriber(update, current)) {
+      tx.set(subscriberRef, protectAccountDeletedSubscriberUpdate(update, current), { merge: true });
+    }
     if (deliveryRef && deliveryData) tx.set(deliveryRef, deliveryData, { merge: true });
     tx.create(eventRef, eventData);
   });
@@ -360,6 +383,9 @@ export async function persistMailerooEvent(db, event) {
       eventRef: subscriberRef.collection('events').doc(mailerooEventDocumentId(eventId)),
       subscriberUpdate,
       buildDynamicUpdate: buildSubscriberRecoveryUpdate,
+      shouldWriteSubscriber: type === 'send' || type === 'delivered'
+        ? (update, current) => routineDeliveryChangesSubscriber(update, current, Date.now())
+        : undefined,
       deliveryRef,
       deliveryData,
       eventData,

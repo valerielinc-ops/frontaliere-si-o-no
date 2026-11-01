@@ -91,6 +91,7 @@ import {
   serializeRetiredLocaleGroups,
   withRemovalGroups,
 } from './lib/retired-locale-groups.mjs';
+import { validateArticleExcerptFiles } from './ci/check-article-excerpt-completeness.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 import { countFiles, isCantonCorpusPath, mirrorTree } from './lib/corpus-canton-exclusion.mjs';
 
@@ -295,6 +296,30 @@ function readBlogSeoKeysInTree(contentRoot) {
   return keys;
 }
 
+function articleExcerptFiles(contentRoot) {
+  const metaFiles = fs.readdirSync(contentRoot)
+    .filter((name) => /^blog-meta-.*\.ts$/u.test(name))
+    .map((name) => path.join(contentRoot, name));
+  const seoRoot = path.join(contentRoot, 'seo');
+  const seoFiles = fs.existsSync(seoRoot)
+    ? fs.readdirSync(seoRoot)
+      .filter((name) => /^seo-blog.*\.ts$/u.test(name))
+      .map((name) => path.join(seoRoot, name))
+    : [];
+  return [...metaFiles, ...seoFiles];
+}
+
+function validateIncomingArticleExcerpts(contentRoot) {
+  const result = validateArticleExcerptFiles(articleExcerptFiles(contentRoot), { all: true });
+  if (result.failures.length > 0) {
+    throw new Error(
+      'incoming corpus contains incomplete article excerpt/SEO tails:\n'
+      + result.failures.map((failure) => `  - ${failure}`).join('\n'),
+    );
+  }
+  console.log(`[pull-articles-corpus] validated ${result.checked} article excerpts and SEO descriptions`);
+}
+
 // ── Which corpus commit this sync is pinned to (issue #5298) ─────────────────
 //
 // Resolved BEFORE the clone, because a manifest we cannot read is a sync we must
@@ -357,6 +382,12 @@ try {
 
   const src = path.join(tmp, 'content');
   if (!fs.existsSync(src)) throw new Error(`upstream has no content/ on ${BRANCH}`);
+
+  // The mirror is a generated-data boundary. Validate the incoming tree before
+  // writing it so a later corpus sync cannot overwrite a repaired SEO tail
+  // with the same isolated section label again. Fail closed: silently editing
+  // upstream-owned copy here would make the two repositories drift.
+  validateIncomingArticleExcerpts(src);
 
   const srcN = countFiles(src, TREE_OPTS);
   const dstN = fs.existsSync(DEST) ? countFiles(DEST, TREE_OPTS) : 0;

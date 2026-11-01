@@ -58,7 +58,7 @@ import { resolveInstagramCommunityMode, runInstagramCommunityAutomation } from '
 import { SOCIAL_CHANNELS, resolveSocialRobotMode } from '../lib/social-publish-queue.mjs';
 import { acquireLock, defaultStateDir, diagnosticsDir, downloadsDir, openProfile, pruneRobotState, resolveBrowserLaunch } from './lib/browser.mjs';
 import { START_JITTER_MAX_MS, fileJournalStore, randomBetween } from './lib/cadence.mjs';
-import { DEFAULT_TIKTOK_USERNAME, FLOWS, INSTAGRAM_HOME, TIKTOK_UPLOAD, captureDiagnostics, classifyError, resolveTikTokMusicVariant, stepTracker } from './lib/flows.mjs';
+import { DEFAULT_TIKTOK_USERNAME, FLOWS, INSTAGRAM_HOME, TIKTOK_UPLOAD, captureDiagnostics, classifyError, findTikTokPublishedPost, resolveTikTokMusicVariant, stepTracker } from './lib/flows.mjs';
 import { SITE_REPO, downloadEntryFiles, ghConfirmDispatcher, gitMainReader, runRobot } from './lib/robot.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -287,6 +287,10 @@ async function main() {
             await captureDiagnostics(p, dir, 'error', { channel, queueId: entry.id, step: e.step, errorClass: e.errorClass, message: e.message });
             throw e;
           }
+        },
+        findPublishedPost: async (channel, attempt) => {
+          if (channel !== 'tiktok') return null;
+          return findTikTokPublishedPost({ page: await page(), caption: attempt.caption });
         },
         dispatchConfirm: ghConfirmDispatcher({ ghBin: process.env.TRUSTED_GH_BIN || 'gh' }),
         reportIssue: ({ title, description, labels }) => {

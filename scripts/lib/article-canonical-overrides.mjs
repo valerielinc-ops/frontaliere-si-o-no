@@ -20,10 +20,15 @@
  * elsewhere is a hard CI gate failure (`scripts/audit-sitemap-canonicals.mjs`,
  * `scripts/validate-sitemap-pages.mjs`). RSS is untouched.
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { CANONICAL_OVERRIDE_FILES } from '../../packages/articles/engine/shared/canonicalOverrideFiles.mjs';
+import {
+  ARTICLE_INDEX_EXCLUSIONS_FILES,
+  articleIndexExclusionKey,
+  loadArticleIndexExclusions,
+} from '../../packages/articles/engine/shared/articleIndexExclusions.mjs';
 
 export const OVERRIDE_SECTIONS = /** @type {const} */ (['frontaliere', 'svizzera']);
 
@@ -86,6 +91,25 @@ export function shadowedArticleIds(overrides, slugs) {
     if (slugMap?.it && Object.prototype.hasOwnProperty.call(overrides, slugMap.it)) ids.add(articleId);
   }
   return ids;
+}
+
+/**
+ * Article ids the corpus withdrew from the index for lack of editorial nexus.
+ * Unlike a canonical override these pages DO carry `noindex,follow`, so the
+ * sitemaps drop them for the opposite reason and a sitemap must not be required
+ * to contain them. Same ledger the renderer reads.
+ *
+ * @param {string} root repo root
+ * @param {'frontaliere' | 'svizzera'} section
+ * @param {Record<string, Record<string, string>>} slugs articleId -> locale -> slug
+ * @returns {Set<string>}
+ */
+export function indexExcludedArticleIds(root, section, slugs) {
+  const excluded = loadArticleIndexExclusions(
+    { existsSync, readFileSync },
+    ARTICLE_INDEX_EXCLUSIONS_FILES.map((candidate) => resolve(root, candidate)),
+  );
+  return new Set(Object.keys(slugs).filter((id) => excluded.has(articleIndexExclusionKey(section, id))));
 }
 
 /**

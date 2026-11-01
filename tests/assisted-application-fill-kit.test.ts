@@ -306,6 +306,15 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     await expect(call('automationMarkSubmitted')).rejects.toMatchObject({ code: 'not_taken_over', status: 409 });
   });
 
+  it('accepts the explicit manual-owner producer payload for the current round', async () => {
+    await seed({ ...takenOver, round: 3 }, { round: 3 });
+    expect(await call('automationMarkSubmitted', { via: 'manual_owner', round: 3 })).toEqual({ ok: true, state: 'submitted' });
+    expect(store.read(`${PATH}/automation/flow`)).toMatchObject({ state: 'submitted', round: 3, submittedVia: 'owner' });
+    expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r3: { state: 'sent', channel: 'owner' } });
+    expect(store.read(`${PATH}/automation/submission`).r1).toBeUndefined();
+    expect(effects).toEqual([{ type: 'mark_submitted', by: 'owner' }]);
+  });
+
   // Owner decision of 2026-10-04: a robot's send of uncertain outcome that Valerie confirms is what left.
   it('turns the robot’s record of an uncertain send into the record of what left when Valerie marks it sent, and only that round’s', async () => {
     const attempt = { at: T0 - 60_000, channel: 'lever', packaging: 'portal', reason: 'default', letterKey: null, files: [{ kind: 'cv', name: 'CV_Maria_Luisa_Rossi.pdf', key: KEY('ai-cv-r1-1.pdf') }] };

@@ -2,10 +2,12 @@ import { estimateAnnualFrontierSsnEUR, normalizeFrontierSsnRate } from './fronti
 import { SimulationInputs, SimulationResult, TaxResult, TaxBreakdownItem, ExpenseItem } from '../types';
 import { AC_SALARY_CAP_CHF, FRANCHIGIA_NUOVI_FRONTALIERI, SWISS_CHILD_ALLOWANCE_ANNUAL, LINKS, LOMBARDIA_ADDIZIONALE_REGIONALE, DEFAULT_TECH_PARAMS } from '../constants';
 
-// Accordo 2024 concurrent-taxation split: only this share of the ordinary CH
-// source tax is withheld for a "nuovo frontaliere" resident within 20km of the
-// border; the remainder is taxed in Italy instead. Single source of truth —
-// previously duplicated as a bare 0.8 literal in three places (issue #5374).
+// Accordo 2020 art. 3: Switzerland levies at most this share of the ordinary CH
+// source tax for a "nuovo frontaliere" resident within 20km of the border. The
+// remaining 20% is not withheld by anyone and is not transferred: it is a ceiling
+// on the Swiss levy. Italy taxes the income on its own, with a credit for the
+// Swiss tax. Single source of truth — previously duplicated as a bare 0.8 literal
+// in three places (issue #5374).
 export const NEW_FRONTIER_WITHIN_20KM_CH_SHARE = 0.8;
 
 // --- DATA: TAX TABLES 2026 (Approximation via Interpolation Points) ---
@@ -588,8 +590,8 @@ export function calculateMunicipalityTaxImpact(
  const irpefNet = Math.max(0, irpefGross + totalAddizionali - deductions);
 
  // Swiss withholding tax (source tax)
- // For new frontalieri within 20km: 80% stays in CH, 20% returned to IT
- // For over 20km: 100% in CH
+ // For new frontalieri within 20km: CH levies 80% of the ordinary tax, the other 20% is not levied
+ // For over 20km: ordinary withholding (100%), outside the Agreement
  const ticinoRate = getTicinoTaxRate(annualIncomeCHF, 'SINGLE', 0, false);
  const swissTaxCHF = annualIncomeCHF * ticinoRate.rate;
  const chTaxShare = distanceZone === 'WITHIN_20KM' ? NEW_FRONTIER_WITHIN_20KM_CH_SHARE : 1.0;

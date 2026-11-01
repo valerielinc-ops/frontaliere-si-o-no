@@ -72,6 +72,27 @@ const EMPTY_LISTING = `
   <p>Al momento non sono presenti concorsi attivi.</p>
 </main></body></html>`;
 
+// Current CMS markup (the title is no longer guaranteed to be in <strong>).
+const CURRENT_MARKUP_LISTING_HTML = `
+<main>
+  <h1>Concorsi</h1>
+  <h3>Posti di lavoro</h3>
+  <ul>
+    <li>
+      <div>il/la caposezione (realizzazione) al 100% presso la Divisione edilizia pubblica</div>
+      <div>Scadenza | 26 ottobre 2026 |</div>
+      <a href="/downloadConcorsi?name=Allegato1.pdf&amp;unid=ABC123">Capitolato di concorso</a>
+      <a href="https://egov.lugano.ch/it/services/3">Partecipa</a>
+    </li>
+    <li>
+      <div>addetti/e pulizie presso l'Amministrazione comunale</div>
+      <div>Scadenza | 9 dicembre 2026 |</div>
+      <a href="/downloadConcorsi?name=Allegato2.pdf&amp;unid=DEF456">Capitolato di concorso</a>
+      <a href="https://egov.lugano.ch/it/services/3">Partecipa</a>
+    </li>
+  </ul>
+</main>`;
+
 // ═══════════════════════════════════════════════════════════════
 // parseListingPage
 // ═══════════════════════════════════════════════════════════════
@@ -127,6 +148,47 @@ describe('parseListingPage', () => {
   it('returns empty array for page with no listings', () => {
     expect(parseListingPage(EMPTY_LISTING)).toHaveLength(0);
   });
+
+  it('parses current plain-text vacancy cards and Italian long-form deadlines', () => {
+    const jobs = parseListingPage(CURRENT_MARKUP_LISTING_HTML);
+    expect(jobs).toHaveLength(2);
+    expect(jobs[0].title).toContain('caposezione');
+    expect(jobs[0].deadline).toBe('2026-10-26');
+    expect(jobs[1].deadline).toBe('2026-12-09');
+    expect(jobs[0].pdfUrl).toBe('https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=ABC123');
+    expect((jobs as any).discoveredCount).toBe(2);
+    expect((jobs as any).fetchOutcome).toBe('ok');
+  });
+
+  it('keeps vacancy cards when document and action links are nested list items', () => {
+    const jobs = parseListingPage(`
+      <ul>
+        <li>
+          <div>un/a collaboratore/trice in ambito prestazioni sociali all'80%</div>
+          <div>Scadenza | 26 ottobre 2026 |</div>
+          <ul>
+            <li><a href="/downloadConcorsi?name=Allegato1.pdf&amp;unid=ABC123">Capitolato di concorso</a></li>
+            <li><a href="https://egov.lugano.ch/it/services/3">Partecipa</a></li>
+          </ul>
+        </li>
+      </ul>`);
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].title).toContain('collaboratore/trice');
+    expect(jobs[0].deadline).toBe('2026-10-26');
+    expect(jobs[0].pdfUrl).toBe('https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=ABC123');
+    expect((jobs as any).discoveredCount).toBe(1);
+    expect((jobs as any).fetchOutcome).toBe('ok');
+  });
+
+  it('resolves document-relative PDF links against the Concorsi page URL', () => {
+    const [job] = parseListingPage(`
+      <ul><li>
+        Operatore ufficio <span>Scadenza: 31 ottobre 2026</span>
+        <a href="downloadConcorsi/bando.pdf">PDF</a>
+      </li></ul>`);
+    expect(job?.url).toBe('https://www.lugano.ch/temi-servizi/lavoro-e-impresa/concorsi-pubblici-posti-lavoro/downloadConcorsi/bando.pdf');
+  });
 });
 
 // ═══════════════════════════════════════════════════════════════
@@ -140,6 +202,10 @@ describe('parseSwissDate', () => {
 
   it('pads single-digit day and month', () => {
     expect(parseSwissDate('1.1.2026')).toBe('2026-01-01');
+  });
+
+  it('parses Italian long-form dates from the live CMS', () => {
+    expect(parseSwissDate('Scadenza | 9 dicembre 2026 |')).toBe('2026-12-09');
   });
 
   it('returns empty for invalid input', () => {

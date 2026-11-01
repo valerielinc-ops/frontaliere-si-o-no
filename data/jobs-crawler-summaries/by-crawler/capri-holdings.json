@@ -1,18 +1,66 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-10-30T21:46:25.603Z",
-  "total": 2,
-  "newCount": 1,
-  "updatedCount": 0,
+  "generatedAt": "2026-10-31T21:57:12.436Z",
+  "total": 3,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 38933,
-  "avgDurationMs": 38933,
+  "unchangedCount": 2,
+  "durationMs": 30017,
+  "avgDurationMs": 30017,
   "durationHistory": [
-    38933
+    30017
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-temp_R_787525",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-temp_R_787525",
+      "title": "Sales Associate PT 16h temp",
+      "company": "Michael Kors",
+      "companyKey": "capri-holdings",
+      "location": "Landquart",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7302",
+      "streetAddress": "Bahnhofstrasse 2",
+      "slug": "vendite-associate-pt-16h-temp-michael-kors-landquart",
+      "category": "retail",
+      "datePosted": "2026-10-31",
+      "postedDate": "2026-10-31",
+      "postingDateSource": "reported",
+      "crawledAt": "2026-10-31T21:57:05.803Z",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Landquart"
+      },
+      "id": "capri-holdings-5fd12f299ce8",
+      "firstSeenAt": "2026-10-31T09:49:27.041Z",
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate_R_787522-1",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate_R_787522-1",
@@ -27,12 +75,12 @@
       "addressCountry": "CH",
       "postalCode": "7302",
       "streetAddress": "Bahnhofstrasse 2",
-      "slug": "sales-associate-capri-holdings",
+      "slug": "vendite-michael-kors-landquart",
       "category": "retail",
       "datePosted": "2026-10-30",
       "postedDate": "2026-10-30",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-30T21:46:18.629Z",
+      "crawledAt": "2026-10-31T21:57:05.803Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -43,25 +91,20 @@
         "canton": "GR",
         "location": "Landquart"
       },
-      "needsRetranslation": true,
       "id": "capri-holdings-c75b6f7fde07",
+      "firstSeenAt": "2026-06-30T11:04:35.842Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-06-30T11:04:35.842Z",
-      "_qualityScore": 87,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
@@ -81,7 +124,7 @@
       "datePosted": "2026-09-11",
       "postedDate": "2026-09-11",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-30T21:46:18.629Z",
+      "crawledAt": "2026-10-31T21:57:05.803Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -107,5 +150,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

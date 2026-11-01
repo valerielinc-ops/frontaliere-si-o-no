@@ -22,7 +22,6 @@
  * Plugin contract: apply 'build', enforce 'post', emit in closeBundle(),
  * distDir passed through. Pure/deterministic so output is stable.
  */
-import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
@@ -55,7 +54,7 @@ import {
 } from './shared/cantonSalaryIndex';
 import { resolveCantonSection } from './shared/cantonSection';
 import { buildJobListEntry } from './shared/jobListEntry';
-import { sanitizeJobTitleForDisplay } from './shared/stripLiteralMarkdown';
+import { renderJobCardListHtml, type JobCardJob, type JobCardListItem } from './shared/jobCardHtml';
 import {
   aggregateProfessionJobsByCanton,
   type ProfessionJobsSnapshot,
@@ -198,7 +197,6 @@ interface Copy {
   thisCanton: (canton: string) => string;
   jobsHeading: (role: string, canton: string) => string;
   jobsIntro: (n: number, role: string, canton: string) => string;
-  jobPostedDays: (d: number) => string;
   jobsCta: (role: string, canton: string) => string;
   hubsHeading: string;
   hubCanton: (canton: string) => string;
@@ -232,7 +230,6 @@ const COPY: Record<ProfessionLocale, Copy> = {
     thisCanton: (c) => `Canton ${c} (questa pagina)`,
     jobsHeading: (r, c) => `Offerte attive per ${r} nel Canton ${c}`,
     jobsIntro: (n, r, c) => `${n} offerte reali per ${r} nel Canton ${c}, da datori di lavoro svizzeri.`,
-    jobPostedDays: (d) => (d <= 0 ? 'oggi' : d === 1 ? '1 giorno fa' : `${d} giorni fa`),
     jobsCta: (r, c) => `Vedi tutte le offerte di ${r} nel Canton ${c}`,
     hubsHeading: 'Approfondisci',
     hubCanton: (c) => `Tutti gli stipendi nel Canton ${c}`,
@@ -264,7 +261,6 @@ const COPY: Record<ProfessionLocale, Copy> = {
     thisCanton: (c) => `Canton ${c} (this page)`,
     jobsHeading: (r, c) => `Active ${r} openings in Canton ${c}`,
     jobsIntro: (n, r, c) => `${n} real ${r} openings in Canton ${c}, from Swiss employers.`,
-    jobPostedDays: (d) => (d <= 0 ? 'today' : d === 1 ? '1 day ago' : `${d} days ago`),
     jobsCta: (r, c) => `See all ${r} openings in Canton ${c}`,
     hubsHeading: 'Go deeper',
     hubCanton: (c) => `All salaries in Canton ${c}`,
@@ -296,7 +292,6 @@ const COPY: Record<ProfessionLocale, Copy> = {
     thisCanton: (c) => `Kanton ${c} (diese Seite)`,
     jobsHeading: (r, c) => `Aktive ${r}-Stellen im Kanton ${c}`,
     jobsIntro: (n, r, c) => `${n} echte ${r}-Stellen im Kanton ${c}, von Schweizer Arbeitgebern.`,
-    jobPostedDays: (d) => (d <= 0 ? 'heute' : d === 1 ? 'vor 1 Tag' : `vor ${d} Tagen`),
     jobsCta: (r, c) => `Alle ${r}-Stellen im Kanton ${c} ansehen`,
     hubsHeading: 'Mehr erfahren',
     hubCanton: (c) => `Alle Löhne im Kanton ${c}`,
@@ -328,7 +323,6 @@ const COPY: Record<ProfessionLocale, Copy> = {
     thisCanton: (c) => `Canton ${c} (cette page)`,
     jobsHeading: (r, c) => `Offres actives pour ${r} dans le canton ${c}`,
     jobsIntro: (n, r, c) => `${n} offres réelles pour ${r} dans le canton ${c}, d’employeurs suisses.`,
-    jobPostedDays: (d) => (d <= 0 ? 'aujourd’hui' : d === 1 ? 'il y a 1 jour' : `il y a ${d} jours`),
     jobsCta: (r, c) => `Voir toutes les offres de ${r} dans le canton ${c}`,
     hubsHeading: 'Aller plus loin',
     hubCanton: (c) => `Tous les salaires dans le canton ${c}`,
@@ -409,6 +403,32 @@ function featuredToJobInput(job: FeaturedJob) {
     salaryMin: job.salaryMin,
     salaryMax: job.salaryMax,
     url: job.url,
+  };
+}
+
+/** Map a corpus FeaturedJob into the shared job card shape. */
+function featuredToJobCard(job: FeaturedJob): JobCardJob {
+  return {
+    id: job.id,
+    slug: job.slug,
+    title: job.title,
+    titleByLocale: job.titleByLocale,
+    company: job.company,
+    companyKey: job.companyKey ?? undefined,
+    companyDomain: job.companyDomain ?? undefined,
+    location: job.city,
+    addressLocality: job.addressLocality ?? undefined,
+    canton: job.canton ?? undefined,
+    contract: job.contract ?? undefined,
+    salaryMin: job.salaryMin,
+    salaryMax: job.salaryMax,
+    salarySource: job.salarySource,
+    currency: job.currency,
+    postingDateSource: job.postingDateSource,
+    postedDate: job.postedDate,
+    datePosted: job.datePosted ?? undefined,
+    firstSeenAt: job.firstSeenAt,
+    url: job.url ?? undefined,
   };
 }
 
@@ -519,19 +539,16 @@ export function renderSalaryProfessionCantonPage(opts: {
   // ItemList of canonical detail-page links.
   const jobItems = snapshot.featured.slice(0, 3);
   const jobLdItems: Record<string, unknown>[] = [];
-  const jobCards: string[] = [];
+  const jobCards: JobCardListItem[] = [];
   for (const job of jobItems) {
     const detailUrl = jobDetailUrl(job, locale, cantonKey);
     const posting = buildJobListEntry(featuredToJobInput(job), { locale, url: detailUrl, baseUrl: BASE_URL });
     if (posting) jobLdItems.push(posting);
-    const title = sanitizeJobTitleForDisplay(jobDisplayTitle(job));
-    const cityBit = job.city ? ` · ${esc(job.city)}` : '';
-    jobCards.push(
-      `<li class="${CARD_CLASS}"><a href="${esc(detailUrl)}" class="font-semibold text-heading">${esc(title)}</a><div class="text-sm text-subtle">${esc(job.company)}${cityBit} · ${esc(c.jobPostedDays(job.daysAgo))}</div></li>`,
-    );
+    jobCards.push({ href: detailUrl, job: featuredToJobCard(job) });
   }
+  // Shared card, like every other job list: it carries the save bookmark.
   const jobsSection = jobCards.length > 0
-    ? `<h2 style="${H2_STYLE}">${esc(c.jobsHeading(role, cantonName))}</h2><p style="${BODY_STYLE}">${esc(c.jobsIntro(snapshot.liveCount, role, cantonName))}</p><ul class="grid gap-2 my-3">${jobCards.join('')}</ul>`
+    ? `<h2 style="${H2_STYLE}">${esc(c.jobsHeading(role, cantonName))}</h2><p style="${BODY_STYLE}">${esc(c.jobsIntro(snapshot.liveCount, role, cantonName))}</p>${renderJobCardListHtml(jobCards, { locale, ulClassName: 'list-none p-0 grid gap-2 my-3', interleaveInfeedAds: false })}`
     : '';
 
   const primaryCta = `<p class="my-4"><a href="${esc(jobIntentHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.jobsCta(role, cantonName))} →</a></p>`;

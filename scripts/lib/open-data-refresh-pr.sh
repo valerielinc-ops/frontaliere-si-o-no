@@ -304,6 +304,7 @@ REFRESH_PUBLISH_WORKTREE=""
 REFRESH_SOURCE_ROOT="$(git rev-parse --show-toplevel)"
 RESET_STALE_STABLE_BRANCH=false
 STALE_REMOTE_HEAD=""
+RESET_BRANCH_HEAD=""
 
 # Non-compat publishes never select the stable branch in the source checkout.
 # Compat retains its existing restore behavior after tree-level reconciliation.
@@ -460,17 +461,70 @@ push_with_fallback() {
   run_push_with_token "$FALLBACK_PUSH_URL" "${label} via GITHUB_PAT" "$no_lazy_fetch" "$@"
 }
 
+repository_node_id_with_fallback() {
+  local repository_id
+  if repository_id="$(run_bounded "$API_TIMEOUT_SECONDS" "read repository id for orphaned stable branch reset" \
+    gh api "repos/${REPOSITORY}" --jq '.node_id')" && [ -n "$repository_id" ]; then
+    printf '%s\n' "$repository_id"
+    return 0
+  fi
+  if [ -z "$FALLBACK_PUSH_URL" ]; then
+    return 1
+  fi
+  echo "::warning::reading repository id failed with the primary refresh identity; retrying with GITHUB_PAT fallback" >&2
+  if repository_id="$(GH_TOKEN="$GITHUB_PAT" run_bounded "$API_TIMEOUT_SECONDS" "read repository id for orphaned stable branch reset via GITHUB_PAT" \
+    gh api "repos/${REPOSITORY}" --jq '.node_id')" && [ -n "$repository_id" ]; then
+    printf '%s\n' "$repository_id"
+    return 0
+  fi
+  return 1
+}
+
+update_ref_with_lease() {
+  local label="$1" before_oid="$2" after_oid="$3" repository_id query
+  repository_id="$(repository_node_id_with_fallback)" || return 1
+  query='mutation($repositoryId:ID!,$name:GitRefname!,$beforeOid:GitObjectID!,$afterOid:GitObjectID!){updateRefs(input:{repositoryId:$repositoryId,refUpdates:[{name:$name,beforeOid:$beforeOid,afterOid:$afterOid,force:true}]}){clientMutationId}}'
+  if run_bounded "$API_TIMEOUT_SECONDS" "$label" \
+    gh api graphql \
+    -f "query=${query}" \
+    -f "repositoryId=${repository_id}" \
+    -f "name=refs/heads/${BRANCH}" \
+    -f "beforeOid=${before_oid}" \
+    -f "afterOid=${after_oid}" >/dev/null; then
+    return 0
+  fi
+  if [ -z "$FALLBACK_PUSH_URL" ]; then
+    return 1
+  fi
+  echo "::warning::${label} failed with the primary refresh identity; retrying with GITHUB_PAT fallback" >&2
+  GH_TOKEN="$GITHUB_PAT" run_bounded "$API_TIMEOUT_SECONDS" "${label} via GITHUB_PAT" \
+    gh api graphql \
+    -f "query=${query}" \
+    -f "repositoryId=${repository_id}" \
+    -f "name=refs/heads/${BRANCH}" \
+    -f "beforeOid=${before_oid}" \
+    -f "afterOid=${after_oid}" >/dev/null
+}
+
 reset_orphaned_stable_branch_to_main() {
-  local main_head remote_after_failure
-  run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch current main for orphaned stable branch" \
-    git fetch --no-tags --depth=1 "$PUSH_URL" \
-    "+refs/heads/main:refs/remotes/origin/main"
-  main_head="$(git rev-parse refs/remotes/origin/main)"
+  local main_head="${1:-}" remote_after_failure
+  RESET_BRANCH_HEAD=""
+  if [ -z "$main_head" ]; then
+    run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch current main for orphaned stable branch" \
+      git fetch --no-tags --depth=1 "$PUSH_URL" \
+      "+refs/heads/main:refs/remotes/origin/main"
+    main_head="$(git rev-parse refs/remotes/origin/main)"
+  fi
   echo "No open refresh PR for ${BRANCH}; rebuilding from the current main snapshot ${main_head} instead of stale tip ${STALE_REMOTE_HEAD}."
 
-  if push_with_fallback "git push orphaned stable branch ${BRANCH} to current main snapshot" false \
-    --force-with-lease="refs/heads/${BRANCH}:${STALE_REMOTE_HEAD}" \
-    "${main_head}:${BRANCH}"; then
+  # A stale branch can be many commits behind main. Updating it with `git push`
+  # makes the shallow checkout negotiate the whole missing history before the
+  # actual refresh commit is sent. The ref API already has main's objects, so
+  # replace the branch with one conditional compare-and-swap; the following
+  # Git push then shares this run's base and transports only the refresh delta.
+  if update_ref_with_lease "reset orphaned stable branch to current main snapshot" \
+    "$STALE_REMOTE_HEAD" "$main_head"; then
+    RESET_BRANCH_HEAD="$main_head"
     echo "Synchronized ${BRANCH} with the current main snapshot ${main_head}; no refresh PR will be opened."
     return 0
   fi
@@ -484,25 +538,45 @@ reset_orphaned_stable_branch_to_main() {
     echo "::notice::The orphaned stable branch lease was lost to a concurrent run; leaving tip ${remote_after_failure} untouched and skipping the refresh PR."
     return 0
   fi
-  echo "::error::The orphaned stable branch still had lease ${STALE_REMOTE_HEAD}, but its reset push failed" >&2
+  echo "::error::The orphaned stable branch still had lease ${STALE_REMOTE_HEAD}, but its API reset failed" >&2
   return 1
 }
 
 if git diff --cached --quiet; then
-  if [ "$RESET_STALE_STABLE_BRANCH" = true ]; then
-    reset_orphaned_stable_branch_to_main
-    exit 0
-  fi
-  if [ "$RECONCILE_MAIN" = false ] || [ "$RECONCILE_COMPAT" = true ] || [ -z "$REMOTE_HEAD" ]; then
+  if [ "$RESET_STALE_STABLE_BRANCH" = false ] \
+    && { [ "$RECONCILE_MAIN" = false ] || [ "$RECONCILE_COMPAT" = true ] || [ -z "$REMOTE_HEAD" ]; }; then
     echo "No refresh changes to publish."
     exit 0
   fi
-  echo "No refresh changes; reconciling the pending PR with main."
+  if [ "$RESET_STALE_STABLE_BRANCH" = false ]; then
+    echo "No refresh changes; reconciling the pending PR with main."
+  fi
 else
   git commit -m "$COMMIT_MESSAGE"
   REFRESH_COMMIT="$(git rev-parse HEAD)"
   if [ "$RESET_STALE_STABLE_BRANCH" = true ]; then
     echo "No open refresh PR for ${BRANCH}; rebuilding from the current main snapshot instead of stale tip ${REMOTE_HEAD}."
+  fi
+fi
+
+if [ "$RESET_STALE_STABLE_BRANCH" = true ]; then
+  RESET_MAIN_HEAD=""
+  if [ -n "$REFRESH_COMMIT" ]; then
+    RESET_MAIN_HEAD="$REFRESH_BASE"
+  fi
+  reset_orphaned_stable_branch_to_main "$RESET_MAIN_HEAD"
+  if [ -z "$RESET_BRANCH_HEAD" ]; then
+    echo "No refresh PR will be opened because another run owns the rebuilt stable branch."
+    exit 0
+  fi
+  REMOTE_HEAD="$RESET_BRANCH_HEAD"
+  # Keep the reset marker through the first publish. The branch now points at
+  # this run's refresh base, so treating it as an ordinary pending branch
+  # would reconcile the refresh commit a second time before pushing it. The
+  # bounded retry below clears the marker only after it observes a concurrent
+  # writer's newer tip.
+  if [ -z "$REFRESH_COMMIT" ]; then
+    exit 0
   fi
 fi
 

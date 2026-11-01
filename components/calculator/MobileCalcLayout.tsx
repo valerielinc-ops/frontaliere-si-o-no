@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, Suspense, startTransition, useOptimistic } from 'react';
+import { createPortal } from 'react-dom';
 import { Coins, TrainFront, Check, ChevronUp, ArrowDown, Settings2, Home, Briefcase, TrendingUp, TrendingDown, Ruler, Mail, X, Loader2, CheckCircle2 } from 'lucide-react';
 import { SimulationInputs, SimulationResult } from '../../types';
 import { useTranslation, getCantonI18nParams } from '../../services/i18n';
@@ -284,6 +285,8 @@ const MobileCalcLayout: React.FC<Props> = ({
  const itNetMonthly = result ? result.itResident.netIncomeMonthly : null;
  const chDelta = useNetDelta(chNetMonthly);
  const itDelta = useNetDelta(itNetMonthly);
+
+ const overlayRoot = typeof document === 'undefined' ? null : document.body;
 
  return (
  <div className="space-y-4 pb-3">
@@ -597,7 +600,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  )}
 
  {/* ─── Newsletter Gate Modal (FRO-31) ─── */}
- {showNewsletterGate && (
+ {showNewsletterGate && overlayRoot && createPortal(
  <>
  <div className="fixed inset-0 bg-black/50 z-[70] animate-fade-in" role="button" tabIndex={0} onClick={dismissGate} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dismissGate(); } }} aria-label="Chiudi modale" />
  <div role="dialog" aria-modal="true" aria-label={t('newsletterGate.title') || 'Iscriviti alla newsletter'} className="fixed inset-x-4 top-1/2 -translate-y-1/2 z-[71] bg-surface rounded-2xl shadow-2xl max-w-sm mx-auto overflow-hidden animate-fade-in">
@@ -689,16 +692,21 @@ const MobileCalcLayout: React.FC<Props> = ({
  )}
  <button
  onClick={dismissGate}
- className="w-full text-center text-xs text-muted hover:text-body py-1"
+ className="w-full min-h-[44px] text-center text-xs text-muted hover:text-body"
  >
  {t('newsletterGate.skip')}
  </button>
  </div>
  </div>
- </>
+ </>,
+ overlayRoot,
  )}
 
- {/* ─── BOTTOM SHEET: Full InputCard ─── */}
+ {/* ─── BOTTOM SHEET: Full InputCard ───
+     In portale: <main> e' uno stacking context z-10, quindi da dentro lo
+     z-[70] restava comunque sotto la navigazione mobile z-50. */}
+ {overlayRoot && createPortal(
+ <>
  {/* Backdrop */}
  <div
  ref={backdropRef}
@@ -726,7 +734,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  </h3>
  <button
  onClick={() => setSheetOpen(false)}
- className="px-3 py-1.5 rounded-lg text-xs font-bold bg-surface-raised text-subtle hover:bg-surface-raised transition-colors"
+ className="px-3 min-h-[44px] rounded-lg text-xs font-bold bg-surface-raised text-subtle hover:bg-surface-raised transition-colors"
  >
  {t('mobileCalc.close')}
  </button>
@@ -739,6 +747,9 @@ const MobileCalcLayout: React.FC<Props> = ({
  </div>
  </div>
  </div>
+ </>,
+ overlayRoot,
+ )}
  </div>
  );
 };

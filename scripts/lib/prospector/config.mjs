@@ -39,6 +39,7 @@ export const VALIDATION_PATH = path.join(PROSPECTOR_DIR, 'validation.json');
 export const WEB_CHANNEL_HEALTH_PATH = path.join(PROSPECTOR_DIR, 'web-channel-health.json');
 export const SOURCE_HEALTH_PATH = path.join(PROSPECTOR_DIR, 'discovery-health.json');
 export const SECO_PAGE_CURSORS_PATH = path.join(PROSPECTOR_DIR, 'seco-page-cursors.json');
+export const ZEFIX_CURSORS_PATH = path.join(PROSPECTOR_DIR, 'zefix-cursors.json');
 
 /**
  * Identifying UA. Reuses the crawler-wide override so a single env var

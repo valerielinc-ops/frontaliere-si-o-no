@@ -16,13 +16,19 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const aiModelsMock = vi.hoisted(() => ({ callSingleModel: vi.fn(), callLLM: vi.fn() }));
+const freeTranslateMock = vi.hoisted(() => ({ freeTranslateWithRetry: vi.fn() }));
 
 vi.mock('../../scripts/lib/ai-models.mjs', async (importOriginal) => {
   const actual = await importOriginal<typeof import('../../scripts/lib/ai-models.mjs')>();
   return { ...actual, callSingleModel: aiModelsMock.callSingleModel, callLLM: aiModelsMock.callLLM };
 });
 
-const { generateFaqIT, generateTopUpFaqIT } = await import('../../scripts/batch-add-faq-to-articles.mjs');
+vi.mock('../../scripts/lib/free-translate.mjs', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../../scripts/lib/free-translate.mjs')>();
+  return { ...actual, freeTranslateWithRetry: freeTranslateMock.freeTranslateWithRetry };
+});
+
+const { generateFaqIT, generateTopUpFaqIT, processTranslation } = await import('../../scripts/batch-add-faq-to-articles.mjs');
 
 const VALID_FAQ_JSON = JSON.stringify([
   { q: 'Domanda 1?', a: 'Risposta 1 con dati concreti sufficientemente lunga per passare i controlli di qualita.' },
@@ -203,5 +209,52 @@ describe('generateTopUpFaqIT — shares the same retry wrapper as generateFaqIT'
     await expect(
       runWithFakeTimers(() => generateTopUpFaqIT('test-article-id', 'Corpo di test '.repeat(50), existingFaq)),
     ).rejects.toThrow();
+  });
+});
+
+describe('processTranslation — locale rejection is non-destructive', () => {
+  it('does not write a source-language pair rejected by the per-pair guard', async () => {
+    const fs = await import('node:fs');
+    const os = await import('node:os');
+    const path = await import('node:path');
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'faq-locale-guard-'));
+    const localeDir = path.join(root, 'en');
+    fs.mkdirSync(localeDir);
+    const file = 'test-article.ts';
+    const localePath = path.join(localeDir, file);
+    const original = [
+      { q: 'Existing English question?', a: 'Existing English answer that must remain on disk.' },
+    ];
+    const body = [
+      'const blogBody: Record<string, string> = {',
+      `    'blog.article.test-article.body1': 'An article body long enough for the fixture.',`,
+      `    'blog.article.test-article.faq': '${JSON.stringify(original)}',`,
+      '};',
+      '',
+      'export default blogBody;',
+      '',
+    ].join('\n');
+    fs.writeFileSync(localePath, body, 'utf8');
+
+    const sourceFaq = [{
+      q: 'Quali sono i requisiti della candidatura?',
+      a: 'La candidatura contiene il curriculum e la lettera di motivazione.',
+    }];
+    const rejectedFaq = [{
+      q: 'Quali sono le condizioni previste dalla normativa?',
+      a: 'La domanda dipende dalla normativa e dalle condizioni applicabili alla situazione.',
+    }];
+    const translatedBySource = new Map([
+      [sourceFaq[0].q, rejectedFaq[0].q],
+      [sourceFaq[0].a, rejectedFaq[0].a],
+    ]);
+    freeTranslateMock.freeTranslateWithRetry.mockImplementation(async ({ text }: { text: string }) =>
+      translatedBySource.get(text) ?? text);
+
+    const before = fs.readFileSync(localePath, 'utf8');
+    const result = await processTranslation('test-article', file, sourceFaq, ['en'], { bodyDir: root });
+
+    expect(result).toEqual({ success: false, faqCount: 0 });
+    expect(fs.readFileSync(localePath, 'utf8')).toBe(before);
   });
 });

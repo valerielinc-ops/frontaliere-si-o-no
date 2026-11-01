@@ -22,6 +22,7 @@ export function observeManualAd(
   let offscreen: IntersectionObserver | undefined;
   let visibility: IntersectionObserver | undefined;
   let resize: ResizeObserver | undefined;
+  let resizeFrame: number | undefined;
   let creativeTarget: HTMLElement | null = null;
   const findCreative = (): HTMLElement | null => Array.from(el.querySelectorAll('iframe'))
     .filter((frame) => { const r = frame.getBoundingClientRect(); return r.width > 1 && r.height > 1; })
@@ -42,6 +43,19 @@ export function observeManualAd(
       }
     }, 1000);
   };
+  // Re-observing resets the last reported size, so doing it while the browser
+  // is delivering notifications leaves `el` active at a depth it cannot deliver
+  // in that frame: "ResizeObserver loop completed with undelivered
+  // notifications". measure() also runs inside a delivery, directly or through
+  // the MutationObserver when Google's own observers touch the creative, so the
+  // rewiring waits for the next frame, before that frame's own delivery.
+  const syncResizeTargets = () => {
+    resizeFrame = undefined;
+    if (stopped) return;
+    resize?.disconnect();
+    resize?.observe(el);
+    if (creativeTarget) resize?.observe(creativeTarget);
+  };
   const measure = () => {
     if (!filled) return;
     const creative = findCreative();
@@ -50,19 +64,15 @@ export function observeManualAd(
       inView = false;
       creativeTarget = creative;
       visibility?.disconnect();
-      resize?.disconnect();
-      resize?.observe(el);
-      if (creative) {
-        resize?.observe(creative);
-        if (typeof IntersectionObserver !== 'undefined') {
-          visibility = new IntersectionObserver((entries) => {
-            const entry = entries[entries.length - 1];
-            if (entry?.target !== creativeTarget) return;
-            inView = !!entry?.isIntersecting && entry.intersectionRatio >= 0.5;
-            updateView();
-          }, { threshold: [0, 0.5] });
-          visibility.observe(creative);
-        }
+      if (resize && resizeFrame === undefined) resizeFrame = requestAnimationFrame(syncResizeTargets);
+      if (creative && typeof IntersectionObserver !== 'undefined') {
+        visibility = new IntersectionObserver((entries) => {
+          const entry = entries[entries.length - 1];
+          if (entry?.target !== creativeTarget) return;
+          inView = !!entry?.isIntersecting && entry.intersectionRatio >= 0.5;
+          updateView();
+        }, { threshold: [0, 0.5] });
+        visibility.observe(creative);
       }
     }
     if (creative && !measurable) {
@@ -155,6 +165,7 @@ export function observeManualAd(
       offscreen?.disconnect();
       visibility?.disconnect();
       resize?.disconnect();
+      if (resizeFrame !== undefined) cancelAnimationFrame(resizeFrame);
       document.removeEventListener('visibilitychange', updateView);
       window.removeEventListener('scroll', collapse);
       window.removeEventListener('resize', collapse);

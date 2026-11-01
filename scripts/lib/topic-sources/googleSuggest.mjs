@@ -225,7 +225,7 @@ async function fetchOneSeed(seed, fetchImpl) {
   for (let attempt = 0; attempt <= 1; attempt++) {
     try {
       const res = await fetchWithTimeout(fetchImpl, url, REQUEST_TIMEOUT_MS);
-      const state = (res && RESPONSE_STATES.get(res)) ?? {
+      const state = RESPONSE_STATES.get(res) ?? {
         controller: new AbortController(),
         activeReader: null,
       };

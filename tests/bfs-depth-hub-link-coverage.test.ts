@@ -433,7 +433,7 @@ describe('the overflow ladder keeps the rows it carries reachable (#7329)', () =
         digests: [],
         ladders: [{ comune: undefined, pages }],
       },
-    ], new Date().toISOString().slice(0, 10));
+    ]);
 
     expect(pages).toEqual([]);
     expect(sitemap).not.toContain(overflowLadderPath('it', 'altri-cantoni', undefined, 2));

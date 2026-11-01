@@ -1,8 +1,9 @@
 /**
  * Preload the Italian locale chunk in index.html to reduce LCP.
  * The i18n module loads Italian via dynamic import(), which means the browser
- * doesn't discover it until entry JS parses. This plugin adds a modulepreload
- * hint so the browser fetches it in parallel with the entry bundle.
+ * doesn't discover it until entry JS parses. This plugin names those chunks in
+ * the route hint the release bootstrap turns into preloads, so the browser
+ * fetches the executed release copy and not a root alias (shared/modulePreloads.ts).
  *
  * Static pages already get their own route-specific preloads at build time.
  * Keep index.html lean and avoid injecting a large runtime preload map script
@@ -18,12 +19,17 @@ import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
 import { stableChunkFiles } from './shared/chunkFiles';
+import { declareRouteHintEmitter, routeChunksMetaTag } from './shared/modulePreloads';
 
 export function preloadLocalePlugin(rootDir: string): Plugin {
+ let endRouteHints = (): void => {};
  return {
  name: 'preload-locale',
  apply: 'build',
  enforce: 'post',
+ buildStart() {
+ endRouteHints = declareRouteHintEmitter();
+ },
  async closeBundle() {
  const distDir = np.resolve(rootDir, 'dist');
  const indexPath = np.join(distDir, 'index.html');
@@ -35,20 +41,16 @@ export function preloadLocalePlugin(rootDir: string): Plugin {
  // phase, #4762).
  const criticalChunks = stableChunkFiles(['it-core', 'it-calculator', 'App']);
  let html = fs.readFileSync(indexPath, 'utf-8');
- let added = 0;
- for (const chunk of criticalChunks) {
- const tag = `<link rel="modulepreload" href="/assets/${chunk}">`;
- if (!html.includes(tag)) {
+ const tag = routeChunksMetaTag(criticalChunks);
+ if (tag && !html.includes(tag)) {
  html = html.replace('</head>', ` ${tag}\n </head>`);
- added++;
- }
- }
- if (added) {
  fs.writeFileSync(indexPath, html);
- console.log(`\x1b[36m[preload-locale]\x1b[0m Added modulepreload for ${criticalChunks.join(', ')}`);
+ console.log(`\x1b[36m[preload-locale]\x1b[0m Added route hint for ${criticalChunks.join(', ')}`);
  }
 
- } catch { /* non-fatal */ }
+ } catch { /* non-fatal */ } finally {
+ endRouteHints();
+ }
  },
  };
 }

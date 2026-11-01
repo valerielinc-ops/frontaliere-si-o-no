@@ -6,11 +6,14 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   DELIVERY_STATUS,
+  FIX_OUTCOME,
+  FIX_OUTCOME_CODES,
   classifyWorkflowOutcome,
   createDeliveryBaseline,
   evaluatePrDelivery,
   normalizeDeliveryEvidence,
   normalizePrList,
+  outcomeFromDeliveryEvidence,
 } from '../scripts/ci/lib/pr-delivery-evidence.mjs';
 
 const REPO = 'valerielinc-ops/frontaliere-si-o-no';
@@ -55,6 +58,44 @@ function evaluate(base: unknown, currentPrs: unknown[], runAttempt = RUN.runAtte
 }
 
 describe('pr-delivery-evidence', () => {
+  it('espone un solo vocabolario terminale e non confonde none con unavailable', () => {
+    expect(FIX_OUTCOME_CODES).toContain(FIX_OUTCOME.NO_PR_UNSPECIFIED);
+    expect(outcomeFromDeliveryEvidence({
+      status: DELIVERY_STATUS.DELIVERED,
+      prNumber: 700,
+    })).toMatchObject({
+      status: DELIVERY_STATUS.DELIVERED,
+      outcome: FIX_OUTCOME.PR_CREATED,
+      prNumber: 700,
+    });
+    expect(outcomeFromDeliveryEvidence({
+      status: DELIVERY_STATUS.NONE,
+      reason: 'no-current-delivery-evidence',
+    })).toMatchObject({
+      status: DELIVERY_STATUS.NONE,
+      outcome: FIX_OUTCOME.NO_PR_UNSPECIFIED,
+    });
+    expect(outcomeFromDeliveryEvidence({
+      status: DELIVERY_STATUS.UNAVAILABLE,
+      reason: 'github-read-failed',
+    })).toMatchObject({
+      status: DELIVERY_STATUS.UNAVAILABLE,
+      outcome: null,
+    });
+  });
+
+  it('rifiuta un marker di none che proverebbe falsamente una delivery', () => {
+    expect(outcomeFromDeliveryEvidence(
+      { status: DELIVERY_STATUS.NONE },
+      { noneOutcome: FIX_OUTCOME.PR_CREATED },
+    )).toEqual({
+      status: DELIVERY_STATUS.UNAVAILABLE,
+      reason: 'marker-outcome-invalid',
+      prNumber: null,
+      outcome: null,
+    });
+  });
+
   it('non tratta una PR MERGED storica aggiornata come delivery corrente', () => {
     const old = pr({
       state: 'MERGED',

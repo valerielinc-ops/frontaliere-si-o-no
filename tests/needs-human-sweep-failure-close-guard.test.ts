@@ -35,7 +35,17 @@ function sweepPrompt(): string {
   throw new Error('codex_sweep step not found');
 }
 
+function outcomeClassifier(): any {
+  for (const job of Object.values<any>(jobs)) {
+    for (const step of job?.steps ?? []) {
+      if (String(step?.name).startsWith('Classify outcome')) return step;
+    }
+  }
+  throw new Error('outcome classifier step not found');
+}
+
 const prompt = sweepPrompt();
+const classifier = outcomeClassifier();
 const verdictsJob = jobs.failure_verdicts;
 const sweepJob = jobs.sweep;
 const VERDICTS_FILE = '.sweep-input/failure-verdicts.json';
@@ -78,6 +88,22 @@ describe('needs-human sweep: le issue di failure leggono il verdetto del closer'
     for (const action of CLOSE_ACTIONS) expect(prompt, action).toContain(`\`${action}\``);
     expect(prompt).toMatch(/`close` → nessuna azione: la chiude il closer/);
     expect(prompt).toMatch(/`keep` → classe B o D come le altre issue; mai C/);
+  });
+});
+
+describe('needs-human sweep: il verde prova questa run', () => {
+  it('richiede il marker SWEEP_OUTCOME con il run id corrente', () => {
+    expect(prompt).toContain('SWEEP_OUTCOME: run=${{ github.run_id }}');
+    expect(classifier.env?.RUN_ID).toBe('${{ github.run_id }}');
+    expect(String(classifier.run)).toContain('jq --arg run "$RUN_ID"');
+    expect(String(classifier.run)).toContain('contains("<!-- SWEEP_OUTCOME: run=" + $run + " ")');
+  });
+
+  it('senza marker corrente fallisce anche con CLI pulita', () => {
+    const run = String(classifier.run);
+    expect(run).toContain('nessun marker SWEEP_OUTCOME della run');
+    expect(run).toMatch(/nessun marker SWEEP_OUTCOME della run[\s\S]*exit 1/);
+    expect(run).not.toContain('CLI pulita senza marker');
   });
 });
 

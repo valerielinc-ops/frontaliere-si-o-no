@@ -1213,6 +1213,31 @@ describe('pull-articles-api: sitemap-news candidates', () => {
     expect(readPub(dir, 'sitemap-news.xml')).not.toContain(LOC_B);
   });
 
+  it('keeps a guide declared evergreen out of the news sitemap', async () => {
+    const guide = 'https://frontaliereticino.ch/articoli-frontaliere/guida-permesso/';
+    const news = 'https://frontaliereticino.ch/articoli-frontaliere/notizia/';
+    routes = { ...baseRoutes(), 'sitemap-news-candidates.xml': urlset([newsUrlBlock(news, hoursAgo(1)), newsUrlBlock(guide, hoursAgo(1))]) };
+    const dir = makeCheckout({ newsEntries: [newsUrlBlock(guide, hoursAgo(2))] });
+    const content = path.join(dir, 'packages', 'articles', 'content');
+    fs.mkdirSync(content, { recursive: true });
+    fs.writeFileSync(
+      path.join(content, 'routerBlogData.ts'),
+      "export const BLOG_SLUGS = {\n  'guida-permesso': { it: 'guida-permesso', en: 'g-en', de: 'g-de', fr: 'g-fr' },\n  'notizia': { it: 'notizia', en: 'n-en', de: 'n-de', fr: 'n-fr' },\n};\n",
+    );
+    fs.writeFileSync(
+      path.join(content, 'blog-articles-data.ts'),
+      "const RAW_ARTICLES = [\n  { id: 'guida-permesso', articleType: 'evergreen' },\n  { id: 'notizia', articleType: 'news' },\n];\n",
+    );
+
+    const { code, out } = await run(dir);
+
+    expect(code, out).toBe(0);
+    const sitemap = readPub(dir, 'sitemap-news.xml');
+    expect(sitemap).toContain(news);
+    expect(sitemap).not.toContain(guide);
+    expect(out).toContain(`dropping ${guide} — declared evergreen, not news`);
+  });
+
   it('keeps every locale page of a listed article and drops a de-listed one in any locale', async () => {
     // Since 2026-10-24 the corpus emits one <url> per published locale page, so
     // the de-listing check has to recognise the localized section prefixes too:

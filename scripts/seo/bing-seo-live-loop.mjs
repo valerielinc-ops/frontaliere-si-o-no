@@ -449,7 +449,7 @@ export function applyStaticFixes({ repoRoot = REPO_ROOT } = {}) {
   const relativePath = 'index.html';
   const absolutePath = resolve(repoRoot, relativePath);
   const source = readFileSync(absolutePath, 'utf8');
-  const replacement = '<h1 id="homepage-static-h1">Frontaliere Ticino 2026 — Calcolatore Stipendio Netto Svizzera-Italia</h1>';
+  const replacement = '<h1 id="homepage-static-h1">Calcolatore Stipendio Frontaliere Svizzera 2026</h1>';
   const next = source.replace(
     /<h1\b([^>]*)style="[^"]*(?:left\s*:\s*-9999|width\s*:\s*1px|height\s*:\s*1px)[^"]*"[^>]*>Frontaliere Ticino 2026 — Calcolatore Stipendio Netto Svizzera-Italia<\/h1>/i,
     replacement,

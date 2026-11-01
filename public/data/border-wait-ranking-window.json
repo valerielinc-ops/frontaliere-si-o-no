@@ -1,9 +1,9 @@
 {
-  "generatedFor": "2026-10-30",
+  "generatedFor": "2026-11-01",
   "windowDays": 7,
   "current": {
-    "weekStart": "2026-10-23",
-    "weekEnd": "2026-10-29",
+    "weekStart": "2026-10-25",
+    "weekEnd": "2026-10-31",
     "perCrossing": {
       "anieres": {
         "weightedAvgMinutes": 0,
@@ -21,7 +21,7 @@
         "canton": "AG"
       },
       "bardonnex": {
-        "weightedAvgMinutes": 3.8958333333333335,
+        "weightedAvgMinutes": 2.7916666666666665,
         "totalSamples": 48,
         "canton": "GE"
       },
@@ -241,7 +241,7 @@
         "canton": "JU"
       },
       "ferney-voltaire-grand-saconnex": {
-        "weightedAvgMinutes": 3.1666666666666665,
+        "weightedAvgMinutes": 2.8333333333333335,
         "totalSamples": 48,
         "canton": "GE"
       },
@@ -491,7 +491,7 @@
         "canton": "SH"
       },
       "meyrin-cern": {
-        "weightedAvgMinutes": 0.5,
+        "weightedAvgMinutes": 0.8333333333333334,
         "totalSamples": 48,
         "canton": "GE"
       },
@@ -531,7 +531,7 @@
         "canton": "GR"
       },
       "perly": {
-        "weightedAvgMinutes": 1.5,
+        "weightedAvgMinutes": 1.6666666666666667,
         "totalSamples": 48,
         "canton": "GE"
       },
@@ -713,8 +713,8 @@
     }
   },
   "previous": {
-    "weekStart": "2026-10-16",
-    "weekEnd": "2026-10-22",
+    "weekStart": "2026-10-18",
+    "weekEnd": "2026-10-24",
     "perCrossing": {
       "anieres": {
         "weightedAvgMinutes": 0,
@@ -732,7 +732,7 @@
         "canton": "AG"
       },
       "bardonnex": {
-        "weightedAvgMinutes": 4.479166666666667,
+        "weightedAvgMinutes": 4.291666666666667,
         "totalSamples": 48,
         "canton": "GE"
       },
@@ -842,7 +842,7 @@
         "canton": "TI"
       },
       "campione-d-italia-bissone": {
-        "weightedAvgMinutes": 6,
+        "weightedAvgMinutes": 4,
         "totalSamples": 48,
         "canton": "TI"
       },
@@ -862,17 +862,17 @@
         "canton": "VD"
       },
       "chiasso-brogeda": {
-        "weightedAvgMinutes": 1.3333333333333333,
+        "weightedAvgMinutes": 0.8333333333333334,
         "totalSamples": 48,
         "canton": "TI"
       },
       "chiasso-centro": {
-        "weightedAvgMinutes": 0.5,
+        "weightedAvgMinutes": 0.3333333333333333,
         "totalSamples": 48,
         "canton": "TI"
       },
       "chiasso-strada": {
-        "weightedAvgMinutes": 0.5,
+        "weightedAvgMinutes": 0.3333333333333333,
         "totalSamples": 48,
         "canton": "TI"
       },
@@ -952,7 +952,7 @@
         "canton": "JU"
       },
       "ferney-voltaire-grand-saconnex": {
-        "weightedAvgMinutes": 3.6666666666666665,
+        "weightedAvgMinutes": 3.8333333333333335,
         "totalSamples": 48,
         "canton": "GE"
       },
@@ -962,7 +962,7 @@
         "canton": "GR"
       },
       "gaggiolo": {
-        "weightedAvgMinutes": 1.5,
+        "weightedAvgMinutes": 1,
         "totalSamples": 48,
         "canton": "TI"
       },
@@ -1202,7 +1202,7 @@
         "canton": "SH"
       },
       "meyrin-cern": {
-        "weightedAvgMinutes": 0.5,
+        "weightedAvgMinutes": 0.3333333333333333,
         "totalSamples": 48,
         "canton": "GE"
       },
@@ -1327,7 +1327,7 @@
         "canton": "GR"
       },
       "san-pietro": {
-        "weightedAvgMinutes": 1.5,
+        "weightedAvgMinutes": 1,
         "totalSamples": 48,
         "canton": "TI"
       },

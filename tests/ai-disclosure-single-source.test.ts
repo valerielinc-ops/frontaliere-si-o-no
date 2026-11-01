@@ -78,7 +78,7 @@ describe('AI disclosure: single source', () => {
     // The provenance-aware renderer feeds a normalized name and one shared
     // statement resolver to the static and hydrated consumers.
     expect(og).toMatch(/const articleTransparencyAuthorName = en\.authorName\.trim\(\) \|\| resolvedAuthor\?\.name/);
-    expect(og).toMatch(/\$\{buildArticleTransparencyAside\(locale, articleTransparencyAuthorName, articleProvenance\)/);
+    expect(og).toMatch(/\$\{buildArticleTransparencyAside\(locale, articleTransparencyAuthorName, articleProvenance, articleBodyHtml\)/);
     expect(og).toMatch(/links\.about\} \| \$\{methodology\} \| \$\{corrections\}/);
     const spa = read('components/community/BlogArticles.tsx');
     expect(spa).toContain('resolveArticleTransparencyStatement(');

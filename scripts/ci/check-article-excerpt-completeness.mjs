@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
+import { parseStaticArticleTranslationEntries } from '../../packages/articles/engine/shared/articleStaticSource.mjs';
 
 export const ARTICLE_KEY = 'blog.article.svizzera-vietnam-relazioni-2026.excerpt';
 export const SEO_RECORD_KEY = 'blog-svizzera-vietnam-relazioni-2026';
@@ -13,6 +14,22 @@ const TRUNCATED_ENDINGS = [
   /Parmelin\s+(?:am|received in|reçu à|ricevuto ad)\s+17\.?$/iu,
   /(?:Statements|Déclarations|Dichiarazioni)$/u,
 ];
+
+// These are the four locale labels that the article generator can leak when
+// an excerpt is cut immediately after the facts-key block. Keep the set
+// closed: a generic "last capitalized word" heuristic would reject valid
+// editorial copy and make the corpus mirror unsafe to run.
+export const ISOLATED_SECTION_LABELS = Object.freeze([
+  'Oggetto',
+  'Gegenstand',
+  'Subject',
+  'Objet',
+]);
+
+const ISOLATED_SECTION_LABEL_TAIL = new RegExp(
+  `(?:^|\\s)(?:${ISOLATED_SECTION_LABELS.map((label) => label.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')).join('|')})$`,
+  'u',
+);
 
 function propertyName(node) {
   if (ts.isIdentifier(node) || ts.isStringLiteral(node) || ts.isNumericLiteral(node)) {
@@ -85,6 +102,49 @@ function valueFromSeoRecord(sourceFile, property) {
   return directPropertyValue(record, property);
 }
 
+function allSeoRecords(sourceFile) {
+  const records = [];
+  function visit(node) {
+    if (
+      ts.isPropertyAssignment(node)
+      && /^blog-/u.test(propertyName(node.name) || '')
+      && ts.isObjectLiteralExpression(node.initializer)
+    ) {
+      records.push({ key: propertyName(node.name), object: node.initializer });
+    }
+    ts.forEachChild(node, visit);
+  }
+  visit(sourceFile);
+  return records;
+}
+
+function valueFromRecord(record, property) {
+  if (property === 'structuredData.description') {
+    const structuredData = record.properties.find(
+      (member) => ts.isPropertyAssignment(member) && propertyName(member.name) === 'structuredData',
+    )?.initializer;
+    return directPropertyValue(structuredData, 'description');
+  }
+  return directPropertyValue(record, property);
+}
+
+function checkIsolatedSectionLabelTail(value, label) {
+  const normalized = String(value || '').replace(/\s+/gu, ' ').trim();
+  if (!normalized) return [];
+  if (!ISOLATED_SECTION_LABEL_TAIL.test(normalized)) return [];
+  const token = normalized.split(/\s+/u).at(-1);
+  return [`${label}: summary ends with isolated section label "${token}"`];
+}
+
+function checkKnownTruncatedTail(value, label) {
+  const normalized = String(value || '').replace(/\s+/gu, ' ').trim();
+  const failures = checkIsolatedSectionLabelTail(normalized, label);
+  if (TRUNCATED_ENDINGS.some((pattern) => pattern.test(normalized))) {
+    failures.push(`${label}: summary ends with a known truncated fragment`);
+  }
+  return failures;
+}
+
 function checkSummary(value, label) {
   const normalized = String(value || '').replace(/\s+/gu, ' ').trim();
   const failures = [];
@@ -95,22 +155,44 @@ function checkSummary(value, label) {
   if (/[.…]{3,}\s*$/u.test(normalized)) {
     failures.push(`${label}: summary ends with an ellipsis`);
   }
-  if (TRUNCATED_ENDINGS.some((pattern) => pattern.test(normalized))) {
-    failures.push(`${label}: summary ends with a known truncated fragment`);
-  }
+  failures.push(...checkKnownTruncatedTail(normalized, label));
   if (!/[.!?]$/u.test(normalized)) {
     failures.push(`${label}: summary does not end with sentence punctuation`);
   }
   return failures;
 }
 
-export function validateArticleExcerptFiles(files) {
+export function validateArticleExcerptFiles(files, { all = false } = {}) {
   const failures = [];
   let checked = 0;
 
   for (const file of files) {
     const source = fs.readFileSync(file, 'utf8');
     const sourceFile = parseSource(source, file);
+    if (all && path.basename(file).startsWith('blog-meta-')) {
+      const entries = parseStaticArticleTranslationEntries(source, file)
+        .filter((entry) => entry.field === 'excerpt');
+      for (const entry of entries) {
+        checked += 1;
+        failures.push(...checkKnownTruncatedTail(
+          entry.value,
+          `${file}:blog.article.${entry.articleId}.excerpt`,
+        ));
+      }
+      continue;
+    }
+    if (all && path.basename(file).startsWith('seo-blog')) {
+      for (const { key, object } of allSeoRecords(sourceFile)) {
+        for (const property of ['description', 'ogDescription', 'structuredData.description']) {
+          checked += 1;
+          failures.push(...checkKnownTruncatedTail(
+            valueFromRecord(object, property),
+            `${file}:${key}.${property}`,
+          ));
+        }
+      }
+      continue;
+    }
     if (file.endsWith('seo-blog-ch.ts')) {
       for (const property of ['description', 'ogDescription']) {
         const value = valueFromSeoRecord(sourceFile, property);
@@ -132,14 +214,15 @@ export function validateArticleExcerptFiles(files) {
 }
 
 function runCli() {
-  const files = process.argv.slice(2).map((file) => path.resolve(file));
+  const all = process.argv.includes('--all');
+  const files = process.argv.slice(2).filter((file) => file !== '--all').map((file) => path.resolve(file));
   if (files.length === 0) {
     console.error('Usage: node scripts/ci/check-article-excerpt-completeness.mjs <file>...');
     process.exitCode = 2;
     return;
   }
 
-  const result = validateArticleExcerptFiles(files);
+  const result = validateArticleExcerptFiles(files, { all });
   if (result.failures.length > 0) {
     console.error(result.failures.map((failure) => `❌ ${failure}`).join('\n'));
     process.exitCode = 1;

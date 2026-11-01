@@ -1,9 +1,23 @@
 import { AUTHORS, getAuthorBySlug } from '../../data/authors';
 import { localizeAuthor, type AuthorLocale } from '../../data/authorLocales';
-import { buildAuthorSeo } from './seo-authors';
+import { buildAuthorSeo, buildAuthorsHubSeo } from './seo-authors';
+
+const AUTHORS_HUB_PATH_RE = /^\/(?:autori|en\/authors|de\/autoren|fr\/auteurs)\/?$/;
+
+/** Metadata of the `/autori/` hub; `autore` is the section key of the route without a slug. */
+function resolveAuthorsHubMetadata(locale: AuthorLocale) {
+  const seo = buildAuthorsHubSeo(locale);
+  return {
+    title: seo.title, description: seo.description, keywords: AUTHORS.map(author => author.name).join(', '),
+    ogTitle: seo.title, ogDescription: seo.description, ogImage: seo.ogImage,
+    canonicalPath: new URL(seo.canonical).pathname,
+    structuredData: [seo.jsonLd],
+  };
+}
 
 /** Shared override for both metadata consumers; author literals are never localized as generic sections. */
 export function resolveAuthorProfileMetadata(sectionOrPath: string, locale: AuthorLocale) {
+  if (sectionOrPath === 'autore' || AUTHORS_HUB_PATH_RE.test(sectionOrPath)) return resolveAuthorsHubMetadata(locale);
   const slug = sectionOrPath.startsWith('autore-') ? sectionOrPath.slice(7)
     : /^\/(?:autori|(?:en\/authors|de\/autoren|fr\/auteurs))\/([^/]+)\/?$/.exec(sectionOrPath)?.[1];
   const original = slug ? getAuthorBySlug(slug) : undefined;
@@ -29,6 +43,9 @@ export function resolveAuthorProfileMetadata(sectionOrPath: string, locale: Auth
  * registry itself was corrected (PR 11327).
  */
 export function authorSeoPageEntries(locale: AuthorLocale = 'it') {
-  return Object.fromEntries(AUTHORS.map(author =>
-    [`autore-${author.slug}`, resolveAuthorProfileMetadata(`autore-${author.slug}`, locale)!]));
+  return {
+    autore: resolveAuthorProfileMetadata('autore', locale)!,
+    ...Object.fromEntries(AUTHORS.map(author =>
+      [`autore-${author.slug}`, resolveAuthorProfileMetadata(`autore-${author.slug}`, locale)!])),
+  };
 }

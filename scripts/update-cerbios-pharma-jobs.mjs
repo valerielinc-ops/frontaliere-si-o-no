@@ -36,6 +36,7 @@ import {
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -293,6 +294,7 @@ async function main() {
       return;
     }
 
+    markCrawlerSummaryAbortKind('no-jobs-parsed');
     console.log('ℹ️  No job listings found — skipping crawl.');
     // The stored jobs are kept, without the text the crawler once wrote
     // into them (the merge would have removed it).

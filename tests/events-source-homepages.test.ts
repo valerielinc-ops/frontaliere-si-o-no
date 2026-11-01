@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { EVENT_SOURCES, eventReferralUrl, eventSourceUrl } from '../scripts/lib/events-utils.mjs';
+import {
+  assertUniqueEventFallbacks,
+  EVENT_SOURCES,
+  eventReferralUrl,
+  eventSourceUrl,
+} from '../scripts/lib/events-utils.mjs';
 
 describe('event source homepages', () => {
   it('uses an explicit MySwitzerland locale path for the crawler-facing link', () => {
@@ -36,5 +41,18 @@ describe('event source homepages', () => {
       expect(eventReferralUrl(rawUrl, event)).toContain(`${EVENT_SOURCES[sourceKey].homepage}?utm_source=frontaliereticino`);
       expect(eventReferralUrl(rawUrl, event)).not.toContain(new URL(rawUrl).pathname);
     }
+  });
+
+  it('uses a unique fallback when a carried event has no source key', () => {
+    const rawUrl = 'https://www.nw.ch/anlaesseaktuelles/94120';
+    expect(eventSourceUrl(`  ${rawUrl}  `, {})).toBe(EVENT_SOURCES['nw-agenda'].homepage);
+  });
+
+  it('rejects conflicting unscoped fallback entries before lookup', () => {
+    const rawUrl = 'https://events.example.invalid/stale';
+    expect(() => assertUniqueEventFallbacks([
+      [`source-a|${rawUrl}`, 'https://source-a.example/'],
+      [`source-b|${rawUrl}`, 'https://source-b.example/'],
+    ])).toThrow(/ambiguous stale event fallback/);
   });
 });

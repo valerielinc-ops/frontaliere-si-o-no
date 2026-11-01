@@ -7,6 +7,7 @@ import { adSlotHtml } from '@/build-plugins/lib/adSlotHtml';
 import {
   CRITICAL_CSS,
   DRIVEBY_AD_RESERVE_CSS,
+  STATIC_TOP_AUTO_AD_RESERVE_CSS,
   STATIC_AD_COLLAPSE_CSS,
 } from '@/build-plugins/shared/criticalCss';
 import {
@@ -32,6 +33,19 @@ describe('static AdSense layout recovery', () => {
       `@media(min-width:${MULTIPLEX_DESKTOP_MIN_WIDTH}px){.ft-driveby-ad{min-height:${DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT}px}}`,
     );
     expect(CRITICAL_CSS).toContain(DRIVEBY_AD_RESERVE_CSS);
+  });
+
+  it('keeps the route-scoped top Auto Ad transfer in the critical sheet', () => {
+    expect(STATIC_TOP_AUTO_AD_RESERVE_CSS).toContain(
+      'main.seo-static-content:has(>article[data-ft-driveby-top-ad])',
+    );
+    expect(STATIC_TOP_AUTO_AD_RESERVE_CSS).toContain(
+      '>article:has(>.google-auto-placed+header)>nav.s-bcr',
+    );
+    expect(STATIC_TOP_AUTO_AD_RESERVE_CSS).toContain(
+      '>article>.google-auto-placed:has(+header)',
+    );
+    expect(CRITICAL_CSS).toContain(STATIC_TOP_AUTO_AD_RESERVE_CSS);
   });
 
   it('marks the article near-ATF slot with its measured experiment metadata', () => {

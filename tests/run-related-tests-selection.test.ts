@@ -141,6 +141,20 @@ describe('run-related-tests selection contract', () => {
     expect(result.output).not.toContain('selection_failed=true');
   });
 
+  it('selects the trusted mid-plugin equivalence suite when the shared flag facade changes', () => {
+    const source = 'build-plugins/shared/midPluginFlags.ts';
+    const trusted = 'tests/mid-plugins-equivalence.test.ts';
+    const root = fixture({
+      [source]: 'export const MID_PLUGINS_FAST = true;\n',
+      [trusted]: 'export const trusted = true;\n',
+      'tests/unrelated.test.ts': 'export const unrelated = true;\n',
+    });
+    const result = select(root, [source]);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain(trusted);
+    expect(result.stdout).not.toContain('tests/unrelated.test.ts');
+  });
+
   it('selects the source-backed AIL, JobBoard and Google News tests', () => {
     const contracts = [
       {

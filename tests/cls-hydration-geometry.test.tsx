@@ -192,6 +192,24 @@ describe('border-wait top Auto Ad keeps the header geometry reserved', () => {
     expect(routeReserve).toMatch(/margin-block-end:\s*var\(--border-wait-top-ad-reserve\)/u);
     expect(routeReserve).toMatch(/min-height:\s*var\(--border-wait-top-ad-reserve\)/u);
   });
+
+  it('reserves the same measured insertion geometry for health and fuel drive-by pages', () => {
+    expect(css).toContain('--driveby-top-ad-reserve: 250px;');
+    expect(css).toContain(
+      'main.seo-static-content:has(> article[data-ft-driveby-top-ad]) > article > nav.s-bcr',
+    );
+    expect(css).toContain(
+      'main.seo-static-content:has(> article[data-ft-driveby-top-ad]) > article:has(> .google-auto-placed + header) > nav.s-bcr',
+    );
+    expect(css).toContain(
+      'main.seo-static-content:has(> article[data-ft-driveby-top-ad]) > article > .google-auto-placed:has(+ header)',
+    );
+
+    for (const file of ['build-plugins/healthPremiumsLandingPlugin.ts', 'build-plugins/fuelDailyPagesPlugin.ts']) {
+      const source = read(file);
+      expect(source, file).toContain('data-ft-driveby-top-ad="true"');
+    }
+  });
 });
 
 describe('SkeletonFallback on a job-detail URL', () => {

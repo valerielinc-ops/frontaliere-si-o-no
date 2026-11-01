@@ -354,3 +354,67 @@ export async function renderCarouselSlides({ kicker, title, subtitle, items, clo
   }
   return buffers;
 }
+
+const ANSWER_CARD_WIDTH = 1080;
+const ANSWER_CARD_HEIGHT = 1920;
+
+/** Long sentences shrink so every card stays readable on a phone. */
+export function answerCardFontSize(text) {
+  const length = String(text || '').length;
+  if (length <= 60) return 92;
+  if (length <= 100) return 78;
+  return 66;
+}
+
+function answerCardTree({ kicker, text, footer, progress }) {
+  const div = (style, children) => ({ type: 'div', props: { style: { display: 'flex', ...style }, children } });
+  return div(
+    {
+      width: ANSWER_CARD_WIDTH,
+      height: ANSWER_CARD_HEIGHT,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      // TikTok covers the right rail and the bottom of the frame with its UI.
+      padding: '220px 150px 380px 72px',
+      backgroundColor: '#0F2557',
+      fontFamily: 'Roboto',
+    },
+    [
+      div({ fontSize: 38, fontWeight: 700, color: '#FFB300', marginBottom: 40 }, kicker),
+      div({ fontSize: answerCardFontSize(text), fontWeight: 700, lineHeight: 1.22, color: '#FFFFFF' }, text),
+      div({ width: `${Math.round(progress * 100)}%`, height: 12, backgroundColor: '#FFB300', marginTop: 56 }, []),
+      div({ fontSize: 30, color: '#FFFFFF', marginTop: 28 }, footer),
+    ],
+  );
+}
+
+/**
+ * Full-height cards of the spoken TikTok answer, one per caption line. The
+ * text is burned in because the sound is often off, and it repeats the words
+ * of the voice so on-screen text and speech carry the same search keywords.
+ *
+ * @param {Array<{kicker:string, text:string}>} cards
+ * @param {{ footer: string }} opts
+ * @returns {Promise<Buffer[]|null>} null when the fonts are missing
+ */
+export async function renderAnswerCards(cards, { footer }) {
+  const fonts = readFontPair();
+  if (!fonts || !Array.isArray(cards) || cards.length === 0) return null;
+  const [{ default: satori }, { Resvg }, { default: sharp }] = await Promise.all([
+    import('satori'),
+    import('@resvg/resvg-js'),
+    import('sharp'),
+  ]);
+  const fontConfig = [
+    { name: 'Roboto', data: fonts.regular, weight: 400, style: 'normal' },
+    { name: 'Roboto', data: fonts.bold, weight: 700, style: 'normal' },
+  ];
+  const buffers = [];
+  for (const [index, card] of cards.entries()) {
+    const tree = answerCardTree({ ...card, footer, progress: (index + 1) / cards.length });
+    const svg = await satori(tree, { width: ANSWER_CARD_WIDTH, height: ANSWER_CARD_HEIGHT, fonts: fontConfig });
+    const png = new Resvg(svg, { fitTo: { mode: 'width', value: ANSWER_CARD_WIDTH } }).render().asPng();
+    buffers.push(await sharp(png).jpeg({ quality: JPEG_QUALITY }).toBuffer());
+  }
+  return buffers;
+}

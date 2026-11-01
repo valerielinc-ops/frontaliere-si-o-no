@@ -158,6 +158,21 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(fs.existsSync(pageFile(NOINDEX))).toBe(true);
   });
 
+  it('drops a closed offer: its soft landing is index,follow and self-canonical', async () => {
+    const closed = `${BASE}/en/find-jobs-appenzell/closed-offer-acme-herisau/`;
+    writePage(closed, `<!doctype html><html><head><link rel="canonical" href="${closed}"><script>window.__EXPIRED_JOB_DATA__={"title":"Closed"};</script></head><body>This position is no longer active.</body></html>`);
+    fs.writeFileSync(
+      path.join(dist, 'sitemap-jobs.xml'),
+      readSitemap().replace('</urlset>', `${urlBlock(closed)}\n</urlset>`),
+    );
+
+    await reconcileSitemapJobsWithDist(dist, []);
+
+    expect(readSitemap()).not.toContain('closed-offer-acme-herisau');
+    expect(readSitemap()).toContain(HEALTHY);
+    expect(fs.existsSync(pageFile(closed))).toBe(true);
+  });
+
   it('drops a <loc> whose canonical points at another page', async () => {
     await reconcileSitemapJobsWithDist(dist, []);
     expect(readSitemap()).not.toContain('ricerca-allianz-job');

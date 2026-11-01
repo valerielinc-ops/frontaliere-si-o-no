@@ -1,52 +1,86 @@
 /**
- * Gate: a static page's <head> never hints the same modulepreload twice.
+ * Gate: a page's HTML never preloads a root /assets/ alias.
  *
- * Live 2026-10-24, /calcola-stipendio/: `it-calculator.js` was modulepreloaded
- * by the core list AND by the calculator section's locale-chunk preload.
+ * The executable graph is under /assets/releases/<BUILD_ID>/, so a root preload
+ * is a second download of a module nobody executes. Live 2026-10-31: 1 to 6
+ * duplicated modules per page (JobBoard.js 0.59 MB, it-core.js 0.23 MB).
  */
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { routeModulePreloadTags } from '../../build-plugins/shared/modulePreloads';
+import {
+  declareRouteHintEmitter,
+  getRegisteredRouteChunks,
+  resetRegisteredRouteChunks,
+  routeChunksMetaTag,
+  routeHintEmittersSettled,
+} from '../../build-plugins/shared/modulePreloads';
 
-describe('routeModulePreloadTags', () => {
-  it('drops a route chunk the core list already preloads (the calculator case)', () => {
-    const core = new Set(['vendor-react.js', 'it-core.js', 'it-calculator.js']);
-    expect(routeModulePreloadTags(['InputCard.js', 'it-calculator.js'], core)).toEqual([
-      '<link rel="modulepreload" href="/assets/InputCard.js">',
-    ]);
+const read = (relative: string) => fs.readFileSync(path.resolve(__dirname, '../..', relative), 'utf8');
+
+describe('routeChunksMetaTag', () => {
+  beforeEach(() => resetRegisteredRouteChunks());
+
+  it('drops repeats and empty entries, keeping order', () => {
+    expect(routeChunksMetaTag(['A.js', '', null, 'B.js', 'A.js', undefined])).toBe(
+      '<meta name="frontaliere-route-chunks" content="A.js B.js">',
+    );
   });
 
-  it('drops repeats inside the route list and empty entries, keeping order', () => {
-    expect(routeModulePreloadTags(['A.js', '', null, 'B.js', 'A.js', undefined], new Set())).toEqual([
-      '<link rel="modulepreload" href="/assets/A.js">',
-      '<link rel="modulepreload" href="/assets/B.js">',
-    ]);
+  it('emits nothing for an empty list', () => {
+    expect(routeChunksMetaTag([null, ''])).toBe('');
   });
 
-  it('does not mutate the core set', () => {
-    const core = new Set(['it-core.js']);
-    routeModulePreloadTags(['X.js'], core);
-    expect([...core]).toEqual(['it-core.js']);
+  it('registers every hinted chunk for the bootstrap allowlist', () => {
+    routeChunksMetaTag(['B.js']);
+    routeChunksMetaTag(['A.js', 'B.js']);
+    expect(getRegisteredRouteChunks()).toEqual(['A.js', 'B.js']);
   });
 });
 
-describe('staticPagesPlugin wires every route-chunk modulepreload through the helper', () => {
-  const src = fs.readFileSync(path.resolve(__dirname, '../../build-plugins/staticPagesPlugin.ts'), 'utf8');
+describe('routeHintEmittersSettled', () => {
+  beforeEach(() => resetRegisteredRouteChunks());
 
-  it('the only literal modulepreload tags are the core list', () => {
-    const literal = src.split('\n')
-      .map((line, i) => ({ line: line.trim(), n: i + 1 }))
-      .filter(({ line }) => /<link rel="modulepreload"/.test(line) && !line.startsWith('//'));
-    // The two core-list lines (vendor-react with crossorigin, the IT critical chunks).
-    expect(literal.map(({ line }) => line)).toEqual([
-      expect.stringContaining('vendorReactChunk'),
-      expect.stringContaining('itCriticalChunks.map'),
-    ]);
+  it('resolves at once when no emitter is active', async () => {
+    await expect(routeHintEmittersSettled()).resolves.toBeUndefined();
   });
 
-  it('the page list is deduplicated against the core list', () => {
-    expect(src).toMatch(/routeModulePreloadTags\(routeChunks, corePreloadedChunks\)/);
-    expect(src).toMatch(/corePreloadedChunks[^=]*= new Set\(\[vendorReactChunk, \.\.\.itCriticalChunks\]/);
+  it('waits for the last active emitter', async () => {
+    const endFirst = declareRouteHintEmitter();
+    const endSecond = declareRouteHintEmitter();
+    let settled = false;
+    const waiting = routeHintEmittersSettled().then(() => { settled = true; });
+    endFirst();
+    await Promise.resolve();
+    expect(settled).toBe(false);
+    endSecond();
+    await waiting;
+    expect(settled).toBe(true);
+  });
+
+  it.each(['build-plugins/staticPagesPlugin.ts', 'build-plugins/preloadLocalePlugin.ts'])(
+    '%s declares itself at buildStart and ends in a finally',
+    (file) => {
+      const source = read(file);
+      expect(source).toContain('endRouteHints = declareRouteHintEmitter();');
+      expect(source).toMatch(/finally \{[^}]*endRouteHints\(\);/);
+    },
+  );
+});
+
+describe('no HTML emitter preloads a root alias', () => {
+  it.each(['build-plugins/staticPagesPlugin.ts', 'build-plugins/preloadLocalePlugin.ts'])('%s', (file) => {
+    const emitted = read(file)
+      .split('\n')
+      .filter((line) => /<link rel="modulepreload"/.test(line) && !/^\s*(\/\/|\*)/.test(line));
+    expect(emitted).toEqual([]);
+  });
+
+  it('Vite does not inject the entry dependencies into the HTML', () => {
+    expect(read('vite.config.ts')).toMatch(/if \(hostType === 'html'\) return \[\];/);
+  });
+
+  it('the static page head merges core and route chunks into one hint', () => {
+    expect(read('build-plugins/staticPagesPlugin.ts')).toMatch(/routeChunksMetaTag\(\[\.\.\.corePreloadChunks, \.\.\.routeChunks\]\)/);
   });
 });

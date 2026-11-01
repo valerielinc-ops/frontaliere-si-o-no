@@ -23,6 +23,7 @@ import {
   isValidMetaLength,
   META_MIN_CHARS,
   META_MAX_CHARS,
+  JOB_HUB_CTA,
 } from '../services/seo/meta-descriptions';
 
 const LOCALES: readonly JobPageLocale[] = JOB_PAGE_LOCALES;
@@ -330,13 +331,15 @@ describe('buildCityHubMeta — non-TI cantonDisplay (no Ticino/Tessin leak)', ()
 
 
 describe('job-hub application contract', () => {
+  it('non chiude tutti gli hub con la stessa frase', () => {
+    const endings = new Set(['Lugano', 'Bellinzona', 'Locarno', 'Mendrisio', 'Chiasso', 'Biasca'].map(cityDisplay => {
+      const meta = buildCityHubMeta({ locale: 'it', cityDisplay, count: 120 });
+      return JOB_HUB_CTA.it.find(cta => meta.endsWith(cta));
+    }));
+    expect(endings.size).toBeGreaterThan(1);
+  });
+
   it('preserves the full reading/sign-in CTA even with long names and counts', () => {
-    const cta = {
-      it: 'Leggi gli annunci; accesso gratuito per candidarti.',
-      en: 'Read listings freely; free sign-in to apply.',
-      de: 'Anzeigen frei lesen; kostenlose Anmeldung zur Bewerbung.',
-      fr: 'Annonces en accès libre ; connexion gratuite pour postuler.',
-    };
     for (const locale of LOCALES) {
       for (const count of SAMPLE_COUNTS) {
         const metas = [
@@ -348,7 +351,7 @@ describe('job-hub application contract', () => {
           buildRecencyHubMeta({ locale, days: 7, count, year: YEAR }),
         ];
         for (const meta of metas) {
-          expect(meta.endsWith(cta[locale]), meta).toBe(true);
+          expect(JOB_HUB_CTA[locale].some(cta => meta.endsWith(cta)), meta).toBe(true);
           expect(isValidMetaLength(meta), meta).toBe(true);
         }
       }

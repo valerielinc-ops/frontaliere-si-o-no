@@ -7,6 +7,7 @@ import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import { trackAssistedApplicationCompletionOnce } from '@/services/assistedApplicationCompletionTracking';
 import { hasAssistedApplicationConsent } from '@/functions/src/assistedApplicationConstants.js';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
+import { getAssistedPaymentResponseShape } from '@/services/assistedApplicationResponseShape';
 import {
   getAssistedApplicationPaymentRecoveryErrorCode,
   resumeAssistedApplicationPayment,
@@ -387,6 +388,7 @@ export default function AssistedApplicationUpload({
         ...orderEventContext(order),
         reason: code,
         resume_source: source,
+        details: getAssistedPaymentResponseShape(resumeError),
       });
     } finally {
       if (pendingCheckoutWindow.current === checkoutWindow) pendingCheckoutWindow.current = null;

@@ -8,15 +8,21 @@
  * recent SECO evidence); empty buckets donate their share to buckets with work.
  */
 
+import { hasUntriedEmailDomainHint } from './candidate-store.mjs';
+
 export const TRACE_SECO_FRESHNESS_DAYS = 30;
 export const TRACE_LIMIT_MAX = 1200;
 const TRACE_SECO_FRESHNESS_MS = TRACE_SECO_FRESHNESS_DAYS * 86_400_000;
 const TRACE_BUCKETS = Object.freeze([
   { key: 'careersUrl', weight: 5, matches: (candidate) => Boolean(candidate?.careersUrl) },
-  { key: 'domain', weight: 3, matches: (candidate) => Boolean(candidate?.domain) },
+  { key: 'domain', weight: 3, matches: (candidate) => hasDomainLead(candidate) },
   { key: 'recentSeco', weight: 2, matches: (candidate, now) => hasRecentSecoDemand(candidate, now) },
   { key: 'fallback', weight: 1, matches: () => true },
 ]);
+
+function hasDomainLead(candidate) {
+  return Boolean(candidate?.domain) || hasUntriedEmailDomainHint(candidate);
+}
 
 /** Parse a user-supplied budget before it reaches the queue allocator. */
 export function parseTraceLimit(rawValue, fallback = 40) {
@@ -53,7 +59,7 @@ export function compareTraceCandidates(a, b, now = Date.now()) {
   const directCareers = Number(Boolean(b?.careersUrl)) - Number(Boolean(a?.careersUrl));
   if (directCareers) return directCareers;
 
-  const resolved = Number(Boolean(b?.domain)) - Number(Boolean(a?.domain));
+  const resolved = Number(hasDomainLead(b)) - Number(hasDomainLead(a));
   if (resolved) return resolved;
 
   const recentDemand = Number(hasRecentSecoDemand(b, now)) - Number(hasRecentSecoDemand(a, now));

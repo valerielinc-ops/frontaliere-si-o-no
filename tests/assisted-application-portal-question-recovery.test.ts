@@ -3,10 +3,12 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcilePortalQuestions } from '../scripts/assisted-application/reconcile-portal-questions.mjs';
 import { revalidatedPortalQuestions, relaxablePortalQuestionTopic, legacyPortalContractEligible } from '../scripts/assisted-application/lib/portal/question-contract-reconciliation.mjs';
 import { buildReviewPayload } from '../functions/src/assistedApplicationReview.js';
-import { questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
 import { operationalPortalRecoveryReady } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
+import { candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
 const now = Date.now();
 const daysAgo = (days: number) => now - days * 86400000;
@@ -44,7 +46,7 @@ function context(store: ReturnType<typeof fixture>, path = base) {
 }
 const options = (store: ReturnType<typeof fixture>) => ({ db: store.db, now: () => now, isEnabled: async () => true, probe: async () => proof() });
 
-it('keeps any owner-question hold closed until the safe discovery engine lands', () => {
+it('keeps a mixed owner hold, or one without resolved draft questions, closed', () => {
   expect(operationalPortalRecoveryReady({ flow: { heldBy: ['question:q1', 'portal:portal_needs_candidate'] } })).toBe(false);
   expect(operationalPortalRecoveryReady({ flow: { heldBy: ['portal:portal_needs_candidate'] } })).toBe(false);
 });
@@ -70,7 +72,7 @@ describe('legacy operational portal contract reconciliation', () => {
     expect(await reconcilePortalQuestions({ ...options(store), apply: true })).toMatchObject({ probed: 0, changed: 0, queued: 0 });
   });
 
-  it('repairs only referral metadata in the complete owner-held legacy draft without resuming an unsafe engine', async () => {
+  it('repairs only referral metadata in the complete owner-held legacy draft, then queues one retry that cannot fall back to a default', async () => {
     const store = fixture();
     const questions = [
       { id: 'optional-match', source: 'match', question: 'Optional information', required: false, type: 'choice', options: ['A', 'B'] },
@@ -94,9 +96,58 @@ describe('legacy operational portal contract reconciliation', () => {
     expect(after.draft.questions[5].options).toHaveLength(20);
     expect(after.flow.answers.notice).toBe('7 giorni');
     expect(buildReviewPayload({ ...after, round: 1 }).questions.some(item => item.id === question.id)).toBe(false);
-    // Safe operational discovery belongs to concatenated PR #16143. This
-    // branch must not launch the old fallback-to-default engine in between.
-    expect(await reconcilePortalCode({ db: store.db, version: 'b'.repeat(64), apply: true, nowMs: now, isEnabled: async () => true })).toMatchObject({ queued: 0 });
+    // With the operational engine of this branch the repaired draft becomes
+    // eligible. Queueing writes the retry clock and its receipt only: no
+    // answer, question, approved dispatch or send record changes.
+    const version = 'b'.repeat(64);
+    const eventsBefore = store.list(`${base}/events/`);
+    const recovery = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
+    expect(await reconcilePortalCode(recovery)).toMatchObject({ eligible: 1, queued: 1 });
+    const queued = context(store);
+    expect(queued.draft).toEqual(after.draft);
+    expect(queued.flow).toEqual({ ...after.flow, portalAutoRetryAt: now, portalAutoRetryCount: 0, portalRecoveryVersion: version, updatedAt: now });
+    expect(queued.order).toEqual({ ...after.order, automationDueAt: now, automationUpdatedAt: new Date(now) });
+    expect(queued.submission).toEqual({ ...after.submission, portalCodeRecovery: { version, round: 1, queuedAt: now } });
+    expect(store.list(`${base}/events/`).filter(path => !eventsBefore.includes(path)).map(path => store.read(path)))
+      .toEqual([{ type: 'portal_code_recovery_scheduled', actor: 'system', at: now, version }]);
+    expect(await reconcilePortalCode(recovery)).toMatchObject({ queued: 0 });
+    // The retry is a submit-mode run under the approval already given, so the
+    // live planner is what must keep the stated answer binding. Rebuild the
+    // candidate as lib/submit.mjs does and prove no source can replace it.
+    expect(transition(queued.flow, { type: 'portal_auto_retry' }, { draft: queued.draft, nowMs: now }).effects)
+      .toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+    const edited = candidateWithEdits(queued);
+    const candidate = candidateForForm({ identity: edited.identity, profile: edited.profile, answers: edited.answers,
+      draft: queued.draft, portalQuestions: queued.draft.questions.filter(item => item.source === 'portal') });
+    const noticeField = (labels: string[]) => ({ id: 'native-notice', kind: 'select', label: 'Attuale periodo di preavviso',
+      required: true, options: labels.map(item => ({ label: item, value: item })) });
+    for (const field of [noticeField(['6 mesi', '3 mesi', '1 mesi']), noticeField([])]) {
+      for (const source of ['policy_default', 'profile', 'rule']) {
+        const held = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: '3 mesi', source }], missingRequired: [] }, [field], candidate);
+        expect(held.actions).toEqual([]);
+        expect(held.missingRequired).toEqual([expect.objectContaining({ fieldId: field.id })]);
+      }
+    }
+    const expressible = noticeField(['3 mesi', 'Meno di 1 mese']);
+    expect(guardPlan({ actions: [], missingRequired: [] }, [expressible], candidate).actions)
+      .toEqual([expect.objectContaining({ fieldId: expressible.id, action: 'select', value: 'Meno di 1 mese', source: 'answers' })]);
+    expect(context(store).flow.answers).toEqual({ notice: '7 giorni' });
+  });
+
+  it.each([
+    ['projects onto one native option', ['3 mesi', 'Meno di 1 mese'], true],
+    ['cannot be expressed by the native catalogue', ['6 mesi', '3 mesi'], false],
+  ])('judges a preserved notice answer that %s as the live control would', (_, labels, changed) => {
+    const store = fixture();
+    const current = context(store);
+    const notice = { id: 'notice', source: 'portal', question: 'Attuale periodo di preavviso', type: 'choice', required: true, options: labels };
+    current.draft.questions = [notice, question];
+    current.flow.answers = { notice: '7 giorni' };
+    current.flow.heldBy = [`question:${question.id}`];
+    const result = revalidatedPortalQuestions(current, proof(), now);
+    expect(result.changed).toBe(changed);
+    if (!changed) expect(result.reason).toBe('preserved_answer_incompatible');
+    expect(current.flow.answers).toEqual({ notice: '7 giorni' });
   });
 
   it.each(['other_reason', 'mixed_hold', 'active_execution', 'controller_active', 'unknown_execution', 'old_click'])('keeps owner metadata unchanged for %s', async kind => {

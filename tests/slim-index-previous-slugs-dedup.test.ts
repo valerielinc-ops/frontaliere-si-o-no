@@ -370,7 +370,7 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
   // must mean "job bridge page" and nothing else. If a location-hub or
   // search-cluster emitter ever started setting it, `isBridgePage` would null
   // out that page's own filter and blank the listing. Only the job-bridge path
-  // (jobsSeoPagesPlugin + its bridgeThinShell) may write it — which is also how
+  // (jobsSeoPagesPlugin, plus the bridgeThinShell helper) may write it — which is also how
   // ~15 dist validators already identify a bridge page
   // (e.g. scripts/validate-canonical.mjs: `content.includes('__BRIDGE_TARGET_SLUG__')`).
   it.each([
@@ -384,7 +384,7 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
     expect(content).not.toMatch(/window\.__BRIDGE_TARGET_SLUG__\s*=/);
   });
 
-  it('only the job-bridge thin shell is imported by the job SEO pages plugin', () => {
+  it('the job SEO pages plugin emits the bridge marker inline since #15961', () => {
     const shell = fs.readFileSync(
       path.resolve(root, 'build-plugins/shared/bridgeThinShell.ts'),
       'utf-8',
@@ -394,6 +394,6 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
       path.resolve(root, 'build-plugins/jobsSeoPagesPlugin.ts'),
       'utf-8',
     );
-    expect(jobsPlugin).toMatch(/from '\.\/shared\/bridgeThinShell'/);
+    expect(jobsPlugin).toMatch(/window\.__BRIDGE_TARGET_SLUG__=/);
   });
 });

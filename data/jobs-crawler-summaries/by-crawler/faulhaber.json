@@ -1,7 +1,7 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-10-30T21:18:04.313Z",
+  "generatedAt": "2026-10-31T21:44:37.029Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 34554,
-  "avgDurationMs": 34554,
+  "durationMs": 25515,
+  "avgDurationMs": 25515,
   "durationHistory": [
-    34554
+    25515
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/52258/Production-Shift-Leader",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T21:17:47.756Z",
+      "crawledAt": "2026-10-31T21:44:28.056Z",
       "firstSeenAt": "2026-10-16T21:17:07.275Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -67,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

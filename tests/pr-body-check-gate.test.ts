@@ -43,6 +43,25 @@ const MISSING_NON = '## Implementato\n\nfoo bar baz';
 const MISSING_IMPL = '## Non implementato (ancora)\n\nNessuno';
 const MISSING_BOTH = '## Summary\n\nfoo\n\n## Test plan\n\nbar';
 
+/**
+ * `gh pr create` runs the sibling gate before the remote call, and that gate
+ * needs git. These cases exercise what follows it, so a git that reports a
+ * docs-only branch lets them reach the remote call on any repository state.
+ */
+function writeFakeGit(dir: string) {
+  const fakeGit = join(dir, 'git');
+  writeFileSync(
+    fakeGit,
+    '#!/bin/sh\n' +
+      'case "$1" in\n' +
+      '  merge-base|rev-parse) echo 0000000000000000000000000000000000000000 ;;\n' +
+      '  diff) echo docs/CRAWLERS.md ;;\n' +
+      'esac\n',
+    'utf8',
+  );
+  chmodSync(fakeGit, 0o755);
+}
+
 function runGate(command: string, extraPayload: Record<string, unknown> = {}) {
   const payload = JSON.stringify({ tool_input: { command }, ...extraPayload });
   return spawnSync('node', [GATE], { input: payload, encoding: 'utf8' });
@@ -618,6 +637,7 @@ describe('pr-body-check-gate hook (process behavior)', () => {
       'utf8',
     );
     chmodSync(fakeGh, 0o755);
+    writeFakeGit(dir);
     const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '-F', '-'], {
       input: [BOTH_HEADERS, 'stdin-body'].join('\n'),
       encoding: 'utf8',
@@ -668,11 +688,12 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     const file = join(dir, 'body.md');
     const statusFile = join(dir, 'status');
     writeFileSync(file, BOTH_HEADERS, 'utf8');
+    writeFakeGit(dir);
     const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '--body-file', file], {
       encoding: 'utf8',
       env: {
         ...process.env,
-        PATH: '',
+        PATH: dir,
         PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
         PR_BODY_GATE_STATUS_FILE: statusFile,
       },
@@ -689,11 +710,12 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     const statusDirectory = join(dir, 'status-directory');
     writeFileSync(file, BOTH_HEADERS, 'utf8');
     mkdirSync(statusDirectory);
+    writeFakeGit(dir);
     const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '--body-file', file], {
       encoding: 'utf8',
       env: {
         ...process.env,
-        PATH: '',
+        PATH: dir,
         PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
         PR_BODY_GATE_STATUS_FILE: statusDirectory,
       },

@@ -1,0 +1,205 @@
+import { describe, expect, it } from 'vitest';
+import { operationalAnswerForOption, operationalAnswerReadyForDiscovery, operationalDefaultAnswer, equivalentOperationalAnswers, isOperationalDefaultValue, withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
+import { candidateForForm, portalRequirementsFromMissingRequired } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { candidateAnswerForField, guardPlan, answeredByCandidate } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { buildFillKit } from '../functions/src/assistedApplicationFillKit.js';
+import { validateAnswer } from '../functions/src/lib/answerRules.js';
+
+const options = ['---', 'Nessuno / Rapporto di lavoro già terminato', '6 mesi', '5 mesi', '4 mesi', '3 mesi', '2 mesi', '1 mesi', 'Meno di 1 mese'];
+const question = { id: 'notice', source: 'portal', question: 'Attuale periodo di preavviso', applicationQuestion: 'Attuale periodo di preavviso *', type: 'choice', required: true, options, applicationOptions: options };
+const field = { id: 'native-notice', kind: 'select', label: question.applicationQuestion, required: true, options: options.map((label, i) => ({ label, value: `option-${i}` })) };
+
+describe('notice duration projection onto the native catalogue', () => {
+  it.each([
+    ['3 months', '3 mesi'], ['3months', '3 mesi'], ['2 months', '2 mesi'], ['two months', '2 mesi'],
+    ['2 Monate', '2 mesi'], ['deux mois', '2 mesi'], ['7 giorni', 'Meno di 1 mese'], ['27 days', 'Meno di 1 mese'],
+  ])('projects %s without replacing the saved answer', (answer, expected) => {
+    const saved = { notice: answer };
+    const projection = withOperationalQuestionAnswers([question], saved);
+    expect(projection.answers.notice).toBe(expected);
+    expect(projection.defaults).toEqual({});
+    expect(saved.notice).toBe(answer);
+    expect(validateAnswer(expected, question).ok).toBe(true);
+    const candidate = candidateForForm({ identity: {}, answers: saved, draft: {}, portalQuestions: [question] });
+    expect(candidateAnswerForField(candidate, field)).toMatchObject({ value: expected, source: 'answers' });
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [field], candidate);
+    expect(guarded.missingRequired).toEqual([]);
+    expect(guarded.actions).toContainEqual(expect.objectContaining({ fieldId: field.id, value: expected, source: 'answers' }));
+  });
+
+  it.each([
+    ['Notice period', 'less than one month'], ['Kündigungsfrist', 'Weniger als einen Monat'],
+    ['Délai de préavis', "Moins d’un mois"], ['Periodo di preavviso', 'Meno di un mese'],
+  ])('recognizes only an explicit strict range in %s', (label, range) => {
+    expect(operationalAnswerForOption({ question: label, type: 'choice', options: [range, '3 months'] }, '7 days')).toBe(range);
+  });
+
+  it.each(['0 days', '28 days', '30 days', '-3 months', '−3 months', '+3 months', '3+ months', '3 months+', '3½ months', '1½ months', '~3 months', '<3 months', '3–4 months', 'maximum 3 weeks', '2026-11-01'])('does not reinterpret %s', answer => {
+    expect(operationalAnswerForOption(question, answer)).toBeNull();
+    expect(withOperationalQuestionAnswers([question], { notice: answer }).answers.notice).toBe(answer);
+  });
+
+  it('rejects duplicate duration meanings and unrelated or conditional questions', () => {
+    expect(operationalAnswerForOption({ ...question, options: ['3 mesi', 'three months'] }, '3 months')).toBeNull();
+    expect(operationalAnswerForOption({ ...question, options: ['3+ months'] }, '3 months')).toBeNull();
+    expect(operationalAnswerForOption({ ...question, options: ['Meno di 1 mese', 'Less than one month'] }, '7 days')).toBeNull();
+    for (const label of ['Experience in months', 'Can you confirm a notice period of maximum 3 weeks?', 'Available from date', 'Work permit duration']) {
+      expect(operationalAnswerForOption({ ...question, question: label, applicationQuestion: label }, '3 months')).toBeNull();
+    }
+  });
+
+  it.each(['3+ months', '3 months+', '~3 months', '2.5 months', '3-4 months', 'about 3 months', '3½ months'])('does not authorize a nonexact policy action: %s', answer => {
+    expect(isOperationalDefaultValue({ question: 'Notice period', type: 'text' }, answer)).toBe(false);
+    expect(isOperationalDefaultValue({ question: 'Notice period', type: 'choice', options: ['3 months', answer] }, answer)).toBe(false);
+  });
+
+  it('validates canonical default equivalence against this exact field', () => {
+    expect(isOperationalDefaultValue({ question: 'Notice period', type: 'text' }, '3months')).toBe(true);
+    expect(isOperationalDefaultValue({ question: 'Notice period', type: 'text', validation: { pattern: '^3 months$' } }, '3months')).toBe(false);
+    expect(isOperationalDefaultValue({ question: 'Notice period', type: 'choice', options: ['3 mesi'] }, '3 months')).toBe(false);
+  });
+
+  it('never replaces an explicit unmatched duration with the three-month policy', () => {
+    const candidate = candidateForForm({ identity: {}, answers: { notice: '7 giorni' }, draft: {}, portalQuestions: [question] });
+    const incompatible = { ...field, options: [{ label: '3 mesi', value: '3' }] };
+    expect(candidateAnswerForField(candidate, incompatible)).toBeNull();
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [incompatible], candidate);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toHaveLength(1);
+    for (const source of ['policy_default', 'profile', 'rule']) {
+      const planned = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: '3 mesi', source }], missingRequired: [] }, [incompatible], candidate);
+      expect(planned.actions).toEqual([]);
+      expect(planned.missingRequired).toHaveLength(1);
+    }
+  });
+
+  it('preserves an explicit unmappable statement even after the draft catalogue has already changed', () => {
+    const incompatibleQuestion = { ...question, id: 'legacy-notice', options: ['3 mesi'], applicationOptions: ['3 mesi'] };
+    const candidate = candidateForForm({ identity: {}, answers: { 'legacy-notice': '7 giorni' }, draft: {}, portalQuestions: [incompatibleQuestion] });
+    const incompatible = { ...field, options: [{ label: '3 mesi', value: '3' }] };
+    expect(candidate.portalQuestionsAnswered).toContainEqual(expect.objectContaining({ answer: '7 giorni', source: 'answers' }));
+    expect(candidateAnswerForField(candidate, incompatible)).toBeNull();
+    for (const source of ['policy_default', 'profile', 'rule']) {
+      const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: '3 mesi', source }], missingRequired: [] }, [incompatible], candidate);
+      expect(guarded.actions).toEqual([]);
+      expect(guarded.missingRequired).toHaveLength(1);
+    }
+  });
+
+  it('does not collapse conflicting exact and qualified notice statements into one value', () => {
+    const candidate = { identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [
+      { question: 'Notice period', answer: '3 months', source: 'answers' },
+      { question: 'Notice period', answer: '3+ months', source: 'answers' },
+    ] };
+    expect(candidateAnswerForField(candidate, { ...field, label: 'Notice period' })).toBeNull();
+  });
+
+  it('authorizes a native notice band directionally without equating the band to an exact fact', () => {
+    const candidate = { answers: {}, portalQuestionsAnswered: [{ question: 'Notice period', answer: '7 days', source: 'answers' }] };
+    const native = { kind: 'select', label: 'Notice period', options: [{ label: 'less than one month' }, { label: '3 months' }] };
+    expect(answeredByCandidate(candidate, native.label, 'less than one month', '', native)).toBe(true);
+    expect(equivalentOperationalAnswers({ question: native.label }, '7 days', 'less than one month')).toBe(false);
+    const range = { answers: {}, portalQuestionsAnswered: [{ question: 'Notice period', answer: 'less than one month', source: 'answers' }] };
+    expect(answeredByCandidate(range, native.label, '7 days', '', { ...native, options: [{ label: '7 days' }] })).toBe(false);
+  });
+
+  it('keeps different exact notice facts conflicting in every order even when both project to one native band', () => {
+    const statements = ['7 days', '14 days', 'less than one month'];
+    const native = { kind: 'select', label: 'Notice period', options: [{ label: 'less than one month' }, { label: '3 months' }] };
+    for (const answer of statements.slice(0, 2)) expect(operationalAnswerForOption(native, answer)).toBe('less than one month');
+    expect(equivalentOperationalAnswers({ question: native.label }, '7 days', '14 days')).toBe(false);
+    for (const first of statements) for (const second of statements.filter(answer => answer !== first)) {
+      const third = statements.find(answer => answer !== first && answer !== second)!;
+      const candidate = { identity: {}, answers: {}, portalQuestionsAnswered: [first, second, third]
+        .map(answer => ({ question: native.label, answer, source: 'answers' })) };
+      expect(candidateAnswerForField(candidate, native)).toBeNull();
+    }
+  });
+
+  it.each([['Preferred workload', '80%'], ['Comunicazione via WhatsApp', 'No']])('projects an explicit %s answer onto string options', (label, answer) => {
+    const stored = { id: 'q', source: 'portal', question: label, applicationQuestion: label, type: 'choice', required: true, options: [answer], applicationOptions: [answer] };
+    const candidate = candidateForForm({ identity: {}, answers: { q: answer }, draft: {}, portalQuestions: [stored] });
+    expect(candidateAnswerForField(candidate, { id: 'native', kind: 'select', label, options: [answer] })).toMatchObject({ value: answer, source: 'answers' });
+  });
+
+  it.each(['Notice period in months', 'Periodo di preavviso in mesi', 'Kündigungsfrist in Monaten', 'Délai de préavis en mois'])('admits only numeric discovery with an explicit month unit: %s', label => {
+    const numeric = { question: label, type: 'number', source: 'portal' };
+    expect(operationalDefaultAnswer(numeric)?.value).toBe('3');
+    expect(operationalAnswerReadyForDiscovery(numeric, '3')).toBe(true);
+    expect(operationalAnswerReadyForDiscovery({ ...numeric, validation: { min: 4 } }, '3')).toBe(false);
+    expect(operationalAnswerReadyForDiscovery({ question: label, inputType: 'number', validation: { min: 4 } }, '3')).toBe(false);
+    expect(operationalAnswerReadyForDiscovery({ question: label, type: 'text', inputType: 'number', validation: { max: 2 } }, '3')).toBe(false);
+    expect(operationalDefaultAnswer({ question: label, type: 'text', inputType: 'number', validation: { max: 2 } })).toBeNull();
+    for (const answer of ['3+', '~3', '3-4', '2.5', '-3']) expect(operationalAnswerReadyForDiscovery(numeric, answer)).toBe(false);
+  });
+
+  it.each(['Notice period', 'Notice period in days', 'Notice period of maximum 3 months', 'Experience in months'])('does not invent the numeric notice unit or topic: %s', question => {
+    expect(operationalAnswerReadyForDiscovery({ question, type: 'number', source: 'portal' }, '3')).toBe(false);
+  });
+
+  it('preserves string labels when an explicit unmatched notice needs a candidate action', () => {
+    const native = { ...field, options: ['3 months'] };
+    const candidate = { identity: {}, answers: {}, portalQuestionsAnswered: [{ question: field.label, answer: '7 days', source: 'answers' }] };
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [native], candidate);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired[0].options).toEqual(['3 months']);
+  });
+
+  it('retains a valid choice when native option labels are strings', () => {
+    const native = { ...field, options: ['3 months'] };
+    const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: '3 months', source: 'policy_default' }], missingRequired: [] }, [native], { identity: {}, answers: {} });
+    expect(guarded.actions).toContainEqual(expect.objectContaining({ fieldId: field.id, value: '3 months' }));
+    expect(guarded.missingRequired).toEqual([]);
+  });
+
+  it('requires a real native catalogue before filling an operational select discovered during recovery', () => {
+    const unknown = { ...field, options: [] };
+    const candidate = candidateForForm({ identity: {}, answers: { notice: '7 giorni' }, draft: {}, portalQuestions: [question] });
+    expect(candidateAnswerForField(candidate, unknown)).toBeNull();
+    const guarded = guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: '3 mesi', source: 'policy_default' }], missingRequired: [] }, [unknown], candidate);
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toHaveLength(1);
+    const requirements = portalRequirementsFromMissingRequired([unknown], guarded.missingRequired);
+    expect(requirements.questions).toEqual([]);
+    expect(requirements.unreadableFields).toHaveLength(1);
+  });
+
+  it('preserves an explicit WhatsApp refusal for checkbox actions from every planner source', () => {
+    const checkbox = { id: 'whatsapp', label: 'Comunicazione via WhatsApp', kind: 'checkbox', required: false, options: [] };
+    const refused = { identity: {}, profile: {}, answers: {}, portalQuestionsAnswered: [{ question: checkbox.label, answer: 'No', source: 'answers' }] };
+    for (const source of ['policy_default', 'profile', 'rule']) {
+      const guarded = guardPlan({ actions: [{ fieldId: checkbox.id, action: 'check', value: 'true', source }], missingRequired: [] }, [checkbox], refused);
+      expect(guarded.actions.some(action => action.action === 'check')).toBe(false);
+      expect(guarded.actions).toContainEqual(expect.objectContaining({ action: 'uncheck', source: 'answers' }));
+    }
+    const conflict = { ...refused, portalQuestionsAnswered: [...refused.portalQuestionsAnswered, { question: checkbox.label, answer: 'Yes', source: 'answers' }] };
+    expect(guardPlan({ actions: [{ fieldId: checkbox.id, action: 'check', value: 'true', source: 'rule' }], missingRequired: [] }, [checkbox], conflict).actions).toEqual([]);
+    const fresh = guardPlan({ actions: [{ fieldId: checkbox.id, action: 'check', value: 'true', source: 'policy_default' }], missingRequired: [] }, [checkbox], { identity: {}, profile: {}, answers: {} });
+    expect(fresh.actions).toContainEqual(expect.objectContaining({ action: 'check', source: 'policy_default' }));
+  });
+
+  it('gives the owner fill kit the explicit projected notice ahead of an old policy default', () => {
+    const flow = { answers: { notice: '7 giorni' } };
+    const draft = { questions: [question], portalAnswers: { answers: [{ question: question.applicationQuestion, answer: '3 mesi', source: 'policy_default' }] } };
+    const before = structuredClone({ flow, draft });
+    const kit = buildFillKit({ orderId: 'notice_fixture', flow, draft });
+    expect(kit.answers).toContainEqual(expect.objectContaining({ question: question.applicationQuestion, answer: 'Meno di 1 mese', source: 'answers' }));
+    expect(kit.answers).not.toContainEqual(expect.objectContaining({ question: question.applicationQuestion, answer: '3 mesi' }));
+    expect({ flow, draft }).toEqual(before);
+  });
+
+  it('keeps the owner preference separate from explicit answers and CV facts', () => {
+    const automatic = withOperationalQuestionAnswers([question], {});
+    expect(automatic.answers.notice).toBe('3 mesi');
+    expect(automatic.defaults.notice.source).toBe('policy_default');
+    expect(withOperationalQuestionAnswers([question], { notice: '2 months' }).answers.notice).toBe('2 mesi');
+    const original = { answers: { notice: '7 giorni' }, questionAnswers: { notice_period: '7 giorni' } };
+    const before = structuredClone(original);
+    candidateWithEdits({ order: {}, draft: { questions: [question] }, flow: original });
+    expect(original).toEqual(before);
+    const defaultOnly = candidateWithEdits({ order: {}, draft: { questions: [question], portalAnswers: { answers: [{ question: question.question, answer: '3 months', source: 'policy_default' }] } }, flow: {} });
+    expect(defaultOnly.answers).toEqual({});
+    expect(defaultOnly.profile.availability || '').toBe('');
+  });
+});

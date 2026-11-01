@@ -19,7 +19,11 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { readSlugRegistryWithRows } from '../lib/article-slug-registry.mjs';
-import { loadSectionCanonicalOverrides, shadowedArticleIds } from '../lib/article-canonical-overrides.mjs';
+import {
+  indexExcludedArticleIds,
+  loadSectionCanonicalOverrides,
+  shadowedArticleIds,
+} from '../lib/article-canonical-overrides.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..', '..');
@@ -185,17 +189,20 @@ console.log(`Parsed ${Object.keys(swissSlugs).length} articles from services/rou
 // per-section paths and the id derivation live in
 // scripts/lib/article-canonical-overrides.mjs, shared with the engine's own
 // candidate-path literal, so this cannot drift from what the renderer does.
-const blogShadowedArticleIds = shadowedArticleIds(
-  loadSectionCanonicalOverrides(root, 'frontaliere'),
-  blogSlugs,
-);
-const swissShadowedArticleIds = shadowedArticleIds(
-  loadSectionCanonicalOverrides(root, 'svizzera'),
-  swissSlugs,
-);
+//
+// Same exemption for the articles the corpus withdrew from the index: their
+// pages are noindex, so the publisher de-lists them from every sitemap.
+const blogShadowedArticleIds = new Set([
+  ...shadowedArticleIds(loadSectionCanonicalOverrides(root, 'frontaliere'), blogSlugs),
+  ...indexExcludedArticleIds(root, 'frontaliere', blogSlugs),
+]);
+const swissShadowedArticleIds = new Set([
+  ...shadowedArticleIds(loadSectionCanonicalOverrides(root, 'svizzera'), swissSlugs),
+  ...indexExcludedArticleIds(root, 'svizzera', swissSlugs),
+]);
 if (blogShadowedArticleIds.size || swissShadowedArticleIds.size) {
   console.log(
-    `Canonical-override shadowed articles exempted: ${blogShadowedArticleIds.size} frontaliere, ${swissShadowedArticleIds.size} svizzera`,
+    `Canonical-override and index-excluded articles exempted: ${blogShadowedArticleIds.size} frontaliere, ${swissShadowedArticleIds.size} svizzera`,
   );
 }
 

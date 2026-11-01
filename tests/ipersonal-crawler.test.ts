@@ -14,6 +14,7 @@ import {
   getVerifiedIpersonalGeography,
   runIpersonalSpecInProduction,
 } from '../scripts/lib/ipersonal-spec-runtime.mjs';
+import { loadSpec } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 const REAL_IPERSONAL_LISTING_FIXTURE = readFileSync(
   resolve(import.meta.dirname, 'fixtures/ipersonal-live-listing-20261001.html'),
@@ -21,6 +22,21 @@ const REAL_IPERSONAL_LISTING_FIXTURE = readFileSync(
 );
 
 describe('MediPersonal crawler parser', () => {
+  it.each([
+    {
+      companyKey: 'ipersonal',
+      listingSeed: 'https://med-ipersonal.ch/offene-stellen/',
+    },
+    {
+      companyKey: 'med-ipersonal',
+      listingSeed: 'https://www.ipersonal.ch/offene-stellen/',
+    },
+  ])('uses the authoritative listing page for $companyKey discovery', ({ companyKey, listingSeed }) => {
+    const spec = loadSpec(companyKey);
+    expect(spec.seedUrls).toContain(listingSeed);
+    expect(spec.seedUrls).not.toContain(new URL(listingSeed).origin + '/');
+  });
+
   describe('shared Simple Job Board detail boundary', () => {
     it('preserves legacy arrow lists and stops before application boilerplate', () => {
       const html = `

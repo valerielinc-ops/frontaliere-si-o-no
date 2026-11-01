@@ -79,9 +79,9 @@ describe('employer publication date provenance', () => {
     expect(schema?.datePosted).toBe(yesterday);
     expect(schema?.['@type']).toBe('JobPosting');
     expect(schema?.jobLocation.address.addressLocality).toBe('Lugano');
-    // Missing non-critical values are filled by the canonical contract.
+    // The CAP and street preserve coverage; deadline is capped from publication.
     expect(schema?.jobLocation.address.postalCode).toBe('6900');
-    expect(schema?.jobLocation.address.streetAddress).toBe('Piazza Riforma 1');
+    expect(schema?.jobLocation.address.streetAddress).toBe('Lugano');
     expect(schema?.baseSalary?.value.minValue).toBeGreaterThan(0);
     expect(schema?.employmentType).toBe('FULL_TIME');
     expect(schema?.validThrough).toBeTruthy();

@@ -163,7 +163,7 @@ export const EVENT_SOURCES = {
 // verified as expired (404/410) in the 2026-10-27 and 2026-10-29 audits; each
 // official source homepage is the live fallback for the rendered CTA and
 // structured data.
-const STALE_EVENT_SOURCE_URLS = new Map([
+const STALE_EVENT_SOURCE_URL_ENTRIES = [
   ['ge-agenda|https://www.geneve.ch/agenda/cafe-quartier-initiation-gout-pain-pain-artisanal-industriel-differences', 'https://www.geneve.ch/agenda'],
   ['ge-agenda|https://www.geneve.ch/agenda/dirty-three', 'https://www.geneve.ch/agenda'],
   ['guidle|https://www.guidle.com/it/veranstaltungen/musik/zuerich/don-toliver-nitrous-octane-world-tour-leg-2_A2e1GAw', 'https://www.guidle.com/de'],
@@ -173,13 +173,51 @@ const STALE_EVENT_SOURCE_URLS = new Map([
   ['guidle|https://www.guidle.com/it/veranstaltungen/musik/bellinzona/floating-notes-festival-day-2_AXwCr2Y', 'https://www.guidle.com/de'],
   ['nw-agenda|https://www.nw.ch/anlaesseaktuelles/94120', 'https://www.nw.ch/'],
   ['nw-agenda|https://www.nw.ch/anlaesseaktuelles/94123', 'https://www.nw.ch/'],
-]);
+];
+
+/**
+ * Fail closed if two source records claim different fallbacks for one raw URL.
+ * A map keyed by `source|url` cannot detect that collision because both keys
+ * remain distinct; carried digest blocks may omit sourceKey and must not guess.
+ */
+export function assertUniqueEventFallbacks(entries = STALE_EVENT_SOURCE_URL_ENTRIES) {
+  const fallbackByRawUrl = new Map();
+  for (const entry of entries) {
+    if (!Array.isArray(entry) || entry.length !== 2) throw new TypeError('invalid stale event fallback entry');
+    const [scopedKey, fallback] = entry;
+    const separator = typeof scopedKey === 'string' ? scopedKey.indexOf('|') : -1;
+    const rawUrl = separator >= 0 ? scopedKey.slice(separator + 1) : '';
+    if (!rawUrl || typeof fallback !== 'string' || !fallback) throw new TypeError('invalid stale event fallback record');
+    const previous = fallbackByRawUrl.get(rawUrl);
+    if (previous && previous !== fallback) throw new Error(`ambiguous stale event fallback for ${rawUrl}`);
+    fallbackByRawUrl.set(rawUrl, fallback);
+  }
+  return true;
+}
+
+assertUniqueEventFallbacks();
+const STALE_EVENT_SOURCE_URLS = new Map(STALE_EVENT_SOURCE_URL_ENTRIES);
+
+function unscopedStaleEventSourceUrl(rawUrl) {
+  let replacement = '';
+  for (const [key, candidate] of STALE_EVENT_SOURCE_URLS) {
+    if (key.slice(key.indexOf('|') + 1) !== rawUrl) continue;
+    if (replacement && replacement !== candidate) return '';
+    replacement = candidate;
+  }
+  return replacement;
+}
 
 /** Return a live, source-backed URL for rendered event links. */
 export function eventSourceUrl(rawUrl, event) {
   if (!rawUrl || typeof rawUrl !== 'string') return rawUrl;
-  const key = `${String(event?.sourceKey || '').trim()}|${rawUrl.trim()}`;
-  return STALE_EVENT_SOURCE_URLS.get(key) || rawUrl;
+  const normalizedUrl = rawUrl.trim();
+  const sourceKey = String(event?.sourceKey || '').trim();
+  if (sourceKey) return STALE_EVENT_SOURCE_URLS.get(`${sourceKey}|${normalizedUrl}`) || rawUrl;
+  // Carried hub blocks contain the rendered item URL but not sourceKey. Only
+  // use a raw-URL fallback when it is unique in the registry; ambiguity must
+  // preserve the original URL rather than guess a different source.
+  return unscopedStaleEventSourceUrl(normalizedUrl) || rawUrl;
 }
 
 // ── Event-image licence policy ───────────────────────────────

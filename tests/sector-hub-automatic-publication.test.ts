@@ -81,7 +81,7 @@ describe('automatic sector hub publication', () => {
       const breadcrumb = jsonLdBlocks.find((block) => block['@type'] === 'BreadcrumbList') as {
         itemListElement?: Array<{ item?: string }>;
       } | undefined;
-      expect(breadcrumb?.itemListElement?.[0]?.item).toBe(BASE_URL);
+      expect(breadcrumb?.itemListElement?.[0]?.item).toBe(`${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`);
     }
   });
 

@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, mkdtempSync, writeFileSync, existsSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { spawnSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
 
@@ -870,31 +872,65 @@ describe('deploy.yml — canonical fallback stays inline on the 16 GiB runner', 
   });
 });
 
-describe('deploy-publish.yml — Pages poll usa il budget residuo del job', () => {
-  const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
-  const deployJob = workflow.jobs.deploy as { steps: Array<Record<string, any>>; 'timeout-minutes': number };
+describe('deploy-publish.yml — Pages action failure cannot certify publication', () => {
+  const deploy = YAML.parse(DEPLOY_PUBLISH_YML).jobs.deploy;
+  const steps = deploy.steps as Array<Record<string, any>>;
+  const terminal = steps.find((step) => step.name === 'Require successful GitHub Pages deployment')!;
+  const receipt = steps.find((step) => step.name === 'Write durable Pages deployment receipt')!;
+  const evaluate = (condition: string, first: string, retry: string, resumed = false, healthy = true) => {
+    const expression = condition.replace(/\$\{\{|\}\}/g, '').replaceAll('steps.pages-receipt', "steps['pages-receipt']");
+    return new Function('steps', 'success', 'always', `return (${expression});`)({
+      'pages-receipt': { outputs: { pages_deployed: String(resumed) } },
+      deployment_first: { outcome: first }, deployment: { outcome: retry },
+    }, () => healthy, () => true);
+  };
 
-  it('ancora la deadline al primo step e gestisce il budget pre-poll esaurito', () => {
-    expect(deployJob['timeout-minutes']).toBe(360);
-    expect(deployJob.steps[0]).toMatchObject({
-      name: 'Record publish job start',
-      id: 'publish_budget',
-    });
-    expect(deployJob.steps[0].run).toContain('job_deadline=$((job_started_at + 360 * 60))');
+  it.each([
+    ['failure', 'failure', false, true, false],
+    ['success', 'skipped', false, false, true],
+    ['failure', 'success', false, false, true],
+    ['skipped', 'skipped', true, false, false],
+    ['skipped', 'skipped', false, true, false],
+    ['failure', 'cancelled', false, true, false],
+    ['', '', false, true, false],
+    ['failure', '', false, true, false],
+  ])('first=%s retry=%s resumed=%s', (first, retry, resumed, mustFail, mayWrite) => {
+    expect(evaluate(terminal.if, first as string, retry as string, resumed as boolean)).toBe(mustFail);
+    expect(evaluate(terminal.if, first as string, retry as string, resumed as boolean, false)).toBe(mustFail);
+    expect(evaluate(receipt.if, first as string, retry as string, resumed as boolean)).toBe(mayWrite);
+    expect(evaluate(receipt.if, first as string, retry as string, resumed as boolean, false)).toBe(false);
+  });
 
-    const pollStep = deployJob.steps.find((step) => step.name === 'Wait for server-side Pages publish (extended, beyond the 10-min action cap)');
-    expect(pollStep, 'deploy-publish.yml: manca lo step di poll Pages esteso').toBeDefined();
-    expect(pollStep!.run).toContain('job_deadline="${{ steps.publish_budget.outputs.job_deadline }}"');
-    expect(pollStep!.run).toContain('deadline=$((job_deadline - 60))');
-    expect(pollStep!.run).toContain('pre-poll publish steps consumed the available job budget');
-    expect(pollStep!.run).toContain('gh_api_with_deadline()');
-    expect(pollStep!.run).toContain('remaining=$((deadline - $(date +%s)))');
-    expect(pollStep!.run).toContain('timeout --foreground --signal=TERM --kill-after=5s "${remaining}s" gh api "$@"');
-    expect(pollStep!.run).toContain('ids=$(gh_api_with_deadline');
-    expect(pollStep!.run).toContain('st=$(gh_api_with_deadline');
-    expect(pollStep!.run).toContain('sleep "$sleep_for"');
-    expect(pollStep!.run).not.toMatch(/ids=\$\(gh api/);
-    expect(pollStep!.run).not.toMatch(/st=\$\(gh api/);
-    expect(pollStep!.run).not.toContain('date +%s) + 330*60');
+  it.each(['in_progress', 'success'])('fails immediately without consulting an environment deployment in %s', (environmentState) => {
+    const dir = mkdtempSync(resolve(tmpdir(), 'pages-action-failure-'));
+    try {
+      const trace = resolve(dir, 'calls');
+      for (const command of ['gh', 'sleep']) {
+        writeFileSync(resolve(dir, command), `#!/bin/sh\necho ${command} >> "$TRACE"\necho "$ENVIRONMENT_STATE"\n`, { mode: 0o700 });
+      }
+      const result = spawnSync('bash', ['-euo', 'pipefail', '-c', terminal.run], {
+        encoding: 'utf8', timeout: 2000,
+        env: { ...process.env, PATH: `${dir}:${process.env.PATH}`, TRACE: trace, ENVIRONMENT_STATE: environmentState,
+          PAGES_FIRST_OUTCOME: 'failure', PAGES_RETRY_OUTCOME: 'failure', GITHUB_SERVER_URL: 'https://github.com',
+          GITHUB_REPOSITORY: 'owner/repo', GITHUB_RUN_ID: '42' },
+      });
+      expect(result.error).toBeUndefined();
+      expect(result.status).toBe(1);
+      expect(result.stdout).toContain('no successful deploy-pages attempt (first=failure, retry=failure)');
+      expect(result.stdout).toContain('https://github.com/owner/repo/actions/runs/42');
+      expect(result.stdout).toContain('no receipt will be written');
+      expect(existsSync(trace)).toBe(false);
+    } finally { rmSync(dir, { recursive: true, force: true }); }
+  });
+
+  it('preserves the real actions, single retry and publication order', () => {
+    expect(deploy['timeout-minutes']).toBe(360);
+    const actions = steps.filter((step) => step.uses === 'actions/deploy-pages@v5');
+    expect(actions.map((step) => step.id)).toEqual(['deployment_first', 'deployment']);
+    expect(actions[1].if).toContain("steps.deployment_first.outcome == 'failure'");
+    expect(steps.find((step) => step.name === 'Wait for previous Pages deployment to finish')!.run).toContain('sleep 30');
+    expect(steps.indexOf(actions[1])).toBeLessThan(steps.indexOf(terminal));
+    expect(steps.indexOf(terminal)).toBeLessThan(steps.indexOf(receipt));
+    expect(steps.some((step) => step.run?.includes('/deployments?environment=github-pages'))).toBe(false);
   });
 });

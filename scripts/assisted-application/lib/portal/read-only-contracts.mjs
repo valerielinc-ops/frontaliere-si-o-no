@@ -187,7 +187,7 @@ export async function readOnlyPortalContracts({ applyUrl, job, channelType = '',
       if (!page || source.frame !== page.mainFrame()) return;
       nativeContractChanged = true;
       const kinds = ['reference_budget', 'reference_unknown', 'visibility_unknown', 'visibility', 'attribute', 'child_list', 'character_data'];
-      const attributes = ['required', 'aria-required', 'aria-invalid', 'disabled', 'type', 'name', 'form', 'id', 'class', 'style', 'hidden', 'aria-hidden', 'role', 'aria-owns', 'aria-controls', 'aria-label', 'aria-labelledby', 'aria-describedby', 'aria-details', 'multiple', 'size', 'value', 'for', 'label', 'data-aa-id'];
+      const attributes = ['required', 'aria-required', 'aria-invalid', 'disabled', 'type', 'name', 'form', 'id', 'class', 'style', 'hidden', 'aria-hidden', 'role', 'aria-owns', 'aria-controls', 'aria-label', 'aria-labelledby', 'aria-describedby', 'aria-details', 'multiple', 'size', 'value', 'for', 'label', 'data-aa-id', 'data-control-id', 'data-semantic-id'];
       nativeMutation ||= { kind: kinds.includes(detail?.kind) ? detail.kind : 'unknown',
         attribute: attributes.includes(detail?.attribute) ? detail.attribute : null };
     });

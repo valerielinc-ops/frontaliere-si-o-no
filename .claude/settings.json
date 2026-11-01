@@ -14,7 +14,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/ci/sibling-check-gate.mjs\""
+            "command": "s=scripts/ci/sibling-check-gate.mjs; d=\"$CLAUDE_PROJECT_DIR\"; if [ -f \"$d/$s\" ]; then exec node \"$d/$s\"; fi; [ ! -f \"$d/bin/site-hook\" ] || exec sh \"$d/bin/site-hook\" \"$s\""
           }
         ]
       },
@@ -23,7 +23,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/ci/pr-body-check-gate.mjs\""
+            "command": "s=scripts/ci/pr-body-check-gate.mjs; d=\"$CLAUDE_PROJECT_DIR\"; if [ -f \"$d/$s\" ]; then exec node \"$d/$s\"; fi; [ ! -f \"$d/bin/site-hook\" ] || exec sh \"$d/bin/site-hook\" \"$s\""
           }
         ]
       }
@@ -33,7 +33,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "( node \"$CLAUDE_PROJECT_DIR/scripts/prune-merged-worktrees.mjs\" --apply >/dev/null 2>&1 & ) || true"
+            "command": "( ( s=scripts/prune-merged-worktrees.mjs; d=\"$CLAUDE_PROJECT_DIR\"; if [ -f \"$d/$s\" ]; then exec node \"$d/$s\" --apply; fi; [ ! -f \"$d/bin/site-hook\" ] || exec sh \"$d/bin/site-hook\" \"$s\" --apply ) >/dev/null 2>&1 & ) || true"
           }
         ]
       },
@@ -42,7 +42,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"$CLAUDE_PROJECT_DIR/scripts/cloud-session-secrets.sh\"",
+            "command": "[ ! -f \"$CLAUDE_PROJECT_DIR/scripts/cloud-session-secrets.sh\" ] || bash \"$CLAUDE_PROJECT_DIR/scripts/cloud-session-secrets.sh\"",
             "timeout": 60
           }
         ]
@@ -53,7 +53,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/prune-merged-worktrees.mjs\" --apply --orphans-only 2>/dev/null || true"
+            "command": "( s=scripts/prune-merged-worktrees.mjs; d=\"$CLAUDE_PROJECT_DIR\"; if [ -f \"$d/$s\" ]; then exec node \"$d/$s\" --apply --orphans-only; fi; [ ! -f \"$d/bin/site-hook\" ] || exec sh \"$d/bin/site-hook\" \"$s\" --apply --orphans-only ) 2>/dev/null || true"
           }
         ]
       }
@@ -64,7 +64,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/ci/pr-watch-register.mjs\""
+            "command": "s=scripts/ci/pr-watch-register.mjs; d=\"$CLAUDE_PROJECT_DIR\"; if [ -f \"$d/$s\" ]; then exec node \"$d/$s\"; fi; [ ! -f \"$d/bin/site-hook\" ] || exec sh \"$d/bin/site-hook\" \"$s\""
           }
         ]
       }
@@ -74,7 +74,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/ci/pr-watch-gate.mjs\"",
+            "command": "s=scripts/ci/pr-watch-gate.mjs; d=\"$CLAUDE_PROJECT_DIR\"; if [ -f \"$d/$s\" ]; then exec node \"$d/$s\"; fi; [ ! -f \"$d/bin/site-hook\" ] || exec sh \"$d/bin/site-hook\" \"$s\"",
             "timeout": 930
           }
         ]

@@ -1,0 +1,20 @@
+{
+  "companyKey": "ksasz",
+  "companyName": "ksasz",
+  "companyHost": "jobs.sz.ch",
+  "platform": "sz.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.sz.ch/offene-stellen/fachmitarbeiter-in-naturwissenschaften-technik/de1ac894-77a4-4679-a200-5f16284812b0"
+  ],
+  "detailTemplate": "/offene-stellen/fachmitarbeiter-in-naturwissenschaften-technik/de1ac894-77a4-4679-a200-5f16284812b0",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Fachmitarbeiter/in Naturwissenschaften &amp; Technik"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-31T12:51:43.605Z",
+  "candidateKey": "ksasz.ch"
+}

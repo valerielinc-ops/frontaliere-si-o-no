@@ -1,0 +1,20 @@
+{
+  "companyKey": "bodmerfischer-ch",
+  "companyName": "bodmerfischer",
+  "companyHost": "weblaw.ch",
+  "platform": "weblaw.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://weblaw.ch/produkte/lawjobs?lawjobParam=db76ba73-4928-4f0c-9116-fb8802df27e2"
+  ],
+  "detailTemplate": "/produkte/lawjobs",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Rechtsanwältin / Rechtsanwalt (100%)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-31T12:51:48.085Z",
+  "candidateKey": "bodmerfischer.ch"
+}

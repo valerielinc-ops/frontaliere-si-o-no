@@ -25,6 +25,7 @@ import { ARTICLE_SECTION_DESCRIPTORS, SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS,
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { hasArticleBodyPromptPlaceholder } from './shared/articleBodyQuality';
 import { ARTICLE_NOINDEX_TARGET_MARKER } from './shared/articleNoindexTargetMarker.mjs';
+import { ARTICLE_INDEX_EXCLUSIONS_FILES, articleIndexExclusionKey, loadArticleIndexExclusions } from './shared/articleIndexExclusions.mjs';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 import { parseStaticArticleTranslationSource, parseStaticBlogBodySource } from './shared/articleStaticSource.mjs';
 import {
@@ -50,7 +51,7 @@ import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath,
 import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { renderArticleLocaleVariantNavHtml } from './shared/localeVariantNav.mjs';
-import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale } from './shared/aiDisclosure';
+import { ARTICLE_BYLINE, ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale, hasLinkedSources, resolveArticleBylineNote } from './shared/aiDisclosure';
 import {
   resolveArticleProvenance,
   resolveArticleTransparencyStatement,
@@ -539,6 +540,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
    ),
   );
  }
+ // Editorial withdrawals from the index: the page stays live and followable,
+ // the ledger only decides `noindex,follow` (see shared/articleIndexExclusions.mjs).
+ const articleIndexExclusions = loadArticleIndexExclusions(
+  fs,
+  ARTICLE_INDEX_EXCLUSIONS_FILES.map((candidate) => np.resolve(rootDir, candidate)),
+ );
  const articleRedirects = loadArticleRouteRedirects(
   fs,
   np.resolve(rootDir, 'data/article-redirects.json'),
@@ -583,6 +590,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleAuthorSlugById: Record<string, string> = {};
  const articleAuthorNameById: Record<string, string> = {};
  const articleAiAssistedById: Record<string, boolean> = {};
+ const articleTypeById: Record<string, 'news' | 'evergreen'> = {};
  try {
  const articleDataSrc = fs.readFileSync(np.resolve(rootDir, SECTION.registry), 'utf-8');
  for (const article of readArticleRegistryMetadata(articleDataSrc)) {
@@ -592,6 +600,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (article.authorSlug !== undefined) articleAuthorSlugById[article.id] = article.authorSlug;
  if (article.authorName !== undefined) articleAuthorNameById[article.id] = article.authorName;
  if (article.aiAssisted !== undefined) articleAiAssistedById[article.id] = article.aiAssisted;
+ if (article.articleType !== undefined) articleTypeById[article.id] = article.articleType;
  }
  } catch (err) {
  if (!isMissingPathError(err)) throw err;
@@ -1213,11 +1222,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // same copy. Provenance is resolved like resolveArticleProvenance(): an
  // explicit per-article declaration wins, with the Firebase identity kept as
  // the legacy default for records that predate that declaration.
- const buildArticleTransparencyAside = (locale: string, authorName: string | undefined, provenance: ArticleProvenance): string => {
+ const buildArticleTransparencyAside = (locale: string, authorName: string | undefined, provenance: ArticleProvenance, bodyHtml: string): string => {
   const dl = disclosureLocale(locale);
   const tr = ARTICLE_TRANSPARENCY[dl];
   const statement = resolveArticleTransparencyStatement(locale, provenance, authorName);
-  return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)} ${esc(tr.sources)}</p><p><a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${esc(tr.methodology)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${esc(tr.corrections)}</a></p></aside>`;
+  return `<aside class="article-transparency" role="note" aria-label="${esc(tr.label)}"><p><strong>${esc(tr.label)}:</strong> ${esc(statement)}${hasLinkedSources(bodyHtml) ? ` ${esc(tr.sources)}` : ''} ${esc(tr.disclaimer)}</p><p><a href="${DISCLOSURE_ROUTE_CONTRACT[dl].methodology}">${esc(tr.methodology)}</a> · <a href="${DISCLOSURE_ROUTE_CONTRACT[dl].corrections}">${esc(tr.corrections)}</a></p></aside>`;
  };
 
  // Race-free SPA bundle hash extraction (SiteShellContract.resolveSpaBundle —
@@ -1228,7 +1237,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // Stable-name chunk resolution, no disk I/O (shared/chunkFiles.ts — same
  // closeBundle-time race as resolveSpaBundle, #4762).
  const vendorReactChunk = stableChunkFile('vendor-react');
- const blogMetaItChunk = stableChunkFile('blog-meta-it');
  const itCriticalTags = stableChunkFiles(['it-core', 'it-calculator'])
  .map(f => `\n <link rel="modulepreload" href="/assets/${f}">`)
  .join('');
@@ -1325,7 +1333,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const title = art.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(title)}</a></li>`;
  }).join('');
- return `<section class="s-zzuqwx"><h2 class="s-GipLjS">${esc(relatedArticlesLabel[locale] ?? relatedArticlesLabel.it)}</h2><ul class="s-9oHkUE">${items}</ul></section>`;
+ return `<section class="s-zzuqwx" data-article-related="true"><h2 class="s-GipLjS">${esc(relatedArticlesLabel[locale] ?? relatedArticlesLabel.it)}</h2><ul class="s-9oHkUE">${items}</ul></section>`;
  };
 
  for (const en of entries) {
@@ -1513,6 +1521,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
  const articleBodyHasPromptPlaceholder = hasArticleBodyPromptPlaceholder(localizedBody);
+ const articleWithheldFromIndex = articleBodyHasPromptPlaceholder
+  || articleIndexExclusions.has(articleIndexExclusionKey(SECTION.name, en.articleId));
  const allBodyKeys = localizedBody ? Object.keys(localizedBody).filter(k => /^body\d+$/.test(k)).sort((a, b) => {
  const na = parseInt(a.replace('body', ''), 10);
  const nb = parseInt(b.replace('body', ''), 10);
@@ -1567,6 +1577,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   ? resolvedAuthor.provenance
   : resolveArticleProvenance({ aiAssisted: en.aiAssisted }, undefined);
  const articleTransparencyAuthorName = en.authorName.trim() || resolvedAuthor?.name;
+ const articleBylineNote = resolveArticleBylineNote(
+  locale,
+  resolvedAuthor && { slug: resolvedAuthor.slug, kind: isRealArticleAuthor(resolvedAuthor) ? 'real-author' : 'editorial-profile' },
+  articleProvenance.aiAssisted,
+ );
  // The one author surface #author-eeat left behind: `article:author` below
  // stayed hardcoded to /chi-siamo/ while byline, JSON-LD and hreflang all
  // moved to the per-article editorial profile. Every OG consumer (Facebook,
@@ -1595,6 +1610,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  name: resolvedAuthor.name,
  url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
  description: resolvedAuthor.role,
+ disambiguatingDescription: ARTICLE_BYLINE[disclosureLocale(locale)].editorialSignature,
  ...(resolvedAuthor.linkedin ? { sameAs: [resolvedAuthor.linkedin] } : {}),
  parentOrganization: { '@type': 'Organization', name: 'Redazione Frontaliere Ticino', '@id': `${BASE_URL}/chi-siamo/#team`, url: `${BASE_URL}/chi-siamo/` },
  }
@@ -1718,7 +1734,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  '@context': 'https://schema.org',
  // A corpus entry without an editorial publication date is an evergreen
  // document. Keep it as WebPage until the registry supplies a real date.
- '@type': en.datePub ? 'NewsArticle' : 'WebPage',
+ // A dated guide the generator declared evergreen is an Article, not news.
+ '@type': !en.datePub ? 'WebPage' : articleTypeById[en.articleId] === 'evergreen' ? 'Article' : 'NewsArticle',
  '@id': `${full}#article`,
  name: localizedTitle,
  headline: localizedTitle,
@@ -1743,7 +1760,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  }),
  url: full,
  inLanguage: locale,
- // Author matches the visible "Di {authorName}" byline below and the
+ // Author matches the visible localized byline ("Di/By/Von/Par {authorName}") below and the
  // SPA-side Organization schema (#3520) — Google's guidance: structured-data
  // author must match the byline. Organization object defined once
  // above (authorObj), resolved from the article's real authorSlug.
@@ -1824,7 +1841,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+ { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}${breadcrumbLocale === 'it' ? '/' : `/${breadcrumbLocale}/`}` },
  { '@type': 'ListItem', position: 2, name: sectionName, item: sectionCrumbUrl },
  { '@type': 'ListItem', position: 3, name: localizedTitle },
  ],
@@ -1926,7 +1943,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  ${twitterCardMeta}
- <meta name="robots" content="${articleBodyHasPromptPlaceholder ? 'noindex,follow' : ARTICLE_ROBOTS_INDEX_ENHANCED}">${articleBodyHasPromptPlaceholder ? `\n ${ARTICLE_NOINDEX_TARGET_MARKER}` : ''}${SECTION.kind === 'canton' ? `\n ${CORPUS_ROUTE_OWNER_META_TAG}` : ''}
+ <meta name="robots" content="${articleWithheldFromIndex ? 'noindex,follow' : ARTICLE_ROBOTS_INDEX_ENHANCED}">${articleWithheldFromIndex ? `\n ${ARTICLE_NOINDEX_TARGET_MARKER}` : ''}${SECTION.kind === 'canton' ? `\n ${CORPUS_ROUTE_OWNER_META_TAG}` : ''}
  <meta property="fb:app_id" content="891036063797338">
  ${publishedDate ? `<meta property="article:published_time" content="${esc(publishedDate)}">` : ''}
  ${modifiedDate ? `<meta property="article:modified_time" content="${esc(modifiedDate)}">` : ''}
@@ -1976,7 +1993,6 @@ ${href}
 
  const blogPreloads = [
  `<link rel="preload" as="image" href="${en.img}" fetchpriority="high">`,
- blogMetaItChunk ? `<link rel="modulepreload" href="/assets/${blogMetaItChunk}">` : '',
  ].filter(Boolean).join('\n ');
 
  if (hasSpaBundle) {
@@ -2057,7 +2073,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
-${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleAtfMarkup}${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}${articleLocaleNav}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">${ARTICLE_BYLINE[disclosureLocale(locale)].by} ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${articleBylineNote ? ` (${esc(articleBylineNote)})` : ''}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleAtfMarkup}${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance, articleBodyHtml)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}${articleLocaleNav}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;

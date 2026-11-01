@@ -59,10 +59,10 @@ interface LocalIntent {
 const LOCAL_INTENTS: LocalIntent[] = [
  {
  keywords: ['permesso g', 'permit g', 'g-permit', 'grenzgänger', 'frontaliere'],
- it: '**Permesso G (frontaliere):** Permette di lavorare in Svizzera rientrando in Italia almeno una volta la settimana. Valido per la zona di frontiera. Per approfondire consulta la [Guida Permessi](nav:permits).',
- en: '**G Permit (frontier worker):** Allows working in Switzerland while returning to Italy at least once a week. Valid in the border zone. See the [Permits Guide](nav:permits) for details.',
- de: '**Grenzgängerbewilligung G:** Erlaubt die Arbeit in der Schweiz mit wöchentlicher Rückkehr nach Italien. Gilt in der Grenzzone. Mehr im [Bewilligungsguide](nav:permits).',
- fr: '**Permis G (frontalier):** Permet de travailler en Suisse en rentrant en Italie au moins une fois par semaine. Valable dans la zone frontalière. Voir le [Guide des permis](nav:permits).',
+ it: '**Permesso G (frontaliere):** Permette di lavorare in Svizzera rientrando in Italia almeno una volta la settimana. Per i cittadini UE/AELS non ci sono più zone di frontiera. Per approfondire consulta la [Guida Permessi](nav:permits).',
+ en: '**G Permit (frontier worker):** Allows working in Switzerland while returning to Italy at least once a week. Border zones no longer apply to EU/EFTA citizens. See the [Permits Guide](nav:permits) for details.',
+ de: '**Grenzgängerbewilligung G:** Erlaubt die Arbeit in der Schweiz mit wöchentlicher Rückkehr nach Italien. Für EU/EFTA-Bürger gelten keine Grenzzonen mehr. Mehr im [Bewilligungsguide](nav:permits).',
+ fr: '**Permis G (frontalier):** Permet de travailler en Suisse en rentrant en Italie au moins une fois par semaine. Les zones frontalières ne s\'appliquent plus aux citoyens UE/AELE. Voir le [Guide des permis](nav:permits).',
  navAction: 'permits',
  },
  {

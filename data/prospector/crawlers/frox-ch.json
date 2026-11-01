@@ -1,0 +1,23 @@
+{
+  "companyKey": "frox-ch",
+  "companyName": "frox",
+  "companyHost": "noseryoung.ch",
+  "platform": "noseryoung.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://noseryoung.ch/lehrstellen/"
+  ],
+  "detailTemplate": "/lehrstellen/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Informatiker:in: Platt­form­ent­wick­lung EFZ",
+    "Ent­wick­ler:in di­gi­ta­les Busi­ness EFZ",
+    "ICT-­Fach­­man­n/-frau EFZ",
+    "Ge­bäude­in­for­ma­tik­er:in EFZ"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-31T12:47:30.529Z",
+  "candidateKey": "frox.ch"
+}

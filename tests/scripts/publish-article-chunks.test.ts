@@ -108,6 +108,24 @@ describe('publish-article-chunks isolated esbuild rebuild', () => {
     expect(value.map((a: { id: string }) => a.id)).toEqual(['x', 'y']);
   }, 30_000);
 
+  it('can publish a live-proven registry subset without changing the source registry', async () => {
+    const dir = makeTmpDir();
+    fs.mkdirSync(path.join(dir, 'data'));
+    fs.writeFileSync(
+      path.join(dir, 'data', 'registry.ts'),
+      'export const ARTICLES = [{ id: "served" }, { id: "not-yet-served" }];\n',
+    );
+    const outFile = path.join(dir, 'registry.js');
+    await buildRegistryChunk(dir, 'data/registry.ts', outFile, {
+      namespaceExport: 'registry',
+      exportName: 'ARTICLES',
+      includeIds: new Set(['served']),
+    });
+
+    const value = await validateRegistryChunk(outFile, 'ARTICLES', 'array', 'registry');
+    expect(value.map((a: { id: string }) => a.id)).toEqual(['served']);
+  }, 30_000);
+
   it('rejects a rebuilt module whose export is missing, empty, or not an array', async () => {
     const dir = makeTmpDir();
     const badFile = path.join(dir, 'bad.js');

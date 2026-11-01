@@ -1,7 +1,7 @@
 {
   "key": "policelavaux-ch",
   "label": "Police Lavaux",
-  "generatedAt": "2026-10-30T21:49:51.025Z",
+  "generatedAt": "2026-10-31T21:52:23.164Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 10253,
-  "avgDurationMs": 10253,
+  "durationMs": 9894,
+  "avgDurationMs": 9894,
   "durationHistory": [
-    10253
+    9894
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/secretaire-en-charge-des-affaires-portuaires",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:49:36.520Z",
+      "crawledAt": "2026-10-31T21:52:06.715Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/secretaire-de-police-du-commerce",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:49:36.519Z",
+      "crawledAt": "2026-10-31T21:52:06.714Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-se-developpe-et-recrute",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:49:36.517Z",
+      "crawledAt": "2026-10-31T21:52:06.713Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-recrute-des-sous-officierere-superieure",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-30T21:49:36.515Z",
+      "crawledAt": "2026-10-31T21:52:06.711Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -198,5 +198,5 @@
       }
     }
   ],
-  "codeCommit": "768c12e012d54e2acfe5cbcfcc5c9727ac13078e"
+  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
 }

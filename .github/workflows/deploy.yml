@@ -1179,6 +1179,25 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
 
+      # A locale sitemap can be assembled from the shared job inventory while
+      # its own leg fails to materialize one detail page. Validate the owned
+      # URL set before pruning the other locales, then hand the exact set to
+      # deploy-publish.yml so an incomplete artifact cannot reach a shard push.
+      - name: Validate owned sitemap pages before locale prune
+        id: validate-owned-sitemap-pages
+        env:
+          LOCALE_SITEMAP_MANIFEST_OUT: ${{ runner.temp }}/locale-sitemap-manifest-${{ matrix.locale }}.json
+        run: |
+          set -euo pipefail
+          if [ "${{ matrix.locale }}" = "it" ]; then
+            node scripts/validate-sitemap-links.mjs --owned-locale=it
+          else
+            node scripts/validate-sitemap-links.mjs \
+              --owned-locale="${{ matrix.locale }}" \
+              --manifest-out="$LOCALE_SITEMAP_MANIFEST_OUT"
+            test -s "$LOCALE_SITEMAP_MANIFEST_OUT"
+          fi
+
       # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
       # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
       # write every locale. This removes the non-owned locale output the same
@@ -1300,6 +1319,10 @@ jobs:
           source scripts/lib/parallel-tar.sh
           printf '%s\n' "${DEPLOY_BUILD_ID}" > dist/build-id.txt
           members=("${{ matrix.locale }}" build-id.txt)
+          manifest="$RUNNER_TEMP/locale-sitemap-manifest-${{ matrix.locale }}.json"
+          test -s "$manifest"
+          cp "$manifest" dist/locale-sitemap-manifest.json
+          members+=(locale-sitemap-manifest.json)
           if [ -f "dist/${{ matrix.locale }}.html" ]; then
             members+=("${{ matrix.locale }}.html")
           fi
@@ -1402,6 +1425,26 @@ jobs:
           DEPLOY_CDN_PUSH_ONLY: '1'
         run: bash scripts/lib/deploy-it-pages-prep.sh
 
+      # One more try BEFORE the section fan-out gives up. A failed early push
+      # skips every section shard, the strip then no-ops, and the apex goes past
+      # the 10 GB Pages cap. Run 41145698648 lost the whole publish that way: the
+      # blog image lease was busy for its 15-minute wait, the shards were skipped,
+      # the github-pages artifact went from ~120 MB to 2.84 GB, and the push that
+      # "Deploy prep" retried later succeeded too late to help. A busy lease clears
+      # on its own, so the retry belongs here. The push is idempotent and CDN_BASE
+      # keeps the same handshake: if this fails too, nothing changes from today.
+      - name: Retry early CDN push (before the section shards give up)
+        id: cdn-push-early-retry
+        if: matrix.locale == 'it' && steps.cdn-push-early.outcome == 'failure'
+        continue-on-error: true
+        timeout-minutes: 45
+        env:
+          CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
+          CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
+          DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
+          DEPLOY_CDN_PUSH_ONLY: '1'
+        run: bash scripts/lib/deploy-it-pages-prep.sh
+
       # Persiste peak_anon_mb/peak_rss_mb/wall_seconds per-leg cross-run:
       # senza questo, il referto letto da "Read build memory report" e'
       # ephemeral (/tmp, sparisce a fine job) e non esiste storia su cui
@@ -1478,7 +1521,7 @@ jobs:
       # scripts/lib/section-shard-slugs.json).
       - name: Push section shards (IT → frontaliere-<section>-it)
         id: push-section-shards-it
-        if: matrix.locale == 'it' && steps.cdn-push-early.outcome == 'success'
+        if: matrix.locale == 'it' && (steps.cdn-push-early.outcome == 'success' || steps.cdn-push-early-retry.outcome == 'success')
         # A push failure must never block the apex publish: the strip then no-ops
         # (no ok-marker) so that section stays in the apex (>10 GB, deploy fails —
         # but never UNSERVED). The shard otherwise keeps serving its previous build.

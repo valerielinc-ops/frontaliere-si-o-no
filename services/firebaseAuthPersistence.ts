@@ -26,8 +26,12 @@ export function deriveFirebaseAuthPersistenceKey(apiKey: string | null | undefin
   return `${FIREBASE_AUTH_STORAGE_PREFIX}${normalized}:${DEFAULT_FIREBASE_APP_NAME}`;
 }
 
-/** Set the key received from runtime configuration without persisting it. */
-export function setFirebaseApiKey(apiKey: string): void {
+/**
+ * Set the key received from runtime configuration without persisting it.
+ * The corpus host has a separate pre-bootstrap env adapter; this site keeps
+ * the runtime key optional and never substitutes a project-wide fallback.
+ */
+export function setFirebaseApiKey(apiKey: string | null | undefined): void {
   activeFirebaseApiKey = typeof apiKey === 'string' ? apiKey.trim() : '';
 }
 

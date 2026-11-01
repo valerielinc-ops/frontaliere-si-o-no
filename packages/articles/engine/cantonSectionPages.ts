@@ -284,12 +284,12 @@ function breadcrumbNavHtml(locale: Locale, crumbs: ReadonlyArray<{ name: string;
   return `      <nav class="s-AxRVCF" aria-label="${esc(label)}">${parts.join('<span aria-hidden="true"> / </span>')}</nav>`;
 }
 
-function breadcrumbLd(crumbs: ReadonlyArray<{ name: string; url: string }>): unknown {
+function breadcrumbLd(locale: Locale, crumbs: ReadonlyArray<{ name: string; url: string }>): unknown {
   const { baseUrl } = getSiteShell();
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: [{ name: 'Home', url: `${baseUrl}/` }, ...crumbs].map((c, i) => ({
+    itemListElement: [{ name: 'Home', url: `${baseUrl}${locale === 'it' ? '/' : `/${locale}/`}` }, ...crumbs].map((c, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: c.name,
@@ -456,7 +456,7 @@ export function renderCantonSectionLanding(input: CantonSectionLandingInput): Ca
   const pageUrl = `${baseUrl}${canonicalPath}`;
   const description = copy.description(name);
   const jsonLd = [
-    breadcrumbLd([{ name: label, url: pageUrl }]),
+    breadcrumbLd(locale, [{ name: label, url: pageUrl }]),
     {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
@@ -791,7 +791,7 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
   const description = paragraphs[0];
   const itemListArticles = input.curatedArticles.length > 0 ? input.curatedArticles : latestCantonArticles;
   const jsonLd: unknown[] = [
-    breadcrumbLd([
+    breadcrumbLd(locale, [
       { name: sectionLabel, url: `${baseUrl}${landingPath}` },
       { name: hubLabel, url: pageUrl },
     ]),

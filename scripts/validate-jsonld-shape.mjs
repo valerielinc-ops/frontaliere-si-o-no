@@ -16,7 +16,7 @@
  *   - Missing required fields per @type:
  *       JobPosting: title, description, datePosted, hiringOrganization,
  *                   jobLocation, employmentType, baseSalary, validThrough,
- *                   and the complete PostalAddress
+ *                   and the complete PostalAddress including streetAddress
  *       Article / BlogPosting: headline, datePublished, author, publisher
  *       Person: name
  *       Organization: name
@@ -126,7 +126,7 @@ function validateEntity(entity) {
   }
   if (t === 'JobPosting') {
     const address = entity.jobLocation?.address;
-    for (const field of ['streetAddress', 'postalCode', 'addressLocality', 'addressRegion', 'addressCountry']) {
+    for (const field of ['postalCode', 'streetAddress', 'addressLocality', 'addressRegion', 'addressCountry']) {
       if (!address || address[field] === null || address[field] === undefined || address[field] === '') {
         violations.push({ '@type': t, missing: `jobLocation.address.${field}` });
       }

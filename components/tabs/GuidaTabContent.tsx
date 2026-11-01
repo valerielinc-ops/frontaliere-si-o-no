@@ -22,7 +22,12 @@ export default function GuidaTabContent() {
  return (
  <div className="max-w-7xl mx-auto space-y-8">
  <div data-speakable>
+ {/* La guida permessi ha un H1 proprio: un secondo H1 qui ne duplicherebbe il tema. */}
+ {guidaSubTab === 'permits' ? (
+ <p className="text-base sm:text-2xl font-bold font-display text-heading mb-2 sm:mb-4">{t('seoContent.guida.title')}</p>
+ ) : (
  <h1 className="text-base sm:text-2xl font-bold font-display text-heading mb-2 sm:mb-4">{t('seoContent.guida.title')}</h1>
+ )}
  </div>
  <DataFreshness dateKind="reviewed" source={t('freshness.source.ufficiMigrazione')} sourceUrl="https://www.sem.admin.ch/" variant="badge" />
  <Suspense fallback={<div className="min-h-[44px]" />}>

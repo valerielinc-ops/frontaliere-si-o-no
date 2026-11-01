@@ -374,7 +374,7 @@ jobs:
 
             **Digest (ultima azione, sempre):** una sola issue col titolo ESATTO `🧭 Decisioni del proprietario — digest` (cerca fra le aperte; se non esiste creala con label `automation,agent:no-age-out`). Sostituisci/aggiorna il body con le decisioni prese in autonomia in questo run (issue, scelta, driver citato), i conteggi residui separati di `needs-human`, `automation-deferred` e `fu-parked`, la sezione «C misurate, chiusura all'orchestratore» con numero, misura e data del marker `SWEEP_CLOSE_REQUEST` di ciascuna issue C vista in questo run (nuova o già segnalata), e la sezione «Failure senza verdetto del closer» con le issue di failure lasciate intatte. Nessuna domanda al proprietario.
 
-            **Telemetria:** chiudi postando sul digest un commento con l'ultimo marker su riga propria: `<!-- SWEEP_OUTCOME: a=<n> b=<n> c=<n> d=<n> -->`.
+            **Telemetria:** chiudi postando sul digest un commento con il marker di QUESTA run su riga propria: `<!-- SWEEP_OUTCOME: run=${{ github.run_id }} a=<n> b=<n> c=<n> d=<n> -->`. Un marker di una run precedente non prova il lavoro di questa run.
 
       # Colore = lavoro reale: verde se il marker SWEEP_OUTCOME è stato postato
       # (anche a cap raggiunto), rosso se la CLI è morta senza produrlo.
@@ -383,11 +383,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ACTION_OUTCOME: ${{ steps.codex_sweep.outcome }}
+          RUN_ID: ${{ github.run_id }}
         run: |
           set -uo pipefail
           N=$(gh search issues --repo "$GITHUB_REPOSITORY" --state open --match title "🧭 Decisioni del proprietario — digest" --json number --jq '.[0].number // empty' 2>/dev/null || true)
           if [ -n "${N:-}" ]; then
-            HAS=$(gh issue view "$N" --json comments --jq '[.comments[].body | select(test("<!-- SWEEP_OUTCOME:"))] | length' 2>/dev/null || echo 0)
+            HAS=$(gh issue view "$N" --json comments 2>/dev/null |
+              jq --arg run "$RUN_ID" '[.comments[].body | select(contains("<!-- SWEEP_OUTCOME: run=" + $run + " "))] | length' 2>/dev/null || echo 0)
           else
             HAS=0
           fi
@@ -396,8 +398,5 @@ jobs:
             echo "✓ marker SWEEP_OUTCOME presente → run SUCCESS."
             exit 0
           fi
-          if [ "$ACTION_OUTCOME" = "failure" ]; then
-            echo "::error::needs-human-sweep: CLI fallita senza marker → non-delivery. Il prossimo run settimanale (o un dispatch manuale) recupera: lo sweep è idempotente."
-            exit 1
-          fi
-          echo "CLI pulita senza marker (es. zero issue needs-human) → verde."
+          echo "::error::needs-human-sweep: nessun marker SWEEP_OUTCOME della run $RUN_ID → non-delivery (action=$ACTION_OUTCOME). Il prossimo run settimanale (o un dispatch manuale) recupera: lo sweep è idempotente."
+          exit 1

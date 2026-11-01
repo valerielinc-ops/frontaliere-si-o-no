@@ -1,7 +1,6 @@
 /**
- * Auto-update llms.txt and llms-full.txt with current build date, article count,
- * and a comprehensive auto-generated page index from all sitemaps.
- * Ensures AI search engines always see fresh metadata and can discover ALL pages.
+ * Auto-update llms.txt and llms-full.txt with the counts derived from the
+ * sitemaps, and generate the per-URL page index in llms-index.txt.
  *
  * Thin wrapper: the actual generation logic lives in
  * scripts/lib/llms-txt-generator.mjs (generateLlmsTxtFamily), extracted for

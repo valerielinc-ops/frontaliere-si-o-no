@@ -142,6 +142,16 @@ describe('salaryProfessionCanton — render', () => {
     }
   });
 
+  it('renders featured jobs as shared cards, so they get the save bookmark', () => {
+    const { html } = renderSalaryProfessionCantonPage({
+      locale: 'it', cantonKey: 'ZH', id: 'infermiere', preset: PRESET, snapshot: SNAP, distDir: '',
+    });
+
+    // The page HTML is minified: attribute quotes may be dropped.
+    expect(html).toMatch(/class="?jc-card/);
+    expect(html).toMatch(new RegExp(`data-job-save="?${FEATURED.id}`));
+  });
+
   it('recovers a real title when the source field contains an AI translation narrative', () => {
     const pollutedSnapshot: ProfessionJobsSnapshot = {
       ...SNAP,

@@ -47,6 +47,7 @@ import { extractRuntimeDetailFields, runtimeDetailFallbackUrl } from './detail-e
 import { selectValidationSample } from './validation-sample.mjs';
 import { qualityContractVersionOf } from './quality-contract.mjs';
 import { checkEmployerIdentity } from './employer-identity.mjs';
+import { isFreeTextSpec, validateFreeTextOffer } from './free-text-extract.mjs';
 import {
   isGenericVacancyTitle,
   rawDetailTitleEvidence,
@@ -247,6 +248,105 @@ export function bodySignature(text = '') {
 }
 
 /**
+ * Grade a free-text offer against the homepage that supplied its evidence.
+ * There is no detail URL to follow: the source page itself is the detail
+ * document, and the shared contract is re-run without another model call.
+ */
+async function gradeFreeTextVacancy(vacancy, fetchOptions = {}) {
+  const spec = fetchOptions.spec || {};
+  const sourceUrl = vacancy.sourceUrl || String(vacancy.url || '').split('#')[0];
+  const out = {
+    url: vacancy.url,
+    reachable: false,
+    titleMatch: 0,
+    titleSource: 'free_text_source',
+    listingTitle: vacancy.title || '',
+    detailTitle: '',
+    rawH1Title: '',
+    rawDocumentTitle: '',
+    finalTitle: vacancy.title || '',
+    recordedFinalTitle: vacancy.title || '',
+    authoritativeTitle: '',
+    titleEvidenceSource: 'none',
+    contentful: false,
+    sourceBackedLocation: false,
+    words: 0,
+    status: 0,
+    jobLike: null,
+    jobLikeEvidence: null,
+    jobLikeEvidenceMode: 'unmeasured',
+    employerIdentityStatus: 'unknown',
+    employerIdentityEvidence: 'identity_unavailable',
+    jobSignals: [],
+    notJobSignals: [],
+    freeTextContract: 'free-text-v1',
+  };
+  let res = fetchOptions.observedDetail
+    ? {
+      ok: true,
+      status: fetchOptions.observedDetail.status || 200,
+      body: fetchOptions.observedDetail.body || '',
+      url: fetchOptions.observedDetail.url || sourceUrl,
+    }
+    : null;
+  if (!res && fetchOptions.requireObservedDetail === true) return out;
+  if (!res) {
+    try {
+      if (fetchOptions.urlPolicy) await fetchOptions.urlPolicy(sourceUrl);
+    } catch {
+      return out;
+    }
+    res = await politeFetch(sourceUrl, fetchOptions);
+  }
+  out.status = res.status;
+  if (!res.ok || !res.body || res.body.length < 80) return out;
+  out.reachable = true;
+  const rawTitles = rawDetailTitleEvidence(res.body);
+  const sourceText = vacancy.freeTextSourceText || vacancy.sourceText || '';
+  const checked = validateFreeTextOffer(vacancy, {
+    html: res.body,
+    pageUrl: res.url || sourceUrl,
+    context: {
+      companyName: spec.companyName || vacancy.company,
+      sourceLocation: spec.sourceLocation,
+    },
+  });
+  const pageText = textOf(res.body);
+  out.rawH1Title = rawTitles.rawH1Title;
+  out.rawOpenGraphTitle = rawTitles.rawOpenGraphTitle;
+  out.rawDocumentTitle = rawTitles.rawDocumentTitle;
+  out.authoritativeTitle = sourceText;
+  out.titleEvidenceSource = 'free_text_source';
+  out.titleMatch = checked.valid
+    ? Math.max(tokenOverlap(vacancy.title, sourceText), tokenOverlap(vacancy.title, pageText))
+    : 0;
+  out.contentful = checked.valid;
+  out.sourceBackedLocation = Boolean(checked.location);
+  out.words = pageText.split(/\s+/).filter(Boolean).length;
+  out.bodySignature = bodySignature(pageText);
+  const identity = checkEmployerIdentity({}, res.url || sourceUrl, spec, fetchOptions.expectedIdentity);
+  out.employerIdentityStatus = identity.status;
+  out.employerIdentityEvidence = identity.evidence;
+  out.employerIdentityName = identity.observedName;
+  out.employerIdentityHost = identity.observedHost;
+  if (checked.jobLike) {
+    out.jobLike = checked.jobLike.jobLike;
+    out.jobSignals = checked.jobLike.jobHits;
+    out.notJobSignals = checked.jobLike.notJobHits;
+    out.jobLikeEvidence = checked.valid && checked.jobLike.jobLike;
+    out.jobLikeEvidenceMode = 'free_text_source';
+  } else {
+    const fallback = gradeJobLike(`${sourceText}\n${vacancy.description || ''}`);
+    out.jobLike = fallback.jobLike;
+    out.jobSignals = fallback.jobHits;
+    out.notJobSignals = fallback.notJobHits;
+    out.jobLikeEvidence = false;
+    out.jobLikeEvidenceMode = 'free_text_rejected';
+  }
+  return out;
+}
+
+/**
  * Grade ONE vacancy against its own detail page.
  *
  * @param {{ title: string, url: string, location?: string, description?: string }} vacancy
@@ -261,6 +361,9 @@ export function bodySignature(text = '') {
  *   jobSignals: string[], notJobSignals: string[] }>}
  */
 export async function gradeVacancy(vacancy, fetchOptions = {}) {
+  if (isFreeTextSpec(fetchOptions.spec)) {
+    return gradeFreeTextVacancy(vacancy, fetchOptions);
+  }
   const out = {
     url: vacancy.url,
     reachable: false,

@@ -9,6 +9,9 @@
  * traduca, e la maggioranza degli slot titolo non tradotti del ratchet
  * `tests/job-locale-consistency.test.ts`.
  *
+ * `seco-jobroom` (2026-10-31) entra nella stessa soglia per la stessa ragione:
+ * ~2.300 job di una sola volta, di cui due terzi di origine tedesca.
+ *
  * CONTRATTO. Un job di uno di questi crawler che ARRIVA con un titolo non
  * tradotto resta nello slice (quindi nella coda di translate-pending, che legge
  * gli slice) ma non entra nella pubblicazione: niente pagina, sitemap, hub,
@@ -64,6 +67,7 @@ import { previousRunSliceJobs } from './crawler-previous-run-slice.mjs';
  */
 export const TRANSLATION_HOLD_CRAWLER_KEYS = Object.freeze([
   'fachkraft',
+  'seco-jobroom',
   'sta',
   'stellenpartner',
   'stellentreff',

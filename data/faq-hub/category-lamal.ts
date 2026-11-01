@@ -78,7 +78,7 @@ export const FAQ_lamal: ReadonlyArray<FaqHubEntry> = [
     ],
     sources: [
       'https://www.bag.admin.ch/it/assicurazione-malattie-lavoratori-frontalieri-in-svizzera',
-      'https://www.fedlex.admin.ch/eli/cc/2023/694/it',
+      'https://www.fedlex.admin.ch/eli/oc/2023/410/it',
     ],
   },
   {

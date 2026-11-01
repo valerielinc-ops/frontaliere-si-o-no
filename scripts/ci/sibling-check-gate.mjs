@@ -1,5 +1,13 @@
 import { pathToFileURL } from 'node:url';
-import { realpathSync } from 'node:fs';
+import {
+  closeSync,
+  mkdtempSync,
+  openSync,
+  readFileSync,
+  realpathSync,
+  rmSync,
+} from 'node:fs';
+import { tmpdir } from 'node:os';
 /**
  * sibling-check-gate.mjs — PreToolUse hook: blocks `gh pr create` when
  * check-sibling-patterns.mjs finds uncovered sibling files that have NOT been
@@ -49,7 +57,7 @@ import { realpathSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { readHookStdin } from './lib/hook-stdin.mjs';
 
-import { basename, relative, sep } from 'node:path';
+import { basename, join, relative, sep } from 'node:path';
 import { extractPrBody, describePrBodySource } from './pr-body-check-gate.mjs';
 import { commandVariables, findPrBodyWriteCommand } from './lib/hook-command-parser.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
@@ -82,6 +90,47 @@ export const SIBLING_GATE_PAYLOAD_ENV = 'SIBLING_GATE_PAYLOAD';
  * likely be killed mid-run, so the gate declares the skip instead.
  */
 export const CHECKER_FALLBACK_BUDGET_MS = 25_000;
+
+/**
+ * Managed Node does not reliably return stdout from a child when the child is
+ * given a capture pipe. Capture to explicit descriptors instead: the checker
+ * remains a separate process, but its JSON verdict is still observable by the
+ * gate. The temporary files are local hook plumbing, never repository data.
+ */
+function runChecker(source, head) {
+  const captureRoot = mkdtempSync(join(tmpdir(), 'frontaliere-sibling-check-'));
+  const stdoutPath = join(captureRoot, 'stdout');
+  const stderrPath = join(captureRoot, 'stderr');
+  let stdoutFd;
+  let stderrFd;
+  let failure;
+  try {
+    stdoutFd = openSync(stdoutPath, 'w');
+    stderrFd = openSync(stderrPath, 'w');
+    try {
+      execFileSync(process.execPath, [source.script, '--json', '--head', head.ref], {
+        maxBuffer: 8 * 1024 * 1024,
+        stdio: ['ignore', stdoutFd, stderrFd],
+        cwd: head.cwd,
+        env: { ...process.env, CHECK_SIBLING_PATTERNS_CACHE: '0' },
+      });
+    } catch (error) {
+      failure = error;
+    }
+  } finally {
+    if (stdoutFd !== undefined) closeSync(stdoutFd);
+    if (stderrFd !== undefined) closeSync(stderrFd);
+  }
+
+  const jsonOutput = readFileSync(stdoutPath, 'utf8');
+  const checkerStderr = readFileSync(stderrPath, 'utf8');
+  rmSync(captureRoot, { recursive: true, force: true });
+  if (failure) {
+    failure.stderr = checkerStderr;
+    throw failure;
+  }
+  return jsonOutput;
+}
 
 /**
  * Resolve the local checker for the repository that the PR command targets.
@@ -363,21 +412,7 @@ async function main() {
       break;
     }
     try {
-      const jsonOutput = execFileSync('node', [source.script, '--json', '--head', head.ref], {
-        encoding: 'utf8',
-        maxBuffer: 8 * 1024 * 1024,
-        // Managed Node can report EPERM when a child is given a stdin pipe. The
-        // checker does not read stdin, so keep it detached and capture both
-        // streams; this preserves the verdict instead of silently treating a
-        // valid run as an infrastructure failure.
-        stdio: ['ignore', 'pipe', 'pipe'],
-        cwd: head.cwd,
-        // The checker caches results per head in tmpdir, keyed on its cache
-        // version and the refs, not on its own code. Every source can carry a
-        // different checker revision, so no invocation may reuse a verdict
-        // produced by another revision.
-        env: { ...process.env, CHECK_SIBLING_PATTERNS_CACHE: '0' },
-      });
+      const jsonOutput = runChecker(source, head);
       result = JSON.parse(jsonOutput);
       candidates = Array.isArray(result?.candidates) ? result.candidates : [];
       usedChecker = source;

@@ -19,6 +19,7 @@ import { seededExpiredDocumentMatchesSlug } from './seededExpiredJob';
 import { STABIO_DOSSO_PETITION_PATHS } from './petitionRoute';
 import { EVENTS_ARCHIVE_SEGMENT } from './eventsArchivePaths';
 import { SLUG_TABLES, type SlugTable } from './routeSlugs.data';
+import { isCalculatorIndexPath } from './calculatorIndexPath';
 import { isAdminSectionSlug } from '../components/admin/adminSections';
 import { cdnDataUrl } from './cdnDataBase';
 import { buildJobSlugRecord, jobSlugShardKey, jobSlugShardPath } from './jobSlugShards';
@@ -2221,6 +2222,10 @@ export function parsePath(pathname: string): ParseResult {
  if (parts[0] === AUTHOR_PATH_SEGMENT[locale] && parts[1]) {
    return { route: { activeTab: 'autore', author: decodeURIComponent(parts[1]) }, locale };
  }
+ // `/autori/` hub: same tab, no slug.
+ if (parts[0] === AUTHOR_PATH_SEGMENT[locale] && parts.length === 1) {
+   return { route: { activeTab: 'autore' }, locale };
+ }
 
  // Fuel-daily static SEO pages (F6) — /prezzi-diesel/oggi/, /en/diesel-price-switzerland/today/, etc.
  // These are build-time static HTML rendered OUTSIDE `#root` (see
@@ -4187,6 +4192,13 @@ function isLocaleRoot(path: string): boolean {
  return path === '/' || /^\/(?:en|de|fr)\/?$/.test(path);
 }
 
+export { isCalculatorIndexPath };
+
+/** Pagina che mostra già il calcolatore: la rotta di default non deve cambiarne l'URL. */
+function staysOnCalculatorPage(path: string, route: AppRoute): boolean {
+ return (isLocaleRoot(path) || isCalculatorIndexPath(path)) && isDefaultHome(route);
+}
+
 /** Check if route is the default homepage (calculator main tab) */
 function isDefaultHome(route: AppRoute): boolean {
  return route.activeTab === 'calculator' && (!route.calcolatoreSubTab || route.calcolatoreSubTab === 'calculator');
@@ -4241,6 +4253,10 @@ function buildBorderMunicipalityStaticPath(slug: string, locale: Locale): string
  return `${prefix}/${table.vita}/${table.municipalities}/${slug}/`.replace(/\/+/g, '/');
 }
 
+function buildCalculatorIndexPath(locale: Locale): string {
+ return `${localePrefix(locale)}/${SLUG_TABLES[locale].calcolatore}/`;
+}
+
 export function pushRoute(route: AppRoute): void {
  // Static SEO overlay routes (per-station fuel, per-canton health, per-city
  // employers, per-cluster orphan landings, etc.) are matched against URLs
@@ -4257,8 +4273,8 @@ export function pushRoute(route: AppRoute): void {
  // allowlisted params (autologin, campaign tracking, OAuth, utm_*).
  const samePath = currentPath.replace(/\/$/, '') === newPath.replace(/\/$/, '');
  const search = samePath ? window.location.search : preservedSearch(window.location.search);
- // Root paths (/, /en/, /de/, /fr/) are canonical for the homepage — don't redirect to calculator slug
- if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
+ // Root paths and calculator index pages are canonical for themselves
+ if (staysOnCalculatorPage(currentPath, route) && !newHash) return;
  if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
  const hashPart = newHash ? `#${newHash}` : '';
  history.pushState({ route }, '', newPath + search + hashPart);
@@ -4273,7 +4289,7 @@ export function replaceRoute(route: AppRoute): void {
  const currentHash = window.location.hash.slice(1);
  const samePath = currentPath.replace(/\/$/, '') === newPath.replace(/\/$/, '');
  const search = samePath ? window.location.search : preservedSearch(window.location.search);
- if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
+ if (staysOnCalculatorPage(currentPath, route) && !newHash) return;
  if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
  const hashPart = newHash ? `#${newHash}` : '';
  history.replaceState({ route }, '', newPath + search + hashPart);
@@ -4334,6 +4350,11 @@ export function updatePathForLocale(newLocale: Locale): void {
  window.location.assign(newPath + search + window.location.hash);
  }
  }
+ return;
+ }
+ if (isCalculatorIndexPath(currentPath) && isDefaultHome(route)) {
+ const newIndex = buildCalculatorIndexPath(newLocale);
+ if (currentPath !== newIndex) history.replaceState({ route }, '', newIndex + search);
  return;
  }
  let nextRoute = route;

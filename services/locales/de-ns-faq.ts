@@ -21,7 +21,7 @@ const deNsFaq: Record<string, string> = {
  'faq.questions.taxes.q3': 'Kann ich die 3. Säule in Italien absetzen?',
  'faq.questions.taxes.a3': 'Säule-3a-Einzahlungen sind von der Schweizer Quellensteuer absetzbar. In Italien nicht absetzbar, aber im Gesamteinkommen enthalten.',
  'faq.questions.taxes.q4': 'Was sind Steuerrückerstattungen (Ristorni)?',
- 'faq.questions.taxes.a4': 'Es sind 38,8% der in der CH gezahlten Quellensteuer, die an italienische Grenzgemeinden zurückgehen. Kein direkter Vorteil für den Arbeitnehmer.',
+ 'faq.questions.taxes.a4': 'Es sind 40 % der Bruttosteuer der Grenzgänger nach Art. 9, von den Kantonen bis zum Steuerjahr 2033 an Italien gezahlt. Kein direkter Vorteil für den Arbeitnehmer.',
  'faq.questions.taxes.q5': 'Muss ich mein Schweizer Bankkonto deklarieren?',
  'faq.questions.taxes.a5': 'Ja, es muss im Abschnitt RW des Modells Redditi PF für die Steuerüberwachung deklariert werden. Keine IVAFE auf Schweizer Girokonten.',
  'faq.questions.taxes.q6': 'Wie funktioniert das Modello Redditi PF für Grenzgänger?',

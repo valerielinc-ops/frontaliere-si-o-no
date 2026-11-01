@@ -200,3 +200,10 @@ jobs:
         run: |
           echo "::error::Worker rolled back — a shard stall regression was detected post-deploy. Investigate the diff before redeploying."
           exit 1
+
+      # The browser-facing Cache-Control comes from a Transform Rule that the
+      # setup step owns: read it back from the CDN instead of trusting the PUT.
+      # Last on purpose: a failure here must not skip the Worker regression check
+      # and its auto-rollback, which have nothing to do with this policy.
+      - name: Check CDN browser cache policy (live)
+        run: node scripts/ci/assert-cdn-cache-policy.mjs

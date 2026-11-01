@@ -2448,7 +2448,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // mid-word, which is what reached the SERP snippet.
   const description = introLong;
 
-  const bodyHtml = `<article class="s-xzWvwM">
+  const bodyHtml = `<article class="s-xzWvwM" data-ft-driveby-top-ad="true">
   <nav class="s-bcr">
     <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -2890,7 +2890,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   // mid-word, which is what reached the SERP snippet.
   const description = introLong;
 
-  const bodyHtml = `<article class="s-xzWvwM">
+  const bodyHtml = `<article class="s-xzWvwM" data-ft-driveby-top-ad="true">
   <nav class="s-bcr">
     <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -3162,7 +3162,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
   </section>`
     : '';
 
-  const bodyHtml = `<article class="s-xzWvwM">
+  const bodyHtml = `<article class="s-xzWvwM" data-ft-driveby-top-ad="true">
   <nav class="s-bcr">
     <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>

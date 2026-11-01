@@ -248,6 +248,16 @@ describe('extractArticleText', () => {
       expect(result.text).toContain(outerParagraph);
     });
 
+  it.each(['break', 'continue'])
+    ('does not retain an unlabeled %s context after a closing delimiter', (keyword) => {
+      const outerParagraph = `Outer source prose after an unlabeled ${keyword} remains available to extraction.`;
+      const html = `<main><noscript><script>while (x) { ${keyword}}foo\n/ 2 `
+        + `</noscript><p>${outerParagraph}</p></main>`;
+      const result = extractArticleText(html, { scriptingDisabled: true });
+
+      expect(result.text).toContain(outerParagraph);
+    });
+
   it.each([
     ['break', 'block comment', 'break/*\n*/foo'],
     ['continue', 'block comment', 'continue/*\n*/foo'],

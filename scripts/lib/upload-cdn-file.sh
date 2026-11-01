@@ -367,6 +367,10 @@ if [ -n "$image_namespace" ]; then
       exit 0
     }
     image_lease_owner="${lease_identity:0:32}"
+    # Same shape as identifiedLeaseOwner(): a holder must be nameable by whoever waits.
+    if [ -n "${GITHUB_REPOSITORY:-}" ] && [ -n "${GITHUB_RUN_ID:-}" ]; then
+      image_lease_owner="${GITHUB_REPOSITORY}#${GITHUB_RUN_ID}.${GITHUB_RUN_ATTEMPT:-1}:${image_lease_owner}"
+    fi
     image_lease_id="${lease_identity:32:32}"
     image_lease_timestamp_s="$(date +%s)" || {
       echo "::warning::[cdn-upload] could not create a recovery timestamp for the ${image_namespace} lease — skipping upload of ${cdn_key}"

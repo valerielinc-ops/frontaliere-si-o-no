@@ -8,6 +8,12 @@ export function installNativeGroupIdentityInPage() {
 /** Read the actual native control behind an already recognized visible widget. */
 export function nativeControlEvidenceInPage(fields) {
   const clean = value => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
+  const semanticIdentifiers = element => ({
+    // The native owner is authoritative for these fields. Empty strings are
+    // intentional: a valid owned marker must clear stale proxy metadata.
+    controlId: clean(element.getAttribute('data-control-id') || '').slice(0, 200),
+    semanticId: clean(element.getAttribute('data-semantic-id') || '').slice(0, 200),
+  });
   const forms = [...document.forms];
   const annotated = [...document.querySelectorAll('[data-aa-id]')];
   const withId = [...document.querySelectorAll('[id]')];
@@ -99,6 +105,7 @@ export function nativeControlEvidenceInPage(fields) {
     }
     const ariaRequired = control.getAttribute('aria-required');
     result.push({ id: field.id, nativeControlOwned: true, nativeLabelOwned, nativeReferencesComplete, nativeOwnerGroups, nativeControlId: control.id || '',
+      ...semanticIdentifiers(control),
       nativeSelectId: bridged ? control.id : field.nativeSelectId || '', bridged,
       nativeRequired: control.required, required: control.required || ariaRequired === 'true',
       explicitlyOptional: nativeLabelOwned && !control.required && ariaRequired === 'false', form: forms.indexOf(control.form),
@@ -189,7 +196,7 @@ export function observeNativeControlContractInPage(refs) {
     .some(element => rememberedIds.has(element.id) || dataIds.has(element.getAttribute?.('data-aa-id')));
   const attributes = new Set(['required', 'aria-required', 'aria-invalid', 'disabled', 'type', 'name', 'form',
     'id', 'class', 'style', 'hidden', 'aria-hidden', 'role', 'aria-owns', 'aria-controls', 'aria-label', 'aria-labelledby', 'aria-describedby',
-    'aria-details', 'multiple', 'size', 'value', 'for', 'label', 'data-aa-id']);
+    'aria-details', 'multiple', 'size', 'value', 'for', 'label', 'data-aa-id', 'data-control-id', 'data-semantic-id']);
   const observer = new MutationObserver(records => {
     const mutation = records.find(record => {
       if (record.type === 'characterData') return owned(record.target);

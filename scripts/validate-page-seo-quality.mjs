@@ -451,9 +451,10 @@ function isArticleRoutePage(pagePath) {
   ));
 }
 
-// ogPagesPlugin emits article noindex only for bodies carrying the narrow
-// translation-placeholder signal. The route check keeps a copied marker on an
-// unrelated page from becoming an exemption.
+// ogPagesPlugin emits article noindex for bodies carrying the narrow
+// translation-placeholder signal and for the articles the corpus withdrew from
+// the index (engine/shared/articleIndexExclusions.mjs). The route check keeps a
+// copied marker on an unrelated page from becoming an exemption.
 function isIntentionalArticleNoindexPage(pagePath, html) {
   return isArticleRoutePage(pagePath)
     && String(html || '').includes(ARTICLE_NOINDEX_TARGET_MARKER)

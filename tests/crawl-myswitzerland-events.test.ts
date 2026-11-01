@@ -925,7 +925,7 @@ describe('mapEventRecord', () => {
       name: 'MySwitzerland',
       url: 'https://www.myswitzerland.com/en/',
     });
-    expect(event.performer).toEqual({ '@type': 'Organization', name: 'Lugano' });
+    expect(event.performer).toBeUndefined();
     expect(imageSourceUrl).toBe('https://cdn.myswitzerland.com/images/abc.jpg');
     expect(place).toBe('Lugano');
     expect(event.url).toBe('https://www.myswitzerland.com/it-ch/eventi/festival-della-musica');

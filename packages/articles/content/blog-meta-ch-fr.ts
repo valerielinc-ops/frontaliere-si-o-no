@@ -8457,7 +8457,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.big-tech-franchi-bolla-ia.excerpt': 'Les géants technologiques américains émettent des obligations en francs suisses pour financer des centres de données.',
     'blog.article.big-tech-franchi-bolla-ia.imageAlt': 'Vue urbaine suisse avec bureaux et infrastructures technologiques liées à la finance.',
     'blog.article.svizzera-vietnam-relazioni-2026.title': 'La Suisse et le Vietnam intensifient le commerce et les investissements',
-    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin reçu à Hanoï le 17 octobre 2026 Accord AELE-Vietnam prévu pour le 18 octobre Projets sur le commerce et le développement urbain durable Déclarations',
+    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin reçu à Hanoï le 17 octobre 2026 Accord AELE-Vietnam prévu pour le 18 octobre Projets sur le commerce et le développement urbain durable.',
     'blog.article.svizzera-vietnam-relazioni-2026.imageAlt': 'Vue sur le lac de Lugano avec les Alpes en arrière-plan, symbole de la coopération Suisse-Vietnam dans le commerce et l’investissement.',
     'blog.article.microdrama-pubblicita-tiktok-instagram.title': 'Microdrame sexy promeut des applications payantes sur TikTok',
     'blog.article.microdrama-pubblicita-tiktok-instagram.excerpt': 'Les publicités IA montrent du sexe entre le bizarre et la fantasy.',
@@ -8657,6 +8657,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-rischi-climatici-strumenti.title': 'Plus de 30 outils pour les risques climatiques futurs en Suisse',
     'blog.article.svizzera-rischi-climatici-strumenti.excerpt': 'Plus de 30 outils pour les risques climatiques futurs NCCS-Impacts a démarré en 2022 Cinq projets, plus de 100 personnes impliquées Environ 9 millions de francs',
     'blog.article.svizzera-rischi-climatici-strumenti.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.scontro-fiscale-coppie-atto.title': 'Modernisateurs vs conservateurs: II acte du conflit fiscal des couples',
+    'blog.article.scontro-fiscale-coppie-atto.excerpt': 'Le 8 mars est présenté comme une « révolution » en danger Le modèle présenté comme une menace est le cumul des revenus La source parle du deuxième acte',
+    'blog.article.scontro-fiscale-coppie-atto.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

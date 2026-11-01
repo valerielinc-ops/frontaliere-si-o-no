@@ -101,9 +101,21 @@ import {
   pickTopNUnposted,
 } from './lib/daily-top-content.mjs';
 import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
-import { renderCarouselSlides } from './lib/social-carousel-image.mjs';
+import { renderAnswerCards, renderCarouselSlides } from './lib/social-carousel-image.mjs';
+import { ARTICLES_API_BASE } from './lib/articles-api-base.mjs';
 import { uploadCarouselSlides, uploadCarouselVideo } from './lib/social-carousel-upload.mjs';
 import {
+  articleBodyApiPath,
+  buildAnswerCaption,
+  buildAnswerCards,
+  buildAnswerVoiceScript,
+  parseArticleFaq,
+  planAnswerTimeline,
+  selectAnswerFaq,
+  synthesizeAnswerVoice,
+} from './lib/tiktok-answer-format.mjs';
+import {
+  renderAnswerVideo,
   renderCarouselVideo,
   renderMotionGraphicVideo,
   renderHookThreeSlidesVideo,
@@ -111,6 +123,7 @@ import {
 } from './lib/social-carousel-video.mjs';
 import {
   TIKTOK_VIDEO_CREATIVE_VARIANTS,
+  isTikTokAnswerFormatAssigned,
   resolveTikTokVideoCreativeVariant,
   tiktokVideoCreativeLedgerFields,
   tiktokVideoCreativeLabel,
@@ -135,6 +148,7 @@ const POSTED_TRIM_LIMIT = 1000;
 
 const DEDUP_WINDOW_DAYS = 30;
 const CAROUSEL_SIZE = 5;
+const ANSWER_CANDIDATE_POOL = 30;
 
 // ─────────────────────────── credentials ───────────────────────────
 
@@ -249,6 +263,51 @@ function prepareTikTokVideo(slides, keyPrefix, queueId) {
   }
 }
 
+/**
+ * Build the spoken answer from the first ranked article with a usable FAQ.
+ * Any failure returns null, and the post keeps the slide format: the queue
+ * entry always records the creative that was really rendered.
+ */
+async function prepareTikTokAnswer(candidates, queueId) {
+  if (!isTikTokAnswerFormatAssigned({ queueId })) return null;
+  try {
+    for (const pick of candidates) {
+      const apiPath = articleBodyApiPath(pick.path);
+      if (!apiPath) continue;
+      const response = await fetch(`${ARTICLES_API_BASE}/${apiPath}`, { signal: AbortSignal.timeout(20_000) });
+      if (!response.ok) continue;
+      const faq = selectAnswerFaq(parseArticleFaq(await response.json()));
+      if (!faq) continue;
+      const cards = buildAnswerCards(faq);
+      const { wav, seconds } = await synthesizeAnswerVoice(buildAnswerVoiceScript(cards));
+      const images = await renderAnswerCards(cards, { footer: 'frontaliereticino.ch' });
+      if (!images) return null;
+      const creativeVariant = TIKTOK_VIDEO_CREATIVE_VARIANTS.ANSWER;
+      const rendered = renderAnswerVideo(images, planAnswerTimeline(cards, seconds), wav);
+      const url = uploadCarouselVideo(rendered.buffer, { channel: 'tiktok', keyPrefix: queueId });
+      if (!url) return null;
+      console.log(`🎬 TikTok video: ${tiktokVideoCreativeLabel(creativeVariant)} (${creativeVariant}) — ${faq.question}`);
+      return {
+        pick,
+        caption: buildAnswerCaption(faq),
+        video: {
+          url,
+          bytes: rendered.bytes,
+          sha256: rendered.sha256,
+          durationMs: rendered.durationMs,
+          width: rendered.width,
+          height: rendered.height,
+          creativeVariant,
+        },
+      };
+    }
+    console.log('ℹ️  TikTok answer: no ranked article has a usable FAQ — slide format');
+  } catch (err) {
+    console.warn(`⚠️  TikTok answer unavailable, slide format: ${err.message}`);
+  }
+  return null;
+}
+
 // ─────────────────────────── job/article (daily) ───────────────────────────
 
 async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
@@ -330,7 +389,11 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
     return;
   }
   const queueId = `${kind}-${day}`;
-  const video = route.enqueue ? prepareTikTokVideo(slides, queueId, queueId) : null;
+  // The whole ranking, not the five slides: the best question may rank sixth.
+  const answer = route.enqueue && kind === 'article'
+    ? await prepareTikTokAnswer(pickTopNUnposted(candidates, recent, ANSWER_CANDIDATE_POOL).picks, queueId)
+    : null;
+  const video = answer?.video ?? (route.enqueue ? prepareTikTokVideo(slides, queueId, queueId) : null);
   if (route.enqueue && !video) {
     if (!route.api) {
       console.log('⚠️  TikTok robot transport needs an MP4 — skipping this post');
@@ -339,7 +402,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
     console.log('⚠️  TikTok MP4 unavailable — preserving the API path without queue fallback');
   }
 
-  const ledgerEntries = picks.map((p) => ({
+  const ledgerEntries = (answer ? [answer.pick] : picks).map((p) => ({
     id: p.slug,
     kind,
     url: tiktokUrl(`${SITE_URL}${p.path}/`, campaign, tiktokContentId(p.slug, video?.creativeVariant)),
@@ -350,7 +413,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
     route: video ? route : { ...route, enqueue: false },
     kind,
     day,
-    caption,
+    caption: answer?.caption ?? caption,
     urls,
     video,
     ledgerEntries,

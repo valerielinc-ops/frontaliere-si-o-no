@@ -751,6 +751,16 @@ describe('Prospector rebase conflict resolver', () => {
     expect(merged.updatedAt).toBe(local.updatedAt);
   });
 
+  it('per i cursori Zefix tiene per ogni cantone il piu\' recente', () => {
+    const base = { version: 1, updatedAt: iso(0), cantons: { TI: { highest: 10, lowest: 5, exhausted: false, updatedAt: iso(0) } } };
+    const upstream = structuredClone(base);
+    upstream.cantons.TI = { highest: 12, lowest: 5, exhausted: false, updatedAt: iso(2000) };
+    const local = structuredClone(base);
+    local.cantons.TI = { highest: 10, lowest: 3, exhausted: false, updatedAt: iso(1000) };
+    const merged = mergeProspectorPath('data/prospector/zefix-cursors.json', base, upstream, local) as typeof base;
+    expect(merged.cantons.TI).toEqual(upstream.cantons.TI);
+  });
+
   it('non accetta un path conflitto inatteso', () => {
     expect(() => mergeProspectorPath('data/prospector/unknown.json', {}, {}, {})).toThrow(/unsupported Prospector conflict/);
   });

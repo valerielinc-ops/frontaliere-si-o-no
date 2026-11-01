@@ -14,6 +14,13 @@ import { avatureProtocolMatches, readPortalProtocolInPage } from './protocol.mjs
 /* eslint-disable no-undef -- runs in the browser */
 export function extractFieldsInPage({ channelType = '', includeHidden = false } = {}) {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  // These identifiers are part of the control's own DOM contract. Read only
+  // scalar attributes from the element itself: ancestor/global IDs are not
+  // evidence for the question represented by this field.
+  const semanticIdentifiers = (element) => ({
+    controlId: clean(element.getAttribute('data-control-id') || ''),
+    semanticId: clean(element.getAttribute('data-semantic-id') || ''),
+  });
   const nativeOption = (option, select) => ({
     value: option.value,
     label: clean(option.textContent),
@@ -564,6 +571,8 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       ...dialogMeta(element),
       inputType: type,
       form: formOf(element),
+      domId: element.id || '',
+      ...semanticIdentifiers(element),
       name: clean(element.getAttribute('name') || ''),
       label,
       context: sectionContext(element),
@@ -740,6 +749,24 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     }
     return '';
   };
+  // What a control says for itself about a notice: the label bound to it by `for`, never a heading or a
+  // text around it, and whether pressing it, as an anchor, takes the page off the form.
+  const leavesDocument = (element) => {
+    if (element.tagName !== 'A') return false;
+    if (!['', '_self'].includes((element.getAttribute('target') || '').toLowerCase())) return true;
+    const raw = element.getAttribute('href');
+    if (raw === null || /^\s*javascript:/i.test(raw)) return false;
+    try {
+      const url = new URL(raw, document.baseURI);
+      return !raw.includes('#') || `${url.origin}${url.pathname}${url.search}` !== `${location.origin}${location.pathname}${location.search}`;
+    } catch { return true; }
+  };
+  const noticeMetadata = (element) => {
+    const bound = element.id && document.getElementById(element.id) === element
+      ? [...document.querySelectorAll('label[for]')].filter((label) => label.htmlFor === element.id) : [];
+    const ownLabel = clean(bound.map((label) => label.innerText || label.textContent).join(' '));
+    return { form: forms.indexOf(element.form || element.closest('form')), ...(ownLabel ? { ownLabel } : {}), ...(leavesDocument(element) ? { leavesDocument: true } : {}) };
+  };
   const hiddenFromPeople = (element) => Boolean(element.closest('[aria-hidden="true"]'));
   const underClickFilter = (element) => {
     if (!hiddenFromPeople(element) || !(Number(element.getAttribute('tabindex')) < 0)) return false;
@@ -776,6 +803,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
       formId: element.form || element.closest('form') ? idFor(element.form || element.closest('form')) : '',
       ...(isSiteChromeControl(element) ? { chrome: true } : {}),
+      ...noticeMetadata(element),
     }))
     .filter((button) => button.text)
     .slice(0, 60);
@@ -793,6 +821,19 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     const form = native ? node?.form : node?.form || node?.closest('form');
     field.formId = form ? idFor(form) : '';
   }
+  // A plain link is no button, so that no button search meets an ordinary link, yet a required notice can
+  // be printed as one. Read apart and without its address: nothing follows it (portal.mjs, clickButton).
+  const links = [...document.querySelectorAll('a[href]')]
+    .filter((element) => !actionControl(element) && visible(element) && !behindModal(element) && !isSiteChromeControl(element) && buttonName(element))
+    .slice(0, 60)
+    .map((element) => ({
+      id: idFor(element),
+      text: buttonName(element),
+      label: buttonAccessibleLabel(element),
+      title: clean(element.getAttribute('title') || ''),
+      ariaLabel: clean(element.getAttribute('aria-label') || ''),
+      ...noticeMetadata(element),
+    }));
   // Saved after the buttons got their ids too, or the next scan hands them out again.
   document.documentElement.setAttribute('data-aa-counter', String(counter));
   // Only a CAPTCHA a person must act on counts (career-ops: fill, and hand
@@ -866,6 +907,8 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     title: document.title,
     fields,
     buttons,
+    links,
+    dialogs: [...document.querySelectorAll(DIALOG_SELECTOR)].filter(visible).map(dialog => dialogMeta(dialog)),
     captcha,
     passwordVisible,
     errors,
@@ -956,7 +999,7 @@ function isTurnstileFrame(url) {
 
 export async function extractFields(page, { listboxOptions = true, channelType = '', includeHidden = false } = {}) {
   const frames = page.frames();
-  const result = { url: page.url(), fields: [], buttons: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
+  const result = { url: page.url(), fields: [], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
   const context = typeof page.context === 'function' ? page.context() : null;
   const effectiveChannelType = String(channelType || portalChannelTypes.get(context) || '').trim();
   for (const [index, frame] of frames.entries()) {
@@ -983,6 +1026,8 @@ export async function extractFields(page, { listboxOptions = true, channelType =
     result.frames.push({ index, url: snapshot.url });
     result.fields.push(...snapshot.fields.map((field) => ({ ...field, frame: index })));
     result.buttons.push(...snapshot.buttons.map((button) => ({ ...button, frame: index })));
+    result.links.push(...(snapshot.links || []).map((link) => ({ ...link, frame: index })));
+    result.dialogs.push(...(snapshot.dialogs || []).map((dialog) => ({ ...dialog, frame: index })));
     result.captcha ||= snapshot.captcha;
     result.passwordVisible ||= snapshot.passwordVisible;
     result.errors.push(...snapshot.errors);

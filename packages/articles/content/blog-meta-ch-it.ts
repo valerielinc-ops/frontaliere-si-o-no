@@ -8457,7 +8457,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.big-tech-franchi-bolla-ia.excerpt': 'I giganti tecnologici Usa emettono obbligazioni in franchi svizzeri per finanziare data center.',
     'blog.article.big-tech-franchi-bolla-ia.imageAlt': 'Vista urbana svizzera con uffici e infrastrutture tecnologiche legate alla finanza.',
     'blog.article.svizzera-vietnam-relazioni-2026.title': 'Svizzera e Vietnam intensificano commercio e investimenti',
-    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni',
+    'blog.article.svizzera-vietnam-relazioni-2026.excerpt': 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile.',
     'blog.article.svizzera-vietnam-relazioni-2026.imageAlt': 'Vista del lago di Lugano con le Alpi sullo sfondo, simbolo della cooperazione Svizzera-Vietnam sul commercio e gli investimenti.',
     'blog.article.microdrama-pubblicita-tiktok-instagram.title': 'Microdrama sexy promuove app a pagamento su TikTok',
     'blog.article.microdrama-pubblicita-tiktok-instagram.excerpt': 'Gli annunci IA mostrano sesso tra bizzarro e fantasy.',
@@ -8657,6 +8657,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-rischi-climatici-strumenti.title': 'Oltre 30 strumenti per i rischi climatici futuri in Svizzera',
     'blog.article.svizzera-rischi-climatici-strumenti.excerpt': 'Oltre 30 strumenti per i rischi climatici futuri NCCS-Impacts è partito nel 2022 Cinque progetti, oltre 100 persone coinvolte Circa 9 milioni di franchi',
     'blog.article.svizzera-rischi-climatici-strumenti.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.scontro-fiscale-coppie-atto.title': 'Modernizzatori vs conservatori: atto II sullo scontro fiscale delle coppie',
+    'blog.article.scontro-fiscale-coppie-atto.excerpt': 'L\'8 marzo viene presentato come una «rivoluzione» in pericolo Il modello indicato come minaccia è il cumulo dei redditi La fonte parla del secondo atto',
+    'blog.article.scontro-fiscale-coppie-atto.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

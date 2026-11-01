@@ -64,6 +64,7 @@ import {
   extractPdfJobContentFromUrl,
 } from './lib/pdf-job-content.mjs';
 import { fetchHtml as fetchHtmlShared, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { CRAWLER_ABORT_KINDS, CRAWLER_FETCH_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -159,7 +160,15 @@ async function fetchJobs() {
   }
 
   console.log(`📋 Total unique ${COMPANY_NAME} jobs discovered: ${jobs.length}`);
-  return jobs;
+  return {
+    jobs,
+    discoveredCount: Number.isSafeInteger(rawListings.discoveredCount)
+      ? rawListings.discoveredCount
+      : rawListings.length,
+    fetchOutcome: CRAWLER_FETCH_OUTCOMES.has(rawListings.fetchOutcome)
+      ? rawListings.fetchOutcome
+      : null,
+  };
 }
 
 /* ── Merge ─────────────────────────────────────────────────── */
@@ -263,14 +272,26 @@ function postProcess() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME);
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+  };
+  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME, summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${COMPANY_NAME} — Dedicated Crawler`);
   console.log('═══════════════════════════════════════════════');
 
-  const discoveredJobs = await fetchJobs();
+  const fetchResult = await fetchJobs();
+  const discoveredJobs = fetchResult.jobs;
+  summaryCounts.discovered = fetchResult.discoveredCount;
+  summaryCounts.parsed = discoveredJobs.length;
+  summaryCounts.lastFetchOutcome = fetchResult.fetchOutcome;
   let diff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   if (discoveredJobs.length === 0) {
+    const abortKind = 'no-jobs-parsed';
+    if (CRAWLER_ABORT_KINDS.has(abortKind)) summaryCounts.abortKind = abortKind;
     console.log('ℹ️  No job listings found — skipping crawl.');
     // The stored jobs are kept, without the text the crawler once wrote
     // into them (the merge would have removed it).

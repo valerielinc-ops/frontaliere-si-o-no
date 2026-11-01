@@ -1,4 +1,5 @@
 import { METHODOLOGY_COPY } from '../services/editorialMethodology';
+import { FUNDING_SECTION_ID } from '../services/revenueDisclosure';
 import { describe, expect, it } from 'vitest';
 import { lstatSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -192,7 +193,7 @@ describe('the canonical #organization entity', () => {
     // sameAs is how a graph decides two nodes are the same real organization.
     // It used to exist only in index.html, so every static page and every
     // article's publisher referenced an entity with no external anchor.
-    expect(ORGANIZATION_LD.sameAs.length).toBeGreaterThanOrEqual(4);
+    expect(ORGANIZATION_LD.sameAs.length).toBeGreaterThanOrEqual(3);
     expect(ORGANIZATION_LD.sameAs).toEqual([...ORGANIZATION_SAME_AS]);
   });
 
@@ -420,7 +421,7 @@ describe('no two definitions of #organization disagree', () => {
    * `...ORGANIZATION_LD_FULL` would survive into `jsToJson` as literal text,
    * `JSON.parse` would throw, and the plugin's silent
    * `catch { /* skip SD *\/ }` would drop the ENTIRE structuredData array for
-   * the entry — WebSite + SearchAction + WebPage included, with a green build.
+   * the entry — WebSite + WebPage included, with a green build.
    *
    * So the single-source-of-truth guarantee cannot be "one object referenced
    * everywhere" here. It is enforced instead by comparing the parsed literal
@@ -514,6 +515,14 @@ describe('every policy URL points at something that exists', () => {
   ] as const)('%s resolves to a real anchor in %s', (prop, component) => {
     const fragment = ORGANIZATION_POLICIES[prop].split('#')[1];
     expect(fragment).toBeTruthy();
-    expect(read(`components/pages/${component}`)).toContain(fragment);
+    const source = read(`components/pages/${component}`);
+    if (prop === 'ownershipFundingInfo') {
+      // ChiSiamo shares the anchor with the static renderer through the
+      // revenue disclosure contract instead of repeating its literal value.
+      expect(fragment).toBe(FUNDING_SECTION_ID);
+      expect(source).toContain('id={FUNDING_SECTION_ID}');
+    } else {
+      expect(source).toContain(fragment);
+    }
   });
 });

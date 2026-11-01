@@ -15,8 +15,8 @@
  * - Numbeo (Mar 2026): CH 20yr fixed 2.13% avg
  */
 
-import { useState, useMemo, useCallback, useEffect, Suspense } from 'react';
-import { useExchangeRate } from '@/services/exchangeRateService';
+import { useState, useMemo, useCallback, Suspense } from 'react';
+import { DEFAULT_EXCHANGE_RATE } from '@/constants';
 import { CHART_DATA_COLORS } from '@/hooks/useChartColors';
 import ChartWrapper from '@/components/shared/ChartWrapper';
 import { lazyRetry } from '@/services/lazyRetry';
@@ -154,10 +154,7 @@ export default function MortgageComparison() {
  const [chCustomRate, setChCustomRate] = useState<number | null>(null);
  const [itCustomRate, setItCustomRate] = useState<number | null>(null);
  const [grossIncomeCHF, setGrossIncomeCHF] = useState(7000);
- const { rate: _liveRate } = useExchangeRate();
- const [exchangeRate, setExchangeRate] = useState(_liveRate);
- // Sync from live rate on first load
- useEffect(() => { if (_liveRate > 0) setExchangeRate(_liveRate); }, [_liveRate]);
+ const [exchangeRate, setExchangeRate] = useState(DEFAULT_EXCHANGE_RATE);
 
  // ─ UI state
  const [showAmortization, setShowAmortization] = useState(false);
@@ -277,7 +274,7 @@ export default function MortgageComparison() {
  setChCustomRate(null);
  setItCustomRate(null);
  setGrossIncomeCHF(7000);
- setExchangeRate(0.94);
+ setExchangeRate(DEFAULT_EXCHANGE_RATE);
  }, []);
 
  return (

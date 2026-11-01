@@ -8,8 +8,8 @@
  * only when it was read from a structured field (JSON-LD `offers[].price`,
  * `isAccessibleForFree`). Tariff text (MySwitzerland detail table, Guidle
  * accordion, indexed copy, third-party ticketing pages, tio.ch labels) stays
- * in the data but is never reliable; the JSON-LD fallback is nevertheless a
- * complete zero-price Offer, while the visible price line stays hidden.
+ * in the data but is never reliable: no Offer in the JSON-LD and no visible
+ * price line.
  *
  * Fixtures under tests/fixtures/event-price-sources/ are real, PII-free
  * source shapes: a live Guidle page (no JSON-LD Offer, tariff only in the
@@ -122,7 +122,7 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
   ])('%s → not admitted by the per-source registry', (_label, price) => {
     expect(hasConfidentPrice(price)).toBe(false);
     expect(publishedPrice(price)).toMatchObject({
-      offers: expect.objectContaining({ '@type': 'Offer', price: 0 }),
+      offers: undefined,
       isAccessibleForFree: undefined,
       priceLine: false,
     });
@@ -147,17 +147,17 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
     expect(hasParsedPrice(price)).toBe(true);
     expect(hasConfidentPrice(price)).toBe(false);
     expect(publishedPrice(price)).toMatchObject({
-      offers: expect.objectContaining({ '@type': 'Offer', price: 0 }),
+      offers: undefined,
       isAccessibleForFree: undefined,
       priceLine: false,
     });
   });
 
-  it('text only (Guidle accordion, no JSON-LD Offer on the live page) → fallback Offer only', () => {
+  it('text only (Guidle accordion, no JSON-LD Offer on the live page) → no Offer', () => {
     const mapped = mapDetailPageToLocaleData(fixture('guidle-price-accordion.html'), 'it', GUIDLE_URL);
     expect(mapped?.price).toMatchObject({ amount: 18, priceSource: 'guidle', priceField: 'price-accordion' });
     expect(hasConfidentPrice(mapped?.price)).toBe(false);
-    expect(publishedPrice(mapped?.price).offers).toMatchObject({ '@type': 'Offer', price: 0 });
+    expect(publishedPrice(mapped?.price).offers).toBeUndefined();
     expect(publishedPrice(mapped?.price).isAccessibleForFree).toBeUndefined();
   });
 
@@ -176,10 +176,10 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
     ['free admission read from text', { amount: 0, currency: 'CHF', isFree: true, priceSource: 'guidle', priceField: 'price-accordion' }],
     ['unknown source with a structured field', { amount: 20, currency: 'CHF', isFree: false, priceSource: 'tio-agenda', priceField: 'offers.price' }],
     ['third-party ticketing page', { amount: 20, currency: 'CHF', isFree: false, priceSource: 'myswitzerland', priceField: 'booking-page' }],
-  ])('%s → fallback Offer, no visible price line', (_label, price) => {
+  ])('%s → no Offer, no visible price line', (_label, price) => {
     expect(hasConfidentPrice(price)).toBe(false);
     expect(publishedPrice(price)).toMatchObject({
-      offers: expect.objectContaining({ '@type': 'Offer', price: 0 }),
+      offers: undefined,
       isAccessibleForFree: undefined,
       priceLine: false,
     });

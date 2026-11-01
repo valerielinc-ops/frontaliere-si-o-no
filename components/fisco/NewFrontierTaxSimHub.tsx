@@ -14,6 +14,13 @@ import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { buildPath } from '@/services/router';
 import { useLocale, type Locale } from '@/services/i18n';
+import { buildReferenceNetScenario } from '@/services/referenceNetScenario';
+
+const EXAMPLE = buildReferenceNetScenario();
+const hundreds = (value: number) => Math.round(value / 100) * 100;
+const exampleRate = EXAMPLE.rate.toFixed(4);
+const exampleRateComma = exampleRate.replace('.', ',');
+const exampleDate = EXAMPLE.rateDate.split('-').reverse().join('/');
 
 type Copy = {
  badge: string;
@@ -54,7 +61,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  {
  icon: 'receipt',
  title: 'IRPEF in Italia con franchigia',
- body: 'L\'Italia tassa il reddito svizzero con l\'IRPEF ordinaria, ma concede una franchigia di \u20AC10.000: i primi 10.000 euro di reddito non vengono tassati in Italia. La franchigia si applica solo ai residenti entro 20 km dal confine.',
+ body: 'L\'Italia tassa il reddito svizzero con l\'IRPEF ordinaria, ma concede una franchigia di \u20AC10.000: i primi 10.000 euro di reddito non vengono tassati in Italia. Spetta ai frontalieri che soddisfano le condizioni di legge, non dipende dalla sola distanza di 20 km.',
  },
  {
  icon: 'users',
@@ -73,23 +80,23 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  'Sottrai i contributi sociali: AVS 5,3%, AC 1,1%, LAINF, IGM e LPP (variabile per eta).',
  'Applica l\'imposta alla fonte ticinese con la tabella corretta (A, B, C o H) — per i frontalieri al 80%.',
  'Converti il reddito netto svizzero in EUR al tasso di cambio medio annuo.',
- 'Calcola l\'IRPEF italiana sul reddito estero meno la franchigia di \u20AC10.000 (se entro 20 km).',
+ 'Calcola l\'IRPEF italiana sul reddito estero meno la franchigia di \u20AC10.000.',
  'Detrai il credito d\'imposta per le tasse svizzere gia pagate.',
  'Il risultato finale e il tuo stipendio netto mensile in euro.',
  ],
  exampleTitle: 'Esempio pratico: CHF 80.000 lordi, single, senza figli',
  exampleIntro: 'Ecco una simulazione indicativa per un nuovo frontaliere single residente entro 20 km dal confine:',
  exampleRows: [
- { label: 'Lordo annuo', value: 'CHF 80.000' },
- { label: 'Contributi CH (AVS, AC, LPP...)', value: '~ CHF 10.400' },
- { label: 'Imposta alla fonte Ticino (80%)', value: '~ CHF 6.700' },
- { label: 'Netto CH annuo', value: '~ CHF 62.900' },
- { label: 'Conversione EUR (cambio 0,94)', value: '~ \u20AC59.100' },
- { label: 'IRPEF su reddito estero (con franchigia)', value: '~ \u20AC8.200' },
- { label: 'Credito d\'imposta (tasse CH)', value: '~ -\u20AC6.300' },
- { label: 'Netto finale annuo', value: '~ \u20AC57.200' },
+ { label: 'Lordo annuo', value: `CHF ${EXAMPLE.grossCHF.toLocaleString('it-IT')}` },
+ { label: 'Contributi CH (AVS, AC, LPP...)', value: `~ CHF ${hundreds(EXAMPLE.socialCHF).toLocaleString('it-IT')}` },
+ { label: 'Imposta alla fonte Ticino (80%)', value: `~ CHF ${hundreds(EXAMPLE.sourceTaxCHF).toLocaleString('it-IT')}` },
+ { label: 'Netto CH annuo', value: `~ CHF ${hundreds(EXAMPLE.swissNetCHF).toLocaleString('it-IT')}` },
+ { label: `Conversione EUR (cambio ${exampleRateComma}, ${exampleDate})`, value: `~ \u20AC${hundreds(EXAMPLE.swissNetEUR).toLocaleString('it-IT')}` },
+ { label: 'IRPEF e addizionali su reddito estero (con franchigia)', value: `~ \u20AC${hundreds(EXAMPLE.irpefEUR).toLocaleString('it-IT')}` },
+ { label: 'Credito d\'imposta (tasse CH)', value: `~ -\u20AC${hundreds(EXAMPLE.creditEUR).toLocaleString('it-IT')}` },
+ { label: 'Netto finale annuo', value: `~ \u20AC${hundreds(EXAMPLE.newNetAnnualEUR).toLocaleString('it-IT')}` },
  ],
- exampleNote: 'I valori sono stime indicative. Il simulatore calcola il netto esatto in base ai parametri personali.',
+ exampleNote: 'Stima del calcolatore con queste ipotesi: 30 anni, tabella A, 12 mensilità, nessun premio sanitario. Il simulatore calcola il netto con i tuoi parametri.',
  deepLinksTitle: 'Calcola il tuo netto adesso',
  deepLinksIntro: 'Passa dalla teoria alla pratica: usa gli strumenti gratuiti per simulare la tua situazione reale.',
  openLabel: 'Apri',
@@ -101,7 +108,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  },
  {
  question: 'La franchigia di \u20AC10.000 si applica sempre?',
- answer: 'No. La franchigia si applica solo ai frontalieri residenti entro 20 km dal confine svizzero. Chi risiede oltre 20 km paga l\'IRPEF piena senza franchigia, ma ha comunque diritto al credito d\'imposta.',
+ answer: 'No. Secondo l\'Agenzia delle Entrate (circolare 25/E del 2023) la soglia di \u20AC10.000 vale per i lavoratori frontalieri in generale: la distanza oltre 20 km non la esclude da sola. Verifica le condizioni di lavoro continuativo ed esclusivo.',
  },
  {
  question: 'Devo fare la dichiarazione dei redditi in Italia?',
@@ -145,7 +152,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  {
  icon: 'receipt',
  title: 'IRPEF in Italy with franchise',
- body: 'Italy taxes your Swiss income with standard IRPEF rates, but grants a EUR 10,000 franchise: the first 10,000 euros are not taxed in Italy. The franchise applies only to residents within 20 km of the border.',
+ body: 'Italy taxes your Swiss income with standard IRPEF rates, but grants a EUR 10,000 franchise: the first 10,000 euros are not taxed in Italy. It goes to cross-border workers who meet the legal conditions and does not depend on the 20 km distance alone.',
  },
  {
  icon: 'users',
@@ -164,23 +171,23 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  'Deduct social contributions: AVS 5.3%, unemployment 1.1%, accident insurance, sickness benefits, and LPP (varies by age).',
  'Apply Ticino withholding tax using the correct table (A, B, C or H) — at 80% for cross-border workers.',
  'Convert Swiss net income to EUR at the annual average exchange rate.',
- 'Calculate Italian IRPEF on foreign income minus the EUR 10,000 franchise (if within 20 km).',
+ 'Calculate Italian IRPEF on foreign income minus the EUR 10,000 franchise.',
  'Deduct the tax credit for Swiss taxes already paid.',
  'The result is your monthly net salary in euros.',
  ],
  exampleTitle: 'Practical example: CHF 80,000 gross, single, no children',
  exampleIntro: 'Here is an indicative simulation for a new single cross-border worker residing within 20 km of the border:',
  exampleRows: [
- { label: 'Annual gross', value: 'CHF 80,000' },
- { label: 'Swiss contributions (AVS, AC, LPP...)', value: '~ CHF 10,400' },
- { label: 'Ticino withholding tax (80%)', value: '~ CHF 6,700' },
- { label: 'Swiss net annual', value: '~ CHF 62,900' },
- { label: 'EUR conversion (rate 0.94)', value: '~ EUR 59,100' },
- { label: 'IRPEF on foreign income (with franchise)', value: '~ EUR 8,200' },
- { label: 'Tax credit (Swiss taxes)', value: '~ -EUR 6,300' },
- { label: 'Final net annual', value: '~ EUR 57,200' },
+ { label: 'Annual gross', value: `CHF ${EXAMPLE.grossCHF.toLocaleString('en-US')}` },
+ { label: 'Swiss contributions (AVS, AC, LPP...)', value: `~ CHF ${hundreds(EXAMPLE.socialCHF).toLocaleString('en-US')}` },
+ { label: 'Ticino withholding tax (80%)', value: `~ CHF ${hundreds(EXAMPLE.sourceTaxCHF).toLocaleString('en-US')}` },
+ { label: 'Swiss net annual', value: `~ CHF ${hundreds(EXAMPLE.swissNetCHF).toLocaleString('en-US')}` },
+ { label: `EUR conversion (rate ${exampleRate}, ${exampleDate})`, value: `~ EUR ${hundreds(EXAMPLE.swissNetEUR).toLocaleString('en-US')}` },
+ { label: 'IRPEF and local surcharges on foreign income (with franchise)', value: `~ EUR ${hundreds(EXAMPLE.irpefEUR).toLocaleString('en-US')}` },
+ { label: 'Tax credit (Swiss taxes)', value: `~ -EUR ${hundreds(EXAMPLE.creditEUR).toLocaleString('en-US')}` },
+ { label: 'Final net annual', value: `~ EUR ${hundreds(EXAMPLE.newNetAnnualEUR).toLocaleString('en-US')}` },
  ],
- exampleNote: 'Values are estimates. The simulator calculates the exact net based on your personal parameters.',
+ exampleNote: 'Calculator estimate with these assumptions: age 30, table A, 12 salaries, no health premium. The simulator works out the net with your own parameters.',
  deepLinksTitle: 'Calculate your net now',
  deepLinksIntro: 'Go from theory to practice: use the free tools to simulate your real situation.',
  openLabel: 'Open',
@@ -192,7 +199,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  },
  {
  question: 'Does the EUR 10,000 franchise always apply?',
- answer: 'No. The franchise applies only to cross-border workers residing within 20 km of the Swiss border. Those beyond 20 km pay full IRPEF without the franchise, but still qualify for the tax credit.',
+ answer: 'No. According to the Agenzia delle Entrate (circular 25/E of 2023) the EUR 10,000 threshold applies to cross-border workers in general: living beyond 20 km does not exclude it by itself. Check the conditions on continuous and exclusive employment.',
  },
  {
  question: 'Do I need to file a tax return in Italy?',
@@ -236,7 +243,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  {
  icon: 'receipt',
  title: 'IRPEF in Italien mit Franchise',
- body: 'Italien besteuert Ihr Schweizer Einkommen mit den normalen IRPEF-Saetzen, gewaehrt aber eine Franchise von EUR 10.000: Die ersten 10.000 Euro werden in Italien nicht besteuert. Die Franchise gilt nur fuer Einwohner innerhalb von 20 km der Grenze.',
+ body: 'Italien besteuert Ihr Schweizer Einkommen mit den normalen IRPEF-Saetzen, gewaehrt aber eine Franchise von EUR 10.000: Die ersten 10.000 Euro werden in Italien nicht besteuert. Sie steht Grenzgaengern zu, die die gesetzlichen Bedingungen erfuellen, und haengt nicht allein von den 20 km ab.',
  },
  {
  icon: 'users',
@@ -255,23 +262,23 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  'Sozialabzuege abziehen: AHV 5,3%, ALV 1,1%, UVG, KTG und BVG (variiert nach Alter).',
  'Tessiner Quellensteuer mit der richtigen Tabelle (A, B, C oder H) anwenden — fuer Grenzgaenger zu 80%.',
  'Schweizer Nettoeinkommen zum Jahres-Durchschnittskurs in EUR umrechnen.',
- 'Italienische IRPEF auf das auslaendische Einkommen abzueglich der EUR 10.000 Franchise (innerhalb 20 km) berechnen.',
+ 'Italienische IRPEF auf das auslaendische Einkommen abzueglich der EUR 10.000 Franchise berechnen.',
  'Steuergutschrift fuer bereits gezahlte Schweizer Steuern abziehen.',
  'Das Ergebnis ist Ihr monatliches Nettogehalt in Euro.',
  ],
  exampleTitle: 'Praxisbeispiel: CHF 80.000 brutto, ledig, ohne Kinder',
  exampleIntro: 'Hier eine indikative Simulation fuer einen neuen ledigen Grenzgaenger mit Wohnsitz innerhalb von 20 km der Grenze:',
  exampleRows: [
- { label: 'Jahresbrutto', value: 'CHF 80.000' },
- { label: 'CH-Beitraege (AHV, ALV, BVG...)', value: '~ CHF 10.400' },
- { label: 'Quellensteuer Tessin (80%)', value: '~ CHF 6.700' },
- { label: 'CH-Netto jaehrlich', value: '~ CHF 62.900' },
- { label: 'EUR-Umrechnung (Kurs 0,94)', value: '~ EUR 59.100' },
- { label: 'IRPEF auf Auslandseinkommen (mit Franchise)', value: '~ EUR 8.200' },
- { label: 'Steuergutschrift (CH-Steuern)', value: '~ -EUR 6.300' },
- { label: 'Endgueltiges Jahresnetto', value: '~ EUR 57.200' },
+ { label: 'Jahresbrutto', value: `CHF ${EXAMPLE.grossCHF.toLocaleString('de-DE')}` },
+ { label: 'CH-Beitraege (AHV, ALV, BVG...)', value: `~ CHF ${hundreds(EXAMPLE.socialCHF).toLocaleString('de-DE')}` },
+ { label: 'Quellensteuer Tessin (80%)', value: `~ CHF ${hundreds(EXAMPLE.sourceTaxCHF).toLocaleString('de-DE')}` },
+ { label: 'CH-Netto jaehrlich', value: `~ CHF ${hundreds(EXAMPLE.swissNetCHF).toLocaleString('de-DE')}` },
+ { label: `EUR-Umrechnung (Kurs ${exampleRateComma}, ${exampleDate})`, value: `~ EUR ${hundreds(EXAMPLE.swissNetEUR).toLocaleString('de-DE')}` },
+ { label: 'IRPEF und Zuschläge auf ausländisches Einkommen (mit Freibetrag)', value: `~ EUR ${hundreds(EXAMPLE.irpefEUR).toLocaleString('de-DE')}` },
+ { label: 'Steuergutschrift (CH-Steuern)', value: `~ -EUR ${hundreds(EXAMPLE.creditEUR).toLocaleString('de-DE')}` },
+ { label: 'Endgueltiges Jahresnetto', value: `~ EUR ${hundreds(EXAMPLE.newNetAnnualEUR).toLocaleString('de-DE')}` },
  ],
- exampleNote: 'Werte sind Schaetzungen. Der Simulator berechnet das genaue Netto basierend auf Ihren persoenlichen Parametern.',
+ exampleNote: 'Schätzung des Rechners mit diesen Annahmen: 30 Jahre, Tarif A, 12 Monatslöhne, keine Krankenkassenprämie. Der Simulator berechnet das Netto mit Ihren eigenen Angaben.',
  deepLinksTitle: 'Berechnen Sie jetzt Ihr Netto',
  deepLinksIntro: 'Von der Theorie zur Praxis: Nutzen Sie die kostenlosen Tools, um Ihre reale Situation zu simulieren.',
  openLabel: 'Oeffnen',
@@ -283,7 +290,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  },
  {
  question: 'Gilt die Franchise von EUR 10.000 immer?',
- answer: 'Nein. Die Franchise gilt nur fuer Grenzgaenger mit Wohnsitz innerhalb von 20 km der Schweizer Grenze. Wer weiter als 20 km entfernt wohnt, zahlt volle IRPEF ohne Franchise, hat aber Anspruch auf die Steuergutschrift.',
+ answer: 'Nein. Laut Agenzia delle Entrate (Rundschreiben 25/E von 2023) gilt die Schwelle von EUR 10.000 fuer Grenzgaenger allgemein: Ein Wohnsitz jenseits von 20 km schliesst sie nicht allein aus. Pruefen Sie die Bedingungen zur dauerhaften und ausschliesslichen Beschaeftigung.',
  },
  {
  question: 'Muss ich in Italien eine Steuererklaerung abgeben?',
@@ -327,7 +334,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  {
  icon: 'receipt',
  title: 'IRPEF en Italie avec franchise',
- body: 'L\'Italie impose votre revenu suisse avec les taux IRPEF ordinaires, mais accorde une franchise de 10 000 EUR : les premiers 10 000 euros ne sont pas imposes en Italie. La franchise s\'applique uniquement aux residents a moins de 20 km de la frontiere.',
+ body: 'L\'Italie impose votre revenu suisse avec les taux IRPEF ordinaires, mais accorde une franchise de 10 000 EUR : les premiers 10 000 euros ne sont pas imposes en Italie. Elle revient aux frontaliers qui remplissent les conditions legales et ne depend pas de la seule distance de 20 km.',
  },
  {
  icon: 'users',
@@ -346,23 +353,23 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  'Deduisez les cotisations sociales : AVS 5,3%, AC 1,1%, LAA, IJM et LPP (variable selon l\'age).',
  'Appliquez l\'impot a la source tessinois avec le bon bareme (A, B, C ou H) — a 80% pour les frontaliers.',
  'Convertissez le net suisse en EUR au taux de change moyen annuel.',
- 'Calculez l\'IRPEF italienne sur le revenu etranger moins la franchise de 10 000 EUR (si dans les 20 km).',
+ 'Calculez l\'IRPEF italienne sur le revenu etranger moins la franchise de 10 000 EUR.',
  'Deduisez le credit d\'impot pour les impots suisses deja payes.',
  'Le resultat est votre salaire net mensuel en euros.',
  ],
  exampleTitle: 'Exemple pratique : CHF 80 000 bruts, celibataire, sans enfants',
  exampleIntro: 'Voici une simulation indicative pour un nouveau frontalier celibataire residant a moins de 20 km de la frontiere :',
  exampleRows: [
- { label: 'Brut annuel', value: 'CHF 80 000' },
- { label: 'Cotisations CH (AVS, AC, LPP...)', value: '~ CHF 10 400' },
- { label: 'Impot a la source Tessin (80%)', value: '~ CHF 6 700' },
- { label: 'Net CH annuel', value: '~ CHF 62 900' },
- { label: 'Conversion EUR (taux 0,94)', value: '~ EUR 59 100' },
- { label: 'IRPEF sur revenu etranger (avec franchise)', value: '~ EUR 8 200' },
- { label: 'Credit d\'impot (impots CH)', value: '~ -EUR 6 300' },
- { label: 'Net final annuel', value: '~ EUR 57 200' },
+ { label: 'Brut annuel', value: `CHF ${EXAMPLE.grossCHF.toLocaleString('fr-FR')}` },
+ { label: 'Cotisations CH (AVS, AC, LPP...)', value: `~ CHF ${hundreds(EXAMPLE.socialCHF).toLocaleString('fr-FR')}` },
+ { label: 'Impot a la source Tessin (80%)', value: `~ CHF ${hundreds(EXAMPLE.sourceTaxCHF).toLocaleString('fr-FR')}` },
+ { label: 'Net CH annuel', value: `~ CHF ${hundreds(EXAMPLE.swissNetCHF).toLocaleString('fr-FR')}` },
+ { label: `Conversion EUR (taux ${exampleRateComma}, ${exampleDate})`, value: `~ EUR ${hundreds(EXAMPLE.swissNetEUR).toLocaleString('fr-FR')}` },
+ { label: 'IRPEF et additionnels sur revenu étranger (avec franchise)', value: `~ EUR ${hundreds(EXAMPLE.irpefEUR).toLocaleString('fr-FR')}` },
+ { label: 'Credit d\'impot (impots CH)', value: `~ -EUR ${hundreds(EXAMPLE.creditEUR).toLocaleString('fr-FR')}` },
+ { label: 'Net final annuel', value: `~ EUR ${hundreds(EXAMPLE.newNetAnnualEUR).toLocaleString('fr-FR')}` },
  ],
- exampleNote: 'Les valeurs sont des estimations. Le simulateur calcule le net exact selon vos parametres personnels.',
+ exampleNote: 'Estimation du calculateur avec ces hypothèses : 30 ans, barème A, 12 salaires, aucune prime maladie. Le simulateur calcule le net avec vos propres paramètres.',
  deepLinksTitle: 'Calculez votre net maintenant',
  deepLinksIntro: 'Passez de la theorie a la pratique : utilisez les outils gratuits pour simuler votre situation reelle.',
  openLabel: 'Ouvrir',
@@ -374,7 +381,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  },
  {
  question: 'La franchise de 10 000 EUR s\'applique-t-elle toujours ?',
- answer: 'Non. La franchise ne s\'applique qu\'aux frontaliers residant a moins de 20 km de la frontiere suisse. Au-dela de 20 km, l\'IRPEF complete s\'applique sans franchise, mais le credit d\'impot reste applicable.',
+ answer: 'Non. Selon l\'Agenzia delle Entrate (circulaire 25/E de 2023), le seuil de 10 000 EUR vaut pour les frontaliers en general : resider au-dela de 20 km ne l\'exclut pas a lui seul. Verifiez les conditions de travail continu et exclusif.',
  },
  {
  question: 'Dois-je faire une declaration de revenus en Italie ?',

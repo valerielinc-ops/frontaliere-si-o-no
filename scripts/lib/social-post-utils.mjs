@@ -14,7 +14,7 @@
  * place-id lookup, API run loops) stays in the per-channel scripts.
  */
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createCantonResolvers, AGGREGATE_KEY } from '../../build-plugins/shared/cantonResolvers.mjs';

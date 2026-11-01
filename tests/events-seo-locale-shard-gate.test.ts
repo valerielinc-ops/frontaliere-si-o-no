@@ -41,15 +41,30 @@ afterEach(() => {
 
 describe('#5130 — events-seo-pages does not render locales this shard discards', () => {
   it('gates every render loop, not just the biggest one', () => {
-    // The locale loops cover the per-canton pages, past-event details, the
-    // national index, and locale-owned cleanup/redirect work. Gating only the
-    // main render loop would leave other non-owned work in place.
-    const emitLoops = CODE.split(/for \(const locale of LOCALES\) \{/).length - 1;
-    const gates = CODE.split('if (!shouldEmitLocale(locale))').length - 1;
-    expect(emitLoops).toBeGreaterThanOrEqual(3);
-    // Every locale loop that renders is gated; the inbound-link patch loop is
-    // deliberately NOT (it only touches hub files that already exist on disk).
-    expect(gates).toBe(emitLoops);
+    // A source-wide count also includes two title-disambiguation passes that
+    // compute stable metadata without emitting pages, plus the inbound-link
+    // patch loop after the collector flush. The four locale loops between
+    // sitemap collection and that patch render the actual pages.
+    const renderSectionStart = CODE.indexOf('const perCantonSitemap: Array<');
+    const renderSectionEnd = CODE.indexOf('await staticPagesFlushed', renderSectionStart);
+    expect(renderSectionStart).toBeGreaterThan(-1);
+    expect(renderSectionEnd).toBeGreaterThan(renderSectionStart);
+    const renderSection = CODE.slice(renderSectionStart, renderSectionEnd);
+    const renderLoops = renderSection.match(/for \(const locale of LOCALES\) \{/g) ?? [];
+    const gatedRenderLoops = renderSection.match(
+      /for \(const locale of LOCALES\) \{\s*if \(!shouldEmitLocale\(locale\)\)/g,
+    ) ?? [];
+    expect(renderLoops).toHaveLength(4);
+    expect(gatedRenderLoops).toHaveLength(renderLoops.length);
+
+    // Live slug migrations use a compact locale loop, so their shared helper
+    // must guard before rendering or writing each redirect page.
+    expect(CODE).toContain(
+      'for (const migration of liveSlugMigrations) for (const locale of LOCALES) emitSlugRedirect(locale, migration);',
+    );
+    expect(CODE).toMatch(
+      /const emitSlugRedirect = \(locale: Locale, migration: EventSlugMigration\) => \{\s*if \(!shouldEmitLocale\(locale\)\) return;/,
+    );
   });
 
   it('imports the shared filter rather than re-deriving locale ownership', () => {
@@ -62,13 +77,16 @@ describe('#5130 — events-seo-pages does not render locales this shard discards
     // docblock warns about. They are built from perCantonSitemap/detailSlugs,
     // never inside a gated loop.
     const sitemapAt = CODE.indexOf('const sitemapXml = buildSitemap(');
+    const historicalSitemapAt = CODE.indexOf('const historicalSitemapXml = buildHistoricalSitemap(');
     const gateAt = CODE.indexOf('if (!shouldEmitLocale(locale))');
     expect(sitemapAt).toBeGreaterThan(-1);
+    expect(historicalSitemapAt).toBeGreaterThan(-1);
     expect(gateAt).toBeGreaterThan(-1);
     // buildSitemap is called after the loops, at top level of the handler —
     // assert it is not inside a `shouldEmitLocale` guard by checking no gate
     // appears between the last emit loop and it on the same nesting path.
     expect(CODE.slice(sitemapAt, sitemapAt + 200)).not.toContain('shouldEmitLocale');
+    expect(CODE.slice(historicalSitemapAt, historicalSitemapAt + 200)).not.toContain('shouldEmitLocale');
   });
 
   it('still patches inbound hub links for every locale', () => {

@@ -155,7 +155,7 @@ export function colorForWmo(code: number): string {
   if (code === 0) return 'text-amber-500';
   if (code === 1) return 'text-amber-400';
   if (code === 2) return 'text-slate-400';
-  if (code === 3) return 'text-slate-500';
+  if (code === 3) return 'text-muted';
   if (code >= 45 && code <= 48) return 'text-slate-400';
   if (code >= 51 && code <= 57) return 'text-sky-500';
   if (code >= 61 && code <= 67) return 'text-sky-600';

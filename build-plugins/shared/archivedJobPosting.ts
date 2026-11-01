@@ -20,5 +20,6 @@ export function buildArchivedJobPosting(job: JobInput, notice: string, options: 
     description: archivedDescription,
     datePosted,
     validThrough: new Date(validThrough).toISOString(),
+    validThroughSource: 'archive-evidence',
   }, options);
 }

@@ -73,12 +73,42 @@ export interface ArticleTransparencyCopy {
   readonly human: (authorName: string) => string;
   /** Original contribution whose source has no named byline. */
   readonly humanWithoutName: string;
+  /** Printed only when `hasLinkedSources()` holds for the article body. */
   readonly sources: string;
+  /** Avvertenza per i temi fiscali, legali e previdenziali: sempre visibile. */
+  readonly disclaimer: string;
   readonly methodology: string;
   readonly corrections: string;
   /** Short labels for the static trust navigation. */
   readonly navMethodology: string;
   readonly navCorrections: string;
+}
+
+/**
+ * Hosts whose links are never an editorial source: our own pages, and the
+ * image-credit surfaces the article page prints next to the text. The audit of
+ * 2026-10-31 had to exclude the same hosts by hand: counting them moved the
+ * share of articles "with a source" from 32 to 54 per 100.
+ */
+const NON_SOURCE_HOST = /(^|\.)(frontaliereticino\.ch|commons\.wikimedia\.org|upload\.wikimedia\.org|creativecommons\.org)$/i;
+const LINK_TARGET = /(?:href\s*=\s*["']|(?:^|[^!])\[[^\]]*\]\(<?)\s*(https?:\/\/[^\s"'<>)]+)/gim;
+
+/**
+ * Whether a body really links an external source. `ARTICLE_TRANSPARENCY.sources`
+ * asserts that it does, so both emitters print that sentence only when this is
+ * true: rendered on every article it was false on 68 of the 100 audited pages.
+ * Accepts Markdown (SPA segments) and rendered HTML (static page).
+ */
+export function hasLinkedSources(text: string | readonly string[] | null | undefined): boolean {
+  const source = Array.isArray(text) ? text.join('\n') : String(text ?? '');
+  for (const match of source.matchAll(LINK_TARGET)) {
+    try {
+      if (!NON_SOURCE_HOST.test(new URL(match[1]).hostname)) return true;
+    } catch {
+      // Not a URL: it cannot be a source the reader can follow.
+    }
+  }
+  return false;
 }
 
 /** Per-article disclosure: the same claim as `AI_USE_STATEMENT`, applied to one article. */
@@ -89,6 +119,7 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
     human: (name) => `contributo originale di ${name}, pubblicato dalla redazione senza stesura assistita da intelligenza artificiale.`,
     humanWithoutName: 'contributo originale della redazione, pubblicato senza stesura assistita da intelligenza artificiale.',
     sources: 'Le fonti utilizzate sono linkate nel testo.',
+    disclaimer: 'Informazioni generali: non sostituiscono il parere di un professionista fiscale o legale.',
     methodology: 'Come scriviamo gli articoli',
     corrections: 'Segnala una correzione',
     navMethodology: 'Metodologia',
@@ -100,6 +131,7 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
     human: (name) => `original contribution by ${name}, published by the newsroom without AI-assisted drafting.`,
     humanWithoutName: 'original contribution by the newsroom, published without AI-assisted drafting.',
     sources: 'The sources used are linked in the text.',
+    disclaimer: 'General information: it does not replace advice from a tax or legal professional.',
     methodology: 'How we write articles',
     corrections: 'Report a correction',
     navMethodology: 'Methodology',
@@ -111,6 +143,7 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
     human: (name) => `Originalbeitrag von ${name}, von der Redaktion ohne KI-gestützte Erstellung veröffentlicht.`,
     humanWithoutName: 'Originalbeitrag der Redaktion, ohne KI-gestützte Erstellung veröffentlicht.',
     sources: 'Die verwendeten Quellen sind im Text verlinkt.',
+    disclaimer: 'Allgemeine Informationen: Sie ersetzen nicht den Rat einer Steuer- oder Rechtsfachperson.',
     methodology: 'Wie wir Artikel schreiben',
     corrections: 'Korrektur melden',
     navMethodology: 'Methodik',
@@ -122,12 +155,52 @@ export const ARTICLE_TRANSPARENCY: Readonly<Record<DisclosureLocale, ArticleTran
     human: (name) => `contribution originale de ${name}, publiée par la rédaction sans rédaction assistée par l’IA.`,
     humanWithoutName: 'contribution originale de la rédaction, publiée sans rédaction assistée par l’IA.',
     sources: 'Les sources utilisées sont liées dans le texte.',
+    disclaimer: 'Informations générales : elles ne remplacent pas l’avis d’un professionnel fiscal ou juridique.',
     methodology: 'Comment nous rédigeons les articles',
     corrections: 'Signaler une correction',
     navMethodology: 'Méthodologie',
     navCorrections: 'Corrections',
   },
 });
+
+export interface ArticleBylineCopy {
+  /** The word before the name. */
+  readonly by: string;
+  /** Says that a person-like name is a newsroom signature. */
+  readonly editorialSignature: string;
+  /** Says that the text was generated with AI. */
+  readonly aiGenerated: string;
+}
+
+/**
+ * Byline labels, next to the name so a reader does not have to open the profile
+ * or reach the end of the article to learn what "Marco Ferrari" is.
+ */
+export const ARTICLE_BYLINE: Readonly<Record<DisclosureLocale, ArticleBylineCopy>> = Object.freeze({
+  it: { by: 'Di', editorialSignature: 'firma editoriale della Redazione', aiGenerated: 'testo generato con IA' },
+  en: { by: 'By', editorialSignature: 'editorial byline of the newsroom', aiGenerated: 'AI-generated text' },
+  de: { by: 'Von', editorialSignature: 'redaktionelle Signatur der Redaktion', aiGenerated: 'mit KI erstellter Text' },
+  fr: { by: 'Par', editorialSignature: 'signature éditoriale de la rédaction', aiGenerated: 'texte généré par IA' },
+});
+
+/** The profile that is the newsroom itself: its name needs no "editorial byline" label. */
+const NEWSROOM_AUTHOR_SLUG = 'redazione';
+
+/**
+ * Note shown beside the byline, shared by the static article and the hydrated
+ * one. `real-author` never gets the signature label: only pseudonymous profiles
+ * do. An empty string means there is nothing to declare.
+ */
+export function resolveArticleBylineNote(
+  locale: string,
+  author: { slug?: string; kind?: 'editorial-profile' | 'real-author' } | undefined,
+  aiAssisted: boolean,
+): string {
+  const copy = ARTICLE_BYLINE[disclosureLocale(locale)];
+  const pseudonym = author?.kind === 'editorial-profile' && author.slug !== NEWSROOM_AUTHOR_SLUG;
+  return [pseudonym ? copy.editorialSignature : '', aiAssisted ? copy.aiGenerated : ''].filter(Boolean).join(', ');
+
+}
 
 export function disclosureLocale(locale: string): DisclosureLocale {
   return locale === 'en' || locale === 'de' || locale === 'fr' ? locale : 'it';

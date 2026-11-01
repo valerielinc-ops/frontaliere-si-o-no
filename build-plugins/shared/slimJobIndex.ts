@@ -14,11 +14,13 @@
 // across the two plugins would let them drift (AGENTS.md §6).
 
 import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
+import { jobDescriptionPreview } from '../../services/jobs/descriptionPreview';
 
 /** Fields included in the slim index file (listing + filtering + routing + the
- * header/JSON-LD identification fields the detail view reads). Detail-only
- * fields (description, requirements, baseSalary, streetAddress, …) are excluded
- * and fetched on demand from /data/job-detail/<id>.json.
+ * header/JSON-LD identification fields the detail view reads). The bounded
+ * anonymous gate teaser is kept, while detail-only fields (description,
+ * requirements, baseSalary, streetAddress, …) are excluded and fetched on
+ * demand from /data/job-detail/<id>.json.
  *
  * `previousSlugs` / `previousSlugsByLocale` are DELIBERATELY ABSENT. They are
  * the slug-rename history, and the SPA already has a purpose-built, deployed
@@ -37,6 +39,7 @@ import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 export const SLIM_INDEX_FIELDS: ReadonlySet<string> = new Set([
   'id', 'slug',
   'title',
+  'descriptionPreview',
   'company', 'companyKey', 'companyDomain', 'url', 'applyUrl',
   'location', 'canton',
   // addressRegion: read by newsletter location matching (matchJobsForSubscriber
@@ -70,6 +73,7 @@ export interface JobEntry {
   id?: string;
   title?: string;
   description?: string;
+  descriptionPreview?: string;
   requirements?: string[];
   slug?: string;
   titleByLocale?: Record<string, string>;
@@ -100,12 +104,15 @@ export function buildLocaleJob(job: JobEntry, locale: string): Record<string, un
     strippedCanonical = { ...canonRest, ...(localeContent ? { content: localeContent } : {}) };
   }
 
+  const description = descriptionByLocale?.[locale] || job.description || '';
+
   return {
     ...rest,
     // Every locale shows the employer's own title; only the interface is
     // translated (scripts/lib/job-title-identity.mjs).
     title: jobDisplayTitle({ title: job.title, titleByLocale, sourceLang: job.sourceLang }),
-    description: descriptionByLocale?.[locale] || job.description || '',
+    description,
+    descriptionPreview: jobDescriptionPreview(description),
     requirements: requirementsByLocale?.[locale] || job.requirements || [],
     slug: slugByLocale?.[locale] || job.slug || '',
     ...(strippedCanonical ? { canonicalContent: strippedCanonical } : {}),
@@ -116,6 +123,12 @@ export function buildLocaleJob(job: JobEntry, locale: string): Record<string, un
 export function buildLocaleJobSlim(localeJob: Record<string, unknown>): Record<string, unknown> {
   const slim: Record<string, unknown> = {};
   for (const key of SLIM_INDEX_FIELDS) {
+    if (key === 'descriptionPreview') {
+      slim[key] = typeof localeJob.descriptionPreview === 'string'
+        ? localeJob.descriptionPreview
+        : jobDescriptionPreview(typeof localeJob.description === 'string' ? localeJob.description : '');
+      continue;
+    }
     if (key in localeJob) slim[key] = localeJob[key];
   }
   return slim;

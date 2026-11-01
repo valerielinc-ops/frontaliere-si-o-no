@@ -106815,16 +106815,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-svizzera-vietnam-relazioni-2026': {
     title: 'Svizzera e Vietnam intensificano commercio e investimenti',
-    description: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni',
+    description: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile.',
     keywords: 'frontalieri, ticino, svizzera, italia, vietnam, intensificano, commercio, investimenti',
     ogTitle: 'Svizzera e Vietnam intensificano commercio e investimenti',
-    ogDescription: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni',
+    ogDescription: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile.',
     canonicalPath: '/articoli-svizzera/svizzera-vietnam-relazioni-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Svizzera e Vietnam intensificano commercio e investimenti",
-      "description": "Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni",
+      "description": "Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
@@ -109422,6 +109422,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-rischi-climatici-strumenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-scontro-fiscale-coppie-atto': {
+    title: 'Modernizzatori vs conservatori: atto II sullo scontro fiscale delle coppie',
+    description: 'L\'8 marzo viene presentato come una «rivoluzione» in pericolo Il modello indicato come minaccia è il cumulo dei redditi La fonte parla del secondo',
+    keywords: 'frontalieri, ticino, svizzera, italia, modernizzatori, conservatori, atto, sullo',
+    ogTitle: 'Modernizzatori vs conservatori: atto II fiscale coppie',
+    ogDescription: 'L\'8 marzo viene presentato come una «rivoluzione» in pericolo Il modello indicato come minaccia è il cumulo dei redditi La fonte parla del secondo atto',
+    canonicalPath: '/articoli-svizzera/scontro-fiscale-coppie-atto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Modernizzatori vs conservatori: atto II sullo scontro fiscale delle coppie",
+      "description": "L'8 marzo viene presentato come una «rivoluzione» in pericolo Il modello indicato come minaccia è il cumulo dei redditi La fonte parla del secondo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-scontro-fiscale-coppie-atto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-30T07:58:22+00:00",
+      "dateModified": "2026-10-30T07:58:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scontro-fiscale-coppie-atto/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

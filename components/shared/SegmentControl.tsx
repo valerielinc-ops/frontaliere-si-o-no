@@ -40,6 +40,7 @@ export function SegmentControl({
  key={opt.key}
  onClick={() => onChange(opt.key)}
  aria-pressed={isActive}
+ aria-label={opt.label}
  className={`flex-1 flex items-center justify-center gap-2 px-4 rounded-lg ${s.button} font-bold transition-[color,background-color,box-shadow,transform] ${
  isActive
  ? `bg-segment-active-bg ${activeTextClass} shadow-sm`

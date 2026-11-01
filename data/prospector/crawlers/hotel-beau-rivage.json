@@ -1,0 +1,22 @@
+{
+  "companyKey": "hotel-beau-rivage",
+  "companyName": "Hotel Beau-Rivage",
+  "companyHost": "fr.hotelcareer.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://fr.hotelcareer.ch/emploi/beau-rivage-hotel-665?intcid=autosuggest-company-665"
+  ],
+  "detailTemplate": "/emploi/beau-rivage-hotel-665/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Femme de chambre (H/F)",
+    "Réceptionniste (H/F)"
+  ],
+  "canton": "NE",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-31T12:47:33.379Z",
+  "candidateKey": "beau-rivage-hotel.ch"
+}

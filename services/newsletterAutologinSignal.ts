@@ -68,6 +68,58 @@ let inFlight = ((): boolean => {
 // traffic, without emitting telemetry for every anonymous page view.
 const attemptedAtLoad = inFlight;
 
+type NewsletterAutologinAttempt = {
+ key: string;
+ promise: Promise<unknown>;
+};
+
+// React StrictMode (and a few static-to-live remount paths) can run the App
+// effect more than once for the same URL. Keep the exchange and its telemetry
+// terminal state single-flight for that URL. A different credential-bearing
+// link is refused for the lifetime of this SPA page; a full reload re-arms the
+// module-level in-flight signal with the new URL and avoids cross-link races.
+let activeAutologinAttempt: NewsletterAutologinAttempt | null = null;
+
+export function newsletterAutologinAttemptKey(search: string | URLSearchParams): string | null {
+ const params = typeof search === 'string' ? new URLSearchParams(search) : search;
+ const parsed = parseNewsletterAutologin(params);
+ if (!parsed.isAutologin) return null;
+ return [
+  parsed.code ? 'hmac_code' : 'legacy_token',
+  parsed.code || parsed.legacyToken || '',
+  parsed.email.trim().toLowerCase(),
+  params.get('assisted_application_order_id') || '',
+  params.get('application_concierge_service_id') || '',
+ ].join('|');
+}
+
+export function claimNewsletterAutologinAttempt(
+ key: string,
+ factory: () => Promise<unknown>,
+): { promise: Promise<unknown>; owner: boolean; accepted: boolean } {
+ if (activeAutologinAttempt?.key === key) {
+  return {
+   promise: activeAutologinAttempt.promise,
+   owner: false,
+   accepted: true,
+  };
+ }
+
+ if (activeAutologinAttempt) {
+  return {
+   promise: Promise.resolve(null),
+   owner: false,
+   accepted: false,
+  };
+ }
+
+ // Defer the factory to the next microtask so the owner can emit the attempt
+ // marker before the network/auth exchange starts.
+ const promise = Promise.resolve().then(factory);
+ activeAutologinAttempt = { key, promise };
+ return { promise, owner: true, accepted: true };
+}
+
 const subscribers = new Set<() => void>();
 
 export function isNewsletterAutologinInFlight(): boolean {

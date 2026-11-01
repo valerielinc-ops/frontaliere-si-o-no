@@ -116,6 +116,24 @@ describe('buildWeekendDigestArticle with a canton', () => {
     expect(article.content.it.body2).not.toContain('**1 gennaio** —');
   });
 
+  it('uses the live source fallback when a carried digest event lacks sourceKey', () => {
+    const staleUrl = 'https://www.nw.ch/anlaesseaktuelles/94120';
+    const article = buildWeekendDigestArticle({
+      events: [{
+        id: 'nw-agenda:94120',
+        title: 'Alplertanz',
+        comune: 'Stans',
+        startDate: '2027-01-02',
+        url: staleUrl,
+        canton: 'TI',
+      }],
+      todayIso: TODAY,
+    });
+
+    expect(article.content.it.body2).toContain('[Alplertanz](https://www.nw.ch/)');
+    expect(article.content.it.body2).not.toContain(staleUrl);
+  });
+
   it('escapes Markdown delimiters in a cited event title', () => {
     const article = buildWeekendDigestArticle({
       events: [{

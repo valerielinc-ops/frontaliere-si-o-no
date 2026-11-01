@@ -83,6 +83,7 @@ jobs:
             const PENDING_MARKER = '<!-- BODY_REVIEW_RECOVERY_PENDING:';
             const CODEX_AUTH_BLOCKED_PREFIX = '<!-- CODEX_AUTH_BLOCKED:';
             const NATIVE_LEASE_MARKER = '<!-- NATIVE_AUTO_MERGE_LEASE:';
+            const TESTS_WORKFLOW_PATH = '.github/workflows/tests.yml';
             const TRUSTED_AUTOMATION_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/iu;
             // The scheduled/manual native gate can authenticate with the
             // repository owner's Remote Config PAT. No other human may create
@@ -348,9 +349,17 @@ jobs:
             }
             async function resolvePullRequests(run = null) {
               const eventPullRequests = workflowRunPullRequests();
+              const repository = `${repo.owner}/${repo.repo}`;
+              const branch = String(run?.head_branch || '');
+              if (run?.path !== TESTS_WORKFLOW_PATH
+                  || run?.event !== 'pull_request'
+                  || run?.repository?.full_name !== repository
+                  || !run?.head_sha || !branch) return [];
               if (eventPullRequests.length > 0) {
                 const valid = eventPullRequests
-                  .filter(pr => pr?.base?.ref === 'main' && pr?.head?.sha === run?.head_sha)
+                  .filter(pr => pr?.base?.ref === 'main'
+                    && pr?.head?.ref === branch
+                    && pr?.head?.sha === run.head_sha)
                   .map(pr => Number(pr.number))
                   .filter(Number.isSafeInteger);
                 return valid.length === eventPullRequests.length ? [...new Set(valid)] : [];
@@ -361,27 +370,40 @@ jobs:
               });
               const found = [];
               for (const candidate of open) {
-                if (candidate.base?.ref === 'main' && candidate.head?.sha === run.head_sha) {
+                if (candidate.base?.ref === 'main'
+                    && candidate.head?.ref === branch
+                    && candidate.head?.sha === run.head_sha) {
                   found.push(candidate.number);
                 }
               }
               return found;
             }
-            async function runForHead(sha, number) {
+            async function runForHead(sha, branch, number) {
+              const expectedBranch = String(branch || '');
+              if (!sha || !expectedBranch) return null;
               const runs = await github.paginate(github.rest.actions.listWorkflowRuns, {
                 ...repo, workflow_id: 'tests.yml', head_sha: sha, per_page: 100,
               });
               const candidates = runs
-                .filter(run => run?.event === 'pull_request' && run?.head_sha === sha)
+                .filter(run => run?.event === 'pull_request'
+                  && run?.head_sha === sha
+                  && run?.head_branch === expectedBranch)
                 .sort((a, b) => b.id - a.id || b.run_attempt - a.run_attempt);
               for (const candidate of candidates) {
                 const detail = await github.rest.actions.getWorkflowRun({ ...repo, run_id: candidate.id });
-                const pullRequests = detail.data?.pull_requests;
+                const detailRun = detail.data;
+                const pullRequests = detailRun?.pull_requests;
                 const belongs = Array.isArray(pullRequests)
                   && pullRequests.some(pr => Number(pr?.number) === Number(number)
                     && pr?.base?.ref === 'main'
+                    && pr?.head?.ref === expectedBranch
                     && pr?.head?.sha === sha);
-                if (belongs) return { ...candidate, ...detail.data };
+                if (detailRun?.path === TESTS_WORKFLOW_PATH
+                    && detailRun?.event === 'pull_request'
+                    && detailRun?.repository?.full_name === `${repo.owner}/${repo.repo}`
+                    && detailRun?.head_sha === sha
+                    && detailRun?.head_branch === expectedBranch
+                    && belongs) return { ...candidate, ...detailRun };
               }
               return null;
             }
@@ -437,9 +459,21 @@ jobs:
               `, { owner: repo.owner, name: repo.repo, number });
               return {
                 headSha: String(current?.head?.sha || ''),
+                headRef: String(current?.head?.ref || ''),
                 bodyRevision: BODY_REVISION(current?.body),
                 editedAt: Date.parse(edited?.repository?.pullRequest?.lastEditedAt || ''),
               };
+            }
+            async function runStartedBeforeLastBodyEdit(number, pr, run) {
+              const startedAt = Date.parse(run?.run_started_at || run?.created_at || '');
+              if (!Number.isFinite(startedAt)) return null;
+              const before = await bodyEditSnapshot(number);
+              const expectedRevision = BODY_REVISION(pr.body);
+              if (!Number.isFinite(before.editedAt)
+                  || before.headSha !== pr.head.sha
+                  || before.headRef !== pr.head.ref
+                  || before.bodyRevision !== expectedRevision) return null;
+              return startedAt <= before.editedAt;
             }
             async function attemptStartedAfterLastBodyEdit(number, pr, run, state) {
               const attempt = validRunAttempt(run?.run_attempt);
@@ -450,6 +484,7 @@ jobs:
               const before = await bodyEditSnapshot(number);
               if (!Number.isFinite(before.editedAt)
                   || before.headSha !== pr.head.sha
+                  || before.headRef !== pr.head.ref
                   || before.bodyRevision !== expectedRevision
                   || state?.bodyRevision !== expectedRevision) return false;
               const jobs = await github.paginate(github.rest.actions.listJobsForWorkflowRunAttempt, {
@@ -548,21 +583,41 @@ jobs:
                 throw new Error(`run ${latest.id} attempt non verificabile: marker resta pending`);
               }
               if (currentRun.data.status !== 'completed') {
-                // A duplicate edit delivery can arrive while the interrupted-run
-                // retry is still active: keep its one-retry flag for the same
-                // HEAD + body digest, or a second cancellation would earn a
-                // second retry.
+                // A run that started before the edit can still be reading the
+                // old body. Persist the exact current epoch first, then cancel
+                // it; the cancelled workflow_run event performs the bounded
+                // rerun. A duplicate edit delivery must not issue a second
+                // cancellation for the same HEAD + body digest.
                 const bodyDigest = BODY_REVISION(pr.body);
+                const sameEpoch = existing?.state?.headSha === pr.head.sha
+                  && existing?.state?.bodyRevision === bodyDigest;
                 const keepInterruptedRetry = existing?.state?.interruptedRetry === true
                   && existing.state.headSha === pr.head.sha
                   && existing.state.bodyRevision === bodyDigest;
+                const cancellationAlreadyRequested = existing?.state?.cancelRequested === true && sameEpoch;
+                const startedBeforeEdit = await runStartedBeforeLastBodyEdit(number, pr, currentRun.data);
                 await persistMarker(number, {
                   version: 1, status: 'pending', prNumber: number, runId: latest.id,
                   runAttempt: observedAttempt, headSha: pr.head.sha,
                   bodyRevision: bodyDigest,
                   ...(keepInterruptedRetry ? { interruptedRetry: true } : {}),
+                  ...(cancellationAlreadyRequested || startedBeforeEdit === true
+                    ? { cancelRequested: true } : {}),
                 }, existing);
-                core.info(`Tests run ${latest.id} ancora attiva: marker durevole, retry demandato a workflow_run.`);
+                if (startedBeforeEdit === true && !cancellationAlreadyRequested) {
+                  try {
+                    await github.rest.actions.cancelWorkflowRun({ ...repo, run_id: latest.id });
+                    core.info(`Tests run ${latest.id} cancellata: era partita prima dell'edit; retry demandato a workflow_run.`);
+                  } catch (error) {
+                    // Cancellation is idempotent/ambiguous at the API boundary.
+                    // Keep the durable epoch: the completion event (or the
+                    // scheduled reconciler) will decide whether a rerun is
+                    // still required, never launch one while this run is live.
+                    core.warning(`Cancellazione tests run ${latest.id} ambigua: ${String(error)}; retry demandato a workflow_run.`);
+                  }
+                } else {
+                  core.info(`Tests run ${latest.id} ancora attiva: marker durevole, retry demandato a workflow_run.`);
+                }
                 return;
               }
               // GitHub keeps the run id stable while incrementing
@@ -602,6 +657,10 @@ jobs:
                 ...(INTERRUPTED_CONCLUSIONS.includes(latest.conclusion) ? { interruptedRetry: true } : {}),
               };
               const queuedMarker = await persistMarker(number, queuedState, existing);
+              if (!await currentRecoveryPr(number, queuedState)) {
+                core.warning(`Snapshot PR/HEAD/body cambiato prima del rerun tests per PR #${number}; nessuna mutazione trusted.`);
+                return;
+              }
               try {
                 await github.rest.actions.reRunWorkflow({ ...repo, run_id: latest.id });
               } catch (error) {
@@ -669,7 +728,7 @@ jobs:
                 core.warning(`Native auto-merge non revocabile per PR #${number}: ${String(error)}; checkpoint durevole, nessun retry cieco.`);
                 return;
               }
-              const latest = await runForHead(pr.head.sha, number);
+              const latest = await runForHead(pr.head.sha, pr.head.ref, number);
               if (!latest) {
                 // Never dispatch the trusted tests workflow against a fork
                 // SHA: a trusted-workflow dispatch would execute PR-controlled code with
@@ -718,8 +777,7 @@ jobs:
               // not the static workflow name `tests`. Bind the event to the
               // immutable workflow path or the recovery would leave every
               // queued body epoch pending forever.
-              const isTestsWorkflow = run?.path === '.github/workflows/tests.yml'
-                || (!run?.path && run?.name === 'tests');
+              const isTestsWorkflow = run?.path === TESTS_WORKFLOW_PATH;
               if (!run || !isTestsWorkflow || run.status !== 'completed'
                   || run.event !== 'pull_request'
                   || run.repository?.full_name !== `${repo.owner}/${repo.repo}`
@@ -743,7 +801,7 @@ jobs:
                 if (existing.state.status === 'queued') {
                   if (!exactRun) continue;
                   if (existing.state.bodyRevision !== BODY_REVISION(pr.body)) {
-                    const latest = await runForHead(run.head_sha, number);
+                    const latest = await runForHead(run.head_sha, pr.head.ref, number);
                     const candidate = latest && markerMatchesRun(existing.state, latest) ? latest : run;
                     await retryCompletedRun(number, pr, candidate, existing, 'body changed while retry was active');
                     continue;
@@ -777,7 +835,7 @@ jobs:
                   continue;
                 }
                 if (existing.state.status !== 'pending' || !exactRun) continue;
-                const latest = await runForHead(run.head_sha, number);
+                const latest = await runForHead(run.head_sha, pr.head.ref, number);
                 const candidate = latest && markerMatchesRun(existing.state, latest) ? latest : run;
                 const reason = await retryReasonForCompletedRun(number, pr, candidate, existing);
                 if (!reason) {
@@ -820,6 +878,34 @@ jobs:
                   }
                   continue;
                 }
+                if (existing.state.status === 'pending') {
+                  const latest = await runForHead(pr.head.sha, pr.head.ref, number);
+                  if (!latest) continue;
+                  const observedAttempt = validRunAttempt(latest.run_attempt);
+                  if (observedAttempt === null) continue;
+                  const pendingMarkerMatchesRun = markerMatchesRun(existing.state, latest);
+                  const newerAttempt = markerSameRunWithNewerAttempt(existing.state, latest);
+                  if (!pendingMarkerMatchesRun && !newerAttempt) continue;
+                  let pending = existing;
+                  if (newerAttempt) {
+                    pending = await persistMarker(number, {
+                      ...existing.state, runId: latest.id, runAttempt: observedAttempt,
+                    }, existing);
+                  }
+                  if (latest.status !== 'completed') {
+                    await retryCompletedRun(number, pr, latest, pending,
+                      'scheduled reconciliation of a pending body-recovery run');
+                    continue;
+                  }
+                  const reason = await retryReasonForCompletedRun(number, pr, latest, pending);
+                  if (!reason) {
+                    await completeWithoutRetry(number, pr, latest, pending,
+                      'scheduled reconciliation found the pending run already validated the current body');
+                  } else {
+                    await retryCompletedRun(number, pr, latest, pending, reason);
+                  }
+                  continue;
+                }
                 if (existing.state.status !== 'manual'
                     || (!nativeRevokeRequired
                       && !['rerun-ambiguous', 'no-existing-pull-request-run'].includes(sourceEvent))) continue;
@@ -833,7 +919,7 @@ jobs:
                     continue;
                   }
                 }
-                const latest = await runForHead(pr.head.sha, number);
+                const latest = await runForHead(pr.head.sha, pr.head.ref, number);
                 if (!latest) continue;
                 const observedAttempt = validRunAttempt(latest.run_attempt);
                 if (observedAttempt === null) continue;

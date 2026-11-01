@@ -1,0 +1,1458 @@
+{
+  "_comment": "Inventario dei 100 Comuni ticinesi (data/canton-municipalities.json). status: covered = entrata della famiglia comuni-ticino; existing = crawler dedicato gia' esistente; missing = non coperto, col motivo. Unica configurazione di scripts/lib/ticino-comuni-crawler.mjs; tests/ticino-comuni-family.test.ts impone una riga per Comune.",
+  "checkedAt": "2026-10-31",
+  "comuni": [
+    {
+      "municipality": "Acquarossa",
+      "status": "missing",
+      "reason": "robots.txt vieta i PDF (Disallow: /*.pdf$) e i bandi non hanno altro testo pubblico",
+      "site": "https://www.acquarossa.ch/"
+    },
+    {
+      "municipality": "Agno",
+      "status": "covered",
+      "key": "comune-di-agno",
+      "company": "Comune di Agno",
+      "domain": "agno.ch",
+      "cms": "assolo",
+      "streetAddress": "Piazza Colonnello Vicari 1",
+      "postalCode": "6982",
+      "addressLocality": "Agno",
+      "listing": {
+        "type": "page",
+        "url": "https://www.agno.ch/index.php?node=331&lng=1&rif=d8a6405daa",
+        "containerSelector": "body",
+        "marker": "Albo comunale"
+      }
+    },
+    {
+      "municipality": "Airolo",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: solo albo generale in JSP, senza filtro di categoria",
+      "site": "https://www.comuneairolo.ch/"
+    },
+    {
+      "municipality": "Alto Malcantone",
+      "status": "covered",
+      "key": "comune-di-alto-malcantone",
+      "company": "Comune di Alto Malcantone",
+      "domain": "altomalcantone.ch",
+      "cms": "assolo",
+      "streetAddress": "Stradón da Brén 50",
+      "postalCode": "6937",
+      "addressLocality": "Breno",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.altomalcantone.ch/Benvenuti",
+        "fric": "4012",
+        "catinv": "68",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Aranno",
+      "status": "covered",
+      "key": "comune-di-aranno",
+      "company": "Comune di Aranno",
+      "domain": "aranno.ch",
+      "cms": "assolo",
+      "streetAddress": "Strada Dra Cà di Biss 6",
+      "postalCode": "6994",
+      "addressLocality": "Aranno",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.aranno.ch/Albo-comunale-7dcf2200",
+        "fric": "4048",
+        "catParam": "param_cat0",
+        "catId": "68",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Arbedo-Castione",
+      "status": "covered",
+      "key": "comune-di-arbedo-castione",
+      "company": "Comune di Arbedo-Castione",
+      "domain": "arbedocastione.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Centro Civico 7",
+      "postalCode": "6517",
+      "addressLocality": "Arbedo",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.arbedocastione.ch/Albo-comunale-7dcf2200",
+        "fric": "4646"
+      }
+    },
+    {
+      "municipality": "Arogno",
+      "status": "covered",
+      "key": "comune-di-arogno",
+      "company": "Comune di Arogno",
+      "domain": "arogno.ch",
+      "cms": "altro",
+      "streetAddress": "Stráda Növa 44",
+      "postalCode": "6822",
+      "addressLocality": "Arogno",
+      "extraHosts": [
+        "cdn.prod.website-files.com"
+      ],
+      "listing": {
+        "type": "page",
+        "url": "https://www.arogno.ch/scopri/comune/albo",
+        "containerSelector": "body",
+        "marker": "Albo"
+      }
+    },
+    {
+      "municipality": "Ascona",
+      "status": "covered",
+      "key": "comune-di-ascona",
+      "company": "Comune di Ascona",
+      "domain": "ascona.ch",
+      "cms": "assolo",
+      "streetAddress": "Piazza San Pietro 1",
+      "postalCode": "6612",
+      "addressLocality": "Ascona",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.ascona.ch/Albo-comunale-65d3e000",
+        "fric": "5112",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Avegno Gordevio",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: albo generale; i bandi storici in sitemap non hanno elenco dedicato",
+      "site": "https://www.avegnogordevio.ch/"
+    },
+    {
+      "municipality": "Balerna",
+      "status": "covered",
+      "key": "comune-di-balerna",
+      "company": "Comune di Balerna",
+      "domain": "balerna.ch",
+      "cms": "assolo",
+      "streetAddress": "Via San Gottardo 90",
+      "postalCode": "6828",
+      "addressLocality": "Balerna",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.balerna.ch/Albo-comunale-04399800",
+        "fric": "3669",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Bedano",
+      "status": "covered",
+      "key": "comune-di-bedano",
+      "company": "Comune di Bedano",
+      "domain": "bedano.ch",
+      "cms": "assolo",
+      "streetAddress": "Via St. Maria 6",
+      "postalCode": "6930",
+      "addressLocality": "Bedano",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.bedano.ch/Albo-comunale-c3dfab00",
+        "fric": "5098",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Bedretto",
+      "status": "covered",
+      "key": "comune-di-bedretto",
+      "company": "Comune di Bedretto",
+      "domain": "bedretto.ch",
+      "cms": "assolo",
+      "streetAddress": "Villa",
+      "postalCode": "6781",
+      "addressLocality": "Bedretto",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.bedretto.ch/Albo-comunale-1d212c00",
+        "fric": "4432",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Bellinzona",
+      "status": "existing",
+      "crawler": "citta-di-bellinzona"
+    },
+    {
+      "municipality": "Biasca",
+      "status": "covered",
+      "key": "comune-di-biasca",
+      "company": "Comune di Biasca",
+      "domain": "biasca.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Lucomagno 14",
+      "postalCode": "6710",
+      "addressLocality": "Biasca",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.biasca.ch/Albo",
+        "fric": "4834",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Bioggio",
+      "status": "covered",
+      "key": "comune-di-bioggio",
+      "company": "Comune di Bioggio",
+      "domain": "bioggio.ch",
+      "cms": "assolo",
+      "streetAddress": "Casella postale 169",
+      "postalCode": "6934",
+      "addressLocality": "Bioggio",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.bioggio.ch/Albo-comunale",
+        "fric": "6148",
+        "catParam": "param_cat0",
+        "catId": "317",
+        "catLabel": "Posti di lavoro a concorso"
+      }
+    },
+    {
+      "municipality": "Bissone",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: i bandi escono come news WordPress",
+      "site": "https://bissone.ch/"
+    },
+    {
+      "municipality": "Blenio",
+      "status": "covered",
+      "key": "comune-di-blenio",
+      "company": "Comune di Blenio",
+      "domain": "comuneblenio.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Chiesa S. Martino 1",
+      "postalCode": "6718",
+      "addressLocality": "Olivone",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.comuneblenio.ch/Albo-e-comunicati-7dcf2200",
+        "fric": "3871",
+        "catParam": "param_cat0",
+        "catId": "68",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Bosco/Gurin",
+      "status": "missing",
+      "reason": "nessun sito ufficiale raggiungibile (DNS/rete)",
+      "site": null
+    },
+    {
+      "municipality": "Breggia",
+      "status": "covered",
+      "key": "comune-di-breggia",
+      "company": "Comune di Breggia",
+      "domain": "comunebreggia.ch",
+      "cms": "assolo",
+      "streetAddress": "Piazza dal Cumün 1",
+      "postalCode": "6835",
+      "addressLocality": "Morbio Superiore",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.comunebreggia.ch/Albo-09482500",
+        "fric": "5303",
+        "catinv": "153",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Brione sopra Minusio",
+      "status": "covered",
+      "key": "comune-di-brione-sopra-minusio",
+      "company": "Comune di Brione sopra Minusio",
+      "domain": "brione.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Orselina 1",
+      "postalCode": "6645",
+      "addressLocality": "Brione sopra Minusio",
+      "issuerAliases": [
+        "Brione s/Minusio",
+        "Brione s/M"
+      ],
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.brione.ch/Albo-e-attualit-8b94f300",
+        "fric": "3740",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Brissago",
+      "status": "covered",
+      "key": "comune-di-brissago",
+      "company": "Comune di Brissago",
+      "domain": "brissago.ch",
+      "cms": "altro",
+      "streetAddress": "Piazza Municipio 1",
+      "postalCode": "6614",
+      "addressLocality": "Brissago",
+      "listing": {
+        "type": "page",
+        "url": "https://www.brissago.ch/concorsi/",
+        "containerSelector": "body",
+        "marker": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Brusino Arsizio",
+      "status": "missing",
+      "reason": "il sito risponde HTTP 406 al nostro agente: nessun aggiramento",
+      "site": null
+    },
+    {
+      "municipality": "Cademario",
+      "status": "covered",
+      "key": "comune-di-cademario",
+      "company": "Comune di Cademario",
+      "domain": "cademario.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Cantonale 63",
+      "postalCode": "6936",
+      "addressLocality": "Cademario",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.cademario.ch/MENU-PRINCIPALE/Albo-comunale-5af21900",
+        "fric": "4407",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Cadempino",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: albo generale, ospita bandi di altri enti (Polizia del Vedeggio)",
+      "site": "https://www.cadempino.ch/home/"
+    },
+    {
+      "municipality": "Cadenazzo",
+      "status": "covered",
+      "key": "comune-di-cadenazzo",
+      "company": "Comune di Cadenazzo",
+      "domain": "cadenazzo.ch",
+      "cms": "assolo",
+      "streetAddress": "Cará 2",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.cadenazzo.ch/Documenti-04399800",
+        "fric": "4671",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Campo (Vallemaggia)",
+      "status": "missing",
+      "reason": "nessun sito ufficiale raggiungibile (DNS/rete)",
+      "site": null
+    },
+    {
+      "municipality": "Canobbio",
+      "status": "covered",
+      "key": "comune-di-canobbio",
+      "company": "Comune di Canobbio",
+      "domain": "canobbio.ch",
+      "cms": "altro",
+      "streetAddress": "Via Trevano 13",
+      "postalCode": "6952",
+      "addressLocality": "Canobbio",
+      "listing": {
+        "type": "page",
+        "url": "https://canobbio.ch/categoria_albo/concorsi/",
+        "containerSelector": "main",
+        "marker": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Capriasca",
+      "status": "covered",
+      "key": "comune-di-capriasca",
+      "company": "Comune di Capriasca",
+      "domain": "capriasca.ch",
+      "cms": "assolo",
+      "streetAddress": "Piazza Giuseppe Motta 1",
+      "postalCode": "6950",
+      "addressLocality": "Tesserete",
+      "listing": {
+        "type": "page",
+        "url": "https://concorsi.capriasca.ch/",
+        "containerSelector": "form[name=\"fric_5832\"]",
+        "marker": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Caslano",
+      "status": "covered",
+      "key": "comune-di-caslano",
+      "company": "Comune di Caslano",
+      "domain": "caslano.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Chiesa 1",
+      "postalCode": "6987",
+      "addressLocality": "Caslano",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.caslano.ch/Albo-comunale-c3dfab00",
+        "fric": "4810",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Castel San Pietro",
+      "status": "covered",
+      "key": "comune-di-castel-san-pietro",
+      "company": "Comune di Castel San Pietro",
+      "domain": "castelsanpietro.ch",
+      "cms": "assolo",
+      "streetAddress": "Via alla Chiesa 10",
+      "postalCode": "6874",
+      "addressLocality": "Castel San Pietro",
+      "issuerAliases": [
+        "Castel S. Pietro"
+      ],
+      "listing": {
+        "type": "assolo",
+        "url": "https://castelsanpietro.ch/Albo-comunale-8b94f300",
+        "fric": "4604",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Centovalli",
+      "status": "missing",
+      "reason": "sito ufficiale non raggiungibile dal probe (rete); da riverificare",
+      "site": null
+    },
+    {
+      "municipality": "Cerentino",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: comune piccolo con albo generale",
+      "site": "https://cerentino.ch/Home"
+    },
+    {
+      "municipality": "Cevio",
+      "status": "covered",
+      "key": "comune-di-cevio",
+      "company": "Comune di Cevio",
+      "domain": "cevio.ch",
+      "cms": "altro",
+      "streetAddress": "Via Pretorio 4",
+      "postalCode": "6675",
+      "addressLocality": "Cevio",
+      "listing": {
+        "type": "page",
+        "url": "https://cevio.ch/albo-comunale/concorsi/",
+        "containerSelector": "body",
+        "marker": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Chiasso",
+      "status": "covered",
+      "key": "comune-di-chiasso",
+      "company": "Comune di Chiasso",
+      "domain": "chiasso.ch",
+      "cms": "altro",
+      "streetAddress": "Piazza Bernasconi 1",
+      "postalCode": "6830",
+      "addressLocality": "Chiasso",
+      "extraHosts": [
+        "chiasso.city"
+      ],
+      "listing": {
+        "type": "rendered-cityos",
+        "url": "https://www.chiasso.ch/documenti/concorsi-per-assunzioni/"
+      }
+    },
+    {
+      "municipality": "Coldrerio",
+      "status": "covered",
+      "key": "comune-di-coldrerio",
+      "company": "Comune di Coldrerio",
+      "domain": "coldrerio.ch",
+      "cms": "assolo",
+      "streetAddress": "Via P.F. Mola 17b",
+      "postalCode": "6877",
+      "addressLocality": "Coldrerio",
+      "listing": {
+        "type": "assolo",
+        "url": "https://coldrerio.ch/Albo-comunale-7dcf2200",
+        "fric": "4051",
+        "catParam": "param_cat0",
+        "catId": "68",
+        "catLabel": "Concorsi (ALBO)"
+      }
+    },
+    {
+      "municipality": "Collina d'Oro",
+      "status": "covered",
+      "key": "comune-di-collina-d-oro",
+      "company": "Comune di Collina d'Oro",
+      "domain": "collinadoro.swiss",
+      "cms": "assolo",
+      "streetAddress": "Piazza Brocchi 2",
+      "postalCode": "6926",
+      "addressLocality": "Montagnola",
+      "issuerAliases": [
+        "Collina d’Oro"
+      ],
+      "listing": {
+        "type": "page",
+        "url": "https://www.collinadoro.swiss/concorsi",
+        "containerSelector": "body",
+        "marker": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Comano",
+      "status": "covered",
+      "key": "comune-di-comano",
+      "company": "Comune di Comano",
+      "domain": "comano.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Cantonale 47",
+      "postalCode": "6949",
+      "addressLocality": "Comano",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.comano.ch/Albo-comunale-1e2fde00",
+        "fric": "4330",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Cugnasco-Gerra",
+      "status": "covered",
+      "key": "comune-di-cugnasco-gerra",
+      "company": "Comune di Cugnasco-Gerra",
+      "domain": "cugnasco-gerra.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Locarno 7",
+      "postalCode": "6516",
+      "addressLocality": "Cugnasco",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.cugnasco-gerra.ch/Albo-comunale-c3dfab00",
+        "fric": "4971",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Cureglia",
+      "status": "covered",
+      "key": "comune-di-cureglia",
+      "company": "Comune di Cureglia",
+      "domain": "cureglia.ch",
+      "cms": "assolo",
+      "streetAddress": "Casa Rusca",
+      "postalCode": "6944",
+      "addressLocality": "Cureglia",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.cureglia.ch/Albo-comunale-Attualita-04399800",
+        "fric": "3669",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Dalpe",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: comune piccolo con albo generale",
+      "site": "https://dalpe.ch/"
+    },
+    {
+      "municipality": "Faido",
+      "status": "covered",
+      "key": "comune-di-faido",
+      "company": "Comune di Faido",
+      "domain": "faido.ch",
+      "cms": "assolo",
+      "streetAddress": "Piazza Stefano Franscini 1",
+      "postalCode": "6760",
+      "addressLocality": "Faido",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.faido.ch/Albo-comunale-04399800",
+        "fric": "3669",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Gambarogno",
+      "status": "covered",
+      "key": "comune-di-gambarogno",
+      "company": "Comune di Gambarogno",
+      "domain": "gambarogno.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Cantonale 138",
+      "postalCode": "6573",
+      "addressLocality": "Magadino",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.gambarogno.ch/Albo-872fe600",
+        "fric": "3669",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Giornico",
+      "status": "covered",
+      "key": "comune-di-giornico",
+      "company": "Comune di Giornico",
+      "domain": "giornico.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Fond la Tèra 13",
+      "postalCode": "6745",
+      "addressLocality": "Giornico",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.giornico.ch/Albo-comunale-04399800",
+        "fric": "3669",
+        "catinv": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Gordola",
+      "status": "covered",
+      "key": "comune-di-gordola",
+      "company": "Comune di Gordola",
+      "domain": "gordola.ch",
+      "cms": "assolo",
+      "streetAddress": "Via San Gottardo 44",
+      "postalCode": "6596",
+      "addressLocality": "Gordola",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.gordola.ch/Albo-e-comunicati-861f7d00",
+        "fric": "5554",
+        "catParam": "param_cat1",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Grancia",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: i bandi escono come news WordPress",
+      "site": "https://www.grancia.ch/"
+    },
+    {
+      "municipality": "Gravesano",
+      "status": "covered",
+      "key": "comune-di-gravesano",
+      "company": "Comune di Gravesano",
+      "domain": "gravesano.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Cantonale 30",
+      "postalCode": "6929",
+      "addressLocality": "Gravesano",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.gravesano.ch/Albo-e-news-caa48300",
+        "fric": "3669",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Isone",
+      "status": "covered",
+      "key": "comune-di-isone",
+      "company": "Comune di Isone",
+      "domain": "isone.ch",
+      "cms": "assolo",
+      "streetAddress": "Cancelleria comunale",
+      "postalCode": "6810",
+      "addressLocality": "Isone",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.isone.ch/Albo-comunale-7dcf2200",
+        "fric": "3687",
+        "catParam": "param_cat0",
+        "catId": "68",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Lamone",
+      "status": "missing",
+      "reason": "il sito risponde HTTP 406 al nostro agente: nessun aggiramento",
+      "site": null
+    },
+    {
+      "municipality": "Lavertezzo",
+      "status": "missing",
+      "reason": "albo generico senza sezione concorsi; robots.txt vieta /images/PDF/",
+      "site": "https://www.lavertezzo.ch/"
+    },
+    {
+      "municipality": "Lavizzara",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: avvisi sparsi in home",
+      "site": "https://lavizzara.ch/it_CH/home"
+    },
+    {
+      "municipality": "Lema",
+      "status": "covered",
+      "key": "comune-di-lema",
+      "company": "Comune di Lema",
+      "domain": "lema.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Alice Meyer 8",
+      "postalCode": "6986",
+      "addressLocality": "Novaggio",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.lema.ch/Albo-comunale",
+        "fric": "3993",
+        "catinv": "68",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Linescio",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: comune piccolo con albo generale",
+      "site": "https://www.linescio.ch/"
+    },
+    {
+      "municipality": "Locarno",
+      "status": "existing",
+      "crawler": "citta-di-locarno"
+    },
+    {
+      "municipality": "Losone",
+      "status": "covered",
+      "key": "comune-di-losone",
+      "company": "Comune di Losone",
+      "domain": "losone.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Municipio 7",
+      "postalCode": "6616",
+      "addressLocality": "Losone",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.losone.ch/Albo-comunale-b4142000",
+        "fric": "5187",
+        "catParam": "param_cat0",
+        "catId": "78",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Lugano",
+      "status": "existing",
+      "crawler": "citta-di-lugano"
+    },
+    {
+      "municipality": "Lumino",
+      "status": "covered",
+      "key": "comune-di-lumino",
+      "company": "Comune di Lumino",
+      "domain": "lumino.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Giuseppe Pronzini 1",
+      "postalCode": "6533",
+      "addressLocality": "Lumino",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.lumino.ch/Albo-comunale-7dcf2200",
+        "fric": "3687",
+        "catParam": "param_cat0",
+        "catId": "68",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Maggia",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: i bandi escono come voci dell'albo generale",
+      "site": "https://www.maggia.ch/"
+    },
+    {
+      "municipality": "Magliaso",
+      "status": "covered",
+      "key": "comune-di-magliaso",
+      "company": "Comune di Magliaso",
+      "domain": "magliaso.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Cantonale 25",
+      "postalCode": "6983",
+      "addressLocality": "Magliaso",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.magliaso.ch/Albo-039aba00",
+        "fric": "4179",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Manno",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi individuata: albo senza elenco di documenti leggibile",
+      "site": "https://www.manno.ch/manno/home.html"
+    },
+    {
+      "municipality": "Massagno",
+      "status": "covered",
+      "key": "comune-di-massagno",
+      "company": "Comune di Massagno",
+      "domain": "massagno.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Motta 53",
+      "postalCode": "6908",
+      "addressLocality": "Massagno",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.massagno.ch/Albo-comunale",
+        "fric": "5632",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Melide",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: i bandi escono come news",
+      "site": "https://www.melide.ch/"
+    },
+    {
+      "municipality": "Mendrisio",
+      "status": "existing",
+      "crawler": "mendrisio"
+    },
+    {
+      "municipality": "Mergoscia",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi individuata",
+      "site": "https://mergoscia.ch/"
+    },
+    {
+      "municipality": "Mezzovico-Vira",
+      "status": "covered",
+      "key": "comune-di-mezzovico-vira",
+      "company": "Comune di Mezzovico-Vira",
+      "domain": "mezzovico-vira.ch",
+      "cms": "assolo",
+      "streetAddress": "Piaza du Buteghin 8",
+      "postalCode": "6805",
+      "addressLocality": "Mezzovico-Vira",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.mezzovico-vira.ch/Albo-comunale",
+        "fric": "5766"
+      }
+    },
+    {
+      "municipality": "Minusio",
+      "status": "covered",
+      "key": "comune-di-minusio",
+      "company": "Comune di Minusio",
+      "domain": "minusio.ch",
+      "cms": "assolo",
+      "streetAddress": "Via San Gottardo 60",
+      "postalCode": "6648",
+      "addressLocality": "Minusio",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.minusio.ch/Albo-comunale-c3dfab00",
+        "fric": "6342",
+        "catinv": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Monteceneri",
+      "status": "covered",
+      "key": "comune-di-monteceneri",
+      "company": "Comune di Monteceneri",
+      "domain": "monteceneri.ch",
+      "cms": "altro",
+      "streetAddress": "Via Cantonale 65",
+      "postalCode": "6804",
+      "addressLocality": "Bironico",
+      "listing": {
+        "type": "page",
+        "url": "https://www.monteceneri.ch/albo-comunale-modulo?category=Concorsi",
+        "containerSelector": "main",
+        "marker": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Morbio Inferiore",
+      "status": "covered",
+      "key": "comune-di-morbio-inferiore",
+      "company": "Comune di Morbio Inferiore",
+      "domain": "morbioinf.ch",
+      "cms": "assolo",
+      "streetAddress": "Piazzale Municipio",
+      "postalCode": "6834",
+      "addressLocality": "Morbio Inferiore",
+      "issuerAliases": [
+        "Morbio Inf"
+      ],
+      "listing": {
+        "type": "assolo",
+        "url": "https://morbioinf.ch/Albo-comunale-c3dfab00",
+        "fric": "4925",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Morcote",
+      "status": "covered",
+      "key": "comune-di-morcote",
+      "company": "Comune di Morcote",
+      "domain": "morcote.ch",
+      "cms": "assolo",
+      "streetAddress": "Riva da Sant Antoni 10",
+      "postalCode": "6922",
+      "addressLocality": "Morcote",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.morcote.ch/Albo-comunale-c3dfab00",
+        "fric": "4564",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Muralto",
+      "status": "covered",
+      "key": "comune-di-muralto",
+      "company": "Comune di Muralto",
+      "domain": "muralto.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Municipio 3",
+      "postalCode": "6600",
+      "addressLocality": "Muralto",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.muralto.ch/Albo-comunale/IT-c3dfab00",
+        "fric": "4463",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Muzzano",
+      "status": "covered",
+      "key": "comune-di-muzzano",
+      "company": "Comune di Muzzano",
+      "domain": "muzzano.ch",
+      "cms": "assolo",
+      "streetAddress": "Piazza delle Scuole 3",
+      "postalCode": "6933",
+      "addressLocality": "Muzzano",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.muzzano.ch/Albo-e-news-d15c3700",
+        "fric": "4347",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Neggio",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi individuata",
+      "site": "https://www.neggio.ch/"
+    },
+    {
+      "municipality": "Novazzano",
+      "status": "missing",
+      "reason": "il sito risponde HTTP 406 al nostro agente: nessun aggiramento",
+      "site": null
+    },
+    {
+      "municipality": "Onsernone",
+      "status": "covered",
+      "key": "comune-di-onsernone",
+      "company": "Comune di Onsernone",
+      "domain": "onsernone.swiss",
+      "cms": "assolo",
+      "streetAddress": "Russo 52",
+      "postalCode": "6661",
+      "addressLocality": "Russo",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.onsernone.swiss/Albo-comunale-04399800",
+        "fric": "3669",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Origlio",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi individuata",
+      "site": "https://www.origlio.ch/"
+    },
+    {
+      "municipality": "Orselina",
+      "status": "covered",
+      "key": "comune-di-orselina",
+      "company": "Comune di Orselina",
+      "domain": "orselina.ch",
+      "cms": "assolo",
+      "streetAddress": "Via al Parco 18",
+      "postalCode": "6644",
+      "addressLocality": "Orselina",
+      "listing": {
+        "type": "page",
+        "url": "https://www.orselina.ch/",
+        "containerSelector": "body",
+        "marker": "Orselina"
+      }
+    },
+    {
+      "municipality": "Paradiso",
+      "status": "missing",
+      "reason": "pagina Concorsi presente, ma robots.txt vieta /wp-content/ dove stanno i bandi",
+      "site": "https://paradiso.ch/"
+    },
+    {
+      "municipality": "Personico",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: comune piccolo con albo generale",
+      "site": "https://www.personico.ch/"
+    },
+    {
+      "municipality": "Pollegio",
+      "status": "covered",
+      "key": "comune-di-pollegio",
+      "company": "Comune di Pollegio",
+      "domain": "pollegio.ch",
+      "cms": "assolo",
+      "streetAddress": "Piazza Croce Bianca 36",
+      "postalCode": "6742",
+      "addressLocality": "Pollegio",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.pollegio.ch/Albo-comunale",
+        "fric": "4154",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Ponte Capriasca",
+      "status": "covered",
+      "key": "comune-di-ponte-capriasca",
+      "company": "Comune di Ponte Capriasca",
+      "domain": "pontecapriasca.ch",
+      "cms": "assolo",
+      "streetAddress": "Via alle Scuole 26",
+      "postalCode": "6946",
+      "addressLocality": "Ponte Capriasca",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.pontecapriasca.ch/Albo-comunale-c3dfab00",
+        "fric": "3740",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Porza",
+      "status": "covered",
+      "key": "comune-di-porza",
+      "company": "Comune di Porza",
+      "domain": "porza.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Cantonale 22",
+      "postalCode": "6948",
+      "addressLocality": "Porza",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.porza.ch/Albo-comunale-85065000",
+        "fric": "4421",
+        "catinv": "78",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Pura",
+      "status": "covered",
+      "key": "comune-di-pura",
+      "company": "Comune di Pura",
+      "domain": "pura.ch",
+      "cms": "assolo",
+      "streetAddress": "Contrada Vecchia Cantonale 42",
+      "postalCode": "6984",
+      "addressLocality": "Pura",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.pura.ch/Albo-comunale",
+        "fric": "3669",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Quinto",
+      "status": "missing",
+      "reason": "pagina Offerte di lavoro presente, ma robots.txt vieta i PDF (Disallow: /*.pdf$) e il bando e' solo in PDF",
+      "site": "https://www.tiquinto.ch/"
+    },
+    {
+      "municipality": "Riva San Vitale",
+      "status": "covered",
+      "key": "comune-di-riva-san-vitale",
+      "company": "Comune di Riva San Vitale",
+      "domain": "rivasanvitale.ch",
+      "cms": "assolo",
+      "streetAddress": "Piazza Grande 6",
+      "postalCode": "6826",
+      "addressLocality": "Riva San Vitale",
+      "issuerAliases": [
+        "Riva S. Vitale"
+      ],
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.rivasanvitale.ch/Albo-comunale-7dcf2200",
+        "fric": "3687",
+        "catParam": "param_cat0",
+        "catId": "68",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Riviera",
+      "status": "covered",
+      "key": "comune-di-riviera",
+      "company": "Comune di Riviera",
+      "domain": "comuneriviera.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Municipio 5",
+      "postalCode": "6527",
+      "addressLocality": "Lodrino",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.comuneriviera.ch/Albo-comunale-04399800",
+        "fric": "3669",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Ronco sopra Ascona",
+      "status": "covered",
+      "key": "comune-di-ronco-sopra-ascona",
+      "company": "Comune di Ronco sopra Ascona",
+      "domain": "ronco-s-ascona.ch",
+      "cms": "altro",
+      "streetAddress": "Via Livurcio 4",
+      "postalCode": "6622",
+      "addressLocality": "Ronco sopra Ascona",
+      "issuerAliases": [
+        "Ronco s/Ascona"
+      ],
+      "listing": {
+        "type": "page",
+        "url": "https://ronco-s-ascona.ch/albo-comunale/concorsi/",
+        "containerSelector": "main",
+        "marker": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Sant'Antonino",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: i bandi escono come news WordPress",
+      "site": "https://www.santonino.ch/"
+    },
+    {
+      "municipality": "Savosa",
+      "status": "covered",
+      "key": "comune-di-savosa",
+      "company": "Comune di Savosa",
+      "domain": "savosa.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Cantonale 10",
+      "postalCode": "6942",
+      "addressLocality": "Savosa",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.savosa.ch/Albo-comunale-7dcf2200",
+        "fric": "3687",
+        "catParam": "param_cat0",
+        "catId": "68",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Serravalle",
+      "status": "covered",
+      "key": "comune-di-serravalle",
+      "company": "Comune di Serravalle",
+      "domain": "serravalle.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Orino 11",
+      "postalCode": "6713",
+      "addressLocality": "Malvaglia",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.serravalle.ch/Albo-comunale-04399800",
+        "fric": "4377",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Sorengo",
+      "status": "covered",
+      "key": "comune-di-sorengo",
+      "company": "Comune di Sorengo",
+      "domain": "sorengo.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Cortivallo 46",
+      "postalCode": "6924",
+      "addressLocality": "Sorengo",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.sorengo.ch/Albo-comunale-c3dfab00",
+        "fric": "4325",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Stabio",
+      "status": "covered",
+      "key": "comune-di-stabio",
+      "company": "Comune di Stabio",
+      "domain": "stabio.ch",
+      "cms": "altro",
+      "streetAddress": "Via Ufentina 25",
+      "postalCode": "6855",
+      "addressLocality": "Stabio",
+      "listing": {
+        "type": "page",
+        "url": "https://stabio.ch/istituzioni/concorsi-pubblici",
+        "containerSelector": "body",
+        "marker": "Concorsi pubblici"
+      }
+    },
+    {
+      "municipality": "Tenero-Contra",
+      "status": "covered",
+      "key": "comune-di-tenero-contra",
+      "company": "Comune di Tenero-Contra",
+      "domain": "tenero-contra.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Stazione 7",
+      "postalCode": "6598",
+      "addressLocality": "Tenero",
+      "issuerAliases": [
+        "Tenero - Contra"
+      ],
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.tenero-contra.ch/Albo-comunale-c3dfab00",
+        "fric": "4264",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Terre di Pedemonte",
+      "status": "covered",
+      "key": "comune-di-terre-di-pedemonte",
+      "company": "Comune di Terre di Pedemonte",
+      "domain": "pedemonte.ch",
+      "cms": "assolo",
+      "streetAddress": "Piazza Don Gottardo Zurini 2",
+      "postalCode": "6652",
+      "addressLocality": "Tegna",
+      "issuerAliases": [
+        "Terre di Pedemonte"
+      ],
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.pedemonte.ch/Albo-e-comunicati-3dd44d00",
+        "fric": "3669",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Torricella-Taverne",
+      "status": "missing",
+      "reason": "il sito risponde HTTP 403 al nostro agente: nessun aggiramento",
+      "site": null
+    },
+    {
+      "municipality": "Tresa",
+      "status": "covered",
+      "key": "comune-di-tresa",
+      "company": "Comune di Tresa",
+      "domain": "tresa.ch",
+      "cms": "altro",
+      "streetAddress": "Via Lugano 23",
+      "postalCode": "6988",
+      "addressLocality": "Ponte Tresa",
+      "listing": {
+        "type": "page",
+        "url": "https://www.tresa.ch/concorsi-per-lassunzione-di-personale/",
+        "containerSelector": "body",
+        "marker": "Concorsi per l’assunzione di personale"
+      }
+    },
+    {
+      "municipality": "Vacallo",
+      "status": "covered",
+      "key": "comune-di-vacallo",
+      "company": "Comune di Vacallo",
+      "domain": "vacallo.ch",
+      "cms": "assolo",
+      "streetAddress": "Piazza Municipio",
+      "postalCode": "6833",
+      "addressLocality": "Vacallo",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.vacallo.ch/Albo-comunale",
+        "fric": "3686",
+        "catParam": "param_cat0",
+        "catId": "82",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Val Mara",
+      "status": "covered",
+      "key": "comune-di-val-mara",
+      "company": "Comune di Val Mara",
+      "domain": "valmara.ch",
+      "cms": "assolo",
+      "streetAddress": "Via Cantonale 89",
+      "postalCode": "6818",
+      "addressLocality": "Melano",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.valmara.ch/Albo-comunale",
+        "fric": "4507"
+      }
+    },
+    {
+      "municipality": "Vernate",
+      "status": "missing",
+      "reason": "nessuna pagina concorsi: comune piccolo con albo generale",
+      "site": "https://www.vernate.ch/"
+    },
+    {
+      "municipality": "Verzasca",
+      "status": "covered",
+      "key": "comune-di-verzasca",
+      "company": "Comune di Verzasca",
+      "domain": "verzasca.swiss",
+      "cms": "assolo",
+      "streetAddress": "Via S. Antonio 5",
+      "postalCode": "6632",
+      "addressLocality": "Vogorno",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.verzasca.swiss/Albo-comunale-5af21900",
+        "fric": "4905"
+      }
+    },
+    {
+      "municipality": "Vezia",
+      "status": "covered",
+      "key": "comune-di-vezia",
+      "company": "Comune di Vezia",
+      "domain": "vezia.ch",
+      "cms": "assolo",
+      "streetAddress": "Via A. Daldini 13",
+      "postalCode": "6943",
+      "addressLocality": "Vezia",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.vezia.ch/Albo-comunale-04399800",
+        "fric": "3669",
+        "catParam": "param_cat0",
+        "catId": "72",
+        "catLabel": "Concorsi"
+      }
+    },
+    {
+      "municipality": "Vico Morcote",
+      "status": "covered",
+      "key": "comune-di-vico-morcote",
+      "company": "Comune di Vico Morcote",
+      "domain": "vicomorcote.ch",
+      "cms": "assolo",
+      "streetAddress": "Strada al Castell 8",
+      "postalCode": "6921",
+      "addressLocality": "Vico Morcote",
+      "listing": {
+        "type": "assolo",
+        "url": "https://www.vicomorcote.ch/Albo-comunale-7dcf2200",
+        "fric": "4029",
+        "catParam": "param_cat0",
+        "catId": "68",
+        "catLabel": "Concorsi"
+      }
+    }
+  ]
+}

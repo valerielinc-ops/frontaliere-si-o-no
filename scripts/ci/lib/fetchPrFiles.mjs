@@ -54,6 +54,16 @@ const TRANSIENT_PR_FILE_SNAPSHOT_REASONS = new Set([
   'short-of-oracle',
 ]);
 
+// Review-gate API reads carry a typed transport verdict.  It must cross this
+// helper instead of being collapsed into `complete:false`, otherwise a GitHub
+// rate-limit becomes a normal in-diff review failure and the exact HEAD/body
+// evidence is lost.  Ordinary callers still keep the historical fail-closed
+// snapshot behavior.
+function isTypedTransientReadError(error) {
+  return error?.code === 'REVIEW_GATE_TRANSIENT'
+    || error?.failureKind === 'transient';
+}
+
 /**
  * @param {number} number - numero PR
  * @param {(args: string[], opts?: {json?: boolean, allowFail?: boolean}) => any} ghFn
@@ -77,7 +87,10 @@ export function fetchPrFiles(number, ghFn, repo) {
     const raw = ghFn(['pr', 'view', String(number), '--repo', repo, '--json', 'changedFiles,files',
       '--jq', '{changedFiles: (.changedFiles // 0), files: [.files // [] | .[].path]}'], { allowFail: true });
     if (raw && Array.isArray(raw.files)) { files = raw.files; listOk = true; expected = raw.changedFiles; }
-  } catch { files = []; }
+  } catch (error) {
+    if (isTypedTransientReadError(error)) throw error;
+    files = [];
+  }
 
   const known = Number.isFinite(expected) && expected > 0;
   const cappedExactly = files.length === GRAPHQL_FILES_CAP;
@@ -112,7 +125,10 @@ export function fetchPrFiles(number, ghFn, repo) {
       // nessun test, ed e' corretto cosi' — e' un mutante equivalente.)
       restConfirmed = rest.length >= files.length;
       if (rest.length > files.length) files = rest;
-    } catch { /* tiene la lista GraphQL, gia' valutata da `complete` */ }
+    } catch (error) {
+      if (isTypedTransientReadError(error)) throw error;
+      // Tiene la lista GraphQL, già valutata da `complete`.
+    }
   }
 
   // `complete` e' una MISURA, non un default ottimista: se l'oracolo non c'e'

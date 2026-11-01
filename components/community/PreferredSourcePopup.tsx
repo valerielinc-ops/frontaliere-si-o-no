@@ -11,7 +11,9 @@ const DISMISS_KEY = 'preferredSourcePopup:dismissedUntil';
 const ACCEPTED_KEY = 'preferredSourcePopup:accepted';
 const SEEN_KEY = 'preferredSourcePopup:seen';
 const DISMISS_DAYS = 7;
-const SHOW_DELAY_MS = 1200;
+// Il prompt chiede un favore a chi ha già letto: all'apertura copriva titolo e
+// azioni di condivisione proprio nel primo viewport.
+const SHOW_SCROLL_RATIO = 0.4;
 const TITLE_ID = 'preferred-source-popup-title';
 
 export interface PreferredSourcePopupProps {
@@ -35,8 +37,15 @@ export default function PreferredSourcePopup({ articleId }: PreferredSourcePopup
 
   useEffect(() => {
     if (isSuppressed()) return undefined;
-    const timer = window.setTimeout(() => setVisible(true), SHOW_DELAY_MS);
-    return () => window.clearTimeout(timer);
+    const onScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable > 0 && window.scrollY / scrollable >= SHOW_SCROLL_RATIO) {
+        window.removeEventListener('scroll', onScroll);
+        setVisible(true);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, [articleId]);
 
   const handleDismiss = useCallback(() => {

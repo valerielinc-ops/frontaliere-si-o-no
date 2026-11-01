@@ -180,14 +180,11 @@ export interface CityHubSeoEntry {
   h1: string;
 }
 
-export const CITY_HUB_FIRE_THRESHOLD = 30;
-
 /**
  * Build locale-aware, count-aware SEO copy for a city hub page.
  *
  * Mirrors the pattern of {@link buildJobBoardSeo} — inserts a live job count
- * and a 🔥 emoji above {@link CITY_HUB_FIRE_THRESHOLD} to boost CTR on
- * high-intent queries like "lavoro lugano".
+ * for high-intent queries like "lavoro lugano".
  */
 export function buildCityHubSeo(
   locale: JobBoardLocale,
@@ -197,8 +194,7 @@ export function buildCityHubSeo(
   cantonDisplay?: string,
 ): CityHubSeoEntry {
   const safeCount = Number.isFinite(count) && count > 0 ? Math.floor(count) : 0;
-  const useFire = safeCount >= CITY_HUB_FIRE_THRESHOLD;
-  const prefix = safeCount > 0 ? (useFire ? `🔥 ${safeCount} ` : `${safeCount} `) : '';
+  const prefix = safeCount > 0 ? `${safeCount} ` : '';
   const name = CITY_HUB_DISPLAY_NAME[city] ?? cityHubDisplayName(city);
   // F3a — short <title> comes from the shared module (50-60 visible chars).
   // OG title + H1 keep the verbose legacy copy (unconstrained length).
@@ -209,7 +205,6 @@ export function buildCityHubSeo(
     cityDisplay: name,
     count: safeCount,
     year,
-    fireThreshold: CITY_HUB_FIRE_THRESHOLD,
     cantonDisplay,
   });
   const desc = buildCityHubMeta({ locale, cityDisplay: name, count: safeCount, cantonDisplay });

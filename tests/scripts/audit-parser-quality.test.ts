@@ -431,6 +431,19 @@ describe('source-detail fidelity checks', () => {
     expect(classifySourceLocationEvidence('<nav><div class="location">Search by Location</div></nav>')).toBe('generic');
   });
 
+  it('does not promote ATS taxonomy chrome as a source location', () => {
+    for (const value of [
+      'Job Segment: Testing, Java, Developer, Computer Science, Technology',
+      'Career Level: Professional',
+      'Employment Type: Regular Full Time',
+    ]) {
+      expect(extractSourceLocationObservation(`<div class="job-location">${value}</div>`), value).toEqual({
+        location: '',
+        evidence: 'generic',
+      });
+    }
+  });
+
   it('binds addressLocality to its job-scoped container instead of a footer', () => {
     const html = [
       '<footer><span itemprop="addressLocality">Zürich</span></footer>',

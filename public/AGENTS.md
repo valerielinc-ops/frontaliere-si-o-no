@@ -6,8 +6,8 @@ people who work across the Italy–Switzerland border, with a focus on Ticino.
 ## Reading the site
 
 - Prefer the canonical URL with a trailing slash when linking to a page.
-- Use [`/llms.txt`](/llms.txt) for a compact site map and [`/llms-full.txt`](/llms-full.txt)
-  for the extended reference.
+- Use [`/llms.txt`](/llms.txt) for a compact site map, [`/llms-full.txt`](/llms-full.txt)
+  for the extended reference and [`/llms-index.txt`](/llms-index.txt) for the per-URL index.
 - Treat tax, insurance, employment and transport information as time-sensitive.
   Check the linked official source and the date attached to each fact before
   relying on it.

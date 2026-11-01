@@ -7,8 +7,8 @@
     "https://www.ofct.ch/biasca-e-valli/",
     "https://www.farmacielocarnese.ch/"
   ],
-  "_fetchedAt": "2026-10-31T01:55:24.654Z",
-  "_lastSuccessfulFetchAt": "2026-10-31T01:55:24.654Z",
+  "_fetchedAt": "2026-11-01T06:56:28.056Z",
+  "_lastSuccessfulFetchAt": "2026-11-01T06:56:28.056Z",
   "_errors": [],
   "_warnings": [
     "mendrisiotto: last source row retained as boundary-only and not published",
@@ -28,33 +28,6 @@
   "_allRegionsFailed": false,
   "duties": [
     {
-      "id": "ti-duty-mendrisiotto-2026-10-24T06-00-00-000Z-ti-internazionale-dr-merloni-chiasso",
-      "pharmacyId": "ti-internazionale-dr-merloni-chiasso",
-      "coverageType": "region",
-      "coverageName": "Mendrisiotto",
-      "startsAt": "2026-10-24T06:00:00.000Z",
-      "endsAt": "2026-10-27T07:00:00.000Z",
-      "dutyType": "day",
-      "status": "expired",
-      "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-mendrisiotto-2026-10-27T07-00-00-000Z-ti-giardino-coldrerio",
-      "pharmacyId": "ti-giardino-coldrerio",
-      "coverageType": "region",
-      "coverageName": "Mendrisiotto",
-      "startsAt": "2026-10-27T07:00:00.000Z",
-      "endsAt": "2026-10-31T07:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
       "id": "ti-duty-mendrisiotto-2026-10-31T07-00-00-000Z-ti-generoso-melano",
       "pharmacyId": "ti-generoso-melano",
       "coverageType": "region",
@@ -65,8 +38,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-mendrisiotto-2026-11-03T07-00-00-000Z-ti-internazionale-la-rinascente-ligornetto",
@@ -79,8 +52,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-mendrisiotto-2026-11-07T07-00-00-000Z-ti-liver-chiasso",
@@ -93,8 +66,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-mendrisiotto-2026-11-10T07-00-00-000Z-ti-san-nicolao-novazzano",
@@ -107,8 +80,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-mendrisiotto-2026-11-14T07-00-00-000Z-ti-montalbano-san-pietro-di-stabio",
@@ -121,8 +94,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-mendrisiotto-2026-11-17T07-00-00-000Z-ti-zanini-sa-stabio",
@@ -135,8 +108,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-mendrisiotto-2026-11-21T07-00-00-000Z-ti-quisisana-novazzano",
@@ -149,8 +122,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-mendrisiotto-2026-11-24T07-00-00-000Z-ti-moderna-chiasso",
@@ -163,91 +136,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-mendrisiotto-2026-11-28T07-00-00-000Z-ti-ronchi-castel-san-pietro",
-      "pharmacyId": "ti-ronchi-castel-san-pietro",
-      "coverageType": "region",
-      "coverageName": "Mendrisiotto",
-      "startsAt": "2026-11-28T07:00:00.000Z",
-      "endsAt": "2026-12-01T07:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-mendrisiotto-2026-12-01T07-00-00-000Z-ti-san-giorgio-morbio-inferiore",
-      "pharmacyId": "ti-san-giorgio-morbio-inferiore",
-      "coverageType": "region",
-      "coverageName": "Mendrisiotto",
-      "startsAt": "2026-12-01T07:00:00.000Z",
-      "endsAt": "2026-12-05T07:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-mendrisiotto-2026-12-05T07-00-00-000Z-ti-amavita-lura-mendrisio",
-      "pharmacyId": "ti-amavita-lura-mendrisio",
-      "coverageType": "region",
-      "coverageName": "Mendrisiotto",
-      "startsAt": "2026-12-05T07:00:00.000Z",
-      "endsAt": "2026-12-08T07:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-mendrisiotto-2026-12-08T07-00-00-000Z-ti-san-gottardo-chiasso",
-      "pharmacyId": "ti-san-gottardo-chiasso",
-      "coverageType": "region",
-      "coverageName": "Mendrisiotto",
-      "startsAt": "2026-12-08T07:00:00.000Z",
-      "endsAt": "2026-12-12T07:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-luganese-2026-10-17T06-00-00-000Z-ti-farmacia-salus-lugano",
-      "pharmacyId": "ti-farmacia-salus-lugano",
-      "coverageType": "region",
-      "coverageName": "Luganese",
-      "startsAt": "2026-10-17T06:00:00.000Z",
-      "endsAt": "2026-10-24T06:00:00.000Z",
-      "dutyType": "day",
-      "status": "expired",
-      "sourceUrl": "https://www.ofct.ch/luganese/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-luganese-2026-10-24T06-00-00-000Z-ti-farmacia-coop-vitality-viganello-viganello",
-      "pharmacyId": "ti-farmacia-coop-vitality-viganello-viganello",
-      "coverageType": "region",
-      "coverageName": "Luganese",
-      "startsAt": "2026-10-24T06:00:00.000Z",
-      "endsAt": "2026-10-31T07:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/luganese/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-luganese-2026-10-31T07-00-00-000Z-ti-farmacia-contrada-dei-patrizi-molino-nuovo-lugano",
@@ -260,8 +150,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-luganese-2026-11-07T07-00-00-000Z-ti-farmacia-stella-lugano",
@@ -274,8 +164,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-luganese-2026-11-14T07-00-00-000Z-ti-farmacia-sun-store-lugano-beltramina-lugano",
@@ -288,8 +178,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-luganese-2026-11-21T07-00-00-000Z-ti-farmacia-amavita-gianella-lugano",
@@ -302,244 +192,92 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/luganese/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
-      "id": "ti-duty-luganese-2026-11-28T07-00-00-000Z-ti-farmacia-castagnola-castagnola",
-      "pharmacyId": "ti-farmacia-castagnola-castagnola",
-      "coverageType": "region",
-      "coverageName": "Luganese",
-      "startsAt": "2026-11-28T07:00:00.000Z",
-      "endsAt": "2026-12-05T07:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/luganese/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-luganese-2026-12-05T07-00-00-000Z-ti-farmacia-viganello-lugano",
-      "pharmacyId": "ti-farmacia-viganello-lugano",
-      "coverageType": "region",
-      "coverageName": "Luganese",
-      "startsAt": "2026-12-05T07:00:00.000Z",
-      "endsAt": "2026-12-07T07:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/luganese/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-luganese-2026-12-07T07-00-00-000Z-ti-farmacia-airone-lugano",
-      "pharmacyId": "ti-farmacia-airone-lugano",
-      "coverageType": "region",
-      "coverageName": "Luganese",
-      "startsAt": "2026-12-07T07:00:00.000Z",
-      "endsAt": "2026-12-12T07:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/luganese/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-luganese-2026-12-12T07-00-00-000Z-ti-farmacia-benu-viganello-lugano",
-      "pharmacyId": "ti-farmacia-benu-viganello-lugano",
-      "coverageType": "region",
-      "coverageName": "Luganese",
-      "startsAt": "2026-12-12T07:00:00.000Z",
-      "endsAt": "2026-12-19T07:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/luganese/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-bellinzonese-2026-10-26T17-30-00-000Z-ti-stazione-bellinzona",
-      "pharmacyId": "ti-stazione-bellinzona",
-      "coverageType": "region",
-      "coverageName": "Bellinzonese",
-      "startsAt": "2026-10-26T17:30:00.000Z",
-      "endsAt": "2026-10-30T17:30:00.000Z",
-      "dutyType": "day",
-      "status": "expired",
-      "sourceUrl": "https://www.ofct.ch/bellinzonese/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-bellinzonese-2026-10-30T17-30-00-000Z-ti-pedrazzetti-giubiasco",
+      "id": "ti-duty-bellinzonese-2026-10-30T08-00-00-000Z-ti-pedrazzetti-giubiasco",
       "pharmacyId": "ti-pedrazzetti-giubiasco",
       "coverageType": "region",
       "coverageName": "Bellinzonese",
-      "startsAt": "2026-10-30T17:30:00.000Z",
-      "endsAt": "2026-11-06T17:30:00.000Z",
+      "startsAt": "2026-10-30T08:00:00.000Z",
+      "endsAt": "2026-11-06T08:00:00.000Z",
       "dutyType": "day",
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
-      "id": "ti-duty-bellinzonese-2026-11-06T17-30-00-000Z-ti-camorino-camorino",
+      "id": "ti-duty-bellinzonese-2026-11-06T08-00-00-000Z-ti-camorino-camorino",
       "pharmacyId": "ti-camorino-camorino",
       "coverageType": "region",
       "coverageName": "Bellinzonese",
-      "startsAt": "2026-11-06T17:30:00.000Z",
-      "endsAt": "2026-11-13T17:30:00.000Z",
+      "startsAt": "2026-11-06T08:00:00.000Z",
+      "endsAt": "2026-11-13T08:00:00.000Z",
       "dutyType": "day",
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
-      "id": "ti-duty-bellinzonese-2026-11-13T17-30-00-000Z-ti-s-gottardo-bellinzona",
+      "id": "ti-duty-bellinzonese-2026-11-13T08-00-00-000Z-ti-s-gottardo-bellinzona",
       "pharmacyId": "ti-s-gottardo-bellinzona",
       "coverageType": "region",
       "coverageName": "Bellinzonese",
-      "startsAt": "2026-11-13T17:30:00.000Z",
-      "endsAt": "2026-11-16T17:30:00.000Z",
+      "startsAt": "2026-11-13T08:00:00.000Z",
+      "endsAt": "2026-11-16T08:00:00.000Z",
       "dutyType": "day",
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
-      "id": "ti-duty-bellinzonese-2026-11-16T17-30-00-000Z-ti-moesa-castione",
+      "id": "ti-duty-bellinzonese-2026-11-16T08-00-00-000Z-ti-moesa-castione",
       "pharmacyId": "ti-moesa-castione",
       "coverageType": "region",
       "coverageName": "Bellinzonese",
-      "startsAt": "2026-11-16T17:30:00.000Z",
-      "endsAt": "2026-11-20T17:30:00.000Z",
+      "startsAt": "2026-11-16T08:00:00.000Z",
+      "endsAt": "2026-11-20T08:00:00.000Z",
       "dutyType": "day",
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
-      "id": "ti-duty-bellinzonese-2026-11-20T17-30-00-000Z-ti-fenice-giubiasco",
+      "id": "ti-duty-bellinzonese-2026-11-20T08-00-00-000Z-ti-fenice-giubiasco",
       "pharmacyId": "ti-fenice-giubiasco",
       "coverageType": "region",
       "coverageName": "Bellinzonese",
-      "startsAt": "2026-11-20T17:30:00.000Z",
-      "endsAt": "2026-11-27T17:30:00.000Z",
+      "startsAt": "2026-11-20T08:00:00.000Z",
+      "endsAt": "2026-11-27T08:00:00.000Z",
       "dutyType": "day",
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
-      "id": "ti-duty-bellinzonese-2026-11-27T17-30-00-000Z-ti-mgm-azione-bellinzona",
+      "id": "ti-duty-bellinzonese-2026-11-27T08-00-00-000Z-ti-mgm-azione-bellinzona",
       "pharmacyId": "ti-mgm-azione-bellinzona",
       "coverageType": "region",
       "coverageName": "Bellinzonese",
-      "startsAt": "2026-11-27T17:30:00.000Z",
-      "endsAt": "2026-11-30T17:30:00.000Z",
+      "startsAt": "2026-11-27T08:00:00.000Z",
+      "endsAt": "2026-11-30T08:00:00.000Z",
       "dutyType": "day",
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/bellinzonese/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-bellinzonese-2026-11-30T17-30-00-000Z-ti-della-posta-sementina",
-      "pharmacyId": "ti-della-posta-sementina",
-      "coverageType": "region",
-      "coverageName": "Bellinzonese",
-      "startsAt": "2026-11-30T17:30:00.000Z",
-      "endsAt": "2026-12-04T17:30:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/bellinzonese/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-bellinzonese-2026-12-04T17-30-00-000Z-ti-male-bellinzona",
-      "pharmacyId": "ti-male-bellinzona",
-      "coverageType": "region",
-      "coverageName": "Bellinzonese",
-      "startsAt": "2026-12-04T17:30:00.000Z",
-      "endsAt": "2026-12-08T08:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/bellinzonese/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-bellinzonese-2026-12-08T08-00-00-000Z-ti-pellandini-arbedo",
-      "pharmacyId": "ti-pellandini-arbedo",
-      "coverageType": "region",
-      "coverageName": "Bellinzonese",
-      "startsAt": "2026-12-08T08:00:00.000Z",
-      "endsAt": "2026-12-11T17:30:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/bellinzonese/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-bellinzonese-2026-12-11T17-30-00-000Z-ti-nord-sa-bellinzona",
-      "pharmacyId": "ti-nord-sa-bellinzona",
-      "coverageType": "region",
-      "coverageName": "Bellinzonese",
-      "startsAt": "2026-12-11T17:30:00.000Z",
-      "endsAt": "2026-12-18T17:30:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/bellinzonese/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-bellinzonese-2026-12-18T17-30-00-000Z-ti-benu-farmacia-sagittario-bellinzona",
-      "pharmacyId": "ti-benu-farmacia-sagittario-bellinzona",
-      "coverageType": "region",
-      "coverageName": "Bellinzonese",
-      "startsAt": "2026-12-18T17:30:00.000Z",
-      "endsAt": "2026-12-25T08:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/bellinzonese/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-biasca-e-valli-2026-10-23T16-00-00-000Z-ti-amavita-biasca-biasca",
-      "pharmacyId": "ti-amavita-biasca-biasca",
-      "coverageType": "region",
-      "coverageName": "Biasca e Valli",
-      "startsAt": "2026-10-23T16:00:00.000Z",
-      "endsAt": "2026-10-30T17:00:00.000Z",
-      "dutyType": "day",
-      "status": "expired",
-      "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-biasca-e-valli-2026-10-30T17-00-00-000Z-ti-boscolo-airolo",
@@ -552,8 +290,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-biasca-e-valli-2026-11-06T17-00-00-000Z-ti-martinoli-dongio",
@@ -566,8 +304,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-biasca-e-valli-2026-11-13T17-00-00-000Z-ti-pharmantica-biasca",
@@ -580,8 +318,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-biasca-e-valli-2026-11-20T17-00-00-000Z-ti-grassi-faido",
@@ -594,78 +332,8 @@
       "status": "verified",
       "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
       "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-biasca-e-valli-2026-11-27T17-00-00-000Z-ti-riviera-lodrino",
-      "pharmacyId": "ti-riviera-lodrino",
-      "coverageType": "region",
-      "coverageName": "Biasca e Valli",
-      "startsAt": "2026-11-27T17:00:00.000Z",
-      "endsAt": "2026-12-04T17:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-biasca-e-valli-2026-12-04T17-00-00-000Z-ti-visagno-claro",
-      "pharmacyId": "ti-visagno-claro",
-      "coverageType": "region",
-      "coverageName": "Biasca e Valli",
-      "startsAt": "2026-12-04T17:00:00.000Z",
-      "endsAt": "2026-12-08T17:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-biasca-e-valli-2026-12-08T17-00-00-000Z-ti-pharmantica-biasca",
-      "pharmacyId": "ti-pharmantica-biasca",
-      "coverageType": "region",
-      "coverageName": "Biasca e Valli",
-      "startsAt": "2026-12-08T17:00:00.000Z",
-      "endsAt": "2026-12-11T17:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-biasca-e-valli-2026-12-11T17-00-00-000Z-ti-rondi-biasca",
-      "pharmacyId": "ti-rondi-biasca",
-      "coverageType": "region",
-      "coverageName": "Biasca e Valli",
-      "startsAt": "2026-12-11T17:00:00.000Z",
-      "endsAt": "2026-12-18T17:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
-    },
-    {
-      "id": "ti-duty-biasca-e-valli-2026-12-18T17-00-00-000Z-ti-stazione-biasca",
-      "pharmacyId": "ti-stazione-biasca",
-      "coverageType": "region",
-      "coverageName": "Biasca e Valli",
-      "startsAt": "2026-12-18T17:00:00.000Z",
-      "endsAt": "2026-12-25T17:00:00.000Z",
-      "dutyType": "day",
-      "status": "verified",
-      "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
-      "sourceType": "official",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-locarnese-2026-10-26T07-00-00-000Z-ti-ofct-6600-farmacia-sole-locarno",
@@ -678,7 +346,7 @@
       "status": "expired",
       "sourceUrl": "https://www.farmacielocarnese.ch/",
       "sourceType": "association",
-      "fetchedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-locarnese-2026-10-30T17-30-00-000Z-ti-ofct-6600-farmacia-zintgraff-sa-locarno",
@@ -691,8 +359,8 @@
       "status": "verified",
       "sourceUrl": "https://www.farmacielocarnese.ch/",
       "sourceType": "association",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-locarnese-2026-11-02T07-00-00-000Z-ti-ofct-6600-farmacia-internazionale-locarno",
@@ -705,8 +373,8 @@
       "status": "verified",
       "sourceUrl": "https://www.farmacielocarnese.ch/",
       "sourceType": "association",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-locarnese-2026-11-06T17-30-00-000Z-ti-ofct-6612-farmacia-ascona-ascona",
@@ -719,8 +387,8 @@
       "status": "verified",
       "sourceUrl": "https://www.farmacielocarnese.ch/",
       "sourceType": "association",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-locarnese-2026-11-09T07-00-00-000Z-ti-ofct-6600-farmacia-citta-vecchia-sagl-locarno",
@@ -733,8 +401,8 @@
       "status": "verified",
       "sourceUrl": "https://www.farmacielocarnese.ch/",
       "sourceType": "association",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-locarnese-2026-11-13T17-30-00-000Z-ti-ofct-6600-farmacia-del-lago-muralto",
@@ -747,8 +415,8 @@
       "status": "verified",
       "sourceUrl": "https://www.farmacielocarnese.ch/",
       "sourceType": "association",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-locarnese-2026-11-16T07-00-00-000Z-ti-ofct-6600-farmacia-elvetica-muralto",
@@ -761,8 +429,8 @@
       "status": "verified",
       "sourceUrl": "https://www.farmacielocarnese.ch/",
       "sourceType": "association",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-locarnese-2026-11-20T17-30-00-000Z-ti-ofct-6600-farmacia-citta-vecchia-sagl-locarno",
@@ -775,8 +443,8 @@
       "status": "verified",
       "sourceUrl": "https://www.farmacielocarnese.ch/",
       "sourceType": "association",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     },
     {
       "id": "ti-duty-locarnese-2026-11-23T07-00-00-000Z-ti-ofct-6601-farmacia-maggiorini-locarno",
@@ -789,8 +457,8 @@
       "status": "verified",
       "sourceUrl": "https://www.farmacielocarnese.ch/",
       "sourceType": "association",
-      "fetchedAt": "2026-10-31T01:55:24.654Z",
-      "verifiedAt": "2026-10-31T01:55:24.654Z"
+      "fetchedAt": "2026-11-01T06:56:28.056Z",
+      "verifiedAt": "2026-11-01T06:56:28.056Z"
     }
   ],
   "_release": {
@@ -811,21 +479,21 @@
     "snapshots": {
       "catalogue": {
         "path": "data/pharmacies-ticino-complete.json",
-        "sha256": "f29e2fac35460fbc80b41aed467511947ce425041977d35f1ca7fa4240e95c2e",
+        "sha256": "d6dc35fe7249b5b2e59a36feb0bfa126d21a14759fe7516d58e7037102bf2699",
         "fetchedAt": "2026-10-21T16:03:10.483Z"
       },
       "duties": {
         "path": "data/pharmacy-duties-ticino.json",
-        "sha256": "7af38496204651ba84eaf19029a2b56dca2e7edd751d33aa1d0784d1eedc85c1",
-        "fetchedAt": "2026-10-31T01:55:24.654Z"
+        "sha256": "edefb0c8e8c9d548f8a5eac36b1f721a6c7f05e870599b2865010ab7c5dd3466",
+        "fetchedAt": "2026-11-01T06:56:28.056Z"
       }
     },
     "regions": {
       "mendrisiotto": {
         "name": "Mendrisiotto",
         "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
-        "dutyCount": 14,
-        "fetchedAt": "2026-10-31T01:55:24.654Z",
+        "dutyCount": 8,
+        "fetchedAt": "2026-11-01T06:56:28.056Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -834,8 +502,8 @@
       "luganese": {
         "name": "Luganese",
         "sourceUrl": "https://www.ofct.ch/luganese/",
-        "dutyCount": 10,
-        "fetchedAt": "2026-10-31T01:55:24.654Z",
+        "dutyCount": 4,
+        "fetchedAt": "2026-11-01T06:56:28.056Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -844,8 +512,8 @@
       "bellinzonese": {
         "name": "Bellinzonese",
         "sourceUrl": "https://www.ofct.ch/bellinzonese/",
-        "dutyCount": 12,
-        "fetchedAt": "2026-10-31T01:55:24.654Z",
+        "dutyCount": 6,
+        "fetchedAt": "2026-11-01T06:56:28.056Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -854,8 +522,8 @@
       "biasca-e-valli": {
         "name": "Biasca e Valli",
         "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
-        "dutyCount": 10,
-        "fetchedAt": "2026-10-31T01:55:24.654Z",
+        "dutyCount": 4,
+        "fetchedAt": "2026-11-01T06:56:28.056Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -865,13 +533,13 @@
         "name": "Locarnese",
         "sourceUrl": "https://www.farmacielocarnese.ch/",
         "dutyCount": 9,
-        "fetchedAt": "2026-10-31T01:55:24.654Z",
+        "fetchedAt": "2026-11-01T06:56:28.056Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
         "preserved": false
       }
     },
-    "releaseId": "pharmacy-v1-c15c089df3a885a205de2ffc7f6a0ffa0923aedc6de14308f537c7a22c6dbd20"
+    "releaseId": "pharmacy-v1-f8b13cbdf262210f0c531c6c00d190004db5c5220f65618c6efd7c7a8c517d8b"
   }
 }

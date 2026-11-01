@@ -72,6 +72,47 @@ it('renders the Italian editorial excerpt while keeping SEO description and cano
   }
 }, 120_000);
 
+it.each([
+  ['evergreen', 'Article'],
+  ['news', 'NewsArticle'],
+  [undefined, 'NewsArticle'],
+])('types a dated article declared %s as %s', async (articleType, expectedType) => {
+  const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'og-pages-article-type-'));
+  temporaryRoots.push(rootDir);
+  const write = (relativePath: string, value: string) => {
+    const filePath = path.join(rootDir, relativePath);
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    fs.writeFileSync(filePath, value);
+  };
+  const id = 'article-type-contract';
+  const excerpt = 'Una breve descrizione editoriale per verificare il tipo dichiarato della scheda.';
+  const declared = articleType ? `, articleType: '${articleType}'` : '';
+  write('data/blog-articles-data.ts', `const RAW_ARTICLES = [{ id: '${id}', category: 'pratico', date: '2026-01-15'${declared} }];`);
+  write('services/seo/seo-blog.ts', `export const entries = {
+  'blog-${id}': {
+    title: 'Titolo', description: '${excerpt}', keywords: 'test',
+    ogTitle: 'Titolo', ogDescription: '${excerpt}',
+    canonicalPath: '/articoli-frontaliere/${id}/',
+    structuredData: {"@context":"https://schema.org","@type":"NewsArticle","headline":"Titolo","datePublished":"2026-01-15","description":"${excerpt}"},
+  },
+};`);
+  write('services/routerBlogData.ts', `export const BLOG_SLUGS = ${JSON.stringify({ [id]: {
+    it: id, en: `en-${id}`, de: `de-${id}`, fr: `fr-${id}`,
+  } })};`);
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+    write(`services/locales/blog-meta-${locale}.ts`, `const translations: Record<string, string> = ${JSON.stringify({
+      [`blog.article.${id}.title`]: 'Titolo della scheda',
+      [`blog.article.${id}.excerpt`]: excerpt,
+    })};\nexport default translations;\n`);
+  }
+  const distDir = path.join(rootDir, 'dist');
+  const result = await renderArticlePages({ rootDir, distDir, section: 'frontaliere' });
+  const html = fs.readFileSync(path.join(distDir, result.entries[0].paths.it), 'utf8');
+  const types = jsonLdRecords(html).map((record) => record['@type']);
+  expect(types).toContain(expectedType);
+  expect(types).not.toContain(expectedType === 'Article' ? 'NewsArticle' : 'Article');
+});
+
 it('caps evergreen article titles per locale without truncating the WebPage headline', async () => {
   const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'og-pages-head-contract-'));
   temporaryRoots.push(rootDir);

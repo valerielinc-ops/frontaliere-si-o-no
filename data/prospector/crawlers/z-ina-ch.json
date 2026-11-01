@@ -1,0 +1,23 @@
+{
+  "companyKey": "z-ina-ch",
+  "companyName": "z-ina",
+  "companyHost": "oda-g-zh.ch",
+  "platform": "oda-g-zh.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.oda-g-zh.ch/stellen"
+  ],
+  "detailTemplate": "/stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Chefexpert:in Assistent:in Gesundheit und Soziales (CPEX AGS)",
+    "Teamleitung Kursadministration und Planung 100%",
+    "Leitung Services und Mitglied der GL 100%",
+    "Chefexpert:innen Fachfrau/-mann Gesundheit EFZ (CPEX FaGe)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-31T12:47:28.050Z",
+  "candidateKey": "z-ina.ch"
+}

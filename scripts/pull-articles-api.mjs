@@ -57,6 +57,10 @@ import {
 } from './lib/article-canonical-overrides.mjs';
 import { dropRetiredSitemapUrlBlocks, isRetiredLoc } from './lib/sitemap-retired-urls.mjs';
 import { readSlugRegistryWithRows } from './lib/article-slug-registry.mjs';
+import {
+  articleRegistryObjectBodies,
+  articleRegistryObjectFields,
+} from '../packages/articles/engine/shared/articleRegistryObjectBodies.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 import { isReservedPublishedSlug } from './lib/published-slug-guard.mjs';
 import { validatePublishedBlogImageEvidence } from './lib/published-blog-image-evidence.mjs';
@@ -1304,31 +1308,48 @@ for (const name of FEEDS) {
     // is the corrupt case and still refuses — parsing it as empty would de-list
     // the entire sitemap in one run.
     const NEWS_LOCALES = ['it', 'en', 'de', 'fr'];
-    const localeSlugsOf = (file, constName) => {
+    // A guide the generator declared evergreen is not news either: it leaves
+    // this feed the way a de-listed entry does. The page and sitemap-blog keep it.
+    const evergreenIdsOf = (file) => {
+      const abs = path.join(ROOT, file);
+      const ids = new Set();
+      if (!fs.existsSync(abs)) return ids;
+      for (const body of articleRegistryObjectBodies(fs.readFileSync(abs, 'utf8'))) {
+        const fields = articleRegistryObjectFields(body);
+        if (fields.get('articleType') === 'evergreen' && fields.get('id')) ids.add(fields.get('id'));
+      }
+      return ids;
+    };
+    const localeSlugsOf = (file, articlesFile, constName) => {
       const abs = path.join(ROOT, file);
       if (!fs.existsSync(abs)) return null;
       const parsed = readSlugRegistryWithRows(abs, constName);
       if (parsed.rows === 0 || Object.keys(parsed.registry).length !== parsed.rows) {
         fail(`could not parse ${constName} out of ${file}: ${Object.keys(parsed.registry).length}/${parsed.rows} rows — refusing`);
       }
+      const evergreenIds = evergreenIdsOf(articlesFile);
+      const slugsFor = (entries, loc) => new Set(entries.map((slugs) => slugs?.[loc]).filter(Boolean));
       return Object.fromEntries(
-        NEWS_LOCALES.map((loc) => [loc, new Set(Object.values(parsed.registry).map((slugs) => slugs?.[loc]).filter(Boolean))]),
+        NEWS_LOCALES.map((loc) => [loc, {
+          slugs: slugsFor(Object.values(parsed.registry), loc),
+          evergreen: slugsFor([...evergreenIds].map((id) => parsed.registry[id]), loc),
+        }]),
       );
     };
 
     // Hub slugs per locale from the shared section core, not re-typed here.
     const registries = [
-      { section: 'frontaliere', file: 'packages/articles/content/routerBlogData.ts', constName: 'BLOG_SLUGS' },
-      { section: 'svizzera', file: 'packages/articles/content/routerSwissData.ts', constName: 'SWISS_SLUGS' },
-    ].flatMap(({ section, file, constName }) => {
-      const slugsByLocale = localeSlugsOf(file, constName);
+      { section: 'frontaliere', file: 'packages/articles/content/routerBlogData.ts', articlesFile: 'packages/articles/content/blog-articles-data.ts', constName: 'BLOG_SLUGS' },
+      { section: 'svizzera', file: 'packages/articles/content/routerSwissData.ts', articlesFile: 'packages/articles/content/swiss-articles-data.ts', constName: 'SWISS_SLUGS' },
+    ].flatMap(({ section, file, articlesFile, constName }) => {
+      const slugsByLocale = localeSlugsOf(file, articlesFile, constName);
       if (slugsByLocale === null) return [];
       const { indexSlug } = ARTICLE_SECTION_CORE[section];
       return NEWS_LOCALES.map((loc) => ({
         pattern: new RegExp(
           `^https://frontaliereticino\\.ch/${loc === 'it' ? '' : `${loc}/`}${indexSlug[loc].replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/([^/]+)/$`,
         ),
-        slugs: slugsByLocale[loc],
+        ...slugsByLocale[loc],
       }));
     });
 
@@ -1342,6 +1363,15 @@ for (const name of FEEDS) {
       }
       return false;
     };
+    const isEvergreen = (block) => {
+      const loc = locOf(block);
+      for (const { pattern, evergreen } of registries) {
+        const m = loc.match(pattern);
+        if (m) return evergreen.has(m[1]);
+      }
+      return false;
+    };
+    const leavesFeed = (block) => deListed(block) || isEvergreen(block);
 
     const now = Date.now();
     const inWindow = (block) => {
@@ -1374,7 +1404,7 @@ for (const name of FEEDS) {
     for (const block of currentBlocks) merged.set(locOf(block), block);
     for (const block of candidates) merged.set(locOf(block), block);
 
-    const kept = [...merged.values()].filter((b) => inWindow(b) && !deListed(b));
+    const kept = [...merged.values()].filter((b) => inWindow(b) && !leavesFeed(b));
 
     // The guard: anything main is serving that is still inside its window has to
     // come out the other side. A candidate document that silently dropped a live
@@ -1386,7 +1416,7 @@ for (const name of FEEDS) {
     const keptLocs = new Set(kept.map(locOf));
     for (const block of currentBlocks) {
       const loc = locOf(block);
-      if (inWindow(block) && !deListed(block) && !keptLocs.has(loc)) {
+      if (inWindow(block) && !leavesFeed(block) && !keptLocs.has(loc)) {
         fail(
           `${NEWS_SITEMAP}: ${loc} is still inside the ${NEWS_WINDOW_HOURS}h window but the ` +
             `merge dropped it — refusing`,
@@ -1399,6 +1429,8 @@ for (const name of FEEDS) {
     for (const block of currentBlocks) {
       if (deListed(block)) {
         log(`${NEWS_SITEMAP}: dropping ${locOf(block)} — no longer in the slug registry`);
+      } else if (isEvergreen(block)) {
+        log(`${NEWS_SITEMAP}: dropping ${locOf(block)} — declared evergreen, not news`);
       }
     }
 
