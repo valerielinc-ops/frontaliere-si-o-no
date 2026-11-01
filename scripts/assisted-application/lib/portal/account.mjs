@@ -136,7 +136,8 @@ export function verifiedSignInTarget(href, currentUrl, portalHost) {
   try {
     const current = new URL(String(currentUrl || ''));
     const target = new URL(String(href || ''), current);
-    if (current.protocol !== 'https:' || target.username || target.password || !sameSite(target.href, portalHost)) return null;
+    if (current.protocol !== 'https:' || target.protocol !== 'https:'
+      || target.username || target.password || !sameSite(target.href, portalHost)) return null;
     if (target.href === current.href) return null;
     return target.href;
   } catch {
