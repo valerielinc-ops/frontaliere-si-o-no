@@ -107,6 +107,7 @@ export function sanitizeRequirements(raw) {
     if (basis === 'inferred' && (importance === 'critical' || importance === 'high')) importance = 'meaningful';
     return {
       requirement: clean(item?.requirement, 200),
+      sourceRequirement: basis === 'inferred' ? '' : clean(item?.sourceRequirement, 400),
       importance,
       basis,
       quote: basis === 'inferred' ? '' : clean(item?.quote, 400),
@@ -145,14 +146,111 @@ function normalizedHaystack(text) {
   return clean(text, 200_000).toLowerCase();
 }
 
+const EXCLUSIVE_ELIGIBILITY_RE = /\b(?:only|exclusively|solely|reserved\s+for|limited\s+to|solo|soltanto|unicamente|esclusivamente|riservat\w*|uniquement|exclusivement|seulement|reserve\w*|nur|ausschliesslich|ausschließlich|exklusiv\w*|vorbehalten\w*)\b/i;
+const ELIGIBILITY_SUBJECT_RE = /\b(?:candidate\w*|applicant\w*|student\w*|pupil\w*|trainee\w*|intern\w*|apprentice\w*|person\w*|people|individuals?|those|who|resident\w*|holder\w*|graduate\w*|citizen\w*|inwohner\w*|bewohner\w*|inhaber\w*|absolvent\w*|etudiant\w*|eleve\w*|stagiaire\w*|apprenti\w*|candidat\w*|resident\w*|titulaire\w*|diplom\w*|laureat\w*|personnes?|habitants?|citoyen\w*|bewerber\w*|kandidat\w*|schuler\w*|auszubildende\w*|einwohner\w*|bewohner\w*|inhaber\w*|absolvent\w*|resident\w*|inhabitant\w*|chi|coloro|persone|residenti|titolari|laureat\w*|wer)\b/i;
+const HARD_REQUIREMENT_RE = /\b(?:must|requir(?:e|ed|es|ement|ements)|mandatory|essential|necessary|at\s+least|minimum|obbligator\w*|indispensabil\w*|richiest\w*|necessar\w*|deve|devono|devo|dovr\w+|dovete|requis\w*|obligatoir\w*|indispensable|doiv?\w*|exig\w*|erforderlich|zwingend|voraussetz\w*|notwendig|muss|mussen|mindestens)\b/i;
+const QUALIFICATION_CONTEXT_RE = /\b(?:experience|erfahrung|exp[ée]rience|esperienz\w*|year\w*|jahre?\w*|ann[ée]e\w*|anni|language\w*|sprach\w*|lingu\w*|english|german|deutsch|fran[cç]ais|italian|italien\w*|degree|diplom\w*|diplome\w*|laurea|education|educazion\w*|bildung|school|scuola|schule|scolair\w*|student\w*|schuler\w*|eleve\w*|etudiant\w*|permit\w*|bewilligung\w*|arbeitsbewilligung\w*|arbeitserlaubnis\w*|visa|nationalit\w*|citizenship|passport|residen\w*|wohnort|domicil\w*|license|licence|fuehrerschein|fuhrerschein|fahrausweis|patente|competenc\w*|kompetenz\w*|skill\w*|connaissance\w*|kenntnis\w*|conoscenz\w*|office|crm|sap|certificat\w*|certification\w*|qualification\w*|qualifikation\w*|abilit\w*|aptitude\w*)\b/i;
+const HARD_QUALIFICATION_HEADING_RE = /^(?:required\s+)?(?:qualifications?|requirements?|essential\s+criteria|your\s+profile|candidate\s+profile|profile\s+requirements|what\s+you\s+bring|requisiti(?:\s+richiesti)?|qualifiche|profilo\s+richiesto|anforderungen|qualifikationen|voraussetzungen|ihr\s+profil|profil\s+recherche|profil\s+recherch[eé]|conditions\s+requises|exigences|criteres?\s+requis)(?:\s+(?:and|&|\/)\s+(?:experience|skills|requirements?))?\s*:?$/i;
+const OTHER_SECTION_HEADING_RE = /^(?:your\s+tasks?|your\s+responsibilities|tasks?|responsibilities|job\s+description|about\s+(?:us|the\s+company)|our\s+company|our\s+offer|what\s+we\s+offer|benefits|nice\s+to\s+have|preferred\s+qualifications?|desirable\s+skills|aufgaben|taetigkeiten|ihre\s+aufgaben|wir\s+bieten|vorteile|wuenschenswert|wunschprofil|missions|vos\s+avantages|nous\s+offrons|atouts|un\s+plus|responsabilita|cosa\s+offriamo|offriamo|costituisce\s+un\s+plus)\s*:?$/i;
+const PREFERENCE_CUE_RE = /\b(?:advantage|plus|preferred|desirable|nice\s+to\s+have|von\s+vorteil|wuenschenswert|wunschenswert|souhait[eé]|atout|un\s+plus|preferibil\w*|costituisce\s+un\s+plus)\b/i;
+const APPLICATION_METHOD_ONLY_RE = /\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,30}\b(?:online|portal|website|email)\s+only\b|\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,15}\bonly\s+(?:online|through|via|by\s+email)\b/i;
+
+function normalizeEligibilityEvidence(value) {
+  return String(value || '').replace(/\p{Cf}/gu, '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/ß/g, 'ss').replace(/[’`]/g, "'").replace(/\s+/g, ' ').trim().toLowerCase()
+    .replace(/^(?:[-*•▪◦]|\d+[.)])\s+/, '').replace(/[.!?;:,]+$/, '').trim();
+}
+
+function isHardEligibilityStatement(statement) {
+  const normalized = normalizeEligibilityEvidence(statement);
+  return (!APPLICATION_METHOD_ONLY_RE.test(normalized) && EXCLUSIVE_ELIGIBILITY_RE.test(normalized) && ELIGIBILITY_SUBJECT_RE.test(normalized))
+    || (HARD_REQUIREMENT_RE.test(normalized) && QUALIFICATION_CONTEXT_RE.test(normalized));
+}
+
+function postingEligibilityStatements(postingText) {
+  const result = [];
+  let underQualificationHeading = false;
+  let block = '';
+  const flush = () => {
+    if (!block.trim()) return;
+    const sentences = block.split(/(?<=[.!?])\s+/u).map(normalizeEligibilityEvidence).filter(Boolean);
+    for (const statement of sentences) {
+      const headingRequires = underQualificationHeading && !PREFERENCE_CUE_RE.test(statement);
+      if (headingRequires || isHardEligibilityStatement(statement)) result.push(statement);
+    }
+    block = '';
+  };
+
+  for (const rawLine of String(postingText || '').replace(/\r\n?/g, '\n').split('\n')) {
+    const line = rawLine.trim();
+    if (!line) {
+      flush();
+      continue;
+    }
+    const heading = normalizeEligibilityEvidence(line.replace(/^#+\s*/, '')).replace(/:$/, '').trim();
+    const inlineHeading = /^(.{1,80}?)(?:\s*[:–—-]\s+)(.+)$/.exec(line);
+    if (inlineHeading && HARD_QUALIFICATION_HEADING_RE.test(normalizeEligibilityEvidence(inlineHeading[1].replace(/^#+\s*/, '')))) {
+      flush();
+      underQualificationHeading = true;
+      block = inlineHeading[2].trim();
+      continue;
+    }
+    if (HARD_QUALIFICATION_HEADING_RE.test(heading)) {
+      flush();
+      underQualificationHeading = true;
+      continue;
+    }
+    if (OTHER_SECTION_HEADING_RE.test(heading)) {
+      flush();
+      underQualificationHeading = false;
+      if (line.endsWith(':')) continue;
+    }
+    if (/^\s*(?:[-*•▪◦–—]|\d+[.)])\s+/.test(rawLine)) flush();
+    block += `${block ? ' ' : ''}${line.replace(/^(?:[-*•▪◦–—]|\d+[.)])\s+/, '')}`;
+  }
+  flush();
+  return result;
+}
+
+/**
+ * Explicitly restricted audiences and mandatory profile qualifications must
+ * be represented by a source-verified decisive row before candidate matching.
+ * This catches omissions that per-quote verification cannot: a valid quote
+ * for one requirement does not prove the extractor found every hard clause.
+ * Ambiguous or unusually long clauses fail closed and are retried as unknown.
+ */
+export function hasUncoveredHardEligibilityStatements(requirements, postingText) {
+  const statements = postingEligibilityStatements(postingText);
+  const rows = Array.isArray(requirements?.requirements) ? requirements.requirements : [];
+  if (rows.some((item) => item?.basis === 'stated' && ['critical', 'high'].includes(item?.importance)
+    && (!normalizeEligibilityEvidence(item?.sourceRequirement) || !normalizeEligibilityEvidence(item?.quote) || item?.quoteUnverified))) return true;
+  if (!statements.length) return false;
+  const quotes = rows
+    .filter((item) => item?.basis === 'stated' && ['critical', 'high'].includes(item?.importance) && !item?.quoteUnverified)
+    .map((item) => ({
+      quote: normalizeEligibilityEvidence(item?.quote),
+      sourceRequirement: normalizeEligibilityEvidence(item?.sourceRequirement),
+    })).filter((item) => item.quote && item.sourceRequirement);
+  return statements.some((statement) => !quotes.some((item) =>
+    item.quote.includes(statement) && item.sourceRequirement === statement));
+}
+
 /** A quote the posting does not contain verbatim is dropped, not trusted. */
 export function verifyQuotes(requirements, postingText) {
   const haystack = normalizedHaystack(postingText);
   const holds = (quote) => !quote || haystack.includes(clean(quote, 400).toLowerCase());
+  const normalizedPosting = normalizeEligibilityEvidence(postingText);
   for (const item of requirements.requirements) {
     if (!holds(item.quote)) {
       item.quote = '';
       item.quoteUnverified = true;
+    }
+    const normalizedSourceRequirement = normalizeEligibilityEvidence(item.sourceRequirement);
+    const normalizedQuote = normalizeEligibilityEvidence(item.quote);
+    if (normalizedSourceRequirement && (!normalizedPosting.includes(normalizedSourceRequirement)
+      || !normalizedQuote.includes(normalizedSourceRequirement))) {
+      item.sourceRequirement = '';
+      item.sourceRequirementUnverified = true;
     }
   }
   if (!holds(requirements.workPermitQuote)) requirements.workPermitQuote = '';

@@ -14,6 +14,9 @@ describe('proposal decision and actual application progress', () => {
     expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined', withdrawnAt: new Date().toISOString() })).toBe('withdrawn');
     expect(conciergeProposalDisplayStatus({ ...proposal, status: 'declined' })).toBe('declined');
   });
+  it('shows a stale proposed match as needing re-verification while leaving it a proposal', () => {
+    expect(conciergeProposalDisplayStatus({ ...proposal, status: 'proposed', eligibilityStatus: 'needs_verification' })).toBe('needs_verification');
+  });
   it('keeps confirmed sending and employer replies visible when withdrawal evidence conflicts', () => {
     const withdrawn = { ...proposal, status: 'declined', childApplicationId: 'child-test', withdrawnAt: new Date().toISOString(), childApplicationState: 'withdrawn' };
     expect(conciergeProposalDisplayStatus({ ...withdrawn, childSendState: 'sent' })).toBe('submitted');

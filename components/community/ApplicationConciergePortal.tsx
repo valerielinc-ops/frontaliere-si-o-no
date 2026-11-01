@@ -1145,7 +1145,7 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
   }, [proposed, proposal.jobId, proposal.proposalId, serviceId, locale, linkAttempt]);
   const displayStatus = conciergeProposalDisplayStatus(proposal);
   const statusTone = displayStatus === 'submitted' || displayStatus === 'employer_auto_acknowledgement' ? 'bg-success-subtle text-success'
-    : ['proposed', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
+    : ['proposed', 'needs_verification', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
     : 'bg-surface-raised text-muted';
   const childKey = displayStatus === 'needs_answers' ? 'childNeedsAnswers'
     : displayStatus === 'needs_review' ? 'childNeedsReview'
@@ -1168,9 +1168,10 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
     </div>}
     {proposed && <div className="mt-4 flex flex-wrap items-center gap-2">
       {jobHref ? <a href={jobHref} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a> : jobLinkError ? <button type="button" onClick={() => setLinkAttempt(value => value + 1)} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.retryJob')}</button> : <span className="text-xs text-subtle">{t('jobBoard.concierge.loading')}</span>}
-      <button type="button" disabled={disabled || !canAccept} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button>
+      <button type="button" disabled={disabled || !canAccept || displayStatus === 'needs_verification'} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button>
       <button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline')} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{t('jobBoard.concierge.decline')}</button>
     </div>}
+    {proposed && displayStatus === 'needs_verification' && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.eligibilityNeedsVerification')}</p>}
     {proposed && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}
   </article>;
 }
