@@ -1413,13 +1413,11 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
-          "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus-ab210e86d2",
           "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
-        "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus-ab210e86d2",
         "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus"
       ],
       "salaryMin": 81000,
@@ -1531,8 +1529,7 @@
       "streetAddress": "Glarus",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-30T21:37:05.744Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksgl-81eaf614946d",
@@ -1594,9 +1591,7 @@
         "dipl-nursing-professional-hf-or-dipl-midwife-fh-at-the-family-department-kantonsspital-glarus-ksgl-glarus",
         "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus",
         "dipl-soins-infirmiers-professionnels-hf-ou-dipl-la-sage-femme-fh-au-departement-de-la-famille-kantonsspital-glarus-ksgl",
-        "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus",
-        "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus-297dcade31",
-        "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus"
+        "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1609,9 +1604,7 @@
           "dipl-nursing-professional-hf-or-dipl-midwife-fh-at-the-family-department-kantonsspital-glarus-ksgl-glarus",
           "dipl-pflegefachfrau-mann-hf-oder-dipl-hebamme-fh-auf-der-familienabteilung-ksgl-glarus",
           "dipl-soins-infirmiers-professionnels-hf-ou-dipl-la-sage-femme-fh-au-departement-de-la-famille-kantonsspital-glarus-ksgl",
-          "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus",
-          "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus-297dcade31",
-          "infermiera-mann-hf-fh-chirurgia-kantonsspital-glarus-ksgl-glarus"
+          "dipl-pflegefachfrau-mann-hf-o-dipl-hebamme-fh-auf-der-familienabteilung-kantonsspital-glarus-ksgl-glarus"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-chirurgie-ksgl-glarus",
@@ -1643,8 +1636,7 @@
       "streetAddress": "Glarus",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-30T21:37:05.545Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksgl-3a853ad3e0ad",
@@ -1833,8 +1825,7 @@
       "streetAddress": "Glarus",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-30T21:37:03.435Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
