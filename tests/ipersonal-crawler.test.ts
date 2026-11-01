@@ -63,6 +63,17 @@ describe('MediPersonal crawler parser', () => {
       expect(extractIpersonalDescription('<main><p>Generic page copy</p></main>')).toBe('');
     });
 
+    it('rejects a long bare main listing but accepts the same content in an article', () => {
+      const listingWords = Array.from({ length: 80 }, (_, index) => `listing-word-${index + 1}`).join(' ');
+
+      expect(extractIpersonalDescription(`<main><ul><li>${listingWords}</li></ul></main>`)).toBe('');
+
+      const description = extractIpersonalDescription(
+        `<main><article><ul><li>${listingWords}</li></ul></article></main>`,
+      );
+      expect(description).toContain('• listing-word-1');
+    });
+
     it('recovers the current semantic detail shell without the application tail', () => {
       const html = `
         <header><nav>Navigation noise</nav></header>

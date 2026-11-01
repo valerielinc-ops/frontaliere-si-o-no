@@ -218,7 +218,6 @@ export function extractIpersonalDescription(html = '') {
     document.querySelector('main article'),
     document.querySelector('article .entry-content'),
     document.querySelector('main .entry-content'),
-    document.querySelector('main'),
   ].filter(Boolean);
   for (const source of sources) {
     const detail = new JSDOM(`<body>${source.innerHTML}</body>`).window.document.body;
