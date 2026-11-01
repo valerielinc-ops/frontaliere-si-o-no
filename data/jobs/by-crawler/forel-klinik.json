@@ -1,7 +1,7 @@
 {
   "crawlerKey": "forel-klinik",
-  "assembledAt": "2026-11-01T09:42:06.140Z",
-  "runId": "41292695324",
+  "assembledAt": "2026-11-01T22:10:18.734Z",
+  "runId": "41351495030",
   "jobs": [
     {
       "id": "forel-klinik-f18a6020833e",
@@ -35,7 +35,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/0c4764ff-4c69-417c-a4d4-717850ef1f97/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:57.472Z",
+      "crawledAt": "2026-11-01T22:10:12.520Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:41:57.472Z",
+      "validThrough": "2027-01-28T22:10:12.520Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/6a2b1556-fc6e-4836-bb0f-3a15adbad05b/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:57.037Z",
+      "crawledAt": "2026-11-01T22:10:12.041Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       },
       "streetAddress": "Islikonerstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:41:57.037Z",
+      "validThrough": "2026-12-29T22:10:12.041Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -214,7 +214,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/ed713087-46af-475b-9c0a-ccd7cedb67cf/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:56.584Z",
+      "crawledAt": "2026-11-01T22:10:11.548Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -275,7 +275,7 @@
       },
       "streetAddress": "Islikonerstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:41:56.584Z",
+      "validThrough": "2027-01-12T22:10:11.548Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -310,7 +310,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/e375c196-0287-4d4b-b396-3eb86ae2e3c9/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:56.149Z",
+      "crawledAt": "2026-11-01T22:10:11.057Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -355,7 +355,7 @@
       },
       "streetAddress": "Islikonerstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-22T09:41:56.149Z",
+      "validThrough": "2027-01-21T22:10:11.057Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -390,7 +390,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/968bd4db-45d0-439a-8b95-6d029fda4e6d/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:55.715Z",
+      "crawledAt": "2026-11-01T22:10:10.574Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -449,7 +449,7 @@
       },
       "streetAddress": "Islikonerstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T09:41:55.715Z",
+      "validThrough": "2027-01-28T22:10:10.574Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -1,7 +1,7 @@
 {
   "key": "medartis",
   "label": "Medartis",
-  "generatedAt": "2026-11-01T09:42:05.974Z",
+  "generatedAt": "2026-11-01T22:09:06.970Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 9622,
-  "avgDurationMs": 9622,
+  "durationMs": 11263,
+  "avgDurationMs": 11263,
   "durationHistory": [
-    9622
+    11263
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:45.842Z",
+      "crawledAt": "2026-11-01T22:08:51.221Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:41:45.842Z",
+      "validThrough": "2026-12-18T22:08:51.221Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://careers.medartis.com/job/Produktionsmitarbeiterin-Reinraum/1433594733/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:44.463Z",
+      "crawledAt": "2026-11-01T22:08:49.567Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:41:44.463Z",
+      "validThrough": "2026-12-31T22:08:49.567Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -129,7 +129,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-AngularJava/1440346933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:43.493Z",
+      "crawledAt": "2026-11-01T22:08:48.068Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -152,7 +152,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:41:43.493Z",
+      "validThrough": "2026-12-22T22:08:48.068Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -175,7 +175,7 @@
       "url": "https://careers.medartis.com/job/Senior-Global-Product-Manager-CMF/1443182933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:41:42.185Z",
+      "crawledAt": "2026-11-01T22:08:45.885Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -201,7 +201,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:41:42.185Z",
+      "validThrough": "2026-12-30T22:08:45.885Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -223,7 +223,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-%28Angular-Java%29/1440347033/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:41:41.384Z",
+      "crawledAt": "2026-11-01T22:08:44.965Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -246,7 +246,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:41:41.384Z",
+      "validThrough": "2026-12-22T22:08:44.965Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -257,5 +257,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }
