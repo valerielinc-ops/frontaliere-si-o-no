@@ -105,6 +105,21 @@ describe('legacy fuel-station aliases', () => {
       locale: 'de',
       canonicalPath: '/de/benzinpreis-schweiz/bellinzona/heute/',
     },
+    {
+      orphanPath: '/en/gasoline-price-switzerland/chiasso/stazioni/x/',
+      locale: 'en',
+      canonicalPath: '/en/gasoline-price-switzerland/chiasso/today/',
+    },
+    {
+      orphanPath: '/de/benzinpreis-schweiz/chiasso/stations/x/',
+      locale: 'de',
+      canonicalPath: '/de/benzinpreis-schweiz/chiasso/heute/',
+    },
+    {
+      orphanPath: '/fr/prix-essence-suisse/chiasso/tankstellen/x/',
+      locale: 'fr',
+      canonicalPath: '/fr/prix-essence-suisse/chiasso/aujourd-hui/',
+    },
   ];
 
   for (const { orphanPath, canonicalPath, locale } of localizedRouteCases) {

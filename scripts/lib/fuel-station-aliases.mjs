@@ -13,6 +13,8 @@ const LEGACY_FUEL_SECTIONS = new Map([
   ['prix-diesel-suisse', { locale: 'fr', fuel: 'diesel' }],
 ]);
 
+const FUEL_STATION_SEGMENT_ALIASES = new Set(Object.values(FUEL_STATIONS_SLUG));
+
 /**
  * Resolve a retired per-station URL to the current localized daily page for its city.
  *
@@ -47,7 +49,7 @@ export function resolveFuelStation(orphanPath) {
   const stationSlug = parts[italian ? 3 : 2];
   if (!city || !stationSegment || !stationSlug) return null;
   if (italian && italySegment !== FUEL_ITALY_SLUG[locale]) return null;
-  if (stationSegment !== FUEL_STATIONS_SLUG[locale]) return null;
+  if (!FUEL_STATION_SEGMENT_ALIASES.has(stationSegment)) return null;
 
   const prefix = locale === 'it' ? '' : `/${locale}`;
   const canonicalSection = FUEL_SECTION_SLUG[locale][fuel];
