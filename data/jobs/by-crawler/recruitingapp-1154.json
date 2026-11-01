@@ -1,7 +1,7 @@
 {
   "crawlerKey": "recruitingapp-1154",
-  "assembledAt": "2026-10-31T21:46:44.842Z",
-  "runId": "41242863016",
+  "assembledAt": "2026-11-01T09:27:56.838Z",
+  "runId": "41292451365",
   "jobs": [
     {
       "id": "recruitingapp-1154-f2a669dc08e4",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3801/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:36.376Z",
+      "crawledAt": "2026-11-01T09:27:51.798Z",
       "addressLocality": "Buchs",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -85,7 +85,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Buchs",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-15T09:27:51.798Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-1d25ac5861e7",
@@ -118,7 +122,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3802/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:36.074Z",
+      "crawledAt": "2026-11-01T09:27:51.496Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -160,7 +164,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Altstätten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:27:51.496Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-83bb7a8efe0d",
@@ -193,7 +201,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3811/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:35.773Z",
+      "crawledAt": "2026-11-01T09:27:51.196Z",
       "addressLocality": "Wittenbach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -243,7 +251,11 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wittenbach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:27:51.196Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-515500c1e19b",
@@ -276,7 +288,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3813/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:35.472Z",
+      "crawledAt": "2026-11-01T09:27:50.895Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -322,7 +334,11 @@
           "maxValue": 290000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:27:50.895Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-555c11a94c7c",
@@ -355,7 +371,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3816/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:35.171Z",
+      "crawledAt": "2026-11-01T09:27:50.594Z",
       "addressLocality": "Gams",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -405,7 +421,11 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Gams",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:27:50.594Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-70fdcfe24dc3",
@@ -438,7 +458,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3819/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:34.869Z",
+      "crawledAt": "2026-11-01T09:27:50.293Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -490,7 +510,11 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Herisau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:27:50.293Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-8b8f31d72ec7",
@@ -523,7 +547,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3817/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:34.567Z",
+      "crawledAt": "2026-11-01T09:27:49.991Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -573,7 +597,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:27:49.991Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-6486ed8038c6",
@@ -606,7 +634,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3822/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:34.266Z",
+      "crawledAt": "2026-11-01T09:27:49.690Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -653,7 +681,11 @@
           "maxValue": 153000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:27:49.690Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-f37d0a0111d0",
@@ -686,7 +718,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3824/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:33.964Z",
+      "crawledAt": "2026-11-01T09:27:49.388Z",
       "addressLocality": "Rorschach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -736,7 +768,11 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Rorschach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:27:49.388Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-fd2fb41ba96d",
@@ -769,7 +805,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3823/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:33.664Z",
+      "crawledAt": "2026-11-01T09:27:49.088Z",
       "addressLocality": "Rheineck",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -823,7 +859,11 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Rheineck",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:27:49.088Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-651d33174530",
@@ -856,7 +896,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3821/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:33.360Z",
+      "crawledAt": "2026-11-01T09:27:48.787Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -907,7 +947,11 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:27:48.787Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-9c9f3ecdcd84",
@@ -940,7 +984,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3825/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:33.059Z",
+      "crawledAt": "2026-11-01T09:27:48.486Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -988,7 +1032,11 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:27:48.486Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-40ac74f2c284",
@@ -1021,7 +1069,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3826/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:32.758Z",
+      "crawledAt": "2026-11-01T09:27:48.185Z",
       "addressLocality": "Wittenbach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1073,7 +1121,11 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wittenbach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:27:48.185Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-341ba52713ce",
@@ -1106,7 +1158,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3827/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:32.456Z",
+      "crawledAt": "2026-11-01T09:27:47.884Z",
       "addressLocality": "Wittenbach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1157,7 +1209,11 @@
           "maxValue": 52200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wittenbach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:27:47.884Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-c06f9d959632",
@@ -1190,7 +1246,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3829/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:32.155Z",
+      "crawledAt": "2026-11-01T09:27:47.582Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1238,7 +1294,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:27:47.582Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-b8416b8178ac",
@@ -1271,7 +1331,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3830/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:31.853Z",
+      "crawledAt": "2026-11-01T09:27:47.281Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1321,7 +1381,11 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:27:47.281Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-be39d7b35f2f",
@@ -1354,7 +1418,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3832/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:31.551Z",
+      "crawledAt": "2026-11-01T09:27:46.979Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1406,7 +1470,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:27:46.979Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "recruitingapp-1154-c6b98a4f8c9f",
@@ -1439,7 +1507,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3833/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:31.248Z",
+      "crawledAt": "2026-11-01T09:27:46.677Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1486,7 +1554,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:27:46.677Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-10-31T21:47:20.819Z",
-  "runId": "41242863016",
+  "assembledAt": "2026-11-01T09:28:40.395Z",
+  "runId": "41292451365",
   "jobs": [
     {
       "title": "Administrative B2B Specialist",
@@ -63,6 +63,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T21:34:09.718Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-29T21:34:09.718Z"
     },
     {
@@ -125,12 +128,15 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:27:56.864Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-22T09:27:56.864Z",
       "previousSlugsByLocale": {
-        "fr": [
+        "it": [
           "genie-logiciel-finance-core-platform-lastminute-com-chiasso"
         ],
-        "it": [
+        "fr": [
           "genie-logiciel-finance-core-platform-lastminute-com-chiasso"
         ]
       },
@@ -198,13 +204,16 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T21:24:59.633Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-14T21:24:59.633Z",
       "previousSlugsByLocale": {
         "it": [
           "junior-contabile-lastminute-com-chiasso",
-          "comptable-junior-lastminute-com-chiasso",
           "junior-buchhalter-lastminute-com-chiasso",
-          "junior-comptable-lastminute-com-chiasso"
+          "junior-comptable-lastminute-com-chiasso",
+          "comptable-junior-lastminute-com-chiasso"
         ],
         "de": [
           "junior-buchhalter-lastminute-com-chiasso"
@@ -283,6 +292,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:15:31.648Z",
+      "validThroughSource": "job-type-cap",
       "previousSlugsByLocale": {
         "it": [
           "data-ingegnere-lastminute-com-chiasso",
@@ -357,6 +369,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-09T07:39:25.798Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T07:39:25.798Z",
       "previousSlugsByLocale": {
         "it": [
@@ -461,6 +476,9 @@
           "unitText": "YEAR"
         }
       },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-10-19T07:39:25.798Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T07:39:25.798Z"
     }
   ]
