@@ -9,6 +9,12 @@ function makeDoc(id: string, data: Record<string, unknown>) {
   return { id, data: () => data };
 }
 
+const RESPONSE_AT = {
+  acknowledgement: Date.now() - 3 * 86_400_000,
+  interview: Date.now() - 2 * 86_400_000,
+  offer: Date.now() - 86_400_000,
+};
+
 describe('candidate assisted-application status', () => {
   afterEach(() => vi.unstubAllGlobals());
 
@@ -36,6 +42,10 @@ describe('candidate assisted-application status', () => {
         userId: 'owner', paymentStatus: 'paid', billingMode: 'application_concierge', submissionStatus: 'in_progress',
         automationState: 'candidate_review', jobTitle: 'Analista', companyName: 'Azienda B',
         cvStorageKey: 'assisted-application-uploads/private/cv.pdf', customerEmail: 'hidden',
+        employerResponseTimeline: [
+          { category: 'auto_acknowledgement', receivedAt: RESPONSE_AT.acknowledgement, needsReply: false, messageId: 'private-ack' },
+          { category: 'interview_invite', receivedAt: RESPONSE_AT.interview, needsReply: true, messageId: 'private-invite' },
+        ],
         automationUpdatedAt: new Date('2026-10-01T10:00:00Z'),
         updatedAt: new Date('2026-10-03T10:00:00Z'),
         statusChangedAt: new Date('2026-10-04T10:00:00Z'),
@@ -74,6 +84,10 @@ describe('candidate assisted-application status', () => {
         source: 'concierge',
         status: 'needs_candidate',
         updatedAt: '2026-10-04T10:00:00.000Z',
+        employerResponseTimeline: [
+          { category: 'auto_acknowledgement', receivedAt: RESPONSE_AT.acknowledgement, needsReply: false },
+          { category: 'interview_invite', receivedAt: RESPONSE_AT.interview, needsReply: true },
+        ],
       }),
       expect.objectContaining({ orderId: 'refunded', status: 'refunded' }),
       expect.objectContaining({ orderId: 'single-waiting', source: 'single', status: 'awaiting_materials', requiresCvUpload: true }),
@@ -101,6 +115,7 @@ describe('candidate assisted-application status', () => {
     const application = {
       orderId: 'order-1', jobTitle: 'Contabile', companyName: 'Azienda A', source: 'single',
       status: 'in_progress', updatedAt: '2026-10-20T09:30:00.000Z', requiresCvUpload: false,
+      employerResponseTimeline: [{ category: 'offer', receivedAt: RESPONSE_AT.offer, needsReply: false }],
     };
     vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ ok: true, applications: [application] }), { status: 200 })));
     await expect(fetchMyAssistedApplications(user)).resolves.toEqual([application]);

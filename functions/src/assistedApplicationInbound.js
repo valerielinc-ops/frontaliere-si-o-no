@@ -710,7 +710,10 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         ...classification, receivedAt: claimed.receivedAt, messageId,
       };
       const employerResponse = mergeEmployerResponse(mergeEmployerResponse(previousResponse, employerResponseOf(liveOrder)), employerResponseEvent);
-      const employerResponseTimeline = mergeEmployerResponseTimeline(liveOrder.employerResponseTimeline, employerResponseEvent);
+      const employerResponseTimeline = mergeEmployerResponseTimeline(
+        mergeEmployerResponseTimeline(liveOrder.employerResponseTimeline, employerResponseOf(liveOrder)),
+        employerResponseEvent,
+      );
       transaction.set(ref, {
         status: 'processed',
         processedAt: nowMs,
