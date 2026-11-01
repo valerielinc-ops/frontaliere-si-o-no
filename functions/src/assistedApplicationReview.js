@@ -38,11 +38,12 @@ import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, questionsForCandidate, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { talentPoolConsentActive } from './assistedApplicationRetention.js';
-import { loadRunnerAnswerContext } from './assistedApplicationAnswerEvidence.js';
+import { answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
 import { answerMessage, validateAnswer } from './lib/answerRules.js';
 import { permitOmitted, permitStatusOf } from './lib/permitStatus.js';
+import { defaultStartDate, minDateFor, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
 import { decideFollowup, followupReviewPayload } from './assistedApplicationFollowupSweep.js';
 import { randomUUID } from 'node:crypto';
 import {
@@ -109,27 +110,7 @@ async function requireConsentStillGiven(db, { orderId, kind }) {
   if (!kept) throw new ReviewError('link_expired', 403);
 }
 
-// A start date (availability, "inizio", "Eintritt", "début") is never in the past.
-const START_DATE_RE = /availab|disponib|verfügbar|verfuegbar|ab wann|\bstart|inizio|entrata in servizio|beginn|eintritt|antritt|arbeitsbeginn|début|entrée en (fonction|service)|prise de poste|à partir de quand|when can you/i;
-
-/** Today in Zurich, YYYY-MM-DD. */
-export function zurichToday(nowMs = Date.now()) {
-  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Zurich', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(nowMs));
-}
-
-/** The earliest date a date question accepts: today for a start date, else none. */
-export function minDateFor(question, nowMs = Date.now()) {
-  return question?.type === 'date' && START_DATE_RE.test(`${question.id || ''} ${question.question || ''}`) ? zurichToday(nowMs) : null;
-}
-
-/**
- * The proposed start date (owner decision 2026-09-30): the first day of the
- * month three months after next month, e.g. 1 January 2027 in September 2026.
- */
-export function defaultStartDate(nowMs = Date.now()) {
-  const [year, month] = zurichToday(nowMs).split('-').map(Number);
-  return new Date(Date.UTC(year, month - 1 + 4, 1)).toISOString().slice(0, 10);
-}
+export { defaultStartDate, minDateFor, zurichToday };
 
 function questionView(question, nowMs = Date.now()) {
   return {
@@ -290,12 +271,16 @@ export function sendReviewResponse(res, { status, body, file, noStore }) {
   return res.status(status).json(body);
 }
 
-export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, nowMs = Date.now() }) {
+export function buildReviewPayload({ order, orderId = '', flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, keptDocuments = null, submission = {}, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
-  const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow });
+  const orderContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
+  const candidateFlow = { ...flow, answers: orderContext.answers,
+    questionAnswers: { ...(flow?.questionAnswers || {}), ...orderContext.orderAnswers } };
+  const { profile, answers: candidateAnswers } = candidateWithEdits({ order, draft, flow: candidateFlow });
   const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale: order?.locale || 'it' }).answers;
-  const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, flow?.questionAnswers, draft).map((question) => {
+  const visibleQuestions = questionsForCandidate(draft?.questions, profile, candidateAnswers, candidateFlow.questionAnswers, draft);
+  const questions = visibleQuestions.map((question) => {
     const view = questionView(question, nowMs);
     if (question.id !== 'work_permit') return view;
     const { options, value } = permitQuestionView(view.options, answers.work_permit);
@@ -349,6 +334,7 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     // The posting's decisive requirements the CV does not show, said above the questions (null: a full match).
     fit: ready ? fitNoticeOf(draft) : null,
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
+    answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId, questions: visibleQuestions, draft, nowMs }),
     documents,
     documentLimits: { maxBytes: MAX_DOCUMENT_BYTES, maxFiles: MAX_FILES_PER_DOCUMENT },
     feedback: (flow?.feedback || []).map((item) => ({ round: item.round, text: item.text })),
@@ -725,7 +711,7 @@ export async function handleAssistedApplicationReview(req, deps) {
       }
       const { order, flow, draft, submission } = await loadAll(deps.db, orderId);
       const { flow: reviewFlow } = draft?.questions?.length
-        ? await loadRunnerAnswerContext({ db: deps.db, order, flow, draft, nowMs })
+        ? await loadRunnerAnswerContext({ db: deps.db, orderId, order, flow, draft, nowMs })
         : { flow };
       // One signature per key and request: the letter can be both the review's and a kept file.
       const signed = new Map();
@@ -749,7 +735,7 @@ export async function handleAssistedApplicationReview(req, deps) {
           .map((file, index) => ({ kind: file.kind, name: file.name, word: file.word, url: keptUrls[index] }))
           .filter((file) => file.url), kept.whatsapp),
       };
-      return { status: 200, body: { ...buildReviewPayload({ order, flow: reviewFlow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
+      return { status: 200, body: { ...buildReviewPayload({ order, orderId, flow: reviewFlow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
         employerResponse: employerResponseView(await loadEmployerResponse(orderRefFor(deps.db, orderId), order)),
       } };
     }
@@ -821,8 +807,20 @@ export async function handleAssistedApplicationReview(req, deps) {
       return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
     }
     if (action === 'answers') {
-      const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it', flow.answers || {}, flow.questionAnswers || {});
+      const orderContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
+      const runnerContext = await loadRunnerAnswerContext({ db: deps.db, orderId, order, flow, draft, nowMs });
+      const questionAnswers = { ...runnerContext.flow.questionAnswers, ...orderContext.orderAnswers };
+      const reviewFlow = { ...runnerContext.flow, answers: orderContext.answers, questionAnswers };
+      const candidate = candidateWithEdits({ order, draft, flow: reviewFlow });
+      const visibleQuestions = questionsForCandidate(draft?.questions, candidate.profile, candidate.answers, questionAnswers, draft);
+      const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it', orderContext.answers, questionAnswers);
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
+      const currentSnapshots = answerQuestionSnapshotsFor({ orderId, questions: visibleQuestions, draft, nowMs });
+      const suppliedSnapshots = body.answerQuestionSnapshots && typeof body.answerQuestionSnapshots === 'object' && !Array.isArray(body.answerQuestionSnapshots)
+        ? body.answerQuestionSnapshots : {};
+      if (Object.keys(answers).some(id => !currentSnapshots[id] || suppliedSnapshots[id] !== currentSnapshots[id])) {
+        throw new ReviewError('changed_meanwhile', 409);
+      }
       // The questions are dynamic (one set per posting), so the fixed rules
       // above cannot catch placeholders or answers of the wrong kind. The
       // dependency is injected by functions/index.js so unit tests never call
@@ -839,7 +837,8 @@ export async function handleAssistedApplicationReview(req, deps) {
       }
       // A status or an availability the tailored CV prints: rebuilt and committed with the answers, before the
       // event can dispatch the submission (decision 7).
-      await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, answers, nowMs, answerActor: 'candidate' });
+      await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, answers,
+        answerQuestionSnapshots: suppliedSnapshots, answerSnapshotQuestions: visibleQuestions, nowMs, answerActor: 'candidate' });
     }
     const event = {
       approve: { type: 'candidate_approve' },

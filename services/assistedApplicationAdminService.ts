@@ -110,6 +110,7 @@ export interface AssistedApplicationAutomationView {
     requirements: AutomationRequirementView[];
     matches: Array<{ index: number; status: 'met' | 'partial' | 'missing'; evidence: string }>;
     questions: AutomationQuestionView[];
+    questionSnapshots?: Record<string, string>;
     coverLetter: { text: string; subject: string } | null;
     applicationEmail: { to: string; subject: string; body: string } | null;
     formAnswers: Array<{ key: string; label: string; value: string; needsConfirmation: boolean; note: string }>;

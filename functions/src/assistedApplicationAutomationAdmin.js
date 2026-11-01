@@ -20,6 +20,7 @@ import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
 import { CvCommitError, saveAnswersWithCv } from './assistedApplicationCvCommit.js';
+import { answerQuestionSnapshotsFor, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { cvChoiceOf, cvToSend } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
@@ -155,7 +156,11 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   };
   const inPlaceKey = draft?.tailoredCv?.inplace?.status === 'ready' ? draft.tailoredCv.inplace.docxKey : null;
   const [letterUrl, tailoredCvUrl, inPlaceUrl, sent] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey), signed(inPlaceKey), sentView(draft?.sent, signed)]);
-  const candidateState = draft ? candidateWithEdits({ order: orderSnapshot.data() || {}, draft, flow }) : { profile: {}, answers: {} };
+  const order = orderSnapshot.data() || {};
+  const orderAnswerContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
+  const reviewFlow = { ...flow, answers: orderAnswerContext.answers, questionAnswers: orderAnswerContext.orderAnswers };
+  const candidateState = draft ? candidateWithEdits({ order, draft, flow: reviewFlow }) : { profile: {}, answers: {} };
+  const visibleQuestions = draft ? questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, orderAnswerContext.orderAnswers, draft) : [];
   return {
     inbox,
     candidateAlias: orderSnapshot.data()?.candidateAlias?.address || null,
@@ -190,7 +195,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       checksIt: draft.checksIt || [],
       requirements: draft.requirements || [],
       matches: draft.matches || [],
-      questions: questionsForCandidate(draft.questions, candidateState.profile, candidateState.answers, flow?.questionAnswers, draft),
+      questions: visibleQuestions,
+      questionSnapshots: answerQuestionSnapshotsFor({ orderId, questions: visibleQuestions, draft, nowMs }),
       coverLetter: draft.coverLetter || null,
       applicationEmail: draft.applicationEmail || null,
       formAnswers: formAnswersWithEdits({ order: orderSnapshot.data() || {}, draft, flow }),
@@ -389,16 +395,30 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
         orderRefFor(db, orderId).get(), flowRefFor(db, orderId).get(), draftRefFor(db, orderId).get(),
       ]);
       if (!flowSnapshot.exists) throw new AutomationAdminError('no_flow', 404);
+      const draft = draftSnapshot.exists ? draftSnapshot.data() || null : null;
       const answers = {};
       for (const [id, value] of Object.entries(raw.answers && typeof raw.answers === 'object' ? raw.answers : {})) {
         if (/^[a-z0-9_]{1,60}$/.test(id)) answers[id] = clean(value, 500);
+      }
+      const order = orderSnapshot.data() || {};
+      const flow = flowSnapshot.data() || {};
+      const orderAnswerContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
+      const candidateFlow = { ...flow, answers: orderAnswerContext.answers, questionAnswers: orderAnswerContext.orderAnswers };
+      const candidate = candidateWithEdits({ order, draft, flow: candidateFlow });
+      const visibleQuestions = questionsForCandidate(draft?.questions, candidate.profile, candidate.answers, orderAnswerContext.orderAnswers, draft);
+      const visibleIds = new Set(visibleQuestions.map(question => question.id));
+      const currentSnapshots = answerQuestionSnapshotsFor({ orderId, questions: visibleQuestions, draft, nowMs });
+      const suppliedSnapshots = raw.answerQuestionSnapshots && typeof raw.answerQuestionSnapshots === 'object' && !Array.isArray(raw.answerQuestionSnapshots)
+        ? raw.answerQuestionSnapshots : {};
+      if (Object.keys(answers).some(id => !visibleIds.has(id) || !currentSnapshots[id] || suppliedSnapshots[id] !== currentSnapshots[id])) {
+        throw new AutomationAdminError('changed_meanwhile', 409);
       }
       // An answer the tailored CV prints (the permit status, the availability): rebuilt and committed with the
       // answers, before the event can dispatch the submission (decision 7), as the candidate's answers are.
       try {
         await saveAnswersWithCv({
-          db, bucket: deps.bucket, orderId, order: orderSnapshot.data() || {}, flow: flowSnapshot.data() || {},
-          draft: draftSnapshot.exists ? draftSnapshot.data() || null : null, answers, nowMs, answerActor: 'owner',
+          db, bucket: deps.bucket, orderId, order, flow, draft, answers, answerQuestionSnapshots: suppliedSnapshots,
+          answerSnapshotQuestions: visibleQuestions, nowMs, answerActor: 'owner',
         });
       } catch (error) {
         if (error instanceof CvCommitError) throw new AutomationAdminError(error.code, error.status);

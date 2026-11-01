@@ -214,7 +214,7 @@ async function main() {
   // execution only. Never persist them into the target order's flow, where
   // they could outlive the source's consent or retention window.
   const { flow: executionFlow } = await loadRunnerAnswerContext({
-    db, order, flow, draft: previousDraft, nowMs: Date.now(),
+    db, orderId, order, flow, draft: previousDraft, nowMs: Date.now(),
   });
   maskValues([Object.values(executionFlow.answers || {}), Object.values(executionFlow.questionAnswers || {})]);
 

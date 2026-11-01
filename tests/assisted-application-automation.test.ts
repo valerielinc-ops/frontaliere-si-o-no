@@ -26,6 +26,7 @@ const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DEL
 const { autoRetryDelaysForFlow } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
+const { answerQuestionSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 const { getAccountFailure, serializeAccountFailure, submissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
 const { handleAuth, verifyAccount } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
@@ -106,6 +107,7 @@ describe('starting the flow', () => {
       flow: { state: 'submitted', round: 1, answers: {}, questionAnswers: { legacy_unverified: 'Yes' } },
       draft: { round: 1, questions: [question] },
       answers: { work_permit: 'Permit G' },
+      answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId: ORDER, questions: [question], draft: { round: 1, questions: [question] }, nowMs: T0 }),
       answerActor: 'candidate',
       nowMs: T0,
     });

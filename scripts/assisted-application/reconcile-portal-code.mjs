@@ -42,7 +42,7 @@ export async function reconcilePortalCode({ db, version, apply = false, nowMs = 
           || !roundWasSent(flow) || flow.postingExpiredAt || !operationalPortalRecoveryReady({ order, flow, draft })) return false;
         if (flow.heldBy[0] === 'portal:portal_needs_candidate'
           && !talentPoolConsentActive(order) && !(retentionPurgeDueAt(order) > nowMs)) return false;
-        const answerContext = await loadRunnerAnswerContext({ db, order, flow, draft, nowMs,
+        const answerContext = await loadRunnerAnswerContext({ db, orderId, order, flow, draft, nowMs,
           profileRecord: profileDoc?.data() || {}, getDocument: ref => transaction.get(ref) });
         const flags = evaluateRedFlags(draft, flow.answers || {}, flow.documents || {}, answerContext.flow.questionAnswers);
         if (flags.owner.length || flags.candidate.length || flags.documents.length) return false;

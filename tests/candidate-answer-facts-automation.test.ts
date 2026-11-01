@@ -9,6 +9,7 @@ vi.mock('../functions/src/assistedApplicationTailoredCvPdf.js', () => ({
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
 const { startAutomation, applyAutomationEvent } = await import('../functions/src/assistedApplicationAutomation.js');
 const { loadRunnerAnswerContext } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
+const { answerQuestionSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { candidateAnswersForQuestions } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 
 describe('typed facts use the complete producer and automation path', () => {
@@ -29,7 +30,8 @@ describe('typed facts use the complete producer and automation path', () => {
     const store = createMemoryFirestore({ [path]: order, 'assisted_applications/source': source,
       'assisted_applications/source/automation/flow': flow, 'assisted_applications/source/ai_drafts/current': draft,
       'user_cv_profiles/synthetic': { status: 'ready', profile: { languages: [] } } });
-    await saveAnswersWithCv({ db: store.db, bucket: null, orderId: 'source', order: source, flow, draft, answers, answerActor: 'candidate', nowMs: now });
+    await saveAnswersWithCv({ db: store.db, bucket: null, orderId: 'source', order: source, flow, draft, answers,
+      answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId: 'source', questions, draft, nowMs: now }), answerActor: 'candidate', nowMs: now });
     const profile = store.read('user_cv_profiles/synthetic');
     expect(Object.values(profile.applicationQuestionAnswerEvidence)).toHaveLength(4);
     expect(profile.profile).toEqual({ languages: [] });
@@ -44,7 +46,7 @@ describe('typed facts use the complete producer and automation path', () => {
     ];
     const rawFlow = { round: 1, state: 'submitting', answers: {}, questionAnswers: { legacy_consent: 'Yes' }, heldBy: [], dispatch: { mode: 'submit', round: 1, attempts: 2 } };
     const original = structuredClone(rawFlow);
-    const context = await loadRunnerAnswerContext({ db: store.db, order, flow: rawFlow, draft: { round: 1, questions: translated } });
+    const context = await loadRunnerAnswerContext({ db: store.db, orderId, order, flow: rawFlow, draft: { round: 1, questions: translated } });
     expect(context.answerEvidence).toHaveLength(4);
     expect(rawFlow).toEqual(original);
     expect(context.flow.questionAnswers).not.toHaveProperty('legacy_consent');

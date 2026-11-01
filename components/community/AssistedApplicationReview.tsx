@@ -291,7 +291,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       setTouched(Object.fromEntries(Object.keys(clientErrors).map((id) => [id, true])));
       return;
     }
-    void run('answers', { answers });
+    void run('answers', { answers, answerQuestionSnapshots: data?.answerQuestionSnapshots || {} });
   };
 
   // The documents the posting requires besides the CV and the letter: the file

@@ -24,6 +24,7 @@ const { formatLetterDate } = await import('../functions/src/assistedApplicationA
 const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
 const { runAutomationAdminAction } = await import('../services/assistedApplicationAdminService');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
+const { answerQuestionSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 
 const SECRET = 'r'.repeat(40);
 const T0 = Date.UTC(2026, 8, 30, 10, 0, 0);
@@ -55,6 +56,13 @@ const effects: any[] = [];
 const runEffect = vi.fn(async (context: any) => { effects.push(context.effect); return { ok: true }; });
 const deps = () => ({ db: store.db, runEffect, getSecret: async () => SECRET, signUrl: async () => 'https://signed.example/letter.pdf', nowMs: T0 });
 const token = (round = 1) => mintReviewToken({ secret: SECRET, orderId: ORDER, round, nowMs: T0 });
+const currentAnswerSnapshots = async () => {
+  const result = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+  return result.body.answerQuestionSnapshots || {};
+};
+const postAnswers = async (answers: Record<string, string>, extra: Record<string, any> = {}, snapshots?: Record<string, string>) =>
+  handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers,
+    answerQuestionSnapshots: snapshots || await currentAnswerSnapshots() } }, { ...deps(), ...extra });
 
 beforeEach(() => {
   effects.length = 0;
@@ -136,7 +144,8 @@ describe('candidate review API', () => {
     await store.db.collection('assisted_applications').doc('source').collection('ai_drafts').doc('current').set(sourceDraft);
     await store.db.collection('user_cv_profiles').doc(userId).set({ status: 'ready', profile: { languages: [] } });
     await saveAnswersWithCv({ db: store.db, bucket: null, orderId: 'source', order: sourceOrder, flow: sourceFlow,
-      draft: sourceDraft, answers: { birth_date_source: '1996-02-20' }, answerActor: 'candidate', nowMs: T0 });
+      draft: sourceDraft, answers: { birth_date_source: '1996-02-20' },
+      answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId: 'source', questions: sourceDraft.questions, draft: sourceDraft, nowMs: T0 }), answerActor: 'candidate', nowMs: T0 });
 
     await store.db.collection('assisted_applications').doc(ORDER).set({ userId, cvUploadedAt: T0 }, { merge: true });
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
@@ -167,9 +176,7 @@ describe('candidate review API', () => {
       profile: { fullName: 'Maria Rossi', email: 'maria@example.com', location: 'Como', languages: [] },
       questions: [first],
     }));
-    const saved = await handleAssistedApplicationReview({
-      method: 'POST', body: { t: token(), action: 'answers', answers: { german_level: 'B1' } },
-    }, deps());
+    const saved = await postAnswers({ german_level: 'B1' });
     expect(saved).toMatchObject({ status: 200, body: { ok: true } });
     const flow = await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').get();
     expect(Object.values(flow.data()?.questionAnswers || {})).toContain('B1');
@@ -189,8 +196,62 @@ describe('candidate review API', () => {
     expect(body.can.approve).toBe(true);
   });
 
+  it('rejects a stale confirmation when a question id is reused for different text', async () => {
+    const first = { id: 'region', question: 'In quale cantone vivi?', type: 'choice', options: ['Ticino', 'Zurigo'], required: true };
+    const changed = { ...first, question: 'In quale cantone hai maturato esperienza lavorativa?' };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [first] }));
+    const shownBeforeEdit = await currentAnswerSnapshots();
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [changed] }));
+
+    const staleSave = await postAnswers({ region: 'Ticino' }, {}, shownBeforeEdit);
+    expect(staleSave).toMatchObject({ status: 409, body: { error: 'changed_meanwhile' } });
+    expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({});
+  });
+
   // Owner decision 2026-10-08: the candidate's three rounds are the drafts they were shown. An order stood at
   // «round 3» with the page saying no new version was left, and its candidate had seen that one draft only.
+  it('rechecks the question snapshot inside the Firestore save transaction', async () => {
+    const first = { id: 'salary_expectation', question: 'Qual è la tua aspettativa salariale?', type: 'text', required: false };
+    const changed = { ...first, question: 'Quale stipendio minimo accetteresti?' };
+    const draftRef = store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current');
+    await draftRef.set(draft({ questions: [first] }));
+    const loadedDraft = store.read(`${BASE}/ai_drafts/current`);
+    const loadedFlow = store.read(`${BASE}/automation/flow`);
+    const snapshots = answerQuestionSnapshotsFor({ orderId: ORDER, questions: [first], draft: loadedDraft, nowMs: T0 });
+    const originalRunTransaction = store.db.runTransaction.bind(store.db);
+    let changedBeforeCommit = false;
+    store.db.runTransaction = async (callback: (transaction: any) => Promise<any>) => {
+      if (!changedBeforeCommit) {
+        changedBeforeCommit = true;
+        await draftRef.set(draft({ questions: [changed] }));
+      }
+      return originalRunTransaction(callback);
+    };
+
+    await expect(saveAnswersWithCv({ db: store.db, bucket: null, orderId: ORDER, order: store.read(BASE),
+      flow: loadedFlow, draft: loadedDraft, answers: { salary_expectation: 'CHF 80000' },
+      answerQuestionSnapshots: snapshots, answerActor: 'candidate', nowMs: T0 }))
+      .rejects.toMatchObject({ code: 'changed_meanwhile', status: 409 });
+    expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({});
+  });
+
+  it('reuses a new question id only when its typed semantic key and constraints still match', async () => {
+    const first = { id: 'german_level', question: 'Qual è il tuo livello di tedesco?', type: 'choice',
+      options: ['A1', 'A2', 'B1', 'B2'], required: true };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [first] }));
+    expect(await postAnswers({ german_level: 'B1' })).toMatchObject({ status: 200 });
+
+    const compatible = { ...first, id: 'german_skill_level', question: 'What is your German proficiency level?' };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [compatible] }));
+    expect((await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body.answers)
+      .toEqual({ german_skill_level: 'B1' });
+
+    const incompatible = { ...compatible, options: ['A1', 'A2'] };
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [incompatible] }));
+    expect((await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body.answers)
+      .toEqual({ german_skill_level: '' });
+  });
+
   it('counts the new versions left from the drafts the candidate was shown, not from the round\'s number', async () => {
     const order = store.db.collection('assisted_applications').doc(ORDER);
     await order.collection('ai_drafts').doc('current').set(draft({ round: 3 }));
@@ -299,11 +360,11 @@ describe('candidate review API', () => {
     const approve = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'approve' } }, deps());
     expect(approve).toMatchObject({ status: 409, body: { error: 'questions_open' } });
 
-    const bad = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'Z', unknown: 'x' } } }, deps());
+    const bad = await postAnswers({ work_permit: 'Z', unknown: 'x' });
     // An option that does not exist: the field says so, nothing is saved.
     expect(bad).toMatchObject({ status: 400, body: { error: 'invalid_answers', fields: { work_permit: 'Scegli una delle opzioni.' } } });
 
-    const answered = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'G' } } }, deps());
+    const answered = await postAnswers({ work_permit: 'G' });
     expect(answered).toMatchObject({ status: 200, body: { state: 'candidate_review' } });
     expect(store.read(`${BASE}/automation/flow`)).toMatchObject({ answers: { work_permit: 'G' }, deadlineAt: T0 + CANDIDATE_REVIEW_MS });
 
@@ -439,7 +500,7 @@ describe('candidate review API', () => {
       expect.objectContaining({ id: 'availability', minDate: '2026-09-30', suggested: '2027-01-01' }),
       expect.objectContaining({ id: 'birth_date', minDate: null, suggested: null }),
     ]);
-    const answer = (answers: Record<string, string>) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers } }, deps());
+    const answer = (answers: Record<string, string>) => postAnswers(answers);
     expect(await answer({ availability: '1985-09-12' })).toMatchObject({ status: 400, body: { error: 'invalid_answers', fields: { availability: 'La data non può essere nel passato.' } } });
     expect(await answer({ availability: '2026-02-30' })).toMatchObject({ status: 400, body: { error: 'invalid_answers', fields: { availability: 'Inserisci una data valida.' } } });
     expect(await answer({ availability: 'domani' })).toMatchObject({ status: 400, body: { error: 'invalid_answers' } });
@@ -466,7 +527,7 @@ describe('candidate review API', () => {
     const view = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
     // The page receives the rule and checks it while the candidate types.
     expect(view.body.questions[0].validation).toMatchObject({ example: '3 mesi', maxLength: 40 });
-    const save = (answers: Record<string, string>) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers } }, deps());
+    const save = (answers: Record<string, string>) => postAnswers(answers);
     expect(await save({ notice_period: 'boh', years: '120' })).toMatchObject({
       status: 400,
       body: { error: 'invalid_answers', fields: { notice_period: 'Indica il preavviso in mesi o settimane, per esempio 3 mesi.', years: 'Un numero di anni tra 0 e 50.' } },
@@ -478,10 +539,7 @@ describe('candidate review API', () => {
 
   it('runs the optional AI answer check before saving and returns its field guidance', async () => {
     const checkAnswers = vi.fn(async () => ({ ok: false, fields: { work_permit: 'Scegli il tuo permesso.' }, checkedBy: 'codex' }));
-    const refused = await handleAssistedApplicationReview(
-      { method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'G' } } },
-      { ...deps(), checkAnswers },
-    );
+    const refused = await postAnswers({ work_permit: 'G' }, { checkAnswers });
     expect(refused).toMatchObject({ status: 400, body: { error: 'invalid_answers', fields: { work_permit: 'Scegli il tuo permesso.' } } });
     expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({});
     expect(checkAnswers).toHaveBeenCalledWith(expect.objectContaining({
@@ -491,10 +549,7 @@ describe('candidate review API', () => {
       questions: [expect.objectContaining({ id: 'work_permit' })],
     }));
 
-    const accepted = await handleAssistedApplicationReview(
-      { method: 'POST', body: { t: token(), action: 'answers', answers: { work_permit: 'G' } } },
-      { ...deps(), checkAnswers: async () => ({ ok: true, fields: {}, checkedBy: 'codex' }) },
-    );
+    const accepted = await postAnswers({ work_permit: 'G' }, { checkAnswers: async () => ({ ok: true, fields: {}, checkedBy: 'codex' }) });
     expect(accepted.status).toBe(200);
     expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({ work_permit: 'G' });
   });
@@ -589,7 +644,7 @@ describe('the candidate’s Swiss status on the review page', () => {
     await orderRef().collection('automation').doc('flow').set(flowPatch, { merge: true });
   };
   const view = async () => (await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body;
-  const answer = (answers: Record<string, string>) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers } }, deps());
+  const answer = (answers: Record<string, string>) => postAnswers(answers);
 
   it('shows a stored answer that is no option as the last option, and takes it back unchanged', async () => {
     await seed({ questions: [permitQuestion, notice] }, { answers: { work_permit: 'Permesso B in rinnovo' } });

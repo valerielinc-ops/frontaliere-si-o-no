@@ -159,10 +159,11 @@ describe('automatic recovery after a portal fix', () => {
       'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
       'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
       ...['assistedApplicationConstants.js', 'assistedApplicationPortalSites.js', 'assistedApplicationRetention.js', 'assistedApplicationExtraDocuments.js', 'assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
-        'assistedApplicationAutomation.js', 'assistedApplicationCvCommit.js',
+        'assistedApplicationAutomation.js', 'assistedApplicationAutomationAdmin.js', 'assistedApplicationCvCommit.js', 'assistedApplicationReview.js',
         'assistedApplicationAnswerEvidence.js', 'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js',
         'lib/candidateAnswerFacts.js', 'lib/languageFacts.js', 'lib/addressContextContract.js', 'lib/permitStatus.js',
-        'lib/applicationConsent.js', 'lib/portalNativeContract.js', 'lib/answerRules.js', 'lib/portalQuestionText.js'].map(file => `functions/src/${file}`),
+        'lib/applicationConsent.js', 'lib/portalNativeContract.js', 'lib/answerRules.js', 'lib/portalQuestionText.js',
+        'lib/assistedApplicationQuestionConstraints.js'].map(file => `functions/src/${file}`),
     ];
     const write = (file: string, text: string) => { mkdirSync(path.dirname(path.join(root, file)), { recursive: true }); writeFileSync(path.join(root, file), text); };
     try {
@@ -188,8 +189,17 @@ describe('automatic recovery after a portal fix', () => {
       write('functions/src/assistedApplicationCvCommit.js', 'updated answer evidence marker writer');
       expect(currentPortalCodeVersion(root)).not.toBe(afterAutomation);
       const afterCvCommit = currentPortalCodeVersion(root);
-      write('functions/src/lib/applicationConsent.js', 'fixed notice grammar');
+      write('functions/src/assistedApplicationReview.js', 'updated question snapshot save validator');
       expect(currentPortalCodeVersion(root)).not.toBe(afterCvCommit);
+      const afterReview = currentPortalCodeVersion(root);
+      write('functions/src/assistedApplicationAutomationAdmin.js', 'updated owner answer snapshot validator');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterReview);
+      const afterAdmin = currentPortalCodeVersion(root);
+      write('functions/src/lib/assistedApplicationQuestionConstraints.js', 'fixed shared visible question constraints');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterAdmin);
+      const afterQuestionConstraints = currentPortalCodeVersion(root);
+      write('functions/src/lib/applicationConsent.js', 'fixed notice grammar');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterQuestionConstraints);
       const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/assisted-application-portal-recovery.yml', import.meta.url), 'utf8'));
       for (const file of sourceFiles) expect(workflow.on.push.paths.some((pattern: string) => pattern.endsWith('/**') ? file.startsWith(pattern.slice(0, -2)) : file === pattern)).toBe(true);
     } finally { rmSync(root, { recursive: true, force: true }); }

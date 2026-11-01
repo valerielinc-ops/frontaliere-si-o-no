@@ -37,8 +37,8 @@ import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submission
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
-import { loadRunnerAnswerContext } from './assistedApplicationAnswerEvidence.js';
-import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { loadRunnerAnswerContext, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
+import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
 
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
 export { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
@@ -88,20 +88,15 @@ function candidateQuestionAnswersRefFor(db, userId) {
   return id ? db.collection('user_cv_profiles').doc(id) : null;
 }
 
-function orderScopedQuestionAnswers(draft, flow) {
-  const answers = flow?.answers && typeof flow.answers === 'object' && !Array.isArray(flow.answers) ? flow.answers : {};
-  const previous = flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
-    ? flow.questionAnswers : {};
-  return rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers, previous, changed: answers });
-}
-
-async function candidateQuestionAnswerContext({ db, transaction, order, profileSnapshot, flow, draft, nowMs }) {
+async function candidateQuestionAnswerContext({ db, transaction, orderId, order, profileSnapshot, flow, draft, nowMs }) {
   const context = await loadRunnerAnswerContext({
-    db, order, flow, draft, nowMs,
+    db, orderId, order, flow, draft, nowMs,
     profileRecord: profileSnapshot?.data() || {},
     getDocument: ref => transaction.get(ref),
   });
-  return { questionAnswers: context.flow.questionAnswers, orderAnswers: context.orderAnswers };
+  return { answers: context.flow.answers, questionAnswers: context.flow.questionAnswers,
+    orderAnswers: context.orderAnswers, orderAnswerSnapshots: context.orderAnswerSnapshots,
+    orderAnswerSnapshotIds: context.orderAnswerSnapshotIds, orderAnswerCompatibility: context.orderAnswerCompatibility };
 }
 
 /** Fails closed: any error reading Remote Config means "off". */
@@ -291,14 +286,18 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     const flow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
     const candidateAnswerContext = await candidateQuestionAnswerContext({
-      db, transaction, order, profileSnapshot: candidateProfileSnapshot, flow, draft, nowMs,
+      db, transaction, orderId, order, profileSnapshot: candidateProfileSnapshot, flow, draft, nowMs,
     });
     // Only source-verified candidate facts can travel between postings.
     // Answers written on this order win and are rebuilt from its current draft;
     // legacy flow/global maps are never treated as provenance.
     const flowForTransition = {
       ...flow,
+      answers: candidateAnswerContext.answers,
       questionAnswers: candidateAnswerContext.questionAnswers,
+      questionAnswerSnapshots: candidateAnswerContext.orderAnswerSnapshots,
+      questionAnswerSnapshotIds: candidateAnswerContext.orderAnswerSnapshotIds,
+      questionAnswerCompatibility: candidateAnswerContext.orderAnswerCompatibility,
     };
     // A runner event from a superseded round is stale: never let it move the
     // current round (e.g. a slow draft of round 1 finishing after a rejection).
@@ -307,7 +306,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       outcome = { ok: false, ignored: 'stale_round' };
       return;
     }
-    const result = transition(flowForTransition, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
+    const result = transition(flowForTransition, event, { draft, answers: candidateAnswerContext.answers, documents: flow.documents || {}, nowMs });
     // Recovery can be scheduled before a refund or a manual closure. The
     // order read in this transaction is authoritative for starting and
     // continuing a fact-repair chain, including its candidate-review emails.
@@ -345,7 +344,10 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         reason: dispatch.reason || null,
       };
     }
-    const persistedFlow = { ...nextFlow, questionAnswers: candidateAnswerContext.orderAnswers };
+    const persistedFlow = { ...nextFlow, answers: candidateAnswerContext.answers,
+      questionAnswers: candidateAnswerContext.orderAnswers, questionAnswerSnapshots: candidateAnswerContext.orderAnswerSnapshots,
+      questionAnswerSnapshotIds: candidateAnswerContext.orderAnswerSnapshotIds,
+      questionAnswerCompatibility: candidateAnswerContext.orderAnswerCompatibility };
     const accountFailure = getAccountFailure(event);
     claim('applied');
     transaction.set(flowRef, persistedFlow);
@@ -451,7 +453,7 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
     // A live flow is never restarted; a finished takeover can be restarted by the owner.
     if (existing && !(reason === 'owner_request' && existing.state === 'owner_takeover')) return;
     if (!automationEligibility(order, orderId).eligible) return;
-    const orderAnswers = orderScopedQuestionAnswers(draft, existing || {});
+    const orderContext = orderQuestionAnswerContext({ orderId, flow: existing || {}, draft, nowMs });
     const flow = {
       state: 'drafting',
       round: 1,
@@ -465,11 +467,14 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
         ? { orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION }
         : {}),
       feedback: existing?.feedback || [],
-      answers: existing?.answers || {},
+      answers: orderContext.answers,
       // Keep only order-local answers in Firestore. Verified cross-posting
       // facts are reloaded for the runner's execution context and not copied
       // into another order's retention window.
-      questionAnswers: orderAnswers,
+      questionAnswers: orderContext.orderAnswers,
+      questionAnswerSnapshots: orderContext.questionAnswerSnapshots,
+      questionAnswerSnapshotIds: orderContext.questionAnswerSnapshotIds,
+      questionAnswerCompatibility: orderContext.questionAnswerCompatibility,
       history: [...(existing?.history || []), { at: nowMs, event: `start:${reason}`, state: 'drafting' }].slice(-40),
       dispatch: { mode: 'draft', round: 1, requestedAt: nowMs, attempts: 1, reason },
       startedAt: nowMs,

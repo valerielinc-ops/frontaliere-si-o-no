@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { candidateQuestionAnswerKey } from '../functions/src/assistedApplicationCandidateEdits.js';
-import { rememberCandidateAnswerEvidence, loadCandidateAnswerEvidence } from '../functions/src/assistedApplicationAnswerEvidence.js';
+import { answerQuestionCompatibilityHash, answerQuestionSnapshotHash, answerQuestionSnapshotsFor, rememberCandidateAnswerEvidence, loadCandidateAnswerEvidence } from '../functions/src/assistedApplicationAnswerEvidence.js';
+import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
 const now = Date.now();
@@ -16,10 +17,16 @@ const cases = [
 ];
 function fixture(testCase = cases[0]) {
   const { question, answer } = testCase;
-  const flow = { round: 1, answers: { [question.id]: answer } };
-  const draft = { round: 1, questions: [question] };
-  const evidence = rememberCandidateAnswerEvidence({ questions: [question], changed: flow.answers, orderId: 'source', order, flow, draft, actor: 'candidate', nowMs: now });
   const key = candidateQuestionAnswerKey(question);
+  const draft = { round: 1, questions: [question] };
+  const questionAnswerSnapshots = { [key]: answerQuestionSnapshotHash({ orderId: 'source', question, draft, nowMs: now }) };
+  const flow = { round: 1, answers: { [question.id]: answer }, questionAnswerSnapshots,
+    questionAnswerSnapshotIds: { [key]: [question.id] },
+    questionAnswerCompatibility: { [key]: answerQuestionCompatibilityHash({ orderId: 'source', question, draft, nowMs: now }) },
+    orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION };
+  const evidence = rememberCandidateAnswerEvidence({ questions: [question], changed: flow.answers,
+    confirmedQuestionSnapshots: answerQuestionSnapshotsFor({ orderId: 'source', questions: [question], draft, nowMs: now }),
+    orderId: 'source', order, flow, draft, actor: 'candidate', nowMs: now });
   const profileRecord = { applicationQuestionAnswers: { [key]: answer }, applicationQuestionAnswerEvidence: evidence };
   const store = createMemoryFirestore({ 'assisted_applications/source': order, 'assisted_applications/source/automation/flow': flow, 'assisted_applications/source/ai_drafts/current': draft });
   const load = () => loadCandidateAnswerEvidence({ db: store.db, profileRecord, userId: order.userId, nowMs: now });
@@ -41,9 +48,28 @@ describe('typed facts use the attested answer source contract', () => {
     expect(f.evidence[f.key].id).toMatch(/^answer-[a-f0-9]{24}$/);
     expect((await f.load())(target).fingerprint).toBe(result.fingerprint);
   });
+  it('binds confirmation to the shown question text and excludes answer-shaped payload fields', () => {
+    const question = { id: 'experience', question: 'How many years of Python experience?', type: 'number', required: true,
+      answer: '3.5', suggested: '5', value: '3.5' };
+    const sameQuestion = { ...question, answer: '8', suggested: '10', value: '8' };
+    const changedQuestion = { ...sameQuestion, question: 'How many years of SQL experience?' };
+    const originalHash = answerQuestionSnapshotHash({ orderId: 'source', question });
+    const originalCompatibility = answerQuestionCompatibilityHash({ orderId: 'source', question });
+    expect(answerQuestionSnapshotHash({ orderId: 'source', question: sameQuestion })).toBe(originalHash);
+    expect(answerQuestionCompatibilityHash({ orderId: 'source', question: sameQuestion })).toBe(originalCompatibility);
+    expect(answerQuestionSnapshotHash({ orderId: 'source', question: changedQuestion })).not.toBe(originalHash);
+    expect(originalHash).not.toContain(question.answer);
+    expect(originalCompatibility).not.toContain(question.answer);
+  });
   it('does not treat fact.type alone as proof when the exact source question is absent', async () => {
     const f = fixture();
     f.store.docs.set('assisted_applications/source/ai_drafts/current', { round: 1, questions: [] });
+    expect((await f.load())(target).answerEvidence).toEqual([]);
+  });
+  it('rejects a source answer when the same question id is reused for a different prompt', async () => {
+    const f = fixture(cases[1]);
+    f.store.docs.set('assisted_applications/source/ai_drafts/current', { round: 1,
+      questions: [{ ...cases[1].question, question: 'How many years of experience do you have with SQL?' }] });
     expect((await f.load())(target).answerEvidence).toEqual([]);
   });
   it('keeps G attached to the source employment rather than granting general work rights', async () => {
@@ -70,7 +96,9 @@ describe('typed facts use the attested answer source contract', () => {
   });
   it('validates options and the full contract before promoting a positive typed subject', () => {
     const question = { id: 'experience', question: 'How many years of experience do you have with Python?', type: 'number', validation: { min: 5 } };
-    const records = rememberCandidateAnswerEvidence({ questions: [question], changed: { experience: '3' }, orderId: 'source', order, flow: { round: 1 }, draft: { round: 1 }, actor: 'candidate', nowMs: now });
+    const records = rememberCandidateAnswerEvidence({ questions: [question], changed: { experience: '3' },
+      confirmedQuestionSnapshots: answerQuestionSnapshotsFor({ orderId: 'source', questions: [question], draft: { round: 1, questions: [question] }, nowMs: now }),
+      orderId: 'source', order, flow: { round: 1 }, draft: { round: 1 }, actor: 'candidate', nowMs: now });
     expect(records[candidateQuestionAnswerKey(question)]).toMatchObject({ cleared: true });
     expect(records[candidateQuestionAnswerKey(question)]).not.toHaveProperty('fact');
   });
