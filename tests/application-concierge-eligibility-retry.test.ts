@@ -35,4 +35,14 @@ describe('independent qualification retry queue', () => {
     expect(result.work.filter((row: any) => retry.has(row.url))).toHaveLength(8);
     expect(result.work.some((row: any) => row.url === 'job-70')).toBe(true);
   });
+
+  it('prioritizes the bounded legacy recovery batch and keeps backoff rows out of fresh work', () => {
+    const candidates = Array.from({ length: 100 }, (_, index) => ({ url: `job-${index}` }));
+    const result = conciergeMatchingWork(candidates, new Set(), '', new Set(), ['job-80', 'job-81'], new Set(['job-80', 'job-81', 'job-82']));
+    expect(result.work.slice(0, 2).map((row: any) => row.url)).toEqual(['job-80', 'job-81']);
+    expect(result.work[2].url).toBe('job-0');
+    expect(result.work.some((row: any) => row.url === 'job-82')).toBe(false);
+    expect(result.frontier.some((row: any) => row.url === 'job-82')).toBe(false);
+    expect(result.work).toHaveLength(40);
+  });
 });

@@ -27,6 +27,16 @@ describe('three-day proposal refresh', () => {
       expect(conciergeRefreshDue(active(patch), now)).toBe(false);
     }
   });
+
+  it('schedules persisted legacy recovery at its bounded retry time and stops at the cap', () => {
+    const pending = active({ matchingStatus: 'complete', matchingCompletedAt: now,
+      matchingLegacyRecoveryPendingCount: 4, matchingLegacyRecoveryRetryAt: now + 60 * 60 * 1000 });
+    expect(conciergeRefreshDue(pending, now)).toBe(false);
+    expect(conciergeRefreshDue(pending, now + 60 * 60 * 1000)).toBe(true);
+    expect(conciergeRefreshDue({ ...pending, matchingLegacyRecoveryPendingCount: 0 }, now + 60 * 60 * 1000)).toBe(false);
+    expect(conciergeRefreshDue({ ...pending, acceptedPositionsCount: 10 }, now + DAY)).toBe(false);
+    expect(conciergeRefreshDue({ ...pending, matchingStatus: 'failed', matchingLegacyRecoveryRetryAt: now + 3 * DAY }, now + 60 * 60 * 1000)).toBe(true);
+  });
 });
 
 it('recovers a stale matching run only after the bounded lease', () => {
