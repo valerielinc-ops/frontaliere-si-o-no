@@ -14,6 +14,7 @@
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..', '..');
@@ -91,7 +92,7 @@ export function main() {
   console.log('✅ Historical job-slice blobs are available locally.');
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+if (isInvokedDirectly(import.meta.url)) {
   try {
     main();
   } catch (error) {
