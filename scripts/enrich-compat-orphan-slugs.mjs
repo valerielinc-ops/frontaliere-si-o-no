@@ -20,7 +20,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
-import { readCompatPaths } from './lib/compat-paths-store.mjs';
+import { iterateCompatPaths } from './lib/compat-paths-store.mjs';
 import {
   readOrphanEnriched,
   writeOrphanEnriched,
@@ -188,15 +188,16 @@ function main() {
 
   console.log(`🔄 enrich-compat-orphan-slugs — ${dryRun ? 'DRY RUN' : 'LIVE'}`);
 
-  const compat = readCompatPaths(ROOT); // sharded accumulator (issue #2988)
-  const compatPaths = Array.isArray(compat.paths) ? compat.paths : [];
   const enriched = readOrphanEnriched(ROOT);
   const orphanSlugsList = readJson(ORPHAN_SLUGS, []);
   const activeJobs = readJson(JOBS, []);
 
   // Build compat slug -> {locale, canton, path} (prefer IT if multi-locale dupe)
   const compatPathBySlug = new Map();
-  for (const p of compatPaths) {
+  // The accumulator contains millions of paths. This pass only needs to
+  // inspect them to build the slug index, so consume one shard at a time and
+  // keep the enrichment maps—not a second copy of the whole accumulator—in RAM.
+  for (const p of iterateCompatPaths(ROOT)) {
     const raw = String(p || '');
     const matched = matchJobBoardPath(raw);
     if (!matched) continue;

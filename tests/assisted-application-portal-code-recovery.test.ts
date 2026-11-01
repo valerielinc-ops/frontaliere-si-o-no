@@ -180,11 +180,15 @@ describe('automatic recovery after a portal fix', () => {
   it('changes the fingerprint only for runner sources and covers those files in the workflow trigger', () => {
     const root = mkdtempSync(path.join(tmpdir(), 'portal-source-version-'));
     const sourceFiles = [
+      'scripts/lib/prospector/public-fetch-policy.mjs',
+      'scripts/assisted-application/verify-portal.mjs',
       'scripts/assisted-application/reconcile-portal-code.mjs', 'scripts/assisted-application/reconcile-portal-questions.mjs',
       'scripts/assisted-application/agent.mjs', 'scripts/assisted-application/lib/submit.mjs',
       'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
       'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
-      ...['assistedApplicationConstants.js', 'assistedApplicationPortalSites.js', 'assistedApplicationRetention.js', 'assistedApplicationExtraDocuments.js', 'assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
+      ...['assistedApplicationConstants.js', 'assistedApplicationPortalSites.js', 'assistedApplicationRetention.js', 'assistedApplicationExtraDocuments.js',
+        'assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
+        'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js',
         'assistedApplicationAutomation.js', 'assistedApplicationAutomationAdmin.js', 'assistedApplicationCvCommit.js', 'assistedApplicationReview.js',
         'assistedApplicationAnswerEvidence.js', 'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js',
         'lib/candidateAnswerFacts.js', 'lib/languageFacts.js', 'lib/addressContextContract.js', 'lib/permitStatus.js',

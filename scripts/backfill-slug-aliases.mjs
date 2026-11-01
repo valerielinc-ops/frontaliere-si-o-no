@@ -18,7 +18,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fingerprintJob, loadSlugRegistry } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
-import { readCompatPaths } from './lib/compat-paths-store.mjs';
+import { iterateCompatPaths } from './lib/compat-paths-store.mjs';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { hasSameJobSourcePosting } from './lib/job-identity.mjs';
@@ -122,9 +122,6 @@ function main() {
     return;
   }
 
-  const compat = readCompatPaths(ROOT); // sharded accumulator (issue #2988)
-  const paths = Array.isArray(compat.paths) ? compat.paths : [];
-
   // Build index: companyKey → jobs
   const byCompany = new Map();
   for (const job of jobs) {
@@ -136,7 +133,9 @@ function main() {
 
   // Extract job slugs from 404 paths
   const orphanSlugs = [];
-  for (const p of paths) {
+  // The accumulator contains millions of paths. Only the extracted slugs are
+  // needed by the matching pass, so avoid materializing the whole path list.
+  for (const p of iterateCompatPaths(ROOT)) {
     const slug = extractSlugFromPath(p);
     if (!slug) continue;
     // Skip editorial/company/search pages

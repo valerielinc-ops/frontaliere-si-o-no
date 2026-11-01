@@ -122,7 +122,7 @@ async function purgeAutomationData(bucket, orderRef, orderId, db, order, nowMs) 
     await bucket.deleteFiles({ prefix: `${ASSISTED_STORAGE_PREFIX}${orderId}/` });
   }
   if (typeof orderRef?.collection !== 'function') return;
-  for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow'], ['automation', SUBMISSION_DOC_ID], ['automation', 'intake'], ['automation', PORTAL_ACCOUNTS_DOC_ID], ['automation', FOLLOWUP_DOC_ID]]) {
+  for (const [collection, id] of [['ai_drafts', 'current'], ['automation', 'flow'], ['automation', SUBMISSION_DOC_ID], ['automation', 'portal_verification'], ['automation', 'intake'], ['automation', PORTAL_ACCOUNTS_DOC_ID], ['automation', FOLLOWUP_DOC_ID]]) {
     await orderRef.collection(collection).doc(id).delete();
   }
   for (const name of ['automation_events', 'inbox', 'email_events']) {

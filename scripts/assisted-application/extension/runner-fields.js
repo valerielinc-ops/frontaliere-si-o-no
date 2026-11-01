@@ -1127,11 +1127,26 @@ function nativeQuestionText(value, counter = null) {
       fileContext: fileContext(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
+      formId: element.form || element.closest('form') ? idFor(element.form || element.closest('form')) : '',
       ...(isSiteChromeControl(element) ? { chrome: true } : {}),
       ...noticeMetadata(element),
     }))
     .filter((button) => button.text)
     .slice(0, 60);
+  // Bind every field and action to its actual owner, so a site-search field
+  // cannot turn a nearby Apply link into the application's final form.
+  for (const field of fields) {
+    // Widget ownership was proved by the producer. Its nativeSelectId is a
+    // raw DOM id: never borrow the span/button proxy's surrounding form, or
+    // choose the first of several controls carrying the native id.
+    const native = field.nativeSelectId
+      ? [...document.querySelectorAll('[id]')].filter(element => element.id === field.nativeSelectId) : null;
+    const node = native
+      ? (native.length === 1 && native[0].tagName === 'SELECT' ? native[0] : null)
+      : document.querySelector(`[data-aa-id="${field.id}"]`);
+    const form = native ? node?.form : node?.form || node?.closest('form');
+    field.formId = form ? idFor(form) : '';
+  }
   // A plain link is no button, so that no button search meets an ordinary link, yet a required notice can
   // be printed as one. Read apart and without its address: nothing follows it (portal.mjs, clickButton).
   const links = [...document.querySelectorAll('a[href]')]
