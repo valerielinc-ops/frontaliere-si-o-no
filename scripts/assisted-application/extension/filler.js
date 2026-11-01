@@ -1386,32 +1386,28 @@
         setValue(element, String(answer.value).slice(0, 60));
         fire(element, 'keydown', { key: 'Enter', code: 'Enter' });
         const wanted = normalize(answer.value);
-        const option = await waitFor(() => {
+        const findOption = () => {
           const options = openOptions(element.ownerDocument);
           const named = bestOption(options, answer.value, answer.family);
           if (named) return named;
           const containing = options.filter((item) => normalize(item.label).includes(wanted));
           return containing.length === 1 ? containing[0] : null;
-        });
-        if (!option) return false;
-        press(option.element);
-        const selected = await waitFor(() => !isEmpty(entry));
-        if (selected) return true;
-        // Some Workday tenants leave the option node mounted while the first
-        // synthetic press is swallowed during the popup redraw. Retry once,
-        // only while no pill exists and the exact option is still connected;
-        // this keeps the recovery bounded and avoids toggling an already
-        // committed choice.
-        const retry = await waitFor(() => {
-          const options = openOptions(element.ownerDocument);
-          const named = bestOption(options, answer.value, answer.family);
-          if (named) return named;
-          const containing = options.filter((item) => normalize(item.label).includes(wanted));
-          return containing.length === 1 ? containing[0] : null;
-        });
-        if (!retry) return false;
-        press(retry.element);
-        return Boolean(await waitFor(() => !isEmpty(entry)));
+        };
+        const chooseOpenOption = async () => {
+          const option = await waitFor(findOption);
+          if (!option) return false;
+          press(option.element);
+          return Boolean(await waitFor(() => !isEmpty(entry)));
+        };
+        if (await chooseOpenOption()) return true;
+        if (chosenPills(element).length) return true;
+        // Some Workday tenants close/redraw the popup while swallowing the
+        // first synthetic press. Reopen the same query once, then verify the
+        // portal-owned pill; never toggle a choice that already committed.
+        if (!openOptions(element.ownerDocument).length) {
+          fire(element, 'keydown', { key: 'Enter', code: 'Enter' });
+        }
+        return chooseOpenOption();
       }
       case 'date':
         return chooseDate(element, answer.value);

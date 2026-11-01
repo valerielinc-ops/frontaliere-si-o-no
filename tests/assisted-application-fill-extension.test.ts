@@ -952,6 +952,7 @@ describe('fill extension: the runner’s reading on any portal', () => {
     const popup = document.getElementById('popup')!;
     const button = document.getElementById('src')!;
     const country = document.getElementById('country') as HTMLInputElement;
+    let countryPresses = 0;
     const open = (labels: string[], choose: (label: string) => void) => {
       popup.innerHTML = '<div role="listbox">' + labels.map((label) => '<div role="option">' + label + '</div>').join('') + '</div>';
       popup.querySelectorAll('[role="option"]').forEach((option) => option.addEventListener('click', () => { choose(option.textContent || ''); popup.innerHTML = ''; }));
@@ -960,6 +961,9 @@ describe('fill extension: the runner’s reading on any portal', () => {
     country.addEventListener('keydown', (event) => {
       if ((event as KeyboardEvent).key !== 'Enter') return;
       open(['Switzerland', 'Swaziland'].filter((name) => name.toLowerCase().startsWith(country.value.toLowerCase().slice(0, 3))), (label) => {
+        // Workday can consume the first synthetic option press while it redraws
+        // the popup. The extension must reopen once and verify the committed pill.
+        if (countryPresses++ === 0) return;
         document.getElementById('pills')!.innerHTML = '<div data-uxi-widget-type="selectinputlistitem" data-uxi-multiselect-id="ms1">' + label + '</div>';
         country.value = '';
       });
