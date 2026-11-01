@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nivarox-swatch-group",
-  "assembledAt": "2026-11-01T09:23:12.475Z",
-  "runId": "41291644918",
+  "assembledAt": "2026-11-01T22:19:39.057Z",
+  "runId": "41350266477",
   "jobs": [
     {
       "id": "company-7uc3o0",
@@ -86,7 +86,8 @@
       "streetAddress": "avenue du Collège 10",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-26T09:22:52.257Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }
