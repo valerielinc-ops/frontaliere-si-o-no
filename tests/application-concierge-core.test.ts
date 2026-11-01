@@ -571,7 +571,7 @@ describe('owned child status and private review access from the service', () => 
     expect(admin).toMatchObject({ status: 200, body: {
       services: [expect.objectContaining({ paidReceiptEmails: expect.arrayContaining([
         expect.objectContaining({ audience: 'customer', providerStatus: 'accepted', deliveryStatus: 'delivered', provider: 'maileroo', providerAccepted: 1, delivered: 1 }),
-      ]) }],
+      ]) })],
     } });
   });
   it.each([{ userId: 'different-candidate' }, { parentServiceId: 'different-service' }, { retentionPurgedAt: new Date() }])('does not expose a child outside the owned service or after purge: %j', async patch => {

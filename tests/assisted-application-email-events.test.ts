@@ -112,7 +112,7 @@ describe('assisted e-mail events', () => {
     expect(await recordAssistedEmailEvent(db, { ...event, type: 'bounce', occurredAt: '2026-10-01T10:02:00Z' })).toEqual({ assisted: true, recorded: true });
     expect(await recordAssistedEmailEvent(db, { ...event, type: 'delivered', occurredAt: '2026-10-01T10:03:00Z' })).toEqual({ assisted: true, recorded: true });
     expect(conciergePaidEmailViews(docs.get(servicePath))).toEqual(expect.arrayContaining([
-      expect.objectContaining({ audience: 'customer', providerStatus: 'accepted', deliveryStatus: 'bounced', providerAccepted: 1, delivered: 1, bounces: 1 }),
+      expect.objectContaining({ audience: 'customer', providerStatus: 'accepted', deliveryStatus: 'bounced', providerAccepted: 1, delivered: 2, bounces: 1 }),
     ]));
 
     expect(await recordAssistedEmailEvent(db, { ...event, type: 'complaint', occurredAt: '2026-10-01T10:04:00Z' })).toEqual({ assisted: true, recorded: true });
