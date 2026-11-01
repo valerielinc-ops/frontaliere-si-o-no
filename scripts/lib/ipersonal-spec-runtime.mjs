@@ -201,42 +201,56 @@ function preferIpersonalRenderedWorkplace(detail = {}) {
 export function extractIpersonalDescription(html = '') {
   if (!html) return '';
   const document = new JSDOM(String(html).replace(/<style\b[\s\S]*?<\/style>/gi, '')).window.document;
-  const source = document.querySelector('.job-profile-section #Jobdetails')
-    || document.querySelector('.job-profile-section')
+  // The source has served three detail layouts over time. Keep the specific
+  // boundaries first, then inspect the current WordPress article/main shell.
+  // Every candidate still has to produce a rich, list-structured description;
+  // a broad fallback therefore cannot turn navigation or JSON-LD into a job.
+  const sources = [
+    document.querySelector('.job-profile-section #Jobdetails'),
+    document.querySelector('.job-profile-section'),
     // MediPersonal's newer "old ad" pages moved the authored body out of
     // Simple Job Board's #Jobdetails wrapper. Prefer this article over the
     // JSON-LD fallback: it retains the source's real <ul>/<li> structure,
     // which is part of the rich-description quality contract.
-    || document.querySelector('.ins-koerper article.inserat');
-  if (!source) return '';
+    document.querySelector('.ins-koerper article.inserat'),
+    // The current detail template keeps the authored vacancy inside the
+    // semantic page shell and no longer emits the legacy classes above.
+    document.querySelector('main article'),
+    document.querySelector('article .entry-content'),
+    document.querySelector('main .entry-content'),
+    document.querySelector('main'),
+  ].filter(Boolean);
+  for (const source of sources) {
+    const detail = new JSDOM(`<body>${source.innerHTML}</body>`).window.document.body;
+    detail.querySelectorAll(
+      'script, style, noscript, form, nav, header, footer, aside, #sjb-application-form, .sjb-application-form',
+    ).forEach((node) => node.remove());
 
-  const detail = new JSDOM(`<body>${source.innerHTML}</body>`).window.document.body;
-  detail.querySelectorAll(
-    'script, style, noscript, form, nav, footer, aside, #sjb-application-form, .sjb-application-form',
-  ).forEach((node) => node.remove());
+    const applicationBoundary = [...detail.querySelectorAll('h2, h3, h4, p')].find((heading) =>
+      /^(?:bewerben sie sich jetzt|jetzt bewerben|online bewerben|kontakt und bewerbung|bewerbung\s*(?:&|und)\s*kontakt|weitere bewerbungsm[oö]glichkeiten|neugierig geworden|interessiert\b|anstellung und vertrag|ihre bewerbung\b)/i
+        .test(String(heading.textContent || '').replace(/\s+/g, ' ').trim()));
+    if (applicationBoundary) removeFromBoundary(detail, applicationBoundary);
+    markParagraphLists(detail);
 
-  const applicationBoundary = [...detail.querySelectorAll('h2, h3, h4, p')].find((heading) =>
-    /^(?:bewerben sie sich jetzt|jetzt bewerben|kontakt und bewerbung|weitere bewerbungsm[oö]glichkeiten|neugierig geworden|interessiert\b|anstellung und vertrag|ihre bewerbung\b)/i
-      .test(String(heading.textContent || '').replace(/\s+/g, ' ').trim()));
-  if (applicationBoundary) removeFromBoundary(detail, applicationBoundary);
-  markParagraphLists(detail);
+    // The shared stripper preserves real <li> elements. MediPersonal's older
+    // posts instead use a typographic arrow inside paragraphs; normalize both
+    // representations to the same source-backed bullet contract.
+    // Older MediPersonal posts contain entities escaped twice (`&amp;ouml;`).
+    // Two bounded passes decode those to text without touching arbitrary markup.
+    const decoded = decodeEntities(decodeEntities(stripHtml(detail.innerHTML)))
+      .replace(/\s*›\s*/g, '\n• ');
+    const description = decoded
+      .split(/\r?\n/)
+      .map((line) => line.replace(/[ \t]+/g, ' ').trim())
+      .filter(Boolean)
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
 
-  // The shared stripper preserves real <li> elements. MediPersonal's older
-  // posts instead use a typographic arrow inside paragraphs; normalize both
-  // representations to the same source-backed bullet contract.
-  // Older MediPersonal posts contain entities escaped twice (`&amp;ouml;`).
-  // Two bounded passes decode those to text without touching arbitrary markup.
-  const decoded = decodeEntities(decodeEntities(stripHtml(detail.innerHTML)))
-    .replace(/\s*›\s*/g, '\n• ');
-  const description = decoded
-    .split(/\r?\n/)
-    .map((line) => line.replace(/[ \t]+/g, ' ').trim())
-    .filter(Boolean)
-    .join('\n')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
+    if (isSufficientVacancyDescription(description)) return description;
+  }
 
-  return isSufficientVacancyDescription(description) ? description : '';
+  return '';
 }
 
 /**
