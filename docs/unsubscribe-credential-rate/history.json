@@ -1,21 +1,6 @@
 {
   "days": [
     {
-      "date": "2026-08-31",
-      "windowHours": 168,
-      "counts": {
-        "autologin_code": 37,
-        "email_token": 110,
-        "legacy_auth_token": 0,
-        "missing": 0
-      },
-      "graded": 147,
-      "fallbackRate": 0.25170068027210885,
-      "findings": [
-        "fallback_rate_urgent"
-      ]
-    },
-    {
       "date": "2026-09-01",
       "windowHours": 168,
       "counts": {
@@ -1042,6 +1027,24 @@
       },
       "graded": 212,
       "fallbackRate": 0.0047169811320754715,
+      "findings": []
+    },
+    {
+      "date": "2026-11-01",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 1,
+        "email_token": 209,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "writerCounts": {
+        "cloud_function": 210,
+        "spa": 0,
+        "unknown": 0
+      },
+      "graded": 210,
+      "fallbackRate": 0.004761904761904762,
       "findings": []
     }
   ]
