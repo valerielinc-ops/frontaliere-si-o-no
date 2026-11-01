@@ -1011,6 +1011,8 @@ export type ActiveJobReuseFragments = {
  /** The source deadline; null when the listing states none. */
  jobPostingValidThrough: string | null;
  jobPostingCrawledAt: string | null;
+ /** Current renderer's schema description, supplied after a fingerprint change. */
+ jobPostingDescription?: string;
  heroBadges: string;
  mobileAction: string;
  recentArticles: string;
@@ -1078,6 +1080,7 @@ export function replaceActiveJobPostingDates(
  datePosted: string,
  validThrough: string | null,
  crawledAt?: string | null,
+ jobPostingDescription?: string,
 ): string {
  // An active page never loses a mandatory date on a cache hit: a missing or
  // malformed deadline is a broken input, so fail closed and let reuse re-render.
@@ -1086,40 +1089,79 @@ export function replaceActiveJobPostingDates(
   throw new Error('active JobPosting validThrough unavailable or invalid');
  }
  const scriptMatch = fragment.match(
-  /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/i,
+  /(<script\b[^>]*type=(['"])application\/ld\+json\2[^>]*>)([\s\S]*?)(<\/script\s*>)/i,
  );
  if (!scriptMatch) throw new Error('missing JobPosting JSON-LD fragment');
- let script = scriptMatch[0];
- const fields: Array<[string, string]> = [
- ['datePosted', datePosted],
- ['validThrough', validThrough],
- ];
+ if (jobPostingDescription === undefined) {
+  let script = scriptMatch[0];
+  const fields: Array<[string, string]> = [
+   ['datePosted', datePosted],
+   ['validThrough', validThrough],
+  ];
+  if (crawledAt !== undefined) {
+   if (!crawledAt) throw new Error('current JobPosting crawledAt unavailable');
+   fields.push(['crawledAt', crawledAt]);
+  }
+  for (const [field, value] of fields) {
+   const fieldPattern = new RegExp(`("${field}"\\s*:\\s*)(?:"[^"]*"|null)`);
+   if (fieldPattern.test(script)) {
+    script = script.replace(fieldPattern, `$1${JSON.stringify(value)}`);
+    continue;
+   }
+   if (field === 'validThrough') {
+    const datePostedPattern = /("datePosted"\s*:\s*)(?:"[^"]*"|null)/;
+    if (datePostedPattern.test(script)) {
+     script = script.replace(
+      datePostedPattern,
+      `$1${JSON.stringify(datePosted)},"validThrough":${JSON.stringify(value)}`,
+     );
+     continue;
+    }
+   }
+   throw new Error(`missing JobPosting JSON-LD field: ${field}`);
+  }
+  const scriptStart = scriptMatch.index ?? 0;
+  return `${fragment.slice(0, scriptStart)}${script}${fragment.slice(
+   scriptStart + scriptMatch[0].length,
+  )}`;
+ }
+ let parsed: unknown;
+ try {
+  parsed = JSON.parse(scriptMatch[3] || '');
+ } catch {
+  throw new Error('malformed JobPosting JSON-LD fragment');
+ }
+ const records = collectJobPostingRecords(parsed);
+ if (records.length !== 1) throw new Error('expected one JobPosting JSON-LD record');
+ const record = records[0];
+ if (!Object.prototype.hasOwnProperty.call(record, 'datePosted')) {
+  throw new Error('missing JobPosting JSON-LD field: datePosted');
+ }
+ record.datePosted = datePosted;
+ if (Object.prototype.hasOwnProperty.call(record, 'validThrough')) {
+  record.validThrough = validThrough;
+ } else {
+  // A cached fragment without the field meets a source that now states a
+  // deadline: add it in place. Other missing fields still fail closed.
+  record.validThrough = validThrough;
+ }
  // Keep the third field optional for legacy callers/tests. The production
  // active-page rewrite supplies the current crawler heartbeat when available.
  if (crawledAt !== undefined) {
   if (!crawledAt) throw new Error('current JobPosting crawledAt unavailable');
-  fields.push(['crawledAt', crawledAt]);
- }
- for (const [field, value] of fields) {
-  const fieldPattern = new RegExp(`("${field}"\\s*:\\s*)(?:"[^"]*"|null)`);
-  if (fieldPattern.test(script)) {
-   script = script.replace(fieldPattern, `$1${JSON.stringify(value)}`);
-   continue;
+  if (!Object.prototype.hasOwnProperty.call(record, 'crawledAt')) {
+   throw new Error('missing JobPosting JSON-LD field: crawledAt');
   }
- // A cached fragment without the field meets a source that now states a
- // deadline: add it in place. Other missing fields still fail closed.
-  if (field === 'validThrough') {
-   const datePostedPattern = /("datePosted"\s*:\s*)(?:"[^"]*"|null)/;
-   if (datePostedPattern.test(script)) {
-    script = script.replace(
-     datePostedPattern,
-     `$1${JSON.stringify(datePosted)},"validThrough":${JSON.stringify(value)}`,
-    );
-    continue;
-   }
-  }
-  throw new Error(`missing JobPosting JSON-LD field: ${field}`);
+  record.crawledAt = crawledAt;
  }
+ if (jobPostingDescription !== undefined) {
+  if (!Object.prototype.hasOwnProperty.call(record, 'description') || typeof record.description !== 'string') {
+   throw new Error('missing JobPosting JSON-LD field: description');
+  }
+  record.description = jobPostingDescription;
+ }
+ const openTag = scriptMatch[1];
+ const script = `${openTag}${inlineScriptJson(parsed)}${scriptMatch[4]}`;
  const scriptStart = scriptMatch.index ?? 0;
  return `${fragment.slice(0, scriptStart)}${script}${fragment.slice(
   scriptStart + scriptMatch[0].length,
@@ -1150,6 +1192,40 @@ function collectJobPostingRecords(value: unknown, records: Array<Record<string, 
   if (key !== '@type') collectJobPostingRecords(nested, records);
  }
  return records;
+}
+
+function jobPostingJsonLdScripts(html: string): Array<{ start: number; end: number; script: string }> {
+ const matches: Array<{ start: number; end: number; script: string }> = [];
+ const scriptPattern = /<script\b([^>]*)>[\s\S]*?<\/script\s*>/gi;
+ for (const match of String(html).matchAll(scriptPattern)) {
+  const attributes = match[1] || '';
+  if (!/\btype\s*=\s*(['"])application\/ld\+json\1/i.test(attributes)) continue;
+  try {
+   const records = collectJobPostingRecords(JSON.parse(match[0].slice(match[0].indexOf('>') + 1).replace(/<\/script\s*>$/i, '')));
+   if (records.length > 0) {
+    const start = match.index ?? 0;
+    matches.push({ start, end: start + match[0].length, script: match[0] });
+   }
+  } catch {
+   // Invalid JSON-LD is not a reusable replacement target.
+  }
+ }
+ return matches;
+}
+
+/** Replace exactly one cached JobPosting script with the current rendering. */
+export function replaceJobPostingJsonLd(html: string, freshScript: string): string {
+ const currentMatches = jobPostingJsonLdScripts(html);
+ const freshMatches = jobPostingJsonLdScripts(freshScript);
+ if (!freshScript) {
+  if (currentMatches.length === 0) return html;
+  throw new Error('cached JobPosting JSON-LD has no current source');
+ }
+ if (currentMatches.length !== 1 || freshMatches.length !== 1) {
+  throw new Error('expected one cached and fresh JobPosting JSON-LD script');
+ }
+ const current = currentMatches[0];
+ return `${html.slice(0, current.start)}${freshMatches[0].script}${html.slice(current.end)}`;
 }
 
 function hasCompleteActiveJobPostingContract(fragment: string): boolean {
@@ -1212,6 +1288,7 @@ export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFrag
     fragments.jobPostingDatePosted,
     fragments.jobPostingValidThrough,
     fragments.jobPostingCrawledAt,
+   fragments.jobPostingDescription,
    );
   },
  );
@@ -3935,8 +4012,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const activeJobReuseInput = activeJobManifestInput
   ? buildActiveJobPageReuseInput(activeJobManifestInput)
   : null;
+ const buildCurrentActiveJobPostingDescription = (): string => {
+  const description = stripLeadingSectionLabel(String(job?.descriptionByLocale?.[locale] || job.description || ''));
+  const rawRequirements = job?.requirementsByLocale?.[locale] || job?.requirements;
+  const requirements = Array.isArray(rawRequirements)
+   ? rawRequirements.map((item: unknown) => String(item ?? '').trim()).filter(Boolean)
+   : [];
+  // The active renderer uses this exact shared serializer for the schema
+  // whenever it has source description or requirements. Without either, its
+  // richer canonical/editorial fallback requires the full render.
+  if (!description.trim() && requirements.length === 0) {
+   throw new Error('current JobPosting description requires full render');
+  }
+  const variants = renderJobDescriptionVariants(description, locale, requirements);
+  return capJsonLdDescription(variants.schema);
+ };
  const buildActiveReuseFragments = activeJobManifestInput
-  ? (): ActiveJobReuseFragments => {
+  ? (refreshJobPostingDescription = false): ActiveJobReuseFragments => {
    const salaryText = formatActiveJobSalaryText(
     locale,
     perJob_salaryMin,
@@ -3953,6 +4045,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    jobPostingDateProvenance: resolvedJobPostingDate.provenance,
    jobPostingCrawledAt: job?.crawledAt ? String(job.crawledAt) : null,
  jobPostingValidThrough: resolveJobPostingValidThrough(job as JobInput, jobsSeoReuseBuildNow),
+   ...(refreshJobPostingDescription
+    ? { jobPostingDescription: buildCurrentActiveJobPostingDescription() }
+    : {}),
    heroBadges: renderHeroBadges({
     job,
     locale,
@@ -3993,7 +4088,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   {
    reuseInput: activeJobReuseInput,
    rewriteHtml: buildActiveReuseFragments
-    ? (html: string) => rewriteActiveJobHtml(html, buildActiveReuseFragments())
+    ? (html: string, context: { emitterFingerprintChanged?: boolean }) => rewriteActiveJobHtml(
+      html,
+      buildActiveReuseFragments(Boolean(context?.emitterFingerprintChanged)),
+     )
     : undefined,
   },
  );
@@ -14424,6 +14522,59 @@ ${staticAnalyticsHtml}
    derivedFromUnhashedSource: Boolean(gscInfo) || Boolean(slugInfo),
   })
   : null;
+ let currentJobPostingLd: string | undefined;
+ const getCurrentJobPostingLd = (): string => {
+  if (currentJobPostingLd !== undefined) return currentJobPostingLd;
+  // Keep the complete historical identity, but never advertise an archive as
+  // open: only real past timestamps may supply its explicit validThrough.
+  if (!hasRealTitle) {
+   currentJobPostingLd = '';
+   return currentJobPostingLd;
+  }
+  const realTitle = String(jobDisplayTitle(ejData) || jobDisplayTitle(gscInfo) || '').trim();
+  const realCompany = String(ejData?.company || gscInfo?.company || '').trim();
+  const expiredInput: JobInput = {
+   id: ejData?.id,
+   slug,
+   title: realTitle,
+   description: renderJobPostingDescription(jobDescription, locale, jobRequirements),
+   company: realCompany,
+   companyKey: ejData?.companyKey || slugInfo?.companyKey,
+   companySlug: ejData?.companySlug || ejData?.companyKey || slugInfo?.companyKey,
+   companyWebsite: ejData?.companyWebsite,
+   companyDomain: ejData?.companyDomain,
+   companyLogoUrl: ejData?.companyLogoUrl,
+   addressLocality: jobLocation || undefined,
+   addressRegion: jobCanton || undefined,
+   postalCode: ejData?.postalCode || slugInfo?.postalCode,
+   streetAddress: ejData?.streetAddress,
+   postingDateSource: ejData?.postingDateSource,
+   datePosted: ejData?.datePosted,
+   postedDate: ejData?.postedDate,
+   crawledAt: ejData?.crawledAt,
+   expiredAt: ejData?.expiredAt,
+   employmentType: ejData?.employmentType,
+   contract: ejData?.contract,
+   contractType: ejData?.contractType,
+   salaryMin: typeof ejData?.salaryMin === 'number' ? ejData.salaryMin : null,
+   salaryMax: typeof ejData?.salaryMax === 'number' ? ejData.salaryMax : null,
+   salaryCurrency: ejData?.salaryCurrency || ejData?.currency,
+   salarySource: ejData?.salarySource,
+   category: ejData?.category,
+   sector: ejData?.sector || ejData?.category,
+   url: undefined,
+  };
+  const expiredSchema = buildArchivedJobPosting(expiredInput, copy.banner, {
+   locale,
+   url: selfUrl,
+   baseUrl: BASE_URL,
+   knownSlugs: knownEmployerProfileSlugs,
+  });
+  currentJobPostingLd = expiredSchema
+   ? `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>`
+   : '';
+  return currentJobPostingLd;
+ };
  const softLandingReuse = jobsSeoReuse?.lookup(
   locale,
   relPath,
@@ -14431,6 +14582,13 @@ ${staticAnalyticsHtml}
   softLandingManifestInput,
   'expired-soft-landing',
   jobsSeoProbeShapeHints(ejData),
+  {
+   rewriteHtml: (html: string, context: { emitterFingerprintChanged?: boolean }) => (
+    context?.emitterFingerprintChanged
+     ? replaceJobPostingJsonLd(html, getCurrentJobPostingLd())
+     : html
+   ),
+  },
  );
  let softLandingHtml: string;
  if (!softLandingReuse?.hit || jobsSeoReuse?.shouldRender(softLandingReuse)) {
@@ -14655,53 +14813,7 @@ ${staticAnalyticsHtml}
   url: selfUrl,
   inLanguage: locale,
  })}</script>`;
- const jobPostingLd = (() => {
- // Keep the complete historical identity, but never advertise an archive as
- // open: only real past timestamps may supply its explicit validThrough.
- if (!hasRealTitle) return '';
- const realTitle = String(jobDisplayTitle(ejData)
- || jobDisplayTitle(gscInfo) || '').trim();
- const realCompany = String(ejData?.company || gscInfo?.company || '').trim();
- const expiredInput: JobInput = {
- id: ejData?.id,
- slug,
- title: realTitle,
- description: renderJobPostingDescription(jobDescription, locale, jobRequirements),
- company: realCompany,
- companyKey: ejData?.companyKey || slugInfo?.companyKey,
- companySlug: ejData?.companySlug || ejData?.companyKey || slugInfo?.companyKey,
- companyWebsite: ejData?.companyWebsite,
- companyDomain: ejData?.companyDomain,
- companyLogoUrl: ejData?.companyLogoUrl,
- addressLocality: jobLocation || undefined,
- addressRegion: jobCanton || undefined,
- postalCode: ejData?.postalCode || slugInfo?.postalCode,
- streetAddress: ejData?.streetAddress,
- postingDateSource: ejData?.postingDateSource,
- datePosted: ejData?.datePosted,
- postedDate: ejData?.postedDate,
- crawledAt: ejData?.crawledAt,
- expiredAt: ejData?.expiredAt,
- employmentType: ejData?.employmentType,
- contract: ejData?.contract,
- contractType: ejData?.contractType,
- salaryMin: typeof ejData?.salaryMin === 'number' ? ejData.salaryMin : null,
- salaryMax: typeof ejData?.salaryMax === 'number' ? ejData.salaryMax : null,
- salaryCurrency: ejData?.salaryCurrency || ejData?.currency,
- salarySource: ejData?.salarySource,
- category: ejData?.category,
- sector: ejData?.sector || ejData?.category,
- url: undefined,
- };
- const expiredSchema = buildArchivedJobPosting(expiredInput, copy.banner, {
- locale,
- url: selfUrl,
- baseUrl: BASE_URL,
- knownSlugs: knownEmployerProfileSlugs,
- });
-
- return expiredSchema ? `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>` : '';
- })();
+ const jobPostingLd = getCurrentJobPostingLd();
 
  const jsonLdScripts = breadcrumbLd + '\n ' + archivePageLd + (jobPostingLd ? '\n ' + jobPostingLd : '');
  recordPhase('ejp:jsonld', __tEjpJsonld);

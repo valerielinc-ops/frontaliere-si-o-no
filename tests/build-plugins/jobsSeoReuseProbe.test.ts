@@ -9,6 +9,7 @@ import {
 import {
   createJobsSeoHtmlReuse,
   htmlReuseCachePath,
+  normalizeHtmlForReuseProbe,
   discardJobsSeoReuseProbeVerdicts,
   jobsSeoProbeInheritsEmitterChange,
   jobsSeoProbeShapeHints,
@@ -96,6 +97,32 @@ function fixture(allPages: Page[], { writeCache = true } = {}) {
   return rootDir;
 }
 
+function writeCachedHtml(rootDir: string, page: Page, html: string) {
+  const file = htmlReuseCachePath(
+    rootDir,
+    'it',
+    page.path,
+    null,
+    'active-job',
+    computeInputHash(page.input, 'active-job'),
+  );
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, html, 'utf8');
+}
+
+function renderJobPostingPage(description: string, body = 'same body') {
+  return '<!doctype html><html><head>'
+    + '<script type="application/ld+json">'
+    + JSON.stringify({ '@context': 'https://schema.org', '@type': 'JobPosting', title: 'Test job', description })
+    + '</script></head><body><main>' + body + '</main></body></html>';
+}
+
+function jobPostingScript(html: string) {
+  const start = html.indexOf('<script');
+  const end = html.indexOf('</script>', start);
+  return html.slice(start, end + '</script>'.length);
+}
+
 function enableProbe({ min = 2, max = 2, perStratum = 1, rate = 0.01 } = {}) {
   process.env.JOBS_SEO_REUSE = '1';
   delete process.env.JOBS_SEO_REUSE_VERIFY;
@@ -107,13 +134,30 @@ function enableProbe({ min = 2, max = 2, perStratum = 1, rate = 0.01 } = {}) {
 }
 
 /** Drive the same lookup → render-or-reuse → finish protocol as the plugin. */
-async function build(rootDir: string, allPages: Page[], render: (page: Page) => string) {
+async function build(
+  rootDir: string,
+  allPages: Page[],
+  render: (page: Page) => string,
+  rewriteHtml?: (
+    html: string,
+    page: Page,
+    context?: { emitterFingerprintChanged?: boolean },
+  ) => string,
+) {
   vi.spyOn(console, 'log').mockImplementation(() => {});
   const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
   const reuse = (await createJobsSeoHtmlReuse(rootDir, ['it'], V2))!;
   const outcomes: Array<'probe' | 'reuse' | 'render'> = [];
   for (const page of allPages) {
-    const candidate = reuse.lookup('it', page.path, 'active-job', page.input, 'active', jobsSeoProbeShapeHints(page.job));
+    const candidate = reuse.lookup(
+      'it',
+      page.path,
+      'active-job',
+      page.input,
+      'active',
+      jobsSeoProbeShapeHints(page.job),
+      rewriteHtml ? { rewriteHtml: (html, context) => rewriteHtml(html, page, context) } : null,
+    );
     let html: string;
     if (!candidate.hit || reuse.shouldRender(candidate)) {
       html = render(page);
@@ -130,6 +174,69 @@ async function build(rootDir: string, allPages: Page[], render: (page: Page) => 
 }
 
 describe('jobs SEO reuse output probe (JOBS_SEO_REUSE_PROBE)', () => {
+  it('reuses a JobPosting-description-only change with fresh JSON-LD and keeps that cache under the new fingerprint', async () => {
+    const allPages = pages(4);
+    const rootDir = fixture(allPages);
+    const cached = renderJobPostingPage('Old renderer description');
+    const current = renderJobPostingPage('Current renderer description');
+    allPages.forEach((page) => writeCachedHtml(rootDir, page, cached));
+    enableProbe({ min: 1, max: 1, perStratum: 1 });
+
+    expect(normalizeHtmlForReuseProbe(cached)).toBe(normalizeHtmlForReuseProbe(current));
+    expect(normalizeHtmlForReuseProbe(cached)).not.toBe(
+      normalizeHtmlForReuseProbe(renderJobPostingPage('Current renderer description', 'changed body')),
+    );
+    expect(normalizeHtmlForReuseProbe(cached)).not.toBe(
+      normalizeHtmlForReuseProbe(
+        renderJobPostingPage('Current renderer description').replace('"title":"Test job"', '"title" : "Test job"'),
+      ),
+    );
+
+    const { reuse, outcomes, verdict } = await build(
+      rootDir,
+      allPages,
+      () => current,
+      (html, _page, context) => context?.emitterFingerprintChanged
+        ? html.replace(jobPostingScript(cached), jobPostingScript(current))
+        : html,
+    );
+    expect(outcomes).toEqual(['probe', 'reuse', 'reuse', 'reuse']);
+    expect(verdict.blocks.active).toMatchObject({ verdict: 'inherit', identical: 1, reused: 3 });
+    expect(reuse.summary().active).toMatchObject({ probed: 1, reused: 3, mismatches: 0 });
+
+    // The previous reference is still V1: this is the first build after the
+    // failed renderer rollout, with no successful intermediate deploy.
+    const manifest = new IncrementalManifest('it');
+    for (const page of allPages) manifest.register(page.path, 'active-job', page.input);
+    manifest.setJobsSeoEmitterFingerprint(V2);
+    manifest.write(rootDir, path.join(rootDir, '.cache', 'incremental-manifest-prev'));
+    const nextReuse = (await createJobsSeoHtmlReuse(rootDir, ['it'], V2))!;
+    const next = nextReuse.lookup('it', allPages[1].path, 'active-job', allPages[1].input, 'active');
+    expect(next).toMatchObject({ hit: true, emitterFingerprintChanged: false });
+    expect(next.html).toContain('Current renderer description');
+  });
+
+  it('still invalidates when the body changes alongside a JobPosting description change', async () => {
+    const allPages = pages(4);
+    const rootDir = fixture(allPages);
+    const cached = renderJobPostingPage('Old renderer description');
+    const current = renderJobPostingPage('Current renderer description', 'changed body');
+    allPages.forEach((page) => writeCachedHtml(rootDir, page, cached));
+    enableProbe({ min: 1, max: 1, perStratum: 1 });
+
+    const { outcomes, verdict } = await build(
+      rootDir,
+      allPages,
+      () => current,
+      (html, _page, context) => context?.emitterFingerprintChanged
+        ? html.replace(jobPostingScript(cached), jobPostingScript(renderJobPostingPage('Current renderer description')))
+        : html,
+    );
+    expect(outcomes).toEqual(['probe', 'render', 'render', 'render']);
+    expect(verdict.blocks.active.verdict).toBe('invalidate');
+    expect(verdict.blocks.active.reason).toMatch(/^output-differs:/);
+  });
+
   it('inherits validity when changed code renders byte-identical HTML', async () => {
     const allPages = pages(6);
     const rootDir = fixture(allPages);
