@@ -23,6 +23,15 @@ function nativeQuestionText(value, counter = null) {
     ? `max ${counter.maxLength} ${match[3]}` : text;
 }
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  // Some SPA wizards reuse the same URL and control ids for every step. Keep
+  // the portal's explicit step markers in the snapshot so the runner can
+  // distinguish a replaced wizard page from a redraw of the current one.
+  const pageMarker = [...document.querySelectorAll('form, main, [role="main"]')].slice(0, 8).map((node) => {
+    const attributes = ['id', 'data-page', 'data-step', 'data-testid', 'data-automation-id', 'aria-current']
+      .map((attribute) => `${attribute}=${clean(node.getAttribute(attribute) || '')}`)
+      .filter((item) => !item.endsWith('='));
+    return `${node.tagName.toLowerCase()}${attributes.length ? `:${attributes.join(',')}` : ''}`;
+  }).join('|');
   // These identifiers are part of the control's own DOM contract. Read only
   // scalar attributes from the element itself: ancestor/global IDs are not
   // evidence for the question represented by this field.
@@ -816,6 +825,38 @@ function nativeQuestionText(value, counter = null) {
     }
     return element.getAttribute('data-aa-id');
   };
+  // A portal may replace a file input while copying its data-aa-id. Keep a
+  // page-local identity for the actual DOM node so a later snapshot cannot
+  // mistake that fresh empty control for the one that received the file.
+  const controlIdentityState = window.__frontalierePortalControlIdentity || (() => {
+    const state = { nodes: new WeakMap(), next: 0 };
+    Object.defineProperty(window, '__frontalierePortalControlIdentity', { configurable: true, value: state });
+    return state;
+  })();
+  // A same-URL iframe navigation creates a new document but may reuse the
+  // browsing context (and therefore reset the per-document control counter).
+  // Keep an identity on the Document itself so a fresh empty file input can
+  // never inherit the upload receipt of the previous document.
+  const documentInstance = (() => {
+    const key = '__frontalierePortalDocumentInstance';
+    const existing = document[key];
+    if (typeof existing === 'string' && existing) return existing;
+    const random = typeof window.crypto?.randomUUID === 'function'
+      ? window.crypto.randomUUID()
+      : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+    const identity = `document-${random}`;
+    Object.defineProperty(document, key, { configurable: false, enumerable: false, value: identity });
+    return identity;
+  })();
+  const controlInstanceFor = (element) => {
+    let instance = controlIdentityState.nodes.get(element);
+    if (!instance) {
+      controlIdentityState.next += 1;
+      instance = `control-${controlIdentityState.next}`;
+      controlIdentityState.nodes.set(element, instance);
+    }
+    return instance;
+  };
   // A limit the form states only in words or with a counter ("max. 500
   // caratteri", "0 / 1000"): shortened by us at a sentence end rather than cut
   // by the portal mid-sentence (career-ops counts the final answer).
@@ -902,6 +943,7 @@ function nativeQuestionText(value, counter = null) {
       inputType: type,
       form: formOf(element),
       domId: element.id || '',
+      ...(type === 'file' ? { documentInstance, controlInstance: controlInstanceFor(element) } : {}),
       ...semanticIdentifiers(element),
       name: clean(element.getAttribute('name') || ''),
       label,
@@ -1240,6 +1282,7 @@ function nativeQuestionText(value, counter = null) {
     .filter(Boolean))].slice(0, 8);
   return {
     url: location.href,
+    pageMarker,
     title: document.title,
     fields,
     buttons,
@@ -1335,8 +1378,9 @@ function isTurnstileFrame(url) {
 
 export async function extractFields(page, { listboxOptions = true, channelType = '', includeHidden = false } = {}) {
   const frames = page.frames();
-  const result = { url: page.url(), fields: [], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
+  const result = { url: page.url(), pageMarker: '', fields: [], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
   const context = typeof page.context === 'function' ? page.context() : null;
+  const pageMarkers = [];
   const effectiveChannelType = String(channelType || portalChannelTypes.get(context) || '').trim();
   for (const [index, frame] of frames.entries()) {
     if (index > 0 && isTurnstileFrame(frame.url())) {
@@ -1360,6 +1404,15 @@ export async function extractFields(page, { listboxOptions = true, channelType =
       field.options = field.selectLike ? await readOwnedListOptions(frame, field) : await readListboxOptions(frame, field.id);
     }
     result.frames.push({ index, url: snapshot.url });
+    if (index === 0 || snapshot.fields.length > 0 || snapshot.buttons.length > 0) {
+      // A portal can keep the application inside an iframe while the parent
+      // URL and the iframe's control labels stay the same across wizard steps.
+      pageMarkers.push({
+        frame: index,
+        url: snapshot.url || '',
+        marker: snapshot.pageMarker || '',
+      });
+    }
     result.fields.push(...snapshot.fields.map((field) => ({ ...field, frame: index })));
     result.buttons.push(...snapshot.buttons.map((button) => ({ ...button, frame: index })));
     result.links.push(...(snapshot.links || []).map((link) => ({ ...link, frame: index })));
@@ -1373,5 +1426,6 @@ export async function extractFields(page, { listboxOptions = true, channelType =
       if (avatureProtocolMatches(protocol, snapshot.url)) result.protocol = protocol;
     }
   }
+  result.pageMarker = JSON.stringify(pageMarkers);
   return result;
 }

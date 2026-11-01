@@ -1167,6 +1167,79 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(control.selectOption).toHaveBeenCalledWith({ label: 'Italy' }, { timeout: 6000 });
   });
 
+  it('chooses a localized residence country option from a Workday listbox', async () => {
+    let selected = '';
+    const optionClick = vi.fn(async () => { selected = 'Switzerland'; });
+    const control = {
+      click: vi.fn(async () => {}),
+      press: vi.fn(async () => {}),
+      evaluate: vi.fn(async (_read: unknown, data: { wanted: string }) => selected.toLowerCase() === data.wanted),
+    };
+    const options = { allInnerTexts: vi.fn(async () => ['Switzerland', 'Italy']) };
+    const frame = {
+      locator: vi.fn((selector: string) => selector.includes('[role="option"]') ? options : { first: () => control }),
+      getByRole: vi.fn((_role: string, query: { name: string }) => ({ first: () => ({ click: optionClick, query }) })),
+    };
+    const page = { frames: () => [frame], mainFrame: () => frame, waitForTimeout: vi.fn(async () => {}) };
+    const result = await applyActions(page as any, [{
+      id: 'residence-country', kind: 'listbox', label: 'Country of residence',
+    }], [{ fieldId: 'residence-country', action: 'select', value: 'Svizzera' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'residence-country', ok: true }]);
+    expect(optionClick).toHaveBeenCalledOnce();
+    expect((frame.getByRole as any).mock.calls[0][1]).toEqual({ name: 'Switzerland', exact: true });
+  });
+
+  it('does not confirm a search value from the parent frame when an iframe reuses the same control id', async () => {
+    const pageUrl = 'https://workday.localhost/form';
+    const originalDateNow = Date.now;
+    let clock = originalDateNow();
+    Date.now = () => clock;
+    const makeFrame = (shown: string, { initialInput = '', onTarget = false } = {}) => {
+      let input = initialInput;
+      let expanded = 'true';
+      const field = { id: 'shared-search', kind: 'text', inputType: 'text', label: 'Phone country code', value: shown, search: true, options: [] };
+      const snapshot = { url: pageUrl, title: '', fields: [field], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '' };
+      const control = {
+        fill: vi.fn(async (value: string) => { if (onTarget) input = value; }),
+        inputValue: vi.fn(async () => input),
+        getAttribute: vi.fn(async (name: string) => name === 'aria-expanded' ? expanded : null),
+        click: vi.fn(async () => {}),
+        press: vi.fn(async () => { expanded = 'false'; }),
+        pressSequentially: vi.fn(async () => {}),
+      };
+      return {
+        url: () => pageUrl,
+        evaluate: async () => snapshot,
+        locator: (selector: string) => selector.includes('[role="option"]')
+          ? { allInnerTexts: async () => [], nth: () => ({ click: async () => {} }) }
+          : { first: () => control },
+        control,
+      };
+    };
+    // The parent has an old committed match; the application iframe still
+    // shows a different option. Only the target frame may confirm the answer.
+    const parentFrame = makeFrame('Switzerland (+41)', { initialInput: '+41' });
+    const applicationFrame = makeFrame('Italy (+39)', { initialInput: '+4', onTarget: true });
+    const page = {
+      url: () => pageUrl,
+      title: async () => '',
+      frames: () => [parentFrame, applicationFrame],
+      mainFrame: () => parentFrame,
+      waitForTimeout: vi.fn(async (ms: number) => { clock += ms; }),
+    };
+
+    try {
+      const result = await applyActions(page as any, [{
+        id: 'shared-search', kind: 'text', inputType: 'text', label: 'Phone country code', frame: 1, search: true, value: '',
+      }], [{ fieldId: 'shared-search', action: 'fill', value: '+41' }], {}, { pause: async () => {} });
+
+      expect(result).toEqual([{ fieldId: 'shared-search', ok: false, error: 'suggestion_not_chosen' }]);
+    } finally {
+      Date.now = originalDateNow;
+    }
+  });
+
   it('passes split-phone metadata to the text boundary while keeping single inputs international', async () => {
     let entered = '';
     const control = {
@@ -1186,6 +1259,39 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const single = await applyActions(page as any, [phone], [{ fieldId: 'phone', action: 'fill', value: '+39 324 0753275' }], {}, { pause: async () => {} });
     expect(single).toEqual([{ fieldId: 'phone', ok: true }]);
     expect(entered).toBe('+39 324 0753275');
+  });
+
+  it('waits for a search suggestion to replace the raw phone-code query', async () => {
+    let shown = '';
+    let raw = '';
+    let expanded = 'false';
+    const option = {
+      click: vi.fn(async () => { shown = 'Switzerland (+41)'; raw = ''; expanded = 'false'; }),
+    };
+    const options = {
+      allInnerTexts: vi.fn(async () => ['Switzerland (+41)', 'Italy (+39)']),
+      nth: vi.fn(() => option),
+    };
+    const control = {
+      fill: vi.fn(async (value: string) => { raw = value; shown = value; expanded = 'true'; }),
+      inputValue: vi.fn(async () => raw),
+      press: vi.fn(async () => { expanded = 'true'; }),
+      getAttribute: vi.fn(async (name: string) => name === 'aria-expanded' ? expanded : null),
+    };
+    const frame = {
+      url: () => 'https://workday.localhost/form',
+      evaluate: vi.fn(async () => ({ url: 'https://workday.localhost/form', pageMarker: '', fields: [{ id: 'phone-code', kind: 'text', inputType: 'text', label: 'Country Phone Code*', value: shown, search: true }], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [] })),
+      locator: vi.fn((selector: string) => selector.includes('[role="option"]') ? options : { first: () => control }),
+    };
+    const page = { url: () => 'https://workday.localhost/form', frames: () => [frame], mainFrame: () => frame, waitForTimeout: vi.fn(async () => {}) };
+    const result = await applyActions(page as any, [{ id: 'phone-code', kind: 'text', inputType: 'text', label: 'Country Phone Code*', search: true, value: '' }], [
+      { fieldId: 'phone-code', action: 'fill', value: '+41' },
+    ], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'phone-code', ok: true }]);
+    expect(option.click).toHaveBeenCalledOnce();
+    expect(shown).toBe('Switzerland (+41)');
+    expect(raw).toBe('');
   });
 
   it('matches a custom picklist label by normalized exact text', async () => {

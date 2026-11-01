@@ -30,6 +30,7 @@ export async function dismissOptionalAutofill(page) {
     const marked = await frame.evaluate(markOptionalAutofillDeclineInPage).catch(() => false);
     if (!marked) continue;
     const button = frame.locator('[data-aa-autofill-decline="1"]');
+    if (typeof button?.count !== 'function') continue;
     if (await button.count() !== 1) continue;
     await button.click({ timeout: 3000 });
     if (typeof button.evaluate === 'function') await button.evaluate(element => element.removeAttribute('data-aa-autofill-decline')).catch(() => {});

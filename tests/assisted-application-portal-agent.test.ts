@@ -920,6 +920,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
   it('tells generated names from questions', () => {
     expect(machineLabel('select-input-_r_p_')).toBe(true);
     expect(machineLabel('file:_r_3_:input')).toBe(true);
+    expect(machineLabel('textarea_123 *')).toBe(true);
     expect(machineLabel('')).toBe(true);
     expect(machineLabel('Quando sei nato?')).toBe(false);
     expect(machineLabel('email-address')).toBe(false);

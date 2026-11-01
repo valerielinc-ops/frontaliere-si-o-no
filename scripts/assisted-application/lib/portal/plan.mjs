@@ -117,8 +117,18 @@ export function candidateRules(candidateLocale) {
 const trimField = (field) => ({
   id: field.id,
   kind: field.kind,
+  ...(field.inputType ? { inputType: field.inputType } : {}),
   label: field.label,
+  ...(field.name ? { name: field.name } : {}),
   ...(field.context ? { context: field.context } : {}),
+  ...(field.ariaLabel ? { ariaLabel: field.ariaLabel } : {}),
+  ...(field.description ? { description: field.description } : {}),
+  ...(field.ariaDescription ? { ariaDescription: field.ariaDescription } : {}),
+  ...(field.title ? { title: field.title } : {}),
+  ...(field.placeholder ? { placeholder: field.placeholder } : {}),
+  ...(field.labels?.length ? { labels: field.labels } : {}),
+  ...(field.privacyMetadataIncomplete === true ? { privacyMetadataIncomplete: true } : {}),
+  ...(field.autocomplete ? { autocomplete: field.autocomplete } : {}),
   ...(Object.hasOwn(field, 'addressContext') ? { addressContext: addressContextContract(field) } : {}),
   required: Boolean(field.required),
   ...(field.value ? { currentValue: field.value } : {}),
@@ -618,9 +628,16 @@ export function ownStatusAnswer(candidate, label, value, { option = false } = {}
   return null;
 }
 
-/** "Geschlecht* (erforderlich)" → "Geschlecht": the form's own label, without the required markers. */
+/** "Geschlecht* (erforderlich)" → "Geschlecht": the form's own label, without required markers or live character counters. */
 export function questionFromLabel(label) {
-  return String(label || '').replace(/\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/gi, '').replace(/\s*\*+/g, '').replace(/\s+/g, ' ').trim();
+  return String(label || '')
+    .replace(/\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/gi, '')
+    // Talentsoft appends the current/max length to text labels. Only remove
+    // an explicit localized unit; a bare `2 / 2` can be substantive question text.
+    .replace(/\b\d+\s*\/\s*\d+\s*(?:zeichen|characters?|chars|caratteri|caractères)\b/gi, '')
+    .replace(/\s*\*+/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function isExactAvailableFromLabel(label) {
