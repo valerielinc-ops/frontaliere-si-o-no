@@ -485,29 +485,50 @@
       const walker = document.createTreeWalker(node, 4);
       const controls = [...node.querySelectorAll(QUESTION_CONTROL_SELECTOR)];
       const branch = childUnder(node);
-      const questionSiblings = [branch?.previousElementSibling, branch?.nextElementSibling]
-        .filter((sibling) => sibling?.matches('span, [class*="label"], [class*="question"], [role="heading"]')
-          && !sibling.matches(QUESTION_CONTROL_SELECTOR) && !sibling.querySelector(QUESTION_CONTROL_SELECTOR));
+      const isQuestionSibling = (sibling) => sibling?.matches('span, [class*="label"], [class*="question"], [role="heading"]')
+        && !sibling.matches(QUESTION_CONTROL_SELECTOR) && !sibling.querySelector(QUESTION_CONTROL_SELECTOR);
+      const siblingRun = (start, direction) => {
+        const siblings = [];
+        for (let sibling = start; isQuestionSibling(sibling); sibling = direction === 'before'
+          ? sibling.previousElementSibling : sibling.nextElementSibling) siblings.push(sibling);
+        return direction === 'before' ? siblings.reverse() : siblings;
+      };
+      const joinSiblingParts = (parts) => parts.reduce((joined, part) => {
+        if (!joined || !part) return joined + part;
+        const needsSpace = !/\s$/.test(joined) && !/^\s/.test(part)
+          && !/['’`-]$/.test(joined) && !/^[,.;!?):\]}]/.test(part);
+        return `${joined}${needsSpace ? ' ' : ''}${part}`;
+      }, '');
+      const questionRuns = [
+        siblingRun(branch?.previousElementSibling, 'before'),
+        siblingRun(branch?.nextElementSibling, 'after'),
+      ].filter((siblings) => siblings.length > 0);
+      const questionSiblings = questionRuns.flat();
       let siblingBefore = '';
       let siblingAfter = '';
       let contextBefore = '';
       let contextAfter = '';
-      for (const sibling of questionSiblings) {
-        const siblingWalker = document.createTreeWalker(sibling, 4);
-        const siblingParts = [];
-        for (let siblingText = siblingWalker.nextNode(); siblingText; siblingText = siblingWalker.nextNode()) {
-          if (siblingText.parentElement?.closest(`${QUESTION_CONTROL_SELECTOR}, select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend`)) continue;
-          siblingParts.push(siblingText.textContent || '');
+      for (const siblings of questionRuns) {
+        const parts = [];
+        for (const sibling of siblings) {
+          const siblingWalker = document.createTreeWalker(sibling, 4);
+          const siblingParts = [];
+          for (let siblingText = siblingWalker.nextNode(); siblingText; siblingText = siblingWalker.nextNode()) {
+            if (siblingText.parentElement?.closest(`${QUESTION_CONTROL_SELECTOR}, select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend`)) continue;
+            siblingParts.push(siblingText.textContent || '');
+          }
+          parts.push(siblingParts.join(''));
         }
-        const value = clean(siblingParts.join(''));
+        const value = clean(joinSiblingParts(parts));
         if (!value || !isQuestionLabelText(value)) continue;
+        const boundary = siblings[0];
         // eslint-disable-next-line no-bitwise
-        const isBefore = Boolean(sibling.compareDocumentPosition(element) & FOLLOWING);
+        const isBefore = Boolean(boundary.compareDocumentPosition(element) & FOLLOWING);
         const crossesControl = controls.some((control) => control !== element && (isBefore
-          ? (sibling.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(element) & FOLLOWING)
-          : (element.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(sibling) & FOLLOWING)));
+          ? (boundary.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(element) & FOLLOWING)
+          : (element.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(boundary) & FOLLOWING)));
         const belongsAfterAnotherControl = !isBefore && controls.some((control) => control !== element
-          && (sibling.compareDocumentPosition(control) & FOLLOWING));
+          && (siblings[siblings.length - 1].compareDocumentPosition(control) & FOLLOWING));
         if (crossesControl || belongsAfterAnotherControl) continue;
         if (isBefore && !siblingBefore) siblingBefore = value;
         else if (!isBefore && !siblingAfter) siblingAfter = value;

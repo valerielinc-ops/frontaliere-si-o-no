@@ -308,6 +308,14 @@ describe('portal field extraction', () => {
       const genericInstruction = extract(`<form><span>${instruction}</span><input id="${id}"></form>`);
       expect(genericInstruction.fields[0].label).toBe(id);
     }
+    for (const [parts, id] of [
+      [['Completa tutti i', 'campi prima di inviare la candidatura'], 'input-31'],
+      [['Bitte füllen Sie alle', 'Felder aus, bevor Sie sich bewerben'], 'input-32'],
+      [['Veuillez remplir tous les', 'champs avant de soumettre votre candidature'], 'input-33'],
+    ]) {
+      const splitInstruction = extract(`<form><span>${parts[0]}</span><span>${parts[1]}</span><input id="${id}"></form>`);
+      expect(splitInstruction.fields[0].label).toBe(id);
+    }
     const formPromptDiv = extract('<form><div class="question">Do you have a permit?</div><input id="input-14"></form>');
     expect(formPromptDiv.fields[0].label).toBe('Do you have a permit?');
     const ancestorQuestion = extract('<form><div><span>Wrapped question</span><div><input id="input-23"></div></div></form>');
