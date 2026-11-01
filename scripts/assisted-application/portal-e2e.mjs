@@ -6,6 +6,7 @@
  *
  *   node scripts/assisted-application/portal-e2e.mjs
  *   (PLAYWRIGHT_CHROMIUM_PATH=<binary> to use a local Chromium build)
+ *   AA_PORTAL_E2E_FOCUS=coop node scripts/assisted-application/portal-e2e.mjs
  *
  * posting → sign-in page → "Konto erstellen" → register (two passwords, the
  * required consent, a newsletter box left alone) → "check your e-mail" →
@@ -1127,13 +1128,68 @@ async function main() {
     console.log(`${ok ? '✓' : '✗'} ${name}`);
     if (!ok && actual !== undefined) console.log(`  actual: ${JSON.stringify(actual)}`);
   };
+  const runCoopChecks = async () => {
+    // Coop (2026-10-02): career page → Prospective.ch redirect → SuccessFactors, on an account of its own.
+    const coopSaved = new Map();
+    const coopAccounts = {
+      async load(host) { return coopSaved.get(host) || null; },
+      async save(host, { email, password }) { coopSaved.set(host, { email, password, createdAt: Date.now(), verifiedAt: null }); },
+      async mark(host, patch) { coopSaved.set(host, { ...coopSaved.get(host), ...patch }); },
+      async discard(host) { coopSaved.delete(host); },
+      async waitForVerification() { return null; },
+    };
+    const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' };
+    const coopCandidate = { identity: { email: ALIAS }, profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
+    const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
+    check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
+      && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0);
+    check('Coop: SuccessFactors’ own cookie manager («Alle Cookies ablehnen») is refused, the sign-in page behind it is reached', coop.cookieManager === 'rejected');
+    const coopFirst = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
+    const coopAuth = coopFirst.evidence.steps.filter((step) => step.auth).map((step) => step.auth);
+    check('Coop: the account is created (16-character password, country, privacy statement accepted, no job alert) and the application sent with «Bewerben»',
+      coopFirst.event.type === 'submit_succeeded' && coop.accounts.size === 1 && coop.privacyAccepted === 1 && !coop.jobAbo
+      && coop.refused.length === 0 && coop.outsideAccept === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
+      && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca', {
+        ...stopContext(coopFirst), portal: {
+          refusalReasons: coop.refused.slice(-3), privacyAcceptedCount: coop.privacyAccepted,
+          outsideConsentAcceptedCount: coop.outsideAccept, jobAlertEnabled: coop.jobAbo,
+          accountCount: coop.accounts.size,
+        },
+      });
+    check('Coop: SuccessFactors’ picklists, its UI5 birth date and «Vermittlungsbüro?» (always Nein) are filled',
+      coop.applications[0]?.anrede === 'Herr' && coop.applications[0]?.birth === '12.05.1990' && coop.applications[0]?.agency === 'Nein');
+    check('Coop: the closed sections are opened and the CV goes in through «Lebenslauf hochladen» before «Bewerben»',
+      coop.validationRefusals === 0 && coop.cvUploads === 1 && coopFirst.evidence.steps.some((step) => step.cv === 'uploaded')
+      && (coopFirst.evidence.finalOutcomes || []).join(',') === 'confirmed' && coopFirst.evidence.uploads?.some((item) => item.document === 'cv'));
+    check('Coop: the sign-in page names no company, so the posting is checked on the form behind it', coopFirst.evidence.postingMatch === 'match');
+    // This time the portal drops the first click on the sections and on the CV dialog.
+    coop.flaky = true;
+    const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
+    coop.flaky = false;
+    check('Coop: a dropped first click on the sections or the CV dialog is tried again, never «Bewerben» on a closed form',
+      coopAgain.event.type === 'submit_succeeded' && coop.validationRefusals === 0 && coop.cvUploads === 2
+      && coopAgain.evidence.steps.some((step) => step.cv === 'uploaded'));
+    check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
+      && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
+    coop.privacyValidationRetry = true;
+    const privacyRetry = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
+    check('SuccessFactors reopens and accepts the required privacy statement after same-page validation',
+      privacyRetry.event.type === 'submit_succeeded' && coop.privacyValidationRetries === 1
+      && coop.applicationPrivacySubmissions.slice(-2).join(',') === '1,1');
+  };
   const workdayFocus = process.env.AA_PORTAL_E2E_FOCUS;
   const focusWorkday = workdayFocus === 'workday-assisted' || workdayFocus === 'workday-auth';
+  const focusCoop = workdayFocus === 'coop';
   const focusRegistration = process.env.AA_PORTAL_E2E_FOCUS === 'registration-retry';
   try {
     if (focusWorkday) {
       await workdayAccountChecks({ base: workdayBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check }, workdayFocus === 'workday-assisted');
+    } else if (focusCoop) {
+      await runCoopChecks();
     } else if (!focusRegistration) {
+    // Keep this timing-sensitive portal first in the full suite; the same
+    // scenarios also run alone through AA_PORTAL_E2E_FOCUS=coop.
+    await runCoopChecks();
     const dry = await run({ dryRun: true });
     check('a dry run stops before creating the account', dry.event.type === 'dry_run_ready' && dry.event.stage === 'account' && state.accounts.size === 0);
     // The portal refuses the registration once: no account is kept, so the next run creates it again.
@@ -1466,47 +1522,6 @@ async function main() {
     const moved = await run({ applyUrl: `${base}/refused-moved` });
     check('a refusal on the error page the portal moved to is a refusal too', moved.event.type === 'submit_failed'
       && moved.event.error === 'portal_refused' && moved.evidence.finalUrl.endsWith('/refused-moved/error'));
-    // Coop (2026-10-02): career page → Prospective.ch redirect → SuccessFactors, on an account of its own.
-    const coopSaved = new Map();
-    const coopAccounts = {
-      async load(host) { return coopSaved.get(host) || null; },
-      async save(host, { email, password }) { coopSaved.set(host, { email, password, createdAt: Date.now(), verifiedAt: null }); },
-      async mark(host, patch) { coopSaved.set(host, { ...coopSaved.get(host), ...patch }); },
-      async discard(host) { coopSaved.delete(host); },
-      async waitForVerification() { return null; },
-    };
-    const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' };
-    const coopCandidate = { identity: { email: ALIAS }, profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
-    const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
-    check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
-      && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0);
-    check('Coop: SuccessFactors’ own cookie manager («Alle Cookies ablehnen») is refused, the sign-in page behind it is reached', coop.cookieManager === 'rejected');
-    const coopFirst = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
-    const coopAuth = coopFirst.evidence.steps.filter((step) => step.auth).map((step) => step.auth);
-    check('Coop: the account is created (16-character password, country, privacy statement accepted, no job alert) and the application sent with «Bewerben»',
-      coopFirst.event.type === 'submit_succeeded' && coop.accounts.size === 1 && coop.privacyAccepted === 1 && !coop.jobAbo
-      && coop.refused.length === 0 && coop.outsideAccept === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
-      && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca', stopContext(coopFirst));
-    check('Coop: SuccessFactors’ picklists, its UI5 birth date and «Vermittlungsbüro?» (always Nein) are filled',
-      coop.applications[0]?.anrede === 'Herr' && coop.applications[0]?.birth === '12.05.1990' && coop.applications[0]?.agency === 'Nein');
-    check('Coop: the closed sections are opened and the CV goes in through «Lebenslauf hochladen» before «Bewerben»',
-      coop.validationRefusals === 0 && coop.cvUploads === 1 && coopFirst.evidence.steps.some((step) => step.cv === 'uploaded')
-      && (coopFirst.evidence.finalOutcomes || []).join(',') === 'confirmed' && coopFirst.evidence.uploads?.some((item) => item.document === 'cv'));
-    check('Coop: the sign-in page names no company, so the posting is checked on the form behind it', coopFirst.evidence.postingMatch === 'match');
-    // This time the portal drops the first click on the sections and on the CV dialog.
-    coop.flaky = true;
-    const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
-    coop.flaky = false;
-    check('Coop: a dropped first click on the sections or the CV dialog is tried again, never «Bewerben» on a closed form',
-      coopAgain.event.type === 'submit_succeeded' && coop.validationRefusals === 0 && coop.cvUploads === 2
-      && coopAgain.evidence.steps.some((step) => step.cv === 'uploaded'));
-    check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
-      && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
-    coop.privacyValidationRetry = true;
-    const privacyRetry = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
-    check('SuccessFactors reopens and accepts the required privacy statement after same-page validation',
-      privacyRetry.event.type === 'submit_succeeded' && coop.privacyValidationRetries === 1
-      && coop.applicationPrivacySubmissions.slice(-2).join(',') === '1,1');
     // Review of #11015: a lost first click gets its own 8 s retry window.
     const slowBrowser = await launchChromium({ headless: true, executablePath });
     const slowPage = await slowBrowser.newPage();
@@ -1565,7 +1580,7 @@ async function main() {
     await workdayAccountChecks({ base: workdayBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check });
     }
 
-    if (!focusWorkday) {
+    if (!focusWorkday && !focusCoop) {
       const resetRegistration = () => {
         state.accounts.clear();
         state.verified.clear();
