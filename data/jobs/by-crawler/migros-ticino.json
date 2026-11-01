@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-11-01T09:46:09.387Z",
+  "assembledAt": "2026-11-01T12:23:04.206Z",
   "runId": "41292695324",
   "jobs": [
     {
@@ -120,7 +120,8 @@
       "streetAddress": "Conthey",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-la8792",
@@ -843,7 +844,8 @@
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-bf7guf",
@@ -961,7 +963,8 @@
       "streetAddress": "Haute-Nendaz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-yok6fd",
@@ -1421,7 +1424,8 @@
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-pwl1xs",
@@ -2249,7 +2253,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-nmb4sp",
@@ -2376,7 +2381,8 @@
       "streetAddress": "Urtenen-Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-op7ofx",
@@ -2496,7 +2502,8 @@
       "streetAddress": "Ostermundigen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-oe0dhr",
@@ -2835,7 +2842,8 @@
       "streetAddress": "Vuadens",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-iz4m9p",
@@ -3171,7 +3179,8 @@
       "streetAddress": "Chêne-Bougeries",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-lvrefr",
@@ -4192,7 +4201,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-cj9ej6",
@@ -4426,7 +4436,8 @@
       "streetAddress": "Prilly",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-lt51ri",
@@ -5349,7 +5360,8 @@
       "streetAddress": "Genf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-aa4gib",
@@ -5833,7 +5845,8 @@
       "streetAddress": "Route de Payerne 2-4",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-26T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-cb1ybj",
@@ -6353,7 +6366,7 @@
       "slugByLocale": {
         "it": "assistente-coordinatore-ufficio-m-f-d-migros-supermarkt-ag-zurich",
         "en": "assistant-office-coordinator-m-w-d-migros-supermarkt-ag-zurich-5o88al",
-        "de": "assistent-office-koordinator-m-w-d-migros-supermarkt-ag-zurich-5o88al",
+        "de": "assistant-office-coordinator-w-m-d-migros-supermarkt-ag-zurich",
         "fr": "assistant-office-coordinateur-m-w-d-migros-supermarkt-ag-zurich-5o88al"
       },
       "requirementsByLocale": {
@@ -6373,11 +6386,15 @@
         "it": [
           "assistant-office-coordinator-m-w-d-migros-supermarkt-ag-zurich-5o88al",
           "assistant-office-coordinator-m-w-d-migros-supermarkt-ag-zurich"
+        ],
+        "de": [
+          "assistent-office-koordinator-m-w-d-migros-supermarkt-ag-zurich-5o88al"
         ]
       },
       "previousSlugs": [
         "assistant-office-coordinator-m-w-d-migros-supermarkt-ag-zurich-5o88al",
-        "assistant-office-coordinator-m-w-d-migros-supermarkt-ag-zurich"
+        "assistant-office-coordinator-m-w-d-migros-supermarkt-ag-zurich",
+        "assistent-office-koordinator-m-w-d-migros-supermarkt-ag-zurich-5o88al"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -6399,7 +6416,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-s98wsn",
@@ -7309,7 +7327,8 @@
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-jr7a85",
@@ -7467,8 +7486,8 @@
       "slugByLocale": {
         "de": "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-hxojs2",
         "en": "cook-genossenschaft-migros-ostschweiz-st-gallen",
-        "fr": "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen",
-        "it": "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen"
+        "fr": "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen",
+        "it": "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2"
       },
       "titleByLocale": {
         "en": "Cook/chef",
@@ -7515,22 +7534,21 @@
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
         "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
         "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen",
         "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2",
-        "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen"
+        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
           "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
-          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen",
-          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2"
+          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-8966d3a1d2",
+          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "en": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "fr": [
-          "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen"
+          "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen"
         ]
       },
       "salaryMin": 99000,
@@ -7644,7 +7662,8 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-yk77jn",
@@ -7914,7 +7933,7 @@
       "slugByLocale": {
         "it": "specialista-nella-gestione-di-finanziamenti-ipotecari-e-creditizi-migros-bank-wallisellen",
         "en": "specialist-handling-mortgage-and-credit-financing-migros-bank-wallisellen",
-        "de": "spezialist-abwicklung-hypothekar-und-kreditfinanzierungen-migros-bank-wallisellen-ulji1p",
+        "de": "junior-spezialist-abwicklung-hypothekar-und-kreditfinanzierungen-migros-bank-wallisellen",
         "fr": "specialiste-du-financement-hypothecaire-et-du-credit-migros-bank-wallisellen"
       },
       "requirementsByLocale": {
@@ -7943,6 +7962,9 @@
           "spezialist-abwicklung-hypothekar-und-kreditfinanzierungen-migros-bank-wallisellen-ulji1p"
         ],
         "fr": [
+          "spezialist-abwicklung-hypothekar-und-kreditfinanzierungen-migros-bank-wallisellen-ulji1p"
+        ],
+        "de": [
           "spezialist-abwicklung-hypothekar-und-kreditfinanzierungen-migros-bank-wallisellen-ulji1p"
         ]
       },
@@ -8345,7 +8367,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-hh3vjb",
@@ -9169,7 +9192,7 @@
     },
     {
       "id": "company-iabm4y",
-      "slug": "collaboratore-trice-in-buffet-kasse-migros-restaurant-steinhausen-iabm4y",
+      "slug": "collaboratore-trice-a-buffet-cassa-migros-restaurant-steinhausen",
       "company": "Migros Restaurant",
       "title": "Mitarbeiter*in Buffet/Kasse",
       "location": "Steinhausen",
@@ -9229,7 +9252,7 @@
         "fr": "En tant qu'employé buffet / caissier, assurez-vous que nos clients se sentent à l'aise partout! Vous préparez le buffet et le présentez de manière appétissante.\n\n**Luogo di lavoro:** Restaurant Migros, coin restauration Zugerland Steinhausen, Hinterbergstrasse 40, 6312 Steinhausen\n\n## Mansioni\n- Service à la clientèle en conformité avec la réglementation de l'encaisse et fournissant des informations à la clientèle\n- Buffet Construction et soins\n- Le Mise et la Place\n- Travaux divers de nettoyage\n- Coopération au sein de l'Office\n\n## Exigences\n- en gastronomie et/ou vente: première expérience professionnelle\n- Achevé l'enseignement de base ou complémentaire: un avantage dans la gastronomie\n- Haute qualité et sensibilisation aux responsabilités\n- Personnalité orientée vers le service avec style hôte\n- Méthodes de travail fiables et précises (y compris de bonnes connaissances HACCP)\n- Travail indépendant et flexibilité\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Partie du groupe Migros : Dans le cadre du groupe Migros, vous bénéficiez de structures stables, d'opportunités de carrière variées et d'avantages intéressants\n- Travail en santé : Bénéficiez de notre gestion de la santé et de prestations d'assurance attrayantes\n- Abonnement pratique: Les employés reçoivent des conditions très avantageuses pour l'abonnement privé Handy incl. Famille et amis\n- Caisse de retraite professionnelle: La Caisse de retraite Migros offre des services attrayants avec une forte participation des salariés\n- Points de cumul: Vous collectez des points de cumul supplémentaires dans la section Alimentation et non-alimentation\n- Club School Migros: Nous participons à des cours de club jusqu'à max. CHF 1000.- (en frais de 100 %)\n- Loisirs et offres culturelles: Nous offrons divers rabais et billets gratuits dans le domaine des loisirs et de la culture\n- Offres sportives et de fitness: Avec nous vous obtenez des abonnements de fitness à prix réduit dans le parc de fitness Activ Fitness et Migros\n\n## Contatto\n** Demande et contact * *\nPetra birrer\nConsultant en ressources humaines\n\n** Processus de recrutement * *\n\n- Sélection préalable des demandes : Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction: Jusqu'à trois semaines\n- Travail d'essai : Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée de la rétroaction: Jusqu'à trois semaines\n- Offer & Contract Exhibition (Digital): Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé à la signature numérique par courrier électronique. Durée de la rétroaction: Jusqu'à une semaine\n\n**Grade di occupation:** 50-80 %"
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-in-buffet-kasse-migros-restaurant-steinhausen-iabm4y",
+        "it": "collaboratore-trice-a-buffet-cassa-migros-restaurant-steinhausen",
         "en": "buffet-cash-register-employee-migros-restaurant-steinhausen",
         "de": "mitarbeiter-in-buffet-kasse-migros-restaurant-steinhausen-iabm4y",
         "fr": "employe-e-sous-forme-de-buffet-caisse-migros-restaurant-steinhausen"
@@ -9251,7 +9274,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-buffet-kasse-migros-restaurant-steinhausen"
+          "mitarbeiter-in-buffet-kasse-migros-restaurant-steinhausen",
+          "collaboratore-trice-in-buffet-kasse-migros-restaurant-steinhausen-iabm4y"
         ],
         "en": [
           "mitarbeiter-in-buffet-kasse-migros-restaurant-steinhausen-iabm4y"
@@ -9262,7 +9286,8 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-buffet-kasse-migros-restaurant-steinhausen",
-        "mitarbeiter-in-buffet-kasse-migros-restaurant-steinhausen-iabm4y"
+        "mitarbeiter-in-buffet-kasse-migros-restaurant-steinhausen-iabm4y",
+        "collaboratore-trice-in-buffet-kasse-migros-restaurant-steinhausen-iabm4y"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -10229,7 +10254,8 @@
       "streetAddress": "Bremgarten bei Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-26xj54",
@@ -10914,7 +10940,7 @@
       "slugByLocale": {
         "it": "addetto-a-alla-gestione-del-magazzino-genossenschaft-migros-zurich-zurich",
         "en": "warehouse-management-employee-genossenschaft-migros-zurich-zurich-93bb04",
-        "de": "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-2nddwg",
+        "de": "mitarbeiter-in-warenlogistik-inkl-getranke-genossenschaft-migros-zurich-zurich",
         "fr": "collaborateur-rice-en-gestion-des-stocks-genossenschaft-migros-zurich-zurich"
       },
       "requirementsByLocale": {
@@ -10942,6 +10968,9 @@
           "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-2nddwg"
         ],
         "fr": [
+          "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-2nddwg"
+        ],
+        "de": [
           "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-2nddwg"
         ]
       },
@@ -11752,7 +11781,7 @@
         "it": "commessa-specializzata-in-generi-alimentari-m-f-d-societe-cooperative-migros-geneve-nyon",
         "en": "specific-seller-grocery-m-f-d-societe-cooperative-migros-geneve-nyon",
         "de": "spezifischer-verkaufer-lebensmittel-m-w-d-societe-cooperative-migros-geneve-nyon",
-        "fr": "vendeuse-specilaisee-epicerie-m-w-d-societe-cooperative-migros-geneve-nyon-da7a2m"
+        "fr": "vendeuse-specialisee-epicerie-f-h-d-societe-cooperative-migros-geneve-nyon"
       },
       "requirementsByLocale": {
         "it": [],
@@ -11778,6 +11807,9 @@
           "vendeuse-specilaisee-epicerie-m-w-d-societe-cooperative-migros-geneve-nyon-da7a2m"
         ],
         "de": [
+          "vendeuse-specilaisee-epicerie-m-w-d-societe-cooperative-migros-geneve-nyon-da7a2m"
+        ],
+        "fr": [
           "vendeuse-specilaisee-epicerie-m-w-d-societe-cooperative-migros-geneve-nyon-da7a2m"
         ]
       },
@@ -11868,7 +11900,7 @@
       "slugByLocale": {
         "it": "responsabile-di-reparto-food-non-food-genossenschaft-migros-ostschweiz-kleinandelfingen",
         "en": "food-non-food-department-manager-genossenschaft-migros-ostschweiz-kleinandelfingen-8kxgzb",
-        "de": "abteilungsleiter-in-food-non-food-genossenschaft-migros-ostschweiz-kleinandelfingen-8kxgzb",
+        "de": "abteilungsleiter-in-food-non-food-abteilungsleiter-in-food-non-food-mit-personeller-fuhrung-genossenschaft-migros",
         "fr": "responsable-de-departement-food-non-food-genossenschaft-migros-ostschweiz-kleinandelfingen-8kxgzb"
       },
       "requirementsByLocale": {
@@ -11896,6 +11928,9 @@
         "fr": [
           "abteilungsleiter-in-food-non-food-genossenschaft-migros-ostschweiz-kleinandelfingen-8kxgzb",
           "responsable-de-departement-food-non-food-genossenschaft-migros-ostschweiz-kleinandelfingen"
+        ],
+        "de": [
+          "abteilungsleiter-in-food-non-food-genossenschaft-migros-ostschweiz-kleinandelfingen-8kxgzb"
         ]
       },
       "previousSlugs": [
@@ -11987,7 +12022,7 @@
       "slugByLocale": {
         "it": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-gallen-t5dhpb",
         "en": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-gallen-t5dhpb",
-        "de": "assistent-manager-fitness-club-m-w-d-activ-fitness-st-gallen-t5dhpb",
+        "de": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-gallen",
         "fr": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-gallen-t5dhpb"
       },
       "requirementsByLocale": {
@@ -12007,10 +12042,14 @@
       "previousSlugsByLocale": {
         "it": [
           "assistant-manager-fitness-club-m-w-d-activ-fitness-st-gallen"
+        ],
+        "de": [
+          "assistent-manager-fitness-club-m-w-d-activ-fitness-st-gallen-t5dhpb"
         ]
       },
       "previousSlugs": [
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-st-gallen"
+        "assistant-manager-fitness-club-m-w-d-activ-fitness-st-gallen",
+        "assistent-manager-fitness-club-m-w-d-activ-fitness-st-gallen-t5dhpb"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -12151,7 +12190,8 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-o1igpw",
@@ -12451,9 +12491,9 @@
       "firstSeenAt": "2026-09-17T07:39:05.465Z",
       "slugByLocale": {
         "it": "ricevimento-dei-dipendenti-fitnesspark-basel",
-        "en": "reception-of-employees-fitnesspark-basel",
+        "en": "receptionist-fitnesspark-basel",
         "de": "mitarbeiter-in-empfang-fitnesspark-basel-z5gqar",
-        "fr": "reception-des-salaries-fitnesspark-basel"
+        "fr": "collaborateur-rice-a-l-accueil-fitnesspark-basel"
       },
       "titleByLocale": {
         "de": "Mitarbeiter*in Empfang",
@@ -12486,17 +12526,17 @@
       "previousSlugsByLocale": {
         "en": [
           "mitarbeiter-in-empfang-fitnesspark-basel",
-          "receptionist-fitnesspark-basel"
+          "reception-of-employees-fitnesspark-basel"
         ],
         "fr": [
           "mitarbeiter-in-empfang-fitnesspark-basel",
-          "collaborateur-rice-a-l-accueil-fitnesspark-basel"
+          "reception-des-salaries-fitnesspark-basel"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-empfang-fitnesspark-basel",
-        "receptionist-fitnesspark-basel",
-        "collaborateur-rice-a-l-accueil-fitnesspark-basel"
+        "reception-of-employees-fitnesspark-basel",
+        "reception-des-salaries-fitnesspark-basel"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -13242,7 +13282,8 @@
       "streetAddress": "Hochdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-r0kc8h",
@@ -13482,7 +13523,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-23T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-301oed",
@@ -14188,7 +14230,8 @@
       "streetAddress": "Gossau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-blotwt",
@@ -14533,7 +14576,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-ag305d",
@@ -14880,7 +14924,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-z66ikz",
@@ -15107,7 +15152,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-hzlk8f",
@@ -15481,7 +15527,8 @@
       "streetAddress": "Avenches",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-7fzn9f",
@@ -15712,7 +15759,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-82lh82",
@@ -16093,8 +16141,8 @@
       "firstSeenAt": "2026-10-23T21:33:33.048Z",
       "slugByLocale": {
         "de": "projektleiter-in-grossprojekte-genossenschaft-migros-basel-munchenstein-mtfv9h",
-        "en": "project-manager-in-large-projects-genossenschaft-migros-basel-munchenstein",
-        "fr": "chef-de-projet-dans-les-grands-projets-genossenschaft-migros-basel-munchenstein",
+        "en": "projektleiter-in-dreispitz-nord-genossenschaft-migros-basel-munchenstein",
+        "fr": "projektleiter-in-dreispitz-nord-genossenschaft-migros-basel-munchenstein",
         "it": "projektleiter-in-grossprojekte-genossenschaft-migros-basel-munchenstein"
       },
       "titleByLocale": {
@@ -16127,14 +16175,15 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "projektleiter-in-dreispitz-nord-genossenschaft-migros-basel-munchenstein"
+          "project-manager-in-large-projects-genossenschaft-migros-basel-munchenstein"
         ],
         "fr": [
-          "projektleiter-in-dreispitz-nord-genossenschaft-migros-basel-munchenstein"
+          "chef-de-projet-dans-les-grands-projets-genossenschaft-migros-basel-munchenstein"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-dreispitz-nord-genossenschaft-migros-basel-munchenstein"
+        "project-manager-in-large-projects-genossenschaft-migros-basel-munchenstein",
+        "chef-de-projet-dans-les-grands-projets-genossenschaft-migros-basel-munchenstein"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -16281,7 +16330,7 @@
     },
     {
       "id": "company-ipexe3",
-      "slug": "cucinare-genossenschaft-migros-luzern-luzern",
+      "slug": "cucinare-catering-services-migros-luzern",
       "company": "Catering Services Migros",
       "title": "Koch*Köchin",
       "location": "Luzern",
@@ -16332,9 +16381,9 @@
         "fr": "Les jours de match dans la zone VIP et événementiel, nous accueillons jusqu'à 1000 personnes avec buffet et menus servis. En dehors des saisons, les événements d'entreprise et de famille se déroulent de diverses manières presque quotidiennement dans les locaux de la swissporarena.\n\n**Luogo di lavoro:** Coopérative Migros Lucerne, Catering swissporarena, Horwerstrasse 91, 6005 Lucerne\n\n## Mansioni\n- Préparation indépendante, soignée et professionnelle des plats chauds et froids. De la restauration au buffet au menu multi-cours pour des événements de différentes tailles\n- Préparation des aliments en mettant l'accent sur la plus haute qualité et la satisfaction du client\n- Assurer le respect de toutes les exigences en matière d'hygiène\n- Échange étroit et flexible avec toute l'équipe pour un processus en douceur\n- Participation active aux manifestations extérieures du service de restauration de la coopérative Migros Lucerne\n\n## Exigences\n- Quelques années d'expérience professionnelle: comme cuisinier/cuisinier\n- Formation initiale ou continue terminée: comme cuisinier\n- Haute qualité et sensibilisation aux responsabilités\n- Fiabilité, flexibilité et créativité\n- Action axée sur l'équipe et le client\n- Méthodes de travail fiables et précises (y compris de bonnes connaissances HACCP)\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Infrastructure moderne : nos installations sont équipées de façon moderne pour assurer des conditions de travail optimales\n- Travail en santé : Bénéficiez de notre gestion de la santé et de prestations d'assurance attrayantes\n- Abonnement pratique: Les employés reçoivent des conditions très avantageuses pour l'abonnement privé Handy incl. Famille et amis\n- Caisse de retraite professionnelle: La Caisse de retraite Migros offre des services attrayants avec une forte participation des salariés\n- Prestations sociales: Migros offre des conditions d'emploi attrayantes avec de très bonnes prestations sociales\n- Loisirs et offres culturelles: Nous offrons divers rabais et billets gratuits dans le domaine des loisirs et de la culture\n- Offres sportives et de fitness: Avec nous vous obtenez des abonnements de fitness à prix réduit dans le parc de fitness Activ Fitness et Migros\n\n## Contatto\n** Demande et contact * *\nPetra birrer\nConsultant en ressources humaines\n\n** Processus de recrutement * *\n\n- Sélection préalable des demandes : Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction: Jusqu'à trois semaines\n- Travail d'essai : Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée de la rétroaction: Jusqu'à trois semaines\n- Discussion finale avant la délivrance du contrat : Avant la délivrance du contrat, nous tenons une discussion finale afin de clarifier les questions ouvertes des deux parties et de réglementer les détails contractuels. Si tous les points sont clarifiés, l'offre écrite suit. Durée de la rétroaction: Jusqu'à une semaine\n\n**Grado di occupationazione:** 60-100 %"
       },
       "slugByLocale": {
-        "it": "cucinare-genossenschaft-migros-luzern-luzern",
+        "it": "cucinare-catering-services-migros-luzern",
         "en": "cook-cook-genossenschaft-migros-luzern-luzern",
-        "de": "koch-kochin-genossenschaft-migros-luzern-ipexe3",
+        "de": "koch-kochin-catering-services-migros-luzern",
         "fr": "cuisiniere-genossenschaft-migros-luzern-luzern"
       },
       "requirementsByLocale": {
@@ -16356,7 +16405,8 @@
         "it": [
           "koch-kochin-genossenschaft-migros-luzern",
           "koch-kochin-genossenschaft-migros-luzern-ipexe3",
-          "koch-kochin-catering-services-migros-luzern"
+          "koch-kochin-catering-services-migros-luzern",
+          "cucinare-genossenschaft-migros-luzern-luzern"
         ],
         "en": [
           "koch-kochin-genossenschaft-migros-luzern-ipexe3",
@@ -16365,13 +16415,17 @@
         ],
         "fr": [
           "koch-kochin-genossenschaft-migros-luzern-ipexe3"
+        ],
+        "de": [
+          "koch-kochin-genossenschaft-migros-luzern-ipexe3"
         ]
       },
       "previousSlugs": [
         "koch-kochin-genossenschaft-migros-luzern",
         "koch-kochin-genossenschaft-migros-luzern-ipexe3",
         "koch-kochin-genossenschaft-migros-luzern-luzern",
-        "koch-kochin-catering-services-migros-luzern"
+        "koch-kochin-catering-services-migros-luzern",
+        "cucinare-genossenschaft-migros-luzern-luzern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -16393,7 +16447,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-63gjjh",
@@ -16791,7 +16846,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-75tbup",
@@ -16911,7 +16967,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-cn9a6a",
@@ -17876,7 +17933,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-mthmyp",
@@ -18680,7 +18738,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-egmbpt",
@@ -19407,7 +19466,8 @@
       "streetAddress": "Seidengasse 12",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-eirdbo",
@@ -19524,7 +19584,8 @@
       "streetAddress": "Greifensee",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-tn3myo",
@@ -19884,7 +19945,8 @@
       "streetAddress": "Münchenstein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-auax1x",
@@ -20879,7 +20941,8 @@
       "streetAddress": "Stans",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-tnv20a",
@@ -21106,7 +21169,8 @@
       "streetAddress": "Urtenen-Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-2ywacy",
@@ -21224,7 +21288,8 @@
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-prjk9c",
@@ -21335,7 +21400,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-k8tuc7",
@@ -21570,7 +21636,8 @@
       "streetAddress": "Sursee",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-6xgy0h",
@@ -21694,7 +21761,8 @@
       "streetAddress": "Brügg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-gijq64",
@@ -21818,7 +21886,8 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-dbw0fl",
@@ -22105,7 +22174,7 @@
       "firstSeenAt": "2026-10-21T09:59:45.247Z",
       "slugByLocale": {
         "it": "venditore-genossenschaft-migros-ostschweiz-hittnau",
-        "en": "seller-genossenschaft-migros-ostschweiz-hittnau",
+        "en": "salesperson-genossenschaft-migros-ostschweiz-hittnau",
         "de": "verkaufer-in-genossenschaft-migros-ostschweiz-hittnau-pyycs0",
         "fr": "vendeur-genossenschaft-migros-ostschweiz-hittnau"
       },
@@ -22135,7 +22204,7 @@
       "previousSlugsByLocale": {
         "en": [
           "verkaufer-in-genossenschaft-migros-ostschweiz-hittnau",
-          "salesperson-genossenschaft-migros-ostschweiz-hittnau"
+          "seller-genossenschaft-migros-ostschweiz-hittnau"
         ],
         "fr": [
           "verkaufer-in-genossenschaft-migros-ostschweiz-hittnau"
@@ -22143,7 +22212,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-genossenschaft-migros-ostschweiz-hittnau",
-        "salesperson-genossenschaft-migros-ostschweiz-hittnau"
+        "seller-genossenschaft-migros-ostschweiz-hittnau"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -22274,7 +22343,8 @@
       "streetAddress": "Steinhausen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-s0oq8k",
@@ -23004,7 +23074,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-8oa78c",
@@ -24252,7 +24323,7 @@
       },
       "slugByLocale": {
         "it": "consulente-di-soluzioni-sap-plm-con-responsabilita-architetturale-migros-industrie-ag-zurich",
-        "en": "sap-solution-advisor-plm-with-architecture-responsibility-migros-industrie-ag-zurich",
+        "en": "sap-solution-consultant-plm-mit-architekturverantwortung-migros-industrie-ag-zurich",
         "de": "sap-solution-berater-plm-mit-architekturverantwortung-migros-industrie-ag-zurich-g33tni",
         "fr": "conseiller-solution-sap-plm-avec-responsabilite-en-architecture-migros-industrie-ag-zurich"
       },
@@ -24264,7 +24335,7 @@
         ],
         "en": [
           "sap-solution-consultant-plm-mit-architekturverantwortung-migros-industrie-ag-zurich-g33tni",
-          "sap-solution-consultant-plm-mit-architekturverantwortung-migros-industrie-ag-zurich"
+          "sap-solution-advisor-plm-with-architecture-responsibility-migros-industrie-ag-zurich"
         ],
         "fr": [
           "sap-solution-consultant-plm-mit-architekturverantwortung-migros-industrie-ag-zurich-g33tni"
@@ -24273,7 +24344,8 @@
       "previousSlugs": [
         "sap-solution-consultant-plm-mit-architekturverantwortung-migros-industrie-ag-zurich",
         "sap-solution-consulente-plm-con-architekturverantwortung-migros-industrie-ag-zurich-g33tni",
-        "sap-solution-consultant-plm-mit-architekturverantwortung-migros-industrie-ag-zurich-g33tni"
+        "sap-solution-consultant-plm-mit-architekturverantwortung-migros-industrie-ag-zurich-g33tni",
+        "sap-solution-advisor-plm-with-architecture-responsibility-migros-industrie-ag-zurich"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -24653,7 +24725,8 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-5tp635",
@@ -25364,7 +25437,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-ijtaf9",
@@ -25707,7 +25781,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-svp3nq",
@@ -26242,7 +26317,7 @@
       "slugByLocale": {
         "it": "assistant-manager-fitness-club-m-w-d-activ-fitness-zurich-1h87qy",
         "en": "assistant-manager-fitness-club-m-w-d-activ-fitness-zurich-1h87qy",
-        "de": "assistent-manager-fitness-club-m-w-d-activ-fitness-zurich-1h87qy",
+        "de": "assistant-manager-fitness-club-m-w-d-activ-fitness-zurich",
         "fr": "assistant-manager-fitness-club-m-w-d-activ-fitness-zurich-1h87qy"
       },
       "requirementsByLocale": {
@@ -26262,10 +26337,14 @@
       "previousSlugsByLocale": {
         "it": [
           "assistant-manager-fitness-club-m-w-d-activ-fitness-zurich"
+        ],
+        "de": [
+          "assistent-manager-fitness-club-m-w-d-activ-fitness-zurich-1h87qy"
         ]
       },
       "previousSlugs": [
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-zurich"
+        "assistant-manager-fitness-club-m-w-d-activ-fitness-zurich",
+        "assistent-manager-fitness-club-m-w-d-activ-fitness-zurich-1h87qy"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -26402,7 +26481,8 @@
       "streetAddress": "Altstetten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-9hyr6s",
@@ -26527,7 +26607,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-5mcstz",
@@ -26645,7 +26726,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-6ysw9o",
@@ -27021,7 +27103,8 @@
       "streetAddress": "Münchenstein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-9xrul7",
@@ -27379,7 +27462,8 @@
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-5jffbi",
@@ -27564,7 +27648,7 @@
       "slugByLocale": {
         "it": "assistant-manager-fitness-club-m-w-d-activ-fitness-bern-45nucn",
         "en": "assistant-manager-fitness-club-m-w-d-activ-fitness-bern-45nucn",
-        "de": "assistent-manager-fitness-club-m-w-d-activ-fitness-bern-45nucn",
+        "de": "assistant-manager-fitness-club-m-w-d-activ-fitness-bern",
         "fr": "assistant-manager-fitness-club-m-w-d-activ-fitness-bern-45nucn"
       },
       "requirementsByLocale": {
@@ -27584,10 +27668,14 @@
       "previousSlugsByLocale": {
         "it": [
           "assistant-manager-fitness-club-m-w-d-activ-fitness-bern"
+        ],
+        "de": [
+          "assistent-manager-fitness-club-m-w-d-activ-fitness-bern-45nucn"
         ]
       },
       "previousSlugs": [
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-bern"
+        "assistant-manager-fitness-club-m-w-d-activ-fitness-bern",
+        "assistent-manager-fitness-club-m-w-d-activ-fitness-bern-45nucn"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -27974,7 +28062,8 @@
       "streetAddress": "Glarus",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-n2hffo",
@@ -28451,7 +28540,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-sy5ygs",
@@ -28662,7 +28752,8 @@
       "streetAddress": "Pfäffikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-1zdc5c",
@@ -29015,7 +29106,8 @@
       "streetAddress": "Oberbuchsiten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-cihd51",
@@ -29370,7 +29462,8 @@
       "streetAddress": "Sissach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-a6xqsw",
@@ -30201,7 +30294,8 @@
       "streetAddress": "Ramsen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-6ptr37",
@@ -30913,7 +31007,8 @@
       "streetAddress": "Zumikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-66rc0n",
@@ -32070,7 +32165,6 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-allschwil",
           "fitness-instructor-w-m-d-activ-fitness-allschwil-80604a80d7",
-          "istruttore-di-fitness-m-f-d-activ-fitness-allschwil",
           "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-f766808089"
         ],
         "fr": [
@@ -32080,7 +32174,6 @@
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-allschwil",
         "fitness-instructor-w-m-d-activ-fitness-allschwil-80604a80d7",
-        "istruttore-di-fitness-m-f-d-activ-fitness-allschwil",
         "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-f766808089"
       ],
       "salarySource": "estimated",
@@ -33912,7 +34005,7 @@
       "crawledAt": "2026-11-01T09:44:45.787Z",
       "firstSeenAt": "2026-06-29T14:19:58.281Z",
       "slugByLocale": {
-        "it": "meccanica-aziendale-genossenschaft-migros-luzern-dierikon",
+        "it": "meccanico-a-di-stabilimento-genossenschaft-migros-luzern-dierikon",
         "en": "business-mechanic-genossenschaft-migros-luzern-dierikon",
         "de": "betriebsmechaniker-in-genossenschaft-migros-luzern-dierikon-wbe5ko",
         "fr": "mecanicien-des-affaires-genossenschaft-migros-luzern-dierikon"
@@ -33988,11 +34081,13 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6036",
       "previousSlugs": [
-        "betriebsmechaniker-in-genossenschaft-migros-luzern-dierikon"
+        "betriebsmechaniker-in-genossenschaft-migros-luzern-dierikon",
+        "meccanica-aziendale-genossenschaft-migros-luzern-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-in-genossenschaft-migros-luzern-dierikon"
+          "betriebsmechaniker-in-genossenschaft-migros-luzern-dierikon",
+          "meccanica-aziendale-genossenschaft-migros-luzern-dierikon"
         ]
       },
       "salaryMin": 69500,
@@ -34383,11 +34478,12 @@
       "streetAddress": "Hochdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-11T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-dwov27",
-      "slug": "sous-chef-m-w-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur-dwov27",
+      "slug": "sous-ceo-m-f-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur",
       "company": "Pizzeria Ristorante Molino",
       "title": "Sous-Chef (m/w/d) 100%, Molino Winterthur",
       "location": "Winterthur",
@@ -34452,7 +34548,7 @@
         "fr": "Que ce soit des pizzas croustillantes, les meilleures créations de pâtes, des plats traditionnels de poisson et de viande ou des dolci maison, l'équipe Molino gâte ses invités dans une ambiance élégante avec les normes de qualité les plus élevées. Aimeriez-vous également fournir le sentiment extra italianità? Alors appliquez maintenant !\n\nLuogo di lavoro: Pizzeria Ristorante Molino, Pizzeria Ristorante Molino Winterthur, Marktgasse 45, 8400 Winterthur\n\n## Mansioni\n- Organisation du poste attribué\n- Préparation de la mise en place quotidienne\n- Préparation et distribution de plats et desserts dans le cadre du déjeuner et du soir\n- Commande, contrôle de livraison, inventaire, nettoyage et contrôle ainsi que sécurité au travail dans le cadre du concept HACCP / KOPAS\n- Soutenir le chef dans le menu et offrir la planification et le respect des normes de qualité et de sécurité\n- Vous êtes le député du chef pendant son absence\n\n## Exigences\n- Plusieurs années d'expérience professionnelle et d'expérience initiale en gestion : en gastronomie\n- Apprentissage professionnel terminé (EFZ): comme cuisinier\n- Expérience avec les recettes italiennes traditionnelles\n- Vous êtes une personnalité axée sur le service, communicative et résiliente\n- Vous êtes un hôte avec le corps et l'âme, avez de bonnes manières et une apparence extérieure bien groomed.\n- Vous avez une appréhension rapide, êtes un joueur d'équipe et avez l'habitude de travailler indépendamment\n- Allemand (très bonne connaissance)\n- Italien (avantageux)\n\n## Cosa de Friamo\n- Heures de travail flexibles: Nous offrons des horaires flexibles et des emplois à temps partiel\n- Congé de maternité / congé de paternité: Nous offrons 14 semaines de congé de maternité et 2 semaines de congé de paternité\n- Salaire équitable: Avec nous, vous avez un 13. Salaire mensuel supérieur aux exigences de L-GAV\n- Abonnement pratique: Bénéficiez de conditions préférentielles sur les abonnements pratiques\n- Prestations sociales: Bénéficiez d'attractives réductions de primes sur certaines assurances complémentaires chez SWICA\n- Alimentation: nourriture gratuite pendant les heures de travail\n- Migros Bank: Bénéficiez de conditions spéciales à Migros Bank / Generali Insurance\n- Offres des employés: Avantages sociaux attractifs de l'offre Migros et 25% de réduction dans toutes les entreprises du groupe Ospena AG\n- Offres sports et fitness: CHF 200 réduction pour un abonnement Activ Fitness\n- Promotion ciblée : Nous demandons, promouvons et rendons hommage\n- Éducation et formation : Nos employés sont soutenus et soutenus par des possibilités de formation internes et externes\n\n## Contatto\n Demande et contact * *\nIdda Karina Egüez\nFonctionnaire chargé des ressources humaines\n\nGrade di occupation: 90-100 %"
       },
       "slugByLocale": {
-        "it": "sous-chef-m-w-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur-dwov27",
+        "it": "sous-ceo-m-f-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur",
         "en": "sous-ceo-m-w-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur-dwov27",
         "de": "sous-chef-m-w-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur-dwov27",
         "fr": "sous-pdg-m-w-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur-dwov27"
@@ -34475,11 +34571,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sous-chef-m-w-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur"
+          "sous-chef-m-w-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur",
+          "sous-chef-m-w-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur-dwov27"
         ]
       },
       "previousSlugs": [
-        "sous-chef-m-w-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur"
+        "sous-chef-m-w-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur",
+        "sous-chef-m-w-d-100-molino-winterthur-pizzeria-ristorante-molino-winterthur-dwov27"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -34823,7 +34921,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-930k3m",
@@ -35187,7 +35286,8 @@
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-zwgul",
@@ -35313,7 +35413,8 @@
       "streetAddress": "Avry-sur-Matran",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-jktnum",
@@ -36223,7 +36324,8 @@
       "streetAddress": "Pfaffikon SZ",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4malxt",
@@ -36407,7 +36509,7 @@
       "slugByLocale": {
         "it": "assistente-direttore-del-fitness-club-m-f-d-activ-fitness-lachen-sz",
         "en": "assistant-manager-fitness-club-m-w-d-activ-fitness-lachen-sz-kp20l2",
-        "de": "assistent-manager-fitness-club-m-w-d-activ-fitness-lachen-sz-kp20l2",
+        "de": "assistant-manager-fitness-club-m-w-d-activ-fitness-lachen",
         "fr": "responsable-adjoint-e-du-club-de-fitness-h-f-d-activ-fitness-lachen-sz"
       },
       "requirementsByLocale": {
@@ -36432,12 +36534,16 @@
         ],
         "fr": [
           "assistant-manager-fitness-club-m-w-d-activ-fitness-lachen-sz-kp20l2"
+        ],
+        "de": [
+          "assistent-manager-fitness-club-m-w-d-activ-fitness-lachen-sz-kp20l2"
         ]
       },
       "previousSlugs": [
         "assistant-manager-fitness-club-m-w-d-activ-fitness-lachen-sz",
         "assistant-manager-fitness-club-m-w-d-activ-fitness-lachen-sz-kp20l2",
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-lachen"
+        "assistant-manager-fitness-club-m-w-d-activ-fitness-lachen",
+        "assistent-manager-fitness-club-m-w-d-activ-fitness-lachen-sz-kp20l2"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -36912,7 +37018,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-vcb94z",
@@ -38898,7 +39005,8 @@
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-swqeri",
@@ -39364,7 +39472,7 @@
       "slugByLocale": {
         "it": "senior-contabile-m-w-d-galaxus-zurich-1gt1k6",
         "en": "senior-accountants-m-f-d-galaxus-zurich",
-        "de": "senior-buchhalter-m-w-d-galaxus-zurich-1gt1k6",
+        "de": "senior-accountant-w-m-d-galaxus-zurich",
         "fr": "comptables-principaux-h-f-d-galaxus-zurich"
       },
       "sourceLang": "de",
@@ -39379,12 +39487,16 @@
           "senior-accountant-m-w-d-galaxus-zurich-1gt1k6",
           "senior-accountant-w-m-d-galaxus-zurich",
           "senior-accountant-m-w-d-galaxus-zurich"
+        ],
+        "de": [
+          "senior-buchhalter-m-w-d-galaxus-zurich-1gt1k6"
         ]
       },
       "previousSlugs": [
         "senior-accountant-m-w-d-galaxus-zurich",
         "senior-accountant-m-w-d-galaxus-zurich-1gt1k6",
-        "senior-accountant-w-m-d-galaxus-zurich"
+        "senior-accountant-w-m-d-galaxus-zurich",
+        "senior-buchhalter-m-w-d-galaxus-zurich-1gt1k6"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -39406,7 +39518,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-k2q605",
@@ -39746,7 +39859,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-f6h7k3",
@@ -40533,17 +40647,21 @@
       "slugByLocale": {
         "it": "assistant-manager-fitness-club-m-w-d-activ-fitness-frenkendorf-tuyl76",
         "en": "assistant-manager-fitness-club-m-w-d-activ-fitness-frenkendorf-tuyl76",
-        "de": "assistent-manager-fitness-club-m-w-d-activ-fitness-frenkendorf-tuyl76",
+        "de": "assistant-manager-fitness-club-m-w-d-activ-fitness-frenkendorf",
         "fr": "assistant-manager-fitness-club-m-w-d-activ-fitness-frenkendorf-tuyl76"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "assistant-manager-fitness-club-m-w-d-activ-fitness-frenkendorf"
+        ],
+        "de": [
+          "assistent-manager-fitness-club-m-w-d-activ-fitness-frenkendorf-tuyl76"
         ]
       },
       "previousSlugs": [
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-frenkendorf"
+        "assistant-manager-fitness-club-m-w-d-activ-fitness-frenkendorf",
+        "assistent-manager-fitness-club-m-w-d-activ-fitness-frenkendorf-tuyl76"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -40923,7 +41041,8 @@
       "streetAddress": "Birsfelden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-5mfybw",
@@ -41862,7 +41981,8 @@
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-cr200q",
@@ -42095,7 +42215,8 @@
       "streetAddress": "Genf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-oo6fr4",
@@ -42356,7 +42477,8 @@
       "streetAddress": "Pully",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-e1dwca",
@@ -42471,7 +42593,8 @@
       "streetAddress": "Aproz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-twesd5",
@@ -42922,7 +43045,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-5m5rxv",
@@ -43108,7 +43232,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-take-away-migros-take-away-pfaffikon-9j7qz3",
-        "en": "employee-in-take-away-migros-take-away-pfaffikon",
+        "en": "employees-take-away-migros-take-away-pfaffikon",
         "de": "mitarbeiter-in-take-away-migros-take-away-pfaffikon-9j7qz3",
         "fr": "employe-en-deplacement-migros-take-away-pfaffikon"
       },
@@ -43134,7 +43258,7 @@
         ],
         "en": [
           "mitarbeiter-in-take-away-migros-take-away-pfaffikon-9j7qz3",
-          "employees-take-away-migros-take-away-pfaffikon"
+          "employee-in-take-away-migros-take-away-pfaffikon"
         ],
         "fr": [
           "mitarbeiter-in-take-away-migros-take-away-pfaffikon-9j7qz3"
@@ -43143,7 +43267,7 @@
       "previousSlugs": [
         "mitarbeiter-in-take-away-migros-take-away-pfaffikon",
         "mitarbeiter-in-take-away-migros-take-away-pfaffikon-9j7qz3",
-        "employees-take-away-migros-take-away-pfaffikon"
+        "employee-in-take-away-migros-take-away-pfaffikon"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44070,7 +44194,7 @@
         "it": "collaboratore-trice-in-gastebetreuung-welle7-workspace-bern-iyldg0",
         "en": "guest-care-staff-welle7-workspace-bern",
         "de": "mitarbeiter-in-gastebetreuung-welle7-workspace-bern-iyldg0",
-        "fr": "personnel-soignant-welle7-workspace-bern"
+        "fr": "responsable-accueil-des-clients-welle7-workspace-bern"
       },
       "titleByLocale": {
         "it": "Membro del Team Accoglienza Ospiti",
@@ -44106,12 +44230,12 @@
         ],
         "fr": [
           "mitarbeiter-in-gastebetreuung-welle7-workspace-bern",
-          "responsable-accueil-des-clients-welle7-workspace-bern"
+          "personnel-soignant-welle7-workspace-bern"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-gastebetreuung-welle7-workspace-bern",
-        "responsable-accueil-des-clients-welle7-workspace-bern"
+        "personnel-soignant-welle7-workspace-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44477,7 +44601,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-jlldwu",
@@ -45202,7 +45327,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-13a593",
@@ -45372,7 +45498,7 @@
         "it": "magaziner-in-collaboratore-trice-in-food-genossenschaft-migros-aare-olten-3i0wm4",
         "en": "warehouse-employee-food-genossenschaft-migros-aare-olten",
         "de": "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-olten-3i0wm4",
-        "fr": "magasin-employe-alimentation-genossenschaft-migros-aare-olten"
+        "fr": "magasinier-e-agent-e-food-genossenschaft-migros-aare-olten"
       },
       "requirementsByLocale": {
         "de": [
@@ -45397,13 +45523,13 @@
         ],
         "fr": [
           "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-olten-3i0wm4",
-          "magasinier-e-agent-e-food-genossenschaft-migros-aare-olten"
+          "magasin-employe-alimentation-genossenschaft-migros-aare-olten"
         ]
       },
       "previousSlugs": [
         "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-olten",
         "magaziner-in-mitarbeiter-in-food-genossenschaft-migros-aare-olten-3i0wm4",
-        "magasinier-e-agent-e-food-genossenschaft-migros-aare-olten"
+        "magasin-employe-alimentation-genossenschaft-migros-aare-olten"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -45914,11 +46040,12 @@
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4dtzhe",
-      "slug": "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-f9fe347b3f",
+      "slug": "fitness-instructor-m-w-d-activ-fitness-allschwil",
       "company": "ACTIV FITNESS",
       "title": "Fitness Instructor (w/m/d)",
       "location": "Frenkendorf",
@@ -46015,15 +46142,15 @@
       "previousSlugs": [
         "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-5729b8",
         "fitness-instructor-w-m-d-activ-fitness-allschwil-0726797419",
-        "fitness-instructor-m-w-d-activ-fitness-allschwil",
-        "istruttore-di-fitness-m-f-d-activ-fitness-allschwil"
+        "istruttore-di-fitness-m-f-d-activ-fitness-allschwil",
+        "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-f9fe347b3f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-5729b8",
           "fitness-instructor-w-m-d-activ-fitness-allschwil-0726797419",
-          "fitness-instructor-m-w-d-activ-fitness-allschwil",
-          "istruttore-di-fitness-m-f-d-activ-fitness-allschwil"
+          "istruttore-di-fitness-m-f-d-activ-fitness-allschwil",
+          "istruttore-di-fitness-m-f-d-activ-fitness-allschwil-f9fe347b3f"
         ]
       },
       "salaryMin": 62000,
@@ -46246,7 +46373,8 @@
       "streetAddress": "Lyss",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-mzvq4k",
@@ -47182,7 +47310,8 @@
       "streetAddress": "Uzwil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-2bmnr1",
@@ -47297,7 +47426,8 @@
       "streetAddress": "Petit-Lancy",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-2jh035",
@@ -47700,7 +47830,8 @@
       "streetAddress": "rue des Perveuils 2",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4yjwks",
@@ -48051,7 +48182,8 @@
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-5dcg6z",
@@ -48285,7 +48417,8 @@
       "streetAddress": "Bazenheid",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-k1olez",
@@ -48535,7 +48668,8 @@
       "streetAddress": "Steinhausen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-mxpe3j",
@@ -48935,7 +49069,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-umtui2",
@@ -49055,7 +49190,8 @@
       "streetAddress": "Neuendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-eairwd",
@@ -49410,7 +49546,8 @@
       "streetAddress": "Rotkreuz (ZG)",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-gdek39",
@@ -50135,7 +50272,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-miw0p7",
@@ -51035,7 +51173,7 @@
         "it": "fornitore-specializzato-in-tutto-il-negozio-genossenschaft-migros-ostschweiz-davos-platz",
         "en": "specialist-vendor-throughout-the-shop-genossenschaft-migros-ostschweiz-davos-platz",
         "de": "fachverkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-davos-platz-5a2o5x",
-        "fr": "vendeur-specialise-dans-toute-la-boutique-genossenschaft-migros-ostschweiz-davos-platz"
+        "fr": "detaillant-en-magasin-genossenschaft-migros-ostschweiz-davos-platz"
       },
       "requirementsByLocale": {
         "de": [
@@ -51058,13 +51196,13 @@
         ],
         "fr": [
           "fachverkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-davos-platz-5a2o5x",
-          "detaillant-en-magasin-genossenschaft-migros-ostschweiz-davos-platz"
+          "vendeur-specialise-dans-toute-la-boutique-genossenschaft-migros-ostschweiz-davos-platz"
         ]
       },
       "previousSlugs": [
         "fachverkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-davos-platz",
         "fachverkaufer-in-ganzer-laden-genossenschaft-migros-ostschweiz-davos-platz-5a2o5x",
-        "detaillant-en-magasin-genossenschaft-migros-ostschweiz-davos-platz"
+        "vendeur-specialise-dans-toute-la-boutique-genossenschaft-migros-ostschweiz-davos-platz"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -51326,7 +51464,8 @@
       "streetAddress": "Thal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-8o7lfw",
@@ -51559,7 +51698,8 @@
       "streetAddress": "Suhr",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-mo0dku",
@@ -52102,7 +52242,7 @@
         "fr": "En tant qu'employé de cuisine dans la zone VIP, vous aidez l'équipe de cuisine dans la préparation, la production et la distribution de nourriture pour les invités dans l'accueil et l'environnement VIP. Vous contribuez à garantir, lors des journées de match et des événements, une offre de restauration de haute qualité, propre et efficace.\n\n## Mansioni\n- Vous êtes responsable de la préparation et de la préparation de la nourriture froide et chaude pour les invités VIP\n- Avec l'équipe de cuisine, vous assurez la qualité de première classe et une présentation attrayante de la nourriture\n- Soutien aux buffets et banquets\n- Les normes d'hygiène, de sécurité et de qualité selon HACCP sont mises en œuvre de manière cohérente et responsable.\n- Vous stockez des aliments professionnellement et faites attention à une utilisation prudente et durable de nos produits\n\n## Exigences\n- Expérience professionnelle: dans la gastronomie, avantageusement dans la restauration ou dans l'industrie événementielle\n- Formation initiale ou continue terminée: comme cuisinier\n- Vous avez une grande volonté pour la planification flexible des affectations et sont habitués à des heures de travail irrégulières\n- Vous aimez manipuler des aliments frais\n- Vous avez une capacité prononcée de travailler en équipe et de convaincre par une méthode de travail indépendante et précise\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Heures de travail sans heure de chambre: 41h semaine et heures de travail normales sans heure de chambre\n- Prestations de retraite professionnelles: Prestations de retraite attrayantes avec une forte participation de l'employeur\n- Assurance: Conditions de prestations dans diverses compagnies d'assurance\n- Points Cumulus: Points Cumulus multiples sur les produits alimentaires et non alimentaires\n- Abonnement mobile: conditions très avantageuses pour l'abonnement mobile privé également pour la famille et les amis\n\n## Contatto\n## Demande et contact Fischer Gabriela Chef du restaurant +41 58 712 03 52\n\n**Grade di occupation:** 590 %"
       },
       "slugByLocale": {
-        "it": "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen",
+        "it": "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2",
         "en": "cook-chef-genossenschaft-migros-ostschweiz-st-gallen",
         "de": "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
         "fr": "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen"
@@ -52125,6 +52265,7 @@
         "it": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
+          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2",
           "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "en": [
@@ -52138,6 +52279,7 @@
       "previousSlugs": [
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
+        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2",
         "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "salarySource": "estimated",
@@ -52639,7 +52781,8 @@
       "streetAddress": "Buchs (AG)",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-p8ztjx",
@@ -55970,7 +56113,8 @@
       "streetAddress": "Köniz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-h4w0rq",
@@ -56071,7 +56215,8 @@
       "streetAddress": "Buchs (AG)",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-wc6ly9",
@@ -56174,7 +56319,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-idiszm",
@@ -56441,7 +56587,8 @@
       "streetAddress": "Bern-Bruennen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-rv21lf",
@@ -56794,7 +56941,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-c2wba2",
@@ -57031,7 +57179,8 @@
       "streetAddress": "Gossau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-dlf4oh",
@@ -57746,7 +57895,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-8lg8qz",
@@ -57944,7 +58094,7 @@
       "crawledAt": "2026-11-01T09:44:45.787Z",
       "slugByLocale": {
         "en": "employee-in-restoration-m-f-d-societe-cooperative-migros-vaud-aigle",
-        "de": "mitarbeiter-in-der-restaurierung-m-w-d-societe-cooperative-migros-vaud-aigle",
+        "de": "restaurantmitarbeiter-m-w-d-societe-cooperative-migros-vaud-aigle",
         "fr": "employe-en-restauration-m-w-d-societe-cooperative-migros-vaud-aigle-8mlwsq",
         "it": "employe-en-restauration-m-w-d-societe-cooperative-migros-vaud-aigle-8mlwsq"
       },
@@ -57981,12 +58131,12 @@
         ],
         "de": [
           "employe-en-restauration-m-w-d-societe-cooperative-migros-vaud-aigle",
-          "restaurantmitarbeiter-m-w-d-societe-cooperative-migros-vaud-aigle"
+          "mitarbeiter-in-der-restaurierung-m-w-d-societe-cooperative-migros-vaud-aigle"
         ]
       },
       "previousSlugs": [
         "employe-en-restauration-m-w-d-societe-cooperative-migros-vaud-aigle",
-        "restaurantmitarbeiter-m-w-d-societe-cooperative-migros-vaud-aigle"
+        "mitarbeiter-in-der-restaurierung-m-w-d-societe-cooperative-migros-vaud-aigle"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -58008,7 +58158,8 @@
       "streetAddress": "Aigle",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-31T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-kf81xv",
@@ -58098,7 +58249,7 @@
       },
       "slugByLocale": {
         "it": "it-ingegnere-systemspezialist-genossenschaft-migros-zurich-kf81xv",
-        "en": "it-engineer-systems-specialist-genossenschaft-migros-zurich-zurich",
+        "en": "it-engineer-systemspezialist-genossenschaft-migros-zurich-zurich",
         "de": "it-ingenieur-systemspezialist-genossenschaft-migros-zurich-kf81xv",
         "fr": "it-ingenieur-systemspezialist-genossenschaft-migros-zurich-kf81xv"
       },
@@ -58110,14 +58261,14 @@
         "en": [
           "it-engineer-systemspezialist-genossenschaft-migros-zurich-kf81xv",
           "it-engineer-system-specialist-genossenschaft-migros-zurich-zurich",
-          "it-engineer-systemspezialist-genossenschaft-migros-zurich-zurich"
+          "it-engineer-systems-specialist-genossenschaft-migros-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "it-engineer-systemspezialist-genossenschaft-migros-zurich",
         "it-engineer-systemspezialist-genossenschaft-migros-zurich-kf81xv",
         "it-engineer-system-specialist-genossenschaft-migros-zurich-zurich",
-        "it-engineer-systemspezialist-genossenschaft-migros-zurich-zurich"
+        "it-engineer-systems-specialist-genossenschaft-migros-zurich-zurich"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -58634,7 +58785,8 @@
       "streetAddress": "Gränichen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-31T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-nhv8cl",
@@ -59143,7 +59295,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-31T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-x1t4jq",
@@ -59527,7 +59680,7 @@
         "it": "collaboratore-trice-in-kinderparadies-activ-fitness-schwyz-u83e1x",
         "de": "mitarbeiter-in-kinderparadies-activ-fitness-schwyz-u83e1x",
         "en": "children-s-paradise-staff-member-activ-fitness-schwyz",
-        "fr": "collaborateur-collaboratrice-paradis-des-enfants-activ-fitness-schwyz"
+        "fr": "employe-e-de-kinderparadies-activ-fitness-schwyz"
       },
       "titleByLocale": {
         "de": "Mitarbeiter*in Kinderparadies",
@@ -59561,12 +59714,12 @@
         ],
         "fr": [
           "mitarbeiter-in-kinderparadies-activ-fitness-schwyz",
-          "employe-e-de-kinderparadies-activ-fitness-schwyz"
+          "collaborateur-collaboratrice-paradis-des-enfants-activ-fitness-schwyz"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-kinderparadies-activ-fitness-schwyz",
-        "employe-e-de-kinderparadies-activ-fitness-schwyz"
+        "collaborateur-collaboratrice-paradis-des-enfants-activ-fitness-schwyz"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -60067,7 +60220,8 @@
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-hdb9cy",
@@ -60318,7 +60472,8 @@
       "streetAddress": "Dietikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-31T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-knbfpq",
@@ -61586,7 +61741,8 @@
       "streetAddress": "Oberbuchsiten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fll5kv",
@@ -62033,7 +62189,7 @@
       },
       "slugByLocale": {
         "it": "junior-product-manager-carte-di-credito-e-debito-tutti-migros-bank-wallisellen",
-        "en": "junior-product-manager-credit-and-debit-cards-all-migros-bank-wallisellen",
+        "en": "junior-product-manager-kredit-und-debitkarten-alle-migros-bank-wallisellen",
         "de": "product-manager-kredit-und-debitkarten-alle-migros-bank-wallisellen-0ld0d3",
         "fr": "gestionnaire-de-produits-cartes-de-credit-et-de-debit-tous-migros-bank-wallisellen"
       },
@@ -62048,7 +62204,7 @@
           "product-manager-kredit-und-debitkarten-alle-migros-bank-wallisellen-0ld0d3",
           "product-manager-kredit-und-debitkarten-alle-migros-bank-wallisellen",
           "product-manager-credit-and-debit-cards-all-migros-bank-wallisellen",
-          "junior-product-manager-kredit-und-debitkarten-alle-migros-bank-wallisellen"
+          "junior-product-manager-credit-and-debit-cards-all-migros-bank-wallisellen"
         ],
         "fr": [
           "product-manager-kredit-und-debitkarten-alle-migros-bank-wallisellen-0ld0d3"
@@ -62059,7 +62215,8 @@
         "product-manager-kredit-und-debitkarten-alle-migros-bank-wallisellen-0ld0d3",
         "junior-product-manager-kredit-und-debitkarten-alle-migros-bank-wallisellen",
         "product-manager-kredit-e-debitkarten-alle-migros-bank-wallisellen-0ld0d3",
-        "product-manager-credit-and-debit-cards-all-migros-bank-wallisellen"
+        "product-manager-credit-and-debit-cards-all-migros-bank-wallisellen",
+        "junior-product-manager-credit-and-debit-cards-all-migros-bank-wallisellen"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -62319,7 +62476,8 @@
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-ovjc5i",
@@ -62428,7 +62586,8 @@
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-aph0ci",
@@ -63693,7 +63852,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-or7bzu",
@@ -63925,7 +64085,8 @@
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-r4pwii",
@@ -64403,7 +64564,8 @@
       "streetAddress": "Pfungen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-epqine",
@@ -65312,7 +65474,7 @@
         "it": "operatore-di-impianti-f-m-d-delica-ag-birsfelden",
         "en": "plant-operator-f-m-d-delica-ag-birsfelden",
         "de": "anlagenfuhrer-m-w-d-nuss-rosterei-delica-ag-birsfelden-6ureux",
-        "fr": "exploitant-d-usine-f-m-d-delica-ag-birsfelden"
+        "fr": "operateur-de-ligne-m-w-d-torrefaction-de-noix-delica-ag-birsfelden"
       },
       "requirementsByLocale": {
         "de": [
@@ -65337,13 +65499,13 @@
         ],
         "fr": [
           "anlagenfuhrer-m-w-d-nuss-rosterei-delica-ag-birsfelden-6ureux",
-          "operateur-de-ligne-m-w-d-torrefaction-de-noix-delica-ag-birsfelden"
+          "exploitant-d-usine-f-m-d-delica-ag-birsfelden"
         ]
       },
       "previousSlugs": [
         "anlagenfuhrer-m-w-d-nuss-rosterei-delica-ag-birsfelden",
         "anlagenfuhrer-m-w-d-nuss-rosterei-delica-ag-birsfelden-6ureux",
-        "operateur-de-ligne-m-w-d-torrefaction-de-noix-delica-ag-birsfelden"
+        "exploitant-d-usine-f-m-d-delica-ag-birsfelden"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -66090,7 +66252,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-9ku1xw",
@@ -67026,7 +67189,8 @@
       "streetAddress": "Matzingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-2z1h8z",
@@ -68205,7 +68369,8 @@
       "streetAddress": "Kreuzlingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-832bmt",
@@ -69847,7 +70012,8 @@
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-pxoq7d",
@@ -71648,7 +71814,8 @@
       "streetAddress": "Windisch",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-9hzpbg",
@@ -72792,7 +72959,7 @@
       "crawledAt": "2026-11-01T09:44:45.787Z",
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
       "slugByLocale": {
-        "it": "cook-migros-restaurant-stafa",
+        "it": "cuoco-cuoca-migros-restaurant-stafa",
         "en": "cook-cook-migros-restaurant-stafa",
         "de": "koch-kochin-migros-restaurant-stafa-cd2cys",
         "fr": "cuisinier-cuisiniere-migros-restaurant-stafa"
@@ -72838,7 +73005,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-migros-restaurant-stafa"
+          "koch-kochin-migros-restaurant-stafa",
+          "cook-migros-restaurant-stafa"
         ],
         "en": [
           "koch-kochin-migros-restaurant-stafa-cd2cys",
@@ -72851,7 +73019,8 @@
       "previousSlugs": [
         "koch-kochin-migros-restaurant-stafa-cd2cys",
         "koch-kochin-migros-restaurant-stafa",
-        "cuoco-a-migros-restaurant-stafa"
+        "cuoco-a-migros-restaurant-stafa",
+        "cook-migros-restaurant-stafa"
       ],
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/3e4acce5-b176-4a05-8639-9579babfe45e",
       "datePosted": "2026-09-23T04:50:17+02:00",
@@ -73244,7 +73413,7 @@
       "firstSeenAt": "2026-09-26T14:22:42.719Z",
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-genossenschaft-migros-zurich-hs5cgn",
-        "en": "employee-cash-register-genossenschaft-migros-zurich-zurich",
+        "en": "cashier-genossenschaft-migros-zurich",
         "de": "mitarbeiter-in-kasse-genossenschaft-migros-zurich-hs5cgn",
         "fr": "caisse-enregistreuse-pour-employes-genossenschaft-migros-zurich-zurich"
       },
@@ -73276,7 +73445,7 @@
       "previousSlugsByLocale": {
         "en": [
           "mitarbeiter-in-kasse-genossenschaft-migros-zurich",
-          "cashier-genossenschaft-migros-zurich"
+          "employee-cash-register-genossenschaft-migros-zurich-zurich"
         ],
         "fr": [
           "mitarbeiter-in-kasse-genossenschaft-migros-zurich"
@@ -73284,7 +73453,7 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-kasse-genossenschaft-migros-zurich",
-        "cashier-genossenschaft-migros-zurich"
+        "employee-cash-register-genossenschaft-migros-zurich-zurich"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -74703,7 +74872,8 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-66hgvv",
@@ -75045,7 +75215,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-l1fwt3",
@@ -75725,7 +75896,8 @@
       "streetAddress": "Rain",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-52zg9j",
@@ -75841,7 +76013,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-8un3fl",
@@ -76189,7 +76362,8 @@
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-wvf9wk",
@@ -76253,7 +76427,7 @@
       "slugByLocale": {
         "it": "capo-aggiunto-del-personale-della-cucina-ristorante-m-f-d-delica-ag-meilen",
         "en": "deputy-head-of-kitchen-staff-restaurant-m-f-d-delica-ag-meilen",
-        "de": "stellvertreter-leiter-kuche-personalrestaurant-m-w-d-delica-ag-meilen-wvf9wk",
+        "de": "sous-chef-personalrestaurant-m-w-d-delica-ag-meilen",
         "fr": "sous-chef-restaurant-du-personnel-h-f-d-delica-ag-meilen"
       },
       "requirementsByLocale": {
@@ -76282,6 +76456,9 @@
           "chef-adjoint-du-personnel-de-cuisine-restaurant-h-f-d-delica-ag-meilen",
           "sous-chef-staff-restaurant-h-f-d-delica-ag-meilen",
           "sous-chef-personalrestaurant-m-w-d-delica-ag-meilen"
+        ],
+        "de": [
+          "stellvertreter-leiter-kuche-personalrestaurant-m-w-d-delica-ag-meilen-wvf9wk"
         ]
       },
       "previousSlugs": [
@@ -76420,7 +76597,8 @@
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-dmnlg5",
@@ -77070,7 +77248,7 @@
         "fr": "Vous aimez l'artisanat traditionnel et êtes enthousiaste à l'égard des produits de boulangerie de haute qualité? (en milliers de dollars) Vous aimez conseiller et communiquer en toute sécurité avec nos clients ? Alors, vous avez exactement raison avec nous!\n\nLuogo di lavoro: Coopérative Migros Suisse orientale, maison boulangerie Rheinpark, centre commercial, 9430 St. Margrethen\n\n## Mansioni\n- Vous êtes un maître boulanger. Avec vos compétences, vous pouvez produire de façon professionnelle divers produits de pain et de pâtisserie.\n- Que vous travailliez sur la pâte, la table ou le four, vous accomplissez vos tâches avec précision et soin, y compris les tâches de nettoyage.\n- Tu es toujours au milieu. Dans les affaires quotidiennes, vous soutenez activement et vous assurez que tout fonctionne bien.\n- Vous avez des responsabilités. Avec votre engagement, vous assurez que nos clients sont fournis en tout temps avec des produits frais.\n- Vous faites attention aux plus hauts standards ♦. Les règles d'hygiène et de sécurité sont appliquées avec soin.\n\n## Exigences\n- Expérience professionnelle : en tant que boulanger* dans une confiserie*\n- Achevé l'enseignement de base ou l'enseignement complémentaire: en tant que boulanger\n- Vous êtes un professionnel dans votre domaine. Avec une solide expertise dans le secteur de la boulangerie et de la pâtisserie, vous brillez dans votre métier.\n- Vous êtes un joueur d'équipe. Votre personnalité ouverte, motivée et axée sur l'équipe rend la collaboration agréable et réussie.\n- Vous êtes résistant. Une bonne forme physique et la préparation pour les quarts de jour et de nuit vous distinguent.\n- Vous travaillez de manière indépendante et efficace. Votre sensibilisation de haute qualité assure des résultats de première classe.\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Abonnement mobile: conditions très avantageuses pour l'abonnement mobile privé également pour la famille et les amis\n- Prestations de retraite professionnelles: Prestations de retraite attrayantes avec une forte participation de l'employeur\n- Points de cumul multiples sur les produits alimentaires et non alimentaires\n- Club School Migros: Participation financière généreuse à des cours auto-sélectionnés\n\n## Contatto\n Demande et contact * *\nOstoja Obrenovic\nChef de maison Bakery Rheinpark\n+41 58 712 8233\n\nGrade di occupation: 80-100 %"
       },
       "slugByLocale": {
-        "it": "panettiere-pasticcere-confettiere-genossenschaft-migros-ostschweiz-st-margrethen",
+        "it": "baker-confectioner-genossenschaft-migros-ostschweiz-st-margrethen",
         "en": "baker-confectioner-pastry-chef-genossenschaft-migros-ostschweiz-st-margrethen",
         "de": "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
         "fr": "boulanger-patissier-confiseur-genossenschaft-migros-ostschweiz-st-margrethen"
@@ -77090,7 +77268,8 @@
       "previousSlugsByLocale": {
         "it": [
           "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen",
-          "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr"
+          "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
+          "panettiere-pasticcere-confettiere-genossenschaft-migros-ostschweiz-st-margrethen"
         ],
         "en": [
           "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
@@ -77106,7 +77285,8 @@
         "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen",
         "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
         "sorry-i-can-t-help-with-that-genossenschaft-migros-ostschweiz-st-margrethen",
-        "boulangerie-confiserie-genossenschaft-migros-ostschweiz-st-margrethen"
+        "boulangerie-confiserie-genossenschaft-migros-ostschweiz-st-margrethen",
+        "panettiere-pasticcere-confettiere-genossenschaft-migros-ostschweiz-st-margrethen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -77253,7 +77433,8 @@
       "streetAddress": "Oerlikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-e82lhz",
@@ -79140,7 +79321,8 @@
       "streetAddress": "Ostermundigen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-bfyxub",
@@ -79602,7 +79784,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-sps8zq",
@@ -79956,7 +80139,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-hxcpk9",
@@ -80454,7 +80638,8 @@
       "streetAddress": "Staufen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-2gvhca",
@@ -80802,7 +80987,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-8k2vtb",
@@ -81158,7 +81344,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4drzdj",
@@ -81399,7 +81586,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-hssg2d",
@@ -81879,7 +82067,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-6q3z07",
@@ -82117,7 +82306,8 @@
       "streetAddress": "Spiez",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-ae4a43",
@@ -82240,7 +82430,8 @@
       "streetAddress": "Belp",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-lj2cve",
@@ -82367,7 +82558,8 @@
       "streetAddress": "Brügg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-qqgd2s",
@@ -82529,7 +82721,7 @@
         "it": "venditore-a-food-genossenschaft-migros-ostschweiz-appenzell",
         "en": "food-salesperson-genossenschaft-migros-ostschweiz-appenzell",
         "de": "verkaufer-in-food-genossenschaft-migros-ostschweiz-appenzell-5y5beh",
-        "fr": "vendeur-ere-de-nourriture-genossenschaft-migros-ostschweiz-appenzell"
+        "fr": "aliments-pour-vendeurs-genossenschaft-migros-ostschweiz-appenzell"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -82558,12 +82750,12 @@
       "previousSlugsByLocale": {
         "fr": [
           "verkaufer-in-food-genossenschaft-migros-ostschweiz-appenzell",
-          "aliments-pour-vendeurs-genossenschaft-migros-ostschweiz-appenzell"
+          "vendeur-ere-de-nourriture-genossenschaft-migros-ostschweiz-appenzell"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-genossenschaft-migros-ostschweiz-appenzell",
-        "aliments-pour-vendeurs-genossenschaft-migros-ostschweiz-appenzell"
+        "vendeur-ere-de-nourriture-genossenschaft-migros-ostschweiz-appenzell"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -82818,7 +83010,8 @@
       "streetAddress": "Abtwil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-2cmwmv",
@@ -83043,7 +83236,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4s55oo",
@@ -83540,7 +83734,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-isdotd",
@@ -83650,7 +83845,8 @@
       "streetAddress": "Samedan",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-su4gu8",
@@ -83880,7 +84076,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-75bx2q",
@@ -84634,7 +84831,8 @@
       "streetAddress": "Dierikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-gwri9t",
@@ -85832,7 +86030,8 @@
       "streetAddress": "Baar",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-14T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-jy5wtb",
@@ -86093,9 +86292,9 @@
       "firstSeenAt": "2026-08-17T21:57:32.195Z",
       "slugByLocale": {
         "de": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
-        "it": "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
+        "it": "panettiere-pasticcere-genossenschaft-migros-ostschweiz-schaffhausen",
         "en": "baker-in-confectioner-in-genossenschaft-migros-ostschweiz-schaffhausen",
-        "fr": "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen"
+        "fr": "boulanger-patissier-genossenschaft-migros-ostschweiz-schaffhausen"
       },
       "titleByLocale": {
         "en": "Baker-pastry chef",
@@ -86143,14 +86342,16 @@
         "pasticceria-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
         "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen",
         "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
-        "boulanger-patissier-genossenschaft-migros-ostschweiz-schaffhausen"
+        "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
+        "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen",
           "patissier-confiseur-genossenschaft-migros-ostschweiz-schaffhausen",
           "pasticceria-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
-          "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen"
+          "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen",
+          "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen"
         ],
         "en": [
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
@@ -86158,7 +86359,7 @@
         ],
         "fr": [
           "patissier-confiseur-genossenschaft-migros-ostschweiz-schaffhausen",
-          "boulanger-patissier-genossenschaft-migros-ostschweiz-schaffhausen"
+          "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen"
         ]
       },
       "postalCode": "8200",
@@ -86708,7 +86909,7 @@
         "it": "latticini-di-vendita-genossenschaft-migros-zurich-zurich",
         "en": "seller-dairy-genossenschaft-migros-zurich-zurich",
         "de": "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
-        "fr": "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich"
+        "fr": "vendeur-dans-la-laiterie-genossenschaft-migros-zurich"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Molkerei",
@@ -86744,13 +86945,13 @@
         "fr": [
           "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
           "verkaufer-in-molkerei-genossenschaft-migros-zurich",
-          "vendeur-dans-la-laiterie-genossenschaft-migros-zurich"
+          "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
         "verkaufer-in-molkerei-genossenschaft-migros-zurich",
-        "vendeur-dans-la-laiterie-genossenschaft-migros-zurich"
+        "produits-laitiers-vendus-genossenschaft-migros-zurich-zurich"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -87493,7 +87694,8 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-6xnq3o",
@@ -87608,7 +87810,8 @@
       "streetAddress": "Birsfelden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-i8ziuc",
@@ -88222,7 +88425,8 @@
       "streetAddress": "Mels",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-rgjg2p",
@@ -88282,7 +88486,7 @@
         "it": "baker-conditor-in-hausback-erei-sede-della-societa-monaco-di-baviera-genossenschaft-migros-basel-munchenstein",
         "en": "baker-conditor-in-hausbackerei-company-headquarters-munichstein-genossenschaft-migros-basel-munchenstein",
         "de": "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
-        "fr": "baker-conditor-inhausbackerei-siege-de-la-societe-munichstein-genossenschaft-migros-basel-munchenstein"
+        "fr": "boulanger-ere-patissier-ere-boulangerie-maison-centrale-d-exploitation-munchenstein-genossenschaft-migros-basel-munchenstein"
       },
       "requirementsByLocale": {
         "de": [
@@ -88308,13 +88512,13 @@
         ],
         "fr": [
           "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
-          "boulanger-ere-patissier-ere-boulangerie-maison-centrale-d-exploitation-munchenstein-genossenschaft-migros-basel-munchenstein"
+          "baker-conditor-inhausbackerei-siege-de-la-societe-munichstein-genossenschaft-migros-basel-munchenstein"
         ]
       },
       "previousSlugs": [
         "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein",
         "backer-in-konditor-in-hausbackerei-betriebszentrale-munchenstein-genossenschaft-migros-basel-munchenstein-rgjg2p",
-        "boulanger-ere-patissier-ere-boulangerie-maison-centrale-d-exploitation-munchenstein-genossenschaft-migros-basel-munchenstein"
+        "baker-conditor-inhausbackerei-siege-de-la-societe-munichstein-genossenschaft-migros-basel-munchenstein"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -89537,7 +89741,8 @@
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-64fvlx",
@@ -89699,7 +89904,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-8g6o4g",
@@ -90650,7 +90856,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uhgbvg",
@@ -90906,11 +91113,12 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-yy16d2",
-      "slug": "consulenti-clienti-privati-migros-bank-biel",
+      "slug": "consulenti-clienti-privati-migros-bank-soletta",
       "company": "Migros Bank",
       "title": "Beraterin Private Kunden",
       "location": "Solothurn",
@@ -90964,9 +91172,9 @@
         "fr": "Avec nous, vous pouvez vous impliquer, aider à façonner les conseils des clients de l'avenir et la numérisation de la banque. Nous vous recherchons : une personnalité qui pense à l'avenir. Quelqu'un avec qui, en équipe, nous mettrons en œuvre de nouvelles idées, stimulerons l'innovation et inspirerons les clients.\n\n## Mansioni\n- Les clients de Migros Bank, grâce à vos conseils complets et professionnels dans les domaines de base de l'investissement, du financement et de la pension.\n- Votre équipe, avec laquelle vous vous occupez du développement et de l'expansion des clients gérés par l'équipe.\n- Nouveaux clients parce que vous pouvez facilement acquérir et les ravir avec votre style gagnant et positionné.\n- Contester les clients en répondant à leurs besoins avec nos experts en planification financière.\n\n## Exigences\n- min. 2-3 ans: Conseil à la clientèle Retailbanking\n- Expérience en consultation avec des clients privés et bonne expertise dans les domaines de l'investissement, du financement et des prestations de retraite.\n- Flair pour développer activement les relations client et les maintenir à long terme.\n- Expérience dans l'acquisition réussie de nouveaux clients et une personnalité ouverte et positionnée.\n- Un knack pour établir des relations avec les clients et les maintenir durablement.\n- Apprentissage professionnel achevé (EFZ)\n- en allemand (négociation certaine)\n- Français (très bonne connaissance)\n\n## Cosa de Friamo\n- Migros Bank: comptes, prêts hypothécaires et services financiers à conditions préférentielles\n- Provision professionnelle: caisse de retraite très attrayante avec une contribution de l'employeur supérieure à la moyenne\n- Garde d'enfants: jusqu'à CHF 300 par mois par enfant à la garde d'enfants externe\n- Offres des employés : Crédit annuel généreux pour le bien-être\n\n## Contatto\n## Application & Contact Patrick Käch HR Business Partner / Junior responsible ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 151%"
       },
       "slugByLocale": {
-        "it": "consulenti-clienti-privati-migros-bank-biel",
+        "it": "consulenti-clienti-privati-migros-bank-soletta",
         "en": "consultant-private-clients-migros-bank-biel-yy16d2",
-        "de": "beraterin-private-kunden-biel-oder-solothurn-migros-bank-biel",
+        "de": "beraterin-private-kunden-migros-bank-soletta",
         "fr": "consultant-clients-prives-migros-bank-biel-yy16d2"
       },
       "requirementsByLocale": {
@@ -90990,17 +91198,20 @@
           "beraterin-private-kunden-migros-bank-biel",
           "beraterin-private-kunden-migros-bank-biel-yy16d2",
           "beraterin-private-kunden-biel-oder-solothurn-migros-bank-biel",
-          "beraterin-private-kunden-migros-bank-solothurn"
+          "beraterin-private-kunden-migros-bank-solothurn",
+          "consulenti-clienti-privati-migros-bank-biel"
         ],
         "de": [
-          "beraterin-private-kunden-migros-bank-biel-yy16d2"
+          "beraterin-private-kunden-migros-bank-biel-yy16d2",
+          "beraterin-private-kunden-biel-oder-solothurn-migros-bank-biel"
         ]
       },
       "previousSlugs": [
         "beraterin-private-kunden-migros-bank-biel",
         "beraterin-private-kunden-migros-bank-biel-yy16d2",
         "beraterin-private-kunden-biel-oder-solothurn-migros-bank-biel",
-        "beraterin-private-kunden-migros-bank-solothurn"
+        "beraterin-private-kunden-migros-bank-solothurn",
+        "consulenti-clienti-privati-migros-bank-biel"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -91141,7 +91352,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-iyjr4s",
@@ -91380,7 +91592,8 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-07T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-1cnlpc",
@@ -91435,7 +91648,7 @@
       "firstSeenAt": "2026-09-24T00:08:05.620Z",
       "slugByLocale": {
         "de": "mitarbeiter-in-food-genossenschaft-migros-aare-bern-1cnlpc",
-        "fr": "alimentation-du-personnel-genossenschaft-migros-aare-bern",
+        "fr": "employe-e-food-genossenschaft-migros-aare-bern",
         "it": "collaboratore-tricein-food-genossenschaft-migros-aare-bern",
         "en": "food-employee-genossenschaft-migros-aare-bern"
       },
@@ -91476,14 +91689,14 @@
         ],
         "fr": [
           "mitarbeiter-in-food-genossenschaft-migros-aare-bern",
-          "employe-e-food-genossenschaft-migros-aare-bern"
+          "alimentation-du-personnel-genossenschaft-migros-aare-bern"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-food-genossenschaft-migros-aare-bern-1cnlpc",
         "mitarbeiter-in-food-genossenschaft-migros-aare-bern",
         "collaboratore-trice-in-food-genossenschaft-migros-aare-bern-1cnlpc",
-        "employe-e-food-genossenschaft-migros-aare-bern"
+        "alimentation-du-personnel-genossenschaft-migros-aare-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -91866,7 +92079,8 @@
       "streetAddress": "Belp",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-07T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-hkqilj",
@@ -94490,7 +94704,8 @@
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-03T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-rq98eb",
@@ -95672,7 +95887,7 @@
         "fr": "Ici, les plats thaïlandais authentiques sont cuits en wok. Nous nous concentrons sur des produits de haute qualité et préparons les plats frais tous les jours. Pour notre équipe motivée, nous recherchons une personnalité orientée vers le service pour la compléter.\n\nLuogo di lavoro: KAIMUG, Glatt, Neue Winterthurerstrasse 99, 8304 Wallisellen\n\n## Informations importantes\nNous accueillons chaque demande, mais nous ne pouvons considérer que les demandes en ligne. Les demandes par la poste sont éliminées pour des raisons de protection des données et non renvoyées.\n\n## Mansioni\n- Préparation de plats asiatiques\n- Conseils et service aux clients avec recouvrement des dettes\n- Entretien des vitrines de vente et présentation des marchandises\n- Directives HACCP pour divers travaux de nettoyage\n- Soutenir l'équipe dans tous les travaux\n\n## Exigences\n- 1-2 ans d'expérience professionnelle: comme cuisinier/chef thaïlandais\n- Achevé l'enseignement de base ou l'enseignement complémentaire: en tant que cuisinier/chef est avantageux\n- Expérience professionnelle en vente/service avec recouvrement de créances\n- Expérience culinaire des plats asiatiques\n- Personnalité responsable et axée sur le service.\n- Flexible à utiliser du lundi au samedi\n- Efficacité et bon fonctionnement\n- Allemand (bonne connaissance)\n\n## Cosa de Friamo\n- Travail en santé : offres de promotion de la santé telles que massages et contrôles de santé\n- Mobilité: Avec le bonus unique de loisirs par année de max. CHF 350.– nous participons à votre abonnement transport en commun\n- Abonnement pratique: Vous pouvez vous attendre à des conditions spéciales pour l'abonnement pratique\n- Prestation de retraite professionnelle: Excellentes prestations de fonds de retraite avec une forte participation de l'employeur\n- Prestations sociales: Prestations sociales équitables\n- Points Cumulus: Vous obtenez des points Cumulus supplémentaires lors des achats\n- Migros Bank: Intérêts privilégiés sur le compte privé et d'investissement, gestion de compte libre, prêts hypothécaires réduits et plus\n- Club School Migros: Participation au cours coûte dans l'école du club\n- Loisirs et offres culturelles: Vous pouvez bénéficier de billets réduits lors d'événements culturels sélectionnés\n- Offres de sport et de fitness: Vous pouvez obtenir un bonus total de temps libre de max une fois par an. CHF 1000.– par exemple, rachat d'un abonnement annuel au centre M-Fitness\n- Soutien ciblé: GMZ Young Talents Community: Vous participez à des projets passionnants de notre communauté et participez à des événements qui vous emmènent plus loin\n- Éducation et formation: soutien à l'enseignement et à la formation professionnels, prime annuelle pour l'éducation d'une valeur de CHF 1000. –\n- Conception et prise de décision : réalisez vos idées innovantes\n- Conseil social et personnel : Conseil social interne\n\n## Contatto\n Demande et contact * *\nCaméra Mirco\nPartenaire de recrutement junior\n\nProcessus de recrutement * *\n\n- Sélection préalable des demandes : Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction: Jusqu'à trois semaines\n- Vidéo personnelle ou conversation téléphonique : Pour un grand nombre de candidats, nous effectuons en option une conversation téléphonique personnelle ou vidéo. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée de la rétroaction: Jusqu'à une semaine\n- Travail d'essai : Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée de la rétroaction: Jusqu'à trois semaines\n- Offer & Contract Exhibition (Digital): Après notre offre d'emploi orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé à la signature numérique par courrier électronique. Durée de la rétroaction: Jusqu'à une semaine\n\nNote pour les fournisseurs de services au personnel* *\nPour cette position, nous ne considérons que les demandes directes.\n\nGrado di occupation: 70-80 %"
       },
       "slugByLocale": {
-        "it": "cucina-asiatica-kitchen-assistant-kaimug-wallisellen",
+        "it": "kaimug-glatt-wok-koch-chef-kaimug-wallisellen",
         "en": "asian-kitchen-cook-assistant-kaimug-wallisellen",
         "de": "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd",
         "fr": "cuisinier-asiatique-chef-de-cuisine-kaimug-wallisellen"
@@ -95696,7 +95911,8 @@
       "previousSlugsByLocale": {
         "it": [
           "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd",
-          "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen"
+          "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen",
+          "cucina-asiatica-kitchen-assistant-kaimug-wallisellen"
         ],
         "en": [
           "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd"
@@ -95707,7 +95923,8 @@
       },
       "previousSlugs": [
         "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen-6vb5pd",
-        "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen"
+        "kaimug-glatt-wok-koch-kochin-kaimug-wallisellen",
+        "cucina-asiatica-kitchen-assistant-kaimug-wallisellen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -95734,7 +95951,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-cfgeao",
@@ -95849,7 +96067,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-f2iyhs",
@@ -99392,7 +99611,8 @@
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-588iq5",
@@ -99887,7 +100107,8 @@
       "streetAddress": "Sissach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-cbw6wy",
@@ -100244,7 +100465,8 @@
       "streetAddress": "Bern-Brünnen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-wear3v",
@@ -101145,7 +101367,8 @@
       "streetAddress": "Allschwil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-z0ao1d",
@@ -101390,7 +101613,8 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-8jrw0b",
@@ -101641,7 +101865,8 @@
       "streetAddress": "Küssnacht am Rigi",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-1gtr9b",
@@ -103103,7 +103328,7 @@
       },
       "slugByLocale": {
         "it": "responsabile-take-away-migros-take-away-bern",
-        "en": "take-away-team-leader-migros-take-away-bern",
+        "en": "department-lead-take-away-migros-take-away-bern",
         "de": "fachleiter-in-take-away-migros-take-away-bern-ro9jjd",
         "fr": "responsable-take-away-migros-take-away-bern"
       },
@@ -103117,7 +103342,7 @@
         "en": [
           "fachleiter-in-take-away-migros-take-away-bern-ro9jjd",
           "director-in-take-away-migros-take-away-bern",
-          "department-lead-take-away-migros-take-away-bern"
+          "take-away-team-leader-migros-take-away-bern"
         ],
         "fr": [
           "fachleiter-in-take-away-migros-take-away-bern-ro9jjd",
@@ -103130,7 +103355,7 @@
         "direttore-in-take-away-migros-take-away-bern",
         "director-in-take-away-migros-take-away-bern",
         "directeur-a-take-away-migros-take-away-bern",
-        "department-lead-take-away-migros-take-away-bern"
+        "take-away-team-leader-migros-take-away-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -105052,7 +105277,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-blzmsh",
@@ -105173,7 +105399,8 @@
       "streetAddress": "Langendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-wyp2ru",
@@ -105986,7 +106213,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-ywm2kc",
@@ -106181,7 +106409,7 @@
       },
       "slugByLocale": {
         "it": "gastro-allrounder-prendere-away-migros-paradis-migros-take-away-allschwil",
-        "en": "gastro-all-rounder-take-away-migros-paradis-migros-take-away-allschwil",
+        "en": "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil",
         "de": "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil-trg7op",
         "fr": "gastro-allrounder-prendre-l-autoroute-migros-paradis-migros-take-away-allschwil-trg7op"
       },
@@ -106193,12 +106421,13 @@
         ],
         "en": [
           "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil-trg7op",
-          "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil"
+          "gastro-all-rounder-take-away-migros-paradis-migros-take-away-allschwil"
         ]
       },
       "previousSlugs": [
         "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil",
-        "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil-trg7op"
+        "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil-trg7op",
+        "gastro-all-rounder-take-away-migros-paradis-migros-take-away-allschwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -106283,7 +106512,7 @@
       },
       "slugByLocale": {
         "it": "corso-di-formazione-aziendale-tedesco-m-f-klubschule-migros-luzern",
-        "en": "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern",
+        "en": "teacher-german-company-course-m-w-d-klubschule-migros-luzern",
         "de": "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern-84hi12",
         "fr": "cours-de-professeur-d-entreprise-allemande-h-f-klubschule-migros-luzern"
       },
@@ -106309,7 +106538,7 @@
         "en": [
           "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern-84hi12",
           "teacher-german-company-course-m-f-klubschule-migros-luzern",
-          "teacher-german-company-course-m-w-d-klubschule-migros-luzern"
+          "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern"
         ],
         "fr": [
           "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern-84hi12"
@@ -106318,8 +106547,7 @@
       "previousSlugs": [
         "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern",
         "lehrperson-deutsch-firmenkurs-m-w-d-klubschule-migros-luzern-84hi12",
-        "teacher-german-company-course-m-f-klubschule-migros-luzern",
-        "teacher-german-company-course-m-w-d-klubschule-migros-luzern"
+        "teacher-german-company-course-m-f-klubschule-migros-luzern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -106851,7 +107079,8 @@
       "streetAddress": "Steinhausen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:44:45.787Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-6q3y54",
@@ -108105,9 +108334,9 @@
       "firstSeenAt": "2026-08-27T01:02:09.761Z",
       "slugByLocale": {
         "de": "verkaufer-in-food-genossenschaft-migros-zurich-xy1y6c",
-        "it": "venditore-nel-cibo-genossenschaft-migros-zurich-zurich-2f7535",
+        "it": "assistente-alimentare-genossenschaft-migros-zurich",
         "en": "seller-in-food-genossenschaft-migros-zurich-zurich-2f7535",
-        "fr": "vendeur-dans-la-nourriture-genossenschaft-migros-zurich-zurich-2f7535"
+        "fr": "assistant-alimentaire-genossenschaft-migros-zurich"
       },
       "titleByLocale": {
         "de": "Verkäufer*in Food",
@@ -108153,15 +108382,17 @@
       "postingDateSource": "reported",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-genossenschaft-migros-zurich"
+          "verkaufer-in-food-genossenschaft-migros-zurich",
+          "venditore-nel-cibo-genossenschaft-migros-zurich-zurich-2f7535"
         ],
         "fr": [
-          "assistant-alimentaire-genossenschaft-migros-zurich"
+          "vendeur-dans-la-nourriture-genossenschaft-migros-zurich-zurich-2f7535"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-genossenschaft-migros-zurich",
-        "assistant-alimentaire-genossenschaft-migros-zurich"
+        "venditore-nel-cibo-genossenschaft-migros-zurich-zurich-2f7535",
+        "vendeur-dans-la-nourriture-genossenschaft-migros-zurich-zurich-2f7535"
       ],
       "postalCode": "8001",
       "salaryMin": 73500,
@@ -108281,7 +108512,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:42:32.484Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-qg19yn",
@@ -108388,7 +108620,8 @@
       "streetAddress": "Vernier",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:42:32.484Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4ioxs9",
@@ -108625,7 +108858,8 @@
       "streetAddress": "Neuenburg am Rhein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:27.010Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-puw386",
@@ -109245,7 +109479,8 @@
       "streetAddress": "Courtepin",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T22:05:05.543Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-wnug04",

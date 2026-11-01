@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schindler",
-  "assembledAt": "2026-11-01T09:14:49.662Z",
+  "assembledAt": "2026-11-01T12:23:20.560Z",
   "runId": "41291409806",
   "jobs": [
     {
@@ -191,7 +191,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:14:15.391Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-f372ba347b81",
@@ -762,7 +763,8 @@
       "streetAddress": "Küssnacht a",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:14:09.905Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5f919475ed80",
@@ -843,7 +845,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T09:14:09.086Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-3ce25210b285",
@@ -933,7 +936,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:14:08.310Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-38747dab18f0",
@@ -1108,7 +1112,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:14:06.695Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-e4d6518fad20",
@@ -1193,7 +1198,8 @@
       "streetAddress": "Küssnacht a",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:14:05.886Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1156ef7552dd",
@@ -1280,9 +1286,9 @@
     },
     {
       "id": "schindler-50ca3800f3d7",
-      "slug": "apprendistato-di-prova-come-efz-polimeccanico-con-un-focus-sull-assemblaggio-degli-ascensori-a-steinach-schindler-steinach-a6cce3d7d7",
+      "slug": "schnupperlehre-come-polymechaniker-in-cfc-con-schwerpunkt-liftmontage-in-steinach-schindler-steinach",
       "slugByLocale": {
-        "it": "apprendistato-di-prova-come-efz-polimeccanico-con-un-focus-sull-assemblaggio-degli-ascensori-a-steinach-schindler-steinach-a6cce3d7d7",
+        "it": "schnupperlehre-come-polymechaniker-in-cfc-con-schwerpunkt-liftmontage-in-steinach-schindler-steinach",
         "en": "schnupperlehre-als-polymechaniker-in-efz-with-emphasis-lift-assembly-in-steinach-schindler-steinach",
         "de": "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-in-steinach-schindler",
         "fr": "apprentissage-d-essai-en-tant-qu-efz-polymecanique-avec-un-accent-sur-l-assemblage-de-levage-a-steinach-schindler"
@@ -1330,12 +1336,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-in-steinach-schindler",
-        "schnupperlehre-come-polymechaniker-in-cfc-con-schwerpunkt-liftmontage-in-steinach-schindler-steinach"
+        "apprendistato-di-prova-come-efz-polimeccanico-con-un-focus-sull-assemblaggio-degli-ascensori-a-steinach-schindler-steinach-a6cce3d7d7"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-in-steinach-schindler",
-          "schnupperlehre-come-polymechaniker-in-cfc-con-schwerpunkt-liftmontage-in-steinach-schindler-steinach"
+          "apprendistato-di-prova-come-efz-polimeccanico-con-un-focus-sull-assemblaggio-degli-ascensori-a-steinach-schindler-steinach-a6cce3d7d7"
         ],
         "fr": [
           "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-in-steinach-schindler"
@@ -1359,7 +1365,8 @@
       "streetAddress": "Steinach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:14:04.308Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-75a1a6fd0ea6",
@@ -1531,9 +1538,9 @@
     },
     {
       "id": "schindler-11c03dae919d",
-      "slug": "apprendistato-di-prova-come-installatore-e-costruttore-di-apparecchiature-efz-con-specializzazione-in-montaggio-ascensori-a-adacbd1b46",
+      "slug": "schnupperlehre-come-anlagen-e-apparatebauer-in-cfc-con-schwerpunkt-liftmontage-in-steinach-schindler-steinach",
       "slugByLocale": {
-        "it": "apprendistato-di-prova-come-installatore-e-costruttore-di-apparecchiature-efz-con-specializzazione-in-montaggio-ascensori-a-adacbd1b46",
+        "it": "schnupperlehre-come-anlagen-e-apparatebauer-in-cfc-con-schwerpunkt-liftmontage-in-steinach-schindler-steinach",
         "en": "introductory-apprenticeship-as-plant-and-equipment-installer-efz-with-focus-on-lift-installation-in-steinach-schindler",
         "de": "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-in",
         "fr": "l-apprentissage-des-producteurs-en-tant-que-fabricant-d-usines-et-d-appareils-a-efz-avec-un-accent-sur-l-assemblage-de"
@@ -1583,14 +1590,14 @@
         "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-con-focus-sul-montaggio-in-ascensore-in-steinach-schindler-steinach",
         "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-con-focus-sull-assemblaggio-degli-ascensori-a-steinach-schindler",
         "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-in",
-        "schnupperlehre-come-anlagen-e-apparatebauer-in-cfc-con-schwerpunkt-liftmontage-in-steinach-schindler-steinach"
+        "apprendistato-di-prova-come-installatore-e-costruttore-di-apparecchiature-efz-con-specializzazione-in-montaggio-ascensori-a-adacbd1b46"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-con-focus-sul-montaggio-in-ascensore-in-steinach-schindler-steinach",
           "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-con-focus-sull-assemblaggio-degli-ascensori-a-steinach-schindler",
           "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-in",
-          "schnupperlehre-come-anlagen-e-apparatebauer-in-cfc-con-schwerpunkt-liftmontage-in-steinach-schindler-steinach"
+          "apprendistato-di-prova-come-installatore-e-costruttore-di-apparecchiature-efz-con-specializzazione-in-montaggio-ascensori-a-adacbd1b46"
         ],
         "en": [
           "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-in"
@@ -1617,7 +1624,8 @@
       "streetAddress": "Steinach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T09:14:01.927Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-49d79c6d04ce",
@@ -3827,7 +3835,8 @@
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T09:13:29.411Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-50b25417de23",
@@ -5065,7 +5074,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T09:13:17.525Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-6515abb2e0ce",
@@ -5234,7 +5244,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T09:13:15.940Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-0ef04b9f8b6e",
@@ -5610,10 +5621,7 @@
         "manager-consent-to-cookies-schindler-locarno",
         "zustimmung-des-managers-zu-cookies-schindler-locarno",
         "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
-        "gestore-consenso-ai-cookie-schindler-locarno",
-        "apprentice-afc-automation-machine-operator-for-2027-schindler-locarno",
-        "lehrling-afc-automation-machine-betreiber-fur-2027-schindler-locarno",
-        "apprentissage-afc-automatisation-machine-operateur-pour-2027-schindler-locarno"
+        "gestore-consenso-ai-cookie-schindler-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5738,7 +5746,8 @@
       "streetAddress": "Wettswil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:13:10.283Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-90cad2ccb013",
@@ -6317,7 +6326,8 @@
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T09:13:04.802Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-a67088c95b03",
@@ -6871,7 +6881,8 @@
       "postalCode": "6934",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:12:59.201Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-8ba87e043de5",
@@ -7125,7 +7136,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T09:12:56.845Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7b393039ae73",
@@ -8169,9 +8181,7 @@
         "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno-46b6b3521d",
         "zustimmung-des-managers-zu-cookies-schindler-locarno",
         "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
-        "gestore-consenso-ai-cookie-schindler-locarno",
-        "afc-electronic-learning-fur-2027-schindler-locarno",
-        "afc-apprentissage-electronique-pour-2027-schindler-locarno"
+        "gestore-consenso-ai-cookie-schindler-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8206,7 +8216,8 @@
       "streetAddress": "Locarno",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:12:46.502Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d5840e141401",
@@ -8291,7 +8302,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:12:45.704Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-fad00c711f39",
@@ -8393,7 +8405,8 @@
       "streetAddress": "Le Mont-sur-Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:12:44.923Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-ac50fb4b31b2",
@@ -8488,7 +8501,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:12:44.002Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7807a9a8ea51",
@@ -8665,7 +8679,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:12:42.446Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-c039b22db38a",
@@ -8751,7 +8766,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:12:41.664Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-43239c3e6fdb",
@@ -8838,7 +8854,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:12:40.874Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d6eff07d967b",
@@ -8929,7 +8946,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:12:40.055Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5ce0113bb788",
@@ -9208,7 +9226,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:12:37.703Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-0bd40b237b5b",
@@ -9297,7 +9316,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-06T09:12:36.906Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-f2450ccabb86",
@@ -9382,7 +9402,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-06T09:12:36.126Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-8f68c9fc6d74",
@@ -9472,7 +9493,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-06T09:12:35.329Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-77e328639f49",
@@ -9552,7 +9574,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-06T09:12:34.554Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-86b7b701f51c",
@@ -9640,7 +9663,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-06T09:12:33.758Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-405ea15f6ffb",
@@ -9810,7 +9834,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:12:32.167Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-4c7775d07114",
@@ -9986,7 +10011,8 @@
       "streetAddress": "Steinach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:12:30.591Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-b82c81022d46",
@@ -10066,7 +10092,8 @@
       "streetAddress": "Steinach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:12:29.794Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-89bbe2dfc3da",
@@ -10154,7 +10181,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-06T09:12:28.996Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-237ee2a0669c",
@@ -10319,7 +10347,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T09:12:27.391Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d00b34ea665d",
@@ -10404,7 +10433,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:20:16.681Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d70e3c5c452c",
@@ -10823,7 +10853,8 @@
       "streetAddress": "Wettswil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T21:19:53.331Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-9c3131208a87",

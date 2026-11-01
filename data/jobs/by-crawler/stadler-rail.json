@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadler-rail",
-  "assembledAt": "2026-11-01T10:20:25.874Z",
+  "assembledAt": "2026-11-01T12:23:32.903Z",
   "runId": "41292695324",
   "jobs": [
     {
@@ -84,7 +84,8 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T09:46:18.812Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f0880279f1cc",
@@ -169,7 +170,8 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T09:46:29.911Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-c86e3c865be9",
@@ -328,7 +330,8 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T09:46:07.225Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-3840da13c729",
@@ -408,7 +411,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T09:45:55.434Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-e312e1370e7d",
@@ -595,7 +599,8 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T10:20:01.203Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-87002d739d12",
@@ -685,7 +690,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T10:19:26.514Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-aa8cbd9c121d",
@@ -845,7 +851,8 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T10:19:15.205Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-8e877077d971",
@@ -928,7 +935,8 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T10:19:03.435Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-54503841859c",
@@ -1011,7 +1019,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T10:18:07.290Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-6e9558db00f6",
@@ -1020,7 +1029,7 @@
         "it": "acquirente-principale-stadler-rail-bussnang",
         "en": "lead-pukir-stadler-rail-bussnang",
         "de": "lead-buyer-stadler-rail-ch",
-        "fr": "acheteur-principal-stadler-rail-bussnang"
+        "fr": "responsable-achats-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -1067,7 +1076,7 @@
         "lead-buyer-stadler-rail-ch",
         "responsable-des-achats-stadler-rail-bussnang",
         "lead-buyer-stadler-rail-bussnang",
-        "responsable-achats-stadler-rail-bussnang"
+        "acheteur-principal-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1080,7 +1089,7 @@
           "lead-buyer-stadler-rail-ch",
           "responsable-des-achats-stadler-rail-bussnang",
           "lead-buyer-stadler-rail-bussnang",
-          "responsable-achats-stadler-rail-bussnang"
+          "acheteur-principal-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-10-05T21:47:16.367Z",
@@ -1260,7 +1269,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T10:18:52.608Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-198c9b8b934b",
@@ -1343,7 +1353,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T10:18:41.990Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-08c6c912614a",
@@ -1584,7 +1595,8 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T10:17:32.258Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-b79a4b358648",
@@ -1913,7 +1925,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T10:16:33.219Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-110e94231742",
@@ -1992,7 +2005,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-06T10:16:22.324Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-61d84f561ebf",
@@ -2113,7 +2127,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-06T10:16:11.434Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f7a1491a0bba",
@@ -2192,7 +2207,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-06T10:15:48.660Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-87ed84d1c807",
@@ -2300,7 +2316,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-06T10:15:36.226Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-45980167c5b9",
@@ -3163,7 +3180,8 @@
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-08T10:13:25.835Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-b8229e9c2e3f",
@@ -3412,7 +3430,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T10:13:02.625Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-c73699db8c82",
@@ -3781,7 +3800,8 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T10:12:18.197Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-4f69114da1cf",
@@ -3875,7 +3895,7 @@
       "id": "stadler-rail-bfa214fd04b1",
       "slug": "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
       "slugByLocale": {
-        "it": "system-ingegnere-cbtc-stadler-rail-wallisellen",
+        "it": "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
         "en": "system-ingegnere-cbtc-stadler-rail-wallisellen",
         "de": "system-engineer-cbtc-stadler-rail-ch",
         "fr": "system-ingenieur-cbtc-stadler-rail-wallisellen"
@@ -3927,6 +3947,7 @@
         "system-engineer-cbtc-stadler-rail-wallisellen",
         "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
         "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
+        "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
         "system-ingegnere-cbtc-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
@@ -3935,6 +3956,7 @@
           "system-engineer-cbtc-stadler-rail-ch-2",
           "system-engineer-cbtc-stadler-rail-wallisellen",
           "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
+          "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
           "system-ingegnere-cbtc-stadler-rail-wallisellen"
         ],
         "de": [
@@ -4350,7 +4372,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T10:11:11.117Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f7823e24b14f",
@@ -4537,7 +4560,8 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-11T10:10:38.590Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-38dada227e6c",
@@ -5014,7 +5038,7 @@
       "id": "stadler-rail-d8c44e4aefd7",
       "slug": "responsabile-del-progetto-elettrico-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "project-manager-in-electric-stadler-rail-bussnang",
+        "it": "responsabile-del-progetto-elettrico-stadler-rail-bussnang",
         "en": "project-manager-in-electric-stadler-rail-bussnang",
         "de": "teilprojektleiter-in-elektro-stadler-rail-ch",
         "fr": "gestionnaire-de-projet-en-electric-stadler-rail-bussnang"
@@ -5065,7 +5089,8 @@
         "introduzione-operativa-al-sottoproject-manager-stadler-rail-bussnang",
         "sub-project-manager-in-operation-stadler-rail-bussnang",
         "teilprojektleiter-in-betriebseinfuhrung-stadler-rail-ch",
-        "introduction-operationnelle-du-chef-de-sous-projet-stadler-rail-bussnang"
+        "introduction-operationnelle-du-chef-de-sous-projet-stadler-rail-bussnang",
+        "project-manager-in-electric-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5073,7 +5098,8 @@
           "introduzione-operativa-al-sottoproject-manager-stadler-rail-bussnang",
           "sub-project-manager-in-operation-stadler-rail-bussnang",
           "teilprojektleiter-in-betriebseinfuhrung-stadler-rail-ch",
-          "introduction-operationnelle-du-chef-de-sous-projet-stadler-rail-bussnang"
+          "introduction-operationnelle-du-chef-de-sous-projet-stadler-rail-bussnang",
+          "project-manager-in-electric-stadler-rail-bussnang"
         ],
         "en": [
           "teilprojektleiter-in-elektro-stadler-rail-ch",
@@ -5541,7 +5567,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T10:08:41.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-92c482a57849",
@@ -5707,9 +5734,9 @@
       "slug": "reclutamento-stadler-rail-wallisellen",
       "slugByLocale": {
         "it": "reclutamento-stadler-rail-wallisellen",
-        "en": "recruiting-stadler-rail-wallisellen",
+        "en": "testing-and-commissioning-engineer-stadler-rail-wallisellen",
         "de": "testing-commissioning-engineer-stadler-rail-wallisellen",
-        "fr": "recrutement-stadler-rail-wallisellen"
+        "fr": "testing-commissioning-ingenieur-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -5757,7 +5784,8 @@
         "testing-commissioning-ingenieur-stadler-rail-wallisellen",
         "recruiting-stadler-rail-ch",
         "testing-commissioning-engineer-stadler-rail-wallisellen",
-        "testing-and-commissioning-engineer-stadler-rail-wallisellen"
+        "recruiting-stadler-rail-wallisellen",
+        "recrutement-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5765,7 +5793,7 @@
         ],
         "en": [
           "testing-commissioning-engineer-stadler-rail-wallisellen",
-          "testing-and-commissioning-engineer-stadler-rail-wallisellen"
+          "recruiting-stadler-rail-wallisellen"
         ],
         "de": [
           "testing-commissioning-engineer-stadler-rail-ch",
@@ -5773,7 +5801,7 @@
           "recruiting-stadler-rail-ch"
         ],
         "fr": [
-          "testing-commissioning-ingenieur-stadler-rail-wallisellen"
+          "recrutement-stadler-rail-wallisellen"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:08.867Z",
@@ -5869,7 +5897,8 @@
       "streetAddress": "Altenrhein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T10:08:05.990Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-efe3f0d5b003",
@@ -5954,7 +5983,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T10:07:54.640Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-12d06fc78b38",
@@ -7360,13 +7390,14 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T10:04:37.395Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-46a5813ca2ad",
       "slug": "cambiare-la-conformita-elettrica-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "elettricista-in-completamento-stadler-rail-bussnang",
+        "it": "cambiare-la-conformita-elettrica-stadler-rail-bussnang",
         "en": "electrician-in-completion-stadler-rail-bussnang",
         "de": "elektriker-in-fertigstellung-stadler-rail-ch",
         "fr": "electricien-en-achevement-stadler-rail-bussnang"
@@ -7533,7 +7564,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T10:04:14.795Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-20540361373d",
@@ -7784,9 +7816,9 @@
       "slug": "verniciatore-in-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "verniciatore-in-stadler-rail-bussnang",
-        "en": "painters-in-stadler-rail-bussnang",
+        "en": "painter-stadler-rail-bussnang",
         "de": "lackierer-in-stadler-rail-ch",
-        "fr": "peintres-en-stadler-rail-bussnang"
+        "fr": "peintre-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -7832,8 +7864,8 @@
       "previousSlugs": [
         "lackierer-in-stadler-rail-ch",
         "lackierer-in-stadler-rail-bussnang",
-        "painter-stadler-rail-bussnang",
-        "peintre-stadler-rail-bussnang"
+        "painters-in-stadler-rail-bussnang",
+        "peintres-en-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7841,10 +7873,10 @@
           "lackierer-in-stadler-rail-bussnang"
         ],
         "en": [
-          "painter-stadler-rail-bussnang"
+          "painters-in-stadler-rail-bussnang"
         ],
         "fr": [
-          "peintre-stadler-rail-bussnang"
+          "peintres-en-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-08-07T10:29:56.318Z",
@@ -7946,7 +7978,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T10:03:28.862Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-0231248818de",
@@ -8033,7 +8066,7 @@
       "slug": "saldatori-in-alluminio-stadler-rail-altenrhein",
       "slugByLocale": {
         "it": "saldatori-in-alluminio-stadler-rail-altenrhein",
-        "en": "aluminium-welders-stadler-rail-altenrhein",
+        "en": "aluminum-welder-stadler-rail-altenrhein",
         "de": "aluminiumschweisser-in-stadler-rail-ch",
         "fr": "soudeurs-en-aluminium-stadler-rail-altenrhein"
       },
@@ -8081,7 +8114,7 @@
       "previousSlugs": [
         "aluminiumschweisser-in-stadler-rail-ch",
         "aluminiumschweisser-in-stadler-rail-altenrhein",
-        "aluminum-welder-stadler-rail-altenrhein"
+        "aluminium-welders-stadler-rail-altenrhein"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8089,7 +8122,7 @@
         ],
         "en": [
           "aluminiumschweisser-in-stadler-rail-altenrhein",
-          "aluminum-welder-stadler-rail-altenrhein"
+          "aluminium-welders-stadler-rail-altenrhein"
         ],
         "fr": [
           "aluminiumschweisser-in-stadler-rail-altenrhein"
@@ -8112,7 +8145,8 @@
       "streetAddress": "Altenrhein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T10:02:42.239Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-6de49652998d",
@@ -8192,7 +8226,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T10:03:17.119Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-f2d5ab040b13",
@@ -8443,7 +8478,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T10:02:18.234Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-fbca01063b41",
@@ -9448,7 +9484,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:59:35.914Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-b656f381929d",
@@ -9614,7 +9651,8 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:59:11.730Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-64ed08473a00",
@@ -9697,7 +9735,8 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:59:00.500Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-ad9b09116a2d",
@@ -9851,7 +9890,8 @@
       "streetAddress": "Altenrhein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:58:48.694Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-8ba2330936b5",
@@ -10260,7 +10300,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T09:57:37.927Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-0fa950db023e",
@@ -10441,9 +10482,9 @@
       "slug": "responsabile-contratti-procurement-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "responsabile-contratti-procurement-stadler-rail-bussnang",
-        "en": "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
+        "en": "contract-manager-purchasing-stadler-rail-bussnang",
         "de": "contract-manager-procurement-stadler-rail-ch",
-        "fr": "gestion-des-marches-stadler-rail-bussnang"
+        "fr": "responsable-contrats-et-achats-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -10489,8 +10530,8 @@
       "previousSlugs": [
         "contract-manager-procurement-stadler-rail-ch",
         "contract-manager-procurement-stadler-rail-bussnang",
-        "contract-manager-purchasing-stadler-rail-bussnang",
-        "responsable-contrats-et-achats-stadler-rail-bussnang"
+        "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
+        "gestion-des-marches-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10499,11 +10540,11 @@
         "en": [
           "contract-manager-procurement-stadler-rail-ch",
           "contract-manager-procurement-stadler-rail-bussnang",
-          "contract-manager-purchasing-stadler-rail-bussnang"
+          "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang"
         ],
         "fr": [
           "contract-manager-procurement-stadler-rail-bussnang",
-          "responsable-contrats-et-achats-stadler-rail-bussnang"
+          "gestion-des-marches-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.596Z",
@@ -11009,7 +11050,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:55:18.271Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-0bf8f26981af",
@@ -11252,7 +11294,8 @@
       "streetAddress": "Vufflens-la-Ville",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:54:45.252Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-d9aeaefbe37c",
@@ -11505,7 +11548,8 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:53:12.138Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-bf4cc5b003c3",
@@ -11592,7 +11636,7 @@
       "id": "stadler-rail-fad1bfc65d48",
       "slug": "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
       "slugByLocale": {
-        "it": "system-ingegnere-cbtc-stadler-rail-wallisellen",
+        "it": "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
         "en": "system-engineer-cbtc-stadler-rail-wallisellen",
         "de": "system-ingenieur-cbtc-stadler-rail-wallisellen",
         "fr": "system-engineer-cbtc-stadler-rail-ch-c74w3g"
@@ -11642,6 +11686,7 @@
         "system-engineer-cbtc-stadler-rail-ch",
         "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
         "system-engineer-cbtc-stadler-rail-ch-c74w3g",
+        "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
         "system-ingegnere-cbtc-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
@@ -11649,6 +11694,7 @@
           "system-engineer-cbtc-stadler-rail-ch",
           "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
           "system-engineer-cbtc-stadler-rail-ch-c74w3g",
+          "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
           "system-ingegnere-cbtc-stadler-rail-wallisellen"
         ],
         "fr": [
@@ -12152,7 +12198,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:52:48.533Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-3c20f8312515",
@@ -12229,7 +12276,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:52:36.830Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-322bcbd24554",
@@ -13128,9 +13176,9 @@
       "slug": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
       "slugByLocale": {
         "it": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
-        "en": "disposal-of-materials-stadler-rail-st-margrethen",
+        "en": "material-dispatcher-stadler-rail-st-margrethen",
         "de": "materialdisponent-in-stadler-rail-ch",
-        "fr": "expedition-du-materiel-en-stadler-rail-st-margrethen"
+        "fr": "detecteur-de-materiau-en-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13178,8 +13226,8 @@
         "materialdisponent-in-stadler-rail-st-margrethen",
         "materiale-di-spedizione-in-stadler-rail-st-margrethen",
         "material-dispatch-in-stadler-rail-st-margrethen",
-        "material-dispatcher-stadler-rail-st-margrethen",
-        "detecteur-de-materiau-en-stadler-rail-st-margrethen"
+        "disposal-of-materials-stadler-rail-st-margrethen",
+        "expedition-du-materiel-en-stadler-rail-st-margrethen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13190,11 +13238,11 @@
         "en": [
           "materialdisponent-in-stadler-rail-st-margrethen",
           "material-dispatch-in-stadler-rail-st-margrethen",
-          "material-dispatcher-stadler-rail-st-margrethen"
+          "disposal-of-materials-stadler-rail-st-margrethen"
         ],
         "fr": [
           "materialdisponent-in-stadler-rail-st-margrethen",
-          "detecteur-de-materiau-en-stadler-rail-st-margrethen"
+          "expedition-du-materiel-en-stadler-rail-st-margrethen"
         ]
       },
       "firstSeenAt": "2026-09-01T14:23:53.477Z",
@@ -13454,7 +13502,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:49:36.810Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-45d373718d52",
@@ -13627,7 +13676,7 @@
       "slug": "qehs-specialista-stadler-rail-wallisellen-2413c0",
       "slugByLocale": {
         "it": "qehs-specialista-stadler-rail-wallisellen-2413c0",
-        "en": "qehs-specialist-stadler-rail-ch-ppi2p6",
+        "en": "qehs-specialist-stadler-rail-wallisellen",
         "de": "qehs-spezialist-stadler-rail-wallisellen-2413c0",
         "fr": "qehs-specialiste-stadler-rail-wallisellen-2413c0"
       },
@@ -13674,7 +13723,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "qehs-specialist-stadler-rail-ch",
-        "qehs-specialist-stadler-rail-ch-2"
+        "qehs-specialist-stadler-rail-ch-2",
+        "qehs-specialist-stadler-rail-ch-ppi2p6"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13682,7 +13732,8 @@
           "qehs-specialist-stadler-rail-ch-2"
         ],
         "en": [
-          "qehs-specialist-stadler-rail-ch"
+          "qehs-specialist-stadler-rail-ch",
+          "qehs-specialist-stadler-rail-ch-ppi2p6"
         ],
         "de": [
           "qehs-specialist-stadler-rail-ch-2"
@@ -14328,7 +14379,8 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T09:47:28.235Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-4108dc53384a",
@@ -14482,7 +14534,8 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-31T09:47:15.887Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadler-rail-b3c92d578a91",

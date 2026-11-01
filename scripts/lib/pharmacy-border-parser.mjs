@@ -31,10 +31,18 @@ export const TICINO_PHARMACY_PDF_URL = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC
 // alternate host is a transport fallback; a dated URL discovered on the
 // official landing page is retained as the provenance when the filename moves.
 export const TICINO_PHARMACY_PDF_MIRROR_URL = 'https://m4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf';
+// The official landing page currently links this dated filename. Keep it as a
+// bounded emergency candidate because the landing page can time out while the
+// published document remains reachable; discovery from the landing page stays
+// authoritative whenever that page is available.
+export const TICINO_PHARMACY_PDF_CURRENT_URL = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf';
+export const TICINO_PHARMACY_PDF_CURRENT_MIRROR_URL = 'https://m4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf';
 export const TICINO_PHARMACY_DIRECTORY_URL = 'https://www4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/';
 export const TICINO_PHARMACY_PDF_URLS = Object.freeze([
   TICINO_PHARMACY_PDF_URL,
   TICINO_PHARMACY_PDF_MIRROR_URL,
+  TICINO_PHARMACY_PDF_CURRENT_URL,
+  TICINO_PHARMACY_PDF_CURRENT_MIRROR_URL,
 ]);
 const TICINO_PHARMACY_PDF_HOSTS = new Set(['www4.ti.ch', 'm4.ti.ch']);
 const TICINO_PHARMACY_PDF_PATH_PREFIX = '/fileadmin/DSS/DSP/UFC/PDF/';

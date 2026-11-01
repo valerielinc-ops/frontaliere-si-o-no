@@ -190,6 +190,13 @@
       "decidedAt": "2026-10-23T10:18:47Z",
       "ref": "#14643, #13411, #12555",
       "reason": "Gia' coperto da AGENTS.md #6: la shape non basta; guard e regex devono validare dominio/contesto e gestire unknown o ambigui invece di accettare qualunque valore."
+    },
+    {
+      "key": "reviewer-finding/fp:build-plugins-build-plugins-build-plugins-build-plugins",
+      "outcome": "declined",
+      "decidedAt": "2026-11-01T11:59:28Z",
+      "ref": "#16262, #16193, #14938",
+      "reason": "Fingerprint catch-all eterogeneo: #16262/#16193 trattano literal editoriali/calcolati obsoleti, #14938 una guardia di lunghezza sui target filesystem; AGENTS.md #6 copre gia' verifica di classe, sibling e consumer, quindi non esiste una regola preventiva unica."
     }
   ]
 }
