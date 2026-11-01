@@ -912,7 +912,21 @@ export async function applyActions(page, fields, actions, files, {
           // Workday: open the listbox and click the option (OfferOS dom-fill, fillListboxButton).
           await locator.click({ timeout: ACTION_TIMEOUT_MS });
           const frame = page.frames()[field.frame || 0] || page.mainFrame();
-          await frame.getByRole('option', { name: action.value, exact: true }).first().click({ timeout: 6000 });
+          const countryLike = isNationalityField(field.label) || isResidenceCountryField(field.label) || isPhoneCountryField(field);
+          const visibleOptions = frame.locator('[role="option"]:visible');
+          const labels = countryLike
+            ? (await visibleOptions.allInnerTexts().catch(() => [])).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean)
+            : [];
+          const exact = labels.find((label) => normalizedChoice(label) === normalizedChoice(action.value));
+          const selectedLabel = exact || (isNationalityField(field.label)
+            ? nationalityOptionLabel(action.value, labels, nationalityFieldLanguage(field.label))
+            : isPhoneCountryField(field)
+              ? phoneCountryOptionLabel(action.value, labels)
+              : isResidenceCountryField(field.label)
+                ? residenceCountryOptionLabel(action.value, labels)
+                : action.value);
+          if (!selectedLabel) throw new Error('option_not_found');
+          await frame.getByRole('option', { name: selectedLabel, exact: true }).first().click({ timeout: 6000 });
         } else if (field.selectLike) {
           selectedLabel = await chooseInOwnedList(page, field, locator, action.value);
         } else {

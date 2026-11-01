@@ -1167,6 +1167,24 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(control.selectOption).toHaveBeenCalledWith({ label: 'Italy' }, { timeout: 6000 });
   });
 
+  it('chooses a localized residence country option from a Workday listbox', async () => {
+    const optionClick = vi.fn(async () => {});
+    const control = { click: vi.fn(async () => {}), press: vi.fn(async () => {}) };
+    const options = { allInnerTexts: vi.fn(async () => ['Switzerland', 'Italy']) };
+    const frame = {
+      locator: vi.fn((selector: string) => selector.includes('[role="option"]') ? options : { first: () => control }),
+      getByRole: vi.fn((_role: string, query: { name: string }) => ({ first: () => ({ click: optionClick, query }) })),
+    };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{
+      id: 'residence-country', kind: 'listbox', label: 'Country of residence',
+    }], [{ fieldId: 'residence-country', action: 'select', value: 'Svizzera' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'residence-country', ok: true }]);
+    expect(optionClick).toHaveBeenCalledOnce();
+    expect((frame.getByRole as any).mock.calls[0][1]).toEqual({ name: 'Switzerland', exact: true });
+  });
+
   it('passes split-phone metadata to the text boundary while keeping single inputs international', async () => {
     let entered = '';
     const control = {
