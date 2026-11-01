@@ -7,6 +7,7 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
 import { currentPortalCodeVersion } from '../scripts/assisted-application/lib/portal-code-version.mjs';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
+import { candidateQuestionAnswerKey } from '../functions/src/assistedApplicationCandidateEdits.js';
 
 const now = Date.now();
 const version = 'b'.repeat(64);
@@ -101,6 +102,30 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.read(flowPath)).toMatchObject({ round: 1, answers, dispatch, portalRecoveryVersion: version });
     expect(await reconcilePortalCode(ctx)).toMatchObject({ queued: 0 });
     expect(store.list(`${base}/events/`)).toHaveLength(1);
+  });
+
+  it('does not let opaque legacy memories clear a required question during recovery', async () => {
+    const store = fixture();
+    const flowPath = `${base}/automation/flow`;
+    const draftPath = `${base}/ai_drafts/current`;
+    const question = { id: 'big_four_experience', question: 'Have you worked in a Big Four consulting firm or equivalent?', required: true, type: 'text' };
+    const key = candidateQuestionAnswerKey(question);
+    const legacyAnswer = 'Example Consulting GmbH, Project Lead, 2020-2022';
+    const userId = 'candidate-answer-evidence-test';
+    store.docs.set(base, { ...store.read(base), userId });
+    store.docs.set(draftPath, { ...store.read(draftPath), questions: [question] });
+    store.docs.set(flowPath, { ...store.read(flowPath), questionAnswers: { [key]: legacyAnswer } });
+    store.docs.set(`user_cv_profiles/${userId}`, { applicationQuestionAnswers: { [key]: legacyAnswer } });
+
+    const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 0, queued: 0 });
+    expect(store.read(base).automationDueAt).toBeNull();
+
+    // The same order's saved answer remains usable, and recovery persists only its order-local projection.
+    const orderAnswer = 'Example Consulting GmbH, Senior Consultant, 2021-2023';
+    store.docs.set(flowPath, { ...store.read(flowPath), answers: { [question.id]: orderAnswer } });
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 1, queued: 1 });
+    expect(store.read(flowPath).questionAnswers).toEqual({ [key]: orderAnswer });
   });
 
   it('retains the provider-outage lane instead of treating it as an unanswered personal question', async () => {

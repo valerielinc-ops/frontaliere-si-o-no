@@ -32,6 +32,13 @@ describe('typed facts use the attested answer source contract', () => {
     expect((await f.load())(target).answerEvidence[0]).toMatchObject({ question: testCase.question, answer: testCase.answer,
       category: testCase.category, unit: testCase.unit, scope: 'candidate', fact: testCase.fact, provenance: { actor: 'candidate', orderId: 'source', round: 1, confirmedAt: now } });
   });
+  it('returns an opaque digest rather than answer values as the cache fingerprint', async () => {
+    const f = fixture();
+    const result = (await f.load())(target);
+    expect(result.fingerprint).toMatch(/^[a-f0-9]{64}$/);
+    expect(result.fingerprint).not.toContain(cases[0].answer);
+    expect(result.fingerprint).not.toContain(f.key);
+  });
   it('does not treat fact.type alone as proof when the exact source question is absent', async () => {
     const f = fixture();
     f.store.docs.set('assisted_applications/source/ai_drafts/current', { round: 1, questions: [] });

@@ -158,19 +158,21 @@ export async function loadCandidateAnswerEvidence({ db, profileRecord = {}, user
       && (record.scope === 'candidate' || samePosting(record.provenance, job)) && (purpose === 'form' || record.category !== 'form_preference'))
       .sort((a, b) => a.key.localeCompare(b.key));
     return { answers: Object.fromEntries(evidence.map(record => [record.key, record.answer])), answerEvidence: evidence,
-      fingerprint: serialized({ version: ANSWER_EVIDENCE_VERSION, legacy, evidence }) };
+      fingerprint: createHash('sha256').update(serialized({ version: ANSWER_EVIDENCE_VERSION, evidence })).digest('hex') };
   };
 }
 
 /** Runner reads keep the raw CAS/lease snapshot untouched and project only the execution's answer context. */
-export async function loadRunnerAnswerContext({ db, order, flow, draft, nowMs = Date.now() }) {
-  const profileRecord = order.userId ? (await db.collection('user_cv_profiles').doc(order.userId).get()).data() || {} : {};
-  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord, userId: order.userId, nowMs,
+export async function loadRunnerAnswerContext({ db, order, flow, draft, nowMs = Date.now(), profileRecord, getDocument = ref => ref.get() }) {
+  const profile = profileRecord === undefined
+    ? order.userId ? (await getDocument(db.collection('user_cv_profiles').doc(order.userId))).data() || {} : {}
+    : profileRecord || {};
+  const contextFor = await loadCandidateAnswerEvidence({ db, profileRecord: profile, userId: order.userId, nowMs, getDocument,
     questionKeys: (draft?.questions || []).map(candidateQuestionAnswerKey) });
   const context = contextFor(order, { purpose: 'form' });
   const answers = flow?.answers && typeof flow.answers === 'object' && !Array.isArray(flow.answers) ? flow.answers : {};
   const orderAnswers = rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers, changed: answers });
-  return { flow: { ...flow, questionAnswers: { ...context.answers, ...orderAnswers } }, answerEvidence: context.answerEvidence };
+  return { flow: { ...flow, questionAnswers: { ...context.answers, ...orderAnswers } }, orderAnswers, answerEvidence: context.answerEvidence };
 }
 
 /** A source purge removes only records/clocks still owned by that order, never newer confirmations. */
