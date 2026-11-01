@@ -54,81 +54,184 @@ const MAX_RAW_BYTES = 12 * 1024 * 1024;
 const MAX_FORWARD_ATTACHMENTS_BYTES = 10 * 1024 * 1024;
 const OWNER_MAILBOX = 'valerie@frontaliereticino.ch';
 
-function isMessageIdAtext(character) {
-  return /[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~]/.test(character);
+const ATEXT_RE = /^[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~]$/;
+
+function isAtext(character) {
+  return ATEXT_RE.test(character);
 }
 
-function isMessageIdDotAtom(value) {
-  const atoms = String(value || '').split('.');
-  return atoms.length > 0 && atoms.every((atom) => atom.length > 0 && [...atom].every(isMessageIdAtext));
+function isQtext(character) {
+  const code = character.charCodeAt(0);
+  return code === 33 || (code >= 35 && code <= 91) || (code >= 93 && code <= 126);
 }
 
-function isMessageIdQuotedString(value) {
-  const text = String(value || '');
-  if (text.length < 2 || text[0] !== '"' || text.at(-1) !== '"') return false;
-  let escaped = false;
-  for (const character of text.slice(1, -1)) {
-    const code = character.charCodeAt(0);
-    if (escaped) {
-      if (!(code === 9 || (code >= 32 && code <= 126))) return false;
-      escaped = false;
-      continue;
+function isDtext(character) {
+  const code = character.charCodeAt(0);
+  return (code >= 33 && code <= 90) || (code >= 94 && code <= 126);
+}
+
+function isVcharOrWsp(character) {
+  const code = character.charCodeAt(0);
+  return (code >= 33 && code <= 126) || character === ' ' || character === '\t';
+}
+
+function consumeComment(text, start) {
+  if (text[start] !== '(') return null;
+  let cursor = start + 1;
+  while (cursor < text.length) {
+    const character = text[cursor];
+    if (character === '(') {
+      const end = consumeComment(text, cursor);
+      if (end === null) return null;
+      cursor = end;
+    } else if (character === ')') {
+      return cursor + 1;
+    } else if (character === '\\') {
+      if (!isVcharOrWsp(text[cursor + 1] || '')) return null;
+      cursor += 2;
+    } else if (character === ' ' || character === '\t' || (character.charCodeAt(0) >= 33 && character.charCodeAt(0) <= 126 && character !== ')')) {
+      cursor += 1;
+    } else {
+      return null;
     }
+  }
+  return null;
+}
+
+/** Consume RFC 5322 CFWS after parseHeaders has unfolded the field. */
+function skipCfws(text, start) {
+  let cursor = start;
+  while (cursor < text.length) {
+    while (text[cursor] === ' ' || text[cursor] === '\t') cursor += 1;
+    if (text[cursor] !== '(') return cursor;
+    const end = consumeComment(text, cursor);
+    if (end === null) return null;
+    cursor = end;
+  }
+  return cursor;
+}
+
+function consumeDotAtomText(text, start) {
+  let cursor = start;
+  let partLength = 0;
+  while (cursor < text.length && isAtext(text[cursor])) {
+    cursor += 1;
+    partLength += 1;
+  }
+  if (!partLength) return null;
+  while (text[cursor] === '.') {
+    cursor += 1;
+    const partStart = cursor;
+    while (cursor < text.length && isAtext(text[cursor])) cursor += 1;
+    if (cursor === partStart) return null;
+  }
+  return cursor;
+}
+
+function consumeQuotedString(text, start) {
+  let cursor = start;
+  if (text[cursor] !== '"') return null;
+  cursor += 1;
+  while (cursor < text.length) {
+    const character = text[cursor];
+    if (character === '"') return skipCfws(text, cursor + 1);
     if (character === '\\') {
-      escaped = true;
-      continue;
+      if (!isVcharOrWsp(text[cursor + 1] || '')) return null;
+      cursor += 2;
+    } else if (character === ' ' || character === '\t' || isQtext(character)) {
+      cursor += 1;
+    } else {
+      return null;
     }
-    // RFC 5322 qtext: WSP, !, and printable ASCII except DQUOTE and "\\".
-    if (!(code === 9 || code === 32 || code === 33 || (code >= 35 && code <= 126))) return false;
   }
-  return !escaped;
+  return null;
 }
 
-function isMessageIdDomainLiteral(value) {
-  const text = String(value || '');
-  if (text.length < 2 || text[0] !== '[' || text.at(-1) !== ']') return false;
-  return [...text.slice(1, -1)].every((character) => {
-    const code = character.charCodeAt(0);
-    // RFC 5322 dtext: printable ASCII except [, \\, and ].
-    return code >= 33 && code <= 126 && !['[', '\\', ']'].includes(character);
-  });
+function consumeAtom(text, start) {
+  const atomStart = skipCfws(text, start);
+  if (atomStart === null) return null;
+  const end = consumeDotAtomText(text, atomStart);
+  if (end === null) return null;
+  return skipCfws(text, end);
 }
 
-function messageIdAtSigns(value) {
-  const positions = [];
-  let quoted = false;
-  let escaped = false;
-  for (let index = 0; index < value.length; index += 1) {
-    const character = value[index];
-    if (escaped) {
-      escaped = false;
-      continue;
-    }
-    if (quoted && character === '\\') {
-      escaped = true;
-      continue;
-    }
-    if (character === '"') {
-      quoted = !quoted;
-      continue;
-    }
-    if (!quoted && character === '@') positions.push(index);
+function consumeWord(text, start) {
+  const wordStart = skipCfws(text, start);
+  if (wordStart === null) return null;
+  return text[wordStart] === '"' ? consumeQuotedString(text, wordStart) : consumeAtom(text, wordStart);
+}
+
+function consumeObsoleteLocalPart(text, start) {
+  let cursor = consumeWord(text, start);
+  if (cursor === null) return null;
+  while (true) {
+    const beforeDot = skipCfws(text, cursor);
+    if (beforeDot === null) return null;
+    if (text[beforeDot] !== '.') return beforeDot;
+    cursor = consumeWord(text, beforeDot + 1);
+    if (cursor === null) return null;
   }
-  return quoted || escaped ? [] : positions;
+}
+function consumeNoFoldLiteral(text, start) {
+  if (text[start] !== '[') return null;
+  let cursor = start + 1;
+  while (cursor < text.length && isDtext(text[cursor])) cursor += 1;
+  return text[cursor] === ']' ? cursor + 1 : null;
 }
 
-/** Conservative RFC 5322 msg-id validation before using it as a deduplication key. */
+function consumeDomainLiteral(text, start) {
+  let cursor = skipCfws(text, start);
+  if (cursor === null || text[cursor] !== '[') return null;
+  cursor += 1;
+  while (cursor < text.length) {
+    while (text[cursor] === ' ' || text[cursor] === '\t') cursor += 1;
+    if (cursor >= text.length) return null;
+    if (text[cursor] === ']') return skipCfws(text, cursor + 1);
+    if (isDtext(text[cursor])) {
+      cursor += 1;
+      continue;
+    }
+    if (text[cursor] === '\\' && isVcharOrWsp(text[cursor + 1] || '')) {
+      cursor += 2;
+      continue;
+    }
+    return null;
+  }
+  return null;
+}
+
+function consumeObsoleteDomain(text, start) {
+  const literal = consumeDomainLiteral(text, start);
+  if (literal !== null) return literal;
+  let cursor = consumeAtom(text, start);
+  if (cursor === null) return null;
+  while (true) {
+    const beforeDot = skipCfws(text, cursor);
+    if (beforeDot === null) return null;
+    if (text[beforeDot] !== '.') return beforeDot;
+    cursor = consumeAtom(text, beforeDot + 1);
+    if (cursor === null) return null;
+  }
+}
+
+/** RFC 5322 msg-id, including the obsolete forms accepted for interpretation. */
 function isValidMessageId(value) {
-  const text = String(value || '').trim();
-  if (text.length < 5 || text.length > 1000 || text[0] !== '<' || text.at(-1) !== '>') return false;
-  const inner = text.slice(1, -1);
-  return messageIdAtSigns(inner).some((at) => {
-    const left = inner.slice(0, at);
-    const right = inner.slice(at + 1);
-    const validLeft = isMessageIdDotAtom(left) || isMessageIdQuotedString(left);
-    const validRight = isMessageIdDotAtom(right) || isMessageIdDomainLiteral(right);
-    return validLeft && validRight;
-  });
+  const text = String(value || '');
+  let cursor = skipCfws(text, 0);
+  if (cursor === null || text[cursor] !== '<') return false;
+  cursor += 1;
+
+  let left = consumeDotAtomText(text, cursor);
+  if (left === null || text[left] !== '@') left = consumeObsoleteLocalPart(text, cursor);
+  if (left === null || text[left] !== '@') return false;
+
+  cursor = left + 1;
+  let right = consumeDotAtomText(text, cursor) ?? consumeNoFoldLiteral(text, cursor);
+  if (right === null || text[right] !== '>') right = consumeObsoleteDomain(text, cursor);
+  if (right === null || text[right] !== '>') return false;
+
+  cursor = skipCfws(text, right + 1);
+  return cursor === text.length;
 }
 
 const CLASSIFICATION_SCHEMA = {

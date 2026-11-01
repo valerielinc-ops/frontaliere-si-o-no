@@ -108,7 +108,6 @@ describe('order alias', () => {
     expect(candidateIdentity({ ...order, candidateAlias: { ...order.candidateAlias, active: true }, applicantEmail: 'maria@example.com' }, {}).email).toBe(result.address);
   });
 });
-
 function employerMail({ subject = 'Einladung zum Vorstellungsgespräch', text = 'Guten Tag, wir laden Sie am 12. Oktober um 10:00 ein. Code: 482913', auto = false, authenticated = false } = {}) {
   return Buffer.from([
     'From: Anna Muster <hr@arbeitgeber.ch>',
@@ -203,12 +202,12 @@ describe('employer messages on the alias', () => {
     expect(inboundMessageIdentity(first).sourceMessageId).toBe('<reply-123@example.test>');
   });
 
-  it('falls back to raw bytes for malformed RFC Message-ID values', () => {
-    for (const sourceMessageId of ['<foo>', '<shared id>', '<foo@example.test extra>']) {
-      const first = Buffer.from(`Message-ID: ${sourceMessageId}\r\nSubject: A\r\n\r\nA`);
-      const second = Buffer.from(`Message-ID: ${sourceMessageId}\r\nSubject: B\r\n\r\nB`);
-      expect(inboundMessageIdentity(first)).not.toHaveProperty('sourceMessageId');
+  it('falls back to raw bytes for malformed RFC Message-IDs', () => {
+    for (const messageId of ['<foo>', '<shared id>', '<foo@>', '<@example.test>', '<foo..bar@example.test>', '<foo@example..test>']) {
+      const first = Buffer.from(`Message-ID: ${messageId}\r\n\r\nA`);
+      const second = Buffer.from(`Message-ID: ${messageId}\r\n\r\nB`);
       expect(inboundMessageIdentity(first).messageId).not.toBe(inboundMessageIdentity(second).messageId);
+      expect(inboundMessageIdentity(first)).not.toHaveProperty('sourceMessageId');
     }
   });
 
