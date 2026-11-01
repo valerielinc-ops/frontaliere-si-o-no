@@ -44,6 +44,7 @@ import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
 import { answerMessage, validateAnswer } from './lib/answerRules.js';
 import { permitOmitted, permitStatusOf } from './lib/permitStatus.js';
+import { portalQuestionText, readablePortalQuestionText } from './lib/portalQuestionText.js';
 import { defaultStartDate, minDateFor, zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
 import { decideFollowup, followupReviewPayload } from './assistedApplicationFollowupSweep.js';
 import { randomUUID } from 'node:crypto';
@@ -115,12 +116,15 @@ export { defaultStartDate, minDateFor, zurichToday };
 
 function questionView(question, nowMs = Date.now()) {
   const localizationFallback = question.localizationStatus === 'fallback';
+  const candidateQuestion = portalQuestionText(question) || String(question.question || '').trim();
+  const applicationQuestion = readablePortalQuestionText(question.applicationQuestion);
+  const showApplicationQuestion = localizationFallback || Boolean(applicationQuestion && applicationQuestion !== candidateQuestion);
   return {
     id: question.id,
-    question: question.question,
-    ...(localizationFallback ? {
-      localizationStatus: 'fallback',
-      applicationQuestion: question.applicationQuestion || question.question,
+    question: candidateQuestion,
+    ...(showApplicationQuestion ? {
+      ...(localizationFallback ? { localizationStatus: 'fallback' } : {}),
+      applicationQuestion: applicationQuestion || candidateQuestion,
       applicationQuestionLocale: question.applicationQuestionLocale || null,
     } : {}),
     why: question.why || '',

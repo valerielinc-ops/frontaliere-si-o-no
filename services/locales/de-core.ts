@@ -1098,6 +1098,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.fit.missing': "geht aus dem Lebenslauf nicht hervor",
  'jobBoard.assisted.review.fit.partial': "nur teilweise ersichtlich",
  'jobBoard.assisted.review.questionsTitle': "Angaben, die das Unternehmen braucht",
+ 'jobBoard.assisted.review.originalPortalQuestion': "Originaltext des Portals",
  'jobBoard.assisted.review.yes': "Ja",
  'jobBoard.assisted.review.no': "Nein",
  'jobBoard.assisted.review.saveAnswers': "Antworten speichern",

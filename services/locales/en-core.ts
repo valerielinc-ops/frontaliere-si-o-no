@@ -1095,6 +1095,7 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.review.fit.missing': "not shown in the CV",
  'jobBoard.assisted.review.fit.partial': "only partly shown",
  'jobBoard.assisted.review.questionsTitle': "Information the company needs",
+ 'jobBoard.assisted.review.originalPortalQuestion': "Portal original text",
  'jobBoard.assisted.review.yes': "Yes",
  'jobBoard.assisted.review.no': "No",
  'jobBoard.assisted.review.saveAnswers': "Save answers",

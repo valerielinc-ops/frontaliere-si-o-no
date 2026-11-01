@@ -16,5 +16,8 @@ export function portalQuestionText(question) {
     || readablePortalQuestionText(question?.portalQuestion);
 }
 export function unreadablePortalQuestion(question) {
-  return question?.source === 'portal' && !portalQuestionText(question);
+  const carriesPortalEvidence = question?.source === 'portal'
+    || Object.hasOwn(question || {}, 'applicationQuestion')
+    || Object.hasOwn(question || {}, 'portalQuestion');
+  return carriesPortalEvidence && !portalQuestionText(question);
 }

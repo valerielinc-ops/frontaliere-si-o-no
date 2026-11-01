@@ -1287,7 +1287,9 @@ function questionsFrom(missingRequired) {
     const key = portalQuestionKey(item) || id;
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
-    const applicationQuestion = String(item.applicationQuestion || item.portalQuestion || item.question || '').trim().slice(0, 300);
+    const applicationQuestion = [item.applicationQuestion, item.portalQuestion, item.question]
+      .map(readablePortalQuestionText)
+      .find(Boolean)?.slice(0, 300) || '';
     const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
       : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
@@ -1295,7 +1297,7 @@ function questionsFrom(missingRequired) {
     const optionMap = portalOptionMap({ options, applicationOptions, optionMap: item.optionMap });
     questions.push({
       id,
-      question: item.question,
+      question: readablePortalQuestionText(item.question) || applicationQuestion,
       applicationQuestion,
       ...(applicationOptions.length ? { applicationOptions } : {}),
       ...(optionMap.length ? { optionMap } : {}),
@@ -3615,7 +3617,10 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
       if (!field || (field.kind !== 'file' && field.inputType !== 'file')) {
         // A live field is authoritative. An agent's candidate-language copy
         // must never replace the exact label/options read from the ATS.
-        const applicationQuestion = String(field ? field.label || '' : item.applicationQuestion || item.portalQuestion || item.question || '').trim();
+        const applicationQuestion = [field?.label, field?.description, field?.ariaDescription,
+          item.applicationQuestion, item.portalQuestion, item.question]
+          .map(value => String(value || '').trim())
+          .find(value => readablePortalQuestionText(value) && !machineLabel(value)) || '';
         if (!readablePortalQuestionText(applicationQuestion) || machineLabel(applicationQuestion)) {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
           continue;

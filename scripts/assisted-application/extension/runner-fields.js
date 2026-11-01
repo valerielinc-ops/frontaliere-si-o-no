@@ -309,6 +309,24 @@ function nativeQuestionText(value, counter = null) {
         && (linked.length > 0 || oneQuestion);
     });
   };
+  const accessibleDescriptionFor = (element) => {
+    const values = [];
+    const direct = clean(element.getAttribute('aria-description'));
+    if (direct) values.push(direct);
+    let ambiguous = false;
+    for (const id of ['aria-describedby', 'aria-details'].flatMap(attribute =>
+      (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean))) {
+      const nodes = [...document.querySelectorAll('[id]')].filter(node => node.id === id);
+      if (nodes.length !== 1) {
+        ambiguous = true;
+        continue;
+      }
+      const text = clean(nodes[0].innerText || nodes[0].textContent);
+      if (!text) ambiguous = true;
+      else values.push(text);
+    }
+    return { text: [...new Set(values)].join(' '), ambiguous };
+  };
   // Only a counter leaf belonging unambiguously to this control may lose
   // its live numerator. Requirements containing ratios remain literal text.
   const captionText = (node, element) => {
@@ -358,6 +376,11 @@ function nativeQuestionText(value, counter = null) {
       const legendText = !legend.contains(element) && clean(legend.innerText || legend.textContent);
       if (legendText) return legendText;
     }
+    const accessibleDescription = accessibleDescriptionFor(element);
+    // An unresolved accessible reference is not evidence for a nearby name or
+    // generated id. Keep the question unknown until the live form can be read.
+    if (accessibleDescription.ambiguous) return '';
+    if (accessibleDescription.text) return accessibleDescription.text;
     const placeholder = element.getAttribute('placeholder');
     if (placeholder) return clean(placeholder);
     const ownContext = hasSingleQuestionContext(element, group);
