@@ -1,0 +1,21 @@
+{
+  "companyKey": "buettenberg-ch",
+  "companyName": "buettenberg",
+  "companyHost": "buettenberg.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.buettenberg.ch/fr/emplois/"
+  ],
+  "detailTemplate": "/stellen/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Jetzt bewerben",
+    "Jetzt bewerben"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-01T13:06:45.784Z",
+  "candidateKey": "buettenberg.ch"
+}

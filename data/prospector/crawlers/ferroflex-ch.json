@@ -1,0 +1,24 @@
+{
+  "companyKey": "ferroflex-ch",
+  "companyName": "Ferroflex AG",
+  "companyHost": "gateway.one",
+  "platform": "gateway.one",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.gateway.one/de-CH/lehrstellen-bewerbung/multicheck-eignungsanalyse.html"
+  ],
+  "detailTemplate": "/de-CH/lehrstellen-bewerbung/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Navigation überspringen",
+    "IdentyFi® Persönlichkeitsanalyse IdentyFi®, die Persönlichkeitsanalyse",
+    "Tipps und Inspiration Bewerbungstipps für Jugendliche",
+    "Wo kann ich den Multicheck® absolvieren?"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-01T13:07:54.805Z",
+  "candidateKey": "ferroflex@oberglatt-zh"
+}

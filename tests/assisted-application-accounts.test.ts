@@ -7,6 +7,7 @@ import {
   asksExistingPassword,
   codeField,
   hostKey,
+  isExplicitSignInNavigationLabel,
   inlineAccountForm,
   loginFields,
   newPortalPassword,
@@ -16,6 +17,7 @@ import {
   sameSite,
   usesOtpAccountCreation,
   verificationOutcome,
+  verifiedSignInTarget,
 } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { handleAutomationAdminAction, loadAutomationForAdmin } from '../functions/src/assistedApplicationAutomationAdmin.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
@@ -30,6 +32,43 @@ const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 const field = (id: string, inputType: string, label: string, extra: Record<string, unknown> = {}) => ({ id, kind: 'text', inputType, label, name: '', autocomplete: '', ...extra });
 
 describe('portal account pages', () => {
+  it.each([
+    'Already have an account? Sign in to continue',
+    'Jetzt anmelden',
+    'Accedi al tuo account',
+    'Vous avez déjà un compte ? Se connecter',
+    'Vous avez déjà un compte ? Connectez-vous',
+  ])('recognizes a composed sign-in navigation label: %s', (label) => {
+    expect(isExplicitSignInNavigationLabel(label)).toBe(true);
+  });
+
+  it.each([
+    'Create account or Sign in',
+    'Create account — already registered? Sign in',
+    'Continue',
+    'Register now',
+    'Konto erstellen oder anmelden',
+    'Créer un compte ou se connecter',
+  ])('does not treat a generic or account-creation control as a sign-in route: %s', (label) => {
+    expect(isExplicitSignInNavigationLabel(label)).toBe(false);
+  });
+
+  it('resolves only HTTPS links on the same portal or a verified ATS family', () => {
+    expect(verifiedSignInTarget('/de/login', `https://${HOST}/de/register`, HOST))
+      .toBe(`https://${HOST}/de/login`);
+    expect(verifiedSignInTarget('https://wd3.myworkday.com/sunrise/login', `https://${HOST}/de/register`, HOST))
+      .toBe('https://wd3.myworkday.com/sunrise/login');
+    for (const href of [
+      'https://evil.example/login',
+      'http://sunrise.wd3.myworkdayjobs.com/login',
+      'javascript:submitForm()',
+      'mailto:signin@example.com',
+      'https://user:pass@sunrise.wd3.myworkdayjobs.com/login',
+    ]) {
+      expect(verifiedSignInTarget(href, `https://${HOST}/de/register`, HOST), href).toBeNull();
+    }
+  });
+
   it('tells a create-account page (password + repeat) from a sign-in page', () => {
     const create = { fields: [field('f1', 'email', 'E-Mail-Adresse'), field('f2', 'password', 'Kennwort'), field('f3', 'password', 'Kennwort bestätigen')] };
     const signIn = { fields: [field('f1', 'email', 'E-Mail-Adresse'), field('f2', 'password', 'Kennwort')] };

@@ -201,7 +201,7 @@ describe('issue 10528 — job_detail_button shown/created parity', () => {
     const form = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
     expect(form).toContain("setCtaOrigin(req.origin ?? 'inline_card')");
     expect(form).toContain('savePendingJobAlert(config, ctaOrigin)');
-    expect(form).toContain("persistAlert(authUser.uid, authUser.email || '', config, ctaOrigin, 'direct')");
+    expect(form).toContain("persistAlert(authUser.uid, authEmail, config, ctaOrigin, 'direct')");
 
     const pending = fs.readFileSync(path.join(ROOT, 'services/pendingJobAlert.ts'), 'utf-8');
     expect(pending).toContain("'job_detail_button'");
@@ -233,7 +233,7 @@ describe('issue 10528 — every alert surface keeps shown→created attribution'
     inline_card: [
       ['components/community/JobAlertForm.tsx', "useState<PendingJobAlertOrigin>('inline_card')"],
       ['components/community/JobAlertForm.tsx', 'savePendingJobAlert(config, ctaOrigin)'],
-      ['components/community/JobAlertForm.tsx', "persistAlert(authUser.uid, authUser.email || '', config, ctaOrigin, 'direct')"],
+      ['components/community/JobAlertForm.tsx', "persistAlert(authUser.uid, authEmail, config, ctaOrigin, 'direct')"],
     ],
     job_detail_button: [
       ['components/community/JobBoard.tsx', "requestJobAlertOpen(category || undefined, 'job_detail_button')"],
@@ -349,7 +349,7 @@ describe('#13202 — anonymous job-detail origin survives the form and auth repl
     expect(form).toContain('const origin = detail?.origin ?? queued?.origin');
     expect(form).toContain('savePendingJobAlert(config, ctaOrigin)');
     expect(form).toContain('const replaySurface = pending.origin ?? "post_auth_auto"');
-    expect(form).toContain('persistAlert(authUser.uid, authUser.email || "", pending.config, replaySurface, "post_auth_replay")');
+    expect(form).toContain('persistAlert(authUser.uid, authEmail, pending.config, replaySurface, "post_auth_replay")');
 
     expect(PENDING_JOB_ALERT_ORIGINS).toContain('job_detail_anonymous');
     expect(ALERT_CTA_SURFACES).not.toContain('job_detail_anonymous');

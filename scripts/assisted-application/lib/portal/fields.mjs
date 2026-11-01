@@ -121,7 +121,7 @@ function nativeQuestionText(value, counter = null) {
     ? !element.closest('[hidden]')
     : visible(element);
   const DIALOG_SELECTOR = 'dialog, [role="dialog"], [aria-modal="true"]';
-  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog|consent)\b/i;
+  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog|consent)\b|\bcookie[-_]?(?:policy|manager)\b/i;
   const dialogIdFor = (element) => {
     const dialog = element.closest(DIALOG_SELECTOR);
     if (!dialog) return '';
@@ -159,6 +159,55 @@ function nativeQuestionText(value, counter = null) {
   const textOf = (id) => {
     const node = id && document.getElementById(id);
     return node ? clean(node.innerText || node.textContent) : '';
+  };
+  const privacyFieldMetadata = (element, primaryLabel = '') => {
+    const rawText = value => String(value || '').replace(/\s+/g, ' ').trim();
+    const rawTextOf = id => {
+      const node = id && document.getElementById(id);
+      return node ? rawText(node.innerText || node.textContent) : '';
+    };
+    const referenceAttributes = ['aria-labelledby', 'aria-describedby', 'aria-details'];
+    const referenceIds = referenceAttributes.flatMap(attribute => (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean));
+    const unresolvedReference = referenceIds.some(id => !document.getElementById(id));
+    const emptyReference = referenceIds.some(id => {
+      const node = document.getElementById(id);
+      return Boolean(node) && !rawText(node.innerText || node.textContent);
+    });
+    const ariaLabelText = rawText(element.getAttribute('aria-label') || '');
+    const ariaDescriptionText = rawText(element.getAttribute('aria-description') || '');
+    const titleText = rawText(element.getAttribute('title') || '');
+    const placeholderText = rawText(element.getAttribute('placeholder') || '');
+    const ariaLabel = clean(ariaLabelText);
+    const ariaDescription = clean(ariaDescriptionText);
+    const title = clean(titleText);
+    const placeholder = clean(placeholderText);
+    const descriptionTexts = ['aria-describedby', 'aria-details'].flatMap(attribute =>
+      (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean).map(rawTextOf)).filter(Boolean);
+    const description = descriptionTexts.join(' ');
+    const associatedLabels = [...(element.labels || [])].map(node => rawText(node.innerText || node.textContent)).filter(Boolean);
+    const references = referenceIds.map(rawTextOf);
+    const allLabels = [
+      primaryLabel,
+      ...associatedLabels,
+      ...references,
+      ariaLabelText, ariaDescriptionText, titleText, placeholderText,
+    ].map(clean).filter(Boolean);
+    const labels = [...new Set(allLabels)].slice(0, 12);
+    // clean() truncates each string at 300 characters and the stored contract
+    // caps labels at 12 entries. Preserve a fail-closed marker if either cap
+    // could hide a contradictory control role from the consent guard.
+    const privacyMetadataIncomplete = [primaryLabel, ...associatedLabels, ...references,
+      ariaLabelText, ariaDescriptionText, titleText, placeholderText].some(value => String(value || '').length >= 300)
+      || description.length > 600 || allLabels.length > 12 || unresolvedReference || emptyReference;
+    return {
+      ...(ariaLabel ? { ariaLabel } : {}),
+      ...(ariaDescription ? { ariaDescription } : {}),
+      ...(title ? { title } : {}),
+      ...(placeholder ? { placeholder } : {}),
+      ...(description ? { description: description.slice(0, 600) } : {}),
+      ...(labels.length ? { labels } : {}),
+      ...(privacyMetadataIncomplete ? { privacyMetadataIncomplete: true } : {}),
+    };
   };
   const QUESTION_GROUP_SELECTOR = 'fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li';
   const QUESTION_LABEL_SELECTOR = 'legend, .label, .question, h1, h2, h3, h4, [role="heading"], label, [class*="label"], [class*="question"], [class*="title"]';
@@ -807,7 +856,7 @@ function nativeQuestionText(value, counter = null) {
     if (type === 'radio') {
       const name = element.name || element.id;
       const question = groupQuestion(element);
-      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), addressContext: ownedAddressContext(element), section: headingBefore(element), required, value: '', options: [] };
+      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), ...privacyFieldMetadata(element, question || labelFor(element)), context: sectionContext(element), addressContext: ownedAddressContext(element), section: headingBefore(element), required, value: '', options: [] };
       // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
       entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question))
         || hasRequiredMarker(element, question || labelFor(element));
@@ -833,7 +882,9 @@ function nativeQuestionText(value, counter = null) {
       ...semanticIdentifiers(element),
       name: clean(element.getAttribute('name') || ''),
       label,
-      context: sectionContext(element), addressContext: ownedAddressContext(element),
+      ...privacyFieldMetadata(element, label),
+      context: sectionContext(element),
+      addressContext: ownedAddressContext(element),
       section: headingBefore(element),
       required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),

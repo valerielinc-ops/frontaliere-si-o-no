@@ -40,6 +40,7 @@ describe('brefis personal ag crawler parser', () => {
         maxPages: 10,
         declaredTotalPattern: "Offene\\s+Stellen(?:\\s|&nbsp;|<[^>]+>)*([\\d'’.,]+)",
         minCoverage: 0.95,
+        numberedPagePattern: "/Vacancyboard/(\\d+)$",
       });
     });
 

@@ -7,7 +7,7 @@
  * application child is created.
  */
 
-import { normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
+import { CONCIERGE_ELIGIBILITY_VERSION, normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
 import { locationMatchPoints } from './applicationConciergeGeography.js';
 import { MAX_ELIGIBILITY_RETRIES_PER_RUN, dueEligibilityRetries, eligibilityRetryRef, eligibilityRetrySummary, recordEligibilityRetry } from './applicationConciergeEligibilityRetry.js';
 import { createHash } from 'node:crypto';
@@ -452,7 +452,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const jobsByUrl = new Map(jobs.map((job) => [jobUrl(job), job]).filter(([url]) => Boolean(url)));
     const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord, background: true, signal: eligibilitySignal });
     const checks = new Map();
-    const scanContext = createHash('sha256').update(JSON.stringify([APPLICATION_CONCIERGE_MATCHING_VERSION, service.cvStorageKey, profile, profileRecord.applicationQuestionAnswers || {}])).digest('hex');
+    const scanContext = createHash('sha256').update(JSON.stringify([APPLICATION_CONCIERGE_MATCHING_VERSION, service.cvStorageKey, profile])).digest('hex');
     const proposedUrls = new Set(existingData.filter(data => data.status === 'proposed').map(data => data.jobUrl));
     const dueRetries = await dueEligibilityRetries(serviceRef, Date.now());
     const relevantUrls = new Set(rankedWork.map(entry => entry.url));
@@ -493,6 +493,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       .slice(0, Math.min(available, MAX_PROPOSALS_PER_RUN));
     const eligibilityFields = (result = { status: 'unverified' }) => ({
       eligibilityStatus: result.status,
+      eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
       eligibilityFingerprint: result.fingerprint || null,
       eligibilityCacheId: result.cacheId || null,
       eligibilityCvStorageKey: service.cvStorageKey || null,

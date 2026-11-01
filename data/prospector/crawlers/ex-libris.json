@@ -1,0 +1,22 @@
+{
+  "companyKey": "ex-libris",
+  "companyName": "Ex Libris",
+  "companyHost": "jobs.migros.ch",
+  "platform": "migros.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.migros.ch/it"
+  ],
+  "detailTemplate": "/it/carriera/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Programmi per le nuove leve",
+    "Guida di camion"
+  ],
+  "canton": "LU",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-01T13:17:52.310Z",
+  "candidateKey": "exlibris.ch"
+}

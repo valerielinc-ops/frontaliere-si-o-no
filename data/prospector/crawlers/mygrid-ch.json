@@ -1,0 +1,20 @@
+{
+  "companyKey": "mygrid-ch",
+  "companyName": "mygrid",
+  "companyHost": "join.com",
+  "platform": "join.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://join.com/companies/mygridch/16864029-backend-software-engineer"
+  ],
+  "detailTemplate": "/companies/mygridch/16864029-backend-software-engineer",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Backend Software Engineer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-01T13:08:06.703Z",
+  "candidateKey": "mygrid.ch"
+}
