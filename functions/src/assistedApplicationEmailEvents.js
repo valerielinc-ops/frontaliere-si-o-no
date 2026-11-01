@@ -144,7 +144,13 @@ export async function recordAssistedEmailEvent(db, { campaign, type, provider, m
   const target = parseAssistedCampaign(campaign);
   if (!target) return { assisted: true, recorded: false, reason: 'unknown_campaign' };
   const eventType = type === 'accepted' ? 'send' : type;
-  if (!COUNTERS[eventType]) return { assisted: true, recorded: false, reason: `untracked_type:${type}` };
+  // Provider acceptance is part of the parent-service receipt contract. Keep
+  // the older child-application event surface unchanged: its dashboard only
+  // counts delivery/engagement events and must not acquire a new send counter
+  // merely because the shared webhook router learned about concierge receipts.
+  if (!COUNTERS[eventType] || (eventType === 'send' && !target.serviceId)) {
+    return { assisted: true, recorded: false, reason: `untracked_type:${type}` };
+  }
   const at = eventDate(occurredAt);
   const link = eventType === 'click' ? linkWithoutQuery(url) : '';
   const targetRef = eventTargetRef(db, target);

@@ -88,7 +88,7 @@ describe('assisted e-mail events', () => {
     expect(engagement.lastOpenAt.toISOString()).toBe('2026-09-30T19:10:00.000Z');
     expect(JSON.stringify([...docs.values()])).not.toContain('signed-token');
 
-    expect(await recordAssistedEmailEvent(db, { ...first, type: 'send' })).toMatchObject({ recorded: true });
+    expect(await recordAssistedEmailEvent(db, { ...first, type: 'send' })).toMatchObject({ recorded: false, reason: 'untracked_type:send' });
     expect(await recordAssistedEmailEvent(seeded().db, { ...first, campaign: assistedCampaignId('gone', 'x') })).toMatchObject({ recorded: false, reason: 'order_not_found' });
   });
 
