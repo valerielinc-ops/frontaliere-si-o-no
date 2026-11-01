@@ -234,10 +234,10 @@ function fakePortal() {
   // hundredth of a pixel tall («beecatcher») must stay empty. A click that fails either test does nothing.
   // Above the page, the site's header has a «Sign In» of its own: it opens a dialog over everything, and
   // comes first in the document (dry run of 2026-10-07: the runner pressed it instead of the form's link).
-  // The form's link draws the other form a moment later, in place. The sign-in form is drawn anew once, right
+  // The form's explicit same-site anchor navigates to the other form. The sign-in form is drawn anew once, right
   // after it is typed into (on the real page, when what it loads arrives late): what was typed is gone and
   // its overlay is another element. `workday.cover` puts something over the button: it cannot be pressed.
-  const workdayAccountPage = () => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Careers</title></head><body>
+  const workdayAccountPage = (initialView = 'create') => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Careers</title></head><body>
     <header><button id="util" type="button">Sign In</button></header>
     <div id="popup" role="dialog" aria-modal="true" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:50;background:#fff">
       <label for="pe">Email Address *</label><input id="pe" type="text">
@@ -258,10 +258,10 @@ function fakePortal() {
         ${workday.cover ? '<div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:9"></div>' : ''}
         <button id="go" type="submit" tabindex="-2" aria-hidden="true" style="width:100%;height:40px">Create Account</button>
       </div>
-      <button id="swap" type="button">Sign In</button>
+      <a id="swap" href="${initialView === 'create' ? '/wd/sign-in' : '/wd/apply'}">${initialView === 'create' ? 'Sign In' : 'Create Account'}</a>
     </form>
     <script>
-      let view = 'create';
+      let view = '${initialView}';
       let human = false;
       const el = (id) => document.getElementById(id);
       const show = (next, notice) => {
@@ -272,13 +272,12 @@ function fakePortal() {
         el('go').textContent = name;
         el('filter').setAttribute('aria-label', name);
         el('swap').textContent = next === 'create' ? 'Sign In' : 'Create Account';
+        el('swap').href = next === 'create' ? '/wd/sign-in' : '/wd/apply';
         el('again').style.display = next === 'create' ? '' : 'none';
         el('p2').required = next === 'create';
         el('notice').innerHTML = notice ? '<p role="alert">' + notice + '</p>' : '';
       };
-      // Between two pages nothing is drawn for a moment (in Actions the real page was read right then).
-      const blank = (ms, then) => { el('auth').style.display = 'none'; setTimeout(() => { then(); el('auth').style.display = ''; }, ms); };
-      el('swap').onclick = () => blank(700, () => show(view === 'create' ? 'sign_in' : 'create', ''));
+      show(view);
       el('util').onclick = () => { fetch('/wd/header', { method: 'POST' }); setTimeout(() => { el('popup').style.display = 'block'; }, 800); };
       el('filter').onclick = () => { human = true; el('go').dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })); };
       let redrawn = false;
@@ -475,6 +474,7 @@ function fakePortal() {
     // «Postal Code» is no verification code: taken for one, the run waited for an e-mail nobody sends.
     if (route === 'GET /wd/job') return send(page('Verkaufsberater/in', '<p>Acme Careers</p><h1>Verkaufsberater/in</h1><a href="/wd/apply">Apply</a>'));
     if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage());
+    if (route === 'GET /wd/sign-in') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage('sign_in'));
     // The form behind the account. Its «Country» is a listbox button, and choosing draws the address fields
     // anew for that country a moment later, as other elements («Address Line 1» becomes «Street Name»): what
     // was typed before is gone. Its phone code is a search box whose chosen value is a pill next to it: two
@@ -904,8 +904,8 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   state.sessions.clear();
   const again = await run();
   check('Workday: a later run signs in with the stored account', again.event.type === 'submit_succeeded' && workday.registrations === 2 && state.applications.length === applications + 2);
-  // With an account stored the runner lands on «Create Account» and must take the form's own «Sign In»
-  // link, then wait for the sign-in form it draws: never the site header's, which opens a dialog over the page.
+  // With an account stored the runner lands on «Create Account» and must follow the form's own verified
+  // «Sign In» anchor by GET, never the site header's control, which opens a dialog over the page.
   // The country is chosen before anything is typed, the form it redraws is planned again, and the phone
   // code's matches are waited for: the address is in the fields of the chosen country, not in ones that are gone.
   const sent = workday.forms.at(-1) || {};
