@@ -182,6 +182,12 @@ function accountStageFor(snapshot) {
   return kind === 'create' ? 'registration' : kind === 'sign_in' ? 'login' : 'unknown';
 }
 
+function hasResendVerificationControl(snapshot = {}) {
+  return Boolean(findButton(snapshot.buttons || [], RESEND_VERIFICATION_RE)
+    || (snapshot.links || []).some((link) => [link.text, link.label, link.ariaLabel, link.title]
+      .some((value) => RESEND_VERIFICATION_RE.test(String(value || '')))));
+}
+
 function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
   try {
     const apply = new URL(String(applyUrl || ''));
@@ -3282,9 +3288,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
 
-  const canResendVerification = Boolean(findButton(snapshot.buttons || [], RESEND_VERIFICATION_RE)
-    || (snapshot.links || []).some((link) => [link.text, link.label, link.ariaLabel, link.title]
-      .some((value) => RESEND_VERIFICATION_RE.test(String(value || '')))));
+  const canResendVerification = hasResendVerificationControl(snapshot);
   // SuccessFactors keeps the pending OTP account in this same sign-in shape;
   // its dedicated recovery below must restart registration instead of trying
   // to verify through a mailbox account that does not exist yet.
@@ -3337,6 +3341,16 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
     diagnostics?.afterClick();
     if (!account.verifiedAt && (VERIFY_PAGE_RE.test(after.text) || codeField(after))) {
+      return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
+    }
+    // Workday can reveal the verification failure only after the first sign-in
+    // click. The form remains a sign-in page, but its explicit resend control
+    // and verification copy are a safe recovery signal, even when the stored
+    // account record was previously marked verified.
+    const afterText = [after.text, ...(after.errors || [])].join(' ');
+    if (hasResendVerificationControl(after)
+      && VERIFY_PAGE_RE.test(afterText)
+      && !usesOtpAccountCreation(host)) {
       return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
     }
     // Two password fields after a sign-in are no account's home either (a dialog opened over the form).
