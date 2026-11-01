@@ -162,7 +162,7 @@ const CURRENT_ENROLLMENT_CUE_RE = /\b(?:current(?:ly)?|presently|now|ongoing|att
 const CURRENT_YEAR_CUE_RE = /\b(?:(?:third|3rd|troisieme|3e|terzo|terza|drittes?|dritten)[-\s]+(?:school[-\s]+)?(?:year|jahr|anno|annee|klasse)|(?:3|three|third|3rd)\s*(?:rd\s*)?(?:year|jahr|anno|annee|klasse)|(?:year|jahr|anno|annee|klasse)\s+(?:3|third|3rd))\b/i;
 const COMMERCIAL_SCHOOL_CUE_RE = /\b(?:commercial[-\s]+school|scuola[-\s]+commerciale|ecole[-\s]+(?:de[-\s]+)?commerce|handelsschule|kaufmaennisch\w*[-\s]+schule|kaufmannisch\w*[-\s]+schule)\b/i;
 const OTHER_EDUCATION_INSTITUTION_CUE_RE = /\b(?:universit\w*|university|universitaet|universitat|college|high[-\s]+school|secondary[-\s]+school|grammar[-\s]+school|gymnasium|berufsschule|liceo|istituto|lycee|ecole[-\s]+secondaire|sekundarschule)\b/i;
-const NEGATED_CURRENT_ENROLLMENT_RE = /\b(?:not|no|never|nicht|kein\w*|non|mai|pas)\b.{0,60}\b(?:current(?:ly)?|presently|now|ongoing|attend\w*|enroll\w*|student\w*|pupil\w*|stud\w*|iscritt\w*|frequent\w*|inscrit\w*|etudiant\w*|eingeschrieben|angemeldet|besuch\w*)\b|\b(?:current(?:ly)?|presently|now|ongoing|attualmente|actuellement|derzeit|aktuell)\b.{0,40}\b(?:not|no|never|nicht|kein\w*|non|mai|pas)\b.{0,40}\b(?:attend\w*|enroll\w*|student\w*|pupil\w*|stud\w*|iscritt\w*|frequent\w*|inscrit\w*|etudiant\w*|eingeschrieben|angemeldet|besuch\w*)\b/i;
+const NEGATED_CURRENT_ENROLLMENT_RE = /\b(?:not(?!\s+only\b)|no|never|nicht(?!\s+nur\b)|kein\w*|non(?!\s+solo\b)|mai|pas(?!\s+seulement\b))\b.{0,60}\b(?:current(?:ly)?|presently|now|ongoing|attend\w*|enroll\w*|student\w*|pupil\w*|stud\w*|iscritt\w*|frequent\w*|inscrit\w*|etudiant\w*|eingeschrieben|angemeldet|besuch\w*)\b|\b(?:current(?:ly)?|presently|now|ongoing|attualmente|actuellement|derzeit|aktuell)\b.{0,40}\b(?:not(?!\s+only\b)|no|never|nicht(?!\s+nur\b)|kein\w*|non(?!\s+solo\b)|mai|pas(?!\s+seulement\b))\b.{0,40}\b(?:attend\w*|enroll\w*|student\w*|pupil\w*|stud\w*|iscritt\w*|frequent\w*|inscrit\w*|etudiant\w*|eingeschrieben|angemeldet|besuch\w*)\b/i;
 const HISTORICAL_STUDENT_CUE_RE = /\b(?:previously|formerly|former|completed|graduat\w*|diplom\w*|finished|ended|used\s+to|attended|studied|was\s+(?:enrolled|attending|studying)|precedentemente|in\s+passato|frequentavo|ero\s+iscritt\w*|conclus\w*|completat\w*|laureat\w*|auparavant|ancien(?:ne)?|etait\s+inscrit\w*|etudiait|termine\w*|achev[eé]\w*|zuvor|frueher|besuchte|studierte|abschluss\w*|abgeschlossen|absolviert|war\s+(?:eingeschrieben|angemeldet))\b/i;
 const AMBIGUOUS_COMPLETION_CUE_RE = /\b(?:graduat\w*|diplom\w*|abschluss\w*)\b/i;
 const EXPLICIT_PAST_COMPLETION_RE = /\b(?:graduated|diplomat[oaie]|abgeschlossen|absolviert)\b/i;
@@ -362,12 +362,18 @@ export function hasUnverifiedCurrentStudentEligibility(postingText, profile = {}
           .some(([year]) => Number(year) > currentYear);
         return !futureCompletionYear;
       });
-    const sourceContradictsCurrentEducation = sourceEntries.some((entry) =>
-      NEGATED_CURRENT_ENROLLMENT_RE.test(entry)
-      && (!needsYear || CURRENT_YEAR_CUE_RE.test(entry))
-      && (!needsSchool || COMMERCIAL_SCHOOL_CUE_RE.test(entry))
-      && !hasHistoricalStudentCue(entry)
-      && !historicalYearRange(entry));
+    const sourceContradictsCurrentEducation = sourceEntries.some((entry) => {
+      if (!NEGATED_CURRENT_ENROLLMENT_RE.test(entry)
+        || hasHistoricalStudentCue(entry)
+        || historicalYearRange(entry)) return false;
+      const namesOtherInstitution = OTHER_EDUCATION_INSTITUTION_CUE_RE.test(entry)
+        && !COMMERCIAL_SCHOOL_CUE_RE.test(entry);
+      const namesTargetEducation = !namesOtherInstitution
+        && (!needsYear || CURRENT_YEAR_CUE_RE.test(entry))
+        && (!needsSchool || COMMERCIAL_SCHOOL_CUE_RE.test(entry));
+      const isGenericCurrentNegation = !namesOtherInstitution && !COMMERCIAL_SCHOOL_CUE_RE.test(entry);
+      return namesTargetEducation || isGenericCurrentNegation;
+    });
     if (sourceContradictsCurrentEducation) return true;
     const sourceProvesCurrentEducation = sourceEntries.some((entry) =>
       !hasHistoricalStudentCue(entry)
