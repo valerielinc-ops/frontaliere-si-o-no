@@ -6789,12 +6789,6 @@ ${hrefTags}
    console.log(`\x1b[36m[static-pages]\x1b[0m Synchronized editorial dates in ${synchronizedSitemaps} seeded sitemap(s)`);
  }
 
- // Signal post-injection plugins (e.g. professionLandingsLinksPlugin) that
- // every queued write has landed on disk. Without this signal they race the
- // WriteCollector's background auto-flush and silently lose their patches —
- // see build-plugins/shared/buildSignals.ts for the full rationale.
- resolveStaticPagesFlushed();
-
  /* ── Locale-variant <loc> backfill (issue #5110) ──────────────
   * Every EN/DE/FR page rendered from a seeded sitemap's hreflang
   * annotations gets its own <url><loc> carrying the same 4-locale group, so
@@ -6850,6 +6844,12 @@ ${hrefTags}
  fs.writeFileSync(sitemapIndexPath, idx, 'utf-8');
  console.log(`\x1b[36m[static-pages]\x1b[0m Updated sitemap.xml lastmod dates to ${today}`);
  }
+
+ // Signal post-injection plugins (e.g. professionLandingsLinksPlugin) only
+ // after every static page and sitemap write has landed on disk. In
+ // particular, the locale-variant backfill above must be complete before the
+ // sitemap alias/sanitizer starts its final reconciliation.
+ resolveStaticPagesFlushed();
  },
  };
 }

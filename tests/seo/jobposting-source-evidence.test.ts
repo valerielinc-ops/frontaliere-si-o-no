@@ -81,6 +81,46 @@ describe('validThrough preserves coverage using source or active observation', (
     expect(rebuilt).toEqual(first);
   });
 
+  it('always restores validThrough with a bounded build-clock fallback', () => {
+    const noDateEvidence: JobInput = {
+      ...job,
+      postingDateSource: undefined,
+      datePosted: undefined,
+      postedDate: undefined,
+      firstSeenAt: undefined,
+      lastSeenAt: undefined,
+      lastObservedAt: undefined,
+      crawledAt: undefined,
+      scrapedAt: undefined,
+      updatedAt: undefined,
+      validThrough: undefined,
+      validThroughSource: undefined,
+    };
+    const expected = new Date(NOW.getTime() + 90 * 86_400_000).toISOString();
+
+    expect(resolveActiveJobPostingDeadline(noDateEvidence, NOW)).toEqual({
+      validThrough: expected,
+      validThroughSource: 'build-clock-fallback',
+    });
+    expect(build(noDateEvidence).validThrough).toBe(expected);
+
+    const rebuilt = resolveActiveJobPostingDeadline({
+      ...noDateEvidence,
+      validThrough: expected,
+      validThroughSource: 'build-clock-fallback',
+    }, new Date(NOW.getTime() + 20 * 86_400_000));
+    expect(rebuilt.validThrough).toBe(expected);
+    expect(rebuilt.validThroughSource).toBe('build-clock-fallback');
+
+    const expired = resolveActiveJobPostingDeadline({
+      ...noDateEvidence,
+      validThrough: expected,
+      validThroughSource: 'build-clock-fallback',
+    }, new Date(NOW.getTime() + 91 * 86_400_000));
+    expect(expired.validThrough).toBe(new Date(NOW.getTime() + 181 * 86_400_000).toISOString());
+    expect(expired.validThroughSource).toBe('build-clock-fallback');
+  });
+
   it('still rejects a malformed value when the field is present', () => {
     const errors = validateMandatoryJobPostingFields({ ...build(job), validThrough: 'soon' });
     expect(errors.map(({ field }) => field)).toEqual(['validThrough']);
