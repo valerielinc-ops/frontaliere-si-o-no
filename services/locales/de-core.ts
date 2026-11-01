@@ -886,6 +886,7 @@ const deCore: Record<string, string> = {
  "jobBoard.concierge.residenceManual": "Wähle einen Vorschlag oder gib deinen Wohnort ein, wenn er nicht aufgeführt ist.",
  "jobBoard.concierge.residenceSource": "Ortsdaten: GeoNames",
  'jobBoard.concierge.location': 'Wohnort oder Postleitzahl',
+ 'profile.applicationResidence': 'Wohnort für Bewerbungen',
  'jobBoard.concierge.locationHint': 'Dein Wohnort aus dem Profil wird, wenn vorhanden, vorausgefüllt. Du kannst ihn mit Wohnort oder Postleitzahl ändern; die vollständige Adresse ist nicht nötig.',
  'jobBoard.concierge.consent': 'Ich ermächtige Frontaliereticino.ch, meinen Lebenslauf und die angegebenen Daten zu verarbeiten, um Bewerbungen für die von mir angenommenen Stellen vorzubereiten und zu senden, gemäß Nutzungsbedingungen und Datenschutzerklärung.',
  'jobBoard.concierge.saveData': 'Daten speichern',

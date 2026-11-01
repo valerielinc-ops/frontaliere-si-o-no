@@ -25,6 +25,7 @@ export async function inheritConciergeRenewalMaterials({ db, serviceId, bucket =
     tx.set(ref, { cvStorageKey: key, cvUploadedAt: FieldValue.serverTimestamp(), cvFileName: source.cvFileName || null,
       applicantName: source.applicantName || null, applicantEmail: source.applicantEmail || source.customerEmail || null,
       applicantPhone: source.applicantPhone || null, applicantLocation: source.applicantLocation || null,
+      applicantLocationCountry: source.applicantLocationCountry || null,
       consentVersion: current.renewalConsentVersion, consentedAt: current.renewalConsentedAt || FieldValue.serverTimestamp(),
       renewalMaterialsCopiedAt: FieldValue.serverTimestamp(), updatedAt: FieldValue.serverTimestamp() }, { merge: true });
     return true;

@@ -6,6 +6,11 @@ const loader = vi.hoisted(() => vi.fn());
 vi.mock('@/services/residenceLocalities', async importOriginal => ({ ...await importOriginal<any>(), loadResidenceLocalities: loader }));
 import ResidenceLocationInput from '../components/community/ResidenceLocationInput';
 function Form({ initial = '' }) { const [value, setValue] = useState(initial); return <><ResidenceLocationInput value={value} onChange={setValue} /><output data-testid="saved">{value}</output></>; }
+function ProfileForm({ initial = '' }) {
+  const [value, setValue] = useState(initial);
+  const [country, setCountry] = useState('');
+  return <><ResidenceLocationInput value={value} countryCode={country} onChange={(next, selectedCountry) => { setValue(next); setCountry(selectedCountry || ''); }} /><output data-testid="saved">{value}</output><output data-testid="country">{country}</output></>;
+}
 afterEach(() => { cleanup(); loader.mockReset(); });
 
 it('selects an accented town by keyboard and keeps the explicit country on save', async () => {
@@ -31,6 +36,36 @@ it('keeps a failed catalogue usable with a manually entered town and clears it o
   expect(screen.getByTestId('saved').textContent).toBe('');
 });
 
+it('keeps a legacy town countryless until the user explicitly selects a country', async () => {
+  loader.mockResolvedValue([]);
+  render(<Form initial="Como (CO)" />);
+  const country = screen.getByLabelText('jobBoard.concierge.residenceCountry');
+  expect(country).toHaveValue('');
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('Como (CO)');
+  expect(screen.getByTestId('saved').textContent).toBe('Como (CO)');
+
+  fireEvent.change(country, { target: { value: 'IT' } });
+  expect(screen.getByTestId('saved').textContent).toBe('Como (CO), Italia');
+
+  fireEvent.change(country, { target: { value: 'FR' } });
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('');
+  expect(screen.getByTestId('saved').textContent).toBe('');
+});
+
+it('does not infer the profile country from a country name typed into the town field', async () => {
+  loader.mockResolvedValue([]);
+  render(<ProfileForm initial="Como, Italia" />);
+  expect(screen.getByLabelText('jobBoard.concierge.residenceCountry')).toHaveValue('');
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('Como, Italia');
+  expect(screen.getByTestId('country').textContent).toBe('');
+
+  fireEvent.change(screen.getByLabelText('jobBoard.concierge.residenceCountry'), { target: { value: 'IT' } });
+  expect(screen.getByLabelText('jobBoard.concierge.residenceCountry')).toHaveValue('IT');
+  expect(screen.getByTestId('country').textContent).toBe('IT');
+  expect(screen.getByTestId('saved').textContent).toBe('Como, Italia');
+  await waitFor(() => expect(loader).toHaveBeenCalledWith('IT'));
+});
+
 it('ignores a late country catalogue after the user has chosen another country', async () => {
   let finish!: (value: string[]) => void;
   loader.mockImplementation((country: string) => country === 'IT' ? new Promise(resolve => { finish = resolve; }) : Promise.resolve(['Paris']));
@@ -43,11 +78,12 @@ it('ignores a late country catalogue after the user has chosen another country',
 });
 
 
-it('disables both controls during a save and exposes the existing field validation error', () => {
+it('disables both controls during a save and exposes the existing field validation error', async () => {
   loader.mockResolvedValue([]);
   render(<ResidenceLocationInput value="Como, Italia" onChange={() => {}} disabled error="Check the residence" />);
   expect(screen.getByLabelText('jobBoard.concierge.residenceCountry')).toBeDisabled();
   expect(screen.getByLabelText('jobBoard.concierge.location')).toBeDisabled();
   expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveAttribute('aria-invalid', 'true');
   expect(screen.getByRole('alert')).toHaveTextContent('Check the residence');
+  await waitFor(() => expect(loader).toHaveBeenCalledWith('IT'));
 });
