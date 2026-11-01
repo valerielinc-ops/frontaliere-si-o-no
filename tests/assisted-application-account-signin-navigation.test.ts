@@ -118,6 +118,17 @@ describe('verified sign-in navigation from an existing-account registration page
     expect(button.page.request.post).not.toHaveBeenCalled();
   });
 
+  it('rejects an insecure HTTP destination even when it uses the same host', async () => {
+    const insecure = pageWithLink({ label: 'Sign in', href: `http://${HOST}/de/login` });
+    await expect(openVerifiedSignInNavigation(insecure.page as any, {
+      dialogs: [], links: [{ id: 'auth-link', frame: 0, text: 'Sign in' }],
+    } as any)).resolves.toBe(false);
+
+    expect(insecure.frame.goto).not.toHaveBeenCalled();
+    expect(insecure.locator.click).not.toHaveBeenCalled();
+    expect(insecure.page.request.post).not.toHaveBeenCalled();
+  });
+
   it('refuses an unknown overlay and leaves its sign-in-looking link untouched', async () => {
     const { page, frame, locator } = pageWithLink({ label: 'Sign in', href: '/de/login' });
     const snapshot = {

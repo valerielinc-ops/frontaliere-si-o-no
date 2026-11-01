@@ -16,7 +16,10 @@
  * redirect, SuccessFactors' registration with its privacy-statement dialog.
  */
 import http from 'node:http';
-import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import https from 'node:https';
+import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { launchChromium } from '../lib/ensure-chromium.mjs';
@@ -50,6 +53,54 @@ const UMANTIS_FORM = '/Vacancies/717/Application/New/2';
 // The same form with its photo and documents in sections still closed (review of #11033).
 const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
 const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
+
+async function createWorkdayTlsFixture(directory) {
+  const caKeyPath = path.join(directory, 'workday-test-ca.key');
+  const caCertPath = path.join(directory, 'workday-test-ca.pem');
+  const serverKeyPath = path.join(directory, 'workday.localhost.key');
+  const serverCsrPath = path.join(directory, 'workday.localhost.csr');
+  const serverCertPath = path.join(directory, 'workday.localhost.pem');
+  const extensionsPath = path.join(directory, 'workday-server-extensions.cnf');
+  await writeFile(extensionsPath, [
+    '[server_cert]',
+    'basicConstraints=critical,CA:FALSE',
+    'keyUsage=critical,digitalSignature,keyEncipherment',
+    'extendedKeyUsage=serverAuth',
+    'subjectAltName=DNS:workday.localhost',
+    '',
+  ].join('\n'));
+
+  try {
+    execFileSync('openssl', [
+      'req', '-x509', '-newkey', 'rsa:2048', '-nodes',
+      '-keyout', caKeyPath, '-out', caCertPath, '-days', '1',
+      '-subj', '/CN=Application Concierge E2E Test CA',
+      '-addext', 'basicConstraints=critical,CA:TRUE',
+      '-addext', 'keyUsage=critical,keyCertSign,cRLSign',
+    ], { stdio: 'ignore' });
+    execFileSync('openssl', [
+      'req', '-new', '-newkey', 'rsa:2048', '-nodes',
+      '-keyout', serverKeyPath, '-out', serverCsrPath,
+      '-subj', '/CN=workday.localhost',
+    ], { stdio: 'ignore' });
+    execFileSync('openssl', [
+      'x509', '-req', '-in', serverCsrPath,
+      '-CA', caCertPath, '-CAkey', caKeyPath, '-CAcreateserial',
+      '-out', serverCertPath, '-days', '1', '-sha256',
+      '-extfile', extensionsPath, '-extensions', 'server_cert',
+    ], { stdio: 'ignore' });
+    const publicKey = execFileSync('openssl', ['x509', '-in', serverCertPath, '-pubkey', '-noout']);
+    const spki = execFileSync('openssl', ['pkey', '-pubin', '-outform', 'DER'], { input: publicKey });
+    return {
+      cert: await readFile(serverCertPath),
+      key: await readFile(serverKeyPath),
+      spkiPin: createHash('sha256').update(spki).digest('base64'),
+    };
+  } catch (error) {
+    await rm(directory, { recursive: true, force: true });
+    throw error;
+  }
+}
 
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], rhbApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationInvalidOnlyOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
@@ -861,7 +912,7 @@ async function fakeCodex({ prompt }) {
  * after storing its password, while the portal had not answered yet, called it refused and threw the
  * password away.
  */
-async function workdayAccountChecks({ base, state, workday, files, executablePath, check }, assistedOnly = false) {
+async function workdayAccountChecks({ base, state, workday, files, executablePath, browserTlsSpkiPin, check }, assistedOnly = false) {
   const host = new URL(base).hostname;
   const saved = new Map();
   const accounts = {
@@ -875,7 +926,13 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   const job = { title: 'Verkaufsberater/in', company: 'Acme Retail Switzerland', organization: 'Acme Retail Germany GmbH' };
   const run = (order = job, candidate = { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } }) => submitViaPortal({
     applyUrl: `${base}/wd/job`, job: order, language: 'en', candidateLocale: 'it', candidate, files, codex: fakeCodex, accounts,
-    launch: () => launchChromium({ headless: true, executablePath }),
+    // The pin is scoped to this fixture's Chromium instance; the OS trust store
+    // and every other browser used by this suite remain unchanged.
+    launch: () => launchChromium({
+      headless: true,
+      executablePath,
+      args: [`--ignore-certificate-errors-spki-list=${browserTlsSpkiPin}`],
+    }),
   });
   const authOf = (result) => result.evidence.steps.filter((step) => step.auth).map((step) => `${step.auth.kind}:${step.auth.outcome}`).join(',');
 
@@ -1016,8 +1073,14 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
 
 async function main() {
   const { server, state, coop, umantis, workday } = fakePortal();
+  const dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-e2e-'));
+  const tlsFixture = await createWorkdayTlsFixture(dir);
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  const requestHandler = server.listeners('request')[0];
+  const workdayServer = https.createServer({ key: tlsFixture.key, cert: tlsFixture.cert }, requestHandler);
+  await new Promise((resolve) => workdayServer.listen(0, '127.0.0.1', resolve));
   const base = `http://127.0.0.1:${server.address().port}`;
+  const workdayBase = `https://workday.localhost:${workdayServer.address().port}`;
   const otpBase = `http://career5.successfactors.localhost:${server.address().port}`;
   const accountHost = '127.0.0.1';
   const otpAccountHost = 'career5.successfactors.localhost';
@@ -1030,7 +1093,6 @@ async function main() {
     // The e-mail the portal would send to the alias, as the inbound handler stores it.
     async waitForVerification() { return state.pending ? { url: `${base}/activate?t=${state.pending.token}`, code: '' } : null; },
   };
-  const dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-e2e-'));
   const files = { cv: path.join(dir, 'CV_Luca_Bianchi.pdf'), cover_letter: path.join(dir, 'Anschreiben_Luca_Bianchi.pdf') };
   await writeFile(files.cv, '%PDF-1.4\n%%EOF\n');
   await writeFile(files.cover_letter, '%PDF-1.4\n%%EOF\n');
@@ -1065,11 +1127,12 @@ async function main() {
     console.log(`${ok ? '✓' : '✗'} ${name}`);
     if (!ok && actual !== undefined) console.log(`  actual: ${JSON.stringify(actual)}`);
   };
-  const focusWorkday = process.env.AA_PORTAL_E2E_FOCUS === 'workday-assisted';
+  const workdayFocus = process.env.AA_PORTAL_E2E_FOCUS;
+  const focusWorkday = workdayFocus === 'workday-assisted' || workdayFocus === 'workday-auth';
   const focusRegistration = process.env.AA_PORTAL_E2E_FOCUS === 'registration-retry';
   try {
     if (focusWorkday) {
-      await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check }, true);
+      await workdayAccountChecks({ base: workdayBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check }, workdayFocus === 'workday-assisted');
     } else if (!focusRegistration) {
     const dry = await run({ dryRun: true });
     check('a dry run stops before creating the account', dry.event.type === 'dry_run_ready' && dry.event.stage === 'account' && state.accounts.size === 0);
@@ -1499,7 +1562,7 @@ async function main() {
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
-    await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check });
+    await workdayAccountChecks({ base: workdayBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check });
     }
 
     if (!focusWorkday) {
@@ -1569,7 +1632,10 @@ async function main() {
       }
     }
   } finally {
-    server.close();
+    await Promise.all([
+      new Promise((resolve) => server.close(resolve)),
+      new Promise((resolve) => workdayServer.close(resolve)),
+    ]);
     await rm(dir, { recursive: true, force: true });
   }
   const failed = checks.filter((item) => !item.ok).length;
