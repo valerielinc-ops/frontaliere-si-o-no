@@ -214,9 +214,12 @@ export async function extractPdfTextFromDocument(pdf, { signal = null } = {}) {
 export async function extractPdfText(buffer, { signal = null } = {}) {
   signal?.throwIfAborted();
   const { getResolvedPDFJS } = await import('unpdf');
-  const data = buffer instanceof Uint8Array
-    ? new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength)
-    : new Uint8Array(buffer);
+  const source = buffer instanceof Uint8Array ? buffer : new Uint8Array(buffer);
+  if (source.byteLength > MAX_CV_SOURCE_BYTES) throw new Error('eligibility_cv_file_too_large');
+  // PDF.js may transfer and detach the input ArrayBuffer while dispatching
+  // work to its worker. Keep the caller's bounded source buffer intact so
+  // OCR fallbacks and other checks can safely read it after extraction.
+  const data = new Uint8Array(source);
   const { getDocument } = await getResolvedPDFJS();
   let nodeDefaults = {};
   try {
