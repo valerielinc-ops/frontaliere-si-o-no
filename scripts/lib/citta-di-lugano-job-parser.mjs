@@ -3,7 +3,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * Città di Lugano — job parser
  *
  * The municipality publishes public job competitions (concorsi pubblici) at:
- *   https://www.lugano.ch/temi-servizi/lavoro-e-impresa/concorsi-pubblici-posti-lavoro/
+ *   https://www.lugano.ch/la-mia-citta/amministrazione/albo-comunale/concorsi.html
  *
  * Applications go through: https://egov.lugano.ch/it/services/3
  *
@@ -23,7 +23,7 @@ import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { crawledAtFromObservation } from './source-crawl-observation.mjs';
 
 const HQ = getCompanyDefaults('citta-di-lugano');
-const CITTA_DI_LUGANO_CONCORSI_URL = 'https://www.lugano.ch/temi-servizi/lavoro-e-impresa/concorsi-pubblici-posti-lavoro/';
+const CITTA_DI_LUGANO_CONCORSI_URL = 'https://www.lugano.ch/la-mia-citta/amministrazione/albo-comunale/concorsi.html';
 const GENERIC_LUGANO_APPLY_PATH = '/it/services/3';
 const ITALIAN_MONTHS = Object.freeze({
   gennaio: 1,
@@ -139,6 +139,13 @@ function extractTopLevelListItems(html = '') {
   return items;
 }
 
+function extractListingContent(html = '') {
+  const sanitized = stripScriptsAndStyles(html);
+  const contentMatch = sanitized.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)
+    || sanitized.match(/<article\b[^>]*>([\s\S]*?)<\/article>/i);
+  return contentMatch ? contentMatch[1] : sanitized;
+}
+
 /* ── Listing page parser ───────────────────────────────────── */
 
 /**
@@ -157,12 +164,13 @@ export function parseListingPage(html) {
   const jobs = [];
   const seen = new Set();
   let listingEvidenceCount = 0;
+  const listingHtml = extractListingContent(html);
 
   // Pattern 1: top-level list items with <strong> job titles
   // e.g. <li><strong>Architetto/a progettista</strong> ... Scadenza: 30.03.2026 ...
   // The CMS nests the document/action links in a second <ul>. A non-balanced
   // regex closes at the first nested </li> and loses the vacancy container.
-  for (const liHtml of extractTopLevelListItems(html)) {
+  for (const liHtml of extractTopLevelListItems(listingHtml)) {
     const visibleText = stripHtml(liHtml);
     if (/\bscadenza\b/i.test(visibleText) && /downloadConcorsi|\.pdf\b/i.test(liHtml)) {
       listingEvidenceCount += 1;
