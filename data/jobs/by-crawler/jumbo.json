@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-11-01T09:19:30.637Z",
+  "assembledAt": "2026-11-01T12:22:35.745Z",
   "runId": "41291964879",
   "jobs": [
     {
@@ -192,7 +192,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.588Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-6df596c9-288",
@@ -287,7 +288,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.587Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-374aa2c9-13f",
@@ -392,7 +394,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.586Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-59655bc3-455",
@@ -487,7 +490,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.585Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-71eed98b-cfe",
@@ -684,7 +688,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.584Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-19b93b64-6eb",
@@ -791,7 +796,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.583Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-a4cbd970-11c",
@@ -896,7 +902,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.582Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-17d79f92-fa1",
@@ -1003,7 +1010,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.581Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-a2ecd977-374",
@@ -1098,7 +1106,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.580Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-60a15e21-1dd",
@@ -1193,7 +1202,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.579Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-5c7fc256-677",
@@ -1288,7 +1298,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.578Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-176bd7a6-ba2",
@@ -1383,7 +1394,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.577Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-ded8e789-815",
@@ -1478,7 +1490,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.576Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-c77b3492-f59",
@@ -1573,7 +1586,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.576Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-9ba02818-244",
@@ -1786,7 +1800,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.574Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-a44f0219-919",
@@ -1893,7 +1908,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.573Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-d1e46fb1-77f",
@@ -1998,7 +2014,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.573Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-9e92e50b-678",
@@ -2103,7 +2120,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.572Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-919050c5-9a5",
@@ -2198,7 +2216,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.571Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-1a3964e8-e1a",
@@ -2507,7 +2526,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.568Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-4760182b-e92",
@@ -2718,7 +2738,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.567Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-3204876c-9a7",
@@ -2823,7 +2844,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.566Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-2861affd-61c",
@@ -2930,7 +2952,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.566Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-c2f1c364-ee8",
@@ -3037,7 +3060,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.565Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-da76f8a7-c99",
@@ -3132,7 +3156,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.564Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-b4ecdb81-e54",
@@ -3237,7 +3262,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.564Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-45ed21ca-68d",
@@ -3438,7 +3464,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.563Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-d9d4dab8-8d3",
@@ -3543,7 +3570,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-664e8aca-ac6",
@@ -3746,7 +3774,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-a623d1c1-266",
@@ -3853,7 +3882,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.561Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-b19a282a-b79",
@@ -4054,7 +4084,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.559Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-a349559f-305",
@@ -4149,7 +4180,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.559Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-3155c14d-c6e",
@@ -4256,7 +4288,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.558Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-f6ba2c37-931",
@@ -4361,7 +4394,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.557Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-f5e0efff-2b9",
@@ -4468,7 +4502,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.556Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-f0a8d70e-05d",
@@ -4563,7 +4598,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.555Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-1e860d2c-e4f",
@@ -4668,7 +4704,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.554Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-81fc3726-0a4",
@@ -4763,7 +4800,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.554Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-350dfb34-ef5",
@@ -4870,7 +4908,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.553Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-cb4aeabf-154",
@@ -4977,7 +5016,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.552Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-fc6a5eac-f92",
@@ -5082,7 +5122,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.552Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-7c42cc81-99f",
@@ -5187,7 +5228,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.551Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-2183cb41-c4c",
@@ -5294,7 +5336,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.550Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-84174720-3a6",
@@ -5389,7 +5432,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.549Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-f5c77ff0-bfd",
@@ -5484,7 +5528,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.548Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-3d8f4709-488",
@@ -5589,7 +5634,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.547Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-fb68b2bb-e4b",
@@ -5696,7 +5742,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.545Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-90e12a46-c5c",
@@ -5801,7 +5848,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.544Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-08e805cc-b27",
@@ -5908,7 +5956,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.544Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-86d4d7f3-deb",
@@ -6015,7 +6064,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.543Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-080009f6-119",
@@ -6122,7 +6172,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.542Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-1b4edb99-2a3",
@@ -6223,7 +6274,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.541Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-863f8ee0-1b7",
@@ -6318,7 +6370,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.541Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-061f0ebc-fc2",
@@ -6419,7 +6472,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.540Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-3398adc7-eef",
@@ -6516,7 +6570,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.539Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-e5875170-87e",
@@ -6617,7 +6672,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.539Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-6529c393-10d",
@@ -6722,7 +6778,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.538Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-2109bd02-445",
@@ -6819,7 +6876,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.537Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-0d2b7f77-a5c",
@@ -6916,7 +6974,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.537Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-47716ced-297",
@@ -7023,7 +7082,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.536Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-820a9823-e12",
@@ -7124,7 +7184,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.536Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-01680762-ba1",
@@ -7231,7 +7292,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.535Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-42ad968b-c86",
@@ -7326,7 +7388,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.534Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-4f345c46-5ca",
@@ -7421,7 +7484,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.533Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-a3af9a6b-700",
@@ -7526,7 +7590,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.532Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-47eb3e66-55e",
@@ -7621,7 +7686,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.531Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-79f16e5f-d11",
@@ -7728,7 +7794,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.531Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-63bbf821-d4e",
@@ -7919,7 +7986,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.530Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-21fa2355-ce4",
@@ -8014,7 +8082,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.529Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-5add268c-410",
@@ -8121,7 +8190,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.528Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-1ec796c5-549",
@@ -8226,7 +8296,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.528Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-a4aef5e9-5a2",
@@ -8331,7 +8402,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.527Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-cd092220-db6",
@@ -8436,7 +8508,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.526Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-d24b7e61-477",
@@ -8543,7 +8616,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.526Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-40802fde-f12",
@@ -8650,7 +8724,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.525Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-bf48eddb-333",
@@ -8755,7 +8830,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.525Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-9a0b8766-52c",
@@ -9047,13 +9123,14 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.523Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-a0f1e72e-340",
       "slug": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-tenero-2ce2a81233",
       "slugByLocale": {
-        "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-39-acquisto",
+        "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-tenero-2ce2a81233",
         "en": "afc-retail-business-employee-creation-of-purchase-experiences-jumbo-tenero",
         "de": "afc-retail-business-mitarbeiter-erstellung-von-kauferfahrungen-jumbo-tenero",
         "fr": "afc-commerce-de-detail-employe-creation-d-experiences-d-achat-jumbo-tenero"
@@ -9134,7 +9211,17 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.522Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-tenero-2ce2a81233",
+          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-39-acquisto"
+        ]
+      },
+      "previousSlugs": [
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-tenero-2ce2a81233",
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-39-acquisto"
+      ]
     },
     {
       "id": "jumbo-cfc3a0fb-994",
@@ -9227,7 +9314,7 @@
       "id": "jumbo-f63eb305-ef6",
       "slug": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-castione-ecba4e715e",
       "slugByLocale": {
-        "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-39-acquisto",
+        "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-castione-ecba4e715e",
         "en": "retail-employee-afc-creating-shopping-experiences-jumbo-castione",
         "de": "detailhandelsfachfrau-detailhandelsfachmann-efz-gestaltung-von-einkaufserlebnissen-jumbo-castione",
         "fr": "afc-commerce-de-detail-employe-creation-d-experiences-d-achat-jumbo-castione"
@@ -9293,9 +9380,14 @@
       "streetAddress": "Castione",
       "_enrichedFromDetail": true,
       "previousSlugs": [
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-castione-ecba4e715e",
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-39-acquisto"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-castione-ecba4e715e",
+          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-39-acquisto"
+        ],
         "en": [
           "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-39-acquisto"
         ],
@@ -9328,7 +9420,7 @@
       "id": "jumbo-b9c1f865-7b5",
       "slug": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-mendrisio-2050c0c82c",
       "slugByLocale": {
-        "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-39-acquisto",
+        "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-mendrisio-2050c0c82c",
         "en": "afc-retail-business-employee-creation-of-purchase-experiences-jumbo-mendrisio",
         "de": "afc-retail-business-mitarbeiter-erstellung-von-kauferfahrungen-jumbo-mendrisio",
         "fr": "afc-commerce-de-detail-employe-creation-d-experiences-d-achat-jumbo-mendrisio"
@@ -9409,7 +9501,17 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:16:04.521Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-mendrisio-2050c0c82c",
+          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-39-acquisto"
+        ]
+      },
+      "previousSlugs": [
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-mendrisio-2050c0c82c",
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-39-acquisto"
+      ]
     },
     {
       "id": "jumbo-830ffa50-cde",
@@ -9602,7 +9704,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-06T09:16:04.520Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-619c979b-693",
@@ -9999,7 +10102,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-05T09:16:04.517Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-9b9c14d3-3d2",
@@ -10098,7 +10202,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-05T09:16:04.516Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-bfcb996b-385",
@@ -10782,7 +10887,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-09T09:16:04.511Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-1e17e77d-dbd",
@@ -10874,7 +10980,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-09T09:16:04.509Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-c4069efd-bfe",
@@ -11065,7 +11172,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-09T09:16:04.507Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-1ab1352e-e78",
@@ -11849,7 +11957,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-06T09:16:04.502Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-b3a3b17a-f96",
@@ -12152,7 +12261,7 @@
     },
     {
       "id": "jumbo-1a4a8eb4-098",
-      "slug": "verkaufsberater-in-garten-jumbo-laupen",
+      "slug": "consulente-alle-vendite-giardinaggio-jumbo-laupen",
       "slugByLocale": {
         "de": "verkaufsberater-in-garten-jumbo-laupen-iv8xo9",
         "it": "consulente-alle-vendite-giardinaggio-jumbo-laupen",
@@ -12233,7 +12342,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-11T09:16:04.499Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garten-jumbo-laupen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garten-jumbo-laupen"
+      ]
     },
     {
       "id": "jumbo-8bb90eb1-cf4",
@@ -12332,7 +12449,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-10T09:16:04.498Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-959e0fae-854",
@@ -12814,7 +12932,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-16T09:16:04.494Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-8115622c-efa",
@@ -12908,7 +13027,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T09:16:04.493Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-9a9e16fb-f77",
@@ -13101,7 +13221,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T09:16:04.492Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-8d717dc6-a25",
@@ -13969,7 +14090,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:16:04.484Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-331e0df0-48e",
@@ -14063,7 +14185,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-21T09:16:04.484Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-9e8b1c15-f58",
@@ -14553,7 +14676,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-21T09:16:04.480Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-06d5e101-1a9",
@@ -14750,7 +14874,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:16:04.479Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-ebbc1a12-42f",
@@ -15134,7 +15259,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:16:04.476Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-2a221b4f-888",
@@ -15419,7 +15545,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:16:04.472Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-e76d43d2-c86",
@@ -15522,7 +15649,7 @@
     },
     {
       "id": "jumbo-73cc4860-877",
-      "slug": "consulente-alla-vendita-deco-jumbo-chur-8a142896d7",
+      "slug": "consulente-di-vendita-deco-jumbo-chur",
       "slugByLocale": {
         "de": "verkaufsberater-in-deco-jumbo-chur-xnhah1",
         "it": "consulente-di-vendita-deco-jumbo-chur",
@@ -15588,11 +15715,13 @@
       "needsRetranslation": false,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur"
+        "verkaufsberater-in-deco-jumbo-chur",
+        "consulente-alla-vendita-deco-jumbo-chur-8a142896d7"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-deco-jumbo-chur"
+          "verkaufsberater-in-deco-jumbo-chur",
+          "consulente-alla-vendita-deco-jumbo-chur-8a142896d7"
         ],
         "de": [
           "verkaufsberater-in-deco-jumbo-chur"
@@ -16304,7 +16433,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-25T09:16:04.465Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-b4da47f3-f09",
@@ -16781,7 +16911,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:16:04.462Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-06db06cc-b41",
@@ -17471,7 +17602,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-28T09:16:04.456Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-8e74def9-0e1",
@@ -17965,7 +18097,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-27T09:16:04.451Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-d2dcdf71-dff",
@@ -18056,7 +18189,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:16:04.450Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-0782c996-09f",
@@ -18625,10 +18759,10 @@
     },
     {
       "id": "jumbo-78eb7696-e47",
-      "slug": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-biel",
+      "slug": "conseillere-conseiller-de-vente-do-it-f-m-d-jumbo-vallese",
       "slugByLocale": {
         "fr": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-biel",
-        "it": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-biel",
+        "it": "conseillere-conseiller-de-vente-do-it-f-m-d-jumbo-vallese",
         "en": "sales-advisor-do-it-m-f-d-jumbo-vallese",
         "de": "verkaufsberater-do-it-m-w-d-jumbo-vallese"
       },
@@ -18699,7 +18833,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-28T09:16:04.441Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-biel"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-biel"
+      ]
     },
     {
       "id": "jumbo-c945b24c-be0",
@@ -19077,7 +19219,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-10T09:16:04.436Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-f6364c65-66d",
@@ -19172,7 +19315,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-01T09:16:04.435Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-a707b98d-e4b",

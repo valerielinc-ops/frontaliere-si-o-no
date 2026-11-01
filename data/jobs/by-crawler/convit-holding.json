@@ -1,6 +1,6 @@
 {
   "crawlerKey": "convit-holding",
-  "assembledAt": "2026-11-01T09:43:52.286Z",
+  "assembledAt": "2026-11-01T12:21:56.523Z",
   "runId": "41292695324",
   "jobs": [
     {
@@ -129,7 +129,8 @@
       "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "streetAddress": "Pregassona",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "convit-38f13fddc1f1",
@@ -242,6 +243,7 @@
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-m-f-d-ingresso-senza-esperienza-ibrido-con-homeoffice-convit-porza",
+          "consulente-previdenziale-m-f-d-ingresso-senza-esperienza-ibrido-con-homeoffice-convit-holding-gmbh-porza-955e7ca026",
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
         ],
         "en": [
@@ -256,6 +258,7 @@
       },
       "previousSlugs": [
         "consulente-previdenziale-m-f-d-ingresso-senza-esperienza-ibrido-con-homeoffice-convit-porza",
+        "consulente-previdenziale-m-f-d-ingresso-senza-esperienza-ibrido-con-homeoffice-convit-holding-gmbh-porza-955e7ca026",
         "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
       ],
       "salaryMin": 59000,
@@ -329,6 +332,7 @@
           "consulente-previdenziale-vbv-profilo-vita-zona-barbengo-convit-barbengo",
           "consulente-previdenziale-vbv-profilo-vita-zona-barbengo-convit-holding-gmbh-barbengo-415c2c8947",
           "consulente-previdenziale-con-o-senza-vbv-formazione-inclusa-ibrido-convit-isone",
+          "consulente-previdenziale-con-o-senza-vbv-formazione-inclusa-ibrido-convit-holding-gmbh-isone-d30e8897b8",
           "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca"
         ],
         "en": [
@@ -353,6 +357,7 @@
         "consulente-previdenziale-vbv-profilo-vita-zona-barbengo-convit-barbengo",
         "consulente-previdenziale-vbv-profilo-vita-zona-barbengo-convit-holding-gmbh-barbengo-415c2c8947",
         "consulente-previdenziale-con-o-senza-vbv-formazione-inclusa-ibrido-convit-isone",
+        "consulente-previdenziale-con-o-senza-vbv-formazione-inclusa-ibrido-convit-holding-gmbh-isone-d30e8897b8",
         "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca"
       ],
       "salaryMin": 59000,
@@ -575,6 +580,7 @@
           "consulente-previdenziale-vbv-vita-zona-pregassona-convit-pregassona",
           "consulente-previdenziale-vbv-vita-zona-pregassona-convit-holding-gmbh-pregassona-fa1b53a979",
           "consulente-clienti-previdenza-finanza-ingresso-vbv-un-vantaggio-ibrido-convit-novaggio",
+          "consulente-clienti-previdenza-finanza-ingresso-vbv-un-vantaggio-ibrido-convit-holding-gmbh-novaggio-72fc93f3a9",
           "consulente-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino"
         ],
         "en": [
@@ -609,6 +615,7 @@
         "consulente-previdenziale-vbv-vita-zona-pregassona-convit-pregassona",
         "consulente-previdenziale-vbv-vita-zona-pregassona-convit-holding-gmbh-pregassona-fa1b53a979",
         "consulente-clienti-previdenza-finanza-ingresso-vbv-un-vantaggio-ibrido-convit-novaggio",
+        "consulente-clienti-previdenza-finanza-ingresso-vbv-un-vantaggio-ibrido-convit-holding-gmbh-novaggio-72fc93f3a9",
         "consulente-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino"
       ],
       "salaryMin": 85500,
@@ -678,6 +685,7 @@
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-posizione-di-ingresso-formazione-inclusa-ibrido-con-homeoffice-convit-carona",
+          "consulente-previdenziale-posizione-di-ingresso-formazione-inclusa-ibrido-con-homeoffice-convit-holding-gmbh-carona-4c551612a0",
           "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone"
         ],
         "en": [
@@ -692,6 +700,7 @@
       },
       "previousSlugs": [
         "consulente-previdenziale-posizione-di-ingresso-formazione-inclusa-ibrido-con-homeoffice-convit-carona",
+        "consulente-previdenziale-posizione-di-ingresso-formazione-inclusa-ibrido-con-homeoffice-convit-holding-gmbh-carona-4c551612a0",
         "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone"
       ],
       "salaryMin": 59000,
@@ -912,6 +921,7 @@
           "consulente-previdenziale-posizione-di-ingresso-formazione-inclusa-ibrido-con-homeoffice-convit-carona",
           "consulente-previdenziale-posizione-di-ingresso-formazione-inclusa-ibrido-con-homeoffice-convit-holding-gmbh-carona-4c551612a0",
           "consulente-clienti-previdenza-finanza-senza-esperienza-ibrido-convit-ascona",
+          "consulente-clienti-previdenza-finanza-senza-esperienza-ibrido-convit-holding-gmbh-ascona-7b96f043b1",
           "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone"
         ],
         "en": [
@@ -942,6 +952,7 @@
         "consulente-previdenziale-posizione-di-ingresso-formazione-inclusa-ibrido-con-homeoffice-convit-carona",
         "consulente-previdenziale-posizione-di-ingresso-formazione-inclusa-ibrido-con-homeoffice-convit-holding-gmbh-carona-4c551612a0",
         "consulente-clienti-previdenza-finanza-senza-esperienza-ibrido-convit-ascona",
+        "consulente-clienti-previdenza-finanza-senza-esperienza-ibrido-convit-holding-gmbh-ascona-7b96f043b1",
         "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone"
       ],
       "salaryMin": 85500,
@@ -1011,6 +1022,7 @@
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-con-o-senza-qualifica-vbv-zona-lugano-convit-lugano",
+          "consulente-previdenziale-con-o-senza-qualifica-vbv-zona-lugano-convit-holding-gmbh-lugano-282ed090eb",
           "consulente-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino"
         ],
         "en": [
@@ -1025,6 +1037,7 @@
       },
       "previousSlugs": [
         "consulente-previdenziale-con-o-senza-qualifica-vbv-zona-lugano-convit-lugano",
+        "consulente-previdenziale-con-o-senza-qualifica-vbv-zona-lugano-convit-holding-gmbh-lugano-282ed090eb",
         "consulente-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino"
       ],
       "salaryMin": 59000,
@@ -1176,6 +1189,7 @@
           "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-cadempino",
           "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-holding-gmbh-cadempino-5c0a2d9484",
           "consulente-previdenziale-vbv-profilo-vita-zona-barbengo-convit-barbengo",
+          "consulente-previdenziale-vbv-profilo-vita-zona-barbengo-convit-holding-gmbh-barbengo-415c2c8947",
           "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca"
         ],
         "en": [
@@ -1195,6 +1209,7 @@
         "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-cadempino",
         "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-holding-gmbh-cadempino-5c0a2d9484",
         "consulente-previdenziale-vbv-profilo-vita-zona-barbengo-convit-barbengo",
+        "consulente-previdenziale-vbv-profilo-vita-zona-barbengo-convit-holding-gmbh-barbengo-415c2c8947",
         "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca"
       ],
       "streetAddress": "Barbengo",
@@ -1335,7 +1350,8 @@
       "postalCode": "6900",
       "streetAddress": "Paradiso",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "convit-c1c9ca99a3d6",
@@ -1463,7 +1479,8 @@
       "postalCode": "6512",
       "streetAddress": "Giubiasco",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "convit-cd316d74045b",
@@ -1527,7 +1544,8 @@
       "datePosted": "2026-09-27T20:50:14.663574+00:00",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "convit-35f87a6a86d3",
@@ -1568,7 +1586,7 @@
       "slugByLocale": {
         "it": "consulente-previdenziale-vbv-profilo-vita-zona-massagno-convit-holding-gmbh-massagno-00db0d2560",
         "en": "prevident-consultant-career-change-zone-massagno-convit-holding-gmbh-massagno",
-        "de": "prevident-consultant-karrierewechsel-zone-massagno-convit-holding-gmbh-massagno",
+        "de": "sozialversicherungsberater-vbv-lebensprofil-schwimmbereich-convit-holding-gmbh-massagno",
         "fr": "consultant-precedent-changement-de-carriere-zone-massagno-convit-holding-gmbh-massagno"
       },
       "salaryMin": 59000,
@@ -1593,7 +1611,7 @@
         ],
         "de": [
           "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-holding-gmbh-massagno",
-          "sozialversicherungsberater-vbv-lebensprofil-schwimmbereich-convit-holding-gmbh-massagno"
+          "prevident-consultant-karrierewechsel-zone-massagno-convit-holding-gmbh-massagno"
         ],
         "fr": [
           "consultant-en-securite-sociale-vbv-life-profile-zone-de-baignade-convit-holding-gmbh-massagno",
@@ -1603,6 +1621,7 @@
           "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno-ehodd0",
           "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-holding-gmbh-massagno-51b42deaaf",
           "consulente-previdenziale-vbv-profilo-vita-zona-massagno-convit-massagno",
+          "consulente-previdenziale-vbv-profilo-vita-zona-massagno-convit-holding-gmbh-massagno-00db0d2560",
           "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno"
         ]
       },
@@ -1614,9 +1633,8 @@
         "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-holding-gmbh-massagno",
         "consulente-previdenziale-vbv-profilo-vita-zona-massagno-convit-massagno",
         "prevident-consultant-karrierewechsel-zone-massagno-convit-holding-gmbh-massagno",
-        "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno",
         "consulente-previdenziale-vbv-profilo-vita-zona-massagno-convit-holding-gmbh-massagno-00db0d2560",
-        "sozialversicherungsberater-vbv-lebensprofil-schwimmbereich-convit-holding-gmbh-massagno"
+        "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno"
       ],
       "datePosted": "2026-09-27T20:50:11.834045+00:00",
       "postingDateSource": "reported",
@@ -1692,6 +1710,7 @@
           "consulente-previdenziale-m-f-d-ingresso-senza-esperienza-ibrido-con-homeoffice-convit-porza",
           "consulente-previdenziale-m-f-d-ingresso-senza-esperienza-ibrido-con-homeoffice-convit-holding-gmbh-porza-955e7ca026",
           "consulente-previdenziale-con-o-senza-qualifica-vbv-zona-chiasso-convit-chiasso",
+          "consulente-previdenziale-con-o-senza-qualifica-vbv-zona-chiasso-convit-holding-gmbh-chiasso-1eb9bc6f00",
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
         ],
         "en": [
@@ -1716,6 +1735,7 @@
         "consulente-previdenziale-m-f-d-ingresso-senza-esperienza-ibrido-con-homeoffice-convit-porza",
         "consulente-previdenziale-m-f-d-ingresso-senza-esperienza-ibrido-con-homeoffice-convit-holding-gmbh-porza-955e7ca026",
         "consulente-previdenziale-con-o-senza-qualifica-vbv-zona-chiasso-convit-chiasso",
+        "consulente-previdenziale-con-o-senza-qualifica-vbv-zona-chiasso-convit-holding-gmbh-chiasso-1eb9bc6f00",
         "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
       ],
       "streetAddress": "Chiasso",
@@ -1789,6 +1809,7 @@
           "consulente-budget-pianificazione-junior-convit-cadempino",
           "consulente-budget-pianificazione-junior-convit-holding-gmbh-cadempino-5c9be51413",
           "consulente-previdenziale-vbv-vita-zona-pregassona-convit-pregassona",
+          "consulente-previdenziale-vbv-vita-zona-pregassona-convit-holding-gmbh-pregassona-fa1b53a979",
           "consulente-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino"
         ],
         "en": [
@@ -1813,11 +1834,13 @@
         "consulente-budget-pianificazione-junior-convit-cadempino",
         "consulente-budget-pianificazione-junior-convit-holding-gmbh-cadempino-5c9be51413",
         "consulente-previdenziale-vbv-vita-zona-pregassona-convit-pregassona",
+        "consulente-previdenziale-vbv-vita-zona-pregassona-convit-holding-gmbh-pregassona-fa1b53a979",
         "consulente-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino"
       ],
       "streetAddress": "Pregassona",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "convit-b8729f5f5479",
@@ -2010,11 +2033,13 @@
       "previousSlugs": [
         "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno-ehodd0",
         "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-holding-gmbh-massagno",
+        "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-holding-gmbh-massagno-51b42deaaf",
         "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno-ehodd0",
+          "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-holding-gmbh-massagno-51b42deaaf",
           "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno"
         ],
         "en": [
@@ -2029,7 +2054,8 @@
       },
       "streetAddress": "Massagno",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "convit-7470c4eb8fa8",
@@ -2093,7 +2119,8 @@
       "postalCode": "6988",
       "streetAddress": "Ponte Tresa",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "convit-aa00cc190bbc",
@@ -2288,6 +2315,7 @@
           "consulente-previdenziale-junior-3a-3b-ibrido-convit-cadempino",
           "consulente-previdenziale-junior-3a-3b-ibrido-convit-holding-gmbh-cadempino-b56d0f9513",
           "consulente-previdenziale-vbv-profilo-vita-zona-locarno-convit-locarno",
+          "consulente-previdenziale-vbv-profilo-vita-zona-locarno-convit-holding-gmbh-locarno-5b67f4f9f6",
           "consulente-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino"
         ],
         "en": [
@@ -2307,6 +2335,7 @@
         "consulente-previdenziale-junior-3a-3b-ibrido-convit-cadempino",
         "consulente-previdenziale-junior-3a-3b-ibrido-convit-holding-gmbh-cadempino-b56d0f9513",
         "consulente-previdenziale-vbv-profilo-vita-zona-locarno-convit-locarno",
+        "consulente-previdenziale-vbv-profilo-vita-zona-locarno-convit-holding-gmbh-locarno-5b67f4f9f6",
         "consulente-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       ],
       "streetAddress": "Locarno",
@@ -2595,6 +2624,7 @@
           "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-hohte6",
           "consulente-budget-patrimonio-junior-tempo-parziale-possibile-convit-holding-gmbh-cadempino-369d341fff",
           "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-cadempino",
+          "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-cadempino-3c126c07b0",
           "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone"
         ],
         "en": [
@@ -2615,6 +2645,7 @@
         "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-hohte6",
         "consulente-budget-patrimonio-junior-tempo-parziale-possibile-convit-holding-gmbh-cadempino-369d341fff",
         "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-cadempino",
+        "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-cadempino-3c126c07b0",
         "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone"
       ],
       "streetAddress": "Cadempino",
@@ -2668,6 +2699,7 @@
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-junior-3a-3b-ibrido-convit-cadempino",
+          "consulente-previdenziale-junior-3a-3b-ibrido-convit-holding-gmbh-cadempino-b56d0f9513",
           "consulente-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino"
         ],
         "en": [
@@ -2682,6 +2714,7 @@
       },
       "previousSlugs": [
         "consulente-previdenziale-junior-3a-3b-ibrido-convit-cadempino",
+        "consulente-previdenziale-junior-3a-3b-ibrido-convit-holding-gmbh-cadempino-b56d0f9513",
         "consulente-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       ],
       "salaryMin": 46500,
@@ -2906,6 +2939,7 @@
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-cadempino",
+          "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-holding-gmbh-cadempino-5c0a2d9484",
           "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca"
         ],
         "en": [
@@ -2920,6 +2954,7 @@
       },
       "previousSlugs": [
         "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-cadempino",
+        "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-holding-gmbh-cadempino-5c0a2d9484",
         "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca"
       ],
       "salaryMin": 59000,
@@ -2989,6 +3024,7 @@
       "previousSlugsByLocale": {
         "it": [
           "consulente-pianificazione-pensionistica-budget-entrata-laterale-homeoffice-possibile-convit-cadempino",
+          "consulente-pianificazione-pensionistica-budget-entrata-laterale-homeoffice-possibile-convit-holding-gmbh-cadempino-366a69bd43",
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
         ],
         "en": [
@@ -3003,6 +3039,7 @@
       },
       "previousSlugs": [
         "consulente-pianificazione-pensionistica-budget-entrata-laterale-homeoffice-possibile-convit-cadempino",
+        "consulente-pianificazione-pensionistica-budget-entrata-laterale-homeoffice-possibile-convit-holding-gmbh-cadempino-366a69bd43",
         "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca"
       ],
       "salaryMin": 85500,
@@ -3323,7 +3360,8 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "convit-048f45a09b17",
@@ -3446,6 +3484,7 @@
       "previousSlugsByLocale": {
         "it": [
           "consulente-budget-pianificazione-junior-convit-cadempino",
+          "consulente-budget-pianificazione-junior-convit-holding-gmbh-cadempino-5c9be51413",
           "consulente-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino"
         ],
         "en": [
@@ -3460,6 +3499,7 @@
       },
       "previousSlugs": [
         "consulente-budget-pianificazione-junior-convit-cadempino",
+        "consulente-budget-pianificazione-junior-convit-holding-gmbh-cadempino-5c9be51413",
         "consulente-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino"
       ],
       "salaryMin": 59500,
@@ -3480,7 +3520,8 @@
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "streetAddress": "Cadempino",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "convit-37cb1e8bc73e",
@@ -3530,6 +3571,7 @@
         "it": [
           "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-hohte6",
           "consulente-budget-patrimonio-junior-tempo-parziale-possibile-convit-cadempino",
+          "consulente-budget-patrimonio-junior-tempo-parziale-possibile-convit-holding-gmbh-cadempino-369d341fff",
           "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone"
         ],
         "en": [
@@ -3545,6 +3587,7 @@
       "previousSlugs": [
         "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-hohte6",
         "consulente-budget-patrimonio-junior-tempo-parziale-possibile-convit-cadempino",
+        "consulente-budget-patrimonio-junior-tempo-parziale-possibile-convit-holding-gmbh-cadempino-369d341fff",
         "consulenza-finanziaria-entrata-laterale-fissa-bonus-part-time-o-100-convit-holding-gmbh-losone"
       ],
       "salaryMin": 46500,
@@ -3638,7 +3681,8 @@
         "consulente-accumulo-di-capitale-junior-orari-flessibili-convit-cadempino"
       ],
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "convit-eaadcb848a68",

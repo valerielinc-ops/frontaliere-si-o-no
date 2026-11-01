@@ -1,6 +1,6 @@
 {
   "crawlerKey": "laderach",
-  "assembledAt": "2026-11-01T09:23:36.135Z",
+  "assembledAt": "2026-11-01T12:22:45.422Z",
   "runId": "41291964879",
   "jobs": [
     {
@@ -81,7 +81,8 @@
       "streetAddress": "Glarus Nord, Glarus, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T09:23:17.752Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-404cc3b4b128",
@@ -1721,7 +1722,8 @@
       "streetAddress": "Zürich, -, Schweiz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:23:09.330Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-03df285b9260",
@@ -1895,7 +1897,8 @@
       "streetAddress": "Zürich, Zürich, Schweiz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:23:08.403Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-fd6fc2b31468",
@@ -1980,7 +1983,8 @@
       "streetAddress": "Zürich-Flughafen, Zürich, Schweiz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:23:08.173Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-418e501d68ff",
@@ -2073,7 +2077,8 @@
       "streetAddress": "Zürich, Zürich, Schweiz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-05T09:23:07.941Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-9eb36eb15ad5",
@@ -2158,7 +2163,8 @@
       "streetAddress": "Basel, Basel-Stadt, Schweiz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:23:07.709Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-2ab55fbbe937",
@@ -2328,7 +2334,8 @@
       "streetAddress": "Ennenda, Glarus, Schweiz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:23:07.244Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-b0ad57de7665",
@@ -2424,7 +2431,8 @@
       "streetAddress": "Bilten, Glarus, Schweiz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:23:07.010Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-556a96de0e41",
@@ -2597,7 +2605,8 @@
       "streetAddress": "Bilten, Glarus, Schweiz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:23:06.305Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     }
   ]
 }
