@@ -750,6 +750,7 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
 // manager's decision, not its preferences control.
 export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
 export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all| optional)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| tous les cookies)?|ok)$/i;
+const COOKIE_DIALOG_CONTEXT_RE = /\bcookies?\b/i;
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
 const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
 
@@ -2881,6 +2882,25 @@ async function awaitAuthView(page, before) {
   return (await extractFields(page).catch(() => null)) || after || extractFields(page);
 }
 
+/** Only classify a dialog as a cookie manager when its live copy and own choice agree. */
+async function knownCookieDialogSnapshot(page, snapshot) {
+  for (const dialog of snapshot?.dialogs || []) {
+    const dialogId = String(dialog.dialogId || '');
+    if (!/^d\d+$/.test(dialogId)) continue;
+    const buttons = (snapshot.buttons || []).filter((button) => button.dialog && button.dialogId === dialogId
+      && [button.text, button.label, button.ariaLabel, button.title].some((value) => {
+        const label = String(value || '').trim();
+        return COOKIE_REJECT_RE.test(label) || COOKIE_ACCEPT_RE.test(label);
+      }));
+    if (!buttons.length) continue;
+    const frame = page.frames()[Number(dialog.frame ?? buttons[0].frame) || 0] || page.mainFrame();
+    const dialogText = await frame.locator(`[data-aa-dialog-id="${dialogId}"]`)
+      .innerText({ timeout: 1_000 }).catch(() => '');
+    if (COOKIE_DIALOG_CONTEXT_RE.test(dialogText)) return { ...snapshot, buttons, dialogs: [dialog] };
+  }
+  return null;
+}
+
 /**
  * Follow only a visible, explicitly named sign-in anchor whose live HTTPS
  * destination stays on the current portal or its verified ATS family. This
@@ -2891,9 +2911,12 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
   let currentSnapshot = snapshot;
   if (currentSnapshot?.dialogs?.length) {
     // Cookie managers are the only overlays this path is allowed to dismiss:
-    // their controls are explicitly localized and handled by the shared
-    // cookie-banner policy. Unknown dialogs remain a human handoff.
-    const cookieResult = await dismissCookieBanner(page, currentSnapshot);
+    // live dialog copy and its own explicit choice must confirm that context.
+    // Pass only this dialog to shared policy so a generic «Accept» elsewhere
+    // can never be mistaken for a cookie decision.
+    const cookieSnapshot = await knownCookieDialogSnapshot(page, currentSnapshot);
+    if (!cookieSnapshot) return false;
+    const cookieResult = await dismissCookieBanner(page, cookieSnapshot);
     if (cookieResult !== true && cookieResult?.status !== 'dismissed') return false;
     currentSnapshot = cookieResult?.snapshot || await extractFields(page, NAVIGATION).catch(() => null);
     if (!currentSnapshot || currentSnapshot.dialogs?.length) return false;

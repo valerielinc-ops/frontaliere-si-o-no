@@ -39,14 +39,15 @@ function pageWithLink({ href, label, finalUrl, visible = true, tagName = 'A', co
   };
   const frame = {
     url: () => url,
-    locator: vi.fn((selector: string) => selector.includes('cookie-reject') ? cookieLocator : linkLocator),
+    locator: vi.fn((selector: string) => selector.includes('cookie-reject') || selector.includes('data-aa-dialog-id="d1"')
+      ? cookieLocator : linkLocator),
     goto,
     evaluate: vi.fn(async () => ({
       url,
       fields: [],
       buttons: cookieVisible ? [{ id: 'cookie-reject', text: 'Reject all cookies', dialog: true, frame: 0 }] : [],
       links: [{ id: 'auth-link', text: label, label: '', title: '', ariaLabel: '', frame: 0 }],
-      dialogs: cookieVisible ? [{ dialog: true, dialogId: 'cookie-banner', frame: 0 }] : [],
+      dialogs: cookieVisible ? [{ dialog: true, dialogId: 'd1', frame: 0 }] : [],
       captcha: false,
       passwordVisible: false,
       errors: [],
@@ -120,7 +121,8 @@ describe('verified sign-in navigation from an existing-account registration page
   it('refuses an unknown overlay and leaves its sign-in-looking link untouched', async () => {
     const { page, frame, locator } = pageWithLink({ label: 'Sign in', href: '/de/login' });
     const snapshot = {
-      dialogs: [{ dialog: true, dialogId: 'unknown-modal' }],
+      dialogs: [{ dialog: true, dialogId: 'd2', frame: 0 }],
+      buttons: [{ id: 'auth-link', frame: 0, text: 'Accept', dialog: true, dialogId: 'd2' }],
       links: [{ id: 'auth-link', frame: 0, text: 'Sign in' }],
     };
 
@@ -137,8 +139,8 @@ describe('verified sign-in navigation from an existing-account registration page
       label: 'Already registered? Log in', href: '/de/login', cookieOverlay: true,
     });
     const snapshot = {
-      dialogs: [{ dialog: true, dialogId: 'cookie-banner' }],
-      buttons: [{ id: 'cookie-reject', frame: 0, text: 'Reject all cookies', dialog: true }],
+      dialogs: [{ dialog: true, dialogId: 'd1', frame: 0 }],
+      buttons: [{ id: 'cookie-reject', frame: 0, text: 'Reject all cookies', dialog: true, dialogId: 'd1' }],
       links: [],
     };
 
