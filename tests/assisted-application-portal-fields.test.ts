@@ -309,6 +309,8 @@ describe('portal field extraction', () => {
     }
     const nearbyFormQuestion = extract('<form><span>What should I complete on this form?</span><input id="_r_6_"></form>');
     expect(nearbyFormQuestion.fields[0].label).toBe('What should I complete on this form?');
+    const longerFormQuestion = extract('<div><span>Complete this form? What should I enter?</span><input id="_r_1_"></div>');
+    expect(longerFormQuestion.fields[0].label).toBe('Complete this form? What should I enter?');
     for (const [instruction, id] of [
       ['Completa tutti i campi prima di inviare la candidatura', 'input-15'],
       ['Completa il modulo prima dell’invio', 'input-19'],
