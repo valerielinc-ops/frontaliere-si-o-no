@@ -234,6 +234,10 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
   it('uses a coherent locality fallback when PEMSA omits its street', () => {
     // pemsa-dbd33906d27a: PEMSA's own JSON-LD states Lugano 6900 and no
     // street; the completeness contract now supplies the locality tuple.
+    const now = new Date('2026-10-01T00:00:00.000Z');
+    const sourceValidThrough = new Date(now.getTime() + 30 * 86400000)
+      .toISOString()
+      .slice(0, 10);
     const schema = buildJobPostingSchema({
       id: 'pemsa-dbd33906d27a',
       title: 'Macchinista M1, M2,M3',
@@ -244,11 +248,11 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
       postalCode: '6900',
       employmentType: 'full-time',
       contractType: 'temporary',
-      validThrough: '2026-10-31',
+      validThrough: sourceValidThrough,
       salaryMin: 61000,
       salaryMax: 77000,
       salarySource: 'estimated',
-    }, OPTS);
+    }, { ...OPTS, now });
     assertComplete(schema);
     expect(schema.jobLocation.address).toEqual({
       '@type': 'PostalAddress',
@@ -260,7 +264,7 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
     });
     expect(schema.baseSalary).toMatchObject({ value: { minValue: 61000, maxValue: 77000 } });
     expect(schema.employmentType).toEqual(['FULL_TIME', 'TEMPORARY']);
-    expect(schema.validThrough).toBe(new Date('2026-10-31').toISOString());
+    expect(schema.validThrough).toBe(new Date(sourceValidThrough).toISOString());
   });
 
   it('uses the curated HQ tuple only in the HQ city and only as a whole', () => {
