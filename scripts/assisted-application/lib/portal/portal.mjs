@@ -2888,11 +2888,13 @@ async function knownCookieDialogSnapshot(page, snapshot) {
   for (const dialog of snapshot?.dialogs || []) {
     const dialogId = String(dialog.dialogId || '');
     if (!/^d\d+$/.test(dialogId)) continue;
-    const buttons = (snapshot.buttons || []).filter((button) => button.dialog && button.dialogId === dialogId
-      && [button.text, button.label, button.ariaLabel, button.title].some((value) => {
-        const label = String(value || '').trim();
-        return COOKIE_REJECT_RE.test(label) || (COOKIE_ACCEPT_RE.test(label) && !COOKIE_GENERIC_ACCEPT_LABEL_RE.test(label));
-      }));
+    const buttons = (snapshot.buttons || []).filter((button) => {
+      if (!button.dialog || button.dialogId !== dialogId) return false;
+      // dismissCookieBanner/findButton selects on the visible text, not the
+      // accessible label; validate the same value before passing it through.
+      const label = String(button.text || '').trim();
+      return COOKIE_REJECT_RE.test(label) || (COOKIE_ACCEPT_RE.test(label) && !COOKIE_GENERIC_ACCEPT_LABEL_RE.test(label));
+    });
     if (!buttons.length) continue;
     const frame = page.frames()[Number(dialog.frame ?? buttons[0].frame) || 0] || page.mainFrame();
     const dialogText = await frame.locator(`[data-aa-dialog-id="${dialogId}"]`)

@@ -169,6 +169,26 @@ describe('verified sign-in navigation from an existing-account registration page
     expect(page.request.post).not.toHaveBeenCalled();
   });
 
+  it('validates the visible button text instead of trusting a more explicit aria label', async () => {
+    const { page, frame, cookieLocator } = pageWithLink({
+      label: 'Sign in', href: '/de/login', cookieOverlay: true, cookieText: 'We use cookies to improve this site.',
+    });
+    const snapshot = {
+      dialogs: [{ dialog: true, dialogId: 'd1', frame: 0 }],
+      buttons: [{
+        id: 'cookie-reject', frame: 0, text: 'Accept', label: 'Accept all cookies',
+        ariaLabel: 'Accept all cookies', dialog: true, dialogId: 'd1',
+      }],
+      links: [{ id: 'auth-link', frame: 0, text: 'Sign in' }],
+    };
+
+    await expect(openVerifiedSignInNavigation(page as any, snapshot as any)).resolves.toBe(false);
+
+    expect(cookieLocator.click).not.toHaveBeenCalled();
+    expect(frame.goto).not.toHaveBeenCalled();
+    expect(page.request.post).not.toHaveBeenCalled();
+  });
+
   it('allows an explicit Accept all choice only inside a verified cookie dialog', async () => {
     const { page, frame, locator, cookieLocator } = pageWithLink({
       label: 'Sign in', href: '/de/login', cookieOverlay: true, cookieText: 'We use cookies to improve this site.',
