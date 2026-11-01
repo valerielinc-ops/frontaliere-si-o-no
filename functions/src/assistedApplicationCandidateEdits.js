@@ -114,6 +114,8 @@ export function isPreferredWorkloadQuestion(value) {
 }
 
 const WORKLOAD_PREFERENCE_KEY = 'preference_workload_percentage_v1';
+/** Only this writer version marks the per-order semantic map as candidate/owner confirmed. */
+export const ORDER_QUESTION_ANSWER_EVIDENCE_VERSION = 'order-confirmed-question-answers-v1';
 
 /** Complete general questions only: additional domain, future or employer clauses retain their own key. */
 export function isGeneralCandidateLanguageQuestion(value) {

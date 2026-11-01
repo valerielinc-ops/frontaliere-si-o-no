@@ -88,12 +88,13 @@ describe('starting the flow', () => {
     expect(store.read(`${ORDER_PATH}/automation/flow`)?.questionAnswers).toEqual({});
   });
 
-  it('persists an explicit answer in the candidate-wide ledger when the order saves it', async () => {
+  it('persists a typed answer only when its confirmed source is complete', async () => {
     const userId = 'candidate-1';
     const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
     const key = candidateQuestionAnswerKey(question);
+    const order = paidOrder({ userId, jobUrl: 'https://jobs.example.test/roles/permit', cvUploadedAt: T0 });
     store = createMemoryFirestore({
-      [ORDER_PATH]: paidOrder({ userId }),
+      [ORDER_PATH]: order,
       [`user_cv_profiles/${userId}`]: { status: 'ready', profile: { languages: [] } },
     });
 
@@ -101,17 +102,21 @@ describe('starting the flow', () => {
       db: store.db,
       bucket: null,
       orderId: ORDER,
-      order: paidOrder({ userId }),
-      flow: { state: 'submitted', round: 1, answers: {}, questionAnswers: {} },
+      order,
+      flow: { state: 'submitted', round: 1, answers: {}, questionAnswers: { legacy_unverified: 'Yes' } },
       draft: { round: 1, questions: [question] },
       answers: { work_permit: 'Permit G' },
       answerActor: 'candidate',
       nowMs: T0,
     });
 
-    expect(store.read(`user_cv_profiles/${userId}`)).toMatchObject({
-      applicationQuestionAnswers: { [key]: 'Permit G' },
+    const profile = store.read(`user_cv_profiles/${userId}`);
+    expect(profile).toMatchObject({ applicationQuestionAnswers: { [key]: 'Permit G' } });
+    expect(profile.applicationQuestionAnswerEvidence[key]).toMatchObject({
+      key, category: 'work_authorization', scope: 'job',
+      provenance: { actor: 'candidate', userId, orderId: ORDER, round: 1 },
     });
+    expect(store.read(`${ORDER_PATH}/automation/flow`).questionAnswers).toEqual({ [key]: 'Permit G' });
   });
 
   it('starts only when the flag is on and a CV has just been verified', async () => {
@@ -688,11 +693,11 @@ describe('sweep', () => {
     });
 
     expect(result).toMatchObject({ ok: true, flow: {
-      state: 'owner_takeover',
-      heldBy: ['portal:portal_needs_candidate'],
+      state: 'needs_candidate_action',
+      heldBy: ['question:work_permit'],
       questionAnswers: {},
     } });
-    expect(effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit', attempts: 2 }]);
+    expect(effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
   });
 
   it('computes no due time for terminal flows', () => {

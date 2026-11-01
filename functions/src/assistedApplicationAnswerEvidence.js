@@ -2,7 +2,7 @@ import { addressContextContract } from './lib/addressContextContract.js';
 /** Shared answers keep their question and attested source. Opaque legacy values are never promoted. */
 import { createHash, randomBytes } from 'node:crypto';
 import { candidateAnswerFact } from './lib/candidateAnswerFacts.js';
-import { candidateQuestionAnswerKey, isGeneralCandidateLanguageQuestion, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, isGeneralCandidateLanguageQuestion, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { languageCodesIn, isLanguageAbilityQuestion } from './lib/languageFacts.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
@@ -171,7 +171,10 @@ export async function loadRunnerAnswerContext({ db, order, flow, draft, nowMs = 
     questionKeys: (draft?.questions || []).map(candidateQuestionAnswerKey) });
   const context = contextFor(order, { purpose: 'form' });
   const answers = flow?.answers && typeof flow.answers === 'object' && !Array.isArray(flow.answers) ? flow.answers : {};
-  const orderAnswers = rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers, changed: answers });
+  const previousOrderAnswers = flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+    ? object(flow.questionAnswers) : {};
+  const orderAnswers = rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers,
+    previous: previousOrderAnswers, changed: answers });
   return { flow: { ...flow, questionAnswers: { ...context.answers, ...orderAnswers } }, orderAnswers, answerEvidence: context.answerEvidence };
 }
 

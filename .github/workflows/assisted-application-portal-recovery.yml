@@ -22,6 +22,8 @@ on:
       - 'functions/src/assistedApplicationOperationalAnswers.js'
       - 'functions/src/assistedApplicationCandidateEdits.js'
       - 'functions/src/assistedApplicationAnswerEvidence.js'
+      - 'functions/src/assistedApplicationAutomation.js'
+      - 'functions/src/assistedApplicationCvCommit.js'
       - 'functions/src/assistedApplicationFlow.js'
       - 'functions/src/assistedApplicationPortalRetryPolicy.js'
       - 'functions/src/assistedApplicationPortalRecoveryPolicy.js'

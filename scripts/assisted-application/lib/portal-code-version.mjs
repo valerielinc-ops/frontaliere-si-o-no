@@ -15,6 +15,7 @@ export function currentPortalCodeVersion(root = fileURLToPath(new URL('../../../
     'functions/src/assistedApplicationFlow.js', 'functions/src/assistedApplicationPortalRetryPolicy.js',
     'functions/src/assistedApplicationPortalRecoveryPolicy.js', 'functions/src/assistedApplicationSubmissionGuard.js',
     'functions/src/assistedApplicationAnswerEvidence.js', 'functions/src/lib/candidateAnswerFacts.js', 'functions/src/lib/languageFacts.js',
+    'functions/src/assistedApplicationAutomation.js', 'functions/src/assistedApplicationCvCommit.js',
     'functions/src/lib/addressContextContract.js', 'functions/src/lib/permitStatus.js', 'functions/src/lib/applicationConsent.js',
     'functions/src/lib/portalNativeContract.js', 'functions/src/lib/answerRules.js', 'functions/src/lib/portalQuestionText.js', 'scripts/assisted-application/install-nopecha.sh');
   const hash = createHash('sha256');

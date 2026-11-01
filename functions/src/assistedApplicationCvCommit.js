@@ -9,7 +9,7 @@
  */
 
 import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
-import { candidateQuestionAnswerKey, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { planCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
 import { rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvChanges } from './assistedApplicationTailoredCvPdf.js';
@@ -112,13 +112,17 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
  */
 export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, nowMs, answerActor = null }) {
   const mergedAnswers = { ...(flow.answers || {}), ...answers };
+  const trustedOrderAnswers = ['candidate', 'owner'].includes(answerActor);
+  const previousOrderAnswers = flow.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+    ? flow.questionAnswers || {} : {};
   const questionAnswers = rememberCandidateQuestionAnswers({
     questions: draft?.questions || [],
     answers: mergedAnswers,
-    previous: flow.questionAnswers || {},
+    previous: previousOrderAnswers,
     changed: answers,
   });
-  const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers };
+  const orderQuestionAnswersEvidenceVersion = trustedOrderAnswers ? ORDER_QUESTION_ANSWER_EVIDENCE_VERSION : null;
+  const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers, orderQuestionAnswersEvidenceVersion };
   const persistCandidateQuestionAnswers = async () => {
     const userId = String(order?.userId || '').trim();
     if (!userId || !Object.keys(questionAnswers).length || Number(draft?.round) !== Number(flow.round || 1)) return;
@@ -155,7 +159,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   };
   const live = Boolean(draft) && Number(draft.round) === Number(flow.round || 1) && !['submitted', 'failed'].includes(flow.state);
   if (!live || !tailoredCvChanges({ order, draft, flow, nextFlow })) {
-    await flowRefFor(db, orderId).set({ answers, questionAnswers, updatedAt: nowMs }, { merge: true });
+    await flowRefFor(db, orderId).set({ answers, questionAnswers, orderQuestionAnswersEvidenceVersion, updatedAt: nowMs }, { merge: true });
     await persistCandidateQuestionAnswers();
     return { rebuilt: false };
   }
@@ -163,7 +167,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   const rebuilt = await rebuildCvToCommit({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
   await commitRebuild({
     db, bucket, orderId, flow, draft, state: flow.state, nowMs, created: [rebuilt.pdfKey],
-    flowPatch: { answers, questionAnswers },
+    flowPatch: { answers, questionAnswers, orderQuestionAnswersEvidenceVersion },
     draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
   });
   await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);

@@ -37,8 +37,8 @@ import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submission
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
-import { loadCandidateAnswerEvidence } from './assistedApplicationAnswerEvidence.js';
-import { candidateQuestionAnswerKey, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { loadRunnerAnswerContext } from './assistedApplicationAnswerEvidence.js';
+import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
 export { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
@@ -90,21 +90,18 @@ function candidateQuestionAnswersRefFor(db, userId) {
 
 function orderScopedQuestionAnswers(draft, flow) {
   const answers = flow?.answers && typeof flow.answers === 'object' && !Array.isArray(flow.answers) ? flow.answers : {};
-  return rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers, changed: answers });
+  const previous = flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+    ? flow.questionAnswers : {};
+  return rememberCandidateQuestionAnswers({ questions: draft?.questions || [], answers, previous, changed: answers });
 }
 
 async function candidateQuestionAnswerContext({ db, transaction, order, profileSnapshot, flow, draft, nowMs }) {
-  const evidenceFor = await loadCandidateAnswerEvidence({
-    db,
+  const context = await loadRunnerAnswerContext({
+    db, order, flow, draft, nowMs,
     profileRecord: profileSnapshot?.data() || {},
-    userId: String(order?.userId || ''),
-    nowMs,
-    questionKeys: (draft?.questions || []).map(candidateQuestionAnswerKey),
     getDocument: ref => transaction.get(ref),
   });
-  const orderAnswers = orderScopedQuestionAnswers(draft, flow);
-  const reusable = evidenceFor(order || {}, { purpose: 'form' }).answers;
-  return { questionAnswers: { ...reusable, ...orderAnswers }, orderAnswers };
+  return { questionAnswers: context.flow.questionAnswers, orderAnswers: context.orderAnswers };
 }
 
 /** Fails closed: any error reading Remote Config means "off". */
@@ -464,6 +461,9 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
       heldBy: [],
       // No draft of this flow has reached the candidate yet (assistedApplicationFlow.js roundsShown).
       shownRounds: [],
+      ...(existing?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+        ? { orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION }
+        : {}),
       feedback: existing?.feedback || [],
       answers: existing?.answers || {},
       // Keep only order-local answers in Firestore. Verified cross-posting

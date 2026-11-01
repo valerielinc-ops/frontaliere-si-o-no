@@ -36,6 +36,7 @@ import {
   candidateAnswersForQuestions,
   candidateQuestionAnswerKey,
   candidateWithEdits,
+  ORDER_QUESTION_ANSWER_EVIDENCE_VERSION,
   questionsForCandidate,
 } from './assistedApplicationCandidateEdits.js';
 
@@ -207,6 +208,9 @@ function base(flow) {
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
     history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
     shownRounds: roundsShown(flow),
+    ...(flow?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
+      ? { orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION }
+      : {}),
     // Keep the semantic answer ledger across every transition.  Older flows
     // may not have the field yet; a plain object is the only shape accepted by
     // the candidate-answer projection and avoids leaking malformed data into

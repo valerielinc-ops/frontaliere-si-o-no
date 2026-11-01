@@ -159,6 +159,7 @@ describe('automatic recovery after a portal fix', () => {
       'scripts/assisted-application/lib/portal-code-version.mjs', 'scripts/assisted-application/extension/apply-control.js',
       'scripts/assisted-application/install-nopecha.sh', 'scripts/assisted-application/lib/portal/fields.mjs',
       ...['assistedApplicationConstants.js', 'assistedApplicationPortalSites.js', 'assistedApplicationRetention.js', 'assistedApplicationExtraDocuments.js', 'assistedApplicationOperationalAnswers.js', 'assistedApplicationCandidateEdits.js', 'assistedApplicationFlow.js',
+        'assistedApplicationAutomation.js', 'assistedApplicationCvCommit.js',
         'assistedApplicationAnswerEvidence.js', 'assistedApplicationPortalRetryPolicy.js', 'assistedApplicationPortalRecoveryPolicy.js', 'assistedApplicationSubmissionGuard.js',
         'lib/candidateAnswerFacts.js', 'lib/languageFacts.js', 'lib/addressContextContract.js', 'lib/permitStatus.js',
         'lib/applicationConsent.js', 'lib/portalNativeContract.js', 'lib/answerRules.js', 'lib/portalQuestionText.js'].map(file => `functions/src/${file}`),
@@ -181,8 +182,14 @@ describe('automatic recovery after a portal fix', () => {
       write('functions/src/assistedApplicationAnswerEvidence.js', 'updated attested answer resolver');
       expect(currentPortalCodeVersion(root)).not.toBe(afterPortalSites);
       const afterAnswerEvidence = currentPortalCodeVersion(root);
-      write('functions/src/lib/applicationConsent.js', 'fixed notice grammar');
+      write('functions/src/assistedApplicationAutomation.js', 'updated runner answer resolver integration');
       expect(currentPortalCodeVersion(root)).not.toBe(afterAnswerEvidence);
+      const afterAutomation = currentPortalCodeVersion(root);
+      write('functions/src/assistedApplicationCvCommit.js', 'updated answer evidence marker writer');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterAutomation);
+      const afterCvCommit = currentPortalCodeVersion(root);
+      write('functions/src/lib/applicationConsent.js', 'fixed notice grammar');
+      expect(currentPortalCodeVersion(root)).not.toBe(afterCvCommit);
       const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/assisted-application-portal-recovery.yml', import.meta.url), 'utf8'));
       for (const file of sourceFiles) expect(workflow.on.push.paths.some((pattern: string) => pattern.endsWith('/**') ? file.startsWith(pattern.slice(0, -2)) : file === pattern)).toBe(true);
     } finally { rmSync(root, { recursive: true, force: true }); }

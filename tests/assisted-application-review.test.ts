@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { JPEG_2X2 } from './helpers/pdfImages';
+import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../functions/src/assistedApplicationCandidateEdits.js';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   getRemoteConfigValue: vi.fn(async () => ''),
@@ -172,6 +173,7 @@ describe('candidate review API', () => {
     expect(saved).toMatchObject({ status: 200, body: { ok: true } });
     const flow = await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').get();
     expect(Object.values(flow.data()?.questionAnswers || {})).toContain('B1');
+    expect(flow.data()?.orderQuestionAnswersEvidenceVersion).toBe(ORDER_QUESTION_ANSWER_EVIDENCE_VERSION);
 
     const nextQuestion = {
       id: 'german_skill_level', question: 'What is your German proficiency level?', type: 'choice',
