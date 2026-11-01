@@ -13,7 +13,8 @@
  *   markSent  the send went through (before the evidence and the event), or
  *             the employer's e-mail later proved that an unconfirmed one did
  *             (`confirmedBy: 'acknowledgement'`)
- *   release   the send failed for certain: a later run may try again
+ *   release   the send failed for certain: writes `confirmedNotSent`, keeps
+ *             click evidence, and lets a later run try again
  */
 
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
@@ -59,10 +60,11 @@ export function submissionRefFor(db, orderId) {
 
 /**
  * The submission may have reached the employer, and nothing confirmed it: a
- * portal after its final click, or an e-mail whose send started (it is left
- * "sending" only when its outcome is unknown). Before the click nothing left.
+ * portal after its final click, or an e-mail whose send started. A durable
+ * release records the separate proof that the employer did not receive it.
  */
 export function isUnconfirmedSubmission(record) {
+  if (record?.state === 'failed' && record.confirmedNotSent === true) return false;
   return record?.state !== 'sent' && (Boolean(record?.clickedAt) || (record?.state === 'sending' && record.channel === 'email'));
 }
 
@@ -101,9 +103,9 @@ export function submissionGuard(db, orderId, round) {
           outcome = { status: 'already_sent', record: current };
           return;
         }
-        // `release()` preserves clickedAt. A failed record after the final
-        // click is still ambiguous, so never let a later runner claim it.
-        if (current?.clickedAt) {
+        // Keep click evidence, but allow a retry only when release() also
+        // recorded a definitive no-send outcome. An unconfirmed click stays locked.
+        if (isUnconfirmedSubmission(current)) {
           outcome = { status: 'in_flight', record: current };
           return;
         }
@@ -111,7 +113,7 @@ export function submissionGuard(db, orderId, round) {
           outcome = { status: 'in_flight', record: current };
           return;
         }
-        transaction.set(ref, { [key]: { state: 'sending', channel, startedAt: nowMs, clickedAt: null } }, { merge: true });
+        transaction.set(ref, { [key]: { state: 'sending', channel, startedAt: nowMs, clickedAt: null, confirmedNotSent: false } }, { merge: true });
         outcome = { status: 'claimed', resumed: current?.state === 'sending' };
       });
       return outcome;
@@ -135,7 +137,10 @@ export function submissionGuard(db, orderId, round) {
       const failure = Object.prototype.hasOwnProperty.call(metadata || {}, 'accountFailure')
         ? serializeAccountFailure(metadata.accountFailure)
         : undefined;
-      const record = { state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs };
+      const record = {
+        state: 'failed', reason: String(reason || '').slice(0, 120), releasedAt: nowMs,
+        confirmedNotSent: true,
+      };
       if (failure) record.accountFailure = failure;
       await ref.set({ [key]: record }, { merge: true });
     },

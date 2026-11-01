@@ -34,6 +34,7 @@ describe('failed executor reconciliation', () => {
     { kind: 'portal', record: { state: 'sending', channel: 'portal', clickedAt: now }, expected: 'portal_ambiguous' },
     { kind: 'portal sending before click', record: { state: 'sending', channel: 'portal', startedAt: now, clickedAt: null }, expected: 'runner_infrastructure_unavailable' },
     { kind: 'failed after click', record: { state: 'failed', channel: 'portal', clickedAt: now, releasedAt: now + 1 }, expected: 'portal_ambiguous' },
+    { kind: 'confirmed refusal after click', record: { state: 'failed', channel: 'portal', reason: 'portal_refused', clickedAt: now, confirmedNotSent: true, releasedAt: now + 1 }, expected: 'runner_infrastructure_unavailable' },
     { kind: 'failed before click', record: { state: 'failed', channel: 'portal', clickedAt: null, releasedAt: now + 1 }, expected: 'runner_infrastructure_unavailable' },
   ])('respects the durable $kind outcome', async ({ kind, record, expected }) => {
     const store = fixture();
@@ -47,7 +48,8 @@ describe('failed executor reconciliation', () => {
     expect(result.effects.some(effect => effect.type === 'dispatch')).toBe(expected === 'runner_infrastructure_unavailable');
     if (kind === 'portal sending before click') {
       expect(store.read(`${base}/automation/submission`)?.r1).toMatchObject({
-        state: 'failed', reason: 'runner_infrastructure_unavailable', releasedAt: now + 1000, clickedAt: null,
+        state: 'failed', reason: 'runner_infrastructure_unavailable', releasedAt: now + 1000,
+        clickedAt: null, confirmedNotSent: true,
       });
     }
   });
@@ -69,6 +71,20 @@ describe('failed executor reconciliation', () => {
 
     expect(result).toMatchObject({ status: 'in_flight', record: { state: 'failed', clickedAt: now } });
     expect(store.read(`${base}/automation/submission`)?.r1).toMatchObject({ state: 'failed', clickedAt: now });
+  });
+
+  it('reclaims a click only after release recorded a confirmed no-send outcome', async () => {
+    const store = fixture();
+    store.docs.set(`${base}/automation/submission`, { r1: {
+      state: 'failed', channel: 'portal', clickedAt: now, confirmedNotSent: true, releasedAt: now + 1,
+    } });
+
+    const result = await submissionGuard(store.db, orderId, 1).claim('portal', now + 2);
+
+    expect(result).toMatchObject({ status: 'claimed' });
+    expect(store.read(`${base}/automation/submission`)?.r1).toMatchObject({
+      state: 'sending', clickedAt: null, confirmedNotSent: false,
+    });
   });
 
   it('does not let a second automated portal run reuse an unreconciled pre-click claim', async () => {
