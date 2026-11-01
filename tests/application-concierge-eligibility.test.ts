@@ -73,6 +73,13 @@ describe('qualification before proposal publication', () => {
       'Pas actuellement inscrit en 3e année de l’école de commerce.',
       'Currently enrolled as a third-year commercial-school student; not currently enrolled as a third-year commercial-school student.',
     ]) expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, denied)).toBe(true);
+    const futureYear = new Date().getFullYear() + 1;
+    for (const currentWithFutureCompletion of [
+      `Currently enrolled as a third-year commercial-school student with expected graduation in ${futureYear}.`,
+      `Derzeit besuche ich das dritte Jahr der kaufmännischen Schule mit Abschluss ${futureYear}.`,
+      `Attualmente iscritta al terzo anno della scuola commerciale con diploma previsto nel ${futureYear}.`,
+      `Actuellement inscrit en 3e année de l’école de commerce avec diplôme prévu en ${futureYear}.`,
+    ]) expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, currentWithFutureCompletion)).toBe(false);
     expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'Currently enrolled as a third-year commercial-school student.')).toBe(false);
     expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year at university' } }, 'Currently enrolled in the third year at university.')).toBe(true);
     const germanSchool = 'Diese Stelle ist exklusiv für Schülerinnen im dritten Jahr der kaufmännischen Schule.';

@@ -164,6 +164,8 @@ const COMMERCIAL_SCHOOL_CUE_RE = /\b(?:commercial[-\s]+school|scuola[-\s]+commer
 const OTHER_EDUCATION_INSTITUTION_CUE_RE = /\b(?:universit\w*|university|universitaet|universitat|college|high[-\s]+school|secondary[-\s]+school|grammar[-\s]+school|gymnasium|berufsschule|liceo|istituto|lycee|ecole[-\s]+secondaire|sekundarschule)\b/i;
 const NEGATED_CURRENT_ENROLLMENT_RE = /\b(?:not|no|never|nicht|kein\w*|non|mai|pas)\b.{0,60}\b(?:current(?:ly)?|presently|now|ongoing|attend\w*|enroll\w*|student\w*|pupil\w*|stud\w*|iscritt\w*|frequent\w*|inscrit\w*|etudiant\w*|eingeschrieben|angemeldet|besuch\w*)\b|\b(?:current(?:ly)?|presently|now|ongoing|attualmente|actuellement|derzeit|aktuell)\b.{0,40}\b(?:not|no|never|nicht|kein\w*|non|mai|pas)\b.{0,40}\b(?:attend\w*|enroll\w*|student\w*|pupil\w*|stud\w*|iscritt\w*|frequent\w*|inscrit\w*|etudiant\w*|eingeschrieben|angemeldet|besuch\w*)\b/i;
 const HISTORICAL_STUDENT_CUE_RE = /\b(?:previously|formerly|former|completed|graduat\w*|diplom\w*|finished|ended|used\s+to|attended|studied|was\s+(?:enrolled|attending|studying)|precedentemente|in\s+passato|frequentavo|ero\s+iscritt\w*|conclus\w*|completat\w*|laureat\w*|auparavant|ancien(?:ne)?|etait\s+inscrit\w*|etudiait|termine\w*|achev[eé]\w*|zuvor|frueher|besuchte|studierte|abschluss\w*|abgeschlossen|absolviert|war\s+(?:eingeschrieben|angemeldet))\b/i;
+const AMBIGUOUS_COMPLETION_CUE_RE = /\b(?:graduat\w*|diplom\w*|abschluss\w*)\b/i;
+const EXPLICIT_PAST_COMPLETION_RE = /\b(?:graduated|diplomat[oaie]|abgeschlossen|absolviert)\b/i;
 
 function normalizeEligibilityEvidence(value) {
   return String(value || '').replace(/\p{Cf}/gu, '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
@@ -351,15 +353,24 @@ export function hasUnverifiedCurrentStudentEligibility(postingText, profile = {}
         }
         return end < currentYear;
       });
+    const hasHistoricalStudentCue = (entry) => [...entry.matchAll(new RegExp(HISTORICAL_STUDENT_CUE_RE.source, 'gi'))]
+      .some(([cue], index, cues) => {
+        if (!AMBIGUOUS_COMPLETION_CUE_RE.test(cue) || EXPLICIT_PAST_COMPLETION_RE.test(cue)) return true;
+        const matchIndex = cues[index].index;
+        const context = entry.slice(Math.max(0, matchIndex - 60), Math.min(entry.length, matchIndex + cue.length + 60));
+        const futureCompletionYear = [...context.matchAll(/\b20\d{2}\b/gu)]
+          .some(([year]) => Number(year) > currentYear);
+        return !futureCompletionYear;
+      });
     const sourceContradictsCurrentEducation = sourceEntries.some((entry) =>
       NEGATED_CURRENT_ENROLLMENT_RE.test(entry)
       && (!needsYear || CURRENT_YEAR_CUE_RE.test(entry))
       && (!needsSchool || COMMERCIAL_SCHOOL_CUE_RE.test(entry))
-      && !HISTORICAL_STUDENT_CUE_RE.test(entry)
+      && !hasHistoricalStudentCue(entry)
       && !historicalYearRange(entry));
     if (sourceContradictsCurrentEducation) return true;
     const sourceProvesCurrentEducation = sourceEntries.some((entry) =>
-      !HISTORICAL_STUDENT_CUE_RE.test(entry)
+      !hasHistoricalStudentCue(entry)
       && !NEGATED_CURRENT_ENROLLMENT_RE.test(entry)
       && !historicalYearRange(entry)
       && CURRENT_ENROLLMENT_CUE_RE.test(entry)
