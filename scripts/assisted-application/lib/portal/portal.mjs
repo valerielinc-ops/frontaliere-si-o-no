@@ -635,6 +635,7 @@ function questionSurfaceSignature(snapshot = {}) {
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
   const errors = Array.isArray(snapshot.errors) ? snapshot.errors : [];
   return JSON.stringify({
+    pageMarker: String(snapshot.pageMarker || ''),
     fields: fields.map((field) => [
       field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
       field.context || '', field.section || '', field.required === true, field.invalid === true,
@@ -4151,6 +4152,7 @@ export async function submitViaPortal(ctx) {
       }
       if ((next || advance) && !submit) {
         const before = pageSignature(page, after);
+        const beforePageMarker = String(after.pageMarker || '');
         if (next) await clickButton(page, next);
         else {
           const from = anonymizePath(page.url());
@@ -4164,8 +4166,12 @@ export async function submitViaPortal(ctx) {
         // The address may change before the content does (JOIN's professionalLinks
         // step was read with the previous page's fields): the same labels count as the same page.
         const labelsBefore = after.fields.map((field) => field.label).join('|');
-        snapshot = await awaitFields(page, snapshot, (current) => pageSignature(page, current) === before
-          || (current.fields.length > 0 && current.fields.map((field) => field.label).join('|') === labelsBefore));
+        snapshot = await awaitFields(page, snapshot, (current) => {
+          const sameMarker = String(current.pageMarker || '') === beforePageMarker;
+          const sameLabels = current.fields.length > 0
+            && current.fields.map((field) => field.label).join('|') === labelsBefore;
+          return pageSignature(page, current) === before || (sameMarker && sameLabels);
+        });
         const movedToNextPage = pageSignature(page, snapshot) !== before;
         if (movedToNextPage) pageEpoch += 1;
         // Still the same page: the form refused a value. A correction by the
