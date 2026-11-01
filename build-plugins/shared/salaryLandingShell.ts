@@ -138,7 +138,7 @@ const LOCALE_PACKS: Record<SalaryLocale, LocalePack> = {
     ctaPrimary: 'Calculer votre net',
     ctaSecondary: 'Ouvrir le simulateur si',
     simulatorHref: '/fr/calculer-salaire/',
-    whatIfHref: '/fr/calculer-salaire/et-si/',
+    whatIfHref: '/fr/calculer-salaire/',
   },
 };
 
@@ -582,7 +582,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'Sur CHF 6 000/mois brut, les cotisations sociales prélèvent déjà ~CHF 380 avant l\'impôt à la source — raisonnez sur le vrai net, pas le brut affiché.',
       ctaPrimary: { label: 'Ouvrir le simulateur', href: '/fr/calculer-salaire/' },
-      ctaSecondary: { label: 'Simulateur et-si', href: '/fr/calculer-salaire/et-si/' },
+      ctaSecondary: { label: 'Simulateur et-si', href: '/fr/calculer-salaire/' },
       table: {
         caption: 'Exemple fiche de paie : CHF 6 000/mois brut (A0N, Lugano)',
         headers: ['Poste', 'Taux', 'CHF/mois', 'EUR/mois'],
@@ -702,7 +702,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         { label: 'Sortie', value: 'Δ en CHF + EUR', tone: 'success' },
       ],
       advice: 'Passer de A0 (célibataire) à C2 (marié, 2 enfants) peut faire varier le net annuel de CHF 4 000 à 6 000 à brut égal — simulez avant de signer.',
-      ctaPrimary: { label: 'Ouvrir et-si', href: '/fr/calculer-salaire/et-si/' },
+      ctaPrimary: { label: 'Ouvrir et-si', href: '/fr/calculer-salaire/' },
       ctaSecondary: { label: 'Aller au simulateur de base', href: '/fr/calculer-salaire/' },
       table: {
         caption: 'Exemples de delta net annuel à brut CHF 80 000',
@@ -857,7 +857,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         { label: 'Pool totale', value: '20 quiz', tone: 'warning' },
       ],
       advice: 'Il quiz è anche didattico: ogni risposta sbagliata sblocca una spiegazione con riferimento normativo. Usalo prima di una trattativa salariale.',
-      ctaPrimary: { label: 'Inizia il quiz', href: '/calcola-stipendio/quiz-stipendio/' },
+      ctaPrimary: { label: 'Inizia il quiz', href: '/calcola-stipendio/' },
       ctaSecondary: { label: 'Vai al simulatore', href: '/calcola-stipendio/' },
       table: {
         caption: 'Aree coperte dal pool di 20 domande',
@@ -1660,7 +1660,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
       ],
       advice: 'Le net dépend du revenu, des cotisations, de la famille et des impôts applicables ; le statut ne change pas automatiquement entre 2025 et 2026. Utilisez les mêmes données dans le simulateur.',
       ctaPrimary: { label: 'Calculer votre net 2026', href: '/fr/calculer-salaire/' },
-      ctaSecondary: { label: 'Voir scénarios et-si', href: '/fr/calculer-salaire/et-si/' },
+      ctaSecondary: { label: 'Voir scénarios et-si', href: '/fr/calculer-salaire/' },
       table: {
         caption: 'Régimes fiscaux dans la zone des 20 km',
         headers: ['Élément', 'Anciens admissibles', 'Nouveaux admissibles'],
