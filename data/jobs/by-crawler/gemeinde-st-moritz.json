@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gemeinde-st-moritz",
-  "assembledAt": "2026-10-31T21:47:27.704Z",
-  "runId": "41242863016",
+  "assembledAt": "2026-11-01T09:29:05.366Z",
+  "runId": "41292451365",
   "jobs": [
     {
       "id": "gemeinde-st-moritz-8ee8533e73fe",
@@ -34,7 +34,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/bistromitarbeiter-60-80-m-w-d-unbefristet",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:20.861Z",
+      "crawledAt": "2026-11-01T09:29:00.327Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -100,7 +100,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "St. Moritz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:29:00.327Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gemeinde-st-moritz-26220aaafb72",
@@ -133,7 +137,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:18.573Z",
+      "crawledAt": "2026-11-01T09:28:58.115Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -201,7 +205,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "St. Moritz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:28:58.115Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gemeinde-st-moritz-b582abde5abd",
@@ -234,7 +242,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindeschreiber-100-m-w",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:16.527Z",
+      "crawledAt": "2026-11-01T09:28:56.190Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -309,7 +317,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "St. Moritz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:28:56.190Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

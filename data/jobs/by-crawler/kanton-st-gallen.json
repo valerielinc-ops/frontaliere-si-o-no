@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kanton-st-gallen",
-  "assembledAt": "2026-10-31T22:05:38.420Z",
-  "runId": "41242534428",
+  "assembledAt": "2026-11-01T09:17:18.574Z",
+  "runId": "41292128544",
   "jobs": [
     {
       "id": "kanton-st-gallen-4af0842ce224",
@@ -35,7 +35,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/5496/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:31.832Z",
+      "crawledAt": "2026-11-01T09:17:11.223Z",
       "addressLocality": "Oberuzwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -85,7 +85,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.223Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-79569a80d151",
@@ -119,7 +122,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3931/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:30.786Z",
+      "crawledAt": "2026-11-01T09:17:10.221Z",
       "addressLocality": "Region Bodensee-Rheintal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -167,7 +170,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:10.221Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-b84bdf008016",
@@ -200,7 +206,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3932/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:29.813Z",
+      "crawledAt": "2026-11-01T09:17:09.247Z",
       "addressLocality": "Region Bodensee-Rheintal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -250,7 +256,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:09.247Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-6e16634f4749",
@@ -284,7 +293,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3935/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:28.836Z",
+      "crawledAt": "2026-11-01T09:17:07.916Z",
       "addressLocality": "Region Werdenberg-Sarganserland",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -332,7 +341,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:07.916Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-ab2ef452f2db",
@@ -365,7 +377,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3936/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:27.845Z",
+      "crawledAt": "2026-11-01T09:17:07.309Z",
       "addressLocality": "Region Werdenberg-Sarganserland",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -413,7 +425,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:07.309Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-7bf2515f8877",
@@ -447,7 +462,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3937/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:26.878Z",
+      "crawledAt": "2026-11-01T09:17:06.374Z",
       "addressLocality": "Region Linthgebiet-Toggenburg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -495,7 +510,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:06.374Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-c2eeb2f3769c",
@@ -528,7 +546,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3938/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:25.778Z",
+      "crawledAt": "2026-11-01T09:17:05.554Z",
       "addressLocality": "Region Linthgebiet-Toggenburg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -576,7 +594,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:05.554Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-80ebb6e2f1ef",
@@ -610,7 +631,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3939/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:24.771Z",
+      "crawledAt": "2026-11-01T09:17:04.742Z",
       "addressLocality": "Region Fürstenland-Neckertal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -658,7 +679,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:04.742Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-c26b0f453224",
@@ -692,7 +716,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3940/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:23.837Z",
+      "crawledAt": "2026-11-01T09:17:03.871Z",
       "addressLocality": "Region Fürstenland-Neckertal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -740,7 +764,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:03.871Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-55fa5a628ff3",
@@ -774,7 +801,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6211/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:22.861Z",
+      "crawledAt": "2026-11-01T09:17:03.082Z",
       "addressLocality": "Oberuzwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -831,7 +858,10 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:03.082Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-64bbf559bbfc",
@@ -865,7 +895,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6299/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:22.037Z",
+      "crawledAt": "2026-11-01T09:17:02.277Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -913,7 +943,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:02.277Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-5a4237cada2c",
@@ -946,7 +979,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6325/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:21.241Z",
+      "crawledAt": "2026-11-01T09:17:01.440Z",
       "addressLocality": "9607 Mosnang",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -994,7 +1027,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:01.440Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-73e167ee4254",
@@ -1027,7 +1063,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6360/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:20.387Z",
+      "crawledAt": "2026-11-01T09:17:00.644Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1075,7 +1111,10 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:00.644Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-3db478747157",
@@ -1109,7 +1148,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6371/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:19.598Z",
+      "crawledAt": "2026-11-01T09:16:59.669Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1157,7 +1196,10 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:59.669Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-ec477ddd209a",
@@ -1191,7 +1233,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6400/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:18.770Z",
+      "crawledAt": "2026-11-01T09:16:58.850Z",
       "addressLocality": "Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1239,7 +1281,10 @@
           "maxValue": 62000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:58.850Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-082c69f50e8a",
@@ -1273,7 +1318,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6209/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:17.942Z",
+      "crawledAt": "2026-11-01T09:16:58.058Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1321,7 +1366,10 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:58.058Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-aa5bda09cee1",
@@ -1354,7 +1402,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6441/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:17.139Z",
+      "crawledAt": "2026-11-01T09:16:57.283Z",
       "addressLocality": "Rorschach",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1404,7 +1452,10 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:57.283Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-325df37590db",
@@ -1438,7 +1489,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6350/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:16.345Z",
+      "crawledAt": "2026-11-01T09:16:56.454Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1492,7 +1543,10 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:56.454Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-dc14f1d2eb4a",
@@ -1525,7 +1579,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6347/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:15.548Z",
+      "crawledAt": "2026-11-01T09:16:55.629Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1583,7 +1637,10 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:55.629Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-b7095df717ef",
@@ -1616,7 +1673,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6465/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:14.740Z",
+      "crawledAt": "2026-11-01T09:16:54.835Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1670,7 +1727,10 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:54.835Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-6390dd3531f2",
@@ -1704,7 +1764,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6475/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:13.911Z",
+      "crawledAt": "2026-11-01T09:16:54.031Z",
       "addressLocality": "Grossschlachthöfe im Kanton St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1757,7 +1817,10 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-03T09:16:54.031Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-0fdbd6c1abf4",
@@ -1790,7 +1853,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6463/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:13.115Z",
+      "crawledAt": "2026-11-01T09:16:53.275Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1838,7 +1901,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-04T09:16:53.275Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-df12c27d6a90",
@@ -1871,7 +1937,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6462/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:12.329Z",
+      "crawledAt": "2026-11-01T09:16:52.491Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1919,7 +1985,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-04T09:16:52.491Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-0d20a71c8844",
@@ -1953,7 +2022,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6480/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:11.510Z",
+      "crawledAt": "2026-11-01T09:16:51.734Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2001,7 +2070,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-04T09:16:51.734Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-df18adb440e0",
@@ -2035,7 +2107,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6440/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:10.718Z",
+      "crawledAt": "2026-11-01T09:16:50.945Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2083,7 +2155,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-07T09:16:50.945Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-966a87bc2af3",
@@ -2117,7 +2192,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6485/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:09.889Z",
+      "crawledAt": "2026-11-01T09:16:50.156Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2165,7 +2240,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-10T09:16:50.156Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-098f365bf08c",
@@ -2199,7 +2277,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6445/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:09.104Z",
+      "crawledAt": "2026-11-01T09:16:49.367Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2247,7 +2325,10 @@
           "maxValue": 172500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:16:49.367Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-b9657d4dbfa1",
@@ -2281,7 +2362,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6495/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:08.337Z",
+      "crawledAt": "2026-11-01T09:16:48.484Z",
       "addressLocality": "Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2329,7 +2410,10 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:16:48.484Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-5909a652aa6e",
@@ -2363,7 +2447,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6490/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:07.590Z",
+      "crawledAt": "2026-11-01T09:16:47.682Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2411,7 +2495,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:16:47.682Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-6d29802966e2",
@@ -2445,7 +2532,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6477/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:06.762Z",
+      "crawledAt": "2026-11-01T09:16:46.925Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2493,7 +2580,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:16:46.925Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-c7d97427f00b",
@@ -2527,7 +2617,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6483/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:06.005Z",
+      "crawledAt": "2026-11-01T09:16:46.081Z",
       "addressLocality": "Stadt St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2575,7 +2665,10 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:16:46.081Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-0234900c1459",
@@ -2609,7 +2702,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6510/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:05.213Z",
+      "crawledAt": "2026-11-01T09:16:45.257Z",
       "addressLocality": "Linthgebiet",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2657,7 +2750,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:16:45.257Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-09328e43e105",
@@ -2691,7 +2787,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6511/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:04.342Z",
+      "crawledAt": "2026-11-01T09:16:44.462Z",
       "addressLocality": "Rheineck",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2741,7 +2837,10 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-23T09:16:44.462Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-e7eb7da16eee",
@@ -2775,7 +2874,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6478/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:03.543Z",
+      "crawledAt": "2026-11-01T09:16:43.688Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2825,7 +2924,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-23T09:16:43.688Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-55d8b9023be6",
@@ -2859,7 +2961,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6438/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:03.053Z",
+      "crawledAt": "2026-11-01T09:16:42.933Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2907,7 +3009,10 @@
           "maxValue": 172500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-25T09:16:42.933Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-8d737c80edc8",
@@ -2941,7 +3046,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6534/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:02.250Z",
+      "crawledAt": "2026-11-01T09:16:42.161Z",
       "addressLocality": "Lichtensteig",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2989,7 +3094,10 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-28T09:16:42.161Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-ecbdb24613a2",
@@ -3023,7 +3131,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6522/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:01.422Z",
+      "crawledAt": "2026-11-01T09:16:41.340Z",
       "addressLocality": "Stadt St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3071,7 +3179,10 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:16:41.340Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-c95249813806",
@@ -3105,7 +3216,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6504/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:00.934Z",
+      "crawledAt": "2026-11-01T09:16:40.530Z",
       "addressLocality": "Amden",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3153,7 +3264,10 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:16:40.530Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-def43116113d",
@@ -3187,7 +3301,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6537/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:00.074Z",
+      "crawledAt": "2026-11-01T09:16:39.757Z",
       "addressLocality": "Weesen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3235,7 +3349,10 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:16:39.757Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-094b17fe4274",
@@ -3269,7 +3386,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6540/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:59.266Z",
+      "crawledAt": "2026-11-01T09:16:38.961Z",
       "addressLocality": "Widnau",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3317,7 +3434,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-02T09:16:38.961Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-1bdb1a8a1230",
@@ -3351,7 +3471,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6538/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:58.467Z",
+      "crawledAt": "2026-11-01T09:16:38.175Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3399,7 +3519,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-02T09:16:38.175Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-42b0b7059f37",
@@ -3433,7 +3556,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6484/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:57.686Z",
+      "crawledAt": "2026-11-01T09:16:37.689Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3481,7 +3604,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-09T09:16:37.689Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-1e4efada67fb",
@@ -3515,7 +3641,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6542/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:57.220Z",
+      "crawledAt": "2026-11-01T09:16:36.827Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3567,7 +3693,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:36.827Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-74fe2d6169ff",
@@ -3601,7 +3730,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6546/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:56.448Z",
+      "crawledAt": "2026-11-01T09:16:36.039Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3649,7 +3778,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-06T09:16:36.039Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-cdf433538667",
@@ -3683,7 +3815,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6548/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:55.651Z",
+      "crawledAt": "2026-11-01T09:16:35.250Z",
       "addressLocality": "Oberuzwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3730,7 +3862,10 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-30T09:16:35.250Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-fc6cf389a43a",
@@ -3764,7 +3899,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/5803/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:54.848Z",
+      "crawledAt": "2026-11-01T09:16:34.390Z",
       "addressLocality": "Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3812,7 +3947,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:16:34.390Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-9f1e49564eb1",
@@ -3846,7 +3984,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6549/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:54.057Z",
+      "crawledAt": "2026-11-01T09:16:33.554Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3894,7 +4032,10 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:16:33.554Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-2e9a43353d73",
@@ -3928,7 +4069,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6516/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:53.228Z",
+      "crawledAt": "2026-11-01T09:16:32.796Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3976,7 +4117,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-08T09:16:32.796Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-ac4c92cd3a33",
@@ -4010,7 +4154,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6528/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:52.458Z",
+      "crawledAt": "2026-11-01T09:16:31.973Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4058,7 +4202,10 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-08T09:16:31.973Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-17e3ea20a144",
@@ -4092,7 +4239,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6497/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:51.670Z",
+      "crawledAt": "2026-11-01T09:16:31.165Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4136,7 +4283,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:16:31.165Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-0d5a3ca53406",
@@ -4170,7 +4320,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6550/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:50.896Z",
+      "crawledAt": "2026-11-01T09:16:30.408Z",
       "addressLocality": "St. Gallen und Unterterzen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4218,7 +4368,10 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:16:30.408Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-fa21e4daeb3b",
@@ -4252,7 +4405,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6547/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:50.083Z",
+      "crawledAt": "2026-11-01T09:16:29.594Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4300,7 +4453,10 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:16:29.594Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-2bd1e31bda46",
@@ -4334,7 +4490,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6539/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:49.323Z",
+      "crawledAt": "2026-11-01T09:16:29.108Z",
       "addressLocality": "Müllheim",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4382,7 +4538,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:29.108Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-eba1c952da17",
@@ -4416,7 +4575,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6327/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:48.558Z",
+      "crawledAt": "2026-11-01T09:16:28.605Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4463,7 +4622,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:16:28.605Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-3868d8c53954",
@@ -4497,7 +4659,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6557/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:47.775Z",
+      "crawledAt": "2026-11-01T09:16:27.794Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4545,7 +4707,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-15T09:16:27.794Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-9cf616fc868c",
@@ -4579,7 +4744,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6555/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:47.012Z",
+      "crawledAt": "2026-11-01T09:16:27.008Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4627,7 +4792,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-16T09:16:27.008Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-60cc949a968f",
@@ -4661,7 +4829,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6301/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:46.188Z",
+      "crawledAt": "2026-11-01T09:16:26.516Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4709,7 +4877,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-18T09:16:26.516Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-127cd7ad5003",
@@ -4743,7 +4914,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6563/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:45.380Z",
+      "crawledAt": "2026-11-01T09:16:25.676Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4791,7 +4962,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:16:25.676Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-cd5a63805910",
@@ -4825,7 +4999,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6558/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:44.498Z",
+      "crawledAt": "2026-11-01T09:16:24.881Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4873,7 +5047,10 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:16:24.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-cc353862f5b2",
@@ -4907,7 +5084,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6562/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:43.641Z",
+      "crawledAt": "2026-11-01T09:16:24.056Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4955,7 +5132,10 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:16:24.056Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-3afa4dbf3c4f",
@@ -4988,7 +5168,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6561/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:42.824Z",
+      "crawledAt": "2026-11-01T09:16:23.244Z",
       "addressLocality": "Uznach",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5036,7 +5216,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:16:23.244Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-2304afd674d1",
@@ -5070,7 +5253,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6564/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:42.342Z",
+      "crawledAt": "2026-11-01T09:16:22.750Z",
       "addressLocality": "Uznach",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5122,7 +5305,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:16:22.750Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-b0520659058f",
@@ -5156,7 +5342,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6567/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:41.575Z",
+      "crawledAt": "2026-11-01T09:16:21.935Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5208,7 +5394,10 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:16:21.935Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-0533c3df9921",
@@ -5242,7 +5431,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6527/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:40.742Z",
+      "crawledAt": "2026-11-01T09:16:21.440Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5290,7 +5479,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:16:21.440Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-0616e849b23a",
@@ -5324,7 +5516,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6566/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:39.896Z",
+      "crawledAt": "2026-11-01T09:16:20.610Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5372,7 +5564,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:16:20.610Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-fad5fbdd9d30",
@@ -5406,7 +5601,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6565/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:39.103Z",
+      "crawledAt": "2026-11-01T09:16:19.782Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5454,7 +5649,10 @@
           "maxValue": 172500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-25T09:16:19.782Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-bac13ff0297a",
@@ -5488,7 +5686,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6571/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:38.643Z",
+      "crawledAt": "2026-11-01T09:16:18.963Z",
       "addressLocality": "Kantonsschule Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5535,7 +5733,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:16:18.963Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-119cc43f8e71",
@@ -5569,7 +5770,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6575/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:38.251Z",
+      "crawledAt": "2026-11-01T09:16:18.100Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5617,7 +5818,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:16:18.100Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-215f9f6dccb0",
@@ -5651,7 +5855,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6578/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:37.765Z",
+      "crawledAt": "2026-11-01T09:16:17.271Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5699,7 +5903,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:16:17.271Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-e3881de5532e",
@@ -5733,7 +5940,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6579/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:36.966Z",
+      "crawledAt": "2026-11-01T09:16:16.465Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5781,7 +5988,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:16:16.465Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-a9e2206a1493",
@@ -5814,7 +6024,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6574/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:36.189Z",
+      "crawledAt": "2026-11-01T09:16:15.663Z",
       "addressLocality": "Uznach",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5862,7 +6072,10 @@
           "maxValue": 91200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-29T09:16:15.663Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-03b99c8d6e82",
@@ -5896,7 +6109,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6572/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:35.414Z",
+      "crawledAt": "2026-11-01T09:16:14.859Z",
       "addressLocality": "Weesen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5944,7 +6157,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-29T09:16:14.859Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-5ccf43cd5087",
@@ -5978,7 +6194,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6560/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:34.614Z",
+      "crawledAt": "2026-11-01T09:16:14.029Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6026,7 +6242,10 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-29T09:16:14.029Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-st-gallen-236753838760",
@@ -6060,7 +6279,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6577/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:33.800Z",
+      "crawledAt": "2026-11-01T09:16:13.225Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6108,7 +6327,10 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-29T09:16:13.225Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

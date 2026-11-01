@@ -1,7 +1,7 @@
 {
   "crawlerKey": "accor",
-  "assembledAt": "2026-10-31T21:47:49.454Z",
-  "runId": "41243204704",
+  "assembledAt": "2026-11-01T09:40:20.091Z",
+  "runId": "41292779854",
   "jobs": [
     {
       "id": "accor-e283ad8b1977",
@@ -35,7 +35,7 @@
       "url": "https://careers.accor.com/fr/fr/job/instructeur-rice-fitness-instructeur-rice-de-yoga-fairmont-spa-h-f-x-sur-appel-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-106298",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.990Z",
+      "crawledAt": "2026-11-01T09:40:12.411Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -85,7 +85,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:12.411Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-5bf571062e63",
@@ -119,7 +123,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-operationnel-100-in-ibis-lausanne-centre-lausanne-switzerland-jid-106701",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.989Z",
+      "crawledAt": "2026-11-01T09:40:12.409Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -159,7 +163,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:12.409Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-b6942ddb4ddf",
@@ -193,7 +201,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistent-front-office-manager-in-ibis-styles-zurich-city-center-zuerich-switzerland-jid-107635",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:41.988Z",
+      "crawledAt": "2026-11-01T09:40:12.408Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -260,7 +268,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:12.408Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-25bbb5c819a5",
@@ -294,7 +306,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistant-groups-and-event-manager-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-107850",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:41.987Z",
+      "crawledAt": "2026-11-01T09:40:12.407Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -344,7 +356,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:12.407Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-3544f0946891",
@@ -378,7 +394,7 @@
       "url": "https://careers.accor.com/fr/fr/job/therapeute-estheticienne-h-f-x-cdi-sur-appel-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-111289",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.984Z",
+      "crawledAt": "2026-11-01T09:40:12.406Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -418,7 +434,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:40:12.406Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-67630a1d1845",
@@ -452,7 +472,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-receptionniste-h-f-x-in-mercure-fribourg-centre-remparts-fribourg-switzerl-jid-88660",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.983Z",
+      "crawledAt": "2026-11-01T09:40:12.404Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -498,7 +518,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1700"
+      "postalCode": "1700",
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:40:12.404Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-66f6ee8ac1e4",
@@ -532,7 +556,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-aux-banquets-petit-dejeuner-la-palmeraie-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112443",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.982Z",
+      "crawledAt": "2026-11-01T09:40:12.403Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -572,7 +596,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:40:12.403Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-ff02465983b7",
@@ -606,7 +634,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-cuisine-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112444",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.980Z",
+      "crawledAt": "2026-11-01T09:40:12.401Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -646,7 +674,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:40:12.401Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-9ecef94515d6",
@@ -680,7 +712,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-patisserie-f-h-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112448",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.979Z",
+      "crawledAt": "2026-11-01T09:40:12.399Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -720,7 +752,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:40:12.399Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-c71e2c76d02f",
@@ -754,7 +790,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stage-reception-du-fairmont-spa-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112451",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.977Z",
+      "crawledAt": "2026-11-01T09:40:12.396Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -794,7 +830,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:40:12.396Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-c952a9744233",
@@ -828,7 +868,7 @@
       "url": "https://careers.accor.com/fr/fr/job/banquet-superviseur-h-f-100-in-moevenpick-hotel-lausanne-lausanne-switzerland-jid-112470",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.975Z",
+      "crawledAt": "2026-11-01T09:40:12.393Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -871,7 +911,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:40:12.393Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-496581e19447",
@@ -905,7 +949,7 @@
       "url": "https://careers.accor.com/fr/fr/job/chef-de-rang-banquet-et-restaurant-in-geneva-switzerland-jid-112384",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.974Z",
+      "crawledAt": "2026-11-01T09:40:12.391Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -937,7 +981,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:40:12.391Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-1dd9f898dd22",
@@ -971,7 +1019,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-administration-direction-f-and-b-f-h-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112528",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.973Z",
+      "crawledAt": "2026-11-01T09:40:12.390Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1011,7 +1059,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:40:12.390Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-209ade35dffd",
@@ -1045,7 +1097,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-en-service-f-and-b-f-h-x-montreux-jazz-cafe-terrasse-du-petit-palais-funky-claude-s-bar-pr-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112445",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.971Z",
+      "crawledAt": "2026-11-01T09:40:12.385Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1085,7 +1137,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:40:12.385Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-6504598f2a56",
@@ -1119,7 +1175,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-in-room-dining-pureaty-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112447",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.969Z",
+      "crawledAt": "2026-11-01T09:40:12.383Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1159,7 +1215,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:40:12.383Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-31b9eebef27c",
@@ -1193,7 +1253,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-receptionniste-f-h-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112450",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.968Z",
+      "crawledAt": "2026-11-01T09:40:12.380Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1233,7 +1293,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:40:12.380Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-5adf68164233",
@@ -1267,7 +1331,7 @@
       "url": "https://careers.accor.com/fr/fr/job/stagiaire-sustainability-achats-f-h-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112449",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.966Z",
+      "crawledAt": "2026-11-01T09:40:12.377Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1307,7 +1371,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:40:12.377Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-6193382cc898",
@@ -1341,7 +1409,7 @@
       "url": "https://careers.accor.com/fr/fr/job/sales-manager-h-f-x-in-hotel-rotary-geneva-mgallery-geneva-switzerland-jid-113021",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.963Z",
+      "crawledAt": "2026-11-01T09:40:12.374Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1384,7 +1452,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:40:12.374Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-1766008bdcbd",
@@ -1418,7 +1490,7 @@
       "url": "https://careers.accor.com/fr/fr/job/service-staff-25hours-hotel-zuerich-langstrasse-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-5865",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:41.962Z",
+      "crawledAt": "2026-11-01T09:40:12.372Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1468,7 +1540,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:40:12.372Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-5538f01b285e",
@@ -1502,7 +1578,7 @@
       "url": "https://careers.accor.com/fr/fr/job/inspire-f-and-b-mit-avril-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-113151",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.961Z",
+      "crawledAt": "2026-11-01T09:40:12.370Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1535,7 +1611,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:40:12.370Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-1141e9a73b7d",
@@ -1569,7 +1649,7 @@
       "url": "https://careers.accor.com/fr/fr/job/assistante-gouvernante-generale-f-h-x-cdi-in-fairmont-le-montreux-palace-montreux-switzerland-jid-113536",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.959Z",
+      "crawledAt": "2026-11-01T09:40:12.366Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1618,7 +1698,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-09T09:40:12.366Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-2d13f2b5991d",
@@ -1652,7 +1736,7 @@
       "url": "https://careers.accor.com/fr/fr/job/fr-chef-de-cuisine-f-h-x-in-hotel-rotary-geneva-mgallery-geneva-switzerland-jid-106838",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.957Z",
+      "crawledAt": "2026-11-01T09:40:12.364Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1703,7 +1787,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:12.364Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-0d2c4d1a9f36",
@@ -1737,7 +1825,7 @@
       "url": "https://careers.accor.com/fr/fr/job/commis-de-rang-montreux-jazz-cafe-funky-claude-s-bar-f-h-x-2-mois-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-114583",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.953Z",
+      "crawledAt": "2026-11-01T09:40:12.361Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1783,7 +1871,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:40:12.361Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-e6ab9a71e158",
@@ -1817,7 +1909,7 @@
       "url": "https://careers.accor.com/fr/fr/job/senior-bartender-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-36066",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:41.951Z",
+      "crawledAt": "2026-11-01T09:40:12.359Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1860,7 +1952,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:40:12.359Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-f41a4f7149ab",
@@ -1894,7 +1990,7 @@
       "url": "https://careers.accor.com/fr/fr/job/aide-cuisine-cantine-du-personnel-et-cuisine-h-f-x-cdi-in-fairmont-le-montreux-palace-montreux-switzerland-jid-114582",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.950Z",
+      "crawledAt": "2026-11-01T09:40:12.357Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1943,7 +2039,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:40:12.357Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-68eb33e5ac8b",
@@ -1977,7 +2077,7 @@
       "url": "https://careers.accor.com/fr/fr/job/front-office-agent-langstrasse-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-27718",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:41.948Z",
+      "crawledAt": "2026-11-01T09:40:12.356Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2023,7 +2123,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:40:12.356Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-711ae44782b7",
@@ -2057,7 +2161,7 @@
       "url": "https://careers.accor.com/fr/fr/job/front-office-agent-zuerich-west-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-110319",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:41.947Z",
+      "crawledAt": "2026-11-01T09:40:12.354Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2099,7 +2203,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:40:12.354Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-c1e920a6400a",
@@ -2133,7 +2241,7 @@
       "url": "https://careers.accor.com/fr/fr/job/porteur-banquets-f-h-x-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-114990",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.946Z",
+      "crawledAt": "2026-11-01T09:40:12.353Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2177,7 +2285,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:40:12.353Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-fc941f4fb033",
@@ -2211,7 +2323,7 @@
       "url": "https://careers.accor.com/fr/fr/job/serveur-se-sur-appel-f-h-x-cdd-automne-2026-in-fairmont-le-montreux-palace-montreux-switzerland-jid-115037",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:41.945Z",
+      "crawledAt": "2026-11-01T09:40:12.351Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2258,7 +2370,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:40:12.351Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-99cb2c7be17b",
@@ -2292,7 +2408,7 @@
       "url": "https://careers.accor.com/fr/fr/job/bar-supervisor-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-46693",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:41.943Z",
+      "crawledAt": "2026-11-01T09:40:12.337Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2338,7 +2454,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:40:12.337Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-0d4023220f56",
@@ -2372,7 +2492,7 @@
       "url": "https://careers.accor.com/fr/fr/job/trainee-front-office-zuerich-west-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-30472",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:41.940Z",
+      "crawledAt": "2026-11-01T09:40:12.332Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2418,7 +2538,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:40:12.332Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-7f1c5935e05a",
@@ -2452,7 +2576,7 @@
       "url": "https://careers.accor.com/fr/fr/job/f-and-b-assistant-100-f-m-d-in-25hours-hotel-zurich-langstrasse-zuerich-switzerla-jid-115072",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:41.939Z",
+      "crawledAt": "2026-11-01T09:40:12.330Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2492,7 +2616,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:40:12.330Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "accor-86da7ab11ce9",
@@ -2526,7 +2654,7 @@
       "url": "https://careers.accor.com/fr/fr/job/mice-and-groups-sales-manager-french-and-german-speaking-h-f-x-in-fairmont-le-montreux-palace-montreux-switzerland-jid-102065",
       "source": "Ibis Budget Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:41.937Z",
+      "crawledAt": "2026-11-01T09:40:12.328Z",
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2578,7 +2706,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1820"
+      "postalCode": "1820",
+      "streetAddress": "Montreux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:40:12.328Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

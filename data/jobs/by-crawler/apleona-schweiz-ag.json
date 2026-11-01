@@ -1,7 +1,7 @@
 {
   "crawlerKey": "apleona-schweiz-ag",
-  "assembledAt": "2026-10-31T21:34:54.688Z",
-  "runId": "41243030322",
+  "assembledAt": "2026-11-01T09:39:57.647Z",
+  "runId": "41292611758",
   "jobs": [
     {
       "id": "apleona-schweiz-ag-deb3689fb1d1",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2575/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:34:48.751Z",
+      "crawledAt": "2026-11-01T09:39:51.377Z",
       "addressLocality": "Köniz-Liebefeld",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -80,7 +80,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3098"
+      "postalCode": "3098",
+      "streetAddress": "Köniz-Liebefeld",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:39:51.377Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "apleona-schweiz-ag-bed593f7a6cb",
@@ -113,7 +117,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2530/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:34:48.449Z",
+      "crawledAt": "2026-11-01T09:39:51.073Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -161,7 +165,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8957"
+      "postalCode": "8957",
+      "streetAddress": "Spreitenbach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:39:51.073Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "apleona-schweiz-ag-0f285264230e",
@@ -194,7 +202,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2535/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:34:48.147Z",
+      "crawledAt": "2026-11-01T09:39:50.772Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -242,7 +250,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apleona Schweiz AG",
+        "streetAddress": "Ebnatstrasse 91a",
+        "postalCode": "8200",
+        "addressLocality": "Schaffhausen",
+        "addressRegion": "SH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Ebnatstrasse 91a",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-27T09:39:50.772Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "apleona-schweiz-ag-bf719bfb4666",
@@ -275,7 +297,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2592/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:34:47.846Z",
+      "crawledAt": "2026-11-01T09:39:50.471Z",
       "addressLocality": "Zürich und Umgebung",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -318,7 +340,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich und Umgebung",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:39:50.471Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "apleona-schweiz-ag-a1f67b8ad243",
@@ -351,7 +377,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2526/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:34:47.543Z",
+      "crawledAt": "2026-11-01T09:39:50.169Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -394,7 +420,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6037"
+      "postalCode": "6037",
+      "streetAddress": "Root",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:39:50.169Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "apleona-schweiz-ag-dc2785fc5302",
@@ -427,7 +457,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2593/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:34:47.241Z",
+      "crawledAt": "2026-11-01T09:39:49.868Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -473,7 +503,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8304"
+      "postalCode": "8304",
+      "streetAddress": "Wallisellen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:39:49.868Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "apleona-schweiz-ag-56e325e47013",
@@ -506,7 +540,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2582/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:34:46.939Z",
+      "crawledAt": "2026-11-01T09:39:49.566Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -549,7 +583,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8304"
+      "postalCode": "8304",
+      "streetAddress": "Wallisellen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:39:49.566Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "apleona-schweiz-ag-1caccc08a8d1",
@@ -582,7 +620,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2589/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:34:46.637Z",
+      "crawledAt": "2026-11-01T09:39:49.264Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -614,7 +652,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8304"
+      "postalCode": "8304",
+      "streetAddress": "Wallisellen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:39:49.264Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "apleona-schweiz-ag-8e202599f916",
@@ -647,7 +689,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2590/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:34:46.334Z",
+      "crawledAt": "2026-11-01T09:39:48.962Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -679,7 +721,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8304"
+      "postalCode": "8304",
+      "streetAddress": "Wallisellen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:39:48.962Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "apleona-schweiz-ag-34837a7a8196",
@@ -712,7 +758,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2591/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:34:46.031Z",
+      "crawledAt": "2026-11-01T09:39:48.660Z",
       "addressLocality": "Zürich Oerlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -744,7 +790,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich Oerlikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:39:48.660Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

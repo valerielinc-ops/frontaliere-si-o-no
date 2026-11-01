@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-10-31T21:50:15.498Z",
+  "generatedAt": "2026-11-01T09:48:44.693Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 152573,
-  "avgDurationMs": 152573,
+  "durationMs": 180832,
+  "avgDurationMs": 180832,
   "durationHistory": [
-    152573
+    180832
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-31T21:50:02.833Z",
+      "crawledAt": "2026-11-01T09:48:31.655Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
@@ -53,12 +53,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6500",
-      "_qualityScore": 91,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:48:31.655Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -82,7 +86,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-10-31T21:50:02.833Z",
+      "crawledAt": "2026-11-01T09:48:31.655Z",
       "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
@@ -98,14 +102,18 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6500",
-      "_qualityScore": 91,
+      "streetAddress": "Ticino",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:48:31.655Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

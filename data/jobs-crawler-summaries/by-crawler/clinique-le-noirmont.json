@@ -1,66 +1,22 @@
 {
   "key": "clinique-le-noirmont",
   "label": "Clinique Le Noirmont",
-  "generatedAt": "2026-10-31T21:53:35.240Z",
+  "generatedAt": "2026-11-01T09:42:54.937Z",
   "total": 3,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5014,
-  "avgDurationMs": 5014,
+  "durationMs": 4295,
+  "avgDurationMs": 4295,
   "durationHistory": [
-    5014
+    4295
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "ASSC (F/H) 80%-90%",
-      "slug": "assc-f-h-80-90-clinique-le-noirmont",
-      "url": "https://www.cliniquelenoirmont.ch/FileDownload/Download/1040",
-      "applyUrl": "https://www.cliniquelenoirmont.ch/La-clinique/Offres-demploi",
-      "company": "Clinique Le Noirmont",
-      "companyKey": "clinique-le-noirmont",
-      "companyDomain": "cliniquelenoirmont.ch",
-      "location": "Le Noirmont",
-      "addressLocality": "Le Noirmont",
-      "addressRegion": "JU",
-      "postalCode": "2340",
-      "addressCountry": "CH",
-      "canton": "JU",
-      "country": "CH",
-      "category": "health",
-      "sector": "Réadaptation cardiovasculaire et médecine interne",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "clinique-le-noirmont-dedicated-crawler",
-      "sourceLang": "fr",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "",
-      "_meta": {
-        "sourceIdentifier": "dl:1040"
-      },
-      "id": "clinique-le-noirmont-d8b8b702f14c",
-      "firstSeenAt": "2026-08-20T21:38:25.587Z",
-      "salaryMin": 77400,
-      "salaryMax": 108000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "ASSC (F/H) 80%-100%",
@@ -86,7 +42,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2027-01-28T21:55:42.507Z",
       "_meta": {
         "sourceIdentifier": "dl:1053"
       },
@@ -96,12 +52,15 @@
       "salaryMax": 120000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Le Noirmont",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -128,7 +87,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-24T15:13:01.629Z",
       "_meta": {
         "sourceIdentifier": "dl:1046"
       },
@@ -138,12 +97,15 @@
       "salaryMax": 162000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Le Noirmont",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -170,7 +132,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-11-10T10:17:37.356Z",
       "_meta": {
         "sourceIdentifier": "dl:1037"
       },
@@ -180,14 +142,17 @@
       "salaryMax": 120000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Le Noirmont",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

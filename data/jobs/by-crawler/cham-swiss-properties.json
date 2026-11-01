@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cham-swiss-properties",
-  "assembledAt": "2026-10-31T21:47:49.584Z",
-  "runId": "41242693248",
+  "assembledAt": "2026-11-01T09:24:20.291Z",
+  "runId": "41292289555",
   "jobs": [
     {
       "id": "cham-swiss-properties-2cb3d7705d07",
@@ -35,7 +35,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/88897b95-a537-4f28-a65b-89ea72d64752/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:45.126Z",
+      "crawledAt": "2026-11-01T09:24:08.931Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -88,7 +88,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:24:08.931Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cham-swiss-properties-d88b4f4e5756",
@@ -122,7 +125,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/cb080274-0231-4bf2-abc2-934feddea06d/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:44.594Z",
+      "crawledAt": "2026-11-01T09:24:08.458Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -174,7 +177,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-18T09:24:08.458Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-10-31T21:59:48.964Z",
-  "runId": "41243451287",
+  "assembledAt": "2026-11-01T09:47:48.739Z",
+  "runId": "41293009398",
   "jobs": [
     {
       "id": "postauto-3302f6910570",
@@ -34,10 +34,10 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal-Transport-scolaire/75097-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:59:44.033Z",
+      "crawledAt": "2026-11-01T09:47:41.698Z",
       "addressLocality": "Echallens",
       "addressRegion": "VD",
-      "streetAddress": "",
+      "streetAddress": "Echallens",
       "postalCode": "1040",
       "addressCountry": "CH",
       "country": "CH",
@@ -51,7 +51,7 @@
       "datePosted": "2026-10-28",
       "postedDate": "2026-10-28",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-28",
+      "validThrough": "2026-11-28T00:00:00.000Z",
       "pensum": "40-50%",
       "applyUrl": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal-Transport-scolaire/75097-fr_FR",
       "jobReqId": "75097",
@@ -84,7 +84,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-9222b3b74157",
@@ -117,10 +119,10 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74887-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:40.634Z",
+      "crawledAt": "2026-11-01T09:47:38.725Z",
       "addressLocality": "Gelterkinden",
       "addressRegion": "BL",
-      "streetAddress": "",
+      "streetAddress": "Gelterkinden",
       "postalCode": "4460",
       "addressCountry": "CH",
       "country": "CH",
@@ -134,7 +136,7 @@
       "datePosted": "2026-10-11",
       "postedDate": "2026-10-11",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-11",
+      "validThrough": "2026-11-11T00:00:00.000Z",
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74887-de_DE",
       "jobReqId": "74887",
@@ -167,7 +169,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-d862934fc668",
@@ -200,10 +204,10 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74990-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:39.388Z",
+      "crawledAt": "2026-11-01T09:47:37.291Z",
       "addressLocality": "Reichenburg",
       "addressRegion": "SZ",
-      "streetAddress": "",
+      "streetAddress": "Reichenburg",
       "postalCode": "8864",
       "addressCountry": "CH",
       "country": "CH",
@@ -217,7 +221,7 @@
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-11",
+      "validThrough": "2026-11-11T00:00:00.000Z",
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/74990-de_DE",
       "jobReqId": "74990",
@@ -249,7 +253,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-b2fba95b8c42",
@@ -282,10 +288,10 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74661-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:38.107Z",
+      "crawledAt": "2026-11-01T09:47:35.795Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
-      "streetAddress": "",
+      "streetAddress": "Sarnen",
       "postalCode": "6060",
       "addressCountry": "CH",
       "country": "CH",
@@ -299,7 +305,7 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74661-de_DE",
       "jobReqId": "74661",
@@ -326,7 +332,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-ea264ec06f61",
@@ -359,10 +367,10 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74660-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:36.830Z",
+      "crawledAt": "2026-11-01T09:47:34.205Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
-      "streetAddress": "",
+      "streetAddress": "Stans",
       "postalCode": "6370",
       "addressCountry": "CH",
       "country": "CH",
@@ -376,7 +384,7 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74660-de_DE",
       "jobReqId": "74660",
@@ -403,7 +411,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-fbfcb1f339a7",
@@ -436,10 +446,10 @@
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin-Reichenburg/75029-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:35.544Z",
+      "crawledAt": "2026-11-01T09:47:32.728Z",
       "addressLocality": "Reichenburg",
       "addressRegion": "SZ",
-      "streetAddress": "",
+      "streetAddress": "Reichenburg",
       "postalCode": "8864",
       "addressCountry": "CH",
       "country": "CH",
@@ -453,7 +463,7 @@
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-14",
+      "validThrough": "2026-11-14T00:00:00.000Z",
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin-Reichenburg/75029-de_DE",
       "jobReqId": "75029",
@@ -488,7 +498,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-bb80ddabedba",
@@ -521,10 +533,10 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74566-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:34.394Z",
+      "crawledAt": "2026-11-01T09:47:31.221Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
-      "streetAddress": "",
+      "streetAddress": "Einsiedeln",
       "postalCode": "8840",
       "addressCountry": "CH",
       "country": "CH",
@@ -538,7 +550,7 @@
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-14",
+      "validThrough": "2026-11-14T00:00:00.000Z",
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74566-de_DE",
       "jobReqId": "74566",
@@ -565,7 +577,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-237a3b236dbf",
@@ -598,10 +612,10 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin-im-Stundenlohn/74565-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:33.095Z",
+      "crawledAt": "2026-11-01T09:47:29.627Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
-      "streetAddress": "",
+      "streetAddress": "Einsiedeln",
       "postalCode": "8840",
       "addressCountry": "CH",
       "country": "CH",
@@ -615,7 +629,7 @@
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-14",
+      "validThrough": "2026-11-14T00:00:00.000Z",
       "pensum": "20-30%",
       "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin-im-Stundenlohn/74565-de_DE",
       "jobReqId": "74565",
@@ -658,7 +672,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-f4ff1b589837",
@@ -691,10 +707,10 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/75053-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:30.648Z",
+      "crawledAt": "2026-11-01T09:47:26.693Z",
       "addressLocality": "Uznach",
       "addressRegion": "SG",
-      "streetAddress": "",
+      "streetAddress": "Uznach",
       "postalCode": "8730",
       "addressCountry": "CH",
       "country": "CH",
@@ -708,7 +724,7 @@
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-17",
+      "validThrough": "2026-11-17T00:00:00.000Z",
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/75053-de_DE",
       "jobReqId": "75053",
@@ -741,7 +757,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-e9b221037246",
@@ -774,10 +792,10 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74963-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:29.487Z",
+      "crawledAt": "2026-11-01T09:47:25.232Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
-      "streetAddress": "",
+      "streetAddress": "Brugg AG",
       "postalCode": "5000",
       "addressCountry": "CH",
       "country": "CH",
@@ -791,7 +809,7 @@
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-20",
+      "validThrough": "2026-11-20T00:00:00.000Z",
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74963-de_DE",
       "jobReqId": "74963",
@@ -826,7 +844,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-4a39b89cff41",
@@ -859,10 +879,10 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/75093-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:28.319Z",
+      "crawledAt": "2026-11-01T09:47:23.719Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
-      "streetAddress": "",
+      "streetAddress": "Interlaken",
       "postalCode": "3800",
       "addressCountry": "CH",
       "country": "CH",
@@ -876,7 +896,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-26",
+      "validThrough": "2026-11-26T00:00:00.000Z",
       "pensum": "50%",
       "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/75093-de_DE",
       "jobReqId": "75093",
@@ -909,7 +929,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-dadd8e65828c",
@@ -942,10 +964,10 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/75094-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:27.168Z",
+      "crawledAt": "2026-11-01T09:47:22.281Z",
       "addressLocality": "Thusis",
       "addressRegion": "GR",
-      "streetAddress": "",
+      "streetAddress": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
       "country": "CH",
@@ -959,7 +981,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-26",
+      "validThrough": "2026-11-26T00:00:00.000Z",
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/75094-de_DE",
       "jobReqId": "75094",
@@ -992,7 +1014,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-e96c5afd4743",
@@ -1025,10 +1049,10 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/75095-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:26.144Z",
+      "crawledAt": "2026-11-01T09:47:20.756Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
-      "streetAddress": "",
+      "streetAddress": "Wallisellen",
       "postalCode": "8304",
       "addressCountry": "CH",
       "country": "CH",
@@ -1042,7 +1066,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-26",
+      "validThrough": "2026-11-26T00:00:00.000Z",
       "pensum": "60-100%",
       "applyUrl": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/75095-de_DE",
       "jobReqId": "75095",
@@ -1075,7 +1099,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "postauto-b1289342517b",
@@ -1108,7 +1134,7 @@
       "url": "https://job.post.ch/default/job/Sachbearbeiterin-Einkauf-Personentransportdienstleistungen/74947-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:59:23.730Z",
+      "crawledAt": "2026-11-01T09:47:17.738Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -1125,7 +1151,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-19",
+      "validThrough": "2026-11-19T00:00:00.000Z",
       "pensum": "80-100%",
       "applyUrl": "https://job.post.ch/default/job/Sachbearbeiterin-Einkauf-Personentransportdienstleistungen/74947-de_DE",
       "jobReqId": "74947",
@@ -1158,7 +1184,91 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
+    },
+    {
+      "id": "postauto-c9dfc5cd0bb6",
+      "slug": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-sarnen",
+      "slugByLocale": {
+        "de": "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen",
+        "it": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-sarnen",
+        "en": "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen",
+        "fr": "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Quereinsteiger:in als PostAuto-Fahrer:in",
+      "titleByLocale": {
+        "de": "Quereinsteiger:in als PostAuto-Fahrer:in",
+        "it": "Candidato/a in riqualificazione come PostAuto-Fahrer:in",
+        "en": "Quereinsteiger:in als PostAuto-Fahrer:in",
+        "fr": "Quereinsteiger:in als PostAuto-Fahrer:in"
+      },
+      "description": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.\n\nWährend des laufenden Ausbildungsvertrages liegt der Jahresgrundlohn für Quereinsteiger:innen leicht unter dem Ziel Lohn und wird nach erfolgreichem Abschluss angepasst.",
+      "descriptionByLocale": {
+        "de": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.\n\nWährend des laufenden Ausbildungsvertrages liegt der Jahresgrundlohn für Quereinsteiger:innen leicht unter dem Ziel Lohn und wird nach erfolgreichem Abschluss angepasst.",
+        "it": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.\n\nWährend des laufenden Ausbildungsvertrages liegt der Jahresgrundlohn für Quereinsteiger:innen leicht unter dem Ziel Lohn und wird nach erfolgreichem Abschluss angepasst.",
+        "en": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.\n\nWährend des laufenden Ausbildungsvertrages liegt der Jahresgrundlohn für Quereinsteiger:innen leicht unter dem Ziel Lohn und wird nach erfolgreichem Abschluss angepasst.",
+        "fr": "Möchtest du ganz vorne links Platz nehmen und unsere Postautos lenken? Dann lasse dich bei uns als PostAuto-Fahrer:in ausbilden und begleite uns auf unserer Erfolgsgeschichte. Denn mit dir dir bringen wir nicht nur Menschen ans Ziel, sondern sorgen für erstklassigen Service auf der Strasse.\n\nDas kannst du bewirken\n\n- In den ersten vier Monaten erhältst du theoretischen und praktischen Fahrunterricht, um dich optimal auf die Prüfungen der Kategorie D vorzubereiten. Nach erfolgreich absolvierter Prüfung führen wir dich als Fahrer:in auf unseren Linien ein.\n\n- Danach bist du startklar und wir bieten dir eine unbefristete Festanstellung an.\n\n- Im Alltag bringst du dann unsere Fahrgäste sicher und pünktlich von Montag bis Sonntag auf unseren abwechslungsreichen regionalen Linien an ihr Ziel.\n\n- Du bist Gastgeber:in in unseren Postautos und berätst unsere Kundschaft in Tarif- und Fahrplanfragen.\n\n- Als Fahrer:in bewegst du weit mehr als nur dein Fahrzeug - auf der Strasse und im direkten Kundenkontakt schaffst du jeden Tag positive Erlebnisse für unsere Kundschaft.\n\nDas bringst du mit\n\n- Du verfügst über eine Grundausbildung und bist bereit, den Führerausweis der Kategorie D zu erlangen - wir übernehmen die Kosten der Ausbildung!\n\n- Um den Führerausweis der Kategorie D zu erlangen, bringst du den Führerausweis der Kategorie B (mind. 2 Jahre) oder C (mind. 3 Monate) mit.\n\n- Zuverlässigkeit ist eine deiner Stärken, und du schätzt die Abwechslung, die unregelmässige Arbeitszeiten (inkl. Sonn- und Feiertage) mit sich bringen.\n\n- Du verfügst über sehr gute Deutschkenntnisse und bist versiert im Umgang mit digitalen Geräten.\n\nWährend des laufenden Ausbildungsvertrages liegt der Jahresgrundlohn für Quereinsteiger:innen leicht unter dem Ziel Lohn und wird nach erfolgreichem Abschluss angepasst."
+      },
+      "location": "Sarnen",
+      "canton": "OW",
+      "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/75104-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:47:16.301Z",
+      "addressLocality": "Sarnen",
+      "addressRegion": "OW",
+      "streetAddress": "Sarnen",
+      "postalCode": "6060",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Autisti / Conducenti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-31",
+      "postedDate": "2026-10-31",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-30T00:00:00.000Z",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/75104-de_DE",
+      "jobReqId": "75104",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen"
+      ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "firstSeenAt": "2026-11-01T09:47:16.301Z"
     }
   ]
 }

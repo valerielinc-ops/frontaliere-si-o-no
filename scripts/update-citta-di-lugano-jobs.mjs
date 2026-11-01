@@ -5,7 +5,7 @@ import { realpathSync } from 'node:fs';
  * Dedicated Città di Lugano crawler runner.
  *
  * Source:
- *   https://www.lugano.ch/temi-servizi/lavoro-e-impresa/concorsi-pubblici-posti-lavoro/
+ *   https://www.lugano.ch/la-mia-citta/amministrazione/albo-comunale/concorsi.html
  *
  * Città di Lugano is the municipality of the largest city in Ticino,
  * the main urban center of Italian-speaking Switzerland (~3000 employees).
@@ -82,7 +82,7 @@ const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const COMPANY_NAME = 'Città di Lugano';
 const COMPANY_HOST = 'www.lugano.ch';
-const CAREERS_URL = 'https://www.lugano.ch/temi-servizi/lavoro-e-impresa/concorsi-pubblici-posti-lavoro/';
+const CAREERS_URL = 'https://www.lugano.ch/la-mia-citta/amministrazione/albo-comunale/concorsi.html';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const UA = process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "flury-stiftung",
-  "assembledAt": "2026-10-31T21:47:21.361Z",
-  "runId": "41243288199",
+  "assembledAt": "2026-11-01T09:43:17.831Z",
+  "runId": "41292859129",
   "jobs": [
     {
       "id": "flury-stiftung-e3c629d4f6e6",
@@ -34,7 +34,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:15.187Z",
+      "crawledAt": "2026-11-01T09:43:12.275Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -86,7 +86,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:43:12.275Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-ccf7fd962c44",
@@ -119,7 +133,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:14.821Z",
+      "crawledAt": "2026-11-01T09:43:11.932Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -181,7 +195,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Klosters",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:11.932Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-2736465a21b7",
@@ -214,7 +232,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/MPA_MZK.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:14.442Z",
+      "crawledAt": "2026-11-01T09:43:11.578Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -264,7 +282,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Klosters",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:43:11.578Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-1e6940acb70a",
@@ -297,7 +319,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Inserat_Dipl_Pflegefachperson_Fachperson%20Gesundheit_80-100_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:12.018Z",
+      "crawledAt": "2026-11-01T09:43:11.237Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -397,7 +419,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Jenaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:11.237Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-2f717b7dc49d",
@@ -430,7 +456,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Dipl.%20Pflegefachperson%20HF_FH%20%28w_m%29%2080-100%25%20AHS.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:11.656Z",
+      "crawledAt": "2026-11-01T09:43:10.899Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -480,7 +506,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-04T09:43:10.899Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-4fb0719c59ca",
@@ -513,7 +553,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FAGE%2080-100%25%20Altersheim%20Schiers.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:08.161Z",
+      "crawledAt": "2026-11-01T09:43:10.517Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -566,7 +606,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:43:10.517Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-f18e892d8c2c",
@@ -599,7 +653,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Inserat_Stationsleitung_AHJ_Demenz_80-100_0_1.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:07.748Z",
+      "crawledAt": "2026-11-01T09:43:10.178Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -651,7 +705,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Jenaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:43:10.178Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-d2d90052d654",
@@ -684,7 +742,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2022-07/20220719Unterassistenz%20Chirurgie_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:04.859Z",
+      "crawledAt": "2026-11-01T09:43:08.171Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -734,7 +792,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:43:08.171Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-09e6f7077792",
@@ -767,7 +839,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-06/20230426_unterassistenz_innere_medizin.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:04.488Z",
+      "crawledAt": "2026-11-01T09:43:07.807Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -818,7 +890,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:43:07.807Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-38d69eb9653b",
@@ -851,7 +937,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/20220719%20Unterassistenz%20An%C3%A4sthesie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:04.115Z",
+      "crawledAt": "2026-11-01T09:43:07.443Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -907,7 +993,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:43:07.443Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-53962d4794b1",
@@ -940,7 +1040,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-08/assistenzarzt_innere_medizin_m_w_100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:03.766Z",
+      "crawledAt": "2026-11-01T09:43:07.073Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -997,7 +1097,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:43:07.073Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-4309b061e85f",
@@ -1030,7 +1144,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Assistenz%C3%A4rztin_Assistenzarzt%20Chirurgie%20%28w_m%29_Neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:03.395Z",
+      "crawledAt": "2026-11-01T09:43:06.727Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1095,7 +1209,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:43:06.727Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-2ca637e9196f",
@@ -1128,7 +1256,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FaGe%20f%C3%BCr%20Tagesklinik%20Aufwachraum%20Notfall%20IMC%2080-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:59.662Z",
+      "crawledAt": "2026-11-01T09:43:04.382Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1178,7 +1306,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:43:04.382Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-127104c40da7",
@@ -1211,7 +1353,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Radiologiefachperson_MTRA%2080%20-%20100%25%20Radiologie_Angiologie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:57.252Z",
+      "crawledAt": "2026-11-01T09:43:04.032Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1261,7 +1403,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:43:04.032Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-c251812a4881",
@@ -1294,7 +1450,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Hebamme.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:56.887Z",
+      "crawledAt": "2026-11-01T09:43:02.268Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1344,7 +1500,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-27T09:43:02.268Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-6bd8c1330628",
@@ -1377,7 +1547,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/MPA%20oder%20FaGe%2080%20-%20100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:54.316Z",
+      "crawledAt": "2026-11-01T09:43:01.924Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1421,7 +1591,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-25T09:43:01.924Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-009b57885133",
@@ -1454,7 +1638,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Wundfachperson.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:53.936Z",
+      "crawledAt": "2026-11-01T09:43:01.581Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1508,7 +1692,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-18T09:43:01.581Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-0521ebbde522",
@@ -1541,7 +1739,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-09/Dipl.%20Pflegefachperson%20HF%20in%20Ausbildung_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:51.145Z",
+      "crawledAt": "2026-11-01T09:42:59.586Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1595,7 +1793,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:42:59.586Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-defc2bc47d80",
@@ -1628,7 +1840,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Fachperson%20Gesundheit%20im%20Personalpool%2040-80%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:50.735Z",
+      "crawledAt": "2026-11-01T09:42:59.218Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1678,7 +1890,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:42:59.218Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-e13efdf0d605",
@@ -1711,7 +1937,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Mitarbeiterin%20Kundenadministration%2080%25_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:50.331Z",
+      "crawledAt": "2026-11-01T09:42:58.846Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1757,7 +1983,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-18T09:42:58.846Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-13aa5d8ec5fe",
@@ -1790,7 +2030,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-09/Mitarbeiter_in%20Patientenanmeldung%2080%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:47.555Z",
+      "crawledAt": "2026-11-01T09:42:58.450Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1842,7 +2082,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-23T09:42:58.450Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

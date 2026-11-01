@@ -1,7 +1,7 @@
 {
   "key": "ottos",
   "label": "OTTO'S AG",
-  "generatedAt": "2026-10-31T21:46:19.909Z",
+  "generatedAt": "2026-11-01T09:40:30.199Z",
   "total": 145,
   "discovered": null,
   "parsed": 145,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 144,
-  "durationMs": 108884,
-  "avgDurationMs": 108884,
+  "durationMs": 97186,
+  "avgDurationMs": 97186,
   "durationHistory": [
-    108884
+    97186
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085327",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:28.252Z",
+      "crawledAt": "2026-11-01T09:39:44.095Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -62,12 +62,26 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:39:44.095Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
@@ -86,7 +100,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085529",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:58.032Z",
+      "crawledAt": "2026-11-01T09:40:10.591Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -112,12 +126,16 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Münsingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:10.591Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -133,7 +151,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085726",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:57.376Z",
+      "crawledAt": "2026-11-01T09:40:10.034Z",
       "addressLocality": "Schattdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -159,12 +177,16 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Schattdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:10.034Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -180,7 +202,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085715",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:56.702Z",
+      "crawledAt": "2026-11-01T09:40:09.486Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -206,12 +228,16 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Hegnau-Volketswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:09.486Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -227,7 +253,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4087746",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:55.893Z",
+      "crawledAt": "2026-11-01T09:40:08.867Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -252,12 +278,16 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:40:08.867Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -273,7 +303,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085870",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:55.233Z",
+      "crawledAt": "2026-11-01T09:40:08.062Z",
       "addressLocality": "Arbon",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -299,12 +329,16 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Arbon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:08.062Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -320,7 +354,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085333",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:54.573Z",
+      "crawledAt": "2026-11-01T09:40:07.528Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -346,12 +380,26 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-19T09:40:07.528Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -367,7 +415,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4088735",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:53.909Z",
+      "crawledAt": "2026-11-01T09:40:06.993Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -393,12 +441,26 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-18T09:40:06.993Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -414,7 +476,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085859",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:53.253Z",
+      "crawledAt": "2026-11-01T09:40:06.422Z",
       "addressLocality": "Netstal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -440,12 +502,16 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Netstal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:06.422Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -461,7 +527,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085935",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:52.592Z",
+      "crawledAt": "2026-11-01T09:40:05.872Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -487,12 +553,16 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Mels",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:05.872Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -508,7 +578,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086160",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:51.243Z",
+      "crawledAt": "2026-11-01T09:40:04.679Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -534,12 +604,26 @@
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:40:04.679Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -555,7 +639,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4092540",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:50.525Z",
+      "crawledAt": "2026-11-01T09:40:04.080Z",
       "addressLocality": "Oftringen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -581,12 +665,16 @@
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oftringen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:04.080Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -601,7 +689,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4091550",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:49.833Z",
+      "crawledAt": "2026-11-01T09:40:03.544Z",
       "addressLocality": "Thal",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -627,12 +715,16 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Thal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:40:03.544Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -648,7 +740,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085272",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:49.137Z",
+      "crawledAt": "2026-11-01T09:40:03.006Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -674,12 +766,16 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Interlaken",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:03.006Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -694,7 +790,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085249",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:48.477Z",
+      "crawledAt": "2026-11-01T09:40:02.251Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -720,12 +816,26 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:40:02.251Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -741,7 +851,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085414",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:47.817Z",
+      "crawledAt": "2026-11-01T09:40:01.647Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -767,12 +877,16 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Kloten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:01.647Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -788,7 +902,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085498",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:47.157Z",
+      "crawledAt": "2026-11-01T09:40:00.994Z",
       "addressLocality": "Wettingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -814,12 +928,16 @@
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Wettingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:40:00.994Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -835,7 +953,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085651",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:46.468Z",
+      "crawledAt": "2026-11-01T09:40:00.398Z",
       "addressLocality": "Aathal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -861,12 +979,16 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Aathal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:40:00.398Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -882,7 +1004,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086088",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:45.797Z",
+      "crawledAt": "2026-11-01T09:39:59.861Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -908,12 +1030,26 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:39:59.861Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -929,7 +1065,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085959",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:45.138Z",
+      "crawledAt": "2026-11-01T09:39:59.330Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -955,12 +1091,16 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Altstätten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:59.330Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -975,7 +1115,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086082",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:44.478Z",
+      "crawledAt": "2026-11-01T09:39:58.797Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1001,12 +1141,26 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-19T09:39:58.797Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1022,7 +1176,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085694",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:43.816Z",
+      "crawledAt": "2026-11-01T09:39:58.195Z",
       "addressLocality": "Oberburg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1048,12 +1202,16 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberburg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:58.195Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1069,7 +1227,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4091556",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:43.158Z",
+      "crawledAt": "2026-11-01T09:39:57.660Z",
       "addressLocality": "Thal",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1095,12 +1253,16 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Thal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:39:57.660Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1116,7 +1278,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4092547",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:42.497Z",
+      "crawledAt": "2026-11-01T09:39:57.118Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1142,12 +1304,16 @@
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Liestal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:39:57.118Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1163,7 +1329,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085654",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:41.836Z",
+      "crawledAt": "2026-11-01T09:39:56.497Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1189,12 +1355,16 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Kreuzlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:39:56.497Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1210,7 +1380,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085941",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:41.173Z",
+      "crawledAt": "2026-11-01T09:39:55.034Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1236,12 +1406,16 @@
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:39:55.034Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1257,7 +1431,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4089295",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:40.506Z",
+      "crawledAt": "2026-11-01T09:39:54.496Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1283,12 +1457,16 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Cham",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:39:54.496Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1304,7 +1482,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085526",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:39.837Z",
+      "crawledAt": "2026-11-01T09:39:53.961Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1330,12 +1508,16 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:39:53.961Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1351,7 +1533,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085931",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:39.177Z",
+      "crawledAt": "2026-11-01T09:39:53.426Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1377,12 +1559,26 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:39:53.426Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1398,7 +1594,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086019",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:38.515Z",
+      "crawledAt": "2026-11-01T09:39:52.892Z",
       "addressLocality": "Baldegg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1424,12 +1620,16 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Baldegg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:52.892Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1445,7 +1645,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085606",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:37.821Z",
+      "crawledAt": "2026-11-01T09:39:52.313Z",
       "addressLocality": "Oberengstringen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1471,14 +1671,18 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberengstringen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:39:52.313Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

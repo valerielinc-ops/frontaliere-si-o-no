@@ -1,7 +1,7 @@
 {
   "key": "sika",
   "label": "Sika",
-  "generatedAt": "2026-10-31T22:15:39.781Z",
+  "generatedAt": "2026-11-01T09:19:17.065Z",
   "total": 49,
   "discovered": null,
   "parsed": 49,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 49,
-  "durationMs": 38672,
-  "avgDurationMs": 38672,
+  "durationMs": 46696,
+  "avgDurationMs": 46696,
   "durationHistory": [
-    38672
+    46696
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,10 +37,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:25.207Z",
+      "crawledAt": "2026-11-01T09:18:57.931Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -59,12 +59,15 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:57.931Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -79,10 +82,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:15:24.205Z",
+      "crawledAt": "2026-11-01T09:18:56.748Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -101,12 +104,15 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:56.748Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -121,10 +127,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-03295a71-729c-4904-8b5e-f2574649a9c0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:15:23.398Z",
+      "crawledAt": "2026-11-01T09:18:55.786Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -143,12 +149,15 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:55.786Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -163,10 +172,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f2a6afde-4e69-437f-a765-7d03d6f26534.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:22.363Z",
+      "crawledAt": "2026-11-01T09:18:54.873Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
-      "streetAddress": "",
+      "streetAddress": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
       "country": "CH",
@@ -185,12 +194,15 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:54.873Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -205,10 +217,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0319e643-93ce-4aab-94b0-3609cf3ff530.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:15:22.038Z",
+      "crawledAt": "2026-11-01T09:18:53.849Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -226,12 +238,15 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:53.849Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -246,10 +261,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-225018cc-701c-4277-b715-54c0dc18286c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:21.714Z",
+      "crawledAt": "2026-11-01T09:18:52.833Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
-      "streetAddress": "",
+      "streetAddress": "Birr",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
@@ -268,12 +283,15 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:52.833Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -288,10 +306,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:15:21.091Z",
+      "crawledAt": "2026-11-01T09:18:51.958Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -310,12 +328,15 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:51.958Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -330,10 +351,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:20.761Z",
+      "crawledAt": "2026-11-01T09:18:50.998Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
-      "streetAddress": "",
+      "streetAddress": "Romanshorn",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
@@ -353,12 +374,15 @@
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:50.998Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -373,10 +397,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e62349e4-b260-46b1-b5b1-558137b84dfa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:20.436Z",
+      "crawledAt": "2026-11-01T09:18:50.074Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
-      "streetAddress": "",
+      "streetAddress": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
       "country": "CH",
@@ -395,12 +419,15 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:50.074Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -415,10 +442,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:20.109Z",
+      "crawledAt": "2026-11-01T09:18:48.892Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
-      "streetAddress": "",
+      "streetAddress": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
       "country": "CH",
@@ -437,12 +464,15 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:48.892Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -457,10 +487,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:19.147Z",
+      "crawledAt": "2026-11-01T09:18:48.572Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
-      "streetAddress": "",
+      "streetAddress": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
       "country": "CH",
@@ -479,12 +509,15 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:48.572Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -499,10 +532,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:18.823Z",
+      "crawledAt": "2026-11-01T09:18:48.249Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
-      "streetAddress": "",
+      "streetAddress": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
       "country": "CH",
@@ -521,12 +554,15 @@
       "salaryMin": 127000,
       "salaryMax": 171000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:48.249Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -541,10 +577,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f64fb422-e33e-43cf-94c2-412ef76fdcb0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:15:18.488Z",
+      "crawledAt": "2026-11-01T09:18:47.191Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -563,12 +599,15 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:47.191Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -583,10 +622,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d49d212d-425b-4df8-b472-647e7f47b720.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:17.490Z",
+      "crawledAt": "2026-11-01T09:18:46.294Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
-      "streetAddress": "",
+      "streetAddress": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
       "country": "CH",
@@ -605,12 +644,15 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:46.294Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -625,10 +667,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-16cc041b-642b-405a-8c8b-1eb258ed05ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:16.593Z",
+      "crawledAt": "2026-11-01T09:18:45.418Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
-      "streetAddress": "",
+      "streetAddress": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
       "country": "CH",
@@ -647,12 +689,15 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:45.418Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -667,10 +712,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9b6bfb1d-bd31-45c4-ba52-1678901ee794.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:16.271Z",
+      "crawledAt": "2026-11-01T09:18:44.520Z",
       "addressLocality": "Altstätten",
       "postalCode": "9450",
-      "streetAddress": "",
+      "streetAddress": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
@@ -689,12 +734,15 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:44.520Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -709,10 +757,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3e5739e9-cee4-4b47-92c7-67b01f151b2e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:15.194Z",
+      "crawledAt": "2026-11-01T09:18:43.659Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
-      "streetAddress": "",
+      "streetAddress": "Widen",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
@@ -731,12 +779,15 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:43.659Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -751,10 +802,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:14.258Z",
+      "crawledAt": "2026-11-01T09:18:42.696Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
-      "streetAddress": "",
+      "streetAddress": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
@@ -773,12 +824,15 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:42.696Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -793,10 +847,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6219ca1-f42f-4e64-8889-27137b4bfc59.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:13.302Z",
+      "crawledAt": "2026-11-01T09:18:41.545Z",
       "addressLocality": "Düdingen",
       "postalCode": "3186",
-      "streetAddress": "",
+      "streetAddress": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
@@ -815,12 +869,15 @@
       "salaryMin": 124000,
       "salaryMax": 167500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:41.545Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -835,10 +892,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-8fb9dbdf-c148-4649-87a5-246bb563c113.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:15:12.487Z",
+      "crawledAt": "2026-11-01T09:18:41.229Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -857,12 +914,15 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:41.229Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -877,10 +937,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d008f907-3479-4421-970f-a81ee94402c3.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:12.160Z",
+      "crawledAt": "2026-11-01T09:18:40.154Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -900,12 +960,15 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:40.154Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -920,10 +983,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9c76864a-9d47-46eb-af82-10893fcfc91e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:15:11.835Z",
+      "crawledAt": "2026-11-01T09:18:39.829Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -942,12 +1005,15 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:39.829Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -962,10 +1028,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f3d46566-6b67-4236-ab81-dc432db26d97.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:11.000Z",
+      "crawledAt": "2026-11-01T09:18:38.921Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
-      "streetAddress": "",
+      "streetAddress": "Birr",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
@@ -983,12 +1049,15 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:38.921Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1003,10 +1072,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a59da0b4-eae8-4a6a-bbe8-eb7b46d5097a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:10.676Z",
+      "crawledAt": "2026-11-01T09:18:38.015Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
-      "streetAddress": "",
+      "streetAddress": "Romanshorn",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
@@ -1025,12 +1094,15 @@
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:38.015Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1045,10 +1117,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-20c6a9ab-10e9-4574-b3da-f46b36088efb.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:09.758Z",
+      "crawledAt": "2026-11-01T09:18:37.080Z",
       "addressLocality": "Romanshorn",
       "postalCode": "8590",
-      "streetAddress": "",
+      "streetAddress": "Romanshorn",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
@@ -1067,12 +1139,15 @@
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:37.080Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1087,10 +1162,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-40cd3de7-667b-42a1-8711-7f423ba87261.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:09.431Z",
+      "crawledAt": "2026-11-01T09:18:36.258Z",
       "addressLocality": "Arbon / Romanshorn",
       "postalCode": "9320",
-      "streetAddress": "",
+      "streetAddress": "Arbon / Romanshorn",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
@@ -1109,12 +1184,15 @@
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:36.258Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1129,10 +1207,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8349eaa-d440-4a6a-9632-85b45ced7aac.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:15:08.382Z",
+      "crawledAt": "2026-11-01T09:18:35.297Z",
       "addressLocality": "Widen",
       "postalCode": "8967",
-      "streetAddress": "",
+      "streetAddress": "Widen",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
@@ -1151,12 +1229,15 @@
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:35.297Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1171,10 +1252,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-fb414f0f-92ed-454d-b817-0ce5a4e49072.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:07.450Z",
+      "crawledAt": "2026-11-01T09:18:34.349Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1193,12 +1274,15 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:34.349Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1213,10 +1297,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8c274e8-611d-4253-9602-49e5c5a31e35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:06.460Z",
+      "crawledAt": "2026-11-01T09:18:33.401Z",
       "addressLocality": "Birr",
       "postalCode": "5242",
-      "streetAddress": "",
+      "streetAddress": "Birr",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
@@ -1235,12 +1319,15 @@
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:33.401Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1255,10 +1342,10 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-44dde78c-5b75-4262-8b33-9b00aec560ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:15:05.467Z",
+      "crawledAt": "2026-11-01T09:18:33.080Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1277,14 +1364,17 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:33.080Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

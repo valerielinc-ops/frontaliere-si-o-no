@@ -1,24 +1,24 @@
 {
   "key": "hugo-boss",
   "label": "Hugo Boss",
-  "generatedAt": "2026-10-31T22:00:57.538Z",
+  "generatedAt": "2026-11-01T09:40:25.909Z",
   "total": 1,
-  "discovered": 753,
+  "discovered": 744,
   "parsed": 1,
   "written": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7650,
-  "avgDurationMs": 7650,
+  "durationMs": 6672,
+  "avgDurationMs": 6672,
   "durationHistory": [
-    7650
+    6672
   ],
   "coverage": "complete",
   "terminationReason": null,
-  "sourceRecordsSeen": 753,
-  "sourceTotalHits": 753,
+  "sourceRecordsSeen": 744,
+  "sourceTotalHits": 744,
   "authoritativeSnapshotVerified": true,
   "newJobs": [],
   "updatedJobs": [
@@ -47,6 +47,9 @@
       "experienceLevel": "SENIOR",
       "sector": "Moda / Lusso",
       "firstSeenAt": "2026-10-17T09:51:52.899Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-15T09:51:52.899Z",
+      "validThroughSource": "last-observed-window",
       "salaryMin": 96000,
       "salaryMax": 147500,
       "currency": "CHF",
@@ -62,5 +65,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

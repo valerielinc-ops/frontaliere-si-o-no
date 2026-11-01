@@ -1,7 +1,7 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-10-31T22:00:38.350Z",
-  "runId": "41242863016",
+  "assembledAt": "2026-11-01T09:37:50.111Z",
+  "runId": "41292451365",
   "jobs": [
     {
       "id": "company-213hlr",
@@ -23,7 +23,7 @@
       "salaryMax": 167309,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-10-31T21:58:34.587Z",
+      "crawledAt": "2026-11-01T09:35:44.748Z",
       "firstSeenAt": "2026-08-28T05:27:13.245Z",
       "titleByLocale": {
         "it": "Medico AI a tempo parziale (50%) – a tempo pieno (100%), presso l’Istituto delle assicurazioni sociali, Ufficio dell’assicurazione invalidità, Servizio medico regionale (SMR), Bellinzona",
@@ -74,7 +74,10 @@
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4265",
       "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4265",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:35:44.748Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213j37",
@@ -94,7 +97,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-10-31T21:58:34.587Z",
+      "crawledAt": "2026-11-01T09:35:44.748Z",
       "firstSeenAt": "2026-03-31T21:48:48.088Z",
       "slugByLocale": {
         "it": "candidature-spontanee-per-stage-durante-e-post-studi-universitari-presso-l-amministrazione-cantonale-amministrazione-cantonale-ti-2026-indie-213j37",
@@ -211,7 +214,10 @@
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4063",
       "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4063",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:35:44.748Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213j3w",
@@ -233,7 +239,7 @@
       "salaryMax": 64005,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-10-31T21:58:34.587Z",
+      "crawledAt": "2026-11-01T09:35:44.748Z",
       "firstSeenAt": "2026-03-31T21:48:48.088Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-aiuto-cucina-presso-l-ufficio-della-refezione-e-dei-trasporti-scolastici-bellinzona-presso-l-ufficio-della-refezione--213j3w",
@@ -287,7 +293,10 @@
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
       "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:35:44.748Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213hja",
@@ -310,7 +319,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-10-31T21:58:34.587Z",
+      "crawledAt": "2026-11-01T09:35:44.748Z",
       "firstSeenAt": "2026-10-04T09:24:55.135Z",
       "titleByLocale": {
         "it": "Stagiste/i per il conseguimento della maturità professionale commerciale (52 settimane) presso l’Amministrazione cantonale",
@@ -357,7 +366,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-02T09:35:44.748Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213gzc",
@@ -382,7 +394,7 @@
       "salaryMax": 81560,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-10-31T21:58:34.587Z",
+      "crawledAt": "2026-11-01T09:35:44.748Z",
       "firstSeenAt": "2026-10-16T09:29:04.776Z",
       "titleByLocale": {
         "it": "Operaio/a specialista, a tempo pieno (100%), presso l'Area dell'esercizio e della manutenzione, Centro di manutenzione Bellinzona, Camorino",
@@ -438,7 +450,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:35:44.748Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213gza",
@@ -463,7 +478,7 @@
       "salaryMax": 141990,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-10-31T21:58:34.587Z",
+      "crawledAt": "2026-11-01T09:35:44.748Z",
       "firstSeenAt": "2026-10-20T09:25:11.715Z",
       "titleByLocale": {
         "it": "Collaboratore/trice scientifico I oppure Collaboratore/trice scientifico II a tempo parziale (80%) – a tempo pieno (100%), presso l'Ufficio dei pericoli naturali, degli incendi e dei progetti, Bellinzona",
@@ -508,7 +523,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-18T09:35:44.748Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213gyn",
@@ -533,7 +551,7 @@
       "salaryMax": 116071,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-10-31T21:58:34.587Z",
+      "crawledAt": "2026-11-01T09:35:44.748Z",
       "firstSeenAt": "2026-10-29T01:37:19.856Z",
       "titleByLocale": {
         "it": "Consulente informatico/a III, a tempo parziale (70%), presso il Centro di risorse didattiche e digitali (CERDD), Settore portali didattici, Bellinzona",
@@ -590,7 +608,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:35:44.748Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213gym",
@@ -615,7 +636,7 @@
       "salaryMax": 133310,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-10-31T21:58:34.587Z",
+      "crawledAt": "2026-11-01T09:35:44.748Z",
       "firstSeenAt": "2026-10-29T01:37:19.856Z",
       "titleByLocale": {
         "it": "Collaboratore/trice tecnico/a a tempo parziale (90%), presso la Sezione della protezione dell’aria, dell’acqua e del suolo, Ufficio della protezione delle acque e dell'approvvigionamento idrico, Bellinzona",
@@ -672,7 +693,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-13T09:35:44.748Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213gyl",
@@ -697,7 +721,7 @@
       "salaryMax": 141990,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-10-31T21:58:34.587Z",
+      "crawledAt": "2026-11-01T09:35:44.748Z",
       "firstSeenAt": "2026-10-29T01:37:19.856Z",
       "titleByLocale": {
         "it": "Giurista I oppure giurista II, a tempo parziale (90%) – a tempo pieno (100%), presso la Sezione dei registri, Ufficio del registro di commercio, Biasca",
@@ -754,7 +778,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-13T09:35:44.748Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213gyj",
@@ -779,7 +806,7 @@
       "salaryMax": 99178,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-10-31T21:58:34.587Z",
+      "crawledAt": "2026-11-01T09:35:44.748Z",
       "firstSeenAt": "2026-10-29T01:37:19.856Z",
       "titleByLocale": {
         "it": "Operatore/trice socio-amministrativo/a (OSA), a tempo parziale (80%), presso l'Ufficio del sostegno sociale e dell’inserimento, Servizio prestazioni, Bellinzona",
@@ -836,7 +863,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:35:44.748Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213zbv",
@@ -915,7 +945,10 @@
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=3994",
       "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=3994",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-11-29T21:52:18.090Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213gzb",
@@ -996,7 +1029,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-11-30T21:52:18.090Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213hku",
@@ -1076,7 +1112,10 @@
       "employmentType": "FULL_TIME",
       "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4277",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:26:46.740Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213hj4",
@@ -1146,7 +1185,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-11-21T09:26:46.740Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213h0c",
@@ -1216,7 +1258,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-11-22T09:26:46.740Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213h0b",
@@ -1286,7 +1331,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-11-23T09:26:46.740Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213h0a",
@@ -1356,7 +1404,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-11-23T09:26:46.740Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213h09",
@@ -1426,7 +1477,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:26:46.740Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-213gzd",
@@ -1496,7 +1550,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-15T09:26:46.740Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

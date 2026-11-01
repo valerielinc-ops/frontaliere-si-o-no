@@ -1,7 +1,7 @@
 {
   "crawlerKey": "deillon-delley-architectes",
-  "assembledAt": "2026-10-31T21:49:50.336Z",
-  "runId": "41242863016",
+  "assembledAt": "2026-11-01T09:28:56.510Z",
+  "runId": "41292451365",
   "jobs": [
     {
       "id": "deillon-delley-architectes-1106213010e9",
@@ -51,7 +51,7 @@
       "applyUrl": "https://deillondelley.ch/emplois/details-emplois/#:~:text=Architecte%20d%C3%A9veloppement%20senior",
       "source": "Deillon Delley Architectes SA Dedicated Parser (official site)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:49:44.210Z",
+      "crawledAt": "2026-11-01T09:28:52.686Z",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -81,7 +81,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:28:52.686Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "deillon-delley-architectes-2d8720d32dd1",
@@ -131,7 +134,7 @@
       "applyUrl": "https://deillondelley.ch/emplois/details-emplois/#:~:text=Architecte%20d%C3%A9veloppement%20junior",
       "source": "Deillon Delley Architectes SA Dedicated Parser (official site)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:49:44.209Z",
+      "crawledAt": "2026-11-01T09:28:52.685Z",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
@@ -161,7 +164,10 @@
           "maxValue": 80500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:28:52.685Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

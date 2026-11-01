@@ -1,7 +1,7 @@
 {
   "crawlerKey": "air-zermatt",
-  "assembledAt": "2026-10-31T21:30:18.458Z",
-  "runId": "41242267363",
+  "assembledAt": "2026-11-01T09:17:56.331Z",
+  "runId": "41291881160",
   "jobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
@@ -49,7 +49,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:12.293Z",
+      "crawledAt": "2026-11-01T09:17:48.114Z",
       "previousSlugs": [
         "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt"
       ],
@@ -72,7 +72,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Raron",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:48.114Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "air-zermatt-637594cee714",
@@ -120,7 +124,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/helikopter-–-disponentin-80-100--626",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:12.035Z",
+      "crawledAt": "2026-11-01T09:17:47.818Z",
       "previousSlugs": [
         "helikopter-disponent-in-80-100-zermatt-und-raron-air-zermatt",
         "helikopter-disponent-in-80-100-air-zermatt-ag-zermatt-und-raron"
@@ -151,7 +155,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zermatt und Raron",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:17:47.818Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

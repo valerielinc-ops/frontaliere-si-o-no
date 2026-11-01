@@ -1,7 +1,7 @@
 {
   "key": "csl-immobilien-ag",
   "label": "CSL Immobilien AG",
-  "generatedAt": "2026-10-31T22:00:19.182Z",
+  "generatedAt": "2026-11-01T09:49:20.886Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5048,
-  "avgDurationMs": 5048,
+  "durationMs": 6262,
+  "avgDurationMs": 6262,
   "durationHistory": [
-    5048
+    6262
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "csl-immobilien-ag-5ac1fb422b96",
       "slug": "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch",
@@ -34,7 +35,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/bbd3d75a-b43f-7a18-7bde-02cdebbadb22?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:00:04.411Z",
+      "crawledAt": "2026-11-01T09:48:57.459Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,10 +54,13 @@
       "postingDateSource": "reported",
       "applyUrl": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/bbd3d75a-b43f-7a18-7bde-02cdebbadb22?jp=ABACUS",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-31T22:00:04.411Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-31T22:00:04.411Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-03T09:48:57.459Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -66,8 +70,7 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

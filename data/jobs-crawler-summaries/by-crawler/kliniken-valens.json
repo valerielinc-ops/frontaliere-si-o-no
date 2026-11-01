@@ -1,7 +1,7 @@
 {
   "key": "kliniken-valens",
   "label": "Kliniken Valens",
-  "generatedAt": "2026-10-31T21:44:35.135Z",
+  "generatedAt": "2026-11-01T09:39:02.181Z",
   "total": 95,
   "discovered": null,
   "parsed": 95,
@@ -13,13 +13,13 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 92,
-  "durationMs": 5931,
-  "avgDurationMs": 5931,
+  "unchangedCount": 93,
+  "durationMs": 5693,
+  "avgDurationMs": 5693,
   "durationHistory": [
-    5931
+    5693
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,13 +35,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachfrau-fachmann-hotellerie-m-w-a/28a056e7-25e2-455b-a782-56abed2790b3",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.647Z",
+      "crawledAt": "2026-11-01T09:38:40.629Z",
       "addressLocality": "Wald",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8636",
-      "streetAddress": "",
+      "streetAddress": "Wald",
       "category": "Ospitalità",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -57,12 +57,15 @@
       "salaryMin": 58400,
       "salaryMax": 73200,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:38:40.629Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -78,13 +81,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachspezialist-in-tarife-m-w-a/c0e01d2b-f6d2-49e8-a14a-acf35e43853c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.644Z",
+      "crawledAt": "2026-11-01T09:38:40.627Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7320",
-      "streetAddress": "",
+      "streetAddress": "Sargans",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -100,55 +103,15 @@
       "salaryMin": 48900,
       "salaryMax": 68400,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.627Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "kliniken-valens-a7fdc27d2a28",
-      "slug": "fachfrau-mann-service-m-w-a-80-100-kliniken-valens",
-      "company": "Kliniken Valens",
-      "companyKey": "kliniken-valens",
-      "companyDomain": "kliniken-valens.ch",
-      "title": "Fachfrau/-mann Service (m/w/a) 80 -100 %",
-      "needsRetranslation": false,
-      "location": "Valens",
-      "canton": "SG",
-      "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-service-m-w-a/fa46e29e-d901-4d5f-bca3-986b3fed30ea",
-      "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.547Z",
-      "addressLocality": "Valens",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7317",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-service-m-w-a/fa46e29e-d901-4d5f-bca3-986b3fed30ea",
-      "firstSeenAt": "2026-10-31T09:27:11.066Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
@@ -167,13 +130,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-gesundheit-efz-m-w-a/b70ccc81-8e31-419c-96f2-4efd0e65589e",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.683Z",
+      "crawledAt": "2026-11-01T09:38:40.668Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -189,12 +152,15 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.668Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -210,13 +176,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-gesundheit-efz-m-w-a/a786f116-edf6-4f72-8748-3a9158e9bfd1",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.681Z",
+      "crawledAt": "2026-11-01T09:38:40.665Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7310",
-      "streetAddress": "",
+      "streetAddress": "Bad Ragaz",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -231,12 +197,15 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:38:40.665Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -252,13 +221,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/stv-teamleiter-in-gastronomie-m-w-a/9bd2e5d9-385e-468b-ab12-51895445ce9c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.678Z",
+      "crawledAt": "2026-11-01T09:38:40.663Z",
       "addressLocality": "Walenstadtberg",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8881",
-      "streetAddress": "",
+      "streetAddress": "Walenstadtberg",
       "category": "Ospitalità",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -274,12 +243,15 @@
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-15T09:38:40.663Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -295,13 +267,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/pharma-assistent-in-m-w-a/9194c944-7a5d-435e-b829-98027a760516",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.677Z",
+      "crawledAt": "2026-11-01T09:38:40.661Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7317",
-      "streetAddress": "",
+      "streetAddress": "Valens",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -317,12 +289,15 @@
       "salaryMin": 40800,
       "salaryMax": 57000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.661Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -337,13 +312,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/rehaplaner-in-sprechstundenassistenz-m-w-a/721d209e-a226-478b-b68c-87faed6b8380",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.675Z",
+      "crawledAt": "2026-11-01T09:38:40.659Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -359,12 +334,15 @@
       "salaryMin": 54900,
       "salaryMax": 76800,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:38:40.659Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -379,13 +357,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/logopaedin-logopaede-m-w-a/5d99c881-97d1-4712-af9a-e288018c3295",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.673Z",
+      "crawledAt": "2026-11-01T09:38:40.657Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -401,12 +379,15 @@
       "salaryMin": 64000,
       "salaryMax": 89600,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.657Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -421,13 +402,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/pflegefachfrau-mann-in-der-neurologischen-rehabilitation-m-w-a-30/d6924db8-06bd-4624-87e7-b494d263fe23",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.671Z",
+      "crawledAt": "2026-11-01T09:38:40.654Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7317",
-      "streetAddress": "",
+      "streetAddress": "Valens",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -443,12 +424,15 @@
       "salaryMin": 57100,
       "salaryMax": 79800,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.654Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -463,13 +447,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/medizinische-r-masseur-in-m-w-a/0918300d-3eff-4e29-9292-fc16d725f514",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.669Z",
+      "crawledAt": "2026-11-01T09:38:40.653Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -485,12 +469,15 @@
       "salaryMin": 45800,
       "salaryMax": 64000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.653Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -505,13 +492,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/ernaehrungsberater-in-m-w-a/5d4fdc49-08c2-425d-a58c-923513699d3c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.667Z",
+      "crawledAt": "2026-11-01T09:38:40.650Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "category": "Risorse Umane",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -527,12 +514,15 @@
       "salaryMin": 22100,
       "salaryMax": 33500,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.650Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -547,13 +537,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-nachtwache-m-w-a/b76836d1-38cb-4cf7-9103-3a9e3b456a4c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.665Z",
+      "crawledAt": "2026-11-01T09:38:40.647Z",
       "addressLocality": "Davos Clavadel",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7272",
-      "streetAddress": "",
+      "streetAddress": "Davos Clavadel",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -569,12 +559,15 @@
       "salaryMin": 57100,
       "salaryMax": 79800,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.647Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -589,13 +582,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/mediz-fusspfleger-in-oder-dipl-podolog-in-hf-efz-auf-selbstaendiger-basis-moeglich-ca-1-2-1-tag-pro-monat/2bc7dbcd-c66c-4862-983f-080712f97518",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.663Z",
+      "crawledAt": "2026-11-01T09:38:40.644Z",
       "addressLocality": "Walzenhausen",
       "addressRegion": "AR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9428",
-      "streetAddress": "",
+      "streetAddress": "Walzenhausen",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -611,12 +604,15 @@
       "salaryMin": 81000,
       "salaryMax": 113000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:38:40.644Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -631,13 +627,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/ergotherapeut-in-m-w-a/f364fcde-3116-44fe-b7c6-1f9efe976cc4",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.661Z",
+      "crawledAt": "2026-11-01T09:38:40.642Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -653,12 +649,15 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:38:40.642Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -674,13 +673,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-kauffrau-mann-e-profil-oder-mit-berufsmatura/9dffe1ff-16c5-4b45-8719-57c37c6b0d60",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.657Z",
+      "crawledAt": "2026-11-01T09:38:40.638Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7320",
-      "streetAddress": "",
+      "streetAddress": "Sargans",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -696,12 +695,15 @@
       "salaryMin": 73000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.638Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -716,13 +718,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/pflegeexpert-in-m-w-a-auf-wunsch-zusaetzliche-stellenprozente-als-diplomierte-pflegefachperson-moeglich/6c974048-262a-4f2b-8fad-16af02e57c0f",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.654Z",
+      "crawledAt": "2026-11-01T09:38:40.635Z",
       "addressLocality": "Davos Clavdel",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7272",
-      "streetAddress": "",
+      "streetAddress": "Davos Clavdel",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -738,12 +740,15 @@
       "salaryMin": 40800,
       "salaryMax": 57000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.635Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -758,13 +763,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/teamleiter-in-logopaedie-fachverantwortung-m-w-a/ee5b70d9-d9d8-47c5-8f2c-42c23ab6d7b7",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.652Z",
+      "crawledAt": "2026-11-01T09:38:40.633Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -780,12 +785,15 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.633Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -801,13 +809,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/assistent-in-gesundheit-und-soziales-m-w-a/e08006e7-b449-4d4d-8f79-e515cf2ae9cd",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.650Z",
+      "crawledAt": "2026-11-01T09:38:40.631Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -823,12 +831,15 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.631Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -843,13 +854,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-service-m-w-a/981143ea-c9df-4796-b130-26c39628bdd2",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.640Z",
+      "crawledAt": "2026-11-01T09:38:40.624Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7317",
-      "streetAddress": "",
+      "streetAddress": "Valens",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -865,12 +876,15 @@
       "salaryMin": 48900,
       "salaryMax": 68400,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.624Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -885,13 +899,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/assistenzpsychologin-assistenzpsychologen-oder-psychologin-psychologen-m-w-a/04117f56-b6d5-41ca-ae05-24eb7e694afe",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.639Z",
+      "crawledAt": "2026-11-01T09:38:40.621Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9056",
-      "streetAddress": "",
+      "streetAddress": "Gais",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -907,12 +921,15 @@
       "salaryMin": 64800,
       "salaryMax": 90400,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.621Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -927,13 +944,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/medizininformatiker-in-integration-m-w-a/68852031-cf48-4235-b619-4e809a5dfe33",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.637Z",
+      "crawledAt": "2026-11-01T09:38:40.619Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7320",
-      "streetAddress": "",
+      "streetAddress": "Sargans",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -949,12 +966,15 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:38:40.619Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -969,13 +989,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachverantwortliche-r-pflege-neurologie-m-w-a/f9fe9bc6-96b7-4f62-926e-cdfd23b7baec",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.634Z",
+      "crawledAt": "2026-11-01T09:38:40.616Z",
       "addressLocality": "Wald",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8636",
-      "streetAddress": "",
+      "streetAddress": "Wald",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -991,12 +1011,15 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.616Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1011,13 +1034,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/diaetkoechin-diaetkoch-oder-koechin-koch-w-m-a/d1c614ec-de14-4a42-b1d0-7ac1339ea563",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.632Z",
+      "crawledAt": "2026-11-01T09:38:40.613Z",
       "addressLocality": "Davos Clavdel",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7272",
-      "streetAddress": "",
+      "streetAddress": "Davos Clavdel",
       "category": "Ospitalità",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1032,12 +1055,15 @@
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:38:40.613Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1052,13 +1078,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/sozialberater-in-m-w-a/b8deb4bb-dfa3-4815-85df-cce8e92eb05b",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.630Z",
+      "crawledAt": "2026-11-01T09:38:40.609Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -1074,12 +1100,15 @@
       "salaryMin": 45800,
       "salaryMax": 64000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.609Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1094,13 +1123,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-m-w-a/512d3f48-5e02-444a-a730-8b3e1b085a1f",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.627Z",
+      "crawledAt": "2026-11-01T09:38:40.606Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7310",
-      "streetAddress": "",
+      "streetAddress": "Bad Ragaz",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1116,12 +1145,15 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:38:40.606Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1137,13 +1169,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/diabetesfachberater-in-m-w-a/3f73efdd-bc58-44b6-a9f4-8691e175443b",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.624Z",
+      "crawledAt": "2026-11-01T09:38:40.604Z",
       "addressLocality": "St.Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9000",
-      "streetAddress": "",
+      "streetAddress": "St.Gallen",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -1159,12 +1191,15 @@
       "salaryMin": 57100,
       "salaryMax": 79800,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.604Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1179,13 +1214,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/pflegefachfrau-mann-hf-fh-m-w-a/2d729b4b-0e02-402b-80ab-2acfaaac11c2",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.623Z",
+      "crawledAt": "2026-11-01T09:38:40.602Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1201,12 +1236,15 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.602Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1222,13 +1260,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-ueberwachungspflichtige-neurologische-rehabilitation-m-w-a/d598efbd-d58f-41a6-b2d4-b8af92b7eb23",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.621Z",
+      "crawledAt": "2026-11-01T09:38:40.600Z",
       "addressLocality": "Wald ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8636",
-      "streetAddress": "",
+      "streetAddress": "Wald ZH",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1244,12 +1282,15 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.600Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1264,13 +1305,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/aushilfe-thermalbad-fuer-wochenendeinsaetze-m-w-a/a1ae0572-6b35-4ff9-9849-87d5b295f4c8",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.619Z",
+      "crawledAt": "2026-11-01T09:38:40.598Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7317",
-      "streetAddress": "",
+      "streetAddress": "Valens",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -1286,12 +1327,15 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:38:40.598Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1306,13 +1350,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a/308609ce-1aa4-4855-b8d9-140fd765ab8c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.617Z",
+      "crawledAt": "2026-11-01T09:38:40.596Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "9056",
-      "streetAddress": "",
+      "streetAddress": "Gais",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1328,12 +1372,15 @@
       "salaryMin": 72900,
       "salaryMax": 101700,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:38:40.596Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1349,13 +1396,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/unterassistent-in-neurologie-m-w-a/25cfc53e-8a29-47bc-8e79-6b9b21023eab",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.616Z",
+      "crawledAt": "2026-11-01T09:38:40.595Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "7317",
-      "streetAddress": "",
+      "streetAddress": "Valens",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1371,12 +1418,15 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.595Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1392,13 +1442,13 @@
       "url": "https://jobs.valens.ch/offene-stellen/pflegefachfrau-mann-hf-fh-ueberwachungspflichtige-rehabilitation-m-w-a-50/40a36490-5069-4187-b451-bd0b310e01bb",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:16.613Z",
+      "crawledAt": "2026-11-01T09:38:40.593Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1414,14 +1464,17 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:40.593Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

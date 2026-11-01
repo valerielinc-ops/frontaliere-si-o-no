@@ -1,7 +1,7 @@
 {
   "key": "suchthilfe-region-basel",
   "label": "Suchthilfe Region Basel",
-  "generatedAt": "2026-10-31T22:04:45.246Z",
+  "generatedAt": "2026-11-01T09:16:25.997Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5105,
-  "avgDurationMs": 5105,
+  "durationMs": 4893,
+  "avgDurationMs": 4893,
   "durationHistory": [
-    5105
+    4893
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/10/PflegeHF_ESTA_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:29.057Z",
+      "crawledAt": "2026-11-01T09:16:08.086Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -58,12 +58,16 @@
       "salaryMin": 70400,
       "salaryMax": 98400,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Reinach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:16:08.086Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -79,7 +83,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2020/09/Gastfamilien_2020.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:28.492Z",
+      "crawledAt": "2026-11-01T09:16:07.510Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -100,12 +104,16 @@
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:07.510Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -121,7 +129,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/02/Pflege-Fachp-Nacht_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:27.944Z",
+      "crawledAt": "2026-11-01T09:16:06.966Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -142,14 +150,18 @@
       "salaryMin": 70400,
       "salaryMax": 98400,
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "streetAddress": "Reinach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:06.966Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

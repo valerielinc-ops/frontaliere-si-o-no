@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cippatrasporti",
-  "assembledAt": "2026-10-31T22:13:54.035Z",
-  "runId": "41242534428",
+  "assembledAt": "2026-11-01T09:23:59.653Z",
+  "runId": "41292128544",
   "jobs": [
     {
       "id": "cippatrasporti-5dd16ddc181a",
@@ -34,7 +34,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T22:13:48.616Z",
+      "crawledAt": "2026-11-01T09:23:54.147Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -78,7 +78,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6830"
+      "postalCode": "6830",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Cippà Trasporti SA",
+        "streetAddress": "Via Maestri Comacini 7",
+        "postalCode": "6830",
+        "addressLocality": "Chiasso",
+        "addressRegion": "TI",
+        "checkedAt": "2026-10-31T20:48:02.284Z"
+      },
+      "streetAddress": "Via Maestri Comacini 7",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:23:54.147Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cippatrasporti-c38396f76831",
@@ -111,7 +125,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T22:13:48.494Z",
+      "crawledAt": "2026-11-01T09:23:54.033Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -153,7 +167,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6830"
+      "postalCode": "6830",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Cippà Trasporti SA",
+        "streetAddress": "Via Maestri Comacini 7",
+        "postalCode": "6830",
+        "addressLocality": "Chiasso",
+        "addressRegion": "TI",
+        "checkedAt": "2026-10-31T20:48:02.284Z"
+      },
+      "streetAddress": "Via Maestri Comacini 7",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:23:54.033Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cippatrasporti-6360a178ef6c",
@@ -186,7 +214,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Operativo-Trasporti-Terra-Trasporti-Chiasso-693485366.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T22:13:48.394Z",
+      "crawledAt": "2026-11-01T09:23:53.805Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -218,7 +246,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6830"
+      "postalCode": "6830",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Cippà Trasporti SA",
+        "streetAddress": "Via Maestri Comacini 7",
+        "postalCode": "6830",
+        "addressLocality": "Chiasso",
+        "addressRegion": "TI",
+        "checkedAt": "2026-10-31T20:48:02.284Z"
+      },
+      "streetAddress": "Via Maestri Comacini 7",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-31T09:23:53.805Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

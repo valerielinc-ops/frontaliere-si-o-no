@@ -1,7 +1,7 @@
 {
   "crawlerKey": "georg-fischer",
-  "assembledAt": "2026-10-31T21:47:57.140Z",
-  "runId": "41243204704",
+  "assembledAt": "2026-11-01T09:39:28.859Z",
+  "runId": "41292779854",
   "jobs": [
     {
       "id": "georg-fischer-a0edd76948d9",
@@ -35,7 +35,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/SachbearbeiterIn-Kundeninnendienst--m-w-d-_JR11120",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:50.986Z",
+      "crawledAt": "2026-11-01T09:39:21.950Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -76,7 +76,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Georg Fischer",
+        "streetAddress": "Amsler-Laffon-Strasse 9",
+        "postalCode": "8200",
+        "addressLocality": "Schaffhausen",
+        "addressRegion": "SH",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Amsler-Laffon-Strasse 9",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-03T09:39:21.950Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "georg-fischer-12b2871e8228",
@@ -110,7 +124,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/Praktikant-in-QM_JR10915",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:50.321Z",
+      "crawledAt": "2026-11-01T09:39:21.348Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -154,7 +168,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4450"
+      "postalCode": "4450",
+      "streetAddress": "Sissach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:39:21.348Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "georg-fischer-0e543d38cc53",
@@ -188,7 +206,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/EinrichterIn-Gussputzerei--m-w-d-_JR11347",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:49.636Z",
+      "crawledAt": "2026-11-01T09:39:20.740Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -228,7 +246,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4450"
+      "postalCode": "4450",
+      "streetAddress": "Sissach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:39:20.740Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "georg-fischer-926284a2e593",
@@ -261,7 +283,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Application-Consultant-Product-Labeling--m-w-d-_JR11187",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:48.979Z",
+      "crawledAt": "2026-11-01T09:39:20.131Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -305,7 +327,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Georg Fischer",
+        "streetAddress": "Amsler-Laffon-Strasse 9",
+        "postalCode": "8200",
+        "addressLocality": "Schaffhausen",
+        "addressRegion": "SH",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Amsler-Laffon-Strasse 9",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-07T09:39:20.131Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "georg-fischer-6eb80446e812",
@@ -338,7 +374,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/SAP-Consultant--m-f-d-_JR11485",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:48.298Z",
+      "crawledAt": "2026-11-01T09:39:19.524Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -382,7 +418,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Georg Fischer",
+        "streetAddress": "Amsler-Laffon-Strasse 9",
+        "postalCode": "8200",
+        "addressLocality": "Schaffhausen",
+        "addressRegion": "SH",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Amsler-Laffon-Strasse 9",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:39:19.524Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "georg-fischer-e3f18043fae5",
@@ -416,7 +466,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/ProduktionsplanerIn--m-w-d---80-_JR11554",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:47.610Z",
+      "crawledAt": "2026-11-01T09:39:18.905Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -465,7 +515,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Georg Fischer",
+        "streetAddress": "Amsler-Laffon-Strasse 9",
+        "postalCode": "8200",
+        "addressLocality": "Schaffhausen",
+        "addressRegion": "SH",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Amsler-Laffon-Strasse 9",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-14T09:39:18.905Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "georg-fischer-5a206d16e35b",
@@ -499,7 +563,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/AutomatikerIn--m-w-d-_JR11484-1",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:46.942Z",
+      "crawledAt": "2026-11-01T09:39:18.293Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -550,7 +614,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4450"
+      "postalCode": "4450",
+      "streetAddress": "Sissach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:39:18.293Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "georg-fischer-4d01562365be",
@@ -584,7 +652,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Microscopy---Analytics-Expert--m-f-d-_JR11455-1",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:46.266Z",
+      "crawledAt": "2026-11-01T09:39:17.685Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -635,7 +703,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Georg Fischer",
+        "streetAddress": "Amsler-Laffon-Strasse 9",
+        "postalCode": "8200",
+        "addressLocality": "Schaffhausen",
+        "addressRegion": "SH",
+        "checkedAt": "2026-10-31T20:48:52.002Z"
+      },
+      "streetAddress": "Amsler-Laffon-Strasse 9",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-20T09:39:17.685Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "georg-fischer-99110c518118",
@@ -669,7 +751,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Anlagenfhrer-im-4-Schichtbetrieb-100---m-w-d-_JR11096",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:45.583Z",
+      "crawledAt": "2026-11-01T09:39:17.065Z",
       "addressLocality": "Seewis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -731,7 +813,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "streetAddress": "Seewis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:39:17.065Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "georg-fischer-21dc7f59a982",
@@ -765,7 +851,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schlatt-Thurgau/Praktikant-in-GF-Konzernarchiv-und-Eisenbibliothek--w-m-d---100---9---12-Monate_JR11632",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:44.924Z",
+      "crawledAt": "2026-11-01T09:39:16.455Z",
       "addressLocality": "Schlatt, Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -814,83 +900,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8252"
-    },
-    {
-      "id": "georg-fischer-424358455e22",
-      "slug": "raccordi-per-stampi-100-m-f-d-georg-fischer-graubunden",
-      "slugByLocale": {
-        "it": "raccordi-per-stampi-100-m-f-d-georg-fischer-graubunden",
-        "en": "mould-fitting-100-m-f-d-georg-fischer-graubunden",
-        "de": "formenmonteur-100-m-w-d-georg-fischer-ch",
-        "fr": "montage-de-moules-100-h-f-d-georg-fischer-graubunden"
-      },
-      "company": "Georg Fischer",
-      "companyKey": "georg-fischer",
-      "companyDomain": "georgfischer.com",
-      "title": "Formenmonteur 100 % (m/w/d)",
-      "titleByLocale": {
-        "it": "Raccordi per stampi 100 % (m/f/d)",
-        "en": "Mould fitting 100 % (m/f/d)",
-        "de": "Formenmonteur 100 % (m/w/d)",
-        "fr": "Montage de moules 100 % (h/f/d)"
-      },
-      "description": "Ihre Aufgaben:\n\n• Montage und Umbau von Spritzgussformen nach Auftragspapieren und Arbeitsanweisungen\n\n• Demontage und Reinigung von Spritzgussformen\n\n• Ablegen von Formeneinzelteilen in die zugehörigen Formkisten\n\n• Arbeitsplatz aufräumen und reinigen\n\nIhr Profil:\n\n• Handwerkliche Grundausbildung abgeschlossen oder ausgeprägtes handwerkliches Geschick in diesem Bereich\n\n• Teamfähigkeit und technische Affinität\n\n• Selbstständige und qualitätsbewusste Arbeitsweise\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nContact person:\n\nCindy Studer\nHead HR Switzerland & Seewis\ncindy.studer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
-      "descriptionByLocale": {
-        "it": "I loro compiti:\n\n• Installazione e conversione di stampi a iniezione secondo documenti applicativi e istruzioni di lavoro\n\n• Smantellamento e pulizia di stampi ad iniezione\n\n• Lo stampo di deposito parti singole nelle scatole di stampi associate\n\n• Pulizia del posto di lavoro\n\nIl tuo profilo:\n\n• Formazione artigianale di base completata o pronunciata abilità artigianali in questo campo\n\n• Lavoro di squadra e affinità tecnica\n\n• Metodo di lavoro indipendente e di qualità\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\nContatto:\n\nCindy Studer\nResponsabile HR Svizzera & Seewis\ncindy.studer@georgfischer.com\nSi prega di inviare la domanda tramite il pulsante 'Applica'. L'email del reclutatore è solo per le richieste.",
-        "en": "Their tasks:\n\n• Installation and conversion of injection moulds according to application documents and working instructions\n\n• Dismantling and cleaning of injection moulds\n\n• Depositing mould individual parts into the associated mould boxes\n\n• Cleaning the workplace\n\nYour profile:\n\n• Basic craft training completed or pronounced craftsmanship skills in this field\n\n• Teamwork and technical affinity\n\n• Independent and quality-conscious working method\n\n• Good knowledge of German in words and writing\n\nContact person:\n\nCindy Studer\nHead of HR Switzerland & Seewis\ncindy.studer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
-        "de": "Ihre Aufgaben:\n\n• Montage und Umbau von Spritzgussformen nach Auftragspapieren und Arbeitsanweisungen\n\n• Demontage und Reinigung von Spritzgussformen\n\n• Ablegen von Formeneinzelteilen in die zugehörigen Formkisten\n\n• Arbeitsplatz aufräumen und reinigen\n\nIhr Profil:\n\n• Handwerkliche Grundausbildung abgeschlossen oder ausgeprägtes handwerkliches Geschick in diesem Bereich\n\n• Teamfähigkeit und technische Affinität\n\n• Selbstständige und qualitätsbewusste Arbeitsweise\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nContact person:\n\nCindy Studer\nHead HR Switzerland & Seewis\ncindy.studer@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
-        "fr": "Leurs tâches:\n\n• Installation et conversion des moules d'injection selon les documents d'application et les instructions de travail\n\n• Démantèlement et nettoyage des moules d'injection\n\n• Dépôt de pièces individuelles dans les boîtes de moules associées\n\n• Nettoyage des lieux de travail\n\nVotre profil:\n\n• Formation artisanale de base complétée ou prononcée dans ce domaine\n\n• Travail d'équipe et affinité technique\n\n• Méthode de travail indépendante et soucieuse de la qualité\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\nPersonne à contacter:\n\nCindy Studer\nResponsable de HR Suisse & Seewis\ncindy.studer@georgfischer.com\nVeuillez soumettre votre candidature via le bouton « Appliquer ». L'email du recruteur est réservé aux demandes de renseignements."
-      },
-      "needsRetranslation": false,
-      "location": "Seewis",
-      "canton": "GR",
-      "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Formenmonteur-100----m-w-d-_JR11198",
-      "source": "Georg Fischer Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:29:07.673Z",
-      "addressLocality": "Seewis",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-07",
-      "postedDate": "2026-09-07",
-      "postingDateSource": "reported",
-      "applyUrl": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Formenmonteur-100----m-w-d-_JR11198",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "JR11198",
-      "previousSlugs": [
-        "formenmonteur-100-m-w-d-georg-fischer-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "formenmonteur-100-m-w-d-georg-fischer-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T23:41:17.395Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7000",
-      "crawlerMissStreak": 2
+      "postalCode": "8252",
+      "streetAddress": "Schlatt, Thurgau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:39:16.455Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

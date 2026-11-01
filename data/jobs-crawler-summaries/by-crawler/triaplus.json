@@ -1,7 +1,7 @@
 {
   "key": "triaplus",
   "label": "Triaplus AG",
-  "generatedAt": "2026-10-31T21:38:52.545Z",
+  "generatedAt": "2026-11-01T09:21:08.068Z",
   "total": 21,
   "discovered": null,
   "parsed": 21,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 19,
-  "durationMs": 25551,
-  "avgDurationMs": 25551,
+  "durationMs": 26756,
+  "avgDurationMs": 26756,
   "durationHistory": [
-    25551
+    26756
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://karriere.triaplus.ch/jobs/ernaehrungsberaterin-w-m-d-im-stundenlohn/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:28.362Z",
+      "crawledAt": "2026-11-01T09:20:40.689Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -57,12 +57,16 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:40.689Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -77,7 +81,7 @@
       "url": "https://karriere.triaplus.ch/jobs/oberaerztin-w-m-d-ambulant/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:24.077Z",
+      "crawledAt": "2026-11-01T09:20:35.172Z",
       "addressLocality": "Goldau",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -98,12 +102,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Goldau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:35.172Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
@@ -121,7 +129,7 @@
       "url": "https://karriere.triaplus.ch/jobs/lehrstelle-als-koch-koechin-efz/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:37.681Z",
+      "crawledAt": "2026-11-01T09:20:50.834Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -142,12 +150,16 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:50.834Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -162,7 +174,7 @@
       "url": "https://karriere.triaplus.ch/jobs/lehrstelle-als-fachfrau-mann-hauswirtschaft-efz/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:36.812Z",
+      "crawledAt": "2026-11-01T09:20:49.929Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -183,12 +195,16 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:49.929Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -203,7 +219,7 @@
       "url": "https://karriere.triaplus.ch/jobs/lehrstelle-als-fachmann-frau-betriebsunterhalt-efz/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:35.971Z",
+      "crawledAt": "2026-11-01T09:20:49.032Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -224,12 +240,16 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:49.032Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -244,7 +264,7 @@
       "url": "https://karriere.triaplus.ch/jobs/lehrstelle-als-kauffrau-kaufmann-efz/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:35.158Z",
+      "crawledAt": "2026-11-01T09:20:48.121Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -265,12 +285,16 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:48.121Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -286,7 +310,7 @@
       "url": "https://karriere.triaplus.ch/jobs/praktikant-pflege-m-w-d/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:34.320Z",
+      "crawledAt": "2026-11-01T09:20:47.232Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -307,12 +331,16 @@
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:20:47.232Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -328,7 +356,7 @@
       "url": "https://karriere.triaplus.ch/jobs/ausbildung-zur-diplomierten-pflegefachperson-hf-psychiatrie-2/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:33.478Z",
+      "crawledAt": "2026-11-01T09:20:46.260Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -349,12 +377,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:46.260Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -370,7 +402,7 @@
       "url": "https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-w-m-d-stationaer-gerontostation-2-lebenshaelfte/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:32.617Z",
+      "crawledAt": "2026-11-01T09:20:45.329Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -391,12 +423,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:45.329Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -412,7 +448,7 @@
       "url": "https://karriere.triaplus.ch/jobs/oberaerztin-w-m-d-fuer-kinder-und-jugendpsychiatrie-ambulant-3/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:31.766Z",
+      "crawledAt": "2026-11-01T09:20:44.411Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -433,12 +469,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Baar",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:44.411Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -454,7 +494,7 @@
       "url": "https://karriere.triaplus.ch/jobs/oberpsychologin-w-m-d-kinder-und-jugendpsychiatrie-ambulant/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:30.905Z",
+      "crawledAt": "2026-11-01T09:20:43.499Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -475,12 +515,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Baar",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:43.499Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -496,7 +540,7 @@
       "url": "https://karriere.triaplus.ch/jobs/fachperson-gesundheit-akut-und-allgemeinpsychiatrie/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:30.047Z",
+      "crawledAt": "2026-11-01T09:20:42.545Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -517,12 +561,16 @@
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:42.545Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -537,7 +585,7 @@
       "url": "https://karriere.triaplus.ch/jobs/stv-stationsleiterin-w-m-d-akut-und-allgemeinpsychiatrie/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:29.209Z",
+      "crawledAt": "2026-11-01T09:20:41.641Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -558,12 +606,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:41.641Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -579,7 +631,7 @@
       "url": "https://karriere.triaplus.ch/jobs/oberaerztin-w-m-d-fuer-kinder-und-jugendpsychiatrie-ambulant/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:27.553Z",
+      "crawledAt": "2026-11-01T09:20:38.792Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -600,12 +652,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Altdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:38.792Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -621,7 +677,7 @@
       "url": "https://karriere.triaplus.ch/jobs/fachperson-gesundheit-stationaer-gerontostation-2-lebenshaelfte/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:26.707Z",
+      "crawledAt": "2026-11-01T09:20:37.895Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -642,12 +698,16 @@
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:37.895Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -663,7 +723,7 @@
       "url": "https://karriere.triaplus.ch/jobs/sozialarbeiter-in-w-m-d/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:25.745Z",
+      "crawledAt": "2026-11-01T09:20:36.962Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -684,12 +744,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Baar",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:36.962Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -705,7 +769,7 @@
       "url": "https://karriere.triaplus.ch/jobs/psychologin-oder-psychologe-mit-fachtitel-neuropsychologie-m-w-d/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:24.902Z",
+      "crawledAt": "2026-11-01T09:20:36.081Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -726,12 +790,16 @@
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Baar",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:36.081Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -747,7 +815,7 @@
       "url": "https://karriere.triaplus.ch/jobs/praktikum-in-sozialarbeit-stationaer-fuer-ein-jahr-oder-ein-semester/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:23.218Z",
+      "crawledAt": "2026-11-01T09:20:34.258Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -768,12 +836,16 @@
       "salaryMin": 67000,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:20:34.258Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -789,7 +861,7 @@
       "url": "https://karriere.triaplus.ch/jobs/dipl-pflegefachperson-hf-fh-w-m-d-fuer-psychiatrie-und-psychotherapie-ambulant/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:22.408Z",
+      "crawledAt": "2026-11-01T09:20:33.363Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -810,12 +882,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:20:33.363Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -831,7 +907,7 @@
       "url": "https://karriere.triaplus.ch/jobs/junior-controller-m-w-d/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:21.577Z",
+      "crawledAt": "2026-11-01T09:20:32.431Z",
       "addressLocality": "Oberwil",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -852,12 +928,16 @@
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Oberwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:20:32.431Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -872,7 +952,7 @@
       "url": "https://karriere.triaplus.ch/jobs/assistenzarzt-m-w-d-fuer-kinder-und-jugendpsychiatrie-80-100-ambulant/",
       "source": "Triaplus AG Dedicated Parser (WordPress career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:38:20.757Z",
+      "crawledAt": "2026-11-01T09:20:31.466Z",
       "addressLocality": "Goldau",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -893,14 +973,18 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Goldau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:20:31.466Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

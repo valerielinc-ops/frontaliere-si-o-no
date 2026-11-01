@@ -1,7 +1,7 @@
 {
   "key": "csvm-mustair",
   "label": "Center da Sanda Val Müstair (CSVM)",
-  "generatedAt": "2026-10-31T21:49:20.451Z",
+  "generatedAt": "2026-11-01T09:25:32.455Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 6799,
-  "avgDurationMs": 6799,
+  "durationMs": 5437,
+  "avgDurationMs": 5437,
   "durationHistory": [
-    6799
+    5437
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:05.806Z",
+      "crawledAt": "2026-11-01T09:25:21.331Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -59,12 +59,16 @@
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sta",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:21.331Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -80,7 +84,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:05.628Z",
+      "crawledAt": "2026-11-01T09:25:21.189Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -101,12 +105,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sta",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:21.189Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -122,7 +130,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:05.466Z",
+      "crawledAt": "2026-11-01T09:25:21.049Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -143,12 +151,16 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sta",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:21.049Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -163,7 +175,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/medizinische-praxisassistentin-efz-60.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:05.297Z",
+      "crawledAt": "2026-11-01T09:25:20.909Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -184,12 +196,16 @@
       "salaryMin": 48900,
       "salaryMax": 68400,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sta",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:20.909Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -204,7 +220,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-60-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:05.121Z",
+      "crawledAt": "2026-11-01T09:25:20.769Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -225,12 +241,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sta",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:25:20.769Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -246,7 +266,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf-ab-60.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:04.766Z",
+      "crawledAt": "2026-11-01T09:25:20.486Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -267,14 +287,18 @@
       "salaryMin": 48900,
       "salaryMax": 68400,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sta",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:25:20.486Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }
