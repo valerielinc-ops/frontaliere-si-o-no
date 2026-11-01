@@ -252,7 +252,9 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
     page.after(3500, () => element('form')?.insertAdjacentHTML('beforeend', '<label for="late-question">Which professional certification do you hold? *</label><input id="late-question" name="late-question" required>'));
   }
   if (asyncDescriptionChanges) {
-    element('label[for="motivation"]').textContent = 'Additional information *';
+    // Use the generated machine label so the question must come from the
+    // updated live description, not from planner-authored replacement text.
+    element('label[for="motivation"]').textContent = 'textarea_123 *';
     page.after(3500, () => element('#motivation')?.setAttribute('aria-description', 'Describe your experience leading regional teams.'));
   }
   if (asyncValueChanges) {
@@ -348,7 +350,8 @@ describe('assisted portal question batching', () => {
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
     expect(window.document.getElementById('submit')?.getAttribute('data-clicked')).not.toBe('true');
     expect(ctaClicks).toEqual([]);
-    expect(accountEvents).toEqual(['save', 'discard']);
+    // A candidate-question handoff happens before credentials are persisted.
+    expect(accountEvents).toEqual([]);
   });
 
   it('batches already visible hard questions with hard questions revealed by privacy acceptance', async () => {
@@ -398,7 +401,7 @@ describe('assisted portal question batching', () => {
     expect(window.document.getElementById('unknown-requirement')).not.toBeNull();
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
     expect(window.document.getElementById('submit')?.getAttribute('data-clicked')).not.toBe('true');
-    expect(accountEvents).toEqual(['save', 'discard']);
+    expect(accountEvents).toEqual([]);
   });
 
   it('hands off a required CV revealed by privacy when no verified upload is available', async () => {
@@ -441,7 +444,7 @@ describe('assisted portal question batching', () => {
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
     expect(window.document.getElementById('submit')?.getAttribute('data-clicked')).not.toBe('true');
     expect(ctaClicks).toEqual([]);
-    expect(accountEvents).toEqual(['save', 'discard']);
+    expect(accountEvents).toEqual([]);
   });
 
   it('replans a registration after known answers reveal conditional questions before asking the candidate', async () => {
@@ -489,7 +492,7 @@ describe('assisted portal question batching', () => {
       },
     });
 
-    expect(plannerCalls).toBe(2);
+    expect(plannerCalls).toBe(3);
     expect(elementValue(window, '#country')).toBe('IT');
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
       'Why are you interested in this role? *',
@@ -584,7 +587,7 @@ describe('assisted portal question batching', () => {
     expect(result.handoff).toBe('portal_required_file_unhandled');
     expect(ctaClicks).toEqual([]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
-    expect(accountEvents).toEqual(['discard']);
+    expect(accountEvents).toEqual([]);
   });
 
   it('replans after a privacy-revealed known answer exposes another hard question', async () => {
@@ -665,6 +668,8 @@ describe('assisted portal question batching', () => {
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
       'Which security clearance do you hold? *',
+      'Country of residence *',
+      'Why are you interested in this role? *',
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
   });
@@ -705,6 +710,8 @@ describe('assisted portal question batching', () => {
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
       'Which professional certification do you hold? *',
+      'Country of residence *',
+      'Why are you interested in this role? *',
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
   });
@@ -748,9 +755,10 @@ describe('assisted portal question batching', () => {
     expect(plannerCalls).toBe(2);
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
       'Describe your experience leading regional teams. *',
+      'Country of residence *',
     ]);
     expect(plannerInputs.some((input) => input.includes('Describe your experience leading regional teams.'))).toBe(true);
-    expect(plannerInputs.some((input) => input.includes('Additional information *'))).toBe(true);
+    expect(plannerInputs.some((input) => input.includes('textarea_123 *'))).toBe(true);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
   });
 
@@ -760,9 +768,11 @@ describe('assisted portal question batching', () => {
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     const initialControlCount = window.document.querySelectorAll('input, textarea, select').length;
     let plannerCalls = 0;
+    const plannerInputs: string[] = [];
     const codex = async ({ prompt }: any) => {
       if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
       plannerCalls += 1;
+      plannerInputs.push(JSON.stringify(prompt));
       return {
         actions: [],
         missingRequired: plannerCalls > 1
@@ -792,8 +802,10 @@ describe('assisted portal question batching', () => {
     expect(window.document.querySelectorAll('input, textarea, select')).toHaveLength(initialControlCount);
     expect(elementValue(window, '#motivation')).toBe('Autofilled by the application');
     expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
-      'Describe the autofilled answer before applying. *',
+      'Why are you interested in this role? *',
+      'Country of residence *',
     ]);
+    expect(plannerInputs.some((input) => input.includes('Autofilled by the application'))).toBe(true);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
   });
 

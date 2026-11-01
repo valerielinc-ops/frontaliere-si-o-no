@@ -74,7 +74,10 @@ const AUTH_VIEW_TIMEOUT_MS = 8_000;
 const AUTH_TYPED_WAIT_MS = 600;
 // How long a choice gets to redraw the form it belongs to, and how often one page is planned again for it.
 const REDRAW_WAIT_MS = 3000;
-const MAX_REDRAWS_PER_PAGE = 2;
+// Conditional ATS forms can reveal one required answer per successful edit
+// (for example country → city → postal code). Replan after each change, but
+// keep a finite ceiling so an unstable portal still hands off safely.
+const MAX_REDRAWS_PER_PAGE = 4;
 const QUESTION_SURFACE_WAIT_MS = 10_000;
 const QUESTION_SURFACE_MIN_OBSERVATION_MS = 6000;
 const QUESTION_SURFACE_STABLE_MS = 1500;
@@ -4681,7 +4684,7 @@ export async function submitViaPortal(ctx) {
           ...await applyActions(page, snapshot.fields, choices, ctx.files),
         ];
         // The form after the choices: with other fields than the ones planned it is read and planned again
-        // (twice at most for one page), and nothing is typed into what is no longer there.
+        // (up to four times for one page), and nothing is typed into what is no longer there.
         let redrawn = false;
         if (choices.length) {
           for (let waited = 0; waited < REDRAW_WAIT_MS && !redrawn && page.url() === plannedUrl; waited += 500) {

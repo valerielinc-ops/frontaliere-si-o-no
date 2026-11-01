@@ -1207,7 +1207,8 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       return {
         url: () => pageUrl,
         evaluate: async (reader: unknown) => reader === extractFieldsInPage ? snapshot : null,
-        locator: () => ({ first: () => control }),
+        locator: () => ({ first: () => control, allInnerTexts: async () => [] }),
+        getByRole: () => ({ first: () => control, allInnerTexts: async () => [] }),
       };
     };
     const parentFrame = makeFrame('Ada Example');
