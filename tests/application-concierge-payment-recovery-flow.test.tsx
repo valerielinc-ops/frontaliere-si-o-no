@@ -59,7 +59,7 @@ beforeEach(() => {
   mocks.widgetResponses.length = 0;
   window.history.replaceState(null, '', '/');
   mocks.auth.currentUser = owner;
-  mocks.fetchService.mockResolvedValue(service);
+  mocks.fetchService.mockReset().mockResolvedValue(service);
   mocks.checkout.mockResolvedValue({ ok: true, paymentProvider: 'sumup', checkoutId: 'sumup-test', serviceId: 'service-test' });
 });
 afterEach(() => { cleanup(); vi.useRealTimers(); vi.unstubAllGlobals(); });
@@ -431,6 +431,7 @@ it('ignores a late settled refresh after switching to another concierge service'
 
 it('ignores a late settled refresh after switching candidate accounts', async () => {
   const restoreVisibility = makeDocumentVisible();
+  const focusListener = vi.spyOn(window, 'addEventListener');
   const oldService = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'complete', proposals: [] };
   const nextService = {
     ...oldService,
@@ -458,6 +459,7 @@ it('ignores a late settled refresh after switching candidate accounts', async ()
   try {
     const view = render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
     expect(await screen.findByText('jobBoard.concierge.noProposals')).toBeTruthy();
+    await waitFor(() => expect(focusListener).toHaveBeenCalledWith('focus', expect.any(Function)));
     fireEvent.focus(window);
     await waitFor(() => expect(mocks.fetchService).toHaveBeenCalledTimes(2));
 
@@ -473,6 +475,7 @@ it('ignores a late settled refresh after switching candidate accounts', async ()
     expect(screen.getByText('Next account proposal')).toBeTruthy();
     expect(screen.queryByText('Old account proposal')).toBeNull();
   } finally {
+    focusListener.mockRestore();
     restoreVisibility();
   }
 });
