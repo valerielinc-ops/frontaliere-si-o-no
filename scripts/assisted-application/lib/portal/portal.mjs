@@ -633,7 +633,7 @@ function isNonApplicationGallerySurface(snapshot = {}) {
   const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
   const hasPaging = buttons.some((button) => isGalleryPagingButton(button, GALLERY_PREVIOUS_RE))
-    && buttons.some((button) => isGalleryPagingButton(button, GALLERY_NEXT_RE));
+    || buttons.some((button) => isGalleryPagingButton(button, GALLERY_NEXT_RE));
   const hasGalleryTools = buttons.some((button) => !button?.chrome && GALLERY_VIEW_RE.test(String(button.text || '')))
     && buttons.some((button) => !button?.chrome && GALLERY_PRINT_RE.test(String(button.text || '')));
   if (!hasPaging || !hasGalleryTools) return false;
@@ -646,7 +646,8 @@ function isNonApplicationGallerySurface(snapshot = {}) {
     const text = String(button.text || '');
     if (!(NEXT_RE.test(text) || SUBMIT_RE.test(text))) return false;
     return fields.some((field) => samePortalForm(button, field));
-  }) || buttons.some((button) => !button?.chrome && SUBMIT_RE.test(String(button.text || ''))
+  }) || buttons.some((button) => !button?.chrome
+    && (NEXT_RE.test(String(button.text || '')) || SUBMIT_RE.test(String(button.text || '')))
     && APPLICATION_CONTROL_RE.test(String(button.text || '')));
   if (hasApplicationField || hasApplicationControl) return false;
   return fields.length === 0 || fields.every(isGenericOptionalAttachment);
@@ -3856,8 +3857,8 @@ export function pageControls(buttons, known, url, context = null) {
     if (['receipt', 'unknown_apply', 'posting_mismatch'].includes(stage.kind)) return { submit: null, next: null, stage };
   }
   const here = anonymizePath(url);
-  const submit = findButton(buttons, SUBMIT_RE);
   const gallerySurface = isNonApplicationGallerySurface({ buttons, fields: context?.snapshot?.fields });
+  const submit = gallerySurface ? null : findButton(buttons, SUBMIT_RE);
   const usualNext = gallerySurface ? null : findButton(buttons, NEXT_RE);
   const taughtNext = gallerySurface || submit || usualNext ? null : learnedButton(buttons, labelsAt(known.nextButtons, here));
   const learnedSubmit = gallerySurface ? null : learnedButton(buttons, labelsAt(known.finalButtons, here));

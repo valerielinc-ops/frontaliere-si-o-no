@@ -124,6 +124,58 @@ describe('portal runner self-correction', () => {
     expect(hasApplicationSurface(snapshot)).toBe(false);
   });
 
+  it('rejects a first or last gallery with only one paging direction', () => {
+    const snapshot = {
+      fields: [{
+        id: 'attachment', kind: 'file', inputType: 'file',
+        label: 'Eine oder mehrere Dateien auswählen (optional).', required: false,
+      }],
+      buttons: [
+        { text: 'Nächstes', disabled: false },
+        { text: 'Öffne Bild in Grossansicht', disabled: false },
+        { text: 'Seite drucken', disabled: false },
+      ],
+    };
+
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://www.stadt-zuerich.ch/bewerbungstipps/', { snapshot }))
+      .toEqual({ submit: null, next: null });
+    expect(hasApplicationSurface(snapshot)).toBe(false);
+  });
+
+  it('suppresses a submit-like gallery control as well as its pager', () => {
+    const snapshot = {
+      fields: [{
+        id: 'attachment', kind: 'file', inputType: 'file',
+        label: 'Eine oder mehrere Dateien auswählen (optional).', required: false,
+      }],
+      buttons: [
+        { text: 'Nächstes', disabled: false },
+        { text: 'Submit', disabled: false },
+        { text: 'Öffne Bild in Grossansicht', disabled: false },
+        { text: 'Seite drucken', disabled: false },
+      ],
+    };
+
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://www.stadt-zuerich.ch/bewerbungstipps/', { snapshot }))
+      .toEqual({ submit: null, next: null });
+  });
+
+  it('keeps a field-less application next widget on a gallery-shaped page', () => {
+    const next = { text: 'Next application step', disabled: false };
+    const snapshot = {
+      fields: [],
+      buttons: [
+        { text: 'Vorheriges', disabled: false },
+        next,
+        { text: 'Öffne Bild in Grossansicht', disabled: false },
+        { text: 'Seite drucken', disabled: false },
+      ],
+    };
+
+    expect(hasApplicationSurface(snapshot)).toBe(true);
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://portal.example/apply/', { snapshot }).next).toBe(next);
+  });
+
   it('keeps a German next step when the control owns an application form', () => {
     const next = { text: 'Nächstes', formId: 'application', frame: 0, disabled: false };
     const snapshot = {
