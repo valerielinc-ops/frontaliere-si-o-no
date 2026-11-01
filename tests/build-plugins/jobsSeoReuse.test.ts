@@ -29,6 +29,7 @@ import {
   compareActiveJobsByStableOrder,
   hasActiveJobPostingJsonLd,
   replaceActiveJobPostingDates,
+  replaceJobPostingJsonLd,
   activeJobSourceValidThrough,
   rewriteActiveBridgeHtml,
   rewriteActiveJobHtml,
@@ -200,6 +201,30 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(activeJobSourceValidThrough({ validThrough: '2026-11-07' })).toBe('2026-11-07T00:00:00.000Z');
     expect(activeJobSourceValidThrough({ crawledAt: '2026-10-01T00:00:00.000Z' })).toBeNull();
     expect(activeJobSourceValidThrough({ validThrough: 'not a date' })).toBeNull();
+  });
+
+  it('refreshes the current JobPosting description together with its dates', () => {
+    const fragment = '<script type="application/ld+json">'
+      + '{"@context":"https://schema.org","@type":"JobPosting","title":"Test",'
+      + '"description":"Old renderer output","datePosted":"old",'
+      + '"validThrough":"old","crawledAt":"old"}'
+      + '</script>';
+    const result = replaceActiveJobPostingDates(
+      fragment,
+      '2026-10-20T00:00:00.000Z',
+      '2026-12-31T00:00:00.000Z',
+      '2026-10-24T08:00:00.000Z',
+      'Current renderer output',
+    );
+    const json = result.match(/<script[^>]*>([\s\S]*?)<\/script>/)?.[1] || '';
+    expect(JSON.parse(json)).toMatchObject({
+      '@type': 'JobPosting',
+      title: 'Test',
+      description: 'Current renderer output',
+      datePosted: '2026-10-20T00:00:00.000Z',
+      validThrough: '2026-12-31T00:00:00.000Z',
+      crawledAt: '2026-10-24T08:00:00.000Z',
+    });
   });
 
   it('forces a fresh render when a previously unknown job gains a reported date', () => {
@@ -470,6 +495,20 @@ describe('jobs SEO disk HTML reuse', () => {
     );
 
     expect(rewriteActiveBridgeHtml(cachedBridge, currentCanonical)).toBe(expectedBridge);
+  });
+
+  it('replaces the complete archived JobPosting script and leaves other JSON-LD alone', () => {
+    const html = '<html><head>'
+      + '<script type="application/ld+json">{"@type":"WebPage","description":"Keep me"}</script>'
+      + '<script type="application/ld+json">{"@type":"JobPosting","description":"Old"}</script>'
+      + '</head></html>';
+    const fresh = '<script type="application/ld+json">'
+      + '{"@context":"https://schema.org","@type":"JobPosting","description":"Fresh"}'
+      + '</script>';
+    const result = replaceJobPostingJsonLd(html, fresh);
+    expect(result).toContain('{"@type":"WebPage","description":"Keep me"}');
+    expect(result).toContain('{"@context":"https://schema.org","@type":"JobPosting","description":"Fresh"}');
+    expect(result).not.toContain('"description":"Old"');
   });
 
   it('is disabled unless JOBS_SEO_REUSE=1', async () => {

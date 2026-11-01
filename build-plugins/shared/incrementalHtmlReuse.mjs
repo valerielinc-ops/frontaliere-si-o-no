@@ -1131,6 +1131,121 @@ export function normalizeHtmlForReuse(html) {
     );
 }
 
+const JOB_POSTING_DESCRIPTION_REUSE_SENTINEL = '__jobs_seo_reuse_job_posting_description__';
+
+function normalizeJobPostingDescriptionJson(json) {
+  const replacements = [];
+  let offset = 0;
+  const skipWhitespace = () => {
+    while (/\s/.test(json[offset] || '')) offset += 1;
+  };
+  const readString = () => {
+    const start = offset;
+    offset += 1;
+    let escaped = false;
+    while (offset < json.length) {
+      const character = json[offset];
+      offset += 1;
+      if (escaped) escaped = false;
+      else if (character === '\\') escaped = true;
+      else if (character === '"') {
+        return { start, end: offset, value: JSON.parse(json.slice(start, offset)), kind: 'string' };
+      }
+    }
+    throw new Error('unterminated JSON string');
+  };
+  const parseValue = () => {
+    skipWhitespace();
+    const start = offset;
+    if (json[offset] === '"') return readString();
+    if (json[offset] === '{') {
+      offset += 1;
+      skipWhitespace();
+      const properties = new Map();
+      if (json[offset] !== '}') {
+        while (offset < json.length) {
+          skipWhitespace();
+          const key = readString().value;
+          skipWhitespace();
+          if (json[offset] !== ':') throw new Error('invalid JSON object');
+          offset += 1;
+          const value = parseValue();
+          properties.set(key, value);
+          skipWhitespace();
+          if (json[offset] === '}') break;
+          if (json[offset] !== ',') throw new Error('invalid JSON object');
+          offset += 1;
+        }
+      }
+      if (json[offset] !== '}') throw new Error('unterminated JSON object');
+      offset += 1;
+      const type = properties.get('@type');
+      const isJobPosting = type?.kind === 'string'
+        ? type.value === 'JobPosting'
+        : type?.kind === 'array' && type.items.some((item) => item.kind === 'string' && item.value === 'JobPosting');
+      const description = properties.get('description');
+      if (isJobPosting && description?.kind === 'string') {
+        replacements.push({ start: description.start, end: description.end });
+      }
+      return { start, end: offset, kind: 'object' };
+    }
+    if (json[offset] === '[') {
+      offset += 1;
+      skipWhitespace();
+      const items = [];
+      if (json[offset] !== ']') {
+        while (offset < json.length) {
+          items.push(parseValue());
+          skipWhitespace();
+          if (json[offset] === ']') break;
+          if (json[offset] !== ',') throw new Error('invalid JSON array');
+          offset += 1;
+        }
+      }
+      if (json[offset] !== ']') throw new Error('unterminated JSON array');
+      offset += 1;
+      return { start, end: offset, kind: 'array', items };
+    }
+    while (offset < json.length && !/[\s,\]}]/.test(json[offset])) offset += 1;
+    if (offset === start) throw new Error('invalid JSON value');
+    const value = JSON.parse(json.slice(start, offset));
+    return { start, end: offset, kind: value === null ? 'null' : typeof value };
+  };
+
+  try {
+    JSON.parse(json);
+    parseValue();
+    skipWhitespace();
+    if (offset !== json.length || replacements.length === 0) return null;
+  } catch {
+    return null;
+  }
+
+  let normalized = json;
+  for (const { start, end } of replacements.sort((left, right) => right.start - left.start)) {
+    normalized = `${normalized.slice(0, start)}${JSON.stringify(JOB_POSTING_DESCRIPTION_REUSE_SENTINEL)}${normalized.slice(end)}`;
+  }
+  return normalized;
+}
+
+/**
+ * Probe comparison may tolerate a JobPosting description-only renderer change
+ * because callers refresh that description from the current source before
+ * reusing HTML. Every other JobPosting field and every non-JSON-LD byte stays
+ * in the comparison, so a body/template change still invalidates the block.
+ */
+export function normalizeHtmlForReuseProbe(html) {
+  const normalizedJobPosting = String(html).replace(
+    /(<script\b[^>]*>)([\s\S]*?)(<\/script\s*>)/gi,
+    (script, openTag, content, closeTag) => {
+      if (readAttr(openTag, 'type').toLowerCase() !== 'application/ld+json') return script;
+      const normalized = normalizeJobPostingDescriptionJson(content);
+      return normalized === null ? script : `${openTag}${normalized}${closeTag}`;
+    },
+  );
+  return normalizeHtmlForReuse(normalizedJobPosting);
+}
+
 /** Remove the ft-build-id marker (STATIC_BUILD_ID_META=off). */
 export function stripHtmlBuildId(html) {
   return String(html).replace(BUILD_ID_META_PATTERN, '');
@@ -1460,6 +1575,7 @@ export class JobsSeoHtmlReuse {
     let html = null;
     let storage = null;
     let probe = null;
+    let emitterFingerprintChanged = false;
 
     if (!missReason && !previous) {
       missReason = 'manifest-missing';
@@ -1472,6 +1588,7 @@ export class JobsSeoHtmlReuse {
       } else if (previous.data.kinds[entry.kind]?.state !== 'live') {
         missReason = 'kind-not-live';
       } else if (this.probeEligibleFingerprintChange(previous, entry, kind)) {
+        emitterFingerprintChanged = true;
         // Output-validated fingerprint: same page, same input, only the
         // render source graph changed. Decide from the rendered bytes.
         if (entryReuseHash(entry) !== reuseHash) {
@@ -1518,7 +1635,11 @@ export class JobsSeoHtmlReuse {
 
     if (!missReason && html !== null && rewriteHtml) {
       try {
-        const rewritten = rewriteHtml(html);
+        const rewritten = rewriteHtml(html, {
+          block,
+          kind,
+          emitterFingerprintChanged,
+        });
         if (typeof rewritten !== 'string') throw new Error('HTML rewrite must return a string');
         html = rewritten;
       } catch (error) {
@@ -1558,6 +1679,7 @@ export class JobsSeoHtmlReuse {
       storage,
       verify,
       probe,
+      emitterFingerprintChanged,
       cacheable: !inputUnavailable,
       startedAt: process.hrtime.bigint(),
     };
@@ -1592,7 +1714,7 @@ export class JobsSeoHtmlReuse {
     stats.probed += 1;
     state.sampled += 1;
     state.wallMs += elapsed;
-    if (normalizeHtmlForReuse(candidate.html) === normalizeHtmlForReuse(renderedHtml)) {
+    if (normalizeHtmlForReuseProbe(candidate.html) === normalizeHtmlForReuseProbe(renderedHtml)) {
       state.identical += 1;
       state.strata.set(stratum, (state.strata.get(stratum) || 0) + 1);
     } else {
@@ -1730,8 +1852,13 @@ export class JobsSeoHtmlReuse {
       stats.reusable += 1;
       if (!candidate.verify) {
         stats.reused += 1;
-        if (candidate.storage === 'legacy' && candidate.cacheable) {
-          this.persist(candidate, candidate.html);
+        if (candidate.cacheable && (candidate.storage === 'legacy' || candidate.emitterFingerprintChanged)) {
+          // A successful output probe advances the renderer fingerprint even
+          // when most pages were reused. Persist the actual page bytes (after
+          // the caller's JSON-LD/alias rewrites) with that new baseline so a
+          // later run without an intervening publish cannot pair the new
+          // fingerprint with stale HTML from the last release.
+          this.persist(candidate, renderedHtml);
         }
         return;
       }
@@ -1740,7 +1867,7 @@ export class JobsSeoHtmlReuse {
     }
 
     stats.rendered += 1;
-    if (candidate.hit && normalizeHtmlForReuse(candidate.html) !== normalizeHtmlForReuse(renderedHtml)) {
+    if (candidate.hit && normalizeHtmlForReuseProbe(candidate.html) !== normalizeHtmlForReuseProbe(renderedHtml)) {
       stats.mismatches += 1;
       const mismatchReason = classifyHtmlReuseMismatch(candidate.html, renderedHtml);
       const diagnostic = diagnoseHtmlReuseMismatch(candidate.html, renderedHtml, mismatchReason);
