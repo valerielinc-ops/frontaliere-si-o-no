@@ -302,6 +302,7 @@ describe('portal field extraction', () => {
       ['Completa il modulo', '_r_3_'],
       ['Vervollständigen Sie das Formular', '_r_4_'],
       ['Veuillez remplir le formulaire', '_r_5_'],
+      ['Bitte das Formular ausfüllen', '_r_6_'],
     ]) {
       const genericFormInstruction = extract(`<div><span>${instruction}</span><input id="${id}"></div>`);
       expect(genericFormInstruction.fields[0].label).toBe(id);
