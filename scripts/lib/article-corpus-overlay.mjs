@@ -14,6 +14,7 @@ import { spawnSync } from 'node:child_process';
 
 import { isCantonCorpusPath, mirrorTree } from './corpus-canton-exclusion.mjs';
 import { destinationOnlyPaths, isPreservedTreePath } from './corpus-local-preserve.mjs';
+import { COMMIT_RE as CORPUS_COMMIT_RE, normalizeCommit as normalizeCorpusCommit } from './articles-sync-pin.mjs';
 
 const CORPUS_REMOTE = 'https://github.com/nanakokyobashi-rgb/frontaliere-articles.git';
 const REQUIRED_FILES = [
@@ -36,13 +37,7 @@ const CORPUS_REGISTRY_FILES = Object.freeze({
   frontaliere: 'content/routerBlogData.ts',
   svizzera: 'content/routerSwissData.ts',
 });
-export const CORPUS_COMMIT_RE = /^[0-9a-f]{40}$/;
-
-export function normalizeCorpusCommit(value) {
-  if (typeof value !== 'string') return null;
-  const commit = value.trim().toLowerCase();
-  return CORPUS_COMMIT_RE.test(commit) ? commit : null;
-}
+export { CORPUS_COMMIT_RE, normalizeCorpusCommit };
 
 export function decideCorpusOverlayMode({ isCi = false, dryRun = false, explicit = false } = {}) {
   if (isCi === true || explicit === true) {
@@ -170,7 +165,7 @@ export function prepareCorpusContentOverlay({
 
     const source = path.join(temporary, 'content');
     const shape = validateCorpusContentShape(source);
-    if (!shape.ok) throw new Error(`tree corpus main monco: mancano ${shape.missing.join(', ')}`);
+    if (!shape.ok) throw new Error(`tree corpus snapshot monco: mancano ${shape.missing.join(', ')}`);
     mirrorCorpusContent({ source, destination });
 
     const revision = corpusRevisionFromCheckout(temporary);

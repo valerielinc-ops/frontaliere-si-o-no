@@ -77,7 +77,8 @@ on:
       # Keep the checked-in content path as a trigger for preserved site-side
       # files; the published-snapshot overlay sources are listed explicitly below.
       - 'packages/articles/content/**'
-      # The renderer overlays these helpers from corpus main; changes to any
+      # The renderer overlays these helpers and the published corpus snapshot;
+      # changes to any
       # part of that shared overlay must rerender the hubs too.
       - 'scripts/lib/article-corpus-overlay.mjs'
       - 'scripts/lib/corpus-canton-exclusion.mjs'
