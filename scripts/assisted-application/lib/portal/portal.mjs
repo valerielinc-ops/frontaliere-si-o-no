@@ -1196,9 +1196,15 @@ function fallbackOption(option, language) {
   return text;
 }
 
+function nativePortalQuestion(item) {
+  return readablePortalQuestionText(item?.applicationQuestion)
+    || readablePortalQuestionText(item?.portalQuestion)
+    || portalQuestionText(item);
+}
+
 function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
-  const rawQuestion = String(item.applicationQuestion || item.question || '').trim();
+  const rawQuestion = nativePortalQuestion(item);
   const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length ? item.applicationOptions : item.options || [])
     .map((option) => String(option || '').trim()).filter(Boolean);
   const candidateOptions = applicationOptions
@@ -1212,8 +1218,8 @@ function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
     : applicationOptions.length ? applicationOptions : candidateOptions;
   return {
     ...item,
-    question: rawQuestion || portalQuestionText(item),
-    applicationQuestion: item.applicationQuestion || rawQuestion,
+    question: rawQuestion,
+    applicationQuestion: rawQuestion,
     applicationQuestionLocale: localeCode(sourceLocale) || null,
     why: fallback.why,
     ...(applicationOptions.length ? { applicationOptions } : {}),
@@ -1234,16 +1240,14 @@ function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
  */
 export async function localizePortalQuestions(questions, { candidateLocale, applicationLocale, codex, log = () => {} } = {}) {
   const items = (Array.isArray(questions) ? questions : []).map((item) => {
-    const sourceQuestion = readablePortalQuestionText(item?.applicationQuestion)
-      || readablePortalQuestionText(item?.portalQuestion)
-      || portalQuestionText(item);
+    const sourceQuestion = nativePortalQuestion(item);
     const applicationOptions = (Array.isArray(item?.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
       : item?.options || []).map((option) => String(option || '').trim()).filter(Boolean);
     return {
       ...item,
       question: sourceQuestion,
-      applicationQuestion: item?.applicationQuestion || sourceQuestion,
+      applicationQuestion: sourceQuestion,
       ...(applicationOptions.length ? { applicationOptions, options: applicationOptions } : {}),
     };
   });
@@ -1290,7 +1294,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
       const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
       return {
         ...item,
-        question: String(item.applicationQuestion || item.question || ''),
+        question: nativePortalQuestion(item),
         ...(applicationOptions.length ? { applicationOptions, options: applicationOptions, optionMap } : {}),
         applicationQuestionLocale: sourceLocale,
         localizationStatus: 'same_language',
@@ -1307,7 +1311,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
       && translatedMap.length === applicationOptions.length
       && candidateOptions.length === applicationOptions.length);
     const translatedQuestion = String(copy?.question || '').trim();
-    const sourceQuestion = String(item.applicationQuestion || item.question || '').trim();
+    const sourceQuestion = nativePortalQuestion(item);
     const question = readablePortalQuestionText(translatedQuestion);
     const translationIsValid = question && normalizedQuestionText(question) !== normalizedQuestionText(sourceQuestion) && optionsComplete;
     if (!translationIsValid) return fallbackLocalizedQuestion(item, candidateLanguage, sourceLocale);

@@ -495,6 +495,24 @@ it('keeps the exact ATS question and marks a placeholder translation as a visibl
   });
 });
 
+it('uses the readable ATS question when applicationQuestion contains a generic placeholder', async () => {
+  const question = 'Welche Region ist dein Herkunftskanton?';
+  const result = await localizePortalQuestions([{
+    id: 'q', question, applicationQuestion: PORTAL_QUESTION_PLACEHOLDERS.it, options: [],
+  }], {
+    candidateLocale: 'it', applicationLocale: 'it', codex: async () => ({ questions: [{
+      id: 'q', sourceLocale: 'de', question: PORTAL_QUESTION_PLACEHOLDERS.it,
+      why: '', options: [], optionMap: [], validationMessage: '',
+    }] }),
+  });
+  expect(result[0]).toMatchObject({
+    question,
+    applicationQuestion: question,
+    applicationQuestionLocale: 'de',
+    localizationStatus: 'fallback',
+  });
+});
+
 it('marks the original locale unknown when localization fails and never invents a translated question', async () => {
   const question = 'Welche Region ist dein Herkunftskanton?';
   const result = await localizePortalQuestions([{ id: 'q', question, applicationQuestion: question, options: [] }], {
