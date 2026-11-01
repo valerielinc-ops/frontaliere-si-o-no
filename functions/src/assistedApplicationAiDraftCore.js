@@ -158,9 +158,10 @@ const OTHER_SECTION_HEADING_RE = /^(?:your\s+tasks?|your\s+responsibilities|task
 const PREFERENCE_CUE_RE = /\b(?:advantage|preferred|desirable|useful|nice\s+to\s+have|optional|opzional\w*|facultatif\w*|facultativ\w*|nicht\s+obligatorisch|nicht\s+erforderlich|nicht\s+notwendig|not\s+mandatory|not\s+required|not\s+essential|not\s+necessary|not\s+obligatory|pas\s+obligatoire|pas\s+necessaire|non\s+(?:e\s+)?richiest\w*|non\s+(?:e\s+)?obbligator\w*|non\s+(?:e\s+)?necessar\w*|von\s+vorteil|wuenschenswert|wunschenswert|souhait[eé]|atout|un\s+plus|a\s+plus|an\s+optional\s+requirement|preferibil\w*|costituisce\s+un\s+plus)\b/i;
 const APPLICATION_METHOD_ONLY_RE = /\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,30}\b(?:online|portal|website|email)\s+only\b|\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,15}\bonly\s+(?:online|through|via|by\s+email)\b/i;
 const CURRENT_STUDENT_CUE_RE = /\b(?:student\w*|pupil\w*|trainee\w*|intern\w*|apprentice\w*|studente\w*|alliev\w*|schueler\w*|schuler\w*|auszubildende\w*|eleve\w*|etudiant\w*|stagiaire\w*|apprenti\w*)\b/i;
-const CURRENT_ENROLLMENT_CUE_RE = /\b(?:current(?:ly)?|enroll\w*|attend\w*|studying|ongoing|presently|attualmente|frequent\w*|iscritt\w*|derzeit|aktuell|besuch\w*|actuellement|inscrit\w*|scolarise\w*)\b/i;
+const CURRENT_ENROLLMENT_CUE_RE = /\b(?:current(?:ly)?|presently|now|ongoing|attending|attend(?:s)?|studying|enrolling|attualmente|frequento|frequentando|sono\s+iscritt\w*|derzeit|aktuell|besuche|studiere|actuellement|je\s+suis\s+inscrit\w*|etudie|en\s+cours)\b/i;
 const CURRENT_YEAR_CUE_RE = /\b(?:(?:third|3rd|troisieme|3e|terzo|terza|drittes?|dritten)[-\s]+(?:school[-\s]+)?(?:year|jahr|anno|annee|klasse)|(?:3|three|third|3rd)\s*(?:rd\s*)?(?:year|jahr|anno|annee|klasse)|(?:year|jahr|anno|annee|klasse)\s+(?:3|third|3rd))\b/i;
 const COMMERCIAL_SCHOOL_CUE_RE = /\b(?:commercial[-\s]+school|scuola[-\s]+commerciale|ecole[-\s]+(?:de[-\s]+)?commerce|handelsschule|kaufmaennisch\w*[-\s]+schule|kaufmannisch\w*[-\s]+schule)\b/i;
+const HISTORICAL_STUDENT_CUE_RE = /\b(?:previously|formerly|former|completed|graduated|graduation|finished|ended|used\s+to|attended|studied|was\s+(?:enrolled|attending|studying)|precedentemente|in\s+passato|frequentavo|ero\s+iscritt\w*|conclus\w*|completat\w*|diplomat\w*|laureat\w*|auparavant|ancien(?:ne)?|etait\s+inscrit\w*|etudiait|termine\w*|diplom[eé]\w*|achev[eé]\w*|zuvor|frueher|besuchte|studierte|abgeschlossen|absolviert|war\s+(?:eingeschrieben|angemeldet))\b/i;
 
 function normalizeEligibilityEvidence(value) {
   return String(value || '').replace(/\p{Cf}/gu, '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
@@ -321,8 +322,7 @@ export function hasUnverifiedCurrentStudentEligibility(postingText, profile = {}
     currentEducation.degree, currentEducation.institution, currentEducation.start,
     currentEducation.end, currentEducation.grade,
   ].filter(Boolean).join(' '));
-  const source = normalizeEligibilityEvidence(sourceText);
-  if (!currentEducationText || !source) return true;
+  if (!currentEducationText || !sourceText) return true;
 
   return currentStudentRequirements.some((statement) => {
     const needsYear = CURRENT_YEAR_CUE_RE.test(statement);
@@ -330,19 +330,31 @@ export function hasUnverifiedCurrentStudentEligibility(postingText, profile = {}
     if ((needsYear && !CURRENT_YEAR_CUE_RE.test(currentEducationText))
       || (needsSchool && !COMMERCIAL_SCHOOL_CUE_RE.test(currentEducationText))) return true;
 
-    const anchorPattern = needsYear ? CURRENT_YEAR_CUE_RE : needsSchool ? COMMERCIAL_SCHOOL_CUE_RE : CURRENT_STUDENT_CUE_RE;
-    const sourceAnchor = new RegExp(anchorPattern.source, 'gi');
-    let anchor;
-    let sourceProvesCurrentEducation = false;
-    while ((anchor = sourceAnchor.exec(source)) !== null) {
-      const context = source.slice(Math.max(0, anchor.index - 160), Math.min(source.length, anchor.index + anchor[0].length + 160));
-      if (CURRENT_ENROLLMENT_CUE_RE.test(context)
-        && (!needsYear || CURRENT_YEAR_CUE_RE.test(context))
-        && (!needsSchool || COMMERCIAL_SCHOOL_CUE_RE.test(context))) {
-        sourceProvesCurrentEducation = true;
-        break;
-      }
-    }
+    // Keep CV lines and clauses separate. A nearby school name or current
+    // enrollment elsewhere in the document must not combine with an old
+    // education entry (or unrelated employment) into current eligibility.
+    const sourceEntries = String(sourceText).replace(/\r\n?/g, '\n')
+      .split(/\n+/u)
+      .flatMap((line) => line.split(/\s*(?:;|(?<=[.!?])\s+)\s*/u))
+      .map(normalizeEligibilityEvidence)
+      .filter(Boolean);
+    const currentYear = new Date().getFullYear();
+    const historicalYearRange = (entry) => [...entry.matchAll(/\b((?:19|20)\d{2})\s*[-–—/]\s*((?:19|20)\d{2}|\d{2})\b/gu)]
+      .some(([, rawStart, rawEnd]) => {
+        const start = Number(rawStart);
+        let end = Number(rawEnd);
+        if (rawEnd.length === 2) {
+          end += Math.floor(start / 100) * 100;
+          if (end < start) end += 100;
+        }
+        return end < currentYear;
+      });
+    const sourceProvesCurrentEducation = sourceEntries.some((entry) =>
+      !HISTORICAL_STUDENT_CUE_RE.test(entry)
+      && !historicalYearRange(entry)
+      && CURRENT_ENROLLMENT_CUE_RE.test(entry)
+      && (!needsYear || CURRENT_YEAR_CUE_RE.test(entry))
+      && (!needsSchool || COMMERCIAL_SCHOOL_CUE_RE.test(entry)));
     return !sourceProvesCurrentEducation;
   });
 }
