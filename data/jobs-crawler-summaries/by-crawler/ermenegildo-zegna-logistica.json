@@ -1,16 +1,16 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-10-31T21:30:24.564Z",
+  "generatedAt": "2026-11-01T09:18:41.242Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 9377,
-  "avgDurationMs": 9377,
+  "durationMs": 12127,
+  "avgDurationMs": 12127,
   "durationHistory": [
-    9377
+    12127
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -43,7 +43,7 @@
         "location": "Stabio"
       },
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:30:08.358Z",
+      "crawledAt": "2026-11-01T09:18:21.851Z",
       "id": "ermenegildo-zegna-logistica-0293238593f2",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -55,6 +55,9 @@
       "sourceIdentity": "url:https://careers.zegnagroup.com/jobs/job-details?jobid=275981362&team=231361275",
       "postedDate": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-21T09:18:21.851Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -81,7 +84,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T21:30:06.053Z",
+      "crawledAt": "2026-11-01T09:18:18.599Z",
       "source": "zegna-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -101,6 +104,9 @@
       "streetAddress": "Via Lugano 13",
       "postalCode": "6855",
       "firstSeenAt": "2026-10-23T09:38:18.202Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:18:18.599Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -127,7 +133,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T21:30:04.949Z",
+      "crawledAt": "2026-11-01T09:18:17.016Z",
       "source": "zegna-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -147,6 +153,9 @@
       "streetAddress": "Via Lugano 13",
       "postalCode": "6855",
       "firstSeenAt": "2026-10-28T20:04:47.969Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-13T09:18:17.016Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -156,5 +165,5 @@
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

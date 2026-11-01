@@ -724,5 +724,79 @@
         "aggregateOutcome": "partial"
       }
     }
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "41298010391",
+    "startedAt": "2026-11-01T10:36:40.604Z",
+    "finishedAt": "2026-11-01T11:09:00.773Z",
+    "sources": {
+      "seco": {
+        "attempts": 26,
+        "items": 1783,
+        "recordsSeen": 1783,
+        "newCandidatesFiled": 51,
+        "outcomes": {
+          "complete": 24,
+          "partial": 2,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "http_412": 2
+        },
+        "lastOutcome": "partial",
+        "aggregateOutcome": "partial"
+      },
+      "osm": {
+        "attempts": 3,
+        "items": 3777,
+        "recordsSeen": 3777,
+        "newCandidatesFiled": 21,
+        "outcomes": {
+          "complete": 2,
+          "partial": 1,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "malformed_records": 1
+        },
+        "lastOutcome": "complete",
+        "aggregateOutcome": "partial"
+      },
+      "web": {
+        "attempts": 1,
+        "items": 118,
+        "recordsSeen": 118,
+        "newCandidatesFiled": 83,
+        "outcomes": {
+          "complete": 0,
+          "partial": 1,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "http_504": 1
+        },
+        "lastOutcome": "partial",
+        "aggregateOutcome": "partial"
+      },
+      "zefix": {
+        "attempts": 1,
+        "items": 77,
+        "recordsSeen": 77,
+        "newCandidatesFiled": 60,
+        "outcomes": {
+          "complete": 1,
+          "partial": 0,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {},
+        "lastOutcome": "complete",
+        "aggregateOutcome": "complete"
+      }
+    }
   }
 ]

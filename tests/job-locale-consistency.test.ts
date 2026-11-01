@@ -124,10 +124,11 @@ describe('job-locale-consistency', () => {
    * Same cap, two states that previously read 0.064% and 0.325% — the 5x swing
    * was the denominator, not the corpus.
    *
-   * RE-DERIVED 2026-09-29 (issue #9102): the assembled corpus measured
-   * 36 / 115,907 slots = 0.031% with 61.8% served. The 0.30% cap is unchanged:
-   * this commit re-pins the denominator and its measured rate, without loosening
-   * the quality gate.
+   * RE-DERIVED 2026-11-01 (issue #16405): the assembled corpus measured
+   * 39 / 132,452 served slots = 0.029% with 94.4% served; 5,708 additional
+   * slots held for translation bring the population guard to 138,160. The
+   * 0.30% cap is unchanged: this commit re-pins the denominator and its
+   * measured rate, without loosening the quality gate.
    *
    * POPULATION and DEFECT are deliberately NOT the same set, and that is the
    * fix. The denominator is every description slot in the corpus, queue or no
@@ -168,8 +169,9 @@ describe('job-locale-consistency', () => {
     'localized descriptions are not stored under the wrong locale',
     { timeout: 180000 },
     () => {
-      // 0.30% — re-derived at 0.031% on the ASSEMBLED data/jobs.json,
-      // 2026-09-29, on DESCRIPTION_POPULATION (115,907 slots ±15%).
+      // 0.30% — re-derived at 0.029% on the ASSEMBLED data/jobs.json,
+      // 2026-11-01: 132,452 served slots plus 5,708 held slots, for a
+      // DESCRIPTION_POPULATION of 138,160 slots ±15%.
       const MAX_RATE = 0.003;
 
       const { slots, servedSlots, mismatches } = measureDescriptionLocales(

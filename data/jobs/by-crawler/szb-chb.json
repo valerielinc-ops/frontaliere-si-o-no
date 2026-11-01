@@ -1,7 +1,7 @@
 {
   "crawlerKey": "szb-chb",
-  "assembledAt": "2026-10-31T21:47:53.384Z",
-  "runId": "41242183411",
+  "assembledAt": "2026-11-01T09:18:17.858Z",
+  "runId": "41291802731",
   "jobs": [
     {
       "id": "szb-chb-219d1c4efef4",
@@ -35,7 +35,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3799/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:48.107Z",
+      "crawledAt": "2026-11-01T09:18:10.848Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -84,7 +84,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:10.848Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-910b15d28008",
@@ -117,7 +121,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/2738/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:47.276Z",
+      "crawledAt": "2026-11-01T09:18:10.047Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -158,7 +162,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:10.047Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-7b17e1a6068f",
@@ -191,7 +199,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3673/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:46.490Z",
+      "crawledAt": "2026-11-01T09:18:09.199Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -234,7 +242,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:09.199Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-743fa041b7f4",
@@ -268,7 +280,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4190/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:45.854Z",
+      "crawledAt": "2026-11-01T09:18:08.346Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -311,7 +323,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:08.346Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-f6816c974f15",
@@ -344,7 +360,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3696/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:45.170Z",
+      "crawledAt": "2026-11-01T09:18:07.491Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -393,7 +409,11 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:07.491Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-477520be4c57",
@@ -427,7 +447,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4205/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:44.505Z",
+      "crawledAt": "2026-11-01T09:18:06.630Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -470,7 +490,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:06.630Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-3a7dbb6cd90a",
@@ -504,7 +528,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4193/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:43.677Z",
+      "crawledAt": "2026-11-01T09:18:05.833Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -545,7 +569,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:05.833Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-18087d71a935",
@@ -578,7 +606,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4153/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:42.866Z",
+      "crawledAt": "2026-11-01T09:18:05.025Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -625,7 +653,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:05.025Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-7138e8b155d9",
@@ -659,7 +691,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4359/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:42.179Z",
+      "crawledAt": "2026-11-01T09:18:04.218Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -708,7 +740,11 @@
           "maxValue": 62400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:04.218Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-2d7886e27cd9",
@@ -741,7 +777,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4339/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:41.506Z",
+      "crawledAt": "2026-11-01T09:18:03.389Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -782,7 +818,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:03.389Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-eed4663f9c57",
@@ -816,7 +856,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4440/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:40.689Z",
+      "crawledAt": "2026-11-01T09:18:02.574Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -857,7 +897,11 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:02.574Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-abc72490263f",
@@ -890,7 +934,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4436/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:39.864Z",
+      "crawledAt": "2026-11-01T09:18:01.738Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -931,7 +975,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:01.738Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-98726ae6b674",
@@ -965,7 +1013,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4325/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:39.194Z",
+      "crawledAt": "2026-11-01T09:18:00.930Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1014,7 +1062,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:00.930Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-d446f7fd64a1",
@@ -1048,7 +1100,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4475/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:38.365Z",
+      "crawledAt": "2026-11-01T09:18:00.097Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1096,7 +1148,11 @@
           "maxValue": 144000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:18:00.097Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-752938a77158",
@@ -1130,7 +1186,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4394/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:37.556Z",
+      "crawledAt": "2026-11-01T09:17:59.274Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1170,7 +1226,11 @@
           "maxValue": 83300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:17:59.274Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-07361013df44",
@@ -1204,7 +1264,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4502/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:36.772Z",
+      "crawledAt": "2026-11-01T09:17:58.444Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1245,7 +1305,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:58.444Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-0d36df16e14b",
@@ -1279,7 +1343,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4166/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:35.976Z",
+      "crawledAt": "2026-11-01T09:17:57.585Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1326,7 +1390,11 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:17:57.585Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-2bfee86c788c",
@@ -1360,7 +1428,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4494/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:35.149Z",
+      "crawledAt": "2026-11-01T09:17:56.741Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1401,7 +1469,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:56.741Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-12567030fa60",
@@ -1435,7 +1507,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3728/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:34.375Z",
+      "crawledAt": "2026-11-01T09:17:55.892Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1475,7 +1547,11 @@
           "maxValue": 144000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:17:55.892Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-b8864c509e0e",
@@ -1509,7 +1585,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3821/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:33.593Z",
+      "crawledAt": "2026-11-01T09:17:55.047Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1549,7 +1625,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:17:55.047Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-109cb4511b25",
@@ -1583,7 +1663,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4014/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:32.747Z",
+      "crawledAt": "2026-11-01T09:17:54.201Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1624,7 +1704,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:54.201Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-28151ebd5a79",
@@ -1657,7 +1741,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4326/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:31.960Z",
+      "crawledAt": "2026-11-01T09:17:53.377Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1701,7 +1785,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:53.377Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-ded29c559d17",
@@ -1734,7 +1822,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4528/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:31.122Z",
+      "crawledAt": "2026-11-01T09:17:52.585Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1782,7 +1870,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:17:52.585Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-cfaac43fb927",
@@ -1815,7 +1907,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4120/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:29.456Z",
+      "crawledAt": "2026-11-01T09:17:50.994Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1858,7 +1950,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:50.994Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-5398f2900376",
@@ -1891,7 +1987,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4470/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:28.688Z",
+      "crawledAt": "2026-11-01T09:17:50.187Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1935,7 +2031,11 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:50.187Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-be2dd57699e2",
@@ -1968,7 +2068,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4471/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:27.868Z",
+      "crawledAt": "2026-11-01T09:17:49.323Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2009,7 +2109,11 @@
           "maxValue": 68000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:49.323Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-0f4bc8861a5c",
@@ -2042,7 +2146,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4496/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:27.053Z",
+      "crawledAt": "2026-11-01T09:17:48.485Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2083,7 +2187,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:48.485Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-66e63af5e9d2",
@@ -2117,7 +2225,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4537/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:26.467Z",
+      "crawledAt": "2026-11-01T09:17:47.647Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2158,7 +2266,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:47.647Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-8cd5cf3b60a8",
@@ -2191,7 +2303,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4531/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:25.628Z",
+      "crawledAt": "2026-11-01T09:17:46.769Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2231,7 +2343,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:17:46.769Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-7ac2086ad9c5",
@@ -2265,7 +2381,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4580/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:24.993Z",
+      "crawledAt": "2026-11-01T09:17:45.920Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2305,7 +2421,11 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:17:45.920Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-eb91a3bbc5b6",
@@ -2339,7 +2459,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4576/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:24.305Z",
+      "crawledAt": "2026-11-01T09:17:45.098Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2379,7 +2499,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:17:45.098Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-99543441f47a",
@@ -2413,7 +2537,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4582/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:23.505Z",
+      "crawledAt": "2026-11-01T09:17:44.247Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2459,7 +2583,11 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:44.247Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-71900ae2bdc8",
@@ -2492,7 +2620,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4447/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:22.689Z",
+      "crawledAt": "2026-11-01T09:17:43.425Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2540,7 +2668,11 @@
           "maxValue": 35700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:17:43.425Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-2c4d5a376e84",
@@ -2573,7 +2705,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3676/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:21.883Z",
+      "crawledAt": "2026-11-01T09:17:42.597Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2621,7 +2753,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:17:42.597Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-7802123249ba",
@@ -2655,7 +2791,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4399/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:21.101Z",
+      "crawledAt": "2026-11-01T09:17:41.785Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2698,7 +2834,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:41.785Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-6410cc32691b",
@@ -2732,7 +2872,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3445/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:20.254Z",
+      "crawledAt": "2026-11-01T09:17:40.952Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2775,7 +2915,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:40.952Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-360a57696c55",
@@ -2809,7 +2953,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4555/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:19.401Z",
+      "crawledAt": "2026-11-01T09:17:40.112Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2858,7 +3002,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:40.112Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-611d2758b59e",
@@ -2891,7 +3039,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4626/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:18.563Z",
+      "crawledAt": "2026-11-01T09:17:39.322Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2946,7 +3094,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:39.322Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-75c6d9e5f730",
@@ -2980,7 +3132,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4514/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:17.767Z",
+      "crawledAt": "2026-11-01T09:17:38.524Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3030,7 +3182,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:38.524Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-e11bd5c13d4a",
@@ -3064,7 +3220,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4486/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:16.962Z",
+      "crawledAt": "2026-11-01T09:17:37.680Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3109,7 +3265,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:17:37.680Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-514b9c759053",
@@ -3143,7 +3303,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4593/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:16.120Z",
+      "crawledAt": "2026-11-01T09:17:36.904Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3193,7 +3353,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:36.904Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-ce57cf599cf9",
@@ -3227,7 +3391,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4592/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:15.286Z",
+      "crawledAt": "2026-11-01T09:17:36.107Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3276,7 +3440,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-04T09:17:36.107Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-6d1e32fcfb56",
@@ -3310,7 +3478,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4585/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:14.442Z",
+      "crawledAt": "2026-11-01T09:17:35.288Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3353,7 +3521,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:17:35.288Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-19661195b67b",
@@ -3386,7 +3558,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4536/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:13.575Z",
+      "crawledAt": "2026-11-01T09:17:34.447Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3427,7 +3599,11 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:17:34.447Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-cd8f560b9652",
@@ -3460,7 +3636,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4500/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:12.770Z",
+      "crawledAt": "2026-11-01T09:17:33.664Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3503,7 +3679,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:17:33.664Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-79eaf4a17ac5",
@@ -3537,7 +3717,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4634/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:11.926Z",
+      "crawledAt": "2026-11-01T09:17:32.842Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3578,7 +3758,11 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:32.842Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-a691da834418",
@@ -3612,7 +3796,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4662/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:11.144Z",
+      "crawledAt": "2026-11-01T09:17:32.041Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3661,7 +3845,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:32.041Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-50d13b3d46eb",
@@ -3695,7 +3883,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4320/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:10.282Z",
+      "crawledAt": "2026-11-01T09:17:31.257Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3736,7 +3924,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:31.257Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-94d9da27e645",
@@ -3769,7 +3961,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4524/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:09.436Z",
+      "crawledAt": "2026-11-01T09:17:30.405Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3813,7 +4005,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:30.405Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-55002ca10bc2",
@@ -3847,7 +4043,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4691/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:08.627Z",
+      "crawledAt": "2026-11-01T09:17:29.589Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3896,7 +4092,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:17:29.589Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-518e21954f56",
@@ -3930,7 +4130,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4669/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:07.794Z",
+      "crawledAt": "2026-11-01T09:17:28.783Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3979,7 +4179,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:17:28.783Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-c815bc1f1d3a",
@@ -4012,7 +4216,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4600/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:06.967Z",
+      "crawledAt": "2026-11-01T09:17:27.964Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4055,7 +4259,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:17:27.964Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-dee04fb68cf8",
@@ -4089,7 +4297,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3735/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:06.147Z",
+      "crawledAt": "2026-11-01T09:17:27.127Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4132,7 +4340,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:17:27.127Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-7a50f2c8918e",
@@ -4165,7 +4377,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4644/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:05.377Z",
+      "crawledAt": "2026-11-01T09:17:26.247Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4206,7 +4418,11 @@
           "maxValue": 35700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:17:26.247Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-33adb0d8a3cd",
@@ -4239,7 +4455,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4645/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:04.512Z",
+      "crawledAt": "2026-11-01T09:17:25.426Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4288,7 +4504,11 @@
           "maxValue": 47600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:17:25.426Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-5cad6932efda",
@@ -4321,7 +4541,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4649/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:03.678Z",
+      "crawledAt": "2026-11-01T09:17:24.591Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4368,7 +4588,11 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:17:24.591Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-51997818b506",
@@ -4401,7 +4625,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4660/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:02.872Z",
+      "crawledAt": "2026-11-01T09:17:23.953Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4444,7 +4668,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:17:23.953Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-3b57d403eb20",
@@ -4478,7 +4706,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4708/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:02.023Z",
+      "crawledAt": "2026-11-01T09:17:23.136Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4519,7 +4747,11 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:17:23.136Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-71b3d3295c73",
@@ -4552,7 +4784,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4709/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:01.123Z",
+      "crawledAt": "2026-11-01T09:17:22.310Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4601,7 +4833,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:17:22.310Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-4718feafba53",
@@ -4635,7 +4871,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4616/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:00.334Z",
+      "crawledAt": "2026-11-01T09:17:21.513Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4678,7 +4914,11 @@
           "maxValue": 35700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-02T09:17:21.513Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-96b7f1c9b232",
@@ -4712,7 +4952,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4673/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:59.657Z",
+      "crawledAt": "2026-11-01T09:17:20.678Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4753,7 +4993,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:17:20.678Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-3b56c902750a",
@@ -4787,7 +5031,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4674/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:58.852Z",
+      "crawledAt": "2026-11-01T09:17:19.822Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4837,7 +5081,11 @@
           "maxValue": 83300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:17:19.822Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-4f34e72721fb",
@@ -4870,7 +5118,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4559/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:58.054Z",
+      "crawledAt": "2026-11-01T09:17:19.145Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4919,7 +5167,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:17:19.145Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-a210b722e804",
@@ -4953,7 +5205,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4718/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:57.280Z",
+      "crawledAt": "2026-11-01T09:17:18.346Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5000,7 +5252,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:17:18.346Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-c3036e778421",
@@ -5034,7 +5290,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4668/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:56.428Z",
+      "crawledAt": "2026-11-01T09:17:17.531Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5078,7 +5334,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:17:17.531Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-d30739567014",
@@ -5111,7 +5371,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4721/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:55.621Z",
+      "crawledAt": "2026-11-01T09:17:16.702Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5158,7 +5418,11 @@
           "maxValue": 100100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:17:16.702Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-c5a928bbb13b",
@@ -5191,7 +5455,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4711/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:54.807Z",
+      "crawledAt": "2026-11-01T09:17:15.866Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5240,7 +5504,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:17:15.866Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-77fa545c3256",
@@ -5274,7 +5542,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4619/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:53.969Z",
+      "crawledAt": "2026-11-01T09:17:15.049Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5323,7 +5591,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:17:15.049Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-7f69e6d279b8",
@@ -5357,7 +5629,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4462/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:53.130Z",
+      "crawledAt": "2026-11-01T09:17:14.280Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5397,7 +5669,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:17:14.280Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-6fdbb1dc3f66",
@@ -5430,7 +5706,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4704/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:52.300Z",
+      "crawledAt": "2026-11-01T09:17:13.446Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5479,7 +5755,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:17:13.446Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-2a9b7ad9fddc",
@@ -5513,7 +5793,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4746/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:51.458Z",
+      "crawledAt": "2026-11-01T09:17:12.647Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5560,7 +5840,11 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:17:12.647Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-f65f78766434",
@@ -5593,7 +5877,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4766/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:50.676Z",
+      "crawledAt": "2026-11-01T09:17:11.821Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5640,7 +5924,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:17:11.821Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-49e441ff7913",
@@ -5674,7 +5962,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4761/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:50.078Z",
+      "crawledAt": "2026-11-01T09:17:11.020Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5723,7 +6011,11 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:17:11.020Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-ffe958796c92",
@@ -5757,7 +6049,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4527/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:49.240Z",
+      "crawledAt": "2026-11-01T09:17:10.458Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5806,7 +6098,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:17:10.458Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-d3e2a1ae6cd0",
@@ -5840,7 +6136,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4733/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:48.402Z",
+      "crawledAt": "2026-11-01T09:17:09.607Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5889,7 +6185,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:17:09.607Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-d7c08219cfa2",
@@ -5923,7 +6223,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4769/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:47.564Z",
+      "crawledAt": "2026-11-01T09:17:08.772Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5972,7 +6272,11 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:17:08.772Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-7fc7d8eb73ea",
@@ -6006,7 +6310,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4760/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:46.743Z",
+      "crawledAt": "2026-11-01T09:17:07.937Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6055,7 +6359,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:17:07.937Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-9ddf6bbb1e43",
@@ -6089,7 +6397,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4696/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:45.920Z",
+      "crawledAt": "2026-11-01T09:17:07.110Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6144,7 +6452,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:17:07.110Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-71afe567b899",
@@ -6178,7 +6490,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4725/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:45.113Z",
+      "crawledAt": "2026-11-01T09:17:06.303Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6225,7 +6537,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-15T09:17:06.303Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-3cc8b2cd00a9",
@@ -6259,7 +6575,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4776/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:44.332Z",
+      "crawledAt": "2026-11-01T09:17:05.489Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6308,7 +6624,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:17:05.489Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-573a5288f118",
@@ -6341,7 +6661,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4775/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:43.498Z",
+      "crawledAt": "2026-11-01T09:17:04.629Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6390,7 +6710,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:17:04.629Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "szb-chb-2b098c1f5e53",
@@ -6424,7 +6748,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4701/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:42.674Z",
+      "crawledAt": "2026-11-01T09:17:03.822Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6471,7 +6795,11 @@
           "maxValue": 83300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:17:03.822Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

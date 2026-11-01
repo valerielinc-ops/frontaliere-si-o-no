@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ksb",
-  "assembledAt": "2026-10-31T21:48:18.995Z",
-  "runId": "41243204704",
+  "assembledAt": "2026-11-01T09:41:43.549Z",
+  "runId": "41292779854",
   "jobs": [
     {
       "id": "ksb-6f0501ceca4a",
@@ -35,7 +35,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Operationstechnik-iA_R2689",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:06.556Z",
+      "crawledAt": "2026-11-01T09:41:31.438Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -77,7 +77,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:31.438Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-f1bcacafe14e",
@@ -111,7 +115,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Biomedizinische-r-Analytiker-in-iA_R2703-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:05.755Z",
+      "crawledAt": "2026-11-01T09:41:30.492Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -162,7 +166,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:30.492Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-1493d7e3b8a5",
@@ -196,7 +204,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent-in-Pdiatrie_R2466",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:04.536Z",
+      "crawledAt": "2026-11-01T09:41:29.227Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -253,7 +261,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:29.227Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-8b399eb83e30",
@@ -287,7 +299,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/UnterassistentIn-Gynkologie-und-Geburtshilfe_R2468",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:03.661Z",
+      "crawledAt": "2026-11-01T09:41:28.488Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -329,7 +341,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:28.488Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-474ca264d74a",
@@ -362,7 +378,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Spontanbewerbungen-AA-Pdiatrie_R1845",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:02.586Z",
+      "crawledAt": "2026-11-01T09:41:27.665Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -402,7 +418,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:27.665Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-3fe86ee8bd81",
@@ -435,7 +455,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent--in-Chirurgie_R2666",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:01.655Z",
+      "crawledAt": "2026-11-01T09:41:26.948Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -496,7 +516,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:26.948Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-dcc94e08a2ba",
@@ -530,7 +554,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachmann-frau-Endoskopie-60-100-_R10123",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:00.783Z",
+      "crawledAt": "2026-11-01T09:41:26.211Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -572,7 +596,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:26.211Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-cb2e2052a3c3",
@@ -606,7 +634,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberarzt---Oberrztin-Pdiatrie-60-100-_R10149",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:59.924Z",
+      "crawledAt": "2026-11-01T09:41:25.454Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -650,7 +678,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:25.454Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-c96f9d9b73b8",
@@ -684,7 +716,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent--in_R2246",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:58.876Z",
+      "crawledAt": "2026-11-01T09:41:24.720Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -724,7 +756,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:24.720Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-d7e3be10956a",
@@ -758,7 +794,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Physiotherapeut-in-100-_R8164",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:58.080Z",
+      "crawledAt": "2026-11-01T09:41:23.996Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -800,7 +836,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:23.996Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-6d6fca3cc2c6",
@@ -834,7 +874,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent--in_R2247",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:57.280Z",
+      "crawledAt": "2026-11-01T09:41:23.277Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -874,7 +914,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:23.277Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-b83345fb7b0e",
@@ -908,7 +952,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberrztin-arzt-Allgemeine-Innere-Medizin-80-100-_R1890",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:56.482Z",
+      "crawledAt": "2026-11-01T09:41:22.556Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -948,7 +992,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:22.556Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-b0e3179ff1e6",
@@ -982,7 +1030,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Praktikant-in-Logistik-100---1-Jahr-_R11755",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:55.546Z",
+      "crawledAt": "2026-11-01T09:41:21.822Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1026,7 +1074,11 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:21.822Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-789fee9c7f6e",
@@ -1060,7 +1112,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent--in-Urologie_R5055",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:54.705Z",
+      "crawledAt": "2026-11-01T09:41:21.073Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1100,7 +1152,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:21.073Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-700d0d1ed640",
@@ -1133,7 +1189,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-Endoskopie-80-100-_R11967-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:52.807Z",
+      "crawledAt": "2026-11-01T09:41:19.477Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1175,7 +1231,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:19.477Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-0f003f9040be",
@@ -1208,7 +1268,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Ergotherapeut-in-Handtherapie-80-100-_R12127",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:51.978Z",
+      "crawledAt": "2026-11-01T09:41:18.764Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1258,7 +1318,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:18.764Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-ac41c43c4958",
@@ -1292,7 +1356,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Htelier-ire---Restaurateur-trice-iA_R2701",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:51.171Z",
+      "crawledAt": "2026-11-01T09:41:18.042Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1332,7 +1396,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:18.042Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-edd2790bbe95",
@@ -1366,7 +1434,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Assistent-in-Gesundheit-und-Soziales-iA_R12220",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:49.580Z",
+      "crawledAt": "2026-11-01T09:41:16.460Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1416,7 +1484,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:16.460Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-86e48467c7a4",
@@ -1450,7 +1522,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Teamleiter-in-Medizinische-Applikationen-80-100-_R12010",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:48.747Z",
+      "crawledAt": "2026-11-01T09:41:15.724Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1490,7 +1562,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:15.724Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-398bdc058844",
@@ -1524,7 +1600,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Koch-Kchin-iA_R12233",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:47.933Z",
+      "crawledAt": "2026-11-01T09:41:15.003Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1571,7 +1647,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:15.003Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-19a42f356ddb",
@@ -1605,7 +1685,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Betreuung-Kinder-iA_R12241",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:47.122Z",
+      "crawledAt": "2026-11-01T09:41:14.273Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1651,7 +1731,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:14.273Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-3146d82ce0f1",
@@ -1685,7 +1769,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Betriebsunterhalt-Werkdienst-iA_R12247",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:46.293Z",
+      "crawledAt": "2026-11-01T09:41:13.547Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1731,7 +1815,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:13.547Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-e76750e23ea7",
@@ -1765,7 +1853,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Gesundheit-iA_R12219",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:45.488Z",
+      "crawledAt": "2026-11-01T09:41:12.829Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1815,16 +1903,20 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:12.829Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-222b7a2d544d",
       "slug": "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hotellerie-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hotellerie-kantonsspital-baden-ksb-baden",
-        "en": "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden",
+        "en": "hospitality-and-housekeeping-specialist-in-training-specialization-in-housekeeping-kantonsspital-baden-ksb-baden",
         "de": "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch",
-        "fr": "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden"
+        "fr": "specialiste-en-hotellerie-intendance-en-formation-orientation-intendance-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -1849,7 +1941,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Hotellerie-Hauswirtschaft-iA--Fachrichtung-Hotellerie_R12254",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:44.679Z",
+      "crawledAt": "2026-11-01T09:41:12.091Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1872,8 +1964,8 @@
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-kantonsspital-baden-ksb-baden",
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-ksb-ch",
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch-nl99l0",
-        "hospitality-and-housekeeping-specialist-in-training-specialization-in-housekeeping-kantonsspital-baden-ksb-baden",
-        "specialiste-en-hotellerie-intendance-en-formation-orientation-intendance-kantonsspital-baden-ksb-baden"
+        "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden",
+        "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1881,14 +1973,14 @@
         ],
         "en": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-kantonsspital-baden-ksb-baden",
-          "hospitality-and-housekeeping-specialist-in-training-specialization-in-housekeeping-kantonsspital-baden-ksb-baden"
+          "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden"
         ],
         "de": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch-nl99l0"
         ],
         "fr": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-kantonsspital-baden-ksb-baden",
-          "specialiste-en-hotellerie-intendance-en-formation-orientation-intendance-kantonsspital-baden-ksb-baden"
+          "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden"
         ]
       },
       "firstSeenAt": "2026-06-29T22:37:05.092Z",
@@ -1904,7 +1996,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:12.091Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-ef661c2aa451",
@@ -1938,7 +2034,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Hotellerie-Hauswirtschaft-iA--Fachrichtung-Hotellerie_R12252",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:43.880Z",
+      "crawledAt": "2026-11-01T09:41:11.353Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1980,7 +2076,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:11.353Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-a94dffe947c9",
@@ -2013,7 +2113,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Chefarzt-rztin-Angiologie-80-100-_R12755-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:43.084Z",
+      "crawledAt": "2026-11-01T09:41:10.645Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2053,7 +2153,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:10.645Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-91ff366a9ff9",
@@ -2086,7 +2190,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Logistiker-in-iA_R12234",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:42.278Z",
+      "crawledAt": "2026-11-01T09:41:09.896Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2134,7 +2238,11 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:09.896Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-8a1d2c88501c",
@@ -2168,7 +2276,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Med-Praxisassistent-in-iA_R12385",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:41.355Z",
+      "crawledAt": "2026-11-01T09:41:09.168Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2226,7 +2334,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:09.168Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-182d1956b1e3",
@@ -2259,7 +2371,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Medizinproduktetechnologe-in-iA_R12243",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:40.559Z",
+      "crawledAt": "2026-11-01T09:41:08.449Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2307,7 +2419,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:08.449Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-48a060ac4f76",
@@ -2341,7 +2457,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/BMA-HF-fr-polyvalentes-Spitallabor-80-100-_R13005",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:39.728Z",
+      "crawledAt": "2026-11-01T09:41:07.711Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2387,7 +2503,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:07.711Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-4dc2951e80c8",
@@ -2421,7 +2541,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Mitarbeiter-in-Laborinformatik-80-100-_R12963-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:38.898Z",
+      "crawledAt": "2026-11-01T09:41:06.942Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2467,7 +2587,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:06.942Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-3ad23dfc32d8",
@@ -2501,7 +2625,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Gefss-Chirurgie_R9854",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:38.092Z",
+      "crawledAt": "2026-11-01T09:41:06.183Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2574,7 +2698,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:06.183Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-c42039626d10",
@@ -2608,7 +2736,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Viszeralchirurgie-80-100-_R12912-29",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:37.286Z",
+      "crawledAt": "2026-11-01T09:41:05.421Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2671,7 +2799,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:05.421Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-62e708fff4e2",
@@ -2705,7 +2837,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Pdiatrie--60--100-_R10471-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:36.451Z",
+      "crawledAt": "2026-11-01T09:41:04.666Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2747,7 +2879,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:04.666Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-c2fb6b3c8aeb",
@@ -2781,7 +2917,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Nachdiplomstudium--NDS-HF--Notfallpflege-Schwerpunkt-Pdiatrie_R12766",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:35.630Z",
+      "crawledAt": "2026-11-01T09:41:03.884Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2823,7 +2959,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:03.884Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-61cdf3a424fc",
@@ -2857,7 +2997,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Expert-in-Notfallpflege-oder-Dipl-Pflegefachfrau-mann-fr-Notfall-Kinder-und-Jugendliche-80-100-_R10768",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:34.837Z",
+      "crawledAt": "2026-11-01T09:41:02.942Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2916,7 +3056,11 @@
           "maxValue": 86100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:02.942Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-9a851b7ceb79",
@@ -2950,7 +3094,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-oder-Hebamme-Wochenbett---Prnatal-80--100-_R12388",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:33.958Z",
+      "crawledAt": "2026-11-01T09:41:02.220Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2996,7 +3140,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:02.220Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-b44a8d7e9961",
@@ -3030,7 +3178,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachfrau-mann-Operationstechnik-HF_R10159",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:33.139Z",
+      "crawledAt": "2026-11-01T09:41:01.490Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3093,7 +3241,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:01.490Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-26864f9d4f05",
@@ -3127,7 +3279,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Fachfrau-mann-Operationstechnik-HF-im-Stundenlohn_R12224",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:32.320Z",
+      "crawledAt": "2026-11-01T09:41:00.758Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3194,7 +3346,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:00.758Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-2e57d46a5256",
@@ -3228,7 +3384,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Pflegepool-Dialyse-im-Stundenlohn_R11657",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:31.490Z",
+      "crawledAt": "2026-11-01T09:41:00.009Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3270,7 +3426,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:00.009Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-70186c627244",
@@ -3304,7 +3464,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Expertin-Notfallpflege-NDS-HF-100--im-Nachdiplomstudiengang_R5977",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:30.259Z",
+      "crawledAt": "2026-11-01T09:40:58.515Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3344,7 +3504,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:58.515Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-fad6b65e2b2b",
@@ -3377,7 +3541,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Assistenzarzt-rztin-INZ-60-100-_R11393",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:29.227Z",
+      "crawledAt": "2026-11-01T09:40:57.757Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3434,7 +3598,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:57.757Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-d915ef23b4bd",
@@ -3468,7 +3636,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Experte-Expertin-Intensivpflege-NDS-HF-100--im-Nachdiplomstudiengang_R5988",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:28.411Z",
+      "crawledAt": "2026-11-01T09:40:57.018Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3508,7 +3676,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:57.018Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-f411a2c341a3",
@@ -3542,7 +3714,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Expert-in-Notfallpflege-NDS-HF-50-100-_R9720",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:27.590Z",
+      "crawledAt": "2026-11-01T09:40:56.253Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3589,7 +3761,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:56.253Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-53bf65db8d3a",
@@ -3623,7 +3799,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfau-mann-50-100--IMC-fr-interdisziplinres-Notfallzentrum_R12801-26",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:26.771Z",
+      "crawledAt": "2026-11-01T09:40:55.494Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3669,7 +3845,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:55.494Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-58ae5eee9591",
@@ -3702,7 +3882,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Medizin_R9874",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:25.969Z",
+      "crawledAt": "2026-11-01T09:40:54.717Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3759,7 +3939,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:54.717Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-ba8d4d98f0b6",
@@ -3793,7 +3977,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-Onkologie-und-Palliativ-Care_R9875",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:25.160Z",
+      "crawledAt": "2026-11-01T09:40:53.970Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3839,7 +4023,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:53.970Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-157ab744c721",
@@ -3873,7 +4061,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Akutgeriaterie-100-_R12280",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:24.335Z",
+      "crawledAt": "2026-11-01T09:40:53.242Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3942,7 +4130,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:53.242Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-89ed9aeb7a42",
@@ -3975,7 +4167,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberrztin-arzt-Neurologie-50-70-_R12891",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:23.486Z",
+      "crawledAt": "2026-11-01T09:40:52.395Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4015,7 +4207,11 @@
           "maxValue": 116200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:52.395Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-47f8ba86e3c6",
@@ -4048,7 +4244,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-Privatstation-HF-FH-100-_R11288",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:22.646Z",
+      "crawledAt": "2026-11-01T09:40:51.664Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4120,7 +4316,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:51.664Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-b33d5eee0de9",
@@ -4153,7 +4353,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Mitarbeiter-in-Service-Hotellerie-40-50-_R11510",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:21.820Z",
+      "crawledAt": "2026-11-01T09:40:50.912Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4219,7 +4419,11 @@
           "maxValue": 42300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:50.912Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-941660310b56",
@@ -4253,7 +4457,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberarzt-rztin-Kardio-Onkologie-80-100---Fellowship-_R12413-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:20.987Z",
+      "crawledAt": "2026-11-01T09:40:50.169Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4293,7 +4497,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:50.169Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-bd7f3839a098",
@@ -4327,7 +4535,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Nurse-Clinical-Practitioner--NCP--80-100-_R12961",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:20.181Z",
+      "crawledAt": "2026-11-01T09:40:49.371Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4367,7 +4575,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:49.371Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-8b99fb5b33cb",
@@ -4401,7 +4613,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberarzt-rztin-Intensivmedizin-80-100-_R13101",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:19.355Z",
+      "crawledAt": "2026-11-01T09:40:48.609Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4441,7 +4653,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:48.609Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-a4c10e9dc39e",
@@ -4475,7 +4691,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachrztin-arzt-fr-Kinder--und-Jugendpsychiatrie-und--psychotherapie-40-60-_R11363-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:18.542Z",
+      "crawledAt": "2026-11-01T09:40:47.864Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4517,7 +4733,11 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:40:47.864Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-ee859070848c",
@@ -4551,7 +4771,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/MPA-Notfallpraxis-50-_R13103-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:17.448Z",
+      "crawledAt": "2026-11-01T09:40:47.127Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4595,7 +4815,11 @@
           "maxValue": 61500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:40:47.127Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-81d924e4294f",
@@ -4629,7 +4853,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/MPA-Notfallpraxis-80-_R13079",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:16.487Z",
+      "crawledAt": "2026-11-01T09:40:46.366Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4671,7 +4895,11 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:40:46.366Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-02e37dd7c43a",
@@ -4705,7 +4933,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Senior-Data-Platform-Engineer--Azure---Databricks--80-100-_R13068",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:15.535Z",
+      "crawledAt": "2026-11-01T09:40:45.651Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4745,7 +4973,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:40:45.651Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-48e185104441",
@@ -4779,7 +5011,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/MPA---Arztsekretr-in-Rheumatologie-Baden---Brugg-100-_R13129",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:14.733Z",
+      "crawledAt": "2026-11-01T09:40:44.909Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4819,7 +5051,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:40:44.909Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-387f46b99ccb",
@@ -4853,7 +5089,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Verantwortliche-r-Business-Continuity-Management-100-_R13089-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:13.902Z",
+      "crawledAt": "2026-11-01T09:40:44.149Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4893,7 +5129,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:40:44.149Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-5610d2cb45bf",
@@ -4927,7 +5167,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Dietikon/Physiotherapeut-in-Physiozentrum-Limmatfeld-50-100-_R11641",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:13.058Z",
+      "crawledAt": "2026-11-01T09:40:43.376Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4970,7 +5210,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dietikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:40:43.376Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-662e12b7bf81",
@@ -5003,7 +5247,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Mitarbeiter-in-Gipszimmer-50-100--_R13286",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:12.171Z",
+      "crawledAt": "2026-11-01T09:40:42.606Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5049,7 +5293,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:40:42.606Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-ccea1e0e7503",
@@ -5083,7 +5331,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachfrau-mann-OP-Lagerung-50--100-_R8845",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:11.353Z",
+      "crawledAt": "2026-11-01T09:40:41.899Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5123,7 +5371,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:40:41.899Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-54f495c267e4",
@@ -5157,7 +5409,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dauernachtwache-Dipl-Pflegefachfrau-mann-HF-FH-auf-der-Chirurgie-50---100--_R13296-57",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:10.558Z",
+      "crawledAt": "2026-11-01T09:40:41.203Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5199,7 +5451,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:40:41.203Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-7c6ab263a4df",
@@ -5233,7 +5489,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachspezialist-in-Corporate-Affairs---Quality-100-_R13189",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:09.757Z",
+      "crawledAt": "2026-11-01T09:40:40.463Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5273,7 +5529,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:40:40.463Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-9470e6c4d543",
@@ -5306,7 +5566,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Arztsekretr-in-Radiologie-80-100-_R12882",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:08.917Z",
+      "crawledAt": "2026-11-01T09:40:39.734Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5363,7 +5623,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:40:39.734Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-61b42eb6af7e",
@@ -5397,7 +5661,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/MPA---FaGe-Urologie-100-_R13298",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:07.965Z",
+      "crawledAt": "2026-11-01T09:40:38.996Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5437,7 +5701,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:40:38.996Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-2d9d5fa22bf7",
@@ -5470,7 +5738,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Radiologiefachfrau-mann-Leuggern-80-100-_R12804",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:07.129Z",
+      "crawledAt": "2026-11-01T09:40:38.290Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5518,7 +5786,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:40:38.290Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-0b00fb3cbebb",
@@ -5551,7 +5823,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Assistenzarzt-rztin-Innere-Medizin_R1889",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:06.288Z",
+      "crawledAt": "2026-11-01T09:40:37.548Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5598,7 +5870,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:40:37.548Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-8fbc6f7546e6",
@@ -5632,7 +5908,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachfrau-mann-Gesundheit-EFZ-zentraler-Pflegepool-60----80-_R8868",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:05.466Z",
+      "crawledAt": "2026-11-01T09:40:36.811Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5700,7 +5976,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:40:36.811Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-2c0ffc52f292",
@@ -5734,7 +6014,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberrztin-arzt-Geriatrie-80-100-_R12954",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:04.477Z",
+      "crawledAt": "2026-11-01T09:40:36.098Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5774,7 +6054,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:40:36.098Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-b5632fdaa491",
@@ -5807,7 +6091,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachfrau---Fachann-Gesundheit-FaGe-EFZ---Zentraler-Pflegepool--50-100---_R13330",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:03.368Z",
+      "crawledAt": "2026-11-01T09:40:35.334Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5854,7 +6138,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:40:35.334Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-a3523aad5995",
@@ -5888,7 +6176,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Radiologiefachfrau-mann-fr-Mammografie---Screening-60-100-_R13165",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:02.385Z",
+      "crawledAt": "2026-11-01T09:40:34.605Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5938,7 +6226,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:40:34.605Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-6c5c29eca4d3",
@@ -5972,7 +6264,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Sachbearbeiter-in-Fakturierung-100-_R13198",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:01.455Z",
+      "crawledAt": "2026-11-01T09:40:33.849Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6014,7 +6306,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:40:33.849Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-aac33c67f4e0",
@@ -6048,7 +6344,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Teamleiter-in-Leistungsmanagement-100-_R13274",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:00.247Z",
+      "crawledAt": "2026-11-01T09:40:33.090Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6088,7 +6384,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:40:33.090Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-dcfda9d76ca3",
@@ -6122,7 +6422,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachfrau-mann-Gesundheit-interdisziplinrer-Notfall--70-100-_R10913",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:59.423Z",
+      "crawledAt": "2026-11-01T09:40:32.389Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6164,7 +6464,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:32.389Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-5403e46cad16",
@@ -6197,7 +6501,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Aufwachraum-100-_R11518",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:58.454Z",
+      "crawledAt": "2026-11-01T09:40:31.640Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6237,7 +6541,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:40:31.640Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-da8a2c31ee96",
@@ -6271,7 +6579,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachspezialist-in-Leistungsmanagement-100-_R13355-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:57.620Z",
+      "crawledAt": "2026-11-01T09:40:30.914Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6311,7 +6619,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:40:30.914Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-969450d969e6",
@@ -6345,7 +6657,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dauernachtwache-Dipl-Pflegefachfrau-mann-HF-FH-Aufwachraum-80---100-_R13396-39",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:56.816Z",
+      "crawledAt": "2026-11-01T09:40:30.185Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6387,7 +6699,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:40:30.185Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-9887482c41f6",
@@ -6420,7 +6736,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Application-Manager-in-100-_R12360",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:55.988Z",
+      "crawledAt": "2026-11-01T09:40:29.467Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6452,7 +6768,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:40:29.467Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-cf9504fc4547",
@@ -6486,7 +6806,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachspezialist-in-Rechnungswesen-80-100-_R13400",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:55.038Z",
+      "crawledAt": "2026-11-01T09:40:28.734Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6532,7 +6852,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:40:28.734Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-ee81bf2d4747",
@@ -6565,7 +6889,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Assistenzrztin-arzt-Geriatrie-80-100-_R12951",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:54.213Z",
+      "crawledAt": "2026-11-01T09:40:28.015Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6611,7 +6935,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:40:28.015Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-3c6dea959cc2",
@@ -6644,7 +6972,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/MPA-Onkologie-Hmatologie-60-80-_R13299",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:53.365Z",
+      "crawledAt": "2026-11-01T09:40:27.288Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6690,7 +7018,11 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:40:27.288Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-8d212b5bd932",
@@ -6723,7 +7055,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachfrau-mann-Gesundheit-EFZ-auf-der-Orhtopdie_R8978",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:52.497Z",
+      "crawledAt": "2026-11-01T09:40:26.545Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6765,7 +7097,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:40:26.545Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-ed7336cce01b",
@@ -6799,7 +7135,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-Dialyse-80-100-_R8373",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:51.433Z",
+      "crawledAt": "2026-11-01T09:40:25.703Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6858,7 +7194,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:25.703Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-15135f6438f7",
@@ -6892,7 +7232,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Fachfrau-mann-Operationstechnik-HF-60-100--im-Ambulanten-Operationszentrum_R10930",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:50.476Z",
+      "crawledAt": "2026-11-01T09:40:24.853Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6941,7 +7281,11 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:40:24.853Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-176eb0235722",
@@ -6975,7 +7319,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachfrau-mann-Gesundheit-EFZ-Sptdienstverstrkung-20--30-_R13445",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:49.638Z",
+      "crawledAt": "2026-11-01T09:40:24.005Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7023,7 +7367,11 @@
           "maxValue": 36900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:40:24.005Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-beb8d2b47c1f",
@@ -7057,7 +7405,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Ergotherapeut-in-stationres-Setting-im-Wunschpensum_R12940",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:48.831Z",
+      "crawledAt": "2026-11-01T09:40:23.157Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7103,7 +7451,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:40:23.157Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-b02c6511b49a",
@@ -7137,7 +7489,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-IMC_R9789",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:47.971Z",
+      "crawledAt": "2026-11-01T09:40:22.322Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7177,7 +7529,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:40:22.322Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-54cd30d156b9",
@@ -7211,7 +7567,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-Ambulatorium-Innere-Medizin-80-100-_R13432",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:47.136Z",
+      "crawledAt": "2026-11-01T09:40:21.439Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7259,7 +7615,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:40:21.439Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-3e1796633345",
@@ -7292,7 +7652,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberrztin-arzt-INZ-80-100-_R13175",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:46.261Z",
+      "crawledAt": "2026-11-01T09:40:20.413Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7338,7 +7698,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:40:20.413Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-eb20905fee01",
@@ -7372,7 +7736,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Mitarbeiter-in-Zytostatikaherstellung-80-100-_R13288",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:45.432Z",
+      "crawledAt": "2026-11-01T09:40:19.559Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7422,7 +7786,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:40:19.559Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-5f545adf61b8",
@@ -7456,7 +7824,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Senior-System-Engineer-Backend-80-100-_R13407",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:44.588Z",
+      "crawledAt": "2026-11-01T09:40:18.487Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7499,7 +7867,11 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:40:18.487Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-d851cf1e4345",
@@ -7533,7 +7905,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Security-Engineer--ICT-Security--80-100-_R13408",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:43.689Z",
+      "crawledAt": "2026-11-01T09:40:17.674Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7576,7 +7948,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:40:17.674Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-18f561e9078e",
@@ -7610,7 +7986,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden-42-Nichtrztliches-Personal/Projektleitung-Bauherrenvertretung-80-100-_R13434",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:42.876Z",
+      "crawledAt": "2026-11-01T09:40:16.825Z",
       "addressLocality": "Baden 42 (Nichtärztliches Personal)",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7656,7 +8032,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden 42 (Nichtärztliches Personal)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:40:16.825Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ksb-41d8f0b6eb63",
@@ -7689,7 +8069,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Leuggern/Co-Teamleiter-in-Radiologie-Leuggern-80-100-_R13370-13",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:42.088Z",
+      "crawledAt": "2026-11-01T09:40:15.971Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7737,7 +8117,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Leuggern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:40:15.971Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

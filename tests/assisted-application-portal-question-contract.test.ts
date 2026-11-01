@@ -127,7 +127,7 @@ describe('portal candidate question contract', () => {
     const { questions } = portalRequirementsFromMissingRequired([field], [planned]);
     const localized = await localizePortalQuestions(questions, {
       candidateLocale: 'it', applicationLocale: 'de',
-      codex: async () => ({ questions: [{ id: questions[0].id, question: planned.question, options: ['Sito aziendale', 'Raccomandazione'], optionMap: [{ candidate: 'Sito aziendale', application: 'Homepage' }, { candidate: 'Raccomandazione', application: 'Empfehlung' }] }] }),
+      codex: async () => ({ questions: [{ id: questions[0].id, sourceLocale: 'de', question: planned.question, options: ['Sito aziendale', 'Raccomandazione'], optionMap: [{ candidate: 'Sito aziendale', application: 'Homepage' }, { candidate: 'Raccomandazione', application: 'Empfehlung' }] }] }),
     });
     expect(localized[0]).toMatchObject({ type: 'choice', required: true, options: ['Sito aziendale', 'Raccomandazione'], applicationOptions: ['Homepage', 'Empfehlung'] });
     expect(portalAnswerForApplication(localized[0], 'Raccomandazione')).toBe('Empfehlung');
@@ -141,7 +141,7 @@ describe('portal candidate question contract', () => {
     ]) {
       const localized = await localizePortalQuestions(questions, {
         candidateLocale: 'it', applicationLocale: 'de',
-        codex: async () => ({ questions: [{ id: questions[0].id, question: planned.question, ...copy }] }),
+        codex: async () => ({ questions: [{ id: questions[0].id, sourceLocale: 'de', question: planned.question, ...copy }] }),
       });
       expect(localized[0].options).toEqual(['Homepage', 'Empfehlung']);
       expect(portalAnswerForApplication(localized[0], 'Empfehlung')).toBe('Empfehlung');

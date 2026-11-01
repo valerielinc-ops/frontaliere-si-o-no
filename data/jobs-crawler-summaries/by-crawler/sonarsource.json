@@ -1,7 +1,7 @@
 {
   "key": "sonarsource",
   "label": "SonarSource (Sonar)",
-  "generatedAt": "2026-10-31T22:07:15.940Z",
+  "generatedAt": "2026-11-01T09:26:28.677Z",
   "total": 28,
   "discovered": null,
   "parsed": 28,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 27,
-  "durationMs": 22294,
-  "avgDurationMs": 22294,
+  "durationMs": 13994,
+  "avgDurationMs": 13994,
   "durationHistory": [
-    22294
+    13994
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "sonarsource-c7b2961021d6",
-      "slug": "identity-access-management-engineer-sonarsource-ch",
+      "slug": "identity-access-management-ingegnere-sonarsource-sonar-geneva",
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
       "companyDomain": "sonarsource.com",
@@ -34,7 +35,7 @@
       "url": "https://jobs.lever.co/sonarsource/7b304f33-35f3-4734-9772-b4ceb447f8c0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:55.271Z",
+      "crawledAt": "2026-11-01T09:26:04.275Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,22 +51,25 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/7b304f33-35f3-4734-9772-b4ceb447f8c0",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-31T22:06:55.271Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-10-31T22:06:55.271Z",
-      "_qualityScore": 84,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:26:04.275Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -80,7 +84,7 @@
       "url": "https://jobs.lever.co/sonarsource/85850faa-715d-4122-8ed2-82003a109779",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:07:00.410Z",
+      "crawledAt": "2026-11-01T09:26:09.427Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -101,12 +105,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:26:09.427Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -121,7 +129,7 @@
       "url": "https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:07:00.108Z",
+      "crawledAt": "2026-11-01T09:26:09.124Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -142,12 +150,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:09.124Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -162,7 +174,7 @@
       "url": "https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:59.806Z",
+      "crawledAt": "2026-11-01T09:26:08.822Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -183,12 +195,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:08.822Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -203,7 +219,7 @@
       "url": "https://jobs.lever.co/sonarsource/0104318d-b772-4696-aa3f-e41e3a5be35e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:59.503Z",
+      "crawledAt": "2026-11-01T09:26:08.521Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -224,12 +240,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:08.521Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -244,7 +264,7 @@
       "url": "https://jobs.lever.co/sonarsource/2268f780-bb06-4546-a609-769e30124eae",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:59.201Z",
+      "crawledAt": "2026-11-01T09:26:08.218Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -265,12 +285,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:08.218Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -285,7 +309,7 @@
       "url": "https://jobs.lever.co/sonarsource/86161ae0-2849-435a-a2ff-8c24ba18b49a",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:58.899Z",
+      "crawledAt": "2026-11-01T09:26:07.917Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -306,12 +330,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:07.917Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -326,7 +354,7 @@
       "url": "https://jobs.lever.co/sonarsource/19d88777-744e-4496-a94a-6560770198bd",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:58.598Z",
+      "crawledAt": "2026-11-01T09:26:07.613Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -347,12 +375,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:07.613Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -367,7 +399,7 @@
       "url": "https://jobs.lever.co/sonarsource/f1f70e11-eb52-4c43-a52c-1e1876e5e9d9",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:58.295Z",
+      "crawledAt": "2026-11-01T09:26:07.309Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -388,12 +420,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:26:07.309Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -408,7 +444,7 @@
       "url": "https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:57.992Z",
+      "crawledAt": "2026-11-01T09:26:07.005Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -429,12 +465,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:07.005Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -449,7 +489,7 @@
       "url": "https://jobs.lever.co/sonarsource/a0535931-bce3-4159-b43d-15ca3eb4d17f",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:57.690Z",
+      "crawledAt": "2026-11-01T09:26:06.702Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -470,12 +510,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:26:06.702Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -490,7 +534,7 @@
       "url": "https://jobs.lever.co/sonarsource/38187073-6976-4791-9bfd-c946fd67faf0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:57.387Z",
+      "crawledAt": "2026-11-01T09:26:06.398Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -511,12 +555,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:26:06.398Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -531,7 +579,7 @@
       "url": "https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:57.085Z",
+      "crawledAt": "2026-11-01T09:26:06.095Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -552,12 +600,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:06.095Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -572,7 +624,7 @@
       "url": "https://jobs.lever.co/sonarsource/3d1597a7-4535-4f22-8554-9a4a5df242b9",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:56.782Z",
+      "crawledAt": "2026-11-01T09:26:05.792Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -593,12 +645,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:05.792Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -613,7 +669,7 @@
       "url": "https://jobs.lever.co/sonarsource/d5981b28-b059-4540-a332-c9e29ec044dd",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:56.480Z",
+      "crawledAt": "2026-11-01T09:26:05.487Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -635,12 +691,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:26:05.487Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -655,7 +715,7 @@
       "url": "https://jobs.lever.co/sonarsource/9d7c7928-075e-43d6-822a-24a6070eb452",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:56.178Z",
+      "crawledAt": "2026-11-01T09:26:05.184Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -676,12 +736,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:26:05.184Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -696,7 +760,7 @@
       "url": "https://jobs.lever.co/sonarsource/063c3fa2-788a-4e2b-b35e-80ff7b122739",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:55.876Z",
+      "crawledAt": "2026-11-01T09:26:04.880Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -717,12 +781,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:04.880Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -737,7 +805,7 @@
       "url": "https://jobs.lever.co/sonarsource/2f72a54b-d9cb-49e9-9a4d-f5e0c3b28e1c",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:55.574Z",
+      "crawledAt": "2026-11-01T09:26:04.578Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -758,12 +826,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:26:04.578Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -778,7 +850,7 @@
       "url": "https://jobs.lever.co/sonarsource/04501f08-89a9-40fb-95db-778268a839d7",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:54.968Z",
+      "crawledAt": "2026-11-01T09:26:03.973Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -799,12 +871,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:26:03.973Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -819,7 +895,7 @@
       "url": "https://jobs.lever.co/sonarsource/8fac173a-36f8-48bb-8df2-be227655d495",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:54.665Z",
+      "crawledAt": "2026-11-01T09:26:03.669Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -840,12 +916,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:26:03.669Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -860,7 +940,7 @@
       "url": "https://jobs.lever.co/sonarsource/c9783c31-cfa1-4d95-b31a-278cd0d14162",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:54.362Z",
+      "crawledAt": "2026-11-01T09:26:03.366Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -881,12 +961,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:26:03.366Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -901,7 +985,7 @@
       "url": "https://jobs.lever.co/sonarsource/cea00267-a79c-486b-8e6d-e67b89917101",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:54.059Z",
+      "crawledAt": "2026-11-01T09:26:03.064Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -922,12 +1006,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:26:03.064Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -942,7 +1030,7 @@
       "url": "https://jobs.lever.co/sonarsource/5a8f589d-86fb-4330-9e30-9665114d49a8",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:53.757Z",
+      "crawledAt": "2026-11-01T09:26:02.755Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -963,12 +1051,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:02.755Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -983,7 +1075,7 @@
       "url": "https://jobs.lever.co/sonarsource/3cae19c4-144b-41b9-89c1-03203547a8d3",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:53.454Z",
+      "crawledAt": "2026-11-01T09:26:02.453Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1004,12 +1096,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:26:02.453Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1024,7 +1120,7 @@
       "url": "https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:53.151Z",
+      "crawledAt": "2026-11-01T09:26:02.150Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1045,12 +1141,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:02.150Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1065,7 +1165,7 @@
       "url": "https://jobs.lever.co/sonarsource/9b40530c-83d5-4f8a-b09f-1dd33e8060f6",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:52.847Z",
+      "crawledAt": "2026-11-01T09:26:01.848Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1086,12 +1186,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:26:01.848Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1106,7 +1210,7 @@
       "url": "https://jobs.lever.co/sonarsource/73967c55-9a24-4e03-88b1-b5867f2df4be",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:52.545Z",
+      "crawledAt": "2026-11-01T09:26:01.545Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1127,12 +1231,16 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:26:01.545Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1147,7 +1255,7 @@
       "url": "https://jobs.lever.co/sonarsource/a57bf736-bc10-4c3b-9af8-43a5f7591d53",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:06:52.236Z",
+      "crawledAt": "2026-11-01T09:26:01.233Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1168,14 +1276,18 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:01.233Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

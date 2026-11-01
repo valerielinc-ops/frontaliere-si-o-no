@@ -103,6 +103,26 @@ describe('portal runner self-correction', () => {
     expect(pageControls([usualSend, usualNext], known, 'https://portal.example/other')).toEqual({ submit: usualSend, next: usualNext });
   });
 
+  it('recognises a German SuccessFactors next step with only an optional file field', () => {
+    const snapshot = {
+      fields: [{
+        id: 'attachment', kind: 'file', inputType: 'file',
+        label: 'Eine oder mehrere Dateien auswählen (optional) (optional).', required: false,
+      }],
+      buttons: [
+        { text: 'Menü', chrome: true },
+        { text: 'Mein Konto', chrome: true },
+        { text: 'Vorheriges', disabled: false },
+        { text: 'Nächstes', disabled: false },
+        { text: 'Öffne Bild in Grossansicht', disabled: false },
+        { text: 'Seite drucken', disabled: false },
+      ],
+    };
+
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://www.stadt-zuerich.ch/bewerbungstipps/'))
+      .toEqual({ submit: null, next: expect.objectContaining({ text: 'Nächstes' }) });
+  });
+
   it('level 3: the stop report names the page without the employer or the posting', () => {
     expect(anonymizePath('https://join.com/companies/acme-sagl/16772222/apply/review?step=3#x')).toBe('/companies/*/*/apply/review');
     expect(anonymizePath('https://acme.wd3.myworkdayjobs.com/de-DE/External/job/Lugano/Pflege_R12345/apply')).toBe('/de-DE/External/job/*/*/apply');

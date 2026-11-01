@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sodexo",
-  "assembledAt": "2026-10-31T21:23:43.801Z",
-  "runId": "41241671182",
+  "assembledAt": "2026-11-01T09:16:26.470Z",
+  "runId": "41291333597",
   "jobs": [
     {
       "id": "sodexo-c6850f7a4810",
@@ -35,7 +35,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/a2232b5b6b17429cdff8ddc2f14ea8c9_0/5632/Unterhaltsreiniger_in_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:37.106Z",
+      "crawledAt": "2026-11-01T09:16:19.926Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -90,7 +90,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:19.926Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sodexo-3a8c488dc061",
@@ -124,7 +127,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/167ccbe15cc1664c9a63c20ac4c6a55a_0/5739/Technischer_Leiter_m_w_d_-_Facility_Management_100.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:36.543Z",
+      "crawledAt": "2026-11-01T09:16:19.350Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -167,7 +170,10 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-17T09:16:19.350Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sodexo-de84def5aba7",
@@ -201,7 +207,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/31f81674a348511b990af268ca3a8391_0/5743/HLKS-Fachmitarbeiter_m_w_d_100.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:35.945Z",
+      "crawledAt": "2026-11-01T09:16:18.760Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -242,7 +248,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-17T09:16:18.760Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sodexo-6345ce6a73c1",
@@ -276,7 +285,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/f7dd39d47c6f28f7877155ccffad0192_0/5703/Unterhaltsreiniger_in_m_w_d_15h_pro_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:35.353Z",
+      "crawledAt": "2026-11-01T09:16:18.139Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -323,7 +332,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-24T09:16:18.139Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sodexo-25aaf0202b3f",
@@ -357,7 +369,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/5c971edc0c2cc92fc99b5a3609450cb7_0/5699/Unterhaltsreiniger_in_m_w_d_11_25_Stunden_pro_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:34.687Z",
+      "crawledAt": "2026-11-01T09:16:17.516Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -401,7 +413,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-24T09:16:17.516Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sodexo-ae5338c2b3e1",
@@ -435,7 +450,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/2c8ed8587468aec2462a3914f154e570_0/5726/Rezeptionist_in_60_-_80_m_w_d.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:34.106Z",
+      "crawledAt": "2026-11-01T09:16:16.891Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -479,7 +494,10 @@
           "maxValue": 84800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-24T09:16:16.891Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sodexo-615806b9a329",
@@ -513,7 +531,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/810462d01f318bd13e628a77fc3f92c0_0/5710/Betriebsmitarbeiter_in_Service_Attache_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:33.532Z",
+      "crawledAt": "2026-11-01T09:16:16.258Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -554,7 +572,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-24T09:16:16.258Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sodexo-210d3a86aea2",
@@ -588,7 +609,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/588e343066cf54ec3db5132231df7d68_0/5758/Rezeptionist_in_43_m_w_d.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:32.925Z",
+      "crawledAt": "2026-11-01T09:16:15.651Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -629,7 +650,10 @@
           "maxValue": 45600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:16:15.651Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sodexo-7bf7eb7fe267",
@@ -663,7 +687,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/e347c51419ffb23ca3fd5050202f9c3d_0/5750/Unterhaltsreiniger_in_m_w_d_12h_pro_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:32.337Z",
+      "crawledAt": "2026-11-01T09:16:15.016Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -710,7 +734,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-05T09:16:15.016Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sodexo-af1cbaad9334",
@@ -744,7 +771,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/ca7be8306ecc3f5fa30ff2c41e64fa7b_0/5778/Unterhaltsreiniger_in_m_w_d_15_Stunden_pro_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:31.743Z",
+      "crawledAt": "2026-11-01T09:16:14.299Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -791,7 +818,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-06T09:16:14.299Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sodexo-049695fb00c2",
@@ -825,7 +855,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/8763d72bba4a7ade23f9ae1f09f4efc7_0/5790/Unterhaltsreiniger_in_m_w_d_ca_15.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:31.128Z",
+      "crawledAt": "2026-11-01T09:16:13.677Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -874,7 +904,10 @@
           "maxValue": 15900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-13T09:16:13.677Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sodexo-5e139c7ed00d",
@@ -908,7 +941,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/5f11b27f131494a1c014fcced2f13165_0/5795/Koch_Koechin_Premium_Lounge_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:30.493Z",
+      "crawledAt": "2026-11-01T09:16:13.071Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -955,7 +988,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-18T09:16:13.071Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sodexo-1efc2df3e0db",
@@ -989,7 +1025,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/5a29503a4909fcade36b1823e7cebcf5_0/5803/Rezeptionist_in_100_m_w_d.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:23:29.909Z",
+      "crawledAt": "2026-11-01T09:16:12.476Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1036,7 +1072,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:16:12.476Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

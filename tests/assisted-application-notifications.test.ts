@@ -478,13 +478,17 @@ describe('follow-up emails', () => {
   });
 
   it('tells the customer when Valerie marks the application as submitted', async () => {
+    const companyLogo = 'https://cdn.frontaliereticino.ch/images/brands/clinica-esempio.png';
+    const enrichJobCards = vi.fn(async (orders: any[]) => orders.map((order) => ({ ...order, companyLogo })));
     store['order-1'] = paidOrder({ submissionStatus: 'submitted', submittedAt: new Date('2026-10-01T09:00:00Z') });
     await handleAssistedApplicationOrderWritten(
-      paidOrder({ submissionStatus: 'in_progress' }), store['order-1'], 'order-1', { db, nowMs: NOW },
+      paidOrder({ submissionStatus: 'in_progress' }), store['order-1'], 'order-1', { db, nowMs: NOW, enrichJobCards },
     );
     const [customer] = payloads();
     expect(customer.subject).toBe('Ho inviato la tua candidatura a Clinica Esempio');
     expect(customer.html).toContain('1 ottobre 2026');
+    expect(customer.html).toContain(`<img src="${companyLogo}"`);
+    expect(enrichJobCards).toHaveBeenCalledTimes(1);
   });
 
   it('confirms a submitted concierge child without sending legacy payment or materials emails', async () => {
@@ -497,7 +501,7 @@ describe('follow-up emails', () => {
       paidOrder({ billingMode: 'application_concierge', submissionStatus: 'awaiting_upload' }),
       store['order-1'],
       'order-1',
-      { db, nowMs: NOW },
+      { db, nowMs: NOW, enrichJobCards: async (orders: any[]) => orders },
     );
 
     expect(result.ok).toBe(true);
@@ -513,7 +517,7 @@ describe('follow-up emails', () => {
     const link = 'https://prod.pastahr.com/api/v1/redirect/COFU2003?remote_job_id=167757';
     store['order-1'] = paidOrder({ submissionStatus: 'submitted', submittedAt: new Date('2026-10-03T09:00:00Z'), submissionChannel: 'whatsapp', whatsappApplyUrl: link });
     await handleAssistedApplicationOrderWritten(
-      paidOrder({ submissionStatus: 'in_progress', submissionChannel: 'whatsapp', whatsappApplyUrl: link }), store['order-1'], 'order-1', { db, nowMs: NOW },
+      paidOrder({ submissionStatus: 'in_progress', submissionChannel: 'whatsapp', whatsappApplyUrl: link }), store['order-1'], 'order-1', { db, nowMs: NOW, enrichJobCards: async (orders: any[]) => orders },
     );
     const [customer] = payloads();
     expect(customer.subject).toBe("La tua candidatura a Clinica Esempio: l'ultimo passo è su WhatsApp");

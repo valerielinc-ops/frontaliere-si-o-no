@@ -61,7 +61,7 @@ name: Audit Article Corpus Drift (weekly, read-only)
 #     conflating "corpus grew, expected" with "genuine drift" — i.e. once the
 #     categorizer gains a related-articles-only tolerated class the same way
 #     `ok-cf-bot-script-only` already exists for the Cloudflare bot-fight
-#     script. That is real, separate, safety-argued work (the existing two
+#     script. That is real, separate, safety-argued work (the existing
 #     normalizations each shipped with their own proof they cannot mask a
 #     genuine value change — see check-article-byte-identity.mjs) — not
 #     something to bolt on speculatively in the same change that decided
@@ -223,9 +223,11 @@ jobs:
       # CATEGORY HISTOGRAM is, because the script's notion of "ok" is broader
       # than "verified identical":
       #   ok                     — genuinely identical (byte-identical, or so
-      #                            once `<head>`'s `<meta>` tags are put in a
-      #                            canonical order — #5444; values are still
-      #                            compared exactly), the only category that
+      #                            once the exact active-head CDN envelope is
+      #                            removed and `<head>`'s `<meta>` tags are
+      #                            put in canonical order — #5444; values
+      #                            are still compared exactly), the only
+      #                            category that
       #                            proves anything
       #   ok-cf-bot-script-only  — identical except Cloudflare's bot-fight
       #                            <script>, a known edge-injected diff
@@ -284,7 +286,7 @@ jobs:
             TOTAL="$(jq -r '[.sections[].results[]] | length' "$REPORT")"
             echo "**Genuinely verified identical: ${VERIFIED}/${TOTAL}.** Anything short of this is not drift — it is the audit failing to observe."
             echo
-            echo "\"Identical\" here means byte-identical, or byte-identical once the \`<meta>\` tags inside \`<head>\` are put in a canonical order (#5444: the two render paths emit the same tags in a different sequence — same tags, same values). Values are still compared exactly; only ordering is ignored."
+            echo "\"Identical\" here means byte-identical, or byte-identical once the exact active-head deploy-time CDN envelope for the canonical origin is removed and the \`<meta>\` tags inside \`<head>\` are put in canonical order (#5444: the two render paths emit the same tags in a different sequence — same tags, same values). Runtime base values, article values, and all content remain compared exactly; only the known deployment envelope and ordering are ignored."
             echo
             echo "#### Non-clean articles"
             echo

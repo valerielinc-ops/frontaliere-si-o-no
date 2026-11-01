@@ -1,7 +1,7 @@
 {
   "crawlerKey": "casale",
-  "assembledAt": "2026-10-31T21:21:01.420Z",
-  "runId": "41241757776",
+  "assembledAt": "2026-11-01T09:17:44.483Z",
+  "runId": "41291409806",
   "jobs": [
     {
       "url": "https://recruit.casale.ch/o/senior-estimating-engineer",
@@ -51,6 +51,9 @@
         "location": "Lugano"
       },
       "firstSeenAt": "2026-10-09T09:16:20.980Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:16:20.980Z",
+      "validThroughSource": "last-observed-window",
       "salaryMin": 79500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -149,6 +152,9 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-07-12T21:19:25.409Z",
+      "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -222,6 +228,9 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-07-12T21:19:25.409Z",
+      "validThroughSource": "last-observed-window",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",

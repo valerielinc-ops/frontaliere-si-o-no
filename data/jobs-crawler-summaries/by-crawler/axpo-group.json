@@ -1,16 +1,16 @@
 {
   "key": "axpo-group",
   "label": "axpo",
-  "generatedAt": "2026-10-31T21:48:43.618Z",
+  "generatedAt": "2026-11-01T09:20:11.409Z",
   "total": 38,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 37,
-  "durationMs": 3223,
-  "avgDurationMs": 3223,
+  "durationMs": 1503,
+  "avgDurationMs": 1503,
   "durationHistory": [
-    3223
+    1503
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,10 +36,10 @@
       "datePosted": "2026-10-20T14:22:58+02:00",
       "postedDate": "2026-10-20T14:22:58+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-19T09:19:59.892Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.351Z",
+      "crawledAt": "2026-11-01T09:19:59.892Z",
       "id": "axpo-group-cebd180b9801",
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -47,12 +47,25 @@
       "salarySource": "estimated",
       "postalCode": "5242",
       "firstSeenAt": "2026-10-21T09:27:51.585Z",
-      "_qualityScore": 96,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Axpo Systems AG",
+        "streetAddress": "Gass 1",
+        "postalCode": "5242",
+        "addressLocality": "Lupfig",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:00.179Z"
+      },
+      "streetAddress": "Gass 1",
+      "streetAddressSource": "zefix-registry",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
@@ -80,10 +93,10 @@
       "datePosted": "2026-10-30T11:10:58+01:00",
       "postedDate": "2026-10-30T11:10:58+01:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-29T09:19:59.672Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:26.990Z",
+      "crawledAt": "2026-11-01T09:19:59.672Z",
       "id": "axpo-group-e6e4243fb893",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -91,12 +104,15 @@
       "salarySource": "reported",
       "postalCode": "6003",
       "firstSeenAt": "2026-10-30T21:21:55.945Z",
-      "_qualityScore": 96,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -121,10 +137,10 @@
       "datePosted": "2026-10-30T10:41:50+01:00",
       "postedDate": "2026-10-30T10:41:50+01:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-29T09:19:59.697Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.025Z",
+      "crawledAt": "2026-11-01T09:19:59.697Z",
       "id": "axpo-group-f42ef59a9761",
       "salaryMin": 76000,
       "salaryMax": 115500,
@@ -132,12 +148,15 @@
       "salarySource": "estimated",
       "postalCode": "5400",
       "firstSeenAt": "2026-10-30T21:21:55.961Z",
-      "_qualityScore": 94,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -162,10 +181,10 @@
       "datePosted": "2026-10-29T14:16:38+01:00",
       "postedDate": "2026-10-29T14:16:38+01:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-28T09:19:59.723Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.075Z",
+      "crawledAt": "2026-11-01T09:19:59.723Z",
       "id": "axpo-group-9731323f5776",
       "salaryMin": 58000,
       "salaryMax": 99000,
@@ -173,12 +192,25 @@
       "salarySource": "estimated",
       "postalCode": "5242",
       "firstSeenAt": "2026-10-30T09:38:36.040Z",
-      "_qualityScore": 96,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Axpo Systems AG",
+        "streetAddress": "Gass 1",
+        "postalCode": "5242",
+        "addressLocality": "Lupfig",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:00.179Z"
+      },
+      "streetAddress": "Gass 1",
+      "streetAddressSource": "zefix-registry",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -203,10 +235,10 @@
       "datePosted": "2026-10-27T17:19:29+01:00",
       "postedDate": "2026-10-27T17:19:29+01:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-26T09:19:59.759Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.148Z",
+      "crawledAt": "2026-11-01T09:19:59.759Z",
       "id": "axpo-group-ddf185186c7d",
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -214,12 +246,15 @@
       "salarySource": "estimated",
       "postalCode": "4622",
       "firstSeenAt": "2026-10-27T21:27:06.867Z",
-      "_qualityScore": 94,
+      "streetAddress": "Egerkingen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -244,10 +279,10 @@
       "datePosted": "2026-10-26T14:33:42+01:00",
       "postedDate": "2026-10-26T14:33:42+01:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-25T09:19:59.783Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.183Z",
+      "crawledAt": "2026-11-01T09:19:59.783Z",
       "id": "axpo-group-2a1d5887680a",
       "salaryMin": 74500,
       "salaryMax": 127000,
@@ -255,12 +290,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-27T21:27:06.908Z",
-      "_qualityScore": 96,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -285,10 +323,10 @@
       "datePosted": "2026-10-26T13:15:27+01:00",
       "postedDate": "2026-10-26T13:15:27+01:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-25T09:19:59.797Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.199Z",
+      "crawledAt": "2026-11-01T09:19:59.797Z",
       "id": "axpo-group-b197e07ca4ef",
       "salaryMin": 94000,
       "salaryMax": 143000,
@@ -296,12 +334,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-26T21:49:40.557Z",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -326,10 +367,10 @@
       "datePosted": "2026-10-26T13:02:47+01:00",
       "postedDate": "2026-10-26T13:02:47+01:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-25T09:19:59.814Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.222Z",
+      "crawledAt": "2026-11-01T09:19:59.814Z",
       "id": "axpo-group-134ace31b137",
       "salaryMin": 94000,
       "salaryMax": 143000,
@@ -337,12 +378,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-26T21:49:40.583Z",
-      "_qualityScore": 94,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -367,10 +411,10 @@
       "datePosted": "2026-10-26T09:00:36+01:00",
       "postedDate": "2026-10-26T09:00:36+01:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-24T09:19:59.832Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.253Z",
+      "crawledAt": "2026-11-01T09:19:59.832Z",
       "id": "axpo-group-5d66356b9859",
       "salaryMin": 99500,
       "salaryMax": 169500,
@@ -378,12 +422,15 @@
       "salarySource": "estimated",
       "postalCode": "5400",
       "firstSeenAt": "2026-10-30T21:21:56.049Z",
-      "_qualityScore": 96,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -408,10 +455,10 @@
       "datePosted": "2026-10-08T16:33:06+02:00",
       "postedDate": "2026-10-08T16:33:06+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-07T09:19:59.849Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.275Z",
+      "crawledAt": "2026-11-01T09:19:59.849Z",
       "id": "axpo-group-a3dbda4dea38",
       "salaryMin": 99500,
       "salaryMax": 169500,
@@ -419,12 +466,25 @@
       "salarySource": "estimated",
       "postalCode": "5242",
       "firstSeenAt": "2026-10-26T09:35:08.052Z",
-      "_qualityScore": 96,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Axpo Systems AG",
+        "streetAddress": "Gass 1",
+        "postalCode": "5242",
+        "addressLocality": "Lupfig",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:48:00.179Z"
+      },
+      "streetAddress": "Gass 1",
+      "streetAddressSource": "zefix-registry",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -449,10 +509,10 @@
       "datePosted": "2026-10-23T11:33:41+02:00",
       "postedDate": "2026-10-23T11:33:41+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-22T09:19:59.861Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.294Z",
+      "crawledAt": "2026-11-01T09:19:59.861Z",
       "id": "axpo-group-1f6c237abf35",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -460,12 +520,15 @@
       "salarySource": "reported",
       "postalCode": "5312",
       "firstSeenAt": "2026-10-23T21:27:07.714Z",
-      "_qualityScore": 94,
+      "streetAddress": "Döttingen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -490,10 +553,10 @@
       "datePosted": "2026-10-22T08:04:00+02:00",
       "postedDate": "2026-10-22T08:04:00+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-20T09:19:59.875Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.320Z",
+      "crawledAt": "2026-11-01T09:19:59.875Z",
       "id": "axpo-group-59a36950bc78",
       "salaryMin": 74500,
       "salaryMax": 127000,
@@ -501,12 +564,15 @@
       "salarySource": "estimated",
       "postalCode": "6032",
       "firstSeenAt": "2026-10-22T09:26:01.848Z",
-      "_qualityScore": 96,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -531,10 +597,10 @@
       "datePosted": "2026-10-20T15:52:42+02:00",
       "postedDate": "2026-10-20T15:52:42+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-19T09:19:59.885Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.339Z",
+      "crawledAt": "2026-11-01T09:19:59.885Z",
       "id": "axpo-group-4319be75cd49",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -542,12 +608,15 @@
       "salarySource": "estimated",
       "postalCode": "5400",
       "firstSeenAt": "2026-10-27T21:27:07.038Z",
-      "_qualityScore": 94,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -572,10 +641,10 @@
       "datePosted": "2026-10-20T13:31:32+02:00",
       "postedDate": "2026-10-20T13:31:32+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-19T09:19:59.912Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.378Z",
+      "crawledAt": "2026-11-01T09:19:59.912Z",
       "id": "axpo-group-f423e67b47a2",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -583,12 +652,15 @@
       "salarySource": "estimated",
       "postalCode": "6362",
       "firstSeenAt": "2026-10-26T21:49:40.662Z",
-      "_qualityScore": 94,
+      "streetAddress": "Stansstad",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -613,10 +685,10 @@
       "datePosted": "2026-10-19T15:58:13+02:00",
       "postedDate": "2026-10-19T15:58:13+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-18T09:19:59.919Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.391Z",
+      "crawledAt": "2026-11-01T09:19:59.919Z",
       "id": "axpo-group-d6b90388e136",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -624,12 +696,15 @@
       "salarySource": "estimated",
       "postalCode": "6003",
       "firstSeenAt": "2026-10-20T09:20:25.773Z",
-      "_qualityScore": 96,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -654,10 +729,10 @@
       "datePosted": "2026-10-19T10:54:50+02:00",
       "postedDate": "2026-10-19T10:54:50+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-17T09:19:59.927Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.408Z",
+      "crawledAt": "2026-11-01T09:19:59.927Z",
       "id": "axpo-group-36d3d23b48f2",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -665,12 +740,15 @@
       "salarySource": "reported",
       "postalCode": "6003",
       "firstSeenAt": "2026-10-21T09:27:51.652Z",
-      "_qualityScore": 94,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -695,10 +773,10 @@
       "datePosted": "2026-10-19T10:16:33+02:00",
       "postedDate": "2026-10-19T10:16:33+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-17T09:19:59.939Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.429Z",
+      "crawledAt": "2026-11-01T09:19:59.939Z",
       "id": "axpo-group-3cc283de69f4",
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -706,12 +784,15 @@
       "salarySource": "reported",
       "postalCode": "5325",
       "firstSeenAt": "2026-10-26T21:49:40.712Z",
-      "_qualityScore": 96,
+      "streetAddress": "Leibstadt",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -736,10 +817,10 @@
       "datePosted": "2026-10-15T13:42:57+02:00",
       "postedDate": "2026-10-15T13:42:57+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-14T09:19:59.945Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.439Z",
+      "crawledAt": "2026-11-01T09:19:59.945Z",
       "id": "axpo-group-208bc4cb2bd3",
       "salaryMin": 85500,
       "salaryMax": 130000,
@@ -747,12 +828,15 @@
       "salarySource": "estimated",
       "postalCode": "5400",
       "firstSeenAt": "2026-10-16T21:23:27.792Z",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -777,10 +861,10 @@
       "datePosted": "2026-10-15T08:29:08+02:00",
       "postedDate": "2026-10-15T08:29:08+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-13T09:19:59.954Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.452Z",
+      "crawledAt": "2026-11-01T09:19:59.954Z",
       "id": "axpo-group-e3940a514fdc",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -788,12 +872,15 @@
       "salarySource": "estimated",
       "postalCode": "6003",
       "firstSeenAt": "2026-10-15T09:24:50.394Z",
-      "_qualityScore": 96,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -818,10 +905,10 @@
       "datePosted": "2026-10-14T13:40:37+02:00",
       "postedDate": "2026-10-14T13:40:37+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-13T09:19:59.963Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.466Z",
+      "crawledAt": "2026-11-01T09:19:59.963Z",
       "id": "axpo-group-5b8da0bc6839",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -829,12 +916,15 @@
       "salarySource": "estimated",
       "postalCode": "5400",
       "firstSeenAt": "2026-10-14T21:21:52.177Z",
-      "_qualityScore": 96,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -859,10 +949,10 @@
       "datePosted": "2026-10-14T10:55:26+02:00",
       "postedDate": "2026-10-14T10:55:26+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-12T09:19:59.977Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.484Z",
+      "crawledAt": "2026-11-01T09:19:59.977Z",
       "id": "axpo-group-824a83490d75",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -870,12 +960,15 @@
       "salarySource": "reported",
       "postalCode": "5400",
       "firstSeenAt": "2026-10-26T09:35:08.277Z",
-      "_qualityScore": 96,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -900,10 +993,10 @@
       "datePosted": "2026-10-13T09:50:34+02:00",
       "postedDate": "2026-10-13T09:50:34+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-11T09:19:59.994Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.509Z",
+      "crawledAt": "2026-11-01T09:19:59.994Z",
       "id": "axpo-group-206261ebe250",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -911,12 +1004,15 @@
       "salarySource": "estimated",
       "postalCode": "6331",
       "firstSeenAt": "2026-10-13T09:20:13.587Z",
-      "_qualityScore": 94,
+      "streetAddress": "Hünenberg",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -941,10 +1037,10 @@
       "datePosted": "2026-10-12T14:49:58+02:00",
       "postedDate": "2026-10-12T14:49:58+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-11T09:20:00.003Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.529Z",
+      "crawledAt": "2026-11-01T09:20:00.003Z",
       "id": "axpo-group-8d25ec4ce61b",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -952,12 +1048,15 @@
       "salarySource": "estimated",
       "postalCode": "4622",
       "firstSeenAt": "2026-10-12T21:21:02.101Z",
-      "_qualityScore": 94,
+      "streetAddress": "Egerkingen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -982,10 +1081,10 @@
       "datePosted": "2026-10-12T09:50:42+02:00",
       "postedDate": "2026-10-12T09:50:42+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-10T09:20:00.027Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.573Z",
+      "crawledAt": "2026-11-01T09:20:00.027Z",
       "id": "axpo-group-29e79dbd3562",
       "salaryMin": 66400,
       "salaryMax": 100800,
@@ -993,12 +1092,15 @@
       "salarySource": "estimated",
       "postalCode": "8913",
       "firstSeenAt": "2026-10-12T21:21:02.126Z",
-      "_qualityScore": 96,
+      "streetAddress": "Ottenbach",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1023,10 +1125,10 @@
       "datePosted": "2026-10-09T15:58:00+02:00",
       "postedDate": "2026-10-09T15:58:00+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-08T09:20:00.039Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.593Z",
+      "crawledAt": "2026-11-01T09:20:00.039Z",
       "id": "axpo-group-a2f08c7fe429",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -1034,12 +1136,15 @@
       "salarySource": "estimated",
       "postalCode": "5506",
       "firstSeenAt": "2026-10-12T21:21:02.140Z",
-      "_qualityScore": 94,
+      "streetAddress": "Mägenwil",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1064,10 +1169,10 @@
       "datePosted": "2026-10-09T09:36:38+02:00",
       "postedDate": "2026-10-09T09:36:38+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-07T09:20:00.049Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.616Z",
+      "crawledAt": "2026-11-01T09:20:00.049Z",
       "id": "axpo-group-77f6ee2e6dec",
       "salaryMin": 53600,
       "salaryMax": 81600,
@@ -1075,12 +1180,15 @@
       "salarySource": "estimated",
       "postalCode": "9240",
       "firstSeenAt": "2026-10-12T09:21:41.201Z",
-      "_qualityScore": 96,
+      "streetAddress": "Uzwil",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1105,10 +1213,10 @@
       "datePosted": "2026-10-09T08:35:52+02:00",
       "postedDate": "2026-10-09T08:35:52+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-07T09:20:00.064Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.632Z",
+      "crawledAt": "2026-11-01T09:20:00.064Z",
       "id": "axpo-group-6de15f5c49f9",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -1116,12 +1224,15 @@
       "salarySource": "reported",
       "postalCode": "6003",
       "firstSeenAt": "2026-06-30T21:52:06.579Z",
-      "_qualityScore": 94,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1146,10 +1257,10 @@
       "datePosted": "2026-10-08T16:04:49+02:00",
       "postedDate": "2026-10-08T16:04:49+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-07T09:20:00.081Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.647Z",
+      "crawledAt": "2026-11-01T09:20:00.081Z",
       "id": "axpo-group-7ddd83823166",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -1157,12 +1268,15 @@
       "salarySource": "estimated",
       "postalCode": "6003",
       "firstSeenAt": "2026-10-09T09:19:31.809Z",
-      "_qualityScore": 94,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1187,10 +1301,10 @@
       "datePosted": "2026-10-07T15:53:33+02:00",
       "postedDate": "2026-10-07T15:53:33+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:20:00.093Z",
       "employmentType": "internship",
       "contractType": "stage",
-      "crawledAt": "2026-10-31T21:48:27.661Z",
+      "crawledAt": "2026-11-01T09:20:00.093Z",
       "id": "axpo-group-98f7488fe21f",
       "salaryMin": 76000,
       "salaryMax": 115500,
@@ -1198,12 +1312,15 @@
       "salarySource": "estimated",
       "postalCode": "5400",
       "firstSeenAt": "2026-10-07T21:22:06.816Z",
-      "_qualityScore": 94,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1228,10 +1345,10 @@
       "datePosted": "2026-10-07T07:55:18+02:00",
       "postedDate": "2026-10-07T07:55:18+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-05T09:20:00.110Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.681Z",
+      "crawledAt": "2026-11-01T09:20:00.110Z",
       "id": "axpo-group-1def6d815d1e",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -1239,12 +1356,15 @@
       "salarySource": "estimated",
       "postalCode": "6331",
       "firstSeenAt": "2026-10-07T09:37:16.839Z",
-      "_qualityScore": 94,
+      "streetAddress": "Hünenberg",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1269,10 +1389,10 @@
       "datePosted": "2026-10-06T16:33:08+02:00",
       "postedDate": "2026-10-06T16:33:08+02:00",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-05T09:20:00.122Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:48:27.694Z",
+      "crawledAt": "2026-11-01T09:20:00.122Z",
       "id": "axpo-group-aedead3894ed",
       "salaryMin": 74500,
       "salaryMax": 127000,
@@ -1280,14 +1400,17 @@
       "salarySource": "estimated",
       "postalCode": "6362",
       "firstSeenAt": "2026-10-08T21:26:57.878Z",
-      "_qualityScore": 94,
+      "streetAddress": "Stansstad",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

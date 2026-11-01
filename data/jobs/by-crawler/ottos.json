@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ottos",
-  "assembledAt": "2026-10-31T21:46:08.331Z",
-  "runId": "41243204704",
+  "assembledAt": "2026-11-01T09:40:19.306Z",
+  "runId": "41292779854",
   "jobs": [
     {
       "id": "ottos-94a517183e5c",
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085529",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:58.032Z",
+      "crawledAt": "2026-11-01T09:40:10.591Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -86,7 +86,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Münsingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:10.591Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-7c7161d02b9c",
@@ -120,7 +124,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085726",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:57.376Z",
+      "crawledAt": "2026-11-01T09:40:10.034Z",
       "addressLocality": "Schattdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -173,7 +177,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schattdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:10.034Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-9f38700bbed4",
@@ -207,7 +215,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085715",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:56.702Z",
+      "crawledAt": "2026-11-01T09:40:09.486Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -258,7 +266,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Hegnau-Volketswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:09.486Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-8d3aae929c38",
@@ -292,7 +304,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4087746",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:55.893Z",
+      "crawledAt": "2026-11-01T09:40:08.867Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -342,7 +354,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:40:08.867Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-c68515af04f5",
@@ -376,7 +392,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085870",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:55.233Z",
+      "crawledAt": "2026-11-01T09:40:08.062Z",
       "addressLocality": "Arbon",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -429,7 +445,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Arbon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:08.062Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-c4b509e5ed35",
@@ -463,7 +483,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085333",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:54.573Z",
+      "crawledAt": "2026-11-01T09:40:07.528Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -516,7 +536,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-19T09:40:07.528Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-3879e83da7f2",
@@ -550,7 +584,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4088735",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:53.909Z",
+      "crawledAt": "2026-11-01T09:40:06.993Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -606,7 +640,21 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-18T09:40:06.993Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-fb8be538a6a1",
@@ -640,7 +688,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085859",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:53.253Z",
+      "crawledAt": "2026-11-01T09:40:06.422Z",
       "addressLocality": "Netstal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -693,7 +741,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Netstal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:06.422Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-b6ffd47cf682",
@@ -727,7 +779,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085935",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:52.592Z",
+      "crawledAt": "2026-11-01T09:40:05.872Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -780,7 +832,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Mels",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:05.872Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-75e82d48e806",
@@ -814,7 +870,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086160",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:51.243Z",
+      "crawledAt": "2026-11-01T09:40:04.679Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -862,7 +918,21 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:40:04.679Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-5a0a7ad0e15e",
@@ -896,7 +966,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4092540",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:50.525Z",
+      "crawledAt": "2026-11-01T09:40:04.080Z",
       "addressLocality": "Oftringen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -952,7 +1022,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Oftringen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:04.080Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-d96eaa513d48",
@@ -985,7 +1059,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4091550",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:49.833Z",
+      "crawledAt": "2026-11-01T09:40:03.544Z",
       "addressLocality": "Thal",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1041,7 +1115,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:40:03.544Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-c08ee26549e7",
@@ -1075,7 +1153,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085272",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:49.137Z",
+      "crawledAt": "2026-11-01T09:40:03.006Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1126,7 +1204,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Interlaken",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:03.006Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-48cd9cdc044d",
@@ -1159,7 +1241,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085249",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:48.477Z",
+      "crawledAt": "2026-11-01T09:40:02.251Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1212,7 +1294,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:40:02.251Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-e5f9ba2b8adb",
@@ -1246,7 +1342,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085414",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:47.817Z",
+      "crawledAt": "2026-11-01T09:40:01.647Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1299,7 +1395,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kloten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:01.647Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-ca718d76fdfb",
@@ -1333,7 +1433,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085498",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:47.157Z",
+      "crawledAt": "2026-11-01T09:40:00.994Z",
       "addressLocality": "Wettingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1386,7 +1486,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wettingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:40:00.994Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-6de32ce2056b",
@@ -1420,7 +1524,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085651",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:46.468Z",
+      "crawledAt": "2026-11-01T09:40:00.398Z",
       "addressLocality": "Aathal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1473,7 +1577,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aathal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:40:00.398Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-17494d82f5a3",
@@ -1507,7 +1615,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086088",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:45.797Z",
+      "crawledAt": "2026-11-01T09:39:59.861Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1557,7 +1665,21 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:39:59.861Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-326888f09911",
@@ -1591,7 +1713,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085959",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:45.138Z",
+      "crawledAt": "2026-11-01T09:39:59.330Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1644,7 +1766,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Altstätten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:59.330Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-58444709192d",
@@ -1677,7 +1803,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086082",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:44.478Z",
+      "crawledAt": "2026-11-01T09:39:58.797Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1728,7 +1854,21 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-19T09:39:58.797Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-d21f47b4cb5b",
@@ -1762,7 +1902,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085694",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:43.816Z",
+      "crawledAt": "2026-11-01T09:39:58.195Z",
       "addressLocality": "Oberburg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1813,7 +1953,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Oberburg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:58.195Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-2bda6db1d676",
@@ -1847,7 +1991,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4091556",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:43.158Z",
+      "crawledAt": "2026-11-01T09:39:57.660Z",
       "addressLocality": "Thal",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1898,7 +2042,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:39:57.660Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-0c43be6597f3",
@@ -1932,7 +2080,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4092547",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:42.497Z",
+      "crawledAt": "2026-11-01T09:39:57.118Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1988,7 +2136,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Liestal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:39:57.118Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-f9bc2f963c16",
@@ -2022,7 +2174,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085654",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:41.836Z",
+      "crawledAt": "2026-11-01T09:39:56.497Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -2075,7 +2227,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kreuzlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:39:56.497Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-4ab5aa8c37ad",
@@ -2109,7 +2265,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085941",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:41.173Z",
+      "crawledAt": "2026-11-01T09:39:55.034Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2160,7 +2316,11 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:39:55.034Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-0e7271d9f580",
@@ -2194,7 +2354,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4089295",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:40.506Z",
+      "crawledAt": "2026-11-01T09:39:54.496Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2245,7 +2405,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Cham",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:39:54.496Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-f86256cab150",
@@ -2279,7 +2443,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085526",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:39.837Z",
+      "crawledAt": "2026-11-01T09:39:53.961Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2332,7 +2496,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:39:53.961Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-64d66eff7866",
@@ -2366,7 +2534,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085931",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:39.177Z",
+      "crawledAt": "2026-11-01T09:39:53.426Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2419,7 +2587,21 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:39:53.426Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-b6ce5db4ed84",
@@ -2453,7 +2635,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086019",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:38.515Z",
+      "crawledAt": "2026-11-01T09:39:52.892Z",
       "addressLocality": "Baldegg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2506,7 +2688,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baldegg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:52.892Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-5e611e9e4300",
@@ -2540,7 +2726,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085606",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:37.821Z",
+      "crawledAt": "2026-11-01T09:39:52.313Z",
       "addressLocality": "Oberengstringen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2591,7 +2777,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Oberengstringen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:39:52.313Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-8401f893f0a2",
@@ -2625,7 +2815,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085642",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:37.105Z",
+      "crawledAt": "2026-11-01T09:39:51.754Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2676,7 +2866,11 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:39:51.754Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-8a7325d2b3e0",
@@ -2710,7 +2904,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085657",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:36.446Z",
+      "crawledAt": "2026-11-01T09:39:51.192Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -2763,7 +2957,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kreuzlingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:39:51.192Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-e964b8b20fcb",
@@ -2797,7 +2995,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085455",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:35.698Z",
+      "crawledAt": "2026-11-01T09:39:50.593Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2848,7 +3046,11 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:39:50.593Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-b2075216d77a",
@@ -2882,7 +3084,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4092550",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:35.034Z",
+      "crawledAt": "2026-11-01T09:39:50.057Z",
       "addressLocality": "Buchs (AG)",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2938,7 +3140,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Buchs (AG)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:39:50.057Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-9ad0b2dc4e0e",
@@ -2972,7 +3178,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085709",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:34.378Z",
+      "crawledAt": "2026-11-01T09:39:49.321Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3023,7 +3229,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Hegnau-Volketswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:49.321Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-dc5f5aac5883",
@@ -3057,7 +3267,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085775",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:33.706Z",
+      "crawledAt": "2026-11-01T09:39:48.585Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -3110,7 +3320,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Amriswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:48.585Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-f33330d972b7",
@@ -3144,7 +3358,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4089040",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:33.017Z",
+      "crawledAt": "2026-11-01T09:39:48.049Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3195,7 +3409,11 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:39:48.049Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-2942d017aa4d",
@@ -3229,7 +3447,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085321",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:32.356Z",
+      "crawledAt": "2026-11-01T09:39:47.407Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3284,7 +3502,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Cham",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:39:47.407Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-4f3bf2bd8edf",
@@ -3317,7 +3539,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4094289",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:31.664Z",
+      "crawledAt": "2026-11-01T09:39:46.875Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3362,7 +3584,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-29T09:39:46.875Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-5e71c027473a",
@@ -3396,7 +3632,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085729",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:30.934Z",
+      "crawledAt": "2026-11-01T09:39:46.319Z",
       "addressLocality": "Kirchberg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3449,7 +3685,11 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kirchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:46.319Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-1c069cbb1a1f",
@@ -3483,7 +3723,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085863",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:30.266Z",
+      "crawledAt": "2026-11-01T09:39:45.783Z",
       "addressLocality": "Netstal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3536,7 +3776,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Netstal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:39:45.783Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-47139a74af9c",
@@ -3570,7 +3814,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085712",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:29.603Z",
+      "crawledAt": "2026-11-01T09:39:45.196Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3621,7 +3865,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Hegnau-Volketswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:45.196Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-71ebcf96447e",
@@ -3655,7 +3903,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085691",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:28.937Z",
+      "crawledAt": "2026-11-01T09:39:44.659Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -3708,16 +3956,20 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:44.659Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-4b75e92e4f7c",
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistiker-in-otto-s-ag-sursee",
+        "en": "logistics-specialist-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logistiker-in-otto-s-ag-sursee"
+        "fr": "logisticien-ne-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3742,7 +3994,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085327",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:28.252Z",
+      "crawledAt": "2026-11-01T09:39:44.095Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3768,18 +4020,17 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistics-specialist-otto-s-ag-sursee",
-        "logisticien-ne-otto-s-ag-sursee"
+        "logistiker-in-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistics-specialist-otto-s-ag-sursee"
+          "logistiker-in-otto-s-ag-sursee"
         ],
         "fr": [
-          "logisticien-ne-otto-s-ag-sursee"
+          "logistiker-in-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -3795,7 +4046,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:39:44.095Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-8eee892a424a",
@@ -3828,7 +4093,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4087751",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:27.533Z",
+      "crawledAt": "2026-11-01T09:39:43.502Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3882,7 +4147,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:39:43.502Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-8c569b5b7dd2",
@@ -3916,7 +4185,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085787",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:26.865Z",
+      "crawledAt": "2026-11-01T09:39:42.936Z",
       "addressLocality": "Gamsen-Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3969,7 +4238,11 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Gamsen-Brig",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:39:42.936Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-9d14d39314e0",
@@ -4003,7 +4276,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085150",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:26.170Z",
+      "crawledAt": "2026-11-01T09:39:42.230Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4054,7 +4327,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:42.230Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-87f255624801",
@@ -4088,7 +4365,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4089549",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:25.469Z",
+      "crawledAt": "2026-11-01T09:39:41.677Z",
       "addressLocality": "Obfelden",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4139,7 +4416,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Obfelden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:39:41.677Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-0c83e2797a82",
@@ -4173,7 +4454,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085452",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:24.788Z",
+      "crawledAt": "2026-11-01T09:39:41.061Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4226,7 +4507,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:41.061Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-d504a9d1af16",
@@ -4260,7 +4545,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085443",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:24.111Z",
+      "crawledAt": "2026-11-01T09:39:40.462Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4313,7 +4598,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:40.462Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-2e55a462a568",
@@ -4347,7 +4636,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4094649",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:23.388Z",
+      "crawledAt": "2026-11-01T09:39:39.895Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4398,7 +4687,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:39:39.895Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-52eca6ab3315",
@@ -4432,7 +4725,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085966",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:22.730Z",
+      "crawledAt": "2026-11-01T09:39:39.361Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4483,7 +4776,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Altstätten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:39.361Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-b96de89fecce",
@@ -4516,7 +4813,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4088921",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:21.994Z",
+      "crawledAt": "2026-11-01T09:39:38.821Z",
       "addressLocality": "Obfelden",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4572,7 +4869,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Obfelden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:39:38.821Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-0a417f6333ae",
@@ -4606,7 +4907,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085732",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:21.319Z",
+      "crawledAt": "2026-11-01T09:39:38.266Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4657,7 +4958,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wädenswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:39:38.266Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-7c387513eca1",
@@ -4691,7 +4996,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085697",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:20.643Z",
+      "crawledAt": "2026-11-01T09:39:37.715Z",
       "addressLocality": "Schattdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -4744,7 +5049,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schattdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:37.715Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-9afac3316526",
@@ -4778,7 +5087,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085772",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:19.916Z",
+      "crawledAt": "2026-11-01T09:39:37.178Z",
       "addressLocality": "Oberbüren",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4831,7 +5140,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Oberbüren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:37.178Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-7112a03b56c9",
@@ -4865,7 +5178,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085956",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:19.255Z",
+      "crawledAt": "2026-11-01T09:39:36.447Z",
       "addressLocality": "Baldegg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4916,7 +5229,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baldegg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:36.447Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-9aa87445a899",
@@ -4950,7 +5267,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085581",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:18.594Z",
+      "crawledAt": "2026-11-01T09:39:35.819Z",
       "addressLocality": "Langnau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5003,7 +5320,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langnau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:35.819Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-8a4aab2fb89c",
@@ -5037,7 +5358,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085330",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:17.924Z",
+      "crawledAt": "2026-11-01T09:39:35.240Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -5088,7 +5409,11 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Cham",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:35.240Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-0deec9c4fb93",
@@ -5122,7 +5447,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085459",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:16.604Z",
+      "crawledAt": "2026-11-01T09:39:34.165Z",
       "addressLocality": "Echandens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5175,7 +5500,11 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Echandens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:39:34.165Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-ff99045fd899",
@@ -5209,7 +5538,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085878",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:15.936Z",
+      "crawledAt": "2026-11-01T09:39:33.619Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5260,7 +5589,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:33.619Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-d7ad6a61dde5",
@@ -5294,7 +5627,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4089292",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:15.279Z",
+      "crawledAt": "2026-11-01T09:39:32.984Z",
       "addressLocality": "Littau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5345,7 +5678,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Littau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:39:32.984Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-8cb8116121c8",
@@ -5379,7 +5716,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085792",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:14.607Z",
+      "crawledAt": "2026-11-01T09:39:32.442Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5432,7 +5769,11 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:32.442Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-837ce5082392",
@@ -5466,7 +5807,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085767",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:13.944Z",
+      "crawledAt": "2026-11-01T09:39:31.905Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -5519,7 +5860,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:31.905Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-35e74336b6ea",
@@ -5553,7 +5898,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085706",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:13.288Z",
+      "crawledAt": "2026-11-01T09:39:31.367Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5604,7 +5949,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Hegnau-Volketswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:31.367Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-54a49cc91372",
@@ -5638,7 +5987,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085520",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:12.511Z",
+      "crawledAt": "2026-11-01T09:39:30.754Z",
       "addressLocality": "Langnau am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5689,7 +6038,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langnau am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:30.754Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-680a1afdbae6",
@@ -5723,7 +6076,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085950",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:11.849Z",
+      "crawledAt": "2026-11-01T09:39:29.300Z",
       "addressLocality": "Zwingen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5774,7 +6127,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zwingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:29.300Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-782e7b4cf352",
@@ -5808,7 +6165,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086094",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:11.190Z",
+      "crawledAt": "2026-11-01T09:39:28.367Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5859,7 +6216,21 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:39:28.367Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-16afeec075e0",
@@ -5893,7 +6264,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4090196",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:10.526Z",
+      "crawledAt": "2026-11-01T09:39:27.801Z",
       "addressLocality": "Buchs (AG)",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5948,7 +6319,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Buchs (AG)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:27.801Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-0febc3bdc6e6",
@@ -5982,7 +6357,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085925",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:09.866Z",
+      "crawledAt": "2026-11-01T09:39:27.216Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6035,7 +6410,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Mels",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:27.216Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-654155be76d0",
@@ -6069,7 +6448,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085973",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:09.209Z",
+      "crawledAt": "2026-11-01T09:39:26.672Z",
       "addressLocality": "Oftringen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6122,7 +6501,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Oftringen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:39:26.672Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-1509a0eeb112",
@@ -6156,7 +6539,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085679",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:08.548Z",
+      "crawledAt": "2026-11-01T09:39:26.137Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -6207,7 +6590,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:26.137Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-3c49595a73a9",
@@ -6241,7 +6628,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085440",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:07.872Z",
+      "crawledAt": "2026-11-01T09:39:25.574Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6294,7 +6681,11 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:25.574Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-919567eaa600",
@@ -6328,7 +6719,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085883",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:07.208Z",
+      "crawledAt": "2026-11-01T09:39:25.014Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6381,7 +6772,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:25.014Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-d52d574bce0b",
@@ -6415,7 +6810,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085909",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:06.545Z",
+      "crawledAt": "2026-11-01T09:39:24.461Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -6460,7 +6855,21 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:39:24.461Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-9a57f6d1ed7c",
@@ -6494,7 +6903,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085703",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:05.887Z",
+      "crawledAt": "2026-11-01T09:39:23.895Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6545,7 +6954,11 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Hegnau-Volketswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:23.895Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-5da86719de10",
@@ -6579,7 +6992,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085482",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:05.224Z",
+      "crawledAt": "2026-11-01T09:39:23.235Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6632,7 +7045,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:39:23.235Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-e3c4171533c8",
@@ -6666,7 +7083,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085465",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:04.548Z",
+      "crawledAt": "2026-11-01T09:39:22.571Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6719,7 +7136,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Interlaken",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:22.571Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-5478125b8738",
@@ -6753,7 +7174,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085947",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:03.852Z",
+      "crawledAt": "2026-11-01T09:39:21.849Z",
       "addressLocality": "Oftringen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6806,7 +7227,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Oftringen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:21.849Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-35ebfcf9589d",
@@ -6840,7 +7265,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4089331",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:03.184Z",
+      "crawledAt": "2026-11-01T09:39:21.183Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -6889,7 +7314,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "La Chaux-de-Fonds",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:39:21.183Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-c95519ede4c6",
@@ -6923,7 +7352,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085299",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:02.520Z",
+      "crawledAt": "2026-11-01T09:39:20.632Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -6976,7 +7405,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baar",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:20.632Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-684b7c7fbe33",
@@ -7010,7 +7443,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085587",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:01.860Z",
+      "crawledAt": "2026-11-01T09:39:20.027Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7061,7 +7494,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Root",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:20.027Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-cc7ed4d16abc",
@@ -7095,7 +7532,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085512",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:01.199Z",
+      "crawledAt": "2026-11-01T09:39:19.492Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7148,7 +7585,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spreitenbach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:39:19.492Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-6d3608dd8670",
@@ -7182,7 +7623,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085639",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:00.539Z",
+      "crawledAt": "2026-11-01T09:39:18.949Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7235,7 +7676,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:39:18.949Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-190273504169",
@@ -7269,7 +7714,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085886",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:59.879Z",
+      "crawledAt": "2026-11-01T09:39:18.409Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7320,7 +7765,21 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:39:18.409Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-9cf8eb42c73b",
@@ -7354,7 +7813,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085477",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:59.209Z",
+      "crawledAt": "2026-11-01T09:39:17.785Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7405,7 +7864,21 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-01T09:39:17.785Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-ff977257e326",
@@ -7439,7 +7912,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4089578",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:58.549Z",
+      "crawledAt": "2026-11-01T09:39:17.243Z",
       "addressLocality": "Bremgarten",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7495,7 +7968,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bremgarten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:39:17.243Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-5fb5733d1840",
@@ -7529,7 +8006,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085616",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:57.880Z",
+      "crawledAt": "2026-11-01T09:39:16.651Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7582,7 +8059,11 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:16.651Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-0e11c9dd01d3",
@@ -7616,7 +8097,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085173",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:57.213Z",
+      "crawledAt": "2026-11-01T09:39:16.095Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7669,7 +8150,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Mels",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:16.095Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-f13d11f9dfd5",
@@ -7703,7 +8188,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086097",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:56.548Z",
+      "crawledAt": "2026-11-01T09:39:15.491Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7751,7 +8236,21 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:39:15.491Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-fbb6812dbd7b",
@@ -7785,7 +8284,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085735",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:55.887Z",
+      "crawledAt": "2026-11-01T09:39:14.718Z",
       "addressLocality": "Kirchberg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7836,7 +8335,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kirchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:14.718Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-381355c81f01",
@@ -7869,7 +8372,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4090112",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:55.224Z",
+      "crawledAt": "2026-11-01T09:39:14.181Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7919,7 +8422,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kloten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:39:14.181Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-8ce837628e05",
@@ -7953,7 +8460,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4092060",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:54.568Z",
+      "crawledAt": "2026-11-01T09:39:13.644Z",
       "addressLocality": "Littau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8009,7 +8516,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Littau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:39:13.644Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-bda66facb30f",
@@ -8043,7 +8554,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085515",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:53.105Z",
+      "crawledAt": "2026-11-01T09:39:12.491Z",
       "addressLocality": "Wohlen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8094,7 +8605,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:12.491Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-5174b66f37cb",
@@ -8128,7 +8643,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085648",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:52.408Z",
+      "crawledAt": "2026-11-01T09:39:11.946Z",
       "addressLocality": "Aathal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8181,7 +8696,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aathal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:11.946Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-b4a34696e3bd",
@@ -8215,7 +8734,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085446",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:51.746Z",
+      "crawledAt": "2026-11-01T09:39:11.272Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8268,7 +8787,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:39:11.272Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-9701c6c09dee",
@@ -8302,7 +8825,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085590",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:51.040Z",
+      "crawledAt": "2026-11-01T09:39:10.733Z",
       "addressLocality": "Langnau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8353,7 +8876,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langnau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:10.733Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-40603409e13c",
@@ -8386,7 +8913,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085556",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:50.373Z",
+      "crawledAt": "2026-11-01T09:39:10.097Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8439,7 +8966,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:39:10.097Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-03fe18ea7619",
@@ -8473,7 +9014,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4092781",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:49.710Z",
+      "crawledAt": "2026-11-01T09:39:09.558Z",
       "addressLocality": "Littau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8529,7 +9070,11 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Littau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:39:09.558Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-a8ce740cbd14",
@@ -8563,7 +9108,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085471",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:49.051Z",
+      "crawledAt": "2026-11-01T09:39:08.876Z",
       "addressLocality": "Horw",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8616,7 +9161,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Horw",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:39:08.876Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-eb58875f4f1e",
@@ -8650,7 +9199,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085509",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:48.392Z",
+      "crawledAt": "2026-11-01T09:39:08.172Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -8701,7 +9250,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spreitenbach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:08.172Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-f098f11b9395",
@@ -8735,7 +9288,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085645",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:47.724Z",
+      "crawledAt": "2026-11-01T09:39:07.566Z",
       "addressLocality": "Aathal",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8788,7 +9341,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aathal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:07.566Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-feccfe1c0a6a",
@@ -8822,7 +9379,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4094252",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:47.057Z",
+      "crawledAt": "2026-11-01T09:39:06.999Z",
       "addressLocality": "Bremgarten",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8875,7 +9432,11 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bremgarten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:39:06.999Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-69a1dce50ffa",
@@ -8909,7 +9470,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085596",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:46.391Z",
+      "crawledAt": "2026-11-01T09:39:06.459Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8960,7 +9521,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Uetendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:06.459Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-a49fa9b8cfbd",
@@ -8994,7 +9559,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085889",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:45.730Z",
+      "crawledAt": "2026-11-01T09:39:05.926Z",
       "addressLocality": "Reinach (AG)",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -9047,7 +9612,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Reinach (AG)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:05.926Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-e747a0093b87",
@@ -9081,7 +9650,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085938",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:45.072Z",
+      "crawledAt": "2026-11-01T09:39:05.381Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -9132,7 +9701,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pratteln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:39:05.381Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-5558655b0a1a",
@@ -9166,7 +9739,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085494",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:44.411Z",
+      "crawledAt": "2026-11-01T09:39:04.846Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9219,7 +9792,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Hägendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:39:04.846Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-0cbac61b08af",
@@ -9253,7 +9830,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085758",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:43.724Z",
+      "crawledAt": "2026-11-01T09:39:04.294Z",
       "addressLocality": "Hegnau-Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9306,7 +9883,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Hegnau-Volketswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:04.294Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-38fab1ee5690",
@@ -9340,7 +9921,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085491",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:43.029Z",
+      "crawledAt": "2026-11-01T09:39:03.757Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9393,7 +9974,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Hägendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:39:03.757Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-ec95141be786",
@@ -9426,7 +10011,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085962",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:42.338Z",
+      "crawledAt": "2026-11-01T09:39:03.174Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -9477,7 +10062,21 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-07T09:39:03.174Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-7f277076de88",
@@ -9511,7 +10110,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085584",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:41.674Z",
+      "crawledAt": "2026-11-01T09:39:02.631Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -9564,7 +10163,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Root",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:02.631Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-97f0eaa6a6b5",
@@ -9598,7 +10201,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085411",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:41.012Z",
+      "crawledAt": "2026-11-01T09:39:01.917Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9651,7 +10254,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Kloten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:01.917Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-4145ae2f4146",
@@ -9685,7 +10292,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085535",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:40.343Z",
+      "crawledAt": "2026-11-01T09:39:01.381Z",
       "addressLocality": "Langnau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -9738,7 +10345,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langnau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:39:01.381Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-8205a83cc760",
@@ -9772,7 +10383,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4090347",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:39.659Z",
+      "crawledAt": "2026-11-01T09:39:00.795Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9834,7 +10445,11 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Uetendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:39:00.795Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-e7f98121c72f",
@@ -9868,7 +10483,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4091553",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:38.994Z",
+      "crawledAt": "2026-11-01T09:39:00.198Z",
       "addressLocality": "Thal",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -9928,7 +10543,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:39:00.198Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-d31a6947c76c",
@@ -9962,7 +10581,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085462",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:38.336Z",
+      "crawledAt": "2026-11-01T09:38:59.659Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10015,7 +10634,21 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-19T09:38:59.659Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-4d62b1650159",
@@ -10049,7 +10682,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085613",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:37.675Z",
+      "crawledAt": "2026-11-01T09:38:59.124Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -10102,7 +10735,11 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Frauenfeld",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:59.124Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-cb839016cabd",
@@ -10136,7 +10773,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085503",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:37.011Z",
+      "crawledAt": "2026-11-01T09:38:58.574Z",
       "addressLocality": "Wettingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -10189,7 +10826,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wettingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:58.574Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-db3eb23d8a9f",
@@ -10223,7 +10864,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085532",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:36.273Z",
+      "crawledAt": "2026-11-01T09:38:57.953Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10274,7 +10915,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:57.953Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-a608d14cf0c4",
@@ -10308,7 +10953,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086005",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:35.613Z",
+      "crawledAt": "2026-11-01T09:38:57.405Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -10359,7 +11004,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wattwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:38:57.405Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-61723539d407",
@@ -10393,7 +11042,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4090496",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:34.951Z",
+      "crawledAt": "2026-11-01T09:38:56.769Z",
       "addressLocality": "Brunnen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -10455,7 +11104,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Brunnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:38:56.769Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-0376234b74a3",
@@ -10489,7 +11142,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086025",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:34.254Z",
+      "crawledAt": "2026-11-01T09:38:56.141Z",
       "addressLocality": "Schönenwerd",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10542,7 +11195,11 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schönenwerd",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:56.141Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-9cfa0573237e",
@@ -10576,7 +11233,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4089418",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:33.584Z",
+      "crawledAt": "2026-11-01T09:38:55.523Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -10626,7 +11283,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baar",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:38:55.523Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-73d2335c1d02",
@@ -10660,7 +11321,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085573",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:32.876Z",
+      "crawledAt": "2026-11-01T09:38:54.043Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10713,7 +11374,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lyss",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:38:54.043Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-e687f059e40f",
@@ -10747,7 +11412,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085778",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:32.163Z",
+      "crawledAt": "2026-11-01T09:38:53.497Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10800,7 +11465,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wädenswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:53.497Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-d7305aa99272",
@@ -10834,7 +11503,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085408",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:31.430Z",
+      "crawledAt": "2026-11-01T09:38:52.910Z",
       "addressLocality": "Bachenbülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10885,7 +11554,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bachenbülach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:52.910Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-2f2612619430",
@@ -10919,7 +11592,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085567",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:44:30.702Z",
+      "crawledAt": "2026-11-01T09:38:52.356Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10972,7 +11645,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Biel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:38:52.356Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-7333d2a3992d",
@@ -11006,7 +11683,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085145",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:30.038Z",
+      "crawledAt": "2026-11-01T09:38:51.819Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11051,7 +11728,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:38:51.819Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-6e34df8cbf99",
@@ -11085,7 +11766,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085436",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:29.379Z",
+      "crawledAt": "2026-11-01T09:38:51.281Z",
       "addressLocality": "Gamsen-Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -11136,7 +11817,11 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Gamsen-Brig",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:51.281Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-8df31b11455e",
@@ -11170,7 +11855,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085506",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:28.717Z",
+      "crawledAt": "2026-11-01T09:38:50.746Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11223,7 +11908,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dietikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:50.746Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-5c1e0b30eb78",
@@ -11257,7 +11946,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085761",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:28.008Z",
+      "crawledAt": "2026-11-01T09:38:50.203Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -11308,7 +11997,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:38:50.203Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-0c8b700b59b1",
@@ -11342,7 +12035,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085485",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:27.346Z",
+      "crawledAt": "2026-11-01T09:38:49.669Z",
       "addressLocality": "Zuchwil",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -11393,7 +12086,11 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zuchwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:38:49.669Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-3acf797c8012",
@@ -11427,7 +12124,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085593",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:26.669Z",
+      "crawledAt": "2026-11-01T09:38:49.111Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11478,7 +12175,11 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Uetendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:38:49.111Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-e1658fa0f2d3",
@@ -11512,7 +12213,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085474",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:26.002Z",
+      "crawledAt": "2026-11-01T09:38:48.487Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11563,7 +12264,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Münsingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:38:48.487Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-dca4ce9f85bc",
@@ -11597,7 +12302,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085564",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:25.334Z",
+      "crawledAt": "2026-11-01T09:38:47.948Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11650,7 +12355,11 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Köniz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:38:47.948Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-40d66e89a76c",
@@ -11684,7 +12393,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085419",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:24.666Z",
+      "crawledAt": "2026-11-01T09:38:47.071Z",
       "addressLocality": "Zürich-Oerlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11735,7 +12444,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich-Oerlikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:47.071Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-d5d62ee5c235",
@@ -11769,7 +12482,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085425",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:44:23.995Z",
+      "crawledAt": "2026-11-01T09:38:46.538Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -11820,7 +12533,11 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bulle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:46.538Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-a0a6f629836a",
@@ -11854,7 +12571,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086743",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:23.322Z",
+      "crawledAt": "2026-11-01T09:38:45.995Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -11906,7 +12623,11 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:38:45.995Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-7a457cfe23e3",
@@ -11939,7 +12660,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086332",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:22.642Z",
+      "crawledAt": "2026-11-01T09:38:45.447Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -11984,7 +12705,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-04T09:38:45.447Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-68241c9bbdb1",
@@ -12018,7 +12753,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085781",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:21.982Z",
+      "crawledAt": "2026-11-01T09:38:44.907Z",
       "addressLocality": "Entlebuch",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -12069,7 +12804,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Entlebuch",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:44.907Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-b2e755939ad8",
@@ -12103,7 +12842,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085795",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:21.241Z",
+      "crawledAt": "2026-11-01T09:38:44.343Z",
       "addressLocality": "Gamsen-Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -12156,7 +12895,11 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Gamsen-Brig",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:38:44.343Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-8c109a1fabe9",
@@ -12189,7 +12932,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086643",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:20.560Z",
+      "crawledAt": "2026-11-01T09:38:43.792Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -12242,7 +12985,11 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Cham",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:43.792Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-9c5dc0eb5bac",
@@ -12276,7 +13023,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085196",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:19.900Z",
+      "crawledAt": "2026-11-01T09:38:43.253Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -12326,7 +13073,21 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-30T09:38:43.253Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-ac499791fe31",
@@ -12360,7 +13121,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4085449",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:19.236Z",
+      "crawledAt": "2026-11-01T09:38:42.699Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12413,7 +13174,11 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:38:42.699Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ottos-43d028dc6949",
@@ -12447,7 +13212,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4086085",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:18.548Z",
+      "crawledAt": "2026-11-01T09:38:42.136Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -12498,7 +13263,21 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "OTTO'S AG",
+        "streetAddress": "Wassermatte 3",
+        "postalCode": "6210",
+        "addressLocality": "Sursee",
+        "addressRegion": "LU",
+        "checkedAt": "2026-10-31T20:50:21.983Z"
+      },
+      "streetAddress": "Wassermatte 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-23T09:38:42.136Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

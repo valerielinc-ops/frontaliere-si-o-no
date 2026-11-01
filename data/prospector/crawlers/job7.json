@@ -1,0 +1,20 @@
+{
+  "companyKey": "job7",
+  "companyName": "job7",
+  "companyHost": "careers.axa.com",
+  "platform": "axa.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://careers.axa.com/careers-home/jobs/23413?lang=it-it"
+  ],
+  "detailTemplate": "/careers-home/jobs/23413",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Consulente Assicurativo"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-11-01T13:08:04.257Z",
+  "candidateKey": "job7.ch"
+}

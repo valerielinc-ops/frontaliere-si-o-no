@@ -1,7 +1,7 @@
 {
   "crawlerKey": "laderach",
-  "assembledAt": "2026-10-31T21:35:11.458Z",
-  "runId": "41242354960",
+  "assembledAt": "2026-11-01T12:22:45.422Z",
+  "runId": "41291964879",
   "jobs": [
     {
       "id": "laderach-3e32b80f41c2",
@@ -46,7 +46,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68442112/Finance-Director-Spain/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:53.618Z",
+      "crawledAt": "2026-11-01T09:23:17.752Z",
       "previousSlugs": [
         "finance-director-spain-laderach-glarus-nord-glarus-switzerland"
       ],
@@ -77,7 +77,12 @@
       },
       "postalCode": "8752",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68442112/Finance-Director-Spain/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "streetAddress": "Glarus Nord, Glarus, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:17.752Z",
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-404cc3b4b128",
@@ -122,7 +127,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67408727/Weihnachtsaushilfe-40-80-Chocolaterie-St-Gallen-befristet-von-Oktober-bis-Dezember-2026-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:53.450Z",
+      "crawledAt": "2026-11-01T09:23:17.540Z",
       "previousSlugs": [
         "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-st-gallen-sankt-gallen-schweiz",
         "weihnachtsaushilfe-40-80-chocolaterie-st-gallen-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-st-gallen-sankt-gallen-schweiz"
@@ -152,7 +157,11 @@
       },
       "postalCode": "9000",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67408727/Weihnachtsaushilfe-40-80-Chocolaterie-St-Gallen-befristet-von-Oktober-bis-Dezember-2026-/",
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "streetAddress": "St. Gallen, Sankt Gallen, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:23:17.540Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-466d2e203293",
@@ -197,7 +206,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68465307/Verk%C3%A4ufer-Chocolaterie-Uster-60-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:53.271Z",
+      "crawledAt": "2026-11-01T09:23:17.314Z",
       "previousSlugs": [
         "verkaufer-chocolaterie-uster-60-w-m-d-laderach-uster-zurich-schweiz"
       ],
@@ -228,7 +237,11 @@
       },
       "postalCode": "8610",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68465307/Verk%C3%A4ufer-Chocolaterie-Uster-60-w-m-d-/",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Uster, Zürich, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:17.314Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-338771637566",
@@ -273,7 +286,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68444882/Facharbeiter-Confiserie-Massenraum-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:53.089Z",
+      "crawledAt": "2026-11-01T09:23:17.086Z",
       "previousSlugs": [
         "facharbeiter-confiserie-massenraum-w-m-d-laderach-ennenda-glarus-schweiz"
       ],
@@ -304,7 +317,11 @@
       },
       "postalCode": "8755",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68444882/Facharbeiter-Confiserie-Massenraum-w-m-d-/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "streetAddress": "Ennenda, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:17.086Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-81d418798a2f",
@@ -349,7 +366,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/65307461/HR-Business-Partner-Retail-Schweiz-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:52.903Z",
+      "crawledAt": "2026-11-01T09:23:16.859Z",
       "firstSeenAt": "2026-10-15T09:22:47.504Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
@@ -366,7 +383,11 @@
       },
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/65307461/HR-Business-Partner-Retail-Schweiz-w-m-d-/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "streetAddress": "Bilten, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:23:16.859Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-98daaec00c6c",
@@ -411,7 +432,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68343123/Team-Lead-IT-Standard-Applications/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:52.549Z",
+      "crawledAt": "2026-11-01T09:23:16.415Z",
       "previousSlugs": [
         "team-lead-it-standard-applications-laderach-bilten",
         "team-lead-it-standard-applications-laderach-bilten-glarus-schweiz"
@@ -441,7 +462,11 @@
       },
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68343123/Team-Lead-IT-Standard-Applications/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "streetAddress": "Bilten, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:23:16.415Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-c7b0cad10348",
@@ -486,7 +511,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68334738/IT-Infrastructure-Architect-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:52.364Z",
+      "crawledAt": "2026-11-01T09:23:16.187Z",
       "previousSlugs": [
         "it-infrastructure-architect-laderach-bilten",
         "it-infrastructure-architect-laderach-schweiz-ag-bilten",
@@ -522,7 +547,11 @@
       },
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68334738/IT-Infrastructure-Architect-/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "streetAddress": "Bilten, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:23:16.187Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-0e4d9fc98226",
@@ -567,7 +596,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68295918/Sales-Assistant-Verk%C3%A4ufer-zur-Aushilfe-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:51.833Z",
+      "crawledAt": "2026-11-01T09:23:15.507Z",
       "previousSlugs": [
         "sales-assistant-verkaufer-zur-aushilfe-m-w-d-laderach-sindelfingen-baden-wurttemberg-deutschland"
       ],
@@ -598,7 +627,11 @@
       },
       "postalCode": "5400",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68295918/Sales-Assistant-Verk%C3%A4ufer-zur-Aushilfe-m-w-d-/",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "streetAddress": "Sindelfingen, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:15.507Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-0ddd51e42cc4",
@@ -643,7 +676,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68250326/Tour-Guide-Schokoladenmuseum-und-Fabrik-40-Bilten-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:51.287Z",
+      "crawledAt": "2026-11-01T09:23:14.812Z",
       "previousSlugs": [
         "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten",
         "tour-guide-schokoladenmuseum-e-fabrik-40-bilten-m-w-d-laderach-schweiz-ag-bilten",
@@ -681,7 +714,11 @@
       },
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68250326/Tour-Guide-Schokoladenmuseum-und-Fabrik-40-Bilten-w-m-d-/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "streetAddress": "Bilten, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:23:14.812Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-3b4850c710a0",
@@ -726,7 +763,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68032872/Verk%C3%A4ufer-40-60-Chocolaterie-Stadelhofen-Z%C3%BCrich-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:50.564Z",
+      "crawledAt": "2026-11-01T09:23:13.913Z",
       "previousSlugs": [
         "verkaufer-40-60-chocolaterie-stadelhofen-zurich-w-m-d-laderach-zurich",
         "verkaufer-40-60-chocolaterie-stadelhofen-zurich-w-m-d-laderach-zurich-zurich-schweiz"
@@ -762,7 +799,11 @@
       },
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68032872/Verk%C3%A4ufer-40-60-Chocolaterie-Stadelhofen-Z%C3%BCrich-w-m-d-/",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich, Zürich, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:23:13.913Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-03a6f63c0c68",
@@ -807,7 +848,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67940192/Sales-Assistant-Verk%C3%A4ufer-Weihnachtsaushilfe---befristet-von-November-bis-Dezember-2026-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:50.375Z",
+      "crawledAt": "2026-11-01T09:23:13.686Z",
       "previousSlugs": [
         "sales-assistant-verkaufer-weihnachtsaushilfe-befristet-von-november-bis-dezember-2026-m-w-d-laderach-konstanz-baden-wurttemberg-deutschland",
         "sales-assistant-verkaufer-weihnachtsaushilfe-befristet-von-november-bis-dezember-2026-m-w-d-laderach-schweiz-ag-konstanz-baden-wurttemberg-deutschland",
@@ -841,7 +882,11 @@
       },
       "postalCode": "5400",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67940192/Sales-Assistant-Verk%C3%A4ufer-Weihnachtsaushilfe---befristet-von-November-bis-Dezember-2026-m-w-d-/",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "streetAddress": "Konstanz, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:13.686Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-cded6b11cffc",
@@ -886,7 +931,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67857587/Filialleitung-in-Vollzeit-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:50.011Z",
+      "crawledAt": "2026-11-01T09:23:13.231Z",
       "previousSlugs": [
         "filialleitung-in-vollzeit-m-w-d-laderach-freiburg-im-breisgau-baden-wurttemberg-deutschland"
       ],
@@ -916,7 +961,11 @@
         }
       },
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67857587/Filialleitung-in-Vollzeit-m-w-d-/",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "streetAddress": "Freiburg im Breisgau, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:13.231Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-4b4098bd9bd9",
@@ -961,7 +1010,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67828162/Sales-Assistant-Verk%C3%A4ufer-Weihnachtsaushilfe---befristet-von-November-bis-Dezember-2026-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:49.645Z",
+      "crawledAt": "2026-11-01T09:23:12.772Z",
       "previousSlugs": [
         "sales-assistant-verkaufer-weihnachtsaushilfe-befristet-von-november-bis-dezember-2026-m-w-d-laderach-mannheim-baden-wurttemberg-deutschland",
         "sales-assistant-verkaufer-weihnachtsaushilfe-befristet-von-november-bis-dezember-2026-m-w-d-laderach-schweiz-ag-mannheim-baden-wurttemberg-deutschland",
@@ -995,7 +1044,11 @@
       },
       "postalCode": "5400",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67828162/Sales-Assistant-Verk%C3%A4ufer-Weihnachtsaushilfe---befristet-von-November-bis-Dezember-2026-m-w-d-/",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "streetAddress": "Mannheim, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:12.772Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-cd4cdfff81eb",
@@ -1040,7 +1093,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67261930/Weihnachtsaushilfe-20-60-Chocolaterie-Landquart-Outlet-befristet-von-Oktober-bis-Dezember-2026-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:49.094Z",
+      "crawledAt": "2026-11-01T09:23:12.085Z",
       "previousSlugs": [
         "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-landquart",
         "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-landquart-graubunden-schweiz"
@@ -1069,7 +1122,11 @@
       },
       "postalCode": "7302",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67261930/Weihnachtsaushilfe-20-60-Chocolaterie-Landquart-Outlet-befristet-von-Oktober-bis-Dezember-2026-/",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Landquart, Graubünden, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:23:12.085Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-6dd4de679268",
@@ -1114,7 +1171,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67565702/Sales-Assistant-Verk%C3%A4ufer-in-Voll--und-Teilzeit-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:48.740Z",
+      "crawledAt": "2026-11-01T09:23:11.637Z",
       "previousSlugs": [
         "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-stuttgart-baden-wurttemberg-deutschland",
         "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-stuttgart-baden-wurttemberg-deutschland"
@@ -1147,7 +1204,11 @@
       },
       "postalCode": "5400",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67565702/Sales-Assistant-Verk%C3%A4ufer-in-Voll--und-Teilzeit-m-w-d-/",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "streetAddress": "Stuttgart, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:11.637Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-ae153d82ad12",
@@ -1192,7 +1253,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67556327/Verk%C3%A4ufer-50-Chocolaterie-Basel-Freie-Strasse-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:48.559Z",
+      "crawledAt": "2026-11-01T09:23:11.411Z",
       "previousSlugs": [
         "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel",
         "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel-basel-stadt-schweiz"
@@ -1228,7 +1289,11 @@
       },
       "postalCode": "4001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67556327/Verk%C3%A4ufer-50-Chocolaterie-Basel-Freie-Strasse-w-m-d-/",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel, Basel-Stadt, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:23:11.411Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-44b99f744b5c",
@@ -1273,7 +1338,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67462767/Sales-Assistant-Verk%C3%A4ufer-in-Voll--und-Teilzeit-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:48.199Z",
+      "crawledAt": "2026-11-01T09:23:10.943Z",
       "previousSlugs": [
         "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-freiburg-im-breisgau-baden-wurttemberg-deutschland",
         "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau-baden-wurttemberg-deutschland",
@@ -1306,7 +1371,11 @@
         }
       },
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67462767/Sales-Assistant-Verk%C3%A4ufer-in-Voll--und-Teilzeit-m-w-d-/",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "streetAddress": "Freiburg im Breisgau, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:10.943Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-ec63a5953b46",
@@ -1351,7 +1420,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67413612/Stv-Filialleiter-Chocolaterie-Oerlikon-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:48.019Z",
+      "crawledAt": "2026-11-01T09:23:10.718Z",
       "previousSlugs": [
         "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich",
         "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich-zurich-schweiz"
@@ -1387,7 +1456,11 @@
       },
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67413612/Stv-Filialleiter-Chocolaterie-Oerlikon-w-m-d-/",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich, Zürich, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:23:10.718Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-d9f3992a0656",
@@ -1432,7 +1505,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67271955/Ganzj%C3%A4hrig-Sales-Assitant-Verk%C3%A4ufer-in-Voll--und-Teilzeit-m-w-d-Sylt/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:47.835Z",
+      "crawledAt": "2026-11-01T09:23:10.484Z",
       "previousSlugs": [
         "ganzjahrig-sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-sylt-laderach-sylt-schleswig-holstein-deutschland",
         "ganzjahrig-sales-assitant-verkaufer-in-voll-e-teilzeit-m-w-d-sylt-laderach-schweiz-ag-sylt-schleswig-holstein-deutschland",
@@ -1466,7 +1539,11 @@
       },
       "postalCode": "4434",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67271955/Ganzj%C3%A4hrig-Sales-Assitant-Verk%C3%A4ufer-in-Voll--und-Teilzeit-m-w-d-Sylt/",
-      "addressRegion": "BL"
+      "addressRegion": "BL",
+      "streetAddress": "Sylt, Schleswig-Holstein, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:10.484Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-0dc23b1a511d",
@@ -1511,7 +1588,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67270550/Sales-Assistant-Verk%C3%A4ufer-in-Aushilfe-m-w-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:47.290Z",
+      "crawledAt": "2026-11-01T09:23:09.788Z",
       "previousSlugs": [
         "sales-assistant-verkaufer-in-aushilfe-m-w-d-laderach-mannheim-baden-wurttemberg-deutschland"
       ],
@@ -1542,13 +1619,17 @@
       },
       "postalCode": "5400",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67270550/Sales-Assistant-Verk%C3%A4ufer-in-Aushilfe-m-w-d-/",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "streetAddress": "Mannheim, Baden-Württemberg, Deutschland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:23:09.788Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-d638f6ff59b7",
       "slug": "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-schweiz-541893faf7",
       "slugByLocale": {
-        "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
+        "it": "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-schweiz-541893faf7",
         "en": "apprenticeship-in-the-retail-trade-efz-2027-m-f-d-laderach-schweiz-ag-zurich",
         "de": "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "fr": "apprentissage-dans-le-commerce-de-detail-efz-2027-h-f-d-laderach-schweiz-ag-zurich"
@@ -1587,7 +1668,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67232685/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:46.925Z",
+      "crawledAt": "2026-11-01T09:23:09.330Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "lehrstelle-im-retail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
@@ -1595,6 +1676,7 @@
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2",
         "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-09c5c9481b",
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-schweiz",
+        "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-schweiz-541893faf7",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich"
       ],
       "previousSlugsByLocale": {
@@ -1605,6 +1687,7 @@
           "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2",
           "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-09c5c9481b",
           "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-schweiz",
+          "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-schweiz-541893faf7",
           "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich"
         ],
         "en": [
@@ -1635,7 +1718,12 @@
       },
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67232685/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich, -, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-05T09:23:09.330Z",
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-03df285b9260",
@@ -1680,7 +1768,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67139555/Saisonaushilfe-20-100-flexibel-Chocolaterie-Zermatt-01-12-2026-31-03-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:46.748Z",
+      "crawledAt": "2026-11-01T09:23:09.098Z",
       "previousSlugs": [
         "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt",
         "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt-wallis-schweiz"
@@ -1716,13 +1804,17 @@
       },
       "postalCode": "3920",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/67139555/Saisonaushilfe-20-100-flexibel-Chocolaterie-Zermatt-01-12-2026-31-03-2027-/",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "streetAddress": "Zermatt, Wallis, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:23:09.098Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-b632c366aa12",
       "slug": "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-zurich-schweiz-f00d385781",
       "slugByLocale": {
-        "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
+        "it": "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-zurich-schweiz-f00d385781",
         "en": "lehrstelle-im-retail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
         "de": "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "fr": "lehrstelle-im-commerce-de-detail-efz-2027-w-m-d-laderach-schweiz-ag-zurich"
@@ -1761,13 +1853,14 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66510273/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:46.197Z",
+      "crawledAt": "2026-11-01T09:23:08.403Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn6pl",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-df5b8569df",
         "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-90a927428a",
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-zurich-schweiz",
+        "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-zurich-schweiz-f00d385781",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich"
       ],
       "previousSlugsByLocale": {
@@ -1777,6 +1870,7 @@
           "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-df5b8569df",
           "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-90a927428a",
           "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-zurich-schweiz",
+          "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-zurich-schweiz-f00d385781",
           "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich"
         ],
         "de": [
@@ -1799,7 +1893,12 @@
       },
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66510273/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich, Zürich, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-05T09:23:08.403Z",
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-fd6fc2b31468",
@@ -1844,7 +1943,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66510088/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:46.016Z",
+      "crawledAt": "2026-11-01T09:23:08.173Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen",
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen-zurich-schweiz"
@@ -1880,7 +1979,12 @@
       },
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66510088/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich-Flughafen, Zürich, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:08.173Z",
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-418e501d68ff",
@@ -1925,7 +2029,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66510048/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:45.834Z",
+      "crawledAt": "2026-11-01T09:23:07.941Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
@@ -1969,7 +2073,12 @@
       },
       "postalCode": "8001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66510048/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich, Zürich, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-05T09:23:07.941Z",
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-9eb36eb15ad5",
@@ -2014,7 +2123,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66509728/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:45.655Z",
+      "crawledAt": "2026-11-01T09:23:07.709Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel",
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel-basel-stadt-schweiz"
@@ -2050,7 +2159,12 @@
       },
       "postalCode": "4001",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66509728/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel, Basel-Stadt, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:07.709Z",
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-2ab55fbbe937",
@@ -2095,7 +2209,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66508228/Zusatzausbildung-Fachrichtung-Confiserie-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:45.473Z",
+      "crawledAt": "2026-11-01T09:23:07.483Z",
       "previousSlugs": [
         "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda",
         "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda-glarus-schweiz"
@@ -2131,7 +2245,11 @@
       },
       "postalCode": "8755",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66508228/Zusatzausbildung-Fachrichtung-Confiserie-2027-w-m-d-/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "streetAddress": "Ennenda, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:07.483Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-1b5a7cf0c3c0",
@@ -2176,7 +2294,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66507453/Lehrstelle-Lebensmitteltechnologe-in-EFZ-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:45.291Z",
+      "crawledAt": "2026-11-01T09:23:07.244Z",
       "previousSlugs": [
         "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda",
         "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda-glarus-schweiz"
@@ -2212,7 +2330,12 @@
       },
       "postalCode": "8755",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66507453/Lehrstelle-Lebensmitteltechnologe-in-EFZ-2027-/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "streetAddress": "Ennenda, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:07.244Z",
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-b0ad57de7665",
@@ -2257,7 +2380,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66506288/Lehrstelle-Logistiker-in-EFZ-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:45.113Z",
+      "crawledAt": "2026-11-01T09:23:07.010Z",
       "previousSlugs": [
         "lehrstelle-logistiker-in-efz-2027-laderach-bilten",
         "kv-apprendistato-cfc-2027-m-w-d-laderach-schweiz-ag-bilten",
@@ -2304,7 +2427,12 @@
       },
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/66506288/Lehrstelle-Logistiker-in-EFZ-2027-/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "streetAddress": "Bilten, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:07.010Z",
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "laderach-556a96de0e41",
@@ -2349,7 +2477,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/65493251/Stv-Filialleiter-60-Chocolaterie-Mall-of-Switzerland-Ebikon-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:44.738Z",
+      "crawledAt": "2026-11-01T09:23:06.545Z",
       "previousSlugs": [
         "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon",
         "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon-luzern-schweiz"
@@ -2385,7 +2513,11 @@
       },
       "postalCode": "6030",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/65493251/Stv-Filialleiter-60-Chocolaterie-Mall-of-Switzerland-Ebikon-w-m-d-/",
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "streetAddress": "Ebikon, Luzern, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:06.545Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-80833c4f6c01",
@@ -2430,7 +2562,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/64633953/Confiseur-f%C3%BCr-Live-Produktion-im-House-of-L%C3%A4derach-60-100-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-10-31T21:34:44.535Z",
+      "crawledAt": "2026-11-01T09:23:06.305Z",
       "previousSlugsByLocale": {
         "de": [
           "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-schweiz-ag-bilten",
@@ -2469,7 +2601,12 @@
       },
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/64633953/Confiseur-f%C3%BCr-Live-Produktion-im-House-of-L%C3%A4derach-60-100-w-m-d-/",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "streetAddress": "Bilten, Glarus, Schweiz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:06.305Z",
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     }
   ]
 }

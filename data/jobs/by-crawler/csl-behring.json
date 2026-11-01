@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csl-behring",
-  "assembledAt": "2026-10-31T22:05:44.164Z",
-  "runId": "41243115511",
+  "assembledAt": "2026-11-01T09:43:27.130Z",
+  "runId": "41292695324",
   "jobs": [
     {
       "id": "csl-behring-7514884e1972",
@@ -34,7 +34,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Director--Policy--Advocacy-and-Government-Affairs-Switzerland_R-280279-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:37.902Z",
+      "crawledAt": "2026-11-01T09:43:20.214Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -76,7 +76,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:20.214Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-behring-25a22a73a151",
@@ -110,7 +114,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Glbl-Principal-Clinical-Scientist-Cardio_R-283631",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:37.170Z",
+      "crawledAt": "2026-11-01T09:43:19.477Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -151,7 +155,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8152"
+      "postalCode": "8152",
+      "streetAddress": "Glattbrugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:19.477Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-behring-5d3c8961fbef",
@@ -184,7 +192,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-EHS-Expert---Risk-Management---Technical-Safety--f-m-d-_R-274754",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:36.492Z",
+      "crawledAt": "2026-11-01T09:43:18.753Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -225,7 +233,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:18.753Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-behring-4779501311b9",
@@ -259,7 +271,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-EHS-Expert--f-m-d-_R-274753",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:35.810Z",
+      "crawledAt": "2026-11-01T09:43:18.023Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -292,7 +304,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:18.023Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-behring-b134fc8905b7",
@@ -325,7 +341,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Senior-Director--Search---Evaluation-Late-TA-Lead--Immunology_R-289516-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:35.122Z",
+      "crawledAt": "2026-11-01T09:43:16.939Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -372,7 +388,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8152"
+      "postalCode": "8152",
+      "streetAddress": "Glattbrugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:16.939Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-behring-4f33ec4e3699",
@@ -405,7 +425,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Schlieren-CSL-Behring/Associate-Director--Research-Biostatistics_R-288579-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:33.731Z",
+      "crawledAt": "2026-11-01T09:42:58.992Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -448,7 +468,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8952"
+      "postalCode": "8952",
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:42:58.992Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-behring-65ee9a2319cb",
@@ -481,7 +505,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Senior-Scientist--Quantitative-Modeling---PK_R-290868",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:30.802Z",
+      "crawledAt": "2026-11-01T09:42:56.292Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -522,7 +546,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8152"
+      "postalCode": "8152",
+      "streetAddress": "Glattbrugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:42:56.292Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-behring-0766caaabb70",
@@ -555,7 +583,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Associate-Director--Analytical-Strategy_R-288583-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:27.724Z",
+      "crawledAt": "2026-11-01T09:42:53.486Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -602,7 +630,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:42:53.486Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-behring-69282277a0f7",
@@ -635,7 +667,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Team-Lead--Global-Regulatory-Affairs-CMC_R-275677",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:26.357Z",
+      "crawledAt": "2026-11-01T09:42:52.108Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -682,7 +714,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:42:52.108Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-behring-160144789811",
@@ -716,7 +752,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Regional-Regulatory-Lead_R-291104",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:24.968Z",
+      "crawledAt": "2026-11-01T09:42:50.774Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -763,7 +799,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8152"
+      "postalCode": "8152",
+      "streetAddress": "Glattbrugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:42:50.774Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-behring-fd2684a5281a",
@@ -797,7 +837,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Director--f-m-x--Global-Procurement---Logistics---Warehousing_R-293487",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:24.255Z",
+      "crawledAt": "2026-11-01T09:42:49.808Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -846,7 +886,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:42:49.808Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csl-behring-097c4cd0fe95",
@@ -879,7 +923,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Senior-Pharmacovigilance-Scientist--f-m-d----Post-marketing-products_R-293519",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:21.326Z",
+      "crawledAt": "2026-11-01T09:42:47.211Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -920,7 +964,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8152"
+      "postalCode": "8152",
+      "streetAddress": "Glattbrugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:42:47.211Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

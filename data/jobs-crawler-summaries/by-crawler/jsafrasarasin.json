@@ -1,7 +1,7 @@
 {
   "key": "jsafrasarasin",
   "label": "J. Safra Sarasin",
-  "generatedAt": "2026-10-31T21:16:19.897Z",
+  "generatedAt": "2026-11-01T09:14:07.084Z",
   "total": 15,
   "discovered": null,
   "parsed": 15,
@@ -14,12 +14,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 25897,
-  "avgDurationMs": 25897,
+  "durationMs": 25056,
+  "avgDurationMs": 25056,
   "durationHistory": [
-    25897
+    25056
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:16:03.439Z",
+      "crawledAt": "2026-11-01T09:13:57.174Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -56,59 +56,20 @@
       "salaryMax": 187000,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:57.174Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "jsafrasarasin-e11900f56834",
-      "slug": "workplace-operations-ingegnere-j-safra-sarasin-basel-ch",
-      "company": "J. Safra Sarasin",
-      "companyKey": "jsafrasarasin",
-      "companyDomain": "jsafrasarasin.umantis.com",
-      "title": "Workplace Operations Engineer",
-      "location": "Basel, CH",
-      "canton": "BS",
-      "url": "https://jsafrasarasin.umantis.com/Vacancies/523/Description/2",
-      "source": "J. Safra Sarasin Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:34:13.679Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/523/Description/2",
-      "firstSeenAt": "2026-09-28T21:12:19.843Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "postalCode": "4001",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "jsafrasarasin-9c72c25f05c4",
@@ -122,7 +83,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:16:03.137Z",
+      "crawledAt": "2026-11-01T09:13:56.873Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -143,12 +104,16 @@
       "salaryMax": 172000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:56.873Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -163,7 +128,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/511/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:16:02.836Z",
+      "crawledAt": "2026-11-01T09:13:56.572Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,12 +149,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:13:56.572Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -204,7 +173,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/518/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:16:02.534Z",
+      "crawledAt": "2026-11-01T09:13:56.270Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -225,12 +194,16 @@
       "salaryMax": 129500,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "_qualityScore": 88,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:13:56.270Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -245,7 +218,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/521/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:16:02.233Z",
+      "crawledAt": "2026-11-01T09:13:55.969Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -266,12 +239,16 @@
       "salaryMax": 129500,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "_qualityScore": 88,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:13:55.969Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -286,7 +263,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/522/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:16:01.932Z",
+      "crawledAt": "2026-11-01T09:13:55.668Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -307,12 +284,16 @@
       "salaryMax": 162000,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:13:55.668Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -327,7 +308,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/530/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:16:01.630Z",
+      "crawledAt": "2026-11-01T09:13:55.367Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -348,12 +329,16 @@
       "salaryMax": 206500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:13:55.367Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -368,7 +353,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/532/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:16:01.329Z",
+      "crawledAt": "2026-11-01T09:13:55.065Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -389,12 +374,16 @@
       "salaryMax": 129500,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "_qualityScore": 88,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:13:55.065Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -409,7 +398,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/533/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:16:01.027Z",
+      "crawledAt": "2026-11-01T09:13:54.764Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -430,12 +419,16 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:13:54.764Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -450,7 +443,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/443/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:16:00.726Z",
+      "crawledAt": "2026-11-01T09:13:54.464Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -471,12 +464,16 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "_qualityScore": 88,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:13:54.464Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -491,7 +488,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/536/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:16:00.424Z",
+      "crawledAt": "2026-11-01T09:13:54.162Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -512,12 +509,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:13:54.162Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -532,7 +533,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/537/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:16:00.122Z",
+      "crawledAt": "2026-11-01T09:13:53.860Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -553,12 +554,16 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:13:53.860Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -573,7 +578,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/539/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:15:59.821Z",
+      "crawledAt": "2026-11-01T09:13:53.559Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -594,12 +599,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:13:53.559Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -614,7 +623,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/531/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:15:59.518Z",
+      "crawledAt": "2026-11-01T09:13:53.257Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -635,12 +644,16 @@
       "salaryMax": 165500,
       "salarySource": "estimated",
       "postalCode": "4001",
-      "_qualityScore": 88,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:13:53.257Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -655,7 +668,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/543/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:15:59.216Z",
+      "crawledAt": "2026-11-01T09:13:52.955Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -676,14 +689,18 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1204",
-      "_qualityScore": 88,
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:13:52.955Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

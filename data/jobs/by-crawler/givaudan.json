@@ -1,7 +1,7 @@
 {
   "crawlerKey": "givaudan",
-  "assembledAt": "2026-10-31T21:46:57.892Z",
-  "runId": "41243204704",
+  "assembledAt": "2026-11-01T09:42:01.096Z",
+  "runId": "41292779854",
   "jobs": [
     {
       "id": "givaudan-fe090dfd056f",
@@ -34,7 +34,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119373EXTERNALENGLOBAL/electromecanicien-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:50.216Z",
+      "crawledAt": "2026-11-01T09:41:53.161Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -75,7 +75,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:53.161Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-03f9ec147252",
@@ -108,7 +111,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120084EXTERNALENGLOBAL/principal-flavourist-lead-savoury-eu-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:49.136Z",
+      "crawledAt": "2026-11-01T09:41:52.376Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -155,7 +158,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:41:52.376Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-b88aaa6c636d",
@@ -188,7 +194,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120483EXTERNALENGLOBAL/talent-attraction-intern-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:48.674Z",
+      "crawledAt": "2026-11-01T09:41:52.111Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -235,7 +241,10 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-29T09:41:52.111Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-4e30a1b3ec15",
@@ -268,7 +277,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120463EXTERNALENGLOBAL/ehs-manager-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:48.284Z",
+      "crawledAt": "2026-11-01T09:41:51.821Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -316,7 +325,10 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:41:51.821Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-c28a80656dc1",
@@ -349,7 +361,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120354EXTERNALENGLOBAL/lab-specialist-analytics-mass-spectrometry-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:47.934Z",
+      "crawledAt": "2026-11-01T09:41:51.254Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -396,7 +408,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:41:51.254Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-830c8babf56f",
@@ -429,7 +444,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120438EXTERNALENGLOBAL/quality-assurance-intern-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:47.606Z",
+      "crawledAt": "2026-11-01T09:41:50.670Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -476,7 +491,10 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:41:50.670Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-7b103a929fc9",
@@ -509,7 +527,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120098EXTERNALENGLOBAL/fragrance-industrialization-intern-m-f-d-votre-prochain-stage",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:46.864Z",
+      "crawledAt": "2026-11-01T09:41:50.430Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -550,7 +568,10 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:41:50.430Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-a3ed849ac27d",
@@ -583,7 +604,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120261EXTERNALENGLOBAL/consumer-and-sensory-project-leader",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:45.871Z",
+      "crawledAt": "2026-11-01T09:41:49.369Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -630,7 +651,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T09:41:49.369Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-079c0cb7e714",
@@ -663,7 +687,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120360EXTERNALENGLOBAL/operator-sampling-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:45.110Z",
+      "crawledAt": "2026-11-01T09:41:48.386Z",
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Neugutstrasse 46",
@@ -715,7 +739,10 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:41:48.386Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-6da9daa72174",
@@ -748,7 +775,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120259EXTERNALENGLOBAL/fragrance-ingredients-business-portfolio-manager-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:44.027Z",
+      "crawledAt": "2026-11-01T09:41:48.061Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -801,7 +828,10 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T09:41:48.061Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-ab22d47b75eb",
@@ -834,7 +864,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120193EXTERNALENGLOBAL/technicien-d-exploitation-2x8-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:42.962Z",
+      "crawledAt": "2026-11-01T09:41:47.472Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -875,7 +905,10 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-06T09:41:47.472Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-ec0b70f6b3a6",
@@ -908,7 +941,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120106EXTERNALENGLOBAL/fachkraft-produktion-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:42.478Z",
+      "crawledAt": "2026-11-01T09:41:47.177Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "streetAddress": "Industriestrasse 8A",
@@ -953,7 +986,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-29T09:41:47.177Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-fc2480eb74d0",
@@ -986,7 +1022,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120173EXTERNALENGLOBAL/customer-care-front-office-manager-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:42.050Z",
+      "crawledAt": "2026-11-01T09:41:46.744Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -1030,7 +1066,10 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-27T09:41:46.744Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-4bf6902341d2",
@@ -1063,7 +1102,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120046EXTERNALENGLOBAL/chef-d-equipe-en-production-chimique-3x8-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:41.356Z",
+      "crawledAt": "2026-11-01T09:41:46.172Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -1104,7 +1143,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-23T09:41:46.172Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-3320446babc7",
@@ -1137,7 +1179,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120036EXTERNALENGLOBAL/savoury-product-development-intern-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:41.043Z",
+      "crawledAt": "2026-11-01T09:41:45.920Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -1184,7 +1226,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:41:45.920Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-878f847674f8",
@@ -1217,7 +1262,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119972EXTERNALENGLOBAL/sweet-goods-product-development-intern-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:40.375Z",
+      "crawledAt": "2026-11-01T09:41:45.623Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -1264,7 +1309,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-09T09:41:45.623Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-18098bec9bf9",
@@ -1297,7 +1345,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119962EXTERNALENGLOBAL/dairy-product-development-intern-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:39.661Z",
+      "crawledAt": "2026-11-01T09:41:44.829Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -1344,7 +1392,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-08T09:41:44.829Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-88297d5be02a",
@@ -1377,7 +1428,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119877EXTERNALENGLOBAL/site-operations-controller-ingredients-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:38.989Z",
+      "crawledAt": "2026-11-01T09:41:44.366Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -1418,7 +1469,10 @@
           "maxValue": 92000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-03T09:41:44.366Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-db338e342384",
@@ -1451,7 +1505,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119521EXTERNALENGLOBAL/ot-technical-lead-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:38.369Z",
+      "crawledAt": "2026-11-01T09:41:43.913Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -1492,7 +1546,10 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:43.913Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-6ac69795be6d",
@@ -1525,7 +1582,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB116426EXTERNALENGLOBAL/talent-pool-operations-internship-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:37.670Z",
+      "crawledAt": "2026-11-01T09:41:43.266Z",
       "addressLocality": "Kemptthal",
       "postalCode": "8310",
       "streetAddress": "Kemptpark 50",
@@ -1571,7 +1628,10 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:43.266Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-c6433163a70a",
@@ -1604,7 +1664,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117803EXTERNALENGLOBAL/anlagenfuhrer-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:36.937Z",
+      "crawledAt": "2026-11-01T09:41:43.020Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "streetAddress": "Burgdorf factory",
@@ -1666,7 +1726,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:43.020Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "givaudan-f75709082460",
@@ -1699,7 +1762,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119102EXTERNALENGLOBAL/agent-prevention-et-intervention-h-f-d-3x8-cdd-jusqu-au-31-12-2027",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:46:36.593Z",
+      "crawledAt": "2026-11-01T09:41:42.480Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "streetAddress": "5, Ch. de la Parfumerie",
@@ -1740,7 +1803,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:42.480Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

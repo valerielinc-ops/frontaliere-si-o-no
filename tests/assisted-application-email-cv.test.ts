@@ -103,6 +103,22 @@ describe('MIME reader', () => {
 });
 
 describe('CV by e-mail reply', () => {
+  it.each([
+    ['display name containing @', 'Recruiting @ Azienda <maria.rossi@gmail.com>'],
+    ['comment after the mailbox', 'maria.rossi@gmail.com (Recruiting)'],
+  ])('accepts a valid From with %s', async (_label, from) => {
+    const isEnabled = vi.fn(async () => false);
+    const result = await handleAssistedApplicationEmailCv(request(rawMessage({ from })), {
+      db: store().db,
+      bucket: fakeBucket(),
+      secret: SECRET,
+      isEnabled,
+    });
+
+    expect(result.body).toMatchObject({ matched: false, reason: 'automation_off' });
+    expect(isEnabled).toHaveBeenCalledWith(ORDER);
+  });
+
   it('does nothing while the automation flag is off: the e-mail reaches Valerie as today', async () => {
     const database = store();
     const bucket = fakeBucket();
@@ -161,5 +177,16 @@ describe('CV by e-mail reply', () => {
     const exe = rawMessage({ attachment: Buffer.from('MZ\u0090\u0000binary'), filenameHeader: 'filename="cv.exe"' });
     expect((await handleAssistedApplicationEmailCv(request(exe), { db: store().db, bucket: fakeBucket(), secret: SECRET })).body)
       .toMatchObject({ matched: false, reason: 'no_cv_attachment' });
+  });
+
+  it('rejects an authenticated but ambiguous multi-mailbox From header', async () => {
+    const ambiguous = rawMessage({
+      from: 'Maria Rossi <maria.rossi@gmail.com>, Other Sender <other@gmail.com>',
+    });
+    const bucket = fakeBucket();
+    const result = await handleAssistedApplicationEmailCv(request(ambiguous), { db: store().db, bucket, secret: SECRET });
+
+    expect(result.body).toMatchObject({ matched: false, reason: 'unauthenticated' });
+    expect(bucket.files.size).toBe(0);
   });
 });

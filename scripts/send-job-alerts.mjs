@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { redactEmailAddresses } from '../functions/src/lib/redactEmails.js';
 import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
+import { renderBrandJobCard } from '../functions/src/assistedApplicationEmailLayout.js';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -35,7 +36,6 @@ import {
   formatJobAlertProviderLine,
   writeJobAlertStepSummary,
 } from './lib/job-alert-funnel.mjs';
-import { normalizeContract, formatSalary, emailTagChip } from '../services/newsletter-content.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 import {
   isApplicationConciergeRecommendation,
@@ -1293,7 +1293,6 @@ function buildAlertEmail(
   // Brand colors (aligned with newsletter-template.mjs)
   const BRAND_ORANGE = '#f97316';
   const BRAND_DARK = '#0f172a';
-  const DARK_CARD = '#1e293b';
   const LIGHT_BG = '#f1f5f9';
   const WHITE = '#ffffff';
   const MUTED = '#64748b';        // 4.76:1 on WHITE/CARD_BG — fine on the light sections that use it
@@ -1349,9 +1348,6 @@ function buildAlertEmail(
   // and loses the credential.
   const allJobsUrl = wrapPublicUrl(`${BASE_URL}${localizedJobBoardPath}/?${utmBase}`);
 
-  // tagChip moved to services/newsletter-content.mjs as emailTagChip (#6104).
-  const tagChip = emailTagChip;
-
   const jobCards = shownJobs.map((job, i) => {
     const title = cleanTitle(job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle);
     const company = job.company || '';
@@ -1373,46 +1369,24 @@ function buildAlertEmail(
       });
     }
     const url = wrapJobUrl(rawJobUrl);
-    const initial = (company || '?')[0].toUpperCase();
     const avatar = resolveAvatarSrc(job);
-    const logoSrc = avatar?.src || null;
-    // Bundled logos render contained on white.
-    const logoStyle = 'display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;';
-    const tags = [];
-    // "NEW" badge uses the same real freshness predicate as the hero/preheader;
-    // a refreshed crawledAt alone can never mint the badge.
-    if (isActuallyNewJob(job, nowMs)) tags.push(tagChip(s.newBadge, 'green'));
-    // Salary chip — only when the job has structured salary data (most don't).
-    const salaryLabel = formatSalary(job, locale);
-    if (salaryLabel) tags.push(tagChip(escHtml(salaryLabel), 'blue'));
-    if (job.contract) tags.push(tagChip(escHtml(normalizeContract(job.contract, locale))));
-    if (location) tags.push(tagChip(escHtml(location)));
-
-    // Avatar: real brand logo when we have one bundled, initial-letter fallback otherwise.
-    // Email clients block remote images by default — the colored fallback box shows
-    // until the user clicks "show images". The img has explicit width/height so the
-    // fallback alt text doesn't reflow the card.
-    const avatarHtml = logoSrc
-      ? `<img src="${logoSrc}" alt="${escHtml(company)}" width="44" height="44" style="${logoStyle}">`
-      : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${initial}</div>`;
-
-    return `
-        <tr><td style="padding:0 0 10px;">
-          <a target="_blank" rel="noopener noreferrer" href="${url}" style="text-decoration:none;display:block;">
-            <table width="100%" cellpadding="0" cellspacing="0" style="background:${DARK_CARD};border-radius:12px;">
-              <tr>
-                <td width="58" style="padding:16px 0 16px 18px;vertical-align:middle;">
-                  ${avatarHtml}
-                </td>
-                <td style="padding:16px 18px 16px 14px;vertical-align:middle;">
-                  <div style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0;overflow:hidden;text-overflow:ellipsis;">${escHtml(title)}</div>
-                  <div style="font-size:12px;color:#94a3b8;margin-top:2px;">${escHtml(company)}${location ? ' \u00b7 ' + escHtml(location) : ''}</div>
-                  ${tags.length > 0 ? `<div style="margin-top:4px;">${tags.join(' ')}</div>` : ''}
-                </td>
-              </tr>
-            </table>
-          </a>
-        </td></tr>`;
+    const card = renderBrandJobCard({
+      title,
+      company,
+      location,
+      logoUrl: avatar?.src || '',
+      contract: job.contract || '',
+      salaryMin: job.salaryMin,
+      salaryMax: job.salaryMax,
+      salaryCurrency: job.salaryCurrency,
+      baseSalary: job.baseSalary,
+      firstSeenAt: job.firstSeenAt || job.postedDate || '',
+      isNew: isActuallyNewJob(job, nowMs),
+      locale,
+      newLabel: s.newBadge,
+      url,
+    });
+    return `<tr><td style="padding:0 0 10px;">${card}</td></tr>`;
   }).join('');
 
   const filterParts = [];

@@ -80,6 +80,37 @@ describe('rittmeyer-job-parser', () => {
     expect(detail.summary).toContain('Per il nostro team di vendita interno');
   });
 
+  it('parses redesigned Onlyfy cards through the shared listing contract', () => {
+    const listings = parseRittmeyerListingsPage(`
+      <div class="results">
+        <a data-testid="job-card"
+           aria-label="Sales Project Engineer (a) Ticino"
+           href="/en/job/4it6c5xx4ivuhudv7e6kk1oyh232efn">
+          <div><h3 data-testid="job-title">Sales Project Engineer (a) Ticino</h3></div>
+          <div data-testid="job-more-info">Camorino | Teilzeit / Vollzeit | 18.05.2026</div>
+        </a>
+        <a data-testid="job-card"
+           aria-label="Teamleiter Lager &amp; Logistik (a)"
+           href="/en/job/other-role">
+          <div><h3 data-testid="job-title">Teamleiter Lager &amp; Logistik (a)</h3></div>
+          <div data-testid="job-more-info">Baar | Vollzeit | 18.05.2026</div>
+        </a>
+      </div>
+    `);
+
+    expect(listings).toHaveLength(2);
+    expect(listings[0]).toMatchObject({
+      href: 'https://brugg.onlyfy.jobs/en/job/4it6c5xx4ivuhudv7e6kk1oyh232efn',
+      title: 'Sales Project Engineer (a) Ticino',
+      location: 'Camorino',
+      employmentTypeStr: 'Teilzeit / Vollzeit',
+    });
+    expect(listings[0].snippet).toContain('Camorino');
+    expect(isRittmeyerTicinoListing(listings[0])).toBe(true);
+    expect(listings.rittmeyerListingMarkupSeen).toBe(true);
+    expect(listings.rittmeyerListingSkippedMalformedRows).toBe(0);
+  });
+
   it('parses detail content and builds localized descriptions', () => {
     const html = `
       <html>

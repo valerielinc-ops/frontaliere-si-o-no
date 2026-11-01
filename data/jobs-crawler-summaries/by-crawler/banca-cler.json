@@ -1,16 +1,16 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-10-31T21:26:43.851Z",
+  "generatedAt": "2026-11-01T09:12:57.131Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 123003,
-  "avgDurationMs": 123003,
+  "durationMs": 99542,
+  "avgDurationMs": 99542,
   "durationHistory": [
-    123003
+    99542
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-31T21:26:27.927Z",
+      "crawledAt": "2026-11-01T09:12:38.835Z",
       "firstSeenAt": "2026-10-08T21:23:38.346Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
@@ -44,12 +44,16 @@
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
       "postalCode": "2000",
-      "_qualityScore": 85,
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:38.835Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -71,7 +75,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-31T21:26:27.927Z",
+      "crawledAt": "2026-11-01T09:12:38.835Z",
       "firstSeenAt": "2026-10-08T21:23:38.346Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
@@ -82,12 +86,16 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "_qualityScore": 88,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:38.835Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 16,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -109,7 +117,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-31T21:26:27.927Z",
+      "crawledAt": "2026-11-01T09:12:38.835Z",
       "firstSeenAt": "2026-10-05T06:25:39.366Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
@@ -120,12 +128,16 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "_qualityScore": 85,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:38.835Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
@@ -155,10 +167,10 @@
       "datePosted": "2026-10-29",
       "postedDate": "2026-10-29",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-27T09:12:38.835Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:26:27.927Z",
+      "crawledAt": "2026-11-01T09:12:38.835Z",
       "id": "company-7dkqft",
       "contract": "full-time",
       "currency": "CHF",
@@ -167,6 +179,8 @@
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -199,10 +213,10 @@
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-19T09:12:38.835Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:26:27.927Z",
+      "crawledAt": "2026-11-01T09:12:38.835Z",
       "id": "company-4vbdrg",
       "contract": "full-time",
       "currency": "CHF",
@@ -211,6 +225,8 @@
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -243,10 +259,10 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-17T09:12:38.835Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:26:27.927Z",
+      "crawledAt": "2026-11-01T09:12:38.835Z",
       "id": "company-bjh1s",
       "contract": "full-time",
       "currency": "CHF",
@@ -255,6 +271,8 @@
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -287,10 +305,10 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "validThrough": "",
+      "validThrough": "2027-01-03T09:12:38.835Z",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-31T21:26:27.927Z",
+      "crawledAt": "2026-11-01T09:12:38.835Z",
       "id": "company-9eqbu6",
       "contract": "full-time",
       "currency": "CHF",
@@ -299,6 +317,8 @@
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -323,7 +343,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-31T21:26:27.927Z",
+      "crawledAt": "2026-11-01T09:12:38.835Z",
       "firstSeenAt": "2026-06-08T22:12:09.409Z",
       "sourceLang": "de",
       "salaryMin": 99000,
@@ -338,12 +358,14 @@
       "postalCode": "9000",
       "sector": "Banca / Servizi finanziari",
       "department": "Private Banking und Privatkunden",
-      "validThrough": "",
+      "validThrough": "2026-12-29T09:12:38.835Z",
       "contractType": "permanent",
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/geschaeftsstellenleiterin-st-gallen-w-m-2676",
       "datePosted": "2026-09-30",
       "postingDateSource": "reported",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -369,7 +391,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-31T21:26:27.927Z",
+      "crawledAt": "2026-11-01T09:12:38.835Z",
       "firstSeenAt": "2026-09-25T14:44:02.065Z",
       "sourceLang": "de",
       "salaryMin": 96300,
@@ -384,11 +406,13 @@
       "country": "CH",
       "sector": "Banca / Servizi finanziari",
       "department": "Marketing, Kommunikation und Redaktion",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:12:38.835Z",
       "contractType": "permanent",
       "sourceIdentity": "url:https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/fachspezialistin-kooperations-und-versandmanagement-w-m-2753",
       "datePosted": "2026-09-25",
       "postingDateSource": "reported",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -398,5 +422,5 @@
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

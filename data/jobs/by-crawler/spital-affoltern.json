@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-affoltern",
-  "assembledAt": "2026-10-31T22:02:46.205Z",
-  "runId": "41242779673",
+  "assembledAt": "2026-11-01T09:25:47.025Z",
+  "runId": "41292374401",
   "jobs": [
     {
       "id": "spital-affoltern-e37eeab3e64b",
@@ -34,7 +34,7 @@
       "url": "https://jobs.dualoo.com/portal/vnt8c9rs/1bda14aa-42d9-45d4-9ff6-f32d38294fe3/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:37.507Z",
+      "crawledAt": "2026-11-01T09:25:37.169Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -76,7 +76,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:37.169Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-3cb423c106af",
@@ -109,7 +113,7 @@
       "url": "https://jobs.dualoo.com/portal/vnt8c9rs/de8a3978-1ea7-4cbc-8c42-72ef84293e0f/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:37.080Z",
+      "crawledAt": "2026-11-01T09:25:36.717Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -149,7 +153,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:36.717Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-dcdaa07f68b2",
@@ -183,7 +191,7 @@
       "url": "https://jobs.dualoo.com/portal/vnt8c9rs/f3a52c3e-e66f-48c0-bd4c-71820a43dced/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:36.659Z",
+      "crawledAt": "2026-11-01T09:25:36.258Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -223,7 +231,11 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:36.258Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-f2c75cc01fa4",
@@ -257,7 +269,7 @@
       "url": "https://jobs.dualoo.com/portal/vnt8c9rs/136a014d-f8f4-4ecb-b089-97b2378f4299/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:35.920Z",
+      "crawledAt": "2026-11-01T09:25:35.784Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -297,7 +309,11 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:35.784Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-0dfd1234120d",
@@ -330,7 +346,7 @@
       "url": "https://jobs.dualoo.com/portal/gjjv3bg7/c8e4e777-91c4-4ca1-808b-66a07f8e27be/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:35.489Z",
+      "crawledAt": "2026-11-01T09:25:35.318Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -370,7 +386,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:35.318Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-7af80078fe08",
@@ -403,7 +423,7 @@
       "url": "https://jobs.dualoo.com/portal/gjjv3bg7/941b14fa-94c6-4b62-8f55-8f2df550fa44/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:34.993Z",
+      "crawledAt": "2026-11-01T09:25:34.828Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -435,7 +455,11 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:25:34.828Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-627be2d646c9",
@@ -469,7 +493,7 @@
       "url": "https://jobs.dualoo.com/portal/f1il0n9x/2dea1b35-f416-4ba9-a51b-33c1de2da84a/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:34.569Z",
+      "crawledAt": "2026-11-01T09:25:34.363Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -526,7 +550,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:34.363Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-8c4cfd4208e6",
@@ -560,7 +588,7 @@
       "url": "https://jobs.dualoo.com/portal/f1il0n9x/c03cdaaf-bcfe-46a9-8853-83077d3b6790/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:34.103Z",
+      "crawledAt": "2026-11-01T09:25:33.903Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -600,7 +628,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:33.903Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-ccbb9528e56d",
@@ -634,7 +666,7 @@
       "url": "https://jobs.dualoo.com/portal/e9akb9vi/649f0f38-6f9c-42c8-b563-3350e7eafacd/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:33.158Z",
+      "crawledAt": "2026-11-01T09:25:33.439Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -680,7 +712,11 @@
           "maxValue": 122500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:25:33.439Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-80d2c38ec163",
@@ -713,7 +749,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/1421f34e-3082-4abb-8f29-b5aa2652599d/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:32.722Z",
+      "crawledAt": "2026-11-01T09:25:32.983Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -759,7 +795,11 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:25:32.983Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-3cbc7de2b9c4",
@@ -792,7 +832,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/250e4ede-4521-45c0-b16a-022687a04e34/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:32.302Z",
+      "crawledAt": "2026-11-01T09:25:32.507Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -840,7 +880,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:25:32.507Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-f0f5f0456cf2",
@@ -873,7 +917,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/6427188a-22f4-4a57-b0d6-e0d4b488dcbb/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:31.876Z",
+      "crawledAt": "2026-11-01T09:25:32.033Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -917,7 +961,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:32.033Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-0a5fce9d6f1c",
@@ -950,7 +998,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/8ac82ac9-4980-4323-96dd-adde8b4ba528/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:31.442Z",
+      "crawledAt": "2026-11-01T09:25:31.559Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -996,7 +1044,11 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:25:31.559Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-aca5169b14a6",
@@ -1029,7 +1081,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/5b8f0e31-bde0-4c38-a230-83815cbd5e7f/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:31.017Z",
+      "crawledAt": "2026-11-01T09:25:31.101Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1069,7 +1121,11 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:25:31.101Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-f69d2abc979c",
@@ -1103,7 +1159,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/e351e788-8c38-48f5-a43d-c8e8e0e83a81/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:30.606Z",
+      "crawledAt": "2026-11-01T09:25:30.641Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1151,7 +1207,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:30.641Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-504becf1aa5d",
@@ -1185,7 +1245,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/91de123b-3e5e-48e5-ac97-839fe294374a/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:29.764Z",
+      "crawledAt": "2026-11-01T09:25:29.725Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1245,7 +1305,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:29.725Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-a73b15fe3c25",
@@ -1279,7 +1343,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/b1d231e6-528b-478a-a874-ec6f8c796497/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:29.327Z",
+      "crawledAt": "2026-11-01T09:25:29.240Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1343,7 +1407,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:29.240Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-18293e034da2",
@@ -1377,7 +1445,7 @@
       "url": "https://jobs.dualoo.com/portal/9dfy7ms4/5e9f7eb0-f613-4905-a4ea-46af4ad3f117/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:28.845Z",
+      "crawledAt": "2026-11-01T09:25:28.784Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1423,7 +1491,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:25:28.784Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-d7a167f75d40",
@@ -1457,7 +1529,7 @@
       "url": "https://jobs.dualoo.com/portal/8n6b8ihk/f8c87670-6b64-462d-93d4-b849feb63b38/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:28.396Z",
+      "crawledAt": "2026-11-01T09:25:28.323Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1503,7 +1575,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:25:28.323Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-8f6bed2f2481",
@@ -1536,7 +1612,7 @@
       "url": "https://jobs.dualoo.com/portal/8n6b8ihk/53073577-fa19-4d79-a116-f7599f2a53ea/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:27.968Z",
+      "crawledAt": "2026-11-01T09:25:27.855Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1595,7 +1671,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:27.855Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-44d731f63082",
@@ -1629,7 +1709,7 @@
       "url": "https://jobs.dualoo.com/portal/8n6b8ihk/bacff699-1a39-4ff6-9972-5f353f05cd9a/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:27.504Z",
+      "crawledAt": "2026-11-01T09:25:27.358Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1675,7 +1755,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:27.358Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-0427b38bcf20",
@@ -1709,7 +1793,7 @@
       "url": "https://jobs.dualoo.com/portal/8n6b8ihk/5c5db5c9-a498-4502-bc90-74027a1c8a07/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:26.376Z",
+      "crawledAt": "2026-11-01T09:25:26.432Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1755,7 +1839,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:25:26.432Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-44fe63682d44",
@@ -1788,7 +1876,7 @@
       "url": "https://jobs.dualoo.com/portal/8n6b8ihk/37adcc5b-6d64-4e96-bea0-053cce3bf824/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:25.927Z",
+      "crawledAt": "2026-11-01T09:25:25.961Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1828,7 +1916,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:25.961Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "spital-affoltern-e510daeccab2",
@@ -1861,7 +1953,7 @@
       "url": "https://jobs.dualoo.com/portal/8n6b8ihk/7ce09f9e-ccb1-4b84-bd5c-45b51265f44d/detail?lang=DE",
       "source": "Spital Affoltern AG Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:25.505Z",
+      "crawledAt": "2026-11-01T09:25:25.492Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1912,7 +2004,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:25:25.492Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

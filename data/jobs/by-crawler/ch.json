@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ch",
-  "assembledAt": "2026-10-31T21:49:37.654Z",
-  "runId": "41242445754",
+  "assembledAt": "2026-11-01T09:18:25.651Z",
+  "runId": "41292050097",
   "jobs": [
     {
       "id": "ch-9e72d8e76c62",
@@ -34,7 +34,7 @@
       "url": "https://ch.talent.com/view?id=554547064889945322",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:32.161Z",
+      "crawledAt": "2026-11-01T09:18:19.929Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,7 +80,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:19.929Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

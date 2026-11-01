@@ -1,16 +1,16 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-10-31T21:48:23.142Z",
+  "generatedAt": "2026-11-01T09:22:38.073Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 156870,
-  "avgDurationMs": 156870,
+  "durationMs": 146008,
+  "avgDurationMs": 146008,
   "durationHistory": [
-    156870
+    146008
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-01-31",
+      "validThrough": "2027-01-31T00:00:00.000Z",
       "id": "amag-group-6f815049d13c",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -47,12 +47,15 @@
       "salarySource": "estimated",
       "postalCode": "6900",
       "firstSeenAt": "2026-10-28T20:37:33.367Z",
-      "_qualityScore": 90,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -78,7 +81,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-05-01",
+      "validThrough": "2027-05-01T00:00:00.000Z",
       "id": "amag-group-45c44c92a0e0",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -87,6 +90,8 @@
       "streetAddress": "Via Industria 1",
       "postalCode": "6934",
       "firstSeenAt": "2026-10-09T21:30:03.052Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -118,7 +123,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-05-01",
+      "validThrough": "2027-05-01T00:00:00.000Z",
       "id": "amag-group-6157920fea33",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -126,12 +131,15 @@
       "salarySource": "estimated",
       "postalCode": "6900",
       "firstSeenAt": "2026-10-09T09:22:42.256Z",
-      "_qualityScore": 90,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -155,7 +163,7 @@
       "postedDate": "2026-09-25",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-01",
+      "validThrough": "2026-12-01T00:00:00.000Z",
       "id": "amag-group-639847205108",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -166,12 +174,15 @@
       "datePosted": "2026-09-25",
       "postingDateSource": "reported",
       "postalCode": "6596",
-      "_qualityScore": 90,
+      "streetAddress": "Gordola",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -195,7 +206,7 @@
       "postedDate": "2026-09-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-05-01",
+      "validThrough": "2027-05-01T00:00:00.000Z",
       "id": "amag-group-078b29e50992",
       "salaryMin": 50500,
       "salaryMax": 77000,
@@ -205,12 +216,15 @@
       "sourceIdentity": "url:https://jobs.amag-group.ch/apprendisti-meccatronici-dautomobili-afc-mf-amag-ticino-es-it-j23683.html",
       "datePosted": "2026-09-24",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "streetAddress": "Tutti",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -234,7 +248,7 @@
       "postedDate": "2026-09-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-05-01",
+      "validThrough": "2027-05-01T00:00:00.000Z",
       "id": "amag-group-635c94e01215",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -245,14 +259,17 @@
       "datePosted": "2026-09-22",
       "postingDateSource": "reported",
       "postalCode": "6932",
-      "_qualityScore": 90,
+      "streetAddress": "Breganzona",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

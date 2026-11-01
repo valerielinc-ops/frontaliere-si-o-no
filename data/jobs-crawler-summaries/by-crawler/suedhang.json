@@ -1,7 +1,7 @@
 {
   "key": "suedhang",
   "label": "Klinik Südhang",
-  "generatedAt": "2026-10-31T21:14:23.279Z",
+  "generatedAt": "2026-11-01T09:12:54.875Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 6982,
-  "avgDurationMs": 6982,
+  "durationMs": 16285,
+  "avgDurationMs": 16285,
   "durationHistory": [
-    6982
+    16285
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/mitarbeiterin-reinigung/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:14:07.336Z",
+      "crawledAt": "2026-11-01T09:12:41.098Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -61,12 +61,16 @@
       "salaryMax": 84500,
       "salarySource": "estimated",
       "addressRegion": "BE",
-      "_qualityScore": 88,
+      "streetAddress": "Kirchlindach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:12:41.098Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -82,7 +86,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-im-nachtdienst/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:14:06.874Z",
+      "crawledAt": "2026-11-01T09:12:37.614Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -106,12 +110,16 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "addressRegion": "BE",
-      "_qualityScore": 88,
+      "streetAddress": "Kirchlindach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:12:37.614Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -126,7 +134,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/fachfrau_fachmann_gesundheit/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:14:06.413Z",
+      "crawledAt": "2026-11-01T09:12:34.174Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -150,12 +158,16 @@
       "salaryMax": 124500,
       "salarySource": "estimated",
       "addressRegion": "BE",
-      "_qualityScore": 88,
+      "streetAddress": "Kirchlindach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:34.174Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -171,7 +183,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:14:05.947Z",
+      "crawledAt": "2026-11-01T09:12:30.419Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -195,12 +207,16 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "addressRegion": "BE",
-      "_qualityScore": 88,
+      "streetAddress": "Kirchlindach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:12:30.419Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -215,7 +231,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/klinische-r_psycholog-in_ambulatorium_biel-bienne/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:14:05.466Z",
+      "crawledAt": "2026-11-01T09:12:29.916Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -239,12 +255,16 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "addressRegion": "BE",
-      "_qualityScore": 88,
+      "streetAddress": "Ambulatorium Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:29.916Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -259,7 +279,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/leitender-arzt-leitende-aerztin/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:14:04.998Z",
+      "crawledAt": "2026-11-01T09:12:29.411Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -283,14 +303,18 @@
       "salaryMax": 160000,
       "salarySource": "estimated",
       "addressRegion": "BE",
-      "_qualityScore": 88,
+      "streetAddress": "Kirchlindach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:12:29.411Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

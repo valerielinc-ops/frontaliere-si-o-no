@@ -1,3 +1,4 @@
+import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
 import '../../extension/apply-control.js';
 /**
@@ -26,11 +27,11 @@ import '../../extension/apply-control.js';
 
 import path from 'node:path';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationIsPending, verificationOutcome } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -58,7 +59,7 @@ const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // The extension injects this same classic-script module before its filler.
-export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
+export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence } = globalThis.AssistedApplyControls;
 const OUTCOME_TIMEOUT_MS = 60_000;
 // How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
 const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
@@ -366,13 +367,13 @@ export { portalQuestionId, portalQuestionKey, slugId };
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {} }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {}, currentAnswerIds = [], answerSources = {} }) {
   // The split the candidate chose on the review page, else the surname with its particles (splitName).
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = profile.permitStatus || '';
-  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers);
+  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
   const address = resolveResidenceAddress(profile.address, profile.location);
@@ -467,7 +468,33 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
  * Current answers win; canonical topics also reuse an unambiguous answer from
  * the previous portal run when an ATS regenerates its field id.
  */
-function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
+const addressMetadata = (field) => Object.hasOwn(field || {}, 'addressContext') ? { addressContext: addressContextContract(field) } : {};
+const unreadableNativeOwner = field => (field?.kind === 'checkbox' && field?.consentOwnershipUnknown === true)
+  || (addressAnswerNeedsOwnership(field?.label || field?.applicationQuestion || field?.question, field)
+    && Object.hasOwn(field || {}, 'addressContext') && !hasAddressContextOwnership(field));
+
+// An account-creation form is the candidate's own profile surface. Some ATSes
+// expose an explicit residence caption (for example «Land/Region des
+// Wohnorts») without a semantic personal-information container, so the native
+// reader quite correctly reports an empty owner contract. Bind only those
+// positive residence-role captions here; a generic «City» or an ambiguous
+// address remains a technical handoff.
+export const accountRegistrationField = (field) => {
+  const context = addressContextContract(field);
+  if (!context || context.unknown || hasAddressContextOwnership(field) || !residenceFieldRole(field?.label) || !explicitResidence(field?.label)) return field;
+  return {
+    ...field,
+    addressContext: { section: 'Personal information', owners: ['Personal information'], unknown: false },
+  };
+};
+
+const accountRegistrationSnapshot = (snapshot) => ({
+  ...snapshot,
+  fields: (snapshot?.fields || []).map(accountRegistrationField),
+});
+
+function portalAnswersForQuestions(questions, answers, previousAnswers = [], currentAnswerIds = [], answerSources = {}) {
+  const attestedIds = new Set(currentAnswerIds);
   const items = questions.map((question) => {
     const raw = String(answers[question.id] ?? '').trim();
     const projected = operationalAnswerForOption(question, raw) || raw;
@@ -484,23 +511,26 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
       context: question.context || '',
       section: question.section || '',
       autocomplete: question.autocomplete || '',
+      ...addressMetadata(question),
       answer,
-      source: 'answers',
+      source: Object.hasOwn(answerSources, question.id) ? answerSources[question.id] : 'answers',
       current: true,
+      attested: attestedIds.has(question.id) && (!Object.hasOwn(answerSources, question.id) || answerSources[question.id] === 'answers'),
     };
   }).filter((item) => String(item.answer ?? '').trim());
   const keyFor = (item) => portalQuestionKey(item) || portalQuestionId(item);
   const currentKeys = new Set(questions
     // An empty value under a regenerated field id is not an answer; keep the
     // previous semantic answer eligible for that same question.
-    .filter((question) => question?.id && String(answers[question.id] ?? '').trim())
-    .map((question) => keyFor({ applicationQuestion: question.applicationQuestion, question: question.question, context: question.context || '', section: question.section || '', autocomplete: question.autocomplete || '' })));
+    .filter((question) => question?.id && (String(answers[question.id] ?? '').trim()
+      || (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question) && Object.hasOwn(answers, question.id))))
+    .map((question) => keyFor({ applicationQuestion: question.applicationQuestion, question: question.question, context: question.context || '', section: question.section || '', autocomplete: question.autocomplete || '', ...addressMetadata(question) })));
   const priorGroups = new Map();
   for (const item of Array.isArray(previousAnswers) ? previousAnswers : []) {
     const question = String(item?.question || '').trim();
     const answer = String(item?.answer ?? '').trim();
     if (!question || !answer) continue;
-    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), answer, source: String(item?.source || 'answers') };
+    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), ...addressMetadata(item), answer, source: String(item?.source || 'answers') };
     const key = keyFor(prior);
     if (currentKeys.has(key)) continue;
     const group = priorGroups.get(key) || [];
@@ -517,13 +547,13 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
     const previous = seen.get(key);
     if (!previous || item.current) seen.set(key, item);
   }
-  return [...seen.values()].map(({ answerId, question, applicationQuestion, candidateQuestion, answer, context, section, autocomplete, source }) => ({
-    ...(answerId ? { answerId } : {}), question, ...(applicationQuestion ? { applicationQuestion } : {}), ...(candidateQuestion ? { candidateQuestion } : {}), answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
+  return [...seen.values()].map(({ answerId, question, applicationQuestion, candidateQuestion, answer, context, section, autocomplete, source, current, attested, ...metadata }) => ({
+    ...(attested === true && Object.hasOwn(metadata, 'addressContext') && addressAnswerNeedsOwnership(question, { ...metadata, autocomplete }) ? { current: true } : {}), ...addressMetadata(metadata), ...(answerId ? { answerId } : {}), question, ...(applicationQuestion ? { applicationQuestion } : {}), ...(candidateQuestion ? { candidateQuestion } : {}), answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
   }));
 }
 
 /** Resolve required portal questions from the candidate data before the submit gate. */
-export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {} } = {}) {
+export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {}, sources = null } = {}) {
   const out = {};
   for (const question of questions) {
     if (question?.source !== 'portal' || !question.required || String(answers?.[question.id] ?? '').trim()) continue;
@@ -539,6 +569,7 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
       context: question.context || '',
       section: question.section || '',
       autocomplete: question.autocomplete || '',
+      ...addressMetadata(question),
       required: true,
       options,
     };
@@ -548,7 +579,10 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
         return no ? { value: no.label, source: 'rule' } : null;
       })();
     // Policy defaults belong to live form filling, never to confirmed CV facts.
-    if (answer?.value && answer.source !== 'policy_default') out[question.id] = answer.value;
+    if (answer?.value && answer.source !== 'policy_default') {
+      out[question.id] = answer.value;
+      if (sources) sources[question.id] = answer.source;
+    }
   }
   return out;
 }
@@ -716,28 +750,100 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
 // manager's decision, not its preferences control.
 export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
 export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all| optional)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| tous les cookies)?|ok)$/i;
+export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
+const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
+const COOKIE_WORD_RE = /\bcookies?\b/i;
+const COOKIE_DIALOG_CONTEXT_RE = COOKIE_WORD_RE;
+const COOKIE_GENERIC_ACCEPT_LABEL_RE = /^(?:ok|accept|akzeptieren|accetta|accepter)$/i;
+const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const cookieSupportingContext = (button) => {
+  const ownLabels = [button.text, button.label, button.title, button.ariaLabel]
+    .filter(Boolean).map(value => String(value).trim()).filter(Boolean);
+  return [button.context, button.section, button.title]
+    .filter(Boolean)
+    .map(value => ownLabels.reduce((context, label) => context.replace(new RegExp(escapeRegex(label), 'ig'), ' '), String(value)))
+    .join(' ');
+};
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
 const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
 
-export async function dismissCookieBanner(page, snapshot) {
-  const button = findButton(snapshot.buttons, COOKIE_REJECT_RE) || findButton(snapshot.buttons, COOKIE_ACCEPT_RE);
-  if (button) {
-    await clickButton(page, button).catch(() => {});
-    await page.waitForTimeout(800);
-    return true;
+async function cookieControlHasCookieContext(page, button) {
+  if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
+    const frame = page.frames()[button.frame || 0] || page.mainFrame();
+    try {
+      const dialogText = await frame.locator(`[data-aa-dialog-id="${button.dialogId}"]`).innerText({ timeout: 1_000 });
+      if (COOKIE_WORD_RE.test(dialogText)) return true;
+    } catch {
+      // Fall through to the non-dialog banner context below.
+    }
   }
-  // A banner inside a shadow root (Usercentrics on Coop's career pages,
-  // 2026-10-02) is out of the page scan's reach while its overlay takes every
-  // click. Only a shadow root's own buttons: marked in the page, clicked by a
-  // CSS locator (it pierces open shadow roots).
-  if (!await markShadowCookieButton(page)) return false;
-  await page.locator('[data-aa-cookie="1"]').first().click({ timeout: 6_000 }).catch(() => {});
-  await page.waitForTimeout(800);
-  return true;
+  const supportingContext = cookieSupportingContext(button);
+  return button.cookieSurface === 'banner'
+    && COOKIE_WORD_RE.test(`${supportingContext} ${button.text || ''} ${button.label || ''} ${button.ariaLabel || ''}`);
 }
 
-async function markShadowCookieButton(page) {
-  return page.evaluate(([reject, accept]) => {
+async function findCookieControl(page, snapshot, pattern, { genericPreferences = false } = {}) {
+  for (const button of snapshot?.buttons || []) {
+    if (button.disabled || button.chrome) continue;
+    const label = [button.text, button.label, button.ariaLabel, button.title]
+      .map(value => String(value || '').trim()).find(Boolean) || '';
+    if (!pattern.test(label) && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))) continue;
+    if (await cookieControlHasCookieContext(page, button)) return button;
+  }
+  return null;
+}
+
+async function cookieChoice(page, snapshot) {
+  return await findCookieControl(page, snapshot, COOKIE_REJECT_RE)
+    || await findCookieControl(page, snapshot, COOKIE_ACCEPT_RE);
+}
+
+function pageOrigin(page) {
+  try { return new URL(page.url()).origin; } catch { return ''; }
+}
+
+function cookieDialogRemains(snapshot, button) {
+  return Boolean(button.dialogId && (snapshot?.dialogs || []).some((dialog) => dialog.dialogId === button.dialogId));
+}
+
+async function cookiePageSnapshot(page) {
+  return extractFields(page, NAVIGATION).catch(() => null);
+}
+
+async function clickCookieChoice(page, snapshot, button) {
+  const origin = pageOrigin(page);
+  try {
+    await clickButton(page, button);
+  } catch {
+    return { status: 'unresolved', snapshot };
+  }
+  await page.waitForTimeout(800);
+  const current = await cookiePageSnapshot(page);
+  if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
+  if (await cookieChoice(page, current)
+    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true })
+    || cookieDialogRemains(current, button)) return { status: 'unresolved', snapshot: current };
+  return { status: 'dismissed', snapshot: current };
+}
+
+async function clearShadowCookieMarker(page) {
+  await page.locator('[data-aa-cookie="1"]').first().evaluate((element) => element.removeAttribute('data-aa-cookie')).catch(() => {});
+}
+
+async function clickMarkedShadowCookie(page) {
+  try {
+    await page.locator('[data-aa-cookie="1"]').first().click({ timeout: 6_000 });
+    return true;
+  } catch {
+    return false;
+  } finally {
+    await clearShadowCookieMarker(page);
+  }
+}
+
+async function markShadowCookieButton(page, { includePreferences = false } = {}) {
+  try {
+    return await page.evaluate(([reject, accept, customize, genericPreferences, include]) => {
     const roots = [document];
     const shadows = [];
     for (let index = 0; index < roots.length && index < 50; index += 1) {
@@ -747,19 +853,103 @@ async function markShadowCookieButton(page) {
         shadows.push(element.shadowRoot);
       }
     }
-    for (const source of [reject, accept]) {
-      const pattern = new RegExp(source, 'i');
+    const cookieShadowSurfaceIsActive = (host) => {
+      for (let node = host; node && node !== document.body; node = node.parentElement) {
+        const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+          .filter(Boolean).join(' ');
+        if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')
+          || /\b(?:banner|notice|overlay|modal|dialog|consent)\b/i.test(marker)) return true;
+      }
+      return false;
+    };
+    const actions = [{ kind: 'decision', source: reject }, { kind: 'decision', source: accept }];
+    if (include) actions.push({ kind: 'preferences', source: customize }, { kind: 'preferences', source: genericPreferences });
+    for (const action of actions) {
+      const pattern = new RegExp(action.source, 'i');
       for (const shadow of shadows) {
+        if (action.kind === 'preferences' && (shadow.host.closest('header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]')
+          || !cookieShadowSurfaceIsActive(shadow.host))) continue;
         const button = [...shadow.querySelectorAll('button, [role="button"]')]
-          .find((element) => element.getBoundingClientRect().width > 0 && pattern.test(String(element.innerText || element.textContent || '').trim()));
+          .find((element) => {
+            const label = String(element.innerText || element.textContent || '').trim();
+            return element.getBoundingClientRect().width > 0
+              && !element.disabled && element.getAttribute('aria-disabled') !== 'true'
+              && pattern.test(label) && /\bcookies?\b/i.test(`${label} ${shadow.textContent || ''}`);
+          });
         if (button) {
           button.setAttribute('data-aa-cookie', '1');
-          return true;
+          return action.kind;
         }
       }
     }
-    return false;
-  }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source]).catch(() => false);
+    return '';
+    }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source, COOKIE_CUSTOMIZE_RE.source,
+      COOKIE_GENERIC_PREFERENCES_RE.source, includePreferences]);
+  } catch {
+    return '';
+  }
+}
+
+export async function dismissCookieBanner(page, snapshot) {
+  let choice = await cookieChoice(page, snapshot);
+  if (choice) return clickCookieChoice(page, snapshot, choice);
+
+  const preferences = await findCookieControl(page, snapshot, COOKIE_CUSTOMIZE_RE, { genericPreferences: true });
+  if (preferences) {
+    const origin = pageOrigin(page);
+    try {
+      await clickButton(page, preferences);
+    } catch {
+      return { status: 'unresolved', snapshot };
+    }
+    await page.waitForTimeout(800);
+    let current = await cookiePageSnapshot(page);
+    if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
+    choice = await cookieChoice(page, current);
+    if (!choice) return { status: 'unresolved', snapshot: current };
+    return clickCookieChoice(page, current, choice);
+  }
+
+  // A banner inside a shadow root (Usercentrics on Coop's career pages,
+  // 2026-10-02) is out of the page scan's reach while its overlay takes every
+  // click. Only a shadow root's own cookie controls are marked and clicked.
+  let shadowAction = await markShadowCookieButton(page);
+  if (shadowAction === 'decision') {
+    if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot };
+    await page.waitForTimeout(800);
+    const current = await cookiePageSnapshot(page);
+    if (!current || await cookieChoice(page, current)
+      || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true })) return { status: 'unresolved', snapshot: current || snapshot };
+    shadowAction = await markShadowCookieButton(page, { includePreferences: true });
+    if (shadowAction) {
+      await clearShadowCookieMarker(page);
+      return { status: 'unresolved', snapshot: current };
+    }
+    return { status: 'dismissed', snapshot: current };
+  }
+
+  shadowAction = await markShadowCookieButton(page, { includePreferences: true });
+  if (shadowAction !== 'preferences') return { status: 'none', snapshot };
+  const origin = pageOrigin(page);
+  if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot };
+  await page.waitForTimeout(800);
+  let current = await cookiePageSnapshot(page);
+  if (!current || !origin || pageOrigin(page) !== origin) return { status: 'unresolved', snapshot: current || snapshot };
+  choice = await cookieChoice(page, current);
+  if (choice) return clickCookieChoice(page, current, choice);
+  shadowAction = await markShadowCookieButton(page);
+  if (shadowAction !== 'decision') return { status: 'unresolved', snapshot: current };
+  if (!await clickMarkedShadowCookie(page)) return { status: 'unresolved', snapshot: current };
+  await page.waitForTimeout(800);
+  current = await cookiePageSnapshot(page);
+  if (!current || await cookieChoice(page, current)
+    || await findCookieControl(page, current, COOKIE_CUSTOMIZE_RE, { genericPreferences: true })) return { status: 'unresolved', snapshot: current || snapshot };
+  shadowAction = await markShadowCookieButton(page, { includePreferences: true });
+  if (shadowAction) {
+    await clearShadowCookieMarker(page);
+    return { status: 'unresolved', snapshot: current };
+  }
+  return { status: 'dismissed', snapshot: current };
 }
 
 /**
@@ -769,7 +959,9 @@ async function markShadowCookieButton(page) {
  */
 async function openApplicationForm(context, page, snapshot) {
   for (let hop = 0; hop < 3; hop += 1) {
-    if (await dismissCookieBanner(page, snapshot)) snapshot = await extractFields(page, NAVIGATION);
+    const cookies = await dismissCookieBanner(page, snapshot);
+    snapshot = cookies.snapshot || snapshot;
+    if (cookies.status === 'unresolved') return { page, snapshot, handoff: 'cookie_preferences_unresolved' };
     if (hasApplicationForm(snapshot)) return { page, snapshot };
     const manual = findButton(snapshot.buttons, MANUAL_APPLY_RE);
     const apply = manual ? null : snapshot.buttons.find((button) => !button.disabled && startsApplication(button.text)) || null;
@@ -1071,13 +1263,28 @@ export function sendsApplication(snapshot) {
   return (snapshot.buttons || []).some((button) => SUBMIT_RE.test(button.text) && NAMES_APPLICATION_RE.test(button.text));
 }
 
+/** Bounded accessible-control metadata that the consent guard needs after question reduction. */
+const portalQuestionMetadata = field => {
+  const metadata = {};
+  for (const key of ['ariaLabel', 'ariaDescription', 'title', 'placeholder', 'description']) {
+    const value = String(field?.[key] || '').trim();
+    if (value) metadata[key] = value.slice(0, 600);
+  }
+  const labels = Array.isArray(field?.labels)
+    ? [...new Set(field.labels.filter(value => typeof value === 'string').map(value => value.trim()).filter(Boolean))].slice(0, 12)
+    : [];
+  if (labels.length) metadata.labels = labels.map(value => value.slice(0, 600));
+  if (field?.privacyMetadataIncomplete === true) metadata.privacyMetadataIncomplete = true;
+  return metadata;
+};
+
 /** Questions for the candidate from a plan's missing required fields (ids are stable slugs). */
 function questionsFrom(missingRequired) {
   const questions = [];
   const seen = new Set();
   for (const item of missingRequired) {
     const id = portalQuestionId(item);
-    const key = portalQuestionKey(item);
+    const key = portalQuestionKey(item) || id;
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
     const applicationQuestion = String(item.applicationQuestion || item.portalQuestion || item.question || '').trim().slice(0, 300);
@@ -1095,6 +1302,8 @@ function questionsFrom(missingRequired) {
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
       ...(item.section ? { section: String(item.section).slice(0, 240) } : {}),
       ...(item.autocomplete ? { autocomplete: String(item.autocomplete).slice(0, 100) } : {}),
+      ...addressMetadata(item),
+      ...portalQuestionMetadata(item),
       why: item.why || '',
       type: item.type,
       options,
@@ -1107,6 +1316,7 @@ function questionsFrom(missingRequired) {
 }
 
 const QUESTION_LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
+const QUESTION_LANGUAGE_CODES = Object.freeze([...Object.keys(QUESTION_LANGUAGE_NAMES), 'unknown']);
 const QUESTION_LOCALIZATION_SCHEMA = {
   type: 'object',
   properties: {
@@ -1116,6 +1326,7 @@ const QUESTION_LOCALIZATION_SCHEMA = {
         type: 'object',
         properties: {
           id: { type: 'string' },
+          sourceLocale: { type: 'string', enum: QUESTION_LANGUAGE_CODES },
           question: { type: 'string' },
           why: { type: 'string' },
           options: { type: 'array', items: { type: 'string' } },
@@ -1130,7 +1341,7 @@ const QUESTION_LOCALIZATION_SCHEMA = {
           },
           validationMessage: { type: 'string' },
         },
-        required: ['id', 'question', 'why', 'options', 'optionMap', 'validationMessage'],
+        required: ['id', 'sourceLocale', 'question', 'why', 'options', 'optionMap', 'validationMessage'],
         additionalProperties: false,
       },
     },
@@ -1194,28 +1405,37 @@ function fallbackOption(option, language) {
   return text;
 }
 
-function fallbackLocalizedQuestion(item, language) {
+function nativePortalQuestion(item) {
+  return readablePortalQuestionText(item?.applicationQuestion)
+    || readablePortalQuestionText(item?.portalQuestion)
+    || portalQuestionText(item);
+}
+
+function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
-  const applicationQuestion = String(item.applicationQuestion || '').trim();
-  const rawQuestion = String(item.question || '').trim();
-  const rawIsApplicationCopy = !rawQuestion || !applicationQuestion || normalizedQuestionText(rawQuestion) === normalizedQuestionText(applicationQuestion);
-  const candidateOptions = (Array.isArray(item.options) && item.options.length ? item.options : item.applicationOptions || [])
+  const rawQuestion = nativePortalQuestion(item);
+  const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length ? item.applicationOptions : item.options || [])
+    .map((option) => String(option || '').trim()).filter(Boolean);
+  const candidateOptions = applicationOptions
     .map((option) => fallbackOption(option, language));
   const fallbackMap = portalOptionMap({
     options: candidateOptions,
-    applicationOptions: item.applicationOptions || [],
+    applicationOptions,
   });
-  const optionMap = fallbackMap.length ? fallbackMap : portalOptionMap(item);
+  const optionMap = fallbackMap.length ? fallbackMap : portalOptionMap({ ...item, applicationOptions });
   const options = optionMap.length ? optionMap.map((pair) => pair.candidate)
-    : item.applicationOptions?.length ? item.applicationOptions : candidateOptions;
+    : applicationOptions.length ? applicationOptions : candidateOptions;
   return {
     ...item,
-    question: portalQuestionText(item),
-    ...(rawIsApplicationCopy && !String(item.why || '').trim() ? { why: fallback.why } : {}),
-    ...(item.validation?.message && rawIsApplicationCopy ? { validation: { ...item.validation, message: fallback.validation } } : {}),
+    question: rawQuestion,
+    applicationQuestion: rawQuestion,
+    applicationQuestionLocale: localeCode(sourceLocale) || null,
+    why: fallback.why,
+    ...(applicationOptions.length ? { applicationOptions } : {}),
+    ...(item.validation ? { validation: { ...item.validation, message: fallback.validation } } : {}),
     ...(options.length ? { options } : {}),
     optionMap,
-    localizationStatus: rawIsApplicationCopy ? 'fallback' : 'planner_copy',
+    localizationStatus: 'fallback',
   };
 }
 
@@ -1225,21 +1445,34 @@ function fallbackLocalizedQuestion(item, language) {
  * the answer can be mapped back to the form's language at submission time.
  * The application copy remains exact and the candidate copy is translated in
  * one structured call. If that call fails or returns a generic placeholder,
- * retain the actual question and mark the fallback for diagnostics.
+ * retain the native label and mark it for an explicit warning in candidate review.
  */
 export async function localizePortalQuestions(questions, { candidateLocale, applicationLocale, codex, log = () => {} } = {}) {
-  const items = (Array.isArray(questions) ? questions : []).map(item => ({ ...item, question: portalQuestionText(item) }));
+  const items = (Array.isArray(questions) ? questions : []).map((item) => {
+    const sourceQuestion = nativePortalQuestion(item);
+    const applicationOptions = (Array.isArray(item?.applicationOptions) && item.applicationOptions.length
+      ? item.applicationOptions
+      : item?.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+    return {
+      ...item,
+      question: sourceQuestion,
+      applicationQuestion: sourceQuestion,
+      ...(applicationOptions.length ? { applicationOptions, options: applicationOptions } : {}),
+    };
+  });
   if (items.some(item => !item.question)) throw new Error('portal_question_unreadable');
   const candidateLanguage = localeCode(candidateLocale);
-  const applicationLanguage = localeCode(applicationLocale);
-  if (!items.length || !candidateLanguage || !applicationLanguage || candidateLanguage === applicationLanguage) return items;
+  const applicationLanguageHint = localeCode(applicationLocale);
+  if (!items.length || !candidateLanguage) return items;
+  // Posting/letter language is only a hint. An ATS may render a German form
+  // for an Italian-language job, so compare against the native question text.
   if (typeof codex !== 'function') return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
   const input = items.map((item) => ({
     id: String(item.id || ''),
     question: String(item.question || ''),
     why: String(item.why || ''),
     applicationQuestion: String(item.applicationQuestion || item.question || ''),
-    options: Array.isArray(item.options) ? item.options.map((option) => String(option || '')) : [],
+    options: Array.isArray(item.applicationOptions) ? item.applicationOptions.map((option) => String(option || '')) : [],
     applicationOptions: Array.isArray(item.applicationOptions) ? item.applicationOptions.map((option) => String(option || '')) : [],
     optionMap: Array.isArray(item.optionMap) ? item.optionMap : [],
     validationMessage: String(item.validation?.message || ''),
@@ -1248,7 +1481,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   try {
     translated = await codex({
       prompt: codexPrompt(
-        `You localize questions from an online job application for a candidate. The candidate language is ${QUESTION_LANGUAGE_NAMES[candidateLanguage]}; the application language is ${QUESTION_LANGUAGE_NAMES[applicationLanguage]}. Translate only the candidate-facing question, explanation and each option into the candidate language. Do not answer the questions. Keep names, abbreviations, licence categories, codes, numbers and legal terms unchanged where they are proper or technical terms. Return exactly one item for every id, in the same order. optionMap is mandatory whenever applicationOptions are present: for every application option, provide exactly one candidate label and the exact original application label. The applicationQuestion and applicationOptions are source data: never translate them and never use them as candidate-facing output.`,
+        `You localize questions from an online job application for a candidate. The candidate language is ${QUESTION_LANGUAGE_NAMES[candidateLanguage]}. The posting/letter language hint is ${applicationLanguageHint ? QUESTION_LANGUAGE_NAMES[applicationLanguageHint] : 'unknown'} and may be wrong for the ATS form. For EACH item, detect the actual language of applicationQuestion and applicationOptions from their text and return sourceLocale as it, de, fr, en or unknown. Never infer the source language from the hint alone. Translate only the candidate-facing question, explanation, validation message and each option into the candidate language when sourceLocale differs. If sourceLocale equals the candidate language, preserve the original wording and option labels. Do not answer the questions. Keep names, abbreviations, licence categories, codes, numbers and legal terms unchanged where they are proper or technical terms. Return exactly one item for every id, in the same order. optionMap is mandatory whenever applicationOptions are present: for every application option, provide exactly one candidate label and the exact original application label. The applicationQuestion and applicationOptions are source data: never translate them and never use them as candidate-facing output.`,
         JSON.stringify({ questions: input }),
       ),
       schema: QUESTION_LOCALIZATION_SCHEMA,
@@ -1261,37 +1494,57 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   const byId = new Map((Array.isArray(translated?.questions) ? translated.questions : []).map((item) => [String(item?.id || ''), item]));
   return items.map((item) => {
     const copy = byId.get(String(item.id || ''));
+    const sourceLocale = localeCode(copy?.sourceLocale);
+    if (!copy || !sourceLocale) return fallbackLocalizedQuestion(item, candidateLanguage);
     const applicationOptions = Array.isArray(item.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
       : item.options || [];
-    const candidateOptions = Array.isArray(copy?.options) && copy.options.length
+    if (sourceLocale === candidateLanguage) {
+      const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
+      return {
+        ...item,
+        question: nativePortalQuestion(item),
+        ...(applicationOptions.length ? { applicationOptions, options: applicationOptions, optionMap } : {}),
+        applicationQuestionLocale: sourceLocale,
+        localizationStatus: 'same_language',
+      };
+    }
+    const candidateOptions = Array.isArray(copy?.options)
       ? copy.options.map((option) => String(option || '').trim()).filter(Boolean)
-      : item.options;
+      : [];
     // A partial or unmapped translation must not shrink the live catalogue
     // or attach an old mapping to new candidate labels.
     const translatedMap = portalOptionMap({ options: candidateOptions, applicationOptions, optionMap: copy?.optionMap });
-    const optionMap = translatedMap.length ? translatedMap : portalOptionMap(item);
-    const options = optionMap.length
-      ? optionMap.map((pair) => pair.candidate)
-      : applicationOptions.length ? applicationOptions : candidateOptions;
+    const optionsComplete = !applicationOptions.length || (Array.isArray(copy.options)
+      && copy.options.length === applicationOptions.length
+      && translatedMap.length === applicationOptions.length
+      && candidateOptions.length === applicationOptions.length);
     const translatedQuestion = String(copy?.question || '').trim();
-    const rawQuestion = String(item.question || '').trim();
-    const rawIsApplicationCopy = !rawQuestion || !String(item.applicationQuestion || '').trim()
-      || normalizedQuestionText(rawQuestion) === normalizedQuestionText(item.applicationQuestion);
-    const question = readablePortalQuestionText(translatedQuestion) || portalQuestionText(item);
-    const why = String(copy?.why || '').trim() || (rawIsApplicationCopy && !String(item.why || '').trim()
-      ? (LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it).why
-      : String(item.why || '').trim());
-    const validationMessage = String(copy?.validationMessage || '').trim() || String(item.validation?.message || '').trim();
+    const sourceQuestion = nativePortalQuestion(item);
+    const question = readablePortalQuestionText(translatedQuestion);
+    const translationIsValid = question && normalizedQuestionText(question) !== normalizedQuestionText(sourceQuestion) && optionsComplete;
+    if (!translationIsValid) return fallbackLocalizedQuestion(item, candidateLanguage, sourceLocale);
+    const fallback = LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it;
+    const translatedWhy = String(copy?.why || '').trim();
+    const why = !translatedWhy || normalizedQuestionText(translatedWhy) === normalizedQuestionText(item.why)
+      ? fallback.why
+      : translatedWhy;
+    const translatedValidation = String(copy?.validationMessage || '').trim();
+    const validationMessage = !translatedValidation
+      || normalizedQuestionText(translatedValidation) === normalizedQuestionText(item.validation?.message)
+      ? fallback.validation
+      : translatedValidation;
+    const options = translatedMap.length ? translatedMap.map((pair) => pair.candidate) : candidateOptions;
     return {
       ...item,
       question,
       why,
       options,
       ...(applicationOptions.length ? { applicationOptions } : {}),
-      optionMap,
+      optionMap: translatedMap,
       ...(item.validation ? { validation: { ...item.validation, ...(validationMessage ? { message: validationMessage } : {}) } } : {}),
-      localizationStatus: copy ? 'translated' : 'fallback',
+      applicationQuestionLocale: sourceLocale,
+      localizationStatus: 'translated',
     };
   });
 }
@@ -1466,7 +1719,8 @@ export function privacyConsentControls(snapshot = {}, { allowedDialogTokens = nu
   const reviewCandidate = field => field.kind === 'checkbox' && (field.required || ownConsent(field)
     || PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
   const reviewFields = dialogFields.filter((field) => reviewCandidate(field)
-    && !ownConsent.isOptionalPurpose(field.label, field.name, field.autocomplete) && ownConsent.isNoticeReview(field.label, field.name, field.autocomplete, field.domId));
+    && !ownConsent.isOptionalPurpose(field.label, field.name, field.autocomplete)
+    && ownConsent.isNoticeReview(field.label, field.name, field.autocomplete, field.domId, field));
   const candidateTokens = new Set([
     ...reviewFields.map(dialogToken),
     ...dialogButtons.map(dialogToken),
@@ -1477,7 +1731,7 @@ export function privacyConsentControls(snapshot = {}, { allowedDialogTokens = nu
     const buttonsInDialog = dialogButtons.filter((button) => dialogToken(button) === token && !optionalNotice(button));
     // An enabled Accept must not bypass an unrecognised factual or negated review box.
     const unknownReview = dialogFields.some((field) => dialogToken(field) === token && reviewCandidate(field)
-      && !ownConsent.isNoticeReview(field.label, field.name, field.autocomplete, field.domId)
+      && !ownConsent.isNoticeReview(field.label, field.name, field.autocomplete, field.domId, field)
       && (!ownConsent.isOptionalPurpose(field.label, field.name, field.autocomplete) || !review || field.required));
     return { token, review, reviews, accept: unknownReview ? null : findButton(buttonsInDialog, PRIVACY_ACCEPT_RE, { includeDisabled: true }) };
   });
@@ -2802,6 +3056,99 @@ async function awaitAuthView(page, before) {
   return (await extractFields(page).catch(() => null)) || after || extractFields(page);
 }
 
+/** Only classify a dialog as a cookie manager when its live copy and own choice agree. */
+async function knownCookieDialogSnapshot(page, snapshot) {
+  for (const dialog of snapshot?.dialogs || []) {
+    const dialogId = String(dialog.dialogId || '');
+    if (!/^d\d+$/.test(dialogId)) continue;
+    const buttons = (snapshot.buttons || []).filter((button) => {
+      if (!button.dialog || button.dialogId !== dialogId) return false;
+      // dismissCookieBanner/findButton selects on the visible text, not the
+      // accessible label; validate the same value before passing it through.
+      const label = String(button.text || '').trim();
+      return COOKIE_REJECT_RE.test(label) || (COOKIE_ACCEPT_RE.test(label) && !COOKIE_GENERIC_ACCEPT_LABEL_RE.test(label));
+    });
+    if (!buttons.length) continue;
+    const frame = page.frames()[Number(dialog.frame ?? buttons[0].frame) || 0] || page.mainFrame();
+    const dialogText = await frame.locator(`[data-aa-dialog-id="${dialogId}"]`)
+      .innerText({ timeout: 1_000 }).catch(() => '');
+    if (COOKIE_DIALOG_CONTEXT_RE.test(dialogText)) return { ...snapshot, buttons, dialogs: [dialog] };
+  }
+  return null;
+}
+
+/**
+ * Follow only a visible, explicitly named sign-in anchor whose live HTTPS
+ * destination stays on the current portal or its verified ATS family. This
+ * deliberately uses GET navigation instead of clicking a registration-form
+ * control: generic and learned buttons must never become an auth action.
+ */
+export async function openVerifiedSignInNavigation(page, snapshot) {
+  let currentSnapshot = snapshot;
+  if (currentSnapshot?.dialogs?.length) {
+    // Cookie managers are the only overlays this path is allowed to dismiss:
+    // live dialog copy and its own explicit choice must confirm that context.
+    // Pass only this dialog to shared policy so a generic «Accept» elsewhere
+    // can never be mistaken for a cookie decision.
+    const cookieSnapshot = await knownCookieDialogSnapshot(page, currentSnapshot);
+    if (!cookieSnapshot) return false;
+    const cookieResult = await dismissCookieBanner(page, cookieSnapshot);
+    if (cookieResult !== true && cookieResult?.status !== 'dismissed') return false;
+    currentSnapshot = cookieResult?.snapshot || await extractFields(page, NAVIGATION).catch(() => null);
+    if (!currentSnapshot || currentSnapshot.dialogs?.length) return false;
+  }
+  const candidates = [...(currentSnapshot?.links || []), ...(currentSnapshot?.buttons || [])]
+    .filter((control) => !control.dialog && isExplicitSignInNavigationLabel(
+      control.text, control.label, control.title, control.ariaLabel,
+    ));
+  for (const candidate of candidates) {
+    const id = String(candidate.id || '');
+    if (!/^[\w-]{1,80}$/.test(id)) continue;
+    const frame = page.frames()[Number(candidate.frame) || 0] || page.mainFrame();
+    const locator = frame.locator(`[data-aa-id="${id}"]`).first();
+    if (!await locator.isVisible().catch(() => false)) continue;
+    const liveControl = await locator.evaluate((element) => {
+      const doc = element.ownerDocument;
+      const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+        .map((id) => doc.getElementById(id)?.innerText || doc.getElementById(id)?.textContent || '')
+        .join(' ');
+      return {
+        tagName: String(element.tagName || '').toUpperCase(),
+        text: element.innerText || element.textContent || '',
+        ariaLabel: element.getAttribute('aria-label') || '',
+        title: element.getAttribute('title') || '',
+        labelledBy,
+        href: element.getAttribute('href'),
+      };
+    }).catch(() => null);
+    if (liveControl?.tagName !== 'A'
+      || !isExplicitSignInNavigationLabel(liveControl.text, liveControl.ariaLabel, liveControl.title, liveControl.labelledBy)) continue;
+    const currentUrl = frame.url();
+    let portalHost;
+    try {
+      portalHost = new URL(currentUrl).hostname;
+    } catch {
+      continue;
+    }
+    const target = verifiedSignInTarget(liveControl.href, currentUrl, portalHost);
+    if (!target) continue;
+    try {
+      await frame.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    } catch {
+      return false;
+    }
+    let finalUrl;
+    try {
+      finalUrl = new URL(frame.url());
+    } catch {
+      return false;
+    }
+    if (finalUrl.protocol !== 'https:' || finalUrl.username || finalUrl.password || !sameSite(finalUrl.href, portalHost)) return false;
+    return true;
+  }
+  return false;
+}
+
 /**
  * One login page (account.mjs): sign in with the order's account, or create
  * it on the alias, or verify it. Returns the next page, a handoff reason,
@@ -2811,6 +3158,16 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
+
+  const canResendVerification = Boolean(findButton(snapshot.buttons || [], RESEND_VERIFICATION_RE)
+    || (snapshot.links || []).some((link) => [link.text, link.label, link.ariaLabel, link.title]
+      .some((value) => RESEND_VERIFICATION_RE.test(String(value || '')))));
+  // SuccessFactors keeps the pending OTP account in this same sign-in shape;
+  // its dedicated recovery below must restart registration instead of trying
+  // to verify through a mailbox account that does not exist yet.
+  if (kind === 'sign_in' && account && !account.verifiedAt && canResendVerification && !usesOtpAccountCreation(host)) {
+    return verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot });
+  }
 
   if (kind === 'sign_in' && !account) {
     if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return accountHandoff('account', 'no_create_button', 'login');
@@ -2880,12 +3237,12 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // Create-account page.
   const retryingUnverifiedAccount = Boolean(account && !account.verifiedAt && allowExistingRegistration);
   if (account && !retryingUnverifiedAccount) {
-    // Created by an earlier run: sign in instead.
-    if (!await clickFirst(page, snapshot, [SIGN_IN_RE])) return accountHandoff('account', 'no_sign_in_button', 'registration');
+    // Created by an earlier run: follow only an explicit, verified login route.
+    if (!await openVerifiedSignInNavigation(page, snapshot)) return accountHandoff('account', 'no_sign_in_button', 'registration');
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };
-  const others = { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') };
+  const others = accountRegistrationSnapshot({ ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') });
   const candidate = account
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
     : ctx.candidate;
@@ -2952,7 +3309,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     // A form-level validation response can expose fields the first plan did
     // not recognize. Replan against that response before treating it as a
     // permanent refusal; the planner receives the invalid fields and messages.
-    const repairSnapshot = { ...after, fields: after.fields.filter((field) => field.inputType !== 'password') };
+    const repairSnapshot = accountRegistrationSnapshot({ ...after, fields: after.fields.filter((field) => field.inputType !== 'password') });
     const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     if (repairPlan.missingRequired.length) {
       const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired);
@@ -2974,21 +3331,25 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       }
     }
 
-    const retryableFields = after.fields.filter((field) => field.invalid || (field.required && !holdsValue(field)));
+    const retryableFields = accountRegistrationSnapshot(after).fields
+      .filter((field) => field.invalid || (field.required && !holdsValue(field)));
     const retryableIds = new Set(retryableFields.map((field) => field.id));
     const repairActions = repairPlan.actions.filter((action) => retryableIds.has(action.fieldId)
       && !['skip', 'uncheck'].includes(action.action));
     const openFields = retryableFields.filter((field) => field.inputType !== 'password'
       && !repairActions.some((action) => action.fieldId === field.id));
+    if (openFields.some(unreadableNativeOwner)) return noted({ handoff: 'question_label_unreadable' });
     if (openFields.length) {
       const why = ({ it: 'Il portale ha rifiutato questo dato. Controllalo o correggilo.', de: 'Das Portal hat diese Angabe abgelehnt. Bitte prüfe oder korrigiere sie.', fr: 'Le portail a refusé cette réponse. Veuillez la vérifier ou la corriger.', en: 'The portal rejected this entry. Please check or correct it.' })[ctx.candidateLocale] || 'Il portale ha rifiutato questo dato. Controllalo o correggilo.';
       const openQuestions = questionsFrom(openFields.filter((field) => String(field.label || '').trim()).map((field) => ({
         fieldId: field.id,
         question: String(field.label).trim(),
         applicationQuestion: String(field.label).trim(),
+        ...portalQuestionMetadata(field),
         ...(field.context ? { context: field.context } : {}),
         ...(field.section ? { section: field.section } : {}),
         ...(field.autocomplete ? { autocomplete: field.autocomplete } : {}),
+        ...addressMetadata(field),
         why,
         type: field.options?.length ? 'choice' : field.kind === 'date' || field.inputType === 'date' ? 'date' : field.inputType === 'number' ? 'number' : 'text',
         options: (field.options || []).map((option) => option.label).filter(Boolean),
@@ -3225,6 +3586,10 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
     // A rejected live field remains a request even if it lacks a required marker;
     // missing metadata is unknown, not evidence that the field is optional.
     if (field?.required === false && !field.invalid) continue;
+    if (unreadableNativeOwner(field || item)) {
+      unreadableFields.push(field?.id || item.fieldId || 'unknown');
+      continue;
+    }
     const document = portalRequiredDocumentFromField(field ? { ...field, required: true } : field);
     if (!document) {
       // A field with a generated name is no question for a person: the submit
@@ -3264,6 +3629,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
         readable.push({
           ...item,
           applicationQuestion,
+          ...portalQuestionMetadata(field),
           type,
           validation: field && (type !== item.type || ['choice', 'yes_no'].includes(type)) ? {} : item.validation,
           required: true,
@@ -3272,6 +3638,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),
+          ...addressMetadata(field || item),
         });
       }
       continue;
@@ -3320,7 +3687,9 @@ export async function readPortalRequirements(ctx) {
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot;
-    ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
+    const opened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION));
+    ({ page, snapshot } = opened);
+    if (opened.handoff) return { questions: [], documents: [], handoff: opened.handoff };
     // Solique keeps the later steps mounted with zero-sized controls. The
     // exact host allowlist makes it safe to read those labels and required
     // flags now, without filling or advancing the live form.
@@ -3465,7 +3834,9 @@ export async function submitViaPortal(ctx) {
     // the page: the posting is the order's.
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
-    ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
+    const opened = await openApplicationForm(context, page, snapshot);
+    ({ page, snapshot } = opened);
+    if (opened.handoff) return await handoff(opened.handoff);
     if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
     const formHandoff = initialPortalHandoffReason({ snapshot });
     if (formHandoff) return await handoff(formHandoff);
@@ -3545,16 +3916,17 @@ export async function submitViaPortal(ctx) {
       const name = String(document);
       evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
-    const record = (question, answer, source, context = '', section = '', autocomplete = '') => {
+    const record = (question, answer, source, context = '', section = '', autocomplete = '', metadata = {}) => {
       if (!question || !String(answer ?? '').trim()) return;
       const label = String(question).slice(0, 200);
       const surrounding = String(context || '').slice(0, 240);
       const heading = String(section || '').slice(0, 240);
       const fieldAutocomplete = String(autocomplete || '').slice(0, 100);
-      const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete };
+      const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete, ...addressMetadata(metadata) };
       const key = portalQuestionKey(item) || portalQuestionId(item) || label;
       given.set(key, {
         question: label,
+        ...addressMetadata(metadata),
         answer: String(answer).slice(0, 2000),
         source: source || '',
         ...(surrounding ? { context: surrounding } : {}),
@@ -3577,13 +3949,14 @@ export async function submitViaPortal(ctx) {
           // planner sees the form. Keep an explicit candidate fact above that
           // default; phone-code defaults are never candidate answers.
           const candidateAnswer = candidateAnswerForField(candidate, field)?.value || '';
-          if (isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
+          if (addressAnswerNeedsOwnership(field.label, field) || isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
           return {
             question: String(field.label || field.name || field.id || '').slice(0, 200),
             answer,
             context: String(field.context || '').slice(0, 240),
             section: String(field.section || '').slice(0, 240),
             autocomplete: String(field.autocomplete || '').slice(0, 100),
+            ...addressMetadata(field),
             source: 'answers',
           };
         })
@@ -3622,7 +3995,7 @@ export async function submitViaPortal(ctx) {
       }
       agentCalls += agent.calls;
       (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
-      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context);
+      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context, item.section, item.autocomplete, item);
       for (const item of (agent.evidence?.rounds || []).flatMap((round) => round.actions || [])) {
         if (item.action === 'upload' && item.ok) noteUpload(item.document, item.files);
       }
@@ -3682,7 +4055,9 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION));
+          ({ page, snapshot } = reopened);
+          if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
         }
         step -= 1;
@@ -3772,7 +4147,9 @@ export async function submitViaPortal(ctx) {
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
-          ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
+          const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION));
+          ({ page, snapshot } = reopened);
+          if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
         }
         step -= 1; // a login page is not a form page
@@ -3938,7 +4315,7 @@ export async function submitViaPortal(ctx) {
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
-          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete);
+          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete, field);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);

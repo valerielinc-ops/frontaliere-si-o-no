@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medics-labor",
-  "assembledAt": "2026-10-31T21:48:13.161Z",
-  "runId": "41243204704",
+  "assembledAt": "2026-11-01T09:41:24.429Z",
+  "runId": "41292779854",
   "jobs": [
     {
       "id": "medics-labor-2a8a66164fcc",
@@ -35,7 +35,7 @@
       "url": "https://app.reflinejobs.io/1474/0144/pub/107/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:05.538Z",
+      "crawledAt": "2026-11-01T09:41:17.881Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -82,7 +82,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:41:17.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "medics-labor-d0655eb7bc72",
@@ -116,7 +120,7 @@
       "url": "https://app.reflinejobs.io/1474/0141/pub/105/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:04.938Z",
+      "crawledAt": "2026-11-01T09:41:17.313Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -165,7 +169,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:41:17.313Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "medics-labor-6e57b9537272",
@@ -198,7 +206,7 @@
       "url": "https://app.reflinejobs.io/1474/0138/pub/103/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:04.263Z",
+      "crawledAt": "2026-11-01T09:41:16.619Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -244,7 +252,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:41:16.619Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

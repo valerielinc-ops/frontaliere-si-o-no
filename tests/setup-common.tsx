@@ -98,7 +98,7 @@ vi.mock('@/services/authService', () => ({
  signOut: vi.fn(),
  getUserDisplayName: () => '',
  getUserPhotoURL: (_user?: any, _uid?: string) => null,
- getAuthEmail: (user: any) => user?.email || null,
+ getAuthEmail: (user: any) => user?.email || user?.providerData?.find((provider: any) => provider?.email)?.email || null,
  getLinkedProviders: vi.fn(() => []),
  isEmailLinkSignIn: vi.fn(async () => false),
  signInWithNewsletterEmailLink: vi.fn(async () => null),

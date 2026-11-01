@@ -1,7 +1,7 @@
 {
   "key": "ksb",
   "label": "Kantonsspital Baden (KSB)",
-  "generatedAt": "2026-10-31T21:48:28.804Z",
+  "generatedAt": "2026-11-01T09:41:53.595Z",
   "total": 96,
   "discovered": null,
   "parsed": 96,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 95,
-  "durationMs": 107712,
-  "avgDurationMs": 107712,
+  "durationMs": 98054,
+  "avgDurationMs": 98054,
   "durationHistory": [
-    107712
+    98054
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Hotellerie-Hauswirtschaft-iA--Fachrichtung-Hotellerie_R12254",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:44.679Z",
+      "crawledAt": "2026-11-01T09:41:12.091Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -57,12 +57,16 @@
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:12.091Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
@@ -81,7 +85,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Operationstechnik-iA_R2689",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:06.556Z",
+      "crawledAt": "2026-11-01T09:41:31.438Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -102,12 +106,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:31.438Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -123,7 +131,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Biomedizinische-r-Analytiker-in-iA_R2703-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:05.755Z",
+      "crawledAt": "2026-11-01T09:41:30.492Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -144,12 +152,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:30.492Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -165,7 +177,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent-in-Pdiatrie_R2466",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:04.536Z",
+      "crawledAt": "2026-11-01T09:41:29.227Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -186,12 +198,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:29.227Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -207,7 +223,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/UnterassistentIn-Gynkologie-und-Geburtshilfe_R2468",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:03.661Z",
+      "crawledAt": "2026-11-01T09:41:28.488Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -228,12 +244,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:28.488Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -248,7 +268,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Spontanbewerbungen-AA-Pdiatrie_R1845",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:02.586Z",
+      "crawledAt": "2026-11-01T09:41:27.665Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -269,12 +289,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:27.665Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -289,7 +313,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent--in-Chirurgie_R2666",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:01.655Z",
+      "crawledAt": "2026-11-01T09:41:26.948Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -310,12 +334,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:26.948Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -331,7 +359,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachmann-frau-Endoskopie-60-100-_R10123",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:00.783Z",
+      "crawledAt": "2026-11-01T09:41:26.211Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -352,12 +380,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:26.211Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -373,7 +405,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberarzt---Oberrztin-Pdiatrie-60-100-_R10149",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:59.924Z",
+      "crawledAt": "2026-11-01T09:41:25.454Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -394,12 +426,16 @@
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:25.454Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -415,7 +451,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent--in_R2246",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:58.876Z",
+      "crawledAt": "2026-11-01T09:41:24.720Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -436,12 +472,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:24.720Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -457,7 +497,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Physiotherapeut-in-100-_R8164",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:58.080Z",
+      "crawledAt": "2026-11-01T09:41:23.996Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -478,12 +518,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:23.996Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -499,7 +543,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent--in_R2247",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:57.280Z",
+      "crawledAt": "2026-11-01T09:41:23.277Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -520,12 +564,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:23.277Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -541,7 +589,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberrztin-arzt-Allgemeine-Innere-Medizin-80-100-_R1890",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:56.482Z",
+      "crawledAt": "2026-11-01T09:41:22.556Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -562,12 +610,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:22.556Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -583,7 +635,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Praktikant-in-Logistik-100---1-Jahr-_R11755",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:55.546Z",
+      "crawledAt": "2026-11-01T09:41:21.822Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -604,12 +656,16 @@
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:21.822Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -625,7 +681,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent--in-Urologie_R5055",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:54.705Z",
+      "crawledAt": "2026-11-01T09:41:21.073Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -646,12 +702,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:21.073Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -666,7 +726,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-Endoskopie-80-100-_R11967-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:52.807Z",
+      "crawledAt": "2026-11-01T09:41:19.477Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -687,12 +747,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:19.477Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -707,7 +771,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Ergotherapeut-in-Handtherapie-80-100-_R12127",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:51.978Z",
+      "crawledAt": "2026-11-01T09:41:18.764Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -728,12 +792,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:18.764Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -749,7 +817,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Htelier-ire---Restaurateur-trice-iA_R2701",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:51.171Z",
+      "crawledAt": "2026-11-01T09:41:18.042Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -770,12 +838,16 @@
       "salaryMin": 90500,
       "salaryMax": 113500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:18.042Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -791,7 +863,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Assistent-in-Gesundheit-und-Soziales-iA_R12220",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:49.580Z",
+      "crawledAt": "2026-11-01T09:41:16.460Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -812,12 +884,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:16.460Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -833,7 +909,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Teamleiter-in-Medizinische-Applikationen-80-100-_R12010",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:48.747Z",
+      "crawledAt": "2026-11-01T09:41:15.724Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -854,12 +930,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:15.724Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -875,7 +955,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Koch-Kchin-iA_R12233",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:47.933Z",
+      "crawledAt": "2026-11-01T09:41:15.003Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -896,12 +976,16 @@
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:15.003Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -917,7 +1001,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Betreuung-Kinder-iA_R12241",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:47.122Z",
+      "crawledAt": "2026-11-01T09:41:14.273Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -938,12 +1022,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:14.273Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -959,7 +1047,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Betriebsunterhalt-Werkdienst-iA_R12247",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:46.293Z",
+      "crawledAt": "2026-11-01T09:41:13.547Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -980,12 +1068,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:13.547Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1001,7 +1093,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Gesundheit-iA_R12219",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:45.488Z",
+      "crawledAt": "2026-11-01T09:41:12.829Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1022,12 +1114,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:12.829Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1043,7 +1139,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Hotellerie-Hauswirtschaft-iA--Fachrichtung-Hotellerie_R12252",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:43.880Z",
+      "crawledAt": "2026-11-01T09:41:11.353Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1064,12 +1160,16 @@
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:11.353Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1084,7 +1184,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Chefarzt-rztin-Angiologie-80-100-_R12755-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:43.084Z",
+      "crawledAt": "2026-11-01T09:41:10.645Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1105,12 +1205,16 @@
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:10.645Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1125,7 +1229,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Logistiker-in-iA_R12234",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:42.278Z",
+      "crawledAt": "2026-11-01T09:41:09.896Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1146,12 +1250,16 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:09.896Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1167,7 +1275,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Med-Praxisassistent-in-iA_R12385",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:41.355Z",
+      "crawledAt": "2026-11-01T09:41:09.168Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1188,12 +1296,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:09.168Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1208,7 +1320,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Medizinproduktetechnologe-in-iA_R12243",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:40.559Z",
+      "crawledAt": "2026-11-01T09:41:08.449Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1229,12 +1341,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:08.449Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1250,7 +1366,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/BMA-HF-fr-polyvalentes-Spitallabor-80-100-_R13005",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:39.728Z",
+      "crawledAt": "2026-11-01T09:41:07.711Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1271,12 +1387,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:07.711Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1292,7 +1412,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Mitarbeiter-in-Laborinformatik-80-100-_R12963-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:38.898Z",
+      "crawledAt": "2026-11-01T09:41:06.942Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1313,14 +1433,18 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:06.942Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

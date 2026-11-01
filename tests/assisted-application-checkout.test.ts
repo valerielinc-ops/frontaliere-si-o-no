@@ -224,7 +224,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       body: {
         ok: true,
         text: JSON.stringify(systemPrompt.startsWith('You analyse a Swiss job posting')
-          ? { requirements: [{ requirement: 'Tedesco fluente', importance: 'critical', basis: 'stated', quote: 'Fluent German required' }] }
+          ? { requirements: [{ requirement: 'Tedesco fluente', sourceRequirement: 'Fluent German required', importance: 'critical', basis: 'stated', quote: 'Fluent German required' }] }
           : { matches: [{ index: 0, status: 'missing', evidence: 'English' }], verdict: 'poor', questions: [] }),
       },
     }));

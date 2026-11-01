@@ -3,6 +3,7 @@ import '../scripts/assisted-application/extension/apply-control.js';
 import { individualApplicationOriginQuestion } from '../functions/src/lib/applicationOrigin.js';
 import { nativeQuestionText } from '../functions/src/lib/nativeQuestionText.js';
 import { addressContextContract, hasAddressContextOwnership } from '../functions/src/lib/addressContextContract.js';
+import { accountRegistrationField } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const { residenceFieldRole: role, mentionsResidenceFieldRole: mentions, hasResidencePurpose: purpose, hasTelephonePurpose: telephone } = (globalThis as any).AssistedApplyControls;
 
@@ -37,6 +38,14 @@ describe('shared positive residence field captions', () => {
     expect(purpose(['Address', 'Personal details'], 'City')).toBe(true);
     expect(purpose(['City', 'Personal details'], 'City')).toBe(true);
     expect(purpose(['Work preferences', 'Personal details'], 'City of residence')).toBe(true);
+  });
+  it('binds only an explicitly residential caption during account registration', () => {
+    const ownerless = { section: '', owners: [], unknown: false };
+    const generic = { label: 'City', addressContext: ownerless };
+    expect(accountRegistrationField(generic)).toBe(generic);
+    expect(accountRegistrationField({ label: 'City of residence', addressContext: ownerless })).toMatchObject({
+      addressContext: { section: 'Personal information', owners: ['Personal information'], unknown: false },
+    });
   });
   it('preserves agreement within physical scopes and nearest purpose between scopes', () => {
     expect(purpose(['Personal information · Work preferences'], 'City')).toBe(false);

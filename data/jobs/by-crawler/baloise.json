@@ -1,7 +1,7 @@
 {
   "crawlerKey": "baloise",
-  "assembledAt": "2026-10-31T21:36:14.191Z",
-  "runId": "41243030322",
+  "assembledAt": "2026-11-01T09:41:53.010Z",
+  "runId": "41292611758",
   "jobs": [
     {
       "id": "baloise-fcba44183089",
@@ -34,7 +34,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-private-banking-olten/baae08f3-884a-4f3f-8d20-b23c933fd676",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:36:06.314Z",
+      "crawledAt": "2026-11-01T09:41:47.091Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -78,7 +78,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-02T09:41:47.091Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "baloise-7d3fb4cc4350",
@@ -111,7 +114,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-kundenzone-in-outbound-w-m-d/6a4f2275-6594-4285-8822-2df7eb5c3751",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:36:06.310Z",
+      "crawledAt": "2026-11-01T09:41:47.089Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -158,7 +161,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:41:47.089Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "baloise-98ac70965f17",
@@ -191,7 +197,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-kundenzone-in-outbound-w-m-d/424648d3-bf31-4bd0-8c27-9ffe638bb81c",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:36:06.307Z",
+      "crawledAt": "2026-11-01T09:41:47.087Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -238,7 +244,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-19T09:41:47.087Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "baloise-649f8b581385",
@@ -271,7 +280,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-inbound-sowie-outbound-und-kundenzone-w-m-d/bc41dd02-7fc0-4f7c-a6a2-be1d122dd5e8",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:36:06.304Z",
+      "crawledAt": "2026-11-01T09:41:47.085Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -320,7 +329,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:41:47.085Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "baloise-aca09435dae8",
@@ -353,7 +365,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/senior-berater-w-m-d-private-banking-solothurn/5b8cd2c4-0f38-4f4b-9ca1-d5138b8d53f1",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:36:06.300Z",
+      "crawledAt": "2026-11-01T09:41:47.083Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -420,7 +432,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:47.083Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "baloise-af416dbdaa67",
@@ -454,7 +469,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/privatkundenberater-w-m-d-bank-region-solothurn/8b004cab-df59-4102-83a7-e23e3b3051b3",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:36:06.296Z",
+      "crawledAt": "2026-11-01T09:41:47.082Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -501,7 +516,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-20T09:41:47.082Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "baloise-b33c8747f116",
@@ -535,7 +553,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/integrationsspezialist-application-management-avaloq-w-m-d/116d073e-cdf0-4643-9d40-96ceb33abfe0",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:36:06.292Z",
+      "crawledAt": "2026-11-01T09:41:47.080Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -584,7 +602,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:41:47.080Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "baloise-a4109f514359",
@@ -618,7 +639,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/bem-praktikum-bankeinstieg-nach-matura-w-m-d/75572234-8947-4a9c-a23b-fe78e89eb66c",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:36:06.287Z",
+      "crawledAt": "2026-11-01T09:41:47.077Z",
       "addressLocality": "Dornach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -665,7 +686,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-25T09:41:47.077Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "baloise-bd0bf4e42973",
@@ -698,7 +722,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-unternehmenskunden-bank/b8a2d618-e0fc-4e7f-b6c7-24fb0b2bcd28",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:36:06.243Z",
+      "crawledAt": "2026-11-01T09:41:47.061Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -745,7 +769,10 @@
           "maxValue": 71400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:41:47.061Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

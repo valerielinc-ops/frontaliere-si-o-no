@@ -1,0 +1,21 @@
+{
+  "companyKey": "flexsis-ch-flexsis-ch",
+  "companyName": "Flexsis AG, Mendrisio",
+  "companyHost": "flexsis.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.flexsis.ch/emploi/1302939403-regleur-programmeur-cnc-h-f-fr/"
+  ],
+  "detailTemplate": "/emploi/1302939403-regleur-programmeur-cnc-h-f-fr/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Régleur - Programmeur CNC"
+  ],
+  "canton": "TI",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-01T13:07:45.770Z",
+  "candidateKey": "flexsis-mendrisio@lugano"
+}

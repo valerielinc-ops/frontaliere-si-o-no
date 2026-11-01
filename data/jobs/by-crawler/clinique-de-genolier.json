@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clinique-de-genolier",
-  "assembledAt": "2026-10-31T21:47:51.864Z",
-  "runId": "41242693248",
+  "assembledAt": "2026-11-01T09:24:36.047Z",
+  "runId": "41292289555",
   "jobs": [
     {
       "id": "clinique-de-genolier-44d9c6b77b72",
@@ -36,7 +36,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000151035234-infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:46.887Z",
+      "crawledAt": "2026-11-01T09:24:26.145Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -87,7 +87,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:24:26.145Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clinique-de-genolier-a81120ce1d55",
@@ -122,7 +125,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000158511079-chef-fe-de-partie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:46.886Z",
+      "crawledAt": "2026-11-01T09:24:26.140Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,7 +170,10 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:24:26.140Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clinique-de-genolier-893cdcab2904",
@@ -201,7 +207,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000156798784-secretaire-medical-e-a-50-",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:46.886Z",
+      "crawledAt": "2026-11-01T09:24:26.136Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -242,7 +248,10 @@
           "maxValue": 60300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-20T09:24:26.136Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clinique-de-genolier-5e0febb11231",
@@ -276,7 +285,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000158515578-infirmiere-hpci",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:46.885Z",
+      "crawledAt": "2026-11-01T09:24:26.128Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -321,7 +330,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:24:26.128Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

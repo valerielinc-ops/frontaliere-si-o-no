@@ -1,7 +1,7 @@
 {
   "crawlerKey": "octapharma",
-  "assembledAt": "2026-10-31T22:03:48.773Z",
-  "runId": "41242779673",
+  "assembledAt": "2026-11-01T09:30:22.455Z",
+  "runId": "41292374401",
   "jobs": [
     {
       "id": "octapharma-bcf2f4b50027",
@@ -34,7 +34,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Group-Senior-Analyst-Quality-Applications/1451699233/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:03:42.081Z",
+      "crawledAt": "2026-11-01T09:30:14.592Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -66,7 +66,11 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lachen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:30:14.592Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "octapharma-db4e170aa042",
@@ -99,7 +103,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Digital-Marketing-Manager-International-Business-Units/1442919833/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:03:41.579Z",
+      "crawledAt": "2026-11-01T09:30:14.015Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -139,7 +143,11 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lachen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:30:14.015Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

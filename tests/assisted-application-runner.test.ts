@@ -630,7 +630,7 @@ describe('submit mode', () => {
     });
     expect(event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
     const [[ctx]] = runner.mock.calls as any;
-    expect(ctx.candidate.portalQuestionsAnswered).toEqual([{ question: 'Hai meno di 26 anni?', answer: 'Sì', source: 'answers' }]);
+    expect(ctx.candidate.portalQuestionsAnswered).toEqual([{ question: 'Hai meno di 26 anni?', answer: 'Sì', source: 'profile' }]);
   });
 
   it('defers a stale portal question to the live runner so it can recover field context', async () => {
@@ -858,21 +858,26 @@ describe('submit mode', () => {
     const refusedAfterClick = createMemoryFirestore();
     const clicksThenRefused = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_failed', error: 'portal_refused' }, evidence: { steps: [], antibot: true } }; };
     expect(await submit(refusedAfterClick.db, clicksThenRefused)).toMatchObject({ type: 'submit_failed', error: 'portal_refused' });
-    expect(refusedAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'portal_refused' } });
-    expect(await submissionGuard(refusedAfterClick.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed' });
+    expect(refusedAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({
+      r1: { state: 'failed', reason: 'portal_refused', clickedAt: expect.any(Number), confirmedNotSent: true },
+    });
+    expect(await submissionGuard(refusedAfterClick.db, ORDER_ID, 1).claim('portal', Date.now())).toMatchObject({ status: 'claimed' });
 
     // Coop's SuccessFactors, 2026-10-03: «Bewerben» answered with the portal's own
     // validation, then questions for the candidate: nothing left, released.
     const validationAfterClick = createMemoryFirestore();
     const clicksThenValidation = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_needs_candidate', questions: [{ question: 'Strasse und Hausnummer', type: 'text' }] }, evidence: { steps: [], finalOutcomes: ['validation'] } }; };
     expect(await submit(validationAfterClick.db, clicksThenValidation)).toMatchObject({ type: 'submit_needs_candidate' });
-    expect(validationAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'portal_validation' } });
-    expect(await submissionGuard(validationAfterClick.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed' });
+    expect(validationAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({
+      r1: { state: 'failed', reason: 'portal_validation', clickedAt: expect.any(Number), confirmedNotSent: true },
+    });
+    expect(await submissionGuard(validationAfterClick.db, ORDER_ID, 1).claim('portal', Date.now())).toMatchObject({ status: 'claimed' });
     // A validation, then a click whose outcome is unknown: kept "sending".
     const validationThenUnknown = createMemoryFirestore();
     const clicksTwice = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_failed', error: 'portal_ambiguous' }, evidence: { steps: [], finalOutcomes: ['validation', 'ambiguous'] } }; };
     expect(await submit(validationThenUnknown.db, clicksTwice)).toMatchObject({ type: 'submit_failed', error: 'portal_ambiguous' });
     expect(validationThenUnknown.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
+    expect(await submissionGuard(validationThenUnknown.db, ORDER_ID, 1).claim('portal', Date.now())).toMatchObject({ status: 'in_flight' });
   });
 
   it('sends an application once per order and round, whatever the watchdog re-dispatches', async () => {

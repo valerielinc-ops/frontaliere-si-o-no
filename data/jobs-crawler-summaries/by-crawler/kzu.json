@@ -1,7 +1,7 @@
 {
   "key": "kzu",
   "label": "KZU Kompetenzzentrum Pflege und Gesundheit",
-  "generatedAt": "2026-10-31T21:41:15.906Z",
+  "generatedAt": "2026-11-01T09:21:09.849Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 29386,
-  "avgDurationMs": 29386,
+  "durationMs": 10853,
+  "avgDurationMs": 10853,
   "durationHistory": [
-    29386
+    10853
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2075/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:41:02.910Z",
+      "crawledAt": "2026-11-01T09:20:54.736Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -59,12 +59,16 @@
       "salaryMin": 54900,
       "salaryMax": 76800,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Embrach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:54.736Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -80,7 +84,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/1949/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:40:58.884Z",
+      "crawledAt": "2026-11-01T09:20:53.807Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,12 +105,16 @@
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Embrach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:53.807Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -122,7 +130,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2086/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:40:54.898Z",
+      "crawledAt": "2026-11-01T09:20:52.856Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -144,12 +152,16 @@
       "salaryMin": 36600,
       "salaryMax": 51200,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Embrach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:52.856Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -164,7 +176,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2104/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:40:50.887Z",
+      "crawledAt": "2026-11-01T09:20:51.888Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -186,12 +198,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Embrach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:51.888Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -206,7 +222,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2029/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:40:46.933Z",
+      "crawledAt": "2026-11-01T09:20:50.913Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -227,12 +243,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Embrach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:50.913Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -247,7 +267,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2011/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:40:42.953Z",
+      "crawledAt": "2026-11-01T09:20:49.892Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -268,14 +288,18 @@
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Embrach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:49.892Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

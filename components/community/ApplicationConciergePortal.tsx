@@ -32,6 +32,10 @@ const ChildApplicationReview = lazy(() => import('@/components/community/Assiste
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const APPLICATION_CONCIERGE_PRICE_EUR_CENTS = 3999;
 const POLL_MS = 3500;
+// Completed services can receive new proposals or employer updates later.
+// Revalidate at a low rate while visible, and immediately when the user returns.
+const SETTLED_REFRESH_MS = 60_000;
+const FOREGROUND_REFRESH_COOLDOWN_MS = 5_000;
 // The current Google tag batches custom hits for 5s after processing.
 // Leave a small scheduling margin and bound an unavailable SDK after the API.
 const CHECKOUT_TELEMETRY_BATCH_WINDOW_MS = 5250;
@@ -195,6 +199,7 @@ export default function ApplicationConciergePortal({
   const currentOwnerUid = useRef<string | null>(authUser?.uid || null);
   const lastAuthUid = useRef<string | null>(authUser?.uid || null);
   const lastAuthAnonymous = useRef(authUser?.isAnonymous === true);
+  const lastForegroundServiceRefreshAt = useRef(0);
   const checkoutContext = useRef({ serviceId, authUid: authUser?.uid || null, version: 0 });
   const nextAuthUid = authUser?.uid || null;
   if (checkoutContext.current.serviceId !== serviceId
@@ -328,6 +333,73 @@ export default function ApplicationConciergePortal({
       window.clearTimeout(timer);
     };
   }, [loadService, service, serviceId, previewService]);
+
+  useEffect(() => {
+    if (previewService || !serviceId || !service || loading || busy !== null
+      || isPending(service) || isRetryablePayment(service)
+      || MATCHING_STATES.has(String(service.matchingStatus || ''))) return undefined;
+
+    const effectContextVersion = checkoutContext.current.version;
+    const effectServiceId = serviceId;
+    let cancelled = false;
+    let inFlight = false;
+    let timer: number | undefined;
+    const contextIsCurrent = () => !cancelled
+      && checkoutContext.current.version === effectContextVersion
+      && checkoutContext.current.serviceId === effectServiceId;
+    const clearTimer = () => {
+      if (timer !== undefined) {
+        window.clearTimeout(timer);
+        timer = undefined;
+      }
+    };
+    function scheduleNext() {
+      clearTimer();
+      if (!contextIsCurrent() || document.visibilityState !== 'visible') return;
+      timer = window.setTimeout(() => { void refresh(); }, SETTLED_REFRESH_MS);
+    }
+    async function refresh(foreground = false) {
+      if (!contextIsCurrent() || inFlight || document.visibilityState !== 'visible') return;
+      const now = Date.now();
+      if (foreground && now - lastForegroundServiceRefreshAt.current < FOREGROUND_REFRESH_COOLDOWN_MS) {
+        scheduleNext();
+        return;
+      }
+      if (foreground) lastForegroundServiceRefreshAt.current = now;
+      inFlight = true;
+      try {
+        const user = await ensureUser();
+        if (!user || !contextIsCurrent()) return;
+        const loaded = await fetchApplicationConciergeService(user, effectServiceId);
+        if (!contextIsCurrent()) return;
+        setService(loaded);
+      } catch (refreshError) {
+        if (contextIsCurrent()) setError(errorKey(refreshError));
+      } finally {
+        inFlight = false;
+        scheduleNext();
+      }
+    }
+    const refreshOnForeground = () => {
+      if (!contextIsCurrent()) return;
+      if (document.visibilityState !== 'visible') {
+        clearTimer();
+        return;
+      }
+      clearTimer();
+      void refresh(true);
+    };
+
+    document.addEventListener('visibilitychange', refreshOnForeground);
+    window.addEventListener('focus', refreshOnForeground);
+    scheduleNext();
+    return () => {
+      cancelled = true;
+      clearTimer();
+      document.removeEventListener('visibilitychange', refreshOnForeground);
+      window.removeEventListener('focus', refreshOnForeground);
+    };
+  }, [busy, ensureUser, loading, previewService, service?.checkoutSessionStatus, service?.matchingStatus, service?.paymentProvider, service?.paymentStatus, service?.serviceStatus, serviceId]);
 
   const displayError = useMemo(() => {
     if (!error) return null;
@@ -1073,7 +1145,7 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
   }, [proposed, proposal.jobId, proposal.proposalId, serviceId, locale, linkAttempt]);
   const displayStatus = conciergeProposalDisplayStatus(proposal);
   const statusTone = displayStatus === 'submitted' || displayStatus === 'employer_auto_acknowledgement' ? 'bg-success-subtle text-success'
-    : ['proposed', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
+    : ['proposed', 'needs_verification', 'needs_review', 'needs_answers'].includes(displayStatus) ? 'bg-warning-subtle text-warning'
     : 'bg-surface-raised text-muted';
   const childKey = displayStatus === 'needs_answers' ? 'childNeedsAnswers'
     : displayStatus === 'needs_review' ? 'childNeedsReview'
@@ -1096,9 +1168,10 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
     </div>}
     {proposed && <div className="mt-4 flex flex-wrap items-center gap-2">
       {jobHref ? <a href={jobHref} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a> : jobLinkError ? <button type="button" onClick={() => setLinkAttempt(value => value + 1)} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.retryJob')}</button> : <span className="text-xs text-subtle">{t('jobBoard.concierge.loading')}</span>}
-      <button type="button" disabled={disabled || !canAccept} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button>
+      <button type="button" disabled={disabled || !canAccept || displayStatus === 'needs_verification'} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button>
       <button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline')} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{t('jobBoard.concierge.decline')}</button>
     </div>}
+    {proposed && displayStatus === 'needs_verification' && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.eligibilityNeedsVerification')}</p>}
     {proposed && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}
   </article>;
 }

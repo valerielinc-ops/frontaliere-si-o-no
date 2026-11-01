@@ -1,7 +1,7 @@
 {
   "key": "forel-klinik",
   "label": "Forel Klinik",
-  "generatedAt": "2026-10-31T22:04:53.150Z",
+  "generatedAt": "2026-11-01T09:42:16.234Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5557,
-  "avgDurationMs": 5557,
+  "durationMs": 6236,
+  "avgDurationMs": 6236,
   "durationHistory": [
-    5557
+    6236
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/0c4764ff-4c69-417c-a4d4-717850ef1f97/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:40.772Z",
+      "crawledAt": "2026-11-01T09:41:57.472Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -59,12 +59,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:41:57.472Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -80,7 +84,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/6a2b1556-fc6e-4836-bb0f-3a15adbad05b/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:40.278Z",
+      "crawledAt": "2026-11-01T09:41:57.037Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,12 +105,26 @@
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Forel Klinik",
+        "streetAddress": "Islikonerstrasse 5",
+        "postalCode": "8548",
+        "addressLocality": "Ellikon an der Thur",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:48:57.846Z"
+      },
+      "streetAddress": "Islikonerstrasse 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-30T09:41:57.037Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -121,7 +139,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/ed713087-46af-475b-9c0a-ccd7cedb67cf/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:39.799Z",
+      "crawledAt": "2026-11-01T09:41:56.584Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -142,12 +160,26 @@
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Forel Klinik",
+        "streetAddress": "Islikonerstrasse 5",
+        "postalCode": "8548",
+        "addressLocality": "Ellikon an der Thur",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:48:57.846Z"
+      },
+      "streetAddress": "Islikonerstrasse 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:41:56.584Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -163,7 +195,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/e375c196-0287-4d4b-b396-3eb86ae2e3c9/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:39.313Z",
+      "crawledAt": "2026-11-01T09:41:56.149Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,12 +216,26 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Forel Klinik",
+        "streetAddress": "Islikonerstrasse 5",
+        "postalCode": "8548",
+        "addressLocality": "Ellikon an der Thur",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:48:57.846Z"
+      },
+      "streetAddress": "Islikonerstrasse 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-22T09:41:56.149Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -205,7 +251,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/968bd4db-45d0-439a-8b95-6d029fda4e6d/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:38.828Z",
+      "crawledAt": "2026-11-01T09:41:55.715Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -226,14 +272,28 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Forel Klinik",
+        "streetAddress": "Islikonerstrasse 5",
+        "postalCode": "8548",
+        "addressLocality": "Ellikon an der Thur",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:48:57.846Z"
+      },
+      "streetAddress": "Islikonerstrasse 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-29T09:41:55.715Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

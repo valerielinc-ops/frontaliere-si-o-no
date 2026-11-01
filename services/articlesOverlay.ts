@@ -214,8 +214,10 @@ async function fetchPublishedArticleCount(section: OverlaySection): Promise<numb
  *
  * So: if the window provably cannot close the gap — the bundle plus the whole
  * window still totals less than the corpus — fetch the complete index instead.
- * On the common path (`bundledCount` current) the comparison is false and not
- * a byte more is downloaded. Omit `bundledCount` to keep the old behaviour.
+ * The manifest also escalates when its corpus count has advanced past the
+ * bundle, even if the recent index has already published that newer total but
+ * is still missing one of its rows. Omit `bundledCount` to keep the old
+ * behaviour.
  */
 export async function fetchArticleOverlay(
   section: OverlaySection,
@@ -242,13 +244,12 @@ export async function fetchArticleOverlay(
     typeof bundledCount === 'number' && bundledCount + recent.articles.length < recent.total;
   const dateSaysGap =
     typeof bundledNewest === 'string' && recent.oldest !== null && bundledNewest < recent.oldest;
-  // The overlay index can be internally consistent while still belonging to
-  // the previous corpus snapshot (`total === bundledCount`). Compare it with
-  // the publisher's manifest before accepting that result; otherwise a hub
-  // rendered from the newer corpus can advertise an article that neither the
-  // stale client chunk nor the stale recent index can hydrate.
+  // The recent index can report the publisher's current total while still
+  // missing a row during a cross-surface handoff. Compare the manifest with
+  // the client bundle before accepting that result; `recent.total` alone
+  // cannot prove that every published row is present in the recent index.
   const manifestSaysGap =
-    publishedCount !== null && publishedCount > recent.total;
+    typeof bundledCount === 'number' && publishedCount !== null && publishedCount > bundledCount;
 
   if (countSaysGap || dateSaysGap || manifestSaysGap) {
     const full = await fetchIndex(`/data/blog-index-${section}-${locale}-full.json`);

@@ -63,6 +63,38 @@ describe('MediPersonal crawler parser', () => {
       expect(extractIpersonalDescription('<main><p>Generic page copy</p></main>')).toBe('');
     });
 
+    it('rejects a long bare main listing but accepts the same content in an article', () => {
+      const listingWords = Array.from({ length: 80 }, (_, index) => `listing-word-${index + 1}`).join(' ');
+
+      expect(extractIpersonalDescription(`<main><ul><li>${listingWords}</li></ul></main>`)).toBe('');
+
+      const description = extractIpersonalDescription(
+        `<main><article><ul><li>${listingWords}</li></ul></article></main>`,
+      );
+      expect(description).toContain('• listing-word-1');
+    });
+
+    it('recovers the current semantic detail shell without the application tail', () => {
+      const html = `
+        <header><nav>Navigation noise</nav></header>
+        <main><article>
+          <h1>Fachärztin / Facharzt Allgemeinmedizin</h1>
+          <p>Eine verantwortungsvolle Stelle mit langfristiger Betreuung in einer modernen Praxis.</p>
+          <h3>Ihre Aufgaben</h3>
+          <ul><li>Patientinnen und Patienten eigenverantwortlich betreuen</li>
+            <li>Untersuchungen und Befunde sorgfältig dokumentieren</li></ul>
+          <h3>Bewerbung &amp; Kontakt</h3>
+          <p>Bitte senden Sie Ihre vollständigen Unterlagen per E-Mail.</p>
+        </article></main>
+        <footer>Footer SEO text</footer>`;
+
+      const description = extractIpersonalDescription(html);
+      expect(description).toContain('\n• Patientinnen und Patienten eigenverantwortlich betreuen');
+      expect(description).toContain('\n• Untersuchungen und Befunde sorgfältig dokumentieren');
+      expect(description).not.toContain('Navigation noise');
+      expect(description).not.toContain('Bitte senden Sie Ihre vollständigen Unterlagen');
+    });
+
     it('keeps nested legacy content and recovers paragraph-backed lists', () => {
       const html = `
         <section class="job-profile-section"><div id="Jobdetails"><div>
