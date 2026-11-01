@@ -10,7 +10,7 @@ import { normalizeJobSearchTokens as normalizeTokens, occupationalRoleTokens, to
  * router. No I/O, no side effects.
  */
 
-import { resolveJobCanton } from './shared/cantonSection';
+import { resolveKnownJobCanton } from './shared/cantonSection';
 import { firstParsableMs } from './shared/firstParsableDate';
 import {
   ORPHAN_LANDING_LOCALES as SHARED_ORPHAN_LANDING_LOCALES,
@@ -414,10 +414,20 @@ export function filterMatchingJobs<T extends OrphanCountableJob>(
 
 const TICINO_REGION_TOKENS = new Set<string>(['ticino', 'tessin']);
 
+export interface OrphanLandingRegionCoverage {
+  readonly region: 'ticino';
+  readonly regionMatchCount: number;
+  readonly outsideRegionMatchCount: number;
+  readonly unresolvedRegionMatchCount: number;
+  readonly totalMatchCount: number;
+  readonly resultScope: 'ticino' | 'broader';
+}
+
 /** The jobs a landing shows, and whether they answer the place the query names. */
 export interface OrphanLandingJobs<T> {
   readonly jobs: T[];
   readonly regionRelevant: boolean;
+  readonly regionCoverage?: OrphanLandingRegionCoverage;
 }
 
 /**
@@ -427,10 +437,9 @@ export interface OrphanLandingJobs<T> {
  * for a match and wrong for a landing now that the dataset is national:
  * `/ricerca/offerte-di-lavoro-architetto-ticino/` listed cloud architects in
  * other cantons (GEO audit 2026-10-31). With at least `minJobs` matches in Ticino
- * the page shows those, so a query that names Ticino gets Ticino. Below that it
- * has no honest answer: the page keeps the wider list for visitors and reports
- * `regionRelevant: false`, which the landing turns into noindex,follow at the
- * same URL. A query that names a city is already constrained by the match.
+ * the page shows those. Below that it keeps the wider list and reports both
+ * counts; the page remains indexable when that wider list itself clears the
+ * minimum. A query that names a city is already constrained by the match.
  */
 export function selectOrphanLandingJobs<T extends OrphanCountableJob>(
   jobs: readonly T[],
@@ -438,13 +447,32 @@ export function selectOrphanLandingJobs<T extends OrphanCountableJob>(
   limit: number,
   minJobs: number,
 ): OrphanLandingJobs<T> {
-  const matched = filterMatchingJobs(jobs, cluster, limit);
   const namesTicino = cluster.regionTokens.some((r) => TICINO_REGION_TOKENS.has(r));
-  if (!namesTicino || clusterMatchFacts(cluster).specificRegions.length > 0) return { jobs: matched, regionRelevant: true };
-  const inTicino = filterMatchingJobs(jobs, cluster, Number.POSITIVE_INFINITY).filter((job) => resolveJobCanton(job) === 'TI');
-  return inTicino.length >= minJobs
-    ? { jobs: inTicino.slice(0, limit), regionRelevant: true }
-    : { jobs: matched, regionRelevant: false };
+  if (!namesTicino || clusterMatchFacts(cluster).specificRegions.length > 0) {
+    return { jobs: filterMatchingJobs(jobs, cluster, limit), regionRelevant: true };
+  }
+  const allMatches = filterMatchingJobs(jobs, cluster, Number.POSITIVE_INFINITY);
+  const cantons = allMatches.map((job) => resolveKnownJobCanton(job));
+  const inTicino = allMatches.filter((_, index) => cantons[index] === 'TI');
+  const outsideRegionMatchCount = cantons.filter((canton) => canton !== null && canton !== 'TI').length;
+  const unresolvedRegionMatchCount = cantons.filter((canton) => canton === null).length;
+  const localCoverageIsIndexable = inTicino.length >= minJobs;
+  const resultScope = localCoverageIsIndexable || (outsideRegionMatchCount === 0 && unresolvedRegionMatchCount === 0)
+    ? 'ticino'
+    : 'broader';
+  const selected = localCoverageIsIndexable ? inTicino : allMatches;
+  return {
+    jobs: selected.slice(0, limit),
+    regionRelevant: allMatches.length >= minJobs,
+    regionCoverage: {
+      region: 'ticino',
+      regionMatchCount: inTicino.length,
+      outsideRegionMatchCount,
+      unresolvedRegionMatchCount,
+      totalMatchCount: allMatches.length,
+      resultScope,
+    },
+  };
 }
 
 /** Median of a number array; returns 0 for empty input. */
