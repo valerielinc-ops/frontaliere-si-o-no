@@ -47,6 +47,54 @@ function retentionWriteAllowed(order, nowMs) {
   return talentPoolConsentActive(order) || purgeDueAt == null || nowMs < purgeDueAt;
 }
 
+function candidateAnswerLedgerPatch({ profileSnapshot, currentOrder, ledger }) {
+  const userId = String(ledger?.userId || '').trim();
+  // A missing profile may represent account deletion; preserve the order-local answer without recreating it.
+  if (!profileSnapshot?.exists || !userId || currentOrder?.userId !== userId
+    || !retentionWriteAllowed(currentOrder, Date.now())) return null;
+
+  const profile = profileSnapshot.data() || {};
+  const update = planCandidateAnswerEvidence({
+    questions: ledger.questions,
+    changed: ledger.changed,
+    confirmedQuestionSnapshots: ledger.confirmedQuestionSnapshots,
+    previous: profile.applicationQuestionAnswerEvidence,
+    latestWriteAt: Number(profile.applicationQuestionAnswersUpdatedAt) || 0,
+    orderId: ledger.orderId,
+    order: currentOrder,
+    flow: ledger.flow,
+    draft: ledger.draft,
+    actor: ledger.actor,
+    nowMs: ledger.nowMs,
+  });
+  if (!update.accepted.size) return null;
+
+  const previous = profile.applicationQuestionAnswers;
+  const merged = { ...(previous && typeof previous === 'object' && !Array.isArray(previous) ? previous : {}) };
+  const changedKeys = new Set(ledger.questions
+    .filter(question => Object.hasOwn(ledger.changed, question.id))
+    .map(candidateQuestionAnswerKey));
+  for (const [key, value] of Object.entries(ledger.questionAnswers)) {
+    if (!changedKeys.has(key) || !update.accepted.has(key)) continue;
+    delete merged[key];
+    merged[key] = update.records[key]?.cleared ? '' : value;
+  }
+
+  return {
+    applicationQuestionAnswers: Object.fromEntries(Object.entries(merged).slice(-80)),
+    applicationQuestionAnswerEvidence: update.records,
+    applicationQuestionAnswersUpdatedAt: Math.max(Number(profile.applicationQuestionAnswersUpdatedAt) || 0, Date.now()),
+  };
+}
+
+function writeCandidateAnswerLedger(transaction, profileRef, profileSnapshot, currentOrder, ledger) {
+  if (!profileRef || !ledger) return;
+  const patch = candidateAnswerLedgerPatch({ profileSnapshot, currentOrder, ledger });
+  if (patch) transaction.set(profileRef, patch, {
+    mergeFields: ['applicationQuestionAnswers', 'applicationQuestionAnswerEvidence', 'applicationQuestionAnswersUpdatedAt'],
+  });
+}
+
 /**
  * The commit of the writers that publish a rebuilt PDF (the photo, the line
  * choices, the candidate's edits and answers, the owner's answers): the flow
@@ -76,14 +124,17 @@ function answerSnapshotGuardMatches({ orderId, draft, guard }) {
   return answerIds.every(id => current[id] && guard.snapshots?.[id] === current[id]);
 }
 
-export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 'candidate_review', edits = false, created = [], flowPatch = null, draftPatch, answerSnapshotGuard = null, replaceAnswerMaps = false, nowMs }) {
+export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 'candidate_review', edits = false, created = [], flowPatch = null, draftPatch, answerSnapshotGuard = null, replaceAnswerMaps = false, candidateAnswerLedger = null, nowMs }) {
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
+  const profileRef = candidateAnswerLedger?.userId
+    ? db.collection('user_cv_profiles').doc(candidateAnswerLedger.userId) : null;
   const same = (left, right) => (left || null) === (right || null);
   const committed = await db.runTransaction(async (transaction) => {
-    const [orderSnapshot, flowSnapshot, draftSnapshot] = await Promise.all([
+    const [orderSnapshot, flowSnapshot, draftSnapshot, profileSnapshot] = await Promise.all([
       transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
+      profileRef ? transaction.get(profileRef) : Promise.resolve(null),
     ]);
     if (!orderSnapshot.exists || !retentionWriteAllowed(orderSnapshot.data(), Date.now())) return false;
     const current = { flow: flowSnapshot.data() || {}, draft: draftSnapshot.data() || {} };
@@ -94,6 +145,7 @@ export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 
       && same(current.draft.tailoredCv?.pdfKey, draft.tailoredCv?.pdfKey)
       && (!edits || (same(current.draft.coverLetterPdfKey, draft.coverLetterPdfKey) && same(current.draft.candidateEditedAt, draft.candidateEditedAt)));
     if (!unchanged) return false;
+    writeCandidateAnswerLedger(transaction, profileRef, profileSnapshot, orderSnapshot.data(), candidateAnswerLedger);
     if (flowPatch && replaceAnswerMaps) {
       const { answers, ...answerMaps } = flowPatch;
       if (answers !== undefined) transaction.set(flowRef, { answers, updatedAt: nowMs }, { merge: true });
@@ -168,53 +220,24 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
     questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
     orderQuestionAnswersEvidenceVersion };
-  const persistCandidateQuestionAnswers = async () => {
-    const userId = String(order?.userId || '').trim();
-    if (!userId || !Object.keys(questionAnswers).length || Number(draft?.round) !== Number(flow.round || 1)) return;
-    const changedKeys = new Set((draft?.questions || []).filter(question => Object.hasOwn(answers, question.id)).map(candidateQuestionAnswerKey));
-    const profileRef = db.collection('user_cv_profiles').doc(userId);
-    const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
-    try {
-      await db.runTransaction(async (transaction) => {
-        const [orderSnapshot, snapshot] = await Promise.all([transaction.get(orderRef), transaction.get(profileRef)]);
-        const currentOrder = orderSnapshot.data() || {};
-        const freshNow = Date.now();
-        if (!orderSnapshot.exists || currentOrder.userId !== userId || !retentionWriteAllowed(currentOrder, freshNow)) return;
-        // This writer only augments an existing private projection; account deletion must not recreate it.
-        if (!snapshot.exists) return;
-        const current = snapshot.data()?.applicationQuestionAnswers;
-        const update = planCandidateAnswerEvidence({ questions: draft?.questions || [], changed: answers,
-          confirmedQuestionSnapshots: evidenceQuestionSnapshots,
-          previous: snapshot.data()?.applicationQuestionAnswerEvidence, latestWriteAt: Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0,
-          orderId, order: currentOrder, flow, draft: draft || {}, actor: answerActor, nowMs });
-        if (!update.accepted.size) return;
-        const merged = { ...(current && typeof current === 'object' && !Array.isArray(current) ? current : {}) };
-        for (const [key, value] of Object.entries(questionAnswers)) {
-          if (!changedKeys.has(key) || !update.accepted.has(key)) continue;
-          delete merged[key];
-          merged[key] = update.records[key]?.cleared ? '' : value;
-        }
-        transaction.set(profileRef, {
-          applicationQuestionAnswers: Object.fromEntries(Object.entries(merged).slice(-80)),
-          applicationQuestionAnswerEvidence: update.records,
-          applicationQuestionAnswersUpdatedAt: Math.max(Number(snapshot.data()?.applicationQuestionAnswersUpdatedAt) || 0, freshNow),
-        }, { mergeFields: ['applicationQuestionAnswers', 'applicationQuestionAnswerEvidence', 'applicationQuestionAnswersUpdatedAt'] });
-      });
-    } catch (error) {
-      // The order-local answer is already authoritative. A profile-ledger
-      // failure must not make the candidate lose a saved answer or block the
-      // current application; the next save can repair the ledger.
-      console.warn('[assistedApplicationCvCommit] candidate answer ledger failed', orderId, error instanceof Error ? error.message : String(error));
-    }
-  };
+  const answerUserId = String(order?.userId || '').trim();
+  const candidateAnswerLedger = answerUserId && Object.keys(questionAnswers).length
+    && Number(draft?.round) === Number(flow.round || 1)
+    ? { userId: answerUserId, orderId, questions: draft?.questions || [], changed: answers,
+      confirmedQuestionSnapshots: evidenceQuestionSnapshots, questionAnswers, flow, draft: draft || {},
+      actor: answerActor, nowMs }
+    : null;
   const live = Boolean(draft) && Number(draft.round) === Number(flow.round || 1) && !['submitted', 'failed'].includes(flow.state);
   if (!live || !tailoredCvChanges({ order, draft, flow, nextFlow })) {
     const flowRef = flowRefFor(db, orderId);
     const draftRef = draftRefFor(db, orderId);
+    const profileRef = candidateAnswerLedger
+      ? db.collection('user_cv_profiles').doc(candidateAnswerLedger.userId) : null;
     const committed = await db.runTransaction(async transaction => {
       const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
-      const [currentOrder, currentFlow, currentDraft] = await Promise.all([
+      const [currentOrder, currentFlow, currentDraft, profileSnapshot] = await Promise.all([
         transaction.get(orderRef), transaction.get(flowRef), transaction.get(draftRef),
+        profileRef ? transaction.get(profileRef) : Promise.resolve(null),
       ]);
       if (!currentOrder.exists || !retentionWriteAllowed(currentOrder.data(), Date.now())
         || !currentFlow.exists || currentFlow.data()?.state !== flow.state
@@ -222,6 +245,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
         || !answerSnapshotGuardMatches({ orderId, draft: currentDraft.data() || {},
           guard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
             draftRound: Number(draft?.round) || 1, nowMs } })) return false;
+      writeCandidateAnswerLedger(transaction, profileRef, profileSnapshot, currentOrder.data(), candidateAnswerLedger);
       transaction.set(flowRef, { answers, updatedAt: nowMs }, { merge: true });
       transaction.set(flowRef, { questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
         questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
@@ -230,7 +254,6 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
       return true;
     });
     if (!committed) throw new CvCommitError('changed_meanwhile', 409);
-    await persistCandidateQuestionAnswers();
     return { rebuilt: false };
   }
   if (!bucket) throw new CvCommitError('storage_unavailable', 503);
@@ -243,6 +266,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     replaceAnswerMaps: true,
     answerSnapshotGuard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
       draftRound: Number(draft?.round) || 1, nowMs },
+    candidateAnswerLedger,
     draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
   });
   if (rebuildCommitted === false) {
@@ -250,6 +274,5 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     throw new CvCommitError('changed_meanwhile', 409);
   }
   await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);
-  await persistCandidateQuestionAnswers();
   return { rebuilt: true };
 }
