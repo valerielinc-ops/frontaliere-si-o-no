@@ -23,7 +23,8 @@ function inWindow<T>(window: any, run: () => T): T {
   }
 }
 
-function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false } = {}) {
+function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false, privacyRevealsRequiredFile = false } = {}) {
+  const privacyReveals = privacyRevealsUnknown || privacyRevealsRequiredFile;
   const url = 'https://careers.example.test/apply';
   const credentials = registration
     ? '<label for="password">Password *</label><input id="password" type="password" name="password" required><label for="password-confirm">Confirm password *</label><input id="password-confirm" type="password" name="password-confirm" required>'
@@ -38,15 +39,16 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
         <label for="country">Country of residence *</label>
         <select id="country" name="country" required><option value="">Choose one</option><option value="IT">Italy</option><option value="CH">Switzerland</option></select>
         <label for="motivation">Why are you interested in this role? *</label><textarea id="motivation" name="motivation" required></textarea>
-        ${privacyRevealsUnknown ? '<a id="privacy" href="#">Read and accept the privacy policy</a>' : ''}
-        ${registration ? '<button id="create" type="button">Create account</button>' : '<button id="next" type="button">Next</button>'}
+        ${privacyReveals ? '<a id="privacy" href="#">Read and accept the privacy policy</a>' : ''}
+        ${registration ? `<button id="create" type="button">Create account</button>${privacyReveals ? '<button id="submit" type="button">Submit application</button>' : ''}` : '<button id="next" type="button">Next</button>'}
       </form>`;
   const dom = new JSDOM(`<!doctype html><html><body>${form}</body></html>`, { url, runScripts: 'outside-only' });
   const { window } = dom;
-  if (privacyRevealsUnknown && !(window as any).CSS?.escape) {
+  if (privacyReveals && !(window as any).CSS?.escape) {
     Object.defineProperty(window, 'CSS', { configurable: true, value: { escape: (value: string) => value } });
   }
   const extractionTrace: any[] = [];
+  const ctaClicks: string[] = [];
   let currentUrl = url;
   let frameReadFailures = 0;
   Object.defineProperty(window.HTMLElement.prototype, 'innerText', { configurable: true, get() { return this.textContent || ''; } });
@@ -173,14 +175,17 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
         <button id="next" type="button">Next</button>`;
     });
   } else {
-    if (registration) element('#create').addEventListener('click', () => { element('#create').dataset.clicked = 'true'; });
+    if (registration) {
+      element('#create').addEventListener('click', () => { element('#create').dataset.clicked = 'true'; ctaClicks.push('create'); });
+      element('#submit')?.addEventListener('click', () => { element('#submit').dataset.clicked = 'true'; ctaClicks.push('submit'); });
+    }
     else element('#next').addEventListener('click', () => { element('#next').dataset.clicked = 'true'; });
-    if (privacyRevealsUnknown) {
+    if (privacyReveals) {
       element('#privacy').addEventListener('click', (event: any) => {
         event.preventDefault();
         const formElement = element('form');
-        formElement.insertAdjacentHTML('beforeend', `<div id="privacy-dialog" role="dialog" aria-modal="true" aria-label="Privacy notice for this application">
-          <h2>Privacy notice for this application</h2>
+        formElement.insertAdjacentHTML('beforeend', `<div id="privacy-dialog" role="dialog" aria-modal="true" aria-label="Privacy Policy">
+          <h2>Privacy Policy</h2>
           <label for="privacy-reviewed">I have read and accept the privacy policy</label>
           <input id="privacy-reviewed" name="privacy-reviewed" type="checkbox" required>
           <button id="privacy-accept" type="button" disabled>Accept</button>
@@ -190,7 +195,9 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
         review.addEventListener('change', () => { accept.disabled = !review.checked; });
         accept.addEventListener('click', () => {
           element('#privacy-dialog').remove();
-          formElement.insertAdjacentHTML('beforeend', '<label for="unknown-requirement">Which professional certification do you hold? *</label><input id="unknown-requirement" name="unknown-requirement" required>');
+          formElement.insertAdjacentHTML('beforeend', privacyRevealsRequiredFile
+            ? '<label for="required-cv">Curriculum Vitae *</label><input id="required-cv" name="required-cv" type="file" required>'
+            : '<label for="unknown-requirement">Which professional certification do you hold? *</label><input id="unknown-requirement" name="unknown-requirement" required>');
         });
       });
     }
@@ -209,7 +216,7 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
       });
     }
   }
-  return { page, window, extractionTrace };
+  return { page, window, extractionTrace, ctaClicks };
 }
 
 function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace: any[] = []) {
@@ -231,7 +238,7 @@ function portalRunSummary(result: any, plannerTrace: any[] = [], extractionTrace
 describe('assisted portal question batching', () => {
   it('replans after privacy acceptance and does not create an account when it reveals an unknown required answer', async () => {
     const fixture = fakePage({ registration: true, privacyRevealsUnknown: true });
-    const { page, window } = fixture;
+    const { page, window, ctaClicks } = fixture;
     const candidate = { identity: { email: 'candidate@example.test' }, profile: {} };
     const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
     let plannerCalls = 0;
@@ -271,6 +278,51 @@ describe('assisted portal question batching', () => {
     expect(window.document.getElementById('privacy-dialog')).toBeNull();
     expect(window.document.getElementById('unknown-requirement')).not.toBeNull();
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
+    expect(window.document.getElementById('submit')?.getAttribute('data-clicked')).not.toBe('true');
+    expect(ctaClicks).toEqual([]);
+    expect(accountEvents).toEqual(['save', 'discard']);
+  });
+
+  it('hands off a required CV revealed by privacy when no verified upload is available', async () => {
+    const fixture = fakePage({ registration: true, privacyRevealsRequiredFile: true });
+    const { page, window, ctaClicks } = fixture;
+    const candidate = { identity: { email: 'candidate@example.test' }, profile: {} };
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    let plannerCalls = 0;
+    const codex = async ({ prompt }: any) => {
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      plannerCalls += 1;
+      return {
+        actions: [],
+        missingRequired: plannerCalls > 1
+          ? [{ fieldId: fieldId('required-cv'), question: 'Curriculum Vitae', why: '', type: 'text', options: [] }]
+          : [],
+      };
+    };
+    const accountEvents: string[] = [];
+    const result = await handleAuth({
+      page,
+      snapshot: await extractFields(page, { listboxOptions: false }),
+      ctx: {
+        candidate,
+        candidateLocale: 'en',
+        language: 'en',
+        files: {},
+        codex,
+        accounts: {
+          load: async () => null,
+          save: async () => { accountEvents.push('save'); },
+          mark: async () => { accountEvents.push('mark'); },
+          discard: async () => { accountEvents.push('discard'); },
+        },
+      },
+    });
+
+    expect(plannerCalls).toBe(2);
+    expect(result.handoff).toBe('portal_required_file_unhandled');
+    expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
+    expect(window.document.getElementById('submit')?.getAttribute('data-clicked')).not.toBe('true');
+    expect(ctaClicks).toEqual([]);
     expect(accountEvents).toEqual(['save', 'discard']);
   });
 

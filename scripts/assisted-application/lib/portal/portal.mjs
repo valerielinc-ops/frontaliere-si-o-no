@@ -684,6 +684,17 @@ function questionSurfaceSignature(snapshot = {}) {
   });
 }
 
+/** The planned question shape plus whether each required answer is still present. */
+function registrationSurfaceSignature(snapshot = {}) {
+  return JSON.stringify({
+    questions: questionSurfaceSignature(snapshot),
+    required: (Array.isArray(snapshot.fields) ? snapshot.fields : [])
+      .filter((field) => field.required === true || field.invalid === true)
+      .map((field) => [field.id || '', field.kind || '', field.inputType || '', field.required === true,
+        field.invalid === true, field.checked === true, holdsValue(field)]),
+  });
+}
+
 /** Wait for the fields exposed by known answers to settle before asking for missing facts. */
 async function waitForStableQuestionSurface(page, snapshot, expectedUrl) {
   let current = snapshot;
@@ -3063,6 +3074,32 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (retryingUnverifiedAccount) await ctx.accounts.mark(host, { status: 'unanswered' });
     else await ctx.accounts.discard(host, reason);
   };
+  const planStableRegistrationSurface = async (startingSnapshot, expectedUrl) => {
+    let current = startingSnapshot;
+    while (true) {
+      const stable = await waitForStableQuestionSurface(page, current, expectedUrl);
+      if (stable.status !== 'stable') return { status: 'unstable', snapshot: stable.snapshot };
+      const plannedSnapshot = stable.snapshot;
+      const planned = await planPage({
+        snapshot: { ...plannedSnapshot, fields: plannedSnapshot.fields.filter((field) => field.inputType !== 'password') },
+        candidate,
+        candidateLocale: ctx.candidateLocale,
+        codex: ctx.codex,
+      });
+      // The planner can take minutes. Re-read immediately after it returns so
+      // its plan cannot authorize a CTA on a surface that appeared meanwhile.
+      const observed = await extractFields(page, NAVIGATION).catch(() => null);
+      if (!observed || page.url() !== expectedUrl || observed.url !== expectedUrl) {
+        return { status: 'moved', snapshot: observed || plannedSnapshot };
+      }
+      if (registrationSurfaceSignature(observed) === registrationSurfaceSignature(plannedSnapshot)) {
+        return { status: 'stable', snapshot: observed, plan: planned };
+      }
+      if (privacySurfaceReplans >= MAX_REDRAWS_PER_PAGE) return { status: 'unstable', snapshot: observed };
+      privacySurfaceReplans += 1;
+      current = observed;
+    }
+  };
   // A known registration answer can reveal more required fields (Coop's
   // country selection is one example). Apply only guarded, non-upload answers
   // first; do not ask from the planner's earlier, partial view of the form.
@@ -3146,22 +3183,25 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     // stable read and plan must prove that the account form is still complete
     // before the Create/Submit CTA is allowed.
     const privacyUrl = privacyStartUrl;
-    const stableAfterPrivacy = await waitForStableQuestionSurface(page, filled, privacyUrl);
-    if (stableAfterPrivacy.status !== 'stable') {
+    const privacyPlan = await planStableRegistrationSurface(filled, privacyUrl);
+    if (privacyPlan.status !== 'stable') {
       await parkRegistrationCredential('privacy_question_surface_unstable');
       return noted({ handoff: 'portal_needs_candidate' });
     }
-    const stableRegistrationSnapshot = stableAfterPrivacy.snapshot;
-    const stablePlan = await planPage({
-      snapshot: { ...stableRegistrationSnapshot, fields: stableRegistrationSnapshot.fields.filter((field) => field.inputType !== 'password') },
-      candidate,
-      candidateLocale: ctx.candidateLocale,
-      codex: ctx.codex,
-    });
+    const stableRegistrationSnapshot = privacyPlan.snapshot;
+    const stablePlan = privacyPlan.plan;
     const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired);
     if (stableRequirements.unreadableFields?.length) {
       await parkRegistrationCredential('privacy_question_unreadable');
       return noted({ handoff: 'question_label_unreadable' });
+    }
+    const unhandledRequiredFiles = stableRegistrationSnapshot.fields.filter((field) =>
+      (field.required === true || field.invalid === true) && (field.kind === 'file' || field.inputType === 'file')
+      && !appliedRegistrationUploads.has(field.id)
+      && !stablePlan.actions.some((action) => action.fieldId === field.id && action.action === 'upload'));
+    if (unhandledRequiredFiles.length) {
+      await parkRegistrationCredential('privacy_required_file_unhandled');
+      return noted({ handoff: 'portal_required_file_unhandled' });
     }
     const stableRequest = await portalRequirementsForCandidate(stableRequirements, {
       candidateLocale: ctx.candidateLocale,
