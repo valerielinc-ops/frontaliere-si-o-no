@@ -148,11 +148,12 @@ function normalizedHaystack(text) {
 
 const EXCLUSIVE_ELIGIBILITY_RE = /\b(?:only|exclusively|solely|reserved\s+for|limited\s+to|solo|soltanto|unicamente|esclusivamente|riservat\w*|uniquement|exclusivement|seulement|reserve\w*|nur|ausschliesslich|ausschließlich|exklusiv\w*|vorbehalten\w*)\b/i;
 const ELIGIBILITY_SUBJECT_RE = /\b(?:candidate\w*|applicant\w*|student\w*|pupil\w*|trainee\w*|intern\w*|apprentice\w*|person\w*|people|individuals?|those|who|resident\w*|holder\w*|graduate\w*|citizen\w*|inwohner\w*|bewohner\w*|inhaber\w*|absolvent\w*|etudiant\w*|eleve\w*|stagiaire\w*|apprenti\w*|candidat\w*|resident\w*|titulaire\w*|diplom\w*|laureat\w*|personnes?|habitants?|citoyen\w*|bewerber\w*|kandidat\w*|schuler\w*|auszubildende\w*|einwohner\w*|bewohner\w*|inhaber\w*|absolvent\w*|resident\w*|inhabitant\w*|chi|coloro|persone|residenti|titolari|laureat\w*|wer)\b/i;
-const HARD_REQUIREMENT_RE = /\b(?:must|requir(?:e|ed|es|ement|ements)|mandatory|essential|necessary|at\s+least|minimum|obbligator\w*|indispensabil\w*|richiest\w*|necessar\w*|deve|devono|devo|dovr\w+|dovete|requis\w*|obligatoir\w*|indispensable|doiv?\w*|exig\w*|erforderlich|zwingend|voraussetz\w*|notwendig|muss|mussen|mindestens)\b/i;
+const HARD_REQUIREMENT_RE = /\b(?:must|requir(?:e|ed|es|ement|ements)|mandatory|essential|necessary|at\s+least|minimum|plus\s+(?:de|di)\s+\d+|more\s+than\s+\d+|over\s+\d+|mehr\s+als\s+\d+|au\s+moins\s+\d+|almeno\s+\d+|obbligator\w*|indispensabil\w*|richiest\w*|necessar\w*|deve|devono|devo|dovr\w+|dovete|requis\w*|obligatoir\w*|indispensable|doiv?\w*|exig\w*|erforderlich|zwingend|voraussetz\w*|notwendig|muss|mussen|mindestens)\b/i;
 const QUALIFICATION_CONTEXT_RE = /\b(?:experience|erfahrung|exp[ée]rience|esperienz\w*|year\w*|jahre?\w*|ann[ée]e\w*|anni|language\w*|sprach\w*|lingu\w*|english|german|deutsch|fran[cç]ais|italian|italien\w*|degree|diplom\w*|diplome\w*|laurea|education|educazion\w*|bildung|school|scuola|schule|scolair\w*|student\w*|schuler\w*|eleve\w*|etudiant\w*|permit\w*|bewilligung\w*|arbeitsbewilligung\w*|arbeitserlaubnis\w*|visa|nationalit\w*|citizenship|passport|residen\w*|wohnort|domicil\w*|license|licence|fuehrerschein|fuhrerschein|fahrausweis|patente|competenc\w*|kompetenz\w*|skill\w*|connaissance\w*|kenntnis\w*|conoscenz\w*|office|crm|sap|certificat\w*|certification\w*|qualification\w*|qualifikation\w*|abilit\w*|aptitude\w*)\b/i;
-const HARD_QUALIFICATION_HEADING_RE = /^(?:required\s+)?(?:qualifications?|requirements?|essential\s+criteria|your\s+profile|candidate\s+profile|profile\s+requirements|what\s+you\s+bring|requisiti(?:\s+richiesti)?|qualifiche|profilo\s+richiesto|anforderungen|qualifikationen|voraussetzungen|ihr\s+profil|profil\s+recherche|profil\s+recherch[eé]|conditions\s+requises|exigences|criteres?\s+requis)(?:\s+(?:and|&|\/)\s+(?:experience|skills|requirements?))?\s*:?$/i;
-const OTHER_SECTION_HEADING_RE = /^(?:your\s+tasks?|your\s+responsibilities|tasks?|responsibilities|job\s+description|about\s+(?:us|the\s+company)|our\s+company|our\s+offer|what\s+we\s+offer|benefits|nice\s+to\s+have|preferred\s+qualifications?|desirable\s+skills|aufgaben|taetigkeiten|ihre\s+aufgaben|wir\s+bieten|vorteile|wuenschenswert|wunschprofil|missions|vos\s+avantages|nous\s+offrons|atouts|un\s+plus|responsabilita|cosa\s+offriamo|offriamo|costituisce\s+un\s+plus)\s*:?$/i;
-const PREFERENCE_CUE_RE = /\b(?:advantage|plus|preferred|desirable|nice\s+to\s+have|von\s+vorteil|wuenschenswert|wunschenswert|souhait[eé]|atout|un\s+plus|preferibil\w*|costituisce\s+un\s+plus)\b/i;
+const HARD_QUALIFICATION_HEADING_RE = /^(?:required\s+)?(?:qualifications?|requirements?|essential\s+criteria|your\s+profile|votre\s+profil|il\s+tuo\s+profilo?|candidate\s+profile|profile\s+requirements|what\s+you\s+bring|requisiti(?:\s+richiesti)?|qualifiche|profilo\s+richiesto|anforderungen|qualifikationen|voraussetzungen|ihr\s+profil|profil\s+recherche|profil\s+recherch[eé]|conditions\s+requises|exigences|criteres?\s+requis)(?:\s+(?:and|&|\/)\s+(?:experience|skills|requirements?))?\s*:?$/i;
+const OPTIONAL_QUALIFICATION_HEADING_RE = /^(?:optional(?:\w*|\s+(?:qualifications?|requirements?|skills?|criteria?))?|opzional[ei](?:\s+(?:requisiti|qualifiche|competenze))?|facultatif(?:s)?|facultativ(?:e|es)|qualifications?\s+facultatives?|exigences?\s+facultatives?|requisiti\s+opzionali|optionale?\s+(?:anforderungen|qualifikationen|kenntnisse|faehigkeiten))\s*:?$/i;
+const OTHER_SECTION_HEADING_RE = /^(?:your\s+tasks?|your\s+responsibilities|tasks?|responsibilities|job\s+description|about\s+(?:us|the\s+company)|our\s+company|our\s+mission|our\s+offer|what\s+we\s+offer|benefits|nice\s+to\s+have|preferred\s+qualifications?|desirable\s+skills|aufgaben|taetigkeiten|ihre\s+aufgaben|wir\s+bieten|vorteile|wuenschenswert|wunschprofil|missions?|votre\s+mission|vos\s+missions|votre\s+quotidien|votre\s+environnement|nos\s+missions|vos\s+avantages|nous\s+offrons|atouts|responsabilites|cosa\s+offriamo|offriamo|la\s+tua\s+missione|le\s+tue\s+attivita|le\s+vostre\s+attivita|mansioni|compiti|responsabilita|costituisce\s+un\s+plus)\s*:?$/i;
+const PREFERENCE_CUE_RE = /\b(?:advantage|preferred|desirable|nice\s+to\s+have|optional|opzional\w*|facultatif\w*|facultativ\w*|nicht\s+obligatorisch|nicht\s+erforderlich|not\s+mandatory|not\s+required|von\s+vorteil|wuenschenswert|wunschenswert|souhait[eé]|atout|un\s+plus|a\s+plus|an\s+optional\s+requirement|preferibil\w*|costituisce\s+un\s+plus)\b/i;
 const APPLICATION_METHOD_ONLY_RE = /\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,30}\b(?:online|portal|website|email)\s+only\b|\b(?:apply|applications?|submit(?:ted)?|application)\b[^.!?]{0,15}\bonly\s+(?:online|through|via|by\s+email)\b/i;
 
 function normalizeEligibilityEvidence(value) {
@@ -170,12 +171,13 @@ function isHardEligibilityStatement(statement) {
 function postingEligibilityStatements(postingText) {
   const result = [];
   let underQualificationHeading = false;
+  let underOptionalHeading = false;
   let block = '';
   const flush = () => {
     if (!block.trim()) return;
     const sentences = block.split(/(?<=[.!?])\s+/u).map(normalizeEligibilityEvidence).filter(Boolean);
     for (const statement of sentences) {
-      const headingRequires = underQualificationHeading && !PREFERENCE_CUE_RE.test(statement);
+      const headingRequires = underQualificationHeading && !underOptionalHeading && !PREFERENCE_CUE_RE.test(statement);
       if (headingRequires || isHardEligibilityStatement(statement)) result.push(statement);
     }
     block = '';
@@ -189,20 +191,34 @@ function postingEligibilityStatements(postingText) {
     }
     const heading = normalizeEligibilityEvidence(line.replace(/^#+\s*/, '')).replace(/:$/, '').trim();
     const inlineHeading = /^(.{1,80}?)(?:\s*[:–—-]\s+)(.+)$/.exec(line);
+    if (inlineHeading && OPTIONAL_QUALIFICATION_HEADING_RE.test(normalizeEligibilityEvidence(inlineHeading[1].replace(/^#+\s*/, '')))) {
+      flush();
+      underOptionalHeading = true;
+      block = inlineHeading[2].trim();
+      continue;
+    }
     if (inlineHeading && HARD_QUALIFICATION_HEADING_RE.test(normalizeEligibilityEvidence(inlineHeading[1].replace(/^#+\s*/, '')))) {
       flush();
       underQualificationHeading = true;
+      underOptionalHeading = false;
       block = inlineHeading[2].trim();
+      continue;
+    }
+    if (OPTIONAL_QUALIFICATION_HEADING_RE.test(heading)) {
+      flush();
+      underOptionalHeading = true;
       continue;
     }
     if (HARD_QUALIFICATION_HEADING_RE.test(heading)) {
       flush();
       underQualificationHeading = true;
+      underOptionalHeading = false;
       continue;
     }
     if (OTHER_SECTION_HEADING_RE.test(heading)) {
       flush();
       underQualificationHeading = false;
+      underOptionalHeading = false;
       if (line.endsWith(':')) continue;
     }
     if (/^\s*(?:[-*•▪◦–—]|\d+[.)])\s+/.test(rawLine)) flush();
