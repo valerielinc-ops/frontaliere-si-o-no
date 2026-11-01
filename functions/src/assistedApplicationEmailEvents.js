@@ -50,6 +50,11 @@ const LAST_AT = {
   complaint: 'complainedAt',
 };
 const PAYMENT_RECOVERY_DIGEST_RE = /^digest-[A-Za-z0-9_-]{1,64}$/;
+const TERMINAL_DELIVERY_STATUSES = new Set(['delivered', 'bounced', 'complained']);
+
+export function hasTerminalDeliveryEvidence(status) {
+  return TERMINAL_DELIVERY_STATUSES.has(status);
+}
 
 function campaignId(prefix, identifier, key) {
   const cleanIdentifier = String(identifier || '').replace(/[^A-Za-z0-9_-]/g, '') || 'unknown';
@@ -189,6 +194,13 @@ export async function recordAssistedEmailEvent(db, { campaign, type, provider, m
   if (link) update[`${base}.lastClickUrl`] = link;
   const notificationBase = `notifications.${target.key}`;
   const currentDeliveryStatus = order.get(`${notificationBase}.deliveryStatus`);
+  if (target.serviceId && ['send', 'delivered', 'bounce', 'complaint'].includes(eventType)) {
+    // A provider event is durable evidence that the claimed receipt reached
+    // the provider. Close a claim that was still `sending` before a webhook
+    // arrived, so the backstop cannot send it a second time.
+    update[`${notificationBase}.status`] = 'sent';
+    update[`${notificationBase}.providerStatus`] = 'accepted';
+  }
   if (eventType === 'send') {
     update[`${notificationBase}.providerStatus`] = 'accepted';
     update[`${notificationBase}.providerAcceptedAt`] = at;

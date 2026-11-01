@@ -32,7 +32,7 @@ import {
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
 } from './assistedApplicationConstants.js';
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
-import { assistedEmailTracking, conciergeEmailTracking } from './assistedApplicationEmailEvents.js';
+import { assistedEmailTracking, conciergeEmailTracking, hasTerminalDeliveryEvidence } from './assistedApplicationEmailEvents.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 import { mintAutologinCode, resolveAutologinPolicy } from './lib/autologinCode.js';
 import { makeAuthenticatedUrl } from './lib/newsletterUrls.js';
@@ -1075,17 +1075,42 @@ function orderRefFor(db, orderId) {
   return db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
 }
 
-async function claimNotification(db, orderRef, key, nowMs, { force = false, eligible = null } = {}) {
+async function claimNotification(db, orderRef, key, nowMs, { force = false, eligible = null, ambiguousStaleSend = false } = {}) {
   return db.runTransaction(async (transaction) => {
     const snapshot = await transaction.get(orderRef);
     if (!snapshot.exists) return { ok: false, reason: 'order_not_found' };
     const order = snapshot.data() || {};
     if (eligible && !(await eligible(order, transaction))) return { ok: false, reason: 'ineligible' };
     const current = order.notifications?.[key] || null;
+    if (hasTerminalDeliveryEvidence(current?.deliveryStatus)) {
+      if (current.status !== 'sent' || current.providerStatus !== 'accepted') {
+        transaction.set(orderRef, {
+          notifications: {
+            [key]: { status: 'sent', providerStatus: 'accepted' },
+          },
+        }, { merge: true });
+      }
+      return { ok: false, reason: `already_${current.deliveryStatus}`, order };
+    }
     if (current?.status === 'sent' || current?.status === 'ambiguous') {
       return { ok: false, reason: `already_${current.status}`, order };
     }
     const claimedAt = timestampMillis(current?.claimedAt);
+    const staleSendingClaim = current?.status === 'sending'
+      && (!claimedAt || nowMs - claimedAt >= CLAIM_TTL_MS);
+    if (ambiguousStaleSend && staleSendingClaim) {
+      transaction.set(orderRef, {
+        notifications: {
+          [key]: {
+            status: 'ambiguous',
+            providerStatus: current.providerStatus === 'accepted' ? 'accepted' : 'unknown',
+            deliveryStatus: current.deliveryStatus || 'unknown',
+            ambiguousAt: new Date(nowMs),
+          },
+        },
+      }, { merge: true });
+      return { ok: false, reason: 'stale_send_outcome_unknown', order };
+    }
     if (!force && current?.status === 'sending' && claimedAt && nowMs - claimedAt < CLAIM_TTL_MS) {
       return { ok: false, reason: 'in_flight', order };
     }
@@ -1102,8 +1127,25 @@ async function claimNotification(db, orderRef, key, nowMs, { force = false, elig
   });
 }
 
-async function markNotification(orderRef, key, fields) {
-  await orderRef.set({ notifications: { [key]: fields } }, { merge: true });
+async function markNotification(db, orderRef, key, fields) {
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(orderRef);
+    if (!snapshot.exists) return;
+    const current = snapshot.data()?.notifications?.[key] || {};
+    const terminalDelivery = hasTerminalDeliveryEvidence(current.deliveryStatus);
+    transaction.set(orderRef, {
+      notifications: {
+        [key]: {
+          ...fields,
+          ...(terminalDelivery ? {
+            status: 'sent',
+            providerStatus: 'accepted',
+            deliveryStatus: current.deliveryStatus,
+          } : {}),
+        },
+      },
+    }, { merge: true });
+  });
 }
 
 async function ensureEmailProviders() {
@@ -1139,7 +1181,10 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     if (!snapshot.exists) return { ok: false, key, reason: 'order_not_found' };
     order = snapshot.data() || {};
   } else {
-    const claim = await claimNotification(db, orderRef, key, nowMs, { eligible });
+    const claim = await claimNotification(db, orderRef, key, nowMs, {
+      eligible,
+      ambiguousStaleSend: Boolean(recordRef),
+    });
     if (!claim.ok) return { ok: false, key, skipped: true, reason: claim.reason };
     order = claim.order;
   }
@@ -1149,7 +1194,7 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     : (isCustomerAudience(key, audience) ? customerEmailFor(order) : ASSISTED_APPLICATION_OWNER_EMAIL);
   if (!to) {
     if (!testMode) {
-      await markNotification(orderRef, key, {
+      await markNotification(db, orderRef, key, {
         status: 'failed', providerStatus: 'failed', deliveryStatus: 'unknown',
         lastError: 'no_recipient', failedAt: new Date(nowMs),
       });
@@ -1159,7 +1204,7 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
 
   if (!(await ensureEmailProviders())) {
     if (!testMode) {
-      await markNotification(orderRef, key, {
+      await markNotification(db, orderRef, key, {
         status: 'failed', providerStatus: 'failed', deliveryStatus: 'unknown',
         lastError: 'no_email_provider_configured', failedAt: new Date(nowMs),
       });
@@ -1203,7 +1248,7 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
 
   if (failed.length > 0) {
     const status = failed[0].ambiguousDelivery ? 'ambiguous' : 'failed';
-    await markNotification(orderRef, key, {
+    await markNotification(db, orderRef, key, {
       status,
       providerStatus: failed[0].ambiguousDelivery ? 'unknown' : 'failed',
       deliveryStatus: 'unknown',
@@ -1214,7 +1259,7 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
   }
 
   const outcome = sent[0] || {};
-  await markNotification(orderRef, key, {
+  await markNotification(db, orderRef, key, {
     status: ambiguous.length > 0 ? 'ambiguous' : 'sent',
     // A successful provider response proves acceptance by that provider, not
     // delivery to the recipient. Delivery remains unknown until a webhook.
@@ -1309,6 +1354,7 @@ export async function sendPendingPaymentDigest({
 
 /** Never delivered, failed, or claimed by a process that died mid-send. */
 export function notificationNeedsRetry(entry, nowMs = Date.now()) {
+  if (hasTerminalDeliveryEvidence(entry?.deliveryStatus)) return false;
   if (!entry || entry.status === 'failed') return true;
   return entry.status === 'sending' && nowMs - (timestampMillis(entry.claimedAt) || 0) >= CLAIM_TTL_MS;
 }
