@@ -173,7 +173,7 @@ describe('Ticino pharmacy PDF source fallback', () => {
   });
 
   it('uses the dated PDF linked by the official page after both static transports fail', async () => {
-    const discoveredUrl = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf';
+    const discoveredUrl = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20261026.pdf';
     const calls: string[] = [];
     const exhausted = () => Object.assign(new Error('source timeout'), { retryBudgetExhausted: true });
     const fetchSource = vi.fn(async (url: string) => {
@@ -182,7 +182,7 @@ describe('Ticino pharmacy PDF source fallback', () => {
       throw exhausted();
     });
     const fetchDirectory = vi.fn(async () => (
-      `<a href="/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf">Farmacie</a>`
+      `<a href="/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20261026.pdf">Farmacie</a>`
     ));
 
     await expect(fetchTicinoPdfDocument(fetchSource, fetchDirectory)).resolves.toEqual({
@@ -201,14 +201,12 @@ describe('Ticino pharmacy PDF source fallback', () => {
 
   it('falls back after both legacy URLs return 404 and chooses the newest dated PDF', async () => {
     const olderUrl = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20250101.pdf';
-    const newerUrl = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf';
+    const newerUrl = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20261026.pdf';
     const calls: string[] = [];
     const fetchSource = vi.fn(async (url: string) => {
       calls.push(url);
-      if (url === TICINO_PHARMACY_PDF_URL || url === TICINO_PHARMACY_PDF_MIRROR_URL) {
-        throw Object.assign(new Error('HTTP 404'), { status: 404 });
-      }
-      return Buffer.from('%PDF');
+      if (url === newerUrl) return Buffer.from('%PDF');
+      throw Object.assign(new Error('HTTP 404'), { status: 404 });
     });
     const fetchDirectory = vi.fn(async () => (
       `<a href="${newerUrl}">current</a><a href="${olderUrl}">old</a>`
