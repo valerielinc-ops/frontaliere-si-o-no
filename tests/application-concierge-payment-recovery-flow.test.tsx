@@ -385,6 +385,7 @@ it('refreshes completed proposals immediately when the user returns to the conci
 
 it('ignores a late settled refresh after switching to another concierge service', async () => {
   const restoreVisibility = makeDocumentVisible();
+  const focusListener = vi.spyOn(window, 'addEventListener');
   const oldService = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'complete', proposals: [] };
   const currentService = {
     ...oldService, serviceId: 'service-current',
@@ -410,6 +411,7 @@ it('ignores a late settled refresh after switching to another concierge service'
   try {
     const view = render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
     expect(await screen.findByText('jobBoard.concierge.noProposals')).toBeTruthy();
+    await waitFor(() => expect(focusListener).toHaveBeenCalledWith('focus', expect.any(Function)));
     fireEvent.focus(window);
     await waitFor(() => expect(mocks.fetchService).toHaveBeenCalledTimes(2));
 
@@ -425,6 +427,7 @@ it('ignores a late settled refresh after switching to another concierge service'
     expect(screen.getByText('Current service proposal')).toBeTruthy();
     expect(screen.queryByText('Stale service proposal')).toBeNull();
   } finally {
+    focusListener.mockRestore();
     restoreVisibility();
   }
 });
