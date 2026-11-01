@@ -47,6 +47,51 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+function hasAnkerSwissLocationEvidence(record = {}) {
+  const values = [
+    record?.location,
+    record?.addressLocality,
+    record?.addressRegion,
+    record?.addressCountry,
+    record?.country,
+    record?.postalCode,
+    record?.streetAddress,
+    ...(Array.isArray(record?.locationCandidates) ? record.locationCandidates : []),
+    ...(Array.isArray(record?.workplaceLabels) ? record.workplaceLabels : []),
+  ];
+  return values.some((value) => {
+    if (Array.isArray(value)) return value.some((entry) => hasAnkerSwissLocationEvidence(entry));
+    if (value && typeof value === 'object') return Object.values(value).some((entry) => (
+      String(entry || '').trim().length > 0
+    ));
+    return String(value || '').trim().length > 0;
+  });
+}
+
+/**
+ * Anker's national board can publish a fully structured vacancy without a
+ * workplace. Those rows are an intentional source filter: they cannot satisfy
+ * the site's source-backed job geography contract, but they also must not make
+ * an otherwise complete source snapshot look like parser drift. Require the
+ * same absence of location evidence on the listing and detail response so a
+ * detail-only extraction regression remains fail-closed.
+ */
+export function isAnkerSwissExpectedDetailFilter({
+  reason,
+  row,
+  detail,
+  decision,
+  descriptionSufficient,
+} = {}) {
+  return reason === 'geography'
+    && !decision?.geography
+    && decision?.explicitlyForeign !== true
+    && detail?.hasStructuredVacancy === true
+    && descriptionSufficient === true
+    && !hasAnkerSwissLocationEvidence(row)
+    && !hasAnkerSwissLocationEvidence(detail);
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -219,6 +264,7 @@ async function fetchJobListings() {
   return runSpecInProduction(spec, {
     hostDelayMs: ANKER_SWISS_HOST_DELAY_MS,
     detailExtractor: extractAnkerSwissDetailFields,
+    isExpectedDetailFilter: isAnkerSwissExpectedDetailFilter,
   });
 }
 
