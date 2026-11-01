@@ -5,7 +5,7 @@ import { parseEmployerResponse, type EmployerResponse } from '@/services/assiste
 
 export function AssistedApplicationEmployerResponse({ response, timeline = [], compact = false }: { response?: EmployerResponse | null; timeline?: EmployerResponse[]; compact?: boolean }) {
   const { t, locale } = useTranslation();
-  const updates = (timeline.length ? timeline : [response])
+  const updates = (Array.isArray(timeline) && timeline.length ? timeline : [response])
     .map(parseEmployerResponse)
     .filter((value): value is EmployerResponse => Boolean(value));
   const update = updates.at(-1) || parseEmployerResponse(response);
