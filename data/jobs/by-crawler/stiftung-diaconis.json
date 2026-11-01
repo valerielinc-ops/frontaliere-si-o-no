@@ -1,7 +1,7 @@
 {
   "crawlerKey": "stiftung-diaconis",
-  "assembledAt": "2026-10-31T21:36:05.344Z",
-  "runId": "41242099764",
+  "assembledAt": "2026-11-01T09:16:08.708Z",
+  "runId": "41291723109",
   "jobs": [
     {
       "id": "stiftung-diaconis-5df1a11d-6416-2f55-5201-fc2cd80bf0f2",
@@ -35,7 +35,7 @@
       "url": "https://karriere.diaconis.ch/job-advertisement/5df1a11d-6416-2f55-5201-fc2cd80bf0f2",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus JobPortal API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:57.180Z",
+      "crawledAt": "2026-11-01T09:15:59.545Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -77,7 +77,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:15:59.545Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-diaconis-99bcf736-66b9-39b4-93cf-97eb700871e7",
@@ -111,7 +115,7 @@
       "url": "https://karriere.diaconis.ch/job-advertisement/99bcf736-66b9-39b4-93cf-97eb700871e7",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus JobPortal API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:57.179Z",
+      "crawledAt": "2026-11-01T09:15:59.542Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -153,7 +157,11 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:15:59.542Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-diaconis-62d33501-bdb3-b0de-2ea9-55304055cfbd",
@@ -186,7 +194,7 @@
       "url": "https://karriere.diaconis.ch/job-advertisement/62d33501-bdb3-b0de-2ea9-55304055cfbd",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus JobPortal API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:57.178Z",
+      "crawledAt": "2026-11-01T09:15:59.541Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -228,7 +236,11 @@
           "maxValue": 62300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:15:59.541Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-diaconis-35465e64-b5bf-69f9-625e-bd98e9e83736",
@@ -262,7 +274,7 @@
       "url": "https://karriere.diaconis.ch/job-advertisement/35465e64-b5bf-69f9-625e-bd98e9e83736",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus JobPortal API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:57.177Z",
+      "crawledAt": "2026-11-01T09:15:59.540Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -304,7 +316,11 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:59.540Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-diaconis-ee1fe737-9df1-5ccf-0f57-c0b41510f439",
@@ -337,7 +353,7 @@
       "url": "https://karriere.diaconis.ch/job-advertisement/ee1fe737-9df1-5ccf-0f57-c0b41510f439",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus JobPortal API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:57.176Z",
+      "crawledAt": "2026-11-01T09:15:59.539Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -377,7 +393,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:59.539Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-diaconis-1af4080c-9269-2f38-98ff-d775a02775b2",
@@ -411,7 +431,7 @@
       "url": "https://karriere.diaconis.ch/job-advertisement/1af4080c-9269-2f38-98ff-d775a02775b2",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus JobPortal API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:57.174Z",
+      "crawledAt": "2026-11-01T09:15:59.538Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -453,7 +473,11 @@
           "maxValue": 71400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:59.538Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-diaconis-97a99c14-3bba-3aa8-8038-a8905699bc0e",
@@ -486,7 +510,7 @@
       "url": "https://karriere.diaconis.ch/job-advertisement/97a99c14-3bba-3aa8-8038-a8905699bc0e",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus JobPortal API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:57.173Z",
+      "crawledAt": "2026-11-01T09:15:59.534Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -526,7 +550,11 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:59.534Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-diaconis-a5b57d4f-9336-77c3-a47c-0fc269a09aee",
@@ -559,7 +587,7 @@
       "url": "https://karriere.diaconis.ch/job-advertisement/a5b57d4f-9336-77c3-a47c-0fc269a09aee",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus JobPortal API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:57.171Z",
+      "crawledAt": "2026-11-01T09:15:59.532Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -601,7 +629,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:15:59.532Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-diaconis-c825bf7d-ff72-3449-8620-323c21dcb535",
@@ -635,7 +667,7 @@
       "url": "https://karriere.diaconis.ch/job-advertisement/c825bf7d-ff72-3449-8620-323c21dcb535",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus JobPortal API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:57.170Z",
+      "crawledAt": "2026-11-01T09:15:59.529Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -675,7 +707,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:59.529Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-diaconis-c8eb7ea5-8b68-bf58-9d0e-eedccbebffa0",
@@ -708,7 +744,7 @@
       "url": "https://karriere.diaconis.ch/job-advertisement/c8eb7ea5-8b68-bf58-9d0e-eedccbebffa0",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus JobPortal API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:57.169Z",
+      "crawledAt": "2026-11-01T09:15:59.528Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -748,7 +784,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:59.528Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-diaconis-c59fe3c8-b92c-9b47-43e3-c0bf719e8356",
@@ -782,7 +822,7 @@
       "url": "https://karriere.diaconis.ch/job-advertisement/c59fe3c8-b92c-9b47-43e3-c0bf719e8356",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus JobPortal API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:57.168Z",
+      "crawledAt": "2026-11-01T09:15:59.527Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -824,7 +864,11 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:59.527Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stiftung-diaconis-88f1a745-1e9a-5f04-2641-d68ada70c361",
@@ -857,7 +901,7 @@
       "url": "https://karriere.diaconis.ch/job-advertisement/88f1a745-1e9a-5f04-2641-d68ada70c361",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus JobPortal API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:57.167Z",
+      "crawledAt": "2026-11-01T09:15:59.525Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -897,7 +941,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:59.525Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
