@@ -1,7 +1,7 @@
 {
   "key": "csl-behring",
   "label": "CSL Behring",
-  "generatedAt": "2026-10-31T22:05:50.695Z",
+  "generatedAt": "2026-11-01T09:43:36.228Z",
   "total": 12,
   "discovered": null,
   "parsed": 12,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 27521,
-  "avgDurationMs": 27521,
+  "durationMs": 43857,
+  "avgDurationMs": 43857,
   "durationHistory": [
-    27521
+    43857
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Director--Policy--Advocacy-and-Government-Affairs-Switzerland_R-280279-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:37.902Z",
+      "crawledAt": "2026-11-01T09:43:20.214Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -59,12 +59,16 @@
       "salaryMax": 160000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 92,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:20.214Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -80,7 +84,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Glbl-Principal-Clinical-Scientist-Cardio_R-283631",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:37.170Z",
+      "crawledAt": "2026-11-01T09:43:19.477Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -102,12 +106,16 @@
       "salaryMax": 172000,
       "salarySource": "estimated",
       "postalCode": "8152",
-      "_qualityScore": 90,
+      "streetAddress": "Glattbrugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:19.477Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -122,7 +130,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-EHS-Expert---Risk-Management---Technical-Safety--f-m-d-_R-274754",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:36.492Z",
+      "crawledAt": "2026-11-01T09:43:18.753Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -144,12 +152,16 @@
       "salaryMax": 160000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 92,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:18.753Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -165,7 +177,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-EHS-Expert--f-m-d-_R-274753",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:35.810Z",
+      "crawledAt": "2026-11-01T09:43:18.023Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -187,12 +199,16 @@
       "salaryMax": 160000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 92,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:18.023Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -207,7 +223,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Senior-Director--Search---Evaluation-Late-TA-Lead--Immunology_R-289516-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:35.122Z",
+      "crawledAt": "2026-11-01T09:43:16.939Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -229,12 +245,16 @@
       "salaryMax": 173000,
       "salarySource": "estimated",
       "postalCode": "8152",
-      "_qualityScore": 92,
+      "streetAddress": "Glattbrugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:16.939Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -249,7 +269,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Schlieren-CSL-Behring/Associate-Director--Research-Biostatistics_R-288579-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:33.731Z",
+      "crawledAt": "2026-11-01T09:42:58.992Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -271,12 +291,16 @@
       "salaryMax": 172000,
       "salarySource": "estimated",
       "postalCode": "8952",
-      "_qualityScore": 90,
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:42:58.992Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -291,7 +315,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Senior-Scientist--Quantitative-Modeling---PK_R-290868",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:30.802Z",
+      "crawledAt": "2026-11-01T09:42:56.292Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -313,12 +337,16 @@
       "salaryMax": 172000,
       "salarySource": "estimated",
       "postalCode": "8152",
-      "_qualityScore": 92,
+      "streetAddress": "Glattbrugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:42:56.292Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -333,7 +361,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Associate-Director--Analytical-Strategy_R-288583-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:27.724Z",
+      "crawledAt": "2026-11-01T09:42:53.486Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -355,12 +383,16 @@
       "salaryMax": 160000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 92,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:42:53.486Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -375,7 +407,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Team-Lead--Global-Regulatory-Affairs-CMC_R-275677",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:26.357Z",
+      "crawledAt": "2026-11-01T09:42:52.108Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -397,12 +429,16 @@
       "salaryMax": 209000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 92,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:42:52.108Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -418,7 +454,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Regional-Regulatory-Lead_R-291104",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:24.968Z",
+      "crawledAt": "2026-11-01T09:42:50.774Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -440,12 +476,16 @@
       "salaryMax": 225500,
       "salarySource": "estimated",
       "postalCode": "8152",
-      "_qualityScore": 92,
+      "streetAddress": "Glattbrugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:42:50.774Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -461,7 +501,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Director--f-m-x--Global-Procurement---Logistics---Warehousing_R-293487",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:24.255Z",
+      "crawledAt": "2026-11-01T09:42:49.808Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -483,12 +523,16 @@
       "salaryMax": 143000,
       "salarySource": "estimated",
       "postalCode": "3004",
-      "_qualityScore": 92,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:42:49.808Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -503,7 +547,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Senior-Pharmacovigilance-Scientist--f-m-d----Post-marketing-products_R-293519",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:05:21.326Z",
+      "crawledAt": "2026-11-01T09:42:47.211Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -525,14 +569,18 @@
       "salaryMax": 172000,
       "salarySource": "estimated",
       "postalCode": "8152",
-      "_qualityScore": 92,
+      "streetAddress": "Glattbrugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:42:47.211Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

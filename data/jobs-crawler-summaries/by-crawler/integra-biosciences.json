@@ -1,7 +1,7 @@
 {
   "key": "integra-biosciences",
   "label": "INTEGRA Biosciences",
-  "generatedAt": "2026-10-31T22:02:12.263Z",
+  "generatedAt": "2026-11-01T09:42:38.344Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 25825,
-  "avgDurationMs": 25825,
+  "durationMs": 17017,
+  "avgDurationMs": 17017,
   "durationHistory": [
-    25825
+    17017
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/347/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:02:00.954Z",
+      "crawledAt": "2026-11-01T09:42:22.400Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -63,6 +63,9 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-20T09:42:22.400Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -83,7 +86,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/346/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:59.365Z",
+      "crawledAt": "2026-11-01T09:42:20.748Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -109,6 +112,9 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "addressRegion": "GR",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-17T09:42:20.748Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -129,7 +135,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:57.774Z",
+      "crawledAt": "2026-11-01T09:42:19.168Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -155,6 +161,9 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "addressRegion": "GR",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:42:19.168Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -175,7 +184,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/344/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:55.958Z",
+      "crawledAt": "2026-11-01T09:42:17.791Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -201,6 +210,9 @@
       "salaryMax": 105000,
       "salarySource": "estimated",
       "addressRegion": "GR",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-27T09:42:17.791Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -221,7 +233,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/343/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:54.370Z",
+      "crawledAt": "2026-11-01T09:42:16.196Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -247,6 +259,9 @@
       "salaryMax": 52200,
       "salarySource": "estimated",
       "addressRegion": "GR",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-16T09:42:16.196Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -267,7 +282,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/341/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:52.870Z",
+      "crawledAt": "2026-11-01T09:42:14.523Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -293,6 +308,9 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-06T09:42:14.523Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -313,7 +331,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/331/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:51.222Z",
+      "crawledAt": "2026-11-01T09:42:12.938Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -340,6 +358,9 @@
       "salaryMax": 140000,
       "salarySource": "estimated",
       "addressRegion": "GR",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:42:12.938Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -360,7 +381,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/330/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:48.883Z",
+      "crawledAt": "2026-11-01T09:42:11.215Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -386,6 +407,9 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "addressRegion": "GR",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:42:11.215Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -395,5 +419,5 @@
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

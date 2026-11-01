@@ -1,7 +1,7 @@
 {
   "key": "klinik-susenberg",
   "label": "Klinik Susenberg",
-  "generatedAt": "2026-10-31T22:01:49.636Z",
+  "generatedAt": "2026-11-01T09:39:45.207Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 6930,
-  "avgDurationMs": 6930,
+  "durationMs": 7160,
+  "avgDurationMs": 7160,
   "durationHistory": [
-    6930
+    7160
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/00-Unterassistent_Oktober-Dezember_2026-10-22.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:36.948Z",
+      "crawledAt": "2026-11-01T09:39:26.848Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -60,6 +60,9 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-01T09:39:26.848Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,7 +83,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/06-Koch_Koechin-EFZ-Erfahrung-im-Diaetbereich_80-100_2026-10-16.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:36.777Z",
+      "crawledAt": "2026-11-01T09:39:26.712Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -103,6 +106,9 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-15T09:39:26.712Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -123,7 +129,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/05-Diaetkoch_Diaetkoechin_80_2026-10-16.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:36.583Z",
+      "crawledAt": "2026-11-01T09:39:26.528Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -146,6 +152,9 @@
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-15T09:39:26.528Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -167,7 +176,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/04-Stv._Leitung_Gastronomie_80-100_2026-10-16.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:36.386Z",
+      "crawledAt": "2026-11-01T09:39:26.358Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -190,6 +199,9 @@
       "salaryMin": 97500,
       "salaryMax": 122500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-15T09:39:26.358Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -210,7 +222,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-Berufsbildner-in_HF_FH-40-60-2026-08-28.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:36.196Z",
+      "crawledAt": "2026-11-01T09:39:26.200Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -233,6 +245,9 @@
       "salaryMin": 54900,
       "salaryMax": 76800,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:39:26.200Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -254,7 +269,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson_HF_FH_mit_Zusatzfunktion_BB_80-100_2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:35.985Z",
+      "crawledAt": "2026-11-01T09:39:26.015Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -277,6 +292,9 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:39:26.015Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -297,7 +315,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:35.649Z",
+      "crawledAt": "2026-11-01T09:39:25.760Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -320,6 +338,9 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:39:25.760Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -340,7 +361,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/03-Arztsekretaerin_80-100-2026-10-14.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:01:35.375Z",
+      "crawledAt": "2026-11-01T09:39:25.451Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -363,6 +384,9 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-13T09:39:25.451Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -372,5 +396,5 @@
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }
