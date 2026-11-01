@@ -1383,8 +1383,7 @@
       }
       case 'search-select': {
         // Type, search with Enter, pick the option the answer names, else the one that contains it.
-        setValue(element, String(answer.value).slice(0, 60));
-        fire(element, 'keydown', { key: 'Enter', code: 'Enter' });
+        const query = String(answer.value).slice(0, 60);
         const wanted = normalize(answer.value);
         const findOption = () => {
           const options = openOptions(element.ownerDocument);
@@ -1393,21 +1392,26 @@
           const containing = options.filter((item) => normalize(item.label).includes(wanted));
           return containing.length === 1 ? containing[0] : null;
         };
-        const chooseOpenOption = async () => {
-          const option = await waitFor(findOption);
-          if (!option) return false;
-          press(option.element);
-          return Boolean(await waitFor(() => !isEmpty(entry)));
-        };
-        if (await chooseOpenOption()) return true;
-        if (chosenPills(element).length) return true;
-        // Some Workday tenants close/redraw the popup while swallowing the
-        // first synthetic press. Reopen the same query once, then verify the
-        // portal-owned pill; never toggle a choice that already committed.
-        if (!openOptions(element.ownerDocument).length) {
+        const open = async () => {
+          setValue(element, query);
           fire(element, 'keydown', { key: 'Enter', code: 'Enter' });
+          return waitFor(findOption);
+        };
+        let option = await open();
+        if (!option) return false;
+        // Some Workday tenants leave the option node mounted while the first
+        // synthetic press is swallowed during the popup redraw. Others close
+        // the popup and replace it without committing a pill. Retry once with
+        // a fresh option, reopening the query only when the popup disappeared;
+        // the pill remains the only proof that the choice was accepted.
+        for (let attempt = 0; attempt < 2; attempt += 1) {
+          press(option.element);
+          if (await waitFor(() => !isEmpty(entry))) return true;
+          if (attempt === 1) return false;
+          option = await waitFor(findOption) || await open();
+          if (!option) return false;
         }
-        return chooseOpenOption();
+        return false;
       }
       case 'date':
         return chooseDate(element, answer.value);
