@@ -68,6 +68,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          filter: blob:none
         timeout-minutes: 40
 
       - name: Prefetch historical job-slice blobs in one pack
