@@ -29,10 +29,10 @@
 // literals) so the suite can never rot.
 
 import { describe, expect, it } from 'vitest';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, resolve, dirname } from 'node:path';
+import { delimiter, join, resolve, dirname } from 'node:path';
 import { digestDocument } from '../scripts/lib/crawler-generation-contract.mjs';
 import { localeRouteKeys } from '../scripts/lib/expired-jobs-archive.mjs';
 
@@ -251,6 +251,64 @@ describe('git-commit-data.sh 3-way merge — append-only slug/path registries (#
       expect(routes).toContain('de:shared-fachkraft-route');
     } finally {
       cleanup(h);
+    }
+  });
+
+  it('releases per-file isolated scratch while processing multiple expired slices', () => {
+    const h = initHarness();
+    const shimDir = mkdtempSync(join(tmpdir(), 'gcd-scratch-shim-'));
+    const rmLog = join(shimDir, 'rm.log');
+    const realRm = execFileSync('which', ['rm'], { encoding: 'utf8' }).trim();
+    const rmShim = join(shimDir, 'rm');
+    writeFileSync(
+      rmShim,
+      `#!/bin/bash
+for arg in "$@"; do
+  case "$arg" in
+    *crawler-commit-merge.*/*)
+      printf '%s\\n' "$arg" >> ${JSON.stringify(rmLog)}
+      ;;
+  esac
+done
+exec ${JSON.stringify(realRm)} "$@"
+`,
+      { mode: 0o755 },
+    );
+
+    const expiredPath = (crawler: string) => `data/jobs/expired/by-crawler/${crawler}.json`;
+    try {
+      for (const crawler of ['first', 'second']) writeJson(h.repoDir, expiredPath(crawler), [{ crawler, phase: 'base' }]);
+      commitAndPush(h.repoDir, 'seed expired slices');
+      for (const crawler of ['first', 'second']) writeJson(h.repoDir, expiredPath(crawler), [{ crawler, phase: 'updated' }]);
+
+      const result = spawnSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'scratch cleanup test'], {
+        cwd: h.repoDir,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          PATH: `${shimDir}${delimiter}${process.env.PATH ?? ''}`,
+          JOBS_SLICE_FILE: '',
+          DATA_PIPELINE_LEASE: '0',
+          SKIP_AI_TRANSLATION: '1',
+          SLUG_HISTORY_SUMMARY_FILE: join(h.repoDir, 'no-such-slug-history-summary.txt'),
+          GH_TOKEN: '',
+          GITHUB_TOKEN: '',
+          GITHUB_RUN_ID: '',
+          GITHUB_REPOSITORY: '',
+          GITHUB_OUTPUT: '',
+        },
+      });
+      const output = `${result.stdout}${result.stderr}`;
+      expect(result.status, output).toBe(0);
+
+      const removals = readFileSync(rmLog, 'utf8').split('\n').filter(Boolean);
+      const firstRemoval = removals.findIndex((entry) => entry.endsWith('/candidate/data/jobs/expired/by-crawler/first.json'));
+      const secondRemoval = removals.findIndex((entry) => entry.endsWith('/candidate/data/jobs/expired/by-crawler/second.json'));
+      expect(firstRemoval).toBeGreaterThanOrEqual(0);
+      expect(secondRemoval).toBeGreaterThan(firstRemoval);
+    } finally {
+      cleanup(h);
+      rmSync(shimDir, { recursive: true, force: true });
     }
   });
 
