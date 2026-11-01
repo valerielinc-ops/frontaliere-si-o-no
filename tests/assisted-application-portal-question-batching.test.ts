@@ -173,7 +173,16 @@ function portalRunSummary(result: any) {
   const steps = result.evidence.steps.map(({ step, fields, actions, redrawn, url, errors }: any) => ({
     step, fields, actions, redrawn, url, errors,
   }));
-  return JSON.stringify({ event: result.event, steps });
+  const report = result.evidence.stopReport;
+  const stopReport = report ? {
+    reason: report.reason,
+    step: report.step,
+    buttons: report.buttons,
+    fields: report.fields?.map(({ label, kind, required }: any) => ({ label, kind, required })),
+    errors: report.errors,
+    agent: report.agent,
+  } : undefined;
+  return JSON.stringify({ event: result.event, steps, stopReport });
 }
 
 describe('assisted portal question batching', () => {
