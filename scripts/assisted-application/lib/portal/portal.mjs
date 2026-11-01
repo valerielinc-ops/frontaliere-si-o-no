@@ -3390,6 +3390,17 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   const uploadIsSatisfied = (field) => Boolean(field
     && appliedRegistrationUploads.get(field.id)
     && appliedRegistrationUploads.get(field.id) === uploadControlKey(field));
+  const confirmRegistrationUpload = async (action, field, result) => {
+    if (!field || !result?.ok) return false;
+    const selectedPaths = documentPaths(ctx.files, action.document).slice(0, Number(result.files) || 1);
+    if (!selectedPaths.length) return false;
+    const confirmed = await uploadReceipt(page, locatorFor(page, field), selectedPaths, {
+      acceptedResponse: result.uploadAccepted === true,
+    }).catch(() => false);
+    if (!confirmed) return false;
+    appliedRegistrationUploads.set(action.fieldId, uploadControlKey(field));
+    return true;
+  };
   const knownAnswerMatches = (field, action) => {
     if (action.action === 'skip') return true;
     if (!field) return false;
@@ -3508,8 +3519,10 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const applied = await applyActions(page, registrationSnapshot.fields, [...plannedActions, ...passwordActions], ctx.files);
     for (const action of plannedActions.filter((item) => item.action === 'upload')) {
       const field = registrationSnapshot.fields.find((candidateField) => candidateField.id === action.fieldId);
-      if (field && applied.some((result) => result.fieldId === action.fieldId && result.ok)) {
-        appliedRegistrationUploads.set(action.fieldId, uploadControlKey(field));
+      const result = applied.find((item) => item.fieldId === action.fieldId);
+      if (!await confirmRegistrationUpload(action, field, result)) {
+        await parkRegistrationCredential('registration_document_upload_unconfirmed');
+        return noted({ handoff: 'portal_required_file_unhandled' });
       }
     }
     // After the fields: SuccessFactors opens its statement only for a chosen country.
@@ -3592,7 +3605,11 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       }
       for (const action of newlyRequiredActions.filter((item) => item.action === 'upload')) {
         const field = stableRegistrationSnapshot.fields.find((candidateField) => candidateField.id === action.fieldId);
-        if (field) appliedRegistrationUploads.set(action.fieldId, uploadControlKey(field));
+        const result = appliedAfterPrivacy.find((item) => item.fieldId === action.fieldId);
+        if (!await confirmRegistrationUpload(action, field, result)) {
+          await parkRegistrationCredential('registration_document_upload_unconfirmed');
+          return noted({ handoff: 'portal_required_file_unhandled' });
+        }
       }
       if (page.url() !== privacyUrl) {
         await parkRegistrationCredential('privacy_question_surface_moved');

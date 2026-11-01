@@ -23,9 +23,9 @@ function inWindow<T>(window: any, run: () => T): T {
   }
 }
 
-function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false, privacyRevealsRequiredFile = false, privacyRevealsKnownAnswer = false, uploadRevealsUnknown = false, passwordRevealsUnknown = false, asyncRevealsUnknown = false, asyncDescriptionChanges = false, asyncValueChanges = false } = {}) {
+function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false, privacyRevealsRequiredFile = false, privacyRevealsKnownAnswer = false, uploadRevealsUnknown = false, workdayUploadUnconfirmed = false, passwordRevealsUnknown = false, asyncRevealsUnknown = false, asyncDescriptionChanges = false, asyncValueChanges = false } = {}) {
   const privacyReveals = privacyRevealsUnknown || privacyRevealsRequiredFile || privacyRevealsKnownAnswer;
-  const url = 'https://careers.example.test/apply';
+  const url = workdayUploadUnconfirmed ? 'https://acme.wd1.myworkdayjobs.com/apply' : 'https://careers.example.test/apply';
   const uploadedReceipts = new Set<string>();
   let uploadQuestionRevealed = false;
   const credentials = registration
@@ -542,6 +542,49 @@ describe('assisted portal question batching', () => {
       'Which professional certification do you hold? *',
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
+  });
+
+  it('does not treat a Workday file selection without an upload receipt as complete', async () => {
+    const fixture = fakePage({ registration: true, uploadRevealsUnknown: true, workdayUploadUnconfirmed: true });
+    const { page, window, ctaClicks } = fixture;
+    let clock = realNow();
+    Date.now = () => clock;
+    const waitForTimeout = page.waitForTimeout;
+    page.waitForTimeout = async (ms: number) => {
+      clock += ms;
+      await waitForTimeout(ms);
+    };
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    const codex = async ({ prompt }: any) => {
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      return {
+        actions: [{ fieldId: fieldId('resume'), action: 'upload', document: 'cv', source: 'candidate_document', evidence: '' }],
+        missingRequired: [],
+      };
+    };
+    const accountEvents: string[] = [];
+    const result = await handleAuth({
+      page,
+      snapshot: await extractFields(page, { listboxOptions: false }),
+      ctx: {
+        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+        candidateLocale: 'en',
+        language: 'en',
+        files: { cv: '/tmp/cv.pdf' },
+        codex,
+        accounts: {
+          load: async () => null,
+          save: async () => { accountEvents.push('save'); },
+          mark: async () => { accountEvents.push('mark'); },
+          discard: async () => { accountEvents.push('discard'); },
+        },
+      },
+    });
+
+    expect(result.handoff).toBe('portal_required_file_unhandled');
+    expect(ctaClicks).toEqual([]);
+    expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
+    expect(accountEvents).toEqual(['discard']);
   });
 
   it('replans after a privacy-revealed known answer exposes another hard question', async () => {

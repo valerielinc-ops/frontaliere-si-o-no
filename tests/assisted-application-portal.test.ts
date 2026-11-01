@@ -7,6 +7,7 @@ import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER
 import { residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
+import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 
 const fields = [
   { id: 'f1', kind: 'text', label: 'First name', required: true },
@@ -1188,6 +1189,41 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(result).toEqual([{ fieldId: 'residence-country', ok: true }]);
     expect(optionClick).toHaveBeenCalledOnce();
     expect((frame.getByRole as any).mock.calls[0][1]).toEqual({ name: 'Switzerland', exact: true });
+  });
+
+  it('does not verify a stale value from the parent frame when an iframe reuses the same control id', async () => {
+    const pageUrl = 'https://workday.localhost/form';
+    const makeFrame = (value: string) => {
+      const field = { id: 'shared-control', kind: 'text', inputType: 'text', label: 'Candidate name', value, required: true, options: [] };
+      const snapshot = { url: pageUrl, title: '', fields: [field], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '' };
+      const control = {
+        fill: vi.fn(async () => {}),
+        inputValue: vi.fn(async () => value),
+        evaluate: vi.fn(async () => false),
+        click: vi.fn(async () => {}),
+        press: vi.fn(async () => {}),
+        pressSequentially: vi.fn(async () => {}),
+      };
+      return {
+        url: () => pageUrl,
+        evaluate: async (reader: unknown) => reader === extractFieldsInPage ? snapshot : null,
+        locator: () => ({ first: () => control }),
+      };
+    };
+    const parentFrame = makeFrame('Ada Example');
+    const applicationFrame = makeFrame('Different candidate');
+    const page = {
+      url: () => pageUrl,
+      frames: () => [parentFrame, applicationFrame],
+      mainFrame: () => parentFrame,
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await applyActions(page as any, [{
+      id: 'shared-control', kind: 'text', inputType: 'text', label: 'Candidate name', frame: 1, required: true,
+    }], [{ fieldId: 'shared-control', action: 'fill', value: 'Ada Example' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'shared-control', ok: false, error: 'choice_not_registered' }]);
   });
 
   it('passes split-phone metadata to the text boundary while keeping single inputs international', async () => {

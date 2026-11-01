@@ -218,8 +218,10 @@ const tidy = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').t
 /** What the field of that name and kind shows in a fresh reading of the page ('' when it is not there). */
 async function valueShownNow(page, field) {
   const fresh = await extractFields(page, { listboxOptions: false }).catch(() => null);
-  const current = fresh?.fields.find((candidate) => candidate.kind === field.kind && candidate.id === field.id)
-    || fresh?.fields.find((candidate) => candidate.kind === field.kind && candidate.label === field.label);
+  const frame = Number.isInteger(field.frame) ? field.frame : 0;
+  const inSameFrame = (candidate) => (Number.isInteger(candidate.frame) ? candidate.frame : 0) === frame;
+  const current = fresh?.fields.find((candidate) => inSameFrame(candidate) && candidate.kind === field.kind && candidate.id === field.id)
+    || fresh?.fields.find((candidate) => inSameFrame(candidate) && candidate.kind === field.kind && candidate.label === field.label);
   return String(current?.value || '');
 }
 
