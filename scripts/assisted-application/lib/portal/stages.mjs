@@ -21,6 +21,19 @@ const INCOMPLETE_APPLICATION_RE = new RegExp([
   String.raw`\bcandidatura\b.{0,120}\b(?:incomplet[ao]|non (?:è|e')\s+(?:ancora\s+)?(?:stata\s+)?(?:completat[ao]|inviat[ao]|complet[ao])|non (?:ancora\s+)?(?:completat[ao]|inviat[ao]|complet[ao])|da completare|continua|completa|prosegui)\b`,
 ].join('|'), 'iu');
 const DOCUMENT_ROLE_LABEL_RE = /\b(?:resume|cv|curriculum\s+vitae|lebenslauf)\s*\/\s*(?:resume|cv|curriculum\s+vitae|lebenslauf)\b|\bresume\s*(?:[*:])(?=\s|$)/gi;
+const APPLICATION_REFERENCE_RE = /\b(?:application|candidatur[ae]|bewerbung)\b/iu;
+const APPLICATION_ANAPHORIC_INCOMPLETE_RE = new RegExp([
+  String.raw`^\s*(?:(?:it|this|that)\s+)?(?:(?:is|remains|was)\s+)?(?:(?:still\s+)?(?:incomplete|unfinished)|not\s+(?:yet\s+)?(?:complete|finished|submitted|sent)|(?:still\s+)?(?:needs|requires)\s+completion)\b`,
+  String.raw`^\s*(?:sie|diese)\s+(?:(?:ist|bleibt|war)\s+)?(?:(?:noch\s+)?(?:unvollständig|unvollstaendig|unvollendet)|nicht\s+(?:vollständig|vollstaendig|abgeschlossen|eingereicht|gesendet|fertig))\b`,
+  String.raw`^\s*(?:questa\s+)?(?:(?:è|e')\s+(?:ancora\s+)?(?:incomplet[ao]|da\s+completare)|(?:non\s+è|non\s+e')\s+(?:ancora\s+)?(?:complet[ao]|(?:stata\s+)?completat[ao]|inviat[ao]))\b`,
+  String.raw`^\s*(?:elle|cette)\s+(?:(?:est|reste|était)\s+)?(?:(?:encore\s+)?(?:incomplète|inachevée)|n['’]est\s+pas\s+(?:encore\s+)?(?:complète|terminée|envoyée|soumise))(?=$|[^\p{L}\p{N}])`,
+].join('|'), 'iu');
+const APPLICATION_ANAPHORIC_BRIDGE_RE = new RegExp([
+  String.raw`^\s*(?:it|this|that)\s+(?:(?:is|was|has been|remains|will be)\s+)?(?:saved|submitted|received|created|updated|ready\b|available\b|processed\b)`,
+  String.raw`^\s*(?:sie|diese)\s+(?:(?:wurde|ist|bleibt|war)\s+)?(?:gespeichert|eingereicht|erhalten|bereit|verfügbar|aktualisiert)`,
+  String.raw`^\s*(?:(?:essa|questa)\s+)?(?:(?:è stata|e' stata|è|e'|rimane|era)\s+)?(?:salvata|registrata|inviata|ricevuta|pronta|disponibile|aggiornata)`,
+  String.raw`^\s*elle\s+(?:(?:a été|est|reste|était)\s+)?(?:enregistrée|envoyée|reçue|prête|disponible|mise à jour)`,
+].join('|'), 'iu');
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
@@ -29,7 +42,27 @@ function incompleteApplication(text) {
   // ATS labels such as "Resume / CV" name a document role. Treating that
   // noun as the verb "resume" can join it to a nearby "Submit application"
   // button and freeze an otherwise complete form.
-  return INCOMPLETE_APPLICATION_RE.test(String(text || '').replace(DOCUMENT_ROLE_LABEL_RE, 'CV document'));
+  // An unrelated sentence about an application and a later CTA must not be
+  // combined into an incomplete-state cue (for example, a profile link that
+  // says it can be used "to complete your profile").
+  const segments = String(text || '').replace(DOCUMENT_ROLE_LABEL_RE, 'CV document')
+    // Require whitespace after sentence punctuation so periods inside URLs
+    // remain part of the same segment.
+    .split(/(?<=[.!?;])\s+/u).map((segment) => segment.trim()).filter(Boolean);
+  let applicationContext = false;
+  for (const segment of segments) {
+    if (INCOMPLETE_APPLICATION_RE.test(segment)) return true;
+    if (APPLICATION_REFERENCE_RE.test(segment)) {
+      applicationContext = true;
+      continue;
+    }
+    if (applicationContext && APPLICATION_ANAPHORIC_INCOMPLETE_RE.test(segment)) return true;
+    // Carry application context through only an explicit saved/review-ready
+    // state. An unrelated task such as "It takes two minutes to complete your
+    // profile" ends the chain and cannot borrow the earlier application noun.
+    applicationContext = applicationContext && APPLICATION_ANAPHORIC_BRIDGE_RE.test(segment);
+  }
+  return false;
 }
 
 function parsed(value) {

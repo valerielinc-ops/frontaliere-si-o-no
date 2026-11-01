@@ -93,6 +93,57 @@ describe('application stage ownership', () => {
       buttons: [submit],
     };
     expect(applicationStage(form, { applyUrl, job }).kind).toBe('form');
+    expect(controls(form).submit).toBe(submit);
+  });
+
+  it('does not join an application mention to a later profile CTA across sentence boundaries', () => {
+    const submit = { text: 'Submit final application', formId: 'application', frame: 0 };
+    const form = {
+      url: applyUrl,
+      text: [job.title, 'First name *', 'Email address/login *', 'Resume *', 'Application information is shown here;', 'It takes two minutes to complete your profile.', submit.text].join(' '),
+      fields: [
+        { label: 'First name *', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { label: 'Email address/login *', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+      ],
+      buttons: [submit],
+    };
+    expect(applicationStage(form, { applyUrl, job }).kind).toBe('form');
+    expect(controls(form).submit).toBe(submit);
+  });
+
+  it('keeps an incomplete-state clause after a semicolon from becoming a receipt', () => {
+    const incomplete = {
+      ...receipt,
+      text: `Thank you for your application for ${job.title}. Your application was saved; it still needs completion.`,
+    };
+    expect(applicationReceipt(incomplete, { applyUrl, job })).toBe(false);
+    expect(applicationStage(incomplete, { applyUrl, job })).toMatchObject({ kind: 'unknown_apply', prefinal: true });
+    expect(controls(incomplete).submit).toBeNull();
+  });
+
+  it.each([
+    ['English', `Thank you for your application for ${job.title}. Your application was saved at https://careers.example/form. It still needs completion.`],
+    ['German', `Vielen Dank für Ihre Bewerbung. Ihre Bewerbung wurde gespeichert. Sie ist noch unvollständig.`],
+    ['Italian', `Grazie per la tua candidatura. La candidatura è stata salvata. È ancora da completare.`],
+    ['Italian without ancora', `Grazie per la tua candidatura. La candidatura è stata salvata. Non è completa.`],
+    ['Italian demonstrative', `Grazie per la tua candidatura. La candidatura è stata salvata. Questa è ancora da completare.`],
+    ['French', `Merci pour votre candidature. Votre candidature a été enregistrée. Elle est encore incomplète.`],
+    ['French without encore', `Merci pour votre candidature. Votre candidature a été enregistrée. Elle n’est pas complète.`],
+  ])('keeps a localized anaphoric incomplete state from becoming a receipt: %s', (_language, text) => {
+    const incomplete = { ...receipt, text };
+    expect(applicationReceipt(incomplete, { applyUrl, job })).toBe(false);
+    expect(applicationStage(incomplete, { applyUrl, job })).toMatchObject({ kind: 'unknown_apply', prefinal: true });
+    expect(controls(incomplete).submit).toBeNull();
+  });
+
+  it('carries application context across a short explicit status chain', () => {
+    const incomplete = {
+      ...receipt,
+      text: `Thank you for your application for ${job.title}. Your application was saved. It is ready for review. It still needs completion.`,
+    };
+    expect(applicationReceipt(incomplete, { applyUrl, job })).toBe(false);
+    expect(applicationStage(incomplete, { applyUrl, job })).toMatchObject({ kind: 'unknown_apply', prefinal: true });
+    expect(controls(incomplete).submit).toBeNull();
   });
 
   it('keeps a same-page CV upload proof when the portal removes the file input', () => {
