@@ -45,6 +45,8 @@ describe('the browser\'s check of a requested document', () => {
 
   it.each([
     'degree certificates',
+    'Please provide degree certificates',
+    'degree certificates required',
     'certificate of degree',
     'certificates of degree',
     'Certificati di laurea',
@@ -84,6 +86,7 @@ describe('the browser\'s check of a requested document', () => {
     const degree = { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificate'] };
     expect(classifyDocumentText('Fattura per traduzione. Servizio richiesto: «degree certificate». Importo e scadenza di pagamento.', degree).verdict).toBe('mismatch');
     expect(classifyDocumentText('Certificato di residenza relativo alla persona iscritta in anagrafe, per uso amministrativo.', degree).verdict).toBe('mismatch');
+    expect(classifyDocumentText('Degree certificate. Reference number 2025-447. Bachelor of Science awarded after the final examinations.', degree).verdict).toBe('match');
   });
 
   it.each([

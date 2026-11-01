@@ -83,7 +83,10 @@ function hasKnownOtherDocumentType(haystack: string, kind: string): boolean {
   if (kind === 'certificate') return found(heading, CLEAR_NON_DOCUMENT_TITLES).length > 0;
   const otherTitles = Object.entries(KIND_TITLES)
     .filter(([candidateKind]) => candidateKind !== kind)
-    .flatMap(([, titles]) => titles);
+    .flatMap(([, titles]) => titles)
+    // Cross-kind precedence needs a specific document title, not a generic
+    // word that may appear in ordinary content (for example, "reference number").
+    .filter(title => normalize(title).trim().includes(' '));
   return found(heading, [...otherTitles, ...CLEAR_NON_DOCUMENT_TITLES, ...CLEAR_OTHER_DOCUMENT_TITLES]).length > 0;
 }
 

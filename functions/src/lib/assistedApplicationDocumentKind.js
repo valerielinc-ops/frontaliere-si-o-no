@@ -31,7 +31,6 @@ function normalizeLabel(value) {
 export function isDegreeCertificateRequirement(label) {
   const normalized = normalizeLabel(label);
   if (normalized === 'degree' || normalized === 'degrees') return true;
-  return DEGREE_CERTIFICATE_LABELS.some(phrase =>
-    normalized === phrase || normalized.includes(' ' + phrase + ' ')
-  );
+  const padded = ` ${normalized} `;
+  return DEGREE_CERTIFICATE_LABELS.some(phrase => padded.includes(` ${phrase} `));
 }
