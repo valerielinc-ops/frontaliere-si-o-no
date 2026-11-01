@@ -19,6 +19,7 @@ import { extractDetailFields } from './prospector/extract.mjs';
 import { buildSlug as buildCanonicalSlug } from './regenerate-slugs-helpers.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { classifyCountryValue } from './prospector/country-inventory.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
@@ -157,12 +158,14 @@ function detectEmploymentType(text = '') {
  * Normalize Anker's current JobPosting geography contract.
  *
  * The live detail JSON-LD puts the municipality in `addressRegion` while
- * leaving `addressLocality` and `addressCountry` empty (for example
- * `addressRegion: "Lyss"`). The shared extractor correctly preserves that
- * source evidence, but the generic geography guard interprets a non-canton
- * region as an explicit foreign signal and drops the row. Promote the value
- * only when it is a catalogue-backed Swiss municipality; unknown values stay
- * untouched and therefore remain fail-closed.
+ * leaving `addressLocality` empty (for example `addressRegion: "Lyss"`). The
+ * source may still include `addressCountry: "CH"`; country evidence alone is
+ * not a complete street/locality address. The shared extractor correctly
+ * preserves the source evidence, but the generic geography guard interprets
+ * a non-canton region as an explicit foreign signal and drops the row.
+ * Promote the value only when it is a catalogue-backed Swiss municipality and
+ * the country is Swiss or absent; foreign and unknown values stay untouched
+ * and therefore remain fail-closed.
  */
 export function extractAnkerSwissDetailFields(html = '', pageUrl = '', opts = {}) {
   const detail = extractDetailFields(html, pageUrl, opts);
@@ -172,13 +175,21 @@ export function extractAnkerSwissDetailFields(html = '', pageUrl = '', opts = {}
   let promoted = false;
   const locationCandidates = candidates.map((candidate) => {
     const region = normalizeSpace(candidate?.addressRegion || '');
+    const country = normalizeSpace(
+      candidate?.addressCountry || candidate?.country || '',
+    );
     const hasExplicitAddress = Boolean(
       candidate?.addressLocality
-      || candidate?.addressCountry
       || candidate?.postalCode
       || candidate?.streetAddress,
     );
-    if (!region || hasExplicitAddress || !isKnownSwissMunicipality(region)) return candidate;
+    const countryIsSwissOrMissing = !country || classifyCountryValue(country) === 'CH';
+    if (
+      !region
+      || hasExplicitAddress
+      || !countryIsSwissOrMissing
+      || !isKnownSwissMunicipality(region)
+    ) return candidate;
     promoted = true;
     return {
       ...candidate,
