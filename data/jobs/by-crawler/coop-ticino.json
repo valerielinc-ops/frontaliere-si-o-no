@@ -22257,14 +22257,14 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-58cn14",
           "butcher-meat-specialist-coop-dielsdorf-58cn14"
         ],
-        "de": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-58cn14"
-        ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-3a6ne7",
           "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-dielsdorf-b1ad43",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-58cn14",
           "boucher-specialiste-de-la-viande-coop-dielsdorf-58cn14"
+        ],
+        "de": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-58cn14"
         ]
       },
       "previousSlugs": [
@@ -22288,11 +22288,11 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-26T09:31:12.366Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-vkpdof",
@@ -80408,11 +80408,11 @@
         "seller-fresh-products-coop-volketswil-jvigri",
         "vendeur-de-produits-frais-coop-volketswil-jvigri"
       ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-11T09:31:12.366Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-o0c5wm",
@@ -97406,13 +97406,13 @@
           "rayon-conductor-staple-food-coop-wadenswil-89cqy2",
           "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-89cqy2"
         ],
-        "de": [
-          "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-89cqy2"
-        ],
         "fr": [
           "produits-de-base-du-conducteur-de-rayonne-coop-genossenschaft-wadenswil",
           "rayon-conducteur-aliment-de-base-coop-genossenschaft-wadenswil-691679",
           "rayon-conducteur-aliment-de-base-coop-wadenswil-89cqy2",
+          "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-89cqy2"
+        ],
+        "de": [
           "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-89cqy2"
         ]
       },
@@ -97427,11 +97427,11 @@
         "rayon-conductor-staple-food-coop-wadenswil-89cqy2",
         "rayon-conducteur-aliment-de-base-coop-wadenswil-89cqy2"
       ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-04T09:31:12.366Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-j7cwut",
@@ -100915,13 +100915,13 @@
           "responsabile-junior-vendita-region-oberwallis-coop-genossenschaft-bern",
           "responsabile-junior-vendita-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
         ],
-        "en": [
-          "nachwuchskader-sales-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
-        ],
         "de": [
           "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-0cg4cm",
           "nachwuchskader-verkauf-region-oberwallis-coop-genossenschaft-bern",
           "nachwuchskader-verkauf-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
+        ],
+        "en": [
+          "nachwuchskader-sales-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
         ],
         "fr": [
           "nachwuchskader-vente-region-oberwallis-coop-regiog-brig-visp-zermatt-und-goms-r3d3pl"
@@ -100942,12 +100942,12 @@
       "datePosted": "2026-09-24",
       "postingDateSource": "reported",
       "sourceReference": "163293",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "streetAddress": "Regiog Brig, Visp, Zermatt und Goms",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:31:12.366Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-tcaazq",
@@ -101238,12 +101238,12 @@
       "datePosted": "2026-09-24",
       "postingDateSource": "reported",
       "sourceReference": "163296",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "streetAddress": "Region Brig, Visp, Zermatt und Goms",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-01T09:31:12.366Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-370jba",
