@@ -440,10 +440,23 @@
   };
   // The words of a bounded question/upload zone, or a short, immediate
   // sibling question. Page-level copy is not evidence for a generated-id label.
-  const GLOBAL_FORM_INSTRUCTION_RE = /^(?:please\s+)?(?:complete|finish|review|check|read|fill(?:\s+in)?|submit|apply|continue|ensure|make\s+sure)\b(?:.*\b(?:all|every|remaining|the following)\s+(?:sections?|steps?|fields?|questions?)\b|.*\b(?:before|prior to)\s+(?:applying|submitting|you submit)\b)/i;
-  const isQuestionLabelText = (value) => value.length <= 120
-    && !/[.!…]\s*$/.test(value)
-    && !GLOBAL_FORM_INSTRUCTION_RE.test(value);
+  const normalizeInstructionText = (value) => clean(value).normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+  const GLOBAL_FORM_ACTION_RE = /^(?:(?:please|bitte|veuillez|merci de|si prega di|per favore|per cortesia)\s+)?(?:complete|finish|review|check|read|fill(?:\s+in)?|submit|apply|continue|ensure|make\s+sure|complet\w*|compil\w*|termin\w*|finisc\w*|rived\w*|controll\w*|legg\w*|invi\w*|candidat\w*|prosegu\w*|assicur\w*|rempl\w*|verifi\w*|soumett\w*|postul\w*|poursuiv\w*|assur\w*|vollstand\w*|vervollstand\w*|full\w*|pruf\w*|les\w*|reich\w*|bewerb\w*|stell\s+sicher)\b/;
+  const GLOBAL_FORM_SCOPE_RE = /\b(?:all|every|remaining|following)\b.{0,45}\b(?:sections?|steps?|fields?|questions?)\b|\b(?:tutti|tutte|ogni|restanti|seguenti|rimanenti)\b.{0,45}\b(?:sezion\w*|passagg\w*|camp\w*|domand\w*|informazion\w*)\b|\b(?:alle|jeden|verbleibenden|folgenden|samtlich\w*)\b.{0,45}\b(?:abschnitt\w*|schritt\w*|feld\w*|frag\w*|angab\w*|information\w*)\b|\b(?:tous|toutes|chaque|restants|restantes|suivants|suivantes)\b.{0,45}\b(?:sections?|etapes?|champs?|questions?|informations?)\b/;
+  const GLOBAL_FORM_BEFORE_SUBMIT_RE = /\b(?:before|prior to)\b.{0,60}\b(?:applying|submitting|you submit)\b|\b(?:prima di|prima dell[aeiou]|prima dell['’])\b.{0,60}\b(?:candidat\w*|invi\w*|present\w*)\b|\b(?:avant de|avant d)\b.{0,60}\b(?:postul\w*|soumett\w*|envoy\w*|valid\w*)\b|\b(?:bevor|vor dem)\b.{0,60}\b(?:bewerb\w*|absend\w*|einreich\w*|senden)\b/;
+  const PRIVACY_ACK_QUESTION_HINT_RE = /^(?:(?:please|bitte|veuillez)\s+)?(?:select|check|tick|mark|seleziona(?:re)?|spunta|contrassegna|aktivieren|markieren|kreuzen|wahlen|cochez|cocher|selectionnez|selectionner|coche|selectionne)\b.{0,220}\b(?:privacy|datenschutz\w*|informativa|confidentialite)\b/;
+  const isGlobalFormInstruction = (value) => {
+    const text = normalizeInstructionText(value);
+    return GLOBAL_FORM_ACTION_RE.test(text)
+      && (GLOBAL_FORM_SCOPE_RE.test(text) || GLOBAL_FORM_BEFORE_SUBMIT_RE.test(text));
+  };
+  const isQuestionLabelText = (value) => {
+    const text = normalizeInstructionText(value);
+    const punctuationIsPartOfPrivacyQuestion = PRIVACY_ACK_QUESTION_HINT_RE.test(text);
+    return value.length <= 120
+      && (!/[.!…]\s*$/.test(value) || punctuationIsPartOfPrivacyQuestion)
+      && !isGlobalFormInstruction(value);
+  };
   const zoneText = (element) => {
     const parent = element.parentElement;
     if (!parent) return '';
@@ -451,39 +464,67 @@
     const dropZone = file && element.closest('[class*="dropzone"], [class*="drop-zone"], [class*="file-upload"], [data-dropzone], [data-file-dropzone]');
     const group = element.closest(QUESTION_GROUP_SELECTOR);
     const singleQuestionGroup = group && oneQuestionGroup(group, element) ? group : null;
-    const adjacentQuestionSiblings = [element.previousElementSibling, element.nextElementSibling]
-      .filter((sibling) => sibling?.matches('span, [class*="label"], [class*="question"], [role="heading"]'));
-    const pageContainer = parent.matches('body, main, [role="main"]');
-    const siblingQuestion = !pageContainer && adjacentQuestionSiblings.length > 0;
-    const fileZoneParent = file && siblingQuestion && !parent.matches('form, [role="form"]');
-    const containers = [...new Set([dropZone, singleQuestionGroup, parent].filter(Boolean))];
+    const containers = [];
+    if (dropZone) containers.push(dropZone);
+    for (let node = parent, depth = 0; node && depth < 6; node = node.parentElement, depth += 1) {
+      if (node !== parent && node.matches('body, main, [role="main"], section, article, dialog, [role="dialog"], [role="region"], [role="tabpanel"]')) break;
+      if (!containers.includes(node)) containers.push(node);
+      if (node === dropZone || node === group || node.matches('form, [role="form"]')) break;
+    }
+    const childUnder = (container) => {
+      let child = element;
+      while (child.parentElement && child.parentElement !== container) child = child.parentElement;
+      return child.parentElement === container ? child : null;
+    };
     for (const node of containers) {
       const bounded = node === dropZone || node === singleQuestionGroup;
       const walker = document.createTreeWalker(node, 4);
       const controls = [...node.querySelectorAll(QUESTION_CONTROL_SELECTOR)];
-      let before = '';
-      let after = '';
+      const branch = childUnder(node);
+      const questionSiblings = [branch?.previousElementSibling, branch?.nextElementSibling]
+        .filter((sibling) => sibling?.matches('span, [class*="label"], [class*="question"], [role="heading"]')
+          && !sibling.matches(QUESTION_CONTROL_SELECTOR) && !sibling.querySelector(QUESTION_CONTROL_SELECTOR));
+      let siblingBefore = '';
+      let siblingAfter = '';
+      let contextBefore = '';
+      let contextAfter = '';
+      for (const sibling of questionSiblings) {
+        const value = clean(sibling.innerText || sibling.textContent);
+        if (!value || !isQuestionLabelText(value)) continue;
+        // eslint-disable-next-line no-bitwise
+        const isBefore = Boolean(sibling.compareDocumentPosition(element) & FOLLOWING);
+        const crossesControl = controls.some((control) => control !== element && (isBefore
+          ? (sibling.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(element) & FOLLOWING)
+          : (element.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(sibling) & FOLLOWING)));
+        if (crossesControl) continue;
+        if (isBefore && !siblingBefore) siblingBefore = value;
+        else if (!isBefore && !siblingAfter) siblingAfter = value;
+      }
+      const fileZoneParent = file && node === parent && questionSiblings.length > 0
+        && !parent.matches('form, [role="form"]');
       for (let text = walker.nextNode(); text; text = walker.nextNode()) {
         // Never from inside a control: a select's first option is an answer, not a question.
-        if (text.parentElement?.closest('select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend')) continue;
+        const owner = text.parentElement;
+        if (owner?.closest(`${QUESTION_CONTROL_SELECTOR}, h1, h2, h3, h4, legend`)) continue;
+        if (questionSiblings.some((sibling) => sibling.contains(owner))) continue;
         const value = clean(text.textContent);
         if (!value) continue;
-        const owner = text.parentElement;
-        const immediateQuestion = node === parent && siblingQuestion && owner?.parentElement === parent
-          && adjacentQuestionSiblings.includes(owner);
-        if (immediateQuestion && !isQuestionLabelText(value)) continue;
-        if (!bounded && !immediateQuestion && !(node === parent && fileZoneParent)) continue;
+        if (isGlobalFormInstruction(value)) continue;
+        if (bounded && node !== dropZone && !isQuestionLabelText(value)) continue;
+        if (!bounded && !(node === parent && fileZoneParent)) continue;
         // eslint-disable-next-line no-bitwise
         const isBefore = Boolean(text.compareDocumentPosition(element) & FOLLOWING);
         const crossesControl = controls.some((control) => control !== element && (isBefore
           ? (text.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(element) & FOLLOWING)
           : (element.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(text) & FOLLOWING)));
         if (crossesControl) continue;
-        if (isBefore) before = value;
-        else if (!after) after = value;
+        if (isBefore) contextBefore = value;
+        else if (!isBefore && !contextAfter) contextAfter = value;
       }
-      const words = before || after;
-      if (words) return words.slice(0, 80);
+      const words = node === dropZone
+        ? contextBefore || siblingBefore || contextAfter || siblingAfter
+        : siblingBefore || contextBefore || siblingAfter || contextAfter;
+      if (words) return words.slice(0, 240);
     }
     return '';
   };

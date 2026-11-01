@@ -4,6 +4,7 @@ import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChann
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { COOKIE_ACCEPT_RE, COOKIE_REJECT_RE, openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { operationalDefaultAnswer } from '../functions/src/assistedApplicationOperationalAnswers.js';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
 function extract(html: string, url = 'https://jobs.example/apply', context: Record<string, unknown> = {}) {
@@ -295,8 +296,58 @@ describe('portal field extraction', () => {
     expect(formInstruction.fields[0].label).toBe('input-12');
     const formInstructionWithoutPeriod = extract('<form><span>Complete all sections before applying</span><input id="input-13"></form>');
     expect(formInstructionWithoutPeriod.fields[0].label).toBe('input-13');
+    for (const [instruction, id] of [
+      ['Completa tutti i campi prima di inviare la candidatura', 'input-15'],
+      ['Completa il modulo prima dell’invio', 'input-19'],
+      ['Si prega di compilare tutti i campi', 'input-21'],
+      ['Bitte füllen Sie alle Felder aus, bevor Sie sich bewerben', 'input-16'],
+      ['Bitte füllen Sie sämtliche Felder aus', 'input-20'],
+      ['Veuillez remplir tous les champs avant de soumettre votre candidature', 'input-17'],
+      ['Merci de compléter tous les champs', 'input-22'],
+    ]) {
+      const genericInstruction = extract(`<form><span>${instruction}</span><input id="${id}"></form>`);
+      expect(genericInstruction.fields[0].label).toBe(id);
+    }
     const formPromptDiv = extract('<form><div class="question">Do you have a permit?</div><input id="input-14"></form>');
     expect(formPromptDiv.fields[0].label).toBe('Do you have a permit?');
+    const ancestorQuestion = extract('<form><div><span>Wrapped question</span><div><input id="input-23"></div></div></form>');
+    expect(ancestorQuestion.fields[0].label).toBe('Wrapped question');
+    const ancestorPair = extract('<form><div><span>First wrapped question</span><div><input id="input-24"></div><span>Second wrapped question</span><div><input id="input-25"></div></div></form>');
+    expect(ancestorPair.fields.map((field: any) => field.label)).toEqual(['First wrapped question', 'Second wrapped question']);
+    const nestedSiblingQuestion = extract('<form><span>First <span>nested</span> question?</span><input id="input-26"></form>');
+    expect(nestedSiblingQuestion.fields[0].label).toBe('First nested question?');
+    const privacyPrompt = extract('<form><span class="question">Seleziona questa casella per confermare di aver letto l’<span>Informativa sulla privacy</span> per i candidati.</span><input id="input-18" type="checkbox" required></form>');
+    const fullPrivacyLabel = 'Seleziona questa casella per confermare di aver letto l’Informativa sulla privacy per i candidati.';
+    expect(privacyPrompt.fields[0].label).toBe(fullPrivacyLabel);
+    const privacyField = {
+      ...privacyPrompt.fields[0],
+      question: fullPrivacyLabel,
+      applicationQuestion: fullPrivacyLabel,
+      type: 'checkbox',
+      required: true,
+    };
+    expect(operationalDefaultAnswer(privacyField)).toMatchObject({ value: 'true', topic: 'privacy_review_ack', source: 'policy_default' });
+    const privacyPlan = guardPlan({
+      actions: [],
+      missingRequired: [{ fieldId: privacyField.id, question: fullPrivacyLabel, why: '', type: 'checkbox', options: [] }],
+    }, [privacyField], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
+    expect(privacyPlan.actions).toContainEqual(expect.objectContaining({
+      fieldId: privacyField.id,
+      action: 'check',
+      value: 'true',
+      source: 'policy_default',
+    }));
+    const optionalConsent = {
+      id: 'optional-marketing',
+      kind: 'checkbox',
+      type: 'checkbox',
+      label: 'Accetto di ricevere comunicazioni promozionali e newsletter.',
+      question: 'Accetto di ricevere comunicazioni promozionali e newsletter.',
+      applicationQuestion: 'Accetto di ricevere comunicazioni promozionali e newsletter.',
+      required: false,
+    };
+    expect(operationalDefaultAnswer(optionalConsent)).toBeNull();
+    expect(guardPlan({ actions: [], missingRequired: [] }, [optionalConsent], { answers: {}, profile: {}, portalQuestionsAnswered: [] }).actions).toEqual([]);
   });
 
   it('reads a radio group required only by its label as required, and asks the candidate for it', () => {
