@@ -2508,8 +2508,8 @@ describe('portal runner helpers', () => {
     for (const text of ['Next', 'Weiter', 'Avanti', 'Suivant', 'Save and continue']) expect(NEXT_RE.test(text)).toBe(true);
     for (const text of ['Submit application', 'Bewerbung absenden', 'Invia candidatura', 'Envoyer ma candidature', 'Postuler']) expect(SUBMIT_RE.test(text)).toBe(true);
     // Giro di prova 2026-10-01: JOIN's review page ends with «Conferma e applica».
-    for (const text of ['Conferma e applica', 'Confirm and apply', 'Bestätigen und bewerben', 'Confirmer et postuler', 'Candidati']) expect(SUBMIT_RE.test(text)).toBe(true);
-    for (const text of ['Continua', 'Indietro', 'Modifica', 'Applica filtro']) expect(SUBMIT_RE.test(text)).toBe(false);
+    for (const text of ['Conferma e applica', 'Confirm and apply', 'Bestätigen und bewerben', 'Confirmer et postuler', 'Candidati', 'Inviare']) expect(SUBMIT_RE.test(text)).toBe(true);
+    for (const text of ['Continua', 'Indietro', 'Modifica', 'Applica filtro', 'Inviare i documenti']) expect(SUBMIT_RE.test(text)).toBe(false);
     // Review of #10725: the whole label, so a filter control is never the submission.
     for (const text of ['Conferma e applica filtro', 'Confirm and apply filters', 'Bestätigen und bewerben später']) expect(SUBMIT_RE.test(text)).toBe(false);
     for (const text of ['Conferma e applica →', 'Confirm and submit']) expect(SUBMIT_RE.test(text)).toBe(true);
@@ -2536,6 +2536,12 @@ describe('portal runner helpers', () => {
     for (const text of ['Senden', 'senden', 'SENDEN']) expect(SUBMIT_RE.test(text)).toBe(true);
     for (const text of ['Nicht senden', 'Senden an einen Freund', 'Unterlagen senden']) expect(SUBMIT_RE.test(text)).toBe(false);
     expect(findButton([{ id: 'rhb', text: 'Senden', disabled: false }], SUBMIT_RE)?.id).toBe('rhb');
+    const amagForm = {
+      fields: ['cv_lebenslauf', 'Appellativo', 'Nome *', 'Cognome *', 'Via', 'NPA', 'Località *', 'Data di nascita (GG.MM.AAAA) *', 'Telefono *', 'E-Mail *', "Ripetere l'E-Mail *", 'Come sono venuto a conoscenza del lavoro?', 'I tuoi 3 motivi', "Cos'altro vorresti dirci...", 'Attuale periodo di preavviso *', 'Comunicazione via WhatsApp *', 'Foto', 'Curriculum vitae *', 'Documenti completi', 'Attestati', 'Diplomi', 'Privacy', 'Website', 'Grado di occupazione desiderato *'].map((label, index) => ({ id: `amag-${index}`, label, required: /\*/.test(label) })),
+      buttons: ['CV-Upload', 'Candidarsi con profilo finest jobs', 'Candidarsi con profilo XING', 'Candidarsi con profilo LinkedIn', '« indietro', 'Inviare', 'Impostazioni cookie'].map((text, index) => ({ id: `amag-button-${index}`, text, disabled: false })),
+    };
+    expect(amagForm.fields).toHaveLength(24);
+    expect(findButton(amagForm.buttons, SUBMIT_RE)).toMatchObject({ text: 'Inviare' });
     // A disabled submit (required fields still empty) is not clicked, but the runner can see it.
     const disabled = [{ id: 'b3', text: 'Bewerbung senden', disabled: true }];
     expect(findButton(disabled, SUBMIT_RE)).toBeNull();
