@@ -297,15 +297,57 @@ export function addressOf(value) {
   return match ? match[1].trim().toLowerCase() : '';
 }
 
+function withoutAddressComments(value) {
+  let output = '';
+  let commentDepth = 0;
+  let quoted = false;
+  let escaped = false;
+  for (const character of String(value || '')) {
+    if (escaped) {
+      if (!commentDepth) output += character;
+      escaped = false;
+      continue;
+    }
+    if ((commentDepth || quoted) && character === '\\') {
+      if (!commentDepth) output += character;
+      escaped = true;
+      continue;
+    }
+    if (commentDepth) {
+      if (character === '(') commentDepth += 1;
+      else if (character === ')') commentDepth -= 1;
+      continue;
+    }
+    if (quoted) {
+      output += character;
+      if (character === '"') quoted = false;
+      continue;
+    }
+    if (character === '"') {
+      quoted = true;
+      output += character;
+    } else if (character === '(') {
+      commentDepth = 1;
+    } else if (character === ')') {
+      return '';
+    } else {
+      output += character;
+    }
+  }
+  return commentDepth || quoted || escaped ? '' : output.trim();
+}
+
 /** A single safe mailbox; address lists and malformed headers fail closed. */
 export function singleMailboxAddress(value) {
-  const text = decodeEncodedWords(String(value || '')).trim();
+  const text = withoutAddressComments(decodeEncodedWords(String(value || '')));
   if (!text || HEADER_CONTROL.test(text)) return '';
   const bracketed = [...text.matchAll(/<([^<>]+)>/g)];
   let candidate = '';
   if (bracketed.length === 1) {
     const mailboxMatch = /^(.*?)<([^<>]+)>$/.exec(text);
-    if (!mailboxMatch || /[<>]/.test(mailboxMatch[1]) || mailboxMatch[1].includes('@')) return '';
+    if (!mailboxMatch || /[<>]/.test(mailboxMatch[1])) return '';
+    const displayTokens = mailboxMatch[1].replace(/["']/g, ' ').split(/\s+/).filter(Boolean);
+    if (displayTokens.some((token) => EMAIL_RE.test(token))) return '';
     candidate = mailboxMatch[2].trim();
   } else if (bracketed.length === 0 && !/[\s,;<>]/.test(text)) {
     candidate = text;

@@ -136,6 +136,8 @@ describe('RFC 2047 MIME header codec', () => {
 
   it('accepts exactly one mailbox and rejects malformed or multiple Reply-To destinations', () => {
     expect(singleMailboxAddress('Talent Team <apply@employer.example>')).toBe('apply@employer.example');
+    expect(singleMailboxAddress('Recruiting @ Azienda <hr@employer.example>')).toBe('hr@employer.example');
+    expect(singleMailboxAddress('hr@employer.example (Recruiting)')).toBe('hr@employer.example');
     expect(singleMailboxAddress('<apply@employer.example> trailing')).toBe('');
     expect(singleMailboxAddress('First <first@employer.example>, Second <second@employer.example>')).toBe('');
   });

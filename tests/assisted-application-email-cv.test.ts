@@ -103,6 +103,22 @@ describe('MIME reader', () => {
 });
 
 describe('CV by e-mail reply', () => {
+  it.each([
+    ['display name containing @', 'Recruiting @ Azienda <maria.rossi@gmail.com>'],
+    ['comment after the mailbox', 'maria.rossi@gmail.com (Recruiting)'],
+  ])('accepts a valid From with %s', async (_label, from) => {
+    const isEnabled = vi.fn(async () => false);
+    const result = await handleAssistedApplicationEmailCv(request(rawMessage({ from })), {
+      db: store().db,
+      bucket: fakeBucket(),
+      secret: SECRET,
+      isEnabled,
+    });
+
+    expect(result.body).toMatchObject({ matched: false, reason: 'automation_off' });
+    expect(isEnabled).toHaveBeenCalledWith(ORDER);
+  });
+
   it('does nothing while the automation flag is off: the e-mail reaches Valerie as today', async () => {
     const database = store();
     const bucket = fakeBucket();
