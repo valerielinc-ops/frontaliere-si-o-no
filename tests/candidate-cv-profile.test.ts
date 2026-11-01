@@ -837,7 +837,7 @@ describe('progress through the complete relevant job pool', () => {
     const priority = new Set(['job-0', 'job-1']);
     const next = conciergeMatchingWork(candidates, priority, 'job-45');
     expect(next.work.slice(0, 3).map((row: any) => row.url)).toEqual(['job-0', 'job-1', 'job-46']);
-    expect(next.work).toHaveLength(40);
+    expect(next.work).toHaveLength(46);
     expect(conciergeMatchingWork(candidates, priority, 'job-89').work[2].url).toBe('job-2');
     expect(conciergeMatchingWork(candidates, priority, 'removed-job').work[2].url).toBe('job-2');
   });
@@ -883,7 +883,7 @@ describe('progress through the complete relevant job pool', () => {
       expect(result).toMatchObject({ status: 'complete', proposals: 1 });
       expect(proposals.map(([, value]) => value.jobId)).toEqual([expected]);
       expect(proposals[0][1].eligibilityStatus).toBe('compatible');
-      expect(new Set(eligibility.mock.calls.map(([job]) => job.id))).toEqual(new Set(['first', 'second']));
+      expect(eligibility.mock.calls.map(([job]) => job.id)).toEqual(!withdrawn && !preferredCompatible ? ['second', 'first'] : [expected]);
       expect(documents.get(`${path}/proposals/history`)).toEqual(expectedHistory);
       expect(documents.get(path)?.acceptedPositionsCount).toBe(acceptedPositionsCount);
     } finally { vi.unstubAllGlobals(); }

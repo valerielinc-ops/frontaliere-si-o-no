@@ -24,7 +24,10 @@ import {
 const DEFAULT_JOB_INDEX_URL = 'https://cdn.frontaliereticino.ch/data/jobs-it-index.json';
 const FETCH_TIMEOUT_MS = 90_000;
 const MAX_PROPOSALS_PER_RUN = 10;
-const MAX_ELIGIBILITY_WORK_PER_RUN = 40;
+// Includes cache hits and retries; prepareConciergeEligibility separately caps
+// new model analyses at 20. Neither discovery nor provider cost is unbounded.
+export const MAX_ELIGIBILITY_WORK_PER_RUN = 120;
+const ELIGIBILITY_BATCH_SIZE = 4;
 const MIN_MATCH_SCORE = 28;
 export { APPLICATION_CONCIERGE_MATCHING_VERSION } from './applicationConciergeConstants.js';
 export const APPLICATION_CONCIERGE_REQUIREMENTS_VERIFIED = true;
@@ -376,6 +379,8 @@ export function approvedRolePreference(job, proposals) {
 
 /** A bounded, durable frontier replaces the static top-40 window. */
 export function conciergeMatchingWork(candidates, proposedUrls = new Set(), cursor = '', retryUrls = new Set()) {
+  const seen = new Set();
+  candidates = candidates.filter(candidate => !seen.has(candidate.url) && seen.add(candidate.url));
   const priority = candidates.filter(candidate => proposedUrls.has(candidate.url)).slice(0, MAX_PROPOSALS_PER_RUN);
   const retries = candidates.filter(candidate => retryUrls.has(candidate.url) && !proposedUrls.has(candidate.url)).slice(0, MAX_ELIGIBILITY_RETRIES_PER_RUN);
   const frontier = candidates.filter(candidate => !proposedUrls.has(candidate.url));
@@ -383,7 +388,7 @@ export function conciergeMatchingWork(candidates, proposedUrls = new Set(), curs
   const start = previous >= 0 && previous + 1 < frontier.length ? previous + 1 : 0;
   const fresh = frontier.slice(start).filter(candidate => !retryUrls.has(candidate.url));
   return { work: [...priority, ...retries, ...fresh].slice(0, MAX_ELIGIBILITY_WORK_PER_RUN),
-    frontier, cursorUrls: new Set(fresh.map(candidate => candidate.url)) };
+    priorityCount: priority.length, frontier, cursorUrls: new Set(fresh.map(candidate => candidate.url)) };
 }
 
 async function updateExistingProposal(db, ref, update, expectedStatus, nextStatus = null) {
@@ -458,13 +463,23 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const relevantUrls = new Set(rankedWork.map(entry => entry.url));
     for (const retry of dueRetries) if (!relevantUrls.has(retry.data()?.jobUrl)) await retry.ref.delete();
     const retryUrls = new Set(dueRetries.map(doc => doc.data()?.jobUrl).filter(url => relevantUrls.has(url)));
-    const { work, frontier, cursorUrls } = conciergeMatchingWork(rankedWork, proposedUrls,
+    const { work, priorityCount, frontier, cursorUrls } = conciergeMatchingWork(rankedWork, proposedUrls,
       service.matchingScanContext === scanContext ? service.matchingScanCursor : '', retryUrls);
     let scannedCursor = service.matchingScanContext === scanContext ? service.matchingScanCursor || '' : '';
-    for (let offset = 0; offset < work.length; offset += 4) {
+    let frontierDeferred = false;
+    const target = Math.min(available, MAX_PROPOSALS_PER_RUN);
+    const compatibleUrls = new Set();
+    for (let offset = 0; offset < work.length;) {
       // Stop starting batches early; the shared signal also bounds the last batch.
-      if (Date.now() - runStartedAt > 280_000) break;
-      const batch = work.slice(offset, offset + 4);
+      if (Date.now() - runStartedAt > 280_000 || eligibilitySignal.aborted) break;
+      // Revalidate current proposals before stopping; never replace an already
+      // sufficient set with another batch of new proposals.
+      if (offset >= priorityCount && compatibleUrls.size >= target) break;
+      const batchSize = offset < priorityCount
+        ? Math.min(ELIGIBILITY_BATCH_SIZE, priorityCount - offset)
+        : Math.min(ELIGIBILITY_BATCH_SIZE, target - compatibleUrls.size);
+      const batch = work.slice(offset, offset + batchSize);
+      offset += batch.length;
       await Promise.all(batch.map(async ({ job, url }) => {
         const retry = (await eligibilityRetryRef(serviceRef, url).get()).data();
         let result;
@@ -475,22 +490,25 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         }
         await recordEligibilityRetry({ db, serviceRef, url, result, context: scanContext, nowMs: Date.now() });
         checks.set(url, result);
+        if (result?.status === 'compatible') compatibleUrls.add(url);
       }));
       // Unverified results are retained in the independent retry queue. They
       // cannot pin new discovery; budget-deferred work remains at the cursor.
       for (const entry of batch) {
         const result = checks.get(entry.url);
-        if (result?.reason === 'analysis_deferred') break;
-        if (cursorUrls.has(entry.url)) scannedCursor = entry.url;
+        if (!cursorUrls.has(entry.url)) continue;
+        if (result?.reason === 'analysis_deferred') frontierDeferred = true;
+        if (!frontierDeferred) scannedCursor = entry.url;
       }
       await serviceRef.set({ matchingScanCursor: scannedCursor, matchingScanContext: scanContext }, { merge: true });
-      if (batch.some(entry => {
-        const result = checks.get(entry.url);
-        return result?.reason === 'analysis_deferred';
-      })) break;
+      // A deferred cache miss must not hide later cached compatible jobs. The
+      // bounded scan can continue, but the cursor cannot skip the deferred gap.
     }
-    const candidates = rankedCandidates.filter(candidate => checks.get(candidate.url)?.status === 'compatible')
-      .slice(0, Math.min(available, MAX_PROPOSALS_PER_RUN));
+    const retainedUrls = new Set(existingData.filter(data => ['proposed', 'retracted'].includes(data.status)
+      && compatibleUrls.has(data.jobUrl)).map(data => data.jobUrl));
+    const candidates = rankedCandidates.filter(candidate => !retainedUrls.has(candidate.url) && compatibleUrls.has(candidate.url))
+      .filter((candidate, index, all) => all.findIndex(entry => entry.url === candidate.url) === index)
+      .slice(0, Math.max(0, target - retainedUrls.size));
     const eligibilityFields = (result = { status: 'unverified' }) => ({
       eligibilityStatus: result.status,
       eligibilityFingerprint: result.fingerprint || null,

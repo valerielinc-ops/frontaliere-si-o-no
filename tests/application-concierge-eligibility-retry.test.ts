@@ -30,7 +30,7 @@ describe('independent qualification retry queue', () => {
     const proposed = new Set(candidates.slice(0, 30).map(row => row.url));
     const retry = new Set(candidates.slice(30, 70).map(row => row.url));
     const result = conciergeMatchingWork(candidates, proposed, '', retry);
-    expect(result.work).toHaveLength(40);
+    expect(result.work).toHaveLength(48);
     expect(result.work.filter((row: any) => proposed.has(row.url))).toHaveLength(10);
     expect(result.work.filter((row: any) => retry.has(row.url))).toHaveLength(8);
     expect(result.work.some((row: any) => row.url === 'job-70')).toBe(true);
