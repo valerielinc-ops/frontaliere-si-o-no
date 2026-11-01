@@ -1,7 +1,7 @@
 {
   "key": "kulm-hotel",
   "label": "Kulm Hotel St. Moritz",
-  "generatedAt": "2026-11-01T09:24:31.672Z",
+  "generatedAt": "2026-11-01T21:23:43.687Z",
   "total": 11,
   "discovered": null,
   "parsed": 11,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 14044,
-  "avgDurationMs": 14044,
+  "durationMs": 14920,
+  "avgDurationMs": 14920,
   "durationHistory": [
-    14044
+    14920
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:24:07.979Z",
+      "crawledAt": "2026-11-01T21:23:20.465Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -62,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:24:07.979Z",
+      "validThrough": "2026-12-01T21:23:20.465Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -87,7 +87,7 @@
       "url": "https://careers.kulm.com/en/vacancies/708",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:24:15.134Z",
+      "crawledAt": "2026-11-01T21:23:27.442Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -114,7 +114,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:24:15.134Z",
+      "validThrough": "2026-12-01T21:23:27.442Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -136,7 +136,7 @@
       "url": "https://careers.kulm.com/en/vacancies/737",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:24:14.941Z",
+      "crawledAt": "2026-11-01T21:23:27.276Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -163,7 +163,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:24:14.941Z",
+      "validThrough": "2027-01-14T21:23:27.276Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -185,7 +185,7 @@
       "url": "https://careers.kulm.com/en/vacancies/723",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:24:13.948Z",
+      "crawledAt": "2026-11-01T21:23:26.307Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -212,7 +212,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:24:13.948Z",
+      "validThrough": "2026-12-01T21:23:26.307Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -234,7 +234,7 @@
       "url": "https://careers.kulm.com/en/vacancies/733",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:24:12.949Z",
+      "crawledAt": "2026-11-01T21:23:25.342Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -261,7 +261,7 @@
       "salarySource": "estimated",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:24:12.949Z",
+      "validThrough": "2027-01-13T21:23:25.342Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -283,7 +283,7 @@
       "url": "https://careers.kulm.com/en/vacancies/720",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:24:11.949Z",
+      "crawledAt": "2026-11-01T21:23:24.328Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -309,7 +309,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T09:24:11.949Z",
+      "validThrough": "2027-01-30T21:23:24.328Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -331,7 +331,7 @@
       "url": "https://careers.kulm.com/en/vacancies/722",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:24:10.957Z",
+      "crawledAt": "2026-11-01T21:23:23.363Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -358,7 +358,7 @@
       "salarySource": "estimated",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:24:10.957Z",
+      "validThrough": "2026-12-28T21:23:23.363Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -380,7 +380,7 @@
       "url": "https://careers.kulm.com/en/vacancies/738",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:24:09.963Z",
+      "crawledAt": "2026-11-01T21:23:22.403Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -407,7 +407,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:24:09.963Z",
+      "validThrough": "2027-01-13T21:23:22.403Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -429,7 +429,7 @@
       "url": "https://careers.kulm.com/en/vacancies/736",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:24:08.972Z",
+      "crawledAt": "2026-11-01T21:23:21.432Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -456,7 +456,7 @@
       "salarySource": "estimated",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:24:08.972Z",
+      "validThrough": "2026-12-01T21:23:21.432Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -478,7 +478,7 @@
       "url": "https://careers.kulm.com/en/vacancies/636",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:24:06.981Z",
+      "crawledAt": "2026-11-01T21:23:19.506Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -505,7 +505,7 @@
       "salarySource": "estimated",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:24:06.981Z",
+      "validThrough": "2026-12-28T21:23:19.506Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -527,7 +527,7 @@
       "url": "https://careers.kulm.com/en/vacancies/742",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:24:05.972Z",
+      "crawledAt": "2026-11-01T21:23:18.536Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -554,7 +554,7 @@
       "salarySource": "estimated",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:24:05.972Z",
+      "validThrough": "2027-01-29T21:23:18.536Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -565,5 +565,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

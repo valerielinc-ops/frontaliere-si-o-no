@@ -1,7 +1,7 @@
 {
   "crawlerKey": "centiel",
-  "assembledAt": "2026-11-01T09:17:09.740Z",
-  "runId": "41291964879",
+  "assembledAt": "2026-11-01T21:23:42.048Z",
+  "runId": "41350653878",
   "jobs": [
     {
       "title": "Product Manager – Critical Power",
@@ -65,6 +65,8 @@
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.06-jd-eg-product-manager-critical-power.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "product-manager-critical-power-centiel-ticino"
@@ -72,9 +74,7 @@
       },
       "previousSlugs": [
         "product-manager-critical-power-centiel-ticino"
-      ],
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Specialista Ufficio Tecnico",
@@ -138,6 +138,8 @@
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.06-jd-it-specialista-ufficio-tecnico.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "specialista-ufficio-tecnico-centiel-ticino"
@@ -154,9 +156,7 @@
       },
       "previousSlugs": [
         "specialista-ufficio-tecnico-centiel-ticino"
-      ],
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Operatore di produzione",
@@ -220,6 +220,8 @@
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-operatore-di-produzione.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "operatore-di-produzione-centiel-ticino"
@@ -236,9 +238,7 @@
       },
       "previousSlugs": [
         "operatore-di-produzione-centiel-ticino"
-      ],
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Tecnico Collaudatore",
@@ -302,6 +302,8 @@
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-tecnico-collaudatore.pdf",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "tecnico-collaudatore-centiel-ticino"
@@ -318,9 +320,7 @@
       },
       "previousSlugs": [
         "tecnico-collaudatore-centiel-ticino"
-      ],
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Project Manager – Critical Power",
