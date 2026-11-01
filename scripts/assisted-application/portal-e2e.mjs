@@ -348,7 +348,7 @@ function fakePortal() {
     if (route === 'GET /job/Zurich-Senior-IT-Manager/1448418433/') {
       state.sixPostingViews += 1;
       res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'set-cookie': 'sixPostingSeen=1; Path=/' });
-      return res.end(page('Senior IT Manager - CIO Office | SIX', '<h1>Senior IT Manager - CIO Office</h1><p>SIX Group</p><a href="/talentcommunity/apply/1448418433/?locale=en_US">Apply now »</a>'));
+      return res.end(bindLocalReceiptTargets(page('Senior IT Manager - CIO Office | SIX', '<h1>Senior IT Manager - CIO Office</h1><p>SIX Group</p><a href="/talentcommunity/apply/1448418433/?locale=en_US">Apply now »</a>')));
     }
     if (route === 'GET /talentcommunity/apply/1448418433/') {
       if (!/sixPostingSeen=1/.test(req.headers.cookie || '')) return redirect('/careers.html');
@@ -1433,7 +1433,7 @@ async function main() {
       && diagnostics.validation.some((entry) => entry.phase === 'after_submit' && entry.frames.some((frame) => frame.invalid.some((field) => field.label === 'LinkedIn'))));
     const moved = await run({ applyUrl: `${base}/refused-moved` });
     check('a refusal on the error page the portal moved to is a refusal too', moved.event.type === 'submit_failed'
-      && moved.event.error === 'portal_refused' && moved.evidence.finalUrl.endsWith('/refused-moved/error'));
+      && moved.event.error === 'portal_refused' && new URL(moved.evidence.finalUrl || '/', `${base}/`).pathname === '/refused-moved/error');
     // Coop (2026-10-02): career page → Prospective.ch redirect → SuccessFactors, on an account of its own.
     const coopSaved = new Map();
     const coopAccounts = {
