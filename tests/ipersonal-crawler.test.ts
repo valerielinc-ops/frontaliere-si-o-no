@@ -94,6 +94,28 @@ describe('MediPersonal crawler parser', () => {
       expect(description).not.toContain('Bitte senden Sie Ihre vollständigen Unterlagen');
     });
 
+    it('recovers the current MediPersonal bare main headings without the application tail', () => {
+      const html = `
+        <main>
+          <h1>Pflegefachmann/frau HF 100 %</h1>
+          <p>Arbeitsort: Region Bern (BE)</p>
+          <h2>Diese Tätigkeiten erwarten Sie</h2>
+          <ul><li>Sie betreuen Patientinnen und Patienten fachkompetent.</li>
+            <li>Sie dokumentieren die Pflege sorgfältig.</li></ul>
+          <h2>Ihre Stärken</h2>
+          <ul><li>Sie arbeiten zuverlässig im interdisziplinären Team.</li></ul>
+          <h2>Ihre Vorteile mit MediPersonal</h2>
+          <ul><li>Sie erhalten eine persönliche Betreuung im Bewerbungsprozess.</li></ul>
+          <h2>Ihre Bewerbung bei MediPersonal</h2>
+          <p>Bitte senden Sie Ihre vollständigen Unterlagen per E-Mail.</p>
+        </main>`;
+
+      const description = extractIpersonalDescription(html);
+      expect(description).toContain('\n• Sie betreuen Patientinnen und Patienten fachkompetent.');
+      expect(description).toContain('\n• Sie arbeiten zuverlässig im interdisziplinären Team.');
+      expect(description).not.toContain('Bitte senden Sie Ihre vollständigen Unterlagen');
+    });
+
     it('does not combine listing-card markers with an unrelated interest prompt', () => {
       const listingItems = Array.from({ length: 16 }, (_, index) =>
         `<li>Aufgabe ${index + 1} mit ausreichend konkreter Beschreibung für diese Stelle und verantwortungsvoller täglicher Arbeit.</li>`

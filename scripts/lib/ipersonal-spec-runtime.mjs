@@ -213,7 +213,7 @@ function isLikelyIpersonalDetailContainer(source) {
   // minified CMS markup otherwise lose the boundaries between labels.
   const text = stripHtml(String(source.innerHTML || '')).replace(/\s+/g, ' ').trim();
   const hasWorkplace = /\b(?:einsatzort|arbeitsort)\s*:/iu.test(text);
-  const hasVacancySection = /\b(?:ihr(?:e)?|dein(?:e)?)\s+(?:aufgaben|profil)\b|\b(?:unser angebot|das bieten wir)\b/iu.test(text);
+  const hasVacancySection = /\b(?:ihr(?:e)?|dein(?:e)?)\s+(?:aufgaben|profil|stärken|vorteile)\b|\b(?:diese tätigkeiten erwarten sie|unser angebot|das bieten wir)\b/iu.test(text);
   const hasExplicitCandidature = IPERSONAL_CANDIDATURE_RE.test(text);
 
   // A detail container must carry its own workplace, vacancy section and
