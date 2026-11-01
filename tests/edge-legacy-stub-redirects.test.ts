@@ -39,7 +39,15 @@ import { COMPANY_ROUTE_PREFIX, SECTION_LEGACY_TI } from '../build-plugins/shared
 // file whenever the plugin's table changes.
 import { legacyRedirectsPlugin } from '../build-plugins/legacyRedirectsPlugin';
 // @ts-expect-error — plain JS Worker module, no type declarations.
-import worker, { EDGE_LEGACY_REDIRECTS, EDGE_RETIRED_PATHS, apexLegacyResponse, legacyStubTarget, lookupRetired, upgradeLegacyStub } from '../infra/cloudflare-worker/locale-router.js';
+import worker, {
+  EDGE_LEGACY_REDIRECTS,
+  EDGE_RETIRED_PATHS,
+  apexLegacyResponse,
+  legacyStubTarget,
+  lookupRetired,
+  retiredEdgeResponse,
+  upgradeLegacyStub,
+} from '../infra/cloudflare-worker/locale-router.js';
 // @ts-expect-error — plain JS generated module.
 import { EDGE_LEGACY_STUB_REDIRECTS } from '../infra/cloudflare-worker/legacy-stub-redirects.generated.mjs';
 
@@ -47,7 +55,7 @@ const ROOT = path.resolve(__dirname, '..');
 const APEX = 'https://frontaliereticino.ch';
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
 const STUB_TABLE = EDGE_LEGACY_STUB_REDIRECTS as Record<string, string>;
-const RESTORED_BIG_BEND_PATHS = [
+const RETIRED_BIG_BEND_PATHS = [
   '/articoli-svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas/',
   '/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/',
   '/de/schweiz-artikel/arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen/',
@@ -145,11 +153,12 @@ describe('generated edge table', () => {
     }
   });
 
-  it('keeps restored Big Bend article URLs out of all edge redirect tables', () => {
-    for (const route of RESTORED_BIG_BEND_PATHS) {
-      expect(legacyStubTarget(route), `${route} must not upgrade a legacy stub to 301`).toBeUndefined();
+  it('serves retired Big Bend URLs as 410 without creating a stub redirect', () => {
+    for (const route of RETIRED_BIG_BEND_PATHS) {
+      expect(legacyStubTarget(route), `${route} must not create a redirect`).toBeUndefined();
       expect(apexLegacyResponse(new URL(`${APEX}${route}`)), route).toBeNull();
-      expect(lookupRetired(route), `${route} must not be redirected or retired`).toBeUndefined();
+      expect(lookupRetired(route), `${route} must be retired`).toBeNull();
+      expect(retiredEdgeResponse(new URL(`${APEX}${route}`))?.status, route).toBe(410);
     }
   });
 

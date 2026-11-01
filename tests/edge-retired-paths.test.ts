@@ -225,24 +225,23 @@ const actualKeys = Object.keys(RETIRED_TABLE).sort();
 const expectedKeys = [...expected.keys()].sort();
 
 describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => {
-  it('does not intercept the restored Big Bend article in any locale', () => {
-    const { file, constName } = REGISTRY_BY_SECTION.svizzera;
-    const source = fs.readFileSync(path.join(REPO, file), 'utf-8');
-    const registry = parseSlugRegistry(source, constName) as Record<string, Record<string, string>>;
-    const slugMap = registry['sospensione-lavori-muro-anti-migranti-big-bend-texas'];
-    expect(slugMap, 'the restored Big Bend article must exist in SWISS_SLUGS').toBeDefined();
-    const livePaths = new Set(slugMap ? articlePathsFor('svizzera', slugMap) as string[] : []);
-    const restoredPaths = [
+  it('pins and retires the withdrawn Big Bend article in every locale', () => {
+    const retiredPaths = [
       '/articoli-svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas/',
       '/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/',
       '/de/schweiz-artikel/arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen/',
       '/fr/articles-suisse/suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas/',
     ];
+    const group = pinnedRetiredGroups().groups.get(
+      'svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas',
+    );
+    expect(group).toEqual(retiredPaths);
 
-    for (const path of restoredPaths) {
-      expect(livePaths.has(path), `${path} must be emitted from the live Swiss article registry`).toBe(true);
-      expect(RETIRED_TABLE[path], `${path} must not be intercepted as retired`).toBeUndefined();
-      expect(retiredEdgeResponse(new URL(APEX + path)), `${path} must reach its live article`).toBeNull();
+    for (const path of retiredPaths) {
+      expect(RETIRED_TABLE[path], `${path} must be Gone`).toBeNull();
+      const response = retiredEdgeResponse(new URL(APEX + path)) as Response | null;
+      expect(response, `${path} must not reach the append-only shard`).not.toBeNull();
+      expect(response!.status, path).toBe(410);
     }
   });
 
@@ -394,7 +393,7 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
   it('pins the measured retirements and the later GSC-verified alias', () => {
     const gone = actualKeys.filter((k) => RETIRED_TABLE[k] === null);
     const moved = actualKeys.filter((k) => RETIRED_TABLE[k] !== null);
-    // 4 retired-with-no-substitute + 20 alias orphans; 36 declared redirects
+    // 8 retired-with-no-substitute + 20 alias orphans; 36 declared redirects
     // under the eight prefixes + 7 unique from data/article-redirects.json
     // (including the GSC-verified DE alias) + 13 for
     // nanako#356 (the original 12 cross-section paths plus its previously
@@ -402,11 +401,11 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
     // same-section duplicate retirements of 2026-09-05 + 1 for the historical
     // unsuffixed FR transit-fee URL bridged by #8730 (Bing closed loop) + 12
     // upstream-aborted article URLs from the 2026-10-07 corpus sync + 7 GSC
-    // 404 decisions checked on 2026-10-21 (one moved, six gone). Four restored
-    // Big Bend article URLs are no longer edge retirements.
+    // 404 decisions checked on 2026-10-21 (one moved, six gone) plus the four
+    // Big Bend URLs retired after the corpus withdrew that article.
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
-      total: 108,
-      gone: 42,
+      total: 112,
+      gone: 46,
       moved: 66,
     });
   });

@@ -1657,11 +1657,15 @@ export const EDGE_RETIRED_PATHS = {
   '/de/schweiz-artikel/slug-terzo-pilastro-3a-vantaggi-2026-basel/': '/de/schweiz-artikel/terzo-pilastro-3a-vantaggi-2026-basel/',
   '/fr/articles-suisse/slug-terzo-pilastro-3a-vantaggi-2026-bale/': '/fr/articles-suisse/terzo-pilastro-3a-vantaggi-2026-bale/',
 
-  // ── 410 — retired article with NO substitute (4 URLs).
+  // ── 410 — retired articles with NO substitute (8 URLs).
   '/articoli-frontaliere/prezzi-proprieta-svizzera-aumentano/': null,
   '/en/cross-border-articles/swiss-property-prices-rise/': null,
   '/de/grenzgaenger-artikel/schweizer-immobilienpreise-steigen/': null,
   '/fr/articles-frontalier/prix-immobilier-suisse-augmentent/': null,
+  '/articoli-svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas/': null,
+  '/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/': null,
+  '/de/schweiz-artikel/arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen/': null,
+  '/fr/articles-suisse/suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas/': null,
 
   // ── 410 — upstream-aborted articles with no substitute (12 URLs).
   '/articoli-frontaliere/abort-topical-relevance-pre-saint-didier/': null,
