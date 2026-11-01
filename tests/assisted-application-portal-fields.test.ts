@@ -296,6 +296,8 @@ describe('portal field extraction', () => {
     expect(formInstruction.fields[0].label).toBe('input-12');
     const formInstructionWithoutPeriod = extract('<form><span>Complete all sections before applying</span><input id="input-13"></form>');
     expect(formInstructionWithoutPeriod.fields[0].label).toBe('input-13');
+    const completeFormInstruction = extract('<form><span>Complete this form</span><input id="input-34"></form>');
+    expect(completeFormInstruction.fields[0].label).toBe('input-34');
     for (const [instruction, id] of [
       ['Completa tutti i campi prima di inviare la candidatura', 'input-15'],
       ['Completa il modulo prima dell’invio', 'input-19'],
