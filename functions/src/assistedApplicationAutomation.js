@@ -33,7 +33,7 @@ import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, needsFactRepair, transition
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
-import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
+import { getAccountFailure, isUnconfirmedSubmission, submissionGuard, submissionLeftAt, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
@@ -250,15 +250,18 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
+  const mayReconcileSubmission = ['submit_succeeded', 'submit_failed'].includes(event.type);
+  const submissionRef = mayReconcileSubmission ? submissionRefFor(db, orderId) : null;
   let outcome = null;
   await db.runTransaction(async (transaction) => {
     const orderSnapshot = await transaction.get(orderRef);
     const candidateQuestionAnswersRef = candidateQuestionAnswersRefFor(db, orderSnapshot.data()?.userId);
-    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot] = await Promise.all([
+    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot, submissionSnapshot] = await Promise.all([
       transaction.get(flowRef),
       transaction.get(draftRef),
       claimRef ? transaction.get(claimRef) : Promise.resolve(null),
       candidateQuestionAnswersRef ? transaction.get(candidateQuestionAnswersRef) : Promise.resolve(null),
+      submissionRef ? transaction.get(submissionRef) : Promise.resolve(null),
     ]);
     if (claimSnapshot?.data()?.appliedAt) {
       outcome = { ok: false, ignored: 'already_applied' };
@@ -293,14 +296,33 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       outcome = { ok: false, ignored: 'stale_round' };
       return;
     }
-    const result = transition(flowForTransition, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
+    const order = orderSnapshot.data() || {};
+    const submissionDocument = submissionSnapshot?.data() || {};
+    const submissionReceipt = submissionDocument[`r${Number(flow.round) || 1}`];
+    const canReconcileReceipt = mayReconcileSubmission
+      && submissionReceipt?.state === 'sent'
+      && ['submitting', 'owner_takeover'].includes(flow.state)
+      && !order.withdrawnAt
+      && !submissionDocument.withdrawnAt
+      && order.paymentStatus === 'paid'
+      && (STARTABLE_STATUSES.has(order.submissionStatus) || order.submissionStatus === 'submitted')
+      && order.refundStatus !== 'pending';
+    const transitionEvent = canReconcileReceipt
+      ? {
+        type: 'submission_receipt_reconciled',
+        ...(typeof submissionReceipt.channel === 'string' && submissionReceipt.channel.trim()
+          ? { channel: submissionReceipt.channel.trim().slice(0, 40) }
+          : {}),
+      }
+      : event;
+    const result = transition(flowForTransition, transitionEvent, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
     // Recovery can be scheduled before a refund or a manual closure. The
     // order read in this transaction is authoritative for starting and
     // continuing a fact-repair chain, including its candidate-review emails.
     const startsFactRepair = result.effects.some((effect) => effect.type === 'dispatch' && effect.reason === 'fact_repair');
     const continuesFactRepair = Number(flow.factRepairAttempts) > 0
-      && !['submit_succeeded', 'submit_acknowledged', 'owner_takeover'].includes(event.type);
-    const eligibility = automationEligibility(orderSnapshot.data() || {}, orderId);
+      && !['submit_succeeded', 'submit_acknowledged', 'submission_receipt_reconciled', 'owner_takeover'].includes(transitionEvent.type);
+    const eligibility = automationEligibility(order, orderId);
     if ((startsFactRepair || continuesFactRepair) && !eligibility.eligible) {
       claim(`ignored:${eligibility.reason}`);
       transaction.set(orderRef, { automationDueAt: null }, { merge: true });
@@ -315,7 +337,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     const nextFlow = {
       ...flow,
       ...result.flow,
-      ...(patchFlow ? patchFlow(flow) : {}),
+      ...(patchFlow && !canReconcileReceipt ? patchFlow(flow) : {}),
       updatedAt: nowMs,
     };
     // A dispatch effect is recorded now, in the same write, so the watchdog
@@ -337,7 +359,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     transaction.set(orderRef, mirrorFields(nextFlow), { merge: true });
     transaction.set(orderRef.collection('events').doc(), buildAssistedApplicationEvent('automation_transition', {
       actor: String(actor).slice(0, 120),
-      eventType: event.type,
+      eventType: transitionEvent.type,
       fromState: flow.state || null,
       toState: nextFlow.state,
       round: nextFlow.round,
