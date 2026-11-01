@@ -7,7 +7,8 @@ import { generateServerText } from './geminiGenerate.js';
 import { detectCvFileType, ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { extractCvText } from './assistedApplicationAiDocuments.js';
 import { fetchJobPosting } from './assistedApplicationAiJob.js';
-import { sanitizeProfile, sanitizeRequirements, sanitizeMatch, verifyQuotes, hasUncoveredHardEligibilityStatements } from './assistedApplicationAiDraftCore.js';
+import { sanitizeProfile, sanitizeRequirements, sanitizeMatch, verifyQuotes, hasUncoveredHardEligibilityStatements,
+  hasUnverifiedCurrentStudentEligibility } from './assistedApplicationAiDraftCore.js';
 import { PROFILE_SCHEMA, PROFILE_SYSTEM_PROMPT, profileUserText, REQUIREMENTS_SCHEMA, REQUIREMENTS_SYSTEM_PROMPT,
   requirementsUserText, MATCH_SCHEMA, matchSystemPrompt, matchUserText } from './assistedApplicationAiPrompts.js';
 import { guardMobilityMatch } from './lib/mobilityRequirements.js';
@@ -82,6 +83,9 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
     postingExcerpt: posting.text, candidateSourceExcerpts: candidateSources.excerpts }), citationSchema(MATCH_SCHEMA, 'matches', 'evidence', candidateSources));
   const match = guardMobilityMatch(requirements, sanitizeMatch(resolveCitations(matchRaw, 'matches', 'evidence', candidateSources), requirements.requirements.length, `${evidenceText}\n${JSON.stringify(answers)}`),
     { profile: normalizedProfile, sourceText: evidenceText, answers, memory: answers, locale });
+  if (hasUnverifiedCurrentStudentEligibility(posting.text, normalizedProfile)) {
+    return { status: 'unverified', reason: 'current_education_unverified', gaps: [], postingHash, requirements, match, posting };
+  }
   const result = conciergeProposalEligibility(requirements, match, { profile: normalizedProfile, answers });
   return { ...result, postingHash, requirements, match, posting };
 }

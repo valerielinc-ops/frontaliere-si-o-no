@@ -2,10 +2,10 @@ import { describe, expect, it, vi } from 'vitest';
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
 vi.mock('../functions/src/geminiGenerate.js', () => ({ generateServerText: vi.fn() }));
 const { generateServerText } = await import('../functions/src/geminiGenerate.js');
-vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({ extractCvText: vi.fn(async () => 'Candidate Example\nIT Manager, Example Systems\nLanguages: English B2, French B2\nInfrastructure management and operations experience.') }));
+vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({ extractCvText: vi.fn(async () => 'Candidate Example\nIT Manager, Example Systems, 2020–2025\nLanguages: English B2, French B2\nInfrastructure management and operations experience.') }));
 const { CONCIERGE_ELIGIBILITY_VERSION, prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
 const { conciergeProposalEligibility, fitNoticeOf } = await import('../functions/src/assistedApplicationFitNotice.js');
-const { hasUncoveredHardEligibilityStatements, sanitizeRequirements, verifyQuotes } = await import('../functions/src/assistedApplicationAiDraftCore.js');
+const { hasUncoveredHardEligibilityStatements, hasUnverifiedCurrentStudentEligibility, sanitizeRequirements, verifyQuotes } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT } = await import('../functions/src/assistedApplicationAiPrompts.js');
 
 const requirements = { requirements: [{ requirement: 'Tedesco fluente', sourceRequirement: 'Fluent German required', importance: 'critical', basis: 'stated', quote: 'Fluent German required' }] };
@@ -39,6 +39,25 @@ describe('qualification before proposal publication', () => {
 
     expect(await check({ id: 'school-placement' })).toMatchObject({ status: 'unverified', reason: 'requirements_incomplete' });
     expect(f.generate).toHaveBeenCalledTimes(2);
+    expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
+  });
+
+  it('does not let past IT experience satisfy an exclusive current third-year placement', async () => {
+    const statement = 'This traineeship is exclusively for current third-year commercial-school students and requires a 52-week placement.';
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'IT Manager, Example Systems, 2020–2025' }], verdict: 'strong', questions: [] });
+    f.readPosting.mockResolvedValue({ text: `${statement} ${'The student placement takes place in the commercial school programme. '.repeat(3)}`, source: 'job_detail', textTruncated: false });
+    const row = { requirement: 'Studente al terzo anno di scuola commerciale con pratica di 52 settimane', sourceRequirement: statement,
+      importance: 'critical', basis: 'stated', quote: statement };
+    f.generate.mockImplementation(async (system: string) => system === PROFILE_SYSTEM_PROMPT
+      ? { ...rawProfile, experience: [{ role: 'IT Manager', employer: 'Example Systems', start: '2020', end: '2025' }] }
+      : system === REQUIREMENTS_SYSTEM_PROMPT ? { requirements: [row] }
+        : { matches: [{ index: 0, status: 'met', evidence: 'IT Manager, Example Systems, 2020–2025' }], verdict: 'strong' });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: {} })).toBe(true);
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } })).toBe(false);
+    expect(await check({ id: 'current-student-placement' })).toMatchObject({ status: 'unverified', reason: 'current_education_unverified' });
+    expect(f.generate).toHaveBeenCalledTimes(3);
     expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
   });
 
