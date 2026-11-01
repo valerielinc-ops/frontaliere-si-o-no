@@ -1409,9 +1409,16 @@
           // A redraw can replace the popup between Enter and the option
           // becoming readable. Keep the bounded retry contract instead of
           // reporting a missing answer before the second open.
-          if (!option) continue;
+          if (!option) {
+            fire(element, 'keydown', { key: 'Escape', code: 'Escape' });
+            continue;
+          }
           press(option.element);
           if (await waitFor(() => !isEmpty(entry))) return true;
+          // A swallowed press may leave Workday's old listbox open. Close it
+          // before the single bounded re-open so the next Enter starts a fresh
+          // query instead of reusing stale popup state.
+          fire(element, 'keydown', { key: 'Escape', code: 'Escape' });
         }
         return false;
       }
