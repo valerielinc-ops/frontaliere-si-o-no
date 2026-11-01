@@ -246,7 +246,9 @@ describe('native job route ownership with interned prefixes', () => {
         expect(line, result.stdout).toBeDefined();
         const sample = JSON.parse(line!.slice('NATIVE_ROUTE_HEAP_SAMPLE '.length));
         expect(sample.trackingKeys).toBe(24000);
-        expect(sample.keys).toBe(mode === 'prefix' ? 67764 : 6777);
+        // Active rows contribute 3 foreign locales each; 142 legacy rows
+        // (i % 17 === 0, including zero) are excluded in each locale.
+        expect(sample.keys).toBe(mode === 'prefix' ? 67764 : 6774);
         console.log('NATIVE_ROUTE_HEAP_SAMPLE', sample);
         samples.push(sample);
       }
