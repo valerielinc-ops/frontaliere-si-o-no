@@ -81,6 +81,7 @@ on:
       # changes to any
       # part of that shared overlay must rerender the hubs too.
       - 'scripts/lib/article-corpus-overlay.mjs'
+      - 'scripts/lib/articles-sync-pin.mjs'
       - 'scripts/lib/corpus-canton-exclusion.mjs'
       - 'scripts/lib/corpus-local-preserve.mjs'
       - 'scripts/rerender-article-hubs.mjs'
