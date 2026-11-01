@@ -13,6 +13,15 @@
 /* eslint-disable no-undef -- runs in the browser */
 export function extractFieldsInPage({ channelType = '', includeHidden = false } = {}) {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  // Some SPA wizards reuse the same URL and control ids for every step. Keep
+  // the portal's explicit step markers in the snapshot so the runner can
+  // distinguish a replaced wizard page from a redraw of the current one.
+  const pageMarker = [...document.querySelectorAll('form, main, [role="main"]')].slice(0, 8).map((node) => {
+    const attributes = ['id', 'data-page', 'data-step', 'data-testid', 'data-automation-id', 'aria-current']
+      .map((attribute) => `${attribute}=${clean(node.getAttribute(attribute) || '')}`)
+      .filter((item) => !item.endsWith('='));
+    return `${node.tagName.toLowerCase()}${attributes.length ? `:${attributes.join(',')}` : ''}`;
+  }).join('|');
   // These identifiers are part of the control's own DOM contract. Read only
   // scalar attributes from the element itself: ancestor/global IDs are not
   // evidence for the question represented by this field.
@@ -998,6 +1007,7 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     .filter(Boolean))].slice(0, 8);
   return {
     url: location.href,
+    pageMarker,
     title: document.title,
     fields,
     buttons,
@@ -1093,7 +1103,7 @@ function isTurnstileFrame(url) {
 
 export async function extractFields(page, { listboxOptions = true, channelType = '', includeHidden = false } = {}) {
   const frames = page.frames();
-  const result = { url: page.url(), fields: [], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
+  const result = { url: page.url(), pageMarker: '', fields: [], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
   const context = typeof page.context === 'function' ? page.context() : null;
   const effectiveChannelType = String(channelType || portalChannelTypes.get(context) || '').trim();
   for (const [index, frame] of frames.entries()) {
@@ -1118,6 +1128,7 @@ export async function extractFields(page, { listboxOptions = true, channelType =
       field.options = field.selectLike ? await readOwnedListOptions(frame, field) : await readListboxOptions(frame, field.id);
     }
     result.frames.push({ index, url: snapshot.url });
+    if (index === 0) result.pageMarker = snapshot.pageMarker || '';
     result.fields.push(...snapshot.fields.map((field) => ({ ...field, frame: index })));
     result.buttons.push(...snapshot.buttons.map((button) => ({ ...button, frame: index })));
     result.links.push(...(snapshot.links || []).map((link) => ({ ...link, frame: index })));

@@ -625,7 +625,7 @@ async function awaitFields(page, snapshot, unchanged = () => false) {
  * of the current one without treating a typed value as navigation.
  */
 function pageSignature(page, snapshot) {
-  return `${page.url()}|${snapshot.fields.map((field) => [
+  return `${page.url()}|${snapshot.pageMarker || ''}|${snapshot.fields.map((field) => [
     field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
   ].join(':')).join('|')}`;
 }
