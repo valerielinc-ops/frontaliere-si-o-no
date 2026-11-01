@@ -63,7 +63,7 @@ describe('verified sign-in navigation from an existing-account registration page
     ['Accedi al tuo account', '/it/login'],
     ['Vous avez déjà un compte ? Se connecter', '/fr/login'],
   ])('follows an explicit same-site login link without clicking or submitting a form: %s', async (label, href) => {
-    const { page, frame } = pageWithLink({ label, href });
+    const { page, frame, locator } = pageWithLink({ label, href });
     const snapshot = { dialogs: [], links: [{ id: 'auth-link', frame: 0, text: label }] };
 
     await expect(openVerifiedSignInNavigation(page as any, snapshot as any)).resolves.toBe(true);
@@ -72,6 +72,7 @@ describe('verified sign-in navigation from an existing-account registration page
     expect(frame.goto).toHaveBeenCalledWith(`https://${HOST}${href}`, {
       waitUntil: 'domcontentloaded', timeout: 60_000,
     });
+    expect(locator.click).not.toHaveBeenCalled();
     expect(page.request.post).not.toHaveBeenCalled();
   });
 
@@ -81,12 +82,13 @@ describe('verified sign-in navigation from an existing-account registration page
     'Continue',
     'Register now',
   ])('rejects ambiguous, creation, or generic controls: %s', async (label) => {
-    const { page, frame } = pageWithLink({ label, href: '/de/login' });
+    const { page, frame, locator } = pageWithLink({ label, href: '/de/login' });
     const snapshot = { dialogs: [], links: [{ id: 'auth-link', frame: 0, text: label }] };
 
     await expect(openVerifiedSignInNavigation(page as any, snapshot as any)).resolves.toBe(false);
 
     expect(frame.goto).not.toHaveBeenCalled();
+    expect(locator.click).not.toHaveBeenCalled();
     expect(page.request.post).not.toHaveBeenCalled();
   });
 
@@ -96,12 +98,14 @@ describe('verified sign-in navigation from an existing-account registration page
       dialogs: [], links: [{ id: 'auth-link', frame: 0, text: 'Sign in' }],
     } as any)).resolves.toBe(false);
     expect(external.frame.goto).not.toHaveBeenCalled();
+    expect(external.locator.click).not.toHaveBeenCalled();
 
     const button = pageWithLink({ label: 'Log in', href: '/de/login', tagName: 'BUTTON' });
     await expect(openVerifiedSignInNavigation(button.page as any, {
       dialogs: [], buttons: [{ id: 'auth-link', frame: 0, text: 'Log in', href: '/de/login' }],
     } as any)).resolves.toBe(false);
     expect(button.frame.goto).not.toHaveBeenCalled();
+    expect(button.locator.click).not.toHaveBeenCalled();
     expect(button.page.request.post).not.toHaveBeenCalled();
   });
 
@@ -116,11 +120,12 @@ describe('verified sign-in navigation from an existing-account registration page
 
     expect(frame.goto).not.toHaveBeenCalled();
     expect(locator.isVisible).not.toHaveBeenCalled();
+    expect(locator.click).not.toHaveBeenCalled();
     expect(page.request.post).not.toHaveBeenCalled();
   });
 
   it('dismisses a known cookie banner, then uses the verified login link', async () => {
-    const { page, frame, cookieLocator } = pageWithLink({
+    const { page, frame, locator, cookieLocator } = pageWithLink({
       label: 'Already registered? Log in', href: '/de/login', cookieOverlay: true,
     });
     const snapshot = {
@@ -133,6 +138,7 @@ describe('verified sign-in navigation from an existing-account registration page
 
     expect(cookieLocator.click).toHaveBeenCalledOnce();
     expect(frame.goto).toHaveBeenCalledOnce();
+    expect(locator.click).not.toHaveBeenCalled();
     expect(page.request.post).not.toHaveBeenCalled();
   });
 
