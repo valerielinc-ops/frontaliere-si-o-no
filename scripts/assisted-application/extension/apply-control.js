@@ -163,6 +163,7 @@ const privacySemanticIdentifierFields = Object.freeze(["name","id","fieldId","co
 function privacySemanticIdentifiers(...sources) {
   const keys = privacySemanticIdentifierFields;
   const technicalId = /^(?:[a-z]{1,4}\d{1,4}|(?:input|field|control|question|checkbox|radio)[-:.]?\d+)$/i;
+  const semanticFactId = /^(?:e?mail|mail|tel(?:ephone)?|phone|mobile|cellulare|handy|telefon\w*|telefono|sex|gender|birth|dob|bday|country|paese|nazione|pays|land|address|indirizzo|adresse|residence|residenza|wohnort|domicile|street|strasse|rue|postal|zip|code|postleitzahl|plz|npa|cap)\d{1,4}$/i;
   const nestedKeys = ['portalNativeContract', 'originalNativeContract', 'nativeContract'];
   const values = [];
   const seen = new Set();
@@ -171,7 +172,7 @@ function privacySemanticIdentifiers(...sources) {
     const normalized = String(value).normalize('NFKC').replace(/\p{Cf}/gu, '').trim();
     if (!normalized) return;
     // An opaque generated control id may look like a CEFR level such as `c1`.
-    if (technicalId.test(normalized)) return;
+    if (technicalId.test(normalized) && !semanticFactId.test(normalized)) return;
     const key = normalized.toLocaleLowerCase();
     if (seen.has(key)) return;
     seen.add(key);
@@ -203,13 +204,13 @@ function hasConsentContradiction(value, ...semanticIds) {
     for (const key of ['portalNativeContract', 'originalNativeContract', 'nativeContract']) visitContext(source[key]);
   };
   semanticIds.forEach(visitContext);
-  const ids = privacySemanticIdentifiers(...semanticIds, ...context).map(id => id.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/[_:.-]+/g, ' ')).join(' ');
+  const ids = privacySemanticIdentifiers(...semanticIds, ...context).map(id => id.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/([a-z])(\d)/gi, '$1 $2').replace(/[_:.-]+/g, ' ')).join(' ');
   const primary = ['string', 'number'].includes(typeof value) ? String(value) : '';
   const text = `${primary} ${ids}`.replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/['’`]/g, ' ').replace(/\s+/g, ' ').trim();
   return incompleteMetadata || consentContradictionPatterns.negated.test(text) || consentContradictionPatterns.facts.test(text)
     || /\b(?:bday|dob|sex|gender|country|paese|nazione|pays|land)\b/.test(text)
-    || /\b(?:e ?mail|mail(?:box| address)?|phone|telephone|mobile(?: number)?|cellulare|handy|mobiltelefon|celular|movil|telefon\w*|telefono|portable|courriel|adresse|anschrift|address|indirizzo|street|strasse|rue|residence|residenza|wohnort|domicile|postal code|zip code|code postal|postleitzahl|plz|npa|cap)\b/.test(text)
+    || /\b(?:e ?mail|mail(?:box| address)?|tel(?:ephone)?|phone|mobile(?: number)?|cellulare|handy|mobiltelefon|celular|movil|telefon\w*|telefono|portable|courriel|adresse|anschrift|address|indirizzo|street|strasse|rue|residence|residenza|wohnort|domicile|postal code|zip code|code postal|postleitzahl|plz|npa|cap)\b/.test(text)
     || consentContradictionPatterns.otherTerms.test(text)
     || consentContradictionPatterns.accuracy.test(text) || isOptionalPurpose(text);
 }

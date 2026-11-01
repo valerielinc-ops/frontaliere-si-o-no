@@ -137,6 +137,9 @@
       const node = id && document.getElementById(id);
       return node ? rawText(node.innerText || node.textContent) : '';
     };
+    const referenceAttributes = ['aria-labelledby', 'aria-describedby', 'aria-details'];
+    const referenceIds = referenceAttributes.flatMap(attribute => (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean));
+    const unresolvedReference = referenceIds.some(id => !document.getElementById(id));
     const ariaLabelText = rawText(element.getAttribute('aria-label') || '');
     const ariaDescriptionText = rawText(element.getAttribute('aria-description') || '');
     const titleText = rawText(element.getAttribute('title') || '');
@@ -149,8 +152,7 @@
       (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean).map(rawTextOf)).filter(Boolean);
     const description = descriptionTexts.join(' ');
     const associatedLabels = [...(element.labels || [])].map(node => rawText(node.innerText || node.textContent)).filter(Boolean);
-    const references = ['aria-labelledby', 'aria-describedby', 'aria-details'].flatMap(attribute =>
-      (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean).map(rawTextOf));
+    const references = referenceIds.map(rawTextOf);
     const allLabels = [
       primaryLabel,
       ...associatedLabels,
@@ -163,7 +165,7 @@
     // could hide a contradictory control role from the consent guard.
     const privacyMetadataIncomplete = [primaryLabel, ...associatedLabels, ...references,
       ariaLabelText, ariaDescriptionText, titleText, placeholderText].some(value => String(value || '').length >= 300)
-      || description.length > 600 || allLabels.length > 12;
+      || description.length > 600 || allLabels.length > 12 || unresolvedReference;
     return {
       ...(ariaLabel ? { ariaLabel } : {}),
       ...(ariaDescription ? { ariaDescription } : {}),

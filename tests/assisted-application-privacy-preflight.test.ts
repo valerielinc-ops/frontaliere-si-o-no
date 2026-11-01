@@ -533,6 +533,9 @@ describe('the same grammar on the canonical consent path', () => {
 
   it.each([
     ['email aria label', { ariaLabel: 'Email' }],
+    ['email-like generated id', { name: 'mail1' }],
+    ['telephone-like generated id', { name: 'tel1' }],
+    ['sex-like generated id', { name: 'sex1' }],
     ['phone control id', { semanticId: 'candidate_phone' }],
     ['Italian mobile control id', { semanticId: 'cellulare' }],
     ['residence address name', { name: 'residence_address' }],
