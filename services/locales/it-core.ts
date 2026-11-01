@@ -3200,6 +3200,7 @@ Regole:
   'jobBoard.assisted.employerResponse.assessment': "Test da completare",
   'jobBoard.assisted.employerResponse.offer': "Offerta ricevuta",
   'jobBoard.assisted.employerResponse.needsReply': "L’azienda attende una tua risposta.",
+  'jobBoard.assisted.employerResponse.timeline': 'Cronologia delle risposte',
   'jobBoard.assisted.employerResponse.emailHint': "Il messaggio completo è nell’email che ti abbiamo inoltrato. Per rispondere all’azienda, rispondi a quell’email.",
 
 };

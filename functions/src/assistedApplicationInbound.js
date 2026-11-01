@@ -22,8 +22,13 @@
  *      confirmation e-mail): see confirmSubmissionByEmployer.
  */
 
-import { employerResponseOf, loadEmployerResponse, mergeEmployerResponse } from './assistedApplicationEmployerResponse.js';
-import { randomUUID, timingSafeEqual } from 'node:crypto';
+import {
+  employerResponseOf,
+  loadEmployerResponse,
+  mergeEmployerResponse,
+  mergeEmployerResponseTimeline,
+} from './assistedApplicationEmployerResponse.js';
+import { createHash, timingSafeEqual } from 'node:crypto';
 import { ASSISTED_EMAIL_PROVIDERS } from './assistedApplicationEmployerMail.js';
 import { FieldValue } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
@@ -31,10 +36,10 @@ import { currentPendingPortalAccount, exactPortalVerificationUrl, MAX_PORTAL_VER
 import { orderIdForAlias } from './assistedApplicationAlias.js';
 import { confirmSubmissionByEmployer } from './assistedApplicationAutomation.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
-import { brandCallout, brandParagraph, brandSignature, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
-import { customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
+import { brandButton, brandCallout, brandParagraph, brandSignature, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
+import { buildOrderPageUrl, customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
 import { decryptJson, encryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
-import { addressOf, parseMimeMessage, senderAuthenticated, singleMailboxAddress } from './lib/mimeMessage.js';
+import { addressOf, parseHeaders, parseMimeMessage, senderAuthenticated, singleMailboxAddress } from './lib/mimeMessage.js';
 
 export const INBOUND_CATEGORIES = [
   'interview_invite', 'rejection', 'documents_request', 'question', 'assessment',
@@ -48,6 +53,7 @@ const RECEIPT_CATEGORIES = new Set([
 const MAX_RAW_BYTES = 12 * 1024 * 1024;
 const MAX_FORWARD_ATTACHMENTS_BYTES = 10 * 1024 * 1024;
 const OWNER_MAILBOX = 'valerie@frontaliereticino.ch';
+const MESSAGE_ID_RE = /^<[^<>\r\n]{1,998}>$/;
 
 const CLASSIFICATION_SCHEMA = {
   type: 'object',
@@ -373,10 +379,10 @@ const PREFIX = {
 };
 
 const FORWARD_COPY = {
-  it: { lead: 'Hai ricevuto un messaggio da {company} per la tua candidatura a {job}.', summary: 'In breve:', reply: 'Per rispondere basta rispondere a questa email: la risposta arriva direttamente a chi ti ha scritto.', original: 'Messaggio originale' },
-  de: { lead: 'Du hast eine Nachricht von {company} zu deiner Bewerbung auf {job} erhalten.', summary: 'Kurz gesagt:', reply: 'Antworte einfach auf diese E-Mail: Deine Antwort geht direkt an die Person, die dir geschrieben hat.', original: 'Ursprüngliche Nachricht' },
-  fr: { lead: 'Vous avez reçu un message de {company} concernant votre candidature à {job}.', summary: 'En bref :', reply: 'Pour répondre, il suffit de répondre à cet e-mail : la réponse arrive directement à la personne qui vous a écrit.', original: 'Message d’origine' },
-  en: { lead: 'You received a message from {company} about your application to {job}.', summary: 'In short:', reply: 'To answer, just reply to this email: it goes straight to the person who wrote to you.', original: 'Original message' },
+  it: { lead: 'Hai ricevuto un messaggio da {company} per la tua candidatura a {job}.', summary: 'In breve:', reply: 'Per rispondere basta rispondere a questa email: la risposta arriva direttamente a chi ti ha scritto.', original: 'Messaggio originale', page: 'Puoi controllare lo stato della candidatura nella pagina Application Concierge.', pageCta: 'Apri Application Concierge' },
+  de: { lead: 'Du hast eine Nachricht von {company} zu deiner Bewerbung auf {job} erhalten.', summary: 'Kurz gesagt:', reply: 'Antworte einfach auf diese E-Mail: Deine Antwort geht direkt an die Person, die dir geschrieben hat.', original: 'Ursprüngliche Nachricht', page: 'Den Stand deiner Bewerbung kannst du auf der Application-Concierge-Seite prüfen.', pageCta: 'Application Concierge öffnen' },
+  fr: { lead: 'Vous avez reçu un message de {company} concernant votre candidature à {job}.', summary: 'En bref :', reply: 'Pour répondre, il suffit de répondre à cet e-mail : la réponse arrive directement à la personne qui vous a écrit.', original: 'Message d’origine', page: 'Vous pouvez consulter l’état de votre candidature dans la page Application Concierge.', pageCta: 'Ouvrir Application Concierge' },
+  en: { lead: 'You received a message from {company} about your application to {job}.', summary: 'In short:', reply: 'To answer, just reply to this email: it goes straight to the person who wrote to you.', original: 'Original message', page: 'You can check your application status on the Application Concierge page.', pageCta: 'Open Application Concierge' },
 };
 
 const OMITTED_ATTACHMENTS_COPY = {
@@ -435,7 +441,26 @@ function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
-export function buildForward({ order, message, classification, sender, omittedAttachments = [] }) {
+/**
+ * Cloudflare may retry the same RFC message with a new request timestamp. An
+ * RFC Message-ID is the strongest transport identity; raw bytes are the
+ * conservative fallback for senders that omit it. The order-scoped inbox
+ * makes the resulting key safe even when two employers reuse an invalid ID.
+ */
+export function inboundMessageIdentity(raw) {
+  const text = Buffer.from(raw || '').toString('latin1');
+  const separator = /\r?\n\r?\n/.exec(text);
+  const headers = parseHeaders(separator ? text.slice(0, separator.index) : text);
+  const messageIds = headers.filter(([name]) => name === 'message-id').map(([, value]) => value.trim());
+  const sourceMessageId = messageIds.length === 1 && MESSAGE_ID_RE.test(messageIds[0]) ? messageIds[0] : '';
+  const identity = sourceMessageId ? `message-id:${sourceMessageId}` : raw;
+  return {
+    messageId: `in-${createHash('sha256').update(identity).digest('hex')}`,
+    ...(sourceMessageId ? { sourceMessageId } : {}),
+  };
+}
+
+export function buildForward({ order, orderId = '', message, classification, sender, omittedAttachments = [] }) {
   const locale = resolveOrderLocale(order);
   const copy = FORWARD_COPY[locale] || FORWARD_COPY.it;
   const prefix = (PREFIX[locale] || PREFIX.it)[classification.category];
@@ -445,6 +470,7 @@ export function buildForward({ order, message, classification, sender, omittedAt
   const subject = `[${prefix}] ${String(message.subject || '').replace(/^\s*(\[[^\]]*\]\s*)+/, '')}`.slice(0, 250);
   const summary = classification.summaryCandidate ? `${copy.summary} ${classification.summaryCandidate}` : '';
   const omitted = omittedAttachmentsNotice(locale, omittedAttachments);
+  const pageUrl = orderId ? buildOrderPageUrl(order, orderId, locale) : '';
   const html = renderBrandedEmail({
     locale,
     preheader: summary || lead,
@@ -456,13 +482,14 @@ export function buildForward({ order, message, classification, sender, omittedAt
       summary ? brandCallout(`<strong>${escapeHtml(summary)}</strong>`) : '',
       omitted ? brandCallout(`<strong>${escapeHtml(omitted.warning)}</strong><br>${escapeHtml(omitted.list)}`) : '',
       brandParagraph(escapeHtml(copy.reply)),
+      pageUrl ? brandCallout(`${escapeHtml(copy.page)}<br>${brandButton(pageUrl, copy.pageCta)}`) : '',
       `<p style="margin:16px 0 4px;font-size:12px;color:#64748b">${escapeHtml(copy.original)} — ${escapeHtml(sender)}</p>`,
       `<div style="white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;line-height:1.6;max-width:100%;border-left:3px solid #e2e8f0;padding-left:12px;font-size:14px;color:#1e293b">${escapeHtml(original)}</div>`,
       brandSignature('Frontaliere Ticino', ''),
     ].join(''),
     footerLines: [],
   });
-  const text = [lead, summary, omitted ? `${omitted.warning}\n${omitted.list}` : '', copy.reply, `---- ${copy.original} (${sender}) ----`, original].filter(Boolean).join('\n\n');
+  const text = [lead, summary, omitted ? `${omitted.warning}\n${omitted.list}` : '', copy.reply, pageUrl ? `${copy.page}\n${copy.pageCta}: ${pageUrl}` : '', `---- ${copy.original} (${sender}) ----`, original].filter(Boolean).join('\n\n');
   return { subject, html, text };
 }
 
@@ -495,13 +522,16 @@ export async function handleAssistedApplicationInbound(req, deps) {
   const orderRef = deps.db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
 
   const nowMs = deps.nowMs || Date.now();
-  const messageId = `${nowMs}-${randomUUID().slice(0, 8)}`;
+  const identity = inboundMessageIdentity(raw);
+  const { messageId } = identity;
+  const inboxRef = orderRef.collection('inbox').doc(messageId);
+  if ((await inboxRef.get()).exists) return { status: 200, body: { ok: true, matched: true, accepted: messageId, duplicate: true } };
   const rawKey = `assisted-application-uploads/${orderId}/inbox-${messageId}.eml.json.enc`;
   await deps.bucket.file(rawKey).save(JSON.stringify(encryptJson({ raw: raw.toString('base64') }, runKeyFrom(deps.runKey))), {
     contentType: 'application/octet-stream',
     resumable: false,
   });
-  await orderRef.collection('inbox').doc(messageId).set({ receivedAt: nowMs, status: 'received', rawKey });
+  await inboxRef.set({ receivedAt: nowMs, status: 'received', rawKey, ...identity });
   return { status: 200, body: { ok: true, matched: true, accepted: messageId } };
 }
 
@@ -647,7 +677,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     if (consumedByRunner) forwarded = { status: 'skipped', reason: 'portal_verification' };
     else if (to) {
       const { attachments, omittedAttachments } = forwardableAttachments(message.attachments);
-      const forward = buildForward({ order, message, classification, sender: sender || message.from, omittedAttachments });
+      const forward = buildForward({ order, orderId, message, classification, sender: sender || message.from, omittedAttachments });
       const sourceReplyTo = authenticated ? singleMailboxAddress(message.replyTo) : '';
       const replyTo = [sourceReplyTo, sourceFrom].find((address) => address
         && address !== OWNER_MAILBOX
@@ -676,9 +706,11 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       if (!currentMessage.exists || currentMessage.data()?.processedAt) return;
       const liveOrder = currentOrder.data() || {};
       if (liveOrder.retentionPurgedAt) { transaction.delete(ref); return; }
-      const employerResponse = mergeEmployerResponse(mergeEmployerResponse(previousResponse, employerResponseOf(liveOrder)), {
+      const employerResponseEvent = {
         ...classification, receivedAt: claimed.receivedAt, messageId,
-      });
+      };
+      const employerResponse = mergeEmployerResponse(mergeEmployerResponse(previousResponse, employerResponseOf(liveOrder)), employerResponseEvent);
+      const employerResponseTimeline = mergeEmployerResponseTimeline(liveOrder.employerResponseTimeline, employerResponseEvent);
       transaction.set(ref, {
         status: 'processed',
         processedAt: nowMs,
@@ -687,6 +719,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         attachments: message.attachments.map((item) => item.filename || 'allegato').slice(0, 20),
         classifiedBy,
         ...classification,
+        correlationStatus: RECEIPT_CATEGORIES.has(classification.category) ? 'verified' : 'unknown',
         portalVerificationHost,
         forwarded,
       }, { merge: true });
@@ -697,6 +730,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
           lastEmployerReplyCategory: classification.category,
         } : {}),
         ...(employerResponse ? { employerResponse } : {}),
+        ...(employerResponseTimeline.length ? { employerResponseTimeline } : {}),
       }, { merge: true });
     });
     const settled = runEffect && RECEIPT_CATEGORIES.has(classification.category)

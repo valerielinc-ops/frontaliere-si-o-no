@@ -441,6 +441,13 @@ describe('attachments left out of the forward', () => {
     expect(forward.html).not.toContain('Non inoltrati');
   });
 
+  it('adds a localized, canonical Concierge status link to a forwarded employer message', () => {
+    const forward = buildForward({ order: { locale: 'it' }, orderId: 'order_FALLBACK1', message, classification, sender: 'hr@employer.example' });
+    const pageUrl = [...forward.text.matchAll(/https:\/\/frontaliereticino\.ch\S+/g)].map(match => match[0]).find(url => url.includes('assisted_application_order_id='));
+    expect(pageUrl).toBe('https://frontaliereticino.ch/cerca-lavoro-ticino/?assisted_application_order_id=order_FALLBACK1');
+    expect(forward.html).toContain('Apri Application Concierge');
+  });
+
   for (const [locale, [, , names, , fallback]] of Object.entries(COPY)) {
     it(`uses a generic safe display for hostile names in ${locale} while preserving Unicode filenames`, () => {
       const omittedAttachments = [

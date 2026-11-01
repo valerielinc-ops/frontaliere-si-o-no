@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
-import { employerResponseView, loadEmployerResponse, mergeEmployerResponse } from '../functions/src/assistedApplicationEmployerResponse.js';
+import { employerResponseTimelineView, employerResponseView, loadEmployerResponse, mergeEmployerResponse, mergeEmployerResponseTimeline } from '../functions/src/assistedApplicationEmployerResponse.js';
 import { conciergeProposalDisplayStatus } from '../services/applicationConciergeService';
 import { parseEmployerResponse } from '../services/assistedApplicationEmployerResponse';
 
@@ -27,6 +27,19 @@ it('keeps duplicate delivery idempotent and resolves equal timestamps determinis
   expect(mergeEmployerResponse(first, first)).toEqual(first);
   const second = message('question', 1000, 'b');
   expect(mergeEmployerResponse(first, second)).toEqual(mergeEmployerResponse(second, first));
+});
+
+it('keeps a public, chronological response timeline without duplicate deliveries or private ids', () => {
+  const late = message('rejection', 3000, 'late');
+  const early = message('interview_invite', 1000, 'early');
+  const timeline = mergeEmployerResponseTimeline(mergeEmployerResponseTimeline([], late), early);
+  const repeated = mergeEmployerResponseTimeline(timeline, late);
+  expect(repeated).toHaveLength(2);
+  expect(employerResponseTimelineView(repeated)).toEqual([
+    { category: 'interview_invite', receivedAt: 1000, needsReply: false },
+    { category: 'rejection', receivedAt: 3000, needsReply: false },
+  ]);
+  expect(JSON.stringify(employerResponseTimelineView(repeated))).not.toContain('early');
 });
 
 it('recovers existing processed messages, including a receipt hidden by a later account email', async () => {
