@@ -74,6 +74,45 @@ describe('MediPersonal crawler parser', () => {
       expect(description).toContain('• listing-word-1');
     });
 
+    it('recovers a bare main detail shell only with vacancy markers', () => {
+      const html = `
+        <main>
+          <h1>Fachärztin / Facharzt Allgemeinmedizin</h1>
+          <p>Einsatzort: Zürich und Umgebung</p>
+          <p>Eintritt: Ab sofort oder nach Vereinbarung</p>
+          <p>Eine verantwortungsvolle Stelle mit langfristiger Betreuung in einer modernen Praxis und einem eingespielten interdisziplinären Team.</p>
+          <h3>Ihre Aufgaben</h3>
+          <ul><li>Patientinnen und Patienten eigenverantwortlich betreuen</li>
+            <li>Untersuchungen und Befunde sorgfältig dokumentieren</li></ul>
+          <h3>Bewerbung &amp; Kontakt</h3>
+          <p>Bitte senden Sie Ihre vollständigen Unterlagen per E-Mail.</p>
+        </main>`;
+
+      const description = extractIpersonalDescription(html);
+      expect(description).toContain('\n• Patientinnen und Patienten eigenverantwortlich betreuen');
+      expect(description).toContain('\n• Untersuchungen und Befunde sorgfältig dokumentieren');
+      expect(description).not.toContain('Bitte senden Sie Ihre vollständigen Unterlagen');
+    });
+
+    it('does not combine listing-card markers with an unrelated interest prompt', () => {
+      const listingItems = Array.from({ length: 16 }, (_, index) =>
+        `<li>Aufgabe ${index + 1} mit ausreichend konkreter Beschreibung für diese Stelle und verantwortungsvoller täglicher Arbeit.</li>`
+      ).join('');
+      const html = `
+        <main>
+          <div class="job-card">
+            <p>Arbeitsort: Zürich</p>
+            <p>Eintritt: sofort</p>
+            <p>Eine verantwortungsvolle Stelle mit langfristiger Betreuung in einer modernen Praxis und einem eingespielten interdisziplinären Team.</p>
+            <h3>Ihre Aufgaben</h3>
+            <ul>${listingItems}</ul>
+          </div>
+          <div class="job-card"><p>Interessiert?</p></div>
+        </main>`;
+
+      expect(extractIpersonalDescription(html)).toBe('');
+    });
+
     it('recovers the current semantic detail shell without the application tail', () => {
       const html = `
         <header><nav>Navigation noise</nav></header>
