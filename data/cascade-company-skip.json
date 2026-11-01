@@ -1,5 +1,5 @@
 {
-  "run": 279,
+  "run": 280,
   "companies": {
     "fielmann": {
       "sterile": 0,
@@ -14,6 +14,10 @@
     "pemsa": {
       "sterile": 1,
       "signature": "d4cdb525ea223104"
+    },
+    "ferrovia-retica": {
+      "sterile": 1,
+      "signature": "42670fdf54acbb36"
     },
     "bosch-thermotechnik-ag": {
       "sterile": 1,

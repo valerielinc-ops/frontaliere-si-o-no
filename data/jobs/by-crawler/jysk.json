@@ -1899,7 +1899,8 @@
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-11-30T13:58:03.674Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-e3juej",
@@ -2707,7 +2708,8 @@
       "streetAddress": "Glarus",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-16T10:00:52.301Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-rnfd68",
@@ -3257,7 +3259,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-12T13:34:21.925Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-3vx5m8",
