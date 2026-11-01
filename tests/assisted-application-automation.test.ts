@@ -24,12 +24,13 @@ const {
 } = await import('../functions/src/assistedApplicationAutomation.js');
 const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationFlow.js');
 const { autoRetryDelaysForFlow } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
-const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
+const { candidateQuestionAnswerKey, rememberCandidateQuestionAnswers } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
 const { answerQuestionSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
+const { questionDetailsForEvent } = await import('../scripts/assisted-application/lib/question-details.mjs');
 const { getAccountFailure, serializeAccountFailure, submissionGuard } = await import('../functions/src/assistedApplicationSubmissionGuard.js');
-const { handleAuth, verifyAccount } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+const { handleAuth, portalQuestionKey, verifyAccount } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
 const ORDER = 'order_ABC123';
@@ -262,6 +263,121 @@ describe('applying events', () => {
       flow: { state: 'submitting', dispatch: { mode: 'submit', attempts: 2, reason: 'existing_candidate_answers' } },
     });
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
+  });
+
+  it('recognizes ATS answer memory for a translated question when the runner reports the source label', async () => {
+    const nativeQuestion = {
+      id: 'region_native', source: 'portal', question: 'Welche Region ist dein Herkunftskanton?',
+      applicationQuestion: 'Welche Region ist dein Herkunftskanton?', type: 'text', required: true,
+    };
+    const translatedQuestion = {
+      id: 'region_candidate', source: 'portal',
+      question: 'Qual è la tua regione di provenienza?',
+      applicationQuestion: 'Welche Region ist dein Herkunftskanton?',
+      applicationQuestionLocale: 'de', localizationStatus: 'translated', type: 'text', required: true,
+    };
+    const questionAnswers = rememberCandidateQuestionAnswers({
+      questions: [nativeQuestion],
+      answers: { [nativeQuestion.id]: 'Soletta' },
+      changed: { [nativeQuestion.id]: 'Soletta' },
+    });
+    const flowRef = store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow');
+    await flowRef.set({
+      state: 'submitting',
+      round: 1,
+      answers: {},
+      questionAnswers,
+      heldBy: [],
+      dispatch: { mode: 'submit', round: 1, attempts: 1 },
+    });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set({
+      ...readyDraft(),
+      questions: [translatedQuestion],
+    });
+    const events = store.db.collection('assisted_applications').doc(ORDER).collection('automation_events');
+    const runnerQuestionId = 'region_runner';
+    const runnerQuestionDetails = questionDetailsForEvent([{
+      ...translatedQuestion,
+      id: runnerQuestionId,
+    }], portalQuestionKey);
+    expect(runnerQuestionDetails[0]).toMatchObject({
+      question: 'Qual è la tua regione di provenienza?',
+      applicationQuestion: 'Welche Region ist dein Herkunftskanton?',
+    });
+    const ref = await events.add({
+      type: 'submit_needs_candidate',
+      round: 1,
+      questions: [{ id: runnerQuestionId }],
+      questionDetails: runnerQuestionDetails,
+      documents: [],
+    });
+    const data = store.read(ref.path);
+
+    expect(await handleRunnerEvent({ db: store.db, orderId: ORDER, eventRef: ref, data, runEffect, nowMs: T0 })).toMatchObject({
+      ok: true,
+      flow: { state: 'submitting', dispatch: { mode: 'submit', attempts: 2, reason: 'existing_candidate_answers' } },
+    });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
+  });
+
+  it('preserves semantic identity when the ATS option catalogue exceeds the event descriptor limit', () => {
+    const applicationOptions = Array.from({ length: 41 }, (_, index) => `Native option ${index}`);
+    const sourceQuestion = {
+      id: 'choice_native', source: 'portal', question: 'Choose a region', applicationQuestion: 'Choose a region',
+      type: 'choice', required: true, options: applicationOptions, applicationOptions,
+    };
+    const translatedQuestion = {
+      ...sourceQuestion,
+      id: 'choice_candidate',
+      question: 'Scegli una regione',
+      options: applicationOptions.map((_, index) => `Opzione ${index}`),
+      localizationStatus: 'translated',
+    };
+    const descriptor = questionDetailsForEvent([translatedQuestion], portalQuestionKey)[0];
+
+    expect(descriptor.applicationOptions).toHaveLength(40);
+    expect(descriptor.applicationOptionsFingerprint).toMatch(/^v1_[a-z0-9]+$/);
+    expect(candidateQuestionAnswerKey(translatedQuestion)).toBe(candidateQuestionAnswerKey(sourceQuestion));
+    expect(candidateQuestionAnswerKey(descriptor)).toBe(candidateQuestionAnswerKey(sourceQuestion));
+  });
+
+  it('preserves semantic identity when the ATS prompt exceeds the event descriptor limit', () => {
+    const applicationQuestion = 'Bitte wählen Sie die gewünschte Region für Ihre Bewerbung aus und geben Sie weitere Details an. '.repeat(4);
+    const sourceQuestion = {
+      id: 'long_native', source: 'portal', question: applicationQuestion, applicationQuestion,
+      type: 'text', required: true,
+    };
+    const translatedQuestion = {
+      ...sourceQuestion,
+      id: 'long_candidate',
+      question: 'Seleziona la regione desiderata per la candidatura e aggiungi i dettagli richiesti.',
+      localizationStatus: 'translated',
+    };
+    const descriptor = questionDetailsForEvent([translatedQuestion], portalQuestionKey)[0];
+
+    expect(descriptor.applicationQuestion).toHaveLength(240);
+    expect(descriptor.questionIdentityFingerprint).toMatch(/^v1_[a-z0-9]+$/);
+    expect(candidateQuestionAnswerKey(translatedQuestion)).toBe(candidateQuestionAnswerKey(sourceQuestion));
+    expect(candidateQuestionAnswerKey(descriptor)).toBe(candidateQuestionAnswerKey(sourceQuestion));
+  });
+
+  it('does not classify a truncated conditional workload question as a portable preference', () => {
+    const applicationQuestion = `What is your desired workload? ${'additional context '.repeat(12)}currently required`;
+    const sourceQuestion = {
+      id: 'conditional_workload', source: 'portal', question: applicationQuestion, applicationQuestion,
+      type: 'number', required: true,
+    };
+    const translatedQuestion = {
+      ...sourceQuestion,
+      id: 'conditional_workload_candidate',
+      question: `Qual è il tuo grado di occupazione? ${'contesto aggiuntivo '.repeat(12)}attualmente richiesto`,
+      localizationStatus: 'translated',
+    };
+    const descriptor = questionDetailsForEvent([translatedQuestion], portalQuestionKey)[0];
+
+    expect(descriptor.questionIdentityFingerprint).toMatch(/^v1_[a-z0-9]+$/);
+    expect(candidateQuestionAnswerKey(sourceQuestion)).not.toBe('preference_workload_percentage_v1');
+    expect(candidateQuestionAnswerKey(descriptor)).toBe(candidateQuestionAnswerKey(sourceQuestion));
   });
 
   it('relaunches exactly one explicitly authorised approved owner-takeover round', async () => {

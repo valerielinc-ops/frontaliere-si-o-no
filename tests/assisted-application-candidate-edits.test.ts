@@ -121,6 +121,44 @@ describe('candidate edits', () => {
     expect(cleared[candidateQuestionAnswerKey(first)]).toBe('');
   });
 
+  it('uses the ATS source label as the stable key for a translated candidate question', () => {
+    const source = {
+      id: 'region_native', source: 'portal', question: 'Welche Region ist dein Herkunftskanton?',
+      applicationQuestion: 'Welche Region ist dein Herkunftskanton?', type: 'text', required: true,
+    };
+    const translated = {
+      ...source, id: 'region_candidate', question: 'Qual è la tua regione di provenienza?',
+      applicationQuestionLocale: 'de', localizationStatus: 'translated',
+    };
+
+    expect(candidateQuestionAnswerKey(translated)).toBe(candidateQuestionAnswerKey(source));
+
+    const nativeMemory = rememberCandidateQuestionAnswers({
+      questions: [source], answers: { [source.id]: 'Soletta' }, changed: { [source.id]: 'Soletta' },
+    });
+    expect(candidateAnswersForQuestions([{ ...translated, id: 'region_retranslated' }], {}, nativeMemory))
+      .toEqual({ region_retranslated: 'Soletta' });
+
+    const candidateMemory = rememberCandidateQuestionAnswers({
+      questions: [translated], answers: { [translated.id]: 'Soletta' }, changed: { [translated.id]: 'Soletta' },
+    });
+    expect(candidateAnswersForQuestions([{ ...source, id: 'region_recreated' }], {}, candidateMemory))
+      .toEqual({ region_recreated: 'Soletta' });
+
+    const nativeChoices = {
+      ...source,
+      id: 'source_choice', type: 'choice', options: ['Solothurn', 'Übrige Schweiz'],
+      applicationOptions: ['Solothurn', 'Übrige Schweiz'],
+    };
+    const translatedChoices = {
+      ...nativeChoices,
+      id: 'localized_choice', question: 'Quale regione è il tuo cantone di provenienza?',
+      options: ['Soletta', 'Resto della Svizzera'], localizationStatus: 'translated',
+      applicationQuestionLocale: 'de',
+    };
+    expect(candidateQuestionAnswerKey(translatedChoices)).toBe(candidateQuestionAnswerKey(nativeChoices));
+  });
+
   it('reuses an explicit workload percentage across languages, wording and generated ids', () => {
     const first = { id: 'workload', question: 'What is your desired workload (in %)?', type: 'number', validation: { min: 0, max: 100 } };
     const memory = rememberCandidateQuestionAnswers({ questions: [first], answers: { workload: '100' }, changed: { workload: '100' } });
