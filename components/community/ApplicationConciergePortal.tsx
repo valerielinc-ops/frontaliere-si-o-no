@@ -298,7 +298,13 @@ export default function ApplicationConciergePortal({
     setPhone((value) => value || loaded.applicantPhone || '');
     const serviceResidence = residenceLocationForEditor(loaded.applicantLocation || '', loaded.applicantLocationCountry || '');
     setLocation((value) => value || serviceResidence.location);
-    if (serviceResidence.location) setLocationCountryCode(serviceResidence.countryCode);
+    if (serviceResidence.location) {
+      // A refresh can settle while the profile prefill is still pending. The
+      // service value is authoritative for this editor and must not be
+      // replaced by a late profile response.
+      locationEdited.current = true;
+      setLocationCountryCode(serviceResidence.countryCode);
+    }
     setConsent(loaded.hasConsent);
     return loaded;
   }, [ensureUser, serviceId]);
