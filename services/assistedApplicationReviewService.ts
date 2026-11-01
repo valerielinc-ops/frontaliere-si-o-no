@@ -82,6 +82,11 @@ export interface ReviewQuestion {
   minDate?: string | null;
   /** Proposed start date shown in the empty field (saved only by the candidate). */
   suggested?: string | null;
+  /** Optional answer draft with CV passages selected by the generator; never saved until the candidate saves it. */
+  suggestedAnswer?: string | null;
+  answerEvidence?: string[];
+  /** One fact the CV does not contain and the candidate can add to complete the draft. */
+  answerMissingDetail?: string | null;
   /** The rule checked as the candidate types (functions/src/lib/answerRules.js). */
   validation?: {
     pattern: string;

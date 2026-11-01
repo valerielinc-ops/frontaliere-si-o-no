@@ -119,11 +119,18 @@ async function requireConsentStillGiven(db, { orderId, kind }) {
 
 export { defaultStartDate, minDateFor, zurichToday };
 
-function questionView(question, nowMs = Date.now()) {
+function questionView(question, nowMs = Date.now(), cvText = '') {
   const localizationFallback = question.localizationStatus === 'fallback';
   const candidateQuestion = portalQuestionText(question) || String(question.question || '').trim();
   const applicationQuestion = readablePortalQuestionText(question.applicationQuestion);
   const showApplicationQuestion = localizationFallback || Boolean(applicationQuestion && applicationQuestion !== candidateQuestion);
+  const suggestedAnswer = clean(question.suggestedAnswer, 1200);
+  const answerEvidence = (Array.isArray(question.answerEvidence) ? question.answerEvidence : [])
+    .map((item) => clean(item, 360)).filter(Boolean).slice(0, 3);
+  const normalizeEvidence = (value) => String(value || '').normalize('NFC').replace(/\s+/gu, ' ').trim().toLowerCase();
+  const cvEvidence = normalizeEvidence(cvText);
+  const answerHasVerifiedEvidence = Boolean(suggestedAnswer && answerEvidence.length
+    && answerEvidence.every((item) => cvEvidence.includes(normalizeEvidence(item))));
   return {
     id: question.id,
     question: candidateQuestion,
@@ -141,6 +148,8 @@ function questionView(question, nowMs = Date.now()) {
     validation: question.validation || null,
     // A proposal shown in the field, never an answer until the candidate saves it.
     suggested: minDateFor(question, nowMs) ? defaultStartDate(nowMs) : null,
+    ...(answerHasVerifiedEvidence ? { suggestedAnswer, answerEvidence } : {}),
+    ...(clean(question.answerMissingDetail, 240) ? { answerMissingDetail: clean(question.answerMissingDetail, 240) } : {}),
   };
 }
 
@@ -297,7 +306,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale: order?.locale || 'it' }).answers;
   const visibleQuestions = questionsForCandidate(draft?.questions, profile, candidateAnswers, candidateFlow.questionAnswers, draft);
   const questions = visibleQuestions.map((question) => {
-    const view = questionView(question, nowMs);
+    const view = questionView(question, nowMs, draft?.factSources?.text || '');
     if (question.id !== 'work_permit') return view;
     const { options, value } = permitQuestionView(view.options, answers.work_permit);
     answers.work_permit = value;

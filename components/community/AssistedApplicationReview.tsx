@@ -75,18 +75,20 @@ function CopyButton({ value, label }: { value: string; label: string }) {
   );
 }
 
-function QuestionField({ question, value, onChange, disabled, error, locale }: {
+function QuestionField({ question, value, onChange, disabled, error, locale, savedAnswer }: {
   question: ReviewQuestion;
   value: string;
   onChange: (value: string) => void;
   disabled: boolean;
   locale: string;
+  savedAnswer?: boolean;
   error?: string;
 }) {
   const { t } = useTranslation();
   const localizationWarning = question.localizationStatus === 'fallback'
     ? localizedQuestionWarning(locale, question.applicationQuestionLocale)
     : null;
+  const showingSuggestion = !savedAnswer || value.trim() === String(question.suggestedAnswer || '').trim();
   const originalPortalQuestion = question.localizationStatus !== 'fallback'
     && question.applicationQuestion
     && question.applicationQuestion.trim() !== question.question.trim()
@@ -130,6 +132,16 @@ function QuestionField({ question, value, onChange, disabled, error, locale }: {
           <option value="">—</option>
           {question.options.map((option) => <option key={option} value={option}>{option}</option>)}
         </select>
+      ) : question.type === 'text' && (question.suggestedAnswer || question.answerMissingDetail) ? (
+        <textarea
+          rows={4}
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          disabled={disabled}
+          maxLength={question.validation?.maxLength || 500}
+          className={`${inputClass} resize-y`}
+          aria-invalid={error ? true : undefined}
+        />
       ) : (
         <input
           // Numbers as text: "80'000" is a valid Swiss amount the number input would refuse.
@@ -144,6 +156,21 @@ function QuestionField({ question, value, onChange, disabled, error, locale }: {
           className={question.type === 'date' ? dateClass : inputClass}
           aria-invalid={error ? true : undefined}
         />
+      )}
+      {question.suggestedAnswer && !savedAnswer && (
+        <span className="mt-1 block text-xs font-normal text-subtle">{t('jobBoard.assisted.review.answerDraftNotice')}</span>
+      )}
+      {question.answerEvidence?.length && showingSuggestion ? (
+        <span role="note" className="mt-1 block text-xs font-normal text-subtle">
+          <span className="font-semibold">{t('jobBoard.assisted.review.answerDraftEvidence')}: </span>
+          {question.answerEvidence.map((excerpt) => `“${excerpt}”`).join(' · ')}
+        </span>
+      ) : null}
+      {question.answerMissingDetail && showingSuggestion && (
+        <span role="note" className="mt-1 block text-xs font-normal text-subtle">
+          <span className="font-semibold">{t('jobBoard.assisted.review.answerDraftMissing')}: </span>
+          {question.answerMissingDetail}
+        </span>
       )}
       {/* Only facts: the status held today, never a permit to come (the server's options say it). */}
       {question.id === 'work_permit' && <span className="mt-1 block text-xs font-normal text-subtle">{t('jobBoard.assisted.review.permitRule')}</span>}
@@ -241,10 +268,10 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       const review = payload as ReviewPayload;
       loadedToken.current = token;
       setData(review);
-      // An empty start date shows the proposed one; it counts only once saved.
+      // Drafted values stay local to the form; only an explicit save writes them as answers.
       const proposed = Object.fromEntries((review.questions || [])
-        .filter((question) => question.suggested && !String(review.answers?.[question.id] || '').trim())
-        .map((question) => [question.id, question.suggested as string]));
+        .filter((question) => (question.suggestedAnswer || question.suggested) && !String(review.answers?.[question.id] || '').trim())
+        .map((question) => [question.id, String(question.suggestedAnswer || question.suggested || '')]));
       setAnswers({ ...(review.answers || {}), ...proposed });
       setError(null);
       return review;
@@ -593,6 +620,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                 question={question}
                 locale={pageLocale}
                 value={answers[question.id] || ''}
+                savedAnswer={Boolean(String(data.answers?.[question.id] || '').trim())}
                 onChange={(value) => {
                   setAnswers((current) => ({ ...current, [question.id]: value }));
                   setTouched((current) => ({ ...current, [question.id]: true }));
