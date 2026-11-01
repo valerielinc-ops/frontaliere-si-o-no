@@ -1,7 +1,7 @@
 {
   "crawlerKey": "grand-resort-bad-ragaz",
-  "assembledAt": "2026-10-31T21:33:23.488Z",
-  "runId": "41242014604",
+  "assembledAt": "2026-11-01T09:20:11.185Z",
+  "runId": "41291644918",
   "jobs": [
     {
       "id": "grand-resort-bad-ragaz-e25a2af29058",
@@ -34,7 +34,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/officemitarbeiter-innerer-dienst-m-w-i/55409fe6-bb9d-41ef-a5ac-9fcd382c1a6e",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.480Z",
+      "crawledAt": "2026-11-01T09:20:04.728Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -75,7 +75,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:20:04.728Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-38035a9ac01c",
@@ -108,7 +111,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/masseur-m-w-i/79ce869d-7144-4337-93d7-916b564d956e",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.479Z",
+      "crawledAt": "2026-11-01T09:20:04.725Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -156,7 +159,10 @@
           "maxValue": 31200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:20:04.725Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-a53a7faa86a8",
@@ -189,7 +195,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/bartender-supervisor-the-bar-w-m-i/11092d9d-c8f9-461d-a109-4cb0ac384777",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.478Z",
+      "crawledAt": "2026-11-01T09:20:04.723Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -230,7 +236,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:20:04.723Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-7cc7f144441a",
@@ -263,7 +272,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-pop-up-restaurant-w-m-i/b5c36ba8-6f79-4aca-b010-52afef4139e9",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.477Z",
+      "crawledAt": "2026-11-01T09:20:04.721Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -296,13 +305,16 @@
           "maxValue": 62000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-02T09:20:04.721Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-d4c96e15445e",
       "slug": "vice-head-greenkeeper-100-m-f-i-grand-resort-bad-ragaz",
       "slugByLocale": {
-        "it": "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "vice-head-greenkeeper-100-m-f-i-grand-resort-bad-ragaz",
         "en": "head-green-3-00-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "chef-greenkeeper-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -329,7 +341,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/stv-head-greenkeeper-m-w-i/69818b79-fbf2-45fb-8a22-3ed7469321d4",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.475Z",
+      "crawledAt": "2026-11-01T09:20:04.719Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -351,12 +363,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-        "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz"
+        "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz",
+        "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-          "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz"
+          "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz",
+          "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "en": [
           "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -375,7 +389,10 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-11T09:20:04.719Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-7c948d37203f",
@@ -409,7 +426,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/diaetkoechin-diaetkoch-fuer-gesundheitskulinarik-in-den-grand-hotels/2dfd5096-1c5d-4545-9b12-a2a2450e968b",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.474Z",
+      "crawledAt": "2026-11-01T09:20:04.717Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -452,7 +469,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-16T09:20:04.717Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-884608ae1b4a",
@@ -485,7 +505,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-restaurants-w-m-i-ab-januar-2027/732e733d-a7f0-4b22-aa6b-7caa4ba33ff8",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.473Z",
+      "crawledAt": "2026-11-01T09:20:04.715Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -531,7 +551,10 @@
           "maxValue": 62000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-02T09:20:04.715Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-c3eff2c49598",
@@ -564,7 +587,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-restaurants-w-m-i-ab-juli-2027/2d5cfb53-0bf3-4152-bdd6-b8461c304673",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.472Z",
+      "crawledAt": "2026-11-01T09:20:04.713Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -612,7 +635,10 @@
           "maxValue": 62000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-02T09:20:04.713Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-3e811fad30ae",
@@ -645,7 +671,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/leiter-innere-dienste-w-m-i/6b37c49d-c50e-4aea-82a3-b371a4ee17b5",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.470Z",
+      "crawledAt": "2026-11-01T09:20:04.710Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -688,7 +714,10 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-26T09:20:04.710Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-eaa718546643",
@@ -721,7 +750,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/chef-de-rang-restaurants-grand-resort-bad-ragaz/b82d6688-800c-4291-8dba-a13d6d257296",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.468Z",
+      "crawledAt": "2026-11-01T09:20:04.708Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -754,7 +783,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-29T09:20:04.708Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-8833e221b3d4",
@@ -787,7 +819,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/gaestebetreuer-oder-gaestebetreuerin-inklusive-bar-im-casino-bad-ragaz-w-m-i/37e86522-da44-449a-ae16-521464f469c3",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.467Z",
+      "crawledAt": "2026-11-01T09:20:04.706Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -830,7 +862,10 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:20:04.706Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-64bebb8b5080",
@@ -863,7 +898,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/ernaehrungsberatung-w-m-i/73d453b5-8c9b-46f9-b067-913204c5cbf7",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.465Z",
+      "crawledAt": "2026-11-01T09:20:04.704Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -904,7 +939,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-01T09:20:04.704Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-b8ba3d99008c",
@@ -937,7 +975,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/projektmanagement-gesundheitsrestaurant-pre-opening-operations/8c85f975-51ba-473d-a5e0-5ed42393d726",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.461Z",
+      "crawledAt": "2026-11-01T09:20:04.698Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -991,7 +1029,10 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-06T09:20:04.698Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-1ef9bea94166",
@@ -1025,7 +1066,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/fachfrau-fachmann-gesundheit/42a90669-cb8d-4293-9572-b150b08deffb",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.460Z",
+      "crawledAt": "2026-11-01T09:20:04.695Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1066,7 +1107,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-06T09:20:04.695Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-6b84bcc692c2",
@@ -1100,7 +1144,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/fachaerztinnen-und-fachaertze-tamina-health-center/2582ca4b-460f-4b41-8cc5-7cafbcb93cc2",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.459Z",
+      "crawledAt": "2026-11-01T09:20:04.692Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1143,7 +1187,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-06T09:20:04.692Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-33830f23c806",
@@ -1176,7 +1223,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/leiter-in-hr-services/9806ecf4-94f3-4a40-9b55-e2489227312a",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.457Z",
+      "crawledAt": "2026-11-01T09:20:04.690Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1219,7 +1266,10 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-01T09:20:04.690Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-39dfbd5fb295",
@@ -1253,7 +1303,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/chef-de-rang-autentica-ospitalita-italiana-nesso/adea1a18-4ba1-4f78-8295-76beac63c164",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T21:33:18.456Z",
+      "crawledAt": "2026-11-01T09:20:04.687Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1285,7 +1335,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-30T09:20:04.687Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-fdc3b0a08895",
@@ -1318,7 +1371,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/assistant-head-concierge-w-m-i/1f9c9e30-9dd5-443f-8fa4-d5efb26388fb",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.454Z",
+      "crawledAt": "2026-11-01T09:20:04.685Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1359,7 +1412,10 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-11T09:20:04.685Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-e00b41429435",
@@ -1393,7 +1449,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/badefachangestellte-helenabad/7d05801b-4a35-4928-87a2-a10d209c3217",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.453Z",
+      "crawledAt": "2026-11-01T09:20:04.683Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1440,7 +1496,10 @@
           "maxValue": 62400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-18T09:20:04.683Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-4e3081f22b5d",
@@ -1473,7 +1532,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/datenschutzmitarbeiter-w-d-i/187caeec-7c67-4832-8fb3-6c6f2fa691d6",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.451Z",
+      "crawledAt": "2026-11-01T09:20:04.680Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1516,7 +1575,10 @@
           "maxValue": 39000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:20:04.680Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-d5f95ff7888f",
@@ -1549,7 +1611,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/servicemitarbeiter-w-m-i-15-11-bis-31-12-2026/16f3d174-c13d-4f3a-8a3b-8ad85535135d",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.450Z",
+      "crawledAt": "2026-11-01T09:20:04.678Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1598,7 +1660,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:20:04.678Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-34cb5dd559fa",
@@ -1631,7 +1696,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/58e42d33-3212-45d9-b349-ac166374d7ab",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.448Z",
+      "crawledAt": "2026-11-01T09:20:04.675Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1672,7 +1737,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-21T09:20:04.675Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-45439715c123",
@@ -1706,7 +1774,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/stv-leiter-golf-shop-m-w-i/25377f61-3def-480e-8284-5b40e181899b",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.447Z",
+      "crawledAt": "2026-11-01T09:20:04.672Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1755,7 +1823,10 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:20:04.672Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-4ecb7a28390f",
@@ -1788,7 +1859,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/hairstylist-m-w-d/80a018c9-e217-4765-be00-2fbffd7fb517",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.445Z",
+      "crawledAt": "2026-11-01T09:20:04.670Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1839,7 +1910,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-18T09:20:04.670Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "grand-resort-bad-ragaz-c5d522f32834",
@@ -1873,7 +1947,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/marketing-coordinator-golfanlagen-m-w-i/cff1ba74-55ad-447b-b7f8-470a58ba4db0",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:18.440Z",
+      "crawledAt": "2026-11-01T09:20:04.663Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1920,7 +1994,10 @@
           "maxValue": 46800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-29T09:20:04.663Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
