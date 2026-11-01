@@ -1,7 +1,7 @@
 {
   "crawlerKey": "imerys",
-  "assembledAt": "2026-10-31T21:33:24.414Z",
-  "runId": "41242944656",
+  "assembledAt": "2026-11-01T09:41:05.083Z",
+  "runId": "41292532779",
   "jobs": [
     {
       "id": "imerys-b9f350d1bf61",
@@ -35,7 +35,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/MECHANICAL-MAINTENANCE-SUPERVISOR_REQ-11824",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T21:33:17.452Z",
+      "crawledAt": "2026-11-01T09:41:00.383Z",
       "addressLocality": "Bodio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -76,7 +76,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6743"
+      "postalCode": "6743",
+      "streetAddress": "Bodio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:00.383Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "imerys-8439520cd59e",
@@ -110,7 +114,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/HR-Director-IGC-H-F_REQ-11508-1",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:33:16.808Z",
+      "crawledAt": "2026-11-01T09:40:59.669Z",
       "addressLocality": "Bironico",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -162,7 +166,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6804"
+      "postalCode": "6804",
+      "streetAddress": "Bironico",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:40:59.669Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "imerys-7191e7a6ea97",
@@ -196,7 +204,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/Communication-Manager_REQ-11963",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:33:16.146Z",
+      "crawledAt": "2026-11-01T09:40:58.958Z",
       "addressLocality": "Bironico",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -247,7 +255,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6804"
+      "postalCode": "6804",
+      "streetAddress": "Bironico",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:40:58.958Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "imerys-14436aed9ec1",
@@ -281,7 +293,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/Manutentore-trice-Elettrico_REQ-11020",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T21:33:15.478Z",
+      "crawledAt": "2026-11-01T09:40:58.248Z",
       "addressLocality": "Bodio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -314,7 +326,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6743"
+      "postalCode": "6743",
+      "streetAddress": "Bodio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:40:58.248Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "imerys-354d52f2c571",
@@ -348,7 +364,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/Manutentore-trice-Meccanico_REQ-12156",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T21:33:14.803Z",
+      "crawledAt": "2026-11-01T09:40:57.549Z",
       "addressLocality": "Bodio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -381,7 +397,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6743"
+      "postalCode": "6743",
+      "streetAddress": "Bodio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:40:57.549Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

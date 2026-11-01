@@ -1,7 +1,7 @@
 {
   "key": "technic-emplois",
   "label": "Technic Emplois SA",
-  "generatedAt": "2026-10-31T21:34:44.237Z",
+  "generatedAt": "2026-11-01T09:43:12.902Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 13136,
-  "avgDurationMs": 13136,
+  "unchangedCount": 0,
+  "durationMs": 13662,
+  "avgDurationMs": 13662,
   "durationHistory": [
-    13136
+    13662
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "technic-emplois-f77ae95a82d2",
       "slug": "apparecchi-elettrici-geneva-technic-emplois-sa-geneve",
@@ -41,7 +39,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ee9a274f-5f47-4cb2-b7ad-3ce9b1532b82/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:34:29.045Z",
+      "crawledAt": "2026-11-01T09:42:57.626Z",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -55,16 +53,21 @@
       "postedAt": "2026-10-26T01:42:39+01:00",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/ee9a274f-5f47-4cb2-b7ad-3ce9b1532b82/",
       "firstSeenAt": "2026-10-16T21:32:31.560Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "1201",
-      "_qualityScore": 94,
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:42:57.626Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -83,7 +86,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/5edd81f1-0ca1-4303-a921-af73073f18cd/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:34:27.994Z",
+      "crawledAt": "2026-11-01T09:42:56.447Z",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -101,14 +104,20 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "postalCode": "1003",
-      "_qualityScore": 94,
+      "streetAddress": "Vaud",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:42:56.447Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }
