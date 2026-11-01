@@ -59,7 +59,7 @@ const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // The extension injects this same classic-script module before its filler.
-export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
+export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole } = globalThis.AssistedApplyControls;
 const OUTCOME_TIMEOUT_MS = 60_000;
 // How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
 const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
@@ -472,6 +472,26 @@ const addressMetadata = (field) => Object.hasOwn(field || {}, 'addressContext') 
 const unreadableNativeOwner = field => (field?.kind === 'checkbox' && field?.consentOwnershipUnknown === true)
   || (addressAnswerNeedsOwnership(field?.label || field?.applicationQuestion || field?.question, field)
     && Object.hasOwn(field || {}, 'addressContext') && !hasAddressContextOwnership(field));
+
+// An account-creation form is the candidate's own profile surface. Some ATSes
+// expose an explicit residence caption (for example «Land/Region des
+// Wohnorts») without a semantic personal-information container, so the native
+// reader quite correctly reports an empty owner contract. Bind only those
+// positive residence-role captions here; a generic «City» or an ambiguous
+// address remains a technical handoff.
+const accountRegistrationField = (field) => {
+  const context = addressContextContract(field);
+  if (!context || context.unknown || hasAddressContextOwnership(field) || !residenceFieldRole(field?.label)) return field;
+  return {
+    ...field,
+    addressContext: { section: 'Personal information', owners: ['Personal information'], unknown: false },
+  };
+};
+
+const accountRegistrationSnapshot = (snapshot) => ({
+  ...snapshot,
+  fields: (snapshot?.fields || []).map(accountRegistrationField),
+});
 
 function portalAnswersForQuestions(questions, answers, previousAnswers = [], currentAnswerIds = [], answerSources = {}) {
   const attestedIds = new Set(currentAnswerIds);
@@ -2954,7 +2974,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };
-  const others = { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') };
+  const others = accountRegistrationSnapshot({ ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') });
   const candidate = account
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
     : ctx.candidate;
@@ -3021,7 +3041,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     // A form-level validation response can expose fields the first plan did
     // not recognize. Replan against that response before treating it as a
     // permanent refusal; the planner receives the invalid fields and messages.
-    const repairSnapshot = { ...after, fields: after.fields.filter((field) => field.inputType !== 'password') };
+    const repairSnapshot = accountRegistrationSnapshot({ ...after, fields: after.fields.filter((field) => field.inputType !== 'password') });
     const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     if (repairPlan.missingRequired.length) {
       const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired);
@@ -3043,7 +3063,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       }
     }
 
-    const retryableFields = after.fields.filter((field) => field.invalid || (field.required && !holdsValue(field)));
+    const retryableFields = accountRegistrationSnapshot(after).fields
+      .filter((field) => field.invalid || (field.required && !holdsValue(field)));
     const retryableIds = new Set(retryableFields.map((field) => field.id));
     const repairActions = repairPlan.actions.filter((action) => retryableIds.has(action.fieldId)
       && !['skip', 'uncheck'].includes(action.action));
