@@ -79,7 +79,7 @@ describe('fast-publish article workflow', () => {
 
 describe('rerender article hubs workflow', () => {
   it('preflights every rendered section before publishing client chunks, then pushes hubs', () => {
-    const publishAt = hubDriver.indexOf('await publishClientChunks(sections, args.dryRun);');
+    const publishAt = hubDriver.indexOf('await publishClientChunks(clientPublicationSections, args.dryRun, {');
     const renderAt = hubDriver.indexOf('await renderHubsAndOffload({');
     const freshnessAt = hubDriver.indexOf('const freshness = await checkCorpusFreshness(section, itemCount, {');
     const pushAt = hubDriver.indexOf('// ── Push: ONE invocation per (section, locale)');
@@ -320,13 +320,17 @@ describe('rerender article hubs workflow', () => {
     }
   });
 
-  it('keeps deferred freshness runs out of every publication and resolution step', () => {
-    const publishAt = hubDriver.indexOf('await publishClientChunks(sections, args.dryRun);');
-    const deferAt = hubDriver.indexOf('if (deferred) {');
+  it('keeps deferred hub shards out of the push and resolution steps', () => {
+    const publishAt = hubDriver.indexOf('await publishClientChunks(clientPublicationSections, args.dryRun, {');
+    const pushPlanAt = hubDriver.indexOf('sections: publishableSections,');
+    const deferOutputAt = hubDriver.indexOf("fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\\n')");
 
-    expect(deferAt).toBeGreaterThan(-1);
-    expect(deferAt).toBeLessThan(publishAt);
+    expect(publishAt).toBeGreaterThan(-1);
+    expect(pushPlanAt).toBeGreaterThan(publishAt);
+    expect(deferOutputAt).toBeGreaterThan(publishAt);
     expect(hubDriver).toContain("fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\\n')");
+    expect(hubDriver).toContain('const publishableSections = sections.filter');
+    expect(hubDriver).toContain('clientArticleIdsBySection');
     expect(hubWorkflow).toContain("steps.render.outputs.deferred != 'true'");
     expect(hubWorkflow).toContain("if: success() && steps.render.outputs.deferred != 'true'");
   });
