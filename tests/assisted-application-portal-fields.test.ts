@@ -310,10 +310,26 @@ describe('portal field extraction', () => {
     const genericHeading = extract('<form><h2>Complete the form</h2><div><input id="input-39"></div></form>');
     expect(genericHeading.fields[0].label).toBe('input-39');
     for (const [instruction, id] of [
+      ['Complete this form', '_r_1_'],
+      ['Complete the form', '_r_2_'],
+      ['Completa il modulo', '_r_3_'],
+      ['Vervollständigen Sie das Formular', '_r_4_'],
+      ['Veuillez remplir le formulaire', '_r_5_'],
+      ['Bitte das Formular ausfüllen', '_r_6_'],
+    ]) {
+      const genericFormInstruction = extract(`<div><span>${instruction}</span><input id="${id}"></div>`);
+      expect(genericFormInstruction.fields[0].label).toBe(id);
+    }
+    const nearbyFormQuestion = extract('<form><span>What should I complete on this form?</span><input id="_r_6_"></form>');
+    expect(nearbyFormQuestion.fields[0].label).toBe('What should I complete on this form?');
+    const longerFormQuestion = extract('<div><span>Complete this form? What should I enter?</span><input id="_r_1_"></div>');
+    expect(longerFormQuestion.fields[0].label).toBe('Complete this form? What should I enter?');
+    for (const [instruction, id] of [
       ['Completa tutti i campi prima di inviare la candidatura', 'input-15'],
       ['Completa il modulo prima dell’invio', 'input-19'],
       ['Si prega di compilare tutti i campi', 'input-21'],
       ['Bitte füllen Sie alle Felder aus, bevor Sie sich bewerben', 'input-16'],
+      ['Bitte füllen Sie alle Felder aus bevor Sie sich bewerben', '_r_7_'],
       ['Bitte füllen Sie sämtliche Felder aus', 'input-20'],
       ['Veuillez remplir tous les champs avant de soumettre votre candidature', 'input-17'],
       ['Merci de compléter tous les champs', 'input-22'],
