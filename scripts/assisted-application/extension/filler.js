@@ -1406,7 +1406,10 @@
         for (let attempt = 0; attempt < 2; attempt += 1) {
           if (!isEmpty(entry)) return true;
           const option = await open();
-          if (!option) return false;
+          // A redraw can replace the popup between Enter and the option
+          // becoming readable. Keep the bounded retry contract instead of
+          // reporting a missing answer before the second open.
+          if (!option) continue;
           press(option.element);
           if (await waitFor(() => !isEmpty(entry))) return true;
         }
