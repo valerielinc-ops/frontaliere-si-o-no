@@ -1,7 +1,7 @@
 {
   "crawlerKey": "novelis",
-  "assembledAt": "2026-11-01T09:16:04.726Z",
-  "runId": "41292050097",
+  "assembledAt": "2026-11-01T22:36:03.496Z",
+  "runId": "41350746662",
   "jobs": [
     {
       "id": "novelis-a8a79b6b1256",
@@ -52,7 +52,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53029/senior-predictive-maintenance-engineer-%28m-f-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:15:59.542Z",
+      "crawledAt": "2026-11-01T22:35:57.372Z",
       "previousSlugs": [
         "senior-predictive-maintenance-engineer-m-f-d-novelis-ch"
       ],
@@ -83,7 +83,7 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-03T09:15:59.542Z",
+      "validThrough": "2026-12-02T22:35:57.372Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -135,7 +135,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/53125/supply-chain---network-planner-%28m-f-d%29-beverage-%26-packaging/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:15:59.066Z",
+      "crawledAt": "2026-11-01T22:35:56.949Z",
       "previousSlugs": [
         "supply-chain-network-planner-m-f-d-beverage-packaging-novelis-ch"
       ],
@@ -160,7 +160,7 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:15:59.066Z",
+      "validThrough": "2026-12-10T22:35:56.949Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -212,7 +212,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/54386/electricien---automaticien/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:15:58.575Z",
+      "crawledAt": "2026-11-01T22:35:56.519Z",
       "previousSlugs": [
         "electricien-automaticien-novelis-ch"
       ],
@@ -242,7 +242,7 @@
       },
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T09:15:58.575Z",
+      "validThrough": "2027-01-30T22:35:56.519Z",
       "validThroughSource": "last-observed-window"
     }
   ]

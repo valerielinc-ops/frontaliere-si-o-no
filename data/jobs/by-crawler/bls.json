@@ -1,13 +1,13 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-11-01T09:17:26.185Z",
-  "runId": "41292050097",
+  "assembledAt": "2026-11-01T22:35:36.110Z",
+  "runId": "41350746662",
   "jobs": [
     {
       "id": "bls-7afab74d709b",
       "slug": "meccatronico-a-dell-automobile-automatista-bls-ag-spiez",
       "slugByLocale": {
-        "it": "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez",
+        "it": "meccatronico-a-dell-automobile-automatista-bls-ag-spiez",
         "en": "automotive-mechatronics-technician-automation-technician-bls-ag-spiez",
         "de": "automobilmechatroniker-in-automatiker-in-bls-ch",
         "fr": "technicien-en-mecatronique-automobile-technicien-en-automatisation-bls-ag-spiez"
@@ -34,7 +34,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-automatiker-in/8988a228-5190-40c9-863b-e0e52b394870",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:18.233Z",
+      "crawledAt": "2026-11-01T22:35:28.352Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -69,12 +69,14 @@
       },
       "previousSlugs": [
         "automobilmechatroniker-in-automatiker-in-bls-ch",
-        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
+        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
+        "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automobilmechatroniker-in-automatiker-in-bls-ch",
-          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
+          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
+          "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez"
         ],
         "en": [
           "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
@@ -132,7 +134,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-lokomotiven/5ecfee78-9a11-46c9-9e59-4fae639bea2a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:17.479Z",
+      "crawledAt": "2026-11-01T22:35:27.669Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -206,7 +208,7 @@
         "it": "fornitori-di-veicoli-bls-ag-spiez",
         "en": "vehicle-suppliers-bls-ag-spiez",
         "de": "fahrzeugbereitsteller-in-bls-ch",
-        "fr": "fournisseur-du-vehicule-bls-ag-spiez"
+        "fr": "preparateur-rice-de-vehicules-bls-ag-spiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -230,7 +232,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fahrzeugbereitsteller-in/a8bc0154-aea7-4676-8a48-44f8fdb1ba88",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:16.738Z",
+      "crawledAt": "2026-11-01T22:35:26.996Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,7 +271,7 @@
         "fahrzeugbereitsteller-in-bls-ag-spiez",
         "fornitore-del-veicolo-in-bls-ag-spiez",
         "vehicle-supplier-in-bls-ag-spiez",
-        "preparateur-rice-de-vehicules-bls-ag-spiez"
+        "fournisseur-du-vehicule-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -283,7 +285,7 @@
         ],
         "fr": [
           "fahrzeugbereitsteller-in-bls-ag-spiez",
-          "preparateur-rice-de-vehicules-bls-ag-spiez"
+          "fournisseur-du-vehicule-bls-ag-spiez"
         ]
       },
       "firstSeenAt": "2026-08-31T17:29:09.774Z",
@@ -311,7 +313,7 @@
         "it": "installatore-trice-elettrico-a-in-bls-ag-hasle-bei-burgdorf",
         "en": "electrical-installers-bls-ag-hasle-bei-burgdorf",
         "de": "elektroinstallateur-in-bls-ch",
-        "fr": "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
+        "fr": "electricien-ne-bls-ag-hasle-bei-burgdorf"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -335,7 +337,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in/03c64118-291d-47b3-8c2e-ed41dfcb5ab3",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:16.005Z",
+      "crawledAt": "2026-11-01T22:35:26.322Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -376,7 +378,7 @@
         "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
         "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
         "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf",
-        "electricien-ne-bls-ag-hasle-bei-burgdorf"
+        "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -396,7 +398,7 @@
         "fr": [
           "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
           "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf",
-          "electricien-ne-bls-ag-hasle-bei-burgdorf"
+          "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
         ]
       },
       "firstSeenAt": "2026-09-09T14:06:15.744Z",
@@ -448,7 +450,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/d31bf417-0bf5-4aff-be08-d38c97a45489",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:15.277Z",
+      "crawledAt": "2026-11-01T22:35:25.640Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -554,7 +556,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/99858068-a3fb-41fb-aa2f-dbd64dae6eb0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:14.623Z",
+      "crawledAt": "2026-11-01T22:35:25.022Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -662,7 +664,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-reinigung-und-unterhalt/eb773d02-256e-42d4-9642-bf3001f4fd68",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:13.886Z",
+      "crawledAt": "2026-11-01T22:35:24.316Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -736,7 +738,7 @@
       "id": "bls-29de476924b8",
       "slug": "diagnosta-bls-ag-spiez",
       "slugByLocale": {
-        "it": "diagnostico-bls-ag-spiez",
+        "it": "diagnosta-bls-ag-spiez",
         "en": "diagnostician-bls-ag-spiez",
         "de": "diagnostiker-in-bls-ch",
         "fr": "diagnosticien-bls-ag-spiez"
@@ -763,7 +765,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/diagnostiker-in/b9bdabad-d3bc-4317-980e-40cb73672195",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:13.252Z",
+      "crawledAt": "2026-11-01T22:35:23.699Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -800,11 +802,13 @@
         ]
       },
       "previousSlugs": [
-        "diagnostiker-in-bls-ch"
+        "diagnostiker-in-bls-ch",
+        "diagnostico-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diagnostiker-in-bls-ch"
+          "diagnostiker-in-bls-ch",
+          "diagnostico-bls-ag-spiez"
         ],
         "en": [
           "diagnostiker-in-bls-ch"
@@ -862,7 +866,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automatiker-in-stv-berufsbildner-in/11a39962-bc21-4f6a-baf9-9aac970393f0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:12.607Z",
+      "crawledAt": "2026-11-01T22:35:23.084Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -955,7 +959,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kassier-in-autoverlad-brig/ba8922b5-3cfa-4b27-88e9-d9ec3d5a7e9c",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:11.856Z",
+      "crawledAt": "2026-11-01T22:35:22.400Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1053,7 +1057,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kassier-in-autoverlad-kandersteg/d3a42dab-cdfc-4d30-8463-c79c98d2a6fd",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:11.220Z",
+      "crawledAt": "2026-11-01T22:35:21.795Z",
       "addressLocality": "Kandersteg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1150,7 +1154,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/eisenbahnmechatroniker-in/45aa358c-d050-4161-8648-20355a29c31a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:10.581Z",
+      "crawledAt": "2026-11-01T22:35:21.181Z",
       "addressLocality": "Oberburg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1248,7 +1252,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automatiker-in/7eaa92c7-84c1-4498-ae15-2ffeaf8399b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:09.927Z",
+      "crawledAt": "2026-11-01T22:35:20.570Z",
       "addressLocality": "Oberburg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1344,7 +1348,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhaltungsmechaniker-in-schienenfahrzeuge/356f7c8a-2abe-48cd-886a-9824020de593",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:09.277Z",
+      "crawledAt": "2026-11-01T22:35:19.953Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1444,7 +1448,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/vorarbeiter-in/3e576f40-8d9e-4ae0-ae34-5b730ceefdd6",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:08.534Z",
+      "crawledAt": "2026-11-01T22:35:19.274Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1548,7 +1552,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachspezialist-in-bauwerkserhaltung/1c50cc6b-c798-4996-aa9c-82a891074256",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:07.795Z",
+      "crawledAt": "2026-11-01T22:35:18.446Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1646,7 +1650,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-baufuehrer-in-bahntechnik/f48461e5-de15-4842-9a1b-0a8ee1bd5d21",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:07.039Z",
+      "crawledAt": "2026-11-01T22:35:17.753Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1753,7 +1757,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/quereinstieg-gleisbau/0924473c-1664-47c6-8ad2-d03fc5103eda",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:06.294Z",
+      "crawledAt": "2026-11-01T22:35:17.059Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1853,7 +1857,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-sap-technologie/3721268d-c3a0-4f45-98b5-92e38a892cf9",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:05.554Z",
+      "crawledAt": "2026-11-01T22:35:16.383Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1945,7 +1949,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/sachbearbeiter-in-import-export-zoll/41a8f868-8be3-4bf4-9e4f-48732eeae6be",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:04.811Z",
+      "crawledAt": "2026-11-01T22:35:15.691Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2046,7 +2050,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fahrzeugmechaniker-in/92db5fa0-b2e3-42fb-b03a-55e3b319d1b7",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:04.166Z",
+      "crawledAt": "2026-11-01T22:35:13.680Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2121,7 +2125,7 @@
       "slugByLocale": {
         "it": "giurista-in-diritto-edilizio-pianificazione-territoriale-e-diritto-ambientale-bls-ag-bern",
         "en": "lawyer-specializing-in-construction-spatial-planning-and-environmental-law-bls-ag-bern",
-        "de": "jurist-in-baurecht-bls-ag-bern",
+        "de": "jurist-in-baurecht-bls-ch",
         "fr": "juriste-en-droit-de-la-construction-de-l-amenagement-du-territoire-et-de-l-environnement-bls-ag-bern"
       },
       "company": "BLS AG",
@@ -2146,7 +2150,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/jurist-in-baurecht/d6cde567-7f14-47c4-8fe3-564f6b798ab7",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:01.766Z",
+      "crawledAt": "2026-11-01T22:35:06.253Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2182,12 +2186,11 @@
           "Sehr gute Deutschkenntnisse; verhandlungssicheres Französisch von Vorteil"
         ]
       },
-      "previousSlugs": [
-        "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch",
-        "jurist-in-bau-raumplanungs-e-umweltrecht-bls-ag-bern",
-        "jurist-in-baurecht-bls-ch"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch",
+          "jurist-in-baurecht-bls-ag-bern"
+        ],
         "it": [
           "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch",
           "jurist-in-bau-raumplanungs-e-umweltrecht-bls-ag-bern",
@@ -2196,14 +2199,16 @@
         "en": [
           "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch"
         ],
-        "de": [
-          "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch",
-          "jurist-in-baurecht-bls-ch"
-        ],
         "fr": [
           "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch"
         ]
       },
+      "previousSlugs": [
+        "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch",
+        "jurist-in-bau-raumplanungs-e-umweltrecht-bls-ag-bern",
+        "jurist-in-baurecht-bls-ch",
+        "jurist-in-baurecht-bls-ag-bern"
+      ],
       "firstSeenAt": "2026-10-26T09:32:27.496Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2253,7 +2258,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/projektleiter-in-rohbau-loetschberg-basistunnel/c1d22453-8149-4bed-9598-25837922cd17",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:52.285Z",
+      "crawledAt": "2026-11-01T22:35:00.742Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",

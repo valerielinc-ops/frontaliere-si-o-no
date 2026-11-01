@@ -1,7 +1,7 @@
 {
   "crawlerKey": "crr-suva-sion",
-  "assembledAt": "2026-11-01T09:17:11.257Z",
-  "runId": "41292050097",
+  "assembledAt": "2026-11-01T22:39:03.700Z",
+  "runId": "41350746662",
   "jobs": [
     {
       "id": "crr-suva-sion-a1375f10b321",
@@ -35,7 +35,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:17:05.834Z",
+      "crawledAt": "2026-11-01T22:38:57.855Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:17:05.834Z",
+      "validThrough": "2026-12-16T22:38:57.855Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:17:05.356Z",
+      "crawledAt": "2026-11-01T22:38:57.394Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:17:05.356Z",
+      "validThrough": "2027-01-14T22:38:57.394Z",
       "validThroughSource": "last-observed-window"
     }
   ]
