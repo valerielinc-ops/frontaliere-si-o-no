@@ -108,11 +108,10 @@ import {
 } from './src/applicationConciergeCore.js';
 import { enrichCandidateProfileFromCv, refreshCandidateCvProfile as refreshCandidateCvProfileRecord } from './src/candidateCvProfile.js';
 import {
-  runApplicationConciergeMatching,
   shouldRunApplicationConciergeMatchingForServiceUpdate,
 } from './src/applicationConciergeMatching.js';
 import { inheritConciergeRenewalMaterials } from './src/applicationConciergeRenewalMaterials.js';
-import { isFreshConciergeProposalRefreshRequest, runConciergeLifecycleSweep, runConciergeProposalRefresh } from './src/applicationConciergeLifecycle.js';
+import { isFreshConciergeProposalRefreshRequest, runConciergeLifecycleSweep, runConciergeMatchingWithLease, runConciergeProposalRefresh } from './src/applicationConciergeLifecycle.js';
 import { handleConciergeServiceWritten, sweepConciergePaidNotifications } from './src/applicationConciergeNotifications.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import {
@@ -2961,7 +2960,7 @@ export const processApplicationConciergeCv = onDocumentWritten(
           return;
         }
       }
-      const matching = await runApplicationConciergeMatching({ db, serviceId: event.params.serviceId, deadlineMs: matchingDeadlineMs });
+      const matching = await runConciergeMatchingWithLease({ db, serviceId: event.params.serviceId, deadlineMs: matchingDeadlineMs });
       console.log('[processApplicationConciergeCv]', event.params.serviceId, matching.status, matching.proposals ?? 0);
     } catch (error) {
       console.error('[processApplicationConciergeCv]', event.params.serviceId, error instanceof Error ? error.message : String(error));

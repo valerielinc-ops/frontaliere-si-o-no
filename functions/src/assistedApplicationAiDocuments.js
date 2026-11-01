@@ -17,15 +17,23 @@ import { inflateRawSync } from 'node:zlib';
 
 const MAX_CV_TEXT_CHARS = 40_000;
 const MAX_DOCX_XML_BYTES = 8 * 1024 * 1024;
+export const MAX_CV_SOURCE_BYTES = 12 * 1024 * 1024;
+export const MAX_CV_PDF_PAGES = 80;
+export const MAX_CV_PDF_TEXT_ITEMS = 50_000;
+const MAX_CV_PDF_RAW_TEXT_CHARS = MAX_CV_TEXT_CHARS * 4;
+const MAX_CV_PDF_IMAGE_PIXELS = 16_777_216;
 
-function normalizeWhitespace(text) {
+function normalizedWhitespace(text) {
   return String(text || '')
     .replace(/\r\n?/g, '\n')
     .replace(/[ \t ]+/g, ' ')
     .replace(/ *\n */g, '\n')
     .replace(/\n{3,}/g, '\n\n')
-    .trim()
-    .slice(0, MAX_CV_TEXT_CHARS);
+    .trim();
+}
+
+function normalizeWhitespace(text) {
+  return normalizedWhitespace(text).slice(0, MAX_CV_TEXT_CHARS);
 }
 
 // ── DOCX (Office Open XML is a ZIP archive) ────────────────────────────────
@@ -134,23 +142,110 @@ function positioned(item) {
  * @param {Array<{str:string, x?:number, y?:number, transform?:number[], width:number, height:number, fontSize?:number, hasEOL:boolean}>} items
  */
 export function pdfItemsText(items) {
-  let text = '';
-  let previous = null;
+  const state = { parts: [], length: 0, lastCharacter: '', previous: null, itemCount: 0 };
+  appendPdfItems(state, items);
+  return state.parts.join('');
+}
+
+function appendPdfText(state, text) {
+  if (!text) return;
+  if (state.length + text.length > MAX_CV_PDF_RAW_TEXT_CHARS) throw new Error('eligibility_cv_pdf_text_limit');
+  state.parts.push(text);
+  state.length += text.length;
+  state.lastCharacter = text.at(-1) || state.lastCharacter;
+}
+
+function appendPdfItems(state, items, { pageBreak = false } = {}) {
+  if (pageBreak) {
+    if (state.length) appendPdfText(state, '\n');
+    state.previous = null;
+  }
   for (const raw of items || []) {
+    state.itemCount += 1;
+    if (state.itemCount > MAX_CV_PDF_TEXT_ITEMS) throw new Error('eligibility_cv_pdf_item_limit');
     if (typeof raw?.str !== 'string') continue;
     const item = positioned(raw);
-    if (item.str.trim() && previous && !/\s$/.test(text)) text += itemSeparator(previous, item);
-    text += item.str + (item.hasEOL ? '\n' : '');
-    if (item.str.trim()) previous = item;
+    if (item.str.trim() && state.previous && !/\s/.test(state.lastCharacter)) appendPdfText(state, itemSeparator(state.previous, item));
+    appendPdfText(state, item.str + (item.hasEOL ? '\n' : ''));
+    if (item.str.trim()) state.previous = item;
   }
+}
+
+/** Process one page at a time and consume PDF.js chunks without materializing every page. */
+export async function extractPdfTextFromDocument(pdf, { signal = null } = {}) {
+  const pageCount = Number(pdf?.numPages);
+  if (!Number.isSafeInteger(pageCount) || pageCount < 1) throw new Error('eligibility_cv_pdf_unreadable');
+  if (pageCount > MAX_CV_PDF_PAGES) throw new Error('eligibility_cv_pdf_page_limit');
+  const state = { parts: [], length: 0, lastCharacter: '', previous: null, itemCount: 0 };
+
+  for (let pageNumber = 1; pageNumber <= pageCount; pageNumber += 1) {
+    signal?.throwIfAborted();
+    const page = await pdf.getPage(pageNumber);
+    let reader;
+    let streamDone = false;
+    try {
+      if (pageNumber > 1) appendPdfItems(state, [], { pageBreak: true });
+      reader = page.streamTextContent().getReader();
+      while (true) {
+        signal?.throwIfAborted();
+        const { value, done } = await reader.read();
+        if (done) {
+          streamDone = true;
+          break;
+        }
+        appendPdfItems(state, value?.items);
+      }
+    } finally {
+      if (reader) {
+        if (!streamDone) {
+          try { await reader.cancel(); } catch { /* The PDF document is destroyed below. */ }
+        }
+        try { reader.releaseLock(); } catch { /* A failed stream can already release its reader. */ }
+      }
+      page.cleanup?.();
+    }
+  }
+
+  const text = normalizedWhitespace(state.parts.join(''));
+  if (text.length > MAX_CV_TEXT_CHARS) throw new Error('eligibility_cv_pdf_text_limit');
   return text;
 }
 
-export async function extractPdfText(buffer) {
-  const { extractTextItems, getDocumentProxy } = await import('unpdf');
-  const pdf = await getDocumentProxy(new Uint8Array(buffer));
-  const { items } = await extractTextItems(pdf);
-  return normalizeWhitespace(items.map(pdfItemsText).join('\n'));
+export async function extractPdfText(buffer, { signal = null } = {}) {
+  signal?.throwIfAborted();
+  const { getResolvedPDFJS } = await import('unpdf');
+  const data = buffer instanceof Uint8Array
+    ? new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength)
+    : new Uint8Array(buffer);
+  const { getDocument } = await getResolvedPDFJS();
+  let nodeDefaults = {};
+  try {
+    const base = import.meta.resolve('pdfjs-dist/package.json');
+    nodeDefaults = {
+      disableFontFace: true,
+      standardFontDataUrl: new URL('./standard_fonts/', base).href,
+      cMapUrl: new URL('./cmaps/', base).href,
+      cMapPacked: true,
+    };
+  } catch { /* unpdf's bundled serverless PDF.js has no external asset package. */ }
+  const loadingTask = getDocument({ data, useSystemFonts: true, ...nodeDefaults,
+    isEvalSupported: false, maxImageSize: MAX_CV_PDF_IMAGE_PIXELS });
+  let destroyPromise;
+  const destroy = () => {
+    if (!destroyPromise) destroyPromise = loadingTask.destroy();
+    return destroyPromise;
+  };
+  const abortHandler = () => { void destroy().catch(() => {}); };
+  signal?.addEventListener('abort', abortHandler, { once: true });
+  try {
+    signal?.throwIfAborted();
+    const pdf = await loadingTask.promise;
+    signal?.throwIfAborted();
+    return await extractPdfTextFromDocument(pdf, { signal });
+  } finally {
+    signal?.removeEventListener('abort', abortHandler);
+    try { await destroy(); } catch { /* Preserve the extraction result or original parse error. */ }
+  }
 }
 
 /**
@@ -158,8 +253,8 @@ export async function extractPdfText(buffer) {
  * assistedApplicationCvCheck.js. A scanned PDF yields '' — the caller then
  * relies on the model reading the PDF itself.
  */
-export async function extractCvText(buffer, type) {
-  if (type === 'pdf') return extractPdfText(buffer);
+export async function extractCvText(buffer, type, { signal = null } = {}) {
+  if (type === 'pdf') return extractPdfText(buffer, { signal });
   if (type === 'docx') return extractDocxText(buffer);
   return '';
 }

@@ -1,10 +1,13 @@
 import { deflateRawSync } from 'node:zlib';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   buildCoverLetterPdf,
   docxXmlToText,
   extractCvText,
+  extractPdfTextFromDocument,
   extractDocxText,
+  MAX_CV_PDF_PAGES,
+  MAX_CV_PDF_TEXT_ITEMS,
   pdfItemsText,
   readZipEntry,
   renderPdf,
@@ -172,6 +175,59 @@ describe('cover letter PDF', () => {
       { x: 279, y: 300, text: 'Receptionist' }, { x: 540, y: 300, text: '2019' },
     ]), 'pdf');
     expect(text).toBe('Contact\n2022 - 2025\n2019\n2018\nDiploma di scuola superiore - Turistico\nIstituto Tecnico Esempio\nReceptionist 2019');
+  });
+
+  it('streams PDF pages sequentially and preserves text across stream chunks', async () => {
+    let activePages = 0;
+    const pageItems = [
+      [[{ str: 'First', x: 0, y: 10, width: 20, height: 8, fontSize: 8 }], [{ str: ' line', x: 21, y: 10, width: 20, height: 8, fontSize: 8 }]],
+      [[{ str: 'Second' }]],
+    ];
+    const pdf = {
+      numPages: 2,
+      getPage: vi.fn(async (pageNumber: number) => {
+        expect(activePages).toBe(0);
+        activePages += 1;
+        let chunkIndex = 0;
+        return {
+          streamTextContent: () => new ReadableStream({
+            pull(controller) {
+              const chunks = pageItems[pageNumber - 1];
+              if (chunkIndex >= chunks.length) controller.close();
+              else controller.enqueue({ items: chunks[chunkIndex++] });
+            },
+          }),
+          cleanup: () => { activePages -= 1; },
+        };
+      }),
+    };
+
+    await expect(extractPdfTextFromDocument(pdf as any)).resolves.toBe('First line\nSecond');
+    expect(pdf.getPage).toHaveBeenCalledTimes(2);
+    expect(activePages).toBe(0);
+  });
+
+  it('rejects PDFs over page, text-item, or raw-text limits without truncating evidence', async () => {
+    const tooManyPages = { numPages: MAX_CV_PDF_PAGES + 1, getPage: vi.fn() };
+    await expect(extractPdfTextFromDocument(tooManyPages as any)).rejects.toThrow('eligibility_cv_pdf_page_limit');
+    expect(tooManyPages.getPage).not.toHaveBeenCalled();
+
+    const documentWithItems = (items: any[]) => ({ numPages: 1, getPage: async () => ({
+      streamTextContent: () => new ReadableStream({ start(controller) { controller.enqueue({ items }); controller.close(); } }),
+      cleanup: vi.fn(),
+    }) });
+    await expect(extractPdfTextFromDocument(documentWithItems(Array.from({ length: MAX_CV_PDF_TEXT_ITEMS + 1 }, () => ({ str: '' }))) as any))
+      .rejects.toThrow('eligibility_cv_pdf_item_limit');
+    await expect(extractPdfTextFromDocument(documentWithItems([{ str: 'x'.repeat(160_001) }]) as any))
+      .rejects.toThrow('eligibility_cv_pdf_text_limit');
+  });
+
+  it('stops before opening a page when the extraction signal has been aborted', async () => {
+    const controller = new AbortController();
+    controller.abort();
+    const pdf = { numPages: 1, getPage: vi.fn() };
+    await expect(extractPdfTextFromDocument(pdf as any, { signal: controller.signal })).rejects.toMatchObject({ name: 'AbortError' });
+    expect(pdf.getPage).not.toHaveBeenCalled();
   });
 });
 

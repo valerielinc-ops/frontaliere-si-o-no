@@ -2,7 +2,10 @@ import { describe, expect, it, vi } from 'vitest';
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
 vi.mock('../functions/src/geminiGenerate.js', () => ({ generateServerText: vi.fn() }));
 const { generateServerText } = await import('../functions/src/geminiGenerate.js');
-vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({ extractCvText: vi.fn(async () => 'Candidate Example\nIT Manager, Example Systems, 2020–2025\nLanguages: English B2, French B2\nInfrastructure management and operations experience.') }));
+vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({
+  MAX_CV_SOURCE_BYTES: 12 * 1024 * 1024,
+  extractCvText: vi.fn(async () => 'Candidate Example\nIT Manager, Example Systems, 2020–2025\nLanguages: English B2, French B2\nInfrastructure management and operations experience.'),
+}));
 const { CONCIERGE_ELIGIBILITY_VERSION, prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
 const { conciergeProposalEligibility, fitNoticeOf } = await import('../functions/src/assistedApplicationFitNotice.js');
 const { hasUncoveredHardEligibilityStatements, hasUnverifiedCurrentStudentEligibility, sanitizeRequirements, verifyQuotes } = await import('../functions/src/assistedApplicationAiDraftCore.js');
@@ -29,6 +32,15 @@ function fixture(match: any) {
 }
 
 describe('qualification before proposal publication', () => {
+  it('checks the CV storage size before downloading it into the matching worker', async () => {
+    const f = fixture({ matches: [], verdict: 'weak', questions: [] });
+    const download = vi.fn(async () => [f.bytes]);
+    f.bucket.file = () => ({ getMetadata: async () => [{ size: 12 * 1024 * 1024 + 1 }], download });
+
+    await expect(prepareConciergeEligibility({ ...f, profileRecord: {} })).rejects.toThrow('eligibility_cv_too_large');
+    expect(download).not.toHaveBeenCalled();
+  });
+
   it('fails closed when the extractor omits an exclusive school-placement requirement', async () => {
     const statement = 'Questo tirocinio è riservato esclusivamente a studenti che frequentano il terzo anno della scuola commerciale e devono svolgere una pratica di 52 settimane.';
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'Comunicazione efficace' }], verdict: 'strong', questions: [] });

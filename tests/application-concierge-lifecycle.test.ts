@@ -2,7 +2,14 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
 import { withdrawAssistedApplication } from '../functions/src/assistedApplicationWithdrawal.js';
-import { conciergeRefreshDue } from '../functions/src/applicationConciergeLifecyclePolicy.js';
+import {
+  conciergeMatchingRecoveryContext,
+  conciergeRefreshDue,
+  conciergeStaleRecoveryExhausted,
+  CONCIERGE_MATCHING_STALE_AFTER_MS,
+  CONCIERGE_STALE_RECOVERY_BACKOFF_MS,
+  CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS,
+} from '../functions/src/applicationConciergeLifecyclePolicy.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getNewsletterSecrets: vi.fn(async () => ({ newsletterSecret: 'test-only-secret' })), getRemoteConfigValue: vi.fn(async () => '') }));
@@ -10,7 +17,7 @@ vi.mock('../functions/src/applicationConciergeMatching.js', () => ({ runApplicat
 vi.mock('../functions/src/assistedApplicationNotifications.js', () => ({ sendOrderNotification: vi.fn() }));
 vi.mock('../functions/src/applicationConciergeRenewalMaterials.js', () => ({ inheritConciergeRenewalMaterials: vi.fn(async () => ({ copied: false })) }));
 vi.mock('../functions/src/applicationConciergePaymentReminders.js', () => ({ paymentReminderUrl: (uid: string) => `https://example.test/unsubscribe/?uid=${uid}` }));
-const { isFreshConciergeProposalRefreshRequest, runConciergeLifecycleSweep, runConciergeProposalRefresh } = await import('../functions/src/applicationConciergeLifecycle.js');
+const { isFreshConciergeProposalRefreshRequest, runConciergeLifecycleSweep, runConciergeMatchingWithLease, runConciergeProposalRefresh } = await import('../functions/src/applicationConciergeLifecycle.js');
 const { buildConciergeRenewalEmail } = await import('../functions/src/applicationConciergeLifecycleEmails.js');
 
 const DAY = 24 * 60 * 60 * 1000;
@@ -80,6 +87,26 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(conciergeRefreshDue({ ...service, acceptedPositionsCount: 10 }, now)).toBe(false);
     expect(conciergeRefreshDue({ ...service, expiresAt: now - 1 }, now)).toBe(false);
   });
+  it('recovers stale matcher runs with input-scoped, bounded backoff', () => {
+    const stale = active({ matchingStatus: 'running', matchingStartedAt: now - CONCIERGE_MATCHING_STALE_AFTER_MS - 1 });
+    const context = conciergeMatchingRecoveryContext(stale);
+    expect(conciergeRefreshDue(stale, now)).toBe(true);
+    expect(conciergeRefreshDue({ ...stale, matchingStartedAt: now - CONCIERGE_MATCHING_STALE_AFTER_MS + 1 }, now)).toBe(false);
+
+    const retry = { ...stale, matchingStaleRecoveryContext: context, matchingStaleRecoveryAttempt: 1,
+      matchingStaleRecoveryRetryAt: now + CONCIERGE_STALE_RECOVERY_BACKOFF_MS[0] };
+    expect(conciergeRefreshDue(retry, now)).toBe(false);
+    expect(conciergeRefreshDue(retry, now + CONCIERGE_STALE_RECOVERY_BACKOFF_MS[0])).toBe(true);
+    expect(conciergeRefreshDue({ ...retry, cvStorageKey: 'private/new-cv.pdf' }, now)).toBe(true);
+    expect(conciergeRefreshDue({ ...stale, matchingStatus: 'complete', matchingCompletedAt: now,
+      proposalRefreshRerunAfterWorker: true, proposalRefreshRerunAfterWorkerContext: context }, now)).toBe(true);
+
+    const exhausted = { ...stale, matchingStaleRecoveryContext: context,
+      matchingStaleRecoveryAttempt: CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS,
+      matchingStaleRecoveryRetryAt: now - 1 };
+    expect(conciergeRefreshDue(exhausted, now)).toBe(false);
+    expect(conciergeStaleRecoveryExhausted(exhausted, now)).toBe(true);
+  });
   it('queues due services separately instead of doing their AI work in the hourly sweep', async () => {
     records.set('application_concierge_services/service', active());
     const result = await sweep({ enqueueOnly: true });
@@ -145,6 +172,101 @@ describe('concierge refresh and notification lifecycle', () => {
     expect(match).toHaveBeenCalledTimes(1);
     expect(deliveries).toHaveLength(1);
     expect(records.get('application_concierge_services/service').proposalRefreshCompletedRequestId).toBe('refresh-request');
+  });
+  it('serializes duplicate deliveries with an owner lease and does not release another worker lock', async () => {
+    const event = await realWithdrawal();
+    let finishMatch: ((value: { status: string }) => void) | undefined;
+    const blockedMatch = vi.fn(async ({ db: workerDb }: any) => {
+      await workerDb.collection('application_concierge_services').doc(WITHDRAWAL_SERVICE_ID)
+        .set({ matchingStatus: 'running', matchingStartedAt: new Date(WITHDRAWAL_NOW) }, { merge: true });
+      return new Promise<{ status: string }>(resolve => { finishMatch = resolve; });
+    });
+    const options = { db: event.store.db, serviceId: WITHDRAWAL_SERVICE_ID, requestId: event.requestId,
+      nowMs: WITHDRAWAL_NOW, match: blockedMatch, send };
+    const first = refresh(options);
+    await vi.waitFor(() => expect(blockedMatch).toHaveBeenCalledTimes(1));
+    await vi.waitFor(() => expect(event.store.read(WITHDRAWAL_SERVICE_PATH).matchingStatus).toBe('running'));
+    const duplicate = await refresh(options);
+    expect(duplicate).toEqual({ refreshed: 0, newJobEmails: 0 });
+    expect(blockedMatch).toHaveBeenCalledTimes(1);
+
+    finishMatch?.({ status: 'complete' });
+    await first;
+    const after = event.store.read(WITHDRAWAL_SERVICE_PATH);
+    expect(after).not.toHaveProperty('proposalRefreshWorkerLeaseId');
+    expect(after.proposalRefreshRequestId).toBe(event.requestId);
+    expect(after.proposalRefreshRerunAfterWorker).toBeUndefined();
+  });
+  it('uses the same lease for the initial CV/location trigger and lifecycle recovery', async () => {
+    const store = withdrawalRefreshFixture();
+    let finishMatch: ((value: { status: string }) => void) | undefined;
+    const blockedMatch = vi.fn(() => new Promise<{ status: string }>(resolve => { finishMatch = resolve; }));
+    const first = runConciergeMatchingWithLease({ db: store.db, serviceId: WITHDRAWAL_SERVICE_ID,
+      nowMs: WITHDRAWAL_NOW, match: blockedMatch });
+    await vi.waitFor(() => expect(blockedMatch).toHaveBeenCalledTimes(1));
+    await store.db.collection('application_concierge_services').doc(WITHDRAWAL_SERVICE_ID)
+      .set({ proposalRefreshRequestId: 'refresh-during-initial-match' }, { merge: true });
+
+    const duplicate = await runConciergeProposalRefresh({ db: store.db, serviceId: WITHDRAWAL_SERVICE_ID,
+      requestId: 'refresh-during-initial-match', nowMs: WITHDRAWAL_NOW, match: blockedMatch, send });
+    expect(duplicate).toEqual({ refreshed: 0, newJobEmails: 0 });
+    expect(blockedMatch).toHaveBeenCalledTimes(1);
+    expect(readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8'))
+      .toContain('runConciergeMatchingWithLease({ db, serviceId: event.params.serviceId');
+
+    finishMatch?.({ status: 'complete' });
+    await first;
+    const after = store.read(WITHDRAWAL_SERVICE_PATH);
+    expect(after).not.toHaveProperty('proposalRefreshWorkerLeaseId');
+    expect(after.proposalRefreshRequestId).not.toBe('refresh-during-initial-match');
+    expect(after.proposalRefreshRequestedBy).toBe('lifecycle');
+    expect(after.proposalRefreshRerunAfterWorker).toBeUndefined();
+  });
+
+  it('backs off stale worker recovery, caps retries, and marks exhausted services explicitly', async () => {
+    const store = withdrawalRefreshFixture({
+      matchingStatus: 'running',
+      matchingStartedAt: WITHDRAWAL_NOW - CONCIERGE_MATCHING_STALE_AFTER_MS - 1,
+      proposalRefreshRequestId: 'stale-run-1',
+    });
+    const servicePath = WITHDRAWAL_SERVICE_PATH;
+    const failedMatch = vi.fn(async () => { throw new Error('simulated worker exit'); });
+    let attemptNow = WITHDRAWAL_NOW;
+
+    for (let attempt = 0; attempt < CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS; attempt += 1) {
+      const service = store.read(servicePath);
+      if (attempt > 0) {
+        attemptNow = new Date(service.matchingStaleRecoveryRetryAt).getTime();
+        await store.db.collection('application_concierge_services').doc(WITHDRAWAL_SERVICE_ID).set({
+          proposalRefreshRequestId: `stale-run-${attempt + 1}`,
+          matchingStatus: 'running',
+          matchingStartedAt: WITHDRAWAL_NOW - CONCIERGE_MATCHING_STALE_AFTER_MS - 1,
+        }, { merge: true });
+      }
+      const requestId = `stale-run-${attempt + 1}`;
+      await expect(runConciergeProposalRefresh({ db: store.db, serviceId: WITHDRAWAL_SERVICE_ID,
+        requestId, nowMs: attemptNow, match: failedMatch, send })).rejects.toThrow('simulated worker exit');
+      const updated = store.read(servicePath);
+      expect(updated.matchingStaleRecoveryAttempt).toBe(attempt + 1);
+      expect(updated.matchingStaleRecoveryRetryAt).toBeInstanceOf(Date);
+      expect(updated.proposalRefreshWorkerLeaseId).toBeUndefined();
+      if (attempt < CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS - 1) {
+        expect(conciergeRefreshDue(updated, attemptNow)).toBe(false);
+        expect(conciergeRefreshDue(updated, new Date(updated.matchingStaleRecoveryRetryAt).getTime())).toBe(true);
+      }
+    }
+
+    const exhaustedAt = new Date(store.read(servicePath).matchingStaleRecoveryRetryAt).getTime();
+    expect(conciergeStaleRecoveryExhausted(store.read(servicePath), exhaustedAt)).toBe(true);
+    const result = await runConciergeLifecycleSweep({ db: store.db, nowMs: exhaustedAt, match: failedMatch,
+      send, unsubscribeSecret: 'test-only-secret', enqueueOnly: false, enrichJobCards: passThroughJobCards });
+    expect(result.refreshed).toBe(0);
+    expect(failedMatch).toHaveBeenCalledTimes(CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS);
+    expect(store.read(servicePath)).toMatchObject({
+      matchingStatus: 'failed',
+      matchingError: 'stale_worker_retry_exhausted',
+      matchingStaleRecoveryAttempt: CONCIERGE_STALE_RECOVERY_MAX_ATTEMPTS,
+    });
   });
   it('notifies a retracted proposal that becomes available again, once per actual reactivation', async () => {
     records.set('application_concierge_services/service', active());

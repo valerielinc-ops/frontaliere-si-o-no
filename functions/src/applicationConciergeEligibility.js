@@ -5,7 +5,7 @@ import { timestampMillis } from './applicationConciergeConstants.js';
 import { FieldValue } from 'firebase-admin/firestore';
 import { generateServerText } from './geminiGenerate.js';
 import { detectCvFileType, ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
-import { extractCvText } from './assistedApplicationAiDocuments.js';
+import { extractCvText, MAX_CV_SOURCE_BYTES } from './assistedApplicationAiDocuments.js';
 import { fetchJobPosting } from './assistedApplicationAiJob.js';
 import { sanitizeProfile, sanitizeRequirements, sanitizeMatch, verifyQuotes, hasUncoveredHardEligibilityStatements,
   hasUnverifiedCurrentStudentEligibility } from './assistedApplicationAiDraftCore.js';
@@ -103,11 +103,12 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
   const storage = bucket || getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
   const file = storage.file(service.cvStorageKey);
   const [metadata] = await beforeCancellation(() => file.getMetadata(), signal);
-  if (Number(metadata.size) > 12 * 1024 * 1024) throw new Error('eligibility_cv_too_large');
+  const size = Number(metadata.size);
+  if (!Number.isSafeInteger(size) || size < 0 || size > MAX_CV_SOURCE_BYTES) throw new Error('eligibility_cv_too_large');
   const [bytes] = await beforeCancellation(() => file.download(), signal);
   const cvHash = eligibilityHash(bytes);
   const type = detectCvFileType(bytes.subarray(0, 8));
-  const cvText = type ? await beforeCancellation(() => extractCvText(bytes, type), signal) : '';
+  const cvText = type ? await beforeCancellation(() => extractCvText(bytes, type, { signal }), signal) : '';
   if (cvText.length < 80 || cvText.length > 60_000) throw new Error('eligibility_cv_unreadable');
   const cache = serviceRef.collection('eligibility');
   const purgeAt = new Date((timestampMillis(service.cvUploadedAt) || timestampMillis(service.paidAt) || Date.now()) + 90 * 86400000);
