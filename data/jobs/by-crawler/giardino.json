@@ -1,7 +1,7 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-11-01T09:41:30.516Z",
-  "runId": "41292933668",
+  "assembledAt": "2026-11-01T21:35:57.005Z",
+  "runId": "41351768772",
   "jobs": [
     {
       "id": "giardino-2403a22d9a66",
@@ -34,7 +34,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:41:24.340Z",
+      "crawledAt": "2026-11-01T21:35:49.642Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -108,7 +108,7 @@
       },
       "streetAddress": "Champfèr",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:41:24.340Z",
+      "validThrough": "2026-12-24T21:35:49.642Z",
       "validThroughSource": "last-observed-window"
     }
   ]

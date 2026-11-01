@@ -1,7 +1,7 @@
 {
   "key": "klinik-seeschau",
   "label": "Klinik Seeschau",
-  "generatedAt": "2026-11-01T09:37:45.871Z",
+  "generatedAt": "2026-11-01T21:38:15.986Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5394,
-  "avgDurationMs": 5394,
+  "durationMs": 4256,
+  "avgDurationMs": 4256,
   "durationHistory": [
-    5394
+    4256
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#:~:text=Neu%3A%20Ausbildung%20zur%20Dipl.%20Pflegefachperson%20HF%20bei%20uns!",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:37:25.886Z",
+      "crawledAt": "2026-11-01T21:37:57.898Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -71,7 +71,7 @@
       },
       "streetAddress": "Bernrainstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-01T09:37:25.886Z",
+      "validThrough": "2026-12-01T21:37:57.898Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -94,7 +94,7 @@
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#:~:text=Dipl.%20Pflegefachfrau%2F%2Dmann%20(HF)%20ab%2050%20%25",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:37:25.884Z",
+      "crawledAt": "2026-11-01T21:37:57.896Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -127,7 +127,7 @@
       },
       "streetAddress": "Bernrainstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-01T09:37:25.884Z",
+      "validThrough": "2026-12-01T21:37:57.896Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -138,5 +138,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }
