@@ -534,7 +534,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
           </div>
         ))}
 
-        {data?.employerResponse && <AssistedApplicationEmployerResponse response={data.employerResponse} />}
+        {Boolean(data?.employerResponse || data?.employerResponseTimeline?.length) && <AssistedApplicationEmployerResponse response={data.employerResponse} timeline={data.employerResponseTimeline} />}
 
         {/* After the sending: the documents that left, to keep, with the editable Word copies beside them. */}
         {data && data.state === 'submitted' && data.keptDocuments && (

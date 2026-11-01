@@ -7,6 +7,7 @@ const millis = value => {
     : value instanceof Date ? value.getTime() : typeof value === 'number' ? value : Date.parse(String(value || ''));
   return Number.isFinite(number) && number > 0 && !Number.isNaN(new Date(number).getTime()) ? number : null;
 };
+const MAX_TIMELINE_ENTRIES = 40;
 function response(value) {
   if (!EMPLOYER_RESPONSE_CATEGORIES.has(value?.category)) return null;
   const receivedAt = millis(value.receivedAt);
@@ -21,6 +22,32 @@ export function employerResponseOf(order) {
 export function employerResponseView(value) {
   const valid = response(value);
   return valid ? { category: valid.category, receivedAt: valid.receivedAt, needsReply: valid.needsReply } : null;
+}
+
+function timelineEntries(value) {
+  return (Array.isArray(value) ? value : []).map(response).filter(Boolean);
+}
+
+function timelineSort(left, right) {
+  return left.receivedAt - right.receivedAt || left.messageId.localeCompare(right.messageId);
+}
+
+/** Keep every verified employer update, while retaining private inbox ids only on the server. */
+export function mergeEmployerResponseTimeline(previous, event) {
+  const before = timelineEntries(previous);
+  const next = response(event);
+  if (!next) return before.sort(timelineSort).slice(-MAX_TIMELINE_ENTRIES);
+  const duplicate = next.messageId
+    ? before.some(item => item.messageId === next.messageId)
+    : before.some(item => item.category === next.category && item.receivedAt === next.receivedAt && item.needsReply === next.needsReply && !item.messageId);
+  if (duplicate) return before.sort(timelineSort).slice(-MAX_TIMELINE_ENTRIES);
+  return [...before, next].sort(timelineSort).slice(-MAX_TIMELINE_ENTRIES);
+}
+
+export function employerResponseTimelineView(value) {
+  return timelineEntries(value).sort(timelineSort).slice(-MAX_TIMELINE_ENTRIES).map(({ category, receivedAt, needsReply }) => ({
+    category, receivedAt, needsReply,
+  }));
 }
 
 /** An acknowledgement cannot erase an interview, request or outcome. */
@@ -42,4 +69,18 @@ export async function loadEmployerResponse(orderRef, order) {
   if (!legacy && !(Number(order?.employerReplies) > 0)) return null;
   const inbox = await orderRef.collection('inbox').where('status', '==', 'processed').get();
   return (inbox.docs || []).reduce((current, doc) => mergeEmployerResponse(current, { ...doc.data(), messageId: doc.id }), legacy);
+}
+
+/** Rebuild the candidate-facing response timeline for old orders and merge new projections. */
+export async function loadEmployerResponseTimeline(orderRef, order) {
+  if (order?.retentionPurgedAt) return [];
+  let timeline = timelineEntries(order?.employerResponseTimeline);
+  timeline = mergeEmployerResponseTimeline(timeline, order?.employerResponse);
+  timeline = mergeEmployerResponseTimeline(timeline, {
+    category: order?.lastEmployerReplyCategory,
+    receivedAt: order?.lastEmployerReplyAt,
+  });
+  if (!orderRef || !(Number(order?.employerReplies) > 0)) return timeline;
+  const inbox = await orderRef.collection('inbox').where('status', '==', 'processed').get();
+  return (inbox.docs || []).reduce((current, doc) => mergeEmployerResponseTimeline(current, { ...doc.data(), messageId: doc.id }), timeline);
 }

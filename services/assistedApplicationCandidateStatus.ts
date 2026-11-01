@@ -1,4 +1,4 @@
-import { parseEmployerResponse, type EmployerResponse } from './assistedApplicationEmployerResponse';
+import { parseEmployerResponse, parseEmployerResponseTimeline, type EmployerResponse } from './assistedApplicationEmployerResponse';
 import { MY_ASSISTED_APPLICATIONS_URL } from './functionsBase';
 
 export type AssistedApplicationCandidateStatus =
@@ -22,6 +22,7 @@ export interface CandidateAssistedApplication {
   updatedAt: string | null;
   requiresCvUpload: boolean;
   employerResponse?: EmployerResponse | null;
+  employerResponseTimeline?: EmployerResponse[];
 }
 
 interface AuthenticatedUser {
@@ -77,6 +78,13 @@ function parseCandidateApplication(value: unknown): CandidateAssistedApplication
     return null;
   }
 
+  let employerResponseTimeline: EmployerResponse[] | undefined;
+  if (Object.prototype.hasOwnProperty.call(value, 'employerResponseTimeline')) {
+    const parsedTimeline = parseEmployerResponseTimeline(value.employerResponseTimeline);
+    if (!parsedTimeline) return null;
+    employerResponseTimeline = parsedTimeline;
+  }
+
   return {
     orderId: value.orderId,
     jobTitle: value.jobTitle,
@@ -90,6 +98,7 @@ function parseCandidateApplication(value: unknown): CandidateAssistedApplication
     updatedAt,
     requiresCvUpload: value.requiresCvUpload,
     ...(Object.prototype.hasOwnProperty.call(value, 'employerResponse') ? { employerResponse: parseEmployerResponse(value.employerResponse) } : {}),
+    ...(employerResponseTimeline ? { employerResponseTimeline } : {}),
   };
 }
 

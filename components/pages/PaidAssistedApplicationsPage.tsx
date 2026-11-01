@@ -175,7 +175,7 @@ function ApplicationDossier({
             </div>
           </div>
 
-          <AssistedApplicationEmployerResponse response={application.employerResponse} compact />
+          <AssistedApplicationEmployerResponse response={application.employerResponse} timeline={application.employerResponseTimeline} compact />
 
           {helpKey && (
             <div className={`-mx-4 mt-5 flex flex-col gap-3 px-4 py-4 sm:-mx-5 sm:flex-row sm:items-center sm:justify-between sm:px-5 ${nextStepStyle(application.status)}`}>

@@ -154,6 +154,7 @@ export interface ReviewKeptDocuments {
 export interface ReviewPayload {
   ok: true;
   employerResponse?: EmployerResponse | null;
+  employerResponseTimeline?: EmployerResponse[];
   stale: boolean;
   /** The link's round was just sent back: its next version is being prepared. */
   preparingNext?: boolean;

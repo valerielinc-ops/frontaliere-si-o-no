@@ -3118,6 +3118,7 @@ Règles :
   'jobBoard.assisted.employerResponse.assessment': "Test à compléter",
   'jobBoard.assisted.employerResponse.offer': "Offre reçue",
   'jobBoard.assisted.employerResponse.needsReply': "L’entreprise attend votre réponse.",
+  'jobBoard.assisted.employerResponse.timeline': 'Chronologie des réponses',
   'jobBoard.assisted.employerResponse.emailHint': "Le message complet figure dans l’e-mail que nous vous avons transféré. Répondez à cet e-mail pour répondre à l’entreprise.",
 
 };

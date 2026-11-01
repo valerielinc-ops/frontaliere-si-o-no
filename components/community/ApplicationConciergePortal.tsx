@@ -34,8 +34,10 @@ const MAX_CV_BYTES = 5 * 1024 * 1024;
 const APPLICATION_CONCIERGE_PRICE_EUR_CENTS = 3999;
 const POLL_MS = 3500;
 // Completed services can receive new proposals or employer updates later.
-// Revalidate at a low rate while visible, and immediately when the user returns.
-const SETTLED_REFRESH_MS = 60_000;
+// Keep the visible page fresh enough for an employer reply, and refresh
+// immediately when the user returns. The request is read-only and bounded by
+// the existing in-flight guard.
+const SETTLED_REFRESH_MS = 15_000;
 const FOREGROUND_REFRESH_COOLDOWN_MS = 5_000;
 // The current Google tag batches custom hits for 5s after processing.
 // Leave a small scheduling margin and bound an unavailable SDK after the API.
@@ -1191,7 +1193,7 @@ function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, 
     </div>
     {proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map(reason => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}
     {accepted && proposal.childApplicationId && <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-surface-raised p-3">
-      <div className="min-w-0"><p className="text-sm font-semibold text-heading">{t(displayStatus === 'withdrawn' ? 'jobBoard.concierge.proposalStatus.withdrawn' : `jobBoard.concierge.${childKey}`)}</p><AssistedApplicationEmployerResponse response={proposal.childEmployerResponse} compact /></div>
+      <div className="min-w-0"><p className="text-sm font-semibold text-heading">{t(displayStatus === 'withdrawn' ? 'jobBoard.concierge.proposalStatus.withdrawn' : `jobBoard.concierge.${childKey}`)}</p><AssistedApplicationEmployerResponse response={proposal.childEmployerResponse} timeline={proposal.childEmployerResponseTimeline} compact /></div>
       <a href={conciergeServiceHref(serviceId, locale, proposal.childApplicationId)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-on-accent hover:bg-accent-strong">{t(`jobBoard.concierge.${displayStatus === 'needs_answers' ? 'answerChild' : displayStatus === 'needs_review' ? 'reviewChild' : 'openChild'}`)}<ArrowRight size={16} aria-hidden="true" /></a>
     </div>}
     {proposed && <div className="mt-4 flex flex-wrap items-center gap-2">

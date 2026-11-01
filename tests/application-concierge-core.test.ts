@@ -666,6 +666,21 @@ describe('owned child status and private review access from the service', () => 
     expect(verifyReviewToken({ secret: 'test-review-secret-for-candidate-access-123456', token: access.body.token })).toMatchObject({ ok: true, orderId: 'child-accepted-1', round: 2 });
     expect(mocks.verifyCaller).toHaveBeenLastCalledWith(expect.anything(), { checkRevoked: true });
   });
+  it('projects a candidate-safe employer response timeline onto the parent Concierge proposal', async () => {
+    acceptedChild({ employerResponseTimeline: [
+      { category: 'auto_acknowledgement', receivedAt: 1000, needsReply: false, messageId: 'private-ack' },
+      { category: 'interview_invite', receivedAt: 2000, needsReply: true, messageId: 'private-invite' },
+    ] });
+    const status = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
+    expect(status.body.service.proposals[0]).toMatchObject({
+      childEmployerResponse: null,
+      childEmployerResponseTimeline: [
+        { category: 'auto_acknowledgement', receivedAt: 1000, needsReply: false },
+        { category: 'interview_invite', receivedAt: 2000, needsReply: true },
+      ],
+    });
+    expect(JSON.stringify(status.body.service.proposals[0].childEmployerResponseTimeline)).not.toContain('private-');
+  });
   it('uses the same owned child status in candidate and admin summaries', async () => {
     acceptedChild();
     const candidate = await handleApplicationConcierge({ method: 'GET', query: {} });

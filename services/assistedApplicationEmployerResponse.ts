@@ -10,3 +10,9 @@ export interface EmployerResponse {
 export function parseEmployerResponse(value: unknown): EmployerResponse | null {
   return employerResponseView(value) as EmployerResponse | null;
 }
+
+export function parseEmployerResponseTimeline(value: unknown): EmployerResponse[] | null {
+  if (!Array.isArray(value)) return null;
+  const timeline = value.map(parseEmployerResponse);
+  return timeline.every((item): item is EmployerResponse => Boolean(item)) ? timeline : null;
+}

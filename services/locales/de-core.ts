@@ -3117,6 +3117,7 @@ Regeln:
   'jobBoard.assisted.employerResponse.assessment': "Test zu absolvieren",
   'jobBoard.assisted.employerResponse.offer': "Angebot erhalten",
   'jobBoard.assisted.employerResponse.needsReply': "Das Unternehmen erwartet deine Antwort.",
+  'jobBoard.assisted.employerResponse.timeline': 'Chronologie der Antworten',
   'jobBoard.assisted.employerResponse.emailHint': "Die vollständige Nachricht steht in der weitergeleiteten E-Mail. Antworte auf diese E-Mail, um dem Unternehmen zu antworten.",
 
 };

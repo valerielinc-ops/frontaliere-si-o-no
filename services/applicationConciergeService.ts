@@ -20,6 +20,7 @@ export interface ApplicationConciergeProposal {
   childSubmissionStatus?: string | null;
   childCandidateStatus?: string | null;
   childEmployerResponse?: EmployerResponse | null;
+  childEmployerResponseTimeline?: EmployerResponse[];
   childSendState?: string | null;
   childRetryScheduled?: boolean;
   withdrawnAt?: string | null;

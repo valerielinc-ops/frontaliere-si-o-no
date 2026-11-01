@@ -17,7 +17,12 @@
  */
 
 import { DocumentRecheckError, recheckStoredDocument } from './assistedApplicationDocumentRecheck.js';
-import { employerResponseView, loadEmployerResponse } from './assistedApplicationEmployerResponse.js';
+import {
+  employerResponseTimelineView,
+  employerResponseView,
+  loadEmployerResponse,
+  loadEmployerResponseTimeline,
+} from './assistedApplicationEmployerResponse.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { MAX_REVIEW_ROUNDS, roundsShown } from './assistedApplicationFlow.js';
 import { canWithdrawApplication, withdrawAssistedApplication, WithdrawalError } from './assistedApplicationWithdrawal.js';
@@ -756,8 +761,14 @@ export async function handleAssistedApplicationReview(req, deps) {
           .map((file, index) => ({ kind: file.kind, name: file.name, word: file.word, url: keptUrls[index] }))
           .filter((file) => file.url), kept.whatsapp),
       };
+      const orderRef = orderRefFor(deps.db, orderId);
+      const [employerResponse, employerResponseTimeline] = await Promise.all([
+        loadEmployerResponse(orderRef, order),
+        loadEmployerResponseTimeline(orderRef, order),
+      ]);
       return { status: 200, body: { ...buildReviewPayload({ order, orderId, flow: reviewFlow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, keptDocuments, submission, nowMs }),
-        employerResponse: employerResponseView(await loadEmployerResponse(orderRefFor(deps.db, orderId), order)),
+        employerResponse: employerResponseView(employerResponse),
+        employerResponseTimeline: employerResponseTimelineView(employerResponseTimeline),
       } };
     }
     if (method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };

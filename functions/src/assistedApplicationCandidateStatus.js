@@ -1,4 +1,9 @@
-import { employerResponseView, loadEmployerResponse } from './assistedApplicationEmployerResponse.js';
+import {
+  employerResponseTimelineView,
+  employerResponseView,
+  loadEmployerResponse,
+  loadEmployerResponseTimeline,
+} from './assistedApplicationEmployerResponse.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { verifyCaller } from './stripePublisherCore.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
@@ -86,7 +91,12 @@ async function applicationUrlFor(db, orderId, order, status, getSecret) {
 
 async function serializeCandidateApplication(db, doc, order, getSecret) {
   const status = candidateStatusForAssistedApplication(order);
-  const employerResponse = employerResponseView(await loadEmployerResponse(doc.ref, order));
+  const [employerResponse, employerResponseTimeline] = await Promise.all([
+    loadEmployerResponse(doc.ref, order),
+    loadEmployerResponseTimeline(doc.ref, order),
+  ]);
+  const employerResponseViewValue = employerResponseView(employerResponse);
+  const employerResponseTimelineViewValue = employerResponseTimelineView(employerResponseTimeline);
   return {
     orderId: boundedText(doc.id, 200),
     jobTitle: boundedText(order.jobTitle, 300),
@@ -96,8 +106,9 @@ async function serializeCandidateApplication(db, doc, order, getSecret) {
     jobUrl: safeHttpsUrl(order.jobUrl),
     source: order.billingMode === 'application_concierge' ? 'concierge' : 'single',
     status,
-    ...(employerResponse ? { employerResponse } : {}),
-    updatedAt: latestIsoDate(employerResponse?.receivedAt, order.automationUpdatedAt, order.updatedAt, order.statusChangedAt, order.createdAt),
+    ...(employerResponseViewValue ? { employerResponse: employerResponseViewValue } : {}),
+    ...(employerResponseTimelineViewValue.length ? { employerResponseTimeline: employerResponseTimelineViewValue } : {}),
+    updatedAt: latestIsoDate(employerResponseViewValue?.receivedAt, order.automationUpdatedAt, order.updatedAt, order.statusChangedAt, order.createdAt),
     requiresCvUpload: status === 'awaiting_materials',
     applicationUrl: await applicationUrlFor(db, doc.id, order, status, getSecret),
   };

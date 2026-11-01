@@ -444,6 +444,13 @@ describe('attachments left out of the forward', () => {
     expect(forward.html).not.toContain('Non inoltrati');
   });
 
+  it('adds a localized, canonical Concierge status link to a forwarded employer message', () => {
+    const forward = buildForward({ order: { locale: 'it' }, orderId: 'order_FALLBACK1', message, classification, sender: 'hr@employer.example' });
+    const pageUrl = [...forward.text.matchAll(/https:\/\/frontaliereticino\.ch\S+/g)].map(match => match[0]).find(url => url.includes('assisted_application_order_id='));
+    expect(pageUrl).toBe('https://frontaliereticino.ch/cerca-lavoro-ticino/?assisted_application_order_id=order_FALLBACK1');
+    expect(forward.html).toContain('Apri Application Concierge');
+  });
+
   for (const [locale, [, , names, , fallback]] of Object.entries(COPY)) {
     it(`uses a generic safe display for hostile names in ${locale} while preserving Unicode filenames`, () => {
       const omittedAttachments = [
@@ -472,7 +479,7 @@ describe('attachments left out of the forward', () => {
     });
   }
 
-  it('keeps the 10 MB cap, forwards what still fits, and names the rest without its bytes or a link', async () => {
+  it('keeps the 10 MB cap, forwards what still fits, and names the rest without its bytes or a hostile link', async () => {
     const { store, alias } = await setup();
     // 8bit, as base64 could not bring more than ~9 MiB past the 12 MiB raw limit.
     const part = (disposition: string, content: string) => ['--m', 'Content-Type: application/octet-stream', `Content-Disposition: attachment; ${disposition}`, 'Content-Transfer-Encoding: 8bit', '', content];
@@ -507,7 +514,7 @@ describe('attachments left out of the forward', () => {
     expect(payload.text).not.toContain('evil.example');
     expect(payload.html).toContain('Nicht weitergeleitet: Anhang');
     expect(payload.text).toContain('Grüße aus Zürich');
-    expect(payload.text).not.toContain('https://');
+    expect(payload.text).toContain('https://frontaliereticino.ch/de/jobs-im-tessin/?assisted_application_order_id=order_FALLBACK1');
     expect(JSON.stringify(payload)).not.toContain('OMITTEDBYTES');
     expect(payload.replyTo).toBe('hr@employer.example');
     expect(payload.to).toEqual(['candidate@example.test']);

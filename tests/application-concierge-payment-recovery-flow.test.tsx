@@ -422,10 +422,42 @@ it('shows proposals added after matching completes while the concierge page stay
     expect(screen.getByText('jobBoard.concierge.noProposals')).toBeTruthy();
     expect(mocks.fetchService).toHaveBeenCalledOnce();
 
-    await act(async () => { await vi.advanceTimersByTimeAsync(60_000); });
+    await act(async () => { await vi.advanceTimersByTimeAsync(15_000); });
 
     expect(mocks.fetchService).toHaveBeenCalledTimes(2);
     expect(screen.getByText('Lifecycle-created role')).toBeTruthy();
+  } finally {
+    restoreVisibility();
+  }
+});
+
+it('refreshes an accepted application response while the Concierge page stays open', async () => {
+  const restoreVisibility = makeDocumentVisible();
+  vi.useFakeTimers();
+  const base = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'complete' };
+  const proposal = {
+    proposalId: 'response-proposal', jobId: 'job-response', jobTitle: 'Example role', companyName: 'Example',
+    status: 'accepted', childApplicationId: 'response-child', childApplicationState: 'submitted',
+    childCandidateStatus: 'submitted', childSendState: 'sent',
+  };
+  const before = { ...base, proposals: [proposal] };
+  const after = { ...before, proposals: [{ ...proposal, childEmployerResponse: { category: 'interview_invite', receivedAt: 1700000000000, needsReply: true } }] };
+  mocks.fetchService.mockReset().mockResolvedValueOnce(before).mockResolvedValueOnce(after);
+  try {
+    render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    expect(screen.getByText('Example role')).toBeTruthy();
+    expect(screen.queryByText('jobBoard.assisted.employerResponse.interview_invite')).toBeNull();
+
+    await act(async () => { await vi.advanceTimersByTimeAsync(15_000); });
+
+    expect(screen.getByText('jobBoard.assisted.employerResponse.interview_invite', { selector: 'p' })).toBeTruthy();
+    expect(screen.getByText('jobBoard.assisted.employerResponse.needsReply')).toBeTruthy();
   } finally {
     restoreVisibility();
   }

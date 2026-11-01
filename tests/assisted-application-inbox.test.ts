@@ -15,7 +15,7 @@ const {
   orderIdForAlias,
   removeOrderAlias,
 } = await import('../functions/src/assistedApplicationAlias.js');
-const { claimedByPortalAccount, classifyByRules, correctedCategory, handleAssistedApplicationInbound, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
+const { claimedByPortalAccount, classifyByRules, correctedCategory, handleAssistedApplicationInbound, inboundMessageIdentity, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
 const { parseMimeMessage } = await import('../functions/src/lib/mimeMessage.js');
 const { candidateIdentity } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
@@ -108,7 +108,6 @@ describe('order alias', () => {
     expect(candidateIdentity({ ...order, candidateAlias: { ...order.candidateAlias, active: true }, applicantEmail: 'maria@example.com' }, {}).email).toBe(result.address);
   });
 });
-
 function employerMail({ subject = 'Einladung zum Vorstellungsgespräch', text = 'Guten Tag, wir laden Sie am 12. Oktober um 10:00 ein. Code: 482913', auto = false, authenticated = false } = {}) {
   return Buffer.from([
     'From: Anna Muster <hr@arbeitgeber.ch>',
@@ -177,6 +176,39 @@ describe('employer messages on the alias', () => {
     const [doc] = store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => store.read(path)!);
     expect(doc).toMatchObject({ status: 'received', receivedAt: 1000 });
     expect(bucket.files.has(doc.rawKey)).toBe(true);
+  });
+
+  it('uses a stable message identity so a repeated webhook creates no second inbox or notification', async () => {
+    const { store, alias } = await setupInbound();
+    const raw = employerMail({ subject: 'Application received', text: 'We have received your application.' });
+    const bucket = fakeBucket();
+    const first = await handleAssistedApplicationInbound(request(raw, alias.address), { db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs: 1000 });
+    const repeated = await handleAssistedApplicationInbound(request(raw, alias.address), { db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs: 2000 });
+    expect(repeated.body).toMatchObject({ accepted: first.body.accepted, duplicate: true });
+    expect(store.list(`assisted_applications/${ORDER}/inbox/`)).toHaveLength(1);
+    expect(bucket.files.size).toBe(1);
+    expect(inboundMessageIdentity(raw)).toEqual({ messageId: first.body.accepted });
+
+    const classify = vi.fn(async () => ({ category: 'auto_acknowledgement', summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: '', verificationUrl: '', needsReply: false }));
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
+    await processAssistedApplicationInbound({ db: store.db, bucket, orderId: ORDER, messageId: first.body.accepted, runKey: RUN_KEY, classify, sendCascade, nowMs: 3000 });
+    expect(sendCascade).toHaveBeenCalledOnce();
+  });
+
+  it('prefers one valid RFC Message-ID over transport differences', async () => {
+    const first = Buffer.from('Message-ID: <reply-123@example.test>\r\nSubject: A\r\n\r\nFirst');
+    const second = Buffer.from('Message-ID: <reply-123@example.test>\r\nSubject: B\r\n\r\nSecond');
+    expect(inboundMessageIdentity(first)).toEqual(inboundMessageIdentity(second));
+    expect(inboundMessageIdentity(first).sourceMessageId).toBe('<reply-123@example.test>');
+  });
+
+  it('falls back to raw bytes for malformed RFC Message-IDs', () => {
+    for (const messageId of ['<foo>', '<shared id>', '<foo@>', '<@example.test>', '<foo..bar@example.test>', '<foo@example..test>']) {
+      const first = Buffer.from(`Message-ID: ${messageId}\r\n\r\nA`);
+      const second = Buffer.from(`Message-ID: ${messageId}\r\n\r\nB`);
+      expect(inboundMessageIdentity(first).messageId).not.toBe(inboundMessageIdentity(second).messageId);
+      expect(inboundMessageIdentity(first)).not.toHaveProperty('sourceMessageId');
+    }
   });
 
   it('puts a message back to received when processing fails, and processes it once on the retry', async () => {
@@ -404,7 +436,7 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
   const GUARD_PATH = `${ORDER_PATH}/automation/submission`;
   const FLOW_PATH = `${ORDER_PATH}/automation/flow`;
   const classifyAs = (category: string) => async () => ({ category, summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: '', verificationUrl: '', needsReply: false });
-  const ackMail = () => employerMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.', auto: true });
+  const ackMail = (id: string) => Buffer.from([`Message-ID: <synthetic-${id}@example.test>`, employerMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.', auto: true }).toString('latin1')].join('\r\n'), 'latin1');
 
   /** By default: the portal's final click at 600, the run reported portal_ambiguous, Valerie holds the order. */
   async function ambiguousOrder({
@@ -424,8 +456,9 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
       return runAutomationEffect(context);
     };
     const sendCascade = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    let delivery = 0;
     const receive = async (category: string, { nowMs = 1000, db = store.db }: any = {}) => (
-      await deliver({ store, alias, db, raw: ackMail(), classify: classifyAs(category), sendCascade, runEffect, nowMs })
+      await deliver({ store, alias, db, raw: ackMail(`${category}-${delivery++}`), classify: classifyAs(category), sendCascade, runEffect, nowMs })
     ).processed;
     return { store, effects, sendCascade, receive };
   }
@@ -563,6 +596,7 @@ it('commits inbox processing and employer response in one transaction and keeps 
   const inboxPath = `${orderPath}/inbox/${messageId}`;
   expect(batches.some(paths => paths.includes(orderPath) && paths.includes(inboxPath))).toBe(true);
   expect(store.read(orderPath)?.employerResponse).toMatchObject({ category: 'auto_acknowledgement', receivedAt: 5000, needsReply: false });
+  expect(store.read(orderPath)?.employerResponseTimeline).toEqual([{ category: 'auto_acknowledgement', receivedAt: 5000, needsReply: false, messageId }]);
   expect(await processAssistedApplicationInbound({ db, bucket, orderId: ORDER, messageId, runKey: RUN_KEY, classify, sendCascade, nowMs: 6000 })).toEqual({ ok: true, skipped: true });
   expect(sendCascade).toHaveBeenCalledTimes(1);
 });
