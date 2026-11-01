@@ -161,8 +161,14 @@ describe('reported GSC event archive coverage', () => {
       const canonical = readTagByAttr(page.html, 'rel', 'canonical');
       expect(readAttr(canonical, ['href']), reportedPath).toBe(`https://frontaliereticino.ch${page.urlPath}`);
       expect(page.html, reportedPath).not.toContain('Pagina archiviata');
-      expect(page.html, reportedPath).not.toMatch(/"@type"\s*:\s*"Event"/);
+      expect(page.html, reportedPath).toMatch(/"@type"\s*:\s*"Event"/);
       expect(page.html, reportedPath).toContain(event.startDate);
+      const expectedStatus = event.eventStatus === 'cancelled'
+        ? 'https://schema.org/EventCancelled'
+        : event.eventStatus === 'postponed'
+          ? 'https://schema.org/EventPostponed'
+          : 'https://schema.org/EventScheduled';
+      expect(page.html, reportedPath).toContain(`"eventStatus":"${expectedStatus}"`);
     }
   });
 

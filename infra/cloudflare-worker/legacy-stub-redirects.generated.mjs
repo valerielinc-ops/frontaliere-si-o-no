@@ -6,7 +6,7 @@
 // Read by infra/cloudflare-worker/locale-router.js: a GET/HEAD on one of these
 // paths that the origin answers 200 with the legacy redirect stub becomes a
 // real 301 to the value. A live page at the same path is served untouched.
-// 4719 entries.
+// 4715 entries.
 export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/about/": "/en/about-us/",
   "/articoli-frontaliere/a9-chiusure-notturne-chiasso-como/": "/articoli-frontaliere/chiasso-como-autostrada-a9-chiusure-notturne-cantieri/",
@@ -28,7 +28,6 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/articoli-svizzera/autostrada-riapertura-ticino/": "/articoli-frontaliere/autostrada-a2-mezzovico-interrogazione/",
   "/articoli-svizzera/effetto-domino-fallite-aziende-svizzera/": "/articoli-frontaliere/fallimenti-aziende-svizzera-1994/",
   "/articoli-svizzera/lavoro-forzato-catene-svizzere/": "/articoli-svizzera/lavoro-forzato-svizzera/",
-  "/articoli-svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas/": "/articoli-svizzera/",
   "/articoli-svizzera/un-matrimonio-che-vale-cento-posti-di-lavoro/": "/articoli-frontaliere/matrimonio-aziendale-vallemaggia-100/",
   "/calcola-stipendio/confronta-permesso-g-vs-b/": "/guida-frontaliere/confronta-permesso-g-vs-b/",
   "/calcola-stipendio/simulazione-busta-paga/": "/calcola-stipendio/simula-busta-paga/",
@@ -1290,7 +1289,6 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/de/partner-dienste/": "/de/",
   "/de/pressekit/": "/de/ueber-uns/",
   "/de/schweiz-artikel/a2-autobahn-wiedereroffnung-tessin/": "/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/",
-  "/de/schweiz-artikel/arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen/": "/de/schweiz-artikel/",
   "/de/schweiz-artikel/autostrada-riapertura-ticino/": "/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/",
   "/de/schweiz-artikel/domino-effekt-gefallene-unternehmen-schweiz/": "/de/grenzgaenger-artikel/unternehmenspleiten-schweiz-1994/",
   "/de/schweiz-artikel/eine-verbindung-von-vier-bauunternehmen-in-vallemaggia/": "/de/grenzgaenger-artikel/vallemaggia-firmenfusion-100-jobs/",
@@ -2463,7 +2461,6 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/en/swiss-articles/forced-labour-swiss-supply-chains/": "/en/swiss-articles/forced-labor-swiss-supply-chains/",
   "/en/swiss-articles/news-not-relevant/": "/en/swiss-articles/",
   "/en/swiss-articles/slug-terzo-pilastro-3a-vantaggi-2026-basel/": "/en/swiss-articles/terzo-pilastro-3a-vantaggi-2026-basel/",
-  "/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/": "/en/swiss-articles/",
   "/en/taxes-and-pension/ticino-holidays-2026/": "/en/taxes-and-pension/ticino-holidays/",
   "/fisco-frontalieri/": "/tasse-e-pensione/",
   "/fr/articles-frontalier/appels-shock-arrestations/": "/fr/articles-frontalier/appels-chocs-arrestations-locarnese-2024/",
@@ -2492,7 +2489,6 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/fr/articles-suisse/effet-domino-filiale-dentreprise-suisse/": "/fr/articles-frontalier/faillites-entreprises-suisse-1994/",
   "/fr/articles-suisse/information-non-pertinente/": "/fr/articles-suisse/",
   "/fr/articles-suisse/slug-terzo-pilastro-3a-vantaggi-2026-bale/": "/fr/articles-suisse/terzo-pilastro-3a-vantaggi-2026-bale/",
-  "/fr/articles-suisse/suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas/": "/fr/articles-suisse/",
   "/fr/articles-suisse/travail-force-chaines-approvisionnement-suisse/": "/fr/articles-suisse/travail-force-dans-les-chaines-dapprovisionnement-suisses/",
   "/fr/articles-suisse/un-mariage-entre-quatre-entreprises-de-construction-en-vallemaggia/": "/fr/articles-frontalier/fusion-entreprise-vallemaggia-100-emplois/",
   "/fr/calculateur-salaire/": "/fr/calculer-salaire/",
