@@ -302,9 +302,11 @@ describe('fill extension: patterns', () => {
   });
 
   it('opens a Deloitte cookie preference center before refusing optional cookies', () => {
-    const { F, document } = page('<button type="button">Customise Cookies</button>');
+    const { F, document } = page('<div id="cookie-banner"><button type="button">Customise Cookies</button></div>');
     expect(F.cookieRefusal(document)?.textContent).toBe('Customise Cookies');
     document.body.innerHTML = '<button type="button">Decline optional cookies</button>';
+    expect(F.cookieRefusal(document)).toBeNull();
+    document.body.innerHTML = '<div id="cookie-banner"><button type="button">Decline optional cookies</button></div>';
     expect(F.cookieRefusal(document)?.textContent).toBe('Decline optional cookies');
   });
 

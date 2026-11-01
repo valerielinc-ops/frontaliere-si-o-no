@@ -34,6 +34,8 @@
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
   const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
+  const COOKIE_WORD_RE = /\bcookies?\b/i;
+  const COOKIE_MARKER_RE = /cookies?|consent|onetrust|usercentrics|didomi|trustarc/i;
   // The portal waits for the address to be verified (JOIN after the send
   // click: «Completare la domanda — Verificare l'indirizzo e-mail»).
   const VERIFY_RE = /(verifica(re)? (il tuo |l['’])?indirizzo e-?mail|conferma(re)? (il tuo |l['’])?indirizzo e-?mail|verify your (e-?mail|email address)|confirm your (e-?mail|email address)|check your (e-?mail|inbox)|e-?mail-?adresse (bestätigen|verifizieren)|(bestätigen|verifizieren) sie ihre e-?mail|(bestätige|verifiziere) deine e-?mail|vérifiez votre (adresse )?e-?mail|confirmez votre (adresse )?e-?mail)/i;
@@ -1425,6 +1427,17 @@
       .map((element) => ({ element, text: (textOf(element) || element.getAttribute('value') || element.getAttribute('aria-label') || '').trim() }))
       .filter((button) => button.text);
   }
+  function cookieControlIsActive(button) {
+    const element = button.element;
+    if (element.closest('header, nav, footer, [role="navigation"], [role="contentinfo"]')) return false;
+    for (let node = element; node && node !== element.ownerDocument.body; node = node.parentElement) {
+      const marker = [node.id, node.className, node.getAttribute('role'), node.getAttribute('aria-label')]
+        .filter(Boolean).join(' ');
+      if (COOKIE_MARKER_RE.test(marker)) return COOKIE_WORD_RE.test(`${marker} ${textOf(node)}`);
+      if (node.matches('dialog, [role="dialog"], [aria-modal="true"]')) return COOKIE_WORD_RE.test(textOf(node));
+    }
+    return false;
+  }
   const isDisabled = (element) => element.disabled || element.getAttribute('aria-disabled') === 'true';
 
   /** The step button (never a send, a sign-in, a way back or out). */
@@ -1521,7 +1534,7 @@
 
   /** A cookie banner in the way: refuse the non-essential cookies when offered. */
   function cookieRefusal(doc) {
-    const available = buttons(doc);
+    const available = buttons(doc).filter(cookieControlIsActive);
     return available.find((button) => COOKIE_REJECT_RE.test(button.text))?.element
       || available.find((button) => COOKIE_CUSTOMIZE_RE.test(button.text))?.element
       || null;

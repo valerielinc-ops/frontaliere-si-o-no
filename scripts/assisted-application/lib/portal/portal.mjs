@@ -719,27 +719,36 @@ export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptier
 export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
 const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
 const COOKIE_WORD_RE = /\bcookies?\b/i;
+const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const cookieSupportingContext = (button) => {
+  const ownLabels = [button.text, button.label, button.title, button.ariaLabel]
+    .filter(Boolean).map(value => String(value).trim()).filter(Boolean);
+  return [button.context, button.section, button.title]
+    .filter(Boolean)
+    .map(value => ownLabels.reduce((context, label) => context.replace(new RegExp(escapeRegex(label), 'ig'), ' '), String(value)))
+    .join(' ');
+};
 // Workday offers autofill, "use my last application" or a manual application: manual is the predictable one.
 const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualmente|candidatura manuale|postuler manuellement)$/i;
 
 async function cookieControlHasCookieContext(page, button) {
-  const ownContext = [button.text, button.label, button.title, button.ariaLabel, button.context, button.section]
-    .filter(Boolean).join(' ');
-  if (COOKIE_WORD_RE.test(ownContext)) return true;
-  if (!button.dialog || !/^d\d+$/.test(String(button.dialogId || ''))) return false;
-  const frame = page.frames()[button.frame || 0] || page.mainFrame();
-  try {
-    const dialogText = await frame.locator(`[data-aa-dialog-id="${button.dialogId}"]`).innerText({ timeout: 1_000 });
-    return COOKIE_WORD_RE.test(dialogText);
-  } catch {
-    return false;
+  if (button.dialog && /^d\d+$/.test(String(button.dialogId || ''))) {
+    const frame = page.frames()[button.frame || 0] || page.mainFrame();
+    try {
+      const dialogText = await frame.locator(`[data-aa-dialog-id="${button.dialogId}"]`).innerText({ timeout: 1_000 });
+      if (COOKIE_WORD_RE.test(dialogText)) return true;
+    } catch {
+      // Fall through to the non-dialog banner context below.
+    }
   }
+  return COOKIE_WORD_RE.test(cookieSupportingContext(button));
 }
 
 async function findCookieControl(page, snapshot, pattern, { genericPreferences = false } = {}) {
   for (const button of snapshot?.buttons || []) {
     if (button.disabled || button.chrome) continue;
-    const label = String(button.text || '').trim();
+    const label = [button.text, button.label, button.ariaLabel, button.title]
+      .map(value => String(value || '').trim()).find(Boolean) || '';
     if (!pattern.test(label) && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))) continue;
     if (await cookieControlHasCookieContext(page, button)) return button;
   }

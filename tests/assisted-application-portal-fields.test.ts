@@ -75,7 +75,7 @@ describe('portal field extraction', () => {
     let stage = 0;
     const clicks: string[] = [];
     const currentSnapshot = () => stage === 0
-      ? { url, fields: [], buttons: [{ id: 'customize', text: 'Cookie-Einstellungen ändern', dialog: true, dialogId: 'd1', disabled: false }], links: [], dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false }
+      ? { url, fields: [], buttons: [{ id: 'customize', text: '', label: 'Cookie-Einstellungen ändern', ariaLabel: '', dialog: true, dialogId: 'd1', disabled: false }], links: [], dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false }
       : stage === 1
         ? { url, fields: [], buttons: [{ id: 'reject', text: 'Alle Cookies ablehnen', dialog: true, dialogId: 'd1', disabled: false }], links: [], dialogs: [{ dialogId: 'd1' }], errors: [], captcha: false, passwordVisible: false }
         : { url, fields: [], buttons: [{ id: 'login', text: 'Anmelden', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false };
@@ -105,7 +105,7 @@ describe('portal field extraction', () => {
     let stage = 0;
     const clicks: string[] = [];
     const currentSnapshot = () => stage === 0
-      ? { url, fields: [], buttons: [{ id: 'customize', text: 'Customise Cookies', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false }
+      ? { url, fields: [], buttons: [{ id: 'customize', text: 'Customise Cookies', context: 'Cookie banner', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false }
       : { url, fields: [], buttons: [{ id: 'save', text: 'Save preferences', disabled: false }], links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false };
     const frame = {
       url: () => url,
@@ -145,6 +145,21 @@ describe('portal field extraction', () => {
     const page = { url: () => url, frames: () => [frame] };
 
     const result = await dismissCookieBanner(page as any, privacy as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('does not click a footer cookie-preferences link without an active banner', async () => {
+    const url = 'https://careers.example/apply';
+    const footer = {
+      url,
+      buttons: [{ id: 'footer-cookie', text: 'Cookie Preferences', label: 'Cookie Preferences', context: 'Cookie Preferences', disabled: false }],
+      dialogs: [],
+    };
+    const frame = { url: () => url, evaluate: vi.fn(async () => footer) };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, footer as any);
 
     expect(result.status).toBe('none');
   });
