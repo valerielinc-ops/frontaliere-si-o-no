@@ -23,9 +23,11 @@ function inWindow<T>(window: any, run: () => T): T {
   }
 }
 
-function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false, privacyRevealsRequiredFile = false } = {}) {
+function fakePage({ multiStep = false, conditional = true, registration = false, privacyRevealsUnknown = false, privacyRevealsRequiredFile = false, uploadRevealsUnknown = false } = {}) {
   const privacyReveals = privacyRevealsUnknown || privacyRevealsRequiredFile;
   const url = 'https://careers.example.test/apply';
+  const uploadedReceipts = new Set<string>();
+  let uploadQuestionRevealed = false;
   const credentials = registration
     ? '<label for="password">Password *</label><input id="password" type="password" name="password" required><label for="password-confirm">Confirm password *</label><input id="password-confirm" type="password" name="password-confirm" required>'
     : '';
@@ -36,6 +38,7 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
         <button id="next" type="button">Next</button>
       </form>`
     : `<form action="/apply" aria-label="Personal information">${credentials}
+        ${uploadRevealsUnknown ? '<label for="resume">Upload your CV *</label><input id="resume" type="file" name="resume" required>' : ''}
         <label for="country">Country of residence *</label>
         <select id="country" name="country" required><option value="">Choose one</option><option value="IT">Italy</option><option value="CH">Switzerland</option></select>
         <label for="motivation">Why are you interested in this role? *</label><textarea id="motivation" name="motivation" required></textarea>
@@ -90,6 +93,14 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
       },
       setChecked: async (wanted: boolean) => { const box = target(); if (box.checked !== wanted) box.click(); },
       isChecked: async () => target().checked,
+      setInputFiles: async (files: string | string[]) => {
+        const names = (Array.isArray(files) ? files : [files]).map((file) => file.split('/').at(-1) || file);
+        for (const name of names) uploadedReceipts.add(name);
+        if (uploadRevealsUnknown && !uploadQuestionRevealed) {
+          uploadQuestionRevealed = true;
+          element('form')?.insertAdjacentHTML('beforeend', '<label for="certification">Which professional certification do you hold? *</label><input id="certification" name="certification" required>');
+        }
+      },
       evaluate: async (run: any, argument: any) => inWindow(window, () => run(target(), argument)),
       allInnerTexts: async () => [...window.document.querySelectorAll(selector)].map((item: any) => item.textContent || ''),
     };
@@ -138,7 +149,7 @@ function fakePage({ multiStep = false, conditional = true, registration = false,
       const handle: any = { first: () => handle, filter: () => handle, waitFor: async () => { throw new Error('not found'); }, isVisible: async () => false };
       return handle;
     },
-    getByText: () => ({ first: () => ({ isVisible: async () => false, waitFor: async () => { throw new Error('not found'); } }) }),
+    getByText: (text: string) => ({ first: () => ({ isVisible: async () => uploadedReceipts.has(String(text)), waitFor: async () => { throw new Error('not found'); } }) }),
     after: (ms: number, run: () => void) => timers.push({ at: skew + ms, run }),
     goto: async (target: string) => { currentUrl = target; return { status: () => 200 }; },
     setUrl: (target: string) => { currentUrl = target; },
@@ -455,6 +466,48 @@ describe('assisted portal question batching', () => {
     ]);
     expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
     expect(accountEvents).toEqual([]);
+  });
+
+  it('replans after a successful CV upload reveals a hard required question', async () => {
+    const fixture = fakePage({ registration: true, uploadRevealsUnknown: true });
+    const { page, window } = fixture;
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    let plannerCalls = 0;
+    const codex = async ({ prompt }: any) => {
+      if (JSON.stringify(prompt).includes('You localize questions from an online job application')) return { questions: [] };
+      plannerCalls += 1;
+      return {
+        actions: plannerCalls === 1
+          ? [{ fieldId: fieldId('resume'), action: 'upload', document: 'cv', source: 'candidate_document', evidence: '' }]
+          : [],
+        missingRequired: plannerCalls > 1
+          ? [{ fieldId: fieldId('certification'), question: 'Which professional certification do you hold?', why: '', type: 'text', options: [] }]
+          : [],
+      };
+    };
+    const result = await handleAuth({
+      page,
+      snapshot: await extractFields(page, { listboxOptions: false }),
+      ctx: {
+        candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+        candidateLocale: 'en',
+        language: 'en',
+        files: { cv: '/tmp/cv.pdf' },
+        codex,
+        accounts: {
+          load: async () => null,
+          save: async () => {},
+          mark: async () => {},
+          discard: async () => {},
+        },
+      },
+    });
+
+    expect(plannerCalls).toBe(2);
+    expect(result.questions.map((question: any) => question.applicationQuestion)).toEqual([
+      'Which professional certification do you hold? *',
+    ]);
+    expect(window.document.getElementById('create')?.getAttribute('data-clicked')).not.toBe('true');
   });
 
   it('applies known answers, waits for conditional fields, and sends one stable question batch', async () => {

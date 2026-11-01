@@ -3510,11 +3510,12 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     // stable read and plan must prove that the account form is still complete
     // before the Create/Submit CTA is allowed.
     const privacyUrl = privacyStartUrl;
-    const privacyPlan = preflight.privacy === 'none'
+    const registrationUploadApplied = plannedActions.some((action) => action.action === 'upload'
+      && applied.some((result) => result.fieldId === action.fieldId && result.ok));
+    const privacyPlan = preflight.privacy === 'none' && !registrationUploadApplied
       // No notice was accepted or changed on this pass. The registration
       // loop already planned this stable surface after every known answer;
-      // reuse that plan instead of asking the planner a third time and
-      // needlessly widening the account-creation latency budget.
+      // reuse that plan instead of asking the planner again needlessly.
       ? { status: 'stable', snapshot: accountRegistrationSnapshot(filled), plan: registrationPlan }
       : await planStableRegistrationSurface(filled, privacyUrl);
     if (privacyPlan.status !== 'stable') {
