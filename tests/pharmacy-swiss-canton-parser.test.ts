@@ -152,6 +152,15 @@ describe('Swiss canton pharmacy calendar parser', () => {
     })).toThrow('Solothurn pharmacy identity is not allowlisted: Unknown Apotheke');
   });
 
+  it('fails closed when a fresh Solothurn calendar skips the fetch week', () => {
+    expect(() => parseSolothurnDutyPage({
+      html: SOLOTHURN_SOURCE_HTML,
+      sourceUrl: SOLOTHURN_SOURCE_URL,
+      fetchedAt: '2026-10-26T12:00:00.000Z',
+      calendarYear: 2026,
+    })).toThrow('Solothurn calendar has no verified duty in fetch week 2026-10-26');
+  });
+
   it('rejects a Delémont row whose pharmacy is not allowlisted', () => {
     const unknownRow = 'Unlisted Pharmacy du sam 1 janvier au sam 7 janvier à8h';
     const text = Array.from({ length: 52 }, () => unknownRow).join('\n');
