@@ -1402,8 +1402,15 @@
         // only while no pill exists and the exact option is still connected;
         // this keeps the recovery bounded and avoids toggling an already
         // committed choice.
-        if (!option.element.isConnected) return false;
-        press(option.element);
+        const retry = await waitFor(() => {
+          const options = openOptions(element.ownerDocument);
+          const named = bestOption(options, answer.value, answer.family);
+          if (named) return named;
+          const containing = options.filter((item) => normalize(item.label).includes(wanted));
+          return containing.length === 1 ? containing[0] : null;
+        });
+        if (!retry) return false;
+        press(retry.element);
         return Boolean(await waitFor(() => !isEmpty(entry)));
       }
       case 'date':
