@@ -1,7 +1,7 @@
 {
   "key": "cds-savognin",
   "label": "Center da Sanadad Savognin",
-  "generatedAt": "2026-11-01T09:17:24.966Z",
+  "generatedAt": "2026-11-01T21:46:47.794Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 4414,
-  "avgDurationMs": 4414,
+  "durationMs": 4025,
+  "avgDurationMs": 4025,
   "durationHistory": [
-    4414
+    4025
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/405.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:11.857Z",
+      "crawledAt": "2026-11-01T21:46:36.727Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -70,7 +70,7 @@
       },
       "streetAddress": "Stradung 52",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-01T09:17:11.857Z",
+      "validThrough": "2026-12-01T21:46:36.727Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -92,7 +92,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/402.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:11.855Z",
+      "crawledAt": "2026-11-01T21:46:36.725Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       },
       "streetAddress": "Stradung 52",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-01T09:17:11.855Z",
+      "validThrough": "2026-12-01T21:46:36.725Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -147,7 +147,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/159.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:11.853Z",
+      "crawledAt": "2026-11-01T21:46:36.723Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       },
       "streetAddress": "Stradung 52",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-01T09:17:11.853Z",
+      "validThrough": "2026-12-01T21:46:36.723Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -203,7 +203,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:11.851Z",
+      "crawledAt": "2026-11-01T21:46:36.721Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -236,7 +236,7 @@
       },
       "streetAddress": "Stradung 52",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-01T09:17:11.851Z",
+      "validThrough": "2026-12-01T21:46:36.721Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -259,7 +259,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/259.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:11.833Z",
+      "crawledAt": "2026-11-01T21:46:36.705Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -292,7 +292,7 @@
       },
       "streetAddress": "Stradung 52",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-01T09:17:11.833Z",
+      "validThrough": "2026-12-01T21:46:36.705Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -303,5 +303,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }
