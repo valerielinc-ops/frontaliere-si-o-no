@@ -72,6 +72,19 @@ export function isTicinoPharmacyPdfUrl(value, baseUrl = TICINO_PHARMACY_DIRECTOR
   return url.href;
 }
 
+/**
+ * Returns the other official Ticino host for a validated catalogue PDF.
+ * Dated filenames move over time, so the mirror must be derived from the
+ * currently linked URL rather than pinned beside the legacy static candidates.
+ */
+export function mirrorTicinoPharmacyPdfUrl(value) {
+  const validated = isTicinoPharmacyPdfUrl(value);
+  if (!validated) return null;
+  const url = new URL(validated);
+  url.hostname = url.hostname === 'www4.ti.ch' ? 'm4.ti.ch' : 'www4.ti.ch';
+  return url.href;
+}
+
 function ticinoPharmacyPdfDate(urlValue) {
   try {
     const pathname = new URL(urlValue).pathname;

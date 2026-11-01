@@ -240,6 +240,37 @@ function duty({ id, pharmacy, coverageName, startsAt, endsAt, dutyType = 'weeken
   };
 }
 
+function swissFetchWeek(fetchedAt) {
+  const fetchedAtMs = Date.parse(fetchedAt);
+  if (!Number.isFinite(fetchedAtMs)) return null;
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/Zurich',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date(fetchedAtMs));
+  const values = Object.fromEntries(parts
+    .filter((part) => part.type !== 'literal')
+    .map((part) => [part.type, Number(part.value)]));
+  const localDate = new Date(Date.UTC(values.year, values.month - 1, values.day));
+  const weekday = localDate.getUTCDay() || 7;
+  localDate.setUTCDate(localDate.getUTCDate() - weekday + 1);
+  const startMs = localDate.getTime();
+  localDate.setUTCDate(localDate.getUTCDate() + 7);
+  return { startMs, endMs: localDate.getTime(), startDate: new Date(startMs).toISOString().slice(0, 10) };
+}
+
+function hasVerifiedDutyInFetchWeek(rows, fetchedAt) {
+  const week = swissFetchWeek(fetchedAt);
+  if (!week) throw new Error(`Invalid Solothurn fetch timestamp: ${fetchedAt}`);
+  return {
+    week,
+    covered: rows.some((row) => row.status === 'verified'
+      && Date.parse(row.endsAt) > week.startMs
+      && Date.parse(row.startsAt) < week.endMs),
+  };
+}
+
 function delemontIdentity(name, sourceUrl, fetchedAt) {
   const known = DELEMONT_IDENTITY_NAMES.find((candidate) => normalizeKey(candidate) === normalizeKey(name));
   if (!known) throw new Error(`Delémont pharmacy identity is not allowlisted: ${name}`);
@@ -502,6 +533,10 @@ export function parseSolothurnDutyPage({ html, sourceUrl, fetchedAt, calendarYea
     throw new Error(`Solothurn calendar does not expose all three regions: ${[...regions].sort().join(', ') || 'none'}`);
   }
   if (rows.length === 0) throw new Error(`Solothurn calendar contains no ${calendarYear} duty rows`);
+  const fetchWeek = hasVerifiedDutyInFetchWeek(rows, fetchedAt);
+  if (!fetchWeek.covered) {
+    throw new Error(`Solothurn calendar has no verified duty in fetch week ${fetchWeek.week.startDate}`);
+  }
   rows.sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt) || a.id.localeCompare(b.id));
   return {
     rows,

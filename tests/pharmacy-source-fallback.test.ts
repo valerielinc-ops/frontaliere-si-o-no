@@ -15,6 +15,7 @@ import {
   TICINO_PHARMACY_PDF_URL,
   discoverTicinoPharmacyPdfUrls,
   isTicinoPharmacyPdfUrl,
+  mirrorTicinoPharmacyPdfUrl,
 } from '../scripts/lib/pharmacy-border-parser.mjs';
 import { OFCT_REGIONS } from '../scripts/lib/pharmacy-ticino-parser.mjs';
 
@@ -100,6 +101,32 @@ describe('Ticino pharmacy PDF source fallback', () => {
     ]);
   });
 
+  it('uses the derived official mirror when a newly dated PDF link fails on www4', async () => {
+    const discoveredUrl = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20261026.pdf';
+    const mirrorUrl = 'https://m4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20261026.pdf';
+    const calls: string[] = [];
+    const exhausted = () => Object.assign(new Error('source timeout'), { retryBudgetExhausted: true });
+    const fetchSource = vi.fn(async (url: string) => {
+      calls.push(url);
+      if (url === mirrorUrl) return Buffer.from('%PDF');
+      throw exhausted();
+    });
+    const fetchDirectory = vi.fn(async () => `<a href="${discoveredUrl}">Farmacie</a>`);
+
+    await expect(fetchTicinoPdfDocument(fetchSource, fetchDirectory)).resolves.toEqual({
+      buffer: Buffer.from('%PDF'),
+      sourceUrl: mirrorUrl,
+    });
+    expect(calls).toEqual([
+      TICINO_PHARMACY_PDF_URL,
+      TICINO_PHARMACY_PDF_MIRROR_URL,
+      TICINO_PHARMACY_PDF_CURRENT_URL,
+      TICINO_PHARMACY_PDF_CURRENT_MIRROR_URL,
+      discoveredUrl,
+      mirrorUrl,
+    ]);
+  });
+
   it('does not reinterpret a persistent source error as a mirror fallback', async () => {
     const error = Object.assign(new Error('HTTP 403'), { status: 403 });
     const fetchSource = vi.fn().mockRejectedValue(error);
@@ -170,6 +197,12 @@ describe('Ticino pharmacy PDF source fallback', () => {
     expect(discoverTicinoPharmacyPdfUrls(html, TICINO_PHARMACY_DIRECTORY_URL)).toEqual([
       'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf',
     ]);
+  });
+
+  it('derives only the paired official host for a validated dated PDF', () => {
+    expect(mirrorTicinoPharmacyPdfUrl('https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20261026.pdf'))
+      .toBe('https://m4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20261026.pdf');
+    expect(mirrorTicinoPharmacyPdfUrl('https://example.invalid/Lista_farmacie_sito_web_stato_20261026.pdf')).toBeNull();
   });
 
   it('uses the dated PDF linked by the official page after both static transports fail', async () => {

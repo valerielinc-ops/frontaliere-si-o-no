@@ -49,6 +49,7 @@ import {
   buildTicinoCompleteRecords,
   discoverTicinoPharmacyPdfUrls,
   isTicinoPharmacyPdfUrl,
+  mirrorTicinoPharmacyPdfUrl,
   mergeTicinoSecondaryRecords,
   normalizePharmacyRecordsForFallback,
   parseTicinoPdfText,
@@ -372,18 +373,24 @@ export async function fetchTicinoPdfDocument(fetchSource = fetchBuffer, fetchDir
     if (!canPreserveAfterFailure) throw error;
     throw aggregateTicinoSourceFailure(failures);
   }
-  const discoveredUrls = discoverTicinoPharmacyPdfUrls(directoryHtml, TICINO_PHARMACY_DIRECTORY_URL);
-  const sourceUrl = discoveredUrls.at(-1);
-  try {
-    return { buffer: await fetchSource(sourceUrl), sourceUrl };
-  } catch (error) {
-    lastError = error;
-    const isLegacyPdfMissing = Number(error?.status ?? error?.response?.status) === 404;
-    const canPreserveAfterFailure = isLegacyPdfMissing
-      || isRetryBudgetExhausted(error)
-      || isConnectionLevelFetchError(error);
-    failures.push({ sourceUrl, error, canTryAnotherOfficialSource: canPreserveAfterFailure });
-    if (!canPreserveAfterFailure) throw error;
+  const discoveredUrl = discoverTicinoPharmacyPdfUrls(directoryHtml, TICINO_PHARMACY_DIRECTORY_URL).at(-1);
+  const discoveredCandidates = [discoveredUrl, mirrorTicinoPharmacyPdfUrl(discoveredUrl)]
+    .filter((url, index, candidates) => url && candidates.indexOf(url) === index);
+  for (const sourceUrl of discoveredCandidates) {
+    try {
+      return { buffer: await fetchSource(sourceUrl), sourceUrl };
+    } catch (error) {
+      lastError = error;
+      const isLegacyPdfMissing = Number(error?.status ?? error?.response?.status) === 404;
+      const canPreserveAfterFailure = isLegacyPdfMissing
+        || isRetryBudgetExhausted(error)
+        || isConnectionLevelFetchError(error);
+      failures.push({ sourceUrl, error, canTryAnotherOfficialSource: canPreserveAfterFailure });
+      if (!canPreserveAfterFailure) throw error;
+      if (sourceUrl !== discoveredCandidates.at(-1)) {
+        console.warn(`[import-pharmacies-border] ${sourceUrl} failed; trying the official Ticino mirror`);
+      }
+    }
   }
   throw aggregateTicinoSourceFailure(failures, lastError);
 }
