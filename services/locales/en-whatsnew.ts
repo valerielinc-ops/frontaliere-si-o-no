@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+ "whatsNew.v39911.title": "Confirm your country of residence",
+ "whatsNew.v39911.applicationResidence.title": "Choose a country, then a town",
+ "whatsNew.v39911.applicationResidence.desc": "In your profile, select a country before searching for or entering a town. Older locations stay unconfirmed until you choose a country, so job matching can use your residence without guessing it.",
  "whatsNew.v39910.title": "Who writes and how the site is funded",
  "whatsNew.v39910.authors.title": "Authors and bylines on one page",
  "whatsNew.v39910.authors.desc": "The new Authors page separates real people from the newsroom’s editorial bylines. Next to the name you now see what the byline is and whether AI was used, and pages with partner links explain how the site is funded.",

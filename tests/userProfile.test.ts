@@ -133,6 +133,51 @@ describe('UserProfile helpers', () => {
       expect(merged.workPosition).toBe('Engineer');
       expect(merged.familyMembersList).toEqual([legacyMember]);
     });
+
+    it('keeps a legacy municipality unconfirmed instead of treating it as a residence country', () => {
+      const profile = emptyProfile();
+      const merged = mergeLegacyProfileImport({
+        currentProfile: profile,
+        cloudProfile: {},
+        localProfile: {},
+        legacy: { municipality: 'Como (CO)', residenceLocation: 'Como, Italia' },
+        cvPrefill: { municipality: 'Como (CO)' },
+        editedFields: new Set(),
+      });
+
+      expect(merged.municipality).toBe('Como (CO)');
+      expect(merged.residenceLocation).toBeUndefined();
+    });
+
+    it('preserves a country-qualified residence from the private profile', () => {
+      const profile = emptyProfile();
+      const merged = mergeLegacyProfileImport({
+        currentProfile: profile,
+        cloudProfile: { residenceLocation: 'Como, Italia', residenceCountry: 'IT' },
+        localProfile: { residenceLocation: '', residenceCountry: '' },
+        legacy: { municipality: 'Como (CO)', residenceLocation: 'Lugano, Svizzera', residenceCountry: 'CH' },
+        cvPrefill: {},
+        editedFields: new Set(),
+      });
+
+      expect(merged.residenceLocation).toBe('Como, Italia');
+      expect(merged.residenceCountry).toBe('IT');
+    });
+
+    it('preserves a saved local residence when an older private snapshot has empty defaults', () => {
+      const profile = emptyProfile();
+      const merged = mergeLegacyProfileImport({
+        currentProfile: profile,
+        cloudProfile: { residenceLocation: '', residenceCountry: '' },
+        localProfile: { residenceLocation: 'Como, Italia', residenceCountry: 'IT' },
+        legacy: {},
+        cvPrefill: {},
+        editedFields: new Set(),
+      });
+
+      expect(merged.residenceLocation).toBe('Como, Italia');
+      expect(merged.residenceCountry).toBe('IT');
+    });
   });
 
   describe('loadUserProfile', () => {

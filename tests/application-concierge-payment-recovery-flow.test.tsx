@@ -3,6 +3,7 @@ import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-libra
 import { useState } from 'react';
 const mocks = vi.hoisted(() => ({
   openChild: vi.fn(), childRender: vi.fn(), fetchService: vi.fn(), recoverSession: vi.fn(), signIn: vi.fn(), checkout: vi.fn(),
+  loadProfile: vi.fn(),
   widgetResponses: [] as Array<(type: string) => void>,
   view: vi.fn(), click: vi.fn(), resume: vi.fn(), accessLink: vi.fn(), sendVerification: vi.fn(), auth: { currentUser: null as any },
 }));
@@ -10,7 +11,7 @@ vi.mock('@/services/i18n', () => ({
   getLocale: () => 'it', useLocale: () => ['it'], useTranslation: () => ({ t: (key: string) => key }),
 }));
 vi.mock('@/services/authService', () => ({ signInWithCustomAuthToken: mocks.signIn, getAuthEmail: (user: any) => user?.email || null }));
-vi.mock('@/services/profileFirestore', () => ({ loadEnrichmentProfileFields: vi.fn() }));
+vi.mock('@/services/profileFirestore', () => ({ loadEnrichmentProfileFields: mocks.loadProfile }));
 vi.mock('@/components/community/SignupPromptModal', () => ({
   default: ({ intent }: { intent: string }) => <div role="dialog" aria-label="Signup prompt">{intent}</div>,
   requestConciergeAccessLink: mocks.accessLink,
@@ -60,6 +61,7 @@ beforeEach(() => {
   window.history.replaceState(null, '', '/');
   mocks.auth.currentUser = owner;
   mocks.fetchService.mockReset().mockResolvedValue(service);
+  mocks.loadProfile.mockReset().mockResolvedValue({});
   mocks.checkout.mockResolvedValue({ ok: true, paymentProvider: 'sumup', checkoutId: 'sumup-test', serviceId: 'service-test' });
 });
 afterEach(() => { cleanup(); vi.useRealTimers(); vi.unstubAllGlobals(); });
@@ -95,6 +97,79 @@ describe('concierge child query navigation', () => {
     expect(mocks.openChild).toHaveBeenLastCalledWith(owner, 'service-test', 'proposal-2');
     expect(mocks.checkout).not.toHaveBeenCalled();
   });
+});
+
+it('does not let a late profile prefill overwrite a service location loaded by refresh', async () => {
+  vi.useFakeTimers();
+  const withoutLocation = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'running', applicantLocation: '', applicantLocationCountry: '' };
+  const storedLocation = { ...withoutLocation, matchingStatus: 'complete', applicantLocation: 'Lugano, Switzerland', applicantLocationCountry: 'CH' };
+  let resolveProfile!: (value: { residenceLocation: string; residenceCountry: string; municipality: string }) => void;
+  const pendingProfile = new Promise<{ residenceLocation: string; residenceCountry: string; municipality: string }>(resolve => { resolveProfile = resolve; });
+  let resolveService!: (value: typeof storedLocation) => void;
+  const pendingService = new Promise<typeof storedLocation>(resolve => { resolveService = resolve; });
+  mocks.fetchService.mockReset().mockResolvedValueOnce(withoutLocation).mockReturnValueOnce(pendingService);
+  mocks.loadProfile.mockReturnValue(pendingProfile);
+
+  render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+  await act(async () => { await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); });
+  expect(mocks.loadProfile).toHaveBeenCalledOnce();
+  await act(async () => { await vi.advanceTimersByTimeAsync(3500); });
+  expect(mocks.fetchService).toHaveBeenCalledTimes(2);
+  await act(async () => { resolveService(storedLocation); await pendingService; });
+
+  await act(async () => {
+    resolveProfile({ residenceLocation: 'Como, Italia', residenceCountry: 'IT', municipality: 'Como' });
+    await pendingProfile;
+  });
+
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('Lugano');
+  expect(screen.getByLabelText('jobBoard.concierge.residenceCountry')).toHaveValue('CH');
+});
+
+it('lets a late service refresh replace an earlier profile prefill', async () => {
+  vi.useFakeTimers();
+  const withoutLocation = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'running', applicantLocation: '', applicantLocationCountry: '' };
+  const storedLocation = { ...withoutLocation, matchingStatus: 'complete', applicantLocation: 'Lugano, Switzerland', applicantLocationCountry: 'CH' };
+  const profile = { residenceLocation: 'Como, Italia', residenceCountry: 'IT', municipality: 'Como' };
+  let resolveService!: (value: typeof storedLocation) => void;
+  const pendingService = new Promise<typeof storedLocation>(resolve => { resolveService = resolve; });
+  mocks.fetchService.mockReset().mockResolvedValueOnce(withoutLocation).mockReturnValueOnce(pendingService);
+  mocks.loadProfile.mockResolvedValue(profile);
+
+  render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+  await act(async () => { await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); });
+  expect(mocks.loadProfile).toHaveBeenCalledOnce();
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('Como');
+  expect(screen.getByLabelText('jobBoard.concierge.residenceCountry')).toHaveValue('IT');
+  await act(async () => { await vi.advanceTimersByTimeAsync(3500); });
+  expect(mocks.fetchService).toHaveBeenCalledTimes(2);
+  await act(async () => { resolveService(storedLocation); await pendingService; });
+
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('Lugano');
+  expect(screen.getByLabelText('jobBoard.concierge.residenceCountry')).toHaveValue('CH');
+});
+
+it('preserves a candidate location edit when the service refresh completes later', async () => {
+  vi.useFakeTimers();
+  const withoutLocation = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'running', applicantLocation: '', applicantLocationCountry: '' };
+  const storedLocation = { ...withoutLocation, matchingStatus: 'complete', applicantLocation: 'Lugano, Switzerland', applicantLocationCountry: 'CH' };
+  let resolveService!: (value: typeof storedLocation) => void;
+  const pendingService = new Promise<typeof storedLocation>(resolve => { resolveService = resolve; });
+  mocks.fetchService.mockReset().mockResolvedValueOnce(withoutLocation).mockReturnValueOnce(pendingService);
+  mocks.loadProfile.mockResolvedValue({ residenceLocation: 'Como, Italia', residenceCountry: 'IT', municipality: 'Como' });
+
+  render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+  await act(async () => { await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); });
+  expect(mocks.loadProfile).toHaveBeenCalledOnce();
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('Como');
+  await act(async () => { await vi.advanceTimersByTimeAsync(3500); });
+  expect(mocks.fetchService).toHaveBeenCalledTimes(2);
+  fireEvent.change(screen.getByLabelText('jobBoard.concierge.residenceCountry'), { target: { value: 'FR' } });
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('');
+  await act(async () => { resolveService(storedLocation); await pendingService; });
+
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('');
+  expect(screen.getByLabelText('jobBoard.concierge.residenceCountry')).toHaveValue('FR');
 });
 
 describe('concierge reminder payment flow', () => {

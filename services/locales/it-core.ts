@@ -922,6 +922,7 @@ const translations: Record<string, string> = {
  "jobBoard.concierge.residenceManual": "Scegli un suggerimento o scrivi il comune se non compare nell’elenco.",
  "jobBoard.concierge.residenceSource": "Dati delle località: GeoNames",
  'jobBoard.concierge.location': 'Comune o CAP di residenza',
+ 'profile.applicationResidence': 'Residenza per le candidature',
  'jobBoard.concierge.locationHint': 'Precompiliamo il comune di residenza del tuo profilo, se disponibile. Puoi correggerlo con comune o CAP; non serve l’indirizzo completo.',
  'jobBoard.concierge.consent': 'Autorizzo Frontaliereticino.ch a trattare il mio CV e i dati indicati per preparare e inviare le candidature sulle posizioni che accetto, secondo i Termini del servizio e l’Informativa privacy.',
  'jobBoard.concierge.saveData': 'Salva dati',

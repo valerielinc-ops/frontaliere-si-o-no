@@ -48,6 +48,8 @@ export interface ApplicationConciergeService {
   applicantEmail?: string | null;
   applicantPhone?: string | null;
   applicantLocation?: string | null;
+  /** Explicit selector confirmation; absent on legacy services, so consumers must not infer country from the label. */
+  applicantLocationCountry?: string | null;
   hasConsent: boolean;
   hasCv: boolean;
   consentedAt?: string | null;
@@ -159,6 +161,7 @@ export async function saveApplicationConciergeProfile(
     applicantEmail: string;
     applicantPhone?: string;
     applicantLocation?: string;
+    applicantLocationCountry?: string;
     consent?: boolean;
     cvStorageKey?: string;
     cvFileName?: string;
@@ -171,7 +174,7 @@ export async function saveApplicationConciergeProfile(
 export async function recordApplicationConciergeConsent(
   user: any,
   serviceId: string,
-  input: { applicantName: string; applicantEmail: string; applicantPhone?: string; applicantLocation?: string },
+  input: { applicantName: string; applicantEmail: string; applicantPhone?: string; applicantLocation?: string; applicantLocationCountry?: string },
 ): Promise<ApplicationConciergeService> {
   const data = await callApplicationConcierge(user, 'POST', serviceId, { action: 'recordConsent', consent: true, ...input });
   return data.service as ApplicationConciergeService;

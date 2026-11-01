@@ -295,6 +295,7 @@ describe('application concierge matching', () => {
 
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, applicantLocation: 'Mendrisio 6850' })).toBe(true);
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, matchingStatus: 'queued' })).toBe(false);
+    expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, applicantLocationCountry: 'IT' })).toBe(false);
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate(before, { ...before, cvStorageKey: 'application-concierge-uploads/service-1/new-cv.pdf' })).toBe(true);
     expect(shouldRunApplicationConciergeMatchingForServiceUpdate({ applicantLocation: 'Lugano 6900' }, { applicantLocation: 'Mendrisio 6850' })).toBe(false);
   });

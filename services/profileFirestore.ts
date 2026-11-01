@@ -2,6 +2,7 @@
 
 import { reportCaughtError } from '@/services/errorReporter';
 import { CV_PROFILE_PARSER_VERSION } from '@/functions/src/candidateCvProfileContract.js';
+import { parseResidenceLocation } from '@/services/residenceLocalities';
 
 let firestoreDb: unknown = null;
 
@@ -109,6 +110,10 @@ export async function loadUserProfile(uid: string): Promise<Record<string, unkno
 /** The subset of `UserProfileData` the enrichment-gating engine reads. */
 export interface EnrichmentProfileFields {
   municipality: string;
+  /** Only an owner-entered value with an explicit supported country suffix. */
+  residenceLocation: string;
+  /** Country selector code that confirms the residence suffix. */
+  residenceCountry: string;
   frontaliereType: string;
   workPosition: string;
   grossSalary: string;
@@ -116,6 +121,8 @@ export interface EnrichmentProfileFields {
 
 const EMPTY_FIELDS: EnrichmentProfileFields = {
   municipality: '',
+  residenceLocation: '',
+  residenceCountry: '',
   frontaliereType: '',
   workPosition: '',
   grossSalary: '',
@@ -132,12 +139,7 @@ export async function loadEnrichmentProfileFields(email: string): Promise<Enrich
     const key = email.trim().toLowerCase();
     const snap = await getDoc(doc(db as never, 'newsletter_subscribers', key));
     const legacyProfile = snap.exists() ? snap.data() as Record<string, unknown> : null;
-    return {
-      municipality: preferredProfileValue(privateProfile, legacyProfile, 'municipality'),
-      frontaliereType: preferredProfileValue(privateProfile, legacyProfile, 'frontaliereType'),
-      workPosition: preferredProfileValue(privateProfile, legacyProfile, 'workPosition'),
-      grossSalary: preferredProfileValue(privateProfile, legacyProfile, 'grossSalary'),
-    };
+    return resolveEnrichmentProfileFields(privateProfile, legacyProfile);
   } catch {
     return { ...EMPTY_FIELDS };
   }
@@ -146,7 +148,7 @@ export async function loadEnrichmentProfileFields(email: string): Promise<Enrich
 function preferredProfileValue(
   privateProfile: Record<string, unknown> | null,
   legacyProfile: Record<string, unknown> | null,
-  key: keyof EnrichmentProfileFields,
+  key: Exclude<keyof EnrichmentProfileFields, 'residenceLocation'>,
 ): string {
   const privateValue = privateProfile?.[key];
   if (privateProfile && Object.hasOwn(privateProfile, key) && typeof privateValue === 'string') return privateValue;
@@ -155,11 +157,28 @@ function preferredProfileValue(
 }
 
 function profileFieldsFrom(profile: Record<string, unknown> | null): EnrichmentProfileFields {
+  return resolveEnrichmentProfileFields(profile, null);
+}
+
+/** Keep legacy municipality useful while exposing only explicitly country-qualified residence as verified. */
+export function resolveEnrichmentProfileFields(
+  privateProfile: Record<string, unknown> | null,
+  legacyProfile: Record<string, unknown> | null,
+): EnrichmentProfileFields {
+  const privateResidence = typeof privateProfile?.residenceLocation === 'string'
+    ? privateProfile.residenceLocation.trim()
+    : '';
+  const selectedCountry = typeof privateProfile?.residenceCountry === 'string'
+    ? privateProfile.residenceCountry.trim()
+    : '';
+  const parsedResidence = privateResidence ? parseResidenceLocation(privateResidence) : null;
   return {
-    municipality: typeof profile?.municipality === 'string' ? profile.municipality : '',
-    frontaliereType: typeof profile?.frontaliereType === 'string' ? profile.frontaliereType : '',
-    workPosition: typeof profile?.workPosition === 'string' ? profile.workPosition : '',
-    grossSalary: typeof profile?.grossSalary === 'string' ? profile.grossSalary : '',
+    municipality: preferredProfileValue(privateProfile, legacyProfile, 'municipality'),
+    residenceLocation: selectedCountry && parsedResidence?.country === selectedCountry ? privateResidence : '',
+    residenceCountry: selectedCountry && parsedResidence?.country === selectedCountry ? selectedCountry : '',
+    frontaliereType: preferredProfileValue(privateProfile, legacyProfile, 'frontaliereType'),
+    workPosition: preferredProfileValue(privateProfile, legacyProfile, 'workPosition'),
+    grossSalary: preferredProfileValue(privateProfile, legacyProfile, 'grossSalary'),
   };
 }
 

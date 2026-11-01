@@ -5,7 +5,7 @@ function fixture() {
   const now = Date.now();
   const documents = new Map<string, any>([
     ['renewal', { userId: 'candidate', paymentStatus: 'paid', serviceStatus: 'active', expiresAt: new Date(now + 30 * 86400000), renewalOfServiceId: 'original', renewalConsentVersion: 'application-concierge-v1', renewalConsentedAt: new Date(now) }],
-    ['original', { userId: 'candidate', cvStorageKey: 'application-concierge-uploads/original/cv.pdf', consentVersion: 'application-concierge-v1', consentedAt: new Date(now - 30 * 86400000), applicantName: 'Candidate Example' }],
+    ['original', { userId: 'candidate', cvStorageKey: 'application-concierge-uploads/original/cv.pdf', consentVersion: 'application-concierge-v1', consentedAt: new Date(now - 30 * 86400000), applicantName: 'Candidate Example', applicantLocation: 'Como, Italia', applicantLocationCountry: 'IT' }],
   ]);
   const files = new Set(['application-concierge-uploads/original/cv.pdf']);
   const deleted: string[] = [];
@@ -26,6 +26,8 @@ describe('renewal owns a separate CV with fresh consent', () => {
     const target = f.documents.get('renewal');
     expect(target.cvStorageKey).toMatch(/^application-concierge-uploads\/renewal\/renewal-.*\.pdf$/);
     expect(target.consentVersion).toBe('application-concierge-v1');
+    expect(target.applicantLocation).toBe('Como, Italia');
+    expect(target.applicantLocationCountry).toBe('IT');
     expect(f.files.has('application-concierge-uploads/original/cv.pdf')).toBe(true);
     const later = 'application-concierge-uploads/renewal/new-cv.pdf';
     f.documents.set('renewal', { ...target, cvStorageKey: later });

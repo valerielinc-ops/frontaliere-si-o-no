@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import manifest from '../data/residence-localities/manifest.json';
-import { formatResidenceLocation, loadResidenceLocalities, parseResidenceLocation, residenceCountries } from '../services/residenceLocalities';
+import { formatResidenceLocation, loadResidenceLocalities, parseResidenceLocation, residenceApplicationFields, residenceCountries, residenceLocationForApplication, residenceLocationForEditor, residenceProfilePrefill } from '../services/residenceLocalities';
 
 describe('international concierge residence', () => {
   it('recognizes explicit country names in all site languages without inferring from town names', () => {
@@ -23,6 +23,23 @@ describe('international concierge residence', () => {
     }
     expect(formatResidenceLocation('Como', '', 'it')).toBe('Como');
     expect(formatResidenceLocation('', 'IT', 'it')).toBe('');
+  });
+  it('saves a country-qualified applicant location only after the country selector confirms it', () => {
+    expect(residenceLocationForApplication('Como, Italia', '')).toBe('Como');
+    expect(residenceLocationForApplication('Como (CO)', '')).toBe('Como (CO)');
+    expect(residenceLocationForApplication('Como, Italia', 'IT')).toBe('Como, Italia');
+    expect(residenceLocationForApplication('Como, Italia', 'FR')).toBe('');
+    expect(residenceApplicationFields('Como, France', 'FR')).toEqual({ applicantLocation: 'Como, France', applicantLocationCountry: 'FR' });
+  });
+  it('reloads old service locations as unconfirmed and retains only a separately stored country selection', () => {
+    expect(residenceLocationForEditor('Como, Italia', '')).toEqual({ location: 'Como', countryCode: '' });
+    expect(residenceLocationForEditor('Como, Italia', 'IT')).toEqual({ location: 'Como, Italia', countryCode: 'IT' });
+    expect(residenceLocationForEditor('Como, Italia', 'FR')).toEqual({ location: 'Como', countryCode: '' });
+  });
+  it('keeps a country-looking legacy municipality in the town field without preselecting its country', () => {
+    expect(residenceProfilePrefill('', '', 'Como, Italia')).toEqual({ location: 'Como', countryCode: '' });
+    expect(residenceProfilePrefill('Lugano, Svizzera', 'CH', 'Como (CO)')).toEqual({ location: 'Lugano, Svizzera', countryCode: 'CH' });
+    expect(residenceProfilePrefill('Lugano, Svizzera', 'IT', 'Como (CO)')).toEqual({ location: 'Como (CO)', countryCode: '' });
   });
   it('keeps all current countries selectable, including ones with no catalogue entries', () => {
     expect(residenceCountries('it').some(c => c.code === 'AL' && c.label === 'Albania')).toBe(true);

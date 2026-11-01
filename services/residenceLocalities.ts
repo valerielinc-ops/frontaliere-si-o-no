@@ -49,6 +49,42 @@ export function formatResidenceLocation(town: string, country: string, locale: s
   return label ? `${clean}, ${label}${country === 'GE' ? ' (GE)' : ''}` : clean;
 }
 
+/** Save a country-qualified applicant location only when its country was selected explicitly. */
+export function residenceLocationForApplication(value: string, selectedCountry: string) {
+  const clean = value.trim();
+  if (!clean) return '';
+  const parsed = parseResidenceLocation(clean);
+  if (selectedCountry) return parsed.country === selectedCountry ? clean : '';
+  // Preserve an ambiguous legacy town, but discard a typed country suffix so
+  // downstream consumers cannot mistake it for an explicit selection.
+  return parsed.country ? parsed.town : clean;
+}
+
+export function residenceApplicationFields(value: string, selectedCountry: string) {
+  const applicantLocation = residenceLocationForApplication(value, selectedCountry);
+  return {
+    applicantLocation,
+    applicantLocationCountry: applicantLocation ? selectedCountry : '',
+  };
+}
+
+/** A legacy service string has no confirmed country unless it stored the selector code separately. */
+export function residenceLocationForEditor(value: string, storedCountry: string) {
+  const clean = value.trim();
+  const parsed = clean ? parseResidenceLocation(clean) : null;
+  if (storedCountry && parsed?.country === storedCountry) return { location: clean, countryCode: storedCountry };
+  return { location: parsed?.country ? parsed.town : clean, countryCode: '' };
+}
+
+/** Prefer a private residence only when its stored selector code confirms its suffix. */
+export function residenceProfilePrefill(confirmedLocation: string, confirmedCountry: string, legacyMunicipality: string) {
+  const parsed = confirmedLocation ? parseResidenceLocation(confirmedLocation) : null;
+  if (confirmedCountry && parsed?.country === confirmedCountry) {
+    return { location: confirmedLocation, countryCode: confirmedCountry };
+  }
+  return { location: residenceLocationForApplication(legacyMunicipality, ''), countryCode: '' };
+}
+
 /** Load only the selected country. Typing never sends residence text to a geocoder. */
 export function loadResidenceLocalities(country: string): Promise<string[]> {
   if (!Object.hasOwn(countries, country)) return Promise.resolve([]);

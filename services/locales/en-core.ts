@@ -883,6 +883,7 @@ const enCore: Record<string, string> = {
  "jobBoard.concierge.residenceManual": "Choose a suggestion or enter your town if it is not listed.",
  "jobBoard.concierge.residenceSource": "Locality data: GeoNames",
  'jobBoard.concierge.location': 'Town or postal code of residence',
+ 'profile.applicationResidence': 'Residence for job applications',
  'jobBoard.concierge.locationHint': 'We prefill your profile’s residence municipality when available. You can change it to a town or postal code; no full street address is needed.',
  'jobBoard.concierge.consent': 'I authorise Frontaliereticino.ch to process my CV and the details provided to prepare and send applications for positions I accept, under the Terms of Service and Privacy Policy.',
  'jobBoard.concierge.saveData': 'Save details',
