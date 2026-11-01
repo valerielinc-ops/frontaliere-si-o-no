@@ -1747,9 +1747,19 @@ export function guardPlan(plan, fields, candidate = null) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
     if (!field || rejectedActionFields.has(field.id)) continue;
-    // A planner's `consent` provenance never authorizes optional marketing
-    // or a box that also declares a candidate fact. Recheck the actual label.
-    if (action.action === 'check' && action.source === 'consent' && !ownConsent(field)) {
+    // Planner and policy-default checks of a privacy-reading box both pass
+    // through the same native metadata veto before they can answer the field.
+    const privacyRepresentations = [field.question, field.label, field.applicationQuestion]
+      .filter(value => typeof value === 'string');
+    if (Array.isArray(field.labels)) {
+      privacyRepresentations.push(...field.labels.filter(value => typeof value === 'string'));
+    }
+    const policyDefaultPrivacyAcknowledgment = action.action === 'check'
+      && action.source === 'policy_default'
+      && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
+    if (action.action === 'check'
+      && (action.source === 'consent' || policyDefaultPrivacyAcknowledgment)
+      && !ownConsent(field)) {
       rejectedActionFields.add(field.id);
       ask(field);
       continue;

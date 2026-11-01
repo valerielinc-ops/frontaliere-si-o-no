@@ -544,6 +544,32 @@ describe('the same grammar on the canonical consent path', () => {
     expect(ownConsent({ kind: 'checkbox', required: true, label, ...metadata })).toBe(false);
   });
 
+  it('revalidates privacy policy defaults against the native control before checking the box', () => {
+    const label = privacyAcknowledgments[0][1];
+    const planFor = (metadata: Record<string, unknown> = {}) => {
+      const field = {
+        id: 'privacy-review', kind: 'checkbox', inputType: 'checkbox', required: true, label,
+        ...metadata,
+      };
+      return guardPlan({
+        actions: [{ fieldId: field.id, action: 'check', value: 'true', document: 'none', source: 'policy_default', evidence: '' }],
+        missingRequired: [],
+      }, [field], candidate);
+    };
+    const clean = planFor();
+    expect(clean.actions).toContainEqual(expect.objectContaining({ fieldId: 'privacy-review', action: 'check', source: 'policy_default' }));
+
+    for (const metadata of [
+      { name: 'email', ariaLabel: 'Email' },
+      { privacyMetadataIncomplete: true },
+      { label: 'Privacy acknowledgement', applicationQuestion: label, name: 'email', ariaLabel: 'Email' },
+    ]) {
+      const plan = planFor(metadata);
+      expect(plan.actions.some((action: any) => action.fieldId === 'privacy-review' && action.action === 'check')).toBe(false);
+      expect(plan.missingRequired.some((item: any) => item.fieldId === 'privacy-review')).toBe(true);
+    }
+  });
+
   it.each([
     ['de imperative', 'Lese und akzeptiere die Datenschutzerklärung.'],
     ['de grammatical imperative', 'Lies und akzeptiere die Datenschutzerklärung.'],
