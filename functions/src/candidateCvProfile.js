@@ -11,7 +11,7 @@
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
-import { extractCvText } from './assistedApplicationAiDocuments.js';
+import { extractCvText, MAX_CV_SOURCE_BYTES } from './assistedApplicationAiDocuments.js';
 import { detectCvFileType, ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { CV_PROFILE_PARSER_VERSION } from './candidateCvProfileContract.js';
 
@@ -532,6 +532,9 @@ export async function enrichCandidateProfileFromCv({
   try {
     const storageBucket = bucket || getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
     const file = storageBucket.file(cvStorageKey);
+    const [metadata] = await file.getMetadata();
+    const size = Number(metadata.size);
+    if (!Number.isSafeInteger(size) || size < 0 || size > MAX_CV_SOURCE_BYTES) throw new Error('cv_file_too_large');
     const [buffer] = await file.download();
     const detectedType = detectCvFileType(buffer.subarray(0, 8));
     const text = detectedType ? await extractCvText(buffer, detectedType) : '';

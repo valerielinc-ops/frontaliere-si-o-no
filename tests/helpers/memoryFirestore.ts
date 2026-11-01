@@ -4,8 +4,20 @@
  * `where` with `limit`, and sequential `runTransaction`. Documents are keyed
  * by their full path ("a/1/b/2"), so a test can read any of them directly.
  */
+import { FieldValue } from 'firebase-admin/firestore';
 
 type Data = Record<string, any>;
+
+let deleteTransformConstructor: Function | null = null;
+let deleteTransformChecked = false;
+
+function isDeleteTransform(value: unknown): boolean {
+  if (!deleteTransformChecked) {
+    deleteTransformChecked = true;
+    if (typeof FieldValue?.delete === 'function') deleteTransformConstructor = FieldValue.delete().constructor;
+  }
+  return Boolean(deleteTransformConstructor && value instanceof deleteTransformConstructor);
+}
 
 function isPlainObject(value: unknown): value is Data {
   return Boolean(value) && typeof value === 'object' && Object.getPrototypeOf(value) === Object.prototype;
@@ -14,7 +26,15 @@ function isPlainObject(value: unknown): value is Data {
 function deepMerge(target: Data, patch: Data): Data {
   const out: Data = { ...target };
   for (const [key, value] of Object.entries(patch)) {
-    out[key] = isPlainObject(value) && isPlainObject(out[key]) ? deepMerge(out[key], value) : value;
+    if (isDeleteTransform(value)) {
+      delete out[key];
+      continue;
+    }
+    if (isPlainObject(value)) {
+      out[key] = deepMerge(isPlainObject(out[key]) ? out[key] : {}, value);
+    } else {
+      out[key] = value;
+    }
   }
   return out;
 }
@@ -41,7 +61,9 @@ function setAtPath(target: Data, segments: string[], value: unknown): Data {
     if (!isPlainObject(current[segment])) current[segment] = {};
     current = current[segment];
   }
-  current[segments[segments.length - 1]] = structuredClone(value);
+  const key = segments[segments.length - 1];
+  if (isDeleteTransform(value)) delete current[key];
+  else current[key] = structuredClone(value);
   return target;
 }
 
@@ -85,7 +107,7 @@ export function createMemoryFirestore(initial: Record<string, Data> = {}) {
           docs.set(path, mergeSelectedFields(current || {}, data, options.mergeFields));
           return;
         }
-        docs.set(path, options?.merge && current ? deepMerge(current, data) : structuredClone(data));
+        docs.set(path, options?.merge ? deepMerge(current || {}, data) : structuredClone(data));
       },
       async delete() {
         docs.delete(path);
