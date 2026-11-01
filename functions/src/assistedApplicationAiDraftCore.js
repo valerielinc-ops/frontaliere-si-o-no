@@ -161,7 +161,8 @@ const CURRENT_STUDENT_CUE_RE = /\b(?:student\w*|pupil\w*|trainee\w*|intern\w*|ap
 const CURRENT_ENROLLMENT_CUE_RE = /\b(?:current(?:ly)?|presently|now|ongoing|attending|attend(?:s)?|studying|enrolling|attualmente|frequento|frequentando|sono\s+iscritt\w*|derzeit|aktuell|besuche|studiere|actuellement|je\s+suis\s+inscrit\w*|etudie|en\s+cours)\b/i;
 const CURRENT_YEAR_CUE_RE = /\b(?:(?:third|3rd|troisieme|3e|terzo|terza|drittes?|dritten)[-\s]+(?:school[-\s]+)?(?:year|jahr|anno|annee|klasse)|(?:3|three|third|3rd)\s*(?:rd\s*)?(?:year|jahr|anno|annee|klasse)|(?:year|jahr|anno|annee|klasse)\s+(?:3|third|3rd))\b/i;
 const COMMERCIAL_SCHOOL_CUE_RE = /\b(?:commercial[-\s]+school|scuola[-\s]+commerciale|ecole[-\s]+(?:de[-\s]+)?commerce|handelsschule|kaufmaennisch\w*[-\s]+schule|kaufmannisch\w*[-\s]+schule)\b/i;
-const HISTORICAL_STUDENT_CUE_RE = /\b(?:previously|formerly|former|completed|graduated|graduation|finished|ended|used\s+to|attended|studied|was\s+(?:enrolled|attending|studying)|precedentemente|in\s+passato|frequentavo|ero\s+iscritt\w*|conclus\w*|completat\w*|diplomat\w*|laureat\w*|auparavant|ancien(?:ne)?|etait\s+inscrit\w*|etudiait|termine\w*|diplom[eé]\w*|achev[eé]\w*|zuvor|frueher|besuchte|studierte|abgeschlossen|absolviert|war\s+(?:eingeschrieben|angemeldet))\b/i;
+const OTHER_EDUCATION_INSTITUTION_CUE_RE = /\b(?:universit\w*|university|universitaet|universitat|college|high[-\s]+school|secondary[-\s]+school|grammar[-\s]+school|gymnasium|berufsschule|liceo|istituto|lycee|ecole[-\s]+secondaire|sekundarschule)\b/i;
+const HISTORICAL_STUDENT_CUE_RE = /\b(?:previously|formerly|former|completed|graduat\w*|diplom\w*|finished|ended|used\s+to|attended|studied|was\s+(?:enrolled|attending|studying)|precedentemente|in\s+passato|frequentavo|ero\s+iscritt\w*|conclus\w*|completat\w*|laureat\w*|auparavant|ancien(?:ne)?|etait\s+inscrit\w*|etudiait|termine\w*|achev[eé]\w*|zuvor|frueher|besuchte|studierte|abschluss\w*|abgeschlossen|absolviert|war\s+(?:eingeschrieben|angemeldet))\b/i;
 
 function normalizeEligibilityEvidence(value) {
   return String(value || '').replace(/\p{Cf}/gu, '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
@@ -335,7 +336,7 @@ export function hasUnverifiedCurrentStudentEligibility(postingText, profile = {}
     // education entry (or unrelated employment) into current eligibility.
     const sourceEntries = String(sourceText).replace(/\r\n?/g, '\n')
       .split(/\n+/u)
-      .flatMap((line) => line.split(/\s*(?:;|(?<=[.!?])\s+)\s*/u))
+      .flatMap((line) => line.split(/\s*(?:,(?!\s*\d{4}\b)|;|(?<=[.!?])\s+|\s+(?:and|und|et|e|but|however|whereas|while|although|or|oder|ou|ma|pero|però|mentre|aber|jedoch|wahrend|waehrend|mais|tandis\s+que|alors\s+que|doch)\s+)\s*/u))
       .map(normalizeEligibilityEvidence)
       .filter(Boolean);
     const currentYear = new Date().getFullYear();
@@ -354,7 +355,7 @@ export function hasUnverifiedCurrentStudentEligibility(postingText, profile = {}
       && !historicalYearRange(entry)
       && CURRENT_ENROLLMENT_CUE_RE.test(entry)
       && (!needsYear || CURRENT_YEAR_CUE_RE.test(entry))
-      && (!needsSchool || COMMERCIAL_SCHOOL_CUE_RE.test(entry)));
+      && (!needsSchool || (COMMERCIAL_SCHOOL_CUE_RE.test(entry) && !OTHER_EDUCATION_INSTITUTION_CUE_RE.test(entry))));
     return !sourceProvesCurrentEducation;
   });
 }
