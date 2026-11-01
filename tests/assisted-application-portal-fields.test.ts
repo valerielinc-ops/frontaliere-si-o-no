@@ -287,6 +287,10 @@ describe('portal field extraction', () => {
     expect(unlabelledPair.fields.map((field: any) => field.label)).toEqual(['First question', 'input-8']);
     const pageCopy = extract('<main><p>Welcome to our careers page.</p><form><div><input id="input-9"></div></form></main>');
     expect(pageCopy.fields[0].label).toBe('input-9');
+    const formQuestion = extract('<form><span>Form question</span><input id="input-10"></form>');
+    expect(formQuestion.fields[0].label).toBe('Form question');
+    const formCopy = extract('<form><p>Complete all sections before applying.</p><input id="input-11"></form>');
+    expect(formCopy.fields[0].label).toBe('input-11');
   });
 
   it('reads a radio group required only by its label as required, and asks the candidate for it', () => {

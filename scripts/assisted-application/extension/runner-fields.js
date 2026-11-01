@@ -447,10 +447,16 @@
     const dropZone = file && element.closest('[class*="dropzone"], [class*="drop-zone"], [class*="file-upload"], [data-dropzone], [data-file-dropzone]');
     const group = element.closest(QUESTION_GROUP_SELECTOR);
     const singleQuestionGroup = group && oneQuestionGroup(group, element) ? group : null;
-    const pageContainer = parent.matches('body, main, [role="main"], form, [role="form"]');
-    const siblingQuestion = !pageContainer && [...parent.children].some((sibling) => sibling !== element
-      && (sibling.tagName === 'SPAN' || sibling.matches('[class*="label"], [class*="question"], [role="heading"]')));
-    const fileZoneParent = file && siblingQuestion;
+    const formParent = parent.matches('form, [role="form"]');
+    const adjacentFormSpan = formParent
+      ? [element.previousElementSibling, element.nextElementSibling].find((sibling) => sibling?.tagName === 'SPAN') || null
+      : null;
+    const pageContainer = parent.matches('body, main, [role="main"]');
+    const siblingQuestion = formParent
+      ? Boolean(adjacentFormSpan)
+      : !pageContainer && [...parent.children].some((sibling) => sibling !== element
+        && (sibling.tagName === 'SPAN' || sibling.matches('[class*="label"], [class*="question"], [role="heading"]')));
+    const fileZoneParent = file && siblingQuestion && !formParent;
     const containers = [...new Set([dropZone, singleQuestionGroup, parent].filter(Boolean))];
     for (const node of containers) {
       const bounded = node === dropZone || node === singleQuestionGroup;
@@ -465,7 +471,8 @@
         if (!value) continue;
         const owner = text.parentElement;
         const immediateQuestion = node === parent && siblingQuestion && owner?.parentElement === parent
-          && (owner.tagName === 'SPAN' || owner.matches('[class*="label"], [class*="question"], [role="heading"]'));
+          && (formParent ? owner === adjacentFormSpan
+            : owner.tagName === 'SPAN' || owner.matches('[class*="label"], [class*="question"], [role="heading"]'));
         if (!bounded && !immediateQuestion && !(node === parent && fileZoneParent)) continue;
         // eslint-disable-next-line no-bitwise
         const isBefore = Boolean(text.compareDocumentPosition(element) & FOLLOWING);
