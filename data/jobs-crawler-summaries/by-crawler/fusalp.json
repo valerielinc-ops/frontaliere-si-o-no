@@ -1,7 +1,7 @@
 {
   "key": "fusalp",
   "label": "Fusalp",
-  "generatedAt": "2026-11-01T09:19:10.992Z",
+  "generatedAt": "2026-11-01T22:50:38.637Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 35492,
-  "avgDurationMs": 35492,
+  "durationMs": 37827,
+  "avgDurationMs": 37827,
   "durationHistory": [
-    35492
+    37827
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:18:48.198Z",
+      "crawledAt": "2026-11-01T22:50:19.493Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -60,7 +60,7 @@
       "addressRegion": "GR",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:18:48.198Z",
+      "validThrough": "2026-12-01T22:50:19.493Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:18:36.815Z",
+      "crawledAt": "2026-11-01T22:50:08.121Z",
       "addressLocality": "Val De Bagnes",
       "addressCountry": "CH",
       "country": "CH",
@@ -105,7 +105,7 @@
       "addressRegion": "VS",
       "streetAddress": "Val De Bagnes",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:18:36.815Z",
+      "validThrough": "2026-12-23T22:50:08.121Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-100-fixed-term-contract-permanent-opportunity_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:18:33.835Z",
+      "crawledAt": "2026-11-01T22:50:05.178Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -150,7 +150,7 @@
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:18:33.835Z",
+      "validThrough": "2026-12-29T22:50:05.178Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:18:32.623Z",
+      "crawledAt": "2026-11-01T22:50:03.215Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -195,7 +195,7 @@
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:18:32.623Z",
+      "validThrough": "2026-12-29T22:50:03.215Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -217,7 +217,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:18:31.597Z",
+      "crawledAt": "2026-11-01T22:50:01.851Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -240,7 +240,7 @@
       "addressRegion": "BE",
       "streetAddress": "Saanen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:18:31.597Z",
+      "validThrough": "2026-12-10T22:50:01.851Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -262,7 +262,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/assistant-store-manager-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:18:23.463Z",
+      "crawledAt": "2026-11-01T22:49:53.882Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -285,7 +285,7 @@
       "addressRegion": "BE",
       "streetAddress": "Saanen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:18:23.463Z",
+      "validThrough": "2026-12-01T22:49:53.882Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -296,5 +296,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

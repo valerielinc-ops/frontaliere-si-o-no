@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-11-01T09:18:56.376Z",
-  "runId": "41291881160",
+  "assembledAt": "2026-11-01T22:51:30.534Z",
+  "runId": "41350554424",
   "jobs": [
     {
       "id": "spital-sts-16556a0f6a53",
@@ -35,7 +35,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7c5e571c-823b-467d-8386-a2a8e2947e3e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:49.081Z",
+      "crawledAt": "2026-11-01T22:51:23.681Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       },
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:18:49.081Z",
+      "validThrough": "2027-01-04T22:51:23.681Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7b4dc00f-29d4-4e26-baa0-4346080c57d2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:48.628Z",
+      "crawledAt": "2026-11-01T22:51:23.276Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -155,7 +155,7 @@
       },
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:18:48.628Z",
+      "validThrough": "2027-01-05T22:51:23.276Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -190,7 +190,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6ebd8ce3-5397-446f-879b-00878d7b3e8a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:48.173Z",
+      "crawledAt": "2026-11-01T22:51:22.845Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -233,7 +233,7 @@
       },
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:18:48.173Z",
+      "validThrough": "2027-01-06T22:51:22.845Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -267,7 +267,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/16756454-c7a4-4597-95b1-07a55ff3bd39/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:47.750Z",
+      "crawledAt": "2026-11-01T22:51:22.411Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -317,7 +317,7 @@
       },
       "streetAddress": "Thun und Spiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T09:18:47.750Z",
+      "validThrough": "2027-01-30T22:51:22.411Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -351,7 +351,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/86f24237-a339-46ca-baf6-0e076f12a645/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:47.304Z",
+      "crawledAt": "2026-11-01T22:51:21.976Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -394,7 +394,7 @@
       },
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-11T09:18:47.304Z",
+      "validThrough": "2026-12-11T22:51:21.976Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -429,7 +429,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2d87aba8-03a5-4d9e-a9ac-09488ee5f8bc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:46.882Z",
+      "crawledAt": "2026-11-01T22:51:21.556Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -478,7 +478,7 @@
       },
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:18:46.882Z",
+      "validThrough": "2027-01-13T22:51:21.556Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -513,7 +513,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/933e431f-6eef-4f55-9c1f-32a157b02780/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:46.460Z",
+      "crawledAt": "2026-11-01T22:51:21.130Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -564,7 +564,7 @@
       },
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:18:46.460Z",
+      "validThrough": "2027-01-17T22:51:21.130Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -599,7 +599,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6e2ea497-b235-49f8-a54c-363a2f2316c6/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:45.906Z",
+      "crawledAt": "2026-11-01T22:51:20.611Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -652,7 +652,7 @@
       },
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:18:45.906Z",
+      "validThrough": "2027-01-21T22:51:20.611Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -686,7 +686,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2c3071b4-a896-4d30-9a35-143f25e4a165/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:45.476Z",
+      "crawledAt": "2026-11-01T22:51:20.188Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -735,7 +735,7 @@
       },
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:18:45.476Z",
+      "validThrough": "2027-01-25T22:51:20.188Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -769,7 +769,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/43b3d697-4c2f-4060-9aaf-c973a4a2d803/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:44.988Z",
+      "crawledAt": "2026-11-01T22:51:19.759Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -818,7 +818,7 @@
       },
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:18:44.988Z",
+      "validThrough": "2027-01-27T22:51:19.759Z",
       "validThroughSource": "last-observed-window"
     }
   ]
