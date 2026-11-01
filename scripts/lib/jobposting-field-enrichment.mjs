@@ -220,6 +220,21 @@ export function resolveActiveJobPostingDeadline(job, now = new Date()) {
     }
   }
 
+  // A build-clock fallback is persisted evidence of the last safe window, not
+  // permission to renew the listing on every normalization pass. Keep it
+  // byte-stable while it is still future so repeated slice assembly remains
+  // idempotent; once it expires, the final fallback below starts a new bounded
+  // window from the current build clock.
+  if (buildClockFallback && job?.validThrough) {
+    const retained = new Date(String(job.validThrough));
+    if (Number.isFinite(retained.getTime()) && retained.getTime() > clock.getTime()) {
+      return {
+        validThrough: retained.toISOString(),
+        validThroughSource: 'build-clock-fallback',
+      };
+    }
+  }
+
   const publicationDate = parseDate(job?.datePosted || job?.postedDate || job?.firstSeenAt, clock);
   if (publicationDate) {
     const capDays = listingTypeCapDays(job);
