@@ -20,8 +20,8 @@
  *   - schema.org/Event JSON-LD on indexable event-detail pages; archived pages
  *     retain the source's actual past dates and eventStatus beside the visible
  *     archival notice — image and organizer use source-backed values or
- *     deterministic defaults, while performer and offers exist only when the
- *     source states them.
+ *     deterministic defaults, while performer exists only when the source
+ *     names one. Offers are always present; unknown prices stay unstated.
  *     Aggregate pages expose an ItemList of event URLs,
  *     not partial nested Event objects.
  *   - BreadcrumbList + FAQPage JSON-LD, full hreflang (it/en/de/fr + x-default)
@@ -109,7 +109,7 @@ export { cleanEventText } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
 import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
-import { fillEventPeopleDefaults, normalizeEventPeople, withoutAddressPeople } from '../scripts/lib/event-metadata.mjs';
+import { extractEventPeopleFromTitle, fillEventPeopleDefaults, normalizeEventPeople, withoutAddressPeople } from '../scripts/lib/event-metadata.mjs';
 import { assignEventImageAsset } from '../packages/articles/engine/shared/eventImageLibrary.mjs';
 import { LICENSED_PHOTO_PROVIDERS } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from './shared/eventArchiveNoindexTargetMarker.mjs';
@@ -126,7 +126,7 @@ type EventPrice = {
   evidence?: 'structured-zero' | 'structured-free-access' | 'label-free' | 'numeric' | 'unknown';
   // Provenance (owner decision 2026-10-04): which admitted source and which of
   // its fields produced the value. hasConfidentPrice() decides whether this
-  // source value reaches the JSON-LD offers; without it there are none.
+  // source value can be asserted as a numeric price in JSON-LD.
   priceSource?: string;
   priceField?: string;
   // Upper bound of a minimum price («from CHF X», AggregateOffer.highPrice).
@@ -162,8 +162,8 @@ interface SiteEvent {
   // Nationwide sources (guidle, myswitzerland — issue #3125) carry richer
   // fields the original tio-agenda MVP never had. Input slices may omit them;
   // eventLd() completes optional fields with deterministic defaults when a
-  // source slice is partial. Price has no default: the visible UI and the
-  // JSON-LD offers share the same confidence gate.
+  // source slice is partial. A price has no default: unknown prices remain
+  // unstated, while the Event still carries an unpriced Offer.
   description?: string;
   price?: EventPrice;
   organizer?: EventEntity | EventEntity[];
@@ -1671,9 +1671,10 @@ export function zurichOffset(isoDate: string): string {
  * deterministic factual sentence built from event fields; it never falls
  * back to crawler prose. Older and partial slices are completed at
  * detail-page render time with deterministic catalog/venue/image defaults.
- * Offers exist only with a verified source amount, which keeps its original
- * Offer/AggregateOffer shape: `price: 0` on an unknown price tells Google the
- * event is free. Performer and organizer never carry an address (crawlers
+ * Offers always exist, but a numeric amount is emitted only with a verified
+ * source price. `price: 0` is reserved for a confidently free event; unknown
+ * prices get an Offer with a source/event URL and no invented amount.
+ * Performer and organizer never carry an address (crawlers
  * stamped the venue "Fiescheralp 4" as performer). A recurring series is its
  * first occurrence plus an `eventSchedule`, not one event of eight weeks; the
  * source gives only the first and last date, so the schedule has no frequency.
@@ -1715,12 +1716,19 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     : factualDescription;
   const sourceUrl = eventSourceUrl(event.url, event);
   const eventSource = eventSourceRecord(event.sourceKey);
+  const titlePerformer = extractEventPeopleFromTitle(event.title).performer;
   const eventWithDefaults = fillEventPeopleDefaults(
     withoutAddressPeople({ ...event, title, venue: venueName || undefined }, eventSource),
     eventSource,
   ) as SiteEvent;
+  const performer = eventWithDefaults.performer
+    || normalizeEventPeople(titlePerformer, sourceUrl, sourceUrl);
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
+  const confidentlyFree = confidentPrice && (
+    event.price?.amount === 0
+    || (event.price?.isFree === true && event.price?.amount === null)
+  );
   // A minimum price (AggregateOffer.lowPrice, including Eventfrog's
   // lowestTicketPrice) is a floor, not THE price; preserve a valid upper bound
   // when the source supplies one.
@@ -1728,18 +1736,25 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const highPrice = fromPrice && typeof event.price?.highPrice === 'number' && event.price.highPrice > (event.price.amount ?? 0)
     ? event.price.highPrice
     : undefined;
+  const offerUrl = event.price?.url || canonicalUrl || sourceUrl;
   const offer = confidentPrice
     ? {
       '@type': fromPrice ? 'AggregateOffer' : 'Offer',
       ...(fromPrice
         ? { lowPrice: event.price!.amount, ...(highPrice !== undefined ? { highPrice } : {}) }
-        : { price: event.price!.isFree ? 0 : event.price!.amount }),
+      : { price: confidentlyFree ? 0 : event.price!.amount }),
       priceCurrency: event.price?.currency || 'CHF',
       availability: event.price?.availability || 'https://schema.org/InStock',
       validFrom: event.price?.validFrom || event.startDate,
-      url: event.price?.url || canonicalUrl || sourceUrl,
+      url: offerUrl,
     }
-    : undefined;
+    : {
+      '@type': 'Offer',
+      ...(event.price?.currency ? { priceCurrency: event.price.currency } : {}),
+      ...(event.price?.availability ? { availability: event.price.availability } : {}),
+      ...(event.price?.validFrom ? { validFrom: event.price.validFrom } : {}),
+      ...(offerUrl ? { url: offerUrl } : {}),
+    };
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
@@ -1777,15 +1792,15 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     ...(description ? { description } : {}),
     image: eventImage,
     organizer: normalizeEventPeople(eventWithDefaults.organizer, sourceUrl, sourceUrl),
-    ...(eventWithDefaults.performer ? { performer: eventWithDefaults.performer } : {}),
+    ...(performer ? { performer } : {}),
     // On a detail page `url` is OUR canonical page (the page about the event);
     // the original source is then surfaced as `sameAs`. On aggregate pages
     // (no canonicalUrl) we keep the source URL.
     url: canonicalUrl || sourceUrl,
     ...(canonicalUrl && sourceUrl ? { sameAs: [sourceUrl] } : {}),
     // Only a confident source field may assert free admission.
-    ...(confidentPrice && event.price?.isFree ? { isAccessibleForFree: true } : {}),
-    ...(offer ? { offers: offer } : {}),
+    ...(confidentlyFree ? { isAccessibleForFree: true } : {}),
+    offers: offer,
   };
 }
 
