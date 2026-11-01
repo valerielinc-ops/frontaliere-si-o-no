@@ -308,6 +308,8 @@ describe('fill extension: patterns', () => {
     expect(F.cookieRefusal(document)).toBeNull();
     document.body.innerHTML = '<main><div class="cookie-preferences"><button type="button">Customise Cookies</button></div></main>';
     expect(F.cookieRefusal(document)).toBeNull();
+    document.body.innerHTML = '<div role="region" class="cookiePolicy cookiemanager"><button type="button">Alle Cookies ablehnen</button></div>';
+    expect(F.cookieRefusal(document)?.textContent).toBe('Alle Cookies ablehnen');
     document.body.innerHTML = '<div id="cookie-banner"><button type="button">Decline optional cookies</button></div>';
     expect(F.cookieRefusal(document)?.textContent).toBe('Decline optional cookies');
   });
