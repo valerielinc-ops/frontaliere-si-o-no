@@ -4897,6 +4897,8 @@ export async function dropOverwrittenLocs(
   options: {
     inspectForeignPresent?: boolean;
     keepMissing?: boolean;
+    /** Treat the input as a complete dist assembled from every locale shard. */
+    ignoreShardOwnership?: boolean;
     preserveCanonicalExemptions?: boolean;
     /** Also drop a closed offer: its soft landing is `index,follow` but no sitemap entry. */
     dropClosedJobPages?: boolean;
@@ -4930,7 +4932,7 @@ export async function dropOverwrittenLocs(
   // unrelated HTML tree is traversed but never retained in the index. A caller
   // that supplies a shared index owns its retention scope and is left intact.
   let foreignCandidatePaths: Iterable<string> | undefined;
-  if (options.inspectForeignPresent && !options.foreignDirectoryIndex) {
+  if (options.inspectForeignPresent && !options.ignoreShardOwnership && !options.foreignDirectoryIndex) {
     if (!EMIT_ALL_LOCALES) {
       foreignCandidatePaths = (function* (): Iterable<string> {
         for (const loc of locs) {
@@ -4957,7 +4959,10 @@ export async function dropOverwrittenLocs(
       // owning locale this shard does not emit has no HTML on disk by design —
       // keep it so the it/main shard's sitemap stays complete. Skipped entirely
       // in the default build (EMIT_ALL_LOCALES) so behaviour is byte-identical.
-      const foreignLocale = !EMIT_ALL_LOCALES && !shouldEmitLocale(localeOfDistPath(urlPath, ''));
+      const foreignLocale =
+        !options.ignoreShardOwnership &&
+        !EMIT_ALL_LOCALES &&
+        !shouldEmitLocale(localeOfDistPath(urlPath, ''));
       const routePath = path.join(distDir, urlPath);
       const indexPath = path.join(distDir, urlPath, 'index.html');
       const flatPath = path.join(distDir, urlPath + '.html');

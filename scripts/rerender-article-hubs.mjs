@@ -113,8 +113,9 @@ const FETCH_HEADERS = {
  * How far the rendered archive count may differ from the published manifest
  * before the push is refused. The identity decision below is separate: after
  * the corpus-main overlay, a small publication handoff can legitimately leave
- * ids on opposite sides for a short time, but it must never publish either
- * representation until the handoff converges.
+ * ids on opposite sides for a short time. Hub HTML still waits for the
+ * handoff, while a client-only subset is allowed only for ids already proved
+ * by the live hub.
  */
 export const MAX_ARTICLES_BEHIND = 25;
 export const MAX_CORPUS_DRIFT_AGE_SECONDS = 24 * 60 * 60;
@@ -195,9 +196,10 @@ function driftDetails(missingIds, unpublishedIds) {
 
 /**
  * Decide the only safe action for a corpus-main/published registry handoff.
- * Hub rendering has no supported exclude-id input, so neither side of a
- * mismatch is rendered selectively: both directions defer while bounded, and
- * an old, large, or undated handoff fails visibly with the ids named.
+ * Hub rendering has no supported exclude-id input, so HTML never renders a
+ * mixed snapshot. An old, large, or undated handoff fails visibly with the
+ * ids named; a fresh bounded handoff remains deferred for the caller to prove
+ * whether any client-only subset is already served.
  */
 export function decideCorpusRegistryDrift({
   section = 'article',
@@ -410,27 +412,57 @@ function assertArticleChunkLease({ required = false } = {}) {
   }
 }
 
-async function publishClientChunks(sections, dryRun) {
-  const args = [
-    '-y',
-    'tsx@4.23.15',
-    path.join(ROOT_DIR, 'scripts', 'publish-article-chunks.mjs'),
-  ];
-  if (sections.length === 1) args.push('--section', sections[0]);
-  args.push('--strict', '--no-ticker');
-  if (dryRun) args.push('--dry-run');
+async function publishClientChunks(
+  sections,
+  dryRun,
+  { clientArticleIdsBySection = new Map(), scratchDir = null } = {},
+) {
+  const filteredSections = sections.filter((section) => clientArticleIdsBySection.has(section));
+  const unfilteredSections = sections.filter((section) => !clientArticleIdsBySection.has(section));
+  const invocations = [];
+  if (unfilteredSections.length > 0) invocations.push({ sections: unfilteredSections, ids: null });
+  for (const section of filteredSections) {
+    const ids = clientArticleIdsBySection.get(section);
+    if (!Array.isArray(ids) || ids.length === 0) {
+      throw new Error(`${LOG} client-only publication for ${section} has no proven article ids`);
+    }
+    invocations.push({ sections: [section], ids });
+  }
 
-  console.log(
-    `${LOG} publishing client article chunks before hub shards` +
-      (dryRun ? ' (dry run)' : ''),
-  );
-  const { status } = await spawnAsync('npx', args, {
-    stdio: 'inherit',
-    env: process.env,
-    cwd: ROOT_DIR,
-  });
-  if (status !== 0) {
-    throw new Error(`${LOG} client article chunk publication failed (exit ${status})`);
+  for (const invocation of invocations) {
+    const args = [
+      '-y',
+      'tsx@4.23.15',
+      path.join(ROOT_DIR, 'scripts', 'publish-article-chunks.mjs'),
+    ];
+    if (invocation.sections.length === 1) args.push('--section', invocation.sections[0]);
+    let includeIdsFile = null;
+    if (invocation.ids) {
+      if (!scratchDir) throw new Error(`${LOG} client-only publication has no scratch directory`);
+      includeIdsFile = path.join(scratchDir, `client-article-ids-${invocation.sections[0]}.json`);
+      fs.writeFileSync(includeIdsFile, JSON.stringify(invocation.ids) + '\n', 'utf8');
+      args.push('--include-ids-file', includeIdsFile);
+    }
+    args.push('--strict', '--no-ticker');
+    if (dryRun) args.push('--dry-run');
+
+    console.log(
+      `${LOG} publishing client article chunks before hub shards` +
+        (invocation.ids ? ` (live-proven subset for ${invocation.sections[0]})` : '') +
+        (dryRun ? ' (dry run)' : ''),
+    );
+    try {
+      const { status } = await spawnAsync('npx', args, {
+        stdio: 'inherit',
+        env: process.env,
+        cwd: ROOT_DIR,
+      });
+      if (status !== 0) {
+        throw new Error(`${LOG} client article chunk publication failed (exit ${status})`);
+      }
+    } finally {
+      if (includeIdsFile) fs.rmSync(includeIdsFile, { force: true });
+    }
   }
 }
 
@@ -668,14 +700,13 @@ export async function checkCorpusFreshness(
   let handoff = drift;
   let recoveredLiveHandoff = false;
 
-  // A corpus publisher can place the new article and its hub card on the
+  // A corpus publisher can place a new article and its hub card on the
   // serving shard before its API registry (`slugs.json`) is visible. In this
-  // one-way race, deferring preserves the very hydration split this gate is
-  // meant to remove: the external hub is already ahead while the client stays
-  // behind. Require both a bounded/fresh drift decision and a live-hub proof
-  // for every corpus-main-only ID before allowing the client to catch up. A
-  // retired/published-ahead or mixed drift still follows the original
-  // fail-closed path.
+  // one-way race, a live-hub proof lets the client catch up for the IDs already
+  // served, without exposing a corpus-main-only ID whose card is not live yet.
+  // Hub HTML stays deferred for every mixed handoff because this renderer has
+  // no exclude-id input. A retired/published-ahead drift still follows the
+  // original fail-closed path.
   if (drift.action === 'defer' && missingIds.length === 0 && unpublishedIds.length > 0) {
     try {
       liveHub = await fetchLiveHubSlugs(section);
@@ -688,6 +719,21 @@ export async function checkCorpusFreshness(
     }
     const notYetLive = unpublishedIdsAbsentFromLiveHub(localRegistry, unpublishedIds, liveHub.slugs);
     if (notYetLive.length > 0) {
+      if (notYetLive.length < unpublishedIds.length) {
+        const notYetLiveSet = new Set(notYetLive);
+        const servedIds = unpublishedIds.filter((id) => !notYetLiveSet.has(id));
+        const clientArticleIds = Object.keys(localRegistry).filter((id) => !notYetLiveSet.has(id));
+        return {
+          ok: false,
+          deferred: true,
+          clientOnly: true,
+          clientArticleIds,
+          note:
+            `${drift.note}; live hub already serves corpus-main ID(s) ${servedIds.join(', ')}; `
+            + `publishing the proven client registry subset (${clientArticleIds.join(', ')}) while deferring hub HTML `
+            + `and not-yet-live ID(s) ${notYetLive.join(', ')}`,
+        };
+      }
       return {
         ok: false,
         deferred: true,
@@ -793,7 +839,9 @@ async function main() {
       sections: {},
     };
     let fatal = false;
-    let deferred = false;
+    const freshnessBySection = new Map();
+    const deferredSections = [];
+    const clientArticleIdsBySection = new Map();
 
     // The hub HTML and the client registry are two representations of the same
     // article snapshot. Render and validate every target section before
@@ -854,10 +902,18 @@ async function main() {
       const freshness = await checkCorpusFreshness(section, itemCount, {
         corpusCheckoutDir: corpusOverlay.checkoutDir,
       });
+      freshnessBySection.set(section, freshness);
       console.log(`${LOG} ${freshness.note}`);
       if (freshness.deferred) {
-        console.warn(`::warning::${LOG} ${freshness.note} — no bytes will be published`);
-        deferred = true;
+        deferredSections.push(section);
+        if (freshness.clientOnly) {
+          clientArticleIdsBySection.set(section, freshness.clientArticleIds);
+          console.warn(
+            `::warning::${LOG} ${freshness.note} — only the live-proven client subset will be published; hub HTML remains deferred`,
+          );
+        } else {
+          console.warn(`::warning::${LOG} ${freshness.note} — no bytes will be published`);
+        }
       } else if (!freshness.ok) {
         errors.push(freshness.note);
       }
@@ -882,6 +938,8 @@ async function main() {
         sitemapPath: topicHubResult.sitemapPath ?? null,
         announcedUrlCount: topicHubResult.announcedUrlPaths?.length ?? 0,
         deferred: Boolean(freshness.deferred),
+        clientOnly: Boolean(freshness.clientOnly),
+        clientArticleIds: freshness.clientArticleIds ?? null,
         freshnessNote: freshness.note,
         validationErrors: errors,
       };
@@ -901,25 +959,41 @@ async function main() {
   }
 
   // A bounded registry mismatch is an expected handoff between corpus `main`
-  // and the published API. Preserve the strict no-publish decision above, but
-  // report it to the workflow as a successful defer so it does not open a
-  // duplicate failure issue while publication is converging.
-  if (deferred) {
-    if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\n');
-    console.log(`${LOG} freshness deferred — nothing pushed`);
+  // and the published API. A mixed handoff can publish only the IDs proved by
+  // the live hub; the rendered hub itself remains deferred until all IDs are
+  // live. Other sections that passed their freshness gate may still complete.
+  const publishableSections = sections.filter((section) => !freshnessBySection.get(section)?.deferred);
+  const clientPublicationSections = sections.filter(
+    (section) => !freshnessBySection.get(section)?.deferred || clientArticleIdsBySection.has(section),
+  );
+
+  // No external client asset may move until its section has passed the local
+  // gates. Strict mode requires every upload and purge to succeed; the lease
+  // is rechecked after the render, which may be long enough for the watcher to
+  // report a loss. A client-only section uses an ID allow-list so an article
+  // whose hub card is not live cannot enter the browser registry early.
+  if (clientPublicationSections.length > 0) {
+    assertArticleChunkLease({ required: leaseRequired });
+    await publishClientChunks(clientPublicationSections, args.dryRun, {
+      clientArticleIdsBySection,
+      scratchDir: outRoot,
+    });
+  }
+
+  if (args.dryRun) {
+    if (deferredSections.length > 0 && process.env.GITHUB_OUTPUT) {
+      fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\n');
+    }
+    console.log(`${LOG} --dry-run set — rendered and validated, pushed nothing`);
+    console.log(`${LOG} done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
     return;
   }
 
-  // No external client asset may move until every rendered section has passed
-  // the freshness check above. Strict mode requires every upload and purge to
-  // succeed; the lease is rechecked after the render, which may be long enough
-  // for the watcher to report a loss.
-  assertArticleChunkLease({ required: leaseRequired });
-  await publishClientChunks(sections, args.dryRun);
-
-  if (args.dryRun) {
-    console.log(`${LOG} --dry-run set — rendered and validated, pushed nothing`);
-    console.log(`${LOG} done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+  if (publishableSections.length === 0) {
+    if (deferredSections.length > 0 && process.env.GITHUB_OUTPUT) {
+      fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\n');
+    }
+    console.log(`${LOG} freshness deferred for ${deferredSections.join(', ')} — no hub shards pushed`);
     return;
   }
 
@@ -949,7 +1023,7 @@ async function main() {
   // shared lease itself has been lost.
   const pushScript = path.join(ROOT_DIR, 'scripts', 'lib', 'push-article-shard-incremental.sh');
   const { pushFailed } = await pushRenderedLocales({
-    sections,
+    sections: publishableSections,
     targetLocales,
     summary,
     pushScript,
@@ -958,6 +1032,11 @@ async function main() {
 
   if (args.summary) {
     fs.writeFileSync(path.resolve(args.summary), JSON.stringify(summary, null, 2) + '\n', 'utf-8');
+  }
+
+  if (deferredSections.length > 0) {
+    if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\n');
+    console.log(`${LOG} freshness deferred for ${deferredSections.join(', ')} — proven client subsets published; deferred hub shards left unchanged`);
   }
 
   console.log(`${LOG} done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);

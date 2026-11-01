@@ -88,6 +88,16 @@ describe('JobPosting mandatory-field contract (#10499)', () => {
     expect(validateMandatoryJobPostingFields(validJobPosting())).toEqual([]);
   });
 
+  it('rejects a city-centre placeholder even when it is non-empty', () => {
+    const schema = validJobPosting();
+    (schema.jobLocation as MutableJsonObject).address = {
+      ...((schema.jobLocation as MutableJsonObject).address as MutableJsonObject),
+      streetAddress: 'Lugano city centre',
+    };
+    expect(validateMandatoryJobPostingFields(schema).map((error) => error.field))
+      .toContain('jobLocation.address.streetAddress');
+  });
+
   it('measures the minimum description length after trimming whitespace', () => {
     const schema = validJobPosting();
     schema.description = `x${' '.repeat(49)}`;

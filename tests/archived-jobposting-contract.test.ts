@@ -20,7 +20,6 @@ describe('complete archived SEO without an active offer', () => {
     expect(schema.baseSalary).toBeTruthy();
     expect(schema.employmentType).toBeTruthy();
     expect(schema.jobLocation.address.postalCode).toBeTruthy();
-    expect(schema.jobLocation.address.streetAddress).toBeTruthy();
   });
   it.each([
     { company: '' }, { title: '' }, { postingDateSource: 'unknown' },

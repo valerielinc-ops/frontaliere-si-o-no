@@ -1,5 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import {
   adoptStaticFallbackIntoRoot,
   afterRootCrossfade,
@@ -101,6 +103,48 @@ describe('static article hydration handoff', () => {
 
     expect(root.contains(fallback)).toBe(true);
     expect(root.querySelector('article.ft-blog-article')).not.toBeNull();
+  });
+});
+
+describe('frontaliere article first-render work', () => {
+  const navigationSource = readFileSync(resolve(__dirname, '../hooks/useNavigationState.ts'), 'utf8');
+  const appSource = readFileSync(resolve(__dirname, '../App.tsx'), 'utf8');
+  const prefetchSource = readFileSync(resolve(__dirname, '../services/prefetch.ts'), 'utf8');
+  const articleEmitterSource = readFileSync(resolve(__dirname, '../packages/articles/engine/ogPagesPlugin.ts'), 'utf8');
+  const newsletterSource = readFileSync(resolve(__dirname, '../components/community/Newsletter.tsx'), 'utf8');
+  const newsletterPopupSource = readFileSync(resolve(__dirname, '../components/community/NewsletterPopup.tsx'), 'utf8');
+
+  it('leaves the complete static article in charge without resolving or mounting a duplicate body', () => {
+    expect(navigationSource).toMatch(/const initialFrontaliereStaticArticle = initialKeepsStaticArticle/);
+    expect(navigationSource).toMatch(/\|\| initialFrontaliereStaticArticle/);
+    expect(navigationSource).toMatch(/if \(!initialFrontaliereStaticArticle\s*&&[\s\S]{0,180}?preloadBlogData\(\)/);
+    expect(navigationSource).toMatch(/if \(!initialFrontaliereStaticArticle\) resolvePendingArticle\(r, initialRoute\.locale\)/);
+    expect(navigationSource).toMatch(/!pendingArticleSlug\(route\) && !staticFrontaliereArticleOwnsBody/);
+    expect(appSource).toContain('{!staticOverlay && (');
+  });
+
+  it('warms article modules only on load/idle or when related links are relevant', () => {
+    expect(navigationSource).toContain('main.seo-static-content article.ft-blog-article [data-article-related]');
+    expect(navigationSource).toContain("window.addEventListener('load', onLoad, { once: true })");
+    expect(navigationSource).toContain("document.addEventListener('focusin', onRelatedIntent, true)");
+    expect(prefetchSource).toContain("() => import('@/components/community/BlogArticles')");
+    expect(prefetchSource).toContain("import('@/services/i18n').then(m => m.loadBlogMeta())");
+    expect(prefetchSource).toContain("m.preloadBlogData()");
+    expect(articleEmitterSource).toContain('data-article-related="true"');
+    expect(articleEmitterSource).not.toContain("stableChunkFile('blog-meta-it')");
+    expect(articleEmitterSource).not.toContain('blogMetaItChunk');
+  });
+
+  it('does not invoke automatic One Tap on article detail routes', () => {
+    expect(appSource).toContain('const isArticleDetailForAuth = activeTab === \'blog\'');
+    expect(appSource).toMatch(/if \(isArticleDetailForAuth\) \{[\s\S]{0,180}?cancelOneTap\(\);/);
+    expect(appSource).toContain('deferGoogleButtonUntilIntent={isArticleDetailForAuth}');
+    expect(newsletterSource).toContain('user || deferGoogleButtonUntilIntent');
+    expect(newsletterSource).toContain('{!deferGoogleButtonUntilIntent && <div');
+    expect(newsletterSource).toContain('await googleSignIn()');
+    expect(newsletterPopupSource).toContain('deferGoogleButtonUntilIntent || !visible');
+    expect(newsletterPopupSource).toContain('await googleSignIn(NEWSLETTER_POPUP_AUTH_ATTRIBUTION)');
+    expect(appSource).toContain('googleSignIn');
   });
 });
 

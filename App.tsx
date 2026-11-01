@@ -407,6 +407,17 @@ const App: React.FC = () => {
  suppressNextRouteSyncForTabRef,
  handleTabChange: navHandleTabChange, handleSearchNavigate,
  } = useNavigationState();
+ const currentArticleRoute = typeof window !== 'undefined'
+  ? parsePath(window.location.pathname).route
+  : null;
+ const isArticleDetailForAuth = activeTab === 'blog' && Boolean(
+  blogArticle || swissArticle || cantonArticle || articleStaticFallbackKey
+  || currentArticleRoute?.blogSlug || currentArticleRoute?.blogArticle
+  || currentArticleRoute?.swissSlug || currentArticleRoute?.swissArticle
+  || currentArticleRoute?.cantonSlug || currentArticleRoute?.cantonArticle
+  || (typeof document !== 'undefined'
+   && document.querySelector('main.seo-static-content article.ft-blog-article')),
+ );
 
  // A direct canton hub already contains a complete corpus-rendered body. Keep
  // that body visible until the version-matched HTTP payload has painted the
@@ -432,12 +443,13 @@ const App: React.FC = () => {
    && typeof document !== 'undefined'
    && !!document.querySelector('main.seo-static-content');
  const articleStaticFallback = !!articleStaticFallbackKey;
- // A static snapshot (article, or canton topic hub) still owns the body. The
- // SPA <main> has to be mounted, or its view could never load and say it is
- // ready, but until then it must take no space and paint nothing: left in the
- // flow it pushed the snapshot down by its own padding and showed the "last
- // updated" line above it (0.05 of layout shift on a desktop article, and
- // 0.86 more when that line jumped below the article at the swap).
+ // A static snapshot (article, or canton topic hub) still owns the body. On a
+ // SPA handoff the React <main> has to mount to load and announce readiness,
+ // but until then it must take no space and paint nothing: left in the flow it
+ // pushed the snapshot down by its own padding and showed the "last updated"
+ // line above it (0.05 of layout shift on a desktop article, and 0.86 more when
+ // that line jumped below the article at the swap). Cold frontaliere articles
+ // stay in staticOverlay mode and skip this duplicate main entirely.
  const staticSnapshotOwnsBody = articleStaticFallback || cantonTopicStaticFallback;
 
  const contextualPath = typeof window !== 'undefined' ? window.location.pathname : '/';
@@ -1675,6 +1687,14 @@ const App: React.FC = () => {
  cancelOneTap();
  return; // Already signed in
  }
+ // A static article is a reading surface, not a sign-in intent. Leave Google
+ // Identity Services off this route until an explicit auth surface is used;
+ // this also clears a pending replay from an unrelated earlier interaction.
+ if (isArticleDetailForAuth) {
+ window.sessionStorage.removeItem(ONETAP_PENDING_KEY);
+ cancelOneTap();
+ return;
+ }
  // Don't even arm the prompt while a newsletter autologin is exchanging — the
  // user is about to be signed in. Effect re-runs when the signal settles.
  if (newsletterAutologinInFlight) return;
@@ -1719,11 +1739,15 @@ const App: React.FC = () => {
  window.removeEventListener(e, trigger, { capture: true });
  cancelOneTap();
  };
- }, [authLoading, authUser, newsletterAutologinInFlight]);
+ }, [authLoading, authUser, newsletterAutologinInFlight, isArticleDetailForAuth]);
 
  // If the first interaction happened while auth was still loading,
  // trigger One Tap as soon as auth state is resolved.
  useEffect(() => {
+ if (isArticleDetailForAuth) {
+ window.sessionStorage.removeItem(ONETAP_PENDING_KEY);
+ return;
+ }
  if (authLoading || authUser) return;
  if (newsletterAutologinInFlight) return;
  if (window.sessionStorage.getItem(ONETAP_PROMPTED_KEY)) return;
@@ -1731,7 +1755,7 @@ const App: React.FC = () => {
 
  if (!claimOneTapPrompt(window.sessionStorage)) return;
  promptOneTap().catch(() => {});
- }, [authLoading, authUser, newsletterAutologinInFlight]);
+ }, [authLoading, authUser, newsletterAutologinInFlight, isArticleDetailForAuth]);
 
  // Reader no-ads entitlement (#3655, part 2/2 of #2961): mounted ONCE here,
  // keyed off the signed-in uid, NOT per ad slot. Keeps the synchronous
@@ -3633,6 +3657,7 @@ const App: React.FC = () => {
  <SafeLazy boundary="footer-newsletter">
   <NewsletterInline
    compact
+   deferGoogleButtonUntilIntent={isArticleDetailForAuth}
    headingOverride={contextualConversion?.newsletterHeading}
    subtitleOverride={contextualConversion?.newsletterSubtitle}
    acquisitionSource={contextualConversion?.source}
@@ -4454,7 +4479,7 @@ const App: React.FC = () => {
  </div>
  </nav>
 
- <SafeLazy boundary="newsletter-popup"><NewsletterPopup /></SafeLazy>
+ <SafeLazy boundary="newsletter-popup"><NewsletterPopup deferGoogleButtonUntilIntent={isArticleDetailForAuth} /></SafeLazy>
  <SafeLazy boundary="pdf-download-gate"><PdfDownloadGate /></SafeLazy>
  <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
  <SafeLazy boundary="company-follow-mount"><CompanyFollowMount /></SafeLazy>

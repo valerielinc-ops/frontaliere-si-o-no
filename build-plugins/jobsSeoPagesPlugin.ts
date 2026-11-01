@@ -7,7 +7,11 @@ import { resolveRolloutPostingDate, resolveRolloutSchemaPostingDate } from '../s
 import { createActiveJobPostingCoverage } from '../scripts/lib/active-jobposting-coverage.mjs';
 import { validateMandatoryJobPostingFields } from '../scripts/lib/jobposting-mandatory-fields.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
-import { renderJobDescriptionContent } from './shared/jobDescriptionContent';
+import {
+ renderJobDescriptionContent,
+ renderJobDescriptionVariants,
+ renderJobPostingDescription,
+} from './shared/jobDescriptionContent';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
 /**
  * Generate localized static landing pages for every job in data/jobs.json.
@@ -166,7 +170,7 @@ import {
 } from './shared/jobDetailHtml';
 import { renderEmployerCtaJobPage } from './shared/employerCtaBlock';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
-import { isSourceStreetAddress } from '../scripts/lib/jobposting-field-provenance.mjs';
+import { isFullyRemoteListing, isSourceStreetAddress } from '../scripts/lib/jobposting-field-provenance.mjs';
 import { formatJobEmploymentTypes, resolveJobEmploymentTypes } from '../scripts/lib/job-employment-type.mjs';
 import { salaryProvenanceSuffix } from './shared/salaryEstimateSuffix';
 import { resolveJobApplicationUrl } from '../services/jobApplicationDestination';
@@ -998,8 +1002,8 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
 export type ActiveJobReuseFragments = {
  jobPostingDatePosted: string;
  jobPostingDateProvenance: JobPostingDateProvenance;
- /** The resolved deadline; active pages always carry validThrough. */
- jobPostingValidThrough: string;
+ /** The source deadline; null when the listing states none. */
+ jobPostingValidThrough: string | null;
  jobPostingCrawledAt: string | null;
  heroBadges: string;
  mobileAction: string;
@@ -1054,7 +1058,7 @@ function replaceActiveJobReuseFragment(
 /**
  * Read the explicit source deadline for legacy provenance callers. Active
  * fragments use `resolveJobPostingValidThrough` below so the cache and fresh
- * render paths share the complete-contract fallback.
+ * render paths share one rule.
  */
 export function activeJobSourceValidThrough(job: unknown): string | null {
  const raw = job && typeof job === 'object' ? (job as Record<string, unknown>).validThrough : null;
@@ -1069,17 +1073,20 @@ export function replaceActiveJobPostingDates(
  validThrough: string | null,
  crawledAt?: string | null,
 ): string {
- // An active page never loses its JobPosting on a cache hit: a missing date
- // is a broken input, so fail closed and let the reuse layer re-render.
+ // An active page never loses a mandatory date on a cache hit: a missing or
+ // malformed deadline is a broken input, so fail closed and let reuse re-render.
  if (!datePosted) throw new Error('active JobPosting datePosted unavailable');
+ if (!validThrough || Number.isNaN(new Date(validThrough).getTime())) {
+  throw new Error('active JobPosting validThrough unavailable or invalid');
+ }
  const scriptMatch = fragment.match(
   /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/i,
  );
  if (!scriptMatch) throw new Error('missing JobPosting JSON-LD fragment');
  let script = scriptMatch[0];
  const fields: Array<[string, string]> = [
-  ['datePosted', datePosted],
-  ['validThrough', validThrough || resolveJobPostingValidThrough({ crawledAt }, datePosted)],
+ ['datePosted', datePosted],
+ ['validThrough', validThrough],
  ];
  // Keep the third field optional for legacy callers/tests. The production
  // active-page rewrite supplies the current crawler heartbeat when available.
@@ -1093,9 +1100,8 @@ export function replaceActiveJobPostingDates(
    script = script.replace(fieldPattern, `$1${JSON.stringify(value)}`);
    continue;
   }
-  // Older cache entries may contain a valid JobPosting but predate the
-  // complete contract. Repair the newly mandatory deadline in place so the
-  // cache hit remains usable; other missing fields still fail closed.
+ // A cached fragment without the field meets a source that now states a
+ // deadline: add it in place. Other missing fields still fail closed.
   if (field === 'validThrough') {
    const datePostedPattern = /("datePosted"\s*:\s*)(?:"[^"]*"|null)/;
    if (datePostedPattern.test(script)) {
@@ -1148,8 +1154,8 @@ function hasCompleteActiveJobPostingContract(fragment: string): boolean {
    if (records.some((record) => {
     // Date fields are deliberately excluded here because the next rewrite
     // step refreshes them on every cache hit. `datePosted` must nevertheless
-    // exist so replaceActiveJobPostingDates can replace it; validThrough may
-    // be absent because that helper repairs this one legacy field in place.
+    // exist so replaceActiveJobPostingDates can replace it. A missing or
+    // invalid resolved deadline makes that rewrite fail closed and rebuild.
     if (!Object.prototype.hasOwnProperty.call(record, 'datePosted')) return false;
     return validateMandatoryJobPostingFields(record)
      .every(({ field }) => field === 'datePosted' || field === 'validThrough');
@@ -3940,11 +3946,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    jobPostingDatePosted: resolvedJobPostingDate.value,
    jobPostingDateProvenance: resolvedJobPostingDate.provenance,
    jobPostingCrawledAt: job?.crawledAt ? String(job.crawledAt) : null,
-   jobPostingValidThrough: resolveJobPostingValidThrough(
-    job as JobInput,
-    resolvedJobPostingDate.value,
-    jobsSeoReuseBuildNow,
-   ),
+ jobPostingValidThrough: resolveJobPostingValidThrough(job as JobInput, jobsSeoReuseBuildNow),
    heroBadges: renderHeroBadges({
     job,
     locale,
@@ -4246,9 +4248,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  + timelineBlocks.reduce((sum, section) => sum + section.paragraphs.length + section.bullets.length, 0);
  const parserOriginalChunks = Math.max(1, descriptionParagraphs.length + mergedRequirements.length);
  const parserCoverage = Math.min(100, Math.round((parserAssignedChunks / parserOriginalChunks) * 100));
- const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
- `${job.title || ''} ${localizedDescription || ''} ${job.location || ''}`
- );
+ const isRemote = isFullyRemoteListing({ title: job.title, location: job.location });
  // Salary data is pre-populated by re-enrich-jobs.mjs (SECTORS estimation) —
  // values hoisted to perJob block since they are job-invariant.
  const salaryMin = perJob_salaryMin;
@@ -4327,14 +4327,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Build the canonical JobPosting schema via the shared builder — required
  // fields and the site's complete non-critical contract always. Extra
  // editorial fields (responsibilities, skills, etc.) are merged on top.
- const fullJobDescriptionHtml = renderJobDescriptionContent(localizedDescriptionRaw, locale, fullRequirements);
+ const {
+ page: fullJobDescriptionHtml,
+ schema: jobPostingSourceDescriptionHtml,
+ } = renderJobDescriptionVariants(localizedDescriptionRaw, locale, fullRequirements);
  const canonicalJobInput: JobInput = {
  id: job.id,
  slug: job.slug,
  title: localizedTitle,
- description: capJsonLdDescription(localizedDescriptionRaw.trim() || fullRequirements.length ? fullJobDescriptionHtml : finalJobPostingDescription),
+ description: capJsonLdDescription(localizedDescriptionRaw.trim() || fullRequirements.length ? jobPostingSourceDescriptionHtml : finalJobPostingDescription),
  company: job.company,
  companyKey: job.companyKey,
+ companySlug: job.companySlug,
  companyWebsite: companyWebsite(job),
  companyDomain: job.companyDomain,
  companyLogoUrl: logoUrl,
@@ -4343,16 +4347,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  addressCountry,
   postalCode: perJob_sourcePostalCode,
  streetAddress,
+ streetAddressSource: job.streetAddressSource,
+ companyRegisteredAddress: job.companyRegisteredAddress,
+ companyKnownAddress: job.companyKnownAddress,
  postingDateSource: job.postingDateSource,
  datePosted: job.datePosted,
  postedDate: job.postedDate,
  firstSeenAt: job.firstSeenAt,
+ lastSeenAt: job.lastSeenAt,
+ lastObservedAt: job.lastObservedAt,
  crawledAt: job.crawledAt,
+ scrapedAt: job.scrapedAt,
  updatedAt: job.updatedAt,
  employmentType: job.employmentType,
  contract: job.contract,
  contractType: job.contractType,
  validThrough: job.validThrough,
+ validThroughSource: job.validThroughSource,
  salaryMin: Number.isFinite(salaryMin) ? salaryMin : null,
  salaryMax: Number.isFinite(salaryMax) ? salaryMax : null,
  salaryCurrency,
@@ -4402,7 +4413,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // optional enrichment data is layered on.
  const jobLd = inlineScriptJson({
  ...canonicalSchema,
- // validThrough: the builder's source-first value or deterministic fallback.
+ // validThrough: the source deadline, already on canonicalSchema when it exists.
  // industry / occupationalCategory / applicantLocationRequirements (the
  // last one scoped to isRemote, never unconditional — see #applicant
  // LocationRequirements hardcode fix) are already present on
@@ -14635,7 +14646,7 @@ ${staticAnalyticsHtml}
  id: ejData?.id,
  slug,
  title: realTitle,
- description: renderJobDescriptionContent(jobDescription, locale, jobRequirements),
+ description: renderJobPostingDescription(jobDescription, locale, jobRequirements),
  company: realCompany,
  companyKey: ejData?.companyKey || slugInfo?.companyKey,
  companySlug: ejData?.companySlug || ejData?.companyKey || slugInfo?.companyKey,
@@ -16053,7 +16064,7 @@ ${staticAnalyticsHtml}
    url: historicalUrl, inLanguage: locale,
   });
   const archivedPosting = recordedIdentity ? buildArchivedJobPosting({
-   ...archive, slug: slugKey, title: titleRaw, company, description: renderJobDescriptionContent(description, locale, archive?.requirements || []),
+   ...archive, slug: slugKey, title: titleRaw, company, description: renderJobPostingDescription(description, locale, archive?.requirements || []),
    addressLocality: location || undefined, addressRegion: canton,
   }, notice, { locale, url: historicalUrl, baseUrl: BASE_URL, knownSlugs: knownEmployerProfileSlugs }) : null;
   const archivePostingLd = archivedPosting ? `<script type="application/ld+json">${inlineScriptJson(archivedPosting)}</script>` : '';

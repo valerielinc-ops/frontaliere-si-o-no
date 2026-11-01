@@ -1,5 +1,5 @@
 import { buildArchivedJobPosting } from '../build-plugins/shared/archivedJobPosting';
-import { renderJobDescriptionContent } from '../build-plugins/shared/jobDescriptionContent';
+import { renderJobDescriptionContent, renderJobPostingDescription } from '../build-plugins/shared/jobDescriptionContent';
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import ts from 'typescript';
@@ -50,7 +50,7 @@ describe('recorded versus URL-inferred job identity', () => {
       expect.soft(normalHtml).toContain(path);
       expect.soft(normalHtml).toContain(expectedLabel);
       const historicalHtml = execute(`${safety}\nreturn buildHistoricalArchiveHtml('url-reference', '/historical-reference/', locale, archive);`, {
-        ...bindings, archive, unverifiedJobCopy, buildArchivedJobPosting, renderJobDescriptionContent, jobTitleLocaleQualifiers, knownEmployerProfileSlugs: new Set(),
+        ...bindings, archive, unverifiedJobCopy, buildArchivedJobPosting, renderJobDescriptionContent, renderJobPostingDescription, jobTitleLocaleQualifiers, knownEmployerProfileSlugs: new Set(),
         finalizeJobBoardTitle: String, jobDisplayTitle: (job: { title?: string } | null | undefined) => job?.title || '',
         expiredDemandIndexable: true,
         historicalArchiveCopy: { [locale]: { notice: 'Archived', original: 'Original', next: 'Browse', cta: 'Browse', details: 'Details' } },

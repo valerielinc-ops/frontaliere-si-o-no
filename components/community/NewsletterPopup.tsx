@@ -74,7 +74,12 @@ const initFirestore = async () => {
  }
 };
 
-const NewsletterPopup: React.FC = () => {
+interface NewsletterPopupProps {
+ /** Keep GIS off static article views until an explicit sign-in click. */
+ deferGoogleButtonUntilIntent?: boolean;
+}
+
+const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ deferGoogleButtonUntilIntent = false }) => {
  const { t, locale } = useTranslation();
  const nav = useNavigationOptional();
  const [visible, setVisible] = useState(false);
@@ -246,7 +251,7 @@ const NewsletterPopup: React.FC = () => {
 
  // Google One Tap: prompt when the popup is actually visible (slot active).
  useEffect(() => {
- if (!visible || !queueActive || googleOverlayActive) return;
+ if (deferGoogleButtonUntilIntent || !visible || !queueActive || googleOverlayActive) return;
  if (user) return;
  if (readStorageItem(SUBSCRIBED_KEY) === 'true') return;
  if (readSessionStorageItem(NEWSLETTER_ONETAP_KEY)) return;
@@ -258,13 +263,13 @@ const NewsletterPopup: React.FC = () => {
  return () => {
  cancelOneTap();
  };
- }, [visible, queueActive, googleOverlayActive, user]);
+ }, [deferGoogleButtonUntilIntent, visible, queueActive, googleOverlayActive, user]);
 
  useEffect(() => {
  let cancelled = false;
 
  const mountButton = async () => {
- if (!visible || !queueActive || googleOverlayActive || user) {
+ if (deferGoogleButtonUntilIntent || !visible || !queueActive || googleOverlayActive || user) {
  if (googleButtonRef.current) googleButtonRef.current.innerHTML = '';
  setGoogleButtonReady(false);
  return;
@@ -292,7 +297,7 @@ const NewsletterPopup: React.FC = () => {
  return () => {
  cancelled = true;
  };
- }, [visible, queueActive, googleOverlayActive, user, locale]);
+ }, [deferGoogleButtonUntilIntent, visible, queueActive, googleOverlayActive, user, locale]);
 
  const handleDismiss = () => {
  writeStorageItem(POPUP_DISMISSED_KEY, String(Date.now()));

@@ -3774,20 +3774,25 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   });
 
   const robots = indexable ? 'index,follow' : 'noindex,follow';
-  // City-first compact title — the universal 70-char SERP cap (applied
-  // downstream via buildSeoPageHtml → normalizeShellTitle) truncates the
-  // trailing ~22 chars to make room for " | Frontaliere Ticino". Long
-  // employer names ("USI – Università della Svizzera italiana", 43 char)
-  // pushed `{cityDisplay}` past the truncate boundary, so the same employer
-  // across Lugano/Mendrisio/Locarno collapsed to one title and tripped
-  // audit:title-uniqueness. Putting the city FIRST keeps the disambiguator
-  // inside the cap; the employer keyword is still in the headline.
+  // Locale-first compact title — the 60-character landing-title cap truncates
+  // from the right, so a long employer name can otherwise erase every
+  // locale-specific token and make the four hreflang pages share one title.
+  // The localised lead stays before the variable employer name; city and
+  // employer remain the useful query terms for the page.
   const compactBase = (() => {
     const qualifier =
       variant === 'current'
         ? (locale === 'it' ? 'offerte aperte' : locale === 'en' ? 'open jobs' : locale === 'de' ? 'offene Stellen' : 'offres ouvertes')
         : `W${weekNum} ${year}`;
-    return `${cityDisplay} — ${employer} — ${qualifier}`;
+    const locationLead =
+      locale === 'it'
+        ? `Offerte di lavoro a ${cityDisplay}`
+        : locale === 'en'
+          ? `Jobs in ${cityDisplay}`
+          : locale === 'de'
+            ? `Stellenangebote in ${cityDisplay}`
+            : `Emplois à ${cityDisplay}`;
+    return `${locationLead} — ${employer} — ${qualifier}`;
   })();
   // Budget on ESCAPED length (capSearchStatsLandingTitle's default
   // measureLength) — cityDisplay/employer are interpolated raw and can carry

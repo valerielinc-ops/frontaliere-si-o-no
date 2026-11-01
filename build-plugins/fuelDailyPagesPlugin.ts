@@ -550,6 +550,10 @@ function collectAllStations(dataset: FuelPricesDataset): SwissStation[] {
   return out;
 }
 
+function stationContextLookupKey(station: SwissStation): string {
+  return `${zoneForAddress(station.address) ?? ''}|${stationPluginDedupKey(station)}`;
+}
+
 function topCheapest(stations: SwissStation[], fuel: FuelType, limit = 3): SwissStation[] {
   const scored = stations
     .map((s) => {
@@ -563,7 +567,16 @@ function topCheapest(stations: SwissStation[], fuel: FuelType, limit = 3): Swiss
   return scored.map((v) => v.station);
 }
 
-function computeZonePrice(stations: SwissStation[], fuel: FuelType): ZonePrice {
+function computeZonePrice(
+  stations: SwissStation[],
+  fuel: FuelType,
+  stationContexts: readonly StationContext[] = [],
+): ZonePrice {
+  const contextByStation = new Map(
+    stationContexts
+      .filter((context) => context.prices[fuel] !== null)
+      .map((context) => [stationContextLookupKey(context.station), context] as const),
+  );
   const prices: number[] = [];
   const stationPrices: Array<{ name: string; brand: string; address: string; priceChf: number; slug: string; observedAt: string | null }> = [];
   for (const s of stations) {
@@ -574,12 +587,13 @@ function computeZonePrice(stations: SwissStation[], fuel: FuelType): ZonePrice {
     const observedAt = fuel === 'diesel'
       ? s.dieselUpdatedAt ?? s.updatedAt ?? s.observedAt
       : s.updatedAt ?? s.observedAt;
+    const context = contextByStation.get(stationContextLookupKey(s));
     stationPrices.push({
       name: String(s.name || s.brand || '—').trim(),
       brand: String(s.brand || '').trim(),
       address: String(s.address || '').trim(),
       priceChf: price,
-      slug: buildStationSlug({ brand: s.brand, name: s.name, address: s.address }),
+      slug: context?.slug ?? '',
       observedAt: typeof observedAt === 'string' && Number.isFinite(Date.parse(observedAt)) ? observedAt : null,
     });
   }
@@ -1013,6 +1027,8 @@ interface PageInputs {
   distDir?: string;
   /** Repository root — enables `public/images/brands/*.png` lookup for station logos. */
   rootDir?: string;
+  /** The exact Swiss detail contexts emitted for this build. */
+  stationContexts?: readonly StationContext[];
 }
 
 const LOCALE_OG: Record<FuelDailyLocale, string> = {
@@ -1659,13 +1675,13 @@ function renderRecentMonthsArchiveNav(args: {
 }
 
 function renderPage(inp: PageInputs): string {
-  const { locale, fuel, zone, dataset, history, archivePaths, canonicalPath, today, alternates, distDir, rootDir } = inp;
+  const { locale, fuel, zone, dataset, history, archivePaths, canonicalPath, today, alternates, distDir, rootDir, stationContexts } = inp;
   const copy = COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const zoneLabel = zone ? FUEL_ZONE_DISPLAY[zone] : copy.regionalLabel;
   // A rebuild must not relabel an older observation as today's price.
   const stations = zone ? collectZoneStations(dataset, zone) : collectAllStations(dataset);
-  const zonePrice = computeZonePrice(stations, fuel);
+  const zonePrice = computeZonePrice(stations, fuel, stationContexts);
   const avg = zonePrice.avg;
   const snapshotObservedAt = dataset.national?.observedAt
     ?? dataset.sources?.switzerland?.latestObservedUpdate
@@ -1800,6 +1816,12 @@ function renderPage(inp: PageInputs): string {
       })[locale];
   const paragraph = `${intro} ${dailyComparison} ${beforeRefuelling} ${copy.historySection}`;
   const historyCopy = copy.historySection;
+  const readingNote = ({
+    it: 'Leggi la lista come un campione datato: una stazione senza rilevazione per questo carburante non entra nella media e il prezzo alla pompa può cambiare dopo l’acquisizione.',
+    en: 'Read the list as a dated sample: a station without an observation for this fuel is excluded from the average, and the pump price may change after collection.',
+    de: 'Lesen Sie die Liste als datierte Stichprobe: Eine Tankstelle ohne Erhebung für diesen Kraftstoff zählt nicht zum Mittelwert, und der Zapfsäulenpreis kann sich danach ändern.',
+    fr: 'Lisez la liste comme un échantillon daté : une station sans relevé pour ce carburant est exclue de la moyenne et le prix à la pompe peut changer après l’acquisition.',
+  })[locale];
 
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
@@ -2065,6 +2087,7 @@ function renderPage(inp: PageInputs): string {
   <section class="s-GCEyQg" aria-label="${esc(copy.faqTitle(fuelLabel, whereLabel))}">
     <p class="s-kvHUMU">${esc(intro)}</p>
     <p class="s-yOfiVn">${esc(paragraph)}</p>
+    <p class="s-ZLNNaY">${esc(readingNote)}</p>
   </section>
   ${avg !== null
     ? renderFuelTodayMethodologyAndScenarios({
@@ -5426,6 +5449,8 @@ export function generateFuelDailyPages(opts: {
   today?: Date;
   /** dist directory; when provided the page renders with hydration tags. */
   distDir?: string;
+  /** Optional pre-collected detail contexts; closeBundle passes its shared list. */
+  contexts?: readonly StationContext[];
 }): Record<string, string> {
   const dataset = opts.dataset;
   const history = opts.history ?? [];
@@ -5433,6 +5458,7 @@ export function generateFuelDailyPages(opts: {
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
   const rootDir = opts.rootDir;
+  const stationContexts = opts.contexts ?? collectSwissStationContexts(dataset);
 
   const pages: Record<string, string> = {};
 
@@ -5461,6 +5487,7 @@ export function generateFuelDailyPages(opts: {
         alternates: buildAlternates(null),
         distDir,
         rootDir,
+        stationContexts,
       });
 
       // Per-zone pages
@@ -5478,6 +5505,7 @@ export function generateFuelDailyPages(opts: {
           alternates: buildAlternates(zone),
           distDir,
           rootDir,
+          stationContexts,
         });
       }
     }
@@ -5622,6 +5650,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         archivePaths: archiveSitemapPaths,
         today,
         distDir,
+        contexts: swissContexts,
       });
       const lastmodByPath = new Map<string, string>();
       const stationPages = generateFuelStationPages({

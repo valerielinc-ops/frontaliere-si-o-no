@@ -1237,7 +1237,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // Stable-name chunk resolution, no disk I/O (shared/chunkFiles.ts — same
  // closeBundle-time race as resolveSpaBundle, #4762).
  const vendorReactChunk = stableChunkFile('vendor-react');
- const blogMetaItChunk = stableChunkFile('blog-meta-it');
  const itCriticalTags = stableChunkFiles(['it-core', 'it-calculator'])
  .map(f => `\n <link rel="modulepreload" href="/assets/${f}">`)
  .join('');
@@ -1334,7 +1333,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const title = art.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(title)}</a></li>`;
  }).join('');
- return `<section class="s-zzuqwx"><h2 class="s-GipLjS">${esc(relatedArticlesLabel[locale] ?? relatedArticlesLabel.it)}</h2><ul class="s-9oHkUE">${items}</ul></section>`;
+ return `<section class="s-zzuqwx" data-article-related="true"><h2 class="s-GipLjS">${esc(relatedArticlesLabel[locale] ?? relatedArticlesLabel.it)}</h2><ul class="s-9oHkUE">${items}</ul></section>`;
  };
 
  for (const en of entries) {
@@ -1994,7 +1993,6 @@ ${href}
 
  const blogPreloads = [
  `<link rel="preload" as="image" href="${en.img}" fetchpriority="high">`,
- blogMetaItChunk ? `<link rel="modulepreload" href="/assets/${blogMetaItChunk}">` : '',
  ].filter(Boolean).join('\n ');
 
  if (hasSpaBundle) {

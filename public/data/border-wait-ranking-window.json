@@ -1,9 +1,9 @@
 {
-  "generatedFor": "2026-10-31",
+  "generatedFor": "2026-11-01",
   "windowDays": 7,
   "current": {
-    "weekStart": "2026-10-24",
-    "weekEnd": "2026-10-30",
+    "weekStart": "2026-10-25",
+    "weekEnd": "2026-10-31",
     "perCrossing": {
       "anieres": {
         "weightedAvgMinutes": 0,
@@ -21,7 +21,7 @@
         "canton": "AG"
       },
       "bardonnex": {
-        "weightedAvgMinutes": 2.8125,
+        "weightedAvgMinutes": 2.7916666666666665,
         "totalSamples": 48,
         "canton": "GE"
       },
@@ -713,8 +713,8 @@
     }
   },
   "previous": {
-    "weekStart": "2026-10-17",
-    "weekEnd": "2026-10-23",
+    "weekStart": "2026-10-18",
+    "weekEnd": "2026-10-24",
     "perCrossing": {
       "anieres": {
         "weightedAvgMinutes": 0,
@@ -732,7 +732,7 @@
         "canton": "AG"
       },
       "bardonnex": {
-        "weightedAvgMinutes": 4.270833333333333,
+        "weightedAvgMinutes": 4.291666666666667,
         "totalSamples": 48,
         "canton": "GE"
       },
@@ -842,7 +842,7 @@
         "canton": "TI"
       },
       "campione-d-italia-bissone": {
-        "weightedAvgMinutes": 4.666666666666667,
+        "weightedAvgMinutes": 4,
         "totalSamples": 48,
         "canton": "TI"
       },

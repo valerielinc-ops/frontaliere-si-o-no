@@ -77,13 +77,16 @@ describe('#5130 — events-seo-pages does not render locales this shard discards
     // docblock warns about. They are built from perCantonSitemap/detailSlugs,
     // never inside a gated loop.
     const sitemapAt = CODE.indexOf('const sitemapXml = buildSitemap(');
+    const historicalSitemapAt = CODE.indexOf('const historicalSitemapXml = buildHistoricalSitemap(');
     const gateAt = CODE.indexOf('if (!shouldEmitLocale(locale))');
     expect(sitemapAt).toBeGreaterThan(-1);
+    expect(historicalSitemapAt).toBeGreaterThan(-1);
     expect(gateAt).toBeGreaterThan(-1);
     // buildSitemap is called after the loops, at top level of the handler —
     // assert it is not inside a `shouldEmitLocale` guard by checking no gate
     // appears between the last emit loop and it on the same nesting path.
     expect(CODE.slice(sitemapAt, sitemapAt + 200)).not.toContain('shouldEmitLocale');
+    expect(CODE.slice(historicalSitemapAt, historicalSitemapAt + 200)).not.toContain('shouldEmitLocale');
   });
 
   it('still patches inbound hub links for every locale', () => {

@@ -2908,6 +2908,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'farmaci-riserve-finanziamento': { it: 'farmaci-riserve-finanziamento', en: 'medicine-stock-funding', de: 'medikamente-reserven-finanzierung', fr: 'medicaments-reserves-financement' },
  'svizzera-rischi-climatici-strumenti': { it: 'svizzera-rischi-climatici-strumenti', en: 'switzerland-climate-risk-tools', de: 'schweiz-klima-risiken-werkzeuge', fr: 'suisse-risques-climatiques-outils' },
  'scontro-fiscale-coppie-atto': { it: 'scontro-fiscale-coppie-atto', en: 'tax-conflict-couples-act', de: 'steuerkonflikt-paare-akt', fr: 'conflit-fiscal-couples-acte' },
+ 'sospensione-lavori-muro-anti-migranti-big-bend-texas': { it: 'sospensione-lavori-muro-anti-migranti-big-bend-texas', en: 'suspension-of-work-on-anti-migrant-wall-in-big-bend-texas', de: 'arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen', fr: 'suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

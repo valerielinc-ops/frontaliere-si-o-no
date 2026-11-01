@@ -7,12 +7,17 @@
  * because a copy drifted (issue #10499).
  *
  * Owner decision 2026-10-24: the JobPosting is always emitted for an active
- * job, and the site's structured-data contract always includes the complete
- * rich-result payload. Source values win; safe defaults are expected when a
- * crawler omitted a non-critical field. Missing = error for every field below.
+ * job and source values win. Safe defaults are expected when a crawler omitted
+ * a non-critical field. Missing = error for every mandatory field below.
+ *
+ * Street and deadline are required by the owner contract. Enrichment records
+ * provenance internally; a location-only best value remains explicitly
+ * `to-enrich`, and generated city-centre placeholders are rejected.
  *
  * Consumer-specific checks stay in their callers.
  */
+
+import { isPlaceholderStreetAddress } from './jobposting-field-provenance.mjs';
 
 export const MANDATORY_JOBPOSTING_FIELDS = Object.freeze([
   'title',
@@ -30,7 +35,7 @@ export const MANDATORY_JOBPOSTING_FIELDS = Object.freeze([
   'validThrough',
 ]);
 
-/** Kept as an explicit empty list for callers that report optional fields. */
+/** Kept for validator callers; the required JobPosting contract has no optional fields. */
 export const OPTIONAL_JOBPOSTING_FIELDS = Object.freeze([]);
 
 export const JOBPOSTING_EMPLOYMENT_TYPES = new Set([
@@ -124,6 +129,11 @@ export function validateMandatoryJobPostingFields(schema) {
       }
       if (!isNonEmptyString(address.streetAddress)) {
         add('jobLocation.address.streetAddress', 'jobLocation.address.streetAddress missing/empty');
+      } else if (isPlaceholderStreetAddress(address.streetAddress)) {
+        add(
+          'jobLocation.address.streetAddress',
+          `jobLocation.address.streetAddress="${address.streetAddress}" is a placeholder`,
+        );
       }
     }
   }
@@ -160,7 +170,9 @@ export function validateMandatoryJobPostingFields(schema) {
     }
   }
 
-  if (!isValidIsoDate(posting.validThrough)) add('validThrough', 'validThrough missing/invalid');
+  if (!isValidIsoDate(posting.validThrough)) {
+    add('validThrough', 'validThrough invalid');
+  }
 
   return errors;
 }

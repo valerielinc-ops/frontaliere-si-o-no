@@ -1676,12 +1676,6 @@ export const EDGE_RETIRED_PATHS = {
   '/de/schweiz-artikel/nicht-zutreffende-nachrichten/': null,
   '/fr/articles-suisse/information-non-pertinente/': null,
 
-  // ── 410 — article withdrawn on the 2026-10-31 audit, no substitute (4 URLs).
-  '/articoli-svizzera/sospensione-lavori-muro-anti-migranti-big-bend-texas/': null,
-  '/en/swiss-articles/suspension-of-work-on-anti-migrant-wall-in-big-bend-texas/': null,
-  '/de/schweiz-artikel/arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen/': null,
-  '/fr/articles-suisse/suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas/': null,
-
   // ── GSC 404 decisions checked 2026-10-21 (6 gone, 1 moved). ────────────
   // These six old article URLs have no current corpus owner or equivalent
   // document. The build declares each section-root target so this edge

@@ -191,9 +191,11 @@ describe('promptOneTap suppression wiring', () => {
  const replayEffect = appSource.slice(replayStart, appSource.indexOf('// Reader no-ads entitlement', replayStart));
 
  expect(oneTapEffects).toMatch(/if \(newsletterAutologinInFlight\) return;/);
- expect(oneTapEffects).toMatch(/\[authLoading, authUser, newsletterAutologinInFlight\]/);
+ expect(oneTapEffects).toMatch(/if \(isArticleDetailForAuth\) \{/);
+ expect(oneTapEffects).toMatch(/\[authLoading, authUser, newsletterAutologinInFlight, isArticleDetailForAuth\]/);
  expect(replayEffect).toMatch(/if \(newsletterAutologinInFlight\) return;/);
- expect(replayEffect).toMatch(/\[authLoading, authUser, newsletterAutologinInFlight\]/);
+ expect(replayEffect).toMatch(/if \(isArticleDetailForAuth\) \{/);
+ expect(replayEffect).toMatch(/\[authLoading, authUser, newsletterAutologinInFlight, isArticleDetailForAuth\]/);
  });
 
  it('the job detail holds the layout-matching skeleton instead of flashing its auth gate', () => {

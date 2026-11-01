@@ -581,6 +581,42 @@ export function normalizeCantonCode(raw = '') {
 }
 
 /**
+ * Compare a locality label to a canonical city without accepting name prefixes
+ * or nearby-place substrings. A trailing canton code/name is stripped only
+ * when it independently resolves to the canonical locality's canton.
+ */
+export function sameSwissLocalityLabel(city, locality, region = '') {
+  const cityText = String(city ?? '').trim();
+  if (!cityText) return true;
+  const localityText = String(locality ?? '').trim();
+  if (!localityText) return false;
+
+  const cityKey = normalizeSwissTargetLocationText(cityText);
+  const localityKey = normalizeSwissTargetLocationText(localityText);
+  if (!cityKey || !localityKey) return false;
+  if (cityKey === localityKey) return true;
+
+  const regionCode = normalizeSwissCantonCode(String(region ?? ''));
+  if (!regionCode) return false;
+  const cityWithoutCanton = (candidate, suffix) => (
+    normalizeSwissTargetLocationText(candidate) === localityKey
+    && normalizeSwissCantonCode(suffix) === regionCode
+  );
+
+  const parenthetical = cityText.match(/^(.+?)\s*\(([^()]+)\)$/);
+  if (parenthetical && cityWithoutCanton(parenthetical[1], parenthetical[2])) return true;
+
+  const commaParts = cityText.split(',');
+  if (commaParts.length === 2 && cityWithoutCanton(commaParts[0], commaParts[1])) return true;
+
+  const words = cityText.split(/\s+/).filter(Boolean);
+  for (let split = words.length - 1; split > 0; split--) {
+    if (cityWithoutCanton(words.slice(0, split).join(' '), words.slice(split).join(' '))) return true;
+  }
+  return false;
+}
+
+/**
  * Normalize a structured Swiss canton field without treating a municipality
  * or a representative city alias as a canton. Some schema.org producers put
  * the country code next to the canton (`ZH,CH`, `CH-ZH`); that pair is still

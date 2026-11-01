@@ -17,17 +17,17 @@
  *
  * SEO contract (mirrors borderMunicipalityPagesPlugin + docs/SEO-GATES.md):
  *   - buildSeoPageHtml shell, hubKey 'vita' chrome, seoContentOutsideRoot
- *   - schema.org/Event JSON-LD on indexable live event-detail pages; historical
- *     archive pages remain indexable but omit stale Event rich-result markup
- *     (name/startDate/eventStatus/eventAttendanceMode/location.name/location.address.addressLocality/
- *     and, when available, the rewritten description) — deploy-blocking; image and organizer use
- *     source-backed values or deterministic defaults, while performer and offers
- *     exist only when the source states them.
+ *   - schema.org/Event JSON-LD on indexable event-detail pages; archived pages
+ *     retain the source's actual past dates and eventStatus beside the visible
+ *     archival notice — image and organizer use source-backed values or
+ *     deterministic defaults, while performer and offers exist only when the
+ *     source states them.
  *     Aggregate pages expose an ItemList of event URLs,
  *     not partial nested Event objects.
  *   - BreadcrumbList + FAQPage JSON-LD, full hreflang (it/en/de/fr + x-default)
- *   - own sitemap-eventi.xml (picked up automatically by sitemapAliasPlugin) —
- *     single un-sharded file; see the size-evaluation comment on buildSitemap
+ *   - own future sitemap-eventi.xml and separate sitemap-eventi-storici.xml
+ *     (picked up automatically by sitemapAliasPlugin) — single un-sharded
+ *     files; see the size-evaluation comment on buildSitemap
  *   - BFS reachability: inbound links injected into the /vivere-in-ticino/ and
  *     /vivere-in-ticino/comuni-di-frontiera/ hubs (TI, always present) point
  *     to the TI canton hub (unchanged, pre-#3645 link) — every OTHER canton
@@ -480,6 +480,7 @@ function eventVenue(event: SiteEvent): string {
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
 const SITEMAP_NAME = 'sitemap-eventi.xml';
+const HISTORICAL_SITEMAP_NAME = 'sitemap-eventi-storici.xml';
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 
 function isIndexableWordCount(wordCount: number): boolean {
@@ -543,8 +544,8 @@ const HOME_LABEL: Record<Locale, string> = {
 
 // Notice banner for the permanent archive page kept for events that already
 // ended (see `allEndedEvents` in scripts/lib/events-retention.mjs). Historical
-// pages stay online and indexable but leave the sitemap, and omit stale Event
-// rich-result markup — see closeBundle()'s past-events emission pass.
+// pages stay indexable and appear in their own sitemap; Event JSON-LD retains
+// the original event dates and known source status.
 const PAST_EVENT_NOTICE: Record<Locale, string> = {
   it: 'Questo evento si è già svolto: le informazioni restano visibili solo per consultazione.',
   en: 'This event has already taken place — the details below are kept for reference only.',
@@ -1695,11 +1696,12 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const locality = addressLocality || comune || (event.canton ? cantonName : venueName || 'Svizzera');
   const offset = zurichOffset(event.startDate);
   const startIso = event.startTime ? `${event.startDate}T${event.startTime}:00${offset}` : event.startDate;
-  // For a single-day timed event, endDate must NOT be the bare date (Google
-  // reads it as midnight → "endDate before startDate"): mirror startIso.
+  // Keep a same-day endDate at the same precision as startDate. A date-only
+  // endDate sorts before a timed startDate for consumers comparing timestamps.
+  // Distinct multi-day end dates stay date-only because the source has no end time.
   const hasMultiDay = Boolean(event.endDate && event.endDate !== event.startDate);
   const isSeries = hasMultiDay && event.recurring === true;
-  const endIso = hasMultiDay && !isSeries ? (event.endDate as string) : startIso;
+  const endIso = isSeries ? undefined : event.endDate === event.startDate ? startIso : event.endDate;
   const cat = categoryLabel(event.category, locale);
   const when = humanDateRange(event.startDate, event.endDate, locale);
   const title = localizedTitle(event, locale);
@@ -1743,7 +1745,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     '@type': 'Event',
     name: title,
     startDate: startIso,
-    endDate: endIso,
+    ...(endIso ? { endDate: endIso } : {}),
     ...(isSeries
       ? {
         eventSchedule: {
@@ -4314,13 +4316,7 @@ export function renderEventDetailPage(params: {
   detailHref: DetailHref;
   /** Metadata-only token used when the capped event title collides. */
   metaTitleDisambiguator?: string;
-  /**
-   * Set for the permanent archive page emitted for events that already ended
-   * (`allEndedEvents`). Keeps the page indexable, shows a "this already took
-   * place" notice, and drops Event JSON-LD — Google guidance is to avoid stale
-   * rich-result markup for past events (unlike JobPosting, which explicitly
-   * supports a past `validThrough`).
-   */
+  /** Set for a permanent archive page; preserves the source dates/status in Event JSON-LD. */
   isPast?: boolean;
   /**
    * P1 noindex plan (2026-10-24): false when Search Console never showed an
@@ -4462,12 +4458,11 @@ export function renderEventDetailPage(params: {
     )}
   </div>`;
 
-  // Past events: keep the page indexable, but drop Event JSON-LD entirely
-  // rather than keep a stale rich-result entity, unlike JobPosting which
-  // explicitly supports a past `validThrough` — see comment on `isPast` above.
-  const eventLdScript = isPast
-    ? null
-    : inlineScriptJson(eventLd(event, locale, canonicalUrl));
+  // The archived lifecycle is explicit in the HTML and notice. Event JSON-LD
+  // keeps the source's actual past dates and status; EventScheduled covers an
+  // event that took place as planned, while known cancelled/postponed states
+  // remain distinct.
+  const eventLdScript = inlineScriptJson(eventLd(event, locale, canonicalUrl));
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -4807,7 +4802,6 @@ export function buildSitemap(
     ladders?: Array<{ comune: string | undefined; pages: number[] }>;
   }>,
   detailEntries: Array<{ canton: string; comune: string; slug: string; imageUrl?: string }> = [],
-  historicalArchivePageCount = 0,
 ): string {
   // National index hub (issue #3645, F3) — always included: this function
   // only runs when the plugin's own `all.length === 0` early-return in
@@ -4829,15 +4823,31 @@ export function buildSitemap(
       for (const page of pages) entries.push(ladderSitemapUrl(canton, comune, page));
     }
   }
+  // Per-event detail pages: upcoming and ongoing only, see closeBundle().
+  for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, e.imageUrl));
+  // #3516: half-canton merges (BS/BL → /eventi/basilea/) can push the same
+  // hub <loc> twice within this one file — dedupe keep-first at assembly.
+  return dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${entries.join('\n')}\n</urlset>\n`);
+}
+
+/**
+ * Sitemap for indexable archived event details and the first archive page.
+ * Event dates are source dates; sitemap lastmod stays absent because an event
+ * date is not the page's modification date.
+ */
+export function buildHistoricalSitemap(
+  historicalEntries: ReadonlyArray<{ canton: string; comune: string; slug: string; imageUrl?: string }>,
+  historicalArchivePageCount = 0,
+): string {
+  const entries: string[] = [];
   // Only page 1 of the archive is advertised (P1 noindex plan,
   // paginationIndexPolicy); page 2+ is reached through its pager.
   for (let page = 1; page <= historicalArchivePageCount; page += 1) {
     if (isPaginationSitemapEligible(page)) entries.push(historicalEventsArchiveSitemapUrl(page));
   }
-  // Per-event detail pages: upcoming and ongoing only, see closeBundle().
-  for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, e.imageUrl));
-  // #3516: half-canton merges (BS/BL → /eventi/basilea/) can push the same
-  // hub <loc> twice within this one file — dedupe keep-first at assembly.
+  for (const entry of historicalEntries) {
+    entries.push(eventDetailSitemapUrl(entry.canton, entry.comune, entry.slug, entry.imageUrl));
+  }
   return dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${entries.join('\n')}\n</urlset>\n`);
 }
 
@@ -5627,9 +5637,9 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // this permanent archive pass the URL would 404 on a later rebuild.
       // These pages use their own slug namespace and comune grouping, kept
       // separate from `detailSlugs`/`cantonStats`; their routes are added to the
-      // historical archive index below, while their stale Event JSON-LD remains
-      // omitted. The archive index supplies the inbound links that the live
-      // listings cannot provide after these events expire.
+      // historical archive index below and retain their source dates/status in
+      // Event JSON-LD. The archive index supplies the inbound links that the
+      // live listings cannot provide after these events expire.
       const historicalDetailEntries: HistoricalDetailEntry[] = [];
       for (const [canton, events] of pastEventsByCanton) {
         const byComune = groupByComune(events) as Map<string, SiteEvent[]>;
@@ -5732,14 +5742,10 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         }
       }
 
-      // A demand-gated upcoming detail stays 200 and linked from its listing
-      // and the archive, but a sitemap must only list URLs that also cleared
-      // the rendered-content floor. An ended event is out by definition (GEO
-      // audit 2026-10-31: up to 6,067 of 8,120 dated URLs had already happened):
-      // a sitemap asks for a recrawl of pages worth refreshing, and those will
-      // never change again. They stay 200, so nothing 404s, and stay reachable
-      // from the archive, whose first page is still listed. `allEndedEvents`
-      // compares `endDate`, so a multi-day event stays in until its last day.
+      // Upcoming and ended detail URLs are kept in separate sitemaps. Each
+      // family lists only URLs that cleared the rendered-content floor; ended
+      // details remain in the archive sitemap after their endDate. Sitemaps
+      // omit lastmod because the event date is not the page's modification date.
       const detailContentIndexable = (entry: { canton: string; comune: string; slug: string }): boolean => {
         const wordCount = detailMinWordCounts.get(detailKey(entry.canton, entry.comune, entry.slug));
         // A locale shard that did not render this URL cannot contribute a
@@ -5748,10 +5754,17 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         return wordCount === undefined || wordCount >= MIN_INDEXABLE_WORDS;
       };
       const detailEntries = [...detailSlugs.values()].filter((entry) => demandIndexable(entry, false) && detailContentIndexable(entry));
-      console.log(`[events-seo] upcoming detail pages in sitemap: ${detailEntries.length}/${detailSlugs.size} (ended, archive only: ${historicalDetailEntries.length})`);
-      const sitemapXml = buildSitemap(perCantonSitemap, detailEntries, historicalArchivePageCount);
+      const historicalSitemapEntries = historicalDetailEntries.filter((entry) => demandIndexable(entry, true) && detailContentIndexable(entry));
+      console.log(`[events-seo] upcoming detail pages in sitemap: ${detailEntries.length}/${detailSlugs.size}; historical detail pages in archive sitemap: ${historicalSitemapEntries.length}/${historicalDetailEntries.length}`);
+      const sitemapXml = buildSitemap(perCantonSitemap, detailEntries);
+      const historicalSitemapXml = buildHistoricalSitemap(historicalSitemapEntries, historicalArchivePageCount);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');
+      if (historicalArchivePageCount > 0) {
+        fs.writeFileSync(path.join(distDir, HISTORICAL_SITEMAP_NAME), historicalSitemapXml, 'utf-8');
+      } else {
+        fs.rmSync(path.join(distDir, HISTORICAL_SITEMAP_NAME), { force: true });
+      }
 
       const staleSlugRedirects = pruneStaleEventSlugRedirects(distDir, expectedSlugRedirectPaths);
       if (staleSlugRedirects.length) {

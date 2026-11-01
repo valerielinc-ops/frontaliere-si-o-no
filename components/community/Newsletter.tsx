@@ -47,6 +47,8 @@ const initFirestore = async () => {
 
 interface NewsletterProps {
  compact?: boolean;
+ /** Keep GIS off static article reading surfaces until the visitor clicks login. */
+ deferGoogleButtonUntilIntent?: boolean;
  /** Optional heading override (replaces t('newsletter.title') in compact mode). */
  headingOverride?: string;
  /** Optional subtitle override (replaces t('newsletter.compactDescription') in compact mode). */
@@ -70,7 +72,7 @@ function isRejectedNewsletterCapture(result: { optedOut?: boolean; status?: stri
  return result.optedOut === true || isNewsletterExcluded(result.status);
 }
 
-const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverride, subtitleOverride, acquisitionSource, impressionPlacement }) => {
+const Newsletter: React.FC<NewsletterProps> = ({ compact = false, deferGoogleButtonUntilIntent = false, headingOverride, subtitleOverride, acquisitionSource, impressionPlacement }) => {
  const { t, locale } = useTranslation();
  const { user, signIn: googleSignIn } = useAuth();
  const [email, setEmail] = useState('');
@@ -168,7 +170,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  // it when the form approaches the viewport: until then the fallback button below
  // holds the same min-h-[44px] box, so nothing shifts.
  useEffect(() => {
- if (!compact || user) return;
+ if (!compact || user || deferGoogleButtonUntilIntent) return;
  const element = googleButtonRef.current;
  if (!element || typeof IntersectionObserver === 'undefined') {
  setGoogleButtonNearViewport(true);
@@ -181,13 +183,13 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  }, { rootMargin: '200px' });
  observer.observe(element);
  return () => observer.disconnect();
- }, [compact, user]);
+ }, [compact, user, deferGoogleButtonUntilIntent]);
 
  useEffect(() => {
  let cancelled = false;
 
  const mountButton = async () => {
- if (!compact || user) {
+ if (!compact || user || deferGoogleButtonUntilIntent) {
  if (googleButtonRef.current) googleButtonRef.current.innerHTML = '';
  setGoogleButtonReady(false);
  return;
@@ -215,7 +217,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  return () => {
  cancelled = true;
  };
- }, [compact, googleButtonNearViewport, user, locale]);
+ }, [compact, deferGoogleButtonUntilIntent, googleButtonNearViewport, user, locale]);
 
  const validateEmail = (emailStr: string) => validateEmailStrict(emailStr).valid;
 
@@ -364,11 +366,11 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  {!user && (
  <div className="flex flex-col gap-2">
  <div className="space-y-2">
- <div
+ {!deferGoogleButtonUntilIntent && <div
    ref={googleButtonRef}
    onPointerDown={() => { setPendingSocialMethod('google_oauth'); }}
    className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-xl"
- />
+ />}
  {!googleButtonReady && (
  <button
  onClick={async () => {

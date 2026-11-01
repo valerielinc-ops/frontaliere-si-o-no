@@ -736,6 +736,12 @@ jobs:
             npm run validate:keyword-landing-coverage
           spawn_capped validate:sitemap-links        /tmp/v3.log \
             npm run validate:sitemap-links
+          # A deploy may add URLs to a sitemap family, but may not lower the
+          # unique URL count for the restored families without an exact,
+          # reasoned declaration. The historical/future event sitemaps count
+          # together so moving past events to their archive preserves coverage.
+          spawn_capped validate:sitemap-family-coverage /tmp/sitemap-family-coverage.log \
+            node scripts/diff-sitemaps.mjs --gate-family-coverage
           # This full-dist walker keeps its absolute 0-tolerance count and
           # gets its speed from overlapping syscalls, not from sampling.
           spawn_capped audit:spa-bundle-injection    /tmp/spa-bundle.log \

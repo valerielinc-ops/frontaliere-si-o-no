@@ -553,9 +553,9 @@ describe('Wikimedia Commons cover credits on the article page (P14)', () => {
             offenders.push(`${rel}: footer outside <article>`);
           }
           const hasFaq = html.includes('<details class="s-lfB4Bo">');
-          const hasRelated = html.includes('<section class="s-zzuqwx">');
+          const hasRelated = /<section class="s-zzuqwx"(?=[\s>])/.test(html);
           if (hasFaq && !html.slice(0, at).endsWith('</details>')) offenders.push(`${rel}: footer not right after the FAQ`);
-          if (hasRelated ? !after.startsWith('<section class="s-zzuqwx">') : !after.startsWith('<nav>')) {
+          if (hasRelated ? !/^<section class="s-zzuqwx"(?=[\s>])/.test(after) : !after.startsWith('<nav>')) {
             offenders.push(`${rel}: footer not right before the related articles/nav (${after})`);
           }
           if (hasFaq && hasRelated) orderedIn.add(lang);

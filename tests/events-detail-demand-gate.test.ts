@@ -106,10 +106,12 @@ describe('event detail demand gate (P1 noindex plan)', () => {
     await emit(root);
 
     const details = itDetails(path.join(root, 'dist'));
-    const sitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-eventi.xml'), 'utf8');
-    const inSitemap = (urlPath: string) => sitemap.includes(`<loc>https://frontaliereticino.ch${urlPath}</loc>`);
+    const upcomingSitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-eventi.xml'), 'utf8');
+    const historicalSitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap-eventi-storici.xml'), 'utf8');
+    const inUpcomingSitemap = (urlPath: string) => upcomingSitemap.includes(`<loc>https://frontaliereticino.ch${urlPath}</loc>`);
+    const inHistoricalSitemap = (urlPath: string) => historicalSitemap.includes(`<loc>https://frontaliereticino.ch${urlPath}</loc>`);
     // Every locale of an upcoming event is listed, not only the Italian one.
-    expect(inSitemap(shownEn)).toBe(true);
+    expect(inUpcomingSitemap(shownEn)).toBe(true);
     const expected: Record<string, boolean> = {
       'ti-upcoming': true, // border canton, upcoming
       'ge-shown': true, // Search Console demand on one locale
@@ -117,17 +119,19 @@ describe('event detail demand gate (P1 noindex plan)', () => {
       'ge-upcoming': false,
       'ge-past': true, // historical archive is exempt from the demand gate
     };
-    // An ended event stays indexable but never returns to the sitemap.
+    // Ended events stay indexable in the archive sitemap and leave the upcoming one.
     const ended = new Set(['ti-past', 'ge-past']);
     for (const [key, indexable] of Object.entries(expected)) {
       const detail = details.get(key);
       expect(detail, key).toBeDefined();
       if (indexable) {
         expect(robotsOf(detail!.html), key).not.toMatch(/noindex/);
-        expect(inSitemap(detail!.urlPath), key).toBe(!ended.has(key));
+        expect(inUpcomingSitemap(detail!.urlPath), key).toBe(!ended.has(key));
+        expect(inHistoricalSitemap(detail!.urlPath), key).toBe(ended.has(key));
       } else {
         expect(robotsOf(detail!.html), key).toBe('noindex,follow');
-        expect(inSitemap(detail!.urlPath), key).toBe(false);
+        expect(inUpcomingSitemap(detail!.urlPath), key).toBe(false);
+        expect(inHistoricalSitemap(detail!.urlPath), key).toBe(false);
       }
     }
   });

@@ -8,12 +8,12 @@
     "evening": "0-2 min"
   },
   "chiasso-brogeda": {
-    "morning": "0-3 min",
+    "morning": "0-2 min",
     "evening": "0-2 min"
   },
   "chiasso-strada": {
-    "morning": "0-4 min",
-    "evening": "0-3 min"
+    "morning": "0-3 min",
+    "evening": "0-2 min"
   },
   "ferney-voltaire-grand-saconnex": {
     "morning": "0-8 min",
@@ -24,25 +24,13 @@
     "evening": "0-8 min"
   },
   "perly": {
-    "morning": "0-2 min"
-  },
-  "ponte-tresa": {
-    "morning": "0-2 min"
-  },
-  "porto-ceresio-brusino": {
-    "morning": "0-2 min"
+    "morning": "0-2 min",
+    "evening": "0-4 min"
   },
   "rheinfelden-rheinfelden-ag-autostrada-a861-a3": {
-    "morning": "0-2 min",
     "evening": "0-2 min"
   },
   "san-pietro": {
     "evening": "0-8 min"
-  },
-  "st-margrethen-hochst": {
-    "morning": "0-2 min"
-  },
-  "thonex-vallard": {
-    "morning": "0-3 min"
   }
 }
