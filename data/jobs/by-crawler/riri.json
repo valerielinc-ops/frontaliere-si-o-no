@@ -1,7 +1,7 @@
 {
   "crawlerKey": "riri",
-  "assembledAt": "2026-10-31T21:30:57.083Z",
-  "runId": "41242613275",
+  "assembledAt": "2026-11-01T09:18:59.651Z",
+  "runId": "41292206898",
   "jobs": [
     {
       "id": "riri-b82e4b900fa3",
@@ -49,7 +49,7 @@
       "applyUrl": "https://careers.oerlikon.com/job/Mendrisio-Receptionist-TI-6850/1435381533/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "Riri Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T21:30:51.213Z",
+      "crawledAt": "2026-11-01T09:18:54.127Z",
       "previousSlugsByLocale": {
         "it": [
           "receptionist-mendrisio-riri"
@@ -72,7 +72,11 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Mendrisio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:18:54.127Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
