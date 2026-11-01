@@ -139,6 +139,55 @@ export function readCompatPaths(rootDir = process.cwd()) {
 }
 
 /**
+ * Iterate the logical accumulator without retaining every path at once.
+ *
+ * Build-time consumers that only need to inspect each path (rather than return
+ * the complete set) must use this generator. The normal reader intentionally
+ * keeps its forgiving, de-duplicating return contract; this one keeps only the
+ * current shard's parsed array alive, which is important when the accumulator
+ * contains millions of paths and the caller is already holding a large SEO
+ * route registry.
+ *
+ * Shard files are the canonical representation and are internally validated
+ * by the writers. A duplicate path therefore has no semantic effect for a
+ * streaming inspection: callers that need the strict uniqueness invariant use
+ * `readCompatPathsStrict()` instead.
+ *
+ * @param {string} [rootDir]
+ * @returns {Generator<string>}
+ */
+export function* iterateCompatPaths(rootDir = process.cwd()) {
+  const shardFiles = listCompatShardFiles(rootDir);
+  if (shardFiles.length > 0) {
+    for (const file of shardFiles) {
+      let shard;
+      try {
+        shard = JSON.parse(fs.readFileSync(file, 'utf-8'));
+      } catch {
+        /* keep the forgiving runtime contract: skip a corrupt shard */
+        continue;
+      }
+      if (!Array.isArray(shard?.paths)) continue;
+      for (const value of shard.paths) {
+        if (typeof value === 'string') yield value;
+      }
+    }
+    return;
+  }
+
+  // Legacy fallback for checkouts that predate the sharded accumulator.
+  try {
+    const legacy = JSON.parse(fs.readFileSync(path.resolve(rootDir, COMPAT_LEGACY_FILE), 'utf-8'));
+    if (!legacy || typeof legacy !== 'object' || !Array.isArray(legacy.paths)) return;
+    for (const value of legacy.paths) {
+      if (typeof value === 'string') yield value;
+    }
+  } catch {
+    /* no accumulator on disk */
+  }
+}
+
+/**
  * Read the accumulator for a destructive rewrite. Unlike readCompatPaths(),
  * this fails closed if a shard or its manifest is missing, corrupt, or
  * inconsistent: a partial read must never be written back as the new set.
