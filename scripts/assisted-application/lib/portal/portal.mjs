@@ -626,7 +626,7 @@ async function awaitFields(page, snapshot, unchanged = () => false) {
  */
 function pageSignature(page, snapshot) {
   return `${page.url()}|${snapshot.pageMarker || ''}|${snapshot.fields.map((field) => [
-    field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
+    Number.isInteger(field.frame) ? field.frame : '', field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
   ].join(':')).join('|')}`;
 }
 
@@ -637,7 +637,7 @@ function questionSurfaceSignature(snapshot = {}) {
   return JSON.stringify({
     pageMarker: String(snapshot.pageMarker || ''),
     fields: fields.map((field) => [
-      field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
+      Number.isInteger(field.frame) ? field.frame : '', field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
       field.context || '', field.section || '', field.required === true, field.invalid === true,
       (Array.isArray(field.options) ? field.options : []).map((option) => [
         String(typeof option === 'string' ? option : option?.label || ''),

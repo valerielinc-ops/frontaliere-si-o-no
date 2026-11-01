@@ -1105,6 +1105,7 @@ export async function extractFields(page, { listboxOptions = true, channelType =
   const frames = page.frames();
   const result = { url: page.url(), pageMarker: '', fields: [], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
   const context = typeof page.context === 'function' ? page.context() : null;
+  const pageMarkers = [];
   const effectiveChannelType = String(channelType || portalChannelTypes.get(context) || '').trim();
   for (const [index, frame] of frames.entries()) {
     if (index > 0 && isTurnstileFrame(frame.url())) {
@@ -1128,7 +1129,15 @@ export async function extractFields(page, { listboxOptions = true, channelType =
       field.options = field.selectLike ? await readOwnedListOptions(frame, field) : await readListboxOptions(frame, field.id);
     }
     result.frames.push({ index, url: snapshot.url });
-    if (index === 0) result.pageMarker = snapshot.pageMarker || '';
+    if (index === 0 || snapshot.fields.length > 0 || snapshot.buttons.length > 0) {
+      // A portal can keep the application inside an iframe while the parent
+      // URL and the iframe's control labels stay the same across wizard steps.
+      pageMarkers.push({
+        frame: index,
+        url: snapshot.url || '',
+        marker: snapshot.pageMarker || '',
+      });
+    }
     result.fields.push(...snapshot.fields.map((field) => ({ ...field, frame: index })));
     result.buttons.push(...snapshot.buttons.map((button) => ({ ...button, frame: index })));
     result.links.push(...(snapshot.links || []).map((link) => ({ ...link, frame: index })));
@@ -1138,5 +1147,6 @@ export async function extractFields(page, { listboxOptions = true, channelType =
     result.errors.push(...snapshot.errors);
     if (index === 0) result.text = snapshot.text;
   }
+  result.pageMarker = JSON.stringify(pageMarkers);
   return result;
 }
