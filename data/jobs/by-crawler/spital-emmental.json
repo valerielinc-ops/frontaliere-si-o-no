@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-emmental",
-  "assembledAt": "2026-11-01T09:16:44.880Z",
-  "runId": "41291723109",
+  "assembledAt": "2026-11-01T21:20:17.473Z",
+  "runId": "41350360792",
   "jobs": [
     {
       "id": "spital-emmental-5a82799bfd75",
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081241",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:30.188Z",
+      "crawledAt": "2026-11-01T21:20:04.742Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:16:30.188Z",
+      "validThrough": "2026-12-06T21:20:04.742Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081052",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:29.589Z",
+      "crawledAt": "2026-11-01T21:20:04.070Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -176,7 +176,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infirmiere-a-spital-emmental-burgdorf",
           "dipl-infirmiere-a-spital-emmental-burgdorf-9ea21c",
           "dipl-pflegefachperson-a-spital-emmental-burgdorf",
           "dipl-pflegefachperson-pflegepool-a-spital-emmental-burgdorf",
@@ -195,7 +194,8 @@
           "dipl-pflegefachperson-a-spital-emmental-burgdorf-b5f5ca",
           "dipl-pflegefachperson-a-spital-emmental-burgdorf-b5f5ds",
           "dipl-pflegefachperson-a-spital-emmental-burgdorf-b5d9vw",
-          "infirmier-ere-diplome-e-a-spital-emmental-burgdorf"
+          "infirmier-ere-diplome-e-a-spital-emmental-burgdorf",
+          "dipl-infirmiere-a-spital-emmental-burgdorf"
         ],
         "en": [
           "dipl-pflegefachperson-a-spital-emmental-burgdorf",
@@ -222,7 +222,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:16:29.589Z",
+      "validThrough": "2026-12-06T21:20:04.070Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -257,7 +257,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081243",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:28.990Z",
+      "crawledAt": "2026-11-01T21:20:03.409Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -306,7 +306,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:28.990Z",
+      "validThrough": "2026-12-01T21:20:03.409Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -341,7 +341,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081403",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:28.392Z",
+      "crawledAt": "2026-11-01T21:20:02.749Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -390,7 +390,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:28.392Z",
+      "validThrough": "2026-12-01T21:20:02.749Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -424,7 +424,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081045",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:27.788Z",
+      "crawledAt": "2026-11-01T21:20:02.091Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -473,7 +473,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:16:27.788Z",
+      "validThrough": "2026-12-06T21:20:02.091Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -507,7 +507,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081054",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:27.189Z",
+      "crawledAt": "2026-11-01T21:20:01.429Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -558,7 +558,7 @@
       },
       "streetAddress": "Langnau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:16:27.189Z",
+      "validThrough": "2026-12-06T21:20:01.429Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -593,7 +593,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081249",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:26.591Z",
+      "crawledAt": "2026-11-01T21:20:00.756Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -644,7 +644,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:26.591Z",
+      "validThrough": "2026-12-01T21:20:00.756Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -679,7 +679,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083111",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:25.992Z",
+      "crawledAt": "2026-11-01T21:20:00.068Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -734,7 +734,7 @@
       },
       "streetAddress": "Langnau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:16:25.992Z",
+      "validThrough": "2026-12-08T21:20:00.068Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -769,7 +769,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083109",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:25.357Z",
+      "crawledAt": "2026-11-01T21:19:59.389Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -824,7 +824,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:16:25.357Z",
+      "validThrough": "2027-01-07T21:19:59.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -858,7 +858,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4082709",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:24.678Z",
+      "crawledAt": "2026-11-01T21:19:58.717Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -913,7 +913,7 @@
       },
       "streetAddress": "Langnau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:16:24.678Z",
+      "validThrough": "2027-01-01T21:19:58.717Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -947,7 +947,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083176",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:24.040Z",
+      "crawledAt": "2026-11-01T21:19:58.044Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1002,7 +1002,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:24.040Z",
+      "validThrough": "2026-12-01T21:19:58.044Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1037,7 +1037,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083170",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:23.406Z",
+      "crawledAt": "2026-11-01T21:19:57.382Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1092,7 +1092,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:23.406Z",
+      "validThrough": "2026-12-01T21:19:57.382Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1127,7 +1127,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083174",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:22.807Z",
+      "crawledAt": "2026-11-01T21:19:56.716Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1182,7 +1182,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:22.807Z",
+      "validThrough": "2026-12-01T21:19:56.716Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1217,7 +1217,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083168",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:22.173Z",
+      "crawledAt": "2026-11-01T21:19:56.056Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1272,7 +1272,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:16:22.173Z",
+      "validThrough": "2026-12-08T21:19:56.056Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1307,7 +1307,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083160",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:21.508Z",
+      "crawledAt": "2026-11-01T21:19:55.395Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1364,7 +1364,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:16:21.508Z",
+      "validThrough": "2026-12-08T21:19:55.395Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1399,7 +1399,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083158",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:20.704Z",
+      "crawledAt": "2026-11-01T21:19:54.676Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1456,7 +1456,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:20.704Z",
+      "validThrough": "2026-12-01T21:19:54.676Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1491,7 +1491,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083116",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:20.101Z",
+      "crawledAt": "2026-11-01T21:19:53.984Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1546,7 +1546,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:20.101Z",
+      "validThrough": "2026-12-01T21:19:53.984Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1580,7 +1580,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083164",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:19.480Z",
+      "crawledAt": "2026-11-01T21:19:53.324Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1635,7 +1635,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:19.480Z",
+      "validThrough": "2026-12-01T21:19:53.324Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1670,7 +1670,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4084127",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:18.808Z",
+      "crawledAt": "2026-11-01T21:19:52.651Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1725,7 +1725,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:16:18.808Z",
+      "validThrough": "2027-01-10T21:19:52.651Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1759,7 +1759,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083187",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:18.145Z",
+      "crawledAt": "2026-11-01T21:19:51.984Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1816,7 +1816,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:16:18.145Z",
+      "validThrough": "2026-12-06T21:19:51.984Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1850,7 +1850,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4084472",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:17.525Z",
+      "crawledAt": "2026-11-01T21:19:51.308Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1907,7 +1907,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:16:17.525Z",
+      "validThrough": "2026-12-06T21:19:51.308Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1942,7 +1942,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4084718",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:16.929Z",
+      "crawledAt": "2026-11-01T21:19:50.629Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1997,7 +1997,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:16.929Z",
+      "validThrough": "2026-12-01T21:19:50.629Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2032,7 +2032,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083183",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:16.331Z",
+      "crawledAt": "2026-11-01T21:19:49.955Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2089,7 +2089,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:16.331Z",
+      "validThrough": "2026-12-01T21:19:49.955Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2124,7 +2124,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4083185",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:15.734Z",
+      "crawledAt": "2026-11-01T21:19:49.269Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2181,7 +2181,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:15.734Z",
+      "validThrough": "2026-12-01T21:19:49.269Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2216,7 +2216,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4085111",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:15.096Z",
+      "crawledAt": "2026-11-01T21:19:48.605Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2273,7 +2273,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:16:15.096Z",
+      "validThrough": "2027-01-12T21:19:48.605Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2307,7 +2307,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4086165",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:14.400Z",
+      "crawledAt": "2026-11-01T21:19:47.937Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2364,7 +2364,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:16:14.400Z",
+      "validThrough": "2026-12-06T21:19:47.937Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2398,7 +2398,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4084724",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:13.795Z",
+      "crawledAt": "2026-11-01T21:19:47.199Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2455,7 +2455,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:13.795Z",
+      "validThrough": "2026-12-01T21:19:47.199Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2489,7 +2489,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4087774",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:13.195Z",
+      "crawledAt": "2026-11-01T21:19:46.536Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2546,7 +2546,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:16:13.195Z",
+      "validThrough": "2026-12-06T21:19:46.536Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2580,7 +2580,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4087980",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:12.593Z",
+      "crawledAt": "2026-11-01T21:19:45.873Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2637,7 +2637,7 @@
       },
       "streetAddress": "Langnau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:16:12.593Z",
+      "validThrough": "2027-01-01T21:19:45.873Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2671,7 +2671,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4087983",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:11.986Z",
+      "crawledAt": "2026-11-01T21:19:44.936Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2725,7 +2725,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T09:16:11.986Z",
+      "validThrough": "2027-01-30T21:19:44.936Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2760,7 +2760,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4087987",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:11.386Z",
+      "crawledAt": "2026-11-01T21:19:44.239Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2817,7 +2817,7 @@
       },
       "streetAddress": "Langnau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:16:11.386Z",
+      "validThrough": "2026-12-08T21:19:44.239Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2852,7 +2852,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4088502",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:10.783Z",
+      "crawledAt": "2026-11-01T21:19:43.562Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2907,7 +2907,7 @@
       },
       "streetAddress": "Langnau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:16:10.783Z",
+      "validThrough": "2027-01-17T21:19:43.562Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2942,7 +2942,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4088500",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:10.156Z",
+      "crawledAt": "2026-11-01T21:19:42.882Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2983,7 +2983,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-04T09:16:10.156Z",
+      "validThrough": "2026-12-03T21:19:42.882Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3017,7 +3017,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4087725",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:09.551Z",
+      "crawledAt": "2026-11-01T21:19:42.138Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3076,7 +3076,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:16:09.551Z",
+      "validThrough": "2026-12-19T21:19:42.138Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3111,7 +3111,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4090435",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:08.918Z",
+      "crawledAt": "2026-11-01T21:19:41.474Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3170,7 +3170,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:16:08.918Z",
+      "validThrough": "2026-12-23T21:19:41.474Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3205,7 +3205,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4090482",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:08.318Z",
+      "crawledAt": "2026-11-01T21:19:40.733Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3264,7 +3264,7 @@
       },
       "streetAddress": "Langnau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:16:08.318Z",
+      "validThrough": "2026-12-23T21:19:40.733Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3298,7 +3298,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4090487",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:07.710Z",
+      "crawledAt": "2026-11-01T21:19:40.057Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3357,7 +3357,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:16:07.710Z",
+      "validThrough": "2026-12-06T21:19:40.057Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3392,7 +3392,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4090437",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:07.111Z",
+      "crawledAt": "2026-11-01T21:19:39.397Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3451,7 +3451,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:16:07.111Z",
+      "validThrough": "2026-12-23T21:19:39.397Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3485,7 +3485,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4089256",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:06.460Z",
+      "crawledAt": "2026-11-01T21:19:38.713Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3540,7 +3540,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:16:06.460Z",
+      "validThrough": "2026-12-23T21:19:38.713Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3575,7 +3575,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4089252",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:05.862Z",
+      "crawledAt": "2026-11-01T21:19:38.056Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3630,7 +3630,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:16:05.862Z",
+      "validThrough": "2026-12-23T21:19:38.056Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3664,7 +3664,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4090485",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:05.264Z",
+      "crawledAt": "2026-11-01T21:19:37.396Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3721,7 +3721,7 @@
       },
       "streetAddress": "Langnau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:16:05.264Z",
+      "validThrough": "2026-12-23T21:19:37.396Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3756,7 +3756,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4090247",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:04.645Z",
+      "crawledAt": "2026-11-01T21:19:36.698Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3810,7 +3810,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-07T09:16:04.645Z",
+      "validThrough": "2026-12-06T21:19:36.698Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3844,7 +3844,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4090829",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:04.044Z",
+      "crawledAt": "2026-11-01T21:19:36.024Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3898,7 +3898,7 @@
       },
       "streetAddress": "Langnau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T09:16:04.044Z",
+      "validThrough": "2027-01-30T21:19:36.024Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3932,7 +3932,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4091335",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:03.417Z",
+      "crawledAt": "2026-11-01T21:19:35.274Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3987,7 +3987,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:16:03.417Z",
+      "validThrough": "2027-01-24T21:19:35.274Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4022,7 +4022,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4091402",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:02.814Z",
+      "crawledAt": "2026-11-01T21:19:34.607Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4077,7 +4077,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:16:02.814Z",
+      "validThrough": "2027-01-24T21:19:34.607Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4111,7 +4111,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4091331",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:02.212Z",
+      "crawledAt": "2026-11-01T21:19:33.939Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4166,7 +4166,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:16:02.212Z",
+      "validThrough": "2027-01-24T21:19:33.939Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4200,7 +4200,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4091486",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:01.608Z",
+      "crawledAt": "2026-11-01T21:19:33.238Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4255,7 +4255,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:16:01.608Z",
+      "validThrough": "2027-01-25T21:19:33.238Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4290,7 +4290,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4091406",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:01.003Z",
+      "crawledAt": "2026-11-01T21:19:32.521Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4345,7 +4345,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:16:01.003Z",
+      "validThrough": "2027-01-24T21:19:32.521Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4380,7 +4380,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4092808",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:00.398Z",
+      "crawledAt": "2026-11-01T21:19:31.853Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4435,7 +4435,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:16:00.398Z",
+      "validThrough": "2027-01-26T21:19:31.853Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4470,7 +4470,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4093410",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:15:59.615Z",
+      "crawledAt": "2026-11-01T21:19:31.007Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4525,7 +4525,7 @@
       },
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:15:59.615Z",
+      "validThrough": "2027-01-27T21:19:31.007Z",
       "validThroughSource": "last-observed-window"
     }
   ]

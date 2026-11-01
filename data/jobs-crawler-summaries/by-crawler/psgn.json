@@ -1,7 +1,7 @@
 {
   "key": "psgn",
   "label": "Psychiatrie St.Gallen",
-  "generatedAt": "2026-11-01T09:20:43.783Z",
+  "generatedAt": "2026-11-01T21:23:32.692Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 9085,
-  "avgDurationMs": 9085,
+  "durationMs": 11287,
+  "avgDurationMs": 11287,
   "durationHistory": [
-    9085
+    11287
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/sporttherapeutin-sporttherapeut/2970d489-c7e4-436e-8c00-fd94dde0b07e",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:20:28.499Z",
+      "crawledAt": "2026-11-01T21:23:15.371Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:20:28.499Z",
+      "validThrough": "2027-01-17T21:23:15.371Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/4c3c51ab-c9a0-47ec-aabc-2fddf79c8a64",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:20:27.968Z",
+      "crawledAt": "2026-11-01T21:23:14.739Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:20:27.968Z",
+      "validThrough": "2027-01-20T21:23:14.739Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/194e3c61-2b60-40f5-a17c-c172269f4f3b",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:20:27.520Z",
+      "crawledAt": "2026-11-01T21:23:14.237Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -150,7 +150,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:20:27.520Z",
+      "validThrough": "2027-01-11T21:23:14.237Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -173,7 +173,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/852ca4c1-993b-46b5-be35-27c2586d4fab",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:20:26.985Z",
+      "crawledAt": "2026-11-01T21:23:13.617Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:20:26.985Z",
+      "validThrough": "2027-01-27T21:23:13.617Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -219,7 +219,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/stationsleiterin-stationsleiter/915fd5fd-66cb-42d6-afe3-3c13ffb46991",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:20:26.449Z",
+      "crawledAt": "2026-11-01T21:23:12.959Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -242,7 +242,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:20:26.449Z",
+      "validThrough": "2027-01-27T21:23:12.959Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -265,7 +265,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-berufsbildung-hf/eefa223a-d2f9-4c93-a16c-643192187af6",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:20:25.919Z",
+      "crawledAt": "2026-11-01T21:23:12.341Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:20:25.919Z",
+      "validThrough": "2027-01-27T21:23:12.341Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -311,7 +311,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-oder-fachperson-gesundheit-fuer-pflegepool/8fa7e1e2-fa8f-4937-be50-fd4905c73de4",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:20:25.379Z",
+      "crawledAt": "2026-11-01T21:23:11.697Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -334,7 +334,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:20:25.379Z",
+      "validThrough": "2027-01-27T21:23:11.697Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -356,7 +356,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ergotherapeutin-ergotherapeut/3a36a846-4ab0-4891-b158-c1d115a1139d",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:20:24.846Z",
+      "crawledAt": "2026-11-01T21:23:11.033Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -379,7 +379,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:20:24.846Z",
+      "validThrough": "2027-01-17T21:23:11.033Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -401,7 +401,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/49fe9cb9-a69e-4747-9fd4-40c6c4da8da5",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:20:24.315Z",
+      "crawledAt": "2026-11-01T21:23:10.382Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -424,7 +424,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:20:24.315Z",
+      "validThrough": "2027-01-11T21:23:10.382Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -447,7 +447,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/leiterin-leiter-hospitality-management/1e2b9504-4c8e-4a56-a2e3-f9ac8635f270",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:20:23.774Z",
+      "crawledAt": "2026-11-01T21:23:09.756Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -470,7 +470,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:20:23.774Z",
+      "validThrough": "2027-01-28T21:23:09.756Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -481,5 +481,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

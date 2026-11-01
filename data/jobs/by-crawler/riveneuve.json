@@ -1,7 +1,7 @@
 {
   "crawlerKey": "riveneuve",
-  "assembledAt": "2026-11-01T09:17:18.249Z",
-  "runId": "41291723109",
+  "assembledAt": "2026-11-01T21:21:56.791Z",
+  "runId": "41350360792",
   "jobs": [
     {
       "id": "riveneuve-6211b5c5e83a",
@@ -35,7 +35,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32273/fr/un-e-infirmier-ere-a-100-taux-negociable",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:17:09.264Z",
+      "crawledAt": "2026-11-01T21:21:50.321Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       },
       "streetAddress": "Blonay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:17:09.264Z",
+      "validThrough": "2026-12-01T21:21:50.321Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -144,7 +144,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32285/fr/un-e-assistant-e-en-soins-et-sante-communautaire-a-80",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:17:07.953Z",
+      "crawledAt": "2026-11-01T21:21:49.171Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -210,7 +210,7 @@
       },
       "streetAddress": "Blonay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:17:07.953Z",
+      "validThrough": "2026-12-01T21:21:49.171Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -244,7 +244,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32286/fr/un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:17:06.796Z",
+      "crawledAt": "2026-11-01T21:21:48.237Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -310,7 +310,7 @@
       },
       "streetAddress": "Blonay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:17:06.796Z",
+      "validThrough": "2026-12-01T21:21:48.237Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -345,7 +345,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32287/fr/un-e-infirmier-ere-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:17:05.481Z",
+      "crawledAt": "2026-11-01T21:21:46.841Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -423,7 +423,7 @@
       },
       "streetAddress": "Blonay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:17:05.481Z",
+      "validThrough": "2026-12-01T21:21:46.841Z",
       "validThroughSource": "last-observed-window"
     }
   ]
