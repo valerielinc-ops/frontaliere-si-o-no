@@ -585,6 +585,11 @@ async function fetchPostJobs() {
       company: brandCompany || detail.hiringOrg || POST_COMPANY_NAME,
       companyKey: POST_KEY,
       location: publishedLocation,
+      // `city` is the first physical Post.ch placement and the canton used by
+      // detailCanton(). Keep it as the structured primary locality while the
+      // display location may still list every physical placement.
+      addressLocality: city,
+      addressRegion: canton,
       canton,
       country: 'CH',
       description,
@@ -717,6 +722,8 @@ async function mergePostJobs(discoveredJobs) {
         company: discovered.company || existing.company,
         companyKey: POST_KEY,
         location: discovered.location || existing.location,
+        addressLocality: discovered.addressLocality || existing.addressLocality,
+        addressRegion: discovered.addressRegion || existing.addressRegion,
         canton: discovered.canton || existing.canton,
         country: 'CH',
         applyUrl: discovered.applyUrl || existing.applyUrl,
