@@ -22,6 +22,7 @@
 
 import { safeFileStem } from './assistedApplicationAiDraftCore.js';
 import { DOCUMENT_KINDS } from './assistedApplicationConstants.js';
+import { isDegreeCertificateRequirement } from './lib/assistedApplicationDocumentKind.js';
 import { detectCvFileType, isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 
 export { DOCUMENT_KINDS };
@@ -124,7 +125,9 @@ export function requiredDocumentsOf(draft) {
     out.push({
       id,
       label,
-      kind: DOCUMENT_KINDS.includes(item.kind) ? item.kind : 'other',
+      kind: isDegreeCertificateRequirement(label)
+        ? 'diploma'
+        : DOCUMENT_KINDS.includes(item.kind) ? item.kind : 'other',
       keywords: (Array.isArray(item.keywords) ? item.keywords : []).map((word) => text(word, 40)).filter(Boolean).slice(0, 12),
       required: item.required !== false,
       quote: text(item.quote, 300),

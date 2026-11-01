@@ -4,7 +4,7 @@
 // reports and the EVA test results.
 import { describe, expect, it, vi } from 'vitest';
 import { checkDocumentFile, classifyDocumentText, DOCUMENT_CHECK_VERSION, readDocumentText } from '../services/assistedApplicationDocumentCheck';
-import { sanitizeClientCheck } from '../functions/src/assistedApplicationExtraDocuments.js';
+import { requiredDocumentsFromRequirements, sanitizeClientCheck } from '../functions/src/assistedApplicationExtraDocuments.js';
 
 
 vi.mock('pdfjs-dist', () => ({ GlobalWorkerOptions: {}, getDocument: vi.fn() }));
@@ -43,6 +43,28 @@ describe('the browser\'s check of a requested document', () => {
     expect(sanitizeClientCheck({ verdict: 'unknown', matched: '' })).toEqual({ verdict: 'unknown', matched: '' });
   });
 
+  it.each([
+    'degree certificates',
+    'certificate of degree',
+    'certificates of degree',
+    'Certificati di laurea',
+    'Diplôme de licence',
+    'Hochschulabschlusszeugnis',
+  ])('maps the native degree-certificate requirement to diploma and verifies Italian evidence: %s', label => {
+    const [document] = requiredDocumentsFromRequirements({
+      requestedDocuments: [{
+        document: label, kind: 'certificate', required: true,
+        quote: 'Please provide ' + label + '.', keywords: ['degree certificates'],
+      }],
+    });
+
+    expect(document.kind).toBe('diploma');
+    expect(classifyDocumentText(
+      'Certificato di laurea in ingegneria informatica, rilasciato dall’Università degli Studi.',
+      document,
+    ).verdict).toBe('match');
+  });
+
   it('matches whole words only, never part of another word', () => {
     // «eva» inside «evaluation» or «prevalere» is not the EVA test.
     expect(classifyDocumentText('Evaluation report: the project will prevalere over the previous plan, timeline and budget attached.', { ...EVA, keywords: ['EVA'] }).verdict).toBe('unknown');
@@ -66,12 +88,31 @@ describe('the browser\'s check of a requested document', () => {
 
   it.each([
     'Università degli Studi. Si conferisce il titolo di dottore in informatica. Laurea conseguita con votazione finale.',
-    'Ministero dell’istruzione. Diploma di maturità scientifica conseguito al termine dell’esame di Stato.',
     'Universität. Abschlusszeugnis über den erfolgreich abgeschlossenen Studiengang Informatik.',
     'Université. Diplôme de licence délivré après validation des examens du cursus informatique.',
     'University registrar. Bachelor of Science awarded upon successful completion of all examinations.',
   ])('recognises a qualification in another language: %s', text => {
     expect(classifyDocumentText(text, { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] }).verdict).toBe('match');
+  });
+
+  it.each([
+    'Ministero dell’istruzione. Diploma di maturità scientifica conseguito al termine dell’esame di Stato.',
+    'Università degli Studi. Master in ingegneria gestionale, con curriculum e descrizione del programma formativo.',
+    'Università degli Studi. Dottore in informatica, con descrizione delle attività professionali.',
+    'Laurea magistrale in informatica, curriculum del corso e piano degli esami.',
+  ])('keeps an unproven or non-university qualification uncertain: %s', text => {
+    expect(classifyDocumentText(text, { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] }))
+      .toEqual({ verdict: 'unknown', matched: '' });
+  });
+
+  it.each([
+    'University registrar. The master’s degree has not been awarded.',
+    'University registrar. No Bachelor of Science was awarded.',
+  ])('rejects an explicit statement that the degree was not awarded: %s', text => {
+    expect(classifyDocumentText(
+      text,
+      { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] },
+    ).verdict).toBe('mismatch');
   });
 
   it.each([
@@ -112,6 +153,17 @@ describe('the browser\'s check of a requested document', () => {
     expect(classifyDocumentText(CV + ' Diploma di laurea in informatica.', degree).verdict).toBe('looks_like_cv');
     expect(classifyDocumentText('Comune. Certificato di residenza relativo alla persona iscritta in anagrafe, per uso amministrativo.', degree).verdict).toBe('mismatch');
     expect(classifyDocumentText('Fattura per un master di formazione. Importo dovuto e modalità di pagamento, scadenza trenta giorni.', degree).verdict).toBe('mismatch');
+  });
+
+  it.each([
+    ['residence certificate', 'Certificato di residenza. The posting requests degree certificates for the application.'],
+    ['invoice', 'Fattura per traduzione. The customer requested a degree certificate.'],
+    ['work reference', 'Lettera di referenza. The employee holds a degree certificate in engineering.'],
+    ['CV', CV + ' Document requested: degree certificates.'],
+  ])('lets the clearly identified %s type prevail over degree mentions', (name, text) => {
+    const degree = { label: 'degree certificates', kind: 'diploma', keywords: ['degree certificates'] };
+    const expected = name === 'CV' ? 'looks_like_cv' : 'mismatch';
+    expect(classifyDocumentText(text, degree).verdict).toBe(expected);
   });
 
   it.each(['readable', 'page_error', 'load_error'])('releases the PDF reader after a browser recheck, including parsing errors: %s', async broken => {

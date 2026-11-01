@@ -22,6 +22,7 @@ export interface DocumentCheck {
 
 export { DOCUMENT_CHECK_VERSION } from '../functions/src/lib/assistedApplicationDocumentCheckVersion.js';
 import { DOCUMENT_CHECK_VERSION, DOCUMENT_CHECK_MAX_TEXT_CHARS } from '../functions/src/lib/assistedApplicationDocumentCheckVersion.js';
+import { isDegreeCertificateRequirement } from '../functions/src/lib/assistedApplicationDocumentKind.js';
 
 export interface CheckedDocument {
   label: string;
@@ -54,6 +55,18 @@ const KIND_TITLES: Record<string, string[]> = {
   portfolio: ['portfolio'],
 };
 
+// Explicit degree-document names. Generic education terms such as master,
+// university, maturità and doctor are not proof that a degree was earned.
+const DEGREE_CERTIFICATE_TITLES = [
+  'diploma di laurea', 'diploma universitario', 'attestato di laurea', 'attestazione di laurea',
+  'attestazione del conseguimento della laurea', 'certificazione di laurea',
+  'certificazione del conseguimento della laurea', 'certificato accademico di laurea',
+  'certificato di laurea', 'certificato di completamento degli studi universitari',
+  'degree certificate', 'degree certificates', 'certificate of degree', 'certificates of degree',
+  'bachelorzeugnis', 'masterzeugnis', 'hochschulabschlusszeugnis', 'hochschulabschluss',
+  'diplome universitaire', 'diplome de licence', 'diplome de master',
+];
+
 // A mismatch is useful only when the readable text positively identifies a
 // different document. Otherwise it is an unknown result, not evidence that
 // the candidate chose the wrong file.
@@ -66,16 +79,23 @@ const CLEAR_OTHER_DOCUMENT_TITLES = [
 ];
 function hasKnownOtherDocumentType(haystack: string, kind: string): boolean {
   if (!kind || kind === 'other') return false;
-  if (kind === 'certificate') return found(haystack, CLEAR_NON_DOCUMENT_TITLES).length > 0;
+  const heading = haystack.slice(0, 360);
+  if (kind === 'certificate') return found(heading, CLEAR_NON_DOCUMENT_TITLES).length > 0;
   const otherTitles = Object.entries(KIND_TITLES)
     .filter(([candidateKind]) => candidateKind !== kind)
     .flatMap(([, titles]) => titles);
-  return found(haystack, [...otherTitles, ...CLEAR_NON_DOCUMENT_TITLES, ...CLEAR_OTHER_DOCUMENT_TITLES]).length > 0;
+  return found(heading, [...otherTitles, ...CLEAR_NON_DOCUMENT_TITLES, ...CLEAR_OTHER_DOCUMENT_TITLES]).length > 0;
 }
 
 function hasClearNonDocumentHeading(haystack: string): boolean {
-  const heading = haystack.slice(0, 120);
+  const heading = haystack.slice(0, 360);
   return CLEAR_NON_DOCUMENT_TITLES.some(title => heading.startsWith(` ${normalize(title).trim()} `));
+}
+
+function hasClearCvHeading(haystack: string): boolean {
+  const heading = haystack.slice(0, 180);
+  return found(heading, ['curriculum vitae', 'lebenslauf', 'resume']).length > 0
+    || / cv /.test(heading);
 }
 
 // Italian registrars also certify a completed degree exam without printing a
@@ -87,6 +107,37 @@ const NON_ACADEMIC_CERTIFICATION_CONTEXT = [
 ];
 const ITALIAN_DEGREE_CERTIFICATION = / (?:si certifica|si attesta) che (?:(?!\b(?:non|mai|dovra|deve)\b)[a-z0-9 ]){0,160}ha superato (?:in data [0-3]?\d [01]?\d (?:19|20)\d{2} )?(?:con (?:voti|votazione) (?:[a-z0-9]+ ){1,10})?l esame di laurea /;
 const ITALIAN_DEGREE_NEGATION = / (?:non si (?:certifica|attesta)|mai si (?:certifica|attesta)|non ha(?: ancora)? superato|deve sostenere) [a-z0-9 ]{0,160}esame di laurea /;
+const DEGREE_QUALIFICATION = [
+  'laurea(?: (?:magistrale|triennale|specialistica))?', 'diploma universitario',
+  'titolo universitario', 'titolo di dottore', 'dottorato',
+  'bachelor of (?:science|arts)', 'bachelor(?: s)? degree',
+  'master of (?:science|arts)', 'master(?: s)? degree', 'degree', 'licence',
+  'diplome de (?:licence|master)', 'hochschulabschluss',
+].join('|');
+const DEGREE_AWARD = [
+  'conseguit\\w*', 'conferit\\w*', 'conferis\\w*', 'ottenut\\w*', 'rilasciat\\w*',
+  'awarded', 'conferred', 'earned', 'obtained', 'received', 'issued', 'granted',
+  'delivre\\w*', 'obtenu\\w*', 'attribu\\w*', 'verliehen', 'erworben',
+].join('|');
+const DEGREE_WORD_GAP = '(?: [a-z0-9]+){0,12}';
+const DEGREE_NEGATION = '(?:not|never|no|non|mai|nicht|pas)';
+const DEGREE_QUALIFICATION_PATTERN = '(?:' + DEGREE_QUALIFICATION + ')';
+const DEGREE_AWARD_PATTERN = '(?:' + DEGREE_AWARD + ')';
+const DEGREE_NOT_AWARDED = new RegExp(
+  ' (?:' + DEGREE_QUALIFICATION_PATTERN + DEGREE_WORD_GAP + ' ' + DEGREE_NEGATION + DEGREE_WORD_GAP + ' ' + DEGREE_AWARD_PATTERN
+  + '|' + DEGREE_NEGATION + DEGREE_WORD_GAP + ' ' + DEGREE_AWARD_PATTERN + DEGREE_WORD_GAP + ' ' + DEGREE_QUALIFICATION_PATTERN
+  + '|' + DEGREE_NEGATION + DEGREE_WORD_GAP + ' ' + DEGREE_QUALIFICATION_PATTERN + DEGREE_WORD_GAP + ' ' + DEGREE_AWARD_PATTERN
+  + '|' + DEGREE_AWARD_PATTERN + DEGREE_WORD_GAP + ' ' + DEGREE_NEGATION + DEGREE_WORD_GAP + ' ' + DEGREE_QUALIFICATION_PATTERN + ') '
+);
+const COMPLETED_DEGREE = new RegExp(
+  ' (?:' + DEGREE_QUALIFICATION_PATTERN + DEGREE_WORD_GAP + ' ' + DEGREE_AWARD_PATTERN
+  + '|' + DEGREE_AWARD_PATTERN + DEGREE_WORD_GAP + ' ' + DEGREE_QUALIFICATION_PATTERN + ') '
+);
+function hasGermanUniversityCompletion(haystack: string): boolean {
+  return found(haystack, ['universitat', 'hochschule']).length > 0
+    && found(haystack, ['abschlusszeugnis']).length > 0
+    && / abgeschloss\w* (?:studiengang|studium) /.test(haystack);
+}
 
 // What a CV says about itself: in a file that should be something else, the candidate picked their CV.
 const CV_WORDS = [
@@ -113,12 +164,47 @@ export function classifyDocumentText(text: string, document: CheckedDocument): D
   if (haystack.trim().length < MIN_TEXT_CHARS) return { verdict: 'unreadable', matched: '' };
   const asked = found(haystack, document.keywords || []);
   const usual = found(haystack, KIND_WORDS[document.kind] || []);
-  const titles = found(haystack, KIND_TITLES[document.kind] || []);
   const cv = found(haystack, CV_WORDS);
-  // Unless the CV is what the posting asked for, a file that reads as a CV is the CV.
-  if (cv.length >= 3 && asked.length < 2) return { verdict: 'looks_like_cv', matched: '' };
+  const degreeCertificateRequest = document.kind === 'diploma' && isDegreeCertificateRequirement(document.label);
+  const titles = found(haystack, degreeCertificateRequest
+    ? DEGREE_CERTIFICATE_TITLES
+    : (KIND_TITLES[document.kind] || []));
+
+  // A clear file type takes precedence over phrases that merely mention the
+  // requested document in the body.
+  if (cv.length >= 3 || hasClearCvHeading(haystack)) return { verdict: 'looks_like_cv', matched: '' };
+  if (hasKnownOtherDocumentType(haystack, document.kind) || hasClearNonDocumentHeading(haystack)) {
+    return { verdict: 'mismatch', matched: '' };
+  }
+  if (document.kind !== 'diploma' && (
+    found(haystack.slice(0, 360), KIND_TITLES.diploma).length > 0
+    || ITALIAN_DEGREE_CERTIFICATION.test(haystack)
+    || COMPLETED_DEGREE.test(haystack)
+    || hasGermanUniversityCompletion(haystack)
+  )) return { verdict: 'mismatch', matched: '' };
+  if (degreeCertificateRequest && DEGREE_NOT_AWARDED.test(haystack)) return { verdict: 'mismatch', matched: '' };
   if (document.kind === 'diploma' && ITALIAN_DEGREE_NEGATION.test(haystack)) return { verdict: 'mismatch', matched: '' };
-  if (hasClearNonDocumentHeading(haystack)) return { verdict: 'mismatch', matched: '' };
+
+  // A degree-certificate requirement needs either a named credential or an
+  // explicit completion/award statement; broad terms and model keywords alone
+  // do not establish that a university degree was earned.
+  if (degreeCertificateRequest) {
+    const degreeTitle = found(haystack.slice(0, 360), DEGREE_CERTIFICATE_TITLES)[0];
+    if (degreeTitle) return { verdict: 'match', matched: degreeTitle };
+    if (!found(haystack, NON_ACADEMIC_CERTIFICATION_CONTEXT).length
+      && (ITALIAN_DEGREE_CERTIFICATION.test(haystack) || COMPLETED_DEGREE.test(haystack)
+        || hasGermanUniversityCompletion(haystack))) {
+      const awardedDegree = found(haystack, [
+        'laurea', 'diploma universitario', 'titolo universitario', 'titolo di dottore', 'dottorato',
+        'bachelor', 'master', 'degree', 'licence', 'baccalaureat', 'diplome de licence',
+        'diplome de master', 'hochschulabschluss',
+      ])[0];
+      const matched = ITALIAN_DEGREE_CERTIFICATION.test(haystack) ? 'esame di laurea' : (awardedDegree || 'degree');
+      return { verdict: 'match', matched };
+    }
+    return { verdict: 'unknown', matched: '' };
+  }
+
   if (asked.length) return { verdict: 'match', matched: asked[0] };
   if (titles.length && cv.length < 2) return { verdict: 'match', matched: titles[0] };
   if (document.kind === 'diploma' && cv.length < 2
