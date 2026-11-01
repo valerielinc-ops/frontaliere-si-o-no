@@ -369,6 +369,10 @@ async function fillText(locator, value) {
   await locator.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
   await locator.press('Backspace');
   await locator.pressSequentially(value, { delay: TYPE_DELAY_MS });
+  // The locator is resolved in the field's own frame. A same-id control in
+  // the parent frame must not make a failed fill look successful.
+  const typed = await locator.inputValue().catch(() => '');
+  if (typed !== value) throw new Error('choice_not_registered');
 }
 
 /**

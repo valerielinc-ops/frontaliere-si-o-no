@@ -366,7 +366,10 @@ export const headedBrowser = () => process.env.ASSISTED_APPLICATION_HEADED === '
 
 /** A label that is a generated name, not a question ("select-input-_r_p_", "file:_r_3_:input"). */
 export function machineLabel(label) {
-  const text = String(label || '').trim();
+  // Required markers are presentation, not part of an ATS-generated control
+  // name (for example `textarea_123 *`). Strip them before classifying the
+  // label so a live description can still replace the machine label.
+  const text = String(label || '').trim().replace(/\s*\*+\s*$/, '').trim();
   return !text || (/^[\w:.-]+$/.test(text) && /[_:\d]/.test(text));
 }
 
