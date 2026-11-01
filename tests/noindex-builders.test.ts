@@ -205,8 +205,17 @@ describe('SEO builder noindex guards', () => {
       const block = source.slice(start, end);
       expect(start).toBeGreaterThan(-1);
       expect(end).toBeGreaterThan(start);
-      expect(block).toContain('indexHtml = noindexJobAliasHtml(indexHtml);');
+      expect(block).toContain('indexHtml = noindexJobAliasHtml(');
       expect(block).toContain('const noindexLegacyTIHtml = noindexJobAliasHtml(legacyTIHtml);');
+    });
+
+    it('does not clone an already-marked noindex alias', () => {
+      const start = source.indexOf('function noindexJobAliasHtml');
+      const end = source.indexOf('function hasNoindexRobotsMeta', start);
+      const helper = source.slice(start, end);
+      expect(start).toBeGreaterThan(-1);
+      expect(end).toBeGreaterThan(start);
+      expect(helper).toContain('if (existingRobotsTag === noindexTag) return markJobBoardNoindexTargetHtml(html);');
     });
 
     it('cross-locale reconciliation bridges force noindex after fresh render or cache reuse', () => {
