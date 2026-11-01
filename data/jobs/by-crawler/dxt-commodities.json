@@ -1,7 +1,7 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-10-31T09:20:47.078Z",
-  "runId": "41187447043",
+  "assembledAt": "2026-11-01T09:18:33.245Z",
+  "runId": "41291802731",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1#offset_20897_1",
@@ -36,7 +36,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T09:20:43.198Z",
+      "crawledAt": "2026-11-01T09:18:30.400Z",
       "source": "dxt-careers-crawler",
       "sourceLang": "en",
       "employmentType": "FULL_TIME",
@@ -76,7 +76,10 @@
       "streetAddress": "Corso Elvezia 14",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:18:30.400Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

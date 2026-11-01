@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sro",
-  "assembledAt": "2026-10-31T21:46:55.211Z",
-  "runId": "41242183411",
+  "assembledAt": "2026-11-01T09:20:07.352Z",
+  "runId": "41291802731",
   "jobs": [
     {
       "id": "sro-29f37a30afb5",
@@ -35,7 +35,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/15a1ecd5-d555-47fc-b22c-77e7edda8e5b",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:48.701Z",
+      "crawledAt": "2026-11-01T09:20:00.338Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -54,7 +54,7 @@
       "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/15a1ecd5-d555-47fc-b22c-77e7edda8e5b",
       "requirements": [],
       "requirementsByLocale": {},
-      "validThrough": "2026-11-25",
+      "validThrough": "2026-11-25T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
@@ -77,7 +77,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-c91ce402535a",
@@ -111,7 +114,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ee845ce5-b070-4e15-8480-e2ec30623091",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:48.235Z",
+      "crawledAt": "2026-11-01T09:19:59.879Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -133,7 +136,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "validThrough": "2026-11-27",
+      "validThrough": "2026-11-27T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
@@ -158,7 +161,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-db7b19c60353",
@@ -191,7 +197,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/6622d87b-32dd-4b22-9276-dbf150d77cab",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:47.646Z",
+      "crawledAt": "2026-11-01T09:19:59.322Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -213,7 +219,7 @@
       "pensumMin": 40,
       "pensumMax": 60,
       "pensum": "40 - 60%",
-      "validThrough": "2026-11-25",
+      "validThrough": "2026-11-25T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "psychologin-psychologen-zesa-40-60-sro-langenthal"
@@ -242,7 +248,10 @@
           "maxValue": 71400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-3b6dc526deb4",
@@ -275,7 +284,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/494481a5-0939-42f2-8f29-6094cd8aeaef",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:47.088Z",
+      "crawledAt": "2026-11-01T09:19:58.765Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -297,7 +306,7 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "oberarzt-oberarztin-zesa-60-sro-langenthal"
@@ -320,7 +329,10 @@
           "maxValue": 96000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-6d50a2de74ab",
@@ -354,7 +366,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f961bbd3-a147-4208-b695-bf458f4ed11b",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:46.513Z",
+      "crawledAt": "2026-11-01T09:19:58.204Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -376,7 +388,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "validThrough": "2026-11-18",
+      "validThrough": "2026-11-18T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal",
@@ -408,7 +420,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-3237cdd3150e",
@@ -442,7 +457,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/131a10bb-06f4-4f78-a16a-9287afce2066",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:46.054Z",
+      "crawledAt": "2026-11-01T09:19:57.737Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -464,7 +479,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "validThrough": "2026-11-27",
+      "validThrough": "2026-11-27T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
@@ -492,7 +507,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-ccf4af052265",
@@ -525,7 +543,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a8d954ba-c4c4-43e0-a856-5391004af873",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:45.607Z",
+      "crawledAt": "2026-11-01T09:19:57.285Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -547,7 +565,7 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-10T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "medizinische-n-praxisassistent-in-pneumologie-80-sro-langenthal"
@@ -576,7 +594,10 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-01fb01a69275",
@@ -609,7 +630,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f9c28e5a-1f12-4e1f-8fa2-6f2533ca705d",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:44.995Z",
+      "crawledAt": "2026-11-01T09:19:56.718Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -631,7 +652,7 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "validThrough": "2026-11-05",
+      "validThrough": "2026-11-05T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "leitende-arztin-leitenden-arzt-oder-oberarztin-oberarzt-hamatologie-60-100-sro-langenthal"
@@ -654,7 +675,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-d37d0957780c",
@@ -687,7 +711,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b5f651b2-03ab-4135-8fc9-f0e57b526386",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:44.539Z",
+      "crawledAt": "2026-11-01T09:19:56.276Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -709,7 +733,7 @@
       "pensumMin": 70,
       "pensumMax": 100,
       "pensum": "70 - 100%",
-      "validThrough": "2026-11-27",
+      "validThrough": "2026-11-27T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "leitende-arztin-leitenden-arzt-mobile-akutbehandlung-70-100-sro-langenthal"
@@ -732,7 +756,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-ccbef4fd7793",
@@ -766,7 +793,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b87915cf-27d3-4023-9cbd-55fb65ea2b61",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:43.968Z",
+      "crawledAt": "2026-11-01T09:19:55.700Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -788,7 +815,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "leitende-arztin-leitenden-arzt-intensivstation-80-100-sro-langenthal"
@@ -811,7 +838,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-fed4a5f6a9c7",
@@ -845,7 +875,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/624df1db-96a6-4349-a312-52a34732a894",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:43.398Z",
+      "crawledAt": "2026-11-01T09:19:55.141Z",
       "addressLocality": "Divers",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -867,7 +897,7 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "validThrough": "2026-11-06",
+      "validThrough": "2026-11-06T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers"
@@ -890,7 +920,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Divers",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-a8670c2bf58d",
@@ -923,7 +956,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/c3ce13bc-cec6-48cc-9d4a-b64f7c3eacd6",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:42.938Z",
+      "crawledAt": "2026-11-01T09:19:54.653Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -945,7 +978,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "validThrough": "2026-11-03",
+      "validThrough": "2026-11-03T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "firstSeenAt": "2026-10-05T09:20:44.459Z",
       "salaryMin": 68500,
@@ -960,7 +993,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-4cda83e7ca9b",
@@ -994,7 +1030,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/5aa36029-66e0-44d4-b8d8-8c65899703ed",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:42.457Z",
+      "crawledAt": "2026-11-01T09:19:54.159Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1016,7 +1052,7 @@
       "pensumMin": 50,
       "pensumMax": 100,
       "pensum": "50 - 100%",
-      "validThrough": "2026-11-27",
+      "validThrough": "2026-11-27T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "fachperson-gesundheit-50-100-sro-langenthal",
@@ -1041,7 +1077,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-3931e4042826",
@@ -1075,7 +1114,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/57d8c177-8dfe-417f-b901-01e59bde79c2",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:41.962Z",
+      "crawledAt": "2026-11-01T09:19:53.715Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1097,7 +1136,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "validThrough": "2026-11-12",
+      "validThrough": "2026-11-12T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "fachfrau-fachmann-patientenlagerung-80-100-sro-langenthal",
@@ -1122,7 +1161,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-b44414a03b10",
@@ -1156,7 +1198,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/72c894b1-ce47-4340-a68f-c60c11de30c6",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:41.528Z",
+      "crawledAt": "2026-11-01T09:19:53.247Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1178,7 +1220,7 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "fachfrau-mann-berufliche-integration-job-coach-80-sro-langenthal"
@@ -1204,7 +1246,10 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-a24abfc25daf",
@@ -1238,7 +1283,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/179427e0-01d6-430d-950c-6f86f4669c52",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:40.934Z",
+      "crawledAt": "2026-11-01T09:19:52.662Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1260,7 +1305,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-10T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "fachexpertin-fachexperte-fur-unsere-orthopadische-abteilung-80-100-sro-langenthal"
@@ -1289,7 +1334,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-2b558e8e97e1",
@@ -1323,7 +1371,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a27edd7f-1031-4c24-b86f-e6b013eff4a8",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:40.357Z",
+      "crawledAt": "2026-11-01T09:19:52.072Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1345,7 +1393,7 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "fachexpertin-fachexperte-diabetesberatung-60-100-sro-langenthal"
@@ -1368,7 +1416,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-31129347e377",
@@ -1402,7 +1453,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/00899403-96c2-487a-abbb-e1111b9f4c93",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:39.873Z",
+      "crawledAt": "2026-11-01T09:19:51.635Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1424,7 +1475,7 @@
       "pensumMin": 50,
       "pensumMax": 100,
       "pensum": "50 - 100%",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal",
@@ -1449,7 +1500,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-32c646a2162c",
@@ -1483,7 +1537,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/72799e03-02d8-423d-b6e2-d057216b6eaf",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:39.409Z",
+      "crawledAt": "2026-11-01T09:19:51.153Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1505,7 +1559,7 @@
       "pensumMin": 50,
       "pensumMax": 100,
       "pensum": "50 - 100%",
-      "validThrough": "2026-11-18",
+      "validThrough": "2026-11-18T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
@@ -1530,7 +1584,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-8f449a7d8190",
@@ -1564,7 +1621,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/2fa80b32-e9d4-419b-ba10-37870626feb3",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:38.923Z",
+      "crawledAt": "2026-11-01T09:19:50.677Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1586,7 +1643,7 @@
       "pensumMin": 40,
       "pensumMax": 100,
       "pensum": "40 - 100%",
-      "validThrough": "2026-11-25",
+      "validThrough": "2026-11-25T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-physiotherapeut-in-im-ambulatorium-40-100-sro-langenthal"
@@ -1615,7 +1672,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-9e1b346804d2",
@@ -1649,7 +1709,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/860a74c5-9971-4656-a9e5-70df209ecd85",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:38.456Z",
+      "crawledAt": "2026-11-01T09:19:50.224Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1671,7 +1731,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "validThrough": "2026-11-25",
+      "validThrough": "2026-11-25T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-physiotherapeut-in-akutstation-und-ambulatorium-80-100-sro-langenthal",
@@ -1702,7 +1762,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-9fb928018478",
@@ -1736,7 +1799,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b1cc17be-13e3-4270-955e-23f499aa0ba1",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:37.989Z",
+      "crawledAt": "2026-11-01T09:19:49.767Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1758,7 +1821,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-10T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische"
@@ -1787,7 +1850,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-0542c666253c",
@@ -1820,7 +1886,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b690a522-ca97-4757-84fb-31320e36ad9c",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:37.549Z",
+      "crawledAt": "2026-11-01T09:19:49.309Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1842,7 +1908,7 @@
       "pensumMin": 70,
       "pensumMax": 100,
       "pensum": "70 - 100%",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-10T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
@@ -1871,7 +1937,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-bccca86ba863",
@@ -1904,7 +1973,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/30ffab83-73e6-444a-939b-5b87c1e1395e",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:37.062Z",
+      "crawledAt": "2026-11-01T09:19:48.851Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1926,7 +1995,7 @@
       "pensumMin": 70,
       "pensumMax": 100,
       "pensum": "70 - 100%",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-10T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
@@ -1955,7 +2024,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-5b34c16cb87d",
@@ -1989,7 +2061,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e7505324-fee2-489f-aaf7-b466d16967fb",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:36.577Z",
+      "crawledAt": "2026-11-01T09:19:48.417Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2011,7 +2083,7 @@
       "pensumMin": 50,
       "pensumMax": 100,
       "pensum": "50 - 100%",
-      "validThrough": "2026-11-25",
+      "validThrough": "2026-11-25T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal"
@@ -2034,7 +2106,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-3bef8015206e",
@@ -2068,7 +2143,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/fb974875-ba61-46d9-975d-df78bb2ea1c1",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:36.105Z",
+      "crawledAt": "2026-11-01T09:19:47.932Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2090,7 +2165,7 @@
       "pensumMin": 40,
       "pensumMax": 100,
       "pensum": "40 - 100%",
-      "validThrough": "2026-11-25",
+      "validThrough": "2026-11-25T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
@@ -2115,7 +2190,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-b87487cc4c32",
@@ -2149,7 +2227,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/fa2584df-2ff3-40b3-850d-979c472bc69a",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:35.528Z",
+      "crawledAt": "2026-11-01T09:19:47.360Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2168,7 +2246,7 @@
       "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/fa2584df-2ff3-40b3-850d-979c472bc69a",
       "requirements": [],
       "requirementsByLocale": {},
-      "validThrough": "2026-11-25",
+      "validThrough": "2026-11-25T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-sowie-fachperson-gesundheit-fage-im-mitarbeiterpool-gemass",
@@ -2193,7 +2271,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-d394d55841c0",
@@ -2227,7 +2308,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f7058a73-e4fb-440e-94e0-26599487a55d",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:35.005Z",
+      "crawledAt": "2026-11-01T09:19:46.905Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2246,7 +2327,7 @@
       "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/f7058a73-e4fb-440e-94e0-26599487a55d",
       "requirements": [],
       "requirementsByLocale": {},
-      "validThrough": "2026-11-27",
+      "validThrough": "2026-11-27T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
@@ -2269,7 +2350,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-6c254d2faf7e",
@@ -2303,7 +2387,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/9c919a4d-6230-4786-b8c5-fe9ad04ce8dd",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:34.381Z",
+      "crawledAt": "2026-11-01T09:19:46.348Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2322,7 +2406,7 @@
       "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/9c919a4d-6230-4786-b8c5-fe9ad04ce8dd",
       "requirements": [],
       "requirementsByLocale": {},
-      "validThrough": "2026-11-27",
+      "validThrough": "2026-11-27T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
@@ -2345,7 +2429,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-692dbbd65d95",
@@ -2378,7 +2465,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/bf9b30ba-b305-4c6e-bd49-b9d4a2a7fd0e",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:33.780Z",
+      "crawledAt": "2026-11-01T09:19:45.891Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2400,7 +2487,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "validThrough": "2026-11-18",
+      "validThrough": "2026-11-18T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-hf-oder-toa-80-100-sro-langenthal",
@@ -2425,7 +2512,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-020fa5adadf6",
@@ -2459,7 +2549,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/11c236ed-4886-499a-8eac-11b721920809",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:33.159Z",
+      "crawledAt": "2026-11-01T09:19:45.427Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2481,7 +2571,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "validThrough": "2026-11-18",
+      "validThrough": "2026-11-18T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80",
@@ -2506,7 +2596,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-21ee8a10727e",
@@ -2540,7 +2633,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/36772b65-6b97-46ad-9719-35d234342972",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:32.569Z",
+      "crawledAt": "2026-11-01T09:19:44.910Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2562,7 +2655,7 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "validThrough": "2026-11-25",
+      "validThrough": "2026-11-25T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
@@ -2591,7 +2684,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-05c452a7b2e2",
@@ -2625,7 +2721,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/bac38b09-0db6-4880-a899-a0900022187f",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:31.981Z",
+      "crawledAt": "2026-11-01T09:19:44.457Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2647,7 +2743,7 @@
       "pensumMin": 40,
       "pensumMax": 40,
       "pensum": "40%",
-      "validThrough": "2026-11-25",
+      "validThrough": "2026-11-25T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-expertin-experte-in-notfallpflege-intensivpflege-ab-40-im-mitarbeiterpool-sro",
@@ -2672,7 +2768,10 @@
           "maxValue": 47600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-606355b72c31",
@@ -2706,7 +2805,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/27629b39-cf8d-4e51-80f0-d7773012ed4c",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:31.388Z",
+      "crawledAt": "2026-11-01T09:19:43.989Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2728,7 +2827,7 @@
       "pensumMin": 50,
       "pensumMax": 100,
       "pensum": "50 - 100%",
-      "validThrough": "2026-11-07",
+      "validThrough": "2026-11-07T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal"
@@ -2754,7 +2853,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-da3f7f0a75a7",
@@ -2788,7 +2890,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f08d92d1-b64a-460c-bdc1-0afe8161954b",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:30.780Z",
+      "crawledAt": "2026-11-01T09:19:43.407Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2810,7 +2912,7 @@
       "pensumMin": 50,
       "pensumMax": 50,
       "pensum": "50%",
-      "validThrough": "2026-11-19",
+      "validThrough": "2026-11-19T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "compliance-und-riskmanager-50-sro-langenthal"
@@ -2839,7 +2941,10 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "sro-ddd5f2a80c45",
@@ -2873,7 +2978,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/2cbd43c4-8cbf-4514-8ed7-7b17b42a0df7",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:46:30.125Z",
+      "crawledAt": "2026-11-01T09:19:42.777Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2895,7 +3000,7 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "validThrough": "2026-11-12",
+      "validThrough": "2026-11-12T00:00:00.000Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "advanced-practice-nurse-apn-zentrum-fur-essstorungen-und-adipositas-60-sro-langenthal"
@@ -2918,7 +3023,10 @@
           "maxValue": 71400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "molecular-partners",
-  "assembledAt": "2026-10-31T21:50:03.240Z",
-  "runId": "41242183411",
+  "assembledAt": "2026-11-01T09:18:14.811Z",
+  "runId": "41291802731",
   "jobs": [
     {
       "id": "molecular-partners-99c11a77cd35",
@@ -34,7 +34,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:49:58.148Z",
+      "crawledAt": "2026-11-01T09:18:09.407Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -75,7 +75,21 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Molecular Partners",
+        "streetAddress": "Wagistrasse 14",
+        "postalCode": "8952",
+        "addressLocality": "Schlieren",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:50:21.315Z"
+      },
+      "streetAddress": "Wagistrasse 14",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:18:09.407Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "molecular-partners-749786a2a588",
@@ -108,7 +122,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:49:57.609Z",
+      "crawledAt": "2026-11-01T09:18:08.869Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -149,7 +163,21 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Molecular Partners",
+        "streetAddress": "Wagistrasse 14",
+        "postalCode": "8952",
+        "addressLocality": "Schlieren",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:50:21.315Z"
+      },
+      "streetAddress": "Wagistrasse 14",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-23T09:18:08.869Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
