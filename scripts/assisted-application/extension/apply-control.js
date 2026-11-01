@@ -163,7 +163,7 @@ const privacySemanticIdentifierFields = Object.freeze(["name","id","fieldId","co
 function privacySemanticIdentifiers(...sources) {
   const keys = privacySemanticIdentifierFields;
   const technicalId = /^(?:[a-z]{1,4}\d{1,4}|(?:input|field|control|question|checkbox|radio)[-:.]?\d+)$/i;
-  const semanticFactId = /^(?:e?mail|mail|tel(?:ephone)?|phone|mobile|cellulare|handy|telefon\w*|telefono|sex|gender|birth|dob|bday|country|paese|nazione|pays|land|address|indirizzo|adresse|residence|residenza|wohnort|domicile|street|strasse|rue|postal|zip|code|postleitzahl|plz|npa|cap)\d{1,4}$/i;
+  const semanticFactId = /^(?:e?mail|mail|tel(?:ephone)?|phone|mobile|cellulare|handy|telefon\w*|telefono|sex|gender|birth|dob|bday|country|paese|nazione|pays|land|visa|address|indirizzo|adresse|residence|residenza|wohnort|domicile|street|strasse|rue|postal|zip|code|postleitzahl|plz|npa|cap)\d{1,4}$/i;
   const nestedKeys = ['portalNativeContract', 'originalNativeContract', 'nativeContract'];
   const values = [];
   const seen = new Set();
