@@ -1,0 +1,24 @@
+{
+  "companyKey": "jobbern-ch",
+  "companyName": "jobbern",
+  "companyHost": "jobbasel.ch",
+  "platform": "jobbasel.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.jobbasel.ch/"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 11,
+  "sampleTitles": [
+    "Jobs im Kanton Basel-Stadt",
+    "Jobs im Kanton Baselland",
+    "Jobs in der Stadt Basel",
+    "Jobs in der Stadt Liestal",
+    "Festanstellungen"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-11-01T13:07:49.631Z",
+  "candidateKey": "jobbern.ch"
+}
