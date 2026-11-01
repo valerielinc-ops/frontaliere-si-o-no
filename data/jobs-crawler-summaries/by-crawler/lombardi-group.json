@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-10-31T21:31:42.391Z",
+  "generatedAt": "2026-11-01T09:18:35.025Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 15285,
-  "avgDurationMs": 15285,
+  "durationMs": 15724,
+  "avgDurationMs": 15724,
   "durationHistory": [
-    15285
+    15724
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,23 +35,25 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2026-07-12T22:03:39.621Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Giubiasco",
       "postalCode": "6512",
       "id": "lombardi-group-b8c45529f0b3",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 94,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -75,23 +77,25 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2026-07-12T22:03:39.621Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Giubiasco",
       "postalCode": "6512",
       "id": "lombardi-group-3ce9ee408868",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 94,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
@@ -118,7 +122,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2026-11-15T21:38:26.963Z",
       "id": "lombardi-group-b671bc890ee8",
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -128,12 +132,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6512",
-      "_qualityScore": 94,
+      "streetAddress": "Giubiasco",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -157,7 +164,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2026-10-04T14:18:05.737Z",
       "id": "lombardi-group-1a1731602394",
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -167,12 +174,15 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 94,
+      "streetAddress": "Giubiasco",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -196,23 +206,25 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2026-10-01T12:31:53.830Z",
       "id": "lombardi-group-28c819852acb",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Giubiasco",
       "postalCode": "6512",
       "firstSeenAt": "2026-07-03T12:31:53.830Z",
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 94,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -236,23 +248,25 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2026-07-12T22:03:39.621Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Giubiasco",
       "postalCode": "6512",
       "id": "lombardi-group-801be55e6f08",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 94,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -276,25 +290,27 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "",
+      "validThrough": "2026-07-12T22:03:39.621Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Giubiasco",
       "postalCode": "6512",
       "id": "lombardi-group-acf929491e4c",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 94,
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

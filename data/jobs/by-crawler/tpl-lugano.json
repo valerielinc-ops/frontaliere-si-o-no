@@ -1,7 +1,7 @@
 {
   "crawlerKey": "tpl-lugano",
-  "assembledAt": "2026-10-31T21:49:59.676Z",
-  "runId": "41242445754",
+  "assembledAt": "2026-11-01T09:20:41.962Z",
+  "runId": "41292050097",
   "jobs": [
     {
       "title": "Capo officina",
@@ -21,7 +21,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:49:53.850Z",
+      "crawledAt": "2026-11-01T09:20:36.861Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "postalCode": "6900",
@@ -81,7 +81,10 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:21:26.983Z"
+      "firstSeenAt": "2026-10-23T09:21:26.983Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:20:36.861Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "title": "Impiegato tecnico amministrativo",
@@ -101,7 +104,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:49:53.845Z",
+      "crawledAt": "2026-11-01T09:20:36.858Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "postalCode": "6900",
@@ -161,7 +164,10 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-23T09:21:26.981Z"
+      "firstSeenAt": "2026-10-23T09:21:26.981Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:20:36.858Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

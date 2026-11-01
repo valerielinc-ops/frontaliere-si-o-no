@@ -1,59 +1,59 @@
 {
   "key": "roche",
   "label": "Roche",
-  "generatedAt": "2026-10-31T21:26:47.060Z",
-  "total": 116,
+  "generatedAt": "2026-11-01T09:16:01.343Z",
+  "total": 114,
   "discovered": null,
-  "parsed": 114,
+  "parsed": 113,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 116,
+  "written": 114,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 116,
-  "durationMs": 372522,
-  "avgDurationMs": 372522,
+  "removedCount": 2,
+  "unchangedCount": 114,
+  "durationMs": 345265,
+  "avgDurationMs": 345265,
   "durationHistory": [
-    372522
+    345265
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [
     {
-      "id": "roche-8491be6aa649",
-      "slug": "internship-ai-agente-per-la-conformita-normativa-ambientale-roche-basel",
+      "id": "roche-ab83569f3467",
+      "slug": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
       "company": "Roche",
       "companyKey": "roche",
       "companyDomain": "roche.com",
-      "title": "Internship – Agentic AI for Environmental Regulatory Compliance",
+      "title": "Senior Legal Counsel – Legal Business Development & Corporate",
       "location": "Basel",
       "canton": "BS",
-      "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Internship---Agentic-AI-for-Environmental-Regulatory-Compliance_202609-124819",
+      "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-Legal-Counsel---Legal-Business-Development---Corporate_202609-122881-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:19:16.207Z",
+      "crawledAt": "2026-10-30T21:15:53.537Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Altro",
+      "category": "IT",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
+      "experienceLevel": "senior",
       "sector": "Farmaceutico",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-20",
-      "postedDate": "2026-10-20",
+      "datePosted": "2026-10-01",
+      "postedDate": "2026-10-01",
       "postingDateSource": "reported",
-      "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Internship---Agentic-AI-for-Environmental-Regulatory-Compliance_202609-124819",
-      "firstSeenAt": "2026-10-03T09:11:07.997Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-Legal-Counsel---Legal-Business-Development---Corporate_202609-122881-1",
+      "firstSeenAt": "2026-09-09T13:44:04.141Z",
+      "salaryMin": 99500,
+      "salaryMax": 169500,
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
@@ -62,6 +62,48 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "roche-08ef72ae81e4",
+      "slug": "data-ai-excellence-lead-gestione-dei-dati-e-governance-rdt-roche-kaiseraugst",
+      "company": "Roche",
+      "companyKey": "roche",
+      "companyDomain": "roche.com",
+      "title": "Data & AI Excellence Lead - RDT Data Management & Governance",
+      "location": "Kaiseraugst",
+      "canton": "AG",
+      "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Data---AI-Excellence-Lead---RDT-Data-Management---Governance_202610-126529",
+      "source": "Roche Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-30T21:15:14.169Z",
+      "addressLocality": "Kaiseraugst",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Farmaceutico",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-16",
+      "postedDate": "2026-10-16",
+      "postingDateSource": "reported",
+      "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Data---AI-Excellence-Lead---RDT-Data-Management---Governance_202610-126529",
+      "firstSeenAt": "2026-10-16T21:14:21.061Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
+      "salarySource": "estimated",
+      "postalCode": "4303",
+      "addressRegion": "AG",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 25,
         "completeness": 22
       }
@@ -80,7 +122,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/System-Development-Troubleshooter_202203-110282",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:23.283Z",
+      "crawledAt": "2026-11-01T09:15:27.726Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -100,12 +142,16 @@
       "salarySource": "estimated",
       "postalCode": "6343",
       "addressRegion": "ZG",
-      "_qualityScore": 90,
+      "streetAddress": "Rotkreuz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:27.726Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -120,7 +166,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Development-Engineer--contract-80-100--_202402-104044-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:17.796Z",
+      "crawledAt": "2026-11-01T09:15:23.426Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,12 +187,16 @@
       "salarySource": "estimated",
       "postalCode": "6343",
       "addressRegion": "ZG",
-      "_qualityScore": 90,
+      "streetAddress": "Rotkreuz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:23.426Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -161,7 +211,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Lab-Technician--contract-_202109-125765-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:16.939Z",
+      "crawledAt": "2026-11-01T09:15:22.671Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -182,12 +232,16 @@
       "salarySource": "estimated",
       "postalCode": "6343",
       "addressRegion": "ZG",
-      "_qualityScore": 90,
+      "streetAddress": "Rotkreuz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:22.671Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -202,7 +256,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Software-Tester-within-RMD-System-Development--contract-_202109-125486-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:16.076Z",
+      "crawledAt": "2026-11-01T09:15:21.823Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -223,12 +277,16 @@
       "salarySource": "estimated",
       "postalCode": "6343",
       "addressRegion": "ZG",
-      "_qualityScore": 92,
+      "streetAddress": "Rotkreuz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:21.823Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -243,7 +301,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Development-Engineer--contract-_202302-103172-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:15.170Z",
+      "crawledAt": "2026-11-01T09:15:21.047Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,12 +321,16 @@
       "salarySource": "estimated",
       "postalCode": "6343",
       "addressRegion": "ZG",
-      "_qualityScore": 92,
+      "streetAddress": "Rotkreuz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:21.047Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -283,7 +345,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Digital-Pathologist_202606-116179-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:02.985Z",
+      "crawledAt": "2026-11-01T09:15:15.438Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -304,12 +366,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:15.438Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -324,7 +390,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Software-Senior-Technical-Lead-Rust--80-100--_202605-113537",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:00.288Z",
+      "crawledAt": "2026-11-01T09:15:13.263Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -344,12 +410,16 @@
       "salarySource": "estimated",
       "postalCode": "6343",
       "addressRegion": "ZG",
-      "_qualityScore": 92,
+      "streetAddress": "Rotkreuz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:13.263Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -364,7 +434,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/CMC-Expert-Analytical-Development-focus-Parenterals-Devices_202607-119705-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:25:56.607Z",
+      "crawledAt": "2026-11-01T09:15:10.346Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -385,12 +455,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:10.346Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -405,7 +479,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Principal-Scientist-si-RNA-Design_202606-115829-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:25:55.111Z",
+      "crawledAt": "2026-11-01T09:15:09.111Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -426,12 +500,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:09.111Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -446,7 +524,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Anlage--und-Apparatebauer-in-EFZ--ab-August-2027-_202607-117614",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:54.176Z",
+      "crawledAt": "2026-11-01T09:15:08.267Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -467,12 +545,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:08.267Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -487,7 +569,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Chemie--und-Pharmatechnolog-in-EFZ--ab-August-2027-_202607-117593",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:53.276Z",
+      "crawledAt": "2026-11-01T09:15:07.461Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -508,12 +590,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:07.461Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -528,7 +614,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Informatiker-in-EFZ-Applikationsentwicklung--ab-August-2027-_202607-117607",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:52.373Z",
+      "crawledAt": "2026-11-01T09:15:06.660Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -549,12 +635,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:06.660Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -569,7 +659,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-ICT-Fachmann-frau-EFZ--ab-August-2027-_202607-117615",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:51.433Z",
+      "crawledAt": "2026-11-01T09:15:05.843Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -590,12 +680,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:05.843Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -610,7 +704,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Kaufmann-frau-EFZ--ab-August-2027-_202607-117595",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:50.526Z",
+      "crawledAt": "2026-11-01T09:15:05.041Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -631,12 +725,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:05.041Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -651,7 +749,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Laborant-in-EFZ-Fachrichtung-Biologie--ab-August-2027-_202607-117635",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:49.557Z",
+      "crawledAt": "2026-11-01T09:15:04.228Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -672,12 +770,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:04.228Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -692,7 +794,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Logistiker-in-EFZ--ab-August-2027-_202607-117605",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:48.510Z",
+      "crawledAt": "2026-11-01T09:15:03.180Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -713,12 +815,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:03.180Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -733,7 +839,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Fachmann-frau-Information-und-Dokumentation-EFZ--ab-August-2027-_202607-117630",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:47.592Z",
+      "crawledAt": "2026-11-01T09:15:02.358Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -754,12 +860,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:02.358Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -774,7 +884,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-DMPK-PD-Project-Leader_202607-119549-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:25:46.079Z",
+      "crawledAt": "2026-11-01T09:15:01.080Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -795,12 +905,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:01.080Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -815,7 +929,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Research-Associate-in-vivo-Pharmacology-in-Cardiovascular-and-Metabolic-Diseases---Temporary-Position-for-2-years_202606-116281-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:25:44.725Z",
+      "crawledAt": "2026-11-01T09:14:59.893Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -836,12 +950,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:59.893Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -856,7 +974,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Laborant-in-EFZ-Fachrichtung-Chemie--ab-August-2027-_202607-117574",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:39.837Z",
+      "crawledAt": "2026-11-01T09:14:56.015Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -877,12 +995,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:56.015Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -897,7 +1019,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-Software-Engineer--Lab-Automation_202608-121494",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:25:38.392Z",
+      "crawledAt": "2026-11-01T09:14:54.810Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -918,12 +1040,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:54.810Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -938,7 +1064,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Global-Medical-Science-Leader-Infectious-Disease_202508-120526-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:25:27.897Z",
+      "crawledAt": "2026-11-01T09:14:51.057Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -959,12 +1085,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:14:51.057Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -979,7 +1109,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Tierpfleger-EFZ--ab-August-2027-_202607-117627",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:26.413Z",
+      "crawledAt": "2026-11-01T09:14:49.616Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1000,12 +1130,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:14:49.616Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1020,7 +1154,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Operations-Portfolio-Lead-BGE---Blood-Gas---Electrolyte-Portfolio_202609-122751-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:25:23.890Z",
+      "crawledAt": "2026-11-01T09:14:46.506Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1041,12 +1175,16 @@
       "salarySource": "estimated",
       "postalCode": "6343",
       "addressRegion": "ZG",
-      "_qualityScore": 92,
+      "streetAddress": "Rotkreuz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:14:46.506Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1061,7 +1199,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Principal---Senior-Principal-Software-Engineer_202605-112796-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:25:21.798Z",
+      "crawledAt": "2026-11-01T09:14:43.554Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1082,12 +1220,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:14:43.554Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1102,7 +1244,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Global-Head-Regulatory-Data--Digital-and-AI_202608-122114",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:25:20.904Z",
+      "crawledAt": "2026-11-01T09:14:42.715Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1123,12 +1265,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-14T09:14:42.715Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1143,7 +1289,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Global-Medical-Science-Leader--Alzheimer-s-Disease-_202609-122540",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:25:19.081Z",
+      "crawledAt": "2026-11-01T09:14:40.584Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1164,12 +1310,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:14:40.584Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1184,7 +1334,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Koch---Kchin--m-w-d--EFZ---ab-August-2027-_202609-123888",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:17.735Z",
+      "crawledAt": "2026-11-01T09:14:39.397Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1205,12 +1355,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:14:39.397Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1225,7 +1379,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Restaurantfachfrau-----mann-EFZ--ab-August-2027-_202609-123285",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:16.537Z",
+      "crawledAt": "2026-11-01T09:14:38.212Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1246,12 +1400,16 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:14:38.212Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1266,7 +1424,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-ADS-Programmer_202603-105350-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:25:13.712Z",
+      "crawledAt": "2026-11-01T09:14:35.750Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1287,14 +1445,18 @@
       "salarySource": "estimated",
       "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 92,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:14:35.750Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

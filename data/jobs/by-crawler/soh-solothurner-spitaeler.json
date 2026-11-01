@@ -1,7 +1,7 @@
 {
   "crawlerKey": "soh-solothurner-spitaeler",
-  "assembledAt": "2026-10-31T21:51:46.011Z",
-  "runId": "41242183411",
+  "assembledAt": "2026-11-01T09:26:00.231Z",
+  "runId": "41291802731",
   "jobs": [
     {
       "id": "soh-solothurner-spitaeler-56c530dafaf1",
@@ -35,7 +35,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/lagerungspflegerin-lagerungspfleger-w-m-d/195d1b68-b34b-4cd8-8589-0ef35f0d48f4",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:39.677Z",
+      "crawledAt": "2026-11-01T09:25:53.169Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -136,7 +136,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:53.169Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-ae57fcc9c8be",
@@ -169,7 +173,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mitarbeiterin-mitarbeiter-verlegerdienst-w-m-d/f5bc2206-2014-49cc-ad99-097c00758947",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:37.148Z",
+      "crawledAt": "2026-11-01T09:25:51.167Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -285,7 +289,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:51.167Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-9fe31f74b090",
@@ -319,7 +327,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-allgemeine-innere-medizin-w-m-d/3aa66660-b2cf-4500-b318-9b216b6a2381",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:34.644Z",
+      "crawledAt": "2026-11-01T09:25:49.158Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -407,7 +415,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:49.158Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-e16118858b97",
@@ -441,7 +453,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/rettungssanitaeterin-rettungssanitaeter-mit-oder-ohne-wb-expertin-experte-anaesthesiepflege-w-m-d/6e1ca226-75c7-4b20-a408-9bdcf35fa3eb",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:32.149Z",
+      "crawledAt": "2026-11-01T09:25:47.155Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -525,7 +537,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:47.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-50e061881eda",
@@ -559,7 +575,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/assistenzaerztin-assistenzarzt-urologie-w-m-d/38d272b1-837f-40d4-81d6-9dbddf18552a",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:29.653Z",
+      "crawledAt": "2026-11-01T09:25:45.160Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -683,7 +699,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:45.160Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-4b17a4a4cade",
@@ -717,7 +737,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d/325e25d9-6ff8-4d1e-be8b-c42c95c36152",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:27.151Z",
+      "crawledAt": "2026-11-01T09:25:43.157Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -797,7 +817,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:43.157Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-2f1c968e530f",
@@ -831,7 +855,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-w-m-d/7ad452a6-b4b9-4590-a169-f508735383df",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:24.647Z",
+      "crawledAt": "2026-11-01T09:25:41.157Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -911,7 +935,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:41.157Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-f5067315880a",
@@ -944,7 +972,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/zivildienstleistende-spitalgehilfin-zivildienstleister-spitalgehilfe-w-m-d/4bcd3fa8-a11a-4a5f-8b75-a4b4ec3313e6",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:22.148Z",
+      "crawledAt": "2026-11-01T09:25:39.154Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1004,7 +1032,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:39.154Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-eeddb8ecf71d",
@@ -1037,7 +1069,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-urologie-w-m-d/3c73e74b-12d4-455a-8f4b-425edd85ce03",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:19.643Z",
+      "crawledAt": "2026-11-01T09:25:37.172Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1123,7 +1155,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:37.172Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-5a958329572b",
@@ -1157,7 +1193,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-operationstechnik-im-pool-w-m-d/a49107f7-fdde-46d5-9317-0990ef94c2b5",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:17.145Z",
+      "crawledAt": "2026-11-01T09:25:35.169Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1235,7 +1271,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:35.169Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-967f00996566",
@@ -1269,7 +1309,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-innere-medizin-w-m-d/8e619525-3c1e-40b1-88d5-8417b477cd84",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:14.674Z",
+      "crawledAt": "2026-11-01T09:25:33.195Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1368,7 +1408,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:33.195Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-7c4fd91be5ab",
@@ -1401,7 +1445,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-pflegepool-chirurgie-w-m-d/c9baa21f-044e-40e0-93ba-45fac0530ed8",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:12.143Z",
+      "crawledAt": "2026-11-01T09:25:31.161Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1475,7 +1519,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:31.161Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-169f78967809",
@@ -1509,7 +1557,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/expertin-experte-anaesthesiepflege-w-m-d/d7043a20-c184-4e62-a797-57c40729d774",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:00.647Z",
+      "crawledAt": "2026-11-01T09:25:29.171Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1603,7 +1651,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:29.171Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-c6d609f23117",
@@ -1637,7 +1689,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-interdisziplinaere-notfallstation-w-m-d/d7f30483-ef4e-4da4-8b73-3f5739471fe2",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:58.144Z",
+      "crawledAt": "2026-11-01T09:25:27.157Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1722,7 +1774,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:27.157Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-e84007909c76",
@@ -1756,7 +1812,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/expertin-experte-intensivpflege-w-m-d/b4ffab3d-6662-4580-85ec-24e571785676",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:55.641Z",
+      "crawledAt": "2026-11-01T09:25:25.164Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1850,7 +1906,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:25.164Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-0d4f38fc2293",
@@ -1884,7 +1944,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-stationaere-dienste-w-m-d/f4ea8575-4501-4abd-85aa-aab0710bbd9e",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:53.141Z",
+      "crawledAt": "2026-11-01T09:25:23.159Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1970,7 +2030,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:23.159Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-30baa9c99e2d",
@@ -2003,7 +2067,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-oder-leitende-aerztin-leitender-arzt-angiologie-w-m-d/14a1ef8b-3022-412f-a889-cbf5afab3f93",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:50.651Z",
+      "crawledAt": "2026-11-01T09:25:21.168Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2086,7 +2150,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:21.168Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-be32772eb97f",
@@ -2120,7 +2188,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-operative-medizin-schwerpunkt-chirurgie-orthopaedie-w-m-d/ce54b980-ec4b-408e-a0f0-66018ccd1018",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:47.646Z",
+      "crawledAt": "2026-11-01T09:25:19.169Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2205,7 +2273,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:19.169Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-8f845768f0fb",
@@ -2239,7 +2311,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-interdisziplinaere-privatstation-w-m-d/d3e0bca9-b725-49a4-b5c9-243084f6907f",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:44.642Z",
+      "crawledAt": "2026-11-01T09:25:17.162Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2325,7 +2397,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:17.162Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-4874a12bc91f",
@@ -2359,7 +2435,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-innere-medizin-mit-schwerpunkttitel-palliative-care-w-m-d/fcf3106d-cc53-49ca-a66b-130948779a18",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:41.656Z",
+      "crawledAt": "2026-11-01T09:25:15.622Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2435,7 +2511,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:15.622Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-acd5aeeeeb3c",
@@ -2469,7 +2549,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-operationstechnik-toa-w-m-d/c2317c72-b5e2-42b8-8115-e8f2d0fcf7dc",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:38.663Z",
+      "crawledAt": "2026-11-01T09:25:15.209Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2551,7 +2631,11 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:15.209Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-5c12c5ff6a34",
@@ -2585,7 +2669,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-medizin-und-notfallmedizin-w-m-d/42df6d3b-683d-4c1e-a1bd-83297a36fd2f",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:35.646Z",
+      "crawledAt": "2026-11-01T09:25:14.781Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2696,7 +2780,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:14.781Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-4f86784a4d4c",
@@ -2730,7 +2818,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-gesundheit-und-stationsassistenz-stationaere-dienste-w-m-d/5b72961d-a615-46f8-adfb-3cdbba3dee71",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:32.655Z",
+      "crawledAt": "2026-11-01T09:25:14.224Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2821,7 +2909,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:14.224Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-be2a51791850",
@@ -2855,7 +2947,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/expertin-experte-anaesthesiepflege-pool-w-m-d/c9a413d6-0681-4dac-bb2f-85ab294b529b",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:29.667Z",
+      "crawledAt": "2026-11-01T09:25:13.664Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2933,7 +3025,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:13.664Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-a13477eb6f42",
@@ -2966,7 +3062,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/unterassistentin-unterassistent-w-m-d/16828322-88be-4d56-81c4-ecba69e568c3",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:26.665Z",
+      "crawledAt": "2026-11-01T09:25:13.068Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3049,7 +3145,11 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:13.068Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-b9c0662678cf",
@@ -3082,7 +3182,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/assistenzaerztin-assistenzarzt-kinder-und-jugendpsychiatrie-w-m-d/de52ebfb-ae37-4c6a-b04f-ff883a4bc0f6",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:23.657Z",
+      "crawledAt": "2026-11-01T09:25:12.654Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3205,7 +3305,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:12.654Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-7a9fdd2810ed",
@@ -3239,7 +3343,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-medizin-w-m-d/9e0a4217-9b9b-4818-8a36-82f242c619f3",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:20.647Z",
+      "crawledAt": "2026-11-01T09:25:12.037Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3339,7 +3443,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:12.037Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-84c04d99c651",
@@ -3373,7 +3481,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-schwerpunkt-chirurgie-orthopaedie-w-m-d/560c5554-b129-4902-acb7-28d8cfbf4e9d",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:17.643Z",
+      "crawledAt": "2026-11-01T09:25:11.623Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3455,7 +3563,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:11.623Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-7e73080b6c6f",
@@ -3489,7 +3601,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/expertin-experte-notfallpflege-w-m-d/368eb107-16c6-4b0f-a7b6-656c0aec0725",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:14.650Z",
+      "crawledAt": "2026-11-01T09:25:11.211Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3579,7 +3691,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:11.211Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-2b6afe6acb41",
@@ -3613,7 +3729,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/lagerungspflegerin-lagerungspfleger-w-m-d/369ac934-590d-4318-b0d0-3c8e46ab0e33",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:11.653Z",
+      "crawledAt": "2026-11-01T09:25:10.796Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3667,7 +3783,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:10.796Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-7285ba66bf3d",
@@ -3701,7 +3821,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-handchirurgie-m-w-d/9154f7e3-d12e-4cc0-a6cf-b5198add28de",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:08.662Z",
+      "crawledAt": "2026-11-01T09:25:10.391Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3779,7 +3899,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:10.391Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-319cce49f3ac",
@@ -3813,7 +3937,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-w-m-d/628dad6a-360d-4294-94ea-616813c1c29b",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:05.644Z",
+      "crawledAt": "2026-11-01T09:25:09.969Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3904,7 +4028,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:09.969Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-c653eb28ba3d",
@@ -3937,7 +4065,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/physiotherapeutin-physiotherapeut-m-w-d/5af6bb5c-8844-462f-b92f-c9580ec584d1",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:02.641Z",
+      "crawledAt": "2026-11-01T09:25:09.564Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4016,7 +4144,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:09.564Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-95e0e52438ec",
@@ -4050,7 +4182,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-gesundheit-im-pflegepool-w-m-d/d1119d5a-be88-4ac3-8501-6e27d8679ba1",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:59.644Z",
+      "crawledAt": "2026-11-01T09:25:09.020Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4129,7 +4261,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:09.020Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-56fe5c6c2695",
@@ -4163,7 +4299,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-endokrinologie-w-m-d/f6513191-3134-4e66-9d1a-1aff4a68c7eb",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:56.640Z",
+      "crawledAt": "2026-11-01T09:25:08.476Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4282,7 +4418,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:08.476Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-db60d21d6b1e",
@@ -4316,7 +4456,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-w-m-d/18b3e88c-a038-46b1-abf7-1791db4edeb7",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:53.645Z",
+      "crawledAt": "2026-11-01T09:25:07.938Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4420,7 +4560,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:07.938Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-45cc3c3a4605",
@@ -4453,7 +4597,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/nachdiplomstudium-hf-intensivpflege-w-m-d/da764e56-d56e-4bf5-91d8-8abe27cadc8f",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:50.641Z",
+      "crawledAt": "2026-11-01T09:25:07.383Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4526,7 +4670,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:07.383Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-71a999de6ff5",
@@ -4560,7 +4708,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/nachdiplomstudium-hf-intensivpflege-w-m-d/0ab6818f-2aef-4f78-a290-fba48b908df9",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:47.645Z",
+      "crawledAt": "2026-11-01T09:25:06.847Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4659,7 +4807,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:06.847Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-e0038529f7c1",
@@ -4693,7 +4845,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/nachdiplomstudium-hf-intensivpflege-w-m-d/344f9bb6-c6a2-44be-aeb6-b915a268c0f2",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:44.640Z",
+      "crawledAt": "2026-11-01T09:25:06.322Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4741,7 +4893,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:06.322Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-d4519b37671b",
@@ -4775,7 +4931,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/nachdiplomstudium-hf-notfallpflege-w-m-d/3c93f5a8-98bd-47d9-a0b9-b57cf772a9d3",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:41.664Z",
+      "crawledAt": "2026-11-01T09:25:05.753Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4853,7 +5009,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:05.753Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-93ed98ab9416",
@@ -4887,7 +5047,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d/22ab4104-97fe-4554-ae57-e4e2e14e6de5",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:38.647Z",
+      "crawledAt": "2026-11-01T09:25:05.227Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5013,7 +5173,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:05.227Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-560711952c20",
@@ -5047,7 +5211,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/projektleiterin-projektleiter-areal-und-standortentwicklung-w-m-d/138b2b15-0293-46d9-88e7-427d13b62393",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:35.655Z",
+      "crawledAt": "2026-11-01T09:25:04.679Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5106,7 +5270,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:04.679Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-360aada64e3a",
@@ -5139,7 +5307,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/logopaedin-logopaede-w-m-d/a69ae1bd-0c6d-4bde-9d59-924e4e7ca79b",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:32.665Z",
+      "crawledAt": "2026-11-01T09:25:02.656Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5206,7 +5374,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:02.656Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-bd982405a926",
@@ -5240,7 +5412,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-neurologie-bewegungsstoerung-und-verhaltensneurologie-w-m-d/a4713686-75ae-4eb8-b1ec-bb35da1e0d2d",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:29.641Z",
+      "crawledAt": "2026-11-01T09:24:57.168Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5303,7 +5475,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:57.168Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-96e573376b0b",
@@ -5337,7 +5513,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachexpertin-fachexperte-diabetesfachberatung-w-m-d/022dc23d-aa44-43a8-ba85-34f66d3109be",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:26.661Z",
+      "crawledAt": "2026-11-01T09:24:51.656Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5400,7 +5576,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:51.656Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-8b2f510fcb03",
@@ -5433,7 +5613,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mpa-poliklinik-orthopaedie-w-m-d/4262f417-9ea1-4d5e-88a0-d52787ed8ab7",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:23.660Z",
+      "crawledAt": "2026-11-01T09:24:46.154Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5534,7 +5714,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:46.154Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-f2c234896148",
@@ -5568,7 +5752,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/op-disponentin-op-disponent-w-m-d/6fe43973-24c5-412d-810e-51e33f69d7f3",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:20.677Z",
+      "crawledAt": "2026-11-01T09:24:40.657Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5630,7 +5814,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:40.657Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-da6f085fee3b",
@@ -5663,7 +5851,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/leitende-aerztin-leitender-arzt-urologie-urologie-w-m-d/246f726b-955e-4573-b975-fd031e9f229a",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:17.654Z",
+      "crawledAt": "2026-11-01T09:24:35.161Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5750,7 +5938,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:35.161Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-6b02ac184858",
@@ -5784,7 +5976,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-radiologie-w-m-d/402801b6-f6e0-4f91-a790-5d1521d0a344",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:14.644Z",
+      "crawledAt": "2026-11-01T09:24:29.659Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5843,7 +6035,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:29.659Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-6a860b131323",
@@ -5877,7 +6073,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-hotellerie-hauswirtschaft-in-ausbildung-w-m-d/a5a6b695-3c48-4608-a000-7cddd0a01a4e",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:11.648Z",
+      "crawledAt": "2026-11-01T09:24:24.179Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5941,7 +6137,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:24.179Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-66229b9b1920",
@@ -5974,7 +6174,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/diaetkoechin-diaetkoch-mit-eidgenoessischem-fachausweis-in-ausbildung-w-m-d/398adcbd-d5e7-40b1-a95e-90f4bd326200",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:08.641Z",
+      "crawledAt": "2026-11-01T09:24:18.661Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -6042,7 +6242,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:18.661Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-884a0c06bc54",
@@ -6076,7 +6280,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-betriebsunterhalt-in-ausbildung-w-m-d/3793de89-a092-4fc0-ba78-fab49701d2e8",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:05.642Z",
+      "crawledAt": "2026-11-01T09:24:13.182Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6141,7 +6345,11 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:13.182Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-ec1ed4b04e7f",
@@ -6175,7 +6383,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-hotellerie-hauswirtschaft-in-ausbildung-w-m-d/c2e2f4fb-436e-4a13-a5b5-17c4f1d95d23",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:02.642Z",
+      "crawledAt": "2026-11-01T09:24:07.657Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -6239,7 +6447,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:24:07.657Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-cc5af6e414e6",
@@ -6273,7 +6485,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/logistikerin-logistiker-in-ausbildung-w-m-d/9020b735-d189-43c5-92fd-006eaac99842",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:59.640Z",
+      "crawledAt": "2026-11-01T09:23:57.657Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -6366,7 +6578,11 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:57.657Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-3e2ac6a52ec6",
@@ -6399,7 +6615,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/koechin-koch-in-ausbildung-w-m-d/a6e8c86f-544c-413d-9fbf-346ae48f03d0",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:56.663Z",
+      "crawledAt": "2026-11-01T09:23:52.156Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6451,7 +6667,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:52.156Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-8213208a9682",
@@ -6484,7 +6704,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/diaetkoechin-diaetkoch-mit-eidgenoessischem-fachausweis-in-ausbildung-w-m-d/66b05033-ec53-4eb9-a9d3-d2a901e6831f",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:53.639Z",
+      "crawledAt": "2026-11-01T09:23:46.654Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -6556,7 +6776,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:46.654Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-8bdf7178a4dc",
@@ -6589,7 +6813,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/koechin-koch-in-ausbildung-w-m-d/dae841e5-f906-4d56-8620-84cb5c097389",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:50.653Z",
+      "crawledAt": "2026-11-01T09:23:45.110Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -6646,7 +6870,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:45.110Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-fbf4f94c85b8",
@@ -6680,7 +6908,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-gesundheit-in-ausbildung-w-m-d/c87ed280-32d6-4843-a3ff-f75b0a059cfb",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:47.653Z",
+      "crawledAt": "2026-11-01T09:23:44.673Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -6767,7 +6995,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:44.673Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-e5c8bbb0b0f1",
@@ -6801,7 +7033,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/koechin-koch-in-ausbildung-w-m-d/f7f54bde-b2c2-43a7-a455-f1901531e2f7",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:44.695Z",
+      "crawledAt": "2026-11-01T09:23:44.117Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -6844,7 +7076,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:44.117Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-a503ee05d931",
@@ -6878,7 +7114,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/bewegungs-und-sporttherapeutin-bewegungs-und-sporttherapeut-w-m-d/211e40dc-a8dc-48c1-a1fe-f01ed33e4a79",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:41.644Z",
+      "crawledAt": "2026-11-01T09:23:43.702Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -6939,7 +7175,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:43.702Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-e88f18c2840a",
@@ -6973,7 +7213,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-zentrum-fuer-integrierte-praevention-und-rehabilitation-ipr-w-m-d/f374df9c-4839-4f23-8671-623a238b95af",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:38.645Z",
+      "crawledAt": "2026-11-01T09:23:43.172Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -7032,7 +7272,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:43.172Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-b2b7a23344d4",
@@ -7066,7 +7310,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-frauenklinik-w-m-d/237beea8-a55f-4a87-a06d-d0811b962d8a",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:35.643Z",
+      "crawledAt": "2026-11-01T09:23:42.554Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -7125,7 +7369,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:42.554Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-5bcee5cc3bea",
@@ -7159,7 +7407,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-urologie-w-m-d/072680d6-8c05-421f-aaba-dc0b8bf6bbf7",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:32.643Z",
+      "crawledAt": "2026-11-01T09:23:42.057Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -7221,7 +7469,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:42.057Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-bf1dd584493a",
@@ -7255,7 +7507,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-anaesthesie-w-m-d/4c72dd13-ca69-41d0-a014-b26fe0673ddd",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:29.651Z",
+      "crawledAt": "2026-11-01T09:23:41.574Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -7314,7 +7566,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:41.574Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-b8bb61de81c6",
@@ -7348,7 +7604,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/psychologin-psychologe-forensische-psychiatrie-w-m-d/af64c44b-6e77-41a8-824c-a4df8a8f3093",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:26.656Z",
+      "crawledAt": "2026-11-01T09:23:41.162Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -7460,7 +7716,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:41.162Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-c27b6bf5bd8a",
@@ -7493,7 +7753,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/freiwillige-mitarbeiterin-freiwilliger-mitarbeiter-w-m-d/3c80ee8a-e9c6-4533-91c5-5b8f8beabfe4",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:23.639Z",
+      "crawledAt": "2026-11-01T09:23:40.609Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -7606,7 +7866,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:40.609Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-9ac04f692b32",
@@ -7639,7 +7903,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d/ed0779b1-cc1c-4fef-9a09-1c2a87422380",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:20.665Z",
+      "crawledAt": "2026-11-01T09:23:40.185Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -7702,7 +7966,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:40.185Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-4b4d3d7005df",
@@ -7735,7 +8003,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/assistenzaerztin-assistenzarzt-psychiatrie-ambulant-w-m-d/fb301cd0-d7c9-49d5-b716-6285dbf2afbe",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:17.652Z",
+      "crawledAt": "2026-11-01T09:23:39.768Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -7796,7 +8064,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:39.768Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-517fc2192152",
@@ -7830,7 +8102,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/berufsbildnerin-berufsbildner-dipl-pflegefachfrau-pflegefachmann-station-d0-w-m-d/b393b53f-0de2-4111-b9e6-47fca1904319",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:14.663Z",
+      "crawledAt": "2026-11-01T09:23:39.221Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -7918,7 +8190,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:39.221Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-097d4eb9abe9",
@@ -7952,7 +8228,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/expertin-experte-notfallpflege-w-m-d/cf151712-eaee-4308-b1b8-bb36e6e06c4d",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:11.668Z",
+      "crawledAt": "2026-11-01T09:23:38.684Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8011,7 +8287,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:38.684Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-013acb07b79b",
@@ -8044,7 +8324,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-bza-w-m-d/f837a790-a4ba-42e3-ae8e-c6df8fe8cbaf",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:08.645Z",
+      "crawledAt": "2026-11-01T09:23:38.272Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8102,7 +8382,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:38.272Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-291bbe0d658d",
@@ -8136,7 +8420,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mitarbeiterin-mitarbeiter-aemp-zsva-w-m-d/93616ce5-6b62-4ac3-942c-1d96106de257",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:05.642Z",
+      "crawledAt": "2026-11-01T09:23:37.740Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8227,7 +8511,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:37.740Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-09631ce7739b",
@@ -8261,7 +8549,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachexpertin-fachexperte-pflege-i-station-c0-w-m-d/48b3ca96-5c2d-432f-ae73-306769a22e8c",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:02.659Z",
+      "crawledAt": "2026-11-01T09:23:37.215Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8313,7 +8601,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:37.215Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-981b6c4de81d",
@@ -8347,7 +8639,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/berufsbildnerin-berufsbildner-fachfrau-fachmann-gesundheit-station-c0-w-m-d/7314c1b2-cce8-4fea-8c4c-40b39f5171b0",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:59.642Z",
+      "crawledAt": "2026-11-01T09:23:36.676Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8400,7 +8692,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:23:36.676Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-d09dd95279b6",
@@ -8434,7 +8730,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/rettungssanitaeterin-rettungssanitaeter-hf-in-ausbildung-3-jahre-w-m-d/4cae5f35-16f5-4cf0-a1d7-0a66b0b8cace",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:56.643Z",
+      "crawledAt": "2026-11-01T09:23:34.655Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8480,7 +8776,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:23:34.655Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-3c0871ac5fc7",
@@ -8514,7 +8814,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/koechin-koch-oder-diaetkoechin-diaetkoch-w-m-d/f8d3c978-42d7-42ec-aae7-113ea13dbfef",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:53.658Z",
+      "crawledAt": "2026-11-01T09:23:32.175Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8562,7 +8862,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:23:32.175Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-44c1b10009cf",
@@ -8595,7 +8899,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mpa-urologie-gastroenterologie-w-m-d/37329563-4497-434f-9ca7-395c97d16314",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:50.671Z",
+      "crawledAt": "2026-11-01T09:23:29.157Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -8649,7 +8953,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:23:29.157Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-65855e9c43f5",
@@ -8683,7 +8991,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-gesundheit-stationaere-dienste-w-m-d/2f30f519-8726-4fd8-8948-82fd6bcb6e9d",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:47.642Z",
+      "crawledAt": "2026-11-01T09:23:26.175Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8731,7 +9039,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:23:26.175Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-1213420fda52",
@@ -8765,7 +9077,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-bettenstation-w-m-d/8e23d562-dc98-4c78-a708-fcbc8f7e3766",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:45.162Z",
+      "crawledAt": "2026-11-01T09:23:23.178Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8817,7 +9129,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:23:23.178Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-5c934a1859df",
@@ -8850,7 +9166,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/leitende-hebamme-w-m-d/ad6fb8a2-58e8-408a-9464-f1b641a111a5",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:42.642Z",
+      "crawledAt": "2026-11-01T09:23:20.154Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8896,7 +9212,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:23:20.154Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-3332e34f90b1",
@@ -8930,7 +9250,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-stroke-unit-mit-monitorisierung-inkl-medizin-w-m-d/36ab1eec-1d66-46bb-b2c6-06aaa30a6016",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:40.171Z",
+      "crawledAt": "2026-11-01T09:23:17.159Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -8976,7 +9296,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:23:17.159Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-dd9932eeaad4",
@@ -9010,7 +9334,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegfachfrau-pflegefachmann-akutgeriatrie-w-m-d/12edcadc-6ac8-473f-993b-3e5c79e5e331",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:37.664Z",
+      "crawledAt": "2026-11-01T09:23:14.156Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9056,7 +9380,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:23:14.156Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-28577532914f",
@@ -9090,7 +9418,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d/30e9ead4-2e6e-4f35-affc-7ba3c52e2aba",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:35.144Z",
+      "crawledAt": "2026-11-01T09:23:11.167Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9136,7 +9464,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:23:11.167Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-ebbc2106ff84",
@@ -9170,7 +9502,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-chirurgische-kliniken-w-m-d/726e7153-9178-4ddb-94fb-826b228f37f2",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:32.876Z",
+      "crawledAt": "2026-11-01T09:23:08.185Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9216,7 +9548,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:23:08.185Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-81a20a2b6c6d",
@@ -9250,7 +9586,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d/128b1b9b-c5fc-4b46-9768-4b10b1d788d1",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:32.458Z",
+      "crawledAt": "2026-11-01T09:23:05.160Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9290,7 +9626,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:23:05.160Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-840d9c2b71ea",
@@ -9323,7 +9663,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/stv-leitende-aerztin-stv-leitender-arzt-innere-medizin-notfall-w-m-d/bc8b9db2-f843-4450-a681-0cb69b2e33d6",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:32.046Z",
+      "crawledAt": "2026-11-01T09:23:02.180Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -9369,7 +9709,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:23:02.180Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-3c25297922ce",
@@ -9403,7 +9747,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/leitende-aerztin-leitender-arzt-innere-medizin-notfall-w-m-d/96088125-8de1-4f2f-b976-b334059c55fd",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:31.504Z",
+      "crawledAt": "2026-11-01T09:22:59.166Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -9449,7 +9793,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:22:59.166Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-58cfff4663b1",
@@ -9482,7 +9830,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mitarbeiterin-mitarbeiter-hotellerie-service-w-m-d/c69c76d2-4dc9-45c9-b268-31cb2302e173",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:30.966Z",
+      "crawledAt": "2026-11-01T09:22:56.160Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9530,7 +9878,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:22:56.160Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-7fac634ccf27",
@@ -9563,7 +9915,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-oder-leitende-aerztin-leitender-arzt-haematologie-m-w-d/2ca6783a-5469-4b28-9988-e8ef1d8bd38f",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:30.419Z",
+      "crawledAt": "2026-11-01T09:22:53.160Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9611,7 +9963,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-14T09:22:53.160Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-e77759ce3f4c",
@@ -9645,7 +10001,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-oder-leitende-aerztin-leitender-arzt-onkologie-m-w-d/0e84e724-3cf0-4600-9d96-df47e2a5b0b4",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:29.893Z",
+      "crawledAt": "2026-11-01T09:22:50.167Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9693,7 +10049,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:22:50.167Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-4dbd1063465d",
@@ -9726,7 +10086,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/versorgungsassistentin-versorgungsassistent-w-m-d/d7a0e64d-67ef-458c-b136-a66bfd339ee8",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:29.486Z",
+      "crawledAt": "2026-11-01T09:22:47.155Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9798,7 +10158,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:22:47.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-96b767ec890a",
@@ -9832,7 +10196,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-gesundheit-station-b1-w-m-d/94b7eebf-5658-4fef-9e29-10fc870a2c04",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:28.967Z",
+      "crawledAt": "2026-11-01T09:22:44.159Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -9878,7 +10242,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:22:44.159Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-29e44a274c4e",
@@ -9911,7 +10279,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/versorgungsassistentin-versorgungsassistent-w-m-d/67f90b22-5ac5-4200-8f4f-4067b5795991",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:28.537Z",
+      "crawledAt": "2026-11-01T09:22:41.179Z",
       "addressLocality": "Dornach",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -9957,7 +10325,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:22:41.179Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-2bcca2240477",
@@ -9991,7 +10363,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-innere-medizin-notfall-w-m-d/1ea95f7c-f3e3-430d-ba1a-0288daa7bb3f",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:28.012Z",
+      "crawledAt": "2026-11-01T09:22:38.172Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10037,7 +10409,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:22:38.172Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-806a97a56cba",
@@ -10071,7 +10447,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-orthopaedie-hno-chirurgie-w-m-d/e80766cd-1a80-4479-9042-82aaf6d3a1a0",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:27.359Z",
+      "crawledAt": "2026-11-01T09:22:35.155Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10117,7 +10493,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:22:35.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-6bc90e248a1c",
@@ -10151,7 +10531,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/leiterin-leiter-hr-administration-w-m-d/814234cd-e3d5-4983-a791-6995d9532e11",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:26.944Z",
+      "crawledAt": "2026-11-01T09:22:32.173Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10197,7 +10577,11 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:22:32.173Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-4ed7665e9c75",
@@ -10231,7 +10615,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/lagerungspflegerin-lagerungspfleger-m-w-d/b223c687-58c4-41eb-aee7-2ea4e91c1c25",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:26.410Z",
+      "crawledAt": "2026-11-01T09:22:29.160Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10277,7 +10661,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:22:29.160Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-894c0abc3e29",
@@ -10311,7 +10699,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-imc-m-w-d/3d90541f-5a16-4f77-be73-6cf66f3fc685",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:25.988Z",
+      "crawledAt": "2026-11-01T09:22:26.169Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10357,7 +10745,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:22:26.169Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-5ee08f1c0349",
@@ -10391,7 +10783,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mpa-plastische-chirurgie-w-m-d/5826cffa-7091-4b53-940d-08b7a82148e5",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:25.563Z",
+      "crawledAt": "2026-11-01T09:22:23.180Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10437,7 +10829,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:22:23.180Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-f115c8f0987c",
@@ -10471,7 +10867,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mpa-gefaesszentrum-w-m-d/4e67e5e1-2f21-42c8-a68e-4ee91eb90dd2",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:25.158Z",
+      "crawledAt": "2026-11-01T09:22:20.155Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10517,7 +10913,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:22:20.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-4dd7223a3bd8",
@@ -10550,7 +10950,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mitarbeiterin-mitarbeiter-zentrale-operationsleitstelle-w-m-d/b5e2d24a-e1d3-4f2d-a8d1-78e97636fb72",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:24.633Z",
+      "crawledAt": "2026-11-01T09:22:17.167Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10597,7 +10997,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:22:17.167Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-38830804c6d1",
@@ -10630,7 +11034,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mpa-gynaekologisches-ambulatorium-w-m-d/f455b7e6-982c-47d7-8218-244827e50a1c",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:24.227Z",
+      "crawledAt": "2026-11-01T09:22:14.184Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10680,7 +11084,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:22:14.184Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-49891eb28784",
@@ -10714,7 +11122,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mpa-oder-fachfrau-fachmann-gesundheit-gynaekologisches-ambulatorium-w-m-d/b1a8186b-2a9d-4b43-ae18-2b4867665943",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:23.802Z",
+      "crawledAt": "2026-11-01T09:22:11.187Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10760,7 +11168,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:22:11.187Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-30a6f4eff321",
@@ -10794,7 +11206,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mpa-in-ausbildung-w-m-d/247220a0-2cbf-44f3-85ca-446feae8ef12",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:23.269Z",
+      "crawledAt": "2026-11-01T09:22:08.170Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -10840,7 +11252,11 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:22:08.170Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-56a749f06f70",
@@ -10874,7 +11290,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/leiterin-leiter-hr-beratung-standort-hr-managerin-hr-manager-w-m-d/3131668a-f406-47a8-8054-c3c39285ee54",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:22.728Z",
+      "crawledAt": "2026-11-01T09:22:05.197Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10920,7 +11336,11 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:22:05.197Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-b8d0e38d31d1",
@@ -10953,7 +11373,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-forensik-w-m-d/9b584af6-840a-45ea-ac12-f6b78af9a55a",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:22.308Z",
+      "crawledAt": "2026-11-01T09:22:02.157Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -10999,7 +11419,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:22:02.157Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-517bace0ab0c",
@@ -11032,7 +11456,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/ergotherapeutin-ergotherapeut-w-m-d/b139cd1d-a5a3-40d7-909e-1cb97a325160",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:21.772Z",
+      "crawledAt": "2026-11-01T09:21:59.156Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -11080,7 +11504,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:21:59.156Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-080665766517",
@@ -11114,7 +11542,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/berufsbildnerin-berufsbildner-fachfrau-fachmann-operationstechnik-w-m-d/d34963cb-99c7-478e-bd2c-a8a2f59b7c5f",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:21.351Z",
+      "crawledAt": "2026-11-01T09:21:56.158Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -11160,7 +11588,11 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:21:56.158Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-edaf2f62a58b",
@@ -11194,7 +11626,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d/ad01735d-505e-4472-9d72-4d6043c8ceca",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:20.926Z",
+      "crawledAt": "2026-11-01T09:21:53.165Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -11239,7 +11671,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:21:53.165Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-a568451847b4",
@@ -11272,7 +11708,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/leiterin-leiter-aemp-w-m-d/63da0c47-7d6c-459a-abf9-a944a09a1290",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:20.394Z",
+      "crawledAt": "2026-11-01T09:21:50.158Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -11320,7 +11756,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:21:50.158Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-13cc35d06434",
@@ -11354,7 +11794,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-medizin-w-m-d/271067cb-ce15-4370-8d1a-2e0e8c170435",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:19.984Z",
+      "crawledAt": "2026-11-01T09:21:47.167Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -11400,7 +11840,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:21:47.167Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-63ff76985eeb",
@@ -11434,7 +11878,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-leistungsmanagement-w-m-d/409e5b48-1623-4f24-8764-fc415eb18533",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:19.460Z",
+      "crawledAt": "2026-11-01T09:21:44.155Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -11482,7 +11926,11 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:21:44.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-f6746d70830f",
@@ -11515,7 +11963,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/physiotherapeutin-physiotherapeut-w-m-d/0746ffca-69ed-4efb-bfb6-9864d7492c86",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:19.037Z",
+      "crawledAt": "2026-11-01T09:21:41.158Z",
       "addressLocality": "Dornach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -11563,7 +12011,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:21:41.158Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-d10c84ff8aa0",
@@ -11597,7 +12049,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-gastroenterologie-w-m-d/900da636-d4c7-492f-b8cd-8305100782dc",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:18.620Z",
+      "crawledAt": "2026-11-01T09:21:38.159Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -11645,7 +12097,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:21:38.159Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-8779d862ca9f",
@@ -11679,7 +12135,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/oberaerztin-oberarzt-interdisziplinaere-notfallstation-medizin-w-m-d/c578bbe5-29a5-4eea-a056-f82dc9da3150",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:18.093Z",
+      "crawledAt": "2026-11-01T09:21:35.153Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -11725,7 +12181,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:21:35.153Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-eed77de280af",
@@ -11759,7 +12219,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-im-nachtdienst-w-m-d/f210a98a-b49b-4b32-8c2b-689066071102",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:17.565Z",
+      "crawledAt": "2026-11-01T09:21:32.155Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -11805,7 +12265,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:21:32.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-46a50b5829ca",
@@ -11839,7 +12303,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/stv-leitende-aerztin-stv-leitender-arzt-geriatrie-w-m-d/ec58a8c5-f3da-4752-b29f-08c0697f21d4",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:17.023Z",
+      "crawledAt": "2026-11-01T09:21:29.163Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -11885,7 +12349,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:21:29.163Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-4bcfedf40351",
@@ -11919,7 +12387,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-w-m-d/e5a7ae8c-d7ed-4efd-ad05-0306695ca3b1",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:16.500Z",
+      "crawledAt": "2026-11-01T09:21:26.166Z",
       "addressLocality": "Dornach",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -11967,7 +12435,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:21:26.166Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-ead76730d2b1",
@@ -12001,7 +12473,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-gesundheit-radiologie-w-m-d/97598324-1d43-4fd1-b40e-d4270b61c880",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:15.965Z",
+      "crawledAt": "2026-11-01T09:21:23.155Z",
       "addressLocality": "Dornach",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -12047,7 +12519,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:21:23.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-1882a095a7df",
@@ -12080,7 +12556,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mitarbeiterin-mitarbeiter-gastronomie-w-m-d/df76b800-b6cb-44a6-9f9d-292af1390bfd",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:15.425Z",
+      "crawledAt": "2026-11-01T09:21:20.170Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -12128,7 +12604,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:21:20.170Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-6f26512b84bf",
@@ -12161,7 +12641,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/stv-stationsleiterin-stationsleiter-akutgeriatrie-und-medizin-w-m-d/4c94fdb6-9bc1-43b1-9503-a988073e8dbd",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:14.894Z",
+      "crawledAt": "2026-11-01T09:21:17.157Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -12214,7 +12694,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:21:17.157Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-4c1ceb4baa1b",
@@ -12248,7 +12732,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-betriebsunterhalt-in-ausbildung-w-m-d/1e84e84a-a479-46a3-bc7e-bc60455ae319",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:14.355Z",
+      "crawledAt": "2026-11-01T09:21:14.157Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -12288,7 +12772,11 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:21:14.157Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-70b86ef09d0d",
@@ -12322,7 +12810,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-urologie-w-m-d/f1816381-8598-449e-ba17-f26fad23430f",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:13.824Z",
+      "crawledAt": "2026-11-01T09:21:11.155Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -12368,7 +12856,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:21:11.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-49c2f12996be",
@@ -12402,7 +12894,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/fachfrau-fachmann-gesundheit-gebaersaal-w-m-d/3e4ea426-c4a4-4c34-b9ad-f913f4444793",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:13.270Z",
+      "crawledAt": "2026-11-01T09:21:08.155Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -12448,7 +12940,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:21:08.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-f32087ed409c",
@@ -12482,7 +12978,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/mpa-radiologie-w-m-d/4d4ea2e5-aac2-4f3f-95f0-e74b43f72808",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:12.845Z",
+      "crawledAt": "2026-11-01T09:21:05.159Z",
       "addressLocality": "Dornach",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -12525,7 +13021,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:21:05.159Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-e601d396a33b",
@@ -12559,7 +13059,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachman-mit-zusatz-forensic-nurse-cas/12b0a50c-e3f5-429c-9f67-3a98d0a23f4b",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:12.301Z",
+      "crawledAt": "2026-11-01T09:21:02.153Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -12605,7 +13105,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:21:02.153Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-9b4d38f40525",
@@ -12638,7 +13142,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/leitende-aerztin-leitender-arzt-rheumatologie/2b127bd2-eea1-4f4f-adf0-91d18b454f92",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:11.868Z",
+      "crawledAt": "2026-11-01T09:20:59.164Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -12684,7 +13188,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:20:59.164Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-dc88b919cd2d",
@@ -12718,7 +13226,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/berufsbildungsverantwortliche-berufsbildungsverantwortlicher-hf-fh-w-m-d/8f3f5bb2-4843-4c3c-ac2f-217615c350ec",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:11.448Z",
+      "crawledAt": "2026-11-01T09:20:56.155Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -12764,7 +13272,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:56.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-212bc8cec1e9",
@@ -12798,7 +13310,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-teilzeit-4-jahre-w-m-d/f912ea66-d7ce-4b05-84e7-728ceb64474a",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:11.041Z",
+      "crawledAt": "2026-11-01T09:20:53.159Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -12844,7 +13356,11 @@
           "maxValue": 83300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:53.159Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-2b3c5cf8a4e6",
@@ -12878,7 +13394,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d/ca5f170f-1ae6-47f3-ae4f-571f6239042c",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:10.519Z",
+      "crawledAt": "2026-11-01T09:20:50.174Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -12924,7 +13440,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:50.174Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-35bf01068ebc",
@@ -12958,7 +13478,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-in-ausbildung-psychiatrie-3-jahre-verkuerzt-2-jahre-w-m-d/6514b775-53bd-4b9f-97c5-06e48aaf19a3",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:10.115Z",
+      "crawledAt": "2026-11-01T09:20:47.160Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -13004,7 +13524,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:47.160Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-b1ba39f9c31a",
@@ -13038,7 +13562,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-3-jahre-verkuerzt-2-jahre-w-m-d/6b30805a-029c-405d-becb-0b1dc9b12c41",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:09.580Z",
+      "crawledAt": "2026-11-01T09:20:44.161Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -13084,7 +13608,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:44.161Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-bbb934834dac",
@@ -13118,7 +13646,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-3-jahre-verkuerzt-2-jahre-m-w-d/5c0eaf2a-5cbf-47ae-9974-c951cbb8199e",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:09.054Z",
+      "crawledAt": "2026-11-01T09:20:41.162Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -13164,7 +13692,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:41.162Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-5a384806aa8f",
@@ -13198,7 +13730,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-teilzeit-4-jahre-w-m-d/e90557cc-add8-45bf-a497-5c333cb04844",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:08.513Z",
+      "crawledAt": "2026-11-01T09:20:38.163Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -13244,7 +13776,11 @@
           "maxValue": 83300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:38.163Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-9cb4977377e9",
@@ -13278,7 +13814,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/stv-leiterin-stv-leiter-kueche-w-m-d/7aa2bcbe-0773-44a7-8b19-081e91b638d3",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:07.971Z",
+      "crawledAt": "2026-11-01T09:20:35.161Z",
       "addressLocality": "Dornach",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -13324,7 +13860,11 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:20:35.161Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-78f341658d39",
@@ -13358,7 +13898,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/pflegeexpertin-pflegeexperte-apn-chirurgie-w-m-d/e7ede46b-7888-4171-8446-9bb944aedc9a",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:07.449Z",
+      "crawledAt": "2026-11-01T09:20:32.159Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -13404,7 +13944,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:20:32.159Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-91ce6a5560c4",
@@ -13438,7 +13982,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/stationsleiterin-stationsleiter-station-b1-w-m-d/d84d6a1b-c8ee-4d3c-bcae-a700b0545b93",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:06.914Z",
+      "crawledAt": "2026-11-01T09:20:29.165Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -13484,7 +14028,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:20:29.165Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-3b868e19884c",
@@ -13518,7 +14066,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/betriebselektrikerin-betriebselektriker-oder-systemspezialistin-systemspezialist-elektro-w-m-d/3beff329-b18f-4e2c-a75d-af34a9e52ccf",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:06.376Z",
+      "crawledAt": "2026-11-01T09:20:26.667Z",
       "addressLocality": "Dornach",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -13563,7 +14111,11 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:20:26.667Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "soh-solothurner-spitaeler-91f4ad371ba8",
@@ -13597,7 +14149,7 @@
       "url": "https://jobs.so-h.ch/offene-stellen/berufsbildnerin-berufsbildner-dipl-pflegefachfrau-pflegefachmann-oder-fachmann-fachfrau-gesundheit-w-m-d/73d08502-f597-4e8e-ac9c-3d6538e81c24",
       "source": "Solothurner Spitäler Dedicated Parser (Typo3 listing + JSON-LD detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:47:05.832Z",
+      "crawledAt": "2026-11-01T09:20:24.186Z",
       "addressLocality": "Dornach",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -13643,7 +14195,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dornach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:20:24.186Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

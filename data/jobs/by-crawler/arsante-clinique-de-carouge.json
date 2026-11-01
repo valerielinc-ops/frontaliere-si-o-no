@@ -1,7 +1,7 @@
 {
   "crawlerKey": "arsante-clinique-de-carouge",
-  "assembledAt": "2026-10-31T21:33:08.821Z",
-  "runId": "41242014604",
+  "assembledAt": "2026-11-01T09:16:06.117Z",
+  "runId": "41291644918",
   "jobs": [
     {
       "id": "arsante-clinique-de-carouge-32da6f6e8dee",
@@ -34,7 +34,7 @@
       "url": "https://arsante.ch/emploi/medecin-assistant-en-pediatrie-4",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:04.566Z",
+      "crawledAt": "2026-11-01T09:15:57.366Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -74,7 +74,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Onex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:57.366Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-fdb4b1bbe19a",
@@ -108,7 +112,7 @@
       "url": "https://arsante.ch/emploi/medecin-expert-18",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:03.916Z",
+      "crawledAt": "2026-11-01T09:15:56.749Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -152,7 +156,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lancy",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:56.749Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-6b5a4037b33c",
@@ -185,7 +193,7 @@
       "url": "https://arsante.ch/emploi/apprenti-e-assistant-e-medical-e-20",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:03.268Z",
+      "crawledAt": "2026-11-01T09:15:56.118Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -275,7 +283,11 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Carouge",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:56.118Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-32c29b4d3f12",
@@ -309,7 +321,7 @@
       "url": "https://arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:02.624Z",
+      "crawledAt": "2026-11-01T09:15:55.507Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -363,7 +375,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Onex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:55.507Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-8b41a33b6156",
@@ -397,7 +413,7 @@
       "url": "https://arsante.ch/emploi/medecin-specialiste-fmh-72",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:01.968Z",
+      "crawledAt": "2026-11-01T09:15:54.904Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -478,7 +494,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Carouge",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:54.904Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-018ac2509b3e",
@@ -512,7 +532,7 @@
       "url": "https://arsante.ch/emploi/medecin-interniste-generaliste-73",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:01.301Z",
+      "crawledAt": "2026-11-01T09:15:54.291Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -573,7 +593,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Onex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:54.291Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-474f76316eeb",
@@ -607,7 +631,7 @@
       "url": "https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-74",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:33:00.606Z",
+      "crawledAt": "2026-11-01T09:15:53.658Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -662,7 +686,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Carouge",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:53.658Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-326595ee1ef5",
@@ -695,7 +723,7 @@
       "url": "https://arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:32:59.955Z",
+      "crawledAt": "2026-11-01T09:15:53.029Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -755,7 +783,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Onex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:53.029Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-59e02485ff01",
@@ -789,7 +821,7 @@
       "url": "https://arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:32:59.277Z",
+      "crawledAt": "2026-11-01T09:15:51.902Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -829,7 +861,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Carouge",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:51.902Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-6d24d94f6092",
@@ -863,7 +899,7 @@
       "url": "https://arsante.ch/emploi/experts-medicaux-93",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:32:58.619Z",
+      "crawledAt": "2026-11-01T09:15:51.287Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -920,7 +956,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lancy",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:51.287Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-913da87db7a1",
@@ -953,7 +993,7 @@
       "url": "https://arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:32:57.972Z",
+      "crawledAt": "2026-11-01T09:15:50.659Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1012,7 +1052,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Carouge",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:50.659Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-bce6b7cb58d0",
@@ -1046,7 +1090,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:32:57.300Z",
+      "crawledAt": "2026-11-01T09:15:50.037Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1100,7 +1144,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Onex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:50.037Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-88fc673ce8e0",
@@ -1133,7 +1181,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:32:56.649Z",
+      "crawledAt": "2026-11-01T09:15:49.406Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1173,7 +1221,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Onex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:49.406Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-413d1d3fa67f",
@@ -1206,7 +1258,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-102",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:32:55.997Z",
+      "crawledAt": "2026-11-01T09:15:48.780Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1255,7 +1307,11 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Carouge",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:15:48.780Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-47038fe78974",
@@ -1289,7 +1345,7 @@
       "url": "https://arsante.ch/emploi/pharmacien-ne-responsable-a-100-103",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:32:55.336Z",
+      "crawledAt": "2026-11-01T09:15:48.143Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1335,7 +1391,11 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Carouge",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:15:48.143Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-6c17f4d33df5",
@@ -1368,7 +1428,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-105",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:32:54.679Z",
+      "crawledAt": "2026-11-01T09:15:47.500Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1416,7 +1476,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Onex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:15:47.500Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "arsante-clinique-de-carouge-b43de91cd6b5",
@@ -1449,7 +1513,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-a-70-106",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:32:54.015Z",
+      "crawledAt": "2026-11-01T09:15:46.838Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1497,7 +1561,11 @@
           "maxValue": 84400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Onex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:15:46.838Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

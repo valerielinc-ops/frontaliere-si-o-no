@@ -1,7 +1,7 @@
 {
   "key": "sonova",
   "label": "Sonova",
-  "generatedAt": "2026-10-31T21:27:15.827Z",
+  "generatedAt": "2026-11-01T09:10:58.911Z",
   "total": 21,
   "discovered": null,
   "parsed": 21,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 21,
-  "durationMs": 16361,
-  "avgDurationMs": 16361,
+  "durationMs": 18068,
+  "avgDurationMs": 18068,
   "durationHistory": [
-    16361
+    18068
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Hardware-Integration-Engineer/1444612233/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.079Z",
+      "crawledAt": "2026-11-01T09:10:38.196Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -57,12 +57,16 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:10:38.196Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -77,7 +81,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Expert/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.076Z",
+      "crawledAt": "2026-11-01T09:10:38.192Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -97,12 +101,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-12T09:10:38.192Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -117,7 +125,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Geb%C3%A4udetechniker-HLK-%28mwd%29/1447168233/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:26:59.073Z",
+      "crawledAt": "2026-11-01T09:10:38.186Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -137,12 +145,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:10:38.186Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -157,7 +169,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-EPFL-2026-Talent-Community-Future-Opportunities/1446996733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.070Z",
+      "crawledAt": "2026-11-01T09:10:38.182Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -177,12 +189,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:10:38.182Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -197,7 +213,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Architect-Charging-Solutions/1436570633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.066Z",
+      "crawledAt": "2026-11-01T09:10:38.178Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -217,12 +233,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:10:38.178Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -237,7 +257,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Hardware-Verification-Engineer-Charging-Solutions-%28mfd%29/1447519833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.063Z",
+      "crawledAt": "2026-11-01T09:10:38.171Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -257,12 +277,16 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:10:38.171Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -277,7 +301,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:26:59.059Z",
+      "crawledAt": "2026-11-01T09:10:38.167Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -296,12 +320,16 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:10:38.167Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -316,7 +344,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Hearing-Performance/1413688533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.056Z",
+      "crawledAt": "2026-11-01T09:10:38.163Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -336,12 +364,59 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:10:38.163Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
+      }
+    },
+    {
+      "id": "sonova-374a65613887",
+      "slug": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Technical Specialist Production (TSP) (m/f/d)",
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:10:38.158Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-18T02:00:00Z",
+      "postedDate": "2026-09-18T02:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1407383533/?locale=en_US",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:10:38.158Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -356,7 +431,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.053Z",
+      "crawledAt": "2026-11-01T09:10:38.154Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -376,51 +451,16 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:10:38.154Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "sonova-374a65613887",
-      "slug": "technical-specialista-production-tsp-m-f-d-sonova-staefa",
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Technical Specialist Production (TSP) (m/f/d)",
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:26:59.050Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-18T02:00:00Z",
-      "postedDate": "2026-09-18T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1407383533/?locale=en_US",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -435,7 +475,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Procurement-Manager-NPI/1439443733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.048Z",
+      "crawledAt": "2026-11-01T09:10:38.149Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -455,12 +495,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:10:38.149Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -475,7 +519,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Embedded-Software-Engineer-C%2B%2B/1450138633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.045Z",
+      "crawledAt": "2026-11-01T09:10:38.143Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -495,12 +539,16 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:10:38.143Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -515,7 +563,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-DSP-Tools-and-Infrastructure-%28mfd%29/1437852833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.041Z",
+      "crawledAt": "2026-11-01T09:10:38.139Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -535,12 +583,16 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:10:38.139Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -555,7 +607,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Product-Manager-Hearing-Aids-%28mfd%29/1451094233/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.037Z",
+      "crawledAt": "2026-11-01T09:10:38.135Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -575,92 +627,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:10:38.135Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "sonova-755bb818c5fe",
-      "slug": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:26:59.033Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-27T02:00:00Z",
-      "postedDate": "2026-09-27T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421323633/?locale=en_US",
-      "firstSeenAt": "2026-07-31T22:06:52.246Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "sonova-a02b2dce588a",
-      "slug": "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland",
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Lehrstelle Logistiker/in EFZ (m/w/d)",
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:26:59.031Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-27T02:00:00Z",
-      "postedDate": "2026-09-27T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421325033/?locale=en_US",
-      "firstSeenAt": "2026-07-31T22:06:52.194Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -675,7 +651,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:26:59.028Z",
+      "crawledAt": "2026-11-01T09:10:38.131Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -695,12 +671,104 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:10:38.131Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
+      }
+    },
+    {
+      "id": "sonova-a02b2dce588a",
+      "slug": "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland",
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Lehrstelle Logistiker/in EFZ (m/w/d)",
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:10:38.128Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-27T02:00:00Z",
+      "postedDate": "2026-09-27T02:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421325033/?locale=en_US",
+      "firstSeenAt": "2026-07-31T22:06:52.194Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:10:38.128Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "sonova-755bb818c5fe",
+      "slug": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:10:38.123Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-27T02:00:00Z",
+      "postedDate": "2026-09-27T02:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421323633/?locale=en_US",
+      "firstSeenAt": "2026-07-31T22:06:52.246Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:10:38.123Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -715,7 +783,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Manufacturing-System-&-Software-Development-Engineer-%28mfd%29/1441934833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.024Z",
+      "crawledAt": "2026-11-01T09:10:38.118Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -735,12 +803,16 @@
       "salarySource": "estimated",
       "postalCode": "3280",
       "addressRegion": "FR",
-      "_qualityScore": 90,
+      "streetAddress": "Murten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:10:38.118Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -755,7 +827,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Data-Scientist-%28mfd%29/1408793633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.021Z",
+      "crawledAt": "2026-11-01T09:10:38.114Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -775,12 +847,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:10:38.114Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -795,7 +871,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-Embedded-AI-%28mfd%29/1436636333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:59.017Z",
+      "crawledAt": "2026-11-01T09:10:38.108Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -815,12 +891,16 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:10:38.108Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -835,7 +915,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Manager-Hearing-Aids/1443245033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:26:58.991Z",
+      "crawledAt": "2026-11-01T09:10:38.070Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -855,14 +935,18 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Staefa",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:10:38.070Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

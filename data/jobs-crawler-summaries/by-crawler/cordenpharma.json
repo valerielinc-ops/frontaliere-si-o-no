@@ -1,7 +1,7 @@
 {
   "key": "cordenpharma",
   "label": "CordenPharma",
-  "generatedAt": "2026-10-31T21:23:10.796Z",
+  "generatedAt": "2026-11-01T09:14:16.904Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 7135,
-  "avgDurationMs": 7135,
+  "durationMs": 8507,
+  "avgDurationMs": 8507,
   "durationHistory": [
-    7135
+    8507
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20956/gruppenleiter-produktion-mwd-2-schicht-ettingen-basel-land-schweiz",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:22:57.521Z",
+      "crawledAt": "2026-11-01T09:13:59.296Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -59,6 +59,9 @@
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:13:59.296Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -79,7 +82,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/21021/teamleiterin-lab-analytics-100-mwd-innerhalb-abteilung-qc-analytics",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:22:57.029Z",
+      "crawledAt": "2026-11-01T09:13:58.798Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -101,6 +104,9 @@
       "salaryMin": 127000,
       "salaryMax": 211500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-20T09:13:58.798Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -121,7 +127,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20999/lernender-chemie-und-pharmatechnologe-efz-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:22:56.530Z",
+      "crawledAt": "2026-11-01T09:13:58.299Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -143,6 +149,9 @@
       "salaryMin": 50500,
       "salaryMax": 68000,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-11T09:13:58.299Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -163,7 +172,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20979/laborant-qc-ipc-100-mwd-fachrichtung-chemie-im-bereich-qualitatskontrolle-inprozesskontrolle",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:22:56.020Z",
+      "crawledAt": "2026-11-01T09:13:57.805Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -185,6 +194,9 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-13T09:13:57.805Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -205,7 +217,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20975/elektromonteur-elektrotechnik-kalibrierung-mwd-100",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:22:55.521Z",
+      "crawledAt": "2026-11-01T09:13:57.292Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -227,6 +239,9 @@
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-21T09:13:57.292Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -247,7 +262,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/21009/chemie-und-pharmatechnologe-100-mwd-2-schicht-fruhspat-mo-fr",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:22:55.017Z",
+      "crawledAt": "2026-11-01T09:13:56.716Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -269,6 +284,9 @@
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-10T09:13:56.716Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -289,7 +307,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:22:54.513Z",
+      "crawledAt": "2026-11-01T09:13:56.209Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -311,6 +329,9 @@
       "salaryMin": 83000,
       "salaryMax": 138500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:13:56.209Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -320,5 +341,5 @@
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

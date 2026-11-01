@@ -1,7 +1,7 @@
 {
   "key": "gkb",
   "label": "Graubündner Kantonalbank",
-  "generatedAt": "2026-10-31T21:20:05.848Z",
+  "generatedAt": "2026-11-01T09:16:03.805Z",
   "total": 22,
   "discovered": null,
   "parsed": 22,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 21,
-  "durationMs": 22904,
-  "avgDurationMs": 22904,
+  "durationMs": 21129,
+  "avgDurationMs": 21129,
   "durationHistory": [
-    22904
+    21129
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1908/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:42.372Z",
+      "crawledAt": "2026-11-01T09:15:45.618Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -56,12 +56,26 @@
       "salaryMax": 121000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Neudorfstrasse 96",
+        "postalCode": "7430",
+        "addressLocality": "Thusis",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:49:00.410Z"
+      },
+      "streetAddress": "Neudorfstrasse 96",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:15:45.618Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
@@ -79,7 +93,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1914/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:51.340Z",
+      "crawledAt": "2026-11-01T09:15:52.782Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -103,12 +117,26 @@
       "salaryMax": 290000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:15:52.782Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -123,7 +151,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1920/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:50.516Z",
+      "crawledAt": "2026-11-01T09:15:52.039Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -147,12 +175,26 @@
       "salaryMax": 121000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Via Maistra 1",
+        "postalCode": "7500",
+        "addressLocality": "St. Moritz",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:51.295Z"
+      },
+      "streetAddress": "Via Maistra 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:15:52.039Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -167,7 +209,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1919/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:49.715Z",
+      "crawledAt": "2026-11-01T09:15:51.433Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -191,12 +233,26 @@
       "salaryMax": 121000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Poststrasse 133",
+        "postalCode": "7050",
+        "addressLocality": "Arosa",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:49:00.410Z"
+      },
+      "streetAddress": "Poststrasse 133",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:15:51.433Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -211,7 +267,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1921/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:48.899Z",
+      "crawledAt": "2026-11-01T09:15:50.807Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -235,12 +291,26 @@
       "salaryMax": 121000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Stradun 327",
+        "postalCode": "7550",
+        "addressLocality": "Scuol",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:49:00.410Z"
+      },
+      "streetAddress": "Stradun 327",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:15:50.807Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -255,7 +325,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1904/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:48.082Z",
+      "crawledAt": "2026-11-01T09:15:50.184Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -276,12 +346,26 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Poststrasse 133",
+        "postalCode": "7050",
+        "addressLocality": "Arosa",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:49:00.410Z"
+      },
+      "streetAddress": "Poststrasse 133",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:15:50.184Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -296,7 +380,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1905/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:47.255Z",
+      "crawledAt": "2026-11-01T09:15:49.564Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -317,12 +401,26 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Stradun 327",
+        "postalCode": "7550",
+        "addressLocality": "Scuol",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:49:00.410Z"
+      },
+      "streetAddress": "Stradun 327",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:15:49.564Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -337,7 +435,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:46.429Z",
+      "crawledAt": "2026-11-01T09:15:48.955Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -358,12 +456,26 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Via Maistra 1",
+        "postalCode": "7500",
+        "addressLocality": "St. Moritz",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:51.295Z"
+      },
+      "streetAddress": "Via Maistra 1",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:15:48.955Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -378,7 +490,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:45.605Z",
+      "crawledAt": "2026-11-01T09:15:48.329Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -399,12 +511,26 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:15:48.329Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -419,7 +545,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:44.786Z",
+      "crawledAt": "2026-11-01T09:15:47.705Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -443,12 +569,26 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:15:47.705Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -463,7 +603,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:43.966Z",
+      "crawledAt": "2026-11-01T09:15:47.077Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -487,12 +627,26 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:15:47.077Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -507,7 +661,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:43.168Z",
+      "crawledAt": "2026-11-01T09:15:46.347Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -531,12 +685,26 @@
       "salaryMax": 290000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:15:46.347Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -551,7 +719,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1976/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:41.577Z",
+      "crawledAt": "2026-11-01T09:15:44.872Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -575,12 +743,26 @@
       "salaryMax": 174000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Poststrasse 133",
+        "postalCode": "7050",
+        "addressLocality": "Arosa",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:49:00.410Z"
+      },
+      "streetAddress": "Poststrasse 133",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-14T09:15:44.872Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -595,7 +777,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1975/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:40.754Z",
+      "crawledAt": "2026-11-01T09:15:44.127Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -620,12 +802,26 @@
       "salaryMax": 154500,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-15T09:15:44.127Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -640,7 +836,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1980/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:39.924Z",
+      "crawledAt": "2026-11-01T09:15:43.382Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -665,12 +861,26 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-29T09:15:43.382Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -685,7 +895,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1984/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:39.107Z",
+      "crawledAt": "2026-11-01T09:15:42.638Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -708,12 +918,26 @@
       "salaryMax": 290000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-05T09:15:42.638Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -728,7 +952,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1985/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:38.277Z",
+      "crawledAt": "2026-11-01T09:15:41.890Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -752,12 +976,26 @@
       "salaryMax": 174000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-06T09:15:41.890Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -772,7 +1010,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1987/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:37.423Z",
+      "crawledAt": "2026-11-01T09:15:41.146Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -798,12 +1036,26 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-17T09:15:41.146Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -818,7 +1070,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1988/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:36.609Z",
+      "crawledAt": "2026-11-01T09:15:40.326Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -843,12 +1095,26 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-18T09:15:40.326Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -863,7 +1129,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1989/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:35.795Z",
+      "crawledAt": "2026-11-01T09:15:39.471Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -888,12 +1154,26 @@
       "salaryMax": 102000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 92,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-18T09:15:39.471Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -908,7 +1188,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1990/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:34.994Z",
+      "crawledAt": "2026-11-01T09:15:38.645Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -932,12 +1212,16 @@
       "salaryMax": 174000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "streetAddress": "Lenzerheide",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:15:38.645Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -952,7 +1236,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1995/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:34.164Z",
+      "crawledAt": "2026-11-01T09:15:37.831Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -976,14 +1260,28 @@
       "salaryMax": 290000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Graubündner Kantonalbank",
+        "streetAddress": "Grabenstrasse",
+        "postalCode": "7000",
+        "addressLocality": "Chur",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:49.272Z"
+      },
+      "streetAddress": "Grabenstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-27T09:15:37.831Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

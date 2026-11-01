@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clienia-ag",
-  "assembledAt": "2026-10-31T21:51:11.632Z",
-  "runId": "41242445754",
+  "assembledAt": "2026-11-01T09:22:10.904Z",
+  "runId": "41292050097",
   "jobs": [
     {
       "id": "clienia-ag-30f2c2a857b3",
@@ -35,7 +35,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-als-dauernachtwache-30484893893651/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:04.095Z",
+      "crawledAt": "2026-11-01T09:22:03.990Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -100,7 +100,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:03.990Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-abfd3e9cb6f2",
@@ -133,7 +137,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/springer-oberaerztin-oberarzt-30606893918133/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:03.043Z",
+      "crawledAt": "2026-11-01T09:21:58.305Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,7 +188,11 @@
           "maxValue": 103800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:58.305Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-f0efd2e91cb0",
@@ -217,7 +225,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-30674413931181/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:01.992Z",
+      "crawledAt": "2026-11-01T09:21:53.134Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -270,14 +278,18 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:53.134Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-57f4868acebf",
       "slug": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "it": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
-        "en": "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
+        "en": "qualified-nurse-50-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
         "fr": "infirmier-diplome-50-80-clienia-ag-pfaffikon"
       },
@@ -303,7 +315,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-30692123934626/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:51:00.787Z",
+      "crawledAt": "2026-11-01T09:21:49.099Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -358,8 +370,7 @@
         "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "infirmier-diplome-60-100-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-80-90-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
-        "qualified-nurse-50-80-clienia-ag-pfaffikon"
+        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -369,7 +380,7 @@
           "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
         ],
         "en": [
-          "qualified-nurse-50-80-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
@@ -388,7 +399,11 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:49.099Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-880b3e62ed9b",
@@ -421,7 +436,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/springer-oberaerztin-oberarzt-30693723934984/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:59.734Z",
+      "crawledAt": "2026-11-01T09:21:48.044Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -511,7 +526,11 @@
           "maxValue": 138400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:48.044Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-fc080aed364d",
@@ -545,7 +564,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachverantwortliche-r-pflege-30740013944188/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:58.829Z",
+      "crawledAt": "2026-11-01T09:21:47.127Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -628,7 +647,11 @@
           "maxValue": 155700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:47.127Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-a735ae1e7bfc",
@@ -662,7 +685,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-fuer-nachtdienste-im-aushilfepool-30813523958840/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:57.774Z",
+      "crawledAt": "2026-11-01T09:21:46.211Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -742,14 +765,18 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:46.211Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-cd995a4127d0",
       "slug": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
-        "en": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon",
+        "en": "graduated-day-care-professional-60-100-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-zurich",
         "fr": "infirmiere-diplomee-en-service-de-jour-70-80-clienia-ag-pfaffikon-zh"
       },
@@ -776,7 +803,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-im-tagdienst-30821583960618/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:56.570Z",
+      "crawledAt": "2026-11-01T09:21:45.297Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -833,7 +860,7 @@
         "infirmier-diplome-en-service-diurne-70-80-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-nel-servizio-diurno-psychiatriezentrum-munsingen-munsingen",
         "diplomierte-pflegefachperson-im-tagdienst-60-100-clienia-ag-zurich",
-        "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
+        "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -843,7 +870,7 @@
           "diplomierte-pflegefachperson-im-tagdienst-60-100-clienia-ag-zurich"
         ],
         "en": [
-          "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-im-tagesdienst-70-80-clienia-ag-pfaffikon"
@@ -865,7 +892,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:45.297Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-4be7fb51b67c",
@@ -898,7 +929,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/berufsbildner-in-fage-hf-fh-pflege-30900693976009/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:55.355Z",
+      "crawledAt": "2026-11-01T09:21:44.379Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -974,7 +1005,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:44.379Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-14b2b8c66b59",
@@ -1008,7 +1043,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-30922573980604/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:54.302Z",
+      "crawledAt": "2026-11-01T09:21:43.455Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1072,7 +1107,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:43.455Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-a3e557c980c9",
@@ -1105,7 +1144,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-hf-30933303982328/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:53.247Z",
+      "crawledAt": "2026-11-01T09:21:42.395Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1195,7 +1234,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:42.395Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-a79b41bc32b1",
@@ -1229,7 +1272,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/sozialpaedagogin-sozialpaedagogen-30933313982330/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:52.172Z",
+      "crawledAt": "2026-11-01T09:21:41.349Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1298,7 +1341,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:41.349Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-87d2a4960d67",
@@ -1332,7 +1379,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachfrau-fachmann-gesundheit-30933663982282/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:51.113Z",
+      "crawledAt": "2026-11-01T09:21:40.312Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1395,7 +1442,11 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:40.312Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-4f33d5f6ec23",
@@ -1428,7 +1479,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-30981343991793/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:50.056Z",
+      "crawledAt": "2026-11-01T09:21:39.399Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1481,7 +1532,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:39.399Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-8158e1053e42",
@@ -1514,7 +1569,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-30829123961802/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:44.352Z",
+      "crawledAt": "2026-11-01T09:21:37.317Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1554,7 +1609,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:37.317Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-6144b778bc17",
@@ -1587,7 +1646,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/pflegehelfer-pflegehelferin-srk-und-oder-assistentin-assistent-gesundheit-und-soziales-ags-30998273995034/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:41.540Z",
+      "crawledAt": "2026-11-01T09:21:36.276Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1667,7 +1726,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:36.276Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-e09f6d209a51",
@@ -1701,7 +1764,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachfrau-fachmann-gesundheit-30998863995101/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:40.487Z",
+      "crawledAt": "2026-11-01T09:21:35.347Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1785,7 +1848,11 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:35.347Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-2bc2a54ba194",
@@ -1818,7 +1885,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-erwachsenenpsychiatrie-30212453838438/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:39.747Z",
+      "crawledAt": "2026-11-01T09:21:34.410Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1887,7 +1954,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:34.410Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-ee6151ce5c70",
@@ -1921,7 +1992,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-abhaengigkeitserkrankungen-31111604017087/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:38.693Z",
+      "crawledAt": "2026-11-01T09:21:33.495Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1971,7 +2042,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:33.495Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-666dd4ef72cf",
@@ -2004,7 +2079,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-31130904020549/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:37.640Z",
+      "crawledAt": "2026-11-01T09:21:32.570Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2044,7 +2119,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:32.570Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-120f8659c8b3",
@@ -2078,7 +2157,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/studierende-pflege-hf-psychiatrie-mit-studienbeginn-jeweils-im-maerz-und-september-31163754026957/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:36.584Z",
+      "crawledAt": "2026-11-01T09:21:31.654Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2120,7 +2199,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:31.654Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-75129abe6247",
@@ -2153,7 +2236,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31176164029424/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:33.441Z",
+      "crawledAt": "2026-11-01T09:21:30.722Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2201,7 +2284,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:30.722Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-552e5e66f0df",
@@ -2235,7 +2322,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachverantwortliche-r-pflege-31179064030009/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:28.532Z",
+      "crawledAt": "2026-11-01T09:21:29.798Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2285,7 +2372,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:29.798Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-b621c4c1a603",
@@ -2319,7 +2410,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/stellvertretende-r-stationsleiter-in-31192184032494/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:27.472Z",
+      "crawledAt": "2026-11-01T09:21:28.874Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2361,7 +2452,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:28.874Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-3746a57d7ecb",
@@ -2394,7 +2489,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-31213454036332/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:24.638Z",
+      "crawledAt": "2026-11-01T09:21:27.960Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2442,7 +2537,11 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:27.960Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-8d9298fa0f17",
@@ -2476,7 +2575,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachaerztinnen-und-fachaerzte-fuer-die-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-31245724042718/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:21.620Z",
+      "crawledAt": "2026-11-01T09:21:27.043Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2560,7 +2659,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:27.043Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-f0076b461297",
@@ -2594,7 +2697,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/leitende-aerztin-leitender-arzt-oder-oberaerztin-oberarzt-kaderaerztinnen-kaderaerzte-31244564042698/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:18.858Z",
+      "crawledAt": "2026-11-01T09:21:26.120Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2636,7 +2739,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:26.120Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-d7852e75fd57",
@@ -2669,7 +2776,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-31244574042700/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:17.805Z",
+      "crawledAt": "2026-11-01T09:21:25.200Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2709,7 +2816,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:25.200Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-aa6b9c9ef0a1",
@@ -2742,7 +2853,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-kinder-und-jugendpsychiatrie-und-psychotherapie-31245314042613/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:16.748Z",
+      "crawledAt": "2026-11-01T09:21:24.282Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2798,7 +2909,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:24.282Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-06daf2d41c13",
@@ -2832,7 +2947,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-31270484047430/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:14.273Z",
+      "crawledAt": "2026-11-01T09:21:23.241Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2874,7 +2989,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:23.241Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-9f602a1bd8fa",
@@ -2907,7 +3026,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31271654047578/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:13.066Z",
+      "crawledAt": "2026-11-01T09:21:22.203Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2957,7 +3076,11 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:22.203Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-13bbc6eff203",
@@ -2990,7 +3113,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/psychologische-psychotherapeutinnen-und-therapeuten-m-w-d-31244684042463/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:12.015Z",
+      "crawledAt": "2026-11-01T09:21:21.285Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3045,7 +3168,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:21.285Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-c7f94c79b6ff",
@@ -3079,7 +3206,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-31305214054358/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:08.971Z",
+      "crawledAt": "2026-11-01T09:21:20.356Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3127,7 +3254,11 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:20.356Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-b3b26dcad6ce",
@@ -3161,7 +3292,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/leitende-aerztin-leitenden-arzt-kjpp-aerztliche-leitung-ambulatorium-pzz-clienia-young-31326434058396/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:06.202Z",
+      "crawledAt": "2026-11-01T09:21:19.293Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3201,7 +3332,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:19.293Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-65469bd8576b",
@@ -3234,7 +3369,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzarzt-aerztin-m-w-d-31326784058582/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:04.995Z",
+      "crawledAt": "2026-11-01T09:21:18.375Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3293,7 +3428,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:18.375Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-45d9dcdb9172",
@@ -3327,7 +3466,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-31326804058588/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:50:02.305Z",
+      "crawledAt": "2026-11-01T09:21:17.456Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3378,7 +3517,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:17.456Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-42d21b03db59",
@@ -3412,7 +3555,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/nachtaerztin-nachtarzt-31330064059226/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:59.662Z",
+      "crawledAt": "2026-11-01T09:21:16.416Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3452,7 +3595,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:16.416Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-26c95fd49bc3",
@@ -3485,7 +3632,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-m-w-d-31326834058595/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:58.604Z",
+      "crawledAt": "2026-11-01T09:21:15.367Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3527,7 +3674,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:15.367Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-b89c7cc223cf",
@@ -3560,7 +3711,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-31330384059389/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:57.548Z",
+      "crawledAt": "2026-11-01T09:21:14.325Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3608,7 +3759,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:14.325Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-d253407bc48e",
@@ -3642,7 +3797,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/ernaehrungsberater-in-bsc-31330394059391/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:54.738Z",
+      "crawledAt": "2026-11-01T09:21:13.286Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3698,7 +3853,11 @@
           "maxValue": 66900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:13.286Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-c23d8e0c5a16",
@@ -3731,7 +3890,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31334994060375/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:52.085Z",
+      "crawledAt": "2026-11-01T09:21:12.370Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3796,7 +3955,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:12.370Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-956f86dc1e74",
@@ -3830,7 +3993,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/sozialpaedagogin-sozialpaedagoge-31336554060602/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:49.162Z",
+      "crawledAt": "2026-11-01T09:21:11.330Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3893,7 +4056,11 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:11.330Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-b6273b90ca63",
@@ -3927,7 +4094,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-31351624063805/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:46.397Z",
+      "crawledAt": "2026-11-01T09:21:10.406Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4001,7 +4168,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:10.406Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-12633f7783f5",
@@ -4035,7 +4206,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/psychologische-psychotherapeutin-psychologischen-psychotherapeuten-m-w-d-31342444061997/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:43.581Z",
+      "crawledAt": "2026-11-01T09:21:09.364Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4087,7 +4258,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:21:09.364Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-2737014be218",
@@ -4121,7 +4296,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-m-w-d-31355944064641/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:40.640Z",
+      "crawledAt": "2026-11-01T09:21:08.443Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4169,7 +4344,11 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:21:08.443Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-3689827b6422",
@@ -4202,7 +4381,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-sozialpaedagoge-in-hf-fh-31356434064695/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:39.894Z",
+      "crawledAt": "2026-11-01T09:21:07.394Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4254,7 +4433,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:21:07.394Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-b0a80423dc7d",
@@ -4288,7 +4471,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachperson-rechnungswesen-m-w-d-31362564066401/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:38.819Z",
+      "crawledAt": "2026-11-01T09:21:06.468Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4345,7 +4528,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:21:06.468Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-8658431981e7",
@@ -4379,7 +4566,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/sachbearbeiter-in-rechnungswesen-m-w-d-31363764066383/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:37.762Z",
+      "crawledAt": "2026-11-01T09:21:05.551Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4427,7 +4614,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:21:05.551Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-042c58878e5b",
@@ -4460,7 +4651,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-31366804067349/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:36.694Z",
+      "crawledAt": "2026-11-01T09:21:04.639Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4504,7 +4695,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:21:04.639Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-41bd7496fdf2",
@@ -4537,7 +4732,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31373394068650/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:33.839Z",
+      "crawledAt": "2026-11-01T09:21:03.726Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4603,7 +4798,11 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:21:03.726Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-7a394d95a207",
@@ -4637,7 +4836,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachangestellte-n-gesundheit-im-tagdienst-m-w-d-31379724070020/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:31.065Z",
+      "crawledAt": "2026-11-01T09:21:03.058Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4685,7 +4884,11 @@
           "maxValue": 107600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-14T09:21:03.058Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-a15fd2ad0a00",
@@ -4719,7 +4922,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/stellvertretende-r-teamleiter-in-pflege-tagesklinik-31384514070910/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:28.318Z",
+      "crawledAt": "2026-11-01T09:21:02.399Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4767,7 +4970,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:21:02.399Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-b57270be52ed",
@@ -4800,7 +5007,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-oder-sozialpaedagogin-sozialpaedagoge-31384504070907/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:25.480Z",
+      "crawledAt": "2026-11-01T09:21:01.481Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4849,7 +5056,11 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:21:01.481Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-3b73b4cec3c5",
@@ -4883,7 +5094,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/mitarbeiter-in-restauration-m-w-d-31383574070967/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:24.426Z",
+      "crawledAt": "2026-11-01T09:21:00.436Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4932,7 +5143,11 @@
           "maxValue": 45800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:21:00.436Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-2bbb6a16200d",
@@ -4966,7 +5181,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/peer-mitarbeiterin-peer-mitarbeiter-ex-in-31396864073549/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:23.367Z",
+      "crawledAt": "2026-11-01T09:20:59.396Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5021,7 +5236,11 @@
           "maxValue": 25600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:20:59.396Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-9cc7eb76cd90",
@@ -5055,7 +5274,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachverantwortliche-r-pflege-31395644073628/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:22.314Z",
+      "crawledAt": "2026-11-01T09:20:58.355Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5103,7 +5322,11 @@
           "maxValue": 138400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:20:58.355Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-d8731d849e25",
@@ -5136,7 +5359,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-31404014075174/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:19.565Z",
+      "crawledAt": "2026-11-01T09:20:57.437Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5184,7 +5407,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:20:57.437Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-606838bdd1ae",
@@ -5217,7 +5444,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-sozialpaedagoge-in-hf-fh-m-w-d-31402634075015/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:18.671Z",
+      "crawledAt": "2026-11-01T09:20:56.395Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5265,7 +5492,11 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:20:56.395Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-eb55b064a98e",
@@ -5298,7 +5529,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-m-w-d-31403734075302/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:17.452Z",
+      "crawledAt": "2026-11-01T09:20:55.468Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5346,7 +5577,11 @@
           "maxValue": 89600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:20:55.468Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-e28ba4b58cbe",
@@ -5379,7 +5614,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-hf-m-w-d-31404114075209/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:14.748Z",
+      "crawledAt": "2026-11-01T09:20:54.544Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5427,7 +5662,11 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:20:54.544Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-744b89c67169",
@@ -5461,7 +5700,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachaerztin-facharzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-31404024075278/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:11.957Z",
+      "crawledAt": "2026-11-01T09:20:53.504Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5507,7 +5746,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:20:53.504Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-2672b13acfa4",
@@ -5540,7 +5783,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-m-w-d-31406794075847/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:08.994Z",
+      "crawledAt": "2026-11-01T09:20:52.718Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5585,7 +5828,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:20:52.718Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-a299db6745e2",
@@ -5618,7 +5865,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-ergotherapeutin-ergotherapeut-m-w-d-31410384076487/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:06.418Z",
+      "crawledAt": "2026-11-01T09:20:51.676Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5666,7 +5913,11 @@
           "maxValue": 121600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:20:51.676Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-410f5795d777",
@@ -5700,7 +5951,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/sachbearbeiter-in-patientenadministration-31415074077535/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:05.356Z",
+      "crawledAt": "2026-11-01T09:20:50.747Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5748,7 +5999,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:20:50.747Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-e88c1ffdd966",
@@ -5781,7 +6036,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-hf-fh-m-w-d-31415904077736/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:04.297Z",
+      "crawledAt": "2026-11-01T09:20:49.697Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5829,7 +6084,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:20:49.697Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-8db18b778b3f",
@@ -5862,7 +6121,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31425234079866/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:01.376Z",
+      "crawledAt": "2026-11-01T09:20:48.778Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5910,7 +6169,11 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:20:48.778Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-8d08ef652add",
@@ -5944,7 +6207,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/leitung-der-psychologischen-psychotherapie-m-w-d-31435304081948/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:58.666Z",
+      "crawledAt": "2026-11-01T09:20:47.857Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5995,7 +6258,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:20:47.857Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-0c3d312696ee",
@@ -6029,7 +6296,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-ergotherapeut-in-hf-fh-m-w-d-im-fachbereich-psychiatrie-und-psychotherapie-31439274082574/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:55.922Z",
+      "crawledAt": "2026-11-01T09:20:46.939Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6077,7 +6344,11 @@
           "maxValue": 51200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:20:46.939Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-32e7303faae0",
@@ -6111,7 +6382,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/leitende-n-psychologische-n-psychotherapeutin-therapeuten-m-w-d-31426404080094/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:50.515Z",
+      "crawledAt": "2026-11-01T09:20:44.974Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6151,7 +6422,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:20:44.974Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-4563d606c31a",
@@ -6185,7 +6460,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/reinigungsfachfrau-mann-und-stv-hotelfachfrau-mann-priv-station-31456484086502/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:47.653Z",
+      "crawledAt": "2026-11-01T09:20:44.056Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6229,7 +6504,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:20:44.056Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-9576831a53b4",
@@ -6262,7 +6541,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/arztsekretaerin-arztsekretaer-31418494078411/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:45.137Z",
+      "crawledAt": "2026-11-01T09:20:43.014Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6305,7 +6584,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:20:43.014Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-158c3dee39d9",
@@ -6338,7 +6621,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/lehrstelle-als-koechin-koch-efz-31457794086941/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:44.063Z",
+      "crawledAt": "2026-11-01T09:20:42.098Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6384,7 +6667,11 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:20:42.098Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-68c01877b867",
@@ -6418,7 +6705,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/ict-system-security-engineer-m-w-d-31459874087143/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:41.176Z",
+      "crawledAt": "2026-11-01T09:20:41.176Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6468,7 +6755,11 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:20:41.176Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-dbf3f6996e6b",
@@ -6502,7 +6793,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-arzt-m-w-d-31327674058645/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:37.223Z",
+      "crawledAt": "2026-11-01T09:20:39.197Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6542,7 +6833,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:20:39.197Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-16d61c4708ac",
@@ -6575,7 +6870,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/sozialarbeiterin-sozialarbeiter-bsc-fh-31468164088865/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:31.025Z",
+      "crawledAt": "2026-11-01T09:20:37.342Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6620,7 +6915,11 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:20:37.342Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-933a11c08dfd",
@@ -6654,7 +6953,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/facharzt-fachaerztin-fuer-psychiatrie-und-psychotherapie-oder-assistenzaerztin-assistenzarzt-mit-ausgewiesener-erfahrung-im-fachgebiet-m-w-d-31469574089062/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:29.956Z",
+      "crawledAt": "2026-11-01T09:20:36.422Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6702,7 +7001,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:20:36.422Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-626b966c2696",
@@ -6736,7 +7039,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/pflegedirektor-in-clienia-littenheid-ag-m-w-d-31470724089265/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:28.885Z",
+      "crawledAt": "2026-11-01T09:20:35.492Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6783,7 +7086,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:20:35.492Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-673be5b17e25",
@@ -6817,7 +7124,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachverantwortliche-r-pflege-31478164090831/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:27.661Z",
+      "crawledAt": "2026-11-01T09:20:34.383Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6865,7 +7172,11 @@
           "maxValue": 138400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:20:34.383Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-af26227d5053",
@@ -6898,7 +7209,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31477824090848/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:26.601Z",
+      "crawledAt": "2026-11-01T09:20:33.440Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6946,7 +7257,11 @@
           "maxValue": 89600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:20:33.440Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-b7d12dfea441",
@@ -6980,7 +7295,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-31477204091120/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:25.696Z",
+      "crawledAt": "2026-11-01T09:20:32.383Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7028,7 +7343,11 @@
           "maxValue": 89600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:20:32.383Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-6efd2603ab9a",
@@ -7062,7 +7381,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/mitarbeiterin-mitarbeiter-restauration-31480404091530/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:24.481Z",
+      "crawledAt": "2026-11-01T09:20:31.334Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7114,7 +7433,11 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:20:31.334Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-ebf275452938",
@@ -7148,7 +7471,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/stv-teamleitung-hotellerie-w-m-d-31489894093236/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:22.357Z",
+      "crawledAt": "2026-11-01T09:20:29.351Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7198,7 +7521,11 @@
           "maxValue": 98000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:29.351Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-26af4457e82a",
@@ -7231,7 +7558,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistentin-assistent-gesundheit-und-soziales-ags-oder-pflegehelfer-pflegehelferin-srk-31489424093241/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:19.500Z",
+      "crawledAt": "2026-11-01T09:20:28.305Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7281,7 +7608,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:28.305Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-57bddf94b3ad",
@@ -7315,7 +7646,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-fmh-allgemeine-innere-medizin-31490244093380/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:18.435Z",
+      "crawledAt": "2026-11-01T09:20:27.252Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7365,7 +7696,11 @@
           "maxValue": 138400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:27.252Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-a9835ace3bf3",
@@ -7399,7 +7734,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/sekundarlehrperson-shp-mit-sport-im-profil-31490294093399/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:17.364Z",
+      "crawledAt": "2026-11-01T09:20:26.190Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7450,7 +7785,11 @@
           "maxValue": 107600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:26.190Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "clienia-ag-9e02a67d095b",
@@ -7483,7 +7822,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/psychotherapeutin-psychotherapeut-oder-psychologin-psychologe-m-w-d-31343494062073/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:48:16.144Z",
+      "crawledAt": "2026-11-01T09:20:25.520Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7523,7 +7862,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pfäffikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:20:25.520Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

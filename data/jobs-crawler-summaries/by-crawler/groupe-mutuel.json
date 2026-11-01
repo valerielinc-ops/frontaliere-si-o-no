@@ -1,16 +1,16 @@
 {
   "key": "groupe-mutuel",
   "label": "Groupe Mutuel",
-  "generatedAt": "2026-10-31T21:40:02.900Z",
+  "generatedAt": "2026-11-01T09:16:53.249Z",
   "total": 33,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 33,
-  "durationMs": 5943,
-  "avgDurationMs": 5943,
+  "durationMs": 6872,
+  "avgDurationMs": 6872,
   "durationHistory": [
-    5943
+    6872
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -27,7 +27,7 @@
       "country": "CH",
       "slug": "network-development-manager-partnerships-foresight-expertise-m-f-80-100-groupe-mutuel-lausanne",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-29",
       "postedDate": "2026-10-29",
       "postingDateSource": "reported",
@@ -50,12 +50,16 @@
       "postalCode": "1003",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -69,7 +73,7 @@
       "country": "CH",
       "slug": "apprendista-impiegato-di-commercio-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny",
       "category": "administration",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-28",
       "postedDate": "2026-10-28",
       "postingDateSource": "reported",
@@ -92,12 +96,16 @@
       "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
-      "_qualityScore": 87,
+      "streetAddress": "Martigny",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -111,7 +119,7 @@
       "country": "CH",
       "slug": "allenatore-mpe-m-f-100-groupe-mutuel-lausanne",
       "category": "general",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
@@ -134,12 +142,16 @@
       "postalCode": "1003",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -153,7 +165,7 @@
       "country": "CH",
       "slug": "interno-mpe-m-f-100-groupe-mutuel-fribourg",
       "category": "general",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
@@ -176,54 +188,16 @@
       "postalCode": "1700",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
-      "_qualityScore": 87,
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4438?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4438?c=groupemutuel&lang=fr-FR",
-      "title": "Compliance Officer - DPO Office (h/f) 60%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "slug": "compliance-officer-dpo-office-h-f-60-groupe-mutuel",
-      "category": "legal",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
-      "datePosted": "2026-10-20",
-      "postedDate": "2026-10-20",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Lausanne"
-      },
-      "jobReqId": "4438",
-      "id": "groupe-mutuel-53976a0ffa93",
-      "firstSeenAt": "2026-10-20T21:17:52.856Z",
-      "salaryMin": 41400,
-      "salaryMax": 70800,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "1003",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -237,7 +211,7 @@
       "country": "CH",
       "slug": "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-chur",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
@@ -260,12 +234,16 @@
       "postalCode": "7000",
       "addressLocality": "Chur",
       "addressRegion": "GR",
-      "_qualityScore": 87,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -279,7 +257,7 @@
       "country": "CH",
       "slug": "consulente-previdenziale-m-f-50-groupe-mutuel",
       "category": "general",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-16",
       "postedDate": "2026-10-16",
       "postingDateSource": "reported",
@@ -302,12 +280,16 @@
       "postalCode": "6900",
       "addressLocality": "Paradiso",
       "addressRegion": "TI",
-      "_qualityScore": 87,
+      "streetAddress": "Paradiso",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -321,7 +303,7 @@
       "country": "CH",
       "slug": "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-thun",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -344,12 +326,16 @@
       "postalCode": "3600",
       "addressLocality": "Thun",
       "addressRegion": "BE",
-      "_qualityScore": 87,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -363,7 +349,7 @@
       "country": "CH",
       "slug": "consulente-assicurativo-e-previdenziale-per-chi-cambia-carriera-m-f-80-100-groupe-mutuel-bern",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -386,12 +372,16 @@
       "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "_qualityScore": 87,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -405,7 +395,7 @@
       "country": "CH",
       "slug": "consulente-assicurativo-e-previdenziale-m-f-100-groupe-mutuel-luzern",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
@@ -428,54 +418,16 @@
       "postalCode": "6003",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
-      "_qualityScore": 87,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4408?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4408?c=groupemutuel&lang=fr-FR",
-      "title": "Portfolio Manager Senior (h/f) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Martigny",
-      "canton": "VS",
-      "country": "CH",
-      "slug": "portfolio-manager-senior-h-f-80-100-groupe-mutuel",
-      "category": "management",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
-      "datePosted": "2026-10-14",
-      "postedDate": "2026-10-14",
-      "postingDateSource": "reported",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Martigny"
-      },
-      "jobReqId": "4408",
-      "id": "groupe-mutuel-be7af5ed4f7c",
-      "firstSeenAt": "2026-10-14T21:14:04.677Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "1920",
-      "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -489,7 +441,7 @@
       "country": "CH",
       "slug": "consulente-in-assicurazioni-e-previdenza-m-f-80-100-groupe-mutuel-neuchatel",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-07",
       "postedDate": "2026-10-07",
       "postingDateSource": "reported",
@@ -512,12 +464,16 @@
       "postalCode": "2000",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
-      "_qualityScore": 87,
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -531,7 +487,7 @@
       "country": "CH",
       "slug": "assistente-medico-temporary-12-mesi-m-f-100-groupe-mutuel-sion",
       "category": "general",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-10-06",
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
@@ -554,12 +510,16 @@
       "postalCode": "1950",
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "_qualityScore": 87,
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -573,7 +533,7 @@
       "country": "CH",
       "slug": "consigliere-di-pianificazione-m-f-80-100-groupe-mutuel-crissier",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-30",
       "postedDate": "2026-09-30",
       "postingDateSource": "reported",
@@ -596,12 +556,16 @@
       "postalCode": "1023",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "streetAddress": "Crissier",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -615,7 +579,7 @@
       "country": "CH",
       "slug": "apprendistato-impiegato-a-di-commercio-afc-servizio-e-amministrazione-100-groupe-mutuel-sion",
       "category": "claims",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -638,12 +602,16 @@
       "postalCode": "1950",
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "_qualityScore": 87,
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -657,7 +625,7 @@
       "country": "CH",
       "slug": "apprendista-agente-relazione-clienti-m-f-100-groupe-mutuel-lausanne",
       "category": "general",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
       "postingDateSource": "reported",
@@ -680,12 +648,16 @@
       "postalCode": "1003",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "_qualityScore": 87,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -699,7 +671,7 @@
       "country": "CH",
       "slug": "consigliere-preventivo-m-f-80-100-groupe-mutuel-zurich",
       "category": "general",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
       "postingDateSource": "reported",
@@ -722,12 +694,16 @@
       "postalCode": "8001",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -741,7 +717,7 @@
       "country": "CH",
       "slug": "agenzia-di-consulenza-clienti-m-f-60-100-groupe-mutuel-fribourg",
       "category": "customer-service",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-24",
       "postedDate": "2026-09-24",
       "postingDateSource": "reported",
@@ -764,12 +740,16 @@
       "postalCode": "1700",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
-      "_qualityScore": 87,
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -783,7 +763,7 @@
       "country": "CH",
       "slug": "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-biel-bienne",
       "category": "customer-service",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-22",
       "postedDate": "2026-09-22",
       "postingDateSource": "reported",
@@ -806,12 +786,16 @@
       "postalCode": "2502",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
-      "_qualityScore": 87,
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -825,7 +809,7 @@
       "country": "CH",
       "slug": "consulente-assicurativo-m-f-80-100-groupe-mutuel-st-gallen",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -848,12 +832,16 @@
       "postalCode": "9000",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
-      "_qualityScore": 87,
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -867,7 +855,7 @@
       "country": "CH",
       "slug": "consulente-assicurativo-m-f-80-100-groupe-mutuel-wil",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -890,12 +878,16 @@
       "postalCode": "9500",
       "addressLocality": "Wil",
       "addressRegion": "SG",
-      "_qualityScore": 87,
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -909,7 +901,7 @@
       "country": "CH",
       "slug": "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-bulle",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-17",
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
@@ -932,12 +924,16 @@
       "postalCode": "1630",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
-      "_qualityScore": 87,
+      "streetAddress": "Bulle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -951,7 +947,7 @@
       "country": "CH",
       "slug": "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-delemont",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-16",
       "postedDate": "2026-09-16",
       "postingDateSource": "reported",
@@ -974,12 +970,16 @@
       "postalCode": "2800",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
-      "_qualityScore": 87,
+      "streetAddress": "Delémont",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -993,7 +993,7 @@
       "country": "CH",
       "slug": "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-olten",
       "category": "customer-service",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-07",
       "postedDate": "2026-09-07",
       "postingDateSource": "reported",
@@ -1016,12 +1016,16 @@
       "postalCode": "4600",
       "addressLocality": "Olten",
       "addressRegion": "SO",
-      "_qualityScore": 87,
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1035,7 +1039,7 @@
       "country": "CH",
       "slug": "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny",
       "category": "it",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
       "postingDateSource": "reported",
@@ -1058,12 +1062,16 @@
       "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
-      "_qualityScore": 87,
+      "streetAddress": "Martigny",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1077,7 +1085,7 @@
       "country": "CH",
       "slug": "allenatore-mpe-m-f-100-groupe-mutuel-martigny",
       "category": "general",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-08-27",
       "postedDate": "2026-08-27",
       "postingDateSource": "reported",
@@ -1100,12 +1108,16 @@
       "postalCode": "1920",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
-      "_qualityScore": 87,
+      "streetAddress": "Martigny",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1119,7 +1131,7 @@
       "country": "CH",
       "slug": "consulente-assicurativo-h-f-80-100-groupe-mutuel-monthey",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-08-06",
       "postedDate": "2026-08-06",
       "postingDateSource": "reported",
@@ -1142,12 +1154,16 @@
       "postalCode": "1870",
       "addressLocality": "Monthey",
       "addressRegion": "VS",
-      "_qualityScore": 87,
+      "streetAddress": "Monthey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1161,7 +1177,7 @@
       "country": "CH",
       "slug": "consulente-in-assicurazione-previdenza-consulente-in-assicurazione-previdenza-groupe-mutuel-winterthur",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-07-23",
       "postedDate": "2026-07-23",
       "postingDateSource": "reported",
@@ -1184,12 +1200,16 @@
       "postalCode": "8400",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1203,7 +1223,7 @@
       "country": "CH",
       "slug": "consulente-per-la-cura-m-f-60-100-groupe-mutuel-sargans",
       "category": "general",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-07-10",
       "postedDate": "2026-07-10",
       "postingDateSource": "reported",
@@ -1226,12 +1246,16 @@
       "postalCode": "7320",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
-      "_qualityScore": 87,
+      "streetAddress": "Sargans",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1245,7 +1269,7 @@
       "country": "CH",
       "slug": "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-solothurn",
       "category": "insurance",
-      "crawledAt": "2026-10-31T21:39:51.476Z",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
       "datePosted": "2026-06-25",
       "postedDate": "2026-06-25",
       "postingDateSource": "reported",
@@ -1268,14 +1292,110 @@
       "postalCode": "4500",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "_qualityScore": 87,
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4138?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4138?c=groupemutuel&lang=fr-FR",
+      "title": "Verkaufscoach Vorsorgespezialist (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "St. Gallen",
+      "canton": "SG",
+      "country": "CH",
+      "slug": "coach-di-vendita-specialista-previdenziale-m-f-80-100-groupe-mutuel-st-gallen",
+      "category": "sales",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
+      "datePosted": "2026-06-15",
+      "postedDate": "2026-06-15",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "St. Gallen"
+      },
+      "jobReqId": "4138",
+      "id": "groupe-mutuel-0bdf59be43e4",
+      "firstSeenAt": "2026-06-15T14:43:17.699Z",
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "9000",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4082?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4082?c=groupemutuel&lang=fr-FR",
+      "title": "Conseiller Assurance et Prévoyance (h/f) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Genève",
+      "canton": "GE",
+      "country": "CH",
+      "slug": "consulente-per-l-assicurazione-e-la-pianificazione-h-f-80-100-groupe-mutuel-geneve",
+      "category": "insurance",
+      "crawledAt": "2026-11-01T09:16:32.866Z",
+      "datePosted": "2026-05-22",
+      "postedDate": "2026-05-22",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "GE",
+        "location": "Genève"
+      },
+      "jobReqId": "4082",
+      "id": "groupe-mutuel-5dd175c9d179",
+      "firstSeenAt": "2026-05-22T22:18:14.485Z",
+      "salaryMin": 65500,
+      "salaryMax": 109000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "1201",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:32.866Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

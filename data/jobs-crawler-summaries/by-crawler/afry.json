@@ -1,16 +1,16 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-10-31T21:32:42.497Z",
+  "generatedAt": "2026-11-01T09:20:12.652Z",
   "total": 52,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 52,
-  "durationMs": 106331,
-  "avgDurationMs": 106331,
+  "durationMs": 79874,
+  "avgDurationMs": 79874,
   "durationHistory": [
-    106331
+    79874
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-10-30",
+      "validThrough": "2027-01-28T21:23:12.344Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-94c8d8a2c262",
@@ -47,12 +47,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-30T21:23:12.344Z",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -76,7 +79,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-10-30",
+      "validThrough": "2027-01-28T21:23:12.344Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-b2995173e7e1",
@@ -86,12 +89,15 @@
       "salarySource": "estimated",
       "postalCode": "8640",
       "firstSeenAt": "2026-10-30T21:23:12.344Z",
-      "_qualityScore": 88,
+      "streetAddress": "Rapperswil-Jona",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -115,7 +121,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-10-30",
+      "validThrough": "2027-01-28T21:23:12.344Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-53621a6375b8",
@@ -125,12 +131,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-30T21:23:12.344Z",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -154,7 +163,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-10-23",
+      "validThrough": "2027-01-21T21:21:37.566Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-a95387b3b47f",
@@ -164,12 +173,15 @@
       "salarySource": "estimated",
       "postalCode": "3004",
       "firstSeenAt": "2026-10-23T21:21:37.566Z",
-      "_qualityScore": 90,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -193,7 +205,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-10-23",
+      "validThrough": "2027-01-21T21:21:37.566Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-524795e5f0fc",
@@ -203,12 +215,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-23T21:21:37.566Z",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -232,7 +247,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-10-14",
+      "validThrough": "2027-01-12T21:22:30.741Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-4b240620e787",
@@ -242,12 +257,15 @@
       "salarySource": "estimated",
       "postalCode": "2000",
       "firstSeenAt": "2026-10-14T21:22:30.741Z",
-      "_qualityScore": 88,
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -271,7 +289,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-10-09",
+      "validThrough": "2026-09-01T12:33:24.799Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-fc440325d5fc",
@@ -281,12 +299,15 @@
       "salarySource": "estimated",
       "postalCode": "8640",
       "firstSeenAt": "2026-06-03T12:33:24.799Z",
-      "_qualityScore": 88,
+      "streetAddress": "Rapperswil-Jona",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -308,7 +329,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-10-07",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-65d599b64b01",
@@ -321,12 +342,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -350,7 +374,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-10-05",
+      "validThrough": "2026-09-06T12:23:39.662Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-e22ec691c6ad",
@@ -360,12 +384,15 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-06-08T12:23:39.662Z",
       "postalCode": "2800",
-      "_qualityScore": 88,
+      "streetAddress": "Delémont",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -387,7 +414,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-09-22",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-f8038932fd42",
@@ -400,12 +427,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -427,7 +457,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "it",
       "postedDate": "",
-      "validThrough": "2026-09-22",
+      "validThrough": "2026-12-23T14:28:19.433Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-f997a2e7ea9e",
@@ -440,12 +470,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6500",
-      "_qualityScore": 88,
+      "streetAddress": "Bellinzona",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -467,7 +500,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "fr",
       "postedDate": "",
-      "validThrough": "2026-09-08",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-9f77366931b6",
@@ -480,12 +513,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "1003",
-      "_qualityScore": 88,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -507,7 +543,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-09-08",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-42c6f4464196",
@@ -520,12 +556,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -547,7 +586,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-09-08",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-019c6f9172d5",
@@ -560,12 +599,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -587,7 +629,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "fr",
       "postedDate": "",
-      "validThrough": "2026-08-28",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-2bf5ed09030b",
@@ -600,12 +642,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "1003",
-      "_qualityScore": 88,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -627,7 +672,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-08-21",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-961b386f4e1f",
@@ -640,12 +685,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -667,7 +715,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-08-21",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-fb5dc2e35995",
@@ -680,12 +728,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "7000",
-      "_qualityScore": 80,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -707,7 +758,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-08-21",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-bf4882b1ec27",
@@ -720,12 +771,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "7000",
-      "_qualityScore": 80,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -747,7 +801,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-08-21",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-d017fb57b1f3",
@@ -760,12 +814,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "7000",
-      "_qualityScore": 88,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -787,7 +844,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-08-20",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-1c3abc08c81d",
@@ -800,12 +857,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -827,7 +887,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-08-14",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-aecaebb6baff",
@@ -840,12 +900,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -867,7 +930,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-08-13",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-45e791dfabff",
@@ -880,12 +943,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6440",
-      "_qualityScore": 88,
+      "streetAddress": "Ingenbohl",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -907,7 +973,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-08-13",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-afdfd9d97611",
@@ -920,12 +986,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6440",
-      "_qualityScore": 88,
+      "streetAddress": "Ingenbohl",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -947,7 +1016,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-07-31",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-e0ae6048c91f",
@@ -960,12 +1029,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -987,7 +1059,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-07-31",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-cf5be2e24f0d",
@@ -1000,12 +1072,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "7000",
-      "_qualityScore": 88,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1027,7 +1102,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-07-22",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-a606625d076b",
@@ -1040,12 +1115,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1067,7 +1145,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-07-20",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-6f0e5881bb02",
@@ -1080,12 +1158,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1107,7 +1188,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-07-16",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-bb20e0028415",
@@ -1120,12 +1201,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1147,7 +1231,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-07-07",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-cea01fccb6cb",
@@ -1160,12 +1244,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1187,7 +1274,7 @@
       "source": "afry-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-07-01",
+      "validThrough": "2026-12-18T23:01:35.571Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-07c2aab67ac2",
@@ -1200,14 +1287,17 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

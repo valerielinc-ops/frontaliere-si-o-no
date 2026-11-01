@@ -1,7 +1,7 @@
 {
   "crawlerKey": "aarreha-schinznach",
-  "assembledAt": "2026-10-31T21:13:52.070Z",
-  "runId": "41241842985",
+  "assembledAt": "2026-11-01T09:16:48.357Z",
+  "runId": "41291485249",
   "jobs": [
     {
       "id": "aarreha-schinznach-6faac2d220b6",
@@ -34,7 +34,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-unterassistentin-unterassistent_538.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:45.108Z",
+      "crawledAt": "2026-11-01T09:16:44.241Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -90,7 +90,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:44.241Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "aarreha-schinznach-be1263321934",
@@ -124,7 +138,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-dipl-pflegefachfrau-dipl-pflegefachmann-mit-zusatzfunktion-als-berufsbildner-in-schwerpunkt-int_530.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:44.658Z",
+      "crawledAt": "2026-11-01T09:16:43.712Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -193,7 +207,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:43.712Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "aarreha-schinznach-52c7b6fba0d5",
@@ -226,7 +254,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-praktikantin-praktikant-pflege_542.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:44.202Z",
+      "crawledAt": "2026-11-01T09:16:43.185Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -266,7 +294,21 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:43.185Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "aarreha-schinznach-94012d11e1b8",
@@ -300,7 +342,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-psychologin-psychologe-oder-oberpsychologin-oberpsychologe-_546.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:43.743Z",
+      "crawledAt": "2026-11-01T09:16:42.689Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -346,7 +388,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:42.689Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "aarreha-schinznach-7135831d09d9",
@@ -380,7 +436,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-ernahrungsberaterin-ernahrungsberater-bsc-oder-hf-_556.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:43.272Z",
+      "crawledAt": "2026-11-01T09:16:42.197Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -426,7 +482,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:42.197Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "aarreha-schinznach-6cde6237ba30",
@@ -459,7 +529,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-lehrstelle-2027-als-restaurantfachfrau-restaurantfachmann-efz_551.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:42.807Z",
+      "crawledAt": "2026-11-01T09:16:41.674Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -501,7 +571,21 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-19T09:16:41.674Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "aarreha-schinznach-d3e884ff5e9e",
@@ -534,7 +618,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz_550.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:42.345Z",
+      "crawledAt": "2026-11-01T09:16:41.178Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -576,7 +660,21 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-19T09:16:41.178Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "aarreha-schinznach-aabf5fd38d4c",
@@ -610,7 +708,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-leitende-arztin-leitender-arzt-geriatrie_565.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:41.883Z",
+      "crawledAt": "2026-11-01T09:16:40.688Z",
       "addressLocality": "Schinznach-Bad und Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -652,7 +750,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schinznach-Bad und Zofingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:16:40.688Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "aarreha-schinznach-7b69a3c28fc8",
@@ -686,7 +788,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-fachfrau-fachmann-gesundheit_562.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:41.376Z",
+      "crawledAt": "2026-11-01T09:16:40.196Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -732,7 +834,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:40.196Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "aarreha-schinznach-c56cdaed5c46",
@@ -766,7 +882,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-dipl-pflegefachfrau-dipl-pflegefachmann_544.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:40.910Z",
+      "crawledAt": "2026-11-01T09:16:39.684Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -806,7 +922,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:39.684Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "aarreha-schinznach-57f01d76bb1a",
@@ -840,7 +970,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-dipl-med-masseurin-dipl-med-masseur_531.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:40.457Z",
+      "crawledAt": "2026-11-01T09:16:39.192Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -911,7 +1041,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:39.192Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "aarreha-schinznach-46c958232dc7",
@@ -945,7 +1089,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-ernahrungsberaterin-ernahrungsberater-bsc-oder-hf-svde_566.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:40.005Z",
+      "crawledAt": "2026-11-01T09:16:38.694Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -993,7 +1137,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-26T09:16:38.694Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "aarreha-schinznach-282ef6a11da3",
@@ -1027,7 +1185,7 @@
       "url": "https://aarreha-bewerber.talent-soft.com/stelle/stelle-mitarbeiterin-mitarbeiter-restauration_540.aspx",
       "source": "aarReha Schinznach Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:13:39.542Z",
+      "crawledAt": "2026-11-01T09:16:38.202Z",
       "addressLocality": "Schinznach-Bad",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1074,7 +1232,21 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "aarReha Schinznach",
+        "streetAddress": "Badstrasse 55",
+        "postalCode": "5116",
+        "addressLocality": "Schinznach-Bad",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "Badstrasse 55",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:16:38.202Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

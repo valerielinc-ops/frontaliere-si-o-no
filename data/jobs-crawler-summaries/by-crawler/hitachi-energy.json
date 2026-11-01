@@ -1,16 +1,16 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-10-31T21:19:46.170Z",
+  "generatedAt": "2026-11-01T09:18:11.034Z",
   "total": 78,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 77,
-  "durationMs": 280901,
-  "avgDurationMs": 280901,
+  "durationMs": 245206,
+  "avgDurationMs": 245206,
   "durationHistory": [
-    280901
+    245206
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "2026-10-02T00:00:00Z",
       "employmentType": "full-time",
       "contractType": "temporary",
-      "validThrough": "",
+      "validThrough": "2026-11-16T21:17:26.233Z",
       "id": "hitachi-energy-59969bf7093a",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -45,12 +45,15 @@
       "datePosted": "2026-10-02T00:00:00Z",
       "postingDateSource": "reported",
       "postalCode": "5400",
-      "_qualityScore": 92,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
@@ -79,7 +82,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-27T21:22:47.590Z",
       "id": "hitachi-energy-d6ab0691432a",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -87,12 +90,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-29T21:22:47.590Z",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -118,7 +124,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-27T21:22:47.590Z",
       "id": "hitachi-energy-bd87c74595f6",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -126,12 +132,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-29T21:22:47.590Z",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -157,7 +166,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-27T21:22:47.590Z",
       "id": "hitachi-energy-92102275320f",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -165,12 +174,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-29T21:22:47.590Z",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -196,7 +208,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-27T21:22:47.590Z",
       "id": "hitachi-energy-9e8024a5b31a",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -204,12 +216,15 @@
       "salarySource": "estimated",
       "postalCode": "6500",
       "firstSeenAt": "2026-10-29T21:22:47.590Z",
-      "_qualityScore": 92,
+      "streetAddress": "Molinazzo di Monteggio",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -235,7 +250,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-26T20:10:20.334Z",
       "id": "hitachi-energy-228febf06388",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -243,12 +258,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-28T20:10:20.334Z",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -274,7 +292,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-26T20:10:20.334Z",
       "id": "hitachi-energy-4a3537bb1531",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -282,12 +300,15 @@
       "salarySource": "estimated",
       "postalCode": "5400",
       "firstSeenAt": "2026-10-28T20:10:20.334Z",
-      "_qualityScore": 92,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -313,7 +334,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-26T20:10:20.334Z",
       "id": "hitachi-energy-af5549b8d671",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -321,12 +342,15 @@
       "salarySource": "estimated",
       "postalCode": "5400",
       "firstSeenAt": "2026-10-28T20:10:20.334Z",
-      "_qualityScore": 92,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -352,7 +376,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-25T20:10:20.334Z",
       "id": "hitachi-energy-cc4fe5d07a62",
       "salaryMin": 99500,
       "salaryMax": 151000,
@@ -360,12 +384,15 @@
       "salarySource": "estimated",
       "postalCode": "5400",
       "firstSeenAt": "2026-10-28T20:10:20.334Z",
-      "_qualityScore": 90,
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -391,7 +418,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-25T21:27:16.009Z",
       "id": "hitachi-energy-0f5a80d68e35",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -399,12 +426,15 @@
       "salarySource": "estimated",
       "postalCode": "5600",
       "firstSeenAt": "2026-10-27T21:27:16.009Z",
-      "_qualityScore": 92,
+      "streetAddress": "Lenzburg",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -430,7 +460,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-25T21:27:16.009Z",
       "id": "hitachi-energy-1e6d8b40f08e",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -438,12 +468,15 @@
       "salarySource": "estimated",
       "postalCode": "5600",
       "firstSeenAt": "2026-10-27T21:27:16.009Z",
-      "_qualityScore": 92,
+      "streetAddress": "Lenzburg",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -469,7 +502,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-25T21:27:16.009Z",
       "id": "hitachi-energy-4895383e4c09",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -477,12 +510,15 @@
       "salarySource": "estimated",
       "postalCode": "5600",
       "firstSeenAt": "2026-10-27T21:27:16.009Z",
-      "_qualityScore": 92,
+      "streetAddress": "Lenzburg",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -508,7 +544,7 @@
       "postingDateSource": "reported",
       "employmentType": "part-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-25T21:27:16.009Z",
       "id": "hitachi-energy-da4ff44d4d0e",
       "salaryMin": 29600,
       "salaryMax": 45400,
@@ -516,12 +552,15 @@
       "salarySource": "estimated",
       "postalCode": "5430",
       "firstSeenAt": "2026-10-27T21:27:16.009Z",
-      "_qualityScore": 92,
+      "streetAddress": "Wettingen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -547,7 +586,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-25T21:27:16.009Z",
       "id": "hitachi-energy-4ca59fbe19d5",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -555,12 +594,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-27T21:27:16.009Z",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -586,7 +628,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-24T21:32:44.948Z",
       "id": "hitachi-energy-fcb64c0681ab",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -594,13 +636,16 @@
       "salarySource": "estimated",
       "postalCode": "5600",
       "firstSeenAt": "2026-10-26T21:32:44.948Z",
+      "streetAddress": "Lenzburg",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
-      "_qualityScore": 90,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -626,7 +671,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-24T21:32:44.948Z",
       "id": "hitachi-energy-ba369ff957b9",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -634,12 +679,15 @@
       "salarySource": "estimated",
       "postalCode": "5313",
       "firstSeenAt": "2026-10-26T21:32:44.948Z",
-      "_qualityScore": 92,
+      "streetAddress": "Klingnau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -665,7 +713,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-24T21:32:44.948Z",
       "id": "hitachi-energy-8683e708be57",
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -673,12 +721,15 @@
       "salarySource": "estimated",
       "postalCode": "5300",
       "firstSeenAt": "2026-10-26T21:32:44.948Z",
-      "_qualityScore": 90,
+      "streetAddress": "Turgi",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -704,7 +755,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2026-12-18T22:55:06.170Z",
       "id": "hitachi-energy-5fa831cd1241",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -712,12 +763,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-09-19T22:55:06.170Z",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -743,7 +797,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-24T21:32:44.948Z",
       "id": "hitachi-energy-57fae83cf358",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -751,12 +805,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-26T21:32:44.948Z",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -782,7 +839,7 @@
       "postingDateSource": "reported",
       "employmentType": "internship",
       "contractType": "intern (fixed term) (trainee)",
-      "validThrough": "",
+      "validThrough": "2026-12-10T21:32:44.948Z",
       "id": "hitachi-energy-e88f30a8f19d",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -790,12 +847,15 @@
       "salarySource": "reported",
       "postalCode": "5430",
       "firstSeenAt": "2026-10-26T21:32:44.948Z",
-      "_qualityScore": 90,
+      "streetAddress": "Wettingen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -821,7 +881,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-24T21:32:44.948Z",
       "id": "hitachi-energy-2f50c5677311",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -829,12 +889,15 @@
       "salarySource": "estimated",
       "postalCode": "5600",
       "firstSeenAt": "2026-10-26T21:32:44.948Z",
-      "_qualityScore": 90,
+      "streetAddress": "Lenzburg",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -860,7 +923,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-20T09:25:53.795Z",
       "id": "hitachi-energy-59e23595c2c7",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -868,12 +931,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-23T09:25:53.795Z",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -899,7 +965,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2026-12-07T23:20:20.419Z",
       "id": "hitachi-energy-aa9765d0f1f8",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -907,12 +973,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-09-08T23:20:20.419Z",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -938,7 +1007,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-20T09:25:53.795Z",
       "id": "hitachi-energy-54b9566b93b2",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -946,13 +1015,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-23T09:25:53.795Z",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
-      "_qualityScore": 90,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -978,7 +1050,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-18T21:17:06.188Z",
       "id": "hitachi-energy-7ba802c7b28d",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -986,12 +1058,15 @@
       "salarySource": "estimated",
       "postalCode": "5430",
       "firstSeenAt": "2026-10-20T21:17:06.188Z",
-      "_qualityScore": 90,
+      "streetAddress": "Wettingen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1017,7 +1092,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-18T21:17:06.188Z",
       "id": "hitachi-energy-baa02c73187b",
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -1025,12 +1100,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-20T21:17:06.188Z",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1056,7 +1134,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-18T21:17:06.188Z",
       "id": "hitachi-energy-26668cef50b7",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -1064,12 +1142,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-20T21:17:06.188Z",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1095,19 +1176,22 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-18T00:00:00.000Z",
       "id": "hitachi-energy-d66c1fd7d9b8",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "5400",
-      "_qualityScore": 90,
+      "streetAddress": "Baden-Daettwil",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "job-type-cap",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1133,7 +1217,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2026-12-22T23:43:27.656Z",
       "id": "hitachi-energy-3e88ea69a0f7",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -1141,12 +1225,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-09-23T23:43:27.656Z",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1172,7 +1259,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-18T21:17:06.188Z",
       "id": "hitachi-energy-dd2ed7b5c588",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -1180,12 +1267,15 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "firstSeenAt": "2026-10-20T21:17:06.188Z",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1211,22 +1301,25 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
-      "validThrough": "",
+      "validThrough": "2027-01-17T21:21:38.630Z",
       "id": "hitachi-energy-9c5cfb7905c2",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "reported",
       "firstSeenAt": "2026-10-19T21:21:38.630Z",
+      "streetAddress": "Bad Honnef",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

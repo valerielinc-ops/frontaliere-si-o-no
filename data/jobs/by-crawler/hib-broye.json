@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hib-broye",
-  "assembledAt": "2026-10-31T21:18:32.223Z",
-  "runId": "41241757776",
+  "assembledAt": "2026-11-01T09:12:34.775Z",
+  "runId": "41291409806",
   "jobs": [
     {
       "id": "hib-broye-4be68a574f23",
@@ -34,7 +34,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-de-80-a-100-95",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.473Z",
+      "crawledAt": "2026-11-01T09:12:24.522Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -81,7 +81,11 @@
           "maxValue": 86000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:12:24.522Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-df08b1d82a20",
@@ -115,7 +119,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100-94",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.471Z",
+      "crawledAt": "2026-11-01T09:12:24.520Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -165,7 +169,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.520Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-5b4f9dfa4967",
@@ -198,7 +206,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/technologue-en-dispositifs-medicaux-a-100-93",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.470Z",
+      "crawledAt": "2026-11-01T09:12:24.519Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -272,7 +280,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.519Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-bb43b169cd8c",
@@ -305,7 +317,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/ergotherapeute-30-a-50-92",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.468Z",
+      "crawledAt": "2026-11-01T09:12:24.517Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -385,7 +397,11 @@
           "maxValue": 60300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.517Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-8d0f317cd4f0",
@@ -419,7 +435,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-91",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.467Z",
+      "crawledAt": "2026-11-01T09:12:24.515Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -468,7 +484,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:12:24.515Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-7d7a1f957cfb",
@@ -502,7 +522,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-90",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.465Z",
+      "crawledAt": "2026-11-01T09:12:24.513Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -542,7 +562,11 @@
           "maxValue": 60300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:12:24.513Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-73f7ac4201c8",
@@ -575,7 +599,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-de-80-a-100-84",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.464Z",
+      "crawledAt": "2026-11-01T09:12:24.511Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -641,7 +665,11 @@
           "maxValue": 54900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.511Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-f2839155105a",
@@ -674,7 +702,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/offre-spontanee-medecin-assistant.e-pour-le-centre-de-readaptation-75",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.462Z",
+      "crawledAt": "2026-11-01T09:12:24.510Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -749,7 +777,11 @@
           "maxValue": 53800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.510Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-5aae6d722e40",
@@ -782,7 +814,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-specialise.e-de-80-a-100-dans-le-service-danesthesie-110",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.461Z",
+      "crawledAt": "2026-11-01T09:12:24.508Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -853,7 +885,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.508Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-0ba521d72938",
@@ -887,7 +923,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-specialise-e-de-80-a-100-pour-le-service-des-soins-intensifs-109",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.459Z",
+      "crawledAt": "2026-11-01T09:12:24.506Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -958,7 +994,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.506Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-c3cd197e1b9a",
@@ -992,7 +1032,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-de-80-a-100-pour-le-service-de-chirurgie-108",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.458Z",
+      "crawledAt": "2026-11-01T09:12:24.504Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1067,7 +1107,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.504Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-31010e4bcc60",
@@ -1100,7 +1144,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/chef.fe-de-clinique-ou-chef.fe-de-clinique-adjoint.e-106",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.457Z",
+      "crawledAt": "2026-11-01T09:12:24.502Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1181,7 +1225,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.502Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-1be49932b903",
@@ -1214,7 +1262,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-gyneco-obstetrique-de-50-a-100-105",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.453Z",
+      "crawledAt": "2026-11-01T09:12:24.500Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1288,7 +1336,11 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.500Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-58e399556269",
@@ -1321,7 +1373,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-en-pharmacie-cdm-104",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.451Z",
+      "crawledAt": "2026-11-01T09:12:24.498Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1382,7 +1434,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.498Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-18e1c2514f75",
@@ -1415,7 +1471,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-de-80-a-100-103",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.448Z",
+      "crawledAt": "2026-11-01T09:12:24.495Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1459,7 +1515,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:12:24.495Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-ad6702fda95f",
@@ -1492,7 +1552,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-a-100-102",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.445Z",
+      "crawledAt": "2026-11-01T09:12:24.491Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1600,7 +1660,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.491Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-360d96a89a43",
@@ -1634,7 +1698,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-chirurgie-orthopedique-101",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.443Z",
+      "crawledAt": "2026-11-01T09:12:24.488Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1692,7 +1756,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.488Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-d3318cc70bdc",
@@ -1725,7 +1793,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-rh-114",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.440Z",
+      "crawledAt": "2026-11-01T09:12:24.486Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1775,7 +1843,11 @@
           "maxValue": 45800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.486Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-fa703cdb6fb4",
@@ -1808,7 +1880,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-comptable-de-60-a-80-136",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.437Z",
+      "crawledAt": "2026-11-01T09:12:24.482Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1850,7 +1922,11 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.482Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-aca7e09505c8",
@@ -1883,7 +1959,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-pour-le-ctr-de-50-a-100-168",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.435Z",
+      "crawledAt": "2026-11-01T09:12:24.480Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1937,7 +2013,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.480Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-d1834c185bee",
@@ -1970,7 +2050,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-de-recherche-clinique-a-100-cdd-2-ans-145",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.433Z",
+      "crawledAt": "2026-11-01T09:12:24.478Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2042,7 +2122,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.478Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-3c82eed86fd0",
@@ -2075,7 +2159,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/codificateur-trice-medical-e-80-100-150",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.430Z",
+      "crawledAt": "2026-11-01T09:12:24.475Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2117,7 +2201,11 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.475Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-5cbd9a66c489",
@@ -2150,7 +2238,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-a-80-155",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.428Z",
+      "crawledAt": "2026-11-01T09:12:24.472Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2197,7 +2285,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.472Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-afcf0741a61a",
@@ -2230,7 +2322,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/cuisinier.ere-a-80-153",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.425Z",
+      "crawledAt": "2026-11-01T09:12:24.470Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2287,7 +2379,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.470Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-4968e546ae19",
@@ -2320,7 +2416,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/employe.e-de-nettoyage-a-80-185",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.423Z",
+      "crawledAt": "2026-11-01T09:12:24.467Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2379,7 +2475,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:12:24.467Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-7115ed20c773",
@@ -2413,7 +2513,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-184",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.422Z",
+      "crawledAt": "2026-11-01T09:12:24.465Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2453,7 +2553,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.465Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-7560e5b3a31f",
@@ -2487,7 +2591,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/secretaire-medical.e-a-40-181",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.421Z",
+      "crawledAt": "2026-11-01T09:12:24.464Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2541,7 +2645,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.464Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-575fd4fa85fe",
@@ -2574,7 +2682,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-technologue-en-dispositifs-medicaux-cfc-a-100-180",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.420Z",
+      "crawledAt": "2026-11-01T09:12:24.462Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2626,7 +2734,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.462Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-3d7d7f126957",
@@ -2659,7 +2771,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/trm-a-100-179",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.419Z",
+      "crawledAt": "2026-11-01T09:12:24.461Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2703,7 +2815,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.461Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-bbb484b078c9",
@@ -2737,7 +2853,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-pour-le-service-de-chirurgie-de-50-a-100-167",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.418Z",
+      "crawledAt": "2026-11-01T09:12:24.459Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2777,7 +2893,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.459Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-c5ee89a7eef1",
@@ -2810,7 +2930,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-adjoint-e-en-medecine-interne-de-50-a-100-166",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.417Z",
+      "crawledAt": "2026-11-01T09:12:24.458Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2852,7 +2972,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.458Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-fa5ce0864616",
@@ -2885,7 +3009,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-geriatrie-de-50-a-100-164",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.415Z",
+      "crawledAt": "2026-11-01T09:12:24.457Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2925,7 +3049,11 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.457Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-df67da55753d",
@@ -2959,7 +3087,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-medical.e-a-100-170",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.413Z",
+      "crawledAt": "2026-11-01T09:12:24.454Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3003,7 +3131,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.454Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-b2086eec4d38",
@@ -3036,7 +3168,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-logisticien.ne-cfc-a-100-176",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.410Z",
+      "crawledAt": "2026-11-01T09:12:24.452Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3090,7 +3222,11 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.452Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-e918eb06ff67",
@@ -3123,7 +3259,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-assc-a-100-174",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.406Z",
+      "crawledAt": "2026-11-01T09:12:24.448Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3165,7 +3301,11 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.448Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-59a574c6c09d",
@@ -3199,7 +3339,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti-e-test-173",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.402Z",
+      "crawledAt": "2026-11-01T09:12:24.445Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3239,7 +3379,11 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.445Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-fd389a4c7de0",
@@ -3272,7 +3416,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-cuisinier.ere-cfc-a-100-175",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.399Z",
+      "crawledAt": "2026-11-01T09:12:24.442Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3312,7 +3456,11 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.442Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-48d8a4460df1",
@@ -3345,7 +3493,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-radiologie-de-80-a-100-187",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.397Z",
+      "crawledAt": "2026-11-01T09:12:24.439Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3402,7 +3550,11 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.439Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-800c9d9fde96",
@@ -3435,7 +3587,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/logisticien.ne-a-70-189",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.394Z",
+      "crawledAt": "2026-11-01T09:12:24.437Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3497,7 +3649,11 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.437Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-21a640d65650",
@@ -3530,7 +3686,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-en-gynecologie-obstetrique-de-80-a-100-190",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.392Z",
+      "crawledAt": "2026-11-01T09:12:24.434Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3570,7 +3726,11 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.434Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-e858b249a7de",
@@ -3603,7 +3763,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-anesthesie-de-50-a-100-191",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.389Z",
+      "crawledAt": "2026-11-01T09:12:24.431Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3647,7 +3807,11 @@
           "maxValue": 43000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:24.431Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-44530b6b2f8b",
@@ -3680,7 +3844,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/secretaire-medicale-a-60-193",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.387Z",
+      "crawledAt": "2026-11-01T09:12:24.428Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3720,7 +3884,11 @@
           "maxValue": 36600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:12:24.428Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-79d4a0c00864",
@@ -3753,7 +3921,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/dieteticien.ne-a-70-197",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.384Z",
+      "crawledAt": "2026-11-01T09:12:24.424Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3793,7 +3961,11 @@
           "maxValue": 45800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:12:24.424Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-d8a55be0dc87",
@@ -3826,7 +3998,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/psychologue-a-60-196",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.381Z",
+      "crawledAt": "2026-11-01T09:12:24.420Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3879,7 +4051,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:12:24.420Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-928f53c2a508",
@@ -3913,7 +4089,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-specialise.e-en-soins-durgence-et-smur-a-80-100-198",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.379Z",
+      "crawledAt": "2026-11-01T09:12:24.415Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3953,7 +4129,11 @@
           "maxValue": 83200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Estavayer-le-Lac",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:12:24.415Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-f880de2bc5c6",
@@ -3986,7 +4166,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-oncologie-de-80-a-100-200",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.377Z",
+      "crawledAt": "2026-11-01T09:12:24.412Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4032,7 +4212,11 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-15T09:12:24.412Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-0c25aecfeb16",
@@ -4065,7 +4249,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-pour-le-service-des-urgences-de-80-a-100-199",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:18:23.359Z",
+      "crawledAt": "2026-11-01T09:12:24.392Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4111,7 +4295,11 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Payerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:12:24.392Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

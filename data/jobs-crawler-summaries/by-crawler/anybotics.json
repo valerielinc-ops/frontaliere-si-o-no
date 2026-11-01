@@ -1,7 +1,7 @@
 {
   "key": "anybotics",
   "label": "ANYbotics",
-  "generatedAt": "2026-10-31T21:14:24.348Z",
+  "generatedAt": "2026-11-01T09:11:56.561Z",
   "total": 16,
   "discovered": null,
   "parsed": 16,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 16,
-  "durationMs": 14656,
-  "avgDurationMs": 14656,
+  "durationMs": 10821,
+  "avgDurationMs": 10821,
   "durationHistory": [
-    14656
+    10821
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.lever.co/anybotics/dfae4234-0ca9-4ea9-85ff-7d1ec557540b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:08.151Z",
+      "crawledAt": "2026-11-01T09:11:46.702Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -58,12 +58,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:11:46.702Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -78,7 +82,7 @@
       "url": "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:07.058Z",
+      "crawledAt": "2026-11-01T09:11:45.894Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -99,12 +103,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:11:45.894Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -119,7 +127,7 @@
       "url": "https://jobs.lever.co/anybotics/d78ed750-b7fa-41a1-8691-0091b9df4169",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:06.609Z",
+      "crawledAt": "2026-11-01T09:11:44.954Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -140,12 +148,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 94,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:11:44.954Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -160,7 +172,7 @@
       "url": "https://jobs.lever.co/anybotics/d526ffba-4a8e-47d5-93b4-90e05662e152",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:06.155Z",
+      "crawledAt": "2026-11-01T09:11:44.442Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -181,12 +193,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:44.442Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -201,7 +217,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:05.694Z",
+      "crawledAt": "2026-11-01T09:11:44.046Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -222,12 +238,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:44.046Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -242,7 +262,7 @@
       "url": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:05.005Z",
+      "crawledAt": "2026-11-01T09:11:43.637Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,12 +283,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:43.637Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -283,7 +307,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:04.545Z",
+      "crawledAt": "2026-11-01T09:11:42.911Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -304,12 +328,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:42.911Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -324,7 +352,7 @@
       "url": "https://jobs.lever.co/anybotics/fd173f45-9f01-40b2-b46a-aca5133f6861",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:04.029Z",
+      "crawledAt": "2026-11-01T09:11:42.303Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -345,12 +373,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:42.303Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -365,7 +397,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:02.535Z",
+      "crawledAt": "2026-11-01T09:11:41.900Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -386,12 +418,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:41.900Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -406,7 +442,7 @@
       "url": "https://jobs.lever.co/anybotics/3b337f71-7867-45a7-9efa-ad08cbe84cd5",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:02.055Z",
+      "crawledAt": "2026-11-01T09:11:41.444Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -427,12 +463,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:11:41.444Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -447,7 +487,7 @@
       "url": "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:01.590Z",
+      "crawledAt": "2026-11-01T09:11:40.922Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -468,12 +508,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:40.922Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -488,7 +532,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:01.134Z",
+      "crawledAt": "2026-11-01T09:11:40.521Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -509,12 +553,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:40.521Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -529,7 +577,7 @@
       "url": "https://jobs.lever.co/anybotics/f687dc6d-d6d4-4111-a564-ae3369cca6b4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:14:00.668Z",
+      "crawledAt": "2026-11-01T09:11:40.031Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -550,12 +598,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:11:40.031Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -570,7 +622,7 @@
       "url": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:13:59.446Z",
+      "crawledAt": "2026-11-01T09:11:39.607Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -592,12 +644,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:39.607Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -612,7 +668,7 @@
       "url": "https://jobs.lever.co/anybotics/df94dc1d-e83d-4008-a6ee-46c7a54d5572",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:13:58.962Z",
+      "crawledAt": "2026-11-01T09:11:39.193Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -633,12 +689,16 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-14T09:11:39.193Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -653,7 +713,7 @@
       "url": "https://jobs.lever.co/anybotics/ea142002-be6c-4832-95ec-85687b0b90e8",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:13:58.469Z",
+      "crawledAt": "2026-11-01T09:11:38.765Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -674,14 +734,18 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:11:38.765Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

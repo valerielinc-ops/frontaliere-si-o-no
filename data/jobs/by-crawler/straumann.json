@@ -1,7 +1,7 @@
 {
   "crawlerKey": "straumann",
-  "assembledAt": "2026-10-31T21:43:12.350Z",
-  "runId": "41241930028",
+  "assembledAt": "2026-11-01T09:13:40.580Z",
+  "runId": "41291565146",
   "jobs": [
     {
       "id": "straumann-b9dbce578846",
@@ -34,7 +34,7 @@
       "url": "https://careers.straumann.com/global/en/job/22376/production-leader",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:07.203Z",
+      "crawledAt": "2026-11-01T09:13:34.266Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "postalCode": "2613",
@@ -80,7 +80,11 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Villeret",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:13:34.266Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "straumann-c7d689ad55de",
@@ -113,7 +117,7 @@
       "url": "https://careers.straumann.com/global/en/job/22444/process-engineer",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:06.122Z",
+      "crawledAt": "2026-11-01T09:13:33.885Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -160,7 +164,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "2613"
+      "postalCode": "2613",
+      "streetAddress": "Villeret",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:13:33.885Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "straumann-b7145d0ef804",
@@ -193,7 +201,7 @@
       "url": "https://careers.straumann.com/global/en/job/22285/global-medical-education-workflow-application-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:43:05.565Z",
+      "crawledAt": "2026-11-01T09:13:33.582Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -239,7 +247,11 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:13:33.582Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "straumann-e24a438ecc55",
@@ -272,7 +284,7 @@
       "url": "https://careers.straumann.com/global/en/job/22204/global-head-of-dso-education-services",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:43:05.271Z",
+      "crawledAt": "2026-11-01T09:13:33.285Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -318,7 +330,11 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:13:33.285Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "straumann-e16a4cb12d98",
@@ -351,7 +367,7 @@
       "url": "https://careers.straumann.com/global/en/job/22282/intern-rdi-academy-product-development",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:43:04.892Z",
+      "crawledAt": "2026-11-01T09:13:32.836Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -397,7 +413,11 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:13:32.836Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "straumann-40537290ba3f",
@@ -430,7 +450,7 @@
       "url": "https://careers.straumann.com/global/en/job/21681/global-medical-education-life-cycle-and-demo-materials-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:43:04.633Z",
+      "crawledAt": "2026-11-01T09:13:32.494Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -476,7 +496,11 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:13:32.494Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "straumann-91e06428baab",
@@ -509,7 +533,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:04.349Z",
+      "crawledAt": "2026-11-01T09:13:32.176Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -549,7 +573,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "2613"
+      "postalCode": "2613",
+      "streetAddress": "Villeret",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:32.176Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "straumann-ede36e57fc6e",
@@ -582,7 +610,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:04.016Z",
+      "crawledAt": "2026-11-01T09:13:31.765Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -622,7 +650,11 @@
           "maxValue": 92500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:31.765Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

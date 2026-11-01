@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-10-31T21:30:04.012Z",
+  "generatedAt": "2026-11-01T09:22:16.800Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6152,
-  "avgDurationMs": 6152,
+  "durationMs": 5010,
+  "avgDurationMs": 5010,
   "durationHistory": [
-    6152
+    5010
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "datePosted": "2026-04-24T08:00:41Z",
       "postedDate": "2026-04-24T08:00:41Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:29:46.819Z",
+      "crawledAt": "2026-11-01T09:22:02.836Z",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
@@ -42,12 +42,16 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/",
-      "_qualityScore": 91,
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:02.836Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
@@ -66,7 +70,7 @@
       "datePosted": "2026-04-23T08:30:00Z",
       "postedDate": "2026-04-23T08:30:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:29:46.819Z",
+      "crawledAt": "2026-11-01T09:22:02.836Z",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
@@ -82,6 +86,9 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:22:02.836Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -91,5 +98,5 @@
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

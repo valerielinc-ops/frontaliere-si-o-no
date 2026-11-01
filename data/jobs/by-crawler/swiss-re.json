@@ -1,7 +1,7 @@
 {
   "crawlerKey": "swiss-re",
-  "assembledAt": "2026-10-31T21:44:37.894Z",
-  "runId": "41242445754",
+  "assembledAt": "2026-11-01T09:16:34.728Z",
+  "runId": "41292050097",
   "jobs": [
     {
       "id": "swiss-re-680b7a0acb88",
@@ -34,7 +34,7 @@
       "url": "https://www.swissre.com/careers/job/Senior-Security-Analyst-f-m-x-d-hybrid-set-up-80-100-/1412388733",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:28.840Z",
+      "crawledAt": "2026-11-01T09:16:26.438Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -74,7 +74,11 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich, CH",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:26.438Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "swiss-re-a68ed48d6f52",
@@ -107,7 +111,7 @@
       "url": "https://www.swissre.com/careers/job/Senior-Property-Treaty-Underwriter-Hybrid-80-100-/1446422833",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:17.939Z",
+      "crawledAt": "2026-11-01T09:16:11.719Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -147,7 +151,11 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich, CH",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:16:11.719Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "swiss-re-3d3dba7920a5",
@@ -180,7 +188,7 @@
       "url": "https://www.swissre.com/careers/job/Financial-Accounting-Intra-Group-Retrocessions-Intern-m-f-x-d-80-100-/1426193633",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:16.491Z",
+      "crawledAt": "2026-11-01T09:16:10.527Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -211,7 +219,11 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich, CH",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:16:10.527Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "swiss-re-ac1193664c8e",
@@ -244,7 +256,7 @@
       "url": "https://www.swissre.com/careers/job/Senior-Digital-and-Technology-Risk-Manager-Hybrid-m-f-x-d-80-100-/1448562033",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:13.146Z",
+      "crawledAt": "2026-11-01T09:16:07.701Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -290,7 +302,11 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich, CH",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-15T09:16:07.701Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "swiss-re-d33804eefdf8",
@@ -323,7 +339,7 @@
       "url": "https://www.swissre.com/careers/job/Restaurationsfachfrau-mann-100-m-f-x-d-/1449936033",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:08.556Z",
+      "crawledAt": "2026-11-01T09:16:00.333Z",
       "addressLocality": "Rüschlikon, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -371,7 +387,11 @@
         }
       },
       "postalCode": "8803",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Rüschlikon, CH",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:16:00.333Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "swiss-re-2d48dfd3d709",
@@ -404,7 +424,7 @@
       "url": "https://www.swissre.com/careers/job/Senior-Wording-Intelligence-Specialist-Hybrid-m-f-x-d-80-100-/1451836533",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:43:59.271Z",
+      "crawledAt": "2026-11-01T09:15:44.620Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -450,7 +470,11 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich, CH",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:15:44.620Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "swiss-re-bce88c1dd3ae",
@@ -483,7 +507,7 @@
       "url": "https://www.swissre.com/careers/job/Lehrstelle-Mediamatiker-in-EFZ-2027/1420961933",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:58.091Z",
+      "crawledAt": "2026-11-01T09:15:43.472Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -523,7 +547,11 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich, CH",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-02T09:15:43.472Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "swiss-re-cc2058554a32",
@@ -556,7 +584,7 @@
       "url": "https://www.swissre.com/careers/job/Manager-Underwriting-Portfolio-Engineering/1452939733",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:43:55.375Z",
+      "crawledAt": "2026-11-01T09:15:40.449Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -602,7 +630,11 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich, CH",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:15:40.449Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "swiss-re-ae5e84b90dde",
@@ -635,7 +667,7 @@
       "url": "https://www.swissre.com/careers/job/Strategy-and-Transformation-Intern-12-months-Hybrid-m-f-x-d-80-100-/1452893833",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:43:53.982Z",
+      "crawledAt": "2026-11-01T09:15:39.306Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -681,7 +713,11 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich, CH",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:15:39.306Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

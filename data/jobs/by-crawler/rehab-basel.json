@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rehab-basel",
-  "assembledAt": "2026-10-31T21:44:03.616Z",
-  "runId": "41242445754",
+  "assembledAt": "2026-11-01T09:15:47.771Z",
+  "runId": "41292050097",
   "jobs": [
     {
       "id": "rehab-basel-af1fb99cf471",
@@ -34,7 +34,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-diatkoch-in-100-m-w-d_201.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:55.373Z",
+      "crawledAt": "2026-11-01T09:15:41.099Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -98,7 +98,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:41.099Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-df8651885ba3",
@@ -132,7 +136,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba-m-w-d_284.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:54.736Z",
+      "crawledAt": "2026-11-01T09:15:40.524Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -195,7 +199,11 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:40.524Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-0307a3ec451b",
@@ -228,7 +236,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d_133.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:54.122Z",
+      "crawledAt": "2026-11-01T09:15:39.888Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -274,7 +282,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:39.888Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-08ad96f51b8e",
@@ -308,7 +320,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachexpert-in-physiotherapie-60-80-m-w-d_296.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:53.509Z",
+      "crawledAt": "2026-11-01T09:15:39.057Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -359,7 +371,11 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:15:39.057Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-709c185b16ac",
@@ -393,7 +409,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-stv-leitung-logopadie-60-100-m-w-d_298.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:52.901Z",
+      "crawledAt": "2026-11-01T09:15:38.377Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -433,7 +449,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:15:38.377Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-8558ecc498ea",
@@ -467,7 +487,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-80-100-m-w-d_300.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:52.283Z",
+      "crawledAt": "2026-11-01T09:15:37.812Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -507,7 +527,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:15:37.812Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-ff4462dccf20",
@@ -540,7 +564,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-hf-fh-80-100-m-w-d_299.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:51.656Z",
+      "crawledAt": "2026-11-01T09:15:37.249Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -580,7 +604,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:15:37.249Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-a7e4cb9fd062",
@@ -614,7 +642,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-paraplegiologie-80-100-m-w-d_258.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:51.033Z",
+      "crawledAt": "2026-11-01T09:15:36.670Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -686,7 +714,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:15:36.670Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-c6b62e5159ef",
@@ -719,7 +751,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-paraplegiologie-80-100-m-w-d-_136.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:50.412Z",
+      "crawledAt": "2026-11-01T09:15:36.076Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -769,7 +801,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:15:36.076Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-b19dfa5661eb",
@@ -803,7 +839,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-80-100-sap-station-m-w-d_166.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:49.776Z",
+      "crawledAt": "2026-11-01T09:15:35.494Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -843,7 +879,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:15:35.494Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-15944532884d",
@@ -876,7 +916,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-80-100-sap-station-m-w-d_167.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:49.092Z",
+      "crawledAt": "2026-11-01T09:15:34.909Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -919,7 +959,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:15:34.909Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-1813f610273e",
@@ -953,7 +997,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-stationsleitung-80-100-m-w-d_295.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:48.467Z",
+      "crawledAt": "2026-11-01T09:15:34.308Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1002,7 +1046,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:15:34.308Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-4a143774111b",
@@ -1036,7 +1084,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-praktikum-in-der-pflege-100-m-w-d_132.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:47.795Z",
+      "crawledAt": "2026-11-01T09:15:33.742Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1076,7 +1124,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:15:33.742Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-6779a7e7a46d",
@@ -1109,7 +1161,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-therapeut-in-physikalische-therapie-60-m-w-d_301.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:47.119Z",
+      "crawledAt": "2026-11-01T09:15:33.180Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1157,7 +1209,11 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:15:33.180Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rehab-basel-cfe333ec9b90",
@@ -1190,7 +1246,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-ergotherapeut-in-bsc-90-100-m-w-d_297.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:46.479Z",
+      "crawledAt": "2026-11-01T09:15:32.621Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1234,7 +1290,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:15:32.621Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

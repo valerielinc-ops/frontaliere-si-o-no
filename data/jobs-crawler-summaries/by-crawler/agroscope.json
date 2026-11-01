@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-31T21:43:36.666Z",
+  "generatedAt": "2026-11-01T09:14:51.174Z",
   "total": 14,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 7593,
-  "avgDurationMs": 7593,
+  "durationMs": 8378,
+  "avgDurationMs": 8378,
   "durationHistory": [
-    7593
+    8378
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "datePosted": "2026-10-30T15:14:03Z",
       "postedDate": "2026-10-30T15:14:03Z",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-29",
+      "validThrough": "2026-11-29T00:00:00.000Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-5ad1f73bb798",
@@ -47,12 +47,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-30T21:16:35.548Z",
-      "_qualityScore": 96,
+      "streetAddress": "Posieux",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -77,7 +80,7 @@
       "datePosted": "2026-10-27T22:00:00Z",
       "postedDate": "2026-10-27T22:00:00Z",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-29",
+      "validThrough": "2026-11-29T00:00:00.000Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-2315890300be",
@@ -86,12 +89,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-28T09:17:19.660Z",
-      "_qualityScore": 94,
+      "streetAddress": "Posieux",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -116,7 +122,7 @@
       "datePosted": "2026-10-15T12:46:19Z",
       "postedDate": "2026-10-15T12:46:19Z",
       "postingDateSource": "reported",
-      "validThrough": "2028-10-13",
+      "validThrough": "2027-01-13T21:16:03.711Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-ec30730dbde1",
@@ -125,12 +131,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-15T21:16:03.711Z",
-      "_qualityScore": 94,
+      "streetAddress": "Posieux",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -155,7 +164,7 @@
       "datePosted": "2026-10-15T12:38:34Z",
       "postedDate": "2026-10-15T12:38:34Z",
       "postingDateSource": "reported",
-      "validThrough": "2028-10-13",
+      "validThrough": "2027-01-13T21:16:03.711Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-b61c00ff0525",
@@ -164,12 +173,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-15T21:16:03.711Z",
-      "_qualityScore": 94,
+      "streetAddress": "Avenches",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -194,7 +206,7 @@
       "datePosted": "2026-10-13T22:00:00Z",
       "postedDate": "2026-10-13T22:00:00Z",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-12",
+      "validThrough": "2026-11-12T00:00:00.000Z",
       "employmentType": "part-time",
       "contractType": "part-time",
       "id": "agroscope-7bef5a384b06",
@@ -203,12 +215,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-14T21:11:06.908Z",
-      "_qualityScore": 94,
+      "streetAddress": "Posieux",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -233,7 +248,7 @@
       "datePosted": "2026-10-12T07:51:49Z",
       "postedDate": "2026-10-12T07:51:49Z",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-15",
+      "validThrough": "2026-11-15T00:00:00.000Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-aee7a17e5812",
@@ -242,12 +257,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-12T09:14:47.378Z",
-      "_qualityScore": 94,
+      "streetAddress": "Posieux",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -272,7 +290,7 @@
       "datePosted": "2026-10-14T22:00:00Z",
       "postedDate": "2026-10-14T22:00:00Z",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-1d10c07e2943",
@@ -281,12 +299,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-15T09:14:02.416Z",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -311,7 +332,7 @@
       "datePosted": "2026-10-20T22:00:00Z",
       "postedDate": "2026-10-20T22:00:00Z",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-20",
+      "validThrough": "2026-11-20T00:00:00.000Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-5f9b5336ecfe",
@@ -320,51 +341,15 @@
       "currency": "CHF",
       "salarySource": "reported",
       "firstSeenAt": "2026-10-21T09:19:16.281Z",
-      "_qualityScore": 94,
+      "streetAddress": "Ettenhausen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Postdoktorand/-in Ackerbauforschung",
-      "slug": "postdottorando-a-nella-ricerca-agronomica-agroscope-nyon",
-      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-ackerbauforschung/039aa536-beb5-4eb2-8508-9744b1dfb72a",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20610",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Nyon",
-      "addressLocality": "Nyon",
-      "postalCode": "1260",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-08T06:33:10Z",
-      "postedDate": "2026-10-08T06:33:10Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-08",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-f28407128d3f",
-      "salaryMin": 81000,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-08T09:15:20.136Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -389,7 +374,7 @@
       "datePosted": "2026-10-15T22:00:00Z",
       "postedDate": "2026-10-15T22:00:00Z",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-15",
+      "validThrough": "2026-11-15T00:00:00.000Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-9efb0299a49d",
@@ -398,12 +383,57 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-16T09:17:10.716Z",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Postdoktorand/-in Ackerbauforschung",
+      "slug": "postdottorando-a-nella-ricerca-agronomica-agroscope-nyon",
+      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-ackerbauforschung/039aa536-beb5-4eb2-8508-9744b1dfb72a",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20610",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Nyon",
+      "addressLocality": "Nyon",
+      "postalCode": "1260",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-08T06:33:10Z",
+      "postedDate": "2026-10-08T06:33:10Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-08T00:00:00.000Z",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-f28407128d3f",
+      "salaryMin": 81000,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-08T09:15:20.136Z",
+      "streetAddress": "Nyon",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -428,7 +458,7 @@
       "datePosted": "2026-10-07T08:26:19Z",
       "postedDate": "2026-10-07T08:26:19Z",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-06",
+      "validThrough": "2026-11-06T00:00:00.000Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-1d5f571cbf6f",
@@ -437,12 +467,15 @@
       "currency": "CHF",
       "salarySource": "reported",
       "firstSeenAt": "2026-10-07T09:18:10.929Z",
-      "_qualityScore": 94,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -467,7 +500,7 @@
       "datePosted": "2026-10-06T09:00:06Z",
       "postedDate": "2026-10-06T09:00:06Z",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-08",
+      "validThrough": "2026-11-08T00:00:00.000Z",
       "employmentType": "part-time",
       "contractType": "part-time",
       "id": "agroscope-61101aa18510",
@@ -476,12 +509,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-06T09:14:40.752Z",
-      "_qualityScore": 96,
+      "streetAddress": "Posieux",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -506,7 +542,7 @@
       "datePosted": "2026-10-05T11:36:49Z",
       "postedDate": "2026-10-05T11:36:49Z",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-07",
+      "validThrough": "2026-11-07T00:00:00.000Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-2d8958858207",
@@ -515,12 +551,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-05T21:27:52.359Z",
-      "_qualityScore": 94,
+      "streetAddress": "Wädenswil",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -543,7 +582,7 @@
       "source": "agroscope-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-09-29T22:00:00Z",
-      "validThrough": "2026-11-03",
+      "validThrough": "2026-11-03T00:00:00.000Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-7ef1058e63a6",
@@ -555,14 +594,17 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
       "datePosted": "2026-09-29T22:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 96,
+      "streetAddress": "Posieux",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

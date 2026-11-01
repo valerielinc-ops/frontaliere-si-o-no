@@ -1,19 +1,21 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-10-31T21:39:26.827Z",
+  "generatedAt": "2026-11-01T09:21:24.148Z",
   "total": 18,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 16,
-  "durationMs": 285440,
-  "avgDurationMs": 285440,
+  "unchangedCount": 18,
+  "durationMs": 285497,
+  "avgDurationMs": 285497,
   "durationHistory": [
-    285440
+    285497
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-e412mz",
       "slug": "product-manager-digitale-abb-svizzera-sede-ticino-baden-aargau",
@@ -38,7 +40,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-28T09:25:00.301Z",
       "country": "CH",
       "sourceLang": "en",
@@ -49,12 +51,16 @@
       "postalCode": "5400",
       "salaryMin": 119000,
       "salaryMax": 166000,
-      "_qualityScore": 85,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -81,7 +87,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-29T21:22:43.214Z",
       "country": "CH",
       "sourceLang": "en",
@@ -92,17 +98,18 @@
       "postalCode": "5400",
       "salaryMin": 64500,
       "salaryMax": 110000,
-      "_qualityScore": 84,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-bebpwv",
       "slug": "senior-project-lead-ingegnere-power-systems-80-100-abb-svizzera-sede-ticino-baden-aargau-bebpwv",
@@ -127,7 +134,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-01T09:18:02.942Z",
       "country": "CH",
       "sourceLang": "en",
@@ -138,12 +145,16 @@
       "postalCode": "5400",
       "salaryMin": 178000,
       "salaryMax": 313000,
-      "_qualityScore": 84,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -170,7 +181,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-06T21:19:20.619Z",
       "country": "CH",
       "sourceLang": "en",
@@ -182,12 +193,16 @@
       "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
-      "_qualityScore": 84,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -214,7 +229,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-06T21:19:20.619Z",
       "country": "CH",
       "sourceLang": "en",
@@ -225,12 +240,16 @@
       "postalCode": "5400",
       "salaryMin": 72500,
       "salaryMax": 110500,
-      "_qualityScore": 85,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -257,7 +276,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-28T21:30:44.002Z",
       "country": "CH",
       "sourceLang": "en",
@@ -268,12 +287,16 @@
       "postalCode": "5400",
       "salaryMin": 99500,
       "salaryMax": 169500,
-      "_qualityScore": 85,
+      "streetAddress": "Baden-Daettwil, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -300,7 +323,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-20T21:22:24.532Z",
       "country": "CH",
       "sourceLang": "en",
@@ -311,12 +334,16 @@
       "postalCode": "8200",
       "salaryMin": 67000,
       "salaryMax": 102000,
-      "_qualityScore": 84,
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -341,7 +368,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-09-30T21:16:05.084Z",
       "country": "CH",
       "sourceLang": "en",
@@ -355,12 +382,16 @@
       "postalCode": "5400",
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "_qualityScore": 84,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -387,7 +418,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-07T21:24:07.449Z",
       "country": "CH",
       "sourceLang": "en",
@@ -398,12 +429,16 @@
       "postalCode": "5400",
       "salaryMin": 107000,
       "salaryMax": 187500,
-      "_qualityScore": 85,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -430,7 +465,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-06-12T21:50:02.091Z",
       "country": "CH",
       "sourceLang": "en",
@@ -441,12 +476,16 @@
       "postalCode": "8200",
       "salaryMin": 60000,
       "salaryMax": 102000,
-      "_qualityScore": 84,
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -470,7 +509,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-09-10T23:12:35.970Z",
       "country": "CH",
       "sourceLang": "en",
@@ -485,12 +524,16 @@
       "postalCode": "8200",
       "salaryMin": 81500,
       "salaryMax": 114000,
-      "_qualityScore": 85,
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 21,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -517,7 +560,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-06-19T21:13:47.661Z",
       "country": "CH",
       "sourceLang": "en",
@@ -528,12 +571,16 @@
       "postalCode": "5400",
       "salaryMin": 99500,
       "salaryMax": 169500,
-      "_qualityScore": 82,
+      "streetAddress": "Baden-Daettwil, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-12T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -560,7 +607,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-09T21:16:59.595Z",
       "country": "CH",
       "sourceLang": "en",
@@ -571,12 +618,16 @@
       "postalCode": "5400",
       "salaryMin": 107000,
       "salaryMax": 187500,
-      "_qualityScore": 80,
+      "streetAddress": "Baden-Daettwil, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -603,7 +654,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-09T21:16:59.595Z",
       "country": "CH",
       "sourceLang": "en",
@@ -614,12 +665,16 @@
       "postalCode": "5400",
       "salaryMin": 178000,
       "salaryMax": 313000,
-      "_qualityScore": 82,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -646,7 +701,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-09-18T23:15:02.968Z",
       "country": "CH",
       "sourceLang": "en",
@@ -657,12 +712,16 @@
       "postalCode": "5400",
       "salaryMin": 107000,
       "salaryMax": 187500,
-      "_qualityScore": 83,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -689,7 +748,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-22T09:24:33.604Z",
       "country": "CH",
       "sourceLang": "en",
@@ -700,12 +759,16 @@
       "postalCode": "5400",
       "salaryMin": 178000,
       "salaryMax": 313000,
-      "_qualityScore": 80,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -732,7 +795,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-23T21:17:11.847Z",
       "country": "CH",
       "sourceLang": "en",
@@ -743,12 +806,16 @@
       "postalCode": "5400",
       "salaryMin": 178000,
       "salaryMax": 313000,
-      "_qualityScore": 82,
+      "streetAddress": "Baden-Daettwil, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -775,7 +842,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-30T21:24:18.725Z",
       "country": "CH",
       "sourceLang": "en",
@@ -786,14 +853,18 @@
       "postalCode": "8200",
       "salaryMin": 60000,
       "salaryMax": 102000,
-      "_qualityScore": 82,
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:21:02.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

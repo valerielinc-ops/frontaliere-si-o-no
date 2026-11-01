@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-10-31T21:21:29.066Z",
-  "runId": "41241671182",
+  "assembledAt": "2026-11-01T09:14:39.998Z",
+  "runId": "41291333597",
   "jobs": [
     {
       "id": "kanton-gr-b176b2910754",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/514915/2817/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:21.497Z",
+      "crawledAt": "2026-11-01T09:14:31.502Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -82,7 +82,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Scuol",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:31.502Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-60840280f0cd",
@@ -115,7 +119,7 @@
       "url": "https://apply.refline.ch/514915/2778/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:20.828Z",
+      "crawledAt": "2026-11-01T09:14:30.833Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -163,7 +167,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:30.833Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-ea5060ea169e",
@@ -196,7 +204,7 @@
       "url": "https://apply.refline.ch/514915/2763/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:19.491Z",
+      "crawledAt": "2026-11-01T09:14:29.494Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -245,7 +253,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:29.494Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-4456d3c4af43",
@@ -278,7 +290,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/9/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:18.244Z",
+      "crawledAt": "2026-11-01T09:14:28.230Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -326,7 +338,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Landquart",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:28.230Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-bd076621ff73",
@@ -359,7 +375,7 @@
       "url": "https://apply.refline.ch/514915/2773/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:17.512Z",
+      "crawledAt": "2026-11-01T09:14:27.562Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -407,7 +423,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:27.562Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-52bf8e0cfd90",
@@ -440,7 +460,7 @@
       "url": "https://apply.refline.ch/514915/2768/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:16.847Z",
+      "crawledAt": "2026-11-01T09:14:26.893Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -489,7 +509,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Samedan",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:26.893Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-81886053e0af",
@@ -522,7 +546,7 @@
       "url": "https://apply.refline.ch/514915/2770/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:16.177Z",
+      "crawledAt": "2026-11-01T09:14:26.225Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -573,7 +597,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Ilanz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:26.225Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-172c74c9755a",
@@ -606,7 +634,7 @@
       "url": "https://apply.refline.ch/514915/2769/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:15.490Z",
+      "crawledAt": "2026-11-01T09:14:25.515Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -672,7 +700,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Scuol",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:25.515Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-2d0ed0c8aa9e",
@@ -705,7 +737,7 @@
       "url": "https://apply.refline.ch/514915/2767/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:14.823Z",
+      "crawledAt": "2026-11-01T09:14:24.846Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -754,7 +786,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:24.846Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-f53ad4e765b7",
@@ -787,7 +823,7 @@
       "url": "https://apply.refline.ch/514915/2765/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:13.493Z",
+      "crawledAt": "2026-11-01T09:14:23.510Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -835,7 +871,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Scuol",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:23.510Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-1ace449b55d8",
@@ -868,7 +908,7 @@
       "url": "https://apply.refline.ch/514915/2893/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:12.827Z",
+      "crawledAt": "2026-11-01T09:14:22.840Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -946,7 +986,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:14:22.840Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-bac64f047ec6",
@@ -979,7 +1023,7 @@
       "url": "https://apply.refline.ch/514915/2892/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:12.161Z",
+      "crawledAt": "2026-11-01T09:14:22.171Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1057,7 +1101,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:14:22.171Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-af6cb0a41775",
@@ -1090,7 +1138,7 @@
       "url": "https://apply.refline.ch/514915/2902/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:11.495Z",
+      "crawledAt": "2026-11-01T09:14:21.497Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1173,7 +1221,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:14:21.497Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-25670acbab49",
@@ -1206,7 +1258,7 @@
       "url": "https://apply.refline.ch/514915/2899/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:10.831Z",
+      "crawledAt": "2026-11-01T09:14:20.830Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1291,7 +1343,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:20.830Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-881746a696b7",
@@ -1324,7 +1380,7 @@
       "url": "https://apply.refline.ch/514915/2903/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:10.167Z",
+      "crawledAt": "2026-11-01T09:14:20.161Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1414,7 +1470,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:14:20.161Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-853dc9d3a9d0",
@@ -1447,7 +1507,7 @@
       "url": "https://apply.refline.ch/514915/2898/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:09.497Z",
+      "crawledAt": "2026-11-01T09:14:19.493Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1537,7 +1597,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:19.493Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-1b60cc7d103b",
@@ -1570,7 +1634,7 @@
       "url": "https://apply.refline.ch/514915/2897/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:07.968Z",
+      "crawledAt": "2026-11-01T09:14:17.985Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1658,7 +1722,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:17.985Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-c658f5c74c86",
@@ -1691,7 +1759,7 @@
       "url": "https://apply.refline.ch/514915/2896/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:07.302Z",
+      "crawledAt": "2026-11-01T09:14:17.316Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1750,7 +1818,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:14:17.316Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-beabdd358455",
@@ -1783,7 +1855,7 @@
       "url": "https://apply.refline.ch/514915/2895/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:06.630Z",
+      "crawledAt": "2026-11-01T09:14:16.648Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1836,7 +1908,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:14:16.648Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-9af8555686d9",
@@ -1869,7 +1945,7 @@
       "url": "https://apply.refline.ch/514915/2887/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:05.953Z",
+      "crawledAt": "2026-11-01T09:14:15.977Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1922,14 +1998,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:14:15.977Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-166dd468a7c5",
       "slug": "consulente-del-personale-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "it": "consulente-del-personale-kantonale-verwaltung-graubunden-chur",
-        "en": "hr-consultant-kantonale-verwaltung-graubunden-chur",
+        "en": "personnel-advisor-kantonale-verwaltung-graubunden-chur",
         "de": "personalberater-in-kanton-gr-ch",
         "fr": "conseiller-conseillere-en-personnel-kantonale-verwaltung-graubunden-chur"
       },
@@ -1955,7 +2035,7 @@
       "url": "https://apply.refline.ch/514915/2889/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:05.287Z",
+      "crawledAt": "2026-11-01T09:14:15.308Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1981,7 +2061,7 @@
       "previousSlugs": [
         "personalberater-in-kanton-gr-ch",
         "personalberater-in-kantonale-verwaltung-graubunden-chur",
-        "personnel-advisor-kantonale-verwaltung-graubunden-chur"
+        "hr-consultant-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1990,7 +2070,7 @@
         ],
         "en": [
           "personalberater-in-kantonale-verwaltung-graubunden-chur",
-          "personnel-advisor-kantonale-verwaltung-graubunden-chur"
+          "hr-consultant-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
           "personalberater-in-kantonale-verwaltung-graubunden-chur"
@@ -2010,7 +2090,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:14:15.308Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-17876a88291a",
@@ -2043,7 +2127,7 @@
       "url": "https://apply.refline.ch/514915/2885/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:04.617Z",
+      "crawledAt": "2026-11-01T09:14:14.640Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2094,7 +2178,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:14:14.640Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-46b8777d8d7b",
@@ -2127,7 +2215,7 @@
       "url": "https://apply.refline.ch/514915/2891/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:03.949Z",
+      "crawledAt": "2026-11-01T09:14:13.970Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2178,7 +2266,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:14:13.970Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-60815c55f316",
@@ -2211,7 +2303,7 @@
       "url": "https://apply.refline.ch/514915/2890/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:03.282Z",
+      "crawledAt": "2026-11-01T09:14:13.297Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2268,7 +2360,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:14:13.297Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-9900172a0567",
@@ -2301,7 +2397,7 @@
       "url": "https://apply.refline.ch/514915/2888/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:02.614Z",
+      "crawledAt": "2026-11-01T09:14:12.626Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2354,7 +2450,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:14:12.626Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-2b60481941f1",
@@ -2387,7 +2487,7 @@
       "url": "https://apply.refline.ch/514915/2878/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:01.947Z",
+      "crawledAt": "2026-11-01T09:14:11.955Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -2440,7 +2540,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Landquart",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:14:11.955Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-ca12df59dfb9",
@@ -2473,7 +2577,7 @@
       "url": "https://apply.refline.ch/514915/2884/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:01.275Z",
+      "crawledAt": "2026-11-01T09:14:11.284Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2526,7 +2630,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:14:11.284Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-0d4ee4504d00",
@@ -2559,7 +2667,7 @@
       "url": "https://apply.refline.ch/514915/2883/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:00.605Z",
+      "crawledAt": "2026-11-01T09:14:10.614Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2610,7 +2718,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:14:10.614Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-50e546c02ed3",
@@ -2643,7 +2755,7 @@
       "url": "https://apply.refline.ch/514915/2879/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:59.937Z",
+      "crawledAt": "2026-11-01T09:14:09.944Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2696,7 +2808,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:14:09.944Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-e514f9670eb3",
@@ -2729,7 +2845,7 @@
       "url": "https://apply.refline.ch/514915/2881/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:58.413Z",
+      "crawledAt": "2026-11-01T09:14:08.432Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2780,7 +2896,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:14:08.432Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-1d4a78e2e06b",
@@ -2813,7 +2933,7 @@
       "url": "https://apply.refline.ch/514915/2880/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:57.740Z",
+      "crawledAt": "2026-11-01T09:14:07.754Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2861,7 +2981,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:14:07.754Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-0a61427953e6",
@@ -2894,7 +3018,7 @@
       "url": "https://apply.refline.ch/514915/2882/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:57.074Z",
+      "crawledAt": "2026-11-01T09:14:07.084Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2939,7 +3063,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:14:07.084Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-a5d8c28c44a0",
@@ -2972,7 +3100,7 @@
       "url": "https://apply.refline.ch/514915/2875/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:56.405Z",
+      "crawledAt": "2026-11-01T09:14:06.409Z",
       "addressLocality": "Mesocco",
       "postalCode": "6563",
       "addressCountry": "CH",
@@ -3023,7 +3151,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Mesocco",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:14:06.409Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-91cebd0a9c1f",
@@ -3056,7 +3188,7 @@
       "url": "https://apply.refline.ch/514915/2874/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:55.734Z",
+      "crawledAt": "2026-11-01T09:14:05.735Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3106,7 +3238,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Ilanz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:14:05.735Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-74a97250cd9e",
@@ -3139,7 +3275,7 @@
       "url": "https://apply.refline.ch/514915/2872/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:55.034Z",
+      "crawledAt": "2026-11-01T09:14:05.038Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3192,7 +3328,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:14:05.038Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-20165131809e",
@@ -3225,7 +3365,7 @@
       "url": "https://apply.refline.ch/514915/2870/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:54.361Z",
+      "crawledAt": "2026-11-01T09:14:04.362Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3276,7 +3416,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:14:04.362Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-cd36d6659b58",
@@ -3309,7 +3453,7 @@
       "url": "https://apply.refline.ch/514915/2877/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:53.685Z",
+      "crawledAt": "2026-11-01T09:14:03.690Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3356,7 +3500,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:14:03.690Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-5ac60bb74e3c",
@@ -3389,7 +3537,7 @@
       "url": "https://apply.refline.ch/514915/2859/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:53.011Z",
+      "crawledAt": "2026-11-01T09:14:03.018Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3442,7 +3590,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:14:03.018Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-9b0f6f8d3938",
@@ -3475,7 +3627,7 @@
       "url": "https://apply.refline.ch/514915/2861/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:52.342Z",
+      "crawledAt": "2026-11-01T09:14:02.330Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3528,7 +3680,131 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:14:02.330Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "kanton-gr-1a4dadc055e0",
+      "slug": "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
+      "slugByLocale": {
+        "it": "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
+        "en": "become-a-police-officer-at-kapo-gr-kantonale-verwaltung-graubunden-chur",
+        "de": "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
+        "fr": "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-chur"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Werde Polizist/-in bei der Kapo GR",
+      "titleByLocale": {
+        "it": "Diventare agente di polizia presso Kapo GR",
+        "en": "Become a police officer at Kapo GR",
+        "de": "Werde Polizist/-in bei der Kapo GR",
+        "fr": "Devenez policier à Kapo GR"
+      },
+      "description": "Die Kantonale Verwaltung – eine moderne Arbeitgeberin für motivierte Mitarbeitende wie dich. Nicht jeder Tag ist gleich, aber jeden Tag trägst du zur Sicherheit in Graubünden bei. Bewirb dich für die nächste 2-jährige Polizeiausbildung und werde Polizistin oder Polizist mit eidg. Fachausweis bei der Kantonspolizei Graubünden.\n\nAufgaben\nDu sorgst für Sicherheit im vielfältigsten Kanton, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Bei uns steht immer der Mensch im Zentrum, ob Grundversorgung oder Spezialdienst – dir stehen Tür und Tor offen – www.kapo.gr.ch\n\nAnforderungen\n• Schweizer Bürgerrecht oder Niederlassungsbewilligung (C-Bewilligung ist mit der Bewerbung einzureichen)\n\n• Alter ab 20\n\n• Abgeschlossene Berufsausbildung mit eidgenössischem Fähigkeitszeugnis, gymnasiale Maturität, Fachmaturität oder gleichwertige Qualifikationen\n\n• Einwandfreier Leumund\n\n• Hohe Selbst- und Sozialkompetenz, bürgerfreundliche Einstellung\n\n• Führerausweis Kat. B\n\n• EDV-Anwenderkenntnisse (Microsoft Office)\n\n• Gute Gesundheit, psychische und physische Belastbarkeit\n\n• Erfolgreich absolvierter Eignungstest (www.werdepolizist.ch)\nDaten Eignungstest: 14. März 2026, 20. Juni 2026 und 10. Oktober 2026",
+      "descriptionByLocale": {
+        "it": "L'amministrazione cantonale – un datore di lavoro moderno per dipendenti motivati come te. Non tutti i giorni sono uguali, ma ogni giorno contribuisci alla sicurezza nei Grigioni. Fai domanda per il prossimo corso di formazione di polizia biennale e diventa agente di polizia con un servizio federale. Certificato specialistico presso la Polizia Cantonale dei Grigioni.\n\nResponsabilità\nGarantirete la sicurezza nel cantone più diversificato, per i residenti, per gli ospiti delle vacanze, i partecipanti al congresso e per chi passa di là, pace e ordine per tutti. Con noi, l'attenzione è sempre sulle persone, che si tratti di cure di base o servizi speciali - la porta è aperta per voi - www.kapo.gr.ch\n\nRequisiti\n- Cittadinanza svizzera o permesso di insediamento (il permesso C deve essere presentato con la domanda)\n- Età dai 20 anni\n- Completamento della formazione professionale con certificato federale di competenza, laurea triennale, laurea specialistica o qualifiche equivalenti\n- Reputazione impeccabile\n- Alto livello di competenza personale e sociale, atteggiamento favorevole ai cittadini\n- Patente di guida, Cat. B\n- Competenze dell'utente IT (Microsoft Office)\n- Buona salute, resilienza mentale e fisica\n- Ha superato con successo il test di attitudine (www.werdepolizist.ch)\nTest di attitudine ai dati: 14. Marzo 2026, 20. Giugno 2026 e 10. Ottobre 2026",
+        "en": "The cantonal administration – a modern employer for motivated employees like you. Not every day is the same, but every day you contribute to safety in Graubünden. Apply for the next 2-year police training and become a police officer with a federal. Specialist certificate at the Cantonal Police of the Grisons.\n\nResponsibilities\nYou will ensure security in the most diverse canton, for residents, for holiday guests, congress participants and those passing through, peace and order for everyone. With us, the focus is always on people, whether basic care or special services - the door is open to you - www.kapo.gr.ch\n\nRequirements\n- Swiss citizenship or settlement permit (C permit must be submitted with the application)\n- Age from 20\n- Completed vocational training with a federal certificate of competence, baccalaureate, specialised baccalaureate or equivalent qualifications\n- Impeccable reputation\n- High level of personal and social competence, citizen-friendly attitude\n- Driving licence Cat. B\n- IT user skills (Microsoft Office)\n- Good health, mental and physical resilience\n- Successfully completed aptitude test (www.werdepolizist.ch)\nData aptitude test: 14. March 2026, 20. June 2026 and 10. October 2026",
+        "de": "Die Kantonale Verwaltung – eine moderne Arbeitgeberin für motivierte Mitarbeitende wie dich. Nicht jeder Tag ist gleich, aber jeden Tag trägst du zur Sicherheit in Graubünden bei. Bewirb dich für die nächste 2-jährige Polizeiausbildung und werde Polizistin oder Polizist mit eidg. Fachausweis bei der Kantonspolizei Graubünden.\n\nAufgaben\nDu sorgst für Sicherheit im vielfältigsten Kanton, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Bei uns steht immer der Mensch im Zentrum, ob Grundversorgung oder Spezialdienst – dir stehen Tür und Tor offen – www.kapo.gr.ch\n\nAnforderungen\n• Schweizer Bürgerrecht oder Niederlassungsbewilligung (C-Bewilligung ist mit der Bewerbung einzureichen)\n\n• Alter ab 20\n\n• Abgeschlossene Berufsausbildung mit eidgenössischem Fähigkeitszeugnis, gymnasiale Maturität, Fachmaturität oder gleichwertige Qualifikationen\n\n• Einwandfreier Leumund\n\n• Hohe Selbst- und Sozialkompetenz, bürgerfreundliche Einstellung\n\n• Führerausweis Kat. B\n\n• EDV-Anwenderkenntnisse (Microsoft Office)\n\n• Gute Gesundheit, psychische und physische Belastbarkeit\n\n• Erfolgreich absolvierter Eignungstest (www.werdepolizist.ch)\nDaten Eignungstest: 14. März 2026, 20. Juni 2026 und 10. Oktober 2026",
+        "fr": "L'administration cantonale – un employeur moderne pour des employés motivés comme vous. Tous les jours ne se valent pas, mais chaque jour vous contribuez à la sécurité en Grison. Postulez à la prochaine formation policière de 2 ans et devenez policier avec un certificat fédéral. Certificat de spécialiste à la Police cantonale des Grisons.\n\nResponsabilités\nVous veillerez à la sécurité dans le canton le plus diversifié, pour les résidents, les invités de vacances, les participants au congrès et les passants, la paix et l'ordre pour tous. Chez nous, l'attention est toujours portée aux personnes, qu'il s'agisse des soins de base ou des services spéciaux – la porte vous est ouverte – www.kapo.gr.ch\n\nExigences\n- Citoyenneté suisse ou permis d'établissement (le permis C doit être soumis avec la demande)\n- Âge à partir de 20 ans\n- Formation professionnelle complétée avec un certificat fédéral de compétence, un baccalauréat, un baccalauréat spécialisé ou des qualifications équivalentes\n- Réputation irréprochable\n- Haut niveau de compétence personnelle et sociale, attitude citoyenne\n- Permis de conduire, Cat. B\n- Compétences des utilisateurs informatiques (Microsoft Office)\n- Bonne santé, résilience mentale et physique\n- Réussi le test d'aptitude (www.werdepolizist.ch)\nTest d'aptitude aux données : 14. Mars 2026, 20. Juin 2026 et 10. Octobre 2026"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:14:01.644Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2022-04-26T08:45:21.273623+00:00",
+      "postedDate": "2022-04-26T08:45:21.273623+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/514915/0912/pub/41/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Cittadinanza svizzera o permesso di soggiorno",
+          "Età a partire da 20 anni",
+          "Formazione professionale completata con certificato di capacità federale",
+          "Reputazione immacolata",
+          "Alta competenza sociale e di sé",
+          "Possesso di patente di guida categoria B",
+          "Conoscenze di base di informatica (Microsoft Office)",
+          "Buona salute, resistenza psicologica e fisica"
+        ],
+        "en": [
+          "Swiss citizenship or residence permit",
+          "Age from 20 years",
+          "Completed professional training with federal capability certificate",
+          "Clean reputation",
+          "High self- and social competence",
+          "Driver's license category B",
+          "Basic computer skills (Microsoft Office)",
+          "Good health, psychological and physical endurance"
+        ],
+        "fr": [
+          "Citoyenneté suisse ou permis de séjour",
+          "Âge à partir de 20 ans",
+          "Formation professionnelle terminée avec certificat de capacité fédéral",
+          "Réputation irréprochable",
+          "Haute compétence sociale et personnelle",
+          "Permis de conduire catégorie B",
+          "Connaissances de base en informatique (Microsoft Office)",
+          "Bonne santé, résistance psychologique et physique"
+        ]
+      },
+      "department": "Kantonspolizei",
+      "applicationDeadline": "2026-12-31",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "de": [
+          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
+        ],
+        "it": [
+          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
+          "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-cazis",
+          "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-zuoz"
+        ]
+      },
+      "previousSlugs": [
+        "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
+        "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-cazis",
+        "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-zuoz"
+      ],
+      "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:01.644Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-gr-a9e38801034c",
@@ -3612,210 +3888,12 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "kanton-gr-1a4dadc055e0",
-      "slug": "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
-        "en": "become-a-police-officer-at-kapo-gr-kantonale-verwaltung-graubunden-chur",
-        "de": "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
-        "fr": "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Werde Polizist/-in bei der Kapo GR",
-      "titleByLocale": {
-        "it": "Diventare agente di polizia presso Kapo GR",
-        "en": "Become a police officer at Kapo GR",
-        "de": "Werde Polizist/-in bei der Kapo GR",
-        "fr": "Devenez policier à Kapo GR"
-      },
-      "description": "Die Kantonale Verwaltung – eine moderne Arbeitgeberin für motivierte Mitarbeitende wie dich. Nicht jeder Tag ist gleich, aber jeden Tag trägst du zur Sicherheit in Graubünden bei. Bewirb dich für die nächste 2-jährige Polizeiausbildung und werde Polizistin oder Polizist mit eidg. Fachausweis bei der Kantonspolizei Graubünden.\n\nAufgaben\nDu sorgst für Sicherheit im vielfältigsten Kanton, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Bei uns steht immer der Mensch im Zentrum, ob Grundversorgung oder Spezialdienst – dir stehen Tür und Tor offen – www.kapo.gr.ch\n\nAnforderungen\n• Schweizer Bürgerrecht oder Niederlassungsbewilligung (C-Bewilligung ist mit der Bewerbung einzureichen)\n\n• Alter ab 20\n\n• Abgeschlossene Berufsausbildung mit eidgenössischem Fähigkeitszeugnis, gymnasiale Maturität, Fachmaturität oder gleichwertige Qualifikationen\n\n• Einwandfreier Leumund\n\n• Hohe Selbst- und Sozialkompetenz, bürgerfreundliche Einstellung\n\n• Führerausweis Kat. B\n\n• EDV-Anwenderkenntnisse (Microsoft Office)\n\n• Gute Gesundheit, psychische und physische Belastbarkeit\n\n• Erfolgreich absolvierter Eignungstest (www.werdepolizist.ch)\nDaten Eignungstest: 14. März 2026, 20. Juni 2026 und 10. Oktober 2026",
-      "descriptionByLocale": {
-        "it": "L'amministrazione cantonale – un datore di lavoro moderno per dipendenti motivati come te. Non tutti i giorni sono uguali, ma ogni giorno contribuisci alla sicurezza nei Grigioni. Fai domanda per il prossimo corso di formazione di polizia biennale e diventa agente di polizia con un servizio federale. Certificato specialistico presso la Polizia Cantonale dei Grigioni.\n\nResponsabilità\nGarantirete la sicurezza nel cantone più diversificato, per i residenti, per gli ospiti delle vacanze, i partecipanti al congresso e per chi passa di là, pace e ordine per tutti. Con noi, l'attenzione è sempre sulle persone, che si tratti di cure di base o servizi speciali - la porta è aperta per voi - www.kapo.gr.ch\n\nRequisiti\n- Cittadinanza svizzera o permesso di insediamento (il permesso C deve essere presentato con la domanda)\n- Età dai 20 anni\n- Completamento della formazione professionale con certificato federale di competenza, laurea triennale, laurea specialistica o qualifiche equivalenti\n- Reputazione impeccabile\n- Alto livello di competenza personale e sociale, atteggiamento favorevole ai cittadini\n- Patente di guida, Cat. B\n- Competenze dell'utente IT (Microsoft Office)\n- Buona salute, resilienza mentale e fisica\n- Ha superato con successo il test di attitudine (www.werdepolizist.ch)\nTest di attitudine ai dati: 14. Marzo 2026, 20. Giugno 2026 e 10. Ottobre 2026",
-        "en": "The cantonal administration – a modern employer for motivated employees like you. Not every day is the same, but every day you contribute to safety in Graubünden. Apply for the next 2-year police training and become a police officer with a federal. Specialist certificate at the Cantonal Police of the Grisons.\n\nResponsibilities\nYou will ensure security in the most diverse canton, for residents, for holiday guests, congress participants and those passing through, peace and order for everyone. With us, the focus is always on people, whether basic care or special services - the door is open to you - www.kapo.gr.ch\n\nRequirements\n- Swiss citizenship or settlement permit (C permit must be submitted with the application)\n- Age from 20\n- Completed vocational training with a federal certificate of competence, baccalaureate, specialised baccalaureate or equivalent qualifications\n- Impeccable reputation\n- High level of personal and social competence, citizen-friendly attitude\n- Driving licence Cat. B\n- IT user skills (Microsoft Office)\n- Good health, mental and physical resilience\n- Successfully completed aptitude test (www.werdepolizist.ch)\nData aptitude test: 14. March 2026, 20. June 2026 and 10. October 2026",
-        "de": "Die Kantonale Verwaltung – eine moderne Arbeitgeberin für motivierte Mitarbeitende wie dich. Nicht jeder Tag ist gleich, aber jeden Tag trägst du zur Sicherheit in Graubünden bei. Bewirb dich für die nächste 2-jährige Polizeiausbildung und werde Polizistin oder Polizist mit eidg. Fachausweis bei der Kantonspolizei Graubünden.\n\nAufgaben\nDu sorgst für Sicherheit im vielfältigsten Kanton, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Bei uns steht immer der Mensch im Zentrum, ob Grundversorgung oder Spezialdienst – dir stehen Tür und Tor offen – www.kapo.gr.ch\n\nAnforderungen\n• Schweizer Bürgerrecht oder Niederlassungsbewilligung (C-Bewilligung ist mit der Bewerbung einzureichen)\n\n• Alter ab 20\n\n• Abgeschlossene Berufsausbildung mit eidgenössischem Fähigkeitszeugnis, gymnasiale Maturität, Fachmaturität oder gleichwertige Qualifikationen\n\n• Einwandfreier Leumund\n\n• Hohe Selbst- und Sozialkompetenz, bürgerfreundliche Einstellung\n\n• Führerausweis Kat. B\n\n• EDV-Anwenderkenntnisse (Microsoft Office)\n\n• Gute Gesundheit, psychische und physische Belastbarkeit\n\n• Erfolgreich absolvierter Eignungstest (www.werdepolizist.ch)\nDaten Eignungstest: 14. März 2026, 20. Juni 2026 und 10. Oktober 2026",
-        "fr": "L'administration cantonale – un employeur moderne pour des employés motivés comme vous. Tous les jours ne se valent pas, mais chaque jour vous contribuez à la sécurité en Grison. Postulez à la prochaine formation policière de 2 ans et devenez policier avec un certificat fédéral. Certificat de spécialiste à la Police cantonale des Grisons.\n\nResponsabilités\nVous veillerez à la sécurité dans le canton le plus diversifié, pour les résidents, les invités de vacances, les participants au congrès et les passants, la paix et l'ordre pour tous. Chez nous, l'attention est toujours portée aux personnes, qu'il s'agisse des soins de base ou des services spéciaux – la porte vous est ouverte – www.kapo.gr.ch\n\nExigences\n- Citoyenneté suisse ou permis d'établissement (le permis C doit être soumis avec la demande)\n- Âge à partir de 20 ans\n- Formation professionnelle complétée avec un certificat fédéral de compétence, un baccalauréat, un baccalauréat spécialisé ou des qualifications équivalentes\n- Réputation irréprochable\n- Haut niveau de compétence personnelle et sociale, attitude citoyenne\n- Permis de conduire, Cat. B\n- Compétences des utilisateurs informatiques (Microsoft Office)\n- Bonne santé, résilience mentale et physique\n- Réussi le test d'aptitude (www.werdepolizist.ch)\nTest d'aptitude aux données : 14. Mars 2026, 20. Juin 2026 et 10. Octobre 2026"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:50.990Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2022-04-26T08:45:21.273623+00:00",
-      "postedDate": "2022-04-26T08:45:21.273623+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/514915/0912/pub/41/index.html",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Cittadinanza svizzera o permesso di soggiorno",
-          "Età a partire da 20 anni",
-          "Formazione professionale completata con certificato di capacità federale",
-          "Reputazione immacolata",
-          "Alta competenza sociale e di sé",
-          "Possesso di patente di guida categoria B",
-          "Conoscenze di base di informatica (Microsoft Office)",
-          "Buona salute, resistenza psicologica e fisica"
-        ],
-        "en": [
-          "Swiss citizenship or residence permit",
-          "Age from 20 years",
-          "Completed professional training with federal capability certificate",
-          "Clean reputation",
-          "High self- and social competence",
-          "Driver's license category B",
-          "Basic computer skills (Microsoft Office)",
-          "Good health, psychological and physical endurance"
-        ],
-        "fr": [
-          "Citoyenneté suisse ou permis de séjour",
-          "Âge à partir de 20 ans",
-          "Formation professionnelle terminée avec certificat de capacité fédéral",
-          "Réputation irréprochable",
-          "Haute compétence sociale et personnelle",
-          "Permis de conduire catégorie B",
-          "Connaissances de base en informatique (Microsoft Office)",
-          "Bonne santé, résistance psychologique et physique"
-        ]
-      },
-      "department": "Kantonspolizei",
-      "applicationDeadline": "2026-12-31",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
-        ],
-        "it": [
-          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
-          "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-cazis",
-          "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-zuoz"
-        ]
-      },
-      "previousSlugs": [
-        "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
-        "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-cazis",
-        "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-zuoz"
-      ],
-      "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "kanton-gr-27df76d55106",
-      "slug": "segretario-a-dell-ispettorato-scolastico-kantonale-verwaltung-graubunden-thusis",
-      "slugByLocale": {
-        "it": "segretario-a-dell-ispettorato-scolastico-kantonale-verwaltung-graubunden-thusis",
-        "en": "secretary-of-the-school-inspectorate-kantonale-verwaltung-graubunden-thusis",
-        "de": "sekretar-in-schulinspektorat-kanton-gr-ch",
-        "fr": "secretaire-de-l-inspectorat-scolaire-kantonale-verwaltung-graubunden-thusis"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Sekretär/-in Schulinspektorat",
-      "titleByLocale": {
-        "it": "Segretario/a dell'ispettorato scolastico",
-        "en": "Secretary of the School Inspectorate",
-        "de": "Sekretär/-in Schulinspektorat",
-        "fr": "Secrétaire de l'inspectorat scolaire"
-      },
-      "description": "Das Amt für Volksschule und Sport (AVS) gehört zum Erziehungs-, Kultur- und Umweltschutzdepartement des Kantons Graubünden.\n\nDas Schulinspektorat ist eine Abteilung des AVS. Es überprüft die Einhaltung der kantonalen Vorgaben und evaluiert die Volksschulen. Gleichzeitig berät und unterstützt es Lehrpersonen, Schulleitungen und Schulbehörden.\n\nFür den Bezirk I Plessur-Mittelbünden suchen wir auf den 1. Februar 2027 oder nach Vereinbarung eine/n Sekretär/in.\n\nAufgaben\n• Selbstständige Bearbeitung administrativer und organisatorischer Aufgaben\n\n• Erteilung telefonischer Auskünfte sowie Vereinbarung und Koordination von Terminen\n\n• Erstellung und Bearbeitung von Korrespondenz\n\n• Betreuung und Pflege der Schuldatenbank\n\n• Allgemeine Büro- und Administrationsarbeiten\n\nAnforderungen\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation\n\n• Sehr gute mündliche und schriftliche Ausdrucksweise in Deutsch\n\n• Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil\n\n• Sorgfältige, strukturierte und zuverlässige Arbeitsweise\n\n• Sicherer Umgang mit MS Office, CMI-Kenntnisse von Vorteil",
-      "descriptionByLocale": {
-        "it": "L'Ufficio per le Scuole Primarie e lo Sport (AVS) fa parte del Dipartimento di Istruzione, Cultura e Protezione Ambientale del Cantone dei Grigioni.\n\nL'ispettore scolastico è un dipartimento dell'AVS. Controlla il rispetto dei requisiti cantonali e valuta le scuole elementari. Allo stesso tempo, consiglia e sostiene gli insegnanti, la gestione scolastica e le autorità scolastiche.\n\nPer il distretto I Plessur-Mittelbünden stiamo cercando una segretaria il 1o febbraio 2027 o d'accordo.\n\nCompiti\n• Trattamento indipendente dei compiti amministrativi e organizzativi\n\n• Fornire informazioni telefoniche e concordare e coordinare gli appuntamenti\n\n• Creazione e elaborazione della corrispondenza\n\n• Supervisione e manutenzione del database scolastico\n\n• Lavori generali di ufficio e amministrazione\n\nRequisiti\n• Istruzione commerciale o qualifica equivalente completata\n\n• Molto buona espressione orale e scritta in tedesco\n\n• Buona conoscenza di diverse lingue cantonali è un vantaggio\n\n• Flusso di lavoro accurato, strutturato e affidabile\n\n• Gestione sicura di MS Office, la conoscenza CMI è un vantaggio",
-        "en": "The Office for Primary Schools and Sports (AVS) is part of the Department of Education, Culture and Environmental Protection of the Canton of Graubünden.\n\nThe School Inspectorate is a department of the AVS. It checks compliance with cantonal requirements and evaluates elementary schools. At the same time, it advises and supports teachers, school management and school authorities.\n\nFor the district I Plessur-Mittelbünden we are looking for a secretary on 1 February 2027 or by agreement.\n\nTasks\n• Independent processing of administrative and organisational tasks\n\n• Providing telephone information and agreeing and coordinating appointments\n\n• Creation and processing of correspondence\n\n• Supervision and maintenance of the school database\n\n• General office and administration work\n\nRequirements\n• Commercial education or equivalent qualification completed\n\n• Very good oral and written expression in German\n\n• Good knowledge of several cantonal languages is an advantage\n\n• Careful, structured and reliable workflow\n\n• Secure handling of MS Office, CMI knowledge is an advantage",
-        "de": "Das Amt für Volksschule und Sport (AVS) gehört zum Erziehungs-, Kultur- und Umweltschutzdepartement des Kantons Graubünden.\n\nDas Schulinspektorat ist eine Abteilung des AVS. Es überprüft die Einhaltung der kantonalen Vorgaben und evaluiert die Volksschulen. Gleichzeitig berät und unterstützt es Lehrpersonen, Schulleitungen und Schulbehörden.\n\nFür den Bezirk I Plessur-Mittelbünden suchen wir auf den 1. Februar 2027 oder nach Vereinbarung eine/n Sekretär/in.\n\nAufgaben\n• Selbstständige Bearbeitung administrativer und organisatorischer Aufgaben\n\n• Erteilung telefonischer Auskünfte sowie Vereinbarung und Koordination von Terminen\n\n• Erstellung und Bearbeitung von Korrespondenz\n\n• Betreuung und Pflege der Schuldatenbank\n\n• Allgemeine Büro- und Administrationsarbeiten\n\nAnforderungen\n• Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation\n\n• Sehr gute mündliche und schriftliche Ausdrucksweise in Deutsch\n\n• Gute Kenntnisse in mehreren Kantonssprachen sind von Vorteil\n\n• Sorgfältige, strukturierte und zuverlässige Arbeitsweise\n\n• Sicherer Umgang mit MS Office, CMI-Kenntnisse von Vorteil",
-        "fr": "L'Office des écoles primaires et des sports (AVS) fait partie du Département de l'éducation, de la culture et de la protection de l'environnement du canton des Grisons.\n\nL'Inspection scolaire est un département de l'AVS. Il vérifie le respect des exigences cantonales et évalue les écoles primaires. Parallèlement, il conseille et soutient les enseignants, la direction de l'école et les autorités scolaires.\n\nPour le district I Plessur-Mittelbünden nous sommes à la recherche d'un secrétaire le 1er février 2027 ou par accord.\n\nTâche\n• Traitement indépendant des tâches administratives et organisationnelles\n\n• Fournir des informations par téléphone et accepter et coordonner les nominations\n\n• Création et traitement de la correspondance\n\n• Supervision et tenue à jour de la base de données scolaire\n\n• Travaux généraux et administratifs\n\nExigences\n• Études commerciales ou qualifications équivalentes complétées\n\n• Très bonne expression orale et écrite en allemand\n\n• Une bonne connaissance de plusieurs langues cantonales est un avantage\n\n• Déroulement soigné, structuré et fiable\n\n• Gestion sécurisée de MS Office, la connaissance CMI est un avantage"
-      },
-      "location": "Thusis",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2871/pub/2/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-30T21:15:54.366Z",
-      "addressLocality": "Thusis",
-      "postalCode": "7430",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-06T09:17:21.092479+00:00",
-      "postedDate": "2026-10-06T09:17:21.092479+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/514915/2871/pub/2/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für Volksschule und Sport",
-      "applicationDeadline": "2026-10-30",
-      "pensumMin": 40,
-      "pensumMax": 40,
-      "pensum": "40%",
-      "previousSlugs": [
-        "sekretar-in-schulinspektorat-kanton-gr-ch",
-        "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sekretar-in-schulinspektorat-kanton-gr-ch",
-          "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis"
-        ],
-        "en": [
-          "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis"
-        ],
-        "fr": [
-          "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis"
-        ]
-      },
-      "firstSeenAt": "2026-10-08T09:16:54.650Z",
-      "salaryMin": 48500,
-      "salaryMax": 89500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48500,
-          "maxValue": 89500,
-          "unitText": "YEAR"
-        }
-      },
       "addressRegion": "GR",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-30T21:20:51.672Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

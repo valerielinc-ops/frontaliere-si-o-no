@@ -1,7 +1,7 @@
 {
   "key": "ubp",
   "label": "Union Bancaire Privée",
-  "generatedAt": "2026-10-31T21:28:43.882Z",
+  "generatedAt": "2026-11-01T09:18:05.972Z",
   "total": 58,
   "discovered": null,
   "parsed": 58,
@@ -14,12 +14,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 56,
-  "durationMs": 37481,
-  "avgDurationMs": 37481,
+  "durationMs": 37176,
+  "avgDurationMs": 37176,
   "durationHistory": [
-    37481
+    37176
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1447",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:13.975Z",
+      "crawledAt": "2026-11-01T09:17:36.291Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -56,12 +56,16 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:36.291Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -76,7 +80,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/657",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:08.596Z",
+      "crawledAt": "2026-11-01T09:17:30.992Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -97,59 +101,20 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:30.992Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "ubp-9facc4961b1c",
-      "slug": "microsoft-cloud-digital-workplace-architetto-union-bancaire-privee-geneva-switzerland",
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "Microsoft Cloud & Digital Workplace Architect",
-      "location": "Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1311",
-      "source": "Union Bancaire Privée Oracle HCM API",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-30T09:31:53.173Z",
-      "addressLocality": "Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-07",
-      "postedDate": "2026-07-07",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.ubp.com/en/about-us/careers/experienced-professionals",
-      "firstSeenAt": "2026-07-08T11:35:59.544Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "ubp-66596982e1f3",
@@ -163,7 +128,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/383",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:19.900Z",
+      "crawledAt": "2026-11-01T09:17:42.056Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -184,12 +149,16 @@
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:42.056Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -204,7 +173,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/627",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:19.402Z",
+      "crawledAt": "2026-11-01T09:17:41.576Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -225,12 +194,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:41.576Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -245,7 +218,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/47",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:18.916Z",
+      "crawledAt": "2026-11-01T09:17:41.084Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -266,12 +239,16 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:41.084Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -286,7 +263,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/946",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:18.431Z",
+      "crawledAt": "2026-11-01T09:17:40.609Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -307,12 +284,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:40.609Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -327,7 +308,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1217",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:17.937Z",
+      "crawledAt": "2026-11-01T09:17:40.134Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -348,12 +329,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:40.134Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -368,7 +353,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1310",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:17.447Z",
+      "crawledAt": "2026-11-01T09:17:39.654Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -389,12 +374,16 @@
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:39.654Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -409,7 +398,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1308",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:16.955Z",
+      "crawledAt": "2026-11-01T09:17:39.185Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -430,12 +419,16 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:39.185Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -450,7 +443,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1216",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:16.467Z",
+      "crawledAt": "2026-11-01T09:17:38.703Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -471,12 +464,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:38.703Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -491,7 +488,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/504",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:15.951Z",
+      "crawledAt": "2026-11-01T09:17:38.220Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -512,12 +509,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:38.220Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -532,7 +533,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/587",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:15.464Z",
+      "crawledAt": "2026-11-01T09:17:37.740Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -553,12 +554,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:37.740Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -573,7 +578,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1389",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:14.954Z",
+      "crawledAt": "2026-11-01T09:17:37.252Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -594,12 +599,16 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:37.252Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -614,7 +623,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1307",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:14.465Z",
+      "crawledAt": "2026-11-01T09:17:36.775Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -635,12 +644,16 @@
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:36.775Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -655,7 +668,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1381",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:13.491Z",
+      "crawledAt": "2026-11-01T09:17:35.793Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -676,12 +689,16 @@
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:35.793Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -696,7 +713,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1392",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:13.002Z",
+      "crawledAt": "2026-11-01T09:17:35.316Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -717,12 +734,16 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:35.316Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -737,7 +758,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1200",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:12.520Z",
+      "crawledAt": "2026-11-01T09:17:34.843Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -758,12 +779,16 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:34.843Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -778,7 +803,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1465",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:12.031Z",
+      "crawledAt": "2026-11-01T09:17:34.368Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -799,12 +824,16 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:34.368Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -819,7 +848,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1481",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:11.539Z",
+      "crawledAt": "2026-11-01T09:17:33.878Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -840,12 +869,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:33.878Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -860,7 +893,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1382",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:11.035Z",
+      "crawledAt": "2026-11-01T09:17:33.396Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -881,12 +914,16 @@
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:33.396Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -901,7 +938,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1380",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:10.547Z",
+      "crawledAt": "2026-11-01T09:17:32.918Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -922,12 +959,16 @@
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:32.918Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -942,7 +983,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1386",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:10.060Z",
+      "crawledAt": "2026-11-01T09:17:32.440Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -963,12 +1004,16 @@
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:32.440Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -983,7 +1028,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1385",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:09.571Z",
+      "crawledAt": "2026-11-01T09:17:31.958Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1004,12 +1049,16 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:31.958Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1024,7 +1073,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1472",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:09.081Z",
+      "crawledAt": "2026-11-01T09:17:31.470Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1045,12 +1094,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:31.470Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1065,7 +1118,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1438",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:08.100Z",
+      "crawledAt": "2026-11-01T09:17:30.513Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1086,12 +1139,16 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:30.513Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1106,7 +1163,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1464",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:28:07.620Z",
+      "crawledAt": "2026-11-01T09:17:30.040Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1127,12 +1184,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zurich, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:30.040Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1147,7 +1208,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/380",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:07.111Z",
+      "crawledAt": "2026-11-01T09:17:29.531Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1168,12 +1229,16 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:17:29.531Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1188,7 +1253,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1388",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:06.617Z",
+      "crawledAt": "2026-11-01T09:17:29.053Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1209,12 +1274,16 @@
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:17:29.053Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1229,7 +1298,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1558",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:06.117Z",
+      "crawledAt": "2026-11-01T09:17:28.570Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1250,12 +1319,16 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:17:28.570Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1270,7 +1343,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1571",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:05.619Z",
+      "crawledAt": "2026-11-01T09:17:28.088Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1291,12 +1364,16 @@
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:17:28.088Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1311,7 +1388,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1437",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:05.132Z",
+      "crawledAt": "2026-11-01T09:17:27.601Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1332,12 +1409,16 @@
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneva, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:17:27.601Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1352,7 +1433,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1590",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:28:04.640Z",
+      "crawledAt": "2026-11-01T09:17:27.105Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1373,14 +1454,18 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Zurich, Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:17:27.105Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

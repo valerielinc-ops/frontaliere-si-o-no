@@ -1,7 +1,7 @@
 {
   "crawlerKey": "apply",
-  "assembledAt": "2026-10-31T21:49:19.424Z",
-  "runId": "41242445754",
+  "assembledAt": "2026-11-01T09:17:28.837Z",
+  "runId": "41292050097",
   "jobs": [
     {
       "id": "apply-fa0e71e72c9b",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/968123/1468/pub/5/index.html",
       "source": "LEITpuls AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:49:12.847Z",
+      "crawledAt": "2026-11-01T09:17:22.267Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -87,7 +87,10 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:22.267Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

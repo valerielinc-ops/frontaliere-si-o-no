@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ukbb",
-  "assembledAt": "2026-10-31T21:24:24.907Z",
-  "runId": "41241757776",
+  "assembledAt": "2026-11-01T09:15:23.027Z",
+  "runId": "41291409806",
   "jobs": [
     {
       "id": "ukbb-05efc12d908a",
@@ -35,7 +35,7 @@
       "url": "https://jobs.ukbb.ch/jobs/terminkoordinator-in-polikliniken-80-100-befristet/ecdde5d7-ceea-404e-8e89-bb90b5a0033f",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:19.325Z",
+      "crawledAt": "2026-11-01T09:15:15.399Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -76,7 +76,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-24T09:15:15.399Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-aee72ac31fe8",
@@ -110,7 +113,7 @@
       "url": "https://jobs.ukbb.ch/jobs/pflegeexpert-in-bscn-oder-mscn-80-90-neonatologie/df6d0d9e-3878-4204-8512-528c180fd64b",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:18.673Z",
+      "crawledAt": "2026-11-01T09:15:14.588Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -182,7 +185,10 @@
           "maxValue": 110700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:15:14.588Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-cbd44b0596aa",
@@ -215,7 +221,7 @@
       "url": "https://jobs.ukbb.ch/jobs/zivildienst-in-der-pflege/dd8e0921-3080-4959-bb5d-0b27319318dc",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:18.011Z",
+      "crawledAt": "2026-11-01T09:15:13.795Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -262,7 +268,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:15:13.795Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-a8c7799cc9da",
@@ -295,7 +304,7 @@
       "url": "https://jobs.ukbb.ch/jobs/mitarbeiter-in-patientengastronomie-60/dd887f95-db56-4c78-875c-f81a2acd42de",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:17.377Z",
+      "crawledAt": "2026-11-01T09:15:12.963Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -345,7 +354,10 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:15:12.963Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-e66ed6e0c50b",
@@ -379,7 +391,7 @@
       "url": "https://jobs.ukbb.ch/jobs/bachelor-of-science-in-der-pflege-6-woechiges-wahlpflichtpraktikum-in-der-paediatrie/d31d0352-f7bd-40f5-b2ca-a196225b92bf",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:15.328Z",
+      "crawledAt": "2026-11-01T09:15:10.493Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -438,7 +450,10 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:15:10.493Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-33d9950a30b1",
@@ -472,7 +487,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-uewp-neonatologie-80-100/cf339dbd-db33-4f55-8ad0-135eee70b132",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:14.705Z",
+      "crawledAt": "2026-11-01T09:15:09.692Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -541,7 +556,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:15:09.692Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-c664e9eda8b6",
@@ -575,7 +593,7 @@
       "url": "https://jobs.ukbb.ch/jobs/bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-paediatrie/ce261eef-f32c-49c5-8688-17633be08e0d",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:14.058Z",
+      "crawledAt": "2026-11-01T09:15:08.925Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -622,7 +640,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:15:08.925Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-0ae582508fe6",
@@ -655,7 +676,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60/c9c4baaf-d25a-4006-b59c-f80a0ddeb799",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:13.426Z",
+      "crawledAt": "2026-11-01T09:15:08.160Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -712,7 +733,10 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:15:08.160Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-52a40695be41",
@@ -745,7 +769,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-biomedizinische-r-analytiker-in-hf-100/c3466cc9-0e18-4de5-84b1-09a649724c61",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:12.782Z",
+      "crawledAt": "2026-11-01T09:15:07.285Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -797,7 +821,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:15:07.285Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-fff1d7a426d8",
@@ -830,7 +857,7 @@
       "url": "https://jobs.ukbb.ch/jobs/assistent-in-des-verwaltungsrates-und-der-geschaeftsleitung-80-100/b76b6f40-03dc-4722-a8eb-4727dee650fd",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:12.119Z",
+      "crawledAt": "2026-11-01T09:15:06.636Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -880,7 +907,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:15:06.636Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-8f8a88ec37c9",
@@ -914,7 +944,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-expert-in-anaesthesiepflege-nds-hf-80-100/a1852e47-d823-4635-b8d3-40883ab9b018",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:11.481Z",
+      "crawledAt": "2026-11-01T09:15:05.859Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -972,7 +1002,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:15:05.859Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-d8c3191921bc",
@@ -1006,7 +1039,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-fachperson-op-technik-hf-topa/9d53a3c1-93b5-4830-b9cd-a68109b1e097",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:10.835Z",
+      "crawledAt": "2026-11-01T09:15:05.102Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1057,7 +1090,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:15:05.102Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-7ba8c1a3f99f",
@@ -1091,7 +1127,7 @@
       "url": "https://jobs.ukbb.ch/jobs/fachspezialist-in-ertragsmanagement-60-70/97e75efa-3bbf-4cf2-880b-d78a2df122b5",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:10.207Z",
+      "crawledAt": "2026-11-01T09:15:04.349Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1140,7 +1176,10 @@
           "maxValue": 86100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:15:04.349Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-f1b8ca14caff",
@@ -1174,7 +1213,7 @@
       "url": "https://jobs.ukbb.ch/jobs/sozialarbeiter-in-60/92b661ac-3dc9-4965-8dc2-a9295adfd2ea",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:09.504Z",
+      "crawledAt": "2026-11-01T09:15:03.570Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1221,7 +1260,10 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T09:15:03.570Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-a9ce1ec20b6d",
@@ -1255,7 +1297,7 @@
       "url": "https://jobs.ukbb.ch/jobs/it-praktikant-in-schwerpunkt-support-100/8dafd0e9-bc80-40f8-b4a5-b622218286db",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:08.885Z",
+      "crawledAt": "2026-11-01T09:15:02.798Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1299,7 +1341,10 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:15:02.798Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-e90e91f814c4",
@@ -1333,7 +1378,7 @@
       "url": "https://jobs.ukbb.ch/jobs/fms-praktikant-in-100/81a0ef6f-8ff0-41de-89a5-2b32481afd77",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:08.227Z",
+      "crawledAt": "2026-11-01T09:15:02.025Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1380,7 +1425,10 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-06T09:15:02.025Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-3375d15a06f3",
@@ -1413,7 +1461,7 @@
       "url": "https://jobs.ukbb.ch/jobs/arztsekretaer-in-orthopaedie-80/6e8cc8b2-3193-4acc-8c63-7c6bedc9ff45",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:07.537Z",
+      "crawledAt": "2026-11-01T09:15:01.164Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1457,7 +1505,10 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-13T09:15:01.164Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-4517ec27f926",
@@ -1491,7 +1542,7 @@
       "url": "https://jobs.ukbb.ch/jobs/paediatrische-r-aerzt-in-in-unserem-ambulatorium/65c4b742-401c-42d9-8dea-f58e1029b856",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:06.876Z",
+      "crawledAt": "2026-11-01T09:15:00.301Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1539,7 +1590,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-20T09:15:00.301Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-5d8b0ac18ea9",
@@ -1572,7 +1626,7 @@
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-neuropaediatrie-100/503c8e59-624f-42f2-9c06-4f7735d0ebe9",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:06.233Z",
+      "crawledAt": "2026-11-01T09:14:59.510Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1623,7 +1677,10 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-03T09:14:59.510Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-841ebbcbf944",
@@ -1657,7 +1714,7 @@
       "url": "https://jobs.ukbb.ch/jobs/expert-innen-intensivpflege-nds-oder-dipl-pflegefachperson-hf-100/4a0d26ea-c54c-4093-a107-521d48e3413e",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:05.565Z",
+      "crawledAt": "2026-11-01T09:14:58.725Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1698,7 +1755,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:14:58.725Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-9e42f154c11e",
@@ -1732,7 +1792,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100/3f40a320-1e74-46d2-8bce-3c773f7e5011",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:04.884Z",
+      "crawledAt": "2026-11-01T09:14:58.069Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1788,7 +1848,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:14:58.069Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-778a3b634c2d",
@@ -1822,7 +1885,7 @@
       "url": "https://jobs.ukbb.ch/jobs/teamleiter-in-terminkoordination-100/3b3e5804-60ce-46a2-9df6-50de5a90193c",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:04.251Z",
+      "crawledAt": "2026-11-01T09:14:57.319Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1873,7 +1936,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:14:57.319Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-5d09f675b81d",
@@ -1907,7 +1973,7 @@
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-fuer-die-paediatrische-nephrologie-50-80/32cb67ef-2767-46fe-9291-c3e157a0c537",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:03.549Z",
+      "crawledAt": "2026-11-01T09:14:56.555Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1954,7 +2020,10 @@
           "maxValue": 132800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:14:56.555Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-2eaf5f7f7b64",
@@ -1988,7 +2057,7 @@
       "url": "https://jobs.ukbb.ch/jobs/teamleiter-in-patientenaufnahme-100/2b78f596-2408-4404-b1af-83bdbe9f1d26",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:02.863Z",
+      "crawledAt": "2026-11-01T09:14:55.777Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2040,7 +2109,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:14:55.777Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-1f5eeb5d2d8c",
@@ -2074,7 +2146,7 @@
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-radiologie-80-100/1cb676e3-f106-43fa-b498-924913fd0aa5",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:02.175Z",
+      "crawledAt": "2026-11-01T09:14:54.935Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2121,7 +2193,10 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:14:54.935Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-6fd3021bdf30",
@@ -2155,7 +2230,7 @@
       "url": "https://jobs.ukbb.ch/jobs/ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-paediatrie/0fe24a9a-c685-47e4-8e93-962b860e240e",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:01.397Z",
+      "crawledAt": "2026-11-01T09:14:54.158Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2214,7 +2289,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T09:14:54.158Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-b8abe3e084b4",
@@ -2248,7 +2326,7 @@
       "url": "https://jobs.ukbb.ch/jobs/stv-leitende-r-dipl-biomedizinische-r-analytiker-in-hf-100/0e133948-fccd-4ba9-87f8-dbcf572c4974",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:00.721Z",
+      "crawledAt": "2026-11-01T09:14:53.353Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2300,7 +2378,10 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:14:53.353Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ukbb-99239517625a",
@@ -2334,7 +2415,7 @@
       "url": "https://jobs.ukbb.ch/jobs/fachspezialist-in-mit-stv-leitung-med-dokumentation-80/080ffe54-956a-4977-89f2-a30d621e6477",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:00.032Z",
+      "crawledAt": "2026-11-01T09:14:52.579Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2386,7 +2467,10 @@
           "maxValue": 132800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-16T09:14:52.579Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

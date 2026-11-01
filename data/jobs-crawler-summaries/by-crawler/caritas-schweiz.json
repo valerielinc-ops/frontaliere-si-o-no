@@ -1,10 +1,10 @@
 {
   "key": "caritas-schweiz",
   "label": "Caritas Schweiz",
-  "generatedAt": "2026-10-31T21:52:41.525Z",
+  "generatedAt": "2026-11-01T09:19:36.217Z",
   "total": 14,
   "discovered": null,
-  "parsed": 14,
+  "parsed": 13,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 9599,
-  "avgDurationMs": 9599,
+  "durationMs": 11780,
+  "avgDurationMs": 11780,
   "durationHistory": [
-    9599
+    11780
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://apply.refline.ch/126757/2379/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:52:31.958Z",
+      "crawledAt": "2026-11-01T09:19:19.670Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -62,12 +62,16 @@
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:19:19.670Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -83,7 +87,7 @@
       "url": "https://apply.refline.ch/126757/2356/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:52:31.488Z",
+      "crawledAt": "2026-11-01T09:19:19.204Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -107,12 +111,16 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:19:19.204Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -128,7 +136,7 @@
       "url": "https://apply.refline.ch/126757/2385/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:52:31.017Z",
+      "crawledAt": "2026-11-01T09:19:18.728Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -152,12 +160,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:19:18.728Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -173,7 +185,7 @@
       "url": "https://apply.refline.ch/126757/2386/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:52:30.549Z",
+      "crawledAt": "2026-11-01T09:19:18.260Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -197,12 +209,16 @@
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:19:18.260Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -218,7 +234,7 @@
       "url": "https://apply.refline.ch/126757/2366/pub/6/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:52:30.079Z",
+      "crawledAt": "2026-11-01T09:19:17.788Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -242,12 +258,16 @@
       "salaryMin": 95000,
       "salaryMax": 175500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:19:17.788Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -263,7 +283,7 @@
       "url": "https://apply.refline.ch/126757/2384/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:52:29.609Z",
+      "crawledAt": "2026-11-01T09:19:17.320Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -287,12 +307,16 @@
       "salaryMin": 25200,
       "salaryMax": 46600,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:19:17.320Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -308,7 +332,7 @@
       "url": "https://apply.refline.ch/126757/2382/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:52:29.139Z",
+      "crawledAt": "2026-11-01T09:19:16.853Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -332,12 +356,16 @@
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:19:16.853Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -353,7 +381,7 @@
       "url": "https://apply.refline.ch/126757/2341/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:52:28.670Z",
+      "crawledAt": "2026-11-01T09:19:16.388Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -377,12 +405,16 @@
       "salaryMin": 50400,
       "salaryMax": 93200,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:19:16.388Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -398,7 +430,7 @@
       "url": "https://apply.refline.ch/126757/2383/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:52:28.200Z",
+      "crawledAt": "2026-11-01T09:19:15.923Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -422,12 +454,16 @@
       "salaryMin": 41100,
       "salaryMax": 62400,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:19:15.923Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -443,7 +479,7 @@
       "url": "https://apply.refline.ch/126757/2371/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:52:27.730Z",
+      "crawledAt": "2026-11-01T09:19:15.457Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -467,12 +503,16 @@
       "salaryMin": 35700,
       "salaryMax": 66000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:19:15.457Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -487,7 +527,7 @@
       "url": "https://apply.refline.ch/126757/2380/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:52:27.258Z",
+      "crawledAt": "2026-11-01T09:19:14.988Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -511,12 +551,16 @@
       "salaryMin": 47200,
       "salaryMax": 86800,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:19:14.988Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -531,7 +575,7 @@
       "url": "https://apply.refline.ch/126757/2381/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:52:26.789Z",
+      "crawledAt": "2026-11-01T09:19:13.945Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -555,12 +599,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:19:13.945Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -576,7 +624,7 @@
       "url": "https://apply.refline.ch/126757/2370/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:52:26.317Z",
+      "crawledAt": "2026-11-01T09:19:13.474Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -600,12 +648,16 @@
       "salaryMin": 59500,
       "salaryMax": 110000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:19:13.474Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -645,14 +697,19 @@
       "salaryMin": 49500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "crawlerMissStreak": 1,
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-30T21:52:25.844Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

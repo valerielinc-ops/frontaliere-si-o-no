@@ -1,7 +1,7 @@
 {
   "key": "merian-iselin",
   "label": "Merian Iselin Klinik",
-  "generatedAt": "2026-10-31T21:32:20.698Z",
+  "generatedAt": "2026-11-01T09:15:12.451Z",
   "total": 15,
   "discovered": null,
   "parsed": 15,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 15,
-  "durationMs": 21746,
-  "avgDurationMs": 21746,
+  "durationMs": 20675,
+  "avgDurationMs": 20675,
   "durationHistory": [
-    21746
+    20675
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/401228e0-5ee3-4c16-876c-f18973bd50d9",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:09.884Z",
+      "crawledAt": "2026-11-01T09:14:52.573Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -59,12 +59,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:52.573Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -79,7 +83,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/1fb69e6f-9fd3-4c61-aff7-2631130fa56e",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:09.000Z",
+      "crawledAt": "2026-11-01T09:14:51.744Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -100,12 +104,16 @@
       "salaryMin": 44500,
       "salaryMax": 82500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:51.744Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -121,7 +129,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/bb76da43-bb2a-49ad-98d3-d1892c5010eb",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:07.974Z",
+      "crawledAt": "2026-11-01T09:14:50.822Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -142,12 +150,16 @@
       "salaryMin": 52500,
       "salaryMax": 96500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:50.822Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -163,7 +175,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/d687eceb-02eb-4a73-8ef5-7991e5ef399f",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:06.944Z",
+      "crawledAt": "2026-11-01T09:14:49.919Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -184,12 +196,16 @@
       "salaryMin": 79000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:49.919Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -205,7 +221,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/076626d0-c516-4f18-8715-03d928335df6",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:05.892Z",
+      "crawledAt": "2026-11-01T09:14:49.012Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -226,12 +242,16 @@
       "salaryMin": 79000,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:49.012Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -247,7 +267,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/f2c3aeaa-ac29-475c-9c33-ee0c15a6f25a",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:04.859Z",
+      "crawledAt": "2026-11-01T09:14:48.017Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -268,12 +288,16 @@
       "salaryMin": 44500,
       "salaryMax": 82500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:48.017Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -288,7 +312,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/922775df-b7e7-4d4c-99b4-655da8b3dcb0",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:03.796Z",
+      "crawledAt": "2026-11-01T09:14:47.057Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -309,12 +333,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:14:47.057Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -329,7 +357,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/46715913-cc87-45dc-a987-4088239232ac",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:02.663Z",
+      "crawledAt": "2026-11-01T09:14:46.132Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -350,12 +378,16 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:14:46.132Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -371,7 +403,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/3a875c27-3516-45c1-b7d4-07a26db0f188",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:01.443Z",
+      "crawledAt": "2026-11-01T09:14:45.220Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -392,12 +424,16 @@
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:14:45.220Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -413,7 +449,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/2f98e8dc-9151-42f8-b79a-bca81dbc41dd",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:00.369Z",
+      "crawledAt": "2026-11-01T09:14:44.279Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -434,12 +470,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:14:44.279Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -454,7 +494,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/9470e4cc-9515-4bf0-b554-a4a99e888a7c",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:31:59.340Z",
+      "crawledAt": "2026-11-01T09:14:43.284Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -475,12 +515,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:43.284Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -495,7 +539,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/55a849fd-d747-4a03-affd-cbb0ab30b391",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:31:58.340Z",
+      "crawledAt": "2026-11-01T09:14:42.343Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -516,12 +560,16 @@
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:42.343Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -536,7 +584,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/4ab4126d-aebe-49b4-8032-a8f989c58e62",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:31:57.334Z",
+      "crawledAt": "2026-11-01T09:14:41.371Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -557,12 +605,16 @@
       "salaryMin": 44500,
       "salaryMax": 82500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:41.371Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -578,7 +630,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/f15a8b86-a39f-4b17-b779-33de34c85a4b",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:31:56.333Z",
+      "crawledAt": "2026-11-01T09:14:40.409Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -599,12 +651,16 @@
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:40.409Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -619,7 +675,7 @@
       "url": "https://merianiselin.ch/klinik/offene-stellen/jobs/1d212d57-8aa4-4ade-9772-1c955a86cf66",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:31:55.325Z",
+      "crawledAt": "2026-11-01T09:14:39.426Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -640,14 +696,18 @@
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:39.426Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

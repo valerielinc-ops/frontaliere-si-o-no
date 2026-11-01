@@ -1,7 +1,7 @@
 {
   "crawlerKey": "vitrea-gesundheit",
-  "assembledAt": "2026-10-31T21:45:10.687Z",
-  "runId": "41241930028",
+  "assembledAt": "2026-11-01T09:13:21.676Z",
+  "runId": "41291565146",
   "jobs": [
     {
       "id": "vitrea-gesundheit-a5729dbaa6ba",
@@ -35,7 +35,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/g8v0il8oipya608e4bte80w18xfprka",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:06.029Z",
+      "crawledAt": "2026-11-01T09:13:16.347Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -80,7 +80,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zihlschlacht-Sitterdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:13:16.347Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vitrea-gesundheit-5ab91d57cabb",
@@ -114,7 +118,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ff4p38yxswahnwtbj0qnskopi7lfgaq",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:04.392Z",
+      "crawledAt": "2026-11-01T09:13:14.701Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -172,7 +176,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Seewis im Prättigau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:13:14.701Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vitrea-gesundheit-684e9f5daf79",
@@ -205,7 +213,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/uh8032hdkhzw0no7a1qevnvz4ooypse",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:02.992Z",
+      "crawledAt": "2026-11-01T09:13:13.070Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -252,7 +260,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dussnang",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:13:13.070Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vitrea-gesundheit-b1c5dc558717",
@@ -285,7 +297,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/mycubn7y0iv658o7pavr48xvje6am2b",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:01.581Z",
+      "crawledAt": "2026-11-01T09:13:11.438Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -331,7 +343,11 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Tschugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:13:11.438Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vitrea-gesundheit-6d903e4a2126",
@@ -365,7 +381,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/gjj21a42hg7skg88wgmyelxo2zyrgin",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:00.486Z",
+      "crawledAt": "2026-11-01T09:13:09.806Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -411,7 +427,11 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zihlschlacht-Sitterdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:13:09.806Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vitrea-gesundheit-3889b7a88538",
@@ -445,7 +465,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/tl5y7k7s748tvd0kis0732cbj9wge5j",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:59.075Z",
+      "crawledAt": "2026-11-01T09:13:07.700Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -491,7 +511,11 @@
           "maxValue": 50700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Tschugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:13:07.700Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vitrea-gesundheit-dedda6802ac5",
@@ -525,7 +549,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/a143j5ar8dozsh791a81pv7aicp092r",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:57.408Z",
+      "crawledAt": "2026-11-01T09:13:06.043Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -570,7 +594,11 @@
           "maxValue": 61200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zihlschlacht-Sitterdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:13:06.043Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vitrea-gesundheit-a816b2a01924",
@@ -603,7 +631,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/62jd5528qfv14pf0j2l9en6cjwy9724",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:55.789Z",
+      "crawledAt": "2026-11-01T09:13:04.325Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -649,7 +677,11 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dussnang",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:13:04.325Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vitrea-gesundheit-63d5f7193630",
@@ -682,7 +714,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/roejxv4lwkyn7ijqizatcb1z0nqj2jw",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:54.074Z",
+      "crawledAt": "2026-11-01T09:13:02.213Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -728,7 +760,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Tschugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:13:02.213Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vitrea-gesundheit-8b5026085a69",
@@ -762,7 +798,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/gqznl6n51n2t4vhe4wncfeyd0q1fpkp",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:52.744Z",
+      "crawledAt": "2026-11-01T09:13:00.407Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -808,7 +844,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Seewis im Prättigau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:13:00.407Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

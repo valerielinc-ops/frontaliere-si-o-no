@@ -1,7 +1,7 @@
 {
   "key": "honegger",
   "label": "Honegger AG",
-  "generatedAt": "2026-10-31T21:19:21.729Z",
+  "generatedAt": "2026-11-01T09:15:33.726Z",
   "total": 8,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 55723,
-  "avgDurationMs": 55723,
+  "durationMs": 51606,
+  "avgDurationMs": 51606,
   "durationHistory": [
-    55723
+    51606
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://honegger.ch/job/fachfrau-fachmann-betriebsunterhalt-m-w-d-region-obwalden-nidwalden-luzern-80-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:06.399Z",
+      "crawledAt": "2026-11-01T09:15:23.539Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -61,12 +61,16 @@
       "salaryMin": 53000,
       "salaryMax": 71500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "streetAddress": "Sarnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:23.539Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -81,7 +85,7 @@
       "url": "https://honegger.ch/job/gaertner-in-m-w-d-stadt-zuerich-umgebung-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:00.880Z",
+      "crawledAt": "2026-11-01T09:15:18.494Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -105,12 +109,16 @@
       "salaryMin": 56500,
       "salaryMax": 75500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:18.494Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -125,7 +133,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-unterhaltsreinigung-m-w-d-25-50-zuerich/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:18:58.879Z",
+      "crawledAt": "2026-11-01T09:15:16.952Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -149,12 +157,16 @@
       "salaryMin": 56500,
       "salaryMax": 75500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:16.952Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -169,7 +181,7 @@
       "url": "https://honegger.ch/job/vorarbeiter-in-spezialreinigung-m-w-d-region-bern-100-3/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:18:56.997Z",
+      "crawledAt": "2026-11-01T09:15:15.140Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "BE",
@@ -193,12 +205,16 @@
       "salaryMin": 52000,
       "salaryMax": 70000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:15.140Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -213,7 +229,7 @@
       "url": "https://honegger.ch/job/inspektor-in-unterhaltsreinigung-m-w-d-kanton-schwyz-von-thalwil-bis-uznach-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:18:55.275Z",
+      "crawledAt": "2026-11-01T09:15:13.483Z",
       "addressLocality": "Schwyz",
       "postalCode": "6430",
       "addressRegion": "SZ",
@@ -237,12 +253,16 @@
       "salaryMin": 53000,
       "salaryMax": 71500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "streetAddress": "Schwyz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:13.483Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -257,7 +277,7 @@
       "url": "https://honegger.ch/job/teamleiter-in-spezialreinigung-hoehenarbeiten-m-w-d-region-aargau-und-zuerich-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:18:40.874Z",
+      "crawledAt": "2026-11-01T09:14:59.146Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -281,12 +301,16 @@
       "salaryMin": 56500,
       "salaryMax": 75500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:14:59.146Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -301,7 +325,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-spezialreinigung-m-w-d-region-aargau-und-zuerich-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:18:38.898Z",
+      "crawledAt": "2026-11-01T09:14:57.399Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -325,12 +349,16 @@
       "salaryMin": 56500,
       "salaryMax": 75500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:14:57.399Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -345,7 +373,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-reinigung-m-w-d-stans-30/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:18:33.289Z",
+      "crawledAt": "2026-11-01T09:14:52.246Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -369,14 +397,18 @@
       "salaryMin": 53000,
       "salaryMax": 71500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "streetAddress": "Stans",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:52.246Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

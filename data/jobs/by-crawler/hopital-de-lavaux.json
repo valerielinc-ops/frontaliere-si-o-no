@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-de-lavaux",
-  "assembledAt": "2026-10-31T21:34:12.917Z",
-  "runId": "41242014604",
+  "assembledAt": "2026-11-01T09:22:22.734Z",
+  "runId": "41291644918",
   "jobs": [
     {
       "id": "hopital-de-lavaux-a7255dd10142",
@@ -34,7 +34,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:34:08.216Z",
+      "crawledAt": "2026-11-01T09:22:15.310Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -78,7 +78,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bourg-en-Lavaux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:22:15.310Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-de-lavaux-9ccc33534413",
@@ -112,7 +116,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:34:08.215Z",
+      "crawledAt": "2026-11-01T09:22:15.307Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -155,7 +159,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bourg-en-Lavaux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:22:15.307Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-de-lavaux-df3f77e8d171",
@@ -189,7 +197,7 @@
       "url": "https://app.beehire.com/invite/SQHUP0Mz6",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:34:08.214Z",
+      "crawledAt": "2026-11-01T09:22:15.302Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -236,7 +244,11 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bourg-en-Lavaux",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:22:15.302Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

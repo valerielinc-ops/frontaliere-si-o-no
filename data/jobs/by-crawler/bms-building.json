@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bms-building",
-  "assembledAt": "2026-10-31T21:43:52.103Z",
-  "runId": "41241930028",
+  "assembledAt": "2026-11-01T09:12:40.093Z",
+  "runId": "41291565146",
   "jobs": [
     {
       "id": "bms-building-3c40a2415dbb",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/241-mitarbeiter/in-hr-administration-60-80-w/m/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:46.032Z",
+      "crawledAt": "2026-11-01T09:12:33.278Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -104,7 +104,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Rümlang",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:12:33.278Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-ffb1149ac196",
@@ -137,7 +141,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/240-kundenberatung-aussendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:44.969Z",
+      "crawledAt": "2026-11-01T09:12:32.145Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -213,7 +217,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:12:32.145Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-055be49d0e19",
@@ -246,7 +254,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/238-verkaufsstellenleitung-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:43.810Z",
+      "crawledAt": "2026-11-01T09:12:30.929Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -320,7 +328,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:12:30.929Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-ac817ea5f0c7",
@@ -353,7 +365,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/237-conseiller-de-vente-interne-materiaux-genie-civil-a-100-h/f/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:42.613Z",
+      "crawledAt": "2026-11-01T09:12:29.717Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -435,7 +447,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "streetAddress": "Bulle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:12:29.717Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-ef96f1e82669",
@@ -468,7 +484,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/236-transportfachfrau/-mann-mit-stv-disposition-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:41.546Z",
+      "crawledAt": "2026-11-01T09:12:28.473Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -546,7 +562,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:12:28.473Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-0db8ba876131",
@@ -579,7 +599,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/235-head-of-it-operations-100-w/m/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:40.486Z",
+      "crawledAt": "2026-11-01T09:12:27.397Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -656,7 +676,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Rümlang",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:12:27.397Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-05a6cc9e156c",
@@ -689,7 +713,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/234-head-of-it-operations-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:39.229Z",
+      "crawledAt": "2026-11-01T09:12:26.140Z",
       "addressLocality": "Saint-Légier-La Chiésaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -759,7 +783,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Saint-Légier-La Chiésaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:12:26.140Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-d6c7e1157d5a",
@@ -792,7 +820,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/233-conseiller-de-vente-shop-materiaux-bussigny-nord-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:38.037Z",
+      "crawledAt": "2026-11-01T09:12:24.892Z",
       "addressLocality": "Bussigny-près-Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -865,7 +893,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Bussigny-près-Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:12:24.892Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-11784011dc17",
@@ -898,7 +930,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/232-logisticien-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:36.943Z",
+      "crawledAt": "2026-11-01T09:12:23.820Z",
       "addressLocality": "Bussigny-près-Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -973,7 +1005,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Bussigny-près-Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:12:23.820Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-8ed11e24c523",
@@ -1006,7 +1042,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/231-verkaufsberater-innendienst-wand-und-bodenbelaege-100-m/w/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:35.856Z",
+      "crawledAt": "2026-11-01T09:12:22.749Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -1080,7 +1116,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:12:22.749Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-c21f858285b1",
@@ -1113,7 +1153,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/230-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:34.809Z",
+      "crawledAt": "2026-11-01T09:12:21.666Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1186,7 +1226,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:21.666Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-6560e8f99018",
@@ -1219,7 +1263,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/228-key-account-management-innenausbau-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:33.715Z",
+      "crawledAt": "2026-11-01T09:12:20.561Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1294,7 +1338,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:12:20.561Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-7b28fa2f406f",
@@ -1327,7 +1375,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/227-kundenberatung-aussendienst-platten-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:32.462Z",
+      "crawledAt": "2026-11-01T09:12:19.332Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -1403,7 +1451,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "streetAddress": "Rapperswil-Jona",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:12:19.332Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-9f6eb4a22aea",
@@ -1436,7 +1488,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/225-teamleitung-innendienst-sanitaer-m/w/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:30.040Z",
+      "crawledAt": "2026-11-01T09:12:16.908Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -1510,7 +1562,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:12:16.908Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-ed8109506747",
@@ -1543,7 +1599,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/224-key-account-manager-second-oeuvre-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:28.826Z",
+      "crawledAt": "2026-11-01T09:12:15.681Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1616,7 +1672,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:12:15.681Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-df649286418b",
@@ -1649,7 +1709,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/223-representant-metiers-du-bois-valais-central-f/h/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:27.640Z",
+      "crawledAt": "2026-11-01T09:12:14.493Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -1723,7 +1783,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "streetAddress": "Conthey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:12:14.493Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-dc0750df51c2",
@@ -1756,7 +1820,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/221-conseiller-de-vente-interne-bois-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:26.465Z",
+      "crawledAt": "2026-11-01T09:12:13.284Z",
       "addressLocality": "Bussigny-près-Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1823,7 +1887,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Bussigny-près-Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:13.284Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-3fde458c2d42",
@@ -1856,7 +1924,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/219-conseillerere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f/h/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:25.389Z",
+      "crawledAt": "2026-11-01T09:12:12.222Z",
       "addressLocality": "Villeneuve",
       "addressCountry": "CH",
       "country": "CH",
@@ -1923,7 +1991,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Villeneuve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:12.222Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-13196ee6ee0a",
@@ -1956,7 +2028,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/218-kundenberatung-aussendienst-baustoffe-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:24.319Z",
+      "crawledAt": "2026-11-01T09:12:11.121Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -2030,7 +2102,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Rümlang",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:12:11.121Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-7eed076cc05f",
@@ -2063,7 +2139,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/213-conseiller-de-vente-shop-materiaux-de-construction-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:23.090Z",
+      "crawledAt": "2026-11-01T09:12:09.906Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -2133,7 +2209,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "streetAddress": "Bulle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:12:09.906Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-01512744977d",
@@ -2166,7 +2246,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/211-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:21.971Z",
+      "crawledAt": "2026-11-01T09:12:08.848Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2234,7 +2314,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:08.848Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-81b4c5390308",
@@ -2267,7 +2351,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/209-product-data-specialist-sanitaer-w/m/d-80-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:20.852Z",
+      "crawledAt": "2026-11-01T09:12:07.740Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2345,7 +2429,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:07.740Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-cb1194ad50eb",
@@ -2378,7 +2466,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/204-teamleitung-im-baubedarf-shop-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:19.607Z",
+      "crawledAt": "2026-11-01T09:12:06.477Z",
       "addressLocality": "Grenchen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2449,7 +2537,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:06.477Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-c8addcecdb44",
@@ -2482,7 +2574,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/203-product-manager-revetements-de-sol-portes-et-amenagement-exterieur-bois-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:18.502Z",
+      "crawledAt": "2026-11-01T09:12:05.360Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -2570,7 +2662,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "streetAddress": "Bulle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:05.360Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-e7b1af50194c",
@@ -2603,7 +2699,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/201-conseiller-de-vente-exposition-sanitaire-et-revetements-sols-murs-f/h/d-a-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:17.249Z",
+      "crawledAt": "2026-11-01T09:12:04.143Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -2673,7 +2769,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "streetAddress": "Givisiez",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:04.143Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-78cc0be546d7",
@@ -2706,7 +2806,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/198-logistiker-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:16.169Z",
+      "crawledAt": "2026-11-01T09:12:03.000Z",
       "addressLocality": "Fideris",
       "addressCountry": "CH",
       "country": "CH",
@@ -2796,7 +2896,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Fideris",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:03.000Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-30954e6b36d4",
@@ -2829,7 +2933,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/197-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:15.056Z",
+      "crawledAt": "2026-11-01T09:12:01.893Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -2917,7 +3021,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Volketswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:01.893Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-49b50f3b94a8",
@@ -2950,7 +3058,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/196-conseiller-vente-exposition-sanitaire-et-carrelage-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:13.971Z",
+      "crawledAt": "2026-11-01T09:12:00.776Z",
       "addressLocality": "Etoy",
       "addressCountry": "CH",
       "country": "CH",
@@ -3017,7 +3125,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Etoy",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:00.776Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-527c453cfb8c",
@@ -3050,7 +3162,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/195-representant-externe-pour-le-canton-de-vaud-departement-des-cuisines-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:12.860Z",
+      "crawledAt": "2026-11-01T09:11:59.674Z",
       "addressLocality": "Etoy",
       "addressCountry": "CH",
       "country": "CH",
@@ -3121,7 +3233,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Etoy",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:59.674Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-3deaebe0353d",
@@ -3154,7 +3270,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/191-sales-manager-customer-care-technique-du-batiment-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:11.799Z",
+      "crawledAt": "2026-11-01T09:11:58.574Z",
       "addressLocality": "Saint-Légier-La Chiésaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -3222,7 +3338,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Saint-Légier-La Chiésaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:11:58.574Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-b3b773b4166e",
@@ -3255,7 +3375,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/190-teamleitung-im-baubedarf-shop-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:10.539Z",
+      "crawledAt": "2026-11-01T09:11:57.323Z",
       "addressLocality": "Gebenstorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -3332,7 +3452,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "streetAddress": "Gebenstorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:57.323Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-c43687451183",
@@ -3365,7 +3489,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/188-consulente-interno-carpenteria-e-lattoneria-con-responsabilita-acquisti-materiali-edili-100-f/m/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T21:43:09.492Z",
+      "crawledAt": "2026-11-01T09:11:56.220Z",
       "addressLocality": "Bellinzona",
       "addressCountry": "CH",
       "country": "CH",
@@ -3425,7 +3549,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "streetAddress": "Bellinzona",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:56.220Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-9a06a381de24",
@@ -3458,7 +3586,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/184-kundenberatung-shop-sanitaer-mit-springerfunktion-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:08.383Z",
+      "crawledAt": "2026-11-01T09:11:55.134Z",
       "addressLocality": "Cham",
       "addressCountry": "CH",
       "country": "CH",
@@ -3530,7 +3658,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZG"
+      "addressRegion": "ZG",
+      "streetAddress": "Cham",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:55.134Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-9250966610b7",
@@ -3563,7 +3695,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/178-logistiker-mit-springerfunktion-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:07.213Z",
+      "crawledAt": "2026-11-01T09:11:53.885Z",
       "addressLocality": "Cham",
       "addressCountry": "CH",
       "country": "CH",
@@ -3648,7 +3780,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZG"
+      "addressRegion": "ZG",
+      "streetAddress": "Cham",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:53.885Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-3e8bdffda201",
@@ -3681,7 +3817,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/173-functional-application-manager-ai-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:06.049Z",
+      "crawledAt": "2026-11-01T09:11:52.805Z",
       "addressLocality": "Buchs",
       "addressCountry": "CH",
       "country": "CH",
@@ -3747,7 +3883,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "streetAddress": "Buchs",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:52.805Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-f1af3584bc44",
@@ -3780,7 +3920,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/171-technicien-cuisines-au-service-back-office-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:04.871Z",
+      "crawledAt": "2026-11-01T09:11:51.611Z",
       "addressLocality": "Villeneuve",
       "addressCountry": "CH",
       "country": "CH",
@@ -3847,7 +3987,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "streetAddress": "Villeneuve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:11:51.611Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-19b0ec709c30",
@@ -3880,7 +4024,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/150-chauffeur-poids-lourd-grue-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:43:03.766Z",
+      "crawledAt": "2026-11-01T09:11:50.545Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -3954,7 +4098,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "streetAddress": "Bulle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:11:50.545Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-84ee1277b5c1",
@@ -3987,7 +4135,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/116-sachbearbeitung-innendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:02.625Z",
+      "crawledAt": "2026-11-01T09:11:49.471Z",
       "addressLocality": "Kriens",
       "addressCountry": "CH",
       "country": "CH",
@@ -4062,7 +4210,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "streetAddress": "Kriens",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:49.471Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-b7d449f002a8",
@@ -4095,7 +4247,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/81-sachbearbeitung-innendienst-rohbau-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:01.434Z",
+      "crawledAt": "2026-11-01T09:11:48.405Z",
       "addressLocality": "Schmerikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -4172,7 +4324,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "streetAddress": "Schmerikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:48.405Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-88689bb63225",
@@ -4205,7 +4361,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/36-sachbearbeitung-innendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:43:00.134Z",
+      "crawledAt": "2026-11-01T09:11:47.159Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -4275,7 +4431,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:47.159Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
