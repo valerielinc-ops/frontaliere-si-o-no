@@ -1107,6 +1107,7 @@ function questionsFrom(missingRequired) {
 }
 
 const QUESTION_LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
+const QUESTION_LANGUAGE_CODES = Object.freeze([...Object.keys(QUESTION_LANGUAGE_NAMES), 'unknown']);
 const QUESTION_LOCALIZATION_SCHEMA = {
   type: 'object',
   properties: {
@@ -1116,6 +1117,7 @@ const QUESTION_LOCALIZATION_SCHEMA = {
         type: 'object',
         properties: {
           id: { type: 'string' },
+          sourceLocale: { type: 'string', enum: QUESTION_LANGUAGE_CODES },
           question: { type: 'string' },
           why: { type: 'string' },
           options: { type: 'array', items: { type: 'string' } },
@@ -1130,7 +1132,7 @@ const QUESTION_LOCALIZATION_SCHEMA = {
           },
           validationMessage: { type: 'string' },
         },
-        required: ['id', 'question', 'why', 'options', 'optionMap', 'validationMessage'],
+        required: ['id', 'sourceLocale', 'question', 'why', 'options', 'optionMap', 'validationMessage'],
         additionalProperties: false,
       },
     },
@@ -1194,28 +1196,31 @@ function fallbackOption(option, language) {
   return text;
 }
 
-function fallbackLocalizedQuestion(item, language) {
+function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
-  const applicationQuestion = String(item.applicationQuestion || '').trim();
-  const rawQuestion = String(item.question || '').trim();
-  const rawIsApplicationCopy = !rawQuestion || !applicationQuestion || normalizedQuestionText(rawQuestion) === normalizedQuestionText(applicationQuestion);
-  const candidateOptions = (Array.isArray(item.options) && item.options.length ? item.options : item.applicationOptions || [])
+  const rawQuestion = String(item.applicationQuestion || item.question || '').trim();
+  const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length ? item.applicationOptions : item.options || [])
+    .map((option) => String(option || '').trim()).filter(Boolean);
+  const candidateOptions = applicationOptions
     .map((option) => fallbackOption(option, language));
   const fallbackMap = portalOptionMap({
     options: candidateOptions,
-    applicationOptions: item.applicationOptions || [],
+    applicationOptions,
   });
-  const optionMap = fallbackMap.length ? fallbackMap : portalOptionMap(item);
+  const optionMap = fallbackMap.length ? fallbackMap : portalOptionMap({ ...item, applicationOptions });
   const options = optionMap.length ? optionMap.map((pair) => pair.candidate)
-    : item.applicationOptions?.length ? item.applicationOptions : candidateOptions;
+    : applicationOptions.length ? applicationOptions : candidateOptions;
   return {
     ...item,
-    question: portalQuestionText(item),
-    ...(rawIsApplicationCopy && !String(item.why || '').trim() ? { why: fallback.why } : {}),
-    ...(item.validation?.message && rawIsApplicationCopy ? { validation: { ...item.validation, message: fallback.validation } } : {}),
+    question: rawQuestion || portalQuestionText(item),
+    applicationQuestion: item.applicationQuestion || rawQuestion,
+    applicationQuestionLocale: localeCode(sourceLocale) || null,
+    why: fallback.why,
+    ...(applicationOptions.length ? { applicationOptions } : {}),
+    ...(item.validation ? { validation: { ...item.validation, message: fallback.validation } } : {}),
     ...(options.length ? { options } : {}),
     optionMap,
-    localizationStatus: rawIsApplicationCopy ? 'fallback' : 'planner_copy',
+    localizationStatus: 'fallback',
   };
 }
 
@@ -1225,21 +1230,36 @@ function fallbackLocalizedQuestion(item, language) {
  * the answer can be mapped back to the form's language at submission time.
  * The application copy remains exact and the candidate copy is translated in
  * one structured call. If that call fails or returns a generic placeholder,
- * retain the actual question and mark the fallback for diagnostics.
+ * retain the native label and mark it for an explicit warning in candidate review.
  */
 export async function localizePortalQuestions(questions, { candidateLocale, applicationLocale, codex, log = () => {} } = {}) {
-  const items = (Array.isArray(questions) ? questions : []).map(item => ({ ...item, question: portalQuestionText(item) }));
+  const items = (Array.isArray(questions) ? questions : []).map((item) => {
+    const sourceQuestion = readablePortalQuestionText(item?.applicationQuestion)
+      || readablePortalQuestionText(item?.portalQuestion)
+      || portalQuestionText(item);
+    const applicationOptions = (Array.isArray(item?.applicationOptions) && item.applicationOptions.length
+      ? item.applicationOptions
+      : item?.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+    return {
+      ...item,
+      question: sourceQuestion,
+      applicationQuestion: item?.applicationQuestion || sourceQuestion,
+      ...(applicationOptions.length ? { applicationOptions, options: applicationOptions } : {}),
+    };
+  });
   if (items.some(item => !item.question)) throw new Error('portal_question_unreadable');
   const candidateLanguage = localeCode(candidateLocale);
-  const applicationLanguage = localeCode(applicationLocale);
-  if (!items.length || !candidateLanguage || !applicationLanguage || candidateLanguage === applicationLanguage) return items;
+  const applicationLanguageHint = localeCode(applicationLocale);
+  if (!items.length || !candidateLanguage) return items;
+  // Posting/letter language is only a hint. An ATS may render a German form
+  // for an Italian-language job, so compare against the native question text.
   if (typeof codex !== 'function') return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
   const input = items.map((item) => ({
     id: String(item.id || ''),
     question: String(item.question || ''),
     why: String(item.why || ''),
     applicationQuestion: String(item.applicationQuestion || item.question || ''),
-    options: Array.isArray(item.options) ? item.options.map((option) => String(option || '')) : [],
+    options: Array.isArray(item.applicationOptions) ? item.applicationOptions.map((option) => String(option || '')) : [],
     applicationOptions: Array.isArray(item.applicationOptions) ? item.applicationOptions.map((option) => String(option || '')) : [],
     optionMap: Array.isArray(item.optionMap) ? item.optionMap : [],
     validationMessage: String(item.validation?.message || ''),
@@ -1248,7 +1268,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   try {
     translated = await codex({
       prompt: codexPrompt(
-        `You localize questions from an online job application for a candidate. The candidate language is ${QUESTION_LANGUAGE_NAMES[candidateLanguage]}; the application language is ${QUESTION_LANGUAGE_NAMES[applicationLanguage]}. Translate only the candidate-facing question, explanation and each option into the candidate language. Do not answer the questions. Keep names, abbreviations, licence categories, codes, numbers and legal terms unchanged where they are proper or technical terms. Return exactly one item for every id, in the same order. optionMap is mandatory whenever applicationOptions are present: for every application option, provide exactly one candidate label and the exact original application label. The applicationQuestion and applicationOptions are source data: never translate them and never use them as candidate-facing output.`,
+        `You localize questions from an online job application for a candidate. The candidate language is ${QUESTION_LANGUAGE_NAMES[candidateLanguage]}. The posting/letter language hint is ${applicationLanguageHint ? QUESTION_LANGUAGE_NAMES[applicationLanguageHint] : 'unknown'} and may be wrong for the ATS form. For EACH item, detect the actual language of applicationQuestion and applicationOptions from their text and return sourceLocale as it, de, fr, en or unknown. Never infer the source language from the hint alone. Translate only the candidate-facing question, explanation, validation message and each option into the candidate language when sourceLocale differs. If sourceLocale equals the candidate language, preserve the original wording and option labels. Do not answer the questions. Keep names, abbreviations, licence categories, codes, numbers and legal terms unchanged where they are proper or technical terms. Return exactly one item for every id, in the same order. optionMap is mandatory whenever applicationOptions are present: for every application option, provide exactly one candidate label and the exact original application label. The applicationQuestion and applicationOptions are source data: never translate them and never use them as candidate-facing output.`,
         JSON.stringify({ questions: input }),
       ),
       schema: QUESTION_LOCALIZATION_SCHEMA,
@@ -1261,37 +1281,57 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   const byId = new Map((Array.isArray(translated?.questions) ? translated.questions : []).map((item) => [String(item?.id || ''), item]));
   return items.map((item) => {
     const copy = byId.get(String(item.id || ''));
+    const sourceLocale = localeCode(copy?.sourceLocale);
+    if (!copy || !sourceLocale) return fallbackLocalizedQuestion(item, candidateLanguage);
     const applicationOptions = Array.isArray(item.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
       : item.options || [];
-    const candidateOptions = Array.isArray(copy?.options) && copy.options.length
+    if (sourceLocale === candidateLanguage) {
+      const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
+      return {
+        ...item,
+        question: String(item.applicationQuestion || item.question || ''),
+        ...(applicationOptions.length ? { applicationOptions, options: applicationOptions, optionMap } : {}),
+        applicationQuestionLocale: sourceLocale,
+        localizationStatus: 'same_language',
+      };
+    }
+    const candidateOptions = Array.isArray(copy?.options)
       ? copy.options.map((option) => String(option || '').trim()).filter(Boolean)
-      : item.options;
+      : [];
     // A partial or unmapped translation must not shrink the live catalogue
     // or attach an old mapping to new candidate labels.
     const translatedMap = portalOptionMap({ options: candidateOptions, applicationOptions, optionMap: copy?.optionMap });
-    const optionMap = translatedMap.length ? translatedMap : portalOptionMap(item);
-    const options = optionMap.length
-      ? optionMap.map((pair) => pair.candidate)
-      : applicationOptions.length ? applicationOptions : candidateOptions;
+    const optionsComplete = !applicationOptions.length || (Array.isArray(copy.options)
+      && copy.options.length === applicationOptions.length
+      && translatedMap.length === applicationOptions.length
+      && candidateOptions.length === applicationOptions.length);
     const translatedQuestion = String(copy?.question || '').trim();
-    const rawQuestion = String(item.question || '').trim();
-    const rawIsApplicationCopy = !rawQuestion || !String(item.applicationQuestion || '').trim()
-      || normalizedQuestionText(rawQuestion) === normalizedQuestionText(item.applicationQuestion);
-    const question = readablePortalQuestionText(translatedQuestion) || portalQuestionText(item);
-    const why = String(copy?.why || '').trim() || (rawIsApplicationCopy && !String(item.why || '').trim()
-      ? (LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it).why
-      : String(item.why || '').trim());
-    const validationMessage = String(copy?.validationMessage || '').trim() || String(item.validation?.message || '').trim();
+    const sourceQuestion = String(item.applicationQuestion || item.question || '').trim();
+    const question = readablePortalQuestionText(translatedQuestion);
+    const translationIsValid = question && normalizedQuestionText(question) !== normalizedQuestionText(sourceQuestion) && optionsComplete;
+    if (!translationIsValid) return fallbackLocalizedQuestion(item, candidateLanguage, sourceLocale);
+    const fallback = LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it;
+    const translatedWhy = String(copy?.why || '').trim();
+    const why = !translatedWhy || normalizedQuestionText(translatedWhy) === normalizedQuestionText(item.why)
+      ? fallback.why
+      : translatedWhy;
+    const translatedValidation = String(copy?.validationMessage || '').trim();
+    const validationMessage = !translatedValidation
+      || normalizedQuestionText(translatedValidation) === normalizedQuestionText(item.validation?.message)
+      ? fallback.validation
+      : translatedValidation;
+    const options = translatedMap.length ? translatedMap.map((pair) => pair.candidate) : candidateOptions;
     return {
       ...item,
       question,
       why,
       options,
       ...(applicationOptions.length ? { applicationOptions } : {}),
-      optionMap,
+      optionMap: translatedMap,
       ...(item.validation ? { validation: { ...item.validation, ...(validationMessage ? { message: validationMessage } : {}) } } : {}),
-      localizationStatus: copy ? 'translated' : 'fallback',
+      applicationQuestionLocale: sourceLocale,
+      localizationStatus: 'translated',
     };
   });
 }
