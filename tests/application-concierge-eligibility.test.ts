@@ -74,6 +74,13 @@ describe('qualification before proposal publication', () => {
       'Currently enrolled as a third-year commercial-school student; not currently enrolled as a third-year commercial-school student.',
     ]) expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, denied)).toBe(true);
     expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'Currently enrolled as a third-year commercial-school student.\nNot currently enrolled.')).toBe(true);
+    for (const deniedSchool of [
+      'Not currently enrolled in commercial school.',
+      'Nicht aktuell an der kaufmännischen Schule eingeschrieben.',
+      'Non è attualmente iscritta alla scuola commerciale.',
+      'Pas actuellement inscrit à l’école de commerce.',
+    ]) expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, `Currently enrolled as a third-year commercial-school student.\n${deniedSchool}`)).toBe(true);
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'Currently enrolled as a third-year commercial-school student.\nNot currently enrolled at university.')).toBe(false);
     for (const notOnly of [
       'Not only currently enrolled as a third-year commercial-school student.',
       'Nicht nur aktuell im dritten Jahr der kaufmännischen Schule eingeschrieben.',
