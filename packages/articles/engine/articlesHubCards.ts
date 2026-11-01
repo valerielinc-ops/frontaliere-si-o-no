@@ -33,6 +33,9 @@
 
 import { articleSourceDate } from './shared/sourceDates';
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
+import { ARTICLE_HUB_CARD_LIMIT } from './shared/articleHubCardBudget.mjs';
+
+export { ARTICLE_HUB_CARD_LIMIT };
 
 export type HubCardLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -51,7 +54,8 @@ export interface HubCardMeta {
 }
 
 /**
- * Shared static-card budget for article hubs.
+ * Shared static-card budget for article hubs, declared in
+ * `shared/articleHubCardBudget.mjs` so standalone probes use the same value.
  *
  * Keeping this in the engine makes the site and corpus renderers agree on the
  * same page-weight contract. Sixteen cards leave room for the shell, hero,
@@ -60,8 +64,6 @@ export interface HubCardMeta {
  * on the largest locales, so a larger card count would make the contract
  * depend on current article text lengths rather than on a bounded payload.
  */
-export const ARTICLE_HUB_CARD_LIMIT = 16;
-
 export interface RenderArticleHubCardsArgs {
   /** Registry entries, ALREADY sorted newest-first — the order is the caller's. */
   readonly articles: readonly HubCardArticle[];
