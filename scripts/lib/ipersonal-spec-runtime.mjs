@@ -190,6 +190,19 @@ function preferIpersonalRenderedWorkplace(detail = {}) {
   };
 }
 
+function isLikelyIpersonalDetailMain(source) {
+  if (!source) return false;
+  const text = String(source.textContent || '').replace(/\s+/g, ' ').trim();
+  const hasWorkplace = /\b(?:einsatzort|arbeitsort)\s*:/iu.test(text);
+  const hasTiming = /\b(?:einsatzbeginn|eintritt)\s*:/iu.test(text);
+  const hasVacancySection = /\b(?:ihr(?:e)?|dein(?:e)?)\s+(?:aufgaben|profil)\b|\b(?:unser angebot|das bieten wir)\b/iu.test(text);
+  const hasApplication = /\b(?:online\s+bewerben|bewerbung\s*(?:&|und)\s*kontakt|interessiert\b)/iu.test(text);
+
+  // A bare <main> is also used by listings and error pages. Require multiple
+  // independent vacancy markers before allowing it as a detail boundary.
+  return hasWorkplace && (hasTiming || hasApplication) && (hasVacancySection || hasApplication);
+}
+
 /**
  * Extract the authored Simple Job Board body shared by iPersonal and
  * MediPersonal. The application form, site chrome and repeated contact/SEO
@@ -219,6 +232,10 @@ export function extractIpersonalDescription(html = '') {
     document.querySelector('article .entry-content'),
     document.querySelector('main .entry-content'),
   ].filter(Boolean);
+  const bareMain = document.querySelector('main');
+  if (bareMain && !bareMain.querySelector('article') && isLikelyIpersonalDetailMain(bareMain)) {
+    sources.push(bareMain);
+  }
   for (const source of sources) {
     const detail = new JSDOM(`<body>${source.innerHTML}</body>`).window.document.body;
     detail.querySelectorAll(
