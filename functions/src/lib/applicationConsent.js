@@ -87,6 +87,7 @@ export const privacySemanticIdentifierFields = Object.freeze([
 ]);
 export function privacySemanticIdentifiers(...sources) {
   const keys = privacySemanticIdentifierFields;
+  const technicalId = /^(?:[a-z]{1,4}\d{1,4}|(?:input|field|control|question|checkbox|radio)[-:.]?\d+)$/i;
   const nestedKeys = ['portalNativeContract', 'originalNativeContract', 'nativeContract'];
   const values = [];
   const seen = new Set();
@@ -94,6 +95,7 @@ export function privacySemanticIdentifiers(...sources) {
     if (!['string', 'number'].includes(typeof value)) return;
     const normalized = String(value).normalize('NFKC').replace(/\p{Cf}/gu, '').trim();
     if (!normalized) return;
+    if (technicalId.test(normalized)) return;
     const key = normalized.toLocaleLowerCase();
     if (seen.has(key)) return;
     seen.add(key);
@@ -110,7 +112,11 @@ export function privacySemanticIdentifiers(...sources) {
   return values;
 }
 export function hasConsentContradiction(value, ...semanticIds) {
-  const ids = privacySemanticIdentifiers(...semanticIds).map(id => id.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/[_:.-]+/g, ' ')).join(' ');
+  // Generated control ids such as `c1` or `input-12` are implementation
+  // metadata, not candidate facts. Treating them as prose makes `c1` look
+  // like CEFR level C1 and rejects an otherwise unambiguous privacy consent.
+  const ids = privacySemanticIdentifiers(...semanticIds)
+    .map(id => id.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/[_:.-]+/g, ' ')).join(' ');
   const primary = ['string', 'number'].includes(typeof value) ? String(value) : '';
   const text = `${primary} ${ids}`.replace(/\p{Cf}/gu, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/['’`]/g, ' ').replace(/\s+/g, ' ').trim();
