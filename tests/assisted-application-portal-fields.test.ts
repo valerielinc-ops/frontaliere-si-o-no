@@ -296,8 +296,16 @@ describe('portal field extraction', () => {
     expect(formInstruction.fields[0].label).toBe('input-12');
     const formInstructionWithoutPeriod = extract('<form><span>Complete all sections before applying</span><input id="input-13"></form>');
     expect(formInstructionWithoutPeriod.fields[0].label).toBe('input-13');
-    const completeFormInstruction = extract('<form><span>Complete this form</span><input id="input-34"></form>');
-    expect(completeFormInstruction.fields[0].label).toBe('input-34');
+    for (const [instruction, id] of [
+      ['Complete this form', '_r_1_'],
+      ['Complete the form', '_r_2_'],
+      ['Completa il modulo', '_r_3_'],
+      ['Vervollständigen Sie das Formular', '_r_4_'],
+      ['Veuillez remplir le formulaire', '_r_5_'],
+    ]) {
+      const genericFormInstruction = extract(`<div><span>${instruction}</span><input id="${id}"></div>`);
+      expect(genericFormInstruction.fields[0].label).toBe(id);
+    }
     for (const [instruction, id] of [
       ['Completa tutti i campi prima di inviare la candidatura', 'input-15'],
       ['Completa il modulo prima dell’invio', 'input-19'],

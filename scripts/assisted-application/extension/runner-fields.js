@@ -442,14 +442,13 @@
   // sibling question. Page-level copy is not evidence for a generated-id label.
   const normalizeInstructionText = (value) => clean(value).normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
   const GLOBAL_FORM_ACTION_RE = /^(?:(?:please|bitte|veuillez|merci de|si prega di|per favore|per cortesia)\s+)?(?:complete|finish|review|check|read|fill(?:\s+in)?|submit|apply|continue|ensure|make\s+sure|complet\w*|compil\w*|termin\w*|finisc\w*|rived\w*|controll\w*|legg\w*|invi\w*|candidat\w*|prosegu\w*|assicur\w*|rempl\w*|verifi\w*|soumett\w*|postul\w*|poursuiv\w*|assur\w*|vollstand\w*|vervollstand\w*|full\w*|pruf\w*|les\w*|reich\w*|bewerb\w*|stell\s+sicher)\b/;
-  const GLOBAL_FORM_SCOPE_RE = /\b(?:all|every|remaining|following)\b.{0,45}\b(?:sections?|steps?|fields?|questions?)\b|\b(?:tutti|tutte|ogni|restanti|seguenti|rimanenti)\b.{0,45}\b(?:sezion\w*|passagg\w*|camp\w*|domand\w*|informazion\w*)\b|\b(?:alle|jeden|verbleibenden|folgenden|samtlich\w*)\b.{0,45}\b(?:abschnitt\w*|schritt\w*|feld\w*|frag\w*|angab\w*|information\w*)\b|\b(?:tous|toutes|chaque|restants|restantes|suivants|suivantes)\b.{0,45}\b(?:sections?|etapes?|champs?|questions?|informations?)\b/;
+  const GLOBAL_FORM_SCOPE_RE = /\b(?:form|forms|application|applications)\b|\bmodul\w*\b|\bformular\w*\b|\bformulaire\w*\b|\b(?:all|every|remaining|following)\b.{0,45}\b(?:sections?|steps?|fields?|questions?)\b|\b(?:tutti|tutte|ogni|restanti|seguenti|rimanenti)\b.{0,45}\b(?:sezion\w*|passagg\w*|camp\w*|domand\w*|informazion\w*)\b|\b(?:alle|jeden|verbleibenden|folgenden|samtlich\w*)\b.{0,45}\b(?:abschnitt\w*|schritt\w*|feld\w*|frag\w*|angab\w*|information\w*)\b|\b(?:tous|toutes|chaque|restants|restantes|suivants|suivantes)\b.{0,45}\b(?:sections?|etapes?|champs?|questions?|informations?)\b/;
   const GLOBAL_FORM_BEFORE_SUBMIT_RE = /\b(?:before|prior to)\b.{0,60}\b(?:applying|submitting|you submit)\b|\b(?:prima di|prima dell[aeiou]|prima dell['’])\b.{0,60}\b(?:candidat\w*|invi\w*|present\w*)\b|\b(?:avant de|avant d)\b.{0,60}\b(?:postul\w*|soumett\w*|envoy\w*|valid\w*)\b|\b(?:bevor|vor dem)\b.{0,60}\b(?:bewerb\w*|absend\w*|einreich\w*|senden)\b/;
-  const GLOBAL_FORM_THIS_FORM_RE = /\bthis\s+form\b/;
   const PRIVACY_ACK_QUESTION_HINT_RE = /^(?:(?:please|bitte|veuillez)\s+)?(?:select|check|tick|mark|seleziona(?:re)?|spunta|contrassegna|aktivieren|markieren|kreuzen|wahlen|cochez|cocher|selectionnez|selectionner|coche|selectionne)\b.{0,220}\b(?:privacy|datenschutz\w*|informativa|confidentialite)\b/;
   const isGlobalFormInstruction = (value) => {
     const text = normalizeInstructionText(value);
     return GLOBAL_FORM_ACTION_RE.test(text)
-      && (GLOBAL_FORM_SCOPE_RE.test(text) || GLOBAL_FORM_BEFORE_SUBMIT_RE.test(text) || GLOBAL_FORM_THIS_FORM_RE.test(text));
+      && (GLOBAL_FORM_SCOPE_RE.test(text) || GLOBAL_FORM_BEFORE_SUBMIT_RE.test(text));
   };
   const isQuestionLabelText = (value) => {
     const text = normalizeInstructionText(value);
