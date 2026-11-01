@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sonnweid",
-  "assembledAt": "2026-10-31T21:27:30.869Z",
-  "runId": "41241671182",
+  "assembledAt": "2026-11-01T09:13:04.558Z",
+  "runId": "41291333597",
   "jobs": [
     {
       "id": "sonnweid-1c414d3bb8dd",
@@ -34,7 +34,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/fachperson-gesundheit-oder-betreuung-efz/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:27:25.246Z",
+      "crawledAt": "2026-11-01T09:12:57.417Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -86,7 +86,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wetzikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:57.417Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sonnweid-c748bd78add4",
@@ -120,7 +124,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/fachperson-gesundheit-fuer-die-oase/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:27:24.557Z",
+      "crawledAt": "2026-11-01T09:12:56.596Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -170,7 +174,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wetzikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:56.596Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sonnweid-b9f771afc509",
@@ -204,7 +212,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/dipl-pflegefachperson-hf/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:27:23.665Z",
+      "crawledAt": "2026-11-01T09:12:55.881Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -253,7 +261,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wetzikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:55.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sonnweid-01c200aa4ea7",
@@ -286,7 +298,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/fachperson-gesundheit-oder-betreuung-efz-fuer-die-nachtwache/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:27:22.899Z",
+      "crawledAt": "2026-11-01T09:12:55.191Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -334,7 +346,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wetzikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:12:55.191Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sonnweid-5039a1976fac",
@@ -368,7 +384,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/diplomierte-pflegefachperson-hf-als-leitung-nachtwache/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:27:22.158Z",
+      "crawledAt": "2026-11-01T09:12:54.505Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -416,7 +432,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wetzikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:12:54.505Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
