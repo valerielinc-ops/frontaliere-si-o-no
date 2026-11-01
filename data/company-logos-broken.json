@@ -1,54 +1,67 @@
 {
-  "generatedAt": "2026-10-25T09:02:01.937Z",
+  "generatedAt": "2026-11-01T11:07:02.086Z",
   "source": {
     "path": "data/jobs.json",
-    "jobCount": 32292
+    "jobCount": 33261
   },
-  "checked": 585,
-  "ok": 585,
-  "qualityOk": 583,
+  "checked": 607,
+  "ok": 607,
+  "qualityOk": 604,
   "broken": 0,
   "brokenJobCount": 0,
   "pendingDeploy": 0,
   "pendingDeployJobCount": 0,
   "pendingDeployUrls": [],
-  "missing": 19,
-  "missingJobCount": 64,
-  "partial": 0,
-  "partialJobCount": 0,
+  "missing": 12,
+  "missingJobCount": 62,
+  "partial": 2,
+  "partialJobCount": 1043,
   "unverified": 0,
   "unverifiedJobCount": 0,
-  "lowQuality": 2,
-  "lowQualityJobCount": 51,
+  "lowQuality": 3,
+  "lowQualityJobCount": 6,
   "qualityUnverified": 0,
   "qualityUnverifiedJobCount": 0,
   "urls": [],
   "quality": [
     {
-      "reference": "/images/brands/fondation-domus.png",
+      "reference": "/images/brands/conservatorio.png",
       "kind": "local",
       "jobs": 1,
       "companyKeys": [
-        "fondation-domus"
+        "conservatorio"
       ],
-      "url": "https://cdn.frontaliereticino.ch/images/brands/fondation-domus.png",
+      "url": "https://cdn.frontaliereticino.ch/images/brands/conservatorio.png",
       "qualityStatus": "low-quality",
       "qualityReason": "intrinsic-dimensions-too-small",
-      "width": 48,
-      "height": 48
+      "width": 16,
+      "height": 16
     },
     {
-      "reference": "/images/brands/mediamarkt.png",
+      "reference": "/images/brands/mpa-praxisstellen-ch.ico",
       "kind": "local",
-      "jobs": 50,
+      "jobs": 3,
       "companyKeys": [
-        "mediamarkt"
+        "mpa-praxisstellen-ch"
       ],
-      "url": "https://cdn.frontaliereticino.ch/images/brands/mediamarkt.png",
+      "url": "https://cdn.frontaliereticino.ch/images/brands/mpa-praxisstellen-ch.ico",
       "qualityStatus": "low-quality",
       "qualityReason": "intrinsic-dimensions-too-small",
-      "width": 48,
-      "height": 48
+      "width": 32,
+      "height": 32
+    },
+    {
+      "reference": "/images/brands/pks-bewerbung-ch.ico",
+      "kind": "local",
+      "jobs": 2,
+      "companyKeys": [
+        "pks-bewerbung-ch"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/pks-bewerbung-ch.ico",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
     }
   ]
 }
