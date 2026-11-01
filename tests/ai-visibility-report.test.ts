@@ -288,9 +288,10 @@ describe('OpenRouter web-search platform', () => {
   });
 
   /**
-   * Issue #7489 item 1. Which of the two billing paths the run pays for was
-   * left to OpenRouter's auto-selection, a default the payload never stated, so
-   * the cost written in the source was a guess about an unsent parameter.
+   * Issue #7489 item 1 / #16432. Native search is an endpoint capability, not
+   * something this monitor can infer from a provider prefix. Exa is supported
+   * for every model and avoids a 404 when the configured model lacks native
+   * search.
    */
   it('declares the search engine instead of inheriting an unstated default', async () => {
     vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
@@ -303,11 +304,11 @@ describe('OpenRouter web-search platform', () => {
     expect(body.plugins[0].engine).toBe(openRouterWebEngine(body.model));
   });
 
-  it('asks for native search only where the provider supports it, Exa otherwise', () => {
-    expect(openRouterWebEngine('openai/gpt-4o-mini')).toBe('native');
-    expect(openRouterWebEngine('anthropic/claude-3.5-haiku')).toBe('native');
+  it('uses the model-independent Exa engine instead of forcing native search', () => {
+    expect(openRouterWebEngine('openai/gpt-4o-mini')).toBe('exa');
+    expect(openRouterWebEngine('anthropic/claude-3.5-haiku')).toBe('exa');
     expect(openRouterWebEngine('mistralai/mistral-small')).toBe('exa');
-    expect(openRouterWebEngine()).toBe('native');
+    expect(openRouterWebEngine()).toBe('exa');
   });
 
   it('stops at the per-run request cap (metered web search)', async () => {

@@ -5946,6 +5946,7 @@
           "erp-038-it-solutions-specialist-80-100-schlieren-zh-yellowshark-ch"
         ]
       },
+      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3067,
       "retranslationAttempts": 11,
@@ -5966,8 +5967,7 @@
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-06T10:00:23.131Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "yellowshark-dddf71695dea",
@@ -19008,6 +19008,7 @@
           "devops-engineer-80-100-adliswil-zh-yellowshark-ch"
         ]
       },
+      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2960,
       "retranslationAttempts": 11,
@@ -19028,8 +19029,7 @@
       "streetAddress": "Adliswil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T10:00:23.038Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "yellowshark-171eba8524e8",
@@ -24465,12 +24465,12 @@
     },
     {
       "id": "yellowshark-c4e4ac90a5b3",
-      "slug": "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch",
+      "slug": "tettoista-per-tetti-piani-spioventi-m-f-yellowshark-ag-aarau-ag",
       "slugByLocale": {
         "de": "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch",
-        "it": "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch",
-        "en": "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch",
-        "fr": "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch"
+        "it": "tettoista-per-tetti-piani-spioventi-m-f-yellowshark-ag-aarau-ag",
+        "en": "flat-pitched-roof-roofer-m-f-yellowshark-ag-aarau-ag",
+        "fr": "couvreur-en-toitures-plates-inclinees-h-f-yellowshark-ag-aarau-ag"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -24532,7 +24532,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T10:00:23.001Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-03T09:54:56.290Z"
+      "firstSeenAt": "2026-10-03T09:54:56.290Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch"
+        ],
+        "en": [
+          "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch"
+        ],
+        "fr": [
+          "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-346d7ea7e8d0",
@@ -38739,12 +38753,12 @@
     },
     {
       "id": "yellowshark-0c6d282364f1",
-      "slug": "schreiner-monteur-m-w-chur-gr-yellowshark-ch",
+      "slug": "falegname-montatore-m-f-yellowshark-ag-chur-gr",
       "slugByLocale": {
         "de": "schreiner-monteur-m-w-chur-gr-yellowshark-ch",
-        "it": "schreiner-monteur-m-w-chur-gr-yellowshark-ch",
-        "en": "schreiner-monteur-m-w-chur-gr-yellowshark-ch",
-        "fr": "schreiner-monteur-m-w-chur-gr-yellowshark-ch"
+        "it": "falegname-montatore-m-f-yellowshark-ag-chur-gr",
+        "en": "carpenter-installer-m-f-yellowshark-ag-chur-gr",
+        "fr": "menuisier-monteur-h-f-yellowshark-ag-chur-gr"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -38806,7 +38820,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-08T10:00:22.895Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.545Z"
+      "firstSeenAt": "2026-09-28T21:58:25.545Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-monteur-m-w-chur-gr-yellowshark-ch"
+        ],
+        "en": [
+          "schreiner-monteur-m-w-chur-gr-yellowshark-ch"
+        ],
+        "fr": [
+          "schreiner-monteur-m-w-chur-gr-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-monteur-m-w-chur-gr-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-c5f561f742f7",
@@ -50590,12 +50618,12 @@
     },
     {
       "id": "yellowshark-7c828d91e0f8",
-      "slug": "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch",
+      "slug": "operatore-di-gru-a-rotazione-inferiore-m-f-yellowshark-ag-schwyz-sz",
       "slugByLocale": {
         "de": "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch",
-        "it": "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch",
-        "en": "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch",
-        "fr": "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch"
+        "it": "operatore-di-gru-a-rotazione-inferiore-m-f-yellowshark-ag-schwyz-sz",
+        "en": "bottom-slewing-crane-operator-m-f-yellowshark-ag-schwyz-sz",
+        "fr": "grutier-de-grue-a-montage-par-le-bas-h-f-yellowshark-ag-schwyz-sz"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -50657,7 +50685,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T10:00:22.792Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.533Z"
+      "firstSeenAt": "2026-09-28T21:58:25.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch"
+        ],
+        "en": [
+          "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch"
+        ],
+        "fr": [
+          "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-50911b207ef4",
@@ -72724,12 +72766,12 @@
     },
     {
       "id": "yellowshark-3af05a0c3ce9",
-      "slug": "systemtechniker-automation-m-w-80-100-aesch-bl-bl-yellowshark-ch",
+      "slug": "tecnico-di-sistemi-di-automazione-m-f-80-100-yellowshark-ag-aesch-bl-bl",
       "slugByLocale": {
         "de": "systemtechniker-automation-m-w-80-100-aesch-bl-bl-yellowshark-ch",
-        "it": "systemtechniker-automation-m-w-80-100-aesch-bl-bl-yellowshark-ch",
-        "en": "systemtechniker-automation-m-w-80-100-aesch-bl-bl-yellowshark-ch",
-        "fr": "systemtechniker-automation-m-w-80-100-aesch-bl-bl-yellowshark-ch"
+        "it": "tecnico-di-sistemi-di-automazione-m-f-80-100-yellowshark-ag-aesch-bl-bl",
+        "en": "automation-system-technician-m-f-80-100-yellowshark-ag-aesch-bl-bl",
+        "fr": "technicien-systemes-d-automatisation-h-f-80-100-yellowshark-ag-aesch-bl-bl"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72791,16 +72833,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T10:00:22.535Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T10:00:22.535Z"
+      "firstSeenAt": "2026-11-01T10:00:22.535Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "systemtechniker-automation-m-w-80-100-aesch-bl-bl-yellowshark-ch"
+        ],
+        "en": [
+          "systemtechniker-automation-m-w-80-100-aesch-bl-bl-yellowshark-ch"
+        ],
+        "fr": [
+          "systemtechniker-automation-m-w-80-100-aesch-bl-bl-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "systemtechniker-automation-m-w-80-100-aesch-bl-bl-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-ed4eaef0c63a",
-      "slug": "system-spezialist-m-w-80-100-bern-be-yellowshark-ch",
+      "slug": "specialista-di-sistema-m-f-80-100-yellowshark-ag-bern-be",
       "slugByLocale": {
         "de": "system-spezialist-m-w-80-100-bern-be-yellowshark-ch",
-        "it": "system-spezialist-m-w-80-100-bern-be-yellowshark-ch",
+        "it": "specialista-di-sistema-m-f-80-100-yellowshark-ag-bern-be",
         "en": "system-spezialist-m-w-80-100-bern-be-yellowshark-ch",
-        "fr": "system-spezialist-m-w-80-100-bern-be-yellowshark-ch"
+        "fr": "specialiste-systeme-h-f-80-100-yellowshark-ag-bern-be"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72862,14 +72918,25 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T10:00:22.533Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T10:00:22.533Z"
+      "firstSeenAt": "2026-11-01T10:00:22.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "system-spezialist-m-w-80-100-bern-be-yellowshark-ch"
+        ],
+        "fr": [
+          "system-spezialist-m-w-80-100-bern-be-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "system-spezialist-m-w-80-100-bern-be-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-8c0b79f46961",
-      "slug": "senior-finance-specialist-controller-m-w-d-80-100-schoftland-ag-yellowshark-ch",
+      "slug": "senior-finanza-specialista-controller-m-w-d-80-100-yellowshark-ag-schoftland-ag",
       "slugByLocale": {
         "de": "senior-finance-specialist-controller-m-w-d-80-100-schoftland-ag-yellowshark-ch",
-        "it": "senior-finance-specialist-controller-m-w-d-80-100-schoftland-ag-yellowshark-ch",
+        "it": "senior-finanza-specialista-controller-m-w-d-80-100-yellowshark-ag-schoftland-ag",
         "en": "senior-finance-specialist-controller-m-w-d-80-100-schoftland-ag-yellowshark-ch",
         "fr": "senior-finance-specialist-controller-m-w-d-80-100-schoftland-ag-yellowshark-ch"
       },
@@ -72934,7 +73001,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T10:00:22.532Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T10:00:22.532Z"
+      "firstSeenAt": "2026-11-01T10:00:22.532Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-finance-specialist-controller-m-w-d-80-100-schoftland-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-finance-specialist-controller-m-w-d-80-100-schoftland-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-edfa223d01cd",
@@ -73159,12 +73234,12 @@
     },
     {
       "id": "yellowshark-388817ddad43",
-      "slug": "operativ-technische-r-einkaufer-in-80-100-liestal-bl-yellowshark-ch",
+      "slug": "acquirente-tecnico-operativo-80-100-yellowshark-ag-liestal-bl",
       "slugByLocale": {
         "de": "operativ-technische-r-einkaufer-in-80-100-liestal-bl-yellowshark-ch",
-        "it": "operativ-technische-r-einkaufer-in-80-100-liestal-bl-yellowshark-ch",
-        "en": "operativ-technische-r-einkaufer-in-80-100-liestal-bl-yellowshark-ch",
-        "fr": "operativ-technische-r-einkaufer-in-80-100-liestal-bl-yellowshark-ch"
+        "it": "acquirente-tecnico-operativo-80-100-yellowshark-ag-liestal-bl",
+        "en": "operational-technical-buyer-80-100-yellowshark-ag-liestal-bl",
+        "fr": "acheteur-technique-operationnel-80-100-yellowshark-ag-liestal-bl"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73226,16 +73301,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T10:00:22.527Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T10:00:22.527Z"
+      "firstSeenAt": "2026-11-01T10:00:22.527Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operativ-technische-r-einkaufer-in-80-100-liestal-bl-yellowshark-ch"
+        ],
+        "en": [
+          "operativ-technische-r-einkaufer-in-80-100-liestal-bl-yellowshark-ch"
+        ],
+        "fr": [
+          "operativ-technische-r-einkaufer-in-80-100-liestal-bl-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operativ-technische-r-einkaufer-in-80-100-liestal-bl-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-a17f282f7e94",
-      "slug": "it-system-administrator-80-8211-100-m-w-bern-be-yellowshark-ch",
+      "slug": "amministratore-di-sistema-it-80-100-m-f-yellowshark-ag-bern-be",
       "slugByLocale": {
         "de": "it-system-administrator-80-8211-100-m-w-bern-be-yellowshark-ch",
-        "it": "it-system-administrator-80-8211-100-m-w-bern-be-yellowshark-ch",
+        "it": "amministratore-di-sistema-it-80-100-m-f-yellowshark-ag-bern-be",
         "en": "it-system-administrator-80-8211-100-m-w-bern-be-yellowshark-ch",
-        "fr": "it-system-administrator-80-8211-100-m-w-bern-be-yellowshark-ch"
+        "fr": "administrateur-systeme-informatique-80-100-h-f-yellowshark-ag-bern-be"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73297,7 +73386,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T10:00:22.524Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T10:00:22.524Z"
+      "firstSeenAt": "2026-11-01T10:00:22.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-system-administrator-80-8211-100-m-w-bern-be-yellowshark-ch"
+        ],
+        "fr": [
+          "it-system-administrator-80-8211-100-m-w-bern-be-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-system-administrator-80-8211-100-m-w-bern-be-yellowshark-ch"
+      ]
     }
   ]
 }

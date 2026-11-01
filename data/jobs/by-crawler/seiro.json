@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "seiro-dc31644c6383",
-      "slug": "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch",
+      "slug": "medica-specialista-medico-specialista-in-psichiatria-rorschach-seiro-seiro-gmbh-rorschach-sankt-gallen",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch",
-        "it": "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch",
-        "en": "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch",
-        "fr": "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch"
+        "it": "medica-specialista-medico-specialista-in-psichiatria-rorschach-seiro-seiro-gmbh-rorschach-sankt-gallen",
+        "en": "specialist-in-psychiatry-rorschach-seiro-seiro-gmbh-rorschach-sankt-gallen",
+        "fr": "medecin-specialiste-en-psychiatrie-rorschach-seiro-seiro-gmbh-rorschach-sankt-gallen"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -72,16 +72,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T09:26:56.653Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-23T09:46:36.118Z"
+      "firstSeenAt": "2026-10-23T09:46:36.118Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-psychiatrie-rorschach-seiro-rorschach-sankt-gallen-seiro-ch"
+      ]
     },
     {
       "id": "seiro-5fae1b63f22e",
-      "slug": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch",
+      "slug": "medica-oculista-medico-oculista-in-oftalmologia-bern-seiro-seiro-gmbh-bern-bern",
       "slugByLocale": {
         "de": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch",
-        "it": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch",
-        "en": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch",
-        "fr": "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+        "it": "medica-oculista-medico-oculista-in-oftalmologia-bern-seiro-seiro-gmbh-bern-bern",
+        "en": "ophthalmologist-bern-seiro-seiro-gmbh-bern-bern",
+        "fr": "ophtalmologue-ophtalmologue-ophtalmologie-berne-seiro-seiro-gmbh-bern-bern"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -143,7 +157,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T09:26:56.652Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-23T09:46:36.118Z"
+      "firstSeenAt": "2026-10-23T09:46:36.118Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+        ],
+        "en": [
+          "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+        ],
+        "fr": [
+          "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "augenarztin-augenarzt-ophthalmologie-bern-seiro-bern-bern-seiro-ch"
+      ]
     },
     {
       "id": "seiro-2cbab8315592",

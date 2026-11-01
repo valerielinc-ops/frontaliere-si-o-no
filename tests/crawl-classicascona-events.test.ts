@@ -173,6 +173,8 @@ describe('concert page → event (facts only)', () => {
   it('normalizes schema.org IRIs for events and aggregate offers', () => {
     const html = '<script type="application/ld+json">{"@type":"https://schema.org/MusicEvent","name":"x","startDate":"2026-10-07"}</script>';
     expect(extractEventNodes(html)).toHaveLength(1);
+    expect(extractEventNodes('<script data-type="application/ld+json">{"@type":"Event","startDate":"2026-10-07"}</script>')).toEqual([]);
+    expect(extractEventNodes('<script type="application/ld+json">{"@type":"https://example.test/FooEvent","startDate":"2026-10-07"}</script>')).toEqual([]);
     expect(extractOrganizerOfferPrice({
       offers: { '@type': 'https://schema.org/AggregateOffer', lowPrice: 40, priceCurrency: 'CHF' },
     }, { priceSource: 'classicascona', shownTariffs: [40] })).toMatchObject({ price: { amount: 40, priceField: 'offers.lowPrice' } });

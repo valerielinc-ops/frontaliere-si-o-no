@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bb-trading-werbeartikel-ag-bf8c9ba211cd",
-      "slug": "spezialist-in-sonderanfertigungen-textiles-dietikon-zh-bb-trading-werbeartikel-ag-ch",
+      "slug": "specialista-in-realizzazioni-tessili-su-misura-bb-trading-werbeartikel-ag-dietikon-zh",
       "slugByLocale": {
-        "it": "spezialist-in-sonderanfertigungen-textiles-dietikon-zh-bb-trading-werbeartikel-ag-ch",
-        "en": "spezialist-in-sonderanfertigungen-textiles-dietikon-zh-bb-trading-werbeartikel-ag-ch",
+        "it": "specialista-in-realizzazioni-tessili-su-misura-bb-trading-werbeartikel-ag-dietikon-zh",
+        "en": "specialist-custom-made-textiles-bb-trading-werbeartikel-ag-dietikon-zh",
         "de": "spezialist-in-sonderanfertigungen-textiles-dietikon-zh-bb-trading-werbeartikel-ag-ch",
-        "fr": "spezialist-in-sonderanfertigungen-textiles-dietikon-zh-bb-trading-werbeartikel-ag-ch"
+        "fr": "specialiste-des-fabrications-speciales-textiles-bb-trading-werbeartikel-ag-dietikon-zh"
       },
       "company": "bb trading werbeartikel ag",
       "companyKey": "bb-trading-werbeartikel-ag",
@@ -70,7 +70,21 @@
       "firstSeenAt": "2026-10-31T22:00:03.610Z",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-26T09:48:57.125Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-sonderanfertigungen-textiles-dietikon-zh-bb-trading-werbeartikel-ag-ch"
+        ],
+        "en": [
+          "spezialist-in-sonderanfertigungen-textiles-dietikon-zh-bb-trading-werbeartikel-ag-ch"
+        ],
+        "fr": [
+          "spezialist-in-sonderanfertigungen-textiles-dietikon-zh-bb-trading-werbeartikel-ag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-sonderanfertigungen-textiles-dietikon-zh-bb-trading-werbeartikel-ag-ch"
+      ]
     }
   ]
 }

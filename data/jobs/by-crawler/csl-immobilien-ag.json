@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "csl-immobilien-ag-5ac1fb422b96",
-      "slug": "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch",
+      "slug": "assistente-alla-direzione-consiglio-di-amministrazione-csl-immobilien-ag-zurich-zh",
       "slugByLocale": {
-        "it": "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch",
-        "en": "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch",
+        "it": "assistente-alla-direzione-consiglio-di-amministrazione-csl-immobilien-ag-zurich-zh",
+        "en": "assistant-to-executive-management-board-of-directors-csl-immobilien-ag-zurich-zh",
         "de": "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch",
-        "fr": "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
+        "fr": "assistant-e-de-la-direction-generale-du-conseil-d-administration-csl-immobilien-ag-zurich-zh"
       },
       "company": "CSL Immobilien AG",
       "companyKey": "csl-immobilien-ag",
@@ -70,7 +70,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-03T09:48:57.459Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
+        ],
+        "en": [
+          "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
+        ],
+        "fr": [
+          "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenz-gl-vr-zurich-zh-csl-immobilien-ag-ch"
+      ]
     }
   ]
 }

@@ -771,7 +771,7 @@
         "it": "assistente-infermieristico-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "en": "nursing-assistant-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "de": "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
-        "fr": "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "fr": "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -818,7 +818,7 @@
       "previousSlugs": [
         "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
         "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
-        "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -826,7 +826,7 @@
         ],
         "fr": [
           "pflegehelfer-in-srk-spitex-limmat-aare-reuss-ag-untersiggenthal",
-          "assistant-infirmier-rsk-spitex-limmat-aare-reuss-ag-untersiggenthal"
+          "auxiliaire-de-sante-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
         ]
       },
       "firstSeenAt": "2026-09-23T23:43:06.749Z",
@@ -1349,12 +1349,12 @@
     },
     {
       "id": "spitex-ch-9e7d06757906",
-      "slug": "fachfrau-mann-gesundheit-cfc-stiftung-vitatertia-gossau-sg",
+      "slug": "specialista-della-salute-efz-stiftung-vitatertia-gossau-sg",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-spitex-ch-gossau-sg",
-        "it": "fachfrau-mann-gesundheit-cfc-stiftung-vitatertia-gossau-sg",
-        "en": "fachfrau-mann-gesundheit-efz-spitex-ch-gossau-sg",
-        "fr": "fachfrau-mann-gesundheit-efz-spitex-ch-gossau-sg"
+        "it": "specialista-della-salute-efz-stiftung-vitatertia-gossau-sg",
+        "en": "health-specialist-efz-stiftung-vitatertia-gossau-sg",
+        "fr": "specialiste-de-la-sante-efz-stiftung-vitatertia-gossau-sg"
       },
       "company": "Stiftung VitaTertia",
       "companyKey": "spitex-ch",
@@ -1402,11 +1402,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-spitex-ch-gossau-sg",
+          "fachfrau-mann-gesundheit-cfc-stiftung-vitatertia-gossau-sg"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-spitex-ch-gossau-sg"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-spitex-ch-gossau-sg"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-spitex-ch-gossau-sg"
+        "fachfrau-mann-gesundheit-efz-spitex-ch-gossau-sg",
+        "fachfrau-mann-gesundheit-cfc-stiftung-vitatertia-gossau-sg"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -1428,12 +1436,12 @@
     },
     {
       "id": "spitex-ch-751088e8d278",
-      "slug": "pflegehelfer-in-srk-50-80-spitex-ch-uetendorf",
+      "slug": "assistente-infermieristico-src-50-80-spitex-region-stockhorn-ol1-uetendorf",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-50-80-spitex-ch-uetendorf",
-        "it": "pflegehelfer-in-srk-50-80-spitex-ch-uetendorf",
-        "en": "pflegehelfer-in-srk-50-80-spitex-ch-uetendorf",
-        "fr": "pflegehelfer-in-srk-50-80-spitex-ch-uetendorf"
+        "it": "assistente-infermieristico-src-50-80-spitex-region-stockhorn-ol1-uetendorf",
+        "en": "src-nursing-assistant-50-80-spitex-region-stockhorn-ol1-uetendorf",
+        "fr": "assistant-infirmier-src-50-80-spitex-region-stockhorn-ol1-uetendorf"
       },
       "company": "SPITEX Region Stockhorn OL1",
       "companyKey": "spitex-ch",
@@ -1494,7 +1502,21 @@
       },
       "streetAddress": "Uetendorf",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-50-80-spitex-ch-uetendorf"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-50-80-spitex-ch-uetendorf"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-50-80-spitex-ch-uetendorf"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-50-80-spitex-ch-uetendorf"
+      ]
     },
     {
       "id": "spitex-ch-02113a76e10a",

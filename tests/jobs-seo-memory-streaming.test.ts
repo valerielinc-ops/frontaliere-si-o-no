@@ -332,6 +332,35 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(source).toContain('expiredHtmlCachePeakEntries');
   });
 
+  it('streams previous-slug bridges without retaining unused full-page copies', () => {
+    const source = fs.readFileSync(
+      path.resolve(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+    const activeStart = source.indexOf("logJobsSeoMem('after-active-pages'");
+    const companyStart = source.indexOf('/* ── Company landing pages', activeStart);
+    const activeRelease = source.slice(activeStart, companyStart);
+    expect(activeRelease).toContain('titleCollisionByLocale[locale].clear()');
+    expect(activeRelease).toContain("logJobsSeoMem('after-active-title-collision-clear'");
+
+    const phaseStart = source.indexOf('/* ── Full-content pages for previousSlugs of active jobs');
+    const loopStart = source.indexOf('let bridgeCount = 0;', phaseStart);
+    const phaseEnd = source.indexOf("logJobsSeoMem('after-previous-slug-bridges'", loopStart);
+    const phaseMarkerEnd = source.indexOf('});', phaseEnd);
+    const bridgeLoop = source.slice(loopStart, phaseEnd);
+    const phaseMarker = source.slice(phaseEnd, phaseMarkerEnd);
+    expect(phaseStart).toBeGreaterThan(-1);
+    expect(loopStart).toBeGreaterThan(phaseStart);
+    expect(phaseEnd).toBeGreaterThan(loopStart);
+    expect(bridgeLoop).not.toContain('bridgeFlatHtml');
+    expect(bridgeLoop).toContain('bridgeIndexHtml = noindexJobAliasHtml(cachedHtml.replace');
+    expect(bridgeLoop).toContain('const PREVIOUS_SLUG_BRIDGE_YIELD_INTERVAL = 32;');
+    expect(bridgeLoop.match(/if \(shouldYieldPreviousSlugBridgeWrites\(\)\) await yieldPreviousSlugBridgeWrites\(\);/g)).toHaveLength(2);
+    expect(bridgeLoop).toContain('await collector.awaitDrainSlot(2);\n  maybeForceJobsSeoHtmlGc();');
+    expect(phaseMarker).toContain('previousSlugPeriodicYieldCount,');
+    expect(phaseMarker).toContain('jobsSeoHtmlGcRuns,');
+  });
+
   it('runs the last-resort GC and a sampled milestone inside the expired sweep', () => {
     const source = fs.readFileSync(
       path.resolve(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
