@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kanton-aargau",
-  "assembledAt": "2026-10-31T22:05:35.614Z",
-  "runId": "41242779673",
+  "assembledAt": "2026-11-01T09:28:46.582Z",
+  "runId": "41292374401",
   "jobs": [
     {
       "id": "kanton-aargau-e239ab095a9a",
@@ -34,7 +34,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sozialarbeiterin-sozialarbeiter/93515238-14b1-480c-b981-5ede331fbba0",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:46.640Z",
+      "crawledAt": "2026-11-01T09:27:56.368Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "streetAddress": "Ziegeleiweg 13",
@@ -51,7 +51,7 @@
       "datePosted": "2026-09-11",
       "postedDate": "2026-09-11",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-09",
+      "validThrough": "2026-11-09T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/sozialarbeiterin-sozialarbeiter/93515238-14b1-480c-b981-5ede331fbba0",
       "requirements": [],
       "requirementsByLocale": {},
@@ -77,7 +77,9 @@
           "maxValue": 56400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-2b15592aba6f",
@@ -111,7 +113,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-saxophon/62131681-ffe8-445e-b399-54415f67c4f1",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:46.094Z",
+      "crawledAt": "2026-11-01T09:27:55.775Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 91",
@@ -128,7 +130,7 @@
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-saxophon/62131681-ffe8-445e-b399-54415f67c4f1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -162,7 +164,9 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-a7c6b4b30f36",
@@ -196,7 +200,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/cc6e4545-cdf5-41ee-be4c-a9c5b7c0ee8a",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:45.554Z",
+      "crawledAt": "2026-11-01T09:27:55.187Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Mellingerstrasse 2a",
@@ -213,7 +217,7 @@
       "datePosted": "2026-09-21",
       "postedDate": "2026-09-21",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-19",
+      "validThrough": "2026-11-19T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/cc6e4545-cdf5-41ee-be4c-a9c5b7c0ee8a",
       "requirements": [],
       "requirementsByLocale": {},
@@ -247,86 +251,9 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "kanton-aargau-628ca617ef98",
-      "slug": "specialista-di-supporto-ict-specialista-80-100-kanton-aargau-aarau",
-      "slugByLocale": {
-        "it": "specialista-di-supporto-ict-specialista-80-100-kanton-aargau-aarau",
-        "en": "ict-support-specialist-specialist-80-100-kanton-aargau-aarau",
-        "de": "ict-support-spezialistin-spezialisten-80-100-kanton-aargau-ch",
-        "fr": "specialiste-du-soutien-aux-tic-specialiste-80-100-kanton-aargau-aarau"
       },
-      "company": "Kanton Aargau",
-      "companyKey": "kanton-aargau",
-      "companyDomain": "ag.ch",
-      "title": "ICT Support Spezialistin / Spezialisten 80-100%",
-      "titleByLocale": {
-        "it": "Specialista di supporto ICT / Specialista 80-100 %",
-        "en": "ICT Support Specialist / Specialist 80-100 %",
-        "de": "ICT Support Spezialistin / Spezialisten 80-100%",
-        "fr": "Spécialiste du soutien aux TIC / Spécialiste 80-100 %"
-      },
-      "description": "Spannende Aufgaben warten:\n• Betreuung und Verwaltung von Fachapplikationen und IT-Services\nSie überwachen, pflegen und optimieren ausgewählte Anwendungen und Services, um deren Verfügbarkeit und Leistungsfähigkeit sicherzustellen.\n• Installation, Konfiguration und Wartung von Endgeräten\nSie richten Desktop Computer, Notebooks, mobile Geräte sowie Peripheriehardware ein, passen sie an die jeweiligen Anforderungen an und gewährleisten deren langfristigen Betrieb.\n• Incident und Problem Management im Service Desk\nSie nehmen Störungsmeldungen entgegen, prüfen und bearbeiten Incidents, leiten Ursachenanalysen ein und sorgen für die konsequente Umsetzung von Lösungsmassnahmen.\n• Beteiligung an kantonalen IT Projekten\nSie bringen die Bedürfnisse des IT Dienstes des AWA aktiv ein, vertreten dessen Interessen und entwickeln praxistaugliche Lösungen für den laufenden Betrieb.\n\nWas Sie mitbringen:\n• Sie bringen eine abgeschlossene Informatik-Berufslehre EFZ oder Ausbildung im Bereich ICT sowie eine abgeschlossene Informatikausbildung auf Stufe eidg. Fachausweis mit.\n• Sie verfügen über Berufserfahrung im Incident-, Problem-, Change- und Release-Management .\n• Sie bringen sehr gute Kenntnisse in Windows 11, Microsoft 365, Microsoft Entra ID und Active Directory mit, entsprechende Microsoft-Zertifizierungen sind von Vorteil.\n• Sie haben Freude am Kontakt mit Menschen und an der Zusammenarbeit mit internen und externen Stellen sowie anderen IT-Organisationen.\n• Sie kommunizieren adressatengerecht und gehen Herausforderungen lösungsorientiert an.\n• Eine selbständige, engagierte und zuverlässige Arbeitsweise sowie eine hohe Einsatzbereitschaft ist für Sie selbstverständlich.\n• Sie übernehmen Verantwortung , bringen sich aktiv ein und sind bereit, sich fachlich und persönlich weiterzuentwickeln und neue Aufgabenbereiche zu übernehmen.\n\nIhr Arbeitsumfeld\n\nIm Amt für Wirtschaft und Arbeit vollziehen wir Bundesgesetze wie das Arbeitslosenversicherungsgesetz (AVIG), das Arbeitsvermittlungsgesetz (AVG) und das Arbeitsrecht (ArG). Die Hauptaufgaben bestehen in der Aufsicht über Industrie und Gewerbe hinsichtlich Arbeitssicherheit und Gesundheitsschutz, im Beraten und Vermitteln von Stellensuchenden und im Entrichten von Arbeitslosenentschädigungen für Anspruchsberechtigte.\n\nMehr über das AWA erfahren\nAmt für Wirtschaft und Arbeit\n\nBenefits\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Amt für Wirtschaft und Arbeit\n• Arbeitsort: Aarau",
-      "descriptionByLocale": {
-        "it": "Eccitanti compiti attendono:\n• Supporto e gestione di applicazioni specialistiche e servizi IT\nMonitorano, mantengono e ottimizzano applicazioni e servizi selezionati per garantire la loro disponibilità e prestazioni.\n• Installazione, configurazione e manutenzione di apparecchiature terminali\nHanno impostato computer desktop, notebook, dispositivi mobili e hardware periferico, adattarli alle rispettive esigenze e garantire il loro funzionamento a lungo termine.\n• Gestione dei problemi e degli incidenti nella Service Desk\nEssi ricevono rapporti di errore, controlli e incidenti di processo, avviano analisi di causa radice e assicurano l'implementazione coerente di misure di soluzione.\n• Partecipazione a progetti cantonali IT\nEssi contribuiscono attivamente alle esigenze del servizio AWA IT, rappresentano i suoi interessi e sviluppano soluzioni pratiche per le operazioni in corso.\n\nCosa porti:\n• Essi portano un apprendistato professionale di informatica completato EFZ o formazione nel settore delle TIC, nonché una formazione completa di informatica a livello federale. con una carta professionale.\n• Hanno esperienza professionale nella gestione di incidenti, problemi, cambiamenti e release.\n• Hanno una buona conoscenza di Windows 11, Microsoft 365, Microsoft Entra ID e Active Directory, corrispondenti certificazioni Microsoft sono un vantaggio.\n• Essi godono di contatto con le persone e la cooperazione con gli organismi interni ed esterni, così come altre organizzazioni IT.\n• Essi comunicano in modo appropriato al destinatario e affrontano le sfide in modo orientato alla soluzione.\n• Un metodo di lavoro indipendente, impegnato e affidabile, così come un alto impegno è una questione naturalmente per voi.\n• Essi si assumono la responsabilità, sono attivamente coinvolti e sono pronti a sviluppare professionalmente e personalmente e assumere nuovi compiti.\n\nIl tuo ambiente di lavoro\n\nAll'Ufficio per gli Affari Economici e il Lavoro, applichiamo leggi federali come la legge sulla disoccupazione (AVIG), la legge sui servizi per l'occupazione (AVG) e la legge sul lavoro (ArG). I compiti principali sono di supervisionare l'industria e l'industria per quanto riguarda la sicurezza e la protezione della salute sul lavoro, di consigliare e porre i richiedenti di lavoro e di pagare le indennità di disoccupazione per i beneficiari.\n\nScopri di più sull'AWA\nUfficio Affari economici e del lavoro\n\nVantaggi\nAvanti.\n• Varie ulteriori opportunità di sviluppo, tra cui l'istruzione interna con oltre 180 seminari\n• Partecipazione ai costi della formazione esterna per accordo\nAbbastanza sicuro\n• 16 settimane di congedo di maternità\n• 2 settimane di congedo di paternità con pagamento completo\n• Copriamo circa il 60% dei contributi PK\n\n• Pensum: 80 - 100%\n• Occupazione: indefinito\n• Dipartimento: Ufficio Affari economici e del lavoro\n• Luogo di lavoro: Aarau",
-        "en": "Exciting tasks await:\n• Support and management of specialist applications and IT services\nThey monitor, maintain and optimize selected applications and services to ensure their availability and performance.\n• Installation, configuration and maintenance of terminal equipment\nThey set up desktop computers, notebooks, mobile devices and peripheral hardware, adapt them to the respective requirements and ensure their long-term operation.\n• Incident and Problem Management in the Service Desk\nThey receive fault reports, check and process incidents, initiate root cause analyses and ensure the consistent implementation of solution measures.\n• Participation in cantonal IT projects\nThey actively contribute the needs of the AWA IT service, represent its interests and develop practical solutions for ongoing operations.\n\nWhat you bring:\n• They bring a completed computer science vocational apprenticeship EFZ or training in the field of ICT as well as a completed computer science training at the Federal level. with a professional card.\n• They have professional experience in incident, problem, change and release management.\n• They have very good knowledge of Windows 11, Microsoft 365, Microsoft Entra ID and Active Directory, corresponding Microsoft certifications are an advantage.\n• They enjoy contact with people and cooperation with internal and external bodies as well as other IT organizations.\n• They communicate appropriately to the addressee and address challenges in a solution-oriented manner.\n• An independent, committed and reliable working method as well as a high commitment is a matter of course for you.\n• They take responsibility, are actively involved and are ready to develop professionally and personally and take on new tasks.\n\nYour working environment\n\nAt the Office for Economic Affairs and Labour, we enforce federal laws such as the Unemployment Insurance Act (AVIG), the Employment Services Act (AVG) and Labour Law (ArG). The main tasks are to supervise industry and industry with regard to occupational safety and health protection, to advise and place job seekers and to pay unemployment allowances for beneficiaries.\n\nLearn more about the AWA\nOffice for Economic Affairs and Labour\n\nBenefits\nMoving forward\n• Various further development opportunities including internal education with over 180 seminars\n• Participation in the costs of external training by agreement\nFairly secured\n• 16 weeks of full pay maternity leave\n• 2 weeks paternity leave with full pay\n• We cover around 60% of PK contributions\n\n• Pensum: 80 - 100%\n• Employment: indefinite\n• Department: Office for Economic Affairs and Labour\n• Place of work: Aarau",
-        "de": "Spannende Aufgaben warten:\n• Betreuung und Verwaltung von Fachapplikationen und IT-Services\nSie überwachen, pflegen und optimieren ausgewählte Anwendungen und Services, um deren Verfügbarkeit und Leistungsfähigkeit sicherzustellen.\n• Installation, Konfiguration und Wartung von Endgeräten\nSie richten Desktop Computer, Notebooks, mobile Geräte sowie Peripheriehardware ein, passen sie an die jeweiligen Anforderungen an und gewährleisten deren langfristigen Betrieb.\n• Incident und Problem Management im Service Desk\nSie nehmen Störungsmeldungen entgegen, prüfen und bearbeiten Incidents, leiten Ursachenanalysen ein und sorgen für die konsequente Umsetzung von Lösungsmassnahmen.\n• Beteiligung an kantonalen IT Projekten\nSie bringen die Bedürfnisse des IT Dienstes des AWA aktiv ein, vertreten dessen Interessen und entwickeln praxistaugliche Lösungen für den laufenden Betrieb.\n\nWas Sie mitbringen:\n• Sie bringen eine abgeschlossene Informatik-Berufslehre EFZ oder Ausbildung im Bereich ICT sowie eine abgeschlossene Informatikausbildung auf Stufe eidg. Fachausweis mit.\n• Sie verfügen über Berufserfahrung im Incident-, Problem-, Change- und Release-Management .\n• Sie bringen sehr gute Kenntnisse in Windows 11, Microsoft 365, Microsoft Entra ID und Active Directory mit, entsprechende Microsoft-Zertifizierungen sind von Vorteil.\n• Sie haben Freude am Kontakt mit Menschen und an der Zusammenarbeit mit internen und externen Stellen sowie anderen IT-Organisationen.\n• Sie kommunizieren adressatengerecht und gehen Herausforderungen lösungsorientiert an.\n• Eine selbständige, engagierte und zuverlässige Arbeitsweise sowie eine hohe Einsatzbereitschaft ist für Sie selbstverständlich.\n• Sie übernehmen Verantwortung , bringen sich aktiv ein und sind bereit, sich fachlich und persönlich weiterzuentwickeln und neue Aufgabenbereiche zu übernehmen.\n\nIhr Arbeitsumfeld\n\nIm Amt für Wirtschaft und Arbeit vollziehen wir Bundesgesetze wie das Arbeitslosenversicherungsgesetz (AVIG), das Arbeitsvermittlungsgesetz (AVG) und das Arbeitsrecht (ArG). Die Hauptaufgaben bestehen in der Aufsicht über Industrie und Gewerbe hinsichtlich Arbeitssicherheit und Gesundheitsschutz, im Beraten und Vermitteln von Stellensuchenden und im Entrichten von Arbeitslosenentschädigungen für Anspruchsberechtigte.\n\nMehr über das AWA erfahren\nAmt für Wirtschaft und Arbeit\n\nBenefits\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Amt für Wirtschaft und Arbeit\n• Arbeitsort: Aarau",
-        "fr": "Des tâches passionnantes attendent :\n• Soutien et gestion des applications spécialisées et des services informatiques\nIls surveillent, maintiennent et optimisent les applications et les services sélectionnés pour assurer leur disponibilité et leur performance.\n• Installation, configuration et entretien du matériel terminal\nIls mettent en place des ordinateurs de bureau, des ordinateurs portables, des appareils mobiles et du matériel périphérique, les adaptent aux exigences respectives et assurent leur fonctionnement à long terme.\n• Gestion des incidents et des problèmes au Service Desk\nIls reçoivent des rapports d'erreurs, vérifient et traitent les incidents, lancent des analyses des causes profondes et assurent la mise en œuvre cohérente des mesures de solution.\n• Participation aux projets informatiques cantonaux\nIls contribuent activement aux besoins du service informatique AWA, représentent ses intérêts et développent des solutions pratiques pour les opérations en cours.\n\nCe que vous apportez :\n• Ils apportent un apprentissage professionnel en informatique complet EFZ ou une formation dans le domaine des TIC ainsi qu'une formation en informatique terminée au niveau fédéral. avec une carte professionnelle.\n• Ils ont une expérience professionnelle dans la gestion des incidents, des problèmes, des changements et des libérations.\n• Ils ont une très bonne connaissance de Windows 11, Microsoft 365, Microsoft Entra ID et Active Directory, les certifications Microsoft correspondantes sont un avantage.\n• Ils sont en contact avec des personnes et coopèrent avec des organismes internes et externes ainsi qu'avec d'autres organisations informatiques.\n• Ils communiquent de manière appropriée au destinataire et s'attaquent aux problèmes de manière orientée vers la solution.\n• Une méthode de travail indépendante, engagée et fiable ainsi qu'un engagement élevé sont bien sûr une question pour vous.\n• Ils assument leurs responsabilités, participent activement et sont prêts à se développer professionnellement et personnellement et à assumer de nouvelles tâches.\n\nVotre environnement de travail\n\nAu Bureau des affaires économiques et du travail, nous appliquons les lois fédérales comme la Loi sur l'assurance-chômage (AVIG), la Loi sur les services de l'emploi (AVG) et la Loi sur le travail (ArG). Les principales tâches consistent à superviser l'industrie et l'industrie en ce qui concerne la sécurité et la protection de la santé au travail, à conseiller et à placer les demandeurs d'emploi et à verser des allocations de chômage aux bénéficiaires.\n\nEn savoir plus sur l'AWA\nBureau des affaires économiques et du travail\n\nAvantages\nAller de l'avant\n• Diverses possibilités de développement, y compris l'éducation interne, avec plus de 180 séminaires\n• Participation par accord aux coûts de la formation externe\nJustement sécurisé\n• 16 semaines de congé de maternité à plein salaire\n• 2 semaines de congé de paternité à plein salaire\n• Nous couvrons environ 60% des contributions PK\n\n• Pensum: 80 - 100%\n• Emploi indéfini\n• Département : Bureau des affaires économiques et du travail\n• Lieu de travail: Aarau"
-      },
-      "needsRetranslation": false,
-      "location": "Aarau",
-      "canton": "AG",
-      "url": "https://jobs.ag.ch/offene-stellen/ict-support-spezialistin-spezialisten/0bdd1470-bcd3-43f5-8cf0-55f9d767fd9f",
-      "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:45.046Z",
-      "addressLocality": "Aarau",
-      "addressRegion": "AG",
-      "postalCode": "5000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02",
-      "postedDate": "2026-10-02",
-      "postingDateSource": "reported",
-      "validThrough": "2026-10-31",
-      "applyUrl": "https://jobs.ag.ch/offene-stellen/ict-support-spezialistin-spezialisten/0bdd1470-bcd3-43f5-8cf0-55f9d767fd9f",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für Wirtschaft und Arbeit",
-      "previousSlugs": [
-        "ict-support-spezialistin-spezialisten-80-100-kanton-aargau-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ict-support-spezialistin-spezialisten-80-100-kanton-aargau-ch"
-        ],
-        "en": [
-          "ict-support-spezialistin-spezialisten-80-100-kanton-aargau-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:23:41.565Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-1a31d2263dc4",
@@ -360,7 +287,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/f89c1c6a-529f-4b19-8045-422a5b36e9fd",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:44.496Z",
+      "crawledAt": "2026-11-01T09:27:54.685Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -376,7 +303,7 @@
       "datePosted": "2026-10-03",
       "postedDate": "2026-10-03",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-01",
+      "validThrough": "2026-12-01T09:27:54.685Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/f89c1c6a-529f-4b19-8045-422a5b36e9fd",
       "requirements": [],
       "requirementsByLocale": {},
@@ -419,7 +346,10 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-aargau-395cc88709e1",
@@ -452,7 +382,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/projektleiterin-projektleiter-ict/f42cf4c4-3efa-4c72-b4c3-0a00e39216c3",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:43.992Z",
+      "crawledAt": "2026-11-01T09:27:54.197Z",
       "addressLocality": "Buchs AG + Schafisheim AG",
       "addressRegion": "AG",
       "postalCode": "5033",
@@ -468,7 +398,7 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-03",
+      "validThrough": "2026-11-03T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/projektleiterin-projektleiter-ict/f42cf4c4-3efa-4c72-b4c3-0a00e39216c3",
       "requirements": [],
       "requirementsByLocale": {},
@@ -496,7 +426,10 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Buchs AG + Schafisheim AG",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-1149ff93a516",
@@ -529,7 +462,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-uma/0316b592-4c74-47cb-84b0-501cd3d776ea",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:43.445Z",
+      "crawledAt": "2026-11-01T09:27:53.504Z",
       "addressLocality": "Unterentfelden",
       "addressRegion": "AG",
       "postalCode": "5035",
@@ -545,7 +478,7 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-03",
+      "validThrough": "2026-11-03T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/sozialpaedagogin-sozialpaedagoge-uma/0316b592-4c74-47cb-84b0-501cd3d776ea",
       "requirements": [],
       "requirementsByLocale": {},
@@ -571,7 +504,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Unterentfelden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-21b2dd000b7f",
@@ -605,7 +541,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-klima/c4fdee6f-e9ff-456c-8bbb-daf430e7154c",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:42.886Z",
+      "crawledAt": "2026-11-01T09:27:52.898Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Tellistrasse 67",
@@ -622,7 +558,7 @@
       "datePosted": "2026-10-07",
       "postedDate": "2026-10-07",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-05",
+      "validThrough": "2026-11-05T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-klima/c4fdee6f-e9ff-456c-8bbb-daf430e7154c",
       "requirements": [],
       "requirementsByLocale": {},
@@ -648,7 +584,9 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-e6bad268ebe8",
@@ -682,7 +620,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/e244348b-d1fd-43b9-bf70-b630574b7919",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:42.269Z",
+      "crawledAt": "2026-11-01T09:27:52.246Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Tellistrasse 67",
@@ -699,7 +637,7 @@
       "datePosted": "2026-10-06",
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-04",
+      "validThrough": "2026-11-04T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/e244348b-d1fd-43b9-bf70-b630574b7919",
       "requirements": [],
       "requirementsByLocale": {},
@@ -737,7 +675,9 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-dcd3ce62bb00",
@@ -771,7 +711,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-tek-technologie-kommunikation-fuer-die-wirtschaftsmittelschule/d186b8c6-d3b8-4f1e-88d8-8bf442a84401",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:41.714Z",
+      "crawledAt": "2026-11-01T09:27:51.633Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Seminarstrasse 3",
@@ -788,7 +728,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-10T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-tek-technologie-kommunikation-fuer-die-wirtschaftsmittelschule/d186b8c6-d3b8-4f1e-88d8-8bf442a84401",
       "requirements": [],
       "requirementsByLocale": {},
@@ -822,7 +762,9 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-cdc18912039a",
@@ -856,7 +798,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-physik-immersiv/761e48b4-345d-4068-a4b1-d71c63eedba2",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:41.237Z",
+      "crawledAt": "2026-11-01T09:27:51.129Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Seminarstrasse 3",
@@ -873,7 +815,7 @@
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-10T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-physik-immersiv/761e48b4-345d-4068-a4b1-d71c63eedba2",
       "requirements": [],
       "requirementsByLocale": {},
@@ -905,7 +847,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-0b7b52da0645",
@@ -939,7 +883,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/prorektorin-prorektor/8861dd79-f49b-4651-a868-d96d7549a187",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:40.746Z",
+      "crawledAt": "2026-11-01T09:27:50.626Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 91",
@@ -956,7 +900,7 @@
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/prorektorin-prorektor/8861dd79-f49b-4651-a868-d96d7549a187",
       "requirements": [],
       "requirementsByLocale": {},
@@ -990,7 +934,9 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-f8a73eaffc82",
@@ -1024,7 +970,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikum-museumsarbeit/108459b6-2ee3-4438-98b5-a882fd0fd87b",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:40.172Z",
+      "crawledAt": "2026-11-01T09:27:50.039Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "streetAddress": "Königsfelderstrasse 265",
@@ -1041,7 +987,7 @@
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-01",
+      "validThrough": "2027-01-10T09:27:50.039Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/praktikum-museumsarbeit/108459b6-2ee3-4438-98b5-a882fd0fd87b",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1073,7 +1019,9 @@
           "maxValue": 66000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kanton-aargau-aa5b05cb11b9",
@@ -1107,7 +1055,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/juristin-jurist-strafvollzug/3f8f7abf-c259-42ab-b5e0-a15f0b69c616",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:39.655Z",
+      "crawledAt": "2026-11-01T09:27:49.505Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1123,7 +1071,7 @@
       "datePosted": "2026-10-09",
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-07",
+      "validThrough": "2026-11-07T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/juristin-jurist-strafvollzug/3f8f7abf-c259-42ab-b5e0-a15f0b69c616",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1157,7 +1105,10 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-d14a6a454632",
@@ -1191,7 +1142,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/juristische-mitarbeiterin-juristischer-mitarbeiter-grundbuchamt/437cd3db-0b16-4d0c-8e98-a3b2ae3b5845",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:39.161Z",
+      "crawledAt": "2026-11-01T09:27:44.020Z",
       "addressLocality": "Laufenburg",
       "addressRegion": "AG",
       "streetAddress": "Marktplatz 6",
@@ -1208,7 +1159,7 @@
       "datePosted": "2026-10-07",
       "postedDate": "2026-10-07",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-05",
+      "validThrough": "2026-11-05T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/juristische-mitarbeiterin-juristischer-mitarbeiter-grundbuchamt/437cd3db-0b16-4d0c-8e98-a3b2ae3b5845",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1242,7 +1193,9 @@
           "maxValue": 60300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-e3b53885fa4e",
@@ -1275,7 +1228,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mitarbeiterin-mitarbeiter-reparaturdienst-logistik/46a30f0f-6e00-4b51-a15d-bd85c2bf2a1a",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:38.607Z",
+      "crawledAt": "2026-11-01T09:27:38.517Z",
       "addressLocality": "Staufen",
       "addressRegion": "AG",
       "postalCode": "5603",
@@ -1291,7 +1244,7 @@
       "datePosted": "2026-10-08",
       "postedDate": "2026-10-08",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-06",
+      "validThrough": "2026-11-06T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/mitarbeiterin-mitarbeiter-reparaturdienst-logistik/46a30f0f-6e00-4b51-a15d-bd85c2bf2a1a",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1325,7 +1278,10 @@
           "maxValue": 56400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Staufen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-1bddc7e8c4f9",
@@ -1359,7 +1315,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/landwirtin-landwirt-schwerpunkt-rindviehhaltung/ba3a97ef-6a8d-431c-81c9-73df525fe804",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:38.051Z",
+      "crawledAt": "2026-11-01T09:27:33.054Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "streetAddress": "Wilstrasse 41",
@@ -1376,7 +1332,7 @@
       "datePosted": "2026-10-08",
       "postedDate": "2026-10-08",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-06",
+      "validThrough": "2026-11-06T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/landwirtin-landwirt-schwerpunkt-rindviehhaltung/ba3a97ef-6a8d-431c-81c9-73df525fe804",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1408,7 +1364,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-1ae48c77adc3",
@@ -1441,7 +1399,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/projektleiterin-projektleiter-taxoptima/4939eb54-3bca-48da-a11d-a0e1fef72762",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:37.511Z",
+      "crawledAt": "2026-11-01T09:27:27.556Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Tellistrasse 67",
@@ -1458,7 +1416,7 @@
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-10T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/projektleiterin-projektleiter-taxoptima/4939eb54-3bca-48da-a11d-a0e1fef72762",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1492,7 +1450,9 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-dbeac6b3dec6",
@@ -1526,7 +1486,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/facharbeiterin-facharbeiter-unterhalt-landschaft-und-gewaesser-90/d4bcbc5c-a462-4ecc-81ce-9bbc02dd3411",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:36.905Z",
+      "crawledAt": "2026-11-01T09:27:26.815Z",
       "addressLocality": "Rottenschwil",
       "addressRegion": "AG",
       "postalCode": "8919",
@@ -1542,7 +1502,7 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-03",
+      "validThrough": "2026-11-03T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/facharbeiterin-facharbeiter-unterhalt-landschaft-und-gewaesser-90/d4bcbc5c-a462-4ecc-81ce-9bbc02dd3411",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1570,7 +1530,10 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Rottenschwil",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-da02024973e2",
@@ -1604,7 +1567,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/zeichnerin-zeichner-infrastrukturbau-50/bdb70f59-9ea0-47bf-b151-4b5c2935694d",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:36.346Z",
+      "crawledAt": "2026-11-01T09:27:26.208Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Entfelderstrasse 22",
@@ -1621,7 +1584,7 @@
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-10T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/zeichnerin-zeichner-infrastrukturbau-50/bdb70f59-9ea0-47bf-b151-4b5c2935694d",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1655,7 +1618,9 @@
           "maxValue": 65800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-075325008ced",
@@ -1689,7 +1654,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/vollzugsangestellte-vollzugsangestellter-bezirksgefaengnis/f8683142-854e-4841-8910-5e0ad112c564",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:35.716Z",
+      "crawledAt": "2026-11-01T09:27:25.567Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "postalCode": "4800",
@@ -1705,7 +1670,7 @@
       "datePosted": "2026-10-13",
       "postedDate": "2026-10-13",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-11",
+      "validThrough": "2026-11-11T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/vollzugsangestellte-vollzugsangestellter-bezirksgefaengnis/f8683142-854e-4841-8910-5e0ad112c564",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1737,7 +1702,10 @@
           "maxValue": 61100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zofingen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-316234cdc9b4",
@@ -1771,7 +1739,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/systemadministrator-in-systemengineer-2nd-3rd-level-support-80/a1afe1cd-a2e1-47b4-bef4-c3cfa6119093",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:35.242Z",
+      "crawledAt": "2026-11-01T09:27:25.063Z",
       "addressLocality": "Schafisheim/Buchs AG",
       "addressRegion": "AG",
       "postalCode": "5503",
@@ -1787,7 +1755,7 @@
       "datePosted": "2026-10-13",
       "postedDate": "2026-10-13",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-11",
+      "validThrough": "2026-11-11T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/systemadministrator-in-systemengineer-2nd-3rd-level-support-80/a1afe1cd-a2e1-47b4-bef4-c3cfa6119093",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1819,7 +1787,10 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Schafisheim/Buchs AG",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-44d371506e2d",
@@ -1853,7 +1824,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-physik/1296842a-4fdd-4fc4-8915-3666cd8be3c4",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:34.693Z",
+      "crawledAt": "2026-11-01T09:27:24.456Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "streetAddress": "Münchwilerstrasse 6",
@@ -1870,7 +1841,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-06",
+      "validThrough": "2026-11-06T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-physik/1296842a-4fdd-4fc4-8915-3666cd8be3c4",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1904,7 +1875,9 @@
           "maxValue": 65800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-c4d61a6362b8",
@@ -1938,7 +1911,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/job-coach-arbeitsintegration/d695f40c-b5f3-4ced-b85e-d5765717b955",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:33.673Z",
+      "crawledAt": "2026-11-01T09:27:23.966Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse West 73",
@@ -1955,7 +1928,7 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-12",
+      "validThrough": "2026-11-12T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/job-coach-arbeitsintegration/d695f40c-b5f3-4ced-b85e-d5765717b955",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1987,7 +1960,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-c13d9fdc232b",
@@ -2021,7 +1996,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/microsoft-365-spezialistin-spezialist/5f737ea5-cdb4-4fad-8b3c-e2fda7fbecf7",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:32.694Z",
+      "crawledAt": "2026-11-01T09:27:23.473Z",
       "addressLocality": "Unterentfelden",
       "addressRegion": "AG",
       "streetAddress": "Suhrenmattstrasse 48",
@@ -2038,7 +2013,7 @@
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/microsoft-365-spezialistin-spezialist/5f737ea5-cdb4-4fad-8b3c-e2fda7fbecf7",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2064,7 +2039,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-be3363f3ec55",
@@ -2098,7 +2075,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/client-engineer-platform-specialist/62603f43-3ce8-4b90-874c-49efb9b3e6c3",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:31.651Z",
+      "crawledAt": "2026-11-01T09:27:22.877Z",
       "addressLocality": "Unterentfelden",
       "addressRegion": "AG",
       "streetAddress": "Suhrenmattstrasse 48",
@@ -2115,7 +2092,7 @@
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/client-engineer-platform-specialist/62603f43-3ce8-4b90-874c-49efb9b3e6c3",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2148,7 +2125,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-86900a891dfe",
@@ -2182,7 +2161,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-katastrophenvorsorge/d8122092-0180-4baa-863d-069ebcccc9d2",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:30.683Z",
+      "crawledAt": "2026-11-01T09:27:22.279Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2198,7 +2177,7 @@
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-katastrophenvorsorge/d8122092-0180-4baa-863d-069ebcccc9d2",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2230,7 +2209,10 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-8a61dd487d22",
@@ -2264,7 +2246,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/leiterin-leiter-infrastruktur-und-gebaeudemanagement/7f95acb9-6be8-405e-b029-592684aec8f8",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:29.709Z",
+      "crawledAt": "2026-11-01T09:27:21.680Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "streetAddress": "Ziegeleiweg 13",
@@ -2281,7 +2263,7 @@
       "datePosted": "2026-10-13",
       "postedDate": "2026-10-13",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-11",
+      "validThrough": "2026-11-11T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/leiterin-leiter-infrastruktur-und-gebaeudemanagement/7f95acb9-6be8-405e-b029-592684aec8f8",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2320,7 +2302,9 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-88478ec25a68",
@@ -2354,7 +2338,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-argoviensia/3fcdf797-36b0-4078-887a-5f07f42a41e5",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:28.719Z",
+      "crawledAt": "2026-11-01T09:27:21.031Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2370,7 +2354,7 @@
       "datePosted": "2026-10-16",
       "postedDate": "2026-10-16",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-05",
+      "validThrough": "2026-11-05T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-argoviensia/3fcdf797-36b0-4078-887a-5f07f42a41e5",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2402,7 +2386,10 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-daa504fd60ee",
@@ -2436,7 +2423,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/23c9fcce-5b80-4c35-897d-d8ba143dd7cc",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:27.667Z",
+      "crawledAt": "2026-11-01T09:27:20.496Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2452,7 +2439,7 @@
       "datePosted": "2026-10-16",
       "postedDate": "2026-10-16",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-14",
+      "validThrough": "2026-11-14T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/23c9fcce-5b80-4c35-897d-d8ba143dd7cc",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2492,7 +2479,10 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-ed8edcde0603",
@@ -2526,7 +2516,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant-jugendanwaltschaft/581e395f-fee1-45d6-9819-16852ea5a2fd",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:26.662Z",
+      "crawledAt": "2026-11-01T09:27:19.899Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Frey-Herosé-Strasse 14",
@@ -2543,7 +2533,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-17",
+      "validThrough": "2026-11-17T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant-jugendanwaltschaft/581e395f-fee1-45d6-9819-16852ea5a2fd",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2575,7 +2565,9 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-ed6882a8f4fd",
@@ -2609,7 +2601,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-bildungsmonitoring/dac3ab3d-cdd4-4bfb-8206-0e99bf54e83f",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:25.736Z",
+      "crawledAt": "2026-11-01T09:27:19.286Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Tellistrasse 67",
@@ -2626,7 +2618,7 @@
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-18",
+      "validThrough": "2026-11-18T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-bildungsmonitoring/dac3ab3d-cdd4-4bfb-8206-0e99bf54e83f",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2658,7 +2650,9 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-ab7dcf4769b9",
@@ -2692,7 +2686,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/gerichtsschreiberin-gerichtsschreiber-obergericht/6dd2ffc1-af2b-4162-943c-eac6047dfa99",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:24.651Z",
+      "crawledAt": "2026-11-01T09:27:18.658Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Obere Vorstadt 38",
@@ -2709,7 +2703,7 @@
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-18",
+      "validThrough": "2026-11-18T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/gerichtsschreiberin-gerichtsschreiber-obergericht/6dd2ffc1-af2b-4162-943c-eac6047dfa99",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2741,7 +2735,9 @@
           "maxValue": 90400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-a290952d8d01",
@@ -2774,7 +2770,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-landerwerb/76cc7732-22a9-4d7d-9066-3be1da540c51",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:23.660Z",
+      "crawledAt": "2026-11-01T09:27:18.157Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Entfelderstrasse 22",
@@ -2791,7 +2787,7 @@
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-18",
+      "validThrough": "2026-11-18T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-landerwerb/76cc7732-22a9-4d7d-9066-3be1da540c51",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2823,7 +2819,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-c155a9e8cfe0",
@@ -2857,7 +2855,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/juristisches-praktikum-80/c342c7e2-971e-40c6-ae8c-7e80b75a384c",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:22.661Z",
+      "crawledAt": "2026-11-01T09:27:17.516Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Entfelderstrasse 22",
@@ -2874,7 +2872,7 @@
       "datePosted": "2026-10-20",
       "postedDate": "2026-10-20",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-18",
+      "validThrough": "2026-11-18T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/juristisches-praktikum-80/c342c7e2-971e-40c6-ae8c-7e80b75a384c",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2906,7 +2904,9 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-5c541d9d7d1c",
@@ -2939,7 +2939,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/personalberaterin-personalberater-rav/c211cd7b-6b83-4ba3-a57b-ad726f0b7f5e",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:21.688Z",
+      "crawledAt": "2026-11-01T09:27:17.006Z",
       "addressLocality": "Wohlen",
       "addressRegion": "AG",
       "streetAddress": "Zentralstrasse 17",
@@ -2956,7 +2956,7 @@
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-19",
+      "validThrough": "2026-11-19T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/personalberaterin-personalberater-rav/c211cd7b-6b83-4ba3-a57b-ad726f0b7f5e",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2990,7 +2990,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-4de9600ba77d",
@@ -3024,7 +3026,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-fachbereich-sozialhilfe/151bccc0-947e-4663-b310-1fc2c8e0d68a",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:21.106Z",
+      "crawledAt": "2026-11-01T09:27:16.399Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3040,7 +3042,7 @@
       "datePosted": "2026-10-22",
       "postedDate": "2026-10-22",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-20",
+      "validThrough": "2026-11-20T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-fachbereich-sozialhilfe/151bccc0-947e-4663-b310-1fc2c8e0d68a",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3072,7 +3074,10 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-b3f121965a35",
@@ -3105,7 +3110,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/projektleiterin-projektleiter-bauherrenvertretung/297e397b-e8f1-4536-a301-a40a49f620dd",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:20.649Z",
+      "crawledAt": "2026-11-01T09:27:15.876Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Tellistrasse 67",
@@ -3122,7 +3127,7 @@
       "datePosted": "2026-10-25",
       "postedDate": "2026-10-25",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-24",
+      "validThrough": "2026-11-24T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/projektleiterin-projektleiter-bauherrenvertretung/297e397b-e8f1-4536-a301-a40a49f620dd",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3156,7 +3161,9 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-4c7b286108e6",
@@ -3189,7 +3196,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/vorpraktikum-sozialpaedagogik-im-geschlossenen-schulischen-setting-tagesstruktur-betreuung/42b07318-86fe-487c-ad54-5c909cfeb2a3",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:20.054Z",
+      "crawledAt": "2026-11-01T09:27:15.240Z",
       "addressLocality": "Aarburg",
       "addressRegion": "AG",
       "postalCode": "4663",
@@ -3205,7 +3212,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-11-21",
+      "validThrough": "2026-11-21T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/vorpraktikum-sozialpaedagogik-im-geschlossenen-schulischen-setting-tagesstruktur-betreuung/42b07318-86fe-487c-ad54-5c909cfeb2a3",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3237,7 +3244,10 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aarburg",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-64db5215b7c6",
@@ -3270,7 +3280,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/applikations-managerin-applikations-manager/b2097526-6679-45b5-b500-32e321851695",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:19.557Z",
+      "crawledAt": "2026-11-01T09:27:14.748Z",
       "addressLocality": "Unterentfelden",
       "addressRegion": "AG",
       "streetAddress": "Suhrenmattstrasse 48",
@@ -3287,7 +3297,7 @@
       "datePosted": "2026-10-25",
       "postedDate": "2026-10-25",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-24",
+      "validThrough": "2026-11-24T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/applikations-managerin-applikations-manager/b2097526-6679-45b5-b500-32e321851695",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3319,7 +3329,9 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-a57e7871e654",
@@ -3352,7 +3364,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikum-politische-kommunikation-80/dd64660c-f9fd-42eb-a8f1-61a200f36c77",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:19.002Z",
+      "crawledAt": "2026-11-01T09:27:14.156Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Frey-Herosé-Strasse 12",
@@ -3369,7 +3381,7 @@
       "datePosted": "2026-10-22",
       "postedDate": "2026-10-22",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-20",
+      "validThrough": "2026-11-20T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/praktikum-politische-kommunikation-80/dd64660c-f9fd-42eb-a8f1-61a200f36c77",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3401,7 +3413,9 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-66648686473a",
@@ -3434,7 +3448,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/lehrstelle-als-kauffrau-kaufmann-efz/9606295b-c84c-4aca-b9e2-c5a91cf1d506",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:18.407Z",
+      "crawledAt": "2026-11-01T09:27:13.487Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3450,7 +3464,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-21",
+      "validThrough": "2026-11-21T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/lehrstelle-als-kauffrau-kaufmann-efz/9606295b-c84c-4aca-b9e2-c5a91cf1d506",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3484,7 +3498,10 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-c744c059a3f8",
@@ -3518,7 +3535,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/leiter-leiterin-fachbereich-uma/a805fdf5-fe92-4edc-a394-d02ee406476a",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:17.890Z",
+      "crawledAt": "2026-11-01T09:27:12.962Z",
       "addressLocality": "Buchs",
       "addressRegion": "SG",
       "postalCode": "9470",
@@ -3534,7 +3551,7 @@
       "datePosted": "2026-10-22",
       "postedDate": "2026-10-22",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-20",
+      "validThrough": "2026-11-20T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/leiter-leiterin-fachbereich-uma/a805fdf5-fe92-4edc-a394-d02ee406476a",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3568,7 +3585,10 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Buchs",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-81956d230da7",
@@ -3602,7 +3622,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/leiter-in-stabsbereich-politische-geschaefte-und-projekte/98313a52-98fc-4096-9634-9249ad19720a",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:17.337Z",
+      "crawledAt": "2026-11-01T09:27:12.372Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3618,7 +3638,7 @@
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-19",
+      "validThrough": "2026-11-19T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/leiter-in-stabsbereich-politische-geschaefte-und-projekte/98313a52-98fc-4096-9634-9249ad19720a",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3666,7 +3686,10 @@
           "maxValue": 103600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-24a18200578a",
@@ -3700,7 +3723,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/handwerkerin-handwerker-mit-fuehrerausweis-ce/ee426027-fae4-41b5-869f-276d8a0d36f9",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:16.789Z",
+      "crawledAt": "2026-11-01T09:27:11.770Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "postalCode": "5600",
@@ -3716,7 +3739,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-21",
+      "validThrough": "2026-11-21T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/handwerkerin-handwerker-mit-fuehrerausweis-ce/ee426027-fae4-41b5-869f-276d8a0d36f9",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3748,7 +3771,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Lenzburg",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-35f22742274a",
@@ -3782,7 +3808,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-franzoesisch/fa932ccc-6ee1-418f-9e93-afa91b2eeae9",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:16.192Z",
+      "crawledAt": "2026-11-01T09:27:11.115Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Schanzmättelistrasse 32",
@@ -3799,7 +3825,7 @@
       "datePosted": "2026-10-24",
       "postedDate": "2026-10-24",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-22",
+      "validThrough": "2026-11-22T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-franzoesisch/fa932ccc-6ee1-418f-9e93-afa91b2eeae9",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3831,7 +3857,9 @@
           "maxValue": 56400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-9ab89cbbbb15",
@@ -3864,7 +3892,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/personalberaterin-personalberater-rav/ca2bbd98-a069-43a7-8927-b286c66e8b34",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:15.685Z",
+      "crawledAt": "2026-11-01T09:27:10.611Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Stadtturmstrasse 5",
@@ -3881,7 +3909,7 @@
       "datePosted": "2026-10-25",
       "postedDate": "2026-10-25",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-24",
+      "validThrough": "2026-11-24T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/personalberaterin-personalberater-rav/ca2bbd98-a069-43a7-8927-b286c66e8b34",
       "requirements": [],
       "requirementsByLocale": {},
@@ -3915,7 +3943,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-cc68dbf8a927",
@@ -3949,7 +3979,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-physik/55ea174d-243f-4176-a480-f7d363c39dd6",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:15.087Z",
+      "crawledAt": "2026-11-01T09:27:09.972Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Schanzmättelistrasse 32",
@@ -3966,7 +3996,7 @@
       "datePosted": "2026-10-24",
       "postedDate": "2026-10-24",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-22",
+      "validThrough": "2026-11-22T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-physik/55ea174d-243f-4176-a480-f7d363c39dd6",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4000,7 +4030,9 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-fb0b200e76f5",
@@ -4034,7 +4066,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/lehrperson-allgemeinbildung/0d849e32-6885-40eb-96ea-61bd369f5fe6",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:14.618Z",
+      "crawledAt": "2026-11-01T09:27:09.487Z",
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "streetAddress": "Baslerstrasse 45",
@@ -4051,7 +4083,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-15",
+      "validThrough": "2026-11-15T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/lehrperson-allgemeinbildung/0d849e32-6885-40eb-96ea-61bd369f5fe6",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4083,7 +4115,9 @@
           "maxValue": 34700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-ac62cd18d162",
@@ -4116,7 +4150,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/projektleiterin-projektleiter-ict/ac34f935-4097-405e-b2b0-7865c8f68854",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:14.137Z",
+      "crawledAt": "2026-11-01T09:27:08.987Z",
       "addressLocality": "Unterentfelden",
       "addressRegion": "AG",
       "streetAddress": "Suhrenmattstrasse 48",
@@ -4133,7 +4167,7 @@
       "datePosted": "2026-10-26",
       "postedDate": "2026-10-26",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-25",
+      "validThrough": "2026-11-25T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/projektleiterin-projektleiter-ict/ac34f935-4097-405e-b2b0-7865c8f68854",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4166,7 +4200,9 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-99a28667c1dc",
@@ -4199,7 +4235,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/personalberaterin-personalberater-rav/8efbf7c8-4f24-4911-9872-077ee981aa36",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:13.575Z",
+      "crawledAt": "2026-11-01T09:27:08.402Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse West 73",
@@ -4216,7 +4252,7 @@
       "datePosted": "2026-10-26",
       "postedDate": "2026-10-26",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-24",
+      "validThrough": "2026-11-24T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/personalberaterin-personalberater-rav/8efbf7c8-4f24-4911-9872-077ee981aa36",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4250,7 +4286,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-2e24b798bd89",
@@ -4284,7 +4322,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-mathematik/0a832633-dc71-4324-8a8a-53ea358657bc",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:13.015Z",
+      "crawledAt": "2026-11-01T09:27:07.774Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Schanzmättelistrasse 32",
@@ -4301,7 +4339,7 @@
       "datePosted": "2026-10-30",
       "postedDate": "2026-10-30",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-28",
+      "validThrough": "2026-11-28T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-mathematik/0a832633-dc71-4324-8a8a-53ea358657bc",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4333,7 +4371,9 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-67ed0e100107",
@@ -4367,7 +4407,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/praktikum-artenfoerderungsprojekt-kiebitz-reussebene/f71d823c-e4be-495c-b7a5-3ec56bfc80da",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:12.554Z",
+      "crawledAt": "2026-11-01T09:27:07.273Z",
       "addressLocality": "Rottenschwil",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 3",
@@ -4384,7 +4424,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-11-25",
+      "validThrough": "2026-11-25T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/praktikum-artenfoerderungsprojekt-kiebitz-reussebene/f71d823c-e4be-495c-b7a5-3ec56bfc80da",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4416,7 +4456,9 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-5abd9d5cc962",
@@ -4450,7 +4492,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/vollzugsangestellte-vollzugsangestellter-zentraler-hafteintritt-zentralgefaengnis/de822fa5-f572-4e36-bef3-37901d4e45d6",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:11.942Z",
+      "crawledAt": "2026-11-01T09:27:06.618Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "streetAddress": "Wilstrasse 51",
@@ -4467,7 +4509,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-25",
+      "validThrough": "2026-11-25T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/vollzugsangestellte-vollzugsangestellter-zentraler-hafteintritt-zentralgefaengnis/de822fa5-f572-4e36-bef3-37901d4e45d6",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4499,7 +4541,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-89fd8e1856f6",
@@ -4532,7 +4576,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema-rettungswesen-80/aafbcd86-fd41-4817-8d80-3a806a43aeb8",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:11.407Z",
+      "crawledAt": "2026-11-01T09:27:06.015Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4548,7 +4592,7 @@
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-13",
+      "validThrough": "2026-11-13T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema-rettungswesen-80/aafbcd86-fd41-4817-8d80-3a806a43aeb8",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4582,7 +4626,10 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-a61cb8d08071",
@@ -4616,7 +4663,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter/19c57ab8-06cd-4748-ac73-5c6c1ec2964f",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:10.847Z",
+      "crawledAt": "2026-11-01T09:27:04.011Z",
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "streetAddress": "Untere Hofstatt 4",
@@ -4633,7 +4680,7 @@
       "datePosted": "2026-10-28",
       "postedDate": "2026-10-28",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-10",
+      "validThrough": "2026-11-10T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter/19c57ab8-06cd-4748-ac73-5c6c1ec2964f",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4665,7 +4712,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-a72a7fcf3ac9",
@@ -4699,7 +4748,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-kanzlei-zivil-und-strafgericht/77af1e47-067c-4fc2-85fd-922fff33b4ad",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:10.309Z",
+      "crawledAt": "2026-11-01T09:27:02.030Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "streetAddress": "Untere Grabenstrasse 30",
@@ -4716,7 +4765,7 @@
       "datePosted": "2026-10-28",
       "postedDate": "2026-10-28",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-11",
+      "validThrough": "2026-11-11T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-kanzlei-zivil-und-strafgericht/77af1e47-067c-4fc2-85fd-922fff33b4ad",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4750,7 +4799,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-f5a46ffb8568",
@@ -4784,7 +4835,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-spitalfinanzierung/6ed30f75-4ca0-42ff-91f7-fb1eaf0a9803",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:09.747Z",
+      "crawledAt": "2026-11-01T09:27:00.006Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4800,7 +4851,7 @@
       "datePosted": "2026-10-29",
       "postedDate": "2026-10-29",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-27",
+      "validThrough": "2026-11-27T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-spitalfinanzierung/6ed30f75-4ca0-42ff-91f7-fb1eaf0a9803",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4832,7 +4883,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-0046fcb64e33",
@@ -4866,7 +4920,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-arbeitszeitbewilligungen-administration/e63b4c59-6e59-4496-9d25-250c2376bf81",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:09.192Z",
+      "crawledAt": "2026-11-01T09:26:58.011Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Rain 53",
@@ -4883,7 +4937,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-11-27",
+      "validThrough": "2026-11-27T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-arbeitszeitbewilligungen-administration/e63b4c59-6e59-4496-9d25-250c2376bf81",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4915,7 +4969,9 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-aae8da4d91b2",
@@ -4949,7 +5005,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-biologie/df907211-a354-4ed8-af9e-ba056ffaa7bd",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:08.610Z",
+      "crawledAt": "2026-11-01T09:26:56.111Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Seminarstrasse 3",
@@ -4966,7 +5022,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-23",
+      "validThrough": "2026-11-23T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/mittelschullehrperson-biologie/df907211-a354-4ed8-af9e-ba056ffaa7bd",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4998,7 +5054,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-3dbc188d2dc8",
@@ -5032,7 +5090,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst/6d665ac2-ec28-44b7-a53e-4480456653e0",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:08.044Z",
+      "crawledAt": "2026-11-01T09:26:54.206Z",
       "addressLocality": "Wettingen",
       "addressRegion": "AG",
       "postalCode": "5430",
@@ -5048,7 +5106,7 @@
       "datePosted": "2026-10-30",
       "postedDate": "2026-10-30",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-28",
+      "validThrough": "2026-11-28T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst/6d665ac2-ec28-44b7-a53e-4480456653e0",
       "requirements": [],
       "requirementsByLocale": {},
@@ -5082,7 +5140,10 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wettingen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-51dcd1e4ed7f",
@@ -5116,7 +5177,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst/f57b5b3a-e343-4e85-99ef-a81f8a0f7d05",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:07.344Z",
+      "crawledAt": "2026-11-01T09:26:52.010Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "postalCode": "5400",
@@ -5132,7 +5193,7 @@
       "datePosted": "2026-10-30",
       "postedDate": "2026-10-30",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-28",
+      "validThrough": "2026-11-28T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst/f57b5b3a-e343-4e85-99ef-a81f8a0f7d05",
       "requirements": [],
       "requirementsByLocale": {},
@@ -5160,7 +5221,10 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-4e77e9611151",
@@ -5194,7 +5258,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-grundbuchamt/7fbb35f0-8280-49ed-9d88-56bd94022d5a",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:06.618Z",
+      "crawledAt": "2026-11-01T09:26:50.066Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "streetAddress": "Brühlstrasse 5",
@@ -5211,7 +5275,7 @@
       "datePosted": "2026-10-29",
       "postedDate": "2026-10-29",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-27",
+      "validThrough": "2026-11-27T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-grundbuchamt/7fbb35f0-8280-49ed-9d88-56bd94022d5a",
       "requirements": [],
       "requirementsByLocale": {},
@@ -5243,7 +5307,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-8a6b32c33416",
@@ -5277,7 +5343,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/5d2d5045-3a6c-4a97-b939-b92e34178e67",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:06.059Z",
+      "crawledAt": "2026-11-01T09:26:48.034Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "streetAddress": "Frey-Herosé-Strasse 20",
@@ -5294,7 +5360,7 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "validThrough": "2026-12-03",
+      "validThrough": "2026-12-03T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/5d2d5045-3a6c-4a97-b939-b92e34178e67",
       "requirements": [],
       "requirementsByLocale": {},
@@ -5330,7 +5396,9 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-015f1b84bf9a",
@@ -5363,7 +5431,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-gesundheitsdienst-zentraler-hafteintritt/6bbe4a7a-97a6-4997-9ba4-9e4db8169512",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:05.490Z",
+      "crawledAt": "2026-11-01T09:26:46.020Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "streetAddress": "Wilstrasse 51",
@@ -5380,7 +5448,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-17",
+      "validThrough": "2026-11-17T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-gesundheitsdienst-zentraler-hafteintritt/6bbe4a7a-97a6-4997-9ba4-9e4db8169512",
       "requirements": [],
       "requirementsByLocale": {},
@@ -5408,7 +5476,9 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
     },
     {
       "id": "kanton-aargau-ee5d1ee6df3c",
@@ -5442,7 +5512,7 @@
       "url": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-mobilfunk-nichtionisierende-strahlung/8e693bdf-ae72-488b-b6fd-ab8b036ede22",
       "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:04.941Z",
+      "crawledAt": "2026-11-01T09:26:44.065Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "Entfelderstrasse 22",
@@ -5459,7 +5529,7 @@
       "datePosted": "2026-10-30",
       "postedDate": "2026-10-30",
       "postingDateSource": "reported",
-      "validThrough": "2026-11-28",
+      "validThrough": "2026-11-28T00:00:00.000Z",
       "applyUrl": "https://jobs.ag.ch/offene-stellen/fachspezialistin-fachspezialist-mobilfunk-nichtionisierende-strahlung/8e693bdf-ae72-488b-b6fd-ab8b036ede22",
       "requirements": [],
       "requirementsByLocale": {},
@@ -5491,7 +5561,90 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
+    },
+    {
+      "id": "kanton-aargau-6087500387e2",
+      "slug": "it-security-operations-ingegnere-windows-e-linux-server-80-100-kanton-aargau-unterentfelden",
+      "slugByLocale": {
+        "de": "it-security-operations-engineer-windows-und-linux-server-80-100-kanton-aargau-ch",
+        "it": "it-security-operations-ingegnere-windows-e-linux-server-80-100-kanton-aargau-unterentfelden",
+        "en": "it-security-operations-engineer-windows-und-linux-server-80-100-kanton-aargau-ch",
+        "fr": "it-security-operations-engineer-windows-und-linux-server-80-100-kanton-aargau-ch"
+      },
+      "company": "Kanton Aargau",
+      "companyKey": "kanton-aargau",
+      "companyDomain": "ag.ch",
+      "title": "IT Security Operations Engineer Windows und Linux Server 80-100%",
+      "titleByLocale": {
+        "de": "IT Security Operations Engineer Windows und Linux Server 80-100%",
+        "it": "IT Security Operations Ingegnere Windows e Linux Server 80-100%",
+        "en": "IT Security Operations Engineer Windows und Linux Server 80-100%",
+        "fr": "IT Security Operations Ingénieur Windows und Linux Server 80-100%"
+      },
+      "description": "Spannende Aufgaben warten:\n• Umsetzen und Weiterentwickeln von CIS-konformen Security-Hardening und Baselines auf Windows- und Linux-Servern\n• Definieren von Betriebsmodellen, Runbooks, Monitoring sowie Change- / Release-Prozessen und Sicherstellen der Operational Excellence\n• Analysieren von Security Alerts und Incidents, Einleiten von Sofortmassnahmen und Koordinieren der nachhaltigen Behebung\n• Technische Umsetzung von Security- und Compliance-Vorgaben (inkl. Nachweisführung) und Unterstützung bei der Einhaltung gesetzlicher Vorgaben und Weisungen (Erstellen ISDS Konzepte)\n• Pflegen einer engen Zusammenarbeit mit dem Team System Engineering, der Fachstelle Informationssicherheit und weiteren Stakeholdern\n\nWas Sie mitbringen:\n• Berufslehre EFZ in Informatik (oder eine gleichwertige Ausbildung) sowie Zertifizierungen in Linux (LPIC-2), Microsoft (AZ-800/802) und Security (Security+ / GSEC) oder die Motivation, diese Qualifikationen on-the-job zu erwerben\n• Erfahrung im System Engineering mit (Windows / Linux), insbesondere praktische Kenntnisse in der Verwendung von Powershell, Bearbeitung von Group Policies im Windows Bereich und Kenntnisse von Tools wie OpenScap, Ansible im Linux Bereich\n• Kenntnisse der Center of Internet Security Workbench Software (CIS)\n• Sehr gutes Verständnis von Security- und Compliance-Grundlagen (z.B. Datenschutz, Zugriffskonzepte, Klassifizierung)\n• Strukturierte, lösungsorientierte Arbeitsweise sowie die Bereitschaft, Verantwortung zu übernehmen und sich kontinuierlich fachlich weiterzuentwickeln\n• Kommunikationsstärke im Umgang mit verschiedenen Anspruchsgruppen sowie ein stilsicheres Agieren im politischen Umfeld einer öffentlichen Verwaltung\n\nDas Departement Finanzen und Ressourcen mit rund 650 Mitarbeitenden ist als Querschnittsdepartement dafür zuständig, dass dem Kanton die für die Aufgabenerfüllung notwendigen Ressourcen zur Verfügung stehen.\n\nInformatiklösungen erleichtern die tägliche Arbeit und machen diese effizienter. Zur Effizienzsteigerung der kantonalen Verwaltung tragen die Mitarbeitenden der Abteilung Informatik Aargau bei. Sie sind für die Strategie und den Betrieb der zentralen Informatik zuständig. Sie begleiten kantonale Grossprojekte und sorgen für leistungsfähige und moderne Informatiklösungen, die der Öffentlichkeit einen unkomplizierten Kontakt und Austausch mit den Verwaltungsstellen des Kantons ermöglichen.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Informatik Aargau\n• Arbeitsort: Unterentfelden",
+      "descriptionByLocale": {
+        "de": "Spannende Aufgaben warten:\n• Umsetzen und Weiterentwickeln von CIS-konformen Security-Hardening und Baselines auf Windows- und Linux-Servern\n• Definieren von Betriebsmodellen, Runbooks, Monitoring sowie Change- / Release-Prozessen und Sicherstellen der Operational Excellence\n• Analysieren von Security Alerts und Incidents, Einleiten von Sofortmassnahmen und Koordinieren der nachhaltigen Behebung\n• Technische Umsetzung von Security- und Compliance-Vorgaben (inkl. Nachweisführung) und Unterstützung bei der Einhaltung gesetzlicher Vorgaben und Weisungen (Erstellen ISDS Konzepte)\n• Pflegen einer engen Zusammenarbeit mit dem Team System Engineering, der Fachstelle Informationssicherheit und weiteren Stakeholdern\n\nWas Sie mitbringen:\n• Berufslehre EFZ in Informatik (oder eine gleichwertige Ausbildung) sowie Zertifizierungen in Linux (LPIC-2), Microsoft (AZ-800/802) und Security (Security+ / GSEC) oder die Motivation, diese Qualifikationen on-the-job zu erwerben\n• Erfahrung im System Engineering mit (Windows / Linux), insbesondere praktische Kenntnisse in der Verwendung von Powershell, Bearbeitung von Group Policies im Windows Bereich und Kenntnisse von Tools wie OpenScap, Ansible im Linux Bereich\n• Kenntnisse der Center of Internet Security Workbench Software (CIS)\n• Sehr gutes Verständnis von Security- und Compliance-Grundlagen (z.B. Datenschutz, Zugriffskonzepte, Klassifizierung)\n• Strukturierte, lösungsorientierte Arbeitsweise sowie die Bereitschaft, Verantwortung zu übernehmen und sich kontinuierlich fachlich weiterzuentwickeln\n• Kommunikationsstärke im Umgang mit verschiedenen Anspruchsgruppen sowie ein stilsicheres Agieren im politischen Umfeld einer öffentlichen Verwaltung\n\nDas Departement Finanzen und Ressourcen mit rund 650 Mitarbeitenden ist als Querschnittsdepartement dafür zuständig, dass dem Kanton die für die Aufgabenerfüllung notwendigen Ressourcen zur Verfügung stehen.\n\nInformatiklösungen erleichtern die tägliche Arbeit und machen diese effizienter. Zur Effizienzsteigerung der kantonalen Verwaltung tragen die Mitarbeitenden der Abteilung Informatik Aargau bei. Sie sind für die Strategie und den Betrieb der zentralen Informatik zuständig. Sie begleiten kantonale Grossprojekte und sorgen für leistungsfähige und moderne Informatiklösungen, die der Öffentlichkeit einen unkomplizierten Kontakt und Austausch mit den Verwaltungsstellen des Kantons ermöglichen.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Informatik Aargau\n• Arbeitsort: Unterentfelden",
+        "it": "Spannende Aufgaben warten:\n• Umsetzen und Weiterentwickeln von CIS-konformen Security-Hardening und Baselines auf Windows- und Linux-Servern\n• Definieren von Betriebsmodellen, Runbooks, Monitoring sowie Change- / Release-Prozessen und Sicherstellen der Operational Excellence\n• Analysieren von Security Alerts und Incidents, Einleiten von Sofortmassnahmen und Koordinieren der nachhaltigen Behebung\n• Technische Umsetzung von Security- und Compliance-Vorgaben (inkl. Nachweisführung) und Unterstützung bei der Einhaltung gesetzlicher Vorgaben und Weisungen (Erstellen ISDS Konzepte)\n• Pflegen einer engen Zusammenarbeit mit dem Team System Engineering, der Fachstelle Informationssicherheit und weiteren Stakeholdern\n\nWas Sie mitbringen:\n• Berufslehre EFZ in Informatik (oder eine gleichwertige Ausbildung) sowie Zertifizierungen in Linux (LPIC-2), Microsoft (AZ-800/802) und Security (Security+ / GSEC) oder die Motivation, diese Qualifikationen on-the-job zu erwerben\n• Erfahrung im System Engineering mit (Windows / Linux), insbesondere praktische Kenntnisse in der Verwendung von Powershell, Bearbeitung von Group Policies im Windows Bereich und Kenntnisse von Tools wie OpenScap, Ansible im Linux Bereich\n• Kenntnisse der Center of Internet Security Workbench Software (CIS)\n• Sehr gutes Verständnis von Security- und Compliance-Grundlagen (z.B. Datenschutz, Zugriffskonzepte, Klassifizierung)\n• Strukturierte, lösungsorientierte Arbeitsweise sowie die Bereitschaft, Verantwortung zu übernehmen und sich kontinuierlich fachlich weiterzuentwickeln\n• Kommunikationsstärke im Umgang mit verschiedenen Anspruchsgruppen sowie ein stilsicheres Agieren im politischen Umfeld einer öffentlichen Verwaltung\n\nDas Departement Finanzen und Ressourcen mit rund 650 Mitarbeitenden ist als Querschnittsdepartement dafür zuständig, dass dem Kanton die für die Aufgabenerfüllung notwendigen Ressourcen zur Verfügung stehen.\n\nInformatiklösungen erleichtern die tägliche Arbeit und machen diese effizienter. Zur Effizienzsteigerung der kantonalen Verwaltung tragen die Mitarbeitenden der Abteilung Informatik Aargau bei. Sie sind für die Strategie und den Betrieb der zentralen Informatik zuständig. Sie begleiten kantonale Grossprojekte und sorgen für leistungsfähige und moderne Informatiklösungen, die der Öffentlichkeit einen unkomplizierten Kontakt und Austausch mit den Verwaltungsstellen des Kantons ermöglichen.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Informatik Aargau\n• Arbeitsort: Unterentfelden",
+        "en": "Spannende Aufgaben warten:\n• Umsetzen und Weiterentwickeln von CIS-konformen Security-Hardening und Baselines auf Windows- und Linux-Servern\n• Definieren von Betriebsmodellen, Runbooks, Monitoring sowie Change- / Release-Prozessen und Sicherstellen der Operational Excellence\n• Analysieren von Security Alerts und Incidents, Einleiten von Sofortmassnahmen und Koordinieren der nachhaltigen Behebung\n• Technische Umsetzung von Security- und Compliance-Vorgaben (inkl. Nachweisführung) und Unterstützung bei der Einhaltung gesetzlicher Vorgaben und Weisungen (Erstellen ISDS Konzepte)\n• Pflegen einer engen Zusammenarbeit mit dem Team System Engineering, der Fachstelle Informationssicherheit und weiteren Stakeholdern\n\nWas Sie mitbringen:\n• Berufslehre EFZ in Informatik (oder eine gleichwertige Ausbildung) sowie Zertifizierungen in Linux (LPIC-2), Microsoft (AZ-800/802) und Security (Security+ / GSEC) oder die Motivation, diese Qualifikationen on-the-job zu erwerben\n• Erfahrung im System Engineering mit (Windows / Linux), insbesondere praktische Kenntnisse in der Verwendung von Powershell, Bearbeitung von Group Policies im Windows Bereich und Kenntnisse von Tools wie OpenScap, Ansible im Linux Bereich\n• Kenntnisse der Center of Internet Security Workbench Software (CIS)\n• Sehr gutes Verständnis von Security- und Compliance-Grundlagen (z.B. Datenschutz, Zugriffskonzepte, Klassifizierung)\n• Strukturierte, lösungsorientierte Arbeitsweise sowie die Bereitschaft, Verantwortung zu übernehmen und sich kontinuierlich fachlich weiterzuentwickeln\n• Kommunikationsstärke im Umgang mit verschiedenen Anspruchsgruppen sowie ein stilsicheres Agieren im politischen Umfeld einer öffentlichen Verwaltung\n\nDas Departement Finanzen und Ressourcen mit rund 650 Mitarbeitenden ist als Querschnittsdepartement dafür zuständig, dass dem Kanton die für die Aufgabenerfüllung notwendigen Ressourcen zur Verfügung stehen.\n\nInformatiklösungen erleichtern die tägliche Arbeit und machen diese effizienter. Zur Effizienzsteigerung der kantonalen Verwaltung tragen die Mitarbeitenden der Abteilung Informatik Aargau bei. Sie sind für die Strategie und den Betrieb der zentralen Informatik zuständig. Sie begleiten kantonale Grossprojekte und sorgen für leistungsfähige und moderne Informatiklösungen, die der Öffentlichkeit einen unkomplizierten Kontakt und Austausch mit den Verwaltungsstellen des Kantons ermöglichen.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Informatik Aargau\n• Arbeitsort: Unterentfelden",
+        "fr": "Spannende Aufgaben warten:\n• Umsetzen und Weiterentwickeln von CIS-konformen Security-Hardening und Baselines auf Windows- und Linux-Servern\n• Definieren von Betriebsmodellen, Runbooks, Monitoring sowie Change- / Release-Prozessen und Sicherstellen der Operational Excellence\n• Analysieren von Security Alerts und Incidents, Einleiten von Sofortmassnahmen und Koordinieren der nachhaltigen Behebung\n• Technische Umsetzung von Security- und Compliance-Vorgaben (inkl. Nachweisführung) und Unterstützung bei der Einhaltung gesetzlicher Vorgaben und Weisungen (Erstellen ISDS Konzepte)\n• Pflegen einer engen Zusammenarbeit mit dem Team System Engineering, der Fachstelle Informationssicherheit und weiteren Stakeholdern\n\nWas Sie mitbringen:\n• Berufslehre EFZ in Informatik (oder eine gleichwertige Ausbildung) sowie Zertifizierungen in Linux (LPIC-2), Microsoft (AZ-800/802) und Security (Security+ / GSEC) oder die Motivation, diese Qualifikationen on-the-job zu erwerben\n• Erfahrung im System Engineering mit (Windows / Linux), insbesondere praktische Kenntnisse in der Verwendung von Powershell, Bearbeitung von Group Policies im Windows Bereich und Kenntnisse von Tools wie OpenScap, Ansible im Linux Bereich\n• Kenntnisse der Center of Internet Security Workbench Software (CIS)\n• Sehr gutes Verständnis von Security- und Compliance-Grundlagen (z.B. Datenschutz, Zugriffskonzepte, Klassifizierung)\n• Strukturierte, lösungsorientierte Arbeitsweise sowie die Bereitschaft, Verantwortung zu übernehmen und sich kontinuierlich fachlich weiterzuentwickeln\n• Kommunikationsstärke im Umgang mit verschiedenen Anspruchsgruppen sowie ein stilsicheres Agieren im politischen Umfeld einer öffentlichen Verwaltung\n\nDas Departement Finanzen und Ressourcen mit rund 650 Mitarbeitenden ist als Querschnittsdepartement dafür zuständig, dass dem Kanton die für die Aufgabenerfüllung notwendigen Ressourcen zur Verfügung stehen.\n\nInformatiklösungen erleichtern die tägliche Arbeit und machen diese effizienter. Zur Effizienzsteigerung der kantonalen Verwaltung tragen die Mitarbeitenden der Abteilung Informatik Aargau bei. Sie sind für die Strategie und den Betrieb der zentralen Informatik zuständig. Sie begleiten kantonale Grossprojekte und sorgen für leistungsfähige und moderne Informatiklösungen, die der Öffentlichkeit einen unkomplizierten Kontakt und Austausch mit den Verwaltungsstellen des Kantons ermöglichen.\n\nBenefits\nFlexibel arbeiten\n• Teilzeit (fast) immer möglich\n• In der Regel rund 3 bezahlte Brückentage pro Jahr\n• Möglichkeit, die Ferien um bis zu 10 Tage zu erweitern\n• Flexibles Arbeiten wie z.B. im Homeoffice\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\nVorwärtskommen\n• Vielfältige Weiterentwicklungsmöglichkeiten inkl. internem Bildungsangebot mit über 180 Seminaren\n• Beteiligung an den Kosten von externen Weiterbildungen nach Absprache\nFairsichert\n• 16 Wochen Mutterschaftsurlaub mit vollem Lohn\n• 2 Wochen Vaterschaftsurlaub mit vollem Lohn\n• Wir übernehmen rund 60 % der PK-Beiträge\n\n• Pensum: 80 - 100%\n• Anstellung: unbefristet\n• Abteilung: Informatik Aargau\n• Arbeitsort: Unterentfelden"
+      },
+      "needsRetranslation": true,
+      "location": "Unterentfelden",
+      "canton": "AG",
+      "url": "https://jobs.ag.ch/offene-stellen/it-security-operations-engineer-windows-und-linux-server/4e631720-fc8c-425c-b38e-af58253423b3",
+      "source": "Kanton Aargau Dedicated Parser (ag.ch job market)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:26:42.025Z",
+      "addressLocality": "Unterentfelden",
+      "addressRegion": "AG",
+      "streetAddress": "Suhrenmattstrasse 48",
+      "postalCode": "5035",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-01",
+      "postedDate": "2026-11-01",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-30T00:00:00.000Z",
+      "applyUrl": "https://jobs.ag.ch/offene-stellen/it-security-operations-engineer-windows-und-linux-server/4e631720-fc8c-425c-b38e-af58253423b3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Informatik Aargau",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-security-operations-engineer-windows-und-linux-server-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-security-operations-engineer-windows-und-linux-server-80-100-kanton-aargau-ch"
+      ],
+      "salaryMin": 64500,
+      "salaryMax": 110000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 110000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
+      "firstSeenAt": "2026-11-01T09:26:42.025Z"
     }
   ]
 }

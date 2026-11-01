@@ -1,7 +1,7 @@
 {
   "crawlerKey": "css-versicherung",
-  "assembledAt": "2026-10-31T22:03:28.709Z",
-  "runId": "41242779673",
+  "assembledAt": "2026-11-01T09:32:32.397Z",
+  "runId": "41292374401",
   "jobs": [
     {
       "id": "css-versicherung-b3eb37f0ac8f",
@@ -34,10 +34,10 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-zofingen-aarau-frick/36b01376-f5e2-4689-be50-0d98b88c4186",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:03:18.852Z",
+      "crawledAt": "2026-11-01T09:32:22.401Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
-      "streetAddress": "",
+      "streetAddress": "Zofingen",
       "postalCode": "4800",
       "addressCountry": "CH",
       "country": "CH",
@@ -81,7 +81,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:22.401Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-e3534c87df0b",
@@ -114,10 +117,10 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-baden/121c903a-23a4-46ea-964d-65eb52d151f9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:03:18.421Z",
+      "crawledAt": "2026-11-01T09:32:21.958Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
-      "streetAddress": "",
+      "streetAddress": "Baden",
       "postalCode": "5400",
       "addressCountry": "CH",
       "country": "CH",
@@ -182,7 +185,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:21.958Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-3d34dd99ab63",
@@ -215,10 +221,10 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-e-prevoyance/673035ed-9a32-41a5-ac43-1a504e852e7d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:03:17.886Z",
+      "crawledAt": "2026-11-01T09:32:21.419Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
-      "streetAddress": "",
+      "streetAddress": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
       "country": "CH",
@@ -256,7 +262,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:21.419Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-a155625c6f96",
@@ -289,10 +298,10 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-in-im-kundenservice-mit-mehrjaehriger-erfahrung/2ba5404b-0c75-4bea-bcf0-1c1a8968ef2a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:03:17.364Z",
+      "crawledAt": "2026-11-01T09:32:20.894Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
-      "streetAddress": "",
+      "streetAddress": "Root / hybrid",
       "postalCode": "6037",
       "addressCountry": "CH",
       "country": "CH",
@@ -330,7 +339,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:20.894Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-8f726022c2be",
@@ -363,10 +375,10 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-kundenservice-center-mit-digitaler-affinitaet/cb6d6cce-b8b1-4f71-940b-a7b6db2348d6",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:03:16.869Z",
+      "crawledAt": "2026-11-01T09:32:20.418Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
-      "streetAddress": "",
+      "streetAddress": "Root / hybrid",
       "postalCode": "6037",
       "addressCountry": "CH",
       "country": "CH",
@@ -450,7 +462,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:20.418Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-c8319ea15fbb",
@@ -483,10 +498,10 @@
       "url": "https://jobs.css.ch/offene-stellen/conseiller-ere-a-la-clientele/a0bc53ae-4e56-48ab-8a89-d28c039618c0",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:03:16.380Z",
+      "crawledAt": "2026-11-01T09:32:19.921Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
-      "streetAddress": "",
+      "streetAddress": "Neuchâtel",
       "postalCode": "2000",
       "addressCountry": "CH",
       "country": "CH",
@@ -530,7 +545,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:19.921Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-98ed96623d0d",
@@ -563,10 +581,10 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden/2851f164-4bd7-47ae-87c0-e1578f3e1b32",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:03:15.930Z",
+      "crawledAt": "2026-11-01T09:32:19.440Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
-      "streetAddress": "",
+      "streetAddress": "Biel",
       "postalCode": "2500",
       "addressCountry": "CH",
       "country": "CH",
@@ -610,7 +628,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:19.440Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-7579d966a51a",
@@ -643,7 +664,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-mitarbeiter-in-kundenservice-rheintal-appenzellerland/93efaee9-1ba8-4855-893e-355485b803a2",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:03:14.385Z",
+      "crawledAt": "2026-11-01T09:32:18.905Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -684,7 +705,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:32:18.905Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-de628fb95ab7",
@@ -717,7 +741,7 @@
       "url": "https://jobs.css.ch/offene-stellen/medizinische-r-kodierer-in/5cf8fc5e-bfee-43df-a92a-3ff3770ffa7a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:03:12.365Z",
+      "crawledAt": "2026-11-01T09:32:18.397Z",
       "addressLocality": "Luzern oder/und Lausanne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -758,7 +782,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:32:18.397Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-a07191e6a433",
@@ -791,10 +818,10 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-agence-de-sierre-aout-2027/d0d3a31e-7739-409c-8e43-ae2e431ea572",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:03:10.361Z",
+      "crawledAt": "2026-11-01T09:32:17.801Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
-      "streetAddress": "",
+      "streetAddress": "Sierre",
       "postalCode": "3960",
       "addressCountry": "CH",
       "country": "CH",
@@ -842,7 +869,10 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:32:17.801Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-097b707e0d38",
@@ -875,10 +905,10 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-agence-de-sion-aout-2027/486c19d0-44f5-4da7-8746-23bb110eb9ec",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:03:08.375Z",
+      "crawledAt": "2026-11-01T09:32:17.286Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "streetAddress": "",
+      "streetAddress": "Sion",
       "postalCode": "1950",
       "addressCountry": "CH",
       "country": "CH",
@@ -923,7 +953,10 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:32:17.286Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-383d2e098898",
@@ -956,10 +989,10 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-agence-de-bulle-aout-2027/0589f501-046d-431d-8873-1df9f75ae7a9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:03:06.382Z",
+      "crawledAt": "2026-11-01T09:32:16.825Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
-      "streetAddress": "",
+      "streetAddress": "Bulle",
       "postalCode": "1630",
       "addressCountry": "CH",
       "country": "CH",
@@ -1004,7 +1037,10 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:32:16.825Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-cb2911c059a7",
@@ -1037,10 +1073,10 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-agent-e-relation-client-aout-2027/0ce11c26-41f7-467a-8c60-78962d50b68d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:03:04.382Z",
+      "crawledAt": "2026-11-01T09:32:16.299Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "postalCode": "1003",
       "addressCountry": "CH",
       "country": "CH",
@@ -1080,7 +1116,10 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:32:16.299Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-169102e67f7c",
@@ -1113,10 +1152,10 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-mit-mehrjaehriger-erfahrung-in-telefonischem-kundenservice/19a2e87f-94a8-470a-a939-f33365f8f0c4",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:03:02.396Z",
+      "crawledAt": "2026-11-01T09:32:15.899Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
-      "streetAddress": "",
+      "streetAddress": "Root / hybrid",
       "postalCode": "6037",
       "addressCountry": "CH",
       "country": "CH",
@@ -1154,7 +1193,10 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:32:15.899Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-78b47b3b6e0a",
@@ -1187,10 +1229,10 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-solothurn/bad3c41e-29ef-45e4-bb71-8cabfb7d8a4b",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:03:01.846Z",
+      "crawledAt": "2026-11-01T09:32:15.326Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -1234,7 +1276,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:32:15.326Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-c1a2263c0a5f",
@@ -1267,10 +1312,10 @@
       "url": "https://jobs.css.ch/offene-stellen/chef-fe-de-team-verification-des-prestations-etranger/bee92436-64a3-4838-83a3-dcad6507a73d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:03:01.299Z",
+      "crawledAt": "2026-11-01T09:32:14.815Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "postalCode": "1003",
       "addressCountry": "CH",
       "country": "CH",
@@ -1308,7 +1353,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:32:14.815Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-bfe69f430bf7",
@@ -1341,10 +1389,10 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-liestal/65734ccc-44c7-4cb9-bc6f-ac30370008d9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:03:00.906Z",
+      "crawledAt": "2026-11-01T09:32:14.398Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
-      "streetAddress": "",
+      "streetAddress": "Liestal",
       "postalCode": "4410",
       "addressCountry": "CH",
       "country": "CH",
@@ -1382,7 +1430,10 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:32:14.398Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-574e81f47ddf",
@@ -1415,7 +1466,7 @@
       "url": "https://jobs.css.ch/offene-stellen/datenbank-engineer-w-m/e59881ad-9b97-43bd-be38-8816f9cbbe83",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:03:00.478Z",
+      "crawledAt": "2026-11-01T09:32:13.898Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1448,7 +1499,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-27T09:32:13.898Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-cbd110481c8d",
@@ -1481,10 +1535,10 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-mit-erfahrung-im-kundenkontakt/62a58b34-677a-4eed-9d15-26a22a7001fc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:03:00.025Z",
+      "crawledAt": "2026-11-01T09:32:13.398Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
-      "streetAddress": "",
+      "streetAddress": "Root / hybrid",
       "postalCode": "6037",
       "addressCountry": "CH",
       "country": "CH",
@@ -1522,7 +1576,10 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:32:13.398Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-b4ed94589763",
@@ -1555,7 +1612,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexpertin-fachexperte-leistungsgrundlagen-qualitaetssicherung/c84a2cb4-6856-4f7e-bacf-46133710d72e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:59.575Z",
+      "crawledAt": "2026-11-01T09:32:12.872Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1601,7 +1658,10 @@
           "maxValue": 123500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-29T09:32:12.872Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-7b483750960f",
@@ -1634,10 +1694,10 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-kundenservice-center-mit-fokus-im-einzelleben/eaac4b0f-761b-492a-a362-3d26eb873f4f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:59.160Z",
+      "crawledAt": "2026-11-01T09:32:12.405Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
-      "streetAddress": "",
+      "streetAddress": "Root / hybrid",
       "postalCode": "6037",
       "addressCountry": "CH",
       "country": "CH",
@@ -1675,7 +1735,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:32:12.405Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-deef8d5549d9",
@@ -1708,7 +1771,7 @@
       "url": "https://jobs.css.ch/offene-stellen/medizinische-r-spezialist-in-im-bereich-der-medizinischen-kodierung/37a8f29a-e489-4285-b512-52d2050fb6b4",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:58.719Z",
+      "crawledAt": "2026-11-01T09:32:11.880Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1749,7 +1812,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-03T09:32:11.880Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-41b08670f06d",
@@ -1782,10 +1848,10 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-solothurn/9a5d6f95-791b-44fa-8316-1289055423c8",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:58.247Z",
+      "crawledAt": "2026-11-01T09:32:11.407Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Solothurn",
       "postalCode": "4500",
       "addressCountry": "CH",
       "country": "CH",
@@ -1831,7 +1897,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:32:11.407Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-5b6c985d7651",
@@ -1864,10 +1933,10 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-stadt-zuerich/241c7a9c-0d03-4433-8176-895954fa3864",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:57.804Z",
+      "crawledAt": "2026-11-01T09:32:10.867Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "postalCode": "8001",
       "addressCountry": "CH",
       "country": "CH",
@@ -1913,7 +1982,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:32:10.867Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-fd3680a14a47",
@@ -1946,10 +2018,10 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-zug/09b1ef54-7498-4704-81de-225c94db1d8b",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:57.372Z",
+      "crawledAt": "2026-11-01T09:32:10.351Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
-      "streetAddress": "",
+      "streetAddress": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
       "country": "CH",
@@ -1995,7 +2067,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:32:10.351Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-e48f71e802bd",
@@ -2028,10 +2103,10 @@
       "url": "https://jobs.css.ch/offene-stellen/assistant-e-au-service-du-medecin-conseil/84ad5b1d-ddf4-4f01-af88-d36ea128f222",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:02:56.950Z",
+      "crawledAt": "2026-11-01T09:32:09.839Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "postalCode": "1003",
       "addressCountry": "CH",
       "country": "CH",
@@ -2071,7 +2146,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:32:09.839Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-6ac2e196789b",
@@ -2104,10 +2182,10 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-duedingen/bcc80b1b-eab3-4c7a-9360-8c9deb4530df",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:56.602Z",
+      "crawledAt": "2026-11-01T09:32:09.463Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
-      "streetAddress": "",
+      "streetAddress": "Düdingen",
       "postalCode": "3186",
       "addressCountry": "CH",
       "country": "CH",
@@ -2151,7 +2229,10 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:32:09.463Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-2c955181b19f",
@@ -2184,10 +2265,10 @@
       "url": "https://jobs.css.ch/offene-stellen/esperta-o-previdenziale-f-m-agenzia-generale-lugano/949018ad-add2-4982-98e0-0bb1bf173c3a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T22:02:56.169Z",
+      "crawledAt": "2026-11-01T09:32:08.974Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "streetAddress": "",
+      "streetAddress": "Lugano",
       "postalCode": "6900",
       "addressCountry": "CH",
       "country": "CH",
@@ -2217,7 +2298,10 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:32:08.974Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-6c7b57ccd67a",
@@ -2250,10 +2334,10 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-frick/ae8b34e3-96fe-42d8-8433-1e1edd46db74",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:55.722Z",
+      "crawledAt": "2026-11-01T09:32:08.478Z",
       "addressLocality": "Frick",
       "addressRegion": "AG",
-      "streetAddress": "",
+      "streetAddress": "Frick",
       "postalCode": "5070",
       "addressCountry": "CH",
       "country": "CH",
@@ -2299,7 +2383,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:32:08.478Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-72a2f81dcf95",
@@ -2332,7 +2419,7 @@
       "url": "https://jobs.css.ch/offene-stellen/gruppenleiter-in-wirtschaftlichkeitspruefung-bvm/60adce02-53fa-41d2-b770-ccc919450f20",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:55.327Z",
+      "crawledAt": "2026-11-01T09:32:07.955Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2379,7 +2466,10 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-18T09:32:07.955Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-b66f8009a6fb",
@@ -2412,7 +2502,7 @@
       "url": "https://jobs.css.ch/offene-stellen/sachbearbeiter-in-hr-service-center/b720a35c-0065-48c9-b8c3-a1e0e3c79fd1",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:54.897Z",
+      "crawledAt": "2026-11-01T09:32:07.454Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2466,7 +2556,10 @@
           "maxValue": 95400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-20T09:32:07.454Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-6129c9878f7a",
@@ -2499,10 +2592,10 @@
       "url": "https://jobs.css.ch/offene-stellen/stagiaire-mpe-3+1-rh-formation-professionnelle-aout-2027/53a6178e-7993-4dd0-b289-c810e3039c9e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:02:54.433Z",
+      "crawledAt": "2026-11-01T09:32:06.938Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "postalCode": "1003",
       "addressCountry": "CH",
       "country": "CH",
@@ -2546,7 +2639,10 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:32:06.938Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-420992ba4914",
@@ -2579,10 +2675,10 @@
       "url": "https://jobs.css.ch/offene-stellen/stagiaire-mpe-3+1-agence-de-fribourg-aout-2027/3a91a690-fb26-43bd-b0d2-5f75b9c24f76",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:02:54.019Z",
+      "crawledAt": "2026-11-01T09:32:06.378Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
-      "streetAddress": "",
+      "streetAddress": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
       "country": "CH",
@@ -2626,7 +2722,10 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:32:06.378Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-846c6149255b",
@@ -2659,10 +2758,10 @@
       "url": "https://jobs.css.ch/offene-stellen/stagiaire-mpe-3+1-agence-de-neuchatel-aout-2027/cbad93b4-1b06-41ad-9668-b9311a46fa22",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:02:53.667Z",
+      "crawledAt": "2026-11-01T09:32:05.890Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
-      "streetAddress": "",
+      "streetAddress": "Neuchâtel",
       "postalCode": "2000",
       "addressCountry": "CH",
       "country": "CH",
@@ -2706,7 +2805,10 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:32:05.890Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-caf8a6ede9aa",
@@ -2739,10 +2841,10 @@
       "url": "https://jobs.css.ch/offene-stellen/stagiaire-mpe-3+1-ressources-humaines-aout-2027/288302cf-2a3a-44e1-87f9-2c1eddb869d6",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:02:53.317Z",
+      "crawledAt": "2026-11-01T09:32:05.410Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "postalCode": "1003",
       "addressCountry": "CH",
       "country": "CH",
@@ -2786,7 +2888,10 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:32:05.410Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-73c7987eb572",
@@ -2819,7 +2924,7 @@
       "url": "https://jobs.css.ch/offene-stellen/ressortleitung-vertrauensaerztlicher-dienst/99999386-1833-4bea-ada3-2d84fd6411e9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:52.934Z",
+      "crawledAt": "2026-11-01T09:32:04.892Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2866,7 +2971,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-24T09:32:04.892Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-567d4becf2d9",
@@ -2899,10 +3007,10 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-buchs-sg/55ee20c1-9c61-4fea-9f27-0206dcb24a48",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:52.484Z",
+      "crawledAt": "2026-11-01T09:32:04.400Z",
       "addressLocality": "Buchs SG",
       "addressRegion": "SG",
-      "streetAddress": "",
+      "streetAddress": "Buchs SG",
       "postalCode": "9470",
       "addressCountry": "CH",
       "country": "CH",
@@ -2948,7 +3056,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:32:04.400Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-798b7ba75a1e",
@@ -2981,10 +3092,10 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-basel/ea53fadf-d336-4c24-9658-e6b9e9f037f0",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:52.058Z",
+      "crawledAt": "2026-11-01T09:32:03.433Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
-      "streetAddress": "",
+      "streetAddress": "Basel",
       "postalCode": "4001",
       "addressCountry": "CH",
       "country": "CH",
@@ -3022,7 +3133,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:32:03.433Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-21cb1e4b30a7",
@@ -3055,10 +3169,10 @@
       "url": "https://jobs.css.ch/offene-stellen/stagiaire-mpe-3+1-service-des-finances-aout-2027/9f964342-abae-4972-91f2-b3bffd3fd5f8",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:02:51.588Z",
+      "crawledAt": "2026-11-01T09:32:01.394Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "postalCode": "1003",
       "addressCountry": "CH",
       "country": "CH",
@@ -3102,7 +3216,10 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:32:01.394Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-74b6e40afd09",
@@ -3135,10 +3252,10 @@
       "url": "https://jobs.css.ch/offene-stellen/initiativbewerbung-kundenberater-in-fuer-privatkunden-olten/fce27024-0d8d-4e5e-afb2-dd7d25de9e41",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:51.139Z",
+      "crawledAt": "2026-11-01T09:31:59.424Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
       "country": "CH",
@@ -3184,7 +3301,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:31:59.424Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-70bfb6ef65a0",
@@ -3217,7 +3337,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachspezialist-in-iks/0dfbaeb8-c132-444d-88ed-0db3edb19b13",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:50.728Z",
+      "crawledAt": "2026-11-01T09:31:56.891Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3250,7 +3370,10 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:31:56.891Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-b934ec74b633",
@@ -3283,10 +3406,10 @@
       "url": "https://jobs.css.ch/offene-stellen/teamleiter-in-kundenservice-center-premium-care/f336229c-eae4-41ff-8fb5-e3e02055cf8e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:50.293Z",
+      "crawledAt": "2026-11-01T09:31:54.992Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
-      "streetAddress": "",
+      "streetAddress": "Root / hybrid",
       "postalCode": "6037",
       "addressCountry": "CH",
       "country": "CH",
@@ -3330,7 +3453,10 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:31:54.992Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-4902fdf072af",
@@ -3363,10 +3489,10 @@
       "url": "https://jobs.css.ch/offene-stellen/sachbearbeiter-in-empfang-und-datenerfassung/593fc1f9-5d9e-47c6-8367-6cbc49cac46e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:49.719Z",
+      "crawledAt": "2026-11-01T09:31:53.459Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
-      "streetAddress": "",
+      "streetAddress": "Root",
       "postalCode": "6037",
       "addressCountry": "CH",
       "country": "CH",
@@ -3412,7 +3538,10 @@
           "maxValue": 63600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:31:53.459Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "css-versicherung-a116531ed1e6",
@@ -3445,10 +3574,10 @@
       "url": "https://jobs.css.ch/offene-stellen/initiativbewerbung-mitarbeiter-in-kundenservice-olten/1b621e5f-00c1-4e83-a5ff-615cf427295e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:02:49.238Z",
+      "crawledAt": "2026-11-01T09:31:52.481Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
-      "streetAddress": "",
+      "streetAddress": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
       "country": "CH",
@@ -3494,7 +3623,10 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:31:52.481Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

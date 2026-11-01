@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pfister",
-  "assembledAt": "2026-10-31T22:05:26.602Z",
-  "runId": "41242779673",
+  "assembledAt": "2026-11-01T09:33:31.169Z",
+  "runId": "41292374401",
   "jobs": [
     {
       "id": "pfister-67e988bb4f32",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/424626/3485/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:19.417Z",
+      "crawledAt": "2026-11-01T09:33:22.845Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,7 +85,11 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:33:22.845Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-dd9bc0fc9c0e",
@@ -118,7 +122,7 @@
       "url": "https://apply.refline.ch/424626/3465/pub/5/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:18.981Z",
+      "crawledAt": "2026-11-01T09:33:22.389Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -162,7 +166,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thörishaus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:33:22.389Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-f9ec09d73da8",
@@ -196,7 +204,7 @@
       "url": "https://apply.refline.ch/424626/3462/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:17.812Z",
+      "crawledAt": "2026-11-01T09:33:21.937Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -248,7 +256,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thörishaus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:33:21.937Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-25e651034773",
@@ -282,7 +294,7 @@
       "url": "https://apply.refline.ch/424626/3448/pub/3/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:05:17.393Z",
+      "crawledAt": "2026-11-01T09:33:21.483Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -332,7 +344,11 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Etoy",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:21.483Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-4436f8b8b255",
@@ -365,7 +381,7 @@
       "url": "https://apply.refline.ch/424626/3438/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:16.971Z",
+      "crawledAt": "2026-11-01T09:33:21.028Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -409,7 +425,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thörishaus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:21.028Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-9a11624b72d2",
@@ -442,7 +462,7 @@
       "url": "https://apply.refline.ch/424626/3437/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:16.555Z",
+      "crawledAt": "2026-11-01T09:33:20.577Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -486,7 +506,11 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:33:20.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-2a3665ae9888",
@@ -519,7 +543,7 @@
       "url": "https://apply.refline.ch/424626/2883/pub/4/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:16.136Z",
+      "crawledAt": "2026-11-01T09:33:20.123Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -578,7 +602,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thörishaus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:20.123Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-8f5ccb08a484",
@@ -612,7 +640,7 @@
       "url": "https://apply.refline.ch/424626/3393/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:15.717Z",
+      "crawledAt": "2026-11-01T09:33:19.670Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -656,7 +684,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:19.670Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-a1ecdb4bc469",
@@ -690,7 +722,7 @@
       "url": "https://apply.refline.ch/424626/3391/pub/5/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:15.298Z",
+      "crawledAt": "2026-11-01T09:33:17.885Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -740,7 +772,11 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dübendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:17.885Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-d0a9382e12bd",
@@ -774,7 +810,7 @@
       "url": "https://apply.refline.ch/424626/3484/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:14.879Z",
+      "crawledAt": "2026-11-01T09:33:17.432Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -824,7 +860,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Alchenflüh-Lyssach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:33:17.432Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-5bc3e6609b32",
@@ -858,7 +898,7 @@
       "url": "https://apply.refline.ch/424626/3474/pub/4/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:14.461Z",
+      "crawledAt": "2026-11-01T09:33:16.977Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -908,7 +948,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Alchenflüh-Lyssach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:33:16.977Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-aecefa7391bf",
@@ -941,7 +985,7 @@
       "url": "https://apply.refline.ch/424626/3476/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:14.042Z",
+      "crawledAt": "2026-11-01T09:33:16.524Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -991,7 +1035,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-14T09:33:16.524Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-67530ce82267",
@@ -1025,7 +1073,7 @@
       "url": "https://apply.refline.ch/424626/3477/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:13.618Z",
+      "crawledAt": "2026-11-01T09:33:16.071Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1074,7 +1122,11 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-14T09:33:16.071Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-8a1ae4fc19b6",
@@ -1108,7 +1160,7 @@
       "url": "https://apply.refline.ch/424626/3475/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:13.200Z",
+      "crawledAt": "2026-11-01T09:33:15.618Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1158,7 +1210,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-11T09:33:15.618Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-d28372b42eb0",
@@ -1192,7 +1248,7 @@
       "url": "https://apply.refline.ch/424626/3442/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:12.781Z",
+      "crawledAt": "2026-11-01T09:33:15.166Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1236,7 +1292,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:15.166Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-db11ffe62156",
@@ -1270,7 +1330,7 @@
       "url": "https://apply.refline.ch/424626/3472/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:12.362Z",
+      "crawledAt": "2026-11-01T09:33:14.722Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1314,7 +1374,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:33:14.722Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-08e493ce823e",
@@ -1347,7 +1411,7 @@
       "url": "https://apply.refline.ch/424626/3470/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:11.945Z",
+      "crawledAt": "2026-11-01T09:33:14.271Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1391,7 +1455,11 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pratteln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:33:14.271Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-9816923f8655",
@@ -1424,7 +1492,7 @@
       "url": "https://apply.refline.ch/424626/3468/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:11.518Z",
+      "crawledAt": "2026-11-01T09:33:13.817Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1476,7 +1544,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pratteln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:33:13.817Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-821a3a76fc9e",
@@ -1510,7 +1582,7 @@
       "url": "https://apply.refline.ch/424626/3466/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:11.100Z",
+      "crawledAt": "2026-11-01T09:33:13.360Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1562,7 +1634,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:33:13.360Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-af25f4fc2d8e",
@@ -1595,7 +1671,7 @@
       "url": "https://apply.refline.ch/424626/0521/pub/7/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:05:10.674Z",
+      "crawledAt": "2026-11-01T09:33:12.906Z",
       "addressLocality": "Marin",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1641,7 +1717,11 @@
           "maxValue": 147000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Marin",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:12.906Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-2b423967b07e",
@@ -1674,7 +1754,7 @@
       "url": "https://apply.refline.ch/424626/3460/pub/5/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:10.253Z",
+      "crawledAt": "2026-11-01T09:33:12.450Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1718,7 +1798,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:12.450Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-ff6074424926",
@@ -1752,7 +1836,7 @@
       "url": "https://apply.refline.ch/424626/3463/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:09.833Z",
+      "crawledAt": "2026-11-01T09:33:11.999Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1804,7 +1888,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-07T09:33:11.999Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-a0936412c271",
@@ -1837,7 +1925,7 @@
       "url": "https://apply.refline.ch/424626/3457/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:09.413Z",
+      "crawledAt": "2026-11-01T09:33:11.546Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1888,7 +1976,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:11.546Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-02549908b16a",
@@ -1921,7 +2013,7 @@
       "url": "https://apply.refline.ch/424626/3459/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:08.969Z",
+      "crawledAt": "2026-11-01T09:33:11.047Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1965,7 +2057,11 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:11.047Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-c52965588eb5",
@@ -1999,7 +2095,7 @@
       "url": "https://apply.refline.ch/424626/3458/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:07.909Z",
+      "crawledAt": "2026-11-01T09:33:10.595Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2043,7 +2139,11 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:10.595Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-0dceda4d90f7",
@@ -2077,7 +2177,7 @@
       "url": "https://apply.refline.ch/424626/3453/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:05:07.490Z",
+      "crawledAt": "2026-11-01T09:33:10.142Z",
       "addressLocality": "Avry",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2121,7 +2221,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Avry",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:10.142Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-9b500bc1e27c",
@@ -2155,7 +2259,7 @@
       "url": "https://apply.refline.ch/424626/3450/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:05:07.071Z",
+      "crawledAt": "2026-11-01T09:33:09.684Z",
       "addressLocality": "Avry",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2191,7 +2295,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Avry",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:09.684Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-98a7bbf5c5d1",
@@ -2225,7 +2333,7 @@
       "url": "https://apply.refline.ch/424626/3447/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:06.652Z",
+      "crawledAt": "2026-11-01T09:33:07.683Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2269,7 +2377,11 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:33:07.683Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-ac47bcb60641",
@@ -2303,7 +2415,7 @@
       "url": "https://apply.refline.ch/424626/3444/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:06.233Z",
+      "crawledAt": "2026-11-01T09:33:07.230Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2347,7 +2459,11 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:07.230Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-25f960658d6e",
@@ -2380,7 +2496,7 @@
       "url": "https://apply.refline.ch/424626/3445/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:05.811Z",
+      "crawledAt": "2026-11-01T09:33:06.775Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2424,7 +2540,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:33:06.775Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-113d128fad3a",
@@ -2457,7 +2577,7 @@
       "url": "https://apply.refline.ch/424626/2166/pub/22/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:05.391Z",
+      "crawledAt": "2026-11-01T09:33:06.321Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2501,7 +2621,11 @@
           "maxValue": 99000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:33:06.321Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-b5ecac3867fe",
@@ -2535,7 +2659,7 @@
       "url": "https://apply.refline.ch/424626/3446/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:04.970Z",
+      "crawledAt": "2026-11-01T09:33:05.867Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2579,7 +2703,11 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:05.867Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-fd16b7e13f70",
@@ -2613,7 +2741,7 @@
       "url": "https://apply.refline.ch/424626/2911/pub/10/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:04.547Z",
+      "crawledAt": "2026-11-01T09:33:05.413Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2657,7 +2785,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:33:05.413Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-72e1620aef39",
@@ -2690,7 +2822,7 @@
       "url": "https://apply.refline.ch/424626/3435/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:05:04.127Z",
+      "crawledAt": "2026-11-01T09:33:04.961Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2736,7 +2868,11 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Genf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:04.961Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-81738f7eaac2",
@@ -2770,7 +2906,7 @@
       "url": "https://apply.refline.ch/424626/3432/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:03.698Z",
+      "crawledAt": "2026-11-01T09:33:04.508Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2814,7 +2950,11 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Alchenflüh-Lyssach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:04.508Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-52114afcac5b",
@@ -2847,7 +2987,7 @@
       "url": "https://apply.refline.ch/424626/3430/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:03.280Z",
+      "crawledAt": "2026-11-01T09:33:04.056Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2891,7 +3031,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:04.056Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-d0ff0a74df55",
@@ -2925,7 +3069,7 @@
       "url": "https://apply.refline.ch/424626/1300/pub/14/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:02.858Z",
+      "crawledAt": "2026-11-01T09:33:03.603Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2969,7 +3113,11 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:03.603Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-5a81fc20f21a",
@@ -3003,7 +3151,7 @@
       "url": "https://apply.refline.ch/424626/0383/pub/35/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:02.440Z",
+      "crawledAt": "2026-11-01T09:33:03.148Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3047,7 +3195,11 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dübendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:03.148Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-f149968f79eb",
@@ -3081,7 +3233,7 @@
       "url": "https://apply.refline.ch/424626/0340/pub/20/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:02.007Z",
+      "crawledAt": "2026-11-01T09:33:02.695Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3125,7 +3277,11 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:02.695Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-0aaff404fa3e",
@@ -3159,7 +3315,7 @@
       "url": "https://apply.refline.ch/424626/2360/pub/12/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:01.585Z",
+      "crawledAt": "2026-11-01T09:33:02.240Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3203,7 +3359,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:02.240Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-3726a5d140b7",
@@ -3237,7 +3397,7 @@
       "url": "https://apply.refline.ch/424626/1634/pub/12/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:01.148Z",
+      "crawledAt": "2026-11-01T09:33:01.777Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3281,7 +3441,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:33:01.777Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-5fb13a28b60a",
@@ -3315,7 +3479,7 @@
       "url": "https://apply.refline.ch/424626/0382/pub/33/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:00.728Z",
+      "crawledAt": "2026-11-01T09:33:01.320Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3359,7 +3523,11 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dübendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:01.320Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-163fcd2c4f0f",
@@ -3393,7 +3561,7 @@
       "url": "https://apply.refline.ch/424626/1074/pub/17/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:00.294Z",
+      "crawledAt": "2026-11-01T09:33:00.830Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3437,7 +3605,11 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Mels",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:00.830Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-80c3a04b1650",
@@ -3471,7 +3643,7 @@
       "url": "https://apply.refline.ch/424626/2361/pub/10/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:59.872Z",
+      "crawledAt": "2026-11-01T09:33:00.375Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3515,7 +3687,11 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:00.375Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-d9a6661fa14a",
@@ -3549,7 +3725,7 @@
       "url": "https://apply.refline.ch/424626/0530/pub/18/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:59.428Z",
+      "crawledAt": "2026-11-01T09:32:59.908Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3593,7 +3769,11 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Mels",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:59.908Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-08be5f790240",
@@ -3627,7 +3807,7 @@
       "url": "https://apply.refline.ch/424626/0814/pub/35/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:57.706Z",
+      "crawledAt": "2026-11-01T09:32:59.442Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3671,7 +3851,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Dübendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:59.442Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-1b3fb2374993",
@@ -3705,7 +3889,7 @@
       "url": "https://apply.refline.ch/424626/0920/pub/29/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:57.285Z",
+      "crawledAt": "2026-11-01T09:32:57.859Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3749,7 +3933,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:32:57.859Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-aa9101502cee",
@@ -3783,7 +3971,7 @@
       "url": "https://apply.refline.ch/424626/2877/pub/7/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:56.851Z",
+      "crawledAt": "2026-11-01T09:32:57.404Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3827,7 +4015,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Mels",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:57.404Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-a25a99a04830",
@@ -3861,7 +4053,7 @@
       "url": "https://apply.refline.ch/424626/2874/pub/10/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:56.424Z",
+      "crawledAt": "2026-11-01T09:32:56.938Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3905,7 +4097,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:32:56.938Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-6d36650ad4b8",
@@ -3938,7 +4134,7 @@
       "url": "https://apply.refline.ch/424626/0529/pub/25/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:55.992Z",
+      "crawledAt": "2026-11-01T09:32:56.484Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3993,7 +4189,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:56.484Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-a13d003fd5d5",
@@ -4026,7 +4226,7 @@
       "url": "https://apply.refline.ch/424626/3427/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:04:55.572Z",
+      "crawledAt": "2026-11-01T09:32:56.025Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4072,7 +4272,11 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Genf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:56.025Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-e62a6eaec509",
@@ -4105,7 +4309,7 @@
       "url": "https://apply.refline.ch/424626/0344/pub/39/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:55.154Z",
+      "crawledAt": "2026-11-01T09:32:55.572Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4149,7 +4353,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:32:55.572Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-45bda67d78f9",
@@ -4183,7 +4391,7 @@
       "url": "https://apply.refline.ch/424626/0349/pub/33/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:54.734Z",
+      "crawledAt": "2026-11-01T09:32:55.119Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4227,7 +4435,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:32:55.119Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-95238458e1a4",
@@ -4260,7 +4472,7 @@
       "url": "https://apply.refline.ch/424626/3114/pub/4/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:04:54.312Z",
+      "crawledAt": "2026-11-01T09:32:54.663Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4310,7 +4522,11 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Etoy",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:54.663Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-4cff3af170e7",
@@ -4343,7 +4559,7 @@
       "url": "https://apply.refline.ch/424626/1259/pub/14/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:04:53.886Z",
+      "crawledAt": "2026-11-01T09:32:54.198Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4398,7 +4614,11 @@
           "maxValue": 74500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Genf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:54.198Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-4d0b1f44ccf3",
@@ -4431,7 +4651,7 @@
       "url": "https://apply.refline.ch/424626/0701/pub/14/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:04:53.465Z",
+      "crawledAt": "2026-11-01T09:32:53.742Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4481,7 +4701,11 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Etoy",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:53.742Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-edeea00589c4",
@@ -4514,7 +4738,7 @@
       "url": "https://apply.refline.ch/424626/3426/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:04:53.020Z",
+      "crawledAt": "2026-11-01T09:32:53.270Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4564,7 +4788,11 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Etoy",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:53.270Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-2d47b0458b69",
@@ -4598,7 +4826,7 @@
       "url": "https://apply.refline.ch/424626/1135/pub/27/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:52.568Z",
+      "crawledAt": "2026-11-01T09:32:52.792Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4642,7 +4870,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spreitenbach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:52.792Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-e13bc6adc013",
@@ -4676,7 +4908,7 @@
       "url": "https://apply.refline.ch/424626/0686/pub/30/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:52.144Z",
+      "crawledAt": "2026-11-01T09:32:52.335Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4720,7 +4952,11 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Spreitenbach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:52.335Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-d3cfdcad050a",
@@ -4754,7 +4990,7 @@
       "url": "https://apply.refline.ch/424626/1275/pub/33/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:51.722Z",
+      "crawledAt": "2026-11-01T09:32:51.881Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4798,7 +5034,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Pratteln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:51.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-11e15b4bc800",
@@ -4831,7 +5071,7 @@
       "url": "https://apply.refline.ch/424626/3414/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:51.300Z",
+      "crawledAt": "2026-11-01T09:32:51.425Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4902,7 +5142,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:32:51.425Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-0d61f03b0343",
@@ -4936,7 +5180,7 @@
       "url": "https://apply.refline.ch/424626/1427/pub/62/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:50.877Z",
+      "crawledAt": "2026-11-01T09:32:50.972Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4984,7 +5228,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:32:50.972Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-f06bbfa21b50",
@@ -5018,7 +5266,7 @@
       "url": "https://apply.refline.ch/424626/3384/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:50.452Z",
+      "crawledAt": "2026-11-01T09:32:50.518Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5066,7 +5314,11 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Alchenflüh-Lyssach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:32:50.518Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-48f05830b0af",
@@ -5099,7 +5351,7 @@
       "url": "https://apply.refline.ch/424626/3320/pub/8/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:50.031Z",
+      "crawledAt": "2026-11-01T09:32:50.065Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5143,7 +5395,11 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:32:50.065Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pfister-155a51044856",
@@ -5177,7 +5433,7 @@
       "url": "https://apply.refline.ch/424626/1374/pub/74/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:49.598Z",
+      "crawledAt": "2026-11-01T09:32:49.606Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5224,7 +5480,11 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:32:49.606Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

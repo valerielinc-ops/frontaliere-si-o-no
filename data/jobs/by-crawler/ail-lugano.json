@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ail-lugano",
-  "assembledAt": "2026-10-31T22:04:07.775Z",
-  "runId": "41242779673",
+  "assembledAt": "2026-11-01T09:28:28.288Z",
+  "runId": "41292374401",
   "jobs": [
     {
       "title": "Impiegata/o amministrativa/o – Segretariato e gestione clienti B2B",
@@ -21,8 +21,8 @@
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T22:04:01.239Z",
-      "validThrough": "2026-11-14",
+      "crawledAt": "2026-11-01T09:28:21.081Z",
+      "validThrough": "2026-11-14T00:00:00.000Z",
       "titleByLocale": {
         "it": "Impiegata/o amministrativa/o – Segretariato e gestione clienti B2B",
         "en": "Impiegata/o amministrativa/o – Segretariato e Management clienti B2B",
@@ -47,24 +47,24 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "previousSlugs": [
-        "impiegata-o-amministrativa-o-ail-lugano",
-        "direttore-area-finanze-ail-lugano",
-        "impiegata-o-amministrativa-o-segretariato-e-gestione-clienti-b2b-ail-lugano",
-        "ingegnera-e-civile-in-qualita-di-direttrice-ore-generale-dei-lavori-ail-lugano",
-        "presidente-della-direzione-ceo-ail-lugano",
-        "supporto-organizzativo-per-il-gruppo-squadre-acqua-gas-e-teleriscaldamento-ail-lugano"
-      ],
       "previousSlugsByLocale": {
         "it": [
+          "impiegata-o-amministrativa-o-segretariato-e-gestione-clienti-b2b-ail-lugano",
           "impiegata-o-amministrativa-o-ail-lugano",
           "direttore-area-finanze-ail-lugano",
-          "impiegata-o-amministrativa-o-segretariato-e-gestione-clienti-b2b-ail-lugano",
           "ingegnera-e-civile-in-qualita-di-direttrice-ore-generale-dei-lavori-ail-lugano",
           "presidente-della-direzione-ceo-ail-lugano",
           "supporto-organizzativo-per-il-gruppo-squadre-acqua-gas-e-teleriscaldamento-ail-lugano"
         ]
       },
+      "previousSlugs": [
+        "impiegata-o-amministrativa-o-segretariato-e-gestione-clienti-b2b-ail-lugano",
+        "impiegata-o-amministrativa-o-ail-lugano",
+        "direttore-area-finanze-ail-lugano",
+        "ingegnera-e-civile-in-qualita-di-direttrice-ore-generale-dei-lavori-ail-lugano",
+        "presidente-della-direzione-ceo-ail-lugano",
+        "supporto-organizzativo-per-il-gruppo-squadre-acqua-gas-e-teleriscaldamento-ail-lugano"
+      ],
       "id": "aziende-industriali-di-lugano-ail-sa-dff5ee00d3ee",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -84,6 +84,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
       "firstSeenAt": "2026-10-03T21:27:54.150Z"
     }
   ]
