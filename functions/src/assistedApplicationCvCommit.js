@@ -187,7 +187,7 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
  * renderer or a Storage that fails saves nothing; no bucket, no answers.
  * @returns {Promise<{rebuilt:boolean}>}
  */
-export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, answerQuestionSnapshots = {}, answerSnapshotQuestions = null, nowMs, answerActor = null }) {
+export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, answerQuestionSnapshots = {}, answerSnapshotQuestions = null, answerSuggestionDismissals = null, nowMs, answerActor = null }) {
   const mergedAnswers = { ...(flow.answers || {}), ...answers };
   const orderContext = orderQuestionAnswerContext({ orderId, flow, draft, nowMs });
   const localQuestionDescriptors = Array.isArray(answerSnapshotQuestions) ? answerSnapshotQuestions
@@ -246,7 +246,11 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
           guard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
             draftRound: Number(draft?.round) || 1, nowMs } })) return false;
       writeCandidateAnswerLedger(transaction, profileRef, profileSnapshot, currentOrder.data(), candidateAnswerLedger);
-      transaction.set(flowRef, { answers, updatedAt: nowMs }, { merge: true });
+      transaction.set(flowRef, {
+        answers,
+        ...(answerSuggestionDismissals ? { answerSuggestionDismissals } : {}),
+        updatedAt: nowMs,
+      }, { merge: true });
       transaction.set(flowRef, { questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
         questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
         orderQuestionAnswersEvidenceVersion }, { mergeFields: ['questionAnswers', 'questionAnswerSnapshots', 'questionAnswerSnapshotIds',
@@ -262,7 +266,8 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     db, bucket, orderId, flow, draft, state: flow.state, nowMs, created: [rebuilt.pdfKey],
     flowPatch: { answers, questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
       questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
-      orderQuestionAnswersEvidenceVersion },
+      orderQuestionAnswersEvidenceVersion,
+      ...(answerSuggestionDismissals ? { answerSuggestionDismissals } : {}) },
     replaceAnswerMaps: true,
     answerSnapshotGuard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard,
       draftRound: Number(draft?.round) || 1, nowMs },
