@@ -3617,8 +3617,10 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
       if (!field || (field.kind !== 'file' && field.inputType !== 'file')) {
         // A live field is authoritative. An agent's candidate-language copy
         // must never replace the exact label/options read from the ATS.
-        const applicationQuestion = [field?.label, field?.description, field?.ariaDescription,
-          item.applicationQuestion, item.portalQuestion, item.question]
+        const liveQuestionCandidates = field
+          ? [field.label, field.description, field.ariaDescription]
+          : [item.applicationQuestion, item.portalQuestion, item.question];
+        const applicationQuestion = liveQuestionCandidates
           .map(value => String(value || '').trim())
           .find(value => readablePortalQuestionText(value) && !machineLabel(value)) || '';
         if (!readablePortalQuestionText(applicationQuestion) || machineLabel(applicationQuestion)) {

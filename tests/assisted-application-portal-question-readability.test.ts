@@ -246,8 +246,9 @@ it('keeps an unresolved accessible question unknown instead of falling back to a
 });
 
 it('keeps accessible questions bound to their own conditional field', () => {
-  const { dom, source } = extract('<form><span id="q1-copy">What is your current employer?</span><input id="q1" required aria-describedby="q1-copy">'
+  const { dom, snapshot } = extract('<form><span id="q1-copy">What is your current employer?</span><input id="q1" required aria-describedby="q1-copy">'
     + '<span id="q2-copy">Welche Region ist dein Herkunftskanton?</span><input id="q2" required aria-describedby="q2-copy"></form>');
+  const source = snapshot.fields;
   const result = portalRequirementsFromMissingRequired(source, [{
     fieldId: source.find((field: any) => field.domId === 'q2').id,
     question: PORTAL_QUESTION_PLACEHOLDERS.it, type: 'text', required: true,
@@ -608,5 +609,7 @@ describe('legacy unreadable portal waits', () => {
   });
   it('does not expose a generic ATS question when a legacy draft lacks its source marker', () => {
     expect(questionsForCandidate([{ ...placeholder, source: undefined }], {})).toEqual([]);
+    expect(questionsForCandidate([{ ...placeholder, source: undefined, applicationQuestion: 'What is your notice period?' }], {})[0].question)
+      .toBe('What is your notice period?');
   });
 });
