@@ -94,6 +94,25 @@ describe('MediPersonal crawler parser', () => {
       expect(description).not.toContain('Bitte senden Sie Ihre vollständigen Unterlagen');
     });
 
+    it('does not combine listing-card markers with an unrelated interest prompt', () => {
+      const listingItems = Array.from({ length: 16 }, (_, index) =>
+        `<li>Aufgabe ${index + 1} mit ausreichend konkreter Beschreibung für diese Stelle und verantwortungsvoller täglicher Arbeit.</li>`
+      ).join('');
+      const html = `
+        <main>
+          <div class="job-card">
+            <p>Arbeitsort: Zürich</p>
+            <p>Eintritt: sofort</p>
+            <p>Eine verantwortungsvolle Stelle mit langfristiger Betreuung in einer modernen Praxis und einem eingespielten interdisziplinären Team.</p>
+            <h3>Ihre Aufgaben</h3>
+            <ul>${listingItems}</ul>
+          </div>
+          <div class="job-card"><p>Interessiert?</p></div>
+        </main>`;
+
+      expect(extractIpersonalDescription(html)).toBe('');
+    });
+
     it('recovers the current semantic detail shell without the application tail', () => {
       const html = `
         <header><nav>Navigation noise</nav></header>

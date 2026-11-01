@@ -190,17 +190,50 @@ function preferIpersonalRenderedWorkplace(detail = {}) {
   };
 }
 
+const IPERSONAL_DETAIL_CONTAINER_MARKER_RE = /\b(?:job|stelle|inserat|vacan(?:cy)?|position|karriere)\b/iu;
+const IPERSONAL_CANDIDATURE_RE = /\b(?:bewerb\w*|online\s+bewerben|kontakt\s+und\s+bewerbung)\b/iu;
+
+function isIpersonalDetailContainer(element) {
+  if (!element) return false;
+  const marker = `${element.tagName || ''} ${element.id || ''} ${element.getAttribute?.('class') || ''}`;
+  return /^(?:ARTICLE|SECTION)$/iu.test(String(element.tagName || ''))
+    || IPERSONAL_DETAIL_CONTAINER_MARKER_RE.test(marker);
+}
+
+function findIpersonalDetailContainer(node, root) {
+  for (let current = node.parentElement; current && current !== root; current = current.parentElement) {
+    if (isIpersonalDetailContainer(current)) return current;
+  }
+  return root;
+}
+
+function isLikelyIpersonalDetailContainer(source) {
+  if (!source) return false;
+  // Use the rendered HTML rather than textContent: adjacent block elements in
+  // minified CMS markup otherwise lose the boundaries between labels.
+  const text = stripHtml(String(source.innerHTML || '')).replace(/\s+/g, ' ').trim();
+  const hasWorkplace = /\b(?:einsatzort|arbeitsort)\s*:/iu.test(text);
+  const hasVacancySection = /\b(?:ihr(?:e)?|dein(?:e)?)\s+(?:aufgaben|profil)\b|\b(?:unser angebot|das bieten wir)\b/iu.test(text);
+  const hasExplicitCandidature = IPERSONAL_CANDIDATURE_RE.test(text);
+
+  // A detail container must carry its own workplace, vacancy section and
+  // explicit application wording. Generic calls to action such as
+  // "Interessiert?" are common in listings and error shells and are not
+  // evidence that this container is a vacancy detail.
+  return hasWorkplace && hasVacancySection && hasExplicitCandidature;
+}
+
 function isLikelyIpersonalDetailMain(source) {
   if (!source) return false;
-  const text = String(source.textContent || '').replace(/\s+/g, ' ').trim();
-  const hasWorkplace = /\b(?:einsatzort|arbeitsort)\s*:/iu.test(text);
-  const hasTiming = /\b(?:einsatzbeginn|eintritt)\s*:/iu.test(text);
-  const hasVacancySection = /\b(?:ihr(?:e)?|dein(?:e)?)\s+(?:aufgaben|profil)\b|\b(?:unser angebot|das bieten wir)\b/iu.test(text);
-  const hasApplication = /\b(?:online\s+bewerben|bewerbung\s*(?:&|und)\s*kontakt|interessiert\b)/iu.test(text);
 
-  // A bare <main> is also used by listings and error pages. Require multiple
-  // independent vacancy markers before allowing it as a detail boundary.
-  return hasWorkplace && (hasTiming || hasApplication) && (hasVacancySection || hasApplication);
+  // Scope the marker scan to the container that owns the candidature wording.
+  // This prevents workplace/timing/section signals from separate listing cards
+  // from combining at the <main> level. A genuinely bare detail page has no
+  // intermediate semantic container, so its own <main> remains the candidate.
+  const candidatureNodes = [...source.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, button, li, dt, dd, span')]
+    .filter((node) => IPERSONAL_CANDIDATURE_RE.test(String(node.textContent || '')));
+  const containers = new Set(candidatureNodes.map((node) => findIpersonalDetailContainer(node, source)));
+  return [...containers].some((container) => isLikelyIpersonalDetailContainer(container));
 }
 
 /**
