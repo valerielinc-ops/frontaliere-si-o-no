@@ -2721,7 +2721,7 @@
           "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T22:16:16.792Z",
       "salaryMin": 65500,
       "salaryMax": 100500,
@@ -2739,7 +2739,8 @@
       "crawlerMissStreak": 1,
       "streetAddressSource": "listing-source",
       "validThrough": "2026-11-30T21:45:28.933Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "retranslationAttempts": 0
     }
   ]
 }

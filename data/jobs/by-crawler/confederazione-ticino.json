@@ -1014,7 +1014,8 @@
       ],
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/in Juristischer Dienst",
@@ -12611,7 +12612,7 @@
       "slugByLocale": {
         "it": "jurist-in-confederazione-svizzera-bern-df4dfad7e5",
         "en": "lawyer-confederazione-svizzera-bern-834537",
-        "de": "jurist-in-confederazione-bern",
+        "de": "jurist-in-confederazione-bern-bw4wll",
         "fr": "juriste-confederazione-svizzera-bern-834537"
       },
       "id": "confederazione-ticino-e0416f82de85",
@@ -12622,7 +12623,7 @@
           "jurist-in-confederazione-bern"
         ],
         "de": [
-          "jurist-in-confederazione-bern-bw4wll"
+          "jurist-in-confederazione-bern"
         ],
         "en": [
           "jurist-in-confederazione-bern"
@@ -12634,7 +12635,6 @@
       "previousSlugs": [
         "giurista-confederazione-svizzera-bern",
         "jurist-in-confederazione-svizzera-bern",
-        "jurist-in-confederazione-bern-bw4wll",
         "jurist-in-confederazione-bern"
       ],
       "salaryMin": 78500,

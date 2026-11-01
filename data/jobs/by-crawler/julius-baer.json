@@ -554,15 +554,11 @@
       "previousSlugs": [
         "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
       ],
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3301,
-      "retranslationAttempts": 19,
+      "retranslationAttempts": 20,
       "firstSeenAt": "2026-07-22T11:17:20.458Z",
       "crawledAt": "2026-11-01T09:15:16.953Z",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:15:16.953Z",
-      "validThroughSource": "last-observed-window",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -576,7 +572,11 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:16.953Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Relationship-Manager-Global-NRI_r-20321",
@@ -2416,15 +2416,11 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3264,
-      "retranslationAttempts": 72,
+      "retranslationAttempts": 73,
       "firstSeenAt": "2026-08-21T21:26:37.240Z",
       "crawledAt": "2026-11-01T09:15:16.953Z",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:15:16.953Z",
-      "validThroughSource": "last-observed-window",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -2438,7 +2434,11 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:15:16.953Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Leiter-Sicherheitsdienst-100---f-m-d-_r-19893",
@@ -2967,15 +2967,11 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 5322,
-      "retranslationAttempts": 72,
+      "retranslationAttempts": 73,
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
       "crawledAt": "2026-11-01T09:15:16.953Z",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:15:16.953Z",
-      "validThroughSource": "last-observed-window",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -2989,7 +2985,11 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:15:16.953Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Strategy-Specialist---Group-Strategy--100---m-f-d-_r-19882",
