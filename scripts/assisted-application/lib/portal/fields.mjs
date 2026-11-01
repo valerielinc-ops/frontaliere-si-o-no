@@ -120,7 +120,7 @@ function nativeQuestionText(value, counter = null) {
     ? !element.closest('[hidden]')
     : visible(element);
   const DIALOG_SELECTOR = 'dialog, [role="dialog"], [aria-modal="true"]';
-  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog|consent)\b/i;
+  const COOKIE_ACTIVE_SURFACE_RE = /\b(?:banner|notice|overlay|modal|dialog|consent)\b|\bcookie[-_]?(?:policy|manager)\b/i;
   const dialogIdFor = (element) => {
     const dialog = element.closest(DIALOG_SELECTOR);
     if (!dialog) return '';

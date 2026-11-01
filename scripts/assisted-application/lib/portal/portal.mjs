@@ -27,7 +27,7 @@ import '../../extension/apply-control.js';
 
 import path from 'node:path';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationIsPending, verificationOutcome } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -753,6 +753,8 @@ export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptier
 export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
 const COOKIE_GENERIC_PREFERENCES_RE = /^(?:manage|change|modify|adjust|customi[sz]e) (?:your )?(?:preferences|settings)$/i;
 const COOKIE_WORD_RE = /\bcookies?\b/i;
+const COOKIE_DIALOG_CONTEXT_RE = COOKIE_WORD_RE;
+const COOKIE_GENERIC_ACCEPT_LABEL_RE = /^(?:ok|accept|akzeptieren|accetta|accepter)$/i;
 const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const cookieSupportingContext = (button) => {
   const ownLabels = [button.text, button.label, button.title, button.ariaLabel]
@@ -3054,6 +3056,99 @@ async function awaitAuthView(page, before) {
   return (await extractFields(page).catch(() => null)) || after || extractFields(page);
 }
 
+/** Only classify a dialog as a cookie manager when its live copy and own choice agree. */
+async function knownCookieDialogSnapshot(page, snapshot) {
+  for (const dialog of snapshot?.dialogs || []) {
+    const dialogId = String(dialog.dialogId || '');
+    if (!/^d\d+$/.test(dialogId)) continue;
+    const buttons = (snapshot.buttons || []).filter((button) => {
+      if (!button.dialog || button.dialogId !== dialogId) return false;
+      // dismissCookieBanner/findButton selects on the visible text, not the
+      // accessible label; validate the same value before passing it through.
+      const label = String(button.text || '').trim();
+      return COOKIE_REJECT_RE.test(label) || (COOKIE_ACCEPT_RE.test(label) && !COOKIE_GENERIC_ACCEPT_LABEL_RE.test(label));
+    });
+    if (!buttons.length) continue;
+    const frame = page.frames()[Number(dialog.frame ?? buttons[0].frame) || 0] || page.mainFrame();
+    const dialogText = await frame.locator(`[data-aa-dialog-id="${dialogId}"]`)
+      .innerText({ timeout: 1_000 }).catch(() => '');
+    if (COOKIE_DIALOG_CONTEXT_RE.test(dialogText)) return { ...snapshot, buttons, dialogs: [dialog] };
+  }
+  return null;
+}
+
+/**
+ * Follow only a visible, explicitly named sign-in anchor whose live HTTPS
+ * destination stays on the current portal or its verified ATS family. This
+ * deliberately uses GET navigation instead of clicking a registration-form
+ * control: generic and learned buttons must never become an auth action.
+ */
+export async function openVerifiedSignInNavigation(page, snapshot) {
+  let currentSnapshot = snapshot;
+  if (currentSnapshot?.dialogs?.length) {
+    // Cookie managers are the only overlays this path is allowed to dismiss:
+    // live dialog copy and its own explicit choice must confirm that context.
+    // Pass only this dialog to shared policy so a generic «Accept» elsewhere
+    // can never be mistaken for a cookie decision.
+    const cookieSnapshot = await knownCookieDialogSnapshot(page, currentSnapshot);
+    if (!cookieSnapshot) return false;
+    const cookieResult = await dismissCookieBanner(page, cookieSnapshot);
+    if (cookieResult !== true && cookieResult?.status !== 'dismissed') return false;
+    currentSnapshot = cookieResult?.snapshot || await extractFields(page, NAVIGATION).catch(() => null);
+    if (!currentSnapshot || currentSnapshot.dialogs?.length) return false;
+  }
+  const candidates = [...(currentSnapshot?.links || []), ...(currentSnapshot?.buttons || [])]
+    .filter((control) => !control.dialog && isExplicitSignInNavigationLabel(
+      control.text, control.label, control.title, control.ariaLabel,
+    ));
+  for (const candidate of candidates) {
+    const id = String(candidate.id || '');
+    if (!/^[\w-]{1,80}$/.test(id)) continue;
+    const frame = page.frames()[Number(candidate.frame) || 0] || page.mainFrame();
+    const locator = frame.locator(`[data-aa-id="${id}"]`).first();
+    if (!await locator.isVisible().catch(() => false)) continue;
+    const liveControl = await locator.evaluate((element) => {
+      const doc = element.ownerDocument;
+      const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+        .map((id) => doc.getElementById(id)?.innerText || doc.getElementById(id)?.textContent || '')
+        .join(' ');
+      return {
+        tagName: String(element.tagName || '').toUpperCase(),
+        text: element.innerText || element.textContent || '',
+        ariaLabel: element.getAttribute('aria-label') || '',
+        title: element.getAttribute('title') || '',
+        labelledBy,
+        href: element.getAttribute('href'),
+      };
+    }).catch(() => null);
+    if (liveControl?.tagName !== 'A'
+      || !isExplicitSignInNavigationLabel(liveControl.text, liveControl.ariaLabel, liveControl.title, liveControl.labelledBy)) continue;
+    const currentUrl = frame.url();
+    let portalHost;
+    try {
+      portalHost = new URL(currentUrl).hostname;
+    } catch {
+      continue;
+    }
+    const target = verifiedSignInTarget(liveControl.href, currentUrl, portalHost);
+    if (!target) continue;
+    try {
+      await frame.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    } catch {
+      return false;
+    }
+    let finalUrl;
+    try {
+      finalUrl = new URL(frame.url());
+    } catch {
+      return false;
+    }
+    if (finalUrl.protocol !== 'https:' || finalUrl.username || finalUrl.password || !sameSite(finalUrl.href, portalHost)) return false;
+    return true;
+  }
+  return false;
+}
+
 /**
  * One login page (account.mjs): sign in with the order's account, or create
  * it on the alias, or verify it. Returns the next page, a handoff reason,
@@ -3142,8 +3237,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // Create-account page.
   const retryingUnverifiedAccount = Boolean(account && !account.verifiedAt && allowExistingRegistration);
   if (account && !retryingUnverifiedAccount) {
-    // Created by an earlier run: sign in instead.
-    if (!await clickFirst(page, snapshot, [SIGN_IN_RE])) return accountHandoff('account', 'no_sign_in_button', 'registration');
+    // Created by an earlier run: follow only an explicit, verified login route.
+    if (!await openVerifiedSignInNavigation(page, snapshot)) return accountHandoff('account', 'no_sign_in_button', 'registration');
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };
