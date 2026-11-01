@@ -131,16 +131,18 @@ describe('qualification before proposal publication', () => {
       'Exigences\nFacultatif:\n- Français B2',
       'Exigences facultatives\n- Français B2',
       'Optionale Anforderungen\n- Deutsch B2',
+      'Qualifiche opzionali\n- At least 5 years of experience.',
       'Qualifiche opzionali\n- Almeno 5 anni di esperienza.',
       'Exigences\nUn plus:\n- Plus de 5 ans d’expérience.',
+      'Exigences -> Un plus:\n- Plus de 5 ans d’expérience.',
       'Un plus:\nPlus de 5 ans d’expérience.',
       'Opzionale\nAlmeno 5 anni di esperienza costituiscono un plus.',
-      'Qualifications\nOptional\n- German C1 is required for this preferred profile.',
     ]) expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, optional)).toBe(false);
 
     const posting = 'Qualifications\n- German C1\nVotre mission\n- Support customer projects';
     const covered = { requirements: [{ requirement: 'Tedesco C1', sourceRequirement: 'German C1', importance: 'critical', basis: 'stated', quote: 'German C1' }] };
     expect(hasUncoveredHardEligibilityStatements(covered, posting)).toBe(false);
+    expect(hasUncoveredHardEligibilityStatements(covered, 'Qualifications\n- German C1\nCompetenze facoltative\n- French B2')).toBe(false);
 
     for (const heading of ['Tätigkeiten', 'Ihre Tätigkeiten']) {
       const resetPosting = `Qualifications\n- German C1\n${heading}\n- Manage multilingual support projects`;
@@ -152,7 +154,50 @@ describe('qualification before proposal publication', () => {
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Applications must be submitted online only.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Candidates must apply online only.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'French is a plus.')).toBe(false);
-    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'At least 5 years of experience would be useful.')).toBe(false);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'At least 5 years of experience would be useful.')).toBe(true);
+  });
+
+  it('segments mixed hard and soft clauses without letting a soft cue suppress hard eligibility', () => {
+    const empty = { requirements: [] };
+    const exclusive = 'Only Swiss residents may apply; German is a plus.';
+    expect(hasUncoveredHardEligibilityStatements(empty, exclusive)).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [{
+      requirement: 'Residente in Svizzera', sourceRequirement: 'Only Swiss residents may apply',
+      importance: 'critical', basis: 'stated', quote: 'Only Swiss residents may apply',
+    }] }, exclusive)).toBe(false);
+
+    const permit = 'Candidates must hold a valid Swiss work permit; German B2 is a plus.';
+    expect(hasUncoveredHardEligibilityStatements(empty, permit)).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [{
+      requirement: 'Permesso di lavoro svizzero', sourceRequirement: 'Candidates must hold a valid Swiss work permit',
+      importance: 'critical', basis: 'stated', quote: 'Candidates must hold a valid Swiss work permit',
+    }] }, permit)).toBe(false);
+
+    const languages = 'German C1 required; French B2 would be useful.';
+    expect(hasUncoveredHardEligibilityStatements(empty, languages)).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [{
+      requirement: 'Tedesco C1', sourceRequirement: 'German C1 required',
+      importance: 'critical', basis: 'stated', quote: 'German C1 required',
+    }] }, languages)).toBe(false);
+
+    const optionalMandatory = 'Optional → Candidates must hold a valid Swiss work permit.';
+    expect(hasUncoveredHardEligibilityStatements(empty, optionalMandatory)).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [{
+      requirement: 'Permesso di lavoro svizzero', sourceRequirement: 'Candidates must hold a valid Swiss work permit',
+      importance: 'critical', basis: 'stated', quote: 'Candidates must hold a valid Swiss work permit',
+    }] }, optionalMandatory)).toBe(false);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [{
+      requirement: 'Tedesco C1', sourceRequirement: 'German C1 is required for this preferred profile',
+      importance: 'critical', basis: 'stated', quote: 'German C1 is required for this preferred profile',
+    }] }, 'Optional\nGerman C1 is required for this preferred profile.')).toBe(true);
+
+    const contradictorySameRequirement = 'German C1 required; German C1 is a plus.';
+    expect(hasUncoveredHardEligibilityStatements(empty, contradictorySameRequirement)).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [{
+      requirement: 'Tedesco C1', sourceRequirement: 'German C1 required',
+      importance: 'critical', basis: 'stated', quote: 'German C1 required',
+    }] }, contradictorySameRequirement)).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements(empty, 'German C1 is required and a plus.')).toBe(true);
   });
 
   it('allows all three bounded primary/fallback attempts without the long-running Codex rung', async () => {

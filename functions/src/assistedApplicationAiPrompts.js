@@ -127,7 +127,7 @@ export const REQUIREMENTS_SCHEMA = OBJ({
   roleTitle: S('Role title as written in the posting'),
   requirements: LIST(OBJ({
     requirement: S('Short, in Italian'),
-    sourceRequirement: S('For stated requirements, exact complete original-language source sentence for every mandatory/exclusive condition; exact source phrase for other stated rows; "" only for inferred rows'),
+    sourceRequirement: S('For stated requirements, exact complete original-language source clause for every mandatory/exclusive condition; exact source phrase for other stated rows; "" only for inferred rows'),
     importance: E(['critical', 'high', 'meaningful', 'preferred']),
     basis: E(['stated', 'inferred']),
     quote: S('Verbatim excerpt of the posting, "" only when inferred'),
@@ -163,8 +163,8 @@ Rules:
 - The text may start with a short Italian introduction written by the job board ("… cerca …", "Di seguito trovi il testo integrale …"): it is not the employer's text. postingLanguage is the language of the employer's own text that follows.
 - List at most 12 requirements that decide who is invited to an interview, most important first.
   - Completeness is mandatory: include every explicit mandatory qualification, minimum threshold, and restriction on who may apply. Treat bullet points under headings such as Qualifications, Requirements, Qualifikationen, Anforderungen, Requisiti and Profil recherché as requirements unless the text explicitly says they are optional. An omitted hard clause makes the result unusable.
-  - For each stated row, sourceRequirement is an exact phrase copied from the employer's original language that names the criterion. For a mandatory or exclusive condition, and every item listed under a requirement/qualification heading, sourceRequirement and quote must each contain the complete source sentence or complete bullet, not just its opening words. The caller uses this source-language criterion for matching and fails closed if the hard condition is absent or not linked to it.
-  - For an exclusive eligibility sentence (for example, a role open only to currently enrolled students), create a critical requirement and quote the complete source sentence. Do not skip one because the list is full; the caller fails closed if the posting's hard clauses are not covered.
+  - For each stated row, sourceRequirement is an exact phrase copied from the employer's original language that names the criterion. For a mandatory or exclusive condition, and every item listed under a requirement/qualification heading, sourceRequirement and quote must each contain the complete source clause or complete bullet, not just its opening words. Split semicolon-separated conditions and contrasting clauses into separate rows so a soft preference cannot hide a hard requirement; do not attach an adjacent preference to the source clause for a hard condition. The caller uses this source-language criterion for matching and fails closed if the hard condition is absent or not linked to it.
+  - For an exclusive eligibility clause (for example, a role open only to currently enrolled students), create a critical requirement and quote the complete source clause. Do not skip one because the list is full; the caller fails closed if the posting's hard clauses are not covered.
   - requirement: a short phrase in Italian.
   - importance: critical = explicit must-have or knock-out (for example "zwingend", "indispensabile", "requis", "must", a required licence, a required language level); high = clearly required; meaningful = asked for; preferred = nice to have ("von Vorteil", "costituisce un plus", "un atout").
   - basis: stated when the posting says it; inferred when it is only implied by the role. An inferred requirement can NEVER be critical or high.
