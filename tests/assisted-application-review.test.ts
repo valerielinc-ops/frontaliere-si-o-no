@@ -110,6 +110,23 @@ describe('candidate review API', () => {
     }]);
   });
 
+  it('keeps the native ATS question visible as source evidence when candidate copy is translated', async () => {
+    const applicationQuestion = 'Welche Region ist dein Herkunftskanton?';
+    await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+      questions: [{
+        id: 'origin_region', question: 'Qual è la tua regione di origine?', applicationQuestion,
+        applicationQuestionLocale: 'de', localizationStatus: 'translated',
+        why: 'Indica la regione.', type: 'text', options: [], required: true, source: 'portal',
+      }],
+    }));
+    const { status, body } = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+    expect(status).toBe(200);
+    expect(body.questions).toMatchObject([{
+      id: 'origin_region', question: 'Qual è la tua regione di origine?',
+      applicationQuestion, applicationQuestionLocale: 'de',
+    }]);
+  });
+
   it('uses the candidate communication locale for the untranslated-question warning', () => {
     expect(localizedQuestionWarning('it-CH', 'de')).toMatchObject({
       message: expect.stringContaining('(DE)'), originalTextLabel: 'Testo originale del portale',

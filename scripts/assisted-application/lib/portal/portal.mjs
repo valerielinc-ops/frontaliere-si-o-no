@@ -1282,12 +1282,18 @@ const portalQuestionMetadata = field => {
 function questionsFrom(missingRequired) {
   const questions = [];
   const seen = new Set();
+  const readableQuestionCandidate = value => {
+    const text = readablePortalQuestionText(value);
+    return text && !machineLabel(text) ? text : '';
+  };
   for (const item of missingRequired) {
     const id = portalQuestionId(item);
     const key = portalQuestionKey(item) || id;
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
-    const applicationQuestion = String(item.applicationQuestion || item.portalQuestion || item.question || '').trim().slice(0, 300);
+    const applicationQuestion = [item.applicationQuestion, item.portalQuestion, item.question]
+      .map(readableQuestionCandidate)
+      .find(Boolean)?.slice(0, 300) || '';
     const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
       : item.options || []).map((option) => String(option || '').trim()).filter(Boolean);
@@ -1295,7 +1301,7 @@ function questionsFrom(missingRequired) {
     const optionMap = portalOptionMap({ options, applicationOptions, optionMap: item.optionMap });
     questions.push({
       id,
-      question: item.question,
+      question: readableQuestionCandidate(item.question) || applicationQuestion,
       applicationQuestion,
       ...(applicationOptions.length ? { applicationOptions } : {}),
       ...(optionMap.length ? { optionMap } : {}),
@@ -3615,7 +3621,12 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
       if (!field || (field.kind !== 'file' && field.inputType !== 'file')) {
         // A live field is authoritative. An agent's candidate-language copy
         // must never replace the exact label/options read from the ATS.
-        const applicationQuestion = String(field ? field.label || '' : item.applicationQuestion || item.portalQuestion || item.question || '').trim();
+        const liveQuestionCandidates = field
+          ? [field.label, field.description, field.ariaDescription]
+          : [item.applicationQuestion, item.portalQuestion, item.question];
+        const applicationQuestion = liveQuestionCandidates
+          .map(value => String(value || '').trim())
+          .find(value => readablePortalQuestionText(value) && !machineLabel(value)) || '';
         if (!readablePortalQuestionText(applicationQuestion) || machineLabel(applicationQuestion)) {
           unreadableFields.push(field?.id || item.fieldId || 'unknown');
           continue;

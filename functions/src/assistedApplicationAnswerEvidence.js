@@ -7,7 +7,7 @@ import { validateAnswer } from './lib/answerRules.js';
 import { languageCodesIn, isLanguageAbilityQuestion } from './lib/languageFacts.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
-import { portalQuestionText } from './lib/portalQuestionText.js';
+import { hasPortalQuestionEvidence, portalQuestionText } from './lib/portalQuestionText.js';
 import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
 import { defaultStartDate, minDateFor } from './lib/assistedApplicationQuestionConstraints.js';
 
@@ -24,7 +24,7 @@ const same = (a, b) => serialized(a) === serialized(b);
 const QUESTION_SNAPSHOT_FIELDS = ['id', 'question', 'why', 'applicationQuestion', 'context', 'section', 'type', 'options',
   'required', 'validation', 'minDate', 'suggested', 'source', 'autocomplete', 'addressContext'];
 function displayQuestion(question) {
-  return question?.source === 'portal' ? portalQuestionText(question) || question.question : question?.question;
+  return hasPortalQuestionEvidence(question) ? portalQuestionText(question) || question.question : question?.question;
 }
 function questionIsRequired(question, draft) {
   return Boolean(question?.required || question?.source === 'portal' && question.required === false

@@ -87,6 +87,11 @@ function QuestionField({ question, value, onChange, disabled, error, locale }: {
   const localizationWarning = question.localizationStatus === 'fallback'
     ? localizedQuestionWarning(locale, question.applicationQuestionLocale)
     : null;
+  const originalPortalQuestion = question.localizationStatus !== 'fallback'
+    && question.applicationQuestion
+    && question.applicationQuestion.trim() !== question.question.trim()
+    ? question.applicationQuestion
+    : '';
   // min-w-0 / max-w-full: iOS Safari gives date inputs an intrinsic width that
   // ignores w-full and pushes them out of the card (giro di prova 2026-10-01).
   const inputClass = 'mt-1 block w-full min-w-0 max-w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading';
@@ -106,6 +111,12 @@ function QuestionField({ question, value, onChange, disabled, error, locale }: {
           </span>
         </span>
       ) : question.question}
+      {originalPortalQuestion && (
+        <span role="note" className="mt-1 block rounded-lg border border-edge bg-surface p-3 text-xs font-normal text-body">
+          <span className="font-semibold">{t('jobBoard.assisted.review.originalPortalQuestion')}: </span>
+          {originalPortalQuestion}
+        </span>
+      )}
       {question.required && <span className="text-danger"> *</span>}
       {question.why && <span className="mt-0.5 block text-xs font-normal text-subtle">{question.why}</span>}
       {question.type === 'yes_no' ? (

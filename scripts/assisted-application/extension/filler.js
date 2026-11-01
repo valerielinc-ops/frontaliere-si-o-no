@@ -368,8 +368,30 @@
     for (const legend of ownedGroupLabels(group, QUESTION_LABEL_SELECTOR, element)) {
       if (!legend.contains(element) && textOf(legend)) return textOf(legend);
     }
+    const described = accessibleDescriptionOf(element);
+    if (described.ambiguous) return '';
+    if (described.text) return described.text;
     return (ownContext ? questionOf(element) : '')
       || element.getAttribute('placeholder') || aria || element.getAttribute('name') || '';
+  }
+
+  function accessibleDescriptionOf(element) {
+    const values = [];
+    const direct = String(element.getAttribute('aria-description') || '').replace(/\s+/g, ' ').trim();
+    if (direct) values.push(direct);
+    let ambiguous = false;
+    for (const id of ['aria-describedby', 'aria-details'].flatMap(attribute =>
+      (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean))) {
+      const nodes = [...element.ownerDocument.querySelectorAll('[id]')].filter(node => node.id === id);
+      if (nodes.length !== 1) {
+        ambiguous = true;
+        continue;
+      }
+      const text = String(nodes[0].innerText || nodes[0].textContent || '').replace(/\s+/g, ' ').trim();
+      if (!text) ambiguous = true;
+      else values.push(text);
+    }
+    return { text: [...new Set(values)].join(' '), ambiguous };
   }
 
   // «[Default] Comment», «[General] Salary Expectations»: a form's own name for a field.
@@ -619,7 +641,8 @@
         : element.tagName === 'SELECT' ? 'select'
           : element.getAttribute('role') === 'combobox' ? 'combobox'
             : element.tagName === 'TEXTAREA' ? 'textarea' : type === 'date' ? 'native-date' : 'text';
-      const label = runnerLabelOf(runner, element) || labelOf(element);
+      const nativeField = runner.get(element.getAttribute('data-aa-id'));
+      const label = nativeField ? nativeField.label || '' : labelOf(element);
       const labels = labelsOf(element, label, runnerLabelOf(runner, element));
       entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)),
         ...(kind === 'combobox' ? { selectLike: selectLike(element, channelType) } : {}), type });
