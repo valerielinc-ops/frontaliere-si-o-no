@@ -1688,6 +1688,20 @@ async function clickFirst(page, snapshot, patterns) {
   for (const pattern of patterns) {
     const button = findButton(snapshot.buttons, pattern);
     if (button) return clickButton(page, button);
+    const snapshotLink = (snapshot.links || []).find((link) => !link.disabled
+      && [link.text, link.label, link.title, link.ariaLabel].some((value) => pattern.test(String(value || ''))));
+    if (snapshotLink) {
+      const id = String(snapshotLink.id || '');
+      if (/^[\w-]{1,80}$/.test(id)) {
+        const frame = page.frames()[Number(snapshotLink.frame) || 0] || page.mainFrame();
+        const locator = frame.locator(`[data-aa-id="${id}"]`).first();
+        const linkVisible = await locator.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
+        if (linkVisible) {
+          await clickPortalLink(page, locator);
+          return 'link';
+        }
+      }
+    }
     const link = page.getByRole('link', { name: pattern }).first();
     const linkVisible = await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
     if (linkVisible) {
