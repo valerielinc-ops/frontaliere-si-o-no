@@ -606,10 +606,58 @@ function uploadLabel(document, candidate) {
   return extra ? `[documento: ${extra.label}]` : '[CV]';
 }
 
+const GALLERY_PREVIOUS_RE = /^(?:previous|prev(?:ious)?|vorherig(?:e|er|es|en)|pr[ée]c[ée]dent(?:e)?|precedent[ei]?|indietro)\b/i;
+const GALLERY_NEXT_RE = /^(?:next|nächst(?:e|er|es|en)?|suivant(?:e)?|successiv[oa]?)\b/i;
+const GALLERY_VIEW_RE = /(?:grossansicht|full[-\s]?size|large view|schermo intero|en grand)/i;
+const GALLERY_PRINT_RE = /(?:seite drucken|print page|stampa pagina|imprimer la page)/i;
+const GENERIC_ATTACHMENT_RE = /(?:eine oder mehrere dateien auswählen|select (?:one or more )?files?|choose (?:one or more )?files?|file upload|attachment|anhang|allegato|pi[èe]ce jointe)/iu;
+const APPLICATION_CONTROL_RE = /(?:application|bewerb(?:ung)?|candidat(?:ure|ura)?|postul|resume|r[ée]sum[ée]|lebenslauf|\bcv\b|curriculum(?:\s+vitae)?|anschreiben|cover\s+letter|work\s+permit|salary|starting\s+date|notice\s+period|workload|motivation)/iu;
+
+const isGalleryPagingButton = (button, pattern) => !button?.chrome && pattern.test(String(button.text || ''));
+const samePortalFrame = (left, right) => (left?.frame || 0) === (right?.frame || 0);
+const samePortalForm = (button, field) => String(button?.formId || '')
+  && String(button.formId) === String(field?.formId || '')
+  && samePortalFrame(button, field);
+const isGenericOptionalAttachment = (field) => isFileField(field)
+  && field.required !== true
+  && GENERIC_ATTACHMENT_RE.test([field.label, field.name, field.id, field.context].filter(Boolean).join(' '));
+
+/**
+ * Stadt Zürich's public content pages expose a gallery with «Vorheriges» /
+ * «Nächstes», full-size-image and print controls. A generic optional upload
+ * field is also present, so labels alone make the gallery look like a wizard.
+ * Keep a real application step when its control owns the form or its fields
+ * carry application vocabulary; otherwise fail closed before clicking it.
+ */
+function isNonApplicationGallerySurface(snapshot = {}) {
+  const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
+  const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  const hasPaging = buttons.some((button) => isGalleryPagingButton(button, GALLERY_PREVIOUS_RE))
+    && buttons.some((button) => isGalleryPagingButton(button, GALLERY_NEXT_RE));
+  const hasGalleryTools = buttons.some((button) => !button?.chrome && GALLERY_VIEW_RE.test(String(button.text || '')))
+    && buttons.some((button) => !button?.chrome && GALLERY_PRINT_RE.test(String(button.text || '')));
+  if (!hasPaging || !hasGalleryTools) return false;
+
+  const fieldText = fields.map((field) => [field.label, field.name, field.id, field.context, field.section].filter(Boolean).join(' ')).join(' ');
+  const hasApplicationField = APPLICATION_CONTROL_RE.test(fieldText)
+    || fields.some((field) => isCvFileField(field) || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(String(field.label || '')));
+  const hasApplicationControl = buttons.some((button) => {
+    if (button?.chrome || button?.disabled) return false;
+    const text = String(button.text || '');
+    if (!(NEXT_RE.test(text) || SUBMIT_RE.test(text))) return false;
+    return fields.some((field) => samePortalForm(button, field));
+  }) || buttons.some((button) => !button?.chrome && SUBMIT_RE.test(String(button.text || ''))
+    && APPLICATION_CONTROL_RE.test(String(button.text || '')));
+  if (hasApplicationField || hasApplicationControl) return false;
+  return fields.length === 0 || fields.every(isGenericOptionalAttachment);
+}
+
 function hasApplicationForm(snapshot) {
-  const kinds = snapshot.fields.map((field) => field.kind);
-  const textish = snapshot.fields.filter((field) => field.kind === 'text' || field.kind === 'textarea').length;
-  const email = snapshot.fields.some((field) => field.inputType === 'email' || /e-?mail/i.test(field.label));
+  if (isNonApplicationGallerySurface(snapshot)) return false;
+  const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
+  const kinds = fields.map((field) => field.kind);
+  const textish = fields.filter((field) => field.kind === 'text' || field.kind === 'textarea').length;
+  const email = fields.some((field) => field.inputType === 'email' || /e-?mail/i.test(field.label));
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
@@ -620,6 +668,7 @@ function hasApplicationForm(snapshot) {
  * buttons are still actionable and must reach the agentic fallback.
  */
 export function hasApplicationSurface(snapshot) {
+  if (isNonApplicationGallerySurface(snapshot)) return false;
   return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
 }
 
@@ -3808,10 +3857,12 @@ export function pageControls(buttons, known, url, context = null) {
   }
   const here = anonymizePath(url);
   const submit = findButton(buttons, SUBMIT_RE);
-  const usualNext = findButton(buttons, NEXT_RE);
-  const taughtNext = submit || usualNext ? null : learnedButton(buttons, labelsAt(known.nextButtons, here));
+  const gallerySurface = isNonApplicationGallerySurface({ buttons, fields: context?.snapshot?.fields });
+  const usualNext = gallerySurface ? null : findButton(buttons, NEXT_RE);
+  const taughtNext = gallerySurface || submit || usualNext ? null : learnedButton(buttons, labelsAt(known.nextButtons, here));
+  const learnedSubmit = gallerySurface ? null : learnedButton(buttons, labelsAt(known.finalButtons, here));
   return {
-    submit: submit || (usualNext || taughtNext ? null : learnedButton(buttons, labelsAt(known.finalButtons, here))),
+    submit: submit || (usualNext || taughtNext ? null : learnedSubmit),
     next: usualNext || taughtNext,
     ...(stage ? { stage } : {}),
   };

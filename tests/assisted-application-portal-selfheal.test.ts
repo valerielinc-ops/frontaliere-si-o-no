@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { clickSubmitButton, guardAgentStep, AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { labelsAt, learnedButton, normalizeLabel, portalKnowledgeStore, PORTAL_KNOWLEDGE_COLLECTION } from '../scripts/assisted-application/lib/portal/knowledge.mjs';
-import { anonymizePath, pageControls, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { anonymizePath, hasApplicationSurface, pageControls, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { CONFIRM_RE, REFUSED_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateValues, redactStopReport, stopIssue } from '../scripts/assisted-application/lib/portal/stop-report.mjs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
@@ -103,7 +103,7 @@ describe('portal runner self-correction', () => {
     expect(pageControls([usualSend, usualNext], known, 'https://portal.example/other')).toEqual({ submit: usualSend, next: usualNext });
   });
 
-  it('recognises a German SuccessFactors next step with only an optional file field', () => {
+  it('does not mistake a public German image gallery for an application step', () => {
     const snapshot = {
       fields: [{
         id: 'attachment', kind: 'file', inputType: 'file',
@@ -120,7 +120,24 @@ describe('portal runner self-correction', () => {
     };
 
     expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://www.stadt-zuerich.ch/bewerbungstipps/'))
-      .toEqual({ submit: null, next: expect.objectContaining({ text: 'Nächstes' }) });
+      .toEqual({ submit: null, next: null });
+    expect(hasApplicationSurface(snapshot)).toBe(false);
+  });
+
+  it('keeps a German next step when the control owns an application form', () => {
+    const next = { text: 'Nächstes', formId: 'application', frame: 0, disabled: false };
+    const snapshot = {
+      fields: [{ id: 'cv', kind: 'file', inputType: 'file', label: 'Lebenslauf', formId: 'application', frame: 0, required: true }],
+      buttons: [
+        { text: 'Vorheriges', disabled: false },
+        next,
+        { text: 'Öffne Bild in Grossansicht', disabled: false },
+        { text: 'Seite drucken', disabled: false },
+      ],
+    };
+
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, 'https://portal.example/apply/').next).toBe(next);
+    expect(hasApplicationSurface(snapshot)).toBe(true);
   });
 
   it('level 3: the stop report names the page without the employer or the posting', () => {
