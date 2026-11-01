@@ -7,14 +7,14 @@ import { generateServerText } from './geminiGenerate.js';
 import { detectCvFileType, ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { extractCvText } from './assistedApplicationAiDocuments.js';
 import { fetchJobPosting } from './assistedApplicationAiJob.js';
-import { sanitizeProfile, sanitizeRequirements, sanitizeMatch, verifyQuotes } from './assistedApplicationAiDraftCore.js';
+import { sanitizeProfile, sanitizeRequirements, sanitizeMatch, verifyQuotes, hasUncoveredHardEligibilityStatements } from './assistedApplicationAiDraftCore.js';
 import { PROFILE_SCHEMA, PROFILE_SYSTEM_PROMPT, profileUserText, REQUIREMENTS_SCHEMA, REQUIREMENTS_SYSTEM_PROMPT,
   requirementsUserText, MATCH_SCHEMA, matchSystemPrompt, matchUserText } from './assistedApplicationAiPrompts.js';
 import { guardMobilityMatch } from './lib/mobilityRequirements.js';
 import { conciergeProposalEligibility } from './assistedApplicationFitNotice.js';
 import { SOURCE_CITATIONS_VERSION, sourceCitations, citationSchema, resolveCitations } from './lib/sourceCitations.js';
 
-export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v3-${SOURCE_CITATIONS_VERSION}`;
+export const CONCIERGE_ELIGIBILITY_VERSION = `full-posting-requirements-v4-${SOURCE_CITATIONS_VERSION}`;
 export const eligibilityHash = value => createHash('sha256').update(value).digest('hex');
 const sourceHash = value => eligibilityHash(String(value || '').replace(/\s+/g, ' ').trim());
 const PROMPT_VERSION = eligibilityHash([PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt('it')].join('\n'));
@@ -74,6 +74,7 @@ async function evaluateConciergePosting({ job, profile, answers = {}, locale = '
     location: posting.location || job.location, postingText: posting.text }), REQUIREMENTS_SCHEMA);
   if (!Array.isArray(raw.requirements) || !raw.requirements.length || raw.requirements.length > 12) return { status: 'unverified', reason: 'requirements_incomplete' };
   const requirements = verifyQuotes(sanitizeRequirements(raw), posting.text);
+  if (hasUncoveredHardEligibilityStatements(requirements, posting.text)) return { status: 'unverified', reason: 'requirements_incomplete' };
   const normalizedProfile = profileForEligibility(profile);
   const evidenceText = sourceText || JSON.stringify(normalizedProfile);
   const candidateSources = sourceCitations({ cv: evidenceText, answers: Object.keys(answers).length ? JSON.stringify(answers) : '' });
@@ -113,7 +114,10 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
     profile = sanitizeProfile(raw, { cvText });
     await profileRef.set({ cvHash, promptVersion: PROMPT_VERSION, profile, updatedAt: FieldValue.serverTimestamp() });
   }
-  const answers = profileRecord.applicationQuestionAnswers || {};
+  // Legacy answer maps have no typed provenance and may be specific to a
+  // different employer or application. Keep them out of candidate evidence;
+  // the typed evidence resolver is integrated separately.
+  const answers = {};
   const answerHash = eligibilityHash(JSON.stringify(answers));
   let analyses = 0;
   return async (job) => {
@@ -155,8 +159,9 @@ export async function preflightExistingCvEligibility({ db, userId, job, generate
   if (!record || record.status !== 'ready' || !record.profile || record.profile.extractedTextAvailable === false) {
     return { status: 'unverified', reason: 'profile_not_ready' };
   }
-  const answers = record.applicationQuestionAnswers && typeof record.applicationQuestionAnswers === 'object'
-    ? record.applicationQuestionAnswers : {};
+  // A one-off checkout may only reuse candidate facts from the CV until its
+  // answer records have the typed source/round/target verification contract.
+  const answers = {};
   const result = await evaluateConciergePosting({
     job,
     profile: record.profile,
@@ -180,11 +185,12 @@ export async function preflightExistingCvEligibility({ db, userId, job, generate
 export async function vettedConciergeDraftInputs({ db, order, cvBuffer, postingText }) {
   if (!order.parentServiceId || !order.parentProposalId) return null;
   const serviceRef = db.collection('application_concierge_services').doc(order.parentServiceId);
-  const [serviceDoc, proposalDoc, profileDoc] = await Promise.all([serviceRef.get(), serviceRef.collection('proposals').doc(order.parentProposalId).get(), db.collection('user_cv_profiles').doc(order.userId).get()]);
+  const [serviceDoc, proposalDoc] = await Promise.all([serviceRef.get(), serviceRef.collection('proposals').doc(order.parentProposalId).get()]);
   const proposal = proposalDoc.data();
-  if (serviceDoc.data()?.userId !== order.userId || !/^job-[a-f0-9]{32}$/.test(proposal?.eligibilityCacheId || '')) return null;
+  if (serviceDoc.data()?.userId !== order.userId || proposal?.eligibilityVersion !== CONCIERGE_ELIGIBILITY_VERSION
+    || !/^job-[a-f0-9]{32}$/.test(proposal?.eligibilityCacheId || '')) return null;
   const cached = (await serviceRef.collection('eligibility').doc(proposal.eligibilityCacheId).get()).data();
-  const answerHash = eligibilityHash(JSON.stringify(profileDoc.data()?.applicationQuestionAnswers || {}));
+  const answerHash = eligibilityHash(JSON.stringify({}));
   if (cached?.result?.status !== 'compatible' || cached.promptVersion !== PROMPT_VERSION || cached.version !== CONCIERGE_ELIGIBILITY_VERSION
     || cached.fingerprint !== proposal.eligibilityFingerprint || cached.cvHash !== eligibilityHash(cvBuffer)
     || cached.postingHash !== sourceHash(postingText) || cached.answerHash !== answerHash) return null;

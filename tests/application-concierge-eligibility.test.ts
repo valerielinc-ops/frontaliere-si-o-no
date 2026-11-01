@@ -3,11 +3,12 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 vi.mock('../functions/src/geminiGenerate.js', () => ({ generateServerText: vi.fn() }));
 const { generateServerText } = await import('../functions/src/geminiGenerate.js');
 vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({ extractCvText: vi.fn(async () => 'Candidate Example\nIT Manager, Example Systems\nLanguages: English B2, French B2\nInfrastructure management and operations experience.') }));
-const { prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
+const { CONCIERGE_ELIGIBILITY_VERSION, prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
 const { conciergeProposalEligibility, fitNoticeOf } = await import('../functions/src/assistedApplicationFitNotice.js');
+const { hasUncoveredHardEligibilityStatements, sanitizeRequirements, verifyQuotes } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT } = await import('../functions/src/assistedApplicationAiPrompts.js');
 
-const requirements = { requirements: [{ requirement: 'Tedesco fluente', importance: 'critical', basis: 'stated', quote: 'Fluent German required' }] };
+const requirements = { requirements: [{ requirement: 'Tedesco fluente', sourceRequirement: 'Fluent German required', importance: 'critical', basis: 'stated', quote: 'Fluent German required' }] };
 const rawProfile = { fullName: 'Candidate Example', languages: [{ language: 'English', level: 'B2' }, { language: 'French', level: 'B2' }], languagesExplicitList: true, experience: [] };
 function fixture(match: any) {
   const records = new Map<string, any>();
@@ -28,6 +29,103 @@ function fixture(match: any) {
 }
 
 describe('qualification before proposal publication', () => {
+  it('fails closed when the extractor omits an exclusive school-placement requirement', async () => {
+    const statement = 'Questo tirocinio è riservato esclusivamente a studenti che frequentano il terzo anno della scuola commerciale e devono svolgere una pratica di 52 settimane.';
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'Comunicazione efficace' }], verdict: 'strong', questions: [] });
+    f.readPosting.mockResolvedValue({ text: [statement, 'Comunicazione efficace.'].join(' '), source: 'job_detail', textTruncated: false });
+    const omitted = { requirements: [{ requirement: 'Comunicazione efficace', sourceRequirement: 'Comunicazione efficace.', importance: 'high', basis: 'stated', quote: 'Comunicazione efficace.' }] };
+    f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? omitted : { matches: [{ index: 0, status: 'met', evidence: 'Comunicazione efficace' }], verdict: 'strong' });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+
+    expect(await check({ id: 'school-placement' })).toMatchObject({ status: 'unverified', reason: 'requirements_incomplete' });
+    expect(f.generate).toHaveBeenCalledTimes(2);
+    expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
+  });
+
+  it('does not use legacy opaque application answers as eligibility evidence', async () => {
+    const statement = 'Candidates must hold a valid Swiss work permit.';
+    const f = fixture({ matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] });
+    f.readPosting.mockResolvedValue({ text: `${statement} ${'The selected candidate supports the team. '.repeat(20)}`, source: 'job_detail', textTruncated: false });
+    const row = { requirement: 'Permesso di lavoro svizzero', sourceRequirement: statement, importance: 'critical', basis: 'stated', quote: statement };
+    f.generate.mockImplementation(async (system, user) => {
+      if (system === PROFILE_SYSTEM_PROMPT) return rawProfile;
+      if (system === REQUIREMENTS_SYSTEM_PROMPT) return { requirements: [row] };
+      const payload = JSON.parse(user.split('\n\n<<<POSTING EXCERPT')[0]);
+      expect(payload.previousAnswers).toEqual({});
+      expect(payload.candidateSourceExcerpts.map((item: any) => item.text).join('\n')).not.toContain('synthetic legacy permit answer');
+      return { matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] };
+    });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: { applicationQuestionAnswers: { work_permit: 'synthetic legacy permit answer' } } });
+
+    expect(await check({ id: 'opaque-answer' })).not.toMatchObject({ status: 'compatible' });
+    expect(f.generate).toHaveBeenCalledTimes(3);
+  });
+
+  it.each([
+    ['it', 'Il concorso si rivolge UNICAMENTE a chi frequenta il terzo anno della scuola commerciale.'],
+    ['de', 'Diese Stelle ist ausschliesslich Bewerberinnen vorbehalten, die das dritte Jahr der Handelsschule besuchen.'],
+    ['fr', 'Ce stage est réservé uniquement aux élèves qui fréquentent la troisième année de l’école commerciale.'],
+    ['en', 'This internship is open exclusively to applicants enrolled in the third year of commercial school.'],
+    ['resident', 'Only Swiss residents may apply.'],
+    ['apply-if-resident', 'Candidates may apply only if they are Swiss residents.'],
+    ['holders', 'This role is exclusively for holders of a valid Swiss work permit.'],
+    ['graduates', 'Only graduates of an accredited nursing programme are eligible.'],
+    ['people', 'The programme is reserved for people currently enrolled in vocational school.'],
+    ['permit', 'Candidates must hold a valid work permit.'],
+    ['de-mandatory', 'Bewerberinnen müssen eine gültige Arbeitsbewilligung besitzen.'],
+  ])('requires a complete source quote for hard eligibility in %s', (_language, statement) => {
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, statement)).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [{ basis: 'stated', importance: 'critical', sourceRequirement: statement, quote: statement }] }, statement)).toBe(false);
+  });
+
+  it('does not let a preferred row cover an exclusive eligibility condition', () => {
+    const statement = 'Only applicants currently enrolled in the third year of commercial school may apply.';
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [{ basis: 'stated', importance: 'preferred', sourceRequirement: statement, quote: statement }] }, statement)).toBe(true);
+  });
+
+  it('keeps a hard eligibility sentence intact when the posting wraps it across lines', () => {
+    const wrapped = ['Only applicants currently enrolled', 'in the third year of commercial school may apply.'].join('\n');
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [{ basis: 'stated', importance: 'critical', sourceRequirement: wrapped, quote: 'Only applicants currently enrolled' }] }, wrapped)).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [{ basis: 'stated', importance: 'critical', sourceRequirement: wrapped, quote: wrapped }] }, wrapped)).toBe(false);
+  });
+
+  it('does not let an unrelated row label borrow a hard-eligibility quote', async () => {
+    const statement = 'This role requires fluent German and five years of relevant sales experience.';
+    const mislabelled = { requirements: [{ requirement: 'Strong communication skills', importance: 'critical', basis: 'stated', quote: statement }] };
+    expect(hasUncoveredHardEligibilityStatements(mislabelled, statement)).toBe(true);
+    const wrongSourceLabel = { requirements: [{ requirement: 'Strong communication skills', sourceRequirement: 'Strong communication skills', importance: 'critical', basis: 'stated', quote: statement }] };
+    expect(hasUncoveredHardEligibilityStatements(wrongSourceLabel, statement)).toBe(true);
+    const verifiedWrongMapping = verifyQuotes(sanitizeRequirements(wrongSourceLabel), statement);
+    expect(verifiedWrongMapping.requirements[0].sourceRequirement).toBe('');
+    expect(hasUncoveredHardEligibilityStatements(verifiedWrongMapping, statement)).toBe(true);
+
+    const mapped = { requirements: [{ requirement: 'Strong communication skills', sourceRequirement: statement, importance: 'critical', basis: 'stated', quote: statement }] };
+    expect(hasUncoveredHardEligibilityStatements(mapped, statement)).toBe(false);
+    const { matchUserText } = await import('../functions/src/assistedApplicationAiPrompts.js');
+    const payload = JSON.parse(matchUserText({ profile: {}, requirements: mapped, answers: {}, postingExcerpt: statement }));
+    expect(payload.requirements[0]).toMatchObject({ requirement: statement, displayRequirement: 'Strong communication skills' });
+  });
+
+  it('treats listed qualifications under a requirements heading as hard and does not mistake developer for must', () => {
+    const qualifications = 'Qualifications\n- German C1\n- Five years of relevant experience';
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, qualifications)).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Qualifications: German C1')).toBe(true);
+    const correctlyCovered = { requirements: [
+      { requirement: 'Tedesco C1', sourceRequirement: 'German C1', importance: 'critical', basis: 'stated', quote: 'German C1' },
+      { requirement: 'Esperienza', sourceRequirement: 'Five years of relevant experience', importance: 'critical', basis: 'stated', quote: 'Five years of relevant experience' },
+    ] };
+    expect(hasUncoveredHardEligibilityStatements(correctlyCovered, qualifications)).toBe(false);
+
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'A developer with Java experience is an advantage.')).toBe(false);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Qualifications\nA developer with Java experience is an advantage.')).toBe(false);
+  });
+
+  it('does not treat application channel instructions or preferred skills as hard eligibility', () => {
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Applications must be submitted online only.')).toBe(false);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Candidates must apply online only.')).toBe(false);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'French is a plus.')).toBe(false);
+  });
+
   it('allows all three bounded primary/fallback attempts without the long-running Codex rung', async () => {
     const match = { matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] };
     const f = fixture(match);
@@ -101,7 +199,7 @@ describe('qualification before proposal publication', () => {
   });
   it('retries a language clause omitted from numbered requirements instead of publishing or caching it', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'IT Manager' }], verdict: 'strong' });
-    const omitted = { requirements: [{ requirement: 'IT experience', importance: 'high', basis: 'stated', quote: 'IT operations' }],
+    const omitted = { requirements: [{ requirement: 'IT experience', sourceRequirement: 'IT operations', importance: 'high', basis: 'stated', quote: 'IT operations' }],
       languageRequirements: [{ language: 'German', level: 'fluent', quote: 'Fluent German required' }] };
     f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? omitted : { matches: [{ index: 0, status: 'met', evidence: 'IT Manager' }], verdict: 'strong' });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
@@ -212,9 +310,9 @@ describe('qualification before proposal publication', () => {
     await check({ jobId: 'job-a', jobUrl: 'https://example.test/a', jobTitle: 'Changed title', companyName: 'Alpha' });
     expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(3);
   });
-  it('reuses a verified positive only for identical CV, posting and answer memory', async () => {
+  it('reuses a verified positive only for identical CV and posting, ignoring opaque legacy answers', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
-    const required = { requirements: [{ requirement: 'English B2', importance: 'critical', basis: 'stated', quote: 'English B2' }] };
+    const required = { requirements: [{ requirement: 'English B2', sourceRequirement: 'English B2 required', importance: 'critical', basis: 'stated', quote: 'English B2 required' }] };
     f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? required : { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
     f.readPosting.mockResolvedValue({ text: `English B2 ${'IT operations and infrastructure. '.repeat(20)}`, textTruncated: false, source: 'job_detail' });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
@@ -223,14 +321,16 @@ describe('qualification before proposal publication', () => {
     expect(result.status).toBe('compatible');
     await check(job);
     expect(f.generate).toHaveBeenCalledTimes(3);
-    f.records.set('application_concierge_services/service/proposals/proposal', { eligibilityCacheId: result.cacheId, eligibilityFingerprint: result.fingerprint });
+    f.records.set('application_concierge_services/service/proposals/proposal', {
+      eligibilityCacheId: result.cacheId, eligibilityFingerprint: result.fingerprint, eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+    });
     const order = { userId: 'candidate', parentServiceId: 'service', parentProposalId: 'proposal' };
     const input = { db: f.db, order, cvBuffer: f.bytes, postingText: (await f.readPosting()).text };
     expect(await vettedConciergeDraftInputs(input)).toMatchObject({ result: { status: 'compatible' } });
     expect(await vettedConciergeDraftInputs({ ...input, cvBuffer: Buffer.from('different CV') })).toBeNull();
     expect(await vettedConciergeDraftInputs({ ...input, postingText: `${input.postingText} changed` })).toBeNull();
     f.records.set('user_cv_profiles/candidate', { applicationQuestionAnswers: { language_en_any_proficiency: 'C1' } });
-    expect(await vettedConciergeDraftInputs(input)).toBeNull();
+    expect(await vettedConciergeDraftInputs(input)).toMatchObject({ result: { status: 'compatible' } });
   });
   it('requires all decisive rows and source-grounded positive evidence', () => {
     expect(conciergeProposalEligibility(requirements, { matches: [], verdict: 'good' })).toMatchObject({ status: 'unverified', reason: 'evidence_incomplete' });
@@ -242,7 +342,7 @@ describe('qualification before proposal publication', () => {
     f.readPosting.mockResolvedValue({ text: `English B2 required. ${'IT management duties. '.repeat(20)}`, textTruncated: false, source: 'job_detail' });
     f.generate.mockImplementation(async (system, user, schema) => {
       if (system === PROFILE_SYSTEM_PROMPT) return rawProfile;
-      if (system === REQUIREMENTS_SYSTEM_PROMPT) return { requirements: [{ requirement: 'English B2', importance: 'critical', basis: 'stated', quote: 'English B2 required' }] };
+      if (system === REQUIREMENTS_SYSTEM_PROMPT) return { requirements: [{ requirement: 'English B2', sourceRequirement: 'English B2 required', importance: 'critical', basis: 'stated', quote: 'English B2 required' }] };
       const payload = JSON.parse(user.split('\n\n<<<POSTING EXCERPT')[0]);
       const source = payload.candidateSourceExcerpts.find((item: any) => item.text.includes('English B2'));
       expect(schema.properties.matches.items.properties.evidence.enum).toContain(source.id);
@@ -258,10 +358,10 @@ describe('qualification before proposal publication', () => {
   it('does not cache invented posting quotes as missing candidate qualifications', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong' });
     f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT
-      ? { requirements: [{ requirement: 'English B2', importance: 'critical', basis: 'stated', quote: 'An invented requirement quote' }] }
+      ? { requirements: [{ requirement: 'English B2', sourceRequirement: 'English B2', importance: 'critical', basis: 'stated', quote: 'An invented requirement quote' }] }
       : { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong' });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
-    expect(await check({ id: 'bad-quote' })).toMatchObject({ status: 'unverified', reason: 'evidence_incomplete' });
+    expect(await check({ id: 'bad-quote' })).toMatchObject({ status: 'unverified', reason: 'requirements_incomplete' });
     expect([...f.records.keys()].filter(key => key.includes('/eligibility/job-'))).toEqual([]);
   });
   it('uses a ready private CV projection for the single-checkout preflight', async () => {

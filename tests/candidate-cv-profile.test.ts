@@ -10,6 +10,7 @@ import {
   shouldRunApplicationConciergeMatchingForServiceUpdate,
 } from '../functions/src/applicationConciergeMatching.js';
 import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
+import { CONCIERGE_ELIGIBILITY_VERSION } from '../functions/src/applicationConciergeEligibility.js';
 
 function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
   const documents = new Map(Object.entries(seed));
@@ -788,6 +789,29 @@ describe('dated historical positions as matching evidence', () => {
 });
 
 describe('progress through the complete relevant job pool', () => {
+  it('revalidates a stale proposed job and retracts it when the current eligibility pass is not compatible', async () => {
+    const now = Date.now();
+    const path = 'application_concierge_services/service-stale-proposal';
+    const jobUrl = 'https://jobs.example.test/eligible-internship/';
+    const { db, documents } = createMatchingDb({
+      [path]: { userId: 'candidate-stale', paymentStatus: 'paid', serviceStatus: 'active', maxPositions: 10,
+        acceptedPositionsCount: 0, cvStorageKey: 'private/current-cv.pdf', expiresAt: new Date(now + 86_400_000) },
+      'user_cv_profiles/candidate-stale': { status: 'ready', profile: { searchText: 'IT support', workPosition: 'IT Support Manager', skills: ['support', 'IT'] } },
+      [`${path}/proposals/old-placement`]: { jobId: 'old-placement', jobUrl, jobTitle: 'IT Support Manager', companyName: 'Example',
+        status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: 'full-posting-requirements-v3-source-citations-v1' },
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => [
+      { id: 'old-placement', url: jobUrl, title: 'IT Support Manager', description: 'IT support responsibilities' },
+    ] })));
+    try {
+      const result = await runApplicationConciergeMatching({ db, serviceId: 'service-stale-proposal', eligibility: async () => ({ status: 'unverified' }) });
+      expect(result).toMatchObject({ status: 'complete', retracted: 1 });
+      expect(documents.get(`${path}/proposals/old-placement`)).toMatchObject({
+        status: 'retracted', eligibilityStatus: 'unverified', eligibilityVersion: CONCIERGE_ELIGIBILITY_VERSION,
+      });
+    } finally { vi.unstubAllGlobals(); }
+  });
+
   it('keeps unavailable jobs retryable without letting them pin discovery beyond the old top-40 window', async () => {
     const path = 'application_concierge_services/service-progress';
     const now = Date.now();
