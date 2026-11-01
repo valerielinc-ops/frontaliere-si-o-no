@@ -579,6 +579,24 @@ describe('expanded plate-auction connectors', () => {
     expect(isExplicitlyEmptyCatalogue(driftRows)).toBe(false);
   });
 
+  it('recognizes the official French VD welcome shell after an auction round ends', () => {
+    const vdWelcomeShell = `<div class="auction-page">
+      <div class="auction-filters"><span>Type de plaques</span><button>Rechercher</button></div>
+      <h1>Bienvenue !</h1>
+      <p>Bienvenue sur notre site de vente de numéros de plaques à combinaisons particulières.</p>
+      <p>Votre service des automobiles et de la navigation</p>
+    </div>`;
+    const rows = parseExpandedCard('vd', vdWelcomeShell, { fetchedAt: '2026-11-01T22:04:00.000Z' });
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+
+    const parserDrift = `${vdWelcomeShell}
+      <a href="/fr/auction/120597" class="auction-card">VD 10075</a>`;
+    const driftRows = parseExpandedCard('vd', parserDrift);
+    expect(driftRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(driftRows)).toBe(false);
+  });
+
   it('recognizes the official no-results page between SH auction rounds', () => {
     const rows = parseShAuctionRows(EXPANDED_CARD_NO_RESULTS_SAMPLE, { fetchedAt: '2026-10-14T22:30:00.000Z' });
     expect(rows).toEqual([]);
