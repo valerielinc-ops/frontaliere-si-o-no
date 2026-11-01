@@ -1,7 +1,7 @@
 {
   "key": "saint-gobain-weber-isover",
   "label": "Saint-Gobain Weber/Isover Suisse",
-  "generatedAt": "2026-11-01T09:35:43.739Z",
+  "generatedAt": "2026-11-01T21:34:26.186Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 7487,
-  "avgDurationMs": 7487,
+  "durationMs": 6338,
+  "avgDurationMs": 6338,
   "durationHistory": [
-    7487
+    6338
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/4c52349a-75f6-4f9c-87ca-db1a9bf5a083/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:35:26.451Z",
+      "crawledAt": "2026-11-01T21:34:06.752Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salaryMax": 102500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T09:35:26.451Z",
+      "validThrough": "2026-12-31T21:34:06.752Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/83a8c5e4-a3ce-40f6-8976-e560026801cf/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:35:25.269Z",
+      "crawledAt": "2026-11-01T21:34:05.693Z",
       "addressLocality": "Switzerland",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:35:25.269Z",
+      "validThrough": "2027-01-18T21:34:05.693Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/3301bd1b-1683-4a2e-be34-85e6bac8fef9/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:35:24.291Z",
+      "crawledAt": "2026-11-01T21:34:04.813Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "salaryMax": 127500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:35:24.291Z",
+      "validThrough": "2027-01-25T21:34:04.813Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -164,5 +164,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

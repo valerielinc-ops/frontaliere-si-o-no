@@ -82,6 +82,11 @@ export interface ReviewQuestion {
   minDate?: string | null;
   /** Proposed start date shown in the empty field (saved only by the candidate). */
   suggested?: string | null;
+  /** Optional answer draft with CV passages selected by the generator; never saved until the candidate saves it. */
+  suggestedAnswer?: string | null;
+  answerEvidence?: string[];
+  /** One fact the CV does not contain and the candidate can add to complete the draft. */
+  answerMissingDetail?: string | null;
   /** The rule checked as the candidate types (functions/src/lib/answerRules.js). */
   validation?: {
     pattern: string;
@@ -186,6 +191,8 @@ export interface ReviewPayload {
   /** The posting’s decisive requirements the CV does not show, said above the questions (null: a full match). */
   fit?: ReviewFitNotice | null;
   answers: Record<string, string>;
+  /** CV answer suggestions the candidate explicitly cleared in this draft round. */
+  dismissedAnswerSuggestionIds?: string[];
   /** Opaque version of the exact question payload shown; contains no answer values. */
   answerQuestionSnapshots?: Record<string, string>;
   /** School reports, test results… the posting requires besides the CV and the letter. */

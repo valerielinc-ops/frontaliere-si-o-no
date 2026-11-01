@@ -441,6 +441,41 @@ function sanitizeQuestions(raw) {
   })).filter((item) => item.id && item.question && !seen.has(item.id) && seen.add(item.id)).slice(0, 6);
 }
 
+/**
+ * Attach CV-grounded draft answers only to the exact open text questions read
+ * from the application portal. The answer remains a proposal in the draft;
+ * the candidate review page must save it before it becomes an answer.
+ */
+export function sanitizeApplicationAnswerSuggestions(raw, questions, sourceText = '') {
+  const source = normalizedHaystack(sourceText).replace(/\s+/gu, ' ');
+  const byId = new Map((Array.isArray(questions) ? questions : [])
+    .filter((question) => question?.source === 'portal' && question?.type === 'text' && question?.id)
+    .map((question) => [question.id, question]));
+  const suggestions = new Map();
+  for (const item of list(raw?.answers, 12)) {
+    const id = clean(item?.id, 80);
+    const question = byId.get(id);
+    if (!question || suggestions.has(id)) continue;
+    const evidence = list(item?.evidence, 3).map((quote) => clean(quote, 360)).filter(Boolean);
+    const verifiedEvidence = item?.evidenceUnverified !== true && evidence.length > 0
+      && evidence.every((quote) => source.includes(normalizedHaystack(quote).replace(/\s+/gu, ' ')));
+    const proposal = String(item?.suggestedAnswer ?? '').replace(/\s+/gu, ' ').trim();
+    const maxAnswerLength = Math.min(450, Number(question.validation?.maxLength) || 450);
+    // A real citation alone does not prove every claim in the generated text.
+    const factsSupported = proposal.length > 0 && checkDraftFacts({ coverLetter: proposal }, { text: sourceText }).ok;
+    const suggestedAnswer = verifiedEvidence && factsSupported && proposal.length <= maxAnswerLength ? clean(proposal, maxAnswerLength) : '';
+    suggestions.set(id, {
+      suggestedAnswer,
+      answerEvidence: suggestedAnswer ? evidence : [],
+      answerMissingDetail: clean(item?.missingDetail, 240),
+    });
+  }
+  return (Array.isArray(questions) ? questions : []).map((question) => {
+    const suggestion = suggestions.get(question?.id);
+    return suggestion ? { ...question, ...suggestion } : question;
+  });
+}
+
 export const SALARY_RULE_MESSAGES = {
   it: 'Indica un importo, per esempio CHF 80’000 all’anno.',
   de: 'Gib einen Betrag an, zum Beispiel CHF 80’000 pro Jahr.',

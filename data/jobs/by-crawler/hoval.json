@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hoval",
-  "assembledAt": "2026-11-01T09:16:07.787Z",
-  "runId": "41291644918",
+  "assembledAt": "2026-11-01T22:14:22.595Z",
+  "runId": "41350266477",
   "jobs": [
     {
       "title": "Business Application Spezialist/in (m/w/d)",
@@ -63,6 +63,9 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
+      "streetAddress": "Feldmeilen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "business-application-spezialist-in-m-w-d-hoval-feldmeilen"
@@ -76,10 +79,7 @@
       },
       "previousSlugs": [
         "business-application-spezialist-in-m-w-d-hoval-feldmeilen"
-      ],
-      "streetAddress": "Feldmeilen",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Impiegata/o del Front/Back Office (m/f/d)",
@@ -630,6 +630,9 @@
       },
       "postalCode": "9500",
       "firstSeenAt": "2026-10-13T21:20:08.331Z",
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-ol-biomasse-rapperswil-sargans-m-w-d-hoval-wil"
@@ -643,10 +646,7 @@
       },
       "previousSlugs": [
         "servicetechniker-in-ol-biomasse-rapperswil-sargans-m-w-d-hoval-wil"
-      ],
-      "streetAddress": "Wil",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Technicien/ne de Service Gaz/Mazout Region Vaud (m/f/d)",
@@ -708,6 +708,9 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "1023",
+      "streetAddress": "Crissier",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "technicien-ne-de-service-gaz-mazout-region-vaud-m-f-d-hoval-crissier"
@@ -721,10 +724,7 @@
       },
       "previousSlugs": [
         "technicien-ne-de-service-gaz-mazout-region-vaud-m-f-d-hoval-crissier"
-      ],
-      "streetAddress": "Crissier",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Technicien/ne de service PAC - Valais/Riviera vaudoise (m/f/d)",
@@ -868,6 +868,9 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
+      "streetAddress": "Feldmeilen ( Region NWS )",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "technischer-verkaufsberater-aussendienst-komfortluftung-hallenklima-m-w-d-hoval-feldmeilen-region-nws"
@@ -881,10 +884,7 @@
       },
       "previousSlugs": [
         "technischer-verkaufsberater-aussendienst-komfortluftung-hallenklima-m-w-d-hoval-feldmeilen-region-nws"
-      ],
-      "streetAddress": "Feldmeilen ( Region NWS )",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",

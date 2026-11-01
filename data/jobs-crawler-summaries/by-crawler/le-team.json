@@ -1,7 +1,7 @@
 {
   "key": "le-team",
   "label": "le team sa",
-  "generatedAt": "2026-11-01T09:27:58.836Z",
+  "generatedAt": "2026-11-01T21:45:48.209Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6992,
-  "avgDurationMs": 6992,
+  "durationMs": 7939,
+  "avgDurationMs": 7939,
   "durationHistory": [
-    6992
+    7939
   ],
   "newJobs": [
     {
@@ -38,7 +38,7 @@
       "url": "https://team.jobs/fr/offres-demplois/betonwerker-betonbauer/macon-b-h-f-d/Hagz1kmEzkUfZnEz9JwcJO",
       "source": "le team sa Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:27:43.104Z",
+      "crawledAt": "2026-11-01T21:45:30.634Z",
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "postalCode": "2900",
       "streetAddress": "Porrentruy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:27:43.104Z",
+      "validThrough": "2027-01-13T21:45:30.634Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-15T21:26:12.232Z",
       "_qualityScore": 89,
@@ -75,5 +75,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "damiani-group",
-  "assembledAt": "2026-11-01T09:19:51.711Z",
-  "runId": "41291802731",
+  "assembledAt": "2026-11-01T21:47:40.192Z",
+  "runId": "41350458229",
   "jobs": [
     {
       "title": "Finance & Accounting Integration Specialist",
@@ -65,6 +65,8 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-finance-&-accounting-integration-specialist/1362895655",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "finance-accounting-integration-specialist-damiani-group-mendrisio"
@@ -72,9 +74,7 @@
       },
       "previousSlugs": [
         "finance-accounting-integration-specialist-damiani-group-mendrisio"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Graphic Designer - Freelance",
@@ -203,6 +203,8 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-marketing-manager/1366255755",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "marketing-manager-damiani-group-mendrisio"
@@ -216,9 +218,7 @@
       },
       "previousSlugs": [
         "marketing-manager-damiani-group-mendrisio"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Consolidation & Reporting Specialist",
@@ -410,6 +410,9 @@
       },
       "postalCode": "1204",
       "firstSeenAt": "2026-10-20T21:16:47.126Z",
+      "streetAddress": "Ginevra",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "watches-designer-damiani-group-ginevra"
@@ -423,10 +426,7 @@
       },
       "previousSlugs": [
         "watches-designer-damiani-group-ginevra"
-      ],
-      "streetAddress": "Ginevra",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "IT Support & Junior System Administrator",
@@ -628,6 +628,8 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-customer-service-specialist-german-speaking/1355847255",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "customer-service-specialist-german-speaking-damiani-group-mendrisio"
@@ -641,9 +643,7 @@
       },
       "previousSlugs": [
         "customer-service-specialist-german-speaking-damiani-group-mendrisio"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Legal Senior Specialist",

@@ -1,9 +1,9 @@
 {
   "key": "sta",
   "label": "STA Personal AG",
-  "generatedAt": "2026-11-01T09:32:36.442Z",
+  "generatedAt": "2026-11-01T21:47:49.549Z",
   "total": 0,
-  "discovered": 1658,
+  "discovered": 1620,
   "parsed": 0,
   "lastFetchOutcome": "selector_miss",
   "sourceBodyFailureCount": 0,
@@ -20,5 +20,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

@@ -1,7 +1,7 @@
 {
   "key": "pigna",
   "label": "Stiftung Pigna",
-  "generatedAt": "2026-11-01T09:40:36.450Z",
+  "generatedAt": "2026-11-01T22:15:04.714Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 9471,
-  "avgDurationMs": 9471,
+  "unchangedCount": 7,
+  "durationMs": 8939,
+  "avgDurationMs": 8939,
   "durationHistory": [
-    9471
+    8939
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "pigna-cbec9ee4e061",
       "slug": "sostituto-a-della-persona-responsabile-della-gestione-della-qualita-40-stiftung-pigna-kloten",
@@ -36,7 +38,7 @@
       "url": "https://app.reflinejobs.io/1531/0309/pub/540/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:40:22.570Z",
+      "crawledAt": "2026-11-01T22:14:47.738Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -59,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T09:40:22.570Z",
+      "validThrough": "2027-01-29T22:14:47.738Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -68,10 +70,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "pigna-9aace9639d35",
       "slug": "responsabilita-80-90-stiftung-pigna-kloten",
@@ -85,7 +84,7 @@
       "url": "https://app.reflinejobs.io/1531/0306/pub/524/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:40:21.995Z",
+      "crawledAt": "2026-11-01T22:14:47.135Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -108,7 +107,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:40:21.995Z",
+      "validThrough": "2027-01-07T22:14:47.135Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -131,7 +130,7 @@
       "url": "https://app.reflinejobs.io/1531/0297/pub/488/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:40:21.415Z",
+      "crawledAt": "2026-11-01T22:14:46.558Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -154,7 +153,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:40:21.415Z",
+      "validThrough": "2026-12-01T22:14:46.558Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -177,7 +176,7 @@
       "url": "https://app.reflinejobs.io/1531/0294/pub/536/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:40:20.814Z",
+      "crawledAt": "2026-11-01T22:14:45.706Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -200,7 +199,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:40:20.814Z",
+      "validThrough": "2027-01-25T22:14:45.706Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -223,7 +222,7 @@
       "url": "https://app.reflinejobs.io/1531/0270/pub/504/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:40:20.223Z",
+      "crawledAt": "2026-11-01T22:14:45.038Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -246,7 +245,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:40:20.223Z",
+      "validThrough": "2026-12-14T22:14:45.038Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -269,7 +268,7 @@
       "url": "https://app.reflinejobs.io/1531/0156/pub/530/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:40:19.555Z",
+      "crawledAt": "2026-11-01T22:14:44.437Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -292,7 +291,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:40:19.555Z",
+      "validThrough": "2027-01-24T22:14:44.437Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -315,7 +314,7 @@
       "url": "https://app.reflinejobs.io/1531/0138/pub/533/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:40:18.726Z",
+      "crawledAt": "2026-11-01T22:14:43.634Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,7 +337,7 @@
       "salarySource": "estimated",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:40:18.726Z",
+      "validThrough": "2027-01-24T22:14:43.634Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -349,5 +348,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

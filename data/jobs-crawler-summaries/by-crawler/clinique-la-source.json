@@ -1,7 +1,7 @@
 {
   "key": "clinique-la-source",
   "label": "Clinique de La Source",
-  "generatedAt": "2026-11-01T09:14:44.965Z",
+  "generatedAt": "2026-11-01T22:09:00.206Z",
   "total": 12,
   "discovered": null,
   "parsed": 10,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 9922,
-  "avgDurationMs": 9922,
+  "durationMs": 14900,
+  "avgDurationMs": 14900,
   "durationHistory": [
-    9922
+    14900
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=762",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:14:26.669Z",
+      "crawledAt": "2026-11-01T22:08:43.634Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -59,7 +59,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:14:26.669Z",
+      "validThrough": "2026-12-01T22:08:43.634Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=791",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:14:26.113Z",
+      "crawledAt": "2026-11-01T22:08:43.066Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:14:26.113Z",
+      "validThrough": "2027-01-04T22:08:43.066Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=783",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:14:25.575Z",
+      "crawledAt": "2026-11-01T22:08:42.512Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -156,7 +156,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:14:25.575Z",
+      "validThrough": "2026-12-10T22:08:42.512Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=789",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:14:25.037Z",
+      "crawledAt": "2026-11-01T22:08:41.965Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -202,7 +202,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:14:25.037Z",
+      "validThrough": "2026-12-01T22:08:41.965Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -225,7 +225,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=790",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:14:24.477Z",
+      "crawledAt": "2026-11-01T22:08:41.389Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:14:24.477Z",
+      "validThrough": "2027-01-04T22:08:41.389Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -272,7 +272,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=793",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:14:23.933Z",
+      "crawledAt": "2026-11-01T22:08:40.771Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -296,7 +296,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:14:23.933Z",
+      "validThrough": "2027-01-24T22:08:40.771Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -319,7 +319,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=781",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:14:23.396Z",
+      "crawledAt": "2026-11-01T22:08:40.154Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -343,7 +343,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:14:23.396Z",
+      "validThrough": "2026-12-01T22:08:40.154Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -365,7 +365,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=782",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:14:22.820Z",
+      "crawledAt": "2026-11-01T22:08:39.587Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -389,7 +389,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T09:14:22.820Z",
+      "validThrough": "2026-12-08T22:08:39.587Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -412,7 +412,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=788",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:14:22.284Z",
+      "crawledAt": "2026-11-01T22:08:39.045Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:14:22.284Z",
+      "validThrough": "2026-12-29T22:08:39.045Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -458,7 +458,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=792",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:14:21.738Z",
+      "crawledAt": "2026-11-01T22:08:38.472Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -482,7 +482,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:14:21.738Z",
+      "validThrough": "2026-12-01T22:08:38.472Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -526,7 +526,7 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-30T21:45:43.750Z",
@@ -574,7 +574,7 @@
       "salaryMin": 116500,
       "salaryMax": 162500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-30T21:45:41.073Z",
@@ -588,5 +588,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

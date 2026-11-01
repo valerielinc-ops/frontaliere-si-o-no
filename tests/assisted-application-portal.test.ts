@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, phoneCountryOptionLabel, residenceCountryOptionLabel, searchHolds, separatePhonePrefixMetadata, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -30,6 +30,79 @@ describe('application-surface detection', () => {
       fields: [{ id: 'f1', kind: 'text' }],
       buttons: [{ text: 'Menu', chrome: true }],
     })).toBe(true);
+  });
+});
+
+describe('account verification recovery', () => {
+  it('resends Workday verification when sign-in reveals the explicit unverified-account page', async () => {
+    const url = 'https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/role/apply/applyManually';
+    const verificationMessage = 'Verify your account before you sign in or request a verification email.';
+    const fields = [
+      { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'Email Address*', required: true, value: '' },
+      { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Password*', required: true, value: '' },
+    ];
+    const buttons = [
+      { id: 'sign-in', text: 'Sign In', disabled: false, frame: 0 },
+      { id: 'search', text: 'Search for Jobs', disabled: false, frame: 0 },
+      { id: 'back', text: 'Back to Job Posting', disabled: false, frame: 0 },
+      { id: 'resend', text: 'Resend Account Verification', disabled: false, frame: 0 },
+      { id: 'create', text: 'Create Account', disabled: false, frame: 0 },
+      { id: 'forgot', text: 'Forgot your password?', disabled: false, frame: 0 },
+    ];
+    const initial = { url, fields, buttons, errors: [], text: 'Sign In', passwordVisible: true };
+    const afterSignIn = { url, fields, buttons, errors: [verificationMessage], text: verificationMessage, passwordVisible: true };
+    let afterClick = false;
+    let resendClicked = false;
+    const values = new Map<string, string>();
+    const current = () => ({
+      ...(afterClick ? afterSignIn : initial),
+      fields: fields.map((field) => ({ ...field, value: values.get(field.id) || '' })),
+    });
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_fn: unknown, args?: unknown) => args ? current() : null),
+      locator: vi.fn((selector: string) => {
+        const id = /data-aa-id="([^"]+)"/.exec(selector)?.[1] || '';
+        const locator: any = {
+          first: () => locator,
+          click: vi.fn(async () => {
+            if (id === 'sign-in') afterClick = true;
+            if (id === 'resend') resendClicked = true;
+          }),
+          fill: vi.fn(async (value: string) => { values.set(id, value); }),
+          inputValue: vi.fn(async () => values.get(id) || ''),
+          count: vi.fn(async () => 0),
+        };
+        return locator;
+      }),
+      getByText: vi.fn(() => ({ first: () => ({ click: vi.fn(async () => {}) }) })),
+    };
+    const page = {
+      url: () => url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+      getByRole: vi.fn(() => ({ first: () => ({ waitFor: vi.fn(async () => { throw new Error('not-visible'); }) }) })),
+    };
+    const result = await handleAuth({
+      page: page as any,
+      snapshot: initial,
+      ctx: {
+        accounts: {
+          load: vi.fn(async () => ({ email: 'runner@example.test', password: 'synthetic-password', createdAt: 1, verifiedAt: 2 })),
+          verificationMessageIds: vi.fn(async () => []),
+          waitForVerification: vi.fn(async () => null),
+        },
+      },
+    });
+
+    expect(result).toMatchObject({
+      handoff: 'account_verification_timeout',
+      accountFailure: { code: 'verification_timeout', stage: 'verification' },
+      pressed: 'id',
+    });
+    expect(resendClicked).toBe(true);
   });
 });
 
@@ -1167,6 +1240,79 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(control.selectOption).toHaveBeenCalledWith({ label: 'Italy' }, { timeout: 6000 });
   });
 
+  it('chooses a localized residence country option from a Workday listbox', async () => {
+    let selected = '';
+    const optionClick = vi.fn(async () => { selected = 'Switzerland'; });
+    const control = {
+      click: vi.fn(async () => {}),
+      press: vi.fn(async () => {}),
+      evaluate: vi.fn(async (_read: unknown, data: { wanted: string }) => selected.toLowerCase() === data.wanted),
+    };
+    const options = { allInnerTexts: vi.fn(async () => ['Switzerland', 'Italy']) };
+    const frame = {
+      locator: vi.fn((selector: string) => selector.includes('[role="option"]') ? options : { first: () => control }),
+      getByRole: vi.fn((_role: string, query: { name: string }) => ({ first: () => ({ click: optionClick, query }) })),
+    };
+    const page = { frames: () => [frame], mainFrame: () => frame, waitForTimeout: vi.fn(async () => {}) };
+    const result = await applyActions(page as any, [{
+      id: 'residence-country', kind: 'listbox', label: 'Country of residence',
+    }], [{ fieldId: 'residence-country', action: 'select', value: 'Svizzera' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'residence-country', ok: true }]);
+    expect(optionClick).toHaveBeenCalledOnce();
+    expect((frame.getByRole as any).mock.calls[0][1]).toEqual({ name: 'Switzerland', exact: true });
+  });
+
+  it('does not confirm a search value from the parent frame when an iframe reuses the same control id', async () => {
+    const pageUrl = 'https://workday.localhost/form';
+    const originalDateNow = Date.now;
+    let clock = originalDateNow();
+    Date.now = () => clock;
+    const makeFrame = (shown: string, { initialInput = '', onTarget = false } = {}) => {
+      let input = initialInput;
+      let expanded = 'true';
+      const field = { id: 'shared-search', kind: 'text', inputType: 'text', label: 'Phone country code', value: shown, search: true, options: [] };
+      const snapshot = { url: pageUrl, title: '', fields: [field], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '' };
+      const control = {
+        fill: vi.fn(async (value: string) => { if (onTarget) input = value; }),
+        inputValue: vi.fn(async () => input),
+        getAttribute: vi.fn(async (name: string) => name === 'aria-expanded' ? expanded : null),
+        click: vi.fn(async () => {}),
+        press: vi.fn(async () => { expanded = 'false'; }),
+        pressSequentially: vi.fn(async () => {}),
+      };
+      return {
+        url: () => pageUrl,
+        evaluate: async () => snapshot,
+        locator: (selector: string) => selector.includes('[role="option"]')
+          ? { allInnerTexts: async () => [], nth: () => ({ click: async () => {} }) }
+          : { first: () => control },
+        control,
+      };
+    };
+    // The parent has an old committed match; the application iframe still
+    // shows a different option. Only the target frame may confirm the answer.
+    const parentFrame = makeFrame('Switzerland (+41)', { initialInput: '+41' });
+    const applicationFrame = makeFrame('Italy (+39)', { initialInput: '+4', onTarget: true });
+    const page = {
+      url: () => pageUrl,
+      title: async () => '',
+      frames: () => [parentFrame, applicationFrame],
+      mainFrame: () => parentFrame,
+      waitForTimeout: vi.fn(async (ms: number) => { clock += ms; }),
+    };
+
+    try {
+      const result = await applyActions(page as any, [{
+        id: 'shared-search', kind: 'text', inputType: 'text', label: 'Phone country code', frame: 1, search: true, value: '',
+      }], [{ fieldId: 'shared-search', action: 'fill', value: '+41' }], {}, { pause: async () => {} });
+
+      expect(result).toEqual([{ fieldId: 'shared-search', ok: false, error: 'suggestion_not_chosen' }]);
+    } finally {
+      Date.now = originalDateNow;
+    }
+  });
+
   it('passes split-phone metadata to the text boundary while keeping single inputs international', async () => {
     let entered = '';
     const control = {
@@ -1186,6 +1332,39 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const single = await applyActions(page as any, [phone], [{ fieldId: 'phone', action: 'fill', value: '+39 324 0753275' }], {}, { pause: async () => {} });
     expect(single).toEqual([{ fieldId: 'phone', ok: true }]);
     expect(entered).toBe('+39 324 0753275');
+  });
+
+  it('waits for a search suggestion to replace the raw phone-code query', async () => {
+    let shown = '';
+    let raw = '';
+    let expanded = 'false';
+    const option = {
+      click: vi.fn(async () => { shown = 'Switzerland (+41)'; raw = ''; expanded = 'false'; }),
+    };
+    const options = {
+      allInnerTexts: vi.fn(async () => ['Switzerland (+41)', 'Italy (+39)']),
+      nth: vi.fn(() => option),
+    };
+    const control = {
+      fill: vi.fn(async (value: string) => { raw = value; shown = value; expanded = 'true'; }),
+      inputValue: vi.fn(async () => raw),
+      press: vi.fn(async () => { expanded = 'true'; }),
+      getAttribute: vi.fn(async (name: string) => name === 'aria-expanded' ? expanded : null),
+    };
+    const frame = {
+      url: () => 'https://workday.localhost/form',
+      evaluate: vi.fn(async () => ({ url: 'https://workday.localhost/form', pageMarker: '', fields: [{ id: 'phone-code', kind: 'text', inputType: 'text', label: 'Country Phone Code*', value: shown, search: true }], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [] })),
+      locator: vi.fn((selector: string) => selector.includes('[role="option"]') ? options : { first: () => control }),
+    };
+    const page = { url: () => 'https://workday.localhost/form', frames: () => [frame], mainFrame: () => frame, waitForTimeout: vi.fn(async () => {}) };
+    const result = await applyActions(page as any, [{ id: 'phone-code', kind: 'text', inputType: 'text', label: 'Country Phone Code*', search: true, value: '' }], [
+      { fieldId: 'phone-code', action: 'fill', value: '+41' },
+    ], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'phone-code', ok: true }]);
+    expect(option.click).toHaveBeenCalledOnce();
+    expect(shown).toBe('Switzerland (+41)');
+    expect(raw).toBe('');
   });
 
   it('matches a custom picklist label by normalized exact text', async () => {

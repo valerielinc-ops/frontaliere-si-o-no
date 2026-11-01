@@ -1,20 +1,63 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-11-01T09:14:51.174Z",
-  "total": 14,
+  "generatedAt": "2026-11-01T22:08:04.823Z",
+  "total": 13,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 14,
-  "durationMs": 8378,
-  "avgDurationMs": 8378,
+  "removedCount": 1,
+  "unchangedCount": 13,
+  "durationMs": 7747,
+  "avgDurationMs": 7747,
   "durationHistory": [
-    8378
+    7747
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Technische/r Mitarbeiter/in - Abwaschküche",
+      "slug": "collaboratore-trice-tecnico-a-cucina-per-il-lavaggio-delle-stoviglie-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/technische-r-mitarbeiter-in-abwaschkueche/f5ff8a14-c4d8-4cdf-ac9b-a7e8e59910ad",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20553",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "1725",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-06T09:00:06Z",
+      "postedDate": "2026-10-06T09:00:06Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-08T00:00:00.000Z",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-61101aa18510",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-06T09:14:40.752Z",
+      "streetAddress": "Posieux",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Leiter/-in Zentralsupport (Teamleiter/-in)",
@@ -479,48 +522,6 @@
       }
     },
     {
-      "title": "Technische/r Mitarbeiter/in - Abwaschküche",
-      "slug": "collaboratore-trice-tecnico-a-cucina-per-il-lavaggio-delle-stoviglie-agroscope-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/technische-r-mitarbeiter-in-abwaschkueche/f5ff8a14-c4d8-4cdf-ac9b-a7e8e59910ad",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20553",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Posieux",
-      "addressLocality": "Posieux",
-      "postalCode": "1725",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-06T09:00:06Z",
-      "postedDate": "2026-10-06T09:00:06Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-08T00:00:00.000Z",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-61101aa18510",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-06T09:14:40.752Z",
-      "streetAddress": "Posieux",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Postdoktorand/-in zum Thema \"Metaboliten von Pflanzenschutzmitteln im Grundwasser\"",
       "slug": "ricercatore-post-dottorato-sul-tema-metaboliti-dei-prodotti-per-la-protezione-delle-piante-nelle-acque-sotterranee",
       "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-zum-thema-metaboliten-von-pflanzenschutzmitteln-im-grundwasser/e028e811-d953-49c3-9ecd-723157bcc123",
@@ -606,5 +607,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

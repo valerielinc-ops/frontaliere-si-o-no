@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
 import '../../extension/apply-control.js';
@@ -40,10 +41,10 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
-import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
+import { nationalityOf, permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
-import { resolveResidenceAddress } from './residence-address.mjs';
+import { residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
@@ -73,7 +74,14 @@ const AUTH_VIEW_TIMEOUT_MS = 8_000;
 const AUTH_TYPED_WAIT_MS = 600;
 // How long a choice gets to redraw the form it belongs to, and how often one page is planned again for it.
 const REDRAW_WAIT_MS = 3000;
-const MAX_REDRAWS_PER_PAGE = 2;
+// Conditional ATS forms can reveal one required answer per successful edit
+// (for example country → city → postal code). Replan after each change, but
+// keep a finite ceiling so an unstable portal still hands off safely.
+const MAX_REDRAWS_PER_PAGE = 4;
+const QUESTION_SURFACE_WAIT_MS = 10_000;
+const QUESTION_SURFACE_MIN_OBSERVATION_MS = 6000;
+const QUESTION_SURFACE_STABLE_MS = 1500;
+const QUESTION_SURFACE_POLL_MS = 250;
 // A page with nothing to fill on which the portal itself asks to be loaded again («Something went wrong.
 // Please refresh the page and then try again»: Workday, when the account already holds an application in
 // progress for the posting; its first request for a new one is refused, and the page loaded next is the
@@ -172,6 +180,12 @@ function accountHandoff(handoff, code, stage) {
 function accountStageFor(snapshot) {
   const kind = authPageKind(snapshot);
   return kind === 'create' ? 'registration' : kind === 'sign_in' ? 'login' : 'unknown';
+}
+
+function hasResendVerificationControl(snapshot = {}) {
+  return Boolean(findButton(snapshot.buttons || [], RESEND_VERIFICATION_RE)
+    || (snapshot.links || []).some((link) => [link.text, link.label, link.ariaLabel, link.title]
+      .some((value) => RESEND_VERIFICATION_RE.test(String(value || '')))));
 }
 
 function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
@@ -358,7 +372,10 @@ export const headedBrowser = () => process.env.ASSISTED_APPLICATION_HEADED === '
 
 /** A label that is a generated name, not a question ("select-input-_r_p_", "file:_r_3_:input"). */
 export function machineLabel(label) {
-  const text = String(label || '').trim();
+  // Required markers are presentation, not part of an ATS-generated control
+  // name (for example `textarea_123 *`). Strip them before classifying the
+  // label so a live description can still replace the machine label.
+  const text = String(label || '').trim().replace(/\s*\*+\s*$/, '').trim();
   return !text || (/^[\w:.-]+$/.test(text) && /[_:\d]/.test(text));
 }
 
@@ -649,9 +666,92 @@ async function awaitFields(page, snapshot, unchanged = () => false) {
   return current;
 }
 
-/** A page is the same page when the URL and the field labels are (Workday's steps share one URL). */
+/**
+ * A page is the same page when its URL and controls are the same.  Workday's
+ * steps share one URL, and a few single-page ATS flows also reuse the labels;
+ * the stable DOM control ids distinguish a replaced wizard step from a redraw
+ * of the current one without treating a typed value as navigation.
+ */
 function pageSignature(page, snapshot) {
-  return `${page.url()}|${snapshot.fields.map((field) => field.label).join('|')}`;
+  return `${page.url()}|${snapshot.pageMarker || ''}|${snapshot.fields.map((field) => [
+    Number.isInteger(field.frame) ? field.frame : '', field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
+  ].join(':')).join('|')}`;
+}
+
+/** The visible question contract, without values the runner has just filled. */
+function questionSurfaceSignature(snapshot = {}) {
+  const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  const errors = Array.isArray(snapshot.errors) ? snapshot.errors : [];
+  return JSON.stringify({
+    pageMarker: String(snapshot.pageMarker || ''),
+    fields: fields.map((field) => [
+      Number.isInteger(field.frame) ? field.frame : '', field.id || '', field.kind || '', field.inputType || '', field.label || '', field.name || '',
+      field.context || '', field.section || '',
+      String(field.ariaLabel || '').replace(/\s+/g, ' ').trim(),
+      String(field.description || '').replace(/\s+/g, ' ').trim(),
+      String(field.ariaDescription || '').replace(/\s+/g, ' ').trim(),
+      String(field.title || '').replace(/\s+/g, ' ').trim(),
+      String(field.placeholder || '').replace(/\s+/g, ' ').trim(),
+      (Array.isArray(field.labels) ? field.labels : []).map((label) => String(label || '').replace(/\s+/g, ' ').trim()),
+      field.privacyMetadataIncomplete === true,
+      String(field.autocomplete || '').replace(/\s+/g, ' ').trim(),
+      Number.isFinite(field.maxLength) ? field.maxLength : null,
+      String(field.accept || '').replace(/\s+/g, ' ').trim(),
+      Object.hasOwn(field, 'addressContext') ? addressContextContract(field) : null,
+      createHash('sha256').update(String(field.value ?? '')).digest('hex'),
+      field.checked === true,
+      field.required === true, field.invalid === true,
+      (Array.isArray(field.options) ? field.options : []).map((option) => [
+        String(typeof option === 'string' ? option : option?.label || ''),
+        String(typeof option === 'string' ? '' : option?.value || ''),
+        typeof option === 'string' ? false : option?.disabled === true,
+        typeof option === 'string' ? false : option?.placeholder === true,
+      ]),
+    ]),
+    errors: errors.map((error) => String(error?.message || error?.text || error || '')),
+  });
+}
+
+/** The planned question shape plus whether each required answer is still present. */
+function registrationSurfaceSignature(snapshot = {}) {
+  return JSON.stringify({
+    questions: questionSurfaceSignature(snapshot),
+    required: (Array.isArray(snapshot.fields) ? snapshot.fields : [])
+      .filter((field) => field.required === true || field.invalid === true)
+      .map((field) => [field.id || '', field.kind || '', field.inputType || '', field.required === true,
+        field.invalid === true, field.checked === true, holdsValue(field)]),
+  });
+}
+
+/** Wait for the fields exposed by known answers to settle before asking for missing facts. */
+async function waitForStableQuestionSurface(page, snapshot, expectedUrl) {
+  let current = snapshot;
+  let signature = questionSurfaceSignature(snapshot);
+  let quietMs = 0;
+  let observedMs = 0;
+  while (observedMs < QUESTION_SURFACE_WAIT_MS
+    && (observedMs < QUESTION_SURFACE_MIN_OBSERVATION_MS || quietMs < QUESTION_SURFACE_STABLE_MS)) {
+    await page.waitForTimeout(QUESTION_SURFACE_POLL_MS);
+    observedMs += QUESTION_SURFACE_POLL_MS;
+    const next = await extractFields(page, NAVIGATION).catch(() => null);
+    if (!next) {
+      quietMs = 0;
+      if (page.url() !== expectedUrl) return { status: 'unstable', snapshot: current };
+      continue;
+    }
+    current = next;
+    if (page.url() !== expectedUrl || next.url !== expectedUrl) return { status: 'moved', snapshot: current };
+    const nextSignature = questionSurfaceSignature(next);
+    if (nextSignature === signature) quietMs += QUESTION_SURFACE_POLL_MS;
+    else {
+      signature = nextSignature;
+      quietMs = 0;
+    }
+  }
+  return {
+    status: observedMs >= QUESTION_SURFACE_MIN_OBSERVATION_MS && quietMs >= QUESTION_SURFACE_STABLE_MS ? 'stable' : 'unstable',
+    snapshot: current,
+  };
 }
 
 /** The page's visible text, frames included (Greenhouse embeds its form). */
@@ -3188,9 +3288,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
 
-  const canResendVerification = Boolean(findButton(snapshot.buttons || [], RESEND_VERIFICATION_RE)
-    || (snapshot.links || []).some((link) => [link.text, link.label, link.ariaLabel, link.title]
-      .some((value) => RESEND_VERIFICATION_RE.test(String(value || '')))));
+  const canResendVerification = hasResendVerificationControl(snapshot);
   // SuccessFactors keeps the pending OTP account in this same sign-in shape;
   // its dedicated recovery below must restart registration instead of trying
   // to verify through a mailbox account that does not exist yet.
@@ -3245,6 +3343,16 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (!account.verifiedAt && (VERIFY_PAGE_RE.test(after.text) || codeField(after))) {
       return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
     }
+    // Workday can reveal the verification failure only after the first sign-in
+    // click. The form remains a sign-in page, but its explicit resend control
+    // and verification copy are a safe recovery signal, even when the stored
+    // account record was previously marked verified.
+    const afterText = [after.text, ...(after.errors || [])].join(' ');
+    if (hasResendVerificationControl(after)
+      && VERIFY_PAGE_RE.test(afterText)
+      && !usesOtpAccountCreation(host)) {
+      return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
+    }
     // Two password fields after a sign-in are no account's home either (a dialog opened over the form).
     if (authPageKind(after) === 'create') return { ...accountHandoff('account_sign_in_failed', 'login_unobserved', 'login'), pressed };
     if (authPageKind(after) === 'sign_in') {
@@ -3276,49 +3384,294 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
     : ctx.candidate;
   const plan = await planPage({ snapshot: others, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
-  const initialRequirements = portalRequirementsFromMissingRequired(others.fields, plan.missingRequired);
-  if (initialRequirements.unreadableFields?.length) return { handoff: 'question_label_unreadable' };
-  const initialRequest = await portalRequirementsForCandidate(initialRequirements, {
-    candidateLocale: ctx.candidateLocale, applicationLocale: ctx.language, codex: ctx.codex, log: ctx.log,
-  });
-  if (initialRequest) return initialRequest;
+  // Keep the account-form residence ownership contract on every reread. The
+  // native extractor cannot always infer the personal-information owner from
+  // an explicit residence caption alone, but losing this normalization after
+  // the first redraw would turn the same known field into an unreadable hold.
+  let registrationSnapshot = accountRegistrationSnapshot(snapshot);
+  let registrationPlan = plan;
+  let registrationReplans = 0;
+  let privacySurfaceReplans = 0;
+  // A successful upload belongs to the concrete control that received it.
+  // ATS redraws can reuse the same data-aa-id for a fresh empty file input;
+  // retaining only the field id would incorrectly authorize Create/Submit.
+  const appliedRegistrationUploads = new Map();
+  const uploadControlKey = (field) => JSON.stringify([
+    field?.frame ?? 0,
+    field?.form ?? null,
+    field?.documentInstance || '',
+    field?.controlInstance || '',
+    field?.domId || '',
+    field?.name || '',
+    field?.controlId || '',
+    field?.semanticId || '',
+    field?.nativeControlId || '',
+    field?.ownedList || '',
+  ]);
+  const uploadIsSatisfied = (field) => Boolean(field
+    && appliedRegistrationUploads.get(field.id)
+    && appliedRegistrationUploads.get(field.id) === uploadControlKey(field));
+  const confirmRegistrationUpload = async (action, field, result) => {
+    if (!field || !result?.ok) return false;
+    const selectedPaths = documentPaths(ctx.files, action.document).slice(0, Number(result.files) || 1);
+    if (!selectedPaths.length) return false;
+    const confirmed = await uploadReceipt(page, locatorFor(page, field), selectedPaths, {
+      acceptedResponse: result.uploadAccepted === true,
+    }).catch(() => false);
+    if (!confirmed) return false;
+    appliedRegistrationUploads.set(action.fieldId, uploadControlKey(field));
+    return true;
+  };
+  const knownAnswerMatches = (field, action) => {
+    if (action.action === 'skip') return true;
+    if (!field) return false;
+    if (action.action === 'check') return field.checked === true;
+    if (action.action === 'uncheck') return field.checked === false;
+    if (!['fill', 'select'].includes(action.action) || !holdsValue(field)) return false;
+    const normalize = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+    const selected = (field.options || []).find((option) => option.value === field.value)?.label;
+    const currentValues = [field.value, selected];
+    if (currentValues.some((value) => normalize(value) === normalize(action.value))) return true;
+    const topic = questionTopic(field.label, field.context, field);
+    if (topic === 'residence_country') {
+      const wanted = residenceCountryCode(action.value);
+      return Boolean(wanted && currentValues.some((value) => residenceCountryCode(value) === wanted));
+    }
+    if (topic === 'nationality') {
+      const wanted = nationalityOf(action.value)?.code;
+      return Boolean(wanted && currentValues.some((value) => nationalityOf(value)?.code === wanted));
+    }
+    return false;
+  };
+  const registrationActionSatisfied = (field, action) => action.action === 'upload'
+    ? uploadIsSatisfied(field)
+    : knownAnswerMatches(field, action);
+  let credentialSaved = retryingUnverifiedAccount;
+  const parkRegistrationCredential = async (reason) => {
+    if (retryingUnverifiedAccount) await ctx.accounts.mark(host, { status: 'unanswered' });
+    else if (credentialSaved) await ctx.accounts.discard(host, reason);
+  };
+  const planStableRegistrationSurface = async (startingSnapshot, expectedUrl) => {
+    let current = startingSnapshot;
+    while (true) {
+      const stable = await waitForStableQuestionSurface(page, current, expectedUrl);
+      if (stable.status !== 'stable') return { status: 'unstable', snapshot: stable.snapshot };
+      const plannedSnapshot = accountRegistrationSnapshot(stable.snapshot);
+      const planned = await planPage({
+        snapshot: { ...plannedSnapshot, fields: plannedSnapshot.fields.filter((field) => field.inputType !== 'password') },
+        candidate,
+        candidateLocale: ctx.candidateLocale,
+        codex: ctx.codex,
+      });
+      // The planner can take minutes. Re-read immediately after it returns so
+      // its plan cannot authorize a CTA on a surface that appeared meanwhile.
+      const observedRaw = await extractFields(page, NAVIGATION).catch(() => null);
+      const observed = observedRaw ? accountRegistrationSnapshot(observedRaw) : null;
+      if (!observed || page.url() !== expectedUrl || observed.url !== expectedUrl) {
+        return { status: 'moved', snapshot: observed || plannedSnapshot };
+      }
+      if (registrationSurfaceSignature(observed) === registrationSurfaceSignature(plannedSnapshot)) {
+        return { status: 'stable', snapshot: observed, plan: planned };
+      }
+      if (privacySurfaceReplans >= MAX_REDRAWS_PER_PAGE) return { status: 'unstable', snapshot: observed };
+      privacySurfaceReplans += 1;
+      current = observed;
+    }
+  };
+  // A known registration answer can reveal more required fields (Coop's
+  // country selection is one example). Apply only guarded, non-upload answers
+  // first; do not ask from the planner's earlier, partial view of the form.
+  while (true) {
+    const actions = registrationPlan.actions.filter((action) =>
+      ['fill', 'select', 'check', 'uncheck'].includes(action.action)
+      && !knownAnswerMatches(registrationSnapshot.fields.find((field) => field.id === action.fieldId), action));
+    if (!actions.length) break;
+    if (registrationReplans >= MAX_REDRAWS_PER_PAGE) return { handoff: 'portal_needs_candidate' };
+    const registrationUrl = page.url();
+    const results = await applyActions(page, registrationSnapshot.fields, actions, ctx.files);
+    if (actions.some((action) => !results.some((result) => result.fieldId === action.fieldId && result.ok))) {
+      return { handoff: 'portal_needs_candidate' };
+    }
+    if (page.url() !== registrationUrl) return { handoff: 'portal_needs_candidate' };
+    const stable = await waitForStableQuestionSurface(page, registrationSnapshot, registrationUrl);
+    if (stable.status !== 'stable') return { handoff: 'portal_needs_candidate' };
+    registrationSnapshot = accountRegistrationSnapshot(stable.snapshot);
+    registrationPlan = await planPage({
+      snapshot: { ...registrationSnapshot, fields: registrationSnapshot.fields.filter((field) => field.inputType !== 'password') },
+      candidate,
+      candidateLocale: ctx.candidateLocale,
+      codex: ctx.codex,
+    });
+    registrationReplans += 1;
+  }
+  // The loop has applied all known answers and re-read the stable surface.
+  // Drop those now-confirmed actions so the account creation path cannot
+  // trigger a second redraw by reapplying them after the candidate responds.
+  registrationPlan = {
+    ...registrationPlan,
+    actions: registrationPlan.actions.filter((action) => !registrationActionSatisfied(
+      registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
+    )),
+  };
   const password = account?.password || newPortalPassword({ portal: host });
   const sinceMs = Date.now();
+  const saveCredentialBeforeCreate = async () => {
+    if (credentialSaved) return;
+    // Do not persist a fresh credential while the stable surface is still
+    // asking the candidate questions: a question request must not leave
+    // save/discard residue.
+    await ctx.accounts.save(host, { email: candidate.identity.email, password });
+    credentialSaved = true;
+  };
   if (retryingUnverifiedAccount) {
     // Keep the existing encrypted password: the registration retry is the
     // continuation of the same candidate account, not a new credential.
     await ctx.accounts.mark(host, { status: 'pending' });
-  } else {
-    // Stored (encrypted) before the click: a run that dies afterwards still knows it.
-    await ctx.accounts.save(host, { email: candidate.identity.email, password });
   }
-  let registrationSnapshot = snapshot;
-  let registrationPlan = plan;
   let privacy = 'none';
   let repairAttempts = 0;
   const noted = (result) => (privacy === 'none' ? result : { ...result, privacy });
   while (true) {
+    const plannedActions = registrationPlan.actions.filter((action) => !registrationActionSatisfied(
+      registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
+    ));
     const passwordActions = registrationSnapshot.fields.filter((field) => field.inputType === 'password')
       .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
-    await applyActions(page, registrationSnapshot.fields, [...registrationPlan.actions, ...passwordActions], ctx.files);
+    const applied = await applyActions(page, registrationSnapshot.fields, [...plannedActions, ...passwordActions], ctx.files);
+    for (const action of plannedActions.filter((item) => item.action === 'upload')) {
+      const field = registrationSnapshot.fields.find((candidateField) => candidateField.id === action.fieldId);
+      const result = applied.find((item) => item.fieldId === action.fieldId);
+      if (!await confirmRegistrationUpload(action, field, result)) {
+        await parkRegistrationCredential('registration_document_upload_unconfirmed');
+        return noted({ handoff: 'portal_required_file_unhandled' });
+      }
+    }
     // After the fields: SuccessFactors opens its statement only for a chosen country.
+    const privacyStartUrl = page.url();
     const preflight = await registrationPrivacyPreflight(page, { accepted: privacy === 'accepted' });
     if (preflight.privacy !== 'none') privacy = preflight.privacy;
     if (preflight.blocked) {
       // Nothing was pressed, so no account came of this: as with no button, a
       // retry keeps the same unverified account's encrypted password.
-      if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'privacy_not_accepted');
+      if (!retryingUnverifiedAccount && credentialSaved) await ctx.accounts.discard(host, 'privacy_not_accepted');
       return noted({ handoff: 'privacy_not_accepted' });
     }
     const { filled } = preflight;
+    if (page.url() !== privacyStartUrl || filled.url !== privacyStartUrl) {
+      await parkRegistrationCredential('privacy_question_surface_moved');
+      return noted({ handoff: 'portal_needs_candidate' });
+    }
+    // Blur and accepting the notice can both reveal required controls. A fresh,
+    // stable read and plan must prove that the account form is still complete
+    // before the Create/Submit CTA is allowed.
+    const privacyUrl = privacyStartUrl;
+    let privacyPlan;
+    if (preflight.privacy !== 'none') {
+      privacyPlan = await planStableRegistrationSurface(filled, privacyUrl);
+    } else {
+      const settled = await waitForStableQuestionSurface(page, filled, privacyUrl);
+      if (settled.status !== 'stable') {
+        await parkRegistrationCredential('privacy_question_surface_unstable');
+        return noted({ handoff: 'portal_needs_candidate' });
+      }
+      privacyPlan = questionSurfaceSignature(settled.snapshot) === questionSurfaceSignature(registrationSnapshot)
+        ? { status: 'stable', snapshot: accountRegistrationSnapshot(settled.snapshot), plan: registrationPlan }
+        : await planStableRegistrationSurface(settled.snapshot, privacyUrl);
+    }
+    if (privacyPlan.status !== 'stable') {
+      await parkRegistrationCredential('privacy_question_surface_unstable');
+      return noted({ handoff: 'portal_needs_candidate' });
+    }
+    const stableRegistrationSnapshot = privacyPlan.snapshot;
+    const stablePlan = privacyPlan.plan;
+    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired);
+    if (stableRequirements.unreadableFields?.length) {
+      await parkRegistrationCredential('privacy_question_unreadable');
+      return noted({ handoff: 'question_label_unreadable' });
+    }
+    const missingRequiredFieldIds = new Set((stablePlan.missingRequired || []).map((item) => item.fieldId).filter(Boolean));
+    const unhandledRequiredFiles = stableRegistrationSnapshot.fields.filter((field) =>
+      (field.required === true || field.invalid === true || missingRequiredFieldIds.has(field.id))
+      && (field.kind === 'file' || field.inputType === 'file')
+      && !uploadIsSatisfied(field)
+      && !stablePlan.actions.some((action) => action.fieldId === field.id && action.action === 'upload'));
+    if (unhandledRequiredFiles.length) {
+      await parkRegistrationCredential('privacy_required_file_unhandled');
+      return noted({ handoff: 'portal_required_file_unhandled' });
+    }
+    // Emit the hard-question batch only from this stable post-privacy plan;
+    // the first registration plan may not include fields revealed by the notice.
+    const stableRequest = await portalRequirementsForCandidate(stableRequirements, {
+      candidateLocale: ctx.candidateLocale,
+      applicationLocale: ctx.language,
+      codex: ctx.codex,
+      log: ctx.log,
+    });
+    if (stableRequest) {
+      await parkRegistrationCredential('privacy_question_missing');
+      return noted(stableRequest);
+    }
+    const newlyRequiredActions = stablePlan.actions.filter((action) => !registrationActionSatisfied(
+      stableRegistrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
+    ));
+    if (newlyRequiredActions.length) {
+      if (privacySurfaceReplans >= MAX_REDRAWS_PER_PAGE) {
+        await parkRegistrationCredential('privacy_question_surface_unstable');
+        return noted({ handoff: 'portal_needs_candidate' });
+      }
+      const appliedAfterPrivacy = await applyActions(page, stableRegistrationSnapshot.fields, newlyRequiredActions, ctx.files);
+      if (newlyRequiredActions.some((action) => !appliedAfterPrivacy.some((result) => result.fieldId === action.fieldId && result.ok))) {
+        await parkRegistrationCredential('privacy_question_answer_unconfirmed');
+        return noted({ handoff: 'portal_needs_candidate' });
+      }
+      for (const action of newlyRequiredActions.filter((item) => item.action === 'upload')) {
+        const field = stableRegistrationSnapshot.fields.find((candidateField) => candidateField.id === action.fieldId);
+        const result = appliedAfterPrivacy.find((item) => item.fieldId === action.fieldId);
+        if (!await confirmRegistrationUpload(action, field, result)) {
+          await parkRegistrationCredential('registration_document_upload_unconfirmed');
+          return noted({ handoff: 'portal_required_file_unhandled' });
+        }
+      }
+      if (page.url() !== privacyUrl) {
+        await parkRegistrationCredential('privacy_question_surface_moved');
+        return noted({ handoff: 'portal_needs_candidate' });
+      }
+      const afterPrivacyActions = await waitForStableQuestionSurface(page, stableRegistrationSnapshot, privacyUrl);
+      if (afterPrivacyActions.status !== 'stable') {
+        await parkRegistrationCredential('privacy_question_surface_unstable');
+        return noted({ handoff: 'portal_needs_candidate' });
+      }
+      const replanned = await planStableRegistrationSurface(afterPrivacyActions.snapshot, privacyUrl);
+      if (replanned.status !== 'stable') {
+        await parkRegistrationCredential('privacy_question_surface_unstable');
+        return noted({ handoff: 'portal_needs_candidate' });
+      }
+      registrationSnapshot = accountRegistrationSnapshot(replanned.snapshot);
+      registrationPlan = {
+        ...replanned.plan,
+        actions: replanned.plan.actions.filter((action) => !registrationActionSatisfied(
+          registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
+        )),
+      };
+      privacySurfaceReplans += 1;
+      continue;
+    }
+    registrationSnapshot = stableRegistrationSnapshot;
+    registrationPlan = {
+      ...stablePlan,
+      actions: stablePlan.actions.filter((action) => !registrationActionSatisfied(
+        registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
+      )),
+    };
+    await saveCredentialBeforeCreate();
     diagnostics?.beforeClick('account');
-    if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
+    if (!await clickFirst(page, registrationSnapshot, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
       // A retry is still the same unverified account: keep its encrypted
       // password so the owner can retry after the portal exposes its button.
-      if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'no_create_button');
+      if (!retryingUnverifiedAccount && credentialSaved) await ctx.accounts.discard(host, 'no_create_button');
       return noted(accountHandoff('account', 'no_create_button', 'registration'));
     }
-    const after = await awaitAuthOutcome(page, 'create', filled.errors, filled.fields);
+    const after = await awaitAuthOutcome(page, 'create', registrationSnapshot.errors, registrationSnapshot.fields);
     diagnostics?.afterClick();
     const outcome = registrationOutcome(after);
     if (outcome !== 'refused') {
@@ -3961,7 +4314,9 @@ export async function submitViaPortal(ctx) {
     const ownPasswords = new Map();
     const uploaded = new Set();
     const privacyAcceptedPages = new Set();
-    // How often a page was planned again because a choice redrew it, by address.
+    // Bounded redraw recovery follows the logical wizard page, not the URL or
+    // the loop counter (portals often keep one address for every SPA step).
+    let pageEpoch = 0;
     const redraws = new Map();
     // How often a page was loaded again because the portal asked for it, by address.
     const refreshes = new Map();
@@ -4299,6 +4654,7 @@ export async function submitViaPortal(ctx) {
 
       let after = snapshot;
       let unclearQuestions = [];
+      let candidateQuestions = [];
       if (workable(snapshot)) {
         // The planner never sees a password field, nor what a retry finds typed in it.
         const cvFields = preferredCvFields(snapshot.fields);
@@ -4322,17 +4678,7 @@ export async function submitViaPortal(ctx) {
         // must not overwrite the approved CV or leave two conflicting receipts.
         const automaticCvIds = new Set(automaticCvUploads.map(upload => upload.fieldId));
         const plannedActions = [...plan.actions.filter(action => !automaticCvIds.has(action.fieldId)), ...automaticCvUploads];
-        const missingRequired = plan.missingRequired.filter(item => !automaticCvUploads.some(upload => upload.fieldId === item.fieldId));
-        // A required field with no readable label is no question for the
-        // candidate ("select-input-_r_p_"): the agent finds its question on the page.
-        const requirements = portalRequirementsFromMissingRequired(snapshot.fields, missingRequired);
-        const unclear = Boolean(requirements.unreadableFields?.length);
-        if (missingRequired.length && !unclear) {
-          const request = await askCandidate(missingRequired);
-          if (request) return request;
-        }
-        if (unclear) unclearQuestions = missingRequired;
-        if (unclear) agentHint = 'unclear_fields';
+        candidateQuestions = plan.missingRequired.filter(item => !automaticCvUploads.some(upload => upload.fieldId === item.fieldId));
         // A file already uploaded on this page is not uploaded again when the
         // page is planned a second time (Personio empties the input after the upload).
         const uploadKey = (fieldId) => uploadedPortalFieldKey(
@@ -4340,6 +4686,7 @@ export async function submitViaPortal(ctx) {
         );
         const actions = plannedActions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
         const plannedUrl = page.url();
+        const redrawKey = `${pageEpoch}|${plannedUrl}`;
         // Choices first: one of them may redraw the form (on Workday the name and address fields follow the
         // country), and what was typed before into fields that are no more is lost without a word (dry run of
         // 2026-10-07: the address went into «Address Line 1», the country was chosen last, and the form that
@@ -4355,14 +4702,14 @@ export async function submitViaPortal(ctx) {
           ...await applyActions(page, snapshot.fields, choices, ctx.files),
         ];
         // The form after the choices: with other fields than the ones planned it is read and planned again
-        // (twice at most for one page), and nothing is typed into what is no longer there.
-        const labelsOf = (view) => view.fields.map(field => `${field.id}:${field.kind}:${field.label}`).join('|');
+        // (up to four times for one page), and nothing is typed into what is no longer there.
         let redrawn = false;
-        if (choices.length && (redraws.get(plannedUrl) || 0) < MAX_REDRAWS_PER_PAGE) {
+        if (choices.length) {
           for (let waited = 0; waited < REDRAW_WAIT_MS && !redrawn && page.url() === plannedUrl; waited += 500) {
             await page.waitForTimeout(500);
             const now = await extractFields(page, NAVIGATION).catch(() => null);
-            redrawn = Boolean(now) && now.fields.length > 0 && labelsOf(now) !== labelsOf(snapshot);
+            redrawn = Boolean(now) && now.fields.length > 0
+              && questionSurfaceSignature(now) !== questionSurfaceSignature(snapshot);
           }
         }
         if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
@@ -4415,7 +4762,9 @@ export async function submitViaPortal(ctx) {
           return await handoff('portal_choice_not_registered');
         }
         if (redrawn && page.url() === plannedUrl) {
-          redraws.set(plannedUrl, (redraws.get(plannedUrl) || 0) + 1);
+          const redrawCount = redraws.get(redrawKey) || 0;
+          if (redrawCount >= MAX_REDRAWS_PER_PAGE) return await handoff('portal_needs_candidate');
+          redraws.set(redrawKey, redrawCount + 1);
           evidence.steps.at(-1).redrawn = true;
           snapshot = await awaitFields(page, await extractFields(page));
           step -= 1; // the same page, planned again
@@ -4432,6 +4781,7 @@ export async function submitViaPortal(ctx) {
         // and shows the CV page a moment later): plan that page, instead of
         // judging it by the buttons of the one just filled. Giro di prova 2026-10-01.
         if (page.url() !== plannedUrl) {
+          pageEpoch += 1;
           snapshot = await awaitFields(page, await extractFields(page));
           continue;
         }
@@ -4442,6 +4792,38 @@ export async function submitViaPortal(ctx) {
         for (let waited = 0; waited < buttonWaitMs && !findButton(after.buttons, SUBMIT_RE) && !findButton(after.buttons, NEXT_RE); waited += 2000) {
           await page.waitForTimeout(2000);
           after = await extractFields(page, NAVIGATION);
+        }
+        if (actions.length || candidateQuestions.length) {
+          const stable = await waitForStableQuestionSurface(page, after, plannedUrl);
+          after = stable.snapshot;
+          if (stable.status === 'moved') {
+            pageEpoch += 1;
+            snapshot = await awaitFields(page, await extractFields(page));
+            continue;
+          }
+          if (stable.status !== 'stable') return await handoff('portal_needs_candidate');
+          if (questionSurfaceSignature(after) !== questionSurfaceSignature(snapshot)) {
+            const redrawCount = redraws.get(redrawKey) || 0;
+            if (redrawCount >= MAX_REDRAWS_PER_PAGE) return await handoff('portal_needs_candidate');
+            redraws.set(redrawKey, redrawCount + 1);
+            evidence.steps.at(-1).redrawn = true;
+            snapshot = after;
+            step -= 1;
+            continue;
+          }
+          snapshot = after;
+          if (candidateQuestions.length) {
+            // Ask only after known answers have settled and any fields they
+            // reveal have been re-read and planned on the next pass.
+            const requirements = portalRequirementsFromMissingRequired(snapshot.fields, candidateQuestions);
+            if (requirements.unreadableFields?.length) {
+              unclearQuestions = candidateQuestions;
+              agentHint = 'unclear_fields';
+            } else {
+              const request = await askCandidate(candidateQuestions);
+              if (request) return request;
+            }
+          }
         }
       }
       after = await awaitCaptcha(page, after, { enabled: Boolean(extensionPath) });
@@ -4475,6 +4857,7 @@ export async function submitViaPortal(ctx) {
         }
         if (agent?.status === 'done') {
           if (agent.moved || page.url() !== agentUrl) {
+            pageEpoch += 1;
             snapshot = await awaitFields(page, await extractFields(page));
             continue;
           }
@@ -4529,6 +4912,7 @@ export async function submitViaPortal(ctx) {
       }
       if ((next || advance) && !submit) {
         const before = pageSignature(page, after);
+        const beforePageMarker = String(after.pageMarker || '');
         if (stage?.kind === 'review_navigation') {
           // Follow the owned review href with GET; an onclick handler cannot
           // turn this navigation into a hidden application commit.
@@ -4546,8 +4930,14 @@ export async function submitViaPortal(ctx) {
         // The address may change before the content does (JOIN's professionalLinks
         // step was read with the previous page's fields): the same labels count as the same page.
         const labelsBefore = after.fields.map((field) => field.label).join('|');
-        snapshot = await awaitFields(page, snapshot, (current) => pageSignature(page, current) === before
-          || (current.fields.length > 0 && current.fields.map((field) => field.label).join('|') === labelsBefore));
+        snapshot = await awaitFields(page, snapshot, (current) => {
+          const sameMarker = String(current.pageMarker || '') === beforePageMarker;
+          const sameLabels = current.fields.length > 0
+            && current.fields.map((field) => field.label).join('|') === labelsBefore;
+          return pageSignature(page, current) === before || (sameMarker && sameLabels);
+        });
+        const movedToNextPage = pageSignature(page, snapshot) !== before;
+        if (movedToNextPage) pageEpoch += 1;
         // Still the same page: the form refused a value. A correction by the
         // planner, one by the agent (it reads the page's own messages), then the owner.
         stuckOnPage = pageSignature(page, snapshot) === before ? stuckOnPage + 1 : 0;
@@ -4587,6 +4977,7 @@ export async function submitViaPortal(ctx) {
         }
         if (repair?.status !== 'done') return await handoff('portal_required_fields_unfilled');
         if (repair.moved || page.url() !== repairUrl) {
+          pageEpoch += 1;
           snapshot = await awaitFields(page, await extractFields(page));
           step -= 1;
           continue;

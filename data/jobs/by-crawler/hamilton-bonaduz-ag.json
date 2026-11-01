@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hamilton-bonaduz-ag",
-  "assembledAt": "2026-11-01T09:24:02.765Z",
-  "runId": "41291964879",
+  "assembledAt": "2026-11-01T21:24:23.565Z",
+  "runId": "41350653878",
   "jobs": [
     {
       "title": "Electrical Engineer im Product Care 80 - 100 % (w/m/d)",
@@ -25,7 +25,7 @@
       "datePosted": "2026-10-29",
       "postedDate": "2026-10-29",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-27T09:23:35.275Z",
+      "validThrough": "2027-01-27T21:23:52.950Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -48,7 +48,7 @@
         "de": "electrical-ingenieur-im-product-care-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "ingenieur-electricien-au-sein-de-product-care-80-100-h-f-d-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-11-01T09:23:35.275Z",
+      "crawledAt": "2026-11-01T21:23:52.950Z",
       "id": "hamilton-bonaduz-ag-bcc01503b9ee",
       "salaryMin": 77000,
       "salaryMax": 127500,
@@ -65,6 +65,9 @@
         }
       },
       "postalCode": "7013",
+      "streetAddress": "Domat/Ems",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "electrical-engineer-im-product-care-80-100-w-m-d-jr-6279"
@@ -78,10 +81,7 @@
       },
       "previousSlugs": [
         "electrical-engineer-im-product-care-80-100-w-m-d-jr-6279"
-      ],
-      "streetAddress": "Domat/Ems",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Produktionsspezialist Montage 80 - 100 % (w/m/d)",
@@ -105,7 +105,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-25T09:23:36.095Z",
+      "validThrough": "2027-01-25T21:23:53.881Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -128,7 +128,7 @@
         "de": "produktionsspezialist-montage-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "specialiste-de-la-production-montage-80-100-h-f-d-hamilton-bonaduz-ag-bonaduz-e1d3ef"
       },
-      "crawledAt": "2026-11-01T09:23:36.095Z",
+      "crawledAt": "2026-11-01T21:23:53.881Z",
       "id": "hamilton-bonaduz-ag-31918ff69091",
       "previousSlugsByLocale": {
         "it": [
@@ -189,7 +189,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-09-04",
-      "validThrough": "2026-12-01T09:23:36.879Z",
+      "validThrough": "2026-12-01T21:23:54.674Z",
       "employmentType": "FULL_TIME",
       "contractType": "internship",
       "workload": "80-100%",
@@ -212,7 +212,7 @@
         "de": "praktikant-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "stagiaire-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-11-01T09:23:36.879Z",
+      "crawledAt": "2026-11-01T21:23:54.674Z",
       "id": "hamilton-bonaduz-ag-18a17e57f814",
       "salaryMin": 52500,
       "salaryMax": 87000,
@@ -318,7 +318,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-21T09:23:37.698Z",
+      "validThrough": "2027-01-21T21:23:58.870Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -341,7 +341,7 @@
         "de": "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "assembly-operateur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:37.698Z",
+      "crawledAt": "2026-11-01T21:23:58.870Z",
       "id": "hamilton-bonaduz-ag-4cf94c15ea32",
       "previousSlugsByLocale": {
         "it": [
@@ -404,7 +404,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-17T09:23:38.510Z",
+      "validThrough": "2027-01-17T21:23:59.862Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -427,7 +427,7 @@
         "de": "product-change-leader-integration-leader-80-100-w-m-d-jr-6264",
         "fr": "leader-de-changement-de-produit-leader-d-integration-80-100-h-f-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:38.510Z",
+      "crawledAt": "2026-11-01T21:23:59.862Z",
       "id": "hamilton-bonaduz-ag-bb6cefb551f5",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -488,7 +488,7 @@
       "datePosted": "2026-10-22",
       "postedDate": "2026-10-22",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-20T09:23:39.311Z",
+      "validThrough": "2027-01-20T21:24:00.552Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -511,7 +511,7 @@
         "de": "qualitat-manager-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "qualite-manager-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:39.311Z",
+      "crawledAt": "2026-11-01T21:24:00.552Z",
       "id": "hamilton-bonaduz-ag-be4104b98c98",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -568,7 +568,7 @@
       "datePosted": "2026-10-22",
       "postedDate": "2026-10-22",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-20T09:23:40.081Z",
+      "validThrough": "2027-01-20T21:24:01.481Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -591,7 +591,7 @@
         "de": "system-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "system-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-11-01T09:23:40.081Z",
+      "crawledAt": "2026-11-01T21:24:01.481Z",
       "id": "hamilton-bonaduz-ag-d80889391296",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -609,6 +609,9 @@
       },
       "postalCode": "7013",
       "firstSeenAt": "2026-10-22T09:22:31.624Z",
+      "streetAddress": "Domat/Ems",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-80-100-w-m-d-jr-6179"
@@ -619,10 +622,7 @@
       },
       "previousSlugs": [
         "system-engineer-80-100-w-m-d-jr-6179"
-      ],
-      "streetAddress": "Domat/Ems",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Strategischer Beschaffer Elektronik 80 - 100 % (w/m/d)",
@@ -646,7 +646,7 @@
       "datePosted": "2026-10-16",
       "postedDate": "2026-10-16",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-14T09:23:40.880Z",
+      "validThrough": "2027-01-14T21:24:02.556Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -669,7 +669,7 @@
         "de": "strategischer-beschaffer-elektronik-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "electronique-de-procureur-strategique-80-100-h-f-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:40.880Z",
+      "crawledAt": "2026-11-01T21:24:02.556Z",
       "id": "hamilton-bonaduz-ag-618150733655",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -688,6 +688,8 @@
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
       "firstSeenAt": "2026-10-16T21:17:15.264Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "strategischer-beschaffer-elektronik-80-100-w-m-d-jr-6271"
@@ -701,9 +703,7 @@
       },
       "previousSlugs": [
         "strategischer-beschaffer-elektronik-80-100-w-m-d-jr-6271"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Project Leader Integrated Solutions 80 - 100 % (w/m/d)",
@@ -727,7 +727,7 @@
       "datePosted": "2026-10-15",
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-13T09:23:41.698Z",
+      "validThrough": "2027-01-13T21:24:03.428Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -750,7 +750,7 @@
         "de": "project-leader-integrated-solutions-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "chef-de-projet-solutions-integrees-80-100-h-f-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:41.698Z",
+      "crawledAt": "2026-11-01T21:24:03.428Z",
       "id": "hamilton-bonaduz-ag-bffb313937b4",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -769,6 +769,8 @@
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
       "firstSeenAt": "2026-10-15T09:18:30.546Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "project-leader-integrated-solutions-80-100-w-m-d-jr-6287"
@@ -782,10 +784,7 @@
       },
       "previousSlugs": [
         "project-leader-integrated-solutions-80-100-w-m-d-jr-6287"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Senior AI Software Engineer / AI Solution Architect 80 - 100 % (w/m/d)",
@@ -809,7 +808,7 @@
       "datePosted": "2026-10-07",
       "postedDate": "2026-10-07",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-05T09:23:42.500Z",
+      "validThrough": "2027-01-05T21:24:04.246Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -832,7 +831,7 @@
         "de": "senior-ai-software-ingenieur-ai-solution-architect-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "senior-ai-software-ingenieur-ai-solution-architecte-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:42.500Z",
+      "crawledAt": "2026-11-01T21:24:04.246Z",
       "id": "hamilton-bonaduz-ag-5d18525bfae8",
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -851,6 +850,8 @@
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
       "firstSeenAt": "2026-10-07T21:33:50.407Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "senior-ai-software-engineer-ai-solution-architect-80-100-w-m-d-jr-5926"
@@ -858,9 +859,7 @@
       },
       "previousSlugs": [
         "senior-ai-software-engineer-ai-solution-architect-80-100-w-m-d-jr-5926"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "ICT Engineer Azure 80 - 100 % (w/m/d)",
@@ -884,7 +883,7 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-12T09:23:43.279Z",
+      "validThrough": "2027-01-12T21:24:05.037Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -907,7 +906,7 @@
         "de": "ict-ingenieur-azure-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "ict-ingenieur-azure-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:43.279Z",
+      "crawledAt": "2026-11-01T21:24:05.037Z",
       "id": "hamilton-bonaduz-ag-416ad6992bec",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -926,6 +925,8 @@
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
       "firstSeenAt": "2026-10-14T21:18:21.237Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "ict-engineer-azure-80-100-w-m-d-jr-6277"
@@ -939,9 +940,7 @@
       },
       "previousSlugs": [
         "ict-engineer-azure-80-100-w-m-d-jr-6277"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "ICT Engineer Business Application 80 - 100 % (w/m/d)",
@@ -965,7 +964,7 @@
       "datePosted": "2026-10-13",
       "postedDate": "2026-10-13",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-11T09:23:44.230Z",
+      "validThrough": "2027-01-11T21:24:05.816Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -988,7 +987,7 @@
         "de": "ict-engineer-business-application-80-100-w-m-d-jr-6176",
         "fr": "ict-ingenieur-business-application-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:44.230Z",
+      "crawledAt": "2026-11-01T21:24:05.816Z",
       "id": "hamilton-bonaduz-ag-dd72b7d51c59",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1007,6 +1006,8 @@
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
       "firstSeenAt": "2026-10-13T21:16:44.576Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "ict-engineer-business-application-80-100-w-m-d-jr-6176"
@@ -1017,9 +1018,7 @@
       },
       "previousSlugs": [
         "ict-engineer-business-application-80-100-w-m-d-jr-6176"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Embedded Software Engineer 80 - 100 % (w/m/d)",
@@ -1043,7 +1042,7 @@
       "datePosted": "2026-10-08",
       "postedDate": "2026-10-08",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-06T09:23:45.027Z",
+      "validThrough": "2027-01-06T21:24:06.594Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -1066,7 +1065,7 @@
         "de": "embedded-software-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "embedded-software-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:45.027Z",
+      "crawledAt": "2026-11-01T21:24:06.594Z",
       "id": "hamilton-bonaduz-ag-23c375c526b6",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -1085,6 +1084,8 @@
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
       "firstSeenAt": "2026-10-08T21:17:04.381Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "embedded-software-engineer-80-100-w-m-d-jr-5270"
@@ -1098,9 +1099,7 @@
       },
       "previousSlugs": [
         "embedded-software-engineer-80-100-w-m-d-jr-5270"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Electronic Technician 80 - 100 % (w/m/d)",
@@ -1124,7 +1123,7 @@
       "datePosted": "2026-10-08",
       "postedDate": "2026-10-08",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-06T09:23:45.806Z",
+      "validThrough": "2027-01-06T21:24:07.407Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -1147,7 +1146,7 @@
         "de": "electronic-techniker-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "electronic-technicien-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:45.806Z",
+      "crawledAt": "2026-11-01T21:24:07.407Z",
       "id": "hamilton-bonaduz-ag-12bbc081e8c7",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -1166,6 +1165,8 @@
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
       "firstSeenAt": "2026-10-08T21:17:05.143Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "electronic-technician-80-100-w-m-d-jr-6250"
@@ -1173,9 +1174,7 @@
       },
       "previousSlugs": [
         "electronic-technician-80-100-w-m-d-jr-6250"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Lifecycle Engineer 80 - 100 % (w/m/d)",
@@ -1199,7 +1198,7 @@
       "datePosted": "2026-10-07",
       "postedDate": "2026-10-07",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-05T09:23:46.765Z",
+      "validThrough": "2027-01-05T21:24:08.191Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -1222,7 +1221,7 @@
         "de": "lifecycle-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "lifecycle-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:46.765Z",
+      "crawledAt": "2026-11-01T21:24:08.191Z",
       "id": "hamilton-bonaduz-ag-cedc8cae86ba",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -1241,6 +1240,8 @@
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
       "firstSeenAt": "2026-10-07T09:23:04.403Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "lifecycle-engineer-80-100-w-m-d-jr-6245"
@@ -1254,9 +1255,7 @@
       },
       "previousSlugs": [
         "lifecycle-engineer-80-100-w-m-d-jr-6245"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Embedded SW Engineer 80 - 100 % (w/m/d)",
@@ -1278,7 +1277,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-09-28",
-      "validThrough": "2026-12-27T09:23:47.578Z",
+      "validThrough": "2026-12-27T21:24:08.987Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -1301,7 +1300,7 @@
         "de": "embedded-sw-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "embedded-sw-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:47.578Z",
+      "crawledAt": "2026-11-01T21:24:08.987Z",
       "id": "hamilton-bonaduz-ag-6d0f036056b8",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -1322,6 +1321,8 @@
       "firstSeenAt": "2026-09-28T21:17:34.355Z",
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "embedded-sw-engineer-80-100-w-m-d-jr-6222"
@@ -1335,9 +1336,7 @@
       },
       "previousSlugs": [
         "embedded-sw-engineer-80-100-w-m-d-jr-6222"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "ICT Engineer Identity & Access Management 80 - 100 % (w/m/d)",
@@ -1359,7 +1358,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-09-23",
-      "validThrough": "2026-12-22T09:23:48.397Z",
+      "validThrough": "2026-12-22T21:24:10.034Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -1382,7 +1381,7 @@
         "de": "ict-ingenieur-identity-access-management-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "ict-ingenieur-identity-access-management-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:48.397Z",
+      "crawledAt": "2026-11-01T21:24:10.034Z",
       "id": "hamilton-bonaduz-ag-2259d311e2f9",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1403,6 +1402,8 @@
       "firstSeenAt": "2026-09-23T23:45:40.722Z",
       "datePosted": "2026-09-23",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "ict-engineer-identity-access-management-80-100-w-m-d-jr-6125"
@@ -1416,9 +1417,7 @@
       },
       "previousSlugs": [
         "ict-engineer-identity-access-management-80-100-w-m-d-jr-6125"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Lifecycle SW Engineer 80 - 100 % (w/m/d)",
@@ -1440,7 +1439,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-21",
-      "validThrough": "2026-12-20T09:23:49.306Z",
+      "validThrough": "2026-12-20T21:24:10.900Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -1463,7 +1462,7 @@
         "de": "lifecycle-sw-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "lifecycle-sw-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:49.306Z",
+      "crawledAt": "2026-11-01T21:24:10.900Z",
       "id": "hamilton-bonaduz-ag-46bf4e79ebe8",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -1484,6 +1483,8 @@
       "firstSeenAt": "2026-09-19T22:55:14.632Z",
       "datePosted": "2026-09-21",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "lifecycle-sw-engineer-80-100-w-m-d-jr-6154"
@@ -1497,9 +1498,7 @@
       },
       "previousSlugs": [
         "lifecycle-sw-engineer-80-100-w-m-d-jr-6154"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Product Manager AI Empowerment 80 - 100 % (f/m/d)",
@@ -1521,7 +1520,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-21",
-      "validThrough": "2026-12-20T09:23:50.212Z",
+      "validThrough": "2026-12-20T21:24:11.801Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -1544,7 +1543,7 @@
         "de": "produktmanager-ai-empowerment-80-100-m-w-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "gestionnaire-de-produits-ai-empowerment-80-100-h-f-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:50.212Z",
+      "crawledAt": "2026-11-01T21:24:11.801Z",
       "id": "hamilton-bonaduz-ag-697ebe18a4de",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -1565,6 +1564,8 @@
       "firstSeenAt": "2026-09-21T16:03:52.459Z",
       "datePosted": "2026-09-21",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "product-manager-ai-empowerment-80-100-f-m-d-jr-6167"
@@ -1578,9 +1579,7 @@
       },
       "previousSlugs": [
         "product-manager-ai-empowerment-80-100-f-m-d-jr-6167"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Quality Engineer 80 - 100 % (w/m/d)",
@@ -1602,7 +1601,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-09-18",
-      "validThrough": "2026-12-17T09:23:51.173Z",
+      "validThrough": "2026-12-17T21:24:12.468Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -1625,7 +1624,7 @@
         "de": "qualitat-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "qualite-ingenieur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:51.173Z",
+      "crawledAt": "2026-11-01T21:24:12.468Z",
       "id": "hamilton-bonaduz-ag-3020b6218741",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -1646,6 +1645,8 @@
       "firstSeenAt": "2026-09-19T22:55:13.192Z",
       "datePosted": "2026-09-18",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "quality-engineer-80-100-w-m-d-jr-6117"
@@ -1659,9 +1660,7 @@
       },
       "previousSlugs": [
         "quality-engineer-80-100-w-m-d-jr-6117"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Supply Chain Manager 80 - 100 % (w/m/d)",
@@ -1683,7 +1682,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-09-18",
-      "validThrough": "2026-12-17T09:23:51.979Z",
+      "validThrough": "2026-12-17T21:24:13.562Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -1706,7 +1705,7 @@
         "de": "lieferkette-manager-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "chaine-d-approvisionnement-manager-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:51.979Z",
+      "crawledAt": "2026-11-01T21:24:13.562Z",
       "id": "hamilton-bonaduz-ag-0b7d031a1d4b",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -1727,6 +1726,8 @@
       "firstSeenAt": "2026-09-19T22:55:13.902Z",
       "datePosted": "2026-09-18",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "supply-chain-manager-80-100-w-m-d-jr-6206"
@@ -1737,9 +1738,7 @@
       },
       "previousSlugs": [
         "supply-chain-manager-80-100-w-m-d-jr-6206"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Team Leader Facilities EMS 80 - 100 % (w/m/d)",
@@ -1761,7 +1760,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-09-07",
-      "validThrough": "2026-12-06T09:23:52.763Z",
+      "validThrough": "2026-12-06T21:24:14.347Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -1784,7 +1783,7 @@
         "de": "team-leader-facility-services-ems-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "chef-d-equipe-services-des-installations-ems-80-100-h-f-d-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-11-01T09:23:52.763Z",
+      "crawledAt": "2026-11-01T21:24:14.347Z",
       "id": "hamilton-bonaduz-ag-1172572519e5",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1844,7 +1843,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-09-01",
-      "validThrough": "2026-12-01T09:23:53.684Z",
+      "validThrough": "2026-12-01T21:24:15.241Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -1867,7 +1866,7 @@
         "de": "operativer-einkaufer-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "acheteur-operationnel-80-100-f-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:53.684Z",
+      "crawledAt": "2026-11-01T21:24:15.241Z",
       "id": "hamilton-bonaduz-ag-cfa0d6e0d26d",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1940,7 +1939,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-08-31",
-      "validThrough": "2026-12-01T09:23:54.455Z",
+      "validThrough": "2026-12-01T21:24:16.011Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -1963,7 +1962,7 @@
         "de": "produktionsspezialist-montage-80-100-w-m-d-jr-6084",
         "fr": "specialiste-de-la-production-montage-80-100-h-f-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:54.455Z",
+      "crawledAt": "2026-11-01T21:24:16.011Z",
       "id": "hamilton-bonaduz-ag-da474fe62289",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -2023,7 +2022,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-08-19",
-      "validThrough": "2026-12-01T09:23:55.278Z",
+      "validThrough": "2026-12-01T21:24:16.829Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -2046,7 +2045,7 @@
         "de": "instandhaltungstechniker-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "technicien-d-entretien-80-100-h-f-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:55.278Z",
+      "crawledAt": "2026-11-01T21:24:16.829Z",
       "id": "hamilton-bonaduz-ag-8059f292e333",
       "previousSlugsByLocale": {
         "it": [
@@ -2106,7 +2105,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-08-17",
-      "validThrough": "2026-12-01T09:23:56.051Z",
+      "validThrough": "2026-12-01T21:24:17.766Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -2129,7 +2128,7 @@
         "de": "innenverkaufsspezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "specialiste-des-ventes-interieure-80-100-f-m-d-hamilton-bonaduz-ag-domat-ems"
       },
-      "crawledAt": "2026-11-01T09:23:56.051Z",
+      "crawledAt": "2026-11-01T21:24:17.766Z",
       "id": "hamilton-bonaduz-ag-14b2a2aab814",
       "previousSlugsByLocale": {
         "it": [
@@ -2192,7 +2191,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-08-06",
-      "validThrough": "2026-12-01T09:23:56.833Z",
+      "validThrough": "2026-12-01T21:24:18.539Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -2215,7 +2214,7 @@
         "de": "product-spezialist-partnering-80-100-f-m-d-temporary-hamilton-bonaduz-ag-bonaduz",
         "fr": "product-specialiste-partnering-80-100-f-m-d-temporary-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:56.833Z",
+      "crawledAt": "2026-11-01T21:24:18.539Z",
       "id": "hamilton-bonaduz-ag-3f65ca547f8e",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2236,6 +2235,8 @@
       "salarySource": "reported",
       "datePosted": "2026-08-06",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "product-specialist-partnering-80-100-f-m-d-temporary-jr-5480"
@@ -2249,9 +2250,7 @@
       },
       "previousSlugs": [
         "product-specialist-partnering-80-100-f-m-d-temporary-jr-5480"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Automation Specialist 80 - 100 % (w/m/d)",
@@ -2273,7 +2272,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-07-20",
-      "validThrough": "2026-12-01T09:23:57.630Z",
+      "validThrough": "2026-12-01T21:24:19.334Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -2296,7 +2295,7 @@
         "de": "automation-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "automation-specialiste-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
-      "crawledAt": "2026-11-01T09:23:57.630Z",
+      "crawledAt": "2026-11-01T21:24:19.334Z",
       "id": "hamilton-bonaduz-ag-3967203803af",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2317,6 +2316,8 @@
       "salarySource": "reported",
       "datePosted": "2026-07-20",
       "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "automation-specialist-80-100-w-m-d-jr-6034"
@@ -2330,9 +2331,7 @@
       },
       "previousSlugs": [
         "automation-specialist-80-100-w-m-d-jr-6034"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Kältetechniker / Spezialist Kältetechnik für automatisierte Pharma-Lagersysteme 80 - 100 % (w/m/d)",
@@ -2354,7 +2353,7 @@
       "source": "hamilton-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-06-29",
-      "validThrough": "2026-12-01T09:23:58.431Z",
+      "validThrough": "2026-12-01T21:24:20.134Z",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
       "workload": "80-100%",
@@ -2377,7 +2376,7 @@
         "de": "kaltetechniker-spezialist-kaltetechnik-fur-automatisierte-pharma-lagersysteme-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "fr": "technicien-de-refrigeration-dans-le-support-technique-avec-activite-de-voyage-international-80-100-h-m-d-hamilton"
       },
-      "crawledAt": "2026-11-01T09:23:58.431Z",
+      "crawledAt": "2026-11-01T21:24:20.134Z",
       "previousSlugs": [
         "kaltetechniker-im-technical-support-mit-internationaler-reisetatigkeit-80-100-w-m-d-jr-5129",
         "tecnico-refrigerazione-nel-technical-support-con-attivita-di-viaggio-internazionale-80-100-h-m-d-hamilton-bonaduz-ag-dom",

@@ -1,15 +1,15 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-11-01T09:27:24.745Z",
-  "runId": "41292451365",
+  "assembledAt": "2026-11-01T22:23:45.858Z",
+  "runId": "41351214962",
   "jobs": [
     {
       "id": "ghol-52354c0ae92c",
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -50,7 +50,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:27:20.229Z",
+      "crawledAt": "2026-11-01T22:23:38.332Z",
       "needsRetranslation": false,
       "requirementsByLocale": {
         "it": [
@@ -79,8 +79,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -88,10 +88,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -110,158 +110,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:27:20.229Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ghol-cd19adb46d26",
-      "slug": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "medecin-assistent-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest",
-      "titleByLocale": {
-        "it": "Assistente medico in pratica – FoRCab MFE, Regione Ovest",
-        "en": "Assistant physician in practice – FoRCab MFE, West Region",
-        "de": "Médecin Assistent-e en cabinet – FoRCab MFE, région Ouest",
-        "fr": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest"
-      },
-      "description": "Descriptif du poste :\n Le programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\n La région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\n Profil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\n Formation :\n\n• Diplôme de médecin suisse ou équivalent",
-      "descriptionByLocale": {
-        "it": "Descrizione del lavoro:\nIl programma Training and Succession in Family and Child Medicine (FoRCab MFE) sostiene la prossima generazione di professionisti della medicina di famiglia, in particolare sovvenzionando e organizzando assistentati di pratica nel Cantone di Vaud. L'organizzazione è regionale.\nLa regione Ovest offre corsi di formazione della durata di diversi anni, riservati ai futuri medici di famiglia. Oltre a un periodo in uno studio di formazione (6 mesi al 100% o 12 mesi al 50%), sono possibili rotazioni nei seguenti reparti: medicina interna, chirurgia, clinica d'emergenza/ambulatoriale e pediatria presso l'Ospedale di Nyon, pneumologia a Rolle e psichiatria a Prangins.\nProfilo richiesto:\n\n• Medico che si è laureato o sta per ottenere una laurea in medicina\n\n• Obiettivo di ottenere una qualifica di specialista in medicina interna generale\n\n• Obiettivo di aprire uno studio come medico di famiglia nell'ovest del Cantone di Vaud\n\n• Non ha ricevuto un sussidio cantonale come parte dell'assistentato nella pratica (tutti i cantoni)\nIstruzione:\n\n• Una laurea in medicina svizzera o equivalente",
-        "en": "Job description:\nThe Training and Succession in Family and Child Medicine (FoRCab MFE) program supports the next generation of family medicine professionals, in particular by subsidizing and organizing practice assistantships in the Canton of Vaud. The organization is regional.\nThe West region offers training courses lasting several years, reserved for future family doctors. In addition to a stint in a training practice (6 months at 100% or 12 months at 50%), rotations are possible in the following departments: internal medicine, surgery, emergency/outpatient clinic and paediatrics at the Nyon Hospital, pulmonology in Rolle and psychiatry in Prangins.\nRequired profile:\n\n• Doctor who has graduated or is in the process of obtaining a medical degree\n\n• Aim to obtain a specialist designation in general internal medicine\n\n• Objective to set up a practice as a family doctor in the west of the Canton of Vaud\n\n• Not have received a cantonal subsidy as part of the assistantship in the practice (all cantons)\nEducation:\n\n• Swiss medical degree or equivalent",
-        "de": "Stellenbeschreibung:\nDas Programm Training and Succession in Family and Child Medicine (FoRCab MFE) unterstützt die nächste Generation von Fachkräften für Allgemeinmediziner, insbesondere durch Subventionierung und Organisation von Praxisassistenten im Kanton Vaud. Die Organisation ist regional ausgerichtet.\nDie West-Region bietet mehrere Jahre dauernde Ausbildungen an, die künftigen Hausärzten vorbehalten sind. Neben einer Ausbildungstätigkeit (6 Monate bei 100 % oder 12 Monate bei 50 %) sind Rotationen in folgenden Abteilungen möglich: Innere Medizin, Chirurgie, Notaufnahme/Ambulanz und Pädiatrie am Nyon Hospital, Pneumologie in Rolle und Psychiatrie in Prangins.\nErforderliches Profil:\n\n• Arzt, der seinen Abschluss gemacht hat oder gerade einen medizinischen Abschluss erwirbt\n\n• Streben Sie an, eine Facharztausbildung in der allgemeinen Inneren Medizin zu erwerben\n\n• Ziel der Errichtung einer Praxis als Hausarzt im Westen des Kantons Vaud\n\n• Keine kantonale Subvention im Rahmen der Assistenztätigkeit in der Praxis erhalten haben (alle Kantone)\nAusbildung:\n\n• Schweizer medizinischer Abschluss oder äquivalent",
-        "fr": "Descriptif du poste :\nLe programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\nLa région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\nProfil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\nFormation :\n\n• Diplôme de médecin suisse ou équivalent"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare-medical",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/I_TEMIvLa",
-      "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:27:20.228Z",
-      "previousSlugs": [
-        "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:24:46.269Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Nyon",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:27:20.228Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ghol-bb90df116e65",
-      "slug": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "assc-for-the-department-of-medicine-and-neurovascular-unit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "assc-fur-die-abteilung-medizin-und-neurovaskulare-einheit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "ASSC pour le service de Médecine et Unité neurovasculaire",
-      "titleByLocale": {
-        "it": "ASSC per il Dipartimento di Medicina e Unità Neurovascolare",
-        "en": "ASSC for the Department of Medicine and Neurovascular Unit",
-        "de": "ASSC für die Abteilung Medizin und neurovaskuläre Einheit",
-        "fr": "ASSC pour le service de Médecine et Unité neurovasculaire"
-      },
-      "description": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento nella parte occidentale del Lago di Ginevra, con le sue strutture a Nyon e Rolle. Entrare a far parte di GHOL significa entrare a far parte di un'istituzione dinamica e impegnata, dove ogni professionista può mettere le proprie competenze al servizio dei pazienti sviluppando la propria carriera professionale.\nCon una capacità di 50 posti letto, il dipartimento di Medicina si prende cura di pazienti con situazioni mediche diverse, che richiedono un approccio globale, personalizzato e coordinato. Comprende anche un'unità neurovascolare, dedicata alla cura specialistica dei pazienti con ictus o altra patologia neurovascolare acuta.\nOgni giorno, i nostri team si impegnano a fornire assistenza di qualità, in un ambiente attento, rispettoso e incentrato sulla persona.\nIl lavoro all’interno del dipartimento si basa sulla stretta collaborazione tra i diversi operatori sanitari, i pazienti e i loro cari. L'ascolto, la fiducia, il rispetto e la considerazione delle esigenze di ciascun paziente sono al centro della nostra pratica.\nTi offriamo un ambiente professionale stimolante, in cui il tuo impegno e le tue competenze contribuiscono direttamente alla qualità delle cure per i nostri pazienti.\nMissione:\n\n• Collabori strettamente nella cura del paziente all'interno di un team multidisciplinare e con il team infermieristico\n\n• Fornisci assistenza varia, completa e personalizzata sotto la delega di un infermiere e supporti in modo responsabile e autonomo i pazienti con aspetti dell'assistenza relativi alle attività della vita quotidiana\n\n• Fornisci assistenza medico-tecnica su delega dell'infermiere\n\n• Trasmettete le informazioni in modo mirato e pertinente nell'archivio informatico\n\n• Supervisionare e supportare gli apprendisti e i tirocinanti dell'ASSC\n\n• Supervisioni e supporti i nuovi dipendenti\n\n• Sei responsabile delle buone pratiche di cura e del supporto per gli assistenti infermieristici e gli assistenti sanitari\nProfilo richiesto:\n\n• Forte interesse nella cura di anziani e/o persone non autosufficienti e/o persone con disturbi cognitivi\n\n• Pazienza, empatia, ascolto attivo, elevate capacità di comunicazione verbale e non verbale\n\n• Capacità di lavorare in modo interdisciplinare\n\n• Sei una persona dinamica, coinvolta, motivata e hai senso di responsabilità\n\n• Dimostra un'ottima padronanza della lingua francese, sia nell'espressione orale che scritta.\nLivello di formazione:\n\n• Sei assistente CFC nel settore dell'assistenza sanitaria e della comunità\nVantaggi:\n\n• Lavori in un ambiente lavorativo piacevole, in una costruzione recente\n\n• Entrerai a far parte di un team multidisciplinare dinamico e motivato",
-        "en": "GHOL is the reference hospital in western Lake Geneva, with its structures in Nyon and Rolle. Joining GHOL means joining a dynamic and committed institution, where each professional can put their skills at the service of patients while developing their professional career.\nWith a capacity of 50 beds, the Medicine department takes care of patients with diverse medical situations, requiring a global, personalized and coordinated approach. It also includes a neurovascular unit, dedicated to the specialized care of patients with a stroke or other acute neurovascular pathology.\nOn a daily basis, our teams are committed to providing quality care, in a caring, respectful and person-centered environment.\nThe work within the department is based on close collaboration between different healthcare professionals, patients and their loved ones. Listening, trust, respect and taking into account the needs of each patient are at the heart of our practice.\nWe offer you a stimulating professional environment, in which your commitment and skills directly contribute to the quality of care for our patients.\nMission:\n\n• You collaborate closely in patient care within a multidisciplinary team and with the nursing team\n\n• You provide varied, comprehensive and individualized care under the delegation of a nurse and you responsibly and autonomously support patients with aspects of care relating to daily life activities\n\n• You provide medical-technical care under delegation of the nurse\n\n• You transmit the information in a targeted and relevant manner in the computerized file\n\n• You supervise and support ASSC apprentices and trainees\n\n• You supervise and support new employees\n\n• You are responsible for good care practices and support for nursing assistants and healthcare assistants\nRequired profile:\n\n• Strong interest in caring for elderly and/or dependent people and/or people with cognitive disorders\n\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n\n• Ability to work interdisciplinarily\n\n• You are a dynamic, involved, motivated person and have a sense of responsibility\n\n• You demonstrate excellent command of the French language, both in oral expression and writing.\nLevel of training:\n\n• You hold a CFC assistant in community care and health\nAdvantages:\n\n• You work in a pleasant working environment, in a recent construction\n\n• You join a dynamic and motivated multidisciplinary team",
-        "de": "GHOL ist das Referenzkrankenhaus im westlichen Genfersee mit seinen Strukturen in Nyon und Rolle. Der Beitritt zu GHOL bedeutet, einer dynamischen und engagierten Einrichtung beizutreten, in der jeder Fachmann seine Fähigkeiten in den Dienst der Patienten stellen und gleichzeitig seine berufliche Laufbahn weiterentwickeln kann.\nMit einer Kapazität von 50 Betten kümmert sich die medizinische Abteilung um Patienten mit unterschiedlichen medizinischen Situationen, die einen globalen, personalisierten und koordinierten Ansatz erfordern. Es umfasst auch eine neurovaskuläre Abteilung, die sich der spezialisierten Betreuung von Patienten mit Schlaganfall oder anderen akuten neurovaskulären Pathologien widmet.\nUnsere Teams engagieren sich täglich für eine qualitativ hochwertige Pflege in einem fürsorglichen, respektvollen und personenzentrierten Umfeld.\nDie Arbeit innerhalb der Abteilung basiert auf einer engen Zusammenarbeit zwischen verschiedenen medizinischen Fachkräften, Patienten und ihren Angehörigen. Zuhören, Vertrauen, Respekt und die Berücksichtigung der Bedürfnisse jedes Patienten stehen im Mittelpunkt unserer Praxis.\nWir bieten Ihnen ein anregendes berufliches Umfeld, in dem Ihr Engagement und Ihre Fähigkeiten direkt zur Qualität der Versorgung unserer Patienten beitragen.\nAuftrag:\n\n• Sie arbeiten bei der Patientenversorgung eng in einem multidisziplinären Team und mit dem Pflegeteam zusammen\n\n• Sie betreuen abwechslungsreich, umfassend und individuell unter der Delegation einer Pflegekraft und unterstützen Patienten verantwortungsbewusst und eigenverantwortlich bei pflegerischen Aspekten des täglichen Lebens\n\n• Sie erbringen die medizinisch-technische Betreuung im Auftrag der Pflegekraft\n\n• Sie übermitteln die Informationen zielgerichtet und relevant in der EDV-Datei\n\n• Du betreust und unterstützt Auszubildende und Trainees der ASSC\n\n• Sie betreuen und unterstützen neue Mitarbeiter\n\n• Sie sind für gute Pflegepraktiken und die Unterstützung von Pflegehelfern und Gesundheitshelfern verantwortlich\nErforderliches Profil:\n\n• Starkes Interesse an der Betreuung älterer und/oder pflegebedürftiger Menschen und/oder Menschen mit kognitiven Störungen\n\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nonverbale Kommunikationsfähigkeiten\n\n• Fähigkeit zur interdisziplinären Zusammenarbeit\n\n• Sie sind eine dynamische, engagierte, motivierte Person und haben Verantwortungsbewusstsein\n\n• Sie beherrschen die französische Sprache sowohl mündlich als auch schriftlich hervorragend.\nAusbildungsstand:\n\n• Sie haben einen CFC-Assistenten im Bereich Gemeindepflege und Gesundheit\nVorteile:\n\n• Sie arbeiten in einem angenehmen Arbeitsumfeld in einem Neubau\n\n• Sie werden Teil eines dynamischen und motivierten multidisziplinären Teams",
-        "fr": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare-nursing",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/FbUuocJWF",
-      "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:27:20.228Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
-        ]
-      },
-      "firstSeenAt": "2026-08-25T21:49:26.103Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Nyon",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:27:20.228Z",
+      "validThrough": "2026-12-01T22:23:38.332Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -311,7 +160,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:27:20.228Z",
+      "crawledAt": "2026-11-01T22:23:38.331Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -343,34 +192,34 @@
       },
       "streetAddress": "Rolle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:27:20.228Z",
+      "validThrough": "2026-12-01T22:23:38.331Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "ghol-05bfa91fa669",
-      "slug": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "id": "ghol-bb90df116e65",
+      "slug": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "it": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "invoicing-collaborator-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "fakturierungsmitarbeiter-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "assc-for-the-department-of-medicine-and-neurovascular-unit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "assc-fur-die-abteilung-medizin-und-neurovaskulare-einheit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
-      "title": "Collaborateur-trice facturation",
+      "title": "ASSC pour le service de Médecine et Unité neurovasculaire",
       "titleByLocale": {
-        "it": "Collaboratore di fatturazione",
-        "en": "Invoicing Collaborator",
-        "de": "Fakturierungsmitarbeiter",
-        "fr": "Collaborateur-trice facturation"
+        "it": "ASSC per il Dipartimento di Medicina e Unità Neurovascolare",
+        "en": "ASSC for the Department of Medicine and Neurovascular Unit",
+        "de": "ASSC für die Abteilung Medizin und neurovaskuläre Einheit",
+        "fr": "ASSC pour le service de Médecine et Unité neurovasculaire"
       },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\n Niveau de formation :\n CFC employé d’administration ou titre jugé équivalent\n Avantages :\n Un cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\n Une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n L’opportunité de mener des projets de développer dans un secteur stratégique ;\n Participer au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
+      "description": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
       "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL, nel suo nuovo edificio ospedaliero presso il sito Nyon.\n\nDescrizione della posizione:\nNei vostri nuovi doveri, le vostre missioni hanno un impatto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n\n• Prevedere servizi medici ambulatoriale e stazionario, farmaci e altri servizi non medici\n\n• Controllare i dati amministrativi dei record dei pazienti\n\n• Assicurare il pieno sequestro delle spese mediche\n\n• Assicurare la completezza dei benefici inseriti dai file\n\n• Generare fatture ambulatoriale e stazionarie da tutte le discipline mediche GHOL\n\n• Procedimento delle fatture e la loro giustificazione con i nostri partner paganti difendendo i migliori interessi dell'istituzione\n\n• Tenere aggiornato sugli sviluppi nel settore delle imprese\n\n• Elaborare richieste aggiuntive da pazienti e terze parti\n\n• Rispondere alle telefonate\n\n• Lavorare a stretto contatto con altri servizi nella gestione delle cure mediche e dei pazienti.\n\n• Partecipazione all'aggiornamento delle procedure di lavoro e al miglioramento continuo delle pratiche\n\n• Partecipa attivamente a cicli di fatturazione mensili, trimestrali e annuali\n\n• Anticipazione delle nuove caratteristiche dei cataloghi tariffari nel suo complesso\nProfilo richiesto:\nSiamo convinti della vostra rapida integrazione nelle vostre funzioni future attraverso la vostra:\n\n• Esperienza minima di 3 anni in ospedale o nel campo dell'assicurazione malattia/incidente\n\n• Conoscenza approfondita delle strutture tariffarie (CPTMA, Tarmed, SwissDRG)\n\n• Buona conoscenza del sistema aereo svizzero (LAMal, LAA, LCA)\n\n• Capacità di analisi e forza della proposta\n\n• Flessibilità e buona gestione dello stress\n\n• Ottima padronanza degli strumenti per computer (Opale, MOY, Excel)\n\n• Interesse per l'innovazione e nuovi sviluppi relativi al vostro settore\n\n• Buona conoscenza in inglese, tedesco un bene\nLivello di formazione:\nDipendente amministrativo SWC o equivalente\nVantaggi:\nUn ambiente di lavoro piacevole con orari di lavoro flessibili e la possibilità di lavorare a casa;\nUn team di dimensioni umane che promuove scambi e progressi;\nCollabora con manager innovativi, attivi nel loro ambiente e creativi per affrontare sfide attuali e future;\nL'opportunità di realizzare progetti da sviluppare in un settore strategico;\nPartecipare allo sviluppo di strumenti di intelligenza artificiale nell'attuazione della scienza dei dati all'interno dell'istituzione\nIl funzionamento dinamico di una società privata il cui riconoscimento dell'interesse pubblico garantisce i benefici del CTC applicabile nel settore della sanità pubblica.",
-        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL, in its new hospital building at the Nyon site.\n\nDescription of position:\nIn your new duties, your missions have an impact on the quality of patient care. Your role will include:\n\n• Seizing outpatient and stationary medical services, drugs and other non-medical services\n\n• Control administrative data of patient records\n\n• Ensure full seizure of medical fees\n\n• Ensure completeness of benefits entered from files\n\n• Generate outpatient and stationary invoices from all GHOL medical disciplines\n\n• Process returns of invoices and their justification with our paying partners by defending the best interests of the Institution\n\n• Keep up to date on developments in its business sector\n\n• Process additional requests from patients and third parties\n\n• Answering telephone calls\n\n• Work closely with other services in Patient and Medical Care Management.\n\n• Participate in updating work procedures and continuous improvement of practices\n\n• Actively participate in monthly, quarterly and annual billing loops\n\n• Anticipating the new features of tariff catalogues as a whole\nProfile required:\nWe are convinced of your rapid integration into your future functions through your:\n\n• Minimum experience of 3 years in hospital or in the field of sickness/accident insurance\n\n• In-depth knowledge of tariff structures (CPTMA, Tarmed, SwissDRG)\n\n• Good knowledge of the Swiss airframe system (LAMal, LAA, LCA)\n\n• Analysis capacity and proposal strength\n\n• Flexibility and good stress management\n\n• Very good computer tools mastery (Opale, MOY, Excel)\n\n• Interest in innovation and new developments related to your sector\n\n• Good knowledge in English, German an asset\nLevel of training:\nSWC administrative employee or equivalent\nBenefits:\nA pleasant working environment with flexible working hours and the possibility of working at home;\nA human-sized team that promotes exchanges and your progress;\nCollaborate with innovative managers, active in their environment and creative to meet current and future challenges;\nThe opportunity to carry out projects to develop in a strategic sector;\nParticipate in the development of artificial intelligence tools in the implementation of data science within the institution\nThe dynamic operation of a private company whose recognition of the public interest guarantees the benefits of the CTC applicable in the parapublic health sector.",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL in seinem neuen Krankenhausgebäude am Standort Nyon teilnehmen.\n\nBeschreibung der Position:\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n\n• Beschlagnahme ambulanter und stationärer medizinischer Dienstleistungen, Arzneimittel und anderer nichtmedizinischer Dienstleistungen\n\n• Verwaltungsdaten der Kontrolle von Patientenakten\n\n• Gewährleistung der vollständigen Beschlagnahme von Arztgebühren\n\n• Vollständigkeit der aus den Akten eingegebenen Vorteile\n\n• Generieren Sie ambulante und stationäre Rechnungen aus allen medizinischen Disziplinen von GHOL\n\n• Rückgabe von Rechnungen und deren Rechtfertigung mit unseren zahlenden Partnern durch die Verteidigung der besten Interessen der Institution\n\n• Bleiben Sie auf dem Laufenden über die Entwicklungen im Geschäftsbereich\n\n• Zusätzliche Anfragen von Patienten und Dritten bearbeiten\n\n• Beantwortung von Telefonanrufen\n\n• Arbeiten Sie eng mit anderen Diensten im Patienten- und Gesundheitsmanagement zusammen.\n\n• Beteiligen Sie sich an der Aktualisierung von Arbeitsabläufen und der kontinuierlichen Verbesserung von Praktiken\n\n• Aktive Teilnahme an monatlichen, vierteljährlichen und jährlichen Abrechnungsschleifen\n\n• Antizipieren der neuen Merkmale von Tarifkatalogen als Ganzes\nProfil erforderlich:\nWir sind überzeugt von Ihrer schnellen Integration in Ihre zukünftigen Funktionen durch Ihre:\n\n• Mindesterfahrung von 3 Jahren im Krankenhaus oder im Bereich der Kranken-/Unfallversicherung\n\n• Vertiefte Kenntnis der Tarifstrukturen (CPTMA, Tarmed, SwissDRG)\n\n• Gute Kenntnisse des Schweizer Flugzeugzellensystems (LAMal, LAA, LCA)\n\n• Analysekapazität und Vorschlagsstärke\n\n• Flexibilität und gutes Stressmanagement\n\n• Sehr gute Computer-Tools Beherrschung (Opale, MOY, Excel)\n\n• Interesse an Innovationen und neuen Entwicklungen in Ihrer Branche\n\n• Gute Englischkenntnisse, Deutsch ein Asset\nAusbildungsniveau:\nSWC Verwaltungsangestellte oder gleichwertige\nLeistungen:\nEin angenehmes Arbeitsumfeld mit flexiblen Arbeitszeiten und der Möglichkeit, zu Hause zu arbeiten;\nEin Team in menschlicher Größe, das den Austausch und Ihren Fortschritt fördert;\nZusammenarbeit mit innovativen Managern, die in ihrem Umfeld aktiv und kreativ sind, um aktuelle und zukünftige Herausforderungen zu meistern;\nDie Möglichkeit, Projekte durchzuführen, um sich in einem strategischen Sektor zu entwickeln;\nBeteiligen Sie sich an der Entwicklung von Tools für künstliche Intelligenz bei der Implementierung von Data Science innerhalb der Institution\nDer dynamische Betrieb eines privaten Unternehmens, dessen Anerkennung des öffentlichen Interesses die Vorteile des CTC garantiert, die im paraöffentlichen Gesundheitssektor gelten.",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\nProfil requis :\nNous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\nNiveau de formation :\nCFC employé d’administration ou titre jugé équivalent\nAvantages :\nUn cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\nUne équipe à taille humaine favorisant les échanges et votre progression ;\nCollaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\nL’opportunité de mener des projets de développer dans un secteur stratégique ;\nParticiper au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\nLe fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé."
+        "it": "GHOL è l'ospedale di riferimento nella parte occidentale del Lago di Ginevra, con le sue strutture a Nyon e Rolle. Entrare a far parte di GHOL significa entrare a far parte di un'istituzione dinamica e impegnata, dove ogni professionista può mettere le proprie competenze al servizio dei pazienti sviluppando la propria carriera professionale.\nCon una capacità di 50 posti letto, il dipartimento di Medicina si prende cura di pazienti con situazioni mediche diverse, che richiedono un approccio globale, personalizzato e coordinato. Comprende anche un'unità neurovascolare, dedicata alla cura specialistica dei pazienti con ictus o altra patologia neurovascolare acuta.\nOgni giorno, i nostri team si impegnano a fornire assistenza di qualità, in un ambiente attento, rispettoso e incentrato sulla persona.\nIl lavoro all’interno del dipartimento si basa sulla stretta collaborazione tra i diversi operatori sanitari, i pazienti e i loro cari. L'ascolto, la fiducia, il rispetto e la considerazione delle esigenze di ciascun paziente sono al centro della nostra pratica.\nTi offriamo un ambiente professionale stimolante, in cui il tuo impegno e le tue competenze contribuiscono direttamente alla qualità delle cure per i nostri pazienti.\nMissione:\n\n• Collabori strettamente nella cura del paziente all'interno di un team multidisciplinare e con il team infermieristico\n\n• Fornisci assistenza varia, completa e personalizzata sotto la delega di un infermiere e supporti in modo responsabile e autonomo i pazienti con aspetti dell'assistenza relativi alle attività della vita quotidiana\n\n• Fornisci assistenza medico-tecnica su delega dell'infermiere\n\n• Trasmettete le informazioni in modo mirato e pertinente nell'archivio informatico\n\n• Supervisionare e supportare gli apprendisti e i tirocinanti dell'ASSC\n\n• Supervisioni e supporti i nuovi dipendenti\n\n• Sei responsabile delle buone pratiche di cura e del supporto per gli assistenti infermieristici e gli assistenti sanitari\nProfilo richiesto:\n\n• Forte interesse nella cura di anziani e/o persone non autosufficienti e/o persone con disturbi cognitivi\n\n• Pazienza, empatia, ascolto attivo, elevate capacità di comunicazione verbale e non verbale\n\n• Capacità di lavorare in modo interdisciplinare\n\n• Sei una persona dinamica, coinvolta, motivata e hai senso di responsabilità\n\n• Dimostra un'ottima padronanza della lingua francese, sia nell'espressione orale che scritta.\nLivello di formazione:\n\n• Sei assistente CFC nel settore dell'assistenza sanitaria e della comunità\nVantaggi:\n\n• Lavori in un ambiente lavorativo piacevole, in una costruzione recente\n\n• Entrerai a far parte di un team multidisciplinare dinamico e motivato",
+        "en": "GHOL is the reference hospital in western Lake Geneva, with its structures in Nyon and Rolle. Joining GHOL means joining a dynamic and committed institution, where each professional can put their skills at the service of patients while developing their professional career.\nWith a capacity of 50 beds, the Medicine department takes care of patients with diverse medical situations, requiring a global, personalized and coordinated approach. It also includes a neurovascular unit, dedicated to the specialized care of patients with a stroke or other acute neurovascular pathology.\nOn a daily basis, our teams are committed to providing quality care, in a caring, respectful and person-centered environment.\nThe work within the department is based on close collaboration between different healthcare professionals, patients and their loved ones. Listening, trust, respect and taking into account the needs of each patient are at the heart of our practice.\nWe offer you a stimulating professional environment, in which your commitment and skills directly contribute to the quality of care for our patients.\nMission:\n\n• You collaborate closely in patient care within a multidisciplinary team and with the nursing team\n\n• You provide varied, comprehensive and individualized care under the delegation of a nurse and you responsibly and autonomously support patients with aspects of care relating to daily life activities\n\n• You provide medical-technical care under delegation of the nurse\n\n• You transmit the information in a targeted and relevant manner in the computerized file\n\n• You supervise and support ASSC apprentices and trainees\n\n• You supervise and support new employees\n\n• You are responsible for good care practices and support for nursing assistants and healthcare assistants\nRequired profile:\n\n• Strong interest in caring for elderly and/or dependent people and/or people with cognitive disorders\n\n• Patience, empathy, active listening, high verbal and non-verbal communication skills\n\n• Ability to work interdisciplinarily\n\n• You are a dynamic, involved, motivated person and have a sense of responsibility\n\n• You demonstrate excellent command of the French language, both in oral expression and writing.\nLevel of training:\n\n• You hold a CFC assistant in community care and health\nAdvantages:\n\n• You work in a pleasant working environment, in a recent construction\n\n• You join a dynamic and motivated multidisciplinary team",
+        "de": "GHOL ist das Referenzkrankenhaus im westlichen Genfersee mit seinen Strukturen in Nyon und Rolle. Der Beitritt zu GHOL bedeutet, einer dynamischen und engagierten Einrichtung beizutreten, in der jeder Fachmann seine Fähigkeiten in den Dienst der Patienten stellen und gleichzeitig seine berufliche Laufbahn weiterentwickeln kann.\nMit einer Kapazität von 50 Betten kümmert sich die medizinische Abteilung um Patienten mit unterschiedlichen medizinischen Situationen, die einen globalen, personalisierten und koordinierten Ansatz erfordern. Es umfasst auch eine neurovaskuläre Abteilung, die sich der spezialisierten Betreuung von Patienten mit Schlaganfall oder anderen akuten neurovaskulären Pathologien widmet.\nUnsere Teams engagieren sich täglich für eine qualitativ hochwertige Pflege in einem fürsorglichen, respektvollen und personenzentrierten Umfeld.\nDie Arbeit innerhalb der Abteilung basiert auf einer engen Zusammenarbeit zwischen verschiedenen medizinischen Fachkräften, Patienten und ihren Angehörigen. Zuhören, Vertrauen, Respekt und die Berücksichtigung der Bedürfnisse jedes Patienten stehen im Mittelpunkt unserer Praxis.\nWir bieten Ihnen ein anregendes berufliches Umfeld, in dem Ihr Engagement und Ihre Fähigkeiten direkt zur Qualität der Versorgung unserer Patienten beitragen.\nAuftrag:\n\n• Sie arbeiten bei der Patientenversorgung eng in einem multidisziplinären Team und mit dem Pflegeteam zusammen\n\n• Sie betreuen abwechslungsreich, umfassend und individuell unter der Delegation einer Pflegekraft und unterstützen Patienten verantwortungsbewusst und eigenverantwortlich bei pflegerischen Aspekten des täglichen Lebens\n\n• Sie erbringen die medizinisch-technische Betreuung im Auftrag der Pflegekraft\n\n• Sie übermitteln die Informationen zielgerichtet und relevant in der EDV-Datei\n\n• Du betreust und unterstützt Auszubildende und Trainees der ASSC\n\n• Sie betreuen und unterstützen neue Mitarbeiter\n\n• Sie sind für gute Pflegepraktiken und die Unterstützung von Pflegehelfern und Gesundheitshelfern verantwortlich\nErforderliches Profil:\n\n• Starkes Interesse an der Betreuung älterer und/oder pflegebedürftiger Menschen und/oder Menschen mit kognitiven Störungen\n\n• Geduld, Empathie, aktives Zuhören, hohe verbale und nonverbale Kommunikationsfähigkeiten\n\n• Fähigkeit zur interdisziplinären Zusammenarbeit\n\n• Sie sind eine dynamische, engagierte, motivierte Person und haben Verantwortungsbewusstsein\n\n• Sie beherrschen die französische Sprache sowohl mündlich als auch schriftlich hervorragend.\nAusbildungsstand:\n\n• Sie haben einen CFC-Assistenten im Bereich Gemeindepflege und Gesundheit\nVorteile:\n\n• Sie arbeiten in einem angenehmen Arbeitsumfeld in einem Neubau\n\n• Sie werden Teil eines dynamischen und motivierten multidisziplinären Teams",
+        "fr": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée"
       },
       "location": "Nyon",
       "canton": "VD",
@@ -379,37 +228,31 @@
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "1260",
-      "category": "healthcare",
+      "category": "healthcare-nursing",
       "sector": "Salute / Ospedale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/5d21Gnrjl",
-      "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
+      "url": "https://app.beehire.com/invite/FbUuocJWF",
+      "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:27:20.227Z",
+      "crawledAt": "2026-11-01T22:23:38.330Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
         ]
       },
-      "firstSeenAt": "2026-10-19T21:29:33.210Z",
+      "firstSeenAt": "2026-08-25T21:49:26.103Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -425,7 +268,82 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:27:20.227Z",
+      "validThrough": "2026-12-01T22:23:38.330Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ghol-cd19adb46d26",
+      "slug": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "medecin-assistent-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest",
+      "titleByLocale": {
+        "it": "Assistente medico in pratica – FoRCab MFE, Regione Ovest",
+        "en": "Assistant physician in practice – FoRCab MFE, West Region",
+        "de": "Médecin Assistent-e en cabinet – FoRCab MFE, région Ouest",
+        "fr": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest"
+      },
+      "description": "Descriptif du poste :\n Le programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\n La région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\n Profil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\n Formation :\n\n• Diplôme de médecin suisse ou équivalent",
+      "descriptionByLocale": {
+        "it": "Descrizione del lavoro:\nIl programma Training and Succession in Family and Child Medicine (FoRCab MFE) sostiene la prossima generazione di professionisti della medicina di famiglia, in particolare sovvenzionando e organizzando assistentati di pratica nel Cantone di Vaud. L'organizzazione è regionale.\nLa regione Ovest offre corsi di formazione della durata di diversi anni, riservati ai futuri medici di famiglia. Oltre a un periodo in uno studio di formazione (6 mesi al 100% o 12 mesi al 50%), sono possibili rotazioni nei seguenti reparti: medicina interna, chirurgia, clinica d'emergenza/ambulatoriale e pediatria presso l'Ospedale di Nyon, pneumologia a Rolle e psichiatria a Prangins.\nProfilo richiesto:\n\n• Medico che si è laureato o sta per ottenere una laurea in medicina\n\n• Obiettivo di ottenere una qualifica di specialista in medicina interna generale\n\n• Obiettivo di aprire uno studio come medico di famiglia nell'ovest del Cantone di Vaud\n\n• Non ha ricevuto un sussidio cantonale come parte dell'assistentato nella pratica (tutti i cantoni)\nIstruzione:\n\n• Una laurea in medicina svizzera o equivalente",
+        "en": "Job description:\nThe Training and Succession in Family and Child Medicine (FoRCab MFE) program supports the next generation of family medicine professionals, in particular by subsidizing and organizing practice assistantships in the Canton of Vaud. The organization is regional.\nThe West region offers training courses lasting several years, reserved for future family doctors. In addition to a stint in a training practice (6 months at 100% or 12 months at 50%), rotations are possible in the following departments: internal medicine, surgery, emergency/outpatient clinic and paediatrics at the Nyon Hospital, pulmonology in Rolle and psychiatry in Prangins.\nRequired profile:\n\n• Doctor who has graduated or is in the process of obtaining a medical degree\n\n• Aim to obtain a specialist designation in general internal medicine\n\n• Objective to set up a practice as a family doctor in the west of the Canton of Vaud\n\n• Not have received a cantonal subsidy as part of the assistantship in the practice (all cantons)\nEducation:\n\n• Swiss medical degree or equivalent",
+        "de": "Stellenbeschreibung:\nDas Programm Training and Succession in Family and Child Medicine (FoRCab MFE) unterstützt die nächste Generation von Fachkräften für Allgemeinmediziner, insbesondere durch Subventionierung und Organisation von Praxisassistenten im Kanton Vaud. Die Organisation ist regional ausgerichtet.\nDie West-Region bietet mehrere Jahre dauernde Ausbildungen an, die künftigen Hausärzten vorbehalten sind. Neben einer Ausbildungstätigkeit (6 Monate bei 100 % oder 12 Monate bei 50 %) sind Rotationen in folgenden Abteilungen möglich: Innere Medizin, Chirurgie, Notaufnahme/Ambulanz und Pädiatrie am Nyon Hospital, Pneumologie in Rolle und Psychiatrie in Prangins.\nErforderliches Profil:\n\n• Arzt, der seinen Abschluss gemacht hat oder gerade einen medizinischen Abschluss erwirbt\n\n• Streben Sie an, eine Facharztausbildung in der allgemeinen Inneren Medizin zu erwerben\n\n• Ziel der Errichtung einer Praxis als Hausarzt im Westen des Kantons Vaud\n\n• Keine kantonale Subvention im Rahmen der Assistenztätigkeit in der Praxis erhalten haben (alle Kantone)\nAusbildung:\n\n• Schweizer medizinischer Abschluss oder äquivalent",
+        "fr": "Descriptif du poste :\nLe programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\nLa région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\nProfil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\nFormation :\n\n• Diplôme de médecin suisse ou équivalent"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-medical",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/I_TEMIvLa",
+      "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-01T22:23:38.329Z",
+      "previousSlugs": [
+        "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:24:46.269Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Nyon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T22:23:38.329Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -475,7 +393,7 @@
       "applyUrl": "https://app.beehire.com/invite/jsVFtWAvo",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:27:20.227Z",
+      "crawledAt": "2026-11-01T22:23:38.328Z",
       "previousSlugs": [
         "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -506,34 +424,34 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:27:20.227Z",
+      "validThrough": "2027-01-10T22:23:38.328Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "ghol-ca7b74ad5b09",
-      "slug": "manutenzione-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "id": "ghol-05bfa91fa669",
+      "slug": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "it": "manutenzione-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "maintenance-technician-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "instandhaltungstechniker-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "invoicing-collaborator-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "fakturierungsmitarbeiter-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
-      "title": "Technicien de maintenance",
+      "title": "Collaborateur-trice facturation",
       "titleByLocale": {
-        "it": "Manutenzione Tecnica",
-        "en": "Maintenance Technician",
-        "de": "Instandhaltungstechniker",
-        "fr": "Technicien de maintenance"
+        "it": "Collaboratore di fatturazione",
+        "en": "Invoicing Collaborator",
+        "de": "Fakturierungsmitarbeiter",
+        "fr": "Collaborateur-trice facturation"
       },
-      "description": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) regroupe plusieurs établissements de soins dans la région de La Côte et assure une prise en charge de proximité pour la population.\n Votre mission :\n Au sein du service biomédical du GHOL, vous assurez l’entretien, la maintenance préventive et les réparations courantes des équipements utilisés dans les établissements hospitaliers et médico-sociaux du groupe.\n Intégré à une équipe composée du responsable de service et de trois techniciens biomédicaux, vous contribuez à la fiabilité du matériel, à la sécurité des utilisateurs et à la continuité des activités de soins.\n Ce poste concret et varié s’adresse à une personne manuelle, curieuse et polyvalente, désireuse de développer ses compétences techniques dans un environnement stimulant.\n Vos activités principales :\n\n• Effectuer la maintenance préventive et les réparations courantes sur différents équipements, notamment les lits hospitaliers, fauteuils roulants, fauteuils de soins et divans d’examen.\n\n• Contrôler le bon fonctionnement du matériel, identifier les anomalies et diagnostiquer les pannes courantes.\n\n• Réaliser les interventions nécessaires dans le respect des procédures établies et des exigences de sécurité.\n\n• Documenter les interventions et assurer le suivi des équipements dans la GMAO (gestion de maintenance assistée par ordinateur).\n\n• Collaborer avec les équipes soignantes et les différents services afin de répondre à leurs besoins techniques.\n\n• Participer à la gestion et au suivi du parc d’équipements sur les différents sites du GHOL.\n\n• Selon votre progression et votre niveau d’autonomie, vous pourrez également intervenir sur des équipements plus complexes et contribuer à des projets techniques.\n Votre profil\n\n• Vous disposez d’une bonne habileté manuelle et d’un intérêt marqué pour la technique et la maintenance.\n\n• Vous êtes polyvalent, pragmatique et capable de rechercher des solutions adaptées aux problèmes rencontrés.\n\n• Vous faites preuve de curiosité, de rigueur et d’autonomie, tout en sachant reconnaître vos limites et demander conseil lorsque nécessaire.\n\n• Vous appréciez le travail en équipe et adoptez une attitude discrète et respectueuse de la confidentialité, indispensable en milieu hospitalier.\n\n• Vous maîtrisez les outils informatiques courants, notamment Microsoft Word et Excel.\n\n• Vous êtes titulaire du permis de conduire, indispensable pour les déplacements entre les différents établissements du GHOL.\n Diplômes / formation :\n CFC ou brevet fédéral dans un domaine technique (agent d’exploitation, polymécanicien, électronicien, mécanicien en maintenance, etc.)\n Les atouts supplémentaires :\n\n• Une connaissance d’un logiciel de GMAO.\n\n• Une expérience en milieu hospitalier ou médico-social, appréciée mais non indispensable.\n Nous vous offrons\n\n• Un poste diversifié, au cœur du fonctionnement des établissements de soins.\n\n• Un encadrement de proximité et le soutien d’une équipe expérimentée.\n\n• La possibilité de développer vos compétences et de gagner progressivement en autonomie.\n\n• Des perspectives d’évolution vers des interventions plus complexes et la participation à des projets techniques.\n\n• Une possibilité d’engagement en CDI à l’issue du CDD d’un an, selon vos compétences, votre implication et les résultats obtenus.",
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\n Niveau de formation :\n CFC employé d’administration ou titre jugé équivalent\n Avantages :\n Un cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\n Une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n L’opportunité de mener des projets de développer dans un secteur stratégique ;\n Participer au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
       "descriptionByLocale": {
-        "it": "Il Groupement Hospitalier de l'Ouest Lémanique (GHOL) riunisce diverse strutture sanitarie nella regione di La Côte e fornisce assistenza comunitaria per la popolazione.\nLa vostra missione:\nAll'interno del servizio biomedico di GHOL, si garantisce la manutenzione, la manutenzione preventiva e le riparazioni di routine delle attrezzature utilizzate negli stabilimenti ospedalieri e medici-sociali del gruppo.\nNell'ambito di un team composto dal service manager e da tre tecnici biomedici, contribuisce all'affidabilità delle attrezzature, alla sicurezza degli utenti e alla continuità delle attività di assistenza.\nQuesta posizione concreta e varia è intesa per una persona manuale, curiosa e versatile che vuole sviluppare le sue competenze tecniche in un ambiente stimolante.\nLe vostre principali attività:\n\n• Condurre manutenzione preventiva e riparazioni di routine su una varietà di attrezzature, tra cui letti ospedalieri, sedie a rotelle, sedie per la salute e letti di esame.\n\n• Monitorare le prestazioni delle apparecchiature, identificare le anomalie e diagnosticare i guasti comuni.\n\n• Condurre interventi necessari in conformità alle procedure stabilite e ai requisiti di sicurezza.\n\n• Documentare gli interventi e monitorare le attrezzature nel GMAO (gestione di manutenzione assistita da computer).\n\n• Collabora con team sanitari e diversi servizi per soddisfare le loro esigenze tecniche.\n\n• Partecipa alla gestione e al monitoraggio del parco attrezzature presso i vari siti GHOL.\n\n• A seconda del progresso e del livello di autonomia, è anche possibile intervenire su attrezzature più complesse e contribuire a progetti tecnici.\nIl tuo profilo\n\n• Hai una buona manualità e un forte interesse per la tecnica e la manutenzione.\n\n• Sei versatile, pragmatico e in grado di cercare soluzioni adattate ai problemi incontrati.\n\n• Mostri curiosità, rigore e autonomia, pur sapendo riconoscere i tuoi limiti e cercare consigli quando necessario.\n\n• Apprezzi il lavoro di squadra e prendi un atteggiamento discreto e confidenziale, essenziale nelle impostazioni dell'ospedale.\n\n• Hai masterizzato strumenti informatici comuni, tra cui Microsoft Word e Excel.\n\n• Siete il titolare della patente di guida, che è essenziale per viaggiare tra i vari stabilimenti GHOL.\nDiploma/formazione:\nSWC o brevetto federale in un campo tecnico (agente operativo, polimerico, elettronico, ingegnere di manutenzione, ecc.)\nAttività aggiuntive:\n\n• Una conoscenza del software GMAO.\n\n• Un'esperienza in un ambiente ospedaliero o medico-sociale, apprezzato ma non indispensabile.\nVi offriamo\n\n• Una posizione diversa, nel cuore del funzionamento delle strutture di cura.\n\n• Allenamento di prossimità e il supporto di una squadra esperta.\n\n• La possibilità di sviluppare le vostre abilità e gradualmente acquisendo autonomia.\n\n• Prospettive per interventi più complessi e partecipazione a progetti tecnici.\n\n• Un'opportunità di impegnarsi in CDI alla fine del CSD di un anno, a seconda delle tue abilità, del tuo coinvolgimento e dei risultati raggiunti.",
-        "en": "The Groupement Hospitalier de l'Ouest Lémanique (GHOL) brings together several health facilities in the region of La Côte and provides community care for the population.\nYour mission:\nWithin GHOL's biomedical service, you ensure the maintenance, preventive maintenance and routine repairs of the equipment used in the hospital and medical-social establishments of the group.\nAs part of a team composed of the service manager and three biomedical technicians, you contribute to equipment reliability, user safety and continuity of care activities.\nThis concrete and varied position is intended for a manual, curious and versatile person who wants to develop his technical skills in a stimulating environment.\nYour main activities:\n\n• Conduct preventive maintenance and routine repairs on a variety of equipment, including hospital beds, wheelchairs, health chairs and examination beds.\n\n• Monitor equipment performance, identify anomalies, and diagnose common failures.\n\n• Conduct necessary interventions in accordance with established procedures and safety requirements.\n\n• Document the interventions and monitor equipment in the GMAO (computer-assisted maintenance management).\n\n• Collaborate with health care teams and different services to meet their technical needs.\n\n• Participate in the management and monitoring of the equipment park at the various GHOL sites.\n\n• Depending on your progress and level of autonomy, you can also intervene on more complex equipment and contribute to technical projects.\nYour profile\n\n• You have good manual skill and a strong interest in technique and maintenance.\n\n• You are versatile, pragmatic and able to seek solutions adapted to the problems encountered.\n\n• You show curiosity, rigour and autonomy, while knowing how to recognize your limitations and seek advice when necessary.\n\n• You appreciate teamwork and take a discreet and confidential attitude, essential in hospital settings.\n\n• You have mastered common computer tools, including Microsoft Word and Excel.\n\n• You are the holder of the driving licence, which is essential for travelling between the various GHOL establishments.\nDiplomas/training:\nSWC or federal patent in a technical field (operating agent, polymerician, electronician, maintenance engineer, etc.)\nAdditional assets:\n\n• A knowledge of GMAO software.\n\n• An experience in a hospital or medico-social setting, appreciated but not indispensable.\nWe offer you\n\n• A diverse position, at the heart of the operation of care facilities.\n\n• Closeness coaching and the support of an experienced team.\n\n• The possibility of developing your skills and gradually gaining autonomy.\n\n• Prospects for more complex interventions and participation in technical projects.\n\n• An opportunity to engage in CDI at the end of the CSD of one year, depending on your skills, your involvement and the results achieved.",
-        "de": "Das Groupement Hospitalier de l'Ouest Lémanique (GHOL) vereint mehrere Gesundheitseinrichtungen in der Region La Côte und sorgt für eine gemeinschaftliche Betreuung der Bevölkerung.\nIhre Mission:\nIm Rahmen des biomedizinischen Service von GHOL sorgen Sie für die Wartung, vorbeugende Wartung und routinemäßige Reparaturen der in den Krankenhäusern und medizinisch-sozialen Einrichtungen der Gruppe verwendeten Geräte.\nAls Teil eines Teams, das aus dem Servicemanager und drei biomedizinischen Technikern besteht, tragen Sie zur Zuverlässigkeit der Geräte, zur Sicherheit der Benutzer und zur Kontinuität der Pflegeaktivitäten bei.\nDiese konkrete und abwechslungsreiche Position ist für eine manuelle, neugierige und vielseitige Person gedacht, die ihre technischen Fähigkeiten in einer anregenden Umgebung entwickeln möchte.\nIhre Hauptaktivitäten:\n\n• Führen Sie vorbeugende Wartung und routinemäßige Reparaturen an einer Vielzahl von Geräten durch, einschließlich Krankenhausbetten, Rollstühlen, Gesundheitsstühlen und Untersuchungsbetten.\n\n• Überwachen Sie die Leistung der Geräte, identifizieren Sie Anomalien und diagnostizieren Sie häufige Fehler.\n\n• Durchführung notwendiger Eingriffe in Übereinstimmung mit festgelegten Verfahren und Sicherheitsanforderungen.\n\n• Dokumentieren Sie die Eingriffe und überwachen Sie die Geräte im GMAO (Computer-assisted Maintenance Management).\n\n• Arbeiten Sie mit Gesundheitsteams und verschiedenen Diensten zusammen, um ihre technischen Bedürfnisse zu erfüllen.\n\n• Beteiligen Sie sich an der Verwaltung und Überwachung des Geräteparks an den verschiedenen GHOL-Standorten.\n\n• Je nach Fortschritt und Autonomiegrad können Sie auch bei komplexeren Geräten eingreifen und zu technischen Projekten beitragen.\nDein Profil\n\n• Sie haben gute manuelle Fähigkeiten und ein starkes Interesse an Technik und Wartung.\n\n• Sie sind vielseitig, pragmatisch und in der Lage, Lösungen zu suchen, die an die aufgetretenen Probleme angepasst sind.\n\n• Sie zeigen Neugier, Strenge und Autonomie, während Sie wissen, wie Sie Ihre Grenzen erkennen und bei Bedarf Rat suchen.\n\n• Sie schätzen Teamarbeit und nehmen eine diskrete und vertrauliche Haltung ein, die im Krankenhaus unerlässlich ist.\n\n• Sie beherrschen gängige Computer-Tools, einschließlich Microsoft Word und Excel.\n\n• Sie sind Inhaber des Führerscheins, der für die Fahrt zwischen den verschiedenen GHOL-Betrieben unerlässlich ist.\nDiplome/Ausbildung:\nSWC oder Bundespatent in einem technischen Bereich (Betriebsmittel, Polymeriker, Elektroniker, Wartungsingenieur, etc.)\nZusätzliche Vermögenswerte:\n\n• Kenntnisse der GMAO-Software.\n\n• Eine Erfahrung in einem Krankenhaus oder medizinisch-sozialen Umfeld, geschätzt, aber nicht unverzichtbar.\nWir bieten Ihnen\n\n• Eine vielfältige Position, im Herzen des Betriebs von Pflegeeinrichtungen.\n\n• Closeness Coaching und die Unterstützung eines erfahrenen Teams.\n\n• Die Möglichkeit, Ihre Fähigkeiten zu entwickeln und allmählich Autonomie zu erlangen.\n\n• Perspektiven für komplexere Interventionen und die Teilnahme an technischen Projekten.\n\n• Eine Möglichkeit, sich am Ende des CSD von einem Jahr an CDI zu beteiligen, abhängig von Ihren Fähigkeiten, Ihrem Engagement und den erzielten Ergebnissen.",
-        "fr": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) regroupe plusieurs établissements de soins dans la région de La Côte et assure une prise en charge de proximité pour la population.\nVotre mission :\nAu sein du service biomédical du GHOL, vous assurez l’entretien, la maintenance préventive et les réparations courantes des équipements utilisés dans les établissements hospitaliers et médico-sociaux du groupe.\nIntégré à une équipe composée du responsable de service et de trois techniciens biomédicaux, vous contribuez à la fiabilité du matériel, à la sécurité des utilisateurs et à la continuité des activités de soins.\nCe poste concret et varié s’adresse à une personne manuelle, curieuse et polyvalente, désireuse de développer ses compétences techniques dans un environnement stimulant.\nVos activités principales :\n\n• Effectuer la maintenance préventive et les réparations courantes sur différents équipements, notamment les lits hospitaliers, fauteuils roulants, fauteuils de soins et divans d’examen.\n\n• Contrôler le bon fonctionnement du matériel, identifier les anomalies et diagnostiquer les pannes courantes.\n\n• Réaliser les interventions nécessaires dans le respect des procédures établies et des exigences de sécurité.\n\n• Documenter les interventions et assurer le suivi des équipements dans la GMAO (gestion de maintenance assistée par ordinateur).\n\n• Collaborer avec les équipes soignantes et les différents services afin de répondre à leurs besoins techniques.\n\n• Participer à la gestion et au suivi du parc d’équipements sur les différents sites du GHOL.\n\n• Selon votre progression et votre niveau d’autonomie, vous pourrez également intervenir sur des équipements plus complexes et contribuer à des projets techniques.\nVotre profil\n\n• Vous disposez d’une bonne habileté manuelle et d’un intérêt marqué pour la technique et la maintenance.\n\n• Vous êtes polyvalent, pragmatique et capable de rechercher des solutions adaptées aux problèmes rencontrés.\n\n• Vous faites preuve de curiosité, de rigueur et d’autonomie, tout en sachant reconnaître vos limites et demander conseil lorsque nécessaire.\n\n• Vous appréciez le travail en équipe et adoptez une attitude discrète et respectueuse de la confidentialité, indispensable en milieu hospitalier.\n\n• Vous maîtrisez les outils informatiques courants, notamment Microsoft Word et Excel.\n\n• Vous êtes titulaire du permis de conduire, indispensable pour les déplacements entre les différents établissements du GHOL.\nDiplômes / formation :\nCFC ou brevet fédéral dans un domaine technique (agent d’exploitation, polymécanicien, électronicien, mécanicien en maintenance, etc.)\nLes atouts supplémentaires :\n\n• Une connaissance d’un logiciel de GMAO.\n\n• Une expérience en milieu hospitalier ou médico-social, appréciée mais non indispensable.\nNous vous offrons\n\n• Un poste diversifié, au cœur du fonctionnement des établissements de soins.\n\n• Un encadrement de proximité et le soutien d’une équipe expérimentée.\n\n• La possibilité de développer vos compétences et de gagner progressivement en autonomie.\n\n• Des perspectives d’évolution vers des interventions plus complexes et la participation à des projets techniques.\n\n• Une possibilité d’engagement en CDI à l’issue du CDD d’un an, selon vos compétences, votre implication et les résultats obtenus."
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL, nel suo nuovo edificio ospedaliero presso il sito Nyon.\n\nDescrizione della posizione:\nNei vostri nuovi doveri, le vostre missioni hanno un impatto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n\n• Prevedere servizi medici ambulatoriale e stazionario, farmaci e altri servizi non medici\n\n• Controllare i dati amministrativi dei record dei pazienti\n\n• Assicurare il pieno sequestro delle spese mediche\n\n• Assicurare la completezza dei benefici inseriti dai file\n\n• Generare fatture ambulatoriale e stazionarie da tutte le discipline mediche GHOL\n\n• Procedimento delle fatture e la loro giustificazione con i nostri partner paganti difendendo i migliori interessi dell'istituzione\n\n• Tenere aggiornato sugli sviluppi nel settore delle imprese\n\n• Elaborare richieste aggiuntive da pazienti e terze parti\n\n• Rispondere alle telefonate\n\n• Lavorare a stretto contatto con altri servizi nella gestione delle cure mediche e dei pazienti.\n\n• Partecipazione all'aggiornamento delle procedure di lavoro e al miglioramento continuo delle pratiche\n\n• Partecipa attivamente a cicli di fatturazione mensili, trimestrali e annuali\n\n• Anticipazione delle nuove caratteristiche dei cataloghi tariffari nel suo complesso\nProfilo richiesto:\nSiamo convinti della vostra rapida integrazione nelle vostre funzioni future attraverso la vostra:\n\n• Esperienza minima di 3 anni in ospedale o nel campo dell'assicurazione malattia/incidente\n\n• Conoscenza approfondita delle strutture tariffarie (CPTMA, Tarmed, SwissDRG)\n\n• Buona conoscenza del sistema aereo svizzero (LAMal, LAA, LCA)\n\n• Capacità di analisi e forza della proposta\n\n• Flessibilità e buona gestione dello stress\n\n• Ottima padronanza degli strumenti per computer (Opale, MOY, Excel)\n\n• Interesse per l'innovazione e nuovi sviluppi relativi al vostro settore\n\n• Buona conoscenza in inglese, tedesco un bene\nLivello di formazione:\nDipendente amministrativo SWC o equivalente\nVantaggi:\nUn ambiente di lavoro piacevole con orari di lavoro flessibili e la possibilità di lavorare a casa;\nUn team di dimensioni umane che promuove scambi e progressi;\nCollabora con manager innovativi, attivi nel loro ambiente e creativi per affrontare sfide attuali e future;\nL'opportunità di realizzare progetti da sviluppare in un settore strategico;\nPartecipare allo sviluppo di strumenti di intelligenza artificiale nell'attuazione della scienza dei dati all'interno dell'istituzione\nIl funzionamento dinamico di una società privata il cui riconoscimento dell'interesse pubblico garantisce i benefici del CTC applicabile nel settore della sanità pubblica.",
+        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL, in its new hospital building at the Nyon site.\n\nDescription of position:\nIn your new duties, your missions have an impact on the quality of patient care. Your role will include:\n\n• Seizing outpatient and stationary medical services, drugs and other non-medical services\n\n• Control administrative data of patient records\n\n• Ensure full seizure of medical fees\n\n• Ensure completeness of benefits entered from files\n\n• Generate outpatient and stationary invoices from all GHOL medical disciplines\n\n• Process returns of invoices and their justification with our paying partners by defending the best interests of the Institution\n\n• Keep up to date on developments in its business sector\n\n• Process additional requests from patients and third parties\n\n• Answering telephone calls\n\n• Work closely with other services in Patient and Medical Care Management.\n\n• Participate in updating work procedures and continuous improvement of practices\n\n• Actively participate in monthly, quarterly and annual billing loops\n\n• Anticipating the new features of tariff catalogues as a whole\nProfile required:\nWe are convinced of your rapid integration into your future functions through your:\n\n• Minimum experience of 3 years in hospital or in the field of sickness/accident insurance\n\n• In-depth knowledge of tariff structures (CPTMA, Tarmed, SwissDRG)\n\n• Good knowledge of the Swiss airframe system (LAMal, LAA, LCA)\n\n• Analysis capacity and proposal strength\n\n• Flexibility and good stress management\n\n• Very good computer tools mastery (Opale, MOY, Excel)\n\n• Interest in innovation and new developments related to your sector\n\n• Good knowledge in English, German an asset\nLevel of training:\nSWC administrative employee or equivalent\nBenefits:\nA pleasant working environment with flexible working hours and the possibility of working at home;\nA human-sized team that promotes exchanges and your progress;\nCollaborate with innovative managers, active in their environment and creative to meet current and future challenges;\nThe opportunity to carry out projects to develop in a strategic sector;\nParticipate in the development of artificial intelligence tools in the implementation of data science within the institution\nThe dynamic operation of a private company whose recognition of the public interest guarantees the benefits of the CTC applicable in the parapublic health sector.",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL in seinem neuen Krankenhausgebäude am Standort Nyon teilnehmen.\n\nBeschreibung der Position:\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n\n• Beschlagnahme ambulanter und stationärer medizinischer Dienstleistungen, Arzneimittel und anderer nichtmedizinischer Dienstleistungen\n\n• Verwaltungsdaten der Kontrolle von Patientenakten\n\n• Gewährleistung der vollständigen Beschlagnahme von Arztgebühren\n\n• Vollständigkeit der aus den Akten eingegebenen Vorteile\n\n• Generieren Sie ambulante und stationäre Rechnungen aus allen medizinischen Disziplinen von GHOL\n\n• Rückgabe von Rechnungen und deren Rechtfertigung mit unseren zahlenden Partnern durch die Verteidigung der besten Interessen der Institution\n\n• Bleiben Sie auf dem Laufenden über die Entwicklungen im Geschäftsbereich\n\n• Zusätzliche Anfragen von Patienten und Dritten bearbeiten\n\n• Beantwortung von Telefonanrufen\n\n• Arbeiten Sie eng mit anderen Diensten im Patienten- und Gesundheitsmanagement zusammen.\n\n• Beteiligen Sie sich an der Aktualisierung von Arbeitsabläufen und der kontinuierlichen Verbesserung von Praktiken\n\n• Aktive Teilnahme an monatlichen, vierteljährlichen und jährlichen Abrechnungsschleifen\n\n• Antizipieren der neuen Merkmale von Tarifkatalogen als Ganzes\nProfil erforderlich:\nWir sind überzeugt von Ihrer schnellen Integration in Ihre zukünftigen Funktionen durch Ihre:\n\n• Mindesterfahrung von 3 Jahren im Krankenhaus oder im Bereich der Kranken-/Unfallversicherung\n\n• Vertiefte Kenntnis der Tarifstrukturen (CPTMA, Tarmed, SwissDRG)\n\n• Gute Kenntnisse des Schweizer Flugzeugzellensystems (LAMal, LAA, LCA)\n\n• Analysekapazität und Vorschlagsstärke\n\n• Flexibilität und gutes Stressmanagement\n\n• Sehr gute Computer-Tools Beherrschung (Opale, MOY, Excel)\n\n• Interesse an Innovationen und neuen Entwicklungen in Ihrer Branche\n\n• Gute Englischkenntnisse, Deutsch ein Asset\nAusbildungsniveau:\nSWC Verwaltungsangestellte oder gleichwertige\nLeistungen:\nEin angenehmes Arbeitsumfeld mit flexiblen Arbeitszeiten und der Möglichkeit, zu Hause zu arbeiten;\nEin Team in menschlicher Größe, das den Austausch und Ihren Fortschritt fördert;\nZusammenarbeit mit innovativen Managern, die in ihrem Umfeld aktiv und kreativ sind, um aktuelle und zukünftige Herausforderungen zu meistern;\nDie Möglichkeit, Projekte durchzuführen, um sich in einem strategischen Sektor zu entwickeln;\nBeteiligen Sie sich an der Entwicklung von Tools für künstliche Intelligenz bei der Implementierung von Data Science innerhalb der Institution\nDer dynamische Betrieb eines privaten Unternehmens, dessen Anerkennung des öffentlichen Interesses die Vorteile des CTC garantiert, die im paraöffentlichen Gesundheitssektor gelten.",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\nProfil requis :\nNous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\nNiveau de formation :\nCFC employé d’administration ou titre jugé équivalent\nAvantages :\nUn cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\nUne équipe à taille humaine favorisant les échanges et votre progression ;\nCollaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\nL’opportunité de mener des projets de développer dans un secteur stratégique ;\nParticiper au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\nLe fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé."
       },
       "location": "Nyon",
       "canton": "VD",
@@ -542,53 +460,53 @@
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "1260",
-      "category": "logistics",
+      "category": "healthcare",
       "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "CONTRACTOR",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/kgMrU8wmj",
-      "applyUrl": "https://app.beehire.com/invite/kgMrU8wmj",
+      "url": "https://app.beehire.com/invite/5d21Gnrjl",
+      "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:27:20.226Z",
+      "crawledAt": "2026-11-01T22:23:38.326Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
-      "firstSeenAt": "2026-10-23T09:22:44.281Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-10-19T21:29:33.210Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:27:20.226Z",
+      "validThrough": "2027-01-17T22:23:38.326Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -638,7 +556,7 @@
       "applyUrl": "https://app.beehire.com/invite/WkSW4quSz",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:27:20.226Z",
+      "crawledAt": "2026-11-01T22:23:38.325Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
@@ -670,7 +588,89 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:27:20.226Z",
+      "validThrough": "2027-01-21T22:23:38.325Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ghol-ca7b74ad5b09",
+      "slug": "manutenzione-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "manutenzione-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "maintenance-technician-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "instandhaltungstechniker-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Technicien de maintenance",
+      "titleByLocale": {
+        "it": "Manutenzione Tecnica",
+        "en": "Maintenance Technician",
+        "de": "Instandhaltungstechniker",
+        "fr": "Technicien de maintenance"
+      },
+      "description": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) regroupe plusieurs établissements de soins dans la région de La Côte et assure une prise en charge de proximité pour la population.\n Votre mission :\n Au sein du service biomédical du GHOL, vous assurez l’entretien, la maintenance préventive et les réparations courantes des équipements utilisés dans les établissements hospitaliers et médico-sociaux du groupe.\n Intégré à une équipe composée du responsable de service et de trois techniciens biomédicaux, vous contribuez à la fiabilité du matériel, à la sécurité des utilisateurs et à la continuité des activités de soins.\n Ce poste concret et varié s’adresse à une personne manuelle, curieuse et polyvalente, désireuse de développer ses compétences techniques dans un environnement stimulant.\n Vos activités principales :\n\n• Effectuer la maintenance préventive et les réparations courantes sur différents équipements, notamment les lits hospitaliers, fauteuils roulants, fauteuils de soins et divans d’examen.\n\n• Contrôler le bon fonctionnement du matériel, identifier les anomalies et diagnostiquer les pannes courantes.\n\n• Réaliser les interventions nécessaires dans le respect des procédures établies et des exigences de sécurité.\n\n• Documenter les interventions et assurer le suivi des équipements dans la GMAO (gestion de maintenance assistée par ordinateur).\n\n• Collaborer avec les équipes soignantes et les différents services afin de répondre à leurs besoins techniques.\n\n• Participer à la gestion et au suivi du parc d’équipements sur les différents sites du GHOL.\n\n• Selon votre progression et votre niveau d’autonomie, vous pourrez également intervenir sur des équipements plus complexes et contribuer à des projets techniques.\n Votre profil\n\n• Vous disposez d’une bonne habileté manuelle et d’un intérêt marqué pour la technique et la maintenance.\n\n• Vous êtes polyvalent, pragmatique et capable de rechercher des solutions adaptées aux problèmes rencontrés.\n\n• Vous faites preuve de curiosité, de rigueur et d’autonomie, tout en sachant reconnaître vos limites et demander conseil lorsque nécessaire.\n\n• Vous appréciez le travail en équipe et adoptez une attitude discrète et respectueuse de la confidentialité, indispensable en milieu hospitalier.\n\n• Vous maîtrisez les outils informatiques courants, notamment Microsoft Word et Excel.\n\n• Vous êtes titulaire du permis de conduire, indispensable pour les déplacements entre les différents établissements du GHOL.\n Diplômes / formation :\n CFC ou brevet fédéral dans un domaine technique (agent d’exploitation, polymécanicien, électronicien, mécanicien en maintenance, etc.)\n Les atouts supplémentaires :\n\n• Une connaissance d’un logiciel de GMAO.\n\n• Une expérience en milieu hospitalier ou médico-social, appréciée mais non indispensable.\n Nous vous offrons\n\n• Un poste diversifié, au cœur du fonctionnement des établissements de soins.\n\n• Un encadrement de proximité et le soutien d’une équipe expérimentée.\n\n• La possibilité de développer vos compétences et de gagner progressivement en autonomie.\n\n• Des perspectives d’évolution vers des interventions plus complexes et la participation à des projets techniques.\n\n• Une possibilité d’engagement en CDI à l’issue du CDD d’un an, selon vos compétences, votre implication et les résultats obtenus.",
+      "descriptionByLocale": {
+        "it": "Il Groupement Hospitalier de l'Ouest Lémanique (GHOL) riunisce diverse strutture sanitarie nella regione di La Côte e fornisce assistenza comunitaria per la popolazione.\nLa vostra missione:\nAll'interno del servizio biomedico di GHOL, si garantisce la manutenzione, la manutenzione preventiva e le riparazioni di routine delle attrezzature utilizzate negli stabilimenti ospedalieri e medici-sociali del gruppo.\nNell'ambito di un team composto dal service manager e da tre tecnici biomedici, contribuisce all'affidabilità delle attrezzature, alla sicurezza degli utenti e alla continuità delle attività di assistenza.\nQuesta posizione concreta e varia è intesa per una persona manuale, curiosa e versatile che vuole sviluppare le sue competenze tecniche in un ambiente stimolante.\nLe vostre principali attività:\n\n• Condurre manutenzione preventiva e riparazioni di routine su una varietà di attrezzature, tra cui letti ospedalieri, sedie a rotelle, sedie per la salute e letti di esame.\n\n• Monitorare le prestazioni delle apparecchiature, identificare le anomalie e diagnosticare i guasti comuni.\n\n• Condurre interventi necessari in conformità alle procedure stabilite e ai requisiti di sicurezza.\n\n• Documentare gli interventi e monitorare le attrezzature nel GMAO (gestione di manutenzione assistita da computer).\n\n• Collabora con team sanitari e diversi servizi per soddisfare le loro esigenze tecniche.\n\n• Partecipa alla gestione e al monitoraggio del parco attrezzature presso i vari siti GHOL.\n\n• A seconda del progresso e del livello di autonomia, è anche possibile intervenire su attrezzature più complesse e contribuire a progetti tecnici.\nIl tuo profilo\n\n• Hai una buona manualità e un forte interesse per la tecnica e la manutenzione.\n\n• Sei versatile, pragmatico e in grado di cercare soluzioni adattate ai problemi incontrati.\n\n• Mostri curiosità, rigore e autonomia, pur sapendo riconoscere i tuoi limiti e cercare consigli quando necessario.\n\n• Apprezzi il lavoro di squadra e prendi un atteggiamento discreto e confidenziale, essenziale nelle impostazioni dell'ospedale.\n\n• Hai masterizzato strumenti informatici comuni, tra cui Microsoft Word e Excel.\n\n• Siete il titolare della patente di guida, che è essenziale per viaggiare tra i vari stabilimenti GHOL.\nDiploma/formazione:\nSWC o brevetto federale in un campo tecnico (agente operativo, polimerico, elettronico, ingegnere di manutenzione, ecc.)\nAttività aggiuntive:\n\n• Una conoscenza del software GMAO.\n\n• Un'esperienza in un ambiente ospedaliero o medico-sociale, apprezzato ma non indispensabile.\nVi offriamo\n\n• Una posizione diversa, nel cuore del funzionamento delle strutture di cura.\n\n• Allenamento di prossimità e il supporto di una squadra esperta.\n\n• La possibilità di sviluppare le vostre abilità e gradualmente acquisendo autonomia.\n\n• Prospettive per interventi più complessi e partecipazione a progetti tecnici.\n\n• Un'opportunità di impegnarsi in CDI alla fine del CSD di un anno, a seconda delle tue abilità, del tuo coinvolgimento e dei risultati raggiunti.",
+        "en": "The Groupement Hospitalier de l'Ouest Lémanique (GHOL) brings together several health facilities in the region of La Côte and provides community care for the population.\nYour mission:\nWithin GHOL's biomedical service, you ensure the maintenance, preventive maintenance and routine repairs of the equipment used in the hospital and medical-social establishments of the group.\nAs part of a team composed of the service manager and three biomedical technicians, you contribute to equipment reliability, user safety and continuity of care activities.\nThis concrete and varied position is intended for a manual, curious and versatile person who wants to develop his technical skills in a stimulating environment.\nYour main activities:\n\n• Conduct preventive maintenance and routine repairs on a variety of equipment, including hospital beds, wheelchairs, health chairs and examination beds.\n\n• Monitor equipment performance, identify anomalies, and diagnose common failures.\n\n• Conduct necessary interventions in accordance with established procedures and safety requirements.\n\n• Document the interventions and monitor equipment in the GMAO (computer-assisted maintenance management).\n\n• Collaborate with health care teams and different services to meet their technical needs.\n\n• Participate in the management and monitoring of the equipment park at the various GHOL sites.\n\n• Depending on your progress and level of autonomy, you can also intervene on more complex equipment and contribute to technical projects.\nYour profile\n\n• You have good manual skill and a strong interest in technique and maintenance.\n\n• You are versatile, pragmatic and able to seek solutions adapted to the problems encountered.\n\n• You show curiosity, rigour and autonomy, while knowing how to recognize your limitations and seek advice when necessary.\n\n• You appreciate teamwork and take a discreet and confidential attitude, essential in hospital settings.\n\n• You have mastered common computer tools, including Microsoft Word and Excel.\n\n• You are the holder of the driving licence, which is essential for travelling between the various GHOL establishments.\nDiplomas/training:\nSWC or federal patent in a technical field (operating agent, polymerician, electronician, maintenance engineer, etc.)\nAdditional assets:\n\n• A knowledge of GMAO software.\n\n• An experience in a hospital or medico-social setting, appreciated but not indispensable.\nWe offer you\n\n• A diverse position, at the heart of the operation of care facilities.\n\n• Closeness coaching and the support of an experienced team.\n\n• The possibility of developing your skills and gradually gaining autonomy.\n\n• Prospects for more complex interventions and participation in technical projects.\n\n• An opportunity to engage in CDI at the end of the CSD of one year, depending on your skills, your involvement and the results achieved.",
+        "de": "Das Groupement Hospitalier de l'Ouest Lémanique (GHOL) vereint mehrere Gesundheitseinrichtungen in der Region La Côte und sorgt für eine gemeinschaftliche Betreuung der Bevölkerung.\nIhre Mission:\nIm Rahmen des biomedizinischen Service von GHOL sorgen Sie für die Wartung, vorbeugende Wartung und routinemäßige Reparaturen der in den Krankenhäusern und medizinisch-sozialen Einrichtungen der Gruppe verwendeten Geräte.\nAls Teil eines Teams, das aus dem Servicemanager und drei biomedizinischen Technikern besteht, tragen Sie zur Zuverlässigkeit der Geräte, zur Sicherheit der Benutzer und zur Kontinuität der Pflegeaktivitäten bei.\nDiese konkrete und abwechslungsreiche Position ist für eine manuelle, neugierige und vielseitige Person gedacht, die ihre technischen Fähigkeiten in einer anregenden Umgebung entwickeln möchte.\nIhre Hauptaktivitäten:\n\n• Führen Sie vorbeugende Wartung und routinemäßige Reparaturen an einer Vielzahl von Geräten durch, einschließlich Krankenhausbetten, Rollstühlen, Gesundheitsstühlen und Untersuchungsbetten.\n\n• Überwachen Sie die Leistung der Geräte, identifizieren Sie Anomalien und diagnostizieren Sie häufige Fehler.\n\n• Durchführung notwendiger Eingriffe in Übereinstimmung mit festgelegten Verfahren und Sicherheitsanforderungen.\n\n• Dokumentieren Sie die Eingriffe und überwachen Sie die Geräte im GMAO (Computer-assisted Maintenance Management).\n\n• Arbeiten Sie mit Gesundheitsteams und verschiedenen Diensten zusammen, um ihre technischen Bedürfnisse zu erfüllen.\n\n• Beteiligen Sie sich an der Verwaltung und Überwachung des Geräteparks an den verschiedenen GHOL-Standorten.\n\n• Je nach Fortschritt und Autonomiegrad können Sie auch bei komplexeren Geräten eingreifen und zu technischen Projekten beitragen.\nDein Profil\n\n• Sie haben gute manuelle Fähigkeiten und ein starkes Interesse an Technik und Wartung.\n\n• Sie sind vielseitig, pragmatisch und in der Lage, Lösungen zu suchen, die an die aufgetretenen Probleme angepasst sind.\n\n• Sie zeigen Neugier, Strenge und Autonomie, während Sie wissen, wie Sie Ihre Grenzen erkennen und bei Bedarf Rat suchen.\n\n• Sie schätzen Teamarbeit und nehmen eine diskrete und vertrauliche Haltung ein, die im Krankenhaus unerlässlich ist.\n\n• Sie beherrschen gängige Computer-Tools, einschließlich Microsoft Word und Excel.\n\n• Sie sind Inhaber des Führerscheins, der für die Fahrt zwischen den verschiedenen GHOL-Betrieben unerlässlich ist.\nDiplome/Ausbildung:\nSWC oder Bundespatent in einem technischen Bereich (Betriebsmittel, Polymeriker, Elektroniker, Wartungsingenieur, etc.)\nZusätzliche Vermögenswerte:\n\n• Kenntnisse der GMAO-Software.\n\n• Eine Erfahrung in einem Krankenhaus oder medizinisch-sozialen Umfeld, geschätzt, aber nicht unverzichtbar.\nWir bieten Ihnen\n\n• Eine vielfältige Position, im Herzen des Betriebs von Pflegeeinrichtungen.\n\n• Closeness Coaching und die Unterstützung eines erfahrenen Teams.\n\n• Die Möglichkeit, Ihre Fähigkeiten zu entwickeln und allmählich Autonomie zu erlangen.\n\n• Perspektiven für komplexere Interventionen und die Teilnahme an technischen Projekten.\n\n• Eine Möglichkeit, sich am Ende des CSD von einem Jahr an CDI zu beteiligen, abhängig von Ihren Fähigkeiten, Ihrem Engagement und den erzielten Ergebnissen.",
+        "fr": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) regroupe plusieurs établissements de soins dans la région de La Côte et assure une prise en charge de proximité pour la population.\nVotre mission :\nAu sein du service biomédical du GHOL, vous assurez l’entretien, la maintenance préventive et les réparations courantes des équipements utilisés dans les établissements hospitaliers et médico-sociaux du groupe.\nIntégré à une équipe composée du responsable de service et de trois techniciens biomédicaux, vous contribuez à la fiabilité du matériel, à la sécurité des utilisateurs et à la continuité des activités de soins.\nCe poste concret et varié s’adresse à une personne manuelle, curieuse et polyvalente, désireuse de développer ses compétences techniques dans un environnement stimulant.\nVos activités principales :\n\n• Effectuer la maintenance préventive et les réparations courantes sur différents équipements, notamment les lits hospitaliers, fauteuils roulants, fauteuils de soins et divans d’examen.\n\n• Contrôler le bon fonctionnement du matériel, identifier les anomalies et diagnostiquer les pannes courantes.\n\n• Réaliser les interventions nécessaires dans le respect des procédures établies et des exigences de sécurité.\n\n• Documenter les interventions et assurer le suivi des équipements dans la GMAO (gestion de maintenance assistée par ordinateur).\n\n• Collaborer avec les équipes soignantes et les différents services afin de répondre à leurs besoins techniques.\n\n• Participer à la gestion et au suivi du parc d’équipements sur les différents sites du GHOL.\n\n• Selon votre progression et votre niveau d’autonomie, vous pourrez également intervenir sur des équipements plus complexes et contribuer à des projets techniques.\nVotre profil\n\n• Vous disposez d’une bonne habileté manuelle et d’un intérêt marqué pour la technique et la maintenance.\n\n• Vous êtes polyvalent, pragmatique et capable de rechercher des solutions adaptées aux problèmes rencontrés.\n\n• Vous faites preuve de curiosité, de rigueur et d’autonomie, tout en sachant reconnaître vos limites et demander conseil lorsque nécessaire.\n\n• Vous appréciez le travail en équipe et adoptez une attitude discrète et respectueuse de la confidentialité, indispensable en milieu hospitalier.\n\n• Vous maîtrisez les outils informatiques courants, notamment Microsoft Word et Excel.\n\n• Vous êtes titulaire du permis de conduire, indispensable pour les déplacements entre les différents établissements du GHOL.\nDiplômes / formation :\nCFC ou brevet fédéral dans un domaine technique (agent d’exploitation, polymécanicien, électronicien, mécanicien en maintenance, etc.)\nLes atouts supplémentaires :\n\n• Une connaissance d’un logiciel de GMAO.\n\n• Une expérience en milieu hospitalier ou médico-social, appréciée mais non indispensable.\nNous vous offrons\n\n• Un poste diversifié, au cœur du fonctionnement des établissements de soins.\n\n• Un encadrement de proximité et le soutien d’une équipe expérimentée.\n\n• La possibilité de développer vos compétences et de gagner progressivement en autonomie.\n\n• Des perspectives d’évolution vers des interventions plus complexes et la participation à des projets techniques.\n\n• Une possibilité d’engagement en CDI à l’issue du CDD d’un an, selon vos compétences, votre implication et les résultats obtenus."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "logistics",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/kgMrU8wmj",
+      "applyUrl": "https://app.beehire.com/invite/kgMrU8wmj",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-01T22:23:38.324Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T09:22:44.281Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Nyon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T22:23:38.324Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -720,7 +720,7 @@
       "applyUrl": "https://app.beehire.com/invite/yxQoAFzqJ",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:27:20.225Z",
+      "crawledAt": "2026-11-01T22:23:38.322Z",
       "previousSlugs": [
         "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -751,7 +751,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:27:20.225Z",
+      "validThrough": "2026-12-25T22:23:38.322Z",
       "validThroughSource": "last-observed-window"
     }
   ]

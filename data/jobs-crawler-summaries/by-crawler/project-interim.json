@@ -1,7 +1,7 @@
 {
   "key": "project-interim",
   "label": "Project Interim Sàrl",
-  "generatedAt": "2026-11-01T09:36:50.247Z",
+  "generatedAt": "2026-11-01T21:37:09.656Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4860,
-  "avgDurationMs": 4860,
+  "durationMs": 4007,
+  "avgDurationMs": 4007,
   "durationHistory": [
-    4860
+    4007
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -46,7 +46,7 @@
       "applyUrl": "https://projectinterim.ch/work/macon-genie-civil-h-f/",
       "source": "Project Interim Dedicated Parser (official WordPress work record)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:36:29.178Z",
+      "crawledAt": "2026-11-01T21:36:48.459Z",
       "hiringOrganizationName": "Project Interim Sàrl",
       "category": "Muratore",
       "sector": "Edilizia / Costruzioni",
@@ -65,7 +65,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:36:29.178Z",
+      "validThrough": "2026-12-01T21:36:48.459Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -95,7 +95,7 @@
       "applyUrl": "https://projectinterim.ch/work/macon-construction-h-f/",
       "source": "Project Interim Dedicated Parser (official WordPress work record)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:36:29.178Z",
+      "crawledAt": "2026-11-01T21:36:48.459Z",
       "hiringOrganizationName": "Project Interim Sàrl",
       "category": "Muratore",
       "sector": "Edilizia / Costruzioni",
@@ -114,7 +114,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:36:29.178Z",
+      "validThrough": "2026-12-01T21:36:48.459Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -125,5 +125,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

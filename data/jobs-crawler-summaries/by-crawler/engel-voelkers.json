@@ -1,16 +1,16 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-11-01T09:24:22.949Z",
+  "generatedAt": "2026-11-01T22:13:34.809Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 22324,
-  "avgDurationMs": 22324,
+  "durationMs": 20878,
+  "avgDurationMs": 20878,
   "durationHistory": [
-    22324
+    20878
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -431,7 +431,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-30T22:13:20.476Z",
       "id": "engel-voelkers-aa68475ac16c",
       "salaryMin": 54000,
       "salaryMax": 82500,
@@ -440,6 +440,7 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
+      "validThroughSource": "build-clock-fallback",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -501,5 +502,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

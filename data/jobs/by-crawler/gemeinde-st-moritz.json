@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gemeinde-st-moritz",
-  "assembledAt": "2026-11-01T09:29:05.366Z",
-  "runId": "41292451365",
+  "assembledAt": "2026-11-01T22:21:47.761Z",
+  "runId": "41351214962",
   "jobs": [
     {
       "id": "gemeinde-st-moritz-8ee8533e73fe",
@@ -34,7 +34,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/bistromitarbeiter-60-80-m-w-d-unbefristet",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:29:00.327Z",
+      "crawledAt": "2026-11-01T22:21:41.342Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -103,7 +103,7 @@
       "addressRegion": "GR",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:29:00.327Z",
+      "validThrough": "2026-12-01T22:21:41.342Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -137,7 +137,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:28:58.115Z",
+      "crawledAt": "2026-11-01T22:21:39.063Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -208,7 +208,7 @@
       "addressRegion": "GR",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:28:58.115Z",
+      "validThrough": "2026-12-01T22:21:39.063Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -242,7 +242,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindeschreiber-100-m-w",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:28:56.190Z",
+      "crawledAt": "2026-11-01T22:21:37.011Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -320,7 +320,7 @@
       "addressRegion": "GR",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:28:56.190Z",
+      "validThrough": "2026-12-01T22:21:37.011Z",
       "validThroughSource": "last-observed-window"
     }
   ]

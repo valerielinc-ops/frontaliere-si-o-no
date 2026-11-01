@@ -1,7 +1,7 @@
 {
   "crawlerKey": "michel-gruppe-ag",
-  "assembledAt": "2026-11-01T09:18:08.847Z",
-  "runId": "41292050097",
+  "assembledAt": "2026-11-01T22:36:23.289Z",
+  "runId": "41350746662",
   "jobs": [
     {
       "id": "michel-gruppe-ag-7dc0b804a782",
@@ -35,7 +35,7 @@
       "url": "https://my.jobalino.ch/job/8533e277f138525befd8580c9b046915/standortleiter-in-kueche-hasliberg-mit-diaetkochausbildung",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:01.744Z",
+      "crawledAt": "2026-11-01T22:36:17.485Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       },
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:18:01.744Z",
+      "validThrough": "2026-12-30T22:36:17.485Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -115,7 +115,7 @@
       "url": "https://my.jobalino.ch/job/1af8bea8f78facaf3dc9f46b4b3caf47/koechin-koch-efz_1202",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:01.230Z",
+      "crawledAt": "2026-11-01T22:36:17.002Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -164,7 +164,87 @@
       },
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:18:01.230Z",
+      "validThrough": "2026-12-30T22:36:17.002Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "michel-gruppe-ag-250b2412e04e",
+      "slug": "cura-professionale-efz-bambino-60-100-michel-gruppe-ag-meiringen",
+      "slugByLocale": {
+        "it": "cura-professionale-efz-bambino-60-100-michel-gruppe-ag-meiringen",
+        "en": "professional-care-efz-child-60-100-michel-gruppe-ag-meiringen",
+        "de": "fachfrau-fachmann-betreuung-efz-kind-60-100-michel-gruppe-ag-meiringen",
+        "fr": "soins-professionnels-efz-enfant-60-100-michel-gruppe-ag-meiringen"
+      },
+      "company": "Michel Gruppe AG",
+      "companyKey": "michel-gruppe-ag",
+      "companyDomain": "michel-gruppe.ch",
+      "title": "Fachfrau / Fachmann Betreuung EFZ Kind / 60% - 100%",
+      "titleByLocale": {
+        "it": "Cura professionale EFZ bambino / 60% - 100%",
+        "en": "Professional care EFZ child / 60% - 100%",
+        "de": "Fachfrau / Fachmann Betreuung EFZ Kind / 60% - 100%",
+        "fr": "Soins professionnels EFZ enfant / 60% - 100%"
+      },
+      "description": "Die Michel Gruppe AG umfasst die psychiatrische Institution Privatklinik Meiringen, die Rehaklinik Hasliberg, die Stiftung Helsenberg mit Wohnheimen und geschützten Arbeitsplätzen als auch die Wäscherei Haslital und die Kita Haslital sowie Dienstleistungsangebote in weiteren Bereichen. Sie beschäftigt insgesamt rund 800 Mitarbeiterinnen und Mitarbeiter an den Standorten Willigen, Meiringen, Hasliberg, Ringgenberg, Interlaken, Thun und Bern.\n\nDie Kita Haslital richtet ihr Angebot an arbeitstätige Eltern aus Meiringen und der Umgebung. Die Institution der Michel Gruppe bietet Platz für fünfzehn Kinder im Alter zwischen drei Monaten und dem Kindergarteneintritt.\n\nIhre Aufgaben\n\n• Selbständige und bedürfnisorientierte Betreuung der Kinder\n\n• Mitwirkung des Tagesablaufes der Kindergruppen\n\n• Begleitung von Auszubildenden\n\n• Vertrauensvoller Umgang mit den Eltern\n\nUnsere Erwartungen\n\n• Abgeschlossen pädagogische Ausbildung (FaBe K, KKE)\n\n• Verantwortungsbewusst, herzlich, zuverlässig und naturverbunden\n\n• Freude am individuellen Unterstützen und Begleiten von Kindern\n\n• Mitgestaltung eines positiven Arbeitsklimas\n\nUnser Angebot\n\n• Aufgestelltes KITA-Team\n\n• Fachkompetente Einarbeitung mit klaren Zielvorgaben\n\n• Lebhafter Betrieb mit abwechslungsreichem Alltag\n\n• Frei am eigenen Geburtstag",
+      "descriptionByLocale": {
+        "it": "Michel Gruppe AG comprende l'istituzione psichiatrica Privatklinik Meiringen, la clinica di riabilitazione Hasliberg, la Fondazione Helsenberg con dormitori e posti di lavoro protetti, nonché la lavanderia Haslital e la Kita Haslital e servizi in altre aree. Occupa circa 800 persone nelle sue sedi a Willigen, Meiringen, Hasliberg, Ringgenberg, Interlaken, Thun e Berna.\n\nLa Kita Haslital è rivolta ai genitori che lavorano da Meiringen e dalla zona circostante. L'istituzione del Gruppo Michel offre spazio per quindici bambini tra i tre mesi e l'ammissione all'asilo.\n\nI loro compiti\n\n• Cura indipendente e orientata alle esigenze dei bambini\n\n• Partecipazione alla routine quotidiana dei gruppi per bambini\n\n• Apprendisti accompagnatori\n\n• Fiducia con i genitori\n\nLe nostre aspettative\n\n• Formazione didattica completa (FaBe K, KKE)\n\n• Responsabile, caldo, affidabile e vicino alla natura\n\n• Gioia del sostegno individuale e dei bambini accompagnanti\n\n• Co-creazione di un ambiente di lavoro positivo\n\nLa nostra offerta\n\n• Gruppo KITA\n\n• Formazione competente con obiettivi chiari\n\n• Funzionamento lively con la vita quotidiana variegata\n\n• Gratis sul tuo compleanno",
+        "en": "Michel Gruppe AG comprises the psychiatric institution Privatklinik Meiringen, the rehabilitation clinic Hasliberg, the Helsenberg Foundation with dormitories and protected workplaces as well as the Haslital laundry and the Haslital Kita as well as services in other areas. It employs a total of around 800 people at its locations in Willigen, Meiringen, Hasliberg, Ringgenberg, Interlaken, Thun and Bern.\n\nThe Kita Haslital is aimed at working parents from Meiringen and the surrounding area. The institution of the Michel Group offers space for fifteen children between the age of three months and kindergarten admission.\n\nTheir tasks\n\n• Independent and needs-oriented care of children\n\n• Participation in the daily routine of children’s groups\n\n• Accompanying apprentices\n\n• Trusting with parents\n\nOur expectations\n\n• Completed educational training (FaBe K, KKE)\n\n• Responsible, warm, reliable and close to nature\n\n• Joy of individual support and accompanying children\n\n• Co-creation of a positive working environment\n\nOur offer\n\n• Established KITA team\n\n• Competent training with clear objectives\n\n• Lively operation with varied everyday life\n\n• Free on your own birthday",
+        "de": "Die Michel Gruppe AG umfasst die psychiatrische Institution Privatklinik Meiringen, die Rehaklinik Hasliberg, die Stiftung Helsenberg mit Wohnheimen und geschützten Arbeitsplätzen als auch die Wäscherei Haslital und die Kita Haslital sowie Dienstleistungsangebote in weiteren Bereichen. Sie beschäftigt insgesamt rund 800 Mitarbeiterinnen und Mitarbeiter an den Standorten Willigen, Meiringen, Hasliberg, Ringgenberg, Interlaken, Thun und Bern.\n\nDie Kita Haslital richtet ihr Angebot an arbeitstätige Eltern aus Meiringen und der Umgebung. Die Institution der Michel Gruppe bietet Platz für fünfzehn Kinder im Alter zwischen drei Monaten und dem Kindergarteneintritt.\n\nIhre Aufgaben\n\n• Selbständige und bedürfnisorientierte Betreuung der Kinder\n\n• Mitwirkung des Tagesablaufes der Kindergruppen\n\n• Begleitung von Auszubildenden\n\n• Vertrauensvoller Umgang mit den Eltern\n\nUnsere Erwartungen\n\n• Abgeschlossen pädagogische Ausbildung (FaBe K, KKE)\n\n• Verantwortungsbewusst, herzlich, zuverlässig und naturverbunden\n\n• Freude am individuellen Unterstützen und Begleiten von Kindern\n\n• Mitgestaltung eines positiven Arbeitsklimas\n\nUnser Angebot\n\n• Aufgestelltes KITA-Team\n\n• Fachkompetente Einarbeitung mit klaren Zielvorgaben\n\n• Lebhafter Betrieb mit abwechslungsreichem Alltag\n\n• Frei am eigenen Geburtstag",
+        "fr": "Michel Gruppe AG comprend l'établissement psychiatrique Privatklinik Meiringen, la clinique de réadaptation Hasliberg, la Fondation Helsenberg avec dortoirs et lieux de travail protégés ainsi que la buanderie Haslital et la Kita Haslital ainsi que des services dans d'autres régions. Il emploie environ 800 personnes sur ses sites de Willigen, Meiringen, Hasliberg, Ringgenberg, Interlaken, Thun et Bern.\n\nLe Kita Haslital est destiné aux parents qui travaillent de Meiringen et des environs. L'institution du Groupe Michel offre un espace pour quinze enfants entre l'âge de trois mois et l'admission à la maternelle.\n\nLeurs tâches\n\n• Prise en charge indépendante et axée sur les besoins des enfants\n\n• Participation à la routine quotidienne des groupes d'enfants\n\n• Apprentis accompagnateurs\n\n• Faire confiance aux parents\n\nNos attentes\n\n• Formation éducative terminée (FaBe K, KKE)\n\n• Responsable, chaleureux, fiable et proche de la nature\n\n• Joy de soutien individuel et d'accompagnement des enfants\n\n• Co-création d'un environnement de travail positif\n\nNotre offre\n\n• Équipe KITA créée\n\n• Formation compétente avec des objectifs clairs\n\n• Opération vivante avec vie quotidienne variée\n\n• Gratuit pour votre anniversaire"
+      },
+      "location": "Meiringen",
+      "canton": "BE",
+      "url": "https://my.jobalino.ch/job/a3e800c4b889aa753df4eb03b9bb3625/fachfrau-fachmann-betreuung-efz-kind_9709",
+      "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T22:36:16.522Z",
+      "addressLocality": "Meiringen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3860",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-06-05",
+      "postedDate": "2026-06-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://my.jobalino.ch/job/a3e800c4b889aa753df4eb03b9bb3625/fachfrau-fachmann-betreuung-efz-kind_9709",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "a3e800c4b889aa753df4eb03b9bb3625",
+      "contractDuration": "permanent",
+      "department": "Kita",
+      "previousSlugs": [
+        "fachfrau-fachmann-betreuung-efz-kind-60-100-michel-gruppe-ag-meiringen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-betreuung-efz-kind-60-100-michel-gruppe-ag-meiringen"
+        ]
+      },
+      "firstSeenAt": "2026-08-19T09:55:17.982Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Meiringen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T22:36:16.522Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -198,7 +278,7 @@
       "url": "https://my.jobalino.ch/job/4da43dc0116f1c31265b4d1d07b4d31e/sommer-2027-lehrstelle-koechin-efz-koch-efz",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:00.722Z",
+      "crawledAt": "2026-11-01T22:36:16.039Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -253,7 +333,7 @@
       },
       "streetAddress": "Meiringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:18:00.722Z",
+      "validThrough": "2026-12-01T22:36:16.039Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +368,7 @@
       "url": "https://my.jobalino.ch/job/aff82dad9268305578669c43be1c4d24/mitarbeiter-in-innenbegruenung_5324",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:18:00.211Z",
+      "crawledAt": "2026-11-01T22:36:15.548Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -346,87 +426,7 @@
       },
       "streetAddress": "Meiringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:18:00.211Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "michel-gruppe-ag-250b2412e04e",
-      "slug": "cura-professionale-efz-bambino-60-100-michel-gruppe-ag-meiringen",
-      "slugByLocale": {
-        "it": "cura-professionale-efz-bambino-60-100-michel-gruppe-ag-meiringen",
-        "en": "professional-care-efz-child-60-100-michel-gruppe-ag-meiringen",
-        "de": "fachfrau-fachmann-betreuung-efz-kind-60-100-michel-gruppe-ag-meiringen",
-        "fr": "soins-professionnels-efz-enfant-60-100-michel-gruppe-ag-meiringen"
-      },
-      "company": "Michel Gruppe AG",
-      "companyKey": "michel-gruppe-ag",
-      "companyDomain": "michel-gruppe.ch",
-      "title": "Fachfrau / Fachmann Betreuung EFZ Kind / 60% - 100%",
-      "titleByLocale": {
-        "it": "Cura professionale EFZ bambino / 60% - 100%",
-        "en": "Professional care EFZ child / 60% - 100%",
-        "de": "Fachfrau / Fachmann Betreuung EFZ Kind / 60% - 100%",
-        "fr": "Soins professionnels EFZ enfant / 60% - 100%"
-      },
-      "description": "Die Michel Gruppe AG umfasst die psychiatrische Institution Privatklinik Meiringen, die Rehaklinik Hasliberg, die Stiftung Helsenberg mit Wohnheimen und geschützten Arbeitsplätzen als auch die Wäscherei Haslital und die Kita Haslital sowie Dienstleistungsangebote in weiteren Bereichen. Sie beschäftigt insgesamt rund 800 Mitarbeiterinnen und Mitarbeiter an den Standorten Willigen, Meiringen, Hasliberg, Ringgenberg, Interlaken, Thun und Bern.\n\nDie Kita Haslital richtet ihr Angebot an arbeitstätige Eltern aus Meiringen und der Umgebung. Die Institution der Michel Gruppe bietet Platz für fünfzehn Kinder im Alter zwischen drei Monaten und dem Kindergarteneintritt.\n\nIhre Aufgaben\n\n• Selbständige und bedürfnisorientierte Betreuung der Kinder\n\n• Mitwirkung des Tagesablaufes der Kindergruppen\n\n• Begleitung von Auszubildenden\n\n• Vertrauensvoller Umgang mit den Eltern\n\nUnsere Erwartungen\n\n• Abgeschlossen pädagogische Ausbildung (FaBe K, KKE)\n\n• Verantwortungsbewusst, herzlich, zuverlässig und naturverbunden\n\n• Freude am individuellen Unterstützen und Begleiten von Kindern\n\n• Mitgestaltung eines positiven Arbeitsklimas\n\nUnser Angebot\n\n• Aufgestelltes KITA-Team\n\n• Fachkompetente Einarbeitung mit klaren Zielvorgaben\n\n• Lebhafter Betrieb mit abwechslungsreichem Alltag\n\n• Frei am eigenen Geburtstag",
-      "descriptionByLocale": {
-        "it": "Michel Gruppe AG comprende l'istituzione psichiatrica Privatklinik Meiringen, la clinica di riabilitazione Hasliberg, la Fondazione Helsenberg con dormitori e posti di lavoro protetti, nonché la lavanderia Haslital e la Kita Haslital e servizi in altre aree. Occupa circa 800 persone nelle sue sedi a Willigen, Meiringen, Hasliberg, Ringgenberg, Interlaken, Thun e Berna.\n\nLa Kita Haslital è rivolta ai genitori che lavorano da Meiringen e dalla zona circostante. L'istituzione del Gruppo Michel offre spazio per quindici bambini tra i tre mesi e l'ammissione all'asilo.\n\nI loro compiti\n\n• Cura indipendente e orientata alle esigenze dei bambini\n\n• Partecipazione alla routine quotidiana dei gruppi per bambini\n\n• Apprendisti accompagnatori\n\n• Fiducia con i genitori\n\nLe nostre aspettative\n\n• Formazione didattica completa (FaBe K, KKE)\n\n• Responsabile, caldo, affidabile e vicino alla natura\n\n• Gioia del sostegno individuale e dei bambini accompagnanti\n\n• Co-creazione di un ambiente di lavoro positivo\n\nLa nostra offerta\n\n• Gruppo KITA\n\n• Formazione competente con obiettivi chiari\n\n• Funzionamento lively con la vita quotidiana variegata\n\n• Gratis sul tuo compleanno",
-        "en": "Michel Gruppe AG comprises the psychiatric institution Privatklinik Meiringen, the rehabilitation clinic Hasliberg, the Helsenberg Foundation with dormitories and protected workplaces as well as the Haslital laundry and the Haslital Kita as well as services in other areas. It employs a total of around 800 people at its locations in Willigen, Meiringen, Hasliberg, Ringgenberg, Interlaken, Thun and Bern.\n\nThe Kita Haslital is aimed at working parents from Meiringen and the surrounding area. The institution of the Michel Group offers space for fifteen children between the age of three months and kindergarten admission.\n\nTheir tasks\n\n• Independent and needs-oriented care of children\n\n• Participation in the daily routine of children’s groups\n\n• Accompanying apprentices\n\n• Trusting with parents\n\nOur expectations\n\n• Completed educational training (FaBe K, KKE)\n\n• Responsible, warm, reliable and close to nature\n\n• Joy of individual support and accompanying children\n\n• Co-creation of a positive working environment\n\nOur offer\n\n• Established KITA team\n\n• Competent training with clear objectives\n\n• Lively operation with varied everyday life\n\n• Free on your own birthday",
-        "de": "Die Michel Gruppe AG umfasst die psychiatrische Institution Privatklinik Meiringen, die Rehaklinik Hasliberg, die Stiftung Helsenberg mit Wohnheimen und geschützten Arbeitsplätzen als auch die Wäscherei Haslital und die Kita Haslital sowie Dienstleistungsangebote in weiteren Bereichen. Sie beschäftigt insgesamt rund 800 Mitarbeiterinnen und Mitarbeiter an den Standorten Willigen, Meiringen, Hasliberg, Ringgenberg, Interlaken, Thun und Bern.\n\nDie Kita Haslital richtet ihr Angebot an arbeitstätige Eltern aus Meiringen und der Umgebung. Die Institution der Michel Gruppe bietet Platz für fünfzehn Kinder im Alter zwischen drei Monaten und dem Kindergarteneintritt.\n\nIhre Aufgaben\n\n• Selbständige und bedürfnisorientierte Betreuung der Kinder\n\n• Mitwirkung des Tagesablaufes der Kindergruppen\n\n• Begleitung von Auszubildenden\n\n• Vertrauensvoller Umgang mit den Eltern\n\nUnsere Erwartungen\n\n• Abgeschlossen pädagogische Ausbildung (FaBe K, KKE)\n\n• Verantwortungsbewusst, herzlich, zuverlässig und naturverbunden\n\n• Freude am individuellen Unterstützen und Begleiten von Kindern\n\n• Mitgestaltung eines positiven Arbeitsklimas\n\nUnser Angebot\n\n• Aufgestelltes KITA-Team\n\n• Fachkompetente Einarbeitung mit klaren Zielvorgaben\n\n• Lebhafter Betrieb mit abwechslungsreichem Alltag\n\n• Frei am eigenen Geburtstag",
-        "fr": "Michel Gruppe AG comprend l'établissement psychiatrique Privatklinik Meiringen, la clinique de réadaptation Hasliberg, la Fondation Helsenberg avec dortoirs et lieux de travail protégés ainsi que la buanderie Haslital et la Kita Haslital ainsi que des services dans d'autres régions. Il emploie environ 800 personnes sur ses sites de Willigen, Meiringen, Hasliberg, Ringgenberg, Interlaken, Thun et Bern.\n\nLe Kita Haslital est destiné aux parents qui travaillent de Meiringen et des environs. L'institution du Groupe Michel offre un espace pour quinze enfants entre l'âge de trois mois et l'admission à la maternelle.\n\nLeurs tâches\n\n• Prise en charge indépendante et axée sur les besoins des enfants\n\n• Participation à la routine quotidienne des groupes d'enfants\n\n• Apprentis accompagnateurs\n\n• Faire confiance aux parents\n\nNos attentes\n\n• Formation éducative terminée (FaBe K, KKE)\n\n• Responsable, chaleureux, fiable et proche de la nature\n\n• Joy de soutien individuel et d'accompagnement des enfants\n\n• Co-création d'un environnement de travail positif\n\nNotre offre\n\n• Équipe KITA créée\n\n• Formation compétente avec des objectifs clairs\n\n• Opération vivante avec vie quotidienne variée\n\n• Gratuit pour votre anniversaire"
-      },
-      "location": "Meiringen",
-      "canton": "BE",
-      "url": "https://my.jobalino.ch/job/a3e800c4b889aa753df4eb03b9bb3625/fachfrau-fachmann-betreuung-efz-kind_9709",
-      "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:17:59.664Z",
-      "addressLocality": "Meiringen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3860",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-05",
-      "postedDate": "2026-06-05",
-      "postingDateSource": "reported",
-      "applyUrl": "https://my.jobalino.ch/job/a3e800c4b889aa753df4eb03b9bb3625/fachfrau-fachmann-betreuung-efz-kind_9709",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "a3e800c4b889aa753df4eb03b9bb3625",
-      "contractDuration": "permanent",
-      "department": "Kita",
-      "previousSlugs": [
-        "fachfrau-fachmann-betreuung-efz-kind-60-100-michel-gruppe-ag-meiringen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-betreuung-efz-kind-60-100-michel-gruppe-ag-meiringen"
-        ]
-      },
-      "firstSeenAt": "2026-08-19T09:55:17.982Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Meiringen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:17:59.664Z",
+      "validThrough": "2027-01-05T22:36:15.548Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "thurklinik",
-  "assembledAt": "2026-11-01T09:16:35.133Z",
-  "runId": "41291802731",
+  "assembledAt": "2026-11-01T21:44:17.994Z",
+  "runId": "41350458229",
   "jobs": [
     {
       "id": "thurklinik-01dd561b4a47",
@@ -35,7 +35,7 @@
       "url": "https://test.thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-SChmerz.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:24.388Z",
+      "crawledAt": "2026-11-01T21:44:10.141Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Niederuzwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:24.388Z",
+      "validThrough": "2026-12-01T21:44:10.141Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/09/Leitung-OP_Dipl.-Fachperson-Operationstechnik-HF-oder-TOA-60–100-.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:22.439Z",
+      "crawledAt": "2026-11-01T21:44:08.379Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       },
       "streetAddress": "Niederuzwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-10T09:16:22.439Z",
+      "validThrough": "2026-12-10T21:44:08.379Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -199,7 +199,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/03/Lagerungspflege-Springer-m_w_d-20-80_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:21.696Z",
+      "crawledAt": "2026-11-01T21:44:07.623Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -242,7 +242,7 @@
       },
       "streetAddress": "Niederuzwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:21.696Z",
+      "validThrough": "2026-12-01T21:44:07.623Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -276,7 +276,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/02/Stellenbeschreibung-Hausarzt_Praxis.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:20.948Z",
+      "crawledAt": "2026-11-01T21:44:06.918Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -319,7 +319,7 @@
       },
       "streetAddress": "Niederuzwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:20.948Z",
+      "validThrough": "2026-12-01T21:44:06.918Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -354,7 +354,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-GYN.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:20.201Z",
+      "crawledAt": "2026-11-01T21:44:06.173Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -397,7 +397,7 @@
       },
       "streetAddress": "Niederuzwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:20.201Z",
+      "validThrough": "2026-12-01T21:44:06.173Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -432,7 +432,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/10/Dipl.-Fachfrau-oder-Fachmann-Operatioinstechnik-HF-oder-TOA_Thurklinik_UZWIL.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:19.478Z",
+      "crawledAt": "2026-11-01T21:44:05.462Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -481,7 +481,7 @@
       },
       "streetAddress": "Niederuzwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:19.478Z",
+      "validThrough": "2026-12-01T21:44:05.462Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -516,7 +516,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/07/Dipl.-Pflegefachperson-HF-20–60-_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:18.722Z",
+      "crawledAt": "2026-11-01T21:44:04.697Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -559,7 +559,7 @@
       },
       "streetAddress": "Niederuzwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:18.722Z",
+      "validThrough": "2026-12-01T21:44:04.697Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -594,7 +594,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/11/Dipl.-Anaesthesiepflegerin-oder-Anaesthesiepfleger-60-–-80.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:17.926Z",
+      "crawledAt": "2026-11-01T21:44:03.930Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -656,7 +656,7 @@
       },
       "streetAddress": "Niederuzwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:17.926Z",
+      "validThrough": "2026-12-01T21:44:03.930Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -691,7 +691,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/07/Gynaekologie-Urologie-HNO-Orthopaedie-Viszeralchirurgie-und-Handchirurgie.-Anaesthesie-und-Schmerztherapie-.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:16:16.972Z",
+      "crawledAt": "2026-11-01T21:44:03.076Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -734,7 +734,7 @@
       },
       "streetAddress": "Niederuzwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:16:16.972Z",
+      "validThrough": "2026-12-01T21:44:03.076Z",
       "validThroughSource": "last-observed-window"
     }
   ]

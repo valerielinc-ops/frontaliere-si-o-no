@@ -1,7 +1,7 @@
 {
   "crawlerKey": "grand-hotel-kronenhof",
-  "assembledAt": "2026-11-01T09:25:42.291Z",
-  "runId": "41292374401",
+  "assembledAt": "2026-11-01T21:45:10.320Z",
+  "runId": "41351122465",
   "jobs": [
     {
       "title": "Accountant (m/w/d)",
@@ -25,7 +25,7 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "jobStartDate": "2027-01-01T00:00:00.000000Z",
-      "validThrough": "2027-01-29T09:25:36.621Z",
+      "validThrough": "2027-01-28T21:45:05.127Z",
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -48,7 +48,7 @@
         "de": "buchhalter-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "comptable-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-11-01T09:25:36.621Z",
+      "crawledAt": "2026-11-01T21:45:05.127Z",
       "id": "grand-hotel-kronenhof-06be0a2da9b8",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -66,6 +66,9 @@
       },
       "postalCode": "7500",
       "firstSeenAt": "2026-10-30T21:21:49.841Z",
+      "streetAddress": "St. Moritz",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "accountant-m-w-d-kulm-hotel-st-moritz-st-moritz-742"
@@ -79,10 +82,7 @@
       },
       "previousSlugs": [
         "accountant-m-w-d-kulm-hotel-st-moritz-st-moritz-742"
-      ],
-      "streetAddress": "St. Moritz",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Executive Assistant Manager - Rooms Division (m/w/d)",
@@ -103,7 +103,7 @@
       "source": "kronenhof-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "",
-      "validThrough": "2026-12-01T09:25:36.622Z",
+      "validThrough": "2026-12-01T21:45:05.128Z",
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -126,7 +126,7 @@
         "de": "executive-assistent-manager-rooms-division-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "assistant-directeur-executif-division-des-chambres-lun-mercred-leurdi-kulm-hotel-st-moritz-pontresina"
       },
-      "crawledAt": "2026-11-01T09:25:36.622Z",
+      "crawledAt": "2026-11-01T21:45:05.128Z",
       "id": "grand-hotel-kronenhof-c4e3e0a53660",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -185,7 +185,7 @@
       "source": "kronenhof-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "",
-      "validThrough": "2026-12-01T09:25:36.623Z",
+      "validThrough": "2026-12-01T21:45:05.129Z",
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -208,7 +208,7 @@
         "de": "geschaftsfuhrer-der-hauswirtschaft-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "directeur-executif-du-menage-m-m-j-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-11-01T09:25:36.623Z",
+      "crawledAt": "2026-11-01T21:45:05.129Z",
       "id": "grand-hotel-kronenhof-baadf787802a",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -293,7 +293,7 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "jobStartDate": "2027-01-01T00:00:00.000000Z",
-      "validThrough": "2026-12-01T09:25:36.624Z",
+      "validThrough": "2026-12-01T21:45:05.130Z",
       "contract": "temporary",
       "employmentType": "full-time",
       "contractType": "temporary",
@@ -316,7 +316,7 @@
         "de": "group-finanzen-praktikant-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "group-finance-stagiaire-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-11-01T09:25:36.624Z",
+      "crawledAt": "2026-11-01T21:45:05.130Z",
       "id": "grand-hotel-kronenhof-2014ff0cf78d",
       "salaryMin": 49500,
       "salaryMax": 62000,
@@ -334,6 +334,9 @@
       },
       "postalCode": "7500",
       "firstSeenAt": "2026-10-06T21:38:02.651Z",
+      "streetAddress": "St. Moritz",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-736"
@@ -347,10 +350,7 @@
       },
       "previousSlugs": [
         "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-736"
-      ],
-      "streetAddress": "St. Moritz",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Head of Engineering (m/w/d)",
@@ -374,7 +374,7 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "jobStartDate": "2026-11-01T00:00:00.000000Z",
-      "validThrough": "2027-01-13T09:25:36.625Z",
+      "validThrough": "2027-01-12T21:45:05.131Z",
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -397,7 +397,7 @@
         "de": "leiter-engineering-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "responsable-engineering-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-11-01T09:25:36.625Z",
+      "crawledAt": "2026-11-01T21:45:05.131Z",
       "id": "grand-hotel-kronenhof-aaf8f51b456a",
       "salaryMin": 83500,
       "salaryMax": 105000,
@@ -416,6 +416,8 @@
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
       "firstSeenAt": "2026-10-14T21:23:34.355Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "head-of-engineering-m-w-d-grand-hotel-kronenhof-pontresina-738"
@@ -429,9 +431,7 @@
       },
       "previousSlugs": [
         "head-of-engineering-m-w-d-grand-hotel-kronenhof-pontresina-738"
-      ],
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Ice Master/ Ice Technician (m/w/d)",
@@ -452,7 +452,7 @@
       "source": "kronenhof-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "",
-      "validThrough": "2026-12-01T09:25:36.626Z",
+      "validThrough": "2026-12-01T21:45:05.132Z",
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
@@ -475,7 +475,7 @@
         "de": "ice-master-ice-techniker-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "ice-master-ice-technicien-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-11-01T09:25:36.626Z",
+      "crawledAt": "2026-11-01T21:45:05.132Z",
       "id": "grand-hotel-kronenhof-4961bba81a84",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -496,6 +496,9 @@
       "postingDateSource": "unknown",
       "jobStartDate": "2026-12-01T00:00:00.000000Z",
       "postalCode": "7500",
+      "streetAddress": "St. Moritz",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz-st-moritz-722"
@@ -509,10 +512,7 @@
       },
       "previousSlugs": [
         "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz-st-moritz-722"
-      ],
-      "streetAddress": "St. Moritz",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "Office Employee/ Steward - immediate start (m/w/d)",
@@ -533,7 +533,7 @@
       "source": "kronenhof-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "",
-      "validThrough": "2026-12-24T09:25:36.626Z",
+      "validThrough": "2026-12-23T21:45:05.133Z",
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
@@ -556,7 +556,7 @@
         "de": "office-mitarbeiter-steward-sofortiger-start-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "employe-de-bureau-detenteur-demarrage-immediat-h-f-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-11-01T09:25:36.626Z",
+      "crawledAt": "2026-11-01T21:45:05.133Z",
       "id": "grand-hotel-kronenhof-b9edf3226d82",
       "previousSlugsByLocale": {
         "fr": [
@@ -615,7 +615,7 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "jobStartDate": "2026-11-01T00:00:00.000000Z",
-      "validThrough": "2027-01-13T09:25:36.627Z",
+      "validThrough": "2027-01-12T21:45:05.134Z",
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -638,7 +638,7 @@
         "de": "verkaufsleiter-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "directeur-des-ventes-h-f-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-11-01T09:25:36.627Z",
+      "crawledAt": "2026-11-01T21:45:05.134Z",
       "id": "grand-hotel-kronenhof-fa327543e754",
       "salaryMin": 83500,
       "salaryMax": 105000,
@@ -699,7 +699,7 @@
       "source": "kronenhof-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "",
-      "validThrough": "2026-12-01T09:25:36.628Z",
+      "validThrough": "2026-12-01T21:45:05.135Z",
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -722,7 +722,7 @@
         "de": "sous-chef-muss-haben-flie-end-italienisch-starten-sie-sofort-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "sous-chef-doit-avoir-couramment-en-italien-commencer-immediatement-h-f-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-11-01T09:25:36.628Z",
+      "crawledAt": "2026-11-01T21:45:05.135Z",
       "id": "grand-hotel-kronenhof-ddcd8998f89e",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -785,7 +785,7 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "jobStartDate": "2026-11-20T00:00:00.000000Z",
-      "validThrough": "2027-01-15T09:25:36.628Z",
+      "validThrough": "2027-01-14T21:45:05.136Z",
       "contract": "seasonal",
       "employmentType": "full-time",
       "contractType": "seasonal",
@@ -808,7 +808,7 @@
         "de": "spa-therapeutin-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "therapeute-spa-h-f-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-11-01T09:25:36.628Z",
+      "crawledAt": "2026-11-01T21:45:05.136Z",
       "id": "grand-hotel-kronenhof-49ae2a48eb6c",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -868,7 +868,7 @@
       "source": "kronenhof-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "",
-      "validThrough": "2026-12-01T09:25:36.629Z",
+      "validThrough": "2026-12-01T21:45:05.136Z",
       "contract": "permanent",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -891,7 +891,7 @@
         "de": "techniker-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "technicien-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-11-01T09:25:36.629Z",
+      "crawledAt": "2026-11-01T21:45:05.136Z",
       "id": "grand-hotel-kronenhof-91d9b945d515",
       "salaryMin": 57500,
       "salaryMax": 87000,

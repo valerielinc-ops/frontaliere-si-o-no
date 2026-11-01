@@ -1,7 +1,7 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-11-01T09:40:13.694Z",
+  "generatedAt": "2026-11-01T22:13:11.969Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 7865,
-  "avgDurationMs": 7865,
+  "durationMs": 8497,
+  "avgDurationMs": 8497,
   "durationHistory": [
-    7865
+    8497
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Information-Systems-Engineer_R-29335-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:39:55.194Z",
+      "crawledAt": "2026-11-01T22:12:50.303Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:39:55.194Z",
+      "validThrough": "2027-01-10T22:12:50.303Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-31190-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:39:54.507Z",
+      "crawledAt": "2026-11-01T22:12:49.283Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:39:54.507Z",
+      "validThrough": "2027-01-10T22:12:49.283Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -131,7 +131,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-Staff-Systems-Engineer_R-29913-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:39:53.696Z",
+      "crawledAt": "2026-11-01T22:12:48.571Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -155,7 +155,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:39:53.696Z",
+      "validThrough": "2027-01-12T22:12:48.571Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Systems-Verification-Engineer_R-31378-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-01T09:39:52.948Z",
+      "crawledAt": "2026-11-01T22:12:47.865Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -202,7 +202,7 @@
       "postalCode": "5400",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:39:52.948Z",
+      "validThrough": "2027-01-25T22:12:47.865Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -213,5 +213,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

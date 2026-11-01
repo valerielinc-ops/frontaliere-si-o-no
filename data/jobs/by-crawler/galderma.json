@@ -1,7 +1,7 @@
 {
   "crawlerKey": "galderma",
-  "assembledAt": "2026-11-01T09:47:44.327Z",
-  "runId": "41292859129",
+  "assembledAt": "2026-11-01T22:07:53.730Z",
+  "runId": "41351679092",
   "jobs": [
     {
       "id": "galderma-58c28018924d",
@@ -35,7 +35,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Customer-Service-Specialist_JR021258-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:47:38.765Z",
+      "crawledAt": "2026-11-01T22:07:47.229Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       },
       "streetAddress": "Zählerweg 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T09:47:38.765Z",
+      "validThrough": "2027-01-25T22:07:47.229Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "saint-gobain-weber-isover",
-  "assembledAt": "2026-11-01T09:35:33.958Z",
-  "runId": "41292933668",
+  "assembledAt": "2026-11-01T21:34:13.889Z",
+  "runId": "41351768772",
   "jobs": [
     {
       "id": "saint-gobain-weber-isover-71f389ea1914",
@@ -35,7 +35,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/4c52349a-75f6-4f9c-87ca-db1a9bf5a083/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:35:26.451Z",
+      "crawledAt": "2026-11-01T21:34:06.752Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T09:35:26.451Z",
+      "validThrough": "2026-12-31T21:34:06.752Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/83a8c5e4-a3ce-40f6-8976-e560026801cf/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:35:25.269Z",
+      "crawledAt": "2026-11-01T21:34:05.693Z",
       "addressLocality": "Switzerland",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -171,7 +171,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:35:25.269Z",
+      "validThrough": "2027-01-18T21:34:05.693Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -206,7 +206,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/3301bd1b-1683-4a2e-be34-85e6bac8fef9/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:35:24.291Z",
+      "crawledAt": "2026-11-01T21:34:04.813Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:35:24.291Z",
+      "validThrough": "2027-01-25T21:34:04.813Z",
       "validThroughSource": "last-observed-window"
     }
   ]

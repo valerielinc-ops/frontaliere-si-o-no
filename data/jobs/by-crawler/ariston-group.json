@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ariston-group",
-  "assembledAt": "2026-11-01T09:36:30.476Z",
-  "runId": "41292933668",
+  "assembledAt": "2026-11-01T21:35:10.522Z",
+  "runId": "41351768772",
   "jobs": [
     {
       "title": "SERVICETECHNIKER GAS (M/W)",
@@ -224,6 +224,9 @@
       },
       "postalCode": "2046",
       "firstSeenAt": "2026-06-10T22:11:57.658Z",
+      "streetAddress": "Fontaines, CH, 2046",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "technicien-ne-de-service-mazout-region-neuchatel-ariston-group-fontaines-ch-2046"
@@ -237,10 +240,7 @@
       },
       "previousSlugs": [
         "technicien-ne-de-service-mazout-region-neuchatel-ariston-group-fontaines-ch-2046"
-      ],
-      "streetAddress": "Fontaines, CH, 2046",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "SERVICETECHNIKER ÖL (M/W) 50-70% ENGADIN",
@@ -389,6 +389,9 @@
       },
       "postalCode": "1201",
       "firstSeenAt": "2026-09-24T14:43:28.119Z",
+      "streetAddress": "Genève, CH, 1202",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "technicien-ne-de-service-gaz-mazout-pulse-region-geneve-ariston-group-geneve-ch-1202"
@@ -402,10 +405,7 @@
       },
       "previousSlugs": [
         "technicien-ne-de-service-gaz-mazout-pulse-region-geneve-ariston-group-geneve-ch-1202"
-      ],
-      "streetAddress": "Genève, CH, 1202",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "SERVICETECHNIKER ÖL (M/W)",
@@ -735,6 +735,9 @@
       },
       "postalCode": "1700",
       "firstSeenAt": "2026-09-19T23:09:54.078Z",
+      "streetAddress": "Freiburg, CH, 1700",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "technicien-ne-de-service-mazout-region-fribourg-ariston-group-freiburg-ch-1700"
@@ -742,10 +745,7 @@
       },
       "previousSlugs": [
         "technicien-ne-de-service-mazout-region-fribourg-ariston-group-freiburg-ch-1700"
-      ],
-      "streetAddress": "Freiburg, CH, 1700",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     },
     {
       "title": "TEAMLEITER SERVICE GAS (M/W)",
@@ -885,6 +885,9 @@
       },
       "firstSeenAt": "2026-05-20T10:55:53.262Z",
       "postalCode": "3900",
+      "streetAddress": "Brig-Glis, CH, 3902",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-ol-oberwallis-ariston-group-brig-glis-ch-3902"
@@ -898,10 +901,7 @@
       },
       "previousSlugs": [
         "servicetechniker-in-ol-oberwallis-ariston-group-brig-glis-ch-3902"
-      ],
-      "streetAddress": "Brig-Glis, CH, 3902",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      ]
     }
   ]
 }

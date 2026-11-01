@@ -6,7 +6,10 @@ import { residenceCountryCode } from './residence-address.mjs';
 import { dismissOptionalAutofill } from './optional-autofill.mjs';
 import { beginChoiceObservation, choiceFailureEvidence } from './choice-evidence.mjs';
 
-const isResidenceCountryField = (label) => addressQuestionTopic(label) === 'residence_country';
+const isResidenceCountryField = (fieldOrLabel) => {
+  const field = fieldOrLabel && typeof fieldOrLabel === 'object' ? fieldOrLabel : null;
+  return addressQuestionTopic(field?.label ?? fieldOrLabel, field?.context, field) === 'residence_country';
+};
 
 export function residenceCountryOptionLabel(value, options = []) {
   const wanted = residenceCountryCode(value);
@@ -166,6 +169,7 @@ export function fitToLength(text, max) {
  * shows the label, a custom control shows the option's text near it.
  */
 async function choiceRegistered(locator, kind, label) {
+  if (typeof locator?.evaluate !== 'function') return false;
   const wanted = normalizedChoice(label);
   return locator.evaluate((element, { kind: fieldKind, wanted: text }) => {
     // Equal, never "contains" (review of #10715: "IT" is not "Italy").
@@ -199,7 +203,11 @@ async function choiceRegistered(locator, kind, label) {
 async function choiceShownAfterRedraw(page, field, label) {
   // The redraw follows the choice by a moment (a request on Workday): three seconds for it.
   for (let waited = 0; waited <= 3000; waited += 500) {
-    if (normalizedChoice(await valueShownNow(page, field)) === normalizedChoice(label)) return true;
+    const shown = await valueShownNow(page, field);
+    const exact = normalizedChoice(shown) === normalizedChoice(label);
+    const sameResidenceCountry = isResidenceCountryField(field)
+      && residenceCountryCode(shown) && residenceCountryCode(shown) === residenceCountryCode(label);
+    if (exact || sameResidenceCountry) return true;
     await page.waitForTimeout(500);
   }
   return false;
@@ -210,7 +218,25 @@ const tidy = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').t
 /** What the field of that name and kind shows in a fresh reading of the page ('' when it is not there). */
 async function valueShownNow(page, field) {
   const fresh = await extractFields(page, { listboxOptions: false }).catch(() => null);
-  return String(fresh?.fields.find((candidate) => candidate.kind === field.kind && candidate.label === field.label)?.value || '');
+  const frame = Number.isInteger(field.frame) ? field.frame : 0;
+  const inSameFrame = (candidate) => (Number.isInteger(candidate.frame) ? candidate.frame : 0) === frame;
+  const current = fresh?.fields.find((candidate) => inSameFrame(candidate) && candidate.kind === field.kind && candidate.id === field.id)
+    || fresh?.fields.find((candidate) => inSameFrame(candidate) && candidate.kind === field.kind && candidate.label === field.label);
+  return String(current?.value || '');
+}
+
+/** A search answer is committed only after the chosen value replaces the raw query. */
+async function searchValueCommitted(page, field, locator, value) {
+  const shown = await valueShownNow(page, field);
+  if (!searchHolds(shown, value)) return false;
+  const raw = tidy(await locator.inputValue().catch(() => ''));
+  if (raw !== tidy(value)) return true;
+  // A few ATSes keep the query in the input after selecting its sole match;
+  // a closed owned popup is the remaining native proof that it was committed.
+  const expanded = typeof locator.getAttribute === 'function'
+    ? await locator.getAttribute('aria-expanded').catch(() => null)
+    : null;
+  return expanded === 'false';
 }
 
 /** A search box (fields.mjs `search`) already holds the answer: its chosen value names what would be typed. */
@@ -343,6 +369,10 @@ async function fillText(locator, value) {
   await locator.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
   await locator.press('Backspace');
   await locator.pressSequentially(value, { delay: TYPE_DELAY_MS });
+  // The locator is resolved in the field's own frame. A same-id control in
+  // the parent frame must not make a failed fill look successful.
+  const typed = await locator.inputValue().catch(() => '');
+  if (typed !== value) throw new Error('choice_not_registered');
 }
 
 /**
@@ -365,12 +395,12 @@ async function pickSuggestion(page, field, locator, value) {
     await locator.press('Enter').catch(() => {});
     for (const deadline = Date.now() + SUGGESTIONS_TIMEOUT_MS; Date.now() < deadline;) {
       await page.waitForTimeout(300);
-      if (searchHolds(await valueShownNow(page, field), value)) return;
+      if (await searchValueCommitted(page, field, locator, value)) return;
       const texts = await options.allInnerTexts().catch(() => []);
       const index = texts.findIndex((text) => text.toLowerCase().includes(needle));
       if (index >= 0) await options.nth(index).click({ timeout: 4000 }).catch(() => {});
     }
-    if (searchHolds(await valueShownNow(page, field), value)) return;
+    if (await searchValueCommitted(page, field, locator, value)) return;
     await locator.press('Tab').catch(() => {});
     throw new Error('suggestion_not_chosen');
   }
@@ -418,7 +448,7 @@ async function fillCombobox(page, field, locator, value) {
       return selectedLabel;
     }
     const nationality = isNationalityField(field.label);
-    const residenceCountry = isResidenceCountryField(field.label);
+    const residenceCountry = isResidenceCountryField(field);
     const phoneCountry = isPhoneCountryField(field);
     if (!nationality && !residenceCountry && !phoneCountry) {
       await locator.press('Escape').catch(() => {});
@@ -475,7 +505,7 @@ async function chooseInOwnedList(page, field, locator, value) {
   const frame = page.frames()[field.frame || 0] || page.mainFrame();
   const list = frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`);
   const nationality = isNationalityField(field.label);
-  const residenceCountry = isResidenceCountryField(field.label);
+  const residenceCountry = isResidenceCountryField(field);
   const phoneCountry = isPhoneCountryField(field);
   const countryLike = nationality || residenceCountry || phoneCountry;
   for (let attempt = 0; attempt < 2; attempt += 1) {
@@ -898,7 +928,21 @@ export async function applyActions(page, fields, actions, files, {
           // Workday: open the listbox and click the option (OfferOS dom-fill, fillListboxButton).
           await locator.click({ timeout: ACTION_TIMEOUT_MS });
           const frame = page.frames()[field.frame || 0] || page.mainFrame();
-          await frame.getByRole('option', { name: action.value, exact: true }).first().click({ timeout: 6000 });
+          const countryLike = isNationalityField(field.label) || isResidenceCountryField(field) || isPhoneCountryField(field);
+          const visibleOptions = frame.locator('[role="option"]:visible');
+          const labels = countryLike
+            ? (await visibleOptions.allInnerTexts().catch(() => [])).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean)
+            : [];
+          const exact = labels.find((label) => normalizedChoice(label) === normalizedChoice(action.value));
+          selectedLabel = exact || (isNationalityField(field.label)
+            ? nationalityOptionLabel(action.value, labels, nationalityFieldLanguage(field.label))
+            : isPhoneCountryField(field)
+              ? phoneCountryOptionLabel(action.value, labels)
+              : isResidenceCountryField(field)
+                ? residenceCountryOptionLabel(action.value, labels)
+                : action.value);
+          if (!selectedLabel) throw new Error('option_not_found');
+          await frame.getByRole('option', { name: selectedLabel, exact: true }).first().click({ timeout: 6000 });
         } else if (field.selectLike) {
           selectedLabel = await chooseInOwnedList(page, field, locator, action.value);
         } else {

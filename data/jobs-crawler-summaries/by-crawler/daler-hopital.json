@@ -1,7 +1,7 @@
 {
   "key": "daler-hopital",
   "label": "Hôpital Daler",
-  "generatedAt": "2026-11-01T09:26:10.789Z",
+  "generatedAt": "2026-11-01T22:11:11.213Z",
   "total": 6,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 6531,
-  "avgDurationMs": 6531,
+  "durationMs": 7200,
+  "avgDurationMs": 7200,
   "durationHistory": [
-    6531
+    7200
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://daler.ch/emplois#offer/4530/apprentissage-assc-cfc-assistante-en-soins-et-sante-communautaire",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:25:51.608Z",
+      "crawledAt": "2026-11-01T22:10:48.683Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:25:51.608Z",
+      "validThrough": "2026-12-08T22:10:48.683Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://daler.ch/emplois#offer/4529/apprentissage-cuisinierere-cfc",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:25:51.061Z",
+      "crawledAt": "2026-11-01T22:10:48.126Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salarySource": "estimated",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:25:51.061Z",
+      "validThrough": "2026-12-08T22:10:48.126Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -131,7 +131,7 @@
       "url": "https://daler.ch/emplois#offer/4528/apprentissage-gestionnaire-en-hotellerie-intendance-cfc",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:25:50.518Z",
+      "crawledAt": "2026-11-01T22:10:47.592Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -155,7 +155,7 @@
       "salarySource": "estimated",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:25:50.518Z",
+      "validThrough": "2026-12-08T22:10:47.592Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -177,7 +177,7 @@
       "url": "https://daler.ch/emplois#offer/4526/apprentissage-agente-dexploitation-cfc",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-01T09:25:49.981Z",
+      "crawledAt": "2026-11-01T22:10:47.052Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -201,7 +201,7 @@
       "salarySource": "estimated",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-08T09:25:49.981Z",
+      "validThrough": "2026-12-08T22:10:47.052Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -245,7 +245,7 @@
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:46:30.816Z",
@@ -293,7 +293,7 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T21:46:30.267Z",
@@ -307,5 +307,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

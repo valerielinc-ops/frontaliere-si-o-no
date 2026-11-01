@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pianorm",
-  "assembledAt": "2026-11-01T09:50:11.253Z",
-  "runId": "41293009398",
+  "assembledAt": "2026-11-01T22:16:51.948Z",
+  "runId": "41351855659",
   "jobs": [
     {
       "id": "pianorm-6c0cc8f2f116",
@@ -34,7 +34,7 @@
       "url": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
       "source": "pianorm Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:50:05.636Z",
+      "crawledAt": "2026-11-01T22:16:45.947Z",
       "addressLocality": "Illnau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-01T09:50:05.636Z",
+      "validThrough": "2026-12-01T22:16:45.947Z",
       "validThroughSource": "last-observed-window"
     }
   ]

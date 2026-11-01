@@ -1,7 +1,7 @@
 {
   "key": "sonnweid",
   "label": "Pflegezentrum Sonnweid",
-  "generatedAt": "2026-11-01T09:13:14.219Z",
+  "generatedAt": "2026-11-01T21:51:59.165Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 8933,
-  "avgDurationMs": 8933,
+  "durationMs": 8878,
+  "avgDurationMs": 8878,
   "durationHistory": [
-    8933
+    8878
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/fachperson-gesundheit-oder-betreuung-efz/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:12:57.417Z",
+      "crawledAt": "2026-11-01T21:51:44.057Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:12:57.417Z",
+      "validThrough": "2026-12-01T21:51:44.057Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/fachperson-gesundheit-fuer-die-oase/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:12:56.596Z",
+      "crawledAt": "2026-11-01T21:51:43.269Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:12:56.596Z",
+      "validThrough": "2026-12-01T21:51:43.269Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -129,7 +129,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/dipl-pflegefachperson-hf/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:12:55.881Z",
+      "crawledAt": "2026-11-01T21:51:42.533Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -152,7 +152,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-01T09:12:55.881Z",
+      "validThrough": "2026-12-01T21:51:42.533Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/fachperson-gesundheit-oder-betreuung-efz-fuer-die-nachtwache/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:12:55.191Z",
+      "crawledAt": "2026-11-01T21:51:41.765Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:12:55.191Z",
+      "validThrough": "2027-01-17T21:51:41.765Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -220,7 +220,7 @@
       "url": "https://www.sonnweid.ch/karriere/job/diplomierte-pflegefachperson-hf-als-leitung-nachtwache/",
       "source": "Pflegezentrum Sonnweid Dedicated Parser (Custom HTML — WordPress)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-01T09:12:54.505Z",
+      "crawledAt": "2026-11-01T21:51:41.084Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:12:54.505Z",
+      "validThrough": "2026-12-23T21:51:41.084Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -254,5 +254,5 @@
       }
     }
   ],
-  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
+  "codeCommit": "16f60bdd9f68f2f123311cfc83fce2309494885b"
 }

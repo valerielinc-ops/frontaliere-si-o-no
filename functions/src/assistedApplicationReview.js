@@ -119,11 +119,18 @@ async function requireConsentStillGiven(db, { orderId, kind }) {
 
 export { defaultStartDate, minDateFor, zurichToday };
 
-function questionView(question, nowMs = Date.now()) {
+function questionView(question, nowMs = Date.now(), cvText = '') {
   const localizationFallback = question.localizationStatus === 'fallback';
   const candidateQuestion = portalQuestionText(question) || String(question.question || '').trim();
   const applicationQuestion = readablePortalQuestionText(question.applicationQuestion);
   const showApplicationQuestion = localizationFallback || Boolean(applicationQuestion && applicationQuestion !== candidateQuestion);
+  const suggestedAnswer = clean(question.suggestedAnswer, 1200);
+  const answerEvidence = (Array.isArray(question.answerEvidence) ? question.answerEvidence : [])
+    .map((item) => clean(item, 360)).filter(Boolean).slice(0, 3);
+  const normalizeEvidence = (value) => String(value || '').normalize('NFC').replace(/\s+/gu, ' ').trim().toLowerCase();
+  const cvEvidence = normalizeEvidence(cvText);
+  const answerHasVerifiedEvidence = Boolean(suggestedAnswer && answerEvidence.length
+    && answerEvidence.every((item) => cvEvidence.includes(normalizeEvidence(item))));
   return {
     id: question.id,
     question: candidateQuestion,
@@ -141,6 +148,8 @@ function questionView(question, nowMs = Date.now()) {
     validation: question.validation || null,
     // A proposal shown in the field, never an answer until the candidate saves it.
     suggested: minDateFor(question, nowMs) ? defaultStartDate(nowMs) : null,
+    ...(answerHasVerifiedEvidence ? { suggestedAnswer, answerEvidence } : {}),
+    ...(clean(question.answerMissingDetail, 240) ? { answerMissingDetail: clean(question.answerMissingDetail, 240) } : {}),
   };
 }
 
@@ -297,13 +306,19 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   const answers = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale: order?.locale || 'it' }).answers;
   const visibleQuestions = questionsForCandidate(draft?.questions, profile, candidateAnswers, candidateFlow.questionAnswers, draft);
   const questions = visibleQuestions.map((question) => {
-    const view = questionView(question, nowMs);
+    const view = questionView(question, nowMs, draft?.factSources?.text || '');
     if (question.id !== 'work_permit') return view;
     const { options, value } = permitQuestionView(view.options, answers.work_permit);
     answers.work_permit = value;
     return { ...view, options };
   });
   const openRequired = questions.filter((question) => question.required && !String(answers[question.id] ?? '').trim());
+  const suggestedAnswerIds = new Set(questions.filter((question) => question.suggestedAnswer).map((question) => question.id));
+  const answerSuggestionDismissals = flow?.answerSuggestionDismissals;
+  const dismissedAnswerSuggestionIds = Number(answerSuggestionDismissals?.round) === current
+    && Array.isArray(answerSuggestionDismissals?.ids)
+    ? [...new Set(answerSuggestionDismissals.ids.filter(id => typeof id === 'string' && suggestedAnswerIds.has(id)))].slice(0, 80)
+    : [];
   // School reports, test results… the posting requires besides the CV and the letter.
   const documents = documentsView(draft, flow);
   const openDocuments = openRequiredDocuments(draft, flow?.documents || {});
@@ -350,6 +365,7 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
     // The posting's decisive requirements the CV does not show, said above the questions (null: a full match).
     fit: ready ? fitNoticeOf(draft) : null,
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
+    dismissedAnswerSuggestionIds,
     answerQuestionSnapshots: answerQuestionSnapshotsFor({ orderId, questions: visibleQuestions, draft, nowMs }),
     documents,
     documentLimits: { maxBytes: MAX_DOCUMENT_BYTES, maxFiles: MAX_FILES_PER_DOCUMENT },
@@ -854,6 +870,23 @@ export async function handleAssistedApplicationReview(req, deps) {
       const visibleQuestions = questionsForCandidate(draft?.questions, candidate.profile, candidate.answers, questionAnswers, draft);
       const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it', storedAnswers, questionAnswers);
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
+      const currentRound = Number(runnerContext.flow?.round || flow?.round) || 1;
+      const previousDismissals = runnerContext.flow?.answerSuggestionDismissals || flow?.answerSuggestionDismissals;
+      const dismissedAnswerSuggestionIds = new Set(
+        Number(previousDismissals?.round) === currentRound && Array.isArray(previousDismissals?.ids)
+          ? previousDismissals.ids.filter(id => typeof id === 'string')
+          : [],
+      );
+      for (const question of visibleQuestions) {
+        const hasVerifiedSuggestion = Boolean(questionView(question, nowMs, draft?.factSources?.text || '').suggestedAnswer);
+        if (!hasVerifiedSuggestion || !Object.hasOwn(answers, question.id)) continue;
+        if (String(answers[question.id] ?? '').trim()) dismissedAnswerSuggestionIds.delete(question.id);
+        else dismissedAnswerSuggestionIds.add(question.id);
+      }
+      const answerSuggestionDismissals = {
+        round: currentRound,
+        ids: [...dismissedAnswerSuggestionIds].slice(0, 80),
+      };
       const currentSnapshots = answerQuestionSnapshotsFor({ orderId, questions: visibleQuestions, draft, nowMs });
       const suppliedSnapshots = body.answerQuestionSnapshots && typeof body.answerQuestionSnapshots === 'object' && !Array.isArray(body.answerQuestionSnapshots)
         ? body.answerQuestionSnapshots : {};
@@ -877,7 +910,8 @@ export async function handleAssistedApplicationReview(req, deps) {
       // A status or an availability the tailored CV prints: rebuilt and committed with the answers, before the
       // event can dispatch the submission (decision 7).
       await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, answers,
-        answerQuestionSnapshots: suppliedSnapshots, answerSnapshotQuestions: visibleQuestions, nowMs, answerActor: 'candidate' });
+        answerQuestionSnapshots: suppliedSnapshots, answerSnapshotQuestions: visibleQuestions,
+        answerSuggestionDismissals, nowMs, answerActor: 'candidate' });
     }
     const event = {
       approve: { type: 'candidate_approve' },
