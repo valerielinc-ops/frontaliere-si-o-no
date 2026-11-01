@@ -3195,8 +3195,10 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       await parkRegistrationCredential('privacy_question_unreadable');
       return noted({ handoff: 'question_label_unreadable' });
     }
+    const missingRequiredFieldIds = new Set((stablePlan.missingRequired || []).map((item) => item.fieldId).filter(Boolean));
     const unhandledRequiredFiles = stableRegistrationSnapshot.fields.filter((field) =>
-      (field.required === true || field.invalid === true) && (field.kind === 'file' || field.inputType === 'file')
+      (field.required === true || field.invalid === true || missingRequiredFieldIds.has(field.id))
+      && (field.kind === 'file' || field.inputType === 'file')
       && !appliedRegistrationUploads.has(field.id)
       && !stablePlan.actions.some((action) => action.fieldId === field.id && action.action === 'upload'));
     if (unhandledRequiredFiles.length) {
