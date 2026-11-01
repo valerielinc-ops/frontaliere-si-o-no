@@ -184,11 +184,15 @@ export default function ApplicationConciergePortal({
   const initialResidence = residenceLocationForEditor(previewService?.applicantLocation || '', previewService?.applicantLocationCountry || '');
   const [location, setLocation] = useState(initialResidence.location);
   const [locationCountryCode, setLocationCountryCode] = useState(initialResidence.countryCode);
-  const locationEdited = useRef(false);
+  const locationEditedByUser = useRef(false);
+  const serviceLocationLoaded = useRef(Boolean(previewService?.applicantLocation));
   const [consent, setConsent] = useState(previewService?.hasConsent || false);
   const [renewalConsent, setRenewalConsent] = useState(false);
   useEffect(() => { setRenewalConsent(false); }, [serviceId]);
-  useEffect(() => { locationEdited.current = false; }, [serviceId]);
+  useEffect(() => {
+    locationEditedByUser.current = false;
+    serviceLocationLoaded.current = Boolean(previewService?.applicantLocation);
+  }, [previewService?.applicantLocation, serviceId]);
   const [authPromptOpen, setAuthPromptOpen] = useState(false);
   const [activationPending, setActivationPending] = useState(() => entry && !serviceId && !previewService && readActivationIntent());
   const [confirmEmailStatus, setConfirmEmailStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
@@ -297,13 +301,14 @@ export default function ApplicationConciergePortal({
     setEmail((value) => value || loaded.applicantEmail || loaded.customerEmail || user.email || '');
     setPhone((value) => value || loaded.applicantPhone || '');
     const serviceResidence = residenceLocationForEditor(loaded.applicantLocation || '', loaded.applicantLocationCountry || '');
-    setLocation((value) => value || serviceResidence.location);
     if (serviceResidence.location) {
-      // A refresh can settle while the profile prefill is still pending. The
-      // service value is authoritative for this editor and must not be
-      // replaced by a late profile response.
-      locationEdited.current = true;
-      setLocationCountryCode(serviceResidence.countryCode);
+      serviceLocationLoaded.current = true;
+      if (!locationEditedByUser.current) {
+        // The service is authoritative over a profile prefill regardless of
+        // which request resolves first; keep edits the candidate made meanwhile.
+        setLocation(serviceResidence.location);
+        setLocationCountryCode(serviceResidence.countryCode);
+      }
     }
     setConsent(loaded.hasConsent);
     return loaded;
@@ -321,7 +326,7 @@ export default function ApplicationConciergePortal({
       if (!profileEmail) return;
       const profile = await loadEnrichmentProfileFields(profileEmail);
       const residence = residenceProfilePrefill(profile.residenceLocation, profile.residenceCountry, profile.municipality);
-      if (!cancelled && residence.location && !locationEdited.current) {
+      if (!cancelled && residence.location && !locationEditedByUser.current && !serviceLocationLoaded.current) {
         setLocation(residence.location.trim());
         setLocationCountryCode(residence.countryCode);
       }
@@ -651,7 +656,7 @@ export default function ApplicationConciergePortal({
   };
 
   const handleLocationChange = (value: string, countryCode = '') => {
-    locationEdited.current = true;
+    locationEditedByUser.current = true;
     setLocation(value);
     setLocationCountryCode(countryCode);
   };

@@ -100,25 +100,76 @@ describe('concierge child query navigation', () => {
 });
 
 it('does not let a late profile prefill overwrite a service location loaded by refresh', async () => {
-  const withoutLocation = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'complete', applicantLocation: '', applicantLocationCountry: '' };
-  const storedLocation = { ...withoutLocation, applicantLocation: 'Lugano, Switzerland', applicantLocationCountry: 'CH' };
+  vi.useFakeTimers();
+  const withoutLocation = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'running', applicantLocation: '', applicantLocationCountry: '' };
+  const storedLocation = { ...withoutLocation, matchingStatus: 'complete', applicantLocation: 'Lugano, Switzerland', applicantLocationCountry: 'CH' };
   let resolveProfile!: (value: { residenceLocation: string; residenceCountry: string; municipality: string }) => void;
   const pendingProfile = new Promise<{ residenceLocation: string; residenceCountry: string; municipality: string }>(resolve => { resolveProfile = resolve; });
-  mocks.fetchService.mockReset().mockResolvedValueOnce(withoutLocation).mockReturnValueOnce(Promise.resolve(storedLocation));
+  let resolveService!: (value: typeof storedLocation) => void;
+  const pendingService = new Promise<typeof storedLocation>(resolve => { resolveService = resolve; });
+  mocks.fetchService.mockReset().mockResolvedValueOnce(withoutLocation).mockReturnValueOnce(pendingService);
   mocks.loadProfile.mockReturnValue(pendingProfile);
 
   render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
-  await waitFor(() => expect(mocks.loadProfile).toHaveBeenCalledOnce());
-  fireEvent.focus(window);
-  await waitFor(() => expect(mocks.fetchService).toHaveBeenCalledTimes(2));
+  await act(async () => { await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); });
+  expect(mocks.loadProfile).toHaveBeenCalledOnce();
+  await act(async () => { await vi.advanceTimersByTimeAsync(3500); });
+  expect(mocks.fetchService).toHaveBeenCalledTimes(2);
+  await act(async () => { resolveService(storedLocation); await pendingService; });
 
   await act(async () => {
     resolveProfile({ residenceLocation: 'Como, Italia', residenceCountry: 'IT', municipality: 'Como' });
     await pendingProfile;
   });
 
-  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('Lugano, Switzerland');
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('Lugano');
   expect(screen.getByLabelText('jobBoard.concierge.residenceCountry')).toHaveValue('CH');
+});
+
+it('lets a late service refresh replace an earlier profile prefill', async () => {
+  vi.useFakeTimers();
+  const withoutLocation = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'running', applicantLocation: '', applicantLocationCountry: '' };
+  const storedLocation = { ...withoutLocation, matchingStatus: 'complete', applicantLocation: 'Lugano, Switzerland', applicantLocationCountry: 'CH' };
+  const profile = { residenceLocation: 'Como, Italia', residenceCountry: 'IT', municipality: 'Como' };
+  let resolveService!: (value: typeof storedLocation) => void;
+  const pendingService = new Promise<typeof storedLocation>(resolve => { resolveService = resolve; });
+  mocks.fetchService.mockReset().mockResolvedValueOnce(withoutLocation).mockReturnValueOnce(pendingService);
+  mocks.loadProfile.mockResolvedValue(profile);
+
+  render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+  await act(async () => { await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); });
+  expect(mocks.loadProfile).toHaveBeenCalledOnce();
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('Como');
+  expect(screen.getByLabelText('jobBoard.concierge.residenceCountry')).toHaveValue('IT');
+  await act(async () => { await vi.advanceTimersByTimeAsync(3500); });
+  expect(mocks.fetchService).toHaveBeenCalledTimes(2);
+  await act(async () => { resolveService(storedLocation); await pendingService; });
+
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('Lugano');
+  expect(screen.getByLabelText('jobBoard.concierge.residenceCountry')).toHaveValue('CH');
+});
+
+it('preserves a candidate location edit when the service refresh completes later', async () => {
+  vi.useFakeTimers();
+  const withoutLocation = { ...service, paymentStatus: 'paid', serviceStatus: 'active', matchingStatus: 'running', applicantLocation: '', applicantLocationCountry: '' };
+  const storedLocation = { ...withoutLocation, matchingStatus: 'complete', applicantLocation: 'Lugano, Switzerland', applicantLocationCountry: 'CH' };
+  let resolveService!: (value: typeof storedLocation) => void;
+  const pendingService = new Promise<typeof storedLocation>(resolve => { resolveService = resolve; });
+  mocks.fetchService.mockReset().mockResolvedValueOnce(withoutLocation).mockReturnValueOnce(pendingService);
+  mocks.loadProfile.mockResolvedValue({ residenceLocation: 'Como, Italia', residenceCountry: 'IT', municipality: 'Como' });
+
+  render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+  await act(async () => { await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); });
+  expect(mocks.loadProfile).toHaveBeenCalledOnce();
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('Como');
+  await act(async () => { await vi.advanceTimersByTimeAsync(3500); });
+  expect(mocks.fetchService).toHaveBeenCalledTimes(2);
+  fireEvent.change(screen.getByLabelText('jobBoard.concierge.residenceCountry'), { target: { value: 'FR' } });
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('');
+  await act(async () => { resolveService(storedLocation); await pendingService; });
+
+  expect(screen.getByLabelText('jobBoard.concierge.location')).toHaveValue('');
+  expect(screen.getByLabelText('jobBoard.concierge.residenceCountry')).toHaveValue('FR');
 });
 
 describe('concierge reminder payment flow', () => {
