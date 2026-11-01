@@ -24,6 +24,7 @@ import { verifyCaller } from './stripePublisherCore.js';
 import { ASSISTED_APPLICATION_CONSENT_VERSION } from './assistedApplicationCheckout.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
+import { conciergePaidEmailViews } from './assistedApplicationEmailEvents.js';
 import {
   APPLICATION_CONCIERGE_CONSENT_VERSION,
   APPLICATION_CONCIERGE_CV_PREFIX,
@@ -205,6 +206,7 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
       userId: optionalString(data.userId, 200),
       consentVersion: optionalString(data.consentVersion, 120),
       cvStorageKey: cvKeyForService(serviceId, data.cvStorageKey) || null,
+      paidReceiptEmails: conciergePaidEmailViews(data),
     } : {}),
   };
 }

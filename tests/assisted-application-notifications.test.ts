@@ -742,10 +742,15 @@ describe('paid 30-day concierge notifications', () => {
     store[key] = paidService();
     await handleConciergeServiceWritten({ paymentStatus: 'pending' }, store[key], serviceId, { db, nowMs: NOW });
     expect(payloads()).toHaveLength(2);
-    expect(payloads()[0].tracking).toBe(false);
+    expect(payloads()[0].tracking).toBe(true);
+    expect(payloads()[0].tags).toEqual([
+      { name: 'type', value: 'application-concierge' },
+      { name: 'campaign_id', value: 'ac--bundle-example--concierge_paid_customer' },
+    ]);
     expect(payloads()[0].text).toContain('39,99');
     expect(payloads()[1].text).toContain('30 giorni');
     expect(store[key].notifications.concierge_paid_customer.status).toBe('sent');
+    expect(store[key].notifications.concierge_paid_customer).toMatchObject({ providerStatus: 'accepted', deliveryStatus: 'unknown' });
     expect(store[key].notifications.concierge_paid_owner.status).toBe('sent');
     expect(store[serviceId]).toBeUndefined();
     await handleConciergeServiceWritten(store[key], store[key], serviceId, { db, nowMs: NOW });

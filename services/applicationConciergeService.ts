@@ -65,6 +65,26 @@ export interface ApplicationConciergeService {
   userId?: string | null;
   consentVersion?: string | null;
   cvStorageKey?: string | null;
+  paidReceiptEmails?: ApplicationConciergePaidReceiptEmail[];
+}
+
+export interface ApplicationConciergePaidReceiptEmail {
+  audience: 'customer' | 'owner' | string;
+  key: string;
+  status: string | null;
+  providerStatus: 'accepted' | 'failed' | 'unknown' | string;
+  deliveryStatus: 'delivered' | 'bounced' | 'complained' | 'unknown' | string;
+  provider: string | null;
+  messageId: string | null;
+  sentAt: string | null;
+  providerAcceptedAt: string | null;
+  deliveredAt: string | null;
+  bouncedAt: string | null;
+  complainedAt: string | null;
+  providerAccepted: number;
+  delivered: number;
+  bounces: number;
+  complaints: number;
 }
 
 export function getCandidateVisibleApplicationConciergeProposals(

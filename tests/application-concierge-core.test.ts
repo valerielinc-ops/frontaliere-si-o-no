@@ -552,6 +552,28 @@ describe('owned child status and private review access from the service', () => 
       })] })],
     } });
   });
+  it('exposes provider acceptance and delivery evidence for parent receipts to admins', async () => {
+    const service = mocks.documents.get('application_concierge_services/service-1')!;
+    service.notifications = {
+      concierge_paid_customer: {
+        status: 'sent', providerStatus: 'accepted', provider: 'maileroo', messageId: 'receipt-1',
+        sentAt: new Date('2026-10-01T10:00:00Z'),
+      },
+    };
+    service.emailEngagement = {
+      concierge_paid_customer: {
+        providerAccepted: 1, delivered: 1,
+        providerAcceptedAt: new Date('2026-10-01T10:00:01Z'),
+        deliveredAt: new Date('2026-10-01T10:00:02Z'),
+      },
+    };
+    const admin = await handleManageApplicationConcierge({ method: 'GET' });
+    expect(admin).toMatchObject({ status: 200, body: {
+      services: [expect.objectContaining({ paidReceiptEmails: expect.arrayContaining([
+        expect.objectContaining({ audience: 'customer', providerStatus: 'accepted', deliveryStatus: 'delivered', provider: 'maileroo', providerAccepted: 1, delivered: 1 }),
+      ]) }],
+    } });
+  });
   it.each([{ userId: 'different-candidate' }, { parentServiceId: 'different-service' }, { retentionPurgedAt: new Date() }])('does not expose a child outside the owned service or after purge: %j', async patch => {
     acceptedChild(patch);
     expect(await open()).toMatchObject({ status: 404, body: { error: 'proposal_not_found' } });
