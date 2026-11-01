@@ -127,7 +127,7 @@ export function prepareCorpusContentOverlay({
   const destination = path.join(rootDir, 'packages', 'articles', 'content');
   const pinnedCommit = commit === null || commit === undefined ? null : normalizeCorpusCommit(commit);
   if (commit !== null && commit !== undefined && !pinnedCommit) {
-    throw new Error(`invalid corpus commit pin ${JSON.stringify(commit)} — expected a full lowercase SHA-1`);
+    throw new Error(`invalid corpus commit pin ${JSON.stringify(commit)} — expected a full SHA-1`);
   }
   const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-corpus-overlay-'));
   let retained = false;
