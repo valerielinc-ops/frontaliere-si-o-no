@@ -21,6 +21,7 @@ import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
 import { SECTORS } from './jobAlertConstants';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
+import { getAuthEmail } from '@/services/authService';
 import {
  getJobAlertLocationLabel,
  JOB_ALERT_LOCATIONS,
@@ -225,6 +226,7 @@ export default function JobAlertForm({
  // says so instead of navigating to sign-in on a promise it cannot keep.
  const [pendingStorageFailed, setPendingStorageFailed] = useState(false);
  const [ctaOrigin, setCtaOrigin] = useState<PendingJobAlertOrigin>('inline_card');
+ const authEmail = getAuthEmail(authUser);
 
  const oneTapKeyword = initialKeyword.trim();
  const [oneTapEligible, setOneTapEligible] = useState(false);
@@ -245,7 +247,7 @@ export default function JobAlertForm({
  // Reuse the shared resolver (and its session cache) so the one-tap CTA is
  // never shown for an existing matching alert or a full alert budget.
  useEffect(() => {
-   if (!authUser?.uid || !authUser.email || !oneTapKeyword) {
+   if (!authUser?.uid || !authEmail || !oneTapKeyword) {
      setOneTapEligible(false);
      return;
    }
@@ -264,7 +266,7 @@ export default function JobAlertForm({
    return () => {
      cancelled = true;
    };
- }, [authUser?.email, authUser?.uid, oneTapKeyword]);
+ }, [authEmail, authUser?.uid, oneTapKeyword]);
 
  // Update keyword when search changes
  useEffect(() => {
@@ -514,9 +516,13 @@ export default function JobAlertForm({
   // After the auth round-trip, replay a stashed alert intent so a logged-out
   // "create" completes itself instead of forcing a re-entry + re-submit
   // (the 536 click -> 39 create / 93% drop at exactly this step).
-  const pendingConsumedRef = useRef(false);
-  useEffect(() => {
-    if (!authUser || pendingConsumedRef.current) return;
+ const pendingConsumedRef = useRef(false);
+ useEffect(() => {
+    // Firebase may expose a signed-in user before the provider email has been
+    // copied to the top-level user object (notably Facebook). Do not consume
+    // the intent until the shared resolver has a usable address, or the alert
+    // would be lost before `createAlert` can validate it.
+    if (!authUser || !authEmail || pendingConsumedRef.current) return;
     const pending = consumePendingJobAlert();
     if (!pending) return;
     pendingConsumedRef.current = true;
@@ -531,7 +537,7 @@ export default function JobAlertForm({
     }
     (async () => {
       try {
-        const created = await persistAlert(authUser.uid, authUser.email || "", pending.config, replaySurface, "post_auth_replay");
+        const created = await persistAlert(authUser.uid, authEmail, pending.config, replaySurface, "post_auth_replay");
         if (pending.origin) {
           trackCtaAction(pending.origin, "success", replayKeyword);
           track((a) => a.trackJobAlertAuthHandoff(pending.origin, "replay_succeeded", replayKeyword));
@@ -540,7 +546,7 @@ export default function JobAlertForm({
         // Reset like the manual path so the now-authenticated user can't re-submit
         // the still-populated form and create a duplicate alert.
         resetForm();
-        if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
+        maybeShowEnrichmentPrompt(authEmail, created);
         try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
       } catch (err: any) {
         // Surface the failure (e.g. quota full = permanent) instead of swallowing
@@ -553,7 +559,7 @@ export default function JobAlertForm({
         showToast(err?.message || (t("jobAlert.error.generic") as string) || "Errore durante la creazione dell'alert.");
       }
     })();
-  }, [authUser, persistAlert, showToast, resetForm, t, maybeShowEnrichmentPrompt, trackCtaAction]);
+  }, [authEmail, authUser, persistAlert, showToast, resetForm, t, maybeShowEnrichmentPrompt, trackCtaAction]);
 
 
  const handleCreate = async () => {
@@ -583,13 +589,19 @@ export default function JobAlertForm({
  return;
  }
 
+ if (!authEmail) {
+  trackCurrentCtaAction('error', ctaKeyword);
+  showToast(t('jobAlert.error.emailRequired') || 'Serve un indirizzo email per creare l\'alert.');
+  return;
+ }
+
  setSaving(true);
  try {
-      const created = await persistAlert(authUser.uid, authUser.email || '', config, ctaOrigin, 'direct');
+      const created = await persistAlert(authUser.uid, authEmail, config, ctaOrigin, 'direct');
       trackCurrentCtaAction('success', ctaKeyword);
  showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
  resetForm();
-      if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
+      maybeShowEnrichmentPrompt(authEmail, created);
       try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
  } catch (err: any) {
  trackCurrentCtaAction('error', ctaKeyword);
@@ -600,17 +612,17 @@ export default function JobAlertForm({
  };
 
  const handleOneTapCreate = async () => {
-   if (!authUser?.uid || !authUser.email || !oneTapEligible || !oneTapKeyword) return;
+   if (!authUser?.uid || !authEmail || !oneTapEligible || !oneTapKeyword) return;
    trackCtaAction('inline_card', 'accept', oneTapKeyword);
    setSaving(true);
    try {
      const config = buildOneTapConfig();
-     const created = await persistAlert(authUser.uid, authUser.email, config, 'inline_card', 'direct');
+     const created = await persistAlert(authUser.uid, authEmail, config, 'inline_card', 'direct');
      trackCtaAction('inline_card', 'success', oneTapKeyword);
      showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
      setOneTapEligible(false);
      resetForm();
-     if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
+     maybeShowEnrichmentPrompt(authEmail, created);
      try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
    } catch (err: any) {
      trackCtaAction('inline_card', 'error', oneTapKeyword);
@@ -622,7 +634,7 @@ export default function JobAlertForm({
 
  const handleDelete = async (alertId: string) => {
  const target = alerts.find((a) => a.id === alertId);
- const email = target?.email || authUser?.email;
+ const email = target?.email || authEmail;
  if (!email) {
  showToast('Errore durante l\'eliminazione.');
  return;
@@ -647,7 +659,7 @@ export default function JobAlertForm({
  // option below is rendered only for an alert that already carries it.
  const handleUpdateFrequency = async (alertId: string, newFrequency: 'daily' | 'weekly' | 'immediate') => {
  const target = alerts.find((a) => a.id === alertId);
- const email = target?.email || authUser?.email;
+ const email = target?.email || authEmail;
  if (!email) {
  showToast('Errore durante l\'aggiornamento.');
  return;
@@ -669,7 +681,7 @@ export default function JobAlertForm({
 
  const handleResetToAuto = async (alertId: string) => {
  const target = alerts.find((a) => a.id === alertId);
- const email = target?.email || authUser?.email;
+ const email = target?.email || authEmail;
  if (!email) {
  showToast('Errore durante l\'aggiornamento.');
  return;
@@ -1151,10 +1163,10 @@ export default function JobAlertForm({
 
  {/* Progressive profile/jobalert enrichment prompt — one question, shown
  right after a successful alert creation. */}
- {enrichmentField && authUser?.email && (
+ {enrichmentField && authEmail && (
  <ProfileEnrichmentPrompt
  field={enrichmentField}
- email={authUser.email}
+ email={authEmail}
  locale={locale as Locale}
  alertId={enrichmentAlertId}
  municipality={enrichmentMunicipality}

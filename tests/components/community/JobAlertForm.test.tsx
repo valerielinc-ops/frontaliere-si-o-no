@@ -518,6 +518,37 @@ describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (iss
     expect(localStorage.getItem(PENDING_KEY)).toBeNull();
   });
 
+  it('waits for a providerData email before consuming a pending replay', async () => {
+    localStorage.setItem(PENDING_KEY, JSON.stringify({
+      value: {
+        origin: 'job_board_filters',
+        config: {
+          keywords: ['Tecnologia'],
+          locations: [],
+          contractTypes: [],
+          sectors: [],
+          cantonFilter: null,
+          frequency: 'weekly',
+          locale: 'it',
+        },
+      },
+      savedAt: Date.now(),
+    }));
+
+    const { rerender } = render(<JobAlertForm authUser={{ uid: 'user-1', providerData: [] }} />);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(createAlertMock).not.toHaveBeenCalled();
+    expect(localStorage.getItem(PENDING_KEY)).not.toBeNull();
+
+    rerender(<JobAlertForm authUser={{ uid: 'user-1', providerData: [{ email: 'foo@example.com' }] }} />);
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledWith(
+      'user-1',
+      'foo@example.com',
+      expect.objectContaining({ keywords: ['Tecnologia'] }),
+    ));
+    expect(localStorage.getItem(PENDING_KEY)).toBeNull();
+  });
+
   it('keeps a job-detail handoff origin on a signed-in form create', async () => {
     requestJobAlertOpen('infermiere', 'job_detail_button');
     render(<JobAlertForm authUser={authUser} />);
