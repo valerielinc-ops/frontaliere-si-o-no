@@ -68,6 +68,7 @@ describe('qualification before proposal publication', () => {
     ['en', 'This internship is open exclusively to applicants enrolled in the third year of commercial school.'],
     ['resident', 'Only Swiss residents may apply.'],
     ['apply-if-resident', 'Candidates may apply only if they are Swiss residents.'],
+    ['fr-minimum', 'Plus de 5 ans d’expérience en gestion de projets sont exigés.'],
     ['holders', 'This role is exclusively for holders of a valid Swiss work permit.'],
     ['graduates', 'Only graduates of an accredited nursing programme are eligible.'],
     ['people', 'The programme is reserved for people currently enrolled in vocational school.'],
@@ -118,6 +119,23 @@ describe('qualification before proposal publication', () => {
 
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'A developer with Java experience is an advantage.')).toBe(false);
     expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Qualifications\nA developer with Java experience is an advantage.')).toBe(false);
+  });
+
+  it('recognizes localized profile headings, keeps optional rows soft, and resets at mission headings', () => {
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Votre profil\nPlus de 5 ans d’expérience en gestion de projets.')).toBe(true);
+    expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, 'Il tuo profilo\nLaurea in economia.')).toBe(true);
+
+    for (const optional of [
+      'Qualifications\nOptional\n- French B2',
+      'Qualifications\nOpzionale:\n- French B2',
+      'Exigences\nFacultatif:\n- Français B2',
+      'Exigences facultatives\n- Français B2',
+      'Optionale Anforderungen\n- Deutsch B2',
+    ]) expect(hasUncoveredHardEligibilityStatements({ requirements: [] }, optional)).toBe(false);
+
+    const posting = 'Qualifications\n- German C1\nVotre mission\n- Support customer projects';
+    const covered = { requirements: [{ requirement: 'Tedesco C1', sourceRequirement: 'German C1', importance: 'critical', basis: 'stated', quote: 'German C1' }] };
+    expect(hasUncoveredHardEligibilityStatements(covered, posting)).toBe(false);
   });
 
   it('does not treat application channel instructions or preferred skills as hard eligibility', () => {
