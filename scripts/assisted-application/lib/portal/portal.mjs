@@ -27,7 +27,7 @@ import '../../extension/apply-control.js';
 
 import path from 'node:path';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationIsPending, verificationOutcome } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -2882,6 +2882,61 @@ async function awaitAuthView(page, before) {
 }
 
 /**
+ * Follow only a visible, explicitly named sign-in anchor whose live HTTPS
+ * destination stays on the current portal or its verified ATS family. This
+ * deliberately uses GET navigation instead of clicking a registration-form
+ * control: generic and learned buttons must never become an auth action.
+ */
+export async function openVerifiedSignInNavigation(page, snapshot) {
+  let currentSnapshot = snapshot;
+  if (currentSnapshot?.dialogs?.length) {
+    // Cookie managers are the only overlays this path is allowed to dismiss:
+    // their controls are explicitly localized and handled by the shared
+    // cookie-banner policy. Unknown dialogs remain a human handoff.
+    if (!await dismissCookieBanner(page, currentSnapshot)) return false;
+    currentSnapshot = await extractFields(page, NAVIGATION).catch(() => null);
+    if (!currentSnapshot || currentSnapshot.dialogs?.length) return false;
+  }
+  const candidates = [...(currentSnapshot?.links || []), ...(currentSnapshot?.buttons || [])]
+    .filter((control) => !control.dialog && isExplicitSignInNavigationLabel(
+      control.text, control.label, control.title, control.ariaLabel,
+    ));
+  for (const candidate of candidates) {
+    const id = String(candidate.id || '');
+    if (!/^[\w-]{1,80}$/.test(id)) continue;
+    const frame = page.frames()[Number(candidate.frame) || 0] || page.mainFrame();
+    const locator = frame.locator(`[data-aa-id="${id}"]`).first();
+    if (!await locator.isVisible().catch(() => false)) continue;
+    const liveLabel = [
+      await locator.innerText().catch(() => ''),
+      await locator.getAttribute('aria-label').catch(() => ''),
+      await locator.getAttribute('title').catch(() => ''),
+    ];
+    if (!isExplicitSignInNavigationLabel(...liveLabel)) continue;
+    const tagName = await locator.evaluate((element) => String(element.tagName || '').toUpperCase()).catch(() => '');
+    if (tagName !== 'A') continue;
+    const currentUrl = frame.url();
+    let portalHost;
+    try {
+      portalHost = new URL(currentUrl).hostname;
+    } catch {
+      continue;
+    }
+    const href = await locator.getAttribute('href').catch(() => null);
+    const target = verifiedSignInTarget(href, currentUrl, portalHost);
+    if (!target) continue;
+    try {
+      await frame.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    } catch {
+      return false;
+    }
+    if (!sameSite(frame.url(), portalHost)) return false;
+    return true;
+  }
+  return false;
+}
+
+/**
  * One login page (account.mjs): sign in with the order's account, or create
  * it on the alias, or verify it. Returns the next page, a handoff reason,
  * questions for the candidate, or `dryRun` (a dry run never creates an account).
@@ -2969,8 +3024,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // Create-account page.
   const retryingUnverifiedAccount = Boolean(account && !account.verifiedAt && allowExistingRegistration);
   if (account && !retryingUnverifiedAccount) {
-    // Created by an earlier run: sign in instead.
-    if (!await clickFirst(page, snapshot, [SIGN_IN_RE])) return accountHandoff('account', 'no_sign_in_button', 'registration');
+    // Created by an earlier run: follow only an explicit, verified login route.
+    if (!await openVerifiedSignInNavigation(page, snapshot)) return accountHandoff('account', 'no_sign_in_button', 'registration');
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };

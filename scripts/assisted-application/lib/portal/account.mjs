@@ -33,6 +33,8 @@ const VERIFICATION_POLL_MS = 10_000;
 // button is «Konto anlegen» / «Crea account» / «Créer un compte».
 export const CREATE_ACCOUNT_RE = /^([^?]{0,60}\?\s*)?(hier |jetzt )?((?:konto|profil) (erstellen|anlegen)|neues konto( erstellen| anlegen)?|registrieren|create (an? )?(?:account|profile)|sign up|register|crea (un )?(?:account|profilo)|registrati( qui)?|créer (un )?(?:compte|profil)|créez-en un|s'inscrire)$/i;
 export const SIGN_IN_RE = /^(anmelden|einloggen|sign in|log ?in|accedi|connexion|se connecter)$/i;
+const SIGN_IN_NAVIGATION_RE = /(?:^|[^\p{L}\p{N}])(?:sign[\s-]*in|log[\s-]*in|anmelden|einloggen|accedi|connexion|se\s+connecter|connectez[-\s]vous)(?=$|[^\p{L}\p{N}])/iu;
+const ACCOUNT_CREATION_ACTION_RE = /(?:\b(?:create|new)\s+(?:an?\s+)?(?:account|profile)\b|\b(?:register|sign\s*up)\b|\b(?:konto|profil)\s+(?:erstellen|anlegen)\b|\bregistrier\w*\b|\bcrea(?:re)?\s+(?:un\s+)?(?:account|profilo)\b|\bcr[ée]er\s+(?:un\s+)?(?:compte|profil)\b|\bs['’]inscrire\b)/iu;
 export const RESEND_VERIFICATION_RE = /(resend|send (?:a )?new (?:verification )?code|request a new code|neuen code (?:senden|anfordern)|code (?:erneut|noch einmal) senden|renvoyer|réenvoyer|envoyer un nouveau code|invia(?:re)? un nuovo codice|nuovo codice|reinvia)/i;
 export const VERIFY_PAGE_RE = /((verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)|one[- ]time (?:password|passcode)|otp|mot de passe [àa] usage unique|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|einmal(?:passwort|code))/i;
 const CODE_FIELD_RE = /code|codice|\bpin\b|\btoken\b|bestätigungs|one[- ]time (?:password|passcode)|\botp\b|einmal(?:passwort|code)|mot de passe [àa] usage unique/i;
@@ -120,6 +122,26 @@ export function authPageKind(snapshot) {
   if (passwords >= 2) return 'create';
   if (passwords === 1) return 'sign_in';
   return 'none';
+}
+
+/** A navigation label must say how to sign in, not combine sign-in with account creation. */
+export function isExplicitSignInNavigationLabel(...values) {
+  const label = values.map((value) => String(value ?? '')).filter(Boolean).join(' ')
+    .replace(/\p{Cf}/gu, '').normalize('NFKC').replace(/\s+/g, ' ').trim();
+  return Boolean(label) && !ACCOUNT_CREATION_ACTION_RE.test(label) && SIGN_IN_NAVIGATION_RE.test(label);
+}
+
+/** Resolve only an HTTPS route on the current portal or its verified ATS family. */
+export function verifiedSignInTarget(href, currentUrl, portalHost) {
+  try {
+    const current = new URL(String(currentUrl || ''));
+    const target = new URL(String(href || ''), current);
+    if (current.protocol !== 'https:' || target.username || target.password || !sameSite(target.href, portalHost)) return null;
+    if (target.href === current.href) return null;
+    return target.href;
+  } catch {
+    return null;
+  }
 }
 
 /**
