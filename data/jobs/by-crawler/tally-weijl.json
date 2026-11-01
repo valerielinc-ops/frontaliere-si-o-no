@@ -1,7 +1,7 @@
 {
   "crawlerKey": "tally-weijl",
-  "assembledAt": "2026-10-31T22:04:53.757Z",
-  "runId": "41242534428",
+  "assembledAt": "2026-11-01T09:16:31.307Z",
+  "runId": "41292128544",
   "jobs": [
     {
       "id": "tally-weijl-24b79f2d3947",
@@ -34,7 +34,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdz8/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:45.443Z",
+      "crawledAt": "2026-11-01T09:16:22.223Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -48,7 +48,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2027-01-18T09:16:22.223Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdz8/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -81,7 +81,10 @@
         }
       },
       "postalCode": "3004",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-7934e67f86db",
@@ -114,7 +117,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pkc9/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:44.825Z",
+      "crawledAt": "2026-11-01T09:16:21.685Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -128,7 +131,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:21.685Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pkc9/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -161,7 +164,10 @@
         }
       },
       "postalCode": "5000",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-951ea1950eea",
@@ -194,7 +200,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdzl/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:44.311Z",
+      "crawledAt": "2026-11-01T09:16:21.173Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -208,7 +214,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:21.173Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdzl/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -241,7 +247,10 @@
         }
       },
       "postalCode": "3004",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-1aea5f50c780",
@@ -274,7 +283,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0vblw/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:43.773Z",
+      "crawledAt": "2026-11-01T09:16:20.542Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -288,7 +297,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:20.542Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0vblw/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -321,7 +330,10 @@
         }
       },
       "postalCode": "3600",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-efa82b0d7d6a",
@@ -354,7 +366,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pqvj/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:43.219Z",
+      "crawledAt": "2026-11-01T09:16:19.996Z",
       "addressLocality": "Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -368,7 +380,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:19.996Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pqvj/",
       "requirements": [],
       "requirementsByLocale": {
@@ -431,7 +443,10 @@
         }
       },
       "postalCode": "4500",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-f4dd9e184bb9",
@@ -464,7 +479,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0p815/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:42.651Z",
+      "crawledAt": "2026-11-01T09:16:19.483Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -478,7 +493,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:19.483Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0p815/",
       "requirements": [],
       "requirementsByLocale": {
@@ -543,7 +558,10 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-acd4bfc45a27",
@@ -576,7 +594,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:42.091Z",
+      "crawledAt": "2026-11-01T09:16:18.929Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -590,7 +608,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:18.929Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5o/",
       "requirements": [],
       "requirementsByLocale": {
@@ -655,7 +673,10 @@
         }
       },
       "postalCode": "3004",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-3cf82a6d8fe9",
@@ -688,7 +709,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0znaa/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:41.537Z",
+      "crawledAt": "2026-11-01T09:16:18.376Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -702,7 +723,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2027-01-27T09:16:18.376Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0znaa/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -735,7 +756,10 @@
         }
       },
       "postalCode": "8200",
-      "addressRegion": "SH"
+      "addressRegion": "SH",
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-cbb38c20b361",
@@ -768,7 +792,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhvv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:40.945Z",
+      "crawledAt": "2026-11-01T09:16:17.845Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -782,7 +806,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:17.845Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhvv/",
       "requirements": [],
       "requirementsByLocale": {
@@ -842,7 +866,10 @@
         }
       },
       "postalCode": "6003",
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-13e4d44ef67f",
@@ -875,7 +902,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pc25/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:40.399Z",
+      "crawledAt": "2026-11-01T09:16:17.221Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -889,7 +916,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:17.221Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pc25/",
       "requirements": [],
       "requirementsByLocale": {
@@ -949,7 +976,10 @@
         }
       },
       "postalCode": "4600",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "streetAddress": "Olten",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-a19dcc58f55c",
@@ -982,7 +1012,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptvi/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:39.858Z",
+      "crawledAt": "2026-11-01T09:16:16.714Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -996,7 +1026,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:16.714Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptvi/",
       "requirements": [],
       "requirementsByLocale": {
@@ -1055,7 +1085,10 @@
         }
       },
       "postalCode": "3600",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-89020d9287f4",
@@ -1088,7 +1121,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptv7/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:39.004Z",
+      "crawledAt": "2026-11-01T09:16:16.086Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1102,7 +1135,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:16.086Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptv7/",
       "requirements": [],
       "requirementsByLocale": {
@@ -1163,7 +1196,10 @@
         }
       },
       "postalCode": "5000",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-ce4ee4fffcb3",
@@ -1196,7 +1232,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdzc/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:38.254Z",
+      "crawledAt": "2026-11-01T09:16:15.457Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1210,7 +1246,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:15.457Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zdzc/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1247,7 +1283,10 @@
         }
       },
       "postalCode": "3004",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-bf3e64bf2328",
@@ -1280,7 +1319,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2yl/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:37.607Z",
+      "crawledAt": "2026-11-01T09:16:14.962Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -1294,7 +1333,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:14.962Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2yl/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1327,7 +1366,10 @@
         }
       },
       "postalCode": "7000",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-4a9ab1655229",
@@ -1360,7 +1402,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2y8/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:37.033Z",
+      "crawledAt": "2026-11-01T09:16:14.321Z",
       "addressLocality": "Baden",
       "addressCountry": "CH",
       "country": "CH",
@@ -1374,7 +1416,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:14.321Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2y8/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1407,7 +1449,10 @@
         }
       },
       "postalCode": "5400",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-1f4bede8f068",
@@ -1440,7 +1485,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9i/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:36.498Z",
+      "crawledAt": "2026-11-01T09:16:13.824Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -1454,7 +1499,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:13.824Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9i/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1484,7 +1529,10 @@
         }
       },
       "postalCode": "8400",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-59950cdafc4d",
@@ -1517,7 +1565,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9r/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:35.924Z",
+      "crawledAt": "2026-11-01T09:16:13.335Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1531,7 +1579,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:13.335Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9r/",
       "requirements": [],
       "requirementsByLocale": {
@@ -1601,7 +1649,10 @@
         }
       },
       "postalCode": "5000",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "streetAddress": "Aarau",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-299485962524",
@@ -1634,7 +1685,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4i/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:34.777Z",
+      "crawledAt": "2026-11-01T09:16:12.844Z",
       "addressLocality": "Biel/Bienne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1648,7 +1699,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:12.844Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4i/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1681,7 +1732,10 @@
         }
       },
       "postalCode": "2502",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-d716d2416717",
@@ -1714,7 +1768,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:34.216Z",
+      "crawledAt": "2026-11-01T09:16:12.343Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1728,7 +1782,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:12.343Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zo4o/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1758,7 +1812,10 @@
         }
       },
       "postalCode": "3004",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-3a972ed86f57",
@@ -1791,7 +1848,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0znas/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:33.691Z",
+      "crawledAt": "2026-11-01T09:16:11.815Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1805,7 +1862,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2027-01-27T09:16:11.815Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0znas/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1838,7 +1895,10 @@
         }
       },
       "postalCode": "6003",
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "streetAddress": "Luzern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-b2ab92c8758b",
@@ -1871,7 +1931,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zn39/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:33.047Z",
+      "crawledAt": "2026-11-01T09:16:11.279Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1885,7 +1945,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2027-01-18T09:16:11.279Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zn39/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1904,7 +1964,10 @@
         }
       },
       "postalCode": "3600",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-4b18b5fa4e7e",
@@ -1937,7 +2000,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pi2p/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:32.232Z",
+      "crawledAt": "2026-11-01T09:16:10.561Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1951,7 +2014,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:10.561Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pi2p/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1970,7 +2033,10 @@
         }
       },
       "postalCode": "3600",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-bfa30ecffc38",
@@ -2003,7 +2069,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zmal/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:04:31.736Z",
+      "crawledAt": "2026-11-01T09:16:10.053Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -2017,7 +2083,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:10.053Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zmal/",
       "requirements": [],
       "requirementsByLocale": {
@@ -2083,7 +2149,10 @@
         }
       },
       "postalCode": "1964",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "streetAddress": "Conthey",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-d73c87471be8",
@@ -2116,7 +2185,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0znu1/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:04:31.105Z",
+      "crawledAt": "2026-11-01T09:16:09.461Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2130,7 +2199,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2027-01-18T09:16:09.461Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0znu1/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2163,7 +2232,10 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-20acfa0be20d",
@@ -2196,7 +2268,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zl51/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:04:30.585Z",
+      "crawledAt": "2026-11-01T09:16:08.931Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2210,7 +2282,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2027-01-13T09:16:08.931Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zl51/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2237,7 +2309,10 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-a99d5dedc597",
@@ -2270,7 +2345,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zn72/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:30.094Z",
+      "crawledAt": "2026-11-01T09:16:08.297Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2284,7 +2359,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2027-01-13T09:16:08.297Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zn72/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2320,7 +2395,10 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-8e5687719d49",
@@ -2353,7 +2431,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z1af/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:29.394Z",
+      "crawledAt": "2026-11-01T09:16:07.808Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2367,7 +2445,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:07.808Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z1af/",
       "requirements": [],
       "requirementsByLocale": {
@@ -2430,7 +2508,10 @@
         }
       },
       "postalCode": "8200",
-      "addressRegion": "SH"
+      "addressRegion": "SH",
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-6dfb4331c1aa",
@@ -2463,7 +2544,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pftv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:04:28.528Z",
+      "crawledAt": "2026-11-01T09:16:07.278Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2477,7 +2558,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:16:07.278Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pftv/",
       "requirements": [],
       "requirementsByLocale": {
@@ -2543,7 +2624,10 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "tally-weijl-13c1e6f603bd",
@@ -2576,7 +2660,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zt7r/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:04:28.011Z",
+      "crawledAt": "2026-11-01T09:16:06.725Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressCountry": "CH",
       "country": "CH",
@@ -2590,7 +2674,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "",
+      "validThrough": "2027-01-30T09:16:06.725Z",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zt7r/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2619,7 +2703,10 @@
         }
       },
       "postalCode": "2300",
-      "addressRegion": "NE"
+      "addressRegion": "NE",
+      "streetAddress": "La Chaux-de-Fonds",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

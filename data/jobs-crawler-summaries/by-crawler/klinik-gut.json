@@ -1,7 +1,7 @@
 {
   "key": "klinik-gut",
   "label": "Klinik Gut AG",
-  "generatedAt": "2026-10-31T22:09:17.596Z",
+  "generatedAt": "2026-11-01T09:25:16.337Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -13,59 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 3660,
-  "avgDurationMs": 3660,
+  "unchangedCount": 5,
+  "durationMs": 3091,
+  "avgDurationMs": 3091,
   "durationHistory": [
-    3660
+    3091
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "klinik-gut-1581-00c45976f0f5",
-      "slug": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
-      "company": "Klinik Gut AG",
-      "companyKey": "klinik-gut",
-      "companyDomain": "klinik-gut.ch",
-      "title": "Wahlstudienjahr / PJ – Unterassistenten",
-      "needsRetranslation": false,
-      "location": "Fläsch",
-      "canton": "GR",
-      "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
-      "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:09:04.274Z",
-      "addressLocality": "Fläsch",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7306",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
-      "firstSeenAt": "2026-06-29T22:54:47.989Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +38,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:09:04.276Z",
+      "crawledAt": "2026-11-01T09:25:01.009Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -102,12 +59,62 @@
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:01.009Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
+      }
+    },
+    {
+      "id": "klinik-gut-1581-00c45976f0f5",
+      "slug": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
+      "company": "Klinik Gut AG",
+      "companyKey": "klinik-gut",
+      "companyDomain": "klinik-gut.ch",
+      "title": "Wahlstudienjahr / PJ – Unterassistenten",
+      "needsRetranslation": false,
+      "location": "Fläsch",
+      "canton": "GR",
+      "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
+      "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:25:01.006Z",
+      "addressLocality": "Fläsch",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7306",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
+      "firstSeenAt": "2026-06-29T22:54:47.989Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "streetAddress": "Fläsch",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:01.006Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 23
       }
     },
     {
@@ -122,7 +129,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:09:04.272Z",
+      "crawledAt": "2026-11-01T09:25:01.003Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -143,12 +150,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Fläsch",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:01.003Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -164,7 +175,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4447",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:09:04.270Z",
+      "crawledAt": "2026-11-01T09:25:01.000Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -185,12 +196,26 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Gut AG",
+        "streetAddress": "Via Paracelsus 2a",
+        "postalCode": "7500",
+        "addressLocality": "St. Moritz",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:49:26.863Z"
+      },
+      "streetAddress": "Via Paracelsus 2a",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:25:01.000Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -206,7 +231,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:09:04.257Z",
+      "crawledAt": "2026-11-01T09:25:00.979Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -227,14 +252,28 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Gut AG",
+        "streetAddress": "Via Paracelsus 2a",
+        "postalCode": "7500",
+        "addressLocality": "St. Moritz",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:49:26.863Z"
+      },
+      "streetAddress": "Via Paracelsus 2a",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:25:00.979Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }
