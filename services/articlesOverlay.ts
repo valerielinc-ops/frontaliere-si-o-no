@@ -25,6 +25,7 @@
  */
 
 import { cdnDataUrl, cdnFreshUrl } from '@/services/cdnDataBase';
+import { articlesApiBase } from '@/services/articlesApiBase';
 import { mergeArticleMetaOverlay } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import type { ArticleSection } from '@/services/articleSections';
@@ -169,6 +170,38 @@ async function fetchIndex(path: string): Promise<OverlayIndex | null> {
 }
 
 /**
+ * Read the corpus manifest count for the two site-rendered article sections.
+ * The recent overlay index carries its own `total`, but that value can be an
+ * older publication snapshot than the hub/client chunks. The manifest is the
+ * publisher's cross-surface count and is therefore the only safe signal that
+ * can reveal that silent handoff. A failed read remains fail-open: the index's
+ * existing count/date guards still decide whether to escalate.
+ */
+async function fetchPublishedArticleCount(section: OverlaySection): Promise<number | null> {
+  const countKey = section === 'svizzera'
+    ? 'swissArticles'
+    : section === 'frontaliere'
+      ? 'articles'
+      : null;
+  if (!countKey) return null;
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  try {
+    const url = cdnFreshUrl(`${articlesApiBase()}/manifest.json`);
+    const res = await fetch(url, { signal: controller.signal });
+    if (!res.ok) return null;
+    const body = await res.json() as { counts?: Record<string, unknown> };
+    const count = body?.counts?.[countKey];
+    return typeof count === 'number' && Number.isSafeInteger(count) && count >= 0 ? count : null;
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
  * Fetch the overlay for one section+locale. Resolves to `[]` on any problem.
  *
  * `bundledCount` — how many articles this build shipped — turns the published
@@ -190,7 +223,10 @@ export async function fetchArticleOverlay(
   bundledCount?: number,
   bundledNewest?: string,
 ): Promise<OverlayArticle[]> {
-  const recent = await fetchIndex(`/data/blog-index-${section}-${locale}.json`);
+  const [recent, publishedCount] = await Promise.all([
+    fetchIndex(`/data/blog-index-${section}-${locale}.json`),
+    typeof bundledCount === 'number' ? fetchPublishedArticleCount(section) : Promise.resolve(null),
+  ]);
   if (!recent) return [];
 
   // Two independent triggers, because the count on its own has a blind spot.
@@ -206,8 +242,15 @@ export async function fetchArticleOverlay(
     typeof bundledCount === 'number' && bundledCount + recent.articles.length < recent.total;
   const dateSaysGap =
     typeof bundledNewest === 'string' && recent.oldest !== null && bundledNewest < recent.oldest;
+  // The overlay index can be internally consistent while still belonging to
+  // the previous corpus snapshot (`total === bundledCount`). Compare it with
+  // the publisher's manifest before accepting that result; otherwise a hub
+  // rendered from the newer corpus can advertise an article that neither the
+  // stale client chunk nor the stale recent index can hydrate.
+  const manifestSaysGap =
+    publishedCount !== null && publishedCount > recent.total;
 
-  if (countSaysGap || dateSaysGap) {
+  if (countSaysGap || dateSaysGap || manifestSaysGap) {
     const full = await fetchIndex(`/data/blog-index-${section}-${locale}-full.json`);
     // Still fail-open: a missing or malformed full index leaves the window's
     // entries in place rather than dropping the overlay altogether.
