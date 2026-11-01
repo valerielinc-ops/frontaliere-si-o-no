@@ -664,12 +664,12 @@
     },
     {
       "id": "planzer-016b5f7c0c67",
-      "slug": "leiter-technik-m-w-d-planzer-zurich",
+      "slug": "responsabile-della-tecnologia-m-f-d-planzer-zurich",
       "slugByLocale": {
         "de": "leiter-technik-m-w-d-planzer-zurich",
-        "it": "leiter-technik-m-w-d-planzer-zurich",
-        "en": "leiter-technik-m-w-d-planzer-zurich",
-        "fr": "leiter-technik-m-w-d-planzer-zurich"
+        "it": "responsabile-della-tecnologia-m-f-d-planzer-zurich",
+        "en": "head-of-technology-m-f-d-planzer-zurich",
+        "fr": "responsable-de-la-technologie-h-f-d-planzer-zurich"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -732,16 +732,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-30T09:22:32.149Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T09:22:32.149Z"
+      "firstSeenAt": "2026-11-01T09:22:32.149Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-technik-m-w-d-planzer-zurich"
+        ],
+        "en": [
+          "leiter-technik-m-w-d-planzer-zurich"
+        ],
+        "fr": [
+          "leiter-technik-m-w-d-planzer-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-technik-m-w-d-planzer-zurich"
+      ]
     },
     {
       "id": "planzer-cc18c780bf04",
-      "slug": "chauffeur-kat-c-m-w-d-planzer-marstetten",
+      "slug": "autista-cat-c-m-f-d-planzer-marstetten",
       "slugByLocale": {
         "de": "chauffeur-kat-c-m-w-d-planzer-marstetten",
-        "it": "chauffeur-kat-c-m-w-d-planzer-marstetten",
-        "en": "chauffeur-kat-c-m-w-d-planzer-marstetten",
-        "fr": "chauffeur-kat-c-m-w-d-planzer-marstetten"
+        "it": "autista-cat-c-m-f-d-planzer-marstetten",
+        "en": "chauffeur-cat-c-m-f-d-planzer-marstetten",
+        "fr": "chauffeur-cat-c-h-f-d-planzer-marstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -804,7 +818,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-30T09:22:31.415Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T09:22:31.415Z"
+      "firstSeenAt": "2026-11-01T09:22:31.415Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-m-w-d-planzer-marstetten"
+        ],
+        "en": [
+          "chauffeur-kat-c-m-w-d-planzer-marstetten"
+        ],
+        "fr": [
+          "chauffeur-kat-c-m-w-d-planzer-marstetten"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-m-w-d-planzer-marstetten"
+      ]
     },
     {
       "id": "planzer-0e88445685a5",

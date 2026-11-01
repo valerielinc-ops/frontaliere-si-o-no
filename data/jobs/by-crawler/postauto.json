@@ -1190,12 +1190,12 @@
     },
     {
       "id": "postauto-c9dfc5cd0bb6",
-      "slug": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-sarnen",
+      "slug": "cambio-di-carriera-come-autista-di-postbus-postauto-ag-sarnen",
       "slugByLocale": {
         "de": "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen",
-        "it": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-sarnen",
-        "en": "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen",
-        "fr": "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen"
+        "it": "cambio-di-carriera-come-autista-di-postbus-postauto-ag-sarnen",
+        "en": "career-changer-as-a-postbus-driver-postauto-ag-sarnen",
+        "fr": "changement-de-carriere-en-tant-que-chauffeur-postbus-postauto-ag-sarnen"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1246,11 +1246,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen",
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-sarnen"
+        ],
+        "en": [
+          "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen"
+        ],
+        "fr": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen"
         ]
       },
       "previousSlugs": [
-        "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen"
+        "quereinsteiger-in-als-postauto-fahrer-in-postauto-sarnen",
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-sarnen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

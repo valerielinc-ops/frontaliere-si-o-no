@@ -436,7 +436,7 @@
         "it": "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon",
         "en": "pollution-remediation-w-m-d-implenia-glattpark-opfikon",
         "de": "polier-schadstoffsanierung-w-m-d-implenia-ch",
-        "fr": "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
+        "fr": "depollution-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -483,7 +483,7 @@
       "previousSlugs": [
         "polier-schadstoffsanierung-w-m-d-implenia-ch",
         "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-        "depollution-m-j-implenia-glattpark-opfikon"
+        "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -494,7 +494,7 @@
         ],
         "fr": [
           "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-          "depollution-m-j-implenia-glattpark-opfikon"
+          "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
         ]
       },
       "firstSeenAt": "2026-07-05T23:08:18.837Z",
@@ -1289,9 +1289,9 @@
       "slug": "baufuhrer-neubau-gisikon-m-w-d-implenia-gisikon",
       "slugByLocale": {
         "de": "baufuhrer-neubau-gisikon-implenia-ch",
-        "it": "baufuhrer-neubau-gisikon-m-w-d-implenia-gisikon",
-        "en": "baufuhrer-neubau-gisikon-m-w-d-implenia-gisikon",
-        "fr": "baufuhrer-neubau-gisikon-m-w-d-implenia-gisikon"
+        "it": "direttore-della-costruzione-gisikon-implenia-gisikon",
+        "en": "construction-manager-new-gisikon-implenia-gisikon",
+        "fr": "directeur-de-la-construction-nouveau-gisikon-implenia-gisikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1339,24 +1339,14 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-neubau-gisikon-w-m-d-implenia-ch",
-          "direttore-della-costruzione-gisikon-implenia-gisikon"
+          "baufuhrer-neubau-gisikon-w-m-d-implenia-ch"
         ],
         "de": [
           "baufuhrer-neubau-gisikon-w-m-d-implenia-ch"
-        ],
-        "en": [
-          "construction-manager-new-gisikon-implenia-gisikon"
-        ],
-        "fr": [
-          "directeur-de-la-construction-nouveau-gisikon-implenia-gisikon"
         ]
       },
       "previousSlugs": [
-        "baufuhrer-neubau-gisikon-w-m-d-implenia-ch",
-        "direttore-della-costruzione-gisikon-implenia-gisikon",
-        "construction-manager-new-gisikon-implenia-gisikon",
-        "directeur-de-la-construction-nouveau-gisikon-implenia-gisikon"
+        "baufuhrer-neubau-gisikon-w-m-d-implenia-ch"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -1469,12 +1459,12 @@
     },
     {
       "id": "implenia-325f980846f3",
-      "slug": "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon",
+      "slug": "responsabile-di-progetto-gu-tu-per-progetti-speciali-m-f-d-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch",
-        "it": "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon",
-        "en": "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon",
-        "fr": "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon"
+        "it": "responsabile-di-progetto-gu-tu-per-progetti-speciali-m-f-d-implenia-glattpark-opfikon",
+        "en": "project-manager-gc-tc-special-projects-m-f-d-implenia-glattpark-opfikon",
+        "fr": "chef-de-projet-pour-projets-speciaux-gu-tu-h-f-d-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1522,11 +1512,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch"
+          "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch",
+          "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "en": [
+          "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon"
+        ],
+        "fr": [
+          "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
-        "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch"
+        "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch",
+        "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3243,9 +3241,9 @@
       "slug": "iniziativbewerbung-implenia-opfikon",
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
-        "en": "own-initiative-application-implenia-opfikon",
+        "en": "initiativbewerbung-implenia-opfikon",
         "de": "initiativbewerbung-implenia-opfikon",
-        "fr": "demande-d-initiative-implenia-opfikon"
+        "fr": "initiativbewerbung-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3299,17 +3297,18 @@
         ],
         "en": [
           "speculative-application-implenia-opfikon",
-          "initiativbewerbung-implenia-opfikon"
+          "own-initiative-application-implenia-opfikon"
         ],
         "fr": [
-          "initiativbewerbung-implenia-ch"
+          "demande-d-initiative-implenia-opfikon"
         ]
       },
       "previousSlugs": [
         "initiativbewerbung-implenia-ch",
         "speculative-application-implenia-opfikon",
         "initiativebewerbung-implenia-opfikon",
-        "initiativbewerbung-implenia-opfikon"
+        "own-initiative-application-implenia-opfikon",
+        "demande-d-initiative-implenia-opfikon"
       ],
       "firstSeenAt": "2026-08-11T10:27:35.418Z",
       "salaryMin": 73500,

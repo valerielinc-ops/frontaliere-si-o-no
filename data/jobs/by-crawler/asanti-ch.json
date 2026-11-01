@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "asanti-ch-53ce39cf25e0",
-      "slug": "verkaufsberater-in-schuhmode-80-100-stadt-zurich-8000-region-zurich-asanti-ch-ch",
+      "slug": "consulente-di-vendita-per-la-moda-calzaturiera-80-100-citta-di-zurigo-asanti-ag-8000-region-zurich",
       "slugByLocale": {
-        "it": "verkaufsberater-in-schuhmode-80-100-stadt-zurich-8000-region-zurich-asanti-ch-ch",
-        "en": "verkaufsberater-in-schuhmode-80-100-stadt-zurich-8000-region-zurich-asanti-ch-ch",
+        "it": "consulente-di-vendita-per-la-moda-calzaturiera-80-100-citta-di-zurigo-asanti-ag-8000-region-zurich",
+        "en": "footwear-sales-advisor-80-100-city-of-zurich-asanti-ag-8000-region-zurich",
         "de": "verkaufsberater-in-schuhmode-80-100-stadt-zurich-8000-region-zurich-asanti-ch-ch",
-        "fr": "verkaufsberater-in-schuhmode-80-100-stadt-zurich-8000-region-zurich-asanti-ch-ch"
+        "fr": "conseiller-ere-de-vente-en-chaussures-80-100-ville-de-zurich-asanti-ag-8000-region-zurich"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -70,16 +70,30 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:49:07.031Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-schuhmode-80-100-stadt-zurich-8000-region-zurich-asanti-ch-ch"
+        ],
+        "en": [
+          "verkaufsberater-in-schuhmode-80-100-stadt-zurich-8000-region-zurich-asanti-ch-ch"
+        ],
+        "fr": [
+          "verkaufsberater-in-schuhmode-80-100-stadt-zurich-8000-region-zurich-asanti-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-schuhmode-80-100-stadt-zurich-8000-region-zurich-asanti-ch-ch"
+      ]
     },
     {
       "id": "asanti-ch-8365f1c4f2cc",
-      "slug": "sachbearbeitung-logistik-m-w-d-100-8110-bulach-asanti-ch-ch",
+      "slug": "addetto-a-alla-gestione-della-logistica-m-f-d-100-asanti-ag-8110-bulach",
       "slugByLocale": {
-        "it": "sachbearbeitung-logistik-m-w-d-100-8110-bulach-asanti-ch-ch",
-        "en": "sachbearbeitung-logistik-m-w-d-100-8110-bulach-asanti-ch-ch",
+        "it": "addetto-a-alla-gestione-della-logistica-m-f-d-100-asanti-ag-8110-bulach",
+        "en": "logistics-administrative-assistant-m-f-d-100-asanti-ag-8110-bulach",
         "de": "sachbearbeitung-logistik-m-w-d-100-8110-bulach-asanti-ch-ch",
-        "fr": "sachbearbeitung-logistik-m-w-d-100-8110-bulach-asanti-ch-ch"
+        "fr": "assistant-e-administratif-ve-en-logistique-h-f-d-100-asanti-ag-8110-bulach"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -139,16 +153,30 @@
       "streetAddress": "Bülach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:49:07.031Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeitung-logistik-m-w-d-100-8110-bulach-asanti-ch-ch"
+        ],
+        "en": [
+          "sachbearbeitung-logistik-m-w-d-100-8110-bulach-asanti-ch-ch"
+        ],
+        "fr": [
+          "sachbearbeitung-logistik-m-w-d-100-8110-bulach-asanti-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeitung-logistik-m-w-d-100-8110-bulach-asanti-ch-ch"
+      ]
     },
     {
       "id": "asanti-ch-1043867d8c76",
       "slug": "logistiker-cfc-m-w-d-100-asanti-ag-kloten",
       "slugByLocale": {
         "it": "logistiker-cfc-m-w-d-100-asanti-ag-kloten",
-        "en": "logistiker-efz-m-w-d-100-kloten-8302-asanti-ch-ch",
+        "en": "logistics-specialist-efz-m-f-d-100-asanti-ag-kloten-8302",
         "de": "logistiker-efz-m-w-d-100-kloten-8302-asanti-ch-ch",
-        "fr": "logistiker-efz-m-w-d-100-kloten-8302-asanti-ch-ch"
+        "fr": "logisticien-cfc-h-f-d-100-asanti-ag-kloten-8302"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -193,6 +221,12 @@
       "previousSlugsByLocale": {
         "it": [
           "logistiker-efz-m-w-d-100-kloten-8302-asanti-ch-ch"
+        ],
+        "en": [
+          "logistiker-efz-m-w-d-100-kloten-8302-asanti-ch-ch"
+        ],
+        "fr": [
+          "logistiker-efz-m-w-d-100-kloten-8302-asanti-ch-ch"
         ]
       },
       "previousSlugs": [
@@ -220,12 +254,12 @@
     },
     {
       "id": "asanti-ch-008f3604f300",
-      "slug": "kaufm-sachbearbeiter-in-offertwesen-debitoren-80-alle-try-hire-asanti-ag-baden",
+      "slug": "preventivo-per-amministratore-commerciale-e-crediti-80-tutti-prova-assumere-asanti-ag-8953-mittleres-limmattal-bezirk",
       "slugByLocale": {
         "de": "kaufm-sachbearbeiter-in-offertwesen-amp-038-debitoren-80-alle-amp-8211-try-hire-8953",
-        "it": "kaufm-sachbearbeiter-in-offertwesen-debitoren-80-alle-try-hire-asanti-ag-baden",
-        "en": "kaufm-sachbearbeiter-in-offertwesen-debitoren-80-alle-try-hire-asanti-ag-baden",
-        "fr": "kaufm-sachbearbeiter-in-offertwesen-debitoren-80-alle-try-hire-asanti-ag-baden"
+        "it": "preventivo-per-amministratore-commerciale-e-crediti-80-tutti-prova-assumere-asanti-ag-8953-mittleres-limmattal-bezirk",
+        "en": "commercial-administrator-quotation-accounts-receivable-80-all-try-hire-asanti-ag-8953-mittleres-limmattal-bezirk-baden",
+        "fr": "devis-d-administrateur-commercial-et-comptes-clients-80-tout-essai-embauche-asanti-ag-8953-mittleres-limmattal-bezirk"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -271,11 +305,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kaufm-sachbearbeiter-in-offertwesen-amp-038-debitoren-80-alle-amp-8211-try-hire-8953"
+          "kaufm-sachbearbeiter-in-offertwesen-amp-038-debitoren-80-alle-amp-8211-try-hire-8953",
+          "kaufm-sachbearbeiter-in-offertwesen-debitoren-80-alle-try-hire-asanti-ag-baden"
+        ],
+        "en": [
+          "kaufm-sachbearbeiter-in-offertwesen-debitoren-80-alle-try-hire-asanti-ag-baden"
+        ],
+        "fr": [
+          "kaufm-sachbearbeiter-in-offertwesen-debitoren-80-alle-try-hire-asanti-ag-baden"
         ]
       },
       "previousSlugs": [
-        "kaufm-sachbearbeiter-in-offertwesen-amp-038-debitoren-80-alle-amp-8211-try-hire-8953"
+        "kaufm-sachbearbeiter-in-offertwesen-amp-038-debitoren-80-alle-amp-8211-try-hire-8953",
+        "kaufm-sachbearbeiter-in-offertwesen-debitoren-80-alle-try-hire-asanti-ag-baden"
       ],
       "salaryMin": 49600,
       "salaryMax": 75200,
@@ -299,12 +341,12 @@
     },
     {
       "id": "asanti-ch-59d2002b7036",
-      "slug": "sachbearbeiter-in-debitorenbuchhaltung-offertwesen-40-60-try-hire-asanti-ag-baden",
+      "slug": "impiegato-a-nella-contabilita-clienti-e-nella-gestione-delle-offerte-40-60-try-hire-asanti-ag-5400-bezirk-baden",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-debitorenbuchhaltung-offertwesen-40-60-try-hire-asanti-ag-baden",
-        "en": "sachbearbeiter-in-debitorenbuchhaltung-offertwesen-40-60-try-hire-asanti-ag-baden",
+        "it": "impiegato-a-nella-contabilita-clienti-e-nella-gestione-delle-offerte-40-60-try-hire-asanti-ag-5400-bezirk-baden",
+        "en": "accounts-receivable-quotations-administrator-40-60-try-hire-asanti-ag-5400-bezirk-baden",
         "de": "sachbearbeiter-in-debitorenbuchhaltung-amp-038-offertwesen-40-60-try-amp-038-hire-5400",
-        "fr": "sachbearbeiter-in-debitorenbuchhaltung-offertwesen-40-60-try-hire-asanti-ag-baden"
+        "fr": "employe-e-en-comptabilite-debiteurs-etablissement-des-offres-40-60-try-hire-asanti-ag-5400-bezirk-baden"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -348,11 +390,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-debitorenbuchhaltung-amp-038-offertwesen-40-60-try-amp-038-hire-5400"
+          "sachbearbeiter-in-debitorenbuchhaltung-amp-038-offertwesen-40-60-try-amp-038-hire-5400",
+          "sachbearbeiter-in-debitorenbuchhaltung-offertwesen-40-60-try-hire-asanti-ag-baden"
+        ],
+        "en": [
+          "sachbearbeiter-in-debitorenbuchhaltung-offertwesen-40-60-try-hire-asanti-ag-baden"
+        ],
+        "fr": [
+          "sachbearbeiter-in-debitorenbuchhaltung-offertwesen-40-60-try-hire-asanti-ag-baden"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-debitorenbuchhaltung-amp-038-offertwesen-40-60-try-amp-038-hire-5400"
+        "sachbearbeiter-in-debitorenbuchhaltung-amp-038-offertwesen-40-60-try-amp-038-hire-5400",
+        "sachbearbeiter-in-debitorenbuchhaltung-offertwesen-40-60-try-hire-asanti-ag-baden"
       ],
       "salaryMin": 37200,
       "salaryMax": 56400,
@@ -376,12 +426,12 @@
     },
     {
       "id": "asanti-ch-14cf32e83c79",
-      "slug": "nachtchauffeur-ce-m-w-100-8157-bezirk-dielsdorf-zh-asanti-ch-ch",
+      "slug": "autista-notturno-ce-m-f-100-asanti-ag-8157-bezirk-dielsdorf-zh",
       "slugByLocale": {
-        "it": "nachtchauffeur-ce-m-w-100-8157-bezirk-dielsdorf-zh-asanti-ch-ch",
-        "en": "nachtchauffeur-ce-m-w-100-8157-bezirk-dielsdorf-zh-asanti-ch-ch",
+        "it": "autista-notturno-ce-m-f-100-asanti-ag-8157-bezirk-dielsdorf-zh",
+        "en": "night-driver-ce-m-f-100-asanti-ag-8157-bezirk-dielsdorf-zh",
         "de": "nachtchauffeur-ce-m-w-100-8157-bezirk-dielsdorf-zh-asanti-ch-ch",
-        "fr": "nachtchauffeur-ce-m-w-100-8157-bezirk-dielsdorf-zh-asanti-ch-ch"
+        "fr": "chauffeur-de-nuit-ce-h-f-100-asanti-ag-8157-bezirk-dielsdorf-zh"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -441,7 +491,21 @@
       "streetAddress": "Dielsdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T09:49:07.024Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "nachtchauffeur-ce-m-w-100-8157-bezirk-dielsdorf-zh-asanti-ch-ch"
+        ],
+        "en": [
+          "nachtchauffeur-ce-m-w-100-8157-bezirk-dielsdorf-zh-asanti-ch-ch"
+        ],
+        "fr": [
+          "nachtchauffeur-ce-m-w-100-8157-bezirk-dielsdorf-zh-asanti-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nachtchauffeur-ce-m-w-100-8157-bezirk-dielsdorf-zh-asanti-ch-ch"
+      ]
     },
     {
       "id": "asanti-ch-fc0922708d91",
@@ -449,8 +513,8 @@
       "slugByLocale": {
         "de": "logistiker-efz-m-w-d-4402-frenkendorf-asanti-ch-ch",
         "it": "logistiker-cfc-m-w-d-asanti-ag-frenkendorf",
-        "en": "logistiker-efz-m-w-d-4402-frenkendorf-asanti-ch-ch",
-        "fr": "logistiker-efz-m-w-d-4402-frenkendorf-asanti-ch-ch"
+        "en": "logistics-specialist-efz-m-f-d-asanti-ag-4402-frenkendorf",
+        "fr": "logisticien-cfc-h-f-d-asanti-ag-4402-frenkendorf"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -496,6 +560,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-efz-m-w-d-4402-frenkendorf-asanti-ch-ch"
+        ],
+        "en": [
+          "logistiker-efz-m-w-d-4402-frenkendorf-asanti-ch-ch"
+        ],
+        "fr": [
           "logistiker-efz-m-w-d-4402-frenkendorf-asanti-ch-ch"
         ]
       },

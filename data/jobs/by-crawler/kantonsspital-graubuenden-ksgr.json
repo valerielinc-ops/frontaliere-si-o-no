@@ -26,9 +26,12 @@
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-11-01T09:25:01.355Z",
-      "slug": "rettungssanitater-in-in-ausbildung-kantonsspital-graubunden-chur",
+      "slug": "paramedici-di-formazione-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "rettungssanitater-in-in-ausbildung-kantonsspital-graubunden-chur"
+        "de": "rettungssanitater-in-in-ausbildung-kantonsspital-graubunden-chur",
+        "it": "paramedici-di-formazione-kantonsspital-graubunden-chur",
+        "en": "training-paramedics-kantonsspital-graubunden-chur",
+        "fr": "paramedicaux-de-formation-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Rettungssanitäter:in in Ausbildung",
@@ -62,7 +65,15 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-11-01T09:25:01.355Z"
+      "firstSeenAt": "2026-11-01T09:25:01.355Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rettungssanitater-in-in-ausbildung-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "rettungssanitater-in-in-ausbildung-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10245751",

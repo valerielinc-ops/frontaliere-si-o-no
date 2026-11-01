@@ -297,12 +297,12 @@
     },
     {
       "id": "med-ipersonal-daede4fcdf5b",
-      "slug": "logistiker-collaboratore-trice-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich",
+      "slug": "logistica-raccolta-dipendenti-regione-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich",
       "slugByLocale": {
         "de": "logistiker-mitarbeiter-in-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich",
-        "it": "logistiker-collaboratore-trice-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich",
-        "en": "logistiker-mitarbeiter-in-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich",
-        "fr": "logistiker-mitarbeiter-in-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich"
+        "it": "logistica-raccolta-dipendenti-regione-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich",
+        "en": "logistics-employee-picking-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich",
+        "fr": "logistique-collecte-des-employes-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -346,12 +346,20 @@
       "previousSlugsByLocale": {
         "it": [
           "logistiker-mitarbeiter-in-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich",
-          "logistiker-collaboratore-trice-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh"
+          "logistiker-collaboratore-trice-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh",
+          "logistiker-collaboratore-trice-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich"
+        ],
+        "en": [
+          "logistiker-mitarbeiter-in-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich"
+        ],
+        "fr": [
+          "logistiker-mitarbeiter-in-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich"
         ]
       },
       "previousSlugs": [
         "logistiker-mitarbeiter-in-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich",
-        "logistiker-collaboratore-trice-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh"
+        "logistiker-collaboratore-trice-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh",
+        "logistiker-collaboratore-trice-kommissionierung-region-erlenbach-zh-ipersonal-ag-erlenbach-zh-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -875,12 +883,12 @@
     },
     {
       "id": "med-ipersonal-f3c6eddcdd61",
-      "slug": "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen",
+      "slug": "logistico-logistico-produzione-regione-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen",
       "slugByLocale": {
         "de": "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen",
-        "it": "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen",
-        "en": "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen",
-        "fr": "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen"
+        "it": "logistico-logistico-produzione-regione-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen",
+        "en": "logistician-production-logistician-region-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen",
+        "fr": "logisticien-logistique-de-la-production-region-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -941,11 +949,19 @@
       "firstSeenAt": "2026-11-01T09:38:51.089Z",
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh"
+          "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh",
+          "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen"
+        ],
+        "en": [
+          "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen"
+        ],
+        "fr": [
+          "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh"
+        "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh",
+        "logistiker-produktionslogistiker-region-stetten-sh-ipersonal-ag-stetten-sh-schaffhausen"
       ]
     },
     {
@@ -1025,12 +1041,12 @@
     },
     {
       "id": "med-ipersonal-3909c05f3528",
-      "slug": "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen",
+      "slug": "logistico-logistico-della-produzione-regione-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen",
       "slugByLocale": {
         "de": "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen",
-        "it": "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen",
-        "en": "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen",
-        "fr": "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen"
+        "it": "logistico-logistico-della-produzione-regione-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen",
+        "en": "logistician-production-logistician-region-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen",
+        "fr": "logisticien-logisticien-de-la-production-region-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -1091,11 +1107,19 @@
       "firstSeenAt": "2026-11-01T09:38:50.486Z",
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh"
+          "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh",
+          "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen"
+        ],
+        "en": [
+          "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen"
+        ],
+        "fr": [
+          "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh"
+        "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh",
+        "logistiker-produktionslogistiker-region-lohn-sh-ipersonal-ag-lohn-sh-schaffhausen"
       ]
     }
   ]

@@ -777,12 +777,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-0ab52c0b6d7d",
-      "slug": "assistenzarztin-assistenzarzt-anasthesiologie-svar-spitalverbund-ar-herisau",
+      "slug": "medico-assistente-in-anestesiologia-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-anasthesiologie-svar-spitalverbund-ar-herisau",
-        "it": "assistenzarztin-assistenzarzt-anasthesiologie-svar-spitalverbund-ar-herisau",
-        "en": "assistenzarztin-assistenzarzt-anasthesiologie-svar-spitalverbund-ar-herisau",
-        "fr": "assistenzarztin-assistenzarzt-anasthesiologie-svar-spitalverbund-ar-herisau"
+        "it": "medico-assistente-in-anestesiologia-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "assistant-physician-anesthesiology-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "medecin-assistant-anesthesiologie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -845,7 +845,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T09:16:58.230Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-01T09:16:58.230Z"
+      "firstSeenAt": "2026-11-01T09:16:58.230Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-anasthesiologie-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-anasthesiologie-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-anasthesiologie-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-anasthesiologie-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-f3f7a61cfe70",

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-d5348b4f66c0",
-      "slug": "etancheur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f",
+      "slug": "impermeabilizzatore-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f",
       "slugByLocale": {
         "fr": "etancheur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f",
-        "it": "etancheur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f",
-        "en": "etancheur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f",
-        "de": "etancheur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f"
+        "it": "impermeabilizzatore-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f",
+        "en": "waterproofer-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f",
+        "de": "abdichter-m-w-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f"
       },
       "slugDisambiguator": "d5348b4f",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -73,7 +73,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T09:45:21.988Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-26T09:37:37.058Z"
+      "firstSeenAt": "2026-10-26T09:37:37.058Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "etancheur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f"
+        ],
+        "en": [
+          "etancheur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f"
+        ],
+        "de": [
+          "etancheur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f"
+        ]
+      },
+      "previousSlugs": [
+        "etancheur-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-d5348b4f"
+      ]
     }
   ]
 }

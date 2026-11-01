@@ -14160,12 +14160,12 @@
     },
     {
       "id": "stadler-rail-3c9413ab3366",
-      "slug": "materialprufer-zfp-stadler-rail-ch",
+      "slug": "controllore-dei-materiali-cnd-stadler-rail-winterthur",
       "slugByLocale": {
-        "it": "materialprufer-zfp-stadler-rail-ch",
-        "en": "materialprufer-zfp-stadler-rail-ch",
+        "it": "controllore-dei-materiali-cnd-stadler-rail-winterthur",
+        "en": "ndt-materials-inspector-stadler-rail-winterthur",
         "de": "materialprufer-zfp-stadler-rail-ch",
-        "fr": "materialprufer-zfp-stadler-rail-ch"
+        "fr": "controleur-de-materiaux-en-cnd-stadler-rail-winterthur"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -14225,16 +14225,30 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T09:47:51.931Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "materialprufer-zfp-stadler-rail-ch"
+        ],
+        "en": [
+          "materialprufer-zfp-stadler-rail-ch"
+        ],
+        "fr": [
+          "materialprufer-zfp-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "materialprufer-zfp-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-023699cd6440",
-      "slug": "sichtprufer-schweisstechnik-stadler-rail-ch",
+      "slug": "ispettore-per-il-controllo-visivo-nella-tecnologia-della-saldatura-stadler-rail-winterthur",
       "slugByLocale": {
-        "it": "sichtprufer-schweisstechnik-stadler-rail-ch",
-        "en": "sichtprufer-schweisstechnik-stadler-rail-ch",
+        "it": "ispettore-per-il-controllo-visivo-nella-tecnologia-della-saldatura-stadler-rail-winterthur",
+        "en": "visual-inspector-in-welding-technology-stadler-rail-winterthur",
         "de": "sichtprufer-schweisstechnik-stadler-rail-ch",
-        "fr": "sichtprufer-schweisstechnik-stadler-rail-ch"
+        "fr": "inspecteur-visuel-en-technique-de-soudage-stadler-rail-winterthur"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -14294,7 +14308,21 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T09:47:39.776Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "sichtprufer-schweisstechnik-stadler-rail-ch"
+        ],
+        "en": [
+          "sichtprufer-schweisstechnik-stadler-rail-ch"
+        ],
+        "fr": [
+          "sichtprufer-schweisstechnik-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sichtprufer-schweisstechnik-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-99d9330fdf8b",
