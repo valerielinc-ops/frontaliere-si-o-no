@@ -95,6 +95,7 @@ export function privacySemanticIdentifiers(...sources) {
     if (!['string', 'number'].includes(typeof value)) return;
     const normalized = String(value).normalize('NFKC').replace(/\p{Cf}/gu, '').trim();
     if (!normalized) return;
+    // An opaque generated control id may look like a CEFR level such as `c1`.
     if (technicalId.test(normalized)) return;
     const key = normalized.toLocaleLowerCase();
     if (seen.has(key)) return;
