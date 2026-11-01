@@ -120,6 +120,17 @@ describe('portal field extraction', () => {
     }]).questions[0];
     expect(missingReferenceQuestion.privacyMetadataIncomplete).toBe(true);
     expect(operationalQuestionTopic(missingReferenceQuestion)).toBeNull();
+
+    for (const target of [
+      '<span id="missing-dob-label"></span>',
+      '<span id="missing-dob-label" aria-label="Email address"></span>',
+    ]) {
+      const emptyReference = extract('<form><label for="privacy-ack">' + prompt
+        + '</label><input id="privacy-ack" type="checkbox" aria-labelledby="missing-dob-label" required>'
+        + target + '</form>');
+      const emptyReferenceField = emptyReference.fields.find((entry: any) => entry.domId === 'privacy-ack');
+      expect(emptyReferenceField).toMatchObject({ privacyMetadataIncomplete: true });
+    }
   });
 
   it('recognizes the Deloitte login fields and optional-cookie controls', () => {

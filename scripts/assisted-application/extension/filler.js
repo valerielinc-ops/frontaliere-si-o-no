@@ -713,6 +713,10 @@
         const referenceAttributes = ['aria-labelledby', 'aria-describedby', 'aria-details'];
         const referenceIds = referenceAttributes.flatMap(attribute => (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean));
         const unresolvedReference = referenceIds.some(id => !doc.getElementById(id));
+        const emptyReference = referenceIds.some(id => {
+          const referenced = doc.getElementById(id);
+          return Boolean(referenced) && !rawText(referenced.innerText || referenced.textContent);
+        });
         const referenceTexts = referenceIds.map(rawTextOf);
         const description = ['aria-describedby', 'aria-details'].flatMap(attribute =>
           (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean).map(rawTextOf)).filter(Boolean).join(' ');
@@ -735,7 +739,7 @@
           ...associatedLabels, ...referenceTexts, ...(Array.isArray(field?.labels) ? field.labels : []),
           ...referenceAttributes.map(attribute => element.getAttribute(attribute) || '')];
         if (field?.privacyMetadataIncomplete === true || rawMetadata.some(value => rawText(value).length >= 300)
-          || description.length > 600 || uniqueLabels.length > 12 || unresolvedReference) privacyMetadata.privacyMetadataIncomplete = true;
+          || description.length > 600 || uniqueLabels.length > 12 || unresolvedReference || emptyReference) privacyMetadata.privacyMetadataIncomplete = true;
       }
       const malformedAddressOwner = Object.hasOwn(field || {}, 'addressContext')
         && !validAddressContext(field.addressContext)

@@ -168,6 +168,10 @@ function nativeQuestionText(value, counter = null) {
     const referenceAttributes = ['aria-labelledby', 'aria-describedby', 'aria-details'];
     const referenceIds = referenceAttributes.flatMap(attribute => (element.getAttribute(attribute) || '').split(/\s+/).filter(Boolean));
     const unresolvedReference = referenceIds.some(id => !document.getElementById(id));
+    const emptyReference = referenceIds.some(id => {
+      const node = document.getElementById(id);
+      return Boolean(node) && !rawText(node.innerText || node.textContent);
+    });
     const ariaLabelText = rawText(element.getAttribute('aria-label') || '');
     const ariaDescriptionText = rawText(element.getAttribute('aria-description') || '');
     const titleText = rawText(element.getAttribute('title') || '');
@@ -193,7 +197,7 @@ function nativeQuestionText(value, counter = null) {
     // could hide a contradictory control role from the consent guard.
     const privacyMetadataIncomplete = [primaryLabel, ...associatedLabels, ...references,
       ariaLabelText, ariaDescriptionText, titleText, placeholderText].some(value => String(value || '').length >= 300)
-      || description.length > 600 || allLabels.length > 12 || unresolvedReference;
+      || description.length > 600 || allLabels.length > 12 || unresolvedReference || emptyReference;
     return {
       ...(ariaLabel ? { ariaLabel } : {}),
       ...(ariaDescription ? { ariaDescription } : {}),
