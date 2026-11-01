@@ -273,11 +273,21 @@
     const names = [element.getAttribute('name'), element.id].map(clean).filter(Boolean);
     const technical = names.find((value) => !GENERATED_ID_RE.test(value));
     if (technical) return technical;
-    if (!ownContext || !hasSingleQuestionContext(element)) return names[0] || '';
+    const isolatedContext = ownContext && hasSingleQuestionContext(element);
+    const isDatePicker = Boolean(element.closest(DATE_QUESTION_SELECTOR));
+    const zone = isDatePicker ? '' : zoneText(element);
+    if (zone) {
+      // A file drop zone can be the only control in its own question even when
+      // the page has other fields. For sibling questions, the local text is
+      // enough and a document-wide heading would name both fields alike.
+      const heading = element.type === 'file' || isolatedContext ? headingBefore(element) : '';
+      return [...new Set([heading, zone].filter(Boolean))].join(' · ') || names[0] || '';
+    }
+    if (!isolatedContext) return names[0] || '';
     // No label, only a generated id (JOIN's CV drop zone: "file:_r_3_:input"):
     // the heading the control sits under and the text of its zone say what it
     // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
-    return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
+    return headingBefore(element) || names[0] || '';
   };
   const hasRequiredMarker = (element, labelText) => {
     if (element.hasAttribute('data-required')) return true;
@@ -428,26 +438,126 @@
     parts.push(headingBefore(element));
     return [...new Set(parts.map(clean).filter(Boolean))].join(' · ').slice(0, 240);
   };
-  // The words of the control's own zone (NodeFilter.SHOW_TEXT = 4): the text
-  // nearest before it, else the first after it, so two unnamed fields in one
-  // zone never share the first one's question.
+  // The words of a bounded question/upload zone, or a short, immediate
+  // sibling question. Page-level copy is not evidence for a generated-id label.
+  const normalizeInstructionText = (value) => clean(value).normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+  const GLOBAL_FORM_ACTION_RE = /^(?:(?:(?:please|bitte|veuillez|merci de|si prega di|per favore|per cortesia)\s+)?(?:complete|finish|review|check|read|fill(?:\s+in)?|submit|apply|continue|ensure|make\s+sure|complet\w*|compil\w*|termin\w*|finisc\w*|rived\w*|controll\w*|legg\w*|invi\w*|candidat\w*|prosegu\w*|assicur\w*|rempl\w*|verifi\w*|soumett\w*|postul\w*|poursuiv\w*|assur\w*|vollstand\w*|vervollstand\w*|full\w*|pruf\w*|les\w*|reich\w*|bewerb\w*|stell\s+sicher)\b|bitte\s+(?:das|die|den|der|ein|eine|einen|dieses|diese|diesen)?\s*formular\w*(?:\s+vollstand\w*)?\s+ausfull\w*\b)[^.!?…]*(?:[.!?…]+)?$/;
+  const GLOBAL_FORM_SCOPE_RE = /\b(?:form|forms|application|applications)\b|\bmodul\w*\b|\bformular\w*\b|\bformulaire\w*\b|\b(?:all|every|remaining|following)\b.{0,45}\b(?:sections?|steps?|fields?|questions?)\b|\b(?:tutti|tutte|ogni|restanti|seguenti|rimanenti)\b.{0,45}\b(?:sezion\w*|passagg\w*|camp\w*|domand\w*|informazion\w*)\b|\b(?:alle|jeden|verbleibenden|folgenden|samtlich\w*)\b.{0,45}\b(?:abschnitt\w*|schritt\w*|feld\w*|frag\w*|angab\w*|information\w*)\b|\b(?:tous|toutes|chaque|restants|restantes|suivants|suivantes)\b.{0,45}\b(?:sections?|etapes?|champs?|questions?|informations?)\b/;
+  const GLOBAL_FORM_BEFORE_SUBMIT_RE = /\b(?:before|prior to)\b.{0,60}\b(?:applying|submitting|you submit)\b|\b(?:prima di|prima dell[aeiou]|prima dell['’])\b.{0,60}\b(?:candidat\w*|invi\w*|present\w*)\b|\b(?:avant de|avant d)\b.{0,60}\b(?:postul\w*|soumett\w*|envoy\w*|valid\w*)\b|\b(?:bevor|vor dem)\b.{0,60}\b(?:bewerb\w*|absend\w*|einreich\w*|senden)\b/;
+  const PRIVACY_ACK_QUESTION_HINT_RE = /^(?:(?:please|bitte|veuillez)\s+)?(?:select|check|tick|mark|seleziona(?:re)?|spunta|contrassegna|aktivieren|markieren|kreuzen|wahlen|cochez|cocher|selectionnez|selectionner|coche|selectionne)\b.{0,220}\b(?:privacy|datenschutz\w*|informativa|confidentialite)\b/;
+  const isGlobalFormInstruction = (value) => {
+    const text = normalizeInstructionText(value);
+    return GLOBAL_FORM_ACTION_RE.test(text)
+      && (GLOBAL_FORM_SCOPE_RE.test(text) || GLOBAL_FORM_BEFORE_SUBMIT_RE.test(text));
+  };
+  const isQuestionLabelText = (value) => {
+    const text = normalizeInstructionText(value);
+    const punctuationIsPartOfPrivacyQuestion = PRIVACY_ACK_QUESTION_HINT_RE.test(text);
+    return value.length <= 120
+      && (!/[.!…]\s*$/.test(value) || punctuationIsPartOfPrivacyQuestion)
+      && !isGlobalFormInstruction(value);
+  };
   const zoneText = (element) => {
-    let node = element.parentElement;
-    for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
+    const parent = element.parentElement;
+    if (!parent) return '';
+    const file = element.type === 'file';
+    const dropZone = file && element.closest('[class*="dropzone"], [class*="drop-zone"], [class*="file-upload"], [data-dropzone], [data-file-dropzone]');
+    const group = element.closest(QUESTION_GROUP_SELECTOR);
+    const singleQuestionGroup = group && oneQuestionGroup(group, element) ? group : null;
+    const containers = [];
+    if (dropZone) containers.push(dropZone);
+    for (let node = parent, depth = 0; node && depth < 6; node = node.parentElement, depth += 1) {
+      if (node.matches('body, main, [role="main"]')) {
+        if (node === dropZone && !containers.includes(node)) containers.push(node);
+        break;
+      }
+      if (node !== parent && node.matches('section, article, dialog, [role="dialog"], [role="region"], [role="tabpanel"]')) break;
+      if (!containers.includes(node)) containers.push(node);
+      if (node === dropZone || node === group || node.matches('form, [role="form"]')) break;
+    }
+    const childUnder = (container) => {
+      let child = element;
+      while (child.parentElement && child.parentElement !== container) child = child.parentElement;
+      return child.parentElement === container ? child : null;
+    };
+    for (const node of containers) {
+      const bounded = node === dropZone || node === singleQuestionGroup;
       const walker = document.createTreeWalker(node, 4);
-      let before = '';
-      let after = '';
+      const controls = [...node.querySelectorAll(QUESTION_CONTROL_SELECTOR)];
+      const branch = childUnder(node);
+      const isQuestionSibling = (sibling) => sibling?.matches('span, [class*="label"], [class*="question"], [role="heading"]')
+        && !sibling.matches(QUESTION_CONTROL_SELECTOR) && !sibling.querySelector(QUESTION_CONTROL_SELECTOR);
+      const siblingRun = (start, direction) => {
+        const siblings = [];
+        for (let sibling = start; isQuestionSibling(sibling); sibling = direction === 'before'
+          ? sibling.previousElementSibling : sibling.nextElementSibling) siblings.push(sibling);
+        return direction === 'before' ? siblings.reverse() : siblings;
+      };
+      const joinSiblingParts = (parts) => parts.reduce((joined, part) => {
+        if (!joined || !part) return joined + part;
+        const needsSpace = !/\s$/.test(joined) && !/^\s/.test(part)
+          && !/['’`-]$/.test(joined) && !/^[,.;!?):\]}]/.test(part);
+        return `${joined}${needsSpace ? ' ' : ''}${part}`;
+      }, '');
+      const questionRuns = [
+        siblingRun(branch?.previousElementSibling, 'before'),
+        siblingRun(branch?.nextElementSibling, 'after'),
+      ].filter((siblings) => siblings.length > 0);
+      const questionSiblings = questionRuns.flat();
+      let siblingBefore = '';
+      let siblingAfter = '';
+      let contextBefore = '';
+      let contextAfter = '';
+      for (const siblings of questionRuns) {
+        const parts = [];
+        for (const sibling of siblings) {
+          const siblingWalker = document.createTreeWalker(sibling, 4);
+          const siblingParts = [];
+          for (let siblingText = siblingWalker.nextNode(); siblingText; siblingText = siblingWalker.nextNode()) {
+            if (siblingText.parentElement?.closest(`${QUESTION_CONTROL_SELECTOR}, select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend`)) continue;
+            siblingParts.push(siblingText.textContent || '');
+          }
+          parts.push(siblingParts.join(''));
+        }
+        const value = clean(joinSiblingParts(parts));
+        if (!value || !isQuestionLabelText(value)) continue;
+        const boundary = siblings[0];
+        // eslint-disable-next-line no-bitwise
+        const isBefore = Boolean(boundary.compareDocumentPosition(element) & FOLLOWING);
+        const crossesControl = controls.some((control) => control !== element && (isBefore
+          ? (boundary.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(element) & FOLLOWING)
+          : (element.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(boundary) & FOLLOWING)));
+        const belongsAfterAnotherControl = !isBefore && controls.some((control) => control !== element
+          && (siblings[siblings.length - 1].compareDocumentPosition(control) & FOLLOWING));
+        if (crossesControl || belongsAfterAnotherControl) continue;
+        if (isBefore && !siblingBefore) siblingBefore = value;
+        else if (!isBefore && !siblingAfter) siblingAfter = value;
+      }
+      const fileZoneParent = file && node === parent && questionSiblings.length > 0
+        && !parent.matches('form, [role="form"]');
       for (let text = walker.nextNode(); text; text = walker.nextNode()) {
         // Never from inside a control: a select's first option is an answer, not a question.
-        if (text.parentElement?.closest('select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend')) continue;
+        const owner = text.parentElement;
+        if (owner?.closest(`${QUESTION_CONTROL_SELECTOR}, select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend`)) continue;
+        if (questionSiblings.some((sibling) => sibling.contains(owner))) continue;
         const value = clean(text.textContent);
         if (!value) continue;
+        if (isGlobalFormInstruction(value)) continue;
+        if (bounded && node !== dropZone && !isQuestionLabelText(value)) continue;
+        if (!bounded && !(node === parent && fileZoneParent)) continue;
         // eslint-disable-next-line no-bitwise
-        if (text.compareDocumentPosition(element) & FOLLOWING) before = value;
-        else if (!after) after = value;
+        const isBefore = Boolean(text.compareDocumentPosition(element) & FOLLOWING);
+        const crossesControl = controls.some((control) => control !== element && (isBefore
+          ? (text.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(element) & FOLLOWING)
+          : (element.compareDocumentPosition(control) & FOLLOWING) && (control.compareDocumentPosition(text) & FOLLOWING)));
+        if (crossesControl) continue;
+        if (isBefore) contextBefore = value;
+        else if (!isBefore && !contextAfter) contextAfter = value;
       }
-      const words = before || after;
-      if (words) return words.slice(0, 80);
+      const words = node === dropZone
+        ? contextBefore || siblingBefore || contextAfter || siblingAfter
+        : siblingBefore || contextBefore || siblingAfter || contextAfter;
+      if (words) return words.slice(0, 240);
     }
     return '';
   };
