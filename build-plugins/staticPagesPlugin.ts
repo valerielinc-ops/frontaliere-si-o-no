@@ -6011,7 +6011,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // `ssg-article-grid` marker, so the corpus had nothing to refresh and the
  // section could never go live-on-publish the way frontaliere does.
  //
- // Same renderer, same 100-card cap, its own registry and slug map. Kept a
+ // Same renderer, same shared card budget, its own registry and slug map. Kept a
  // separate branch rather than folded into the blogSlugs one below: that
  // branch also owns article DETAIL pages, and widening its condition would
  // put every published svizzera article through a code path it has never
@@ -6100,9 +6100,9 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  },
  });
  // Extracted per-card inline styles into CSS classes to keep the
- // articles-hub HTML under the 200 KB page-weight gate (100 cards × ~750
- // bytes of repeated inline styles ≈ 75 KB savings). The .ssg-* rules now
- // live in public/assets/seo-static.css (already linked on these pages)
+ // articles-hub HTML under its page-weight budget. The card count is owned by
+ // the shared renderer; the .ssg-* rules now live in
+ // public/assets/seo-static.css (already linked on these pages)
  // instead of a per-page inline <style> block. Visual output unchanged.
  return `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article>${renderArticleHubGridBlock(articleCardsHtml, locale)}<nav class="s-eazYqN">${navHtml}</nav></div>`;
  })();

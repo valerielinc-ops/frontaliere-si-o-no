@@ -23,7 +23,8 @@
  * the next handoff moves a path somewhere neither test is looking.
  *
  * ─── What "healthy" means ────────────────────────────────────────────────
- * Per landing: 200, the grid marker present, at least MIN_CARDS cards, and
+ * Per landing: 200, the grid marker present, at least the producer's shared
+ * card budget, and
  * the section's newest published article linked from it. The last one is the
  * staleness test — it needs no clock and no date parsing across four locales:
  * the hub is fresh exactly when it shows what the corpus most recently
@@ -53,7 +54,7 @@
  *
  * Usage:
  *   node scripts/check-article-hub-landings.mjs
- *   MIN_CARDS=50 SITE_ORIGIN=https://frontaliereticino.ch node scripts/...
+ *   MIN_CARDS=<explicit override> SITE_ORIGIN=https://frontaliereticino.ch node scripts/...
  *
  * Exits non-zero when any landing is degraded, and writes a `summary` output
  * for the workflow to put in the issue body.
@@ -72,6 +73,7 @@ import {
 } from './lib/article-archive-assets.mjs';
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { EXTERNALLY_SERVED_SECTIONS } from './lib/externally-served-paths.mjs';
+import { ARTICLE_HUB_CARD_LIMIT } from '../packages/articles/engine/shared/articleHubCardBudget.mjs';
 
 const SITE_ORIGIN = process.env.SITE_ORIGIN ?? 'https://frontaliereticino.ch';
 const HUB_LANDINGS_FETCH_TIMEOUT_MS = (() => {
@@ -81,11 +83,12 @@ const HUB_LANDINGS_FETCH_TIMEOUT_MS = (() => {
     : 30_000;
 })();
 /**
- * Both hubs render 100 cards. The floor is deliberately far below that: this
- * is a "did the grid disappear" probe, not a card-count ratchet, and a corpus
- * that legitimately shrinks must not page anyone.
+ * The landing producer and refresher share ARTICLE_HUB_CARD_LIMIT. The
+ * watchdog uses that same budget as its default floor so a page-weight cap
+ * cannot look like a missing or partial grid. MIN_CARDS remains an explicit
+ * override for targeted probes.
  */
-const MIN_CARDS = Number(process.env.MIN_CARDS ?? 50);
+const MIN_CARDS = Number(process.env.MIN_CARDS ?? ARTICLE_HUB_CARD_LIMIT);
 
 const GRID_OPEN = '<div class="ssg-article-grid">';
 const CARD_RX = /class="ssg-art-card"/g;
