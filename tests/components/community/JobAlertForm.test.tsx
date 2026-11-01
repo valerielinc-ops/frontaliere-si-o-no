@@ -540,10 +540,10 @@ describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (iss
     expect(createAlertMock).not.toHaveBeenCalled();
     expect(localStorage.getItem(PENDING_KEY)).not.toBeNull();
 
-    rerender(<JobAlertForm authUser={{ uid: 'user-1', providerData: [{ email: 'foo@example.com' }] }} />);
+    rerender(<JobAlertForm authUser={{ uid: 'user-1', providerData: [{ email: authUser.email }] }} />);
     await waitFor(() => expect(createAlertMock).toHaveBeenCalledWith(
       'user-1',
-      'foo@example.com',
+      authUser.email,
       expect.objectContaining({ keywords: ['Tecnologia'] }),
     ));
     expect(localStorage.getItem(PENDING_KEY)).toBeNull();
