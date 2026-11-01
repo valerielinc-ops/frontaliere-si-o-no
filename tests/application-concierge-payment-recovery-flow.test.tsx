@@ -370,12 +370,18 @@ it('refreshes an accepted application response while the Concierge page stays op
   mocks.fetchService.mockReset().mockResolvedValueOnce(before).mockResolvedValueOnce(after);
   try {
     render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
-    expect(await screen.findByText('Example role')).toBeTruthy();
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    expect(screen.getByText('Example role')).toBeTruthy();
     expect(screen.queryByText('jobBoard.assisted.employerResponse.interview_invite')).toBeNull();
 
     await act(async () => { await vi.advanceTimersByTimeAsync(15_000); });
 
-    expect(await screen.findByText('jobBoard.assisted.employerResponse.interview_invite')).toBeTruthy();
+    expect(screen.getByText('jobBoard.assisted.employerResponse.interview_invite', { selector: 'p' })).toBeTruthy();
     expect(screen.getByText('jobBoard.assisted.employerResponse.needsReply')).toBeTruthy();
   } finally {
     restoreVisibility();
