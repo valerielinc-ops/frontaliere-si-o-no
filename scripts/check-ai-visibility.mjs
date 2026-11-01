@@ -122,16 +122,14 @@ function getOpenRouterKey() { return (process.env.OPENROUTER_API_KEY || '').trim
 // WHICH of the two applies used to be left to OpenRouter's auto-selection, i.e.
 // to a default the source never stated — and the two paths do not cost the
 // same, so the order of magnitude below was a guess about a parameter this file
-// did not send (issue #7489 item 1). The payload now DECLARES `engine`, derived
-// from OPENROUTER_MODEL by openRouterWebEngine(), so the billing path is
-// readable here and stays right if the model is ever swapped.
+// did not send (issue #7489 item 1). The payload now DECLARES `engine`.
 //
-// With OPENROUTER_MODEL = openai/gpt-4o-mini the declared engine is `native`,
-// so the cost is OpenAI's web-search tool passed through: $10 per 1k calls plus
-// ~8k search-content input tokens per call at the model rate (checked
-// 2026-09-05 on developers.openai.com/api/docs/pricing) ≈ $0.011 per request,
-// i.e. **~$0.22 at 20 requests**, plus the few cents of prompt/answer tokens.
-// On the Exa fallback the same 20 requests are ~$0.14 in `auto` mode.
+// Use Exa explicitly for this monitor. Native-search support is an endpoint
+// capability, not a property that can safely be inferred from a provider
+// prefix: `openai/gpt-4o-mini` returned 404 when this check forced `native`.
+// Exa is supported for every model and keeps the request contract stable. At
+// $0.007 per request, 20 requests cost about **$0.14**, plus the few cents of
+// prompt/answer tokens.
 //
 // OPENROUTER_WEB_MAX_RESULTS = 3 therefore buys no per-result charge on either
 // path: it sits under Exa's included allowance of 10, and native search does
@@ -143,19 +141,10 @@ function getOpenRouterKey() { return (process.env.OPENROUTER_API_KEY || '').trim
 // charged per real HTTP attempt inside fetchWithRetry, not once per query.
 const OPENROUTER_MODEL = 'openai/gpt-4o-mini';
 const OPENROUTER_WEB_MAX_RESULTS = 3;
+const OPENROUTER_WEB_ENGINE = 'exa';
 
-// Providers whose models OpenRouter grounds with the provider's OWN search when
-// `engine` is left out (docs: "Uses native search if available for the
-// provider, otherwise falls back to Exa", checked 2026-09-05). Encoding the
-// rule here is what makes the choice explicit in the payload: forcing `native`
-// on a model that does not support it is a documented error, so a model outside
-// this list must go to Exa.
-const OPENROUTER_NATIVE_SEARCH_PROVIDERS = ['openai/', 'anthropic/', 'google/', 'perplexity/', 'x-ai/'];
-
-/** The web-search engine to declare for `model` — never left to the default. */
-function openRouterWebEngine(model = OPENROUTER_MODEL) {
-  return OPENROUTER_NATIVE_SEARCH_PROVIDERS.some(p => model.startsWith(p)) ? 'native' : 'exa';
-}
+/** The web-search engine to declare — never force a model's native capability. */
+function openRouterWebEngine() { return OPENROUTER_WEB_ENGINE; }
 const OPENROUTER_MAX_REQUESTS = QUERIES.length;
 let openRouterRequests = 0;
 
