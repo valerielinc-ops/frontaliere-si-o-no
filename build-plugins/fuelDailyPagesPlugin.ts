@@ -4280,9 +4280,11 @@ function renderItalianCityPage(opts: {
  * Safety cap: MAX_FUEL_STATION_PAGES_PER_BUILD (env var). When exceeded the
  * generator stops emitting and logs a warning. The resolved default is derived
  * from the supplied station matrix (contexts × fuels × locales), so a growth
- * in the station set gets matching page capacity. The current matrix is 256
- * stations × 4 locales × 2 fuels; therefore `MAX_FUEL_STATION_PAGES_PER_BUILD >= 2048`
- * is the minimum equivalent capacity that keeps the emitted station set aligned with its index.
+ * in the station set gets matching page capacity. An environment value below
+ * that complete matrix is raised to the matrix capacity; otherwise a deployment
+ * cap can silently truncate one locale/fuel slice while the shared sitemap
+ * still advertises the complete station set. Explicit `maxPages` overrides are
+ * preserved for callers that intentionally exercise the cap.
  *
  * Single source of truth (2026-04-29 anti-orphan fix): callers may pass a
  * pre-collected `contexts` array. The fuel-station browseable index plugin
@@ -4317,10 +4319,19 @@ export function generateFuelStationPages(opts: {
 
   const contexts = opts.contexts ?? collectSwissStationContexts(dataset);
   if (contexts.length === 0) return pages;
-  const maxPages = opts.maxPages ?? intFromEnv(
+  const matrixCapacity = contexts.length * FUEL_TYPES.length * FUEL_DAILY_LOCALES.length;
+  const configuredMaxPages = opts.maxPages ?? intFromEnv(
     'MAX_FUEL_STATION_PAGES_PER_BUILD',
-    contexts.length * FUEL_TYPES.length * FUEL_DAILY_LOCALES.length,
+    matrixCapacity,
   );
+  const maxPages = opts.maxPages === undefined
+    ? Math.max(configuredMaxPages, matrixCapacity)
+    : configuredMaxPages;
+  if (opts.maxPages === undefined && configuredMaxPages < matrixCapacity) {
+    console.warn(
+      `[fuel-daily-pages] MAX_FUEL_STATION_PAGES_PER_BUILD=${configuredMaxPages} is below the complete station matrix ${matrixCapacity} — using ${matrixCapacity}`,
+    );
+  }
 
   const zoneGroups = groupByZone(contexts);
 
