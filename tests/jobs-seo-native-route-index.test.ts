@@ -116,6 +116,43 @@ describe('native job route ownership with interned prefixes', () => {
     }
   });
 
+  it('snapshots only tracking rows that the compat merge can overwrite', () => {
+    const tracking: Tracking = {
+      'current-de': {
+        de: '/de/jobs-in-zurich/current-de',
+        en: '/en/jobs-in-zurich/current-en',
+      },
+      'historical-de': {
+        de: '/de/jobs-in-bern/historical-de',
+        en: '/en/jobs-in-bern/historical-en',
+      },
+    };
+    const currentSlugs = new Set(['current-de']);
+    const index = buildNativeJobPrefixIndex(tracking, prefixes, sections, currentSlugs);
+
+    expect([...index.keys()]).toEqual(['en:current-en', 'de:current-de']);
+    expect(index.has('de:historical-de')).toBe(false);
+    expect(index.has('en:historical-en')).toBe(false);
+
+    // The compat merge overwrites the German active path. Its native prefix
+    // remains available to the Worker guard from the filtered snapshot.
+    tracking['current-de'].de = '/de/jobs-im-tessin/current-de';
+    expect(nativeJobPathRecoveredByWorker(
+      'de',
+      'unknown-tracking-key',
+      '/de/jobs-im-tessin/current-de',
+      tracking,
+      index,
+    )).toBe(true);
+    expect(nativeJobPathRecoveredByWorker(
+      'de',
+      'historical-de',
+      '/de/jobs-in-bern/historical-de',
+      tracking,
+      index,
+    )).toBe(false);
+  });
+
   it('keeps foreign ownership, expired/self-healing decisions and reciprocal canonical paths after compat merge', () => {
     const slugs = { it: 'ingegnere', en: 'engineer', de: 'ingenieur', fr: 'ingénieur' };
     const canonical = Object.fromEntries(JOB_SEO_LOCALES.map(locale => [
@@ -123,7 +160,7 @@ describe('native job route ownership with interned prefixes', () => {
     ])) as Record<Locale, string>;
     const tracking: Tracking = { 'master-key': { ...canonical } };
     const old = oldBuildIndex(tracking, prefixes, sections);
-    const next = buildNativeJobPrefixIndex(tracking, prefixes, sections);
+    const next = buildNativeJobPrefixIndex(tracking, prefixes, sections, new Set(['master-key']));
     const legacy = Object.fromEntries(JOB_SEO_LOCALES.map(locale => [
       locale, normalize(`${prefixes[locale]}/${sections[locale]}/${slugs[locale]}`),
     ])) as Record<Locale, string>;
@@ -164,7 +201,10 @@ describe('native job route ownership with interned prefixes', () => {
     const pluginUrl = pathToFileURL(path.resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts')).href;
     const samples: Array<{ mode: string; heapDelta: number; keys: number }> = [];
     for (let repeat = 0; repeat < 3; repeat++) {
-      for (const mode of ['old', 'prefix']) {
+      for (const mode of ['prefix', 'active']) {
+        const indexExpression = mode === 'prefix'
+          ? 'buildNativeJobPrefixIndex(tracking, prefixes, sections)'
+          : 'buildNativeJobPrefixIndex(tracking, prefixes, sections, activeTrackingSlugs)';
         const script = `
           const { buildNativeJobPrefixIndex } = await import(${JSON.stringify(pluginUrl)});
           const oldBuildIndex = ${oldBuildIndex.toString()};
@@ -179,13 +219,14 @@ describe('native job route ownership with interned prefixes', () => {
             }
             tracking['master-key-' + i] = paths;
           }
+          const activeTrackingSlugs = new Set(Array.from({ length: 2400 }, (_, i) => 'master-key-' + i));
           // Match the JSON-loaded registry representation before either
           // baseline; do not measure flattening fixture-construction ropes.
           tracking = JSON.parse(JSON.stringify(tracking));
           globalThis.retainedTracking = tracking;
           for (let i = 0; i < 3; i++) global.gc();
           const before = process.memoryUsage().heapUsed;
-          const index = ${mode === 'old' ? 'oldBuildIndex' : 'buildNativeJobPrefixIndex'}(tracking, prefixes, sections);
+          const index = ${indexExpression};
           globalThis.retainedIndex = index;
           for (let i = 0; i < 3; i++) global.gc();
           const after = process.memoryUsage().heapUsed;
@@ -205,7 +246,7 @@ describe('native job route ownership with interned prefixes', () => {
         expect(line, result.stdout).toBeDefined();
         const sample = JSON.parse(line!.slice('NATIVE_ROUTE_HEAP_SAMPLE '.length));
         expect(sample.trackingKeys).toBe(24000);
-        expect(sample.keys).toBe(mode === 'old' ? 90352 : 67764);
+        expect(sample.keys).toBe(mode === 'prefix' ? 67764 : 6777);
         console.log('NATIVE_ROUTE_HEAP_SAMPLE', sample);
         samples.push(sample);
       }
