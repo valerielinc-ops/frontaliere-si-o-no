@@ -169,6 +169,13 @@ function fakePage({ multiStep = false, conditional = true } = {}) {
   return { page, window };
 }
 
+function portalRunSummary(result: any) {
+  const steps = result.evidence.steps.map(({ step, fields, actions, redrawn, url, errors }: any) => ({
+    step, fields, actions, redrawn, url, errors,
+  }));
+  return JSON.stringify({ event: result.event, steps });
+}
+
 describe('assisted portal question batching', () => {
   it('applies known answers, waits for conditional fields, and sends one stable question batch', async () => {
     const fixture = fakePage();
@@ -210,7 +217,7 @@ describe('assisted portal question batching', () => {
       accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
     });
 
-    expect(result.event.type).toBe('submit_needs_candidate');
+    expect(result.event.type, portalRunSummary(result)).toBe('submit_needs_candidate');
     expect(elementValue(window, '#country')).toBe('IT');
     expect(result.event.questions.map((question: any) => question.question)).toEqual([
       'Why are you interested in this role?',
@@ -260,7 +267,7 @@ describe('assisted portal question batching', () => {
       accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
     });
 
-    expect(window.document.querySelector('form')?.getAttribute('data-page')).toBe('2');
+    expect(window.document.querySelector('form')?.getAttribute('data-page'), portalRunSummary(result)).toBe('2');
     expect(result.event.type).toBe('submit_needs_candidate');
     expect(result.event.questions.map((question: any) => question.question)).toEqual(['When could you start?']);
   });
