@@ -49,12 +49,13 @@ describe('qualification before proposal publication', () => {
     const row = { requirement: 'Studente al terzo anno di scuola commerciale con pratica di 52 settimane', sourceRequirement: statement,
       importance: 'critical', basis: 'stated', quote: statement };
     f.generate.mockImplementation(async (system: string) => system === PROFILE_SYSTEM_PROMPT
-      ? { ...rawProfile, experience: [{ role: 'IT Manager', employer: 'Example Systems', start: '2020', end: '2025' }] }
+      ? { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' }, experience: [{ role: 'IT Manager', employer: 'Example Systems', start: '2020', end: '2025' }] }
       : system === REQUIREMENTS_SYSTEM_PROMPT ? { requirements: [row] }
         : { matches: [{ index: 0, status: 'met', evidence: 'IT Manager, Example Systems, 2020–2025' }], verdict: 'strong' });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
 
     expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: {} }, 'IT Manager, Example Systems, 2020–2025')).toBe(true);
+    expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'IT Manager, Example Systems, 2020–2025')).toBe(true);
     expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year commercial-school student' } }, 'Currently enrolled as a third-year commercial-school student.')).toBe(false);
     expect(hasUnverifiedCurrentStudentEligibility(statement, { ...rawProfile, currentEducation: { degree: 'Third-year at university' } }, 'Currently enrolled in the third year at university.')).toBe(true);
     const germanSchool = 'Diese Stelle ist exklusiv für Schülerinnen im dritten Jahr der kaufmännischen Schule.';
