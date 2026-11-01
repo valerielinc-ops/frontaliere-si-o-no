@@ -87,6 +87,7 @@ export const privacySemanticIdentifierFields = Object.freeze([
 ]);
 export function privacySemanticIdentifiers(...sources) {
   const keys = privacySemanticIdentifierFields;
+  const technicalId = /^(?:[a-z]{1,4}\d{1,4}|(?:input|field|control|question|checkbox|radio)[-:.]?\d+)$/i;
   const nestedKeys = ['portalNativeContract', 'originalNativeContract', 'nativeContract'];
   const values = [];
   const seen = new Set();
@@ -94,6 +95,7 @@ export function privacySemanticIdentifiers(...sources) {
     if (!['string', 'number'].includes(typeof value)) return;
     const normalized = String(value).normalize('NFKC').replace(/\p{Cf}/gu, '').trim();
     if (!normalized) return;
+    if (technicalId.test(normalized)) return;
     const key = normalized.toLocaleLowerCase();
     if (seen.has(key)) return;
     seen.add(key);
