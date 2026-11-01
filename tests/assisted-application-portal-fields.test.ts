@@ -291,6 +291,12 @@ describe('portal field extraction', () => {
     expect(formQuestion.fields[0].label).toBe('Form question');
     const formCopy = extract('<form><p>Complete all sections before applying.</p><input id="input-11"></form>');
     expect(formCopy.fields[0].label).toBe('input-11');
+    const formInstruction = extract('<form><span>Complete all sections before applying.</span><input id="input-12"></form>');
+    expect(formInstruction.fields[0].label).toBe('input-12');
+    const formInstructionWithoutPeriod = extract('<form><span>Complete all sections before applying</span><input id="input-13"></form>');
+    expect(formInstructionWithoutPeriod.fields[0].label).toBe('input-13');
+    const formPromptDiv = extract('<form><div class="question">Do you have a permit?</div><input id="input-14"></form>');
+    expect(formPromptDiv.fields[0].label).toBe('Do you have a permit?');
   });
 
   it('reads a radio group required only by its label as required, and asks the candidate for it', () => {

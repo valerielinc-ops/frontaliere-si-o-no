@@ -447,8 +447,12 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     parts.push(headingBefore(element));
     return [...new Set(parts.map(clean).filter(Boolean))].join(' · ').slice(0, 240);
   };
-  // The words of a bounded question/upload zone, or an immediate sibling
-  // question span. Page-level copy is not evidence for a generated-id label.
+  // The words of a bounded question/upload zone, or a short, immediate
+  // sibling question. Page-level copy is not evidence for a generated-id label.
+  const GLOBAL_FORM_INSTRUCTION_RE = /^(?:please\s+)?(?:complete|finish|review|check|read|fill(?:\s+in)?|submit|apply|continue|ensure|make\s+sure)\b(?:.*\b(?:all|every|remaining|the following)\s+(?:sections?|steps?|fields?|questions?)\b|.*\b(?:before|prior to)\s+(?:applying|submitting|you submit)\b)/i;
+  const isQuestionLabelText = (value) => value.length <= 120
+    && !/[.!…]\s*$/.test(value)
+    && !GLOBAL_FORM_INSTRUCTION_RE.test(value);
   const zoneText = (element) => {
     const parent = element.parentElement;
     if (!parent) return '';
@@ -456,16 +460,11 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     const dropZone = file && element.closest('[class*="dropzone"], [class*="drop-zone"], [class*="file-upload"], [data-dropzone], [data-file-dropzone]');
     const group = element.closest(QUESTION_GROUP_SELECTOR);
     const singleQuestionGroup = group && oneQuestionGroup(group, element) ? group : null;
-    const formParent = parent.matches('form, [role="form"]');
-    const adjacentFormSpan = formParent
-      ? [element.previousElementSibling, element.nextElementSibling].find((sibling) => sibling?.tagName === 'SPAN') || null
-      : null;
+    const adjacentQuestionSiblings = [element.previousElementSibling, element.nextElementSibling]
+      .filter((sibling) => sibling?.matches('span, [class*="label"], [class*="question"], [role="heading"]'));
     const pageContainer = parent.matches('body, main, [role="main"]');
-    const siblingQuestion = formParent
-      ? Boolean(adjacentFormSpan)
-      : !pageContainer && [...parent.children].some((sibling) => sibling !== element
-        && (sibling.tagName === 'SPAN' || sibling.matches('[class*="label"], [class*="question"], [role="heading"]')));
-    const fileZoneParent = file && siblingQuestion && !formParent;
+    const siblingQuestion = !pageContainer && adjacentQuestionSiblings.length > 0;
+    const fileZoneParent = file && siblingQuestion && !parent.matches('form, [role="form"]');
     const containers = [...new Set([dropZone, singleQuestionGroup, parent].filter(Boolean))];
     for (const node of containers) {
       const bounded = node === dropZone || node === singleQuestionGroup;
@@ -480,8 +479,8 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
         if (!value) continue;
         const owner = text.parentElement;
         const immediateQuestion = node === parent && siblingQuestion && owner?.parentElement === parent
-          && (formParent ? owner === adjacentFormSpan
-            : owner.tagName === 'SPAN' || owner.matches('[class*="label"], [class*="question"], [role="heading"]'));
+          && adjacentQuestionSiblings.includes(owner);
+        if (immediateQuestion && !isQuestionLabelText(value)) continue;
         if (!bounded && !immediateQuestion && !(node === parent && fileZoneParent)) continue;
         // eslint-disable-next-line no-bitwise
         const isBefore = Boolean(text.compareDocumentPosition(element) & FOLLOWING);
