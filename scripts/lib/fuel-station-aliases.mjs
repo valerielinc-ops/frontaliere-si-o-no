@@ -49,7 +49,10 @@ export function resolveFuelStation(orphanPath) {
   const stationSlug = parts[italian ? 3 : 2];
   if (!city || !stationSegment || !stationSlug) return null;
   if (italian && italySegment !== FUEL_ITALY_SLUG[locale]) return null;
-  if (!FUEL_STATION_SEGMENT_ALIASES.has(stationSegment)) return null;
+  const validStationSegment = italian
+    ? stationSegment === FUEL_STATIONS_SLUG[locale]
+    : FUEL_STATION_SEGMENT_ALIASES.has(stationSegment);
+  if (!validStationSegment) return null;
 
   const prefix = locale === 'it' ? '' : `/${locale}`;
   const canonicalSection = FUEL_SECTION_SLUG[locale][fuel];
