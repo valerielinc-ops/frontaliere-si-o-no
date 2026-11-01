@@ -100,6 +100,151 @@ describe('application concierge proposal retention', () => {
     expect(store.read(PROPOSAL_PATH)).toMatchObject({ status: 'proposed', eligibilityStatus: 'unverified', matchScore: 72 });
   });
 
+  it('reactivates an ambiguous legacy retraction only after current listing and eligibility checks pass', async () => {
+    const store = matchingFixture();
+    store.docs.set(PROPOSAL_PATH, {
+      ...store.read(PROPOSAL_PATH)!, status: 'retracted', eligibilityStatus: 'unverified',
+      eligibilityVersion: 'legacy-eligibility', retractionReason: 'decisive_requirements_unverified',
+    });
+    const eligibility = vi.fn(async () => ({ status: 'compatible', fingerprint: 'current-source-fingerprint' }));
+    stubJobIndex([matchingJob]);
+
+    const result = await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+
+    expect(result).toMatchObject({ status: 'complete', proposals: 1 });
+    expect(eligibility).toHaveBeenCalledTimes(1);
+    expect(store.read(PROPOSAL_PATH)).toMatchObject({
+      status: 'proposed', eligibilityStatus: 'compatible', eligibilityVersion: 'test-eligibility-v1',
+      eligibilityFingerprint: 'current-source-fingerprint', legacyRecoveryStatus: 'recovered',
+      legacyRecoveryLastReason: 'verified_compatible',
+    });
+    expect(store.read(SERVICE_PATH)).toMatchObject({ matchingLegacyRecoveryPendingCount: 0, matchingLegacyRecoveryRetryAt: null });
+  });
+
+  it('reuses the legacy proposal when the current index assigns a new job ID to the same URL', async () => {
+    const store = matchingFixture();
+    store.docs.set(PROPOSAL_PATH, {
+      ...store.read(PROPOSAL_PATH)!, jobId: 'old-job-id', status: 'retracted', eligibilityStatus: 'unverified',
+      eligibilityVersion: 'legacy-eligibility', retractionReason: 'decisive_requirements_unverified',
+    });
+    stubJobIndex([{ ...matchingJob, id: 'republished-job-id' }]);
+
+    const result = await runApplicationConciergeMatching({
+      db: store.db, serviceId: SERVICE_ID, eligibility: vi.fn(async () => ({ status: 'compatible' })),
+    });
+
+    expect(result).toMatchObject({ status: 'complete', proposals: 1 });
+    expect(store.list(`${SERVICE_PATH}/proposals/`)).toEqual([PROPOSAL_PATH]);
+    expect(store.read(PROPOSAL_PATH)).toMatchObject({ status: 'proposed', jobId: 'old-job-id', legacyRecoveryStatus: 'recovered' });
+  });
+
+  it('allows only one retracted document for a URL to return to proposed', async () => {
+    const store = matchingFixture();
+    store.docs.set(PROPOSAL_PATH, {
+      ...store.read(PROPOSAL_PATH)!, status: 'retracted', eligibilityStatus: 'unverified',
+      retractionReason: 'decisive_requirements_unverified',
+    });
+    const ordinaryPath = `${SERVICE_PATH}/proposals/a-ordinary-retraction`;
+    store.docs.set(ordinaryPath, {
+      jobId: 'previous-job-id', jobUrl: JOB_URL, jobTitle: 'IT Manager SAP',
+      status: 'retracted', eligibilityStatus: 'incompatible', retractionReason: 'decisive_requirement_missing',
+    });
+    stubJobIndex([matchingJob]);
+
+    const result = await runApplicationConciergeMatching({
+      db: store.db, serviceId: SERVICE_ID, eligibility: vi.fn(async () => ({ status: 'compatible' })),
+    });
+
+    const proposals = store.list(`${SERVICE_PATH}/proposals/`).map(path => store.read(path));
+    expect(result).toMatchObject({ status: 'complete', proposals: 1 });
+    expect(proposals.filter(proposal => proposal?.status === 'proposed')).toHaveLength(1);
+    expect(store.read(ordinaryPath)).toMatchObject({ status: 'proposed', eligibilityStatus: 'compatible' });
+    expect(store.read(PROPOSAL_PATH)).toMatchObject({ status: 'retracted', retractionReason: 'duplicate_proposal', legacyRecoveryStatus: 'terminal' });
+  });
+
+  it('keeps legacy retractions non-acceptable and schedules bounded retries when the listing is absent or eligibility is unknown', async () => {
+    const store = matchingFixture();
+    store.docs.set(PROPOSAL_PATH, {
+      ...store.read(PROPOSAL_PATH)!, status: 'retracted', eligibilityStatus: 'unverified',
+      eligibilityVersion: 'legacy-eligibility', retractionReason: 'decisive_requirements_unverified',
+    });
+    stubJobIndex([matchingJob]);
+    const eligibility = vi.fn(async () => ({ status: 'unverified', reason: 'posting_incomplete' }));
+
+    await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+
+    expect(eligibility).toHaveBeenCalledTimes(1);
+    expect(store.read(PROPOSAL_PATH)).toMatchObject({
+      status: 'retracted', eligibilityStatus: 'unverified',
+      retractionReason: 'decisive_requirements_unverified', legacyRecoveryStatus: 'pending',
+      legacyRecoveryAttempts: 1, legacyRecoveryLastReason: 'posting_incomplete',
+    });
+    expect(store.read(PROPOSAL_PATH)?.legacyRecoveryNextAt).toBeGreaterThan(Date.now());
+    expect(store.read(SERVICE_PATH)).toMatchObject({ matchingLegacyRecoveryPendingCount: 1 });
+
+    const absent = matchingFixture();
+    absent.docs.set(PROPOSAL_PATH, {
+      ...absent.read(PROPOSAL_PATH)!, status: 'retracted', eligibilityStatus: 'unverified',
+      retractionReason: 'decisive_requirements_unverified',
+    });
+    stubJobIndex([]);
+    const absentEligibility = vi.fn();
+    await runApplicationConciergeMatching({ db: absent.db, serviceId: SERVICE_ID, eligibility: absentEligibility });
+    expect(absentEligibility).not.toHaveBeenCalled();
+    expect(absent.read(PROPOSAL_PATH)).toMatchObject({ status: 'retracted', eligibilityStatus: 'unverified', legacyRecoveryStatus: 'pending', legacyRecoveryLastReason: 'listing_not_in_current_index' });
+  });
+
+  it('does not turn an uncertain legacy retraction into a proven mismatch when the relevance score is low', async () => {
+    const store = matchingFixture();
+    store.docs.set(PROPOSAL_PATH, {
+      ...store.read(PROPOSAL_PATH)!, status: 'retracted', eligibilityStatus: 'unverified',
+      retractionReason: 'decisive_requirements_unverified',
+    });
+    stubJobIndex([{ id: 'job-1', url: JOB_URL, title: 'Chief Financial Officer', company: 'Example AG' }]);
+    const eligibility = vi.fn();
+
+    await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility });
+
+    expect(eligibility).not.toHaveBeenCalled();
+    expect(store.read(PROPOSAL_PATH)).toMatchObject({
+      status: 'retracted', eligibilityStatus: 'unverified', retractionReason: 'decisive_requirements_unverified',
+      legacyRecoveryStatus: 'pending', legacyRecoveryLastReason: 'match_below_threshold',
+    });
+  });
+
+  it('never recovers accepted proposals and terminalizes only demonstrated closure or decisive mismatch', async () => {
+    const store = matchingFixture();
+    store.docs.set(PROPOSAL_PATH, {
+      ...store.read(PROPOSAL_PATH)!, status: 'retracted', eligibilityStatus: 'unverified',
+      retractionReason: 'decisive_requirements_unverified',
+    });
+    const acceptedPath = `${SERVICE_PATH}/proposals/accepted-legacy`;
+    const accepted = {
+      jobId: 'job-accepted', jobUrl: 'https://jobs.example.test/accepted', jobTitle: 'IT Manager SAP',
+      status: 'accepted', eligibilityStatus: 'unverified', retractionReason: 'decisive_requirements_unverified',
+      childApplicationId: 'application-accepted',
+    };
+    store.docs.set(acceptedPath, accepted);
+    const closedJob = { id: 'job-1', url: JOB_URL, title: 'IT Manager SAP', company: 'Example AG', status: 'closed' };
+    stubJobIndex([closedJob]);
+
+    await runApplicationConciergeMatching({ db: store.db, serviceId: SERVICE_ID, eligibility: vi.fn() });
+
+    expect(store.read(PROPOSAL_PATH)).toMatchObject({ status: 'retracted', retractionReason: 'job_closed', legacyRecoveryStatus: 'terminal' });
+    expect(store.read(acceptedPath)).toEqual(accepted);
+
+    const mismatch = matchingFixture();
+    mismatch.docs.set(PROPOSAL_PATH, {
+      ...mismatch.read(PROPOSAL_PATH)!, status: 'retracted', eligibilityStatus: 'unverified',
+      retractionReason: 'decisive_requirements_unverified',
+    });
+    stubJobIndex([matchingJob]);
+    await runApplicationConciergeMatching({ db: mismatch.db, serviceId: SERVICE_ID, eligibility: vi.fn(async () => ({
+      status: 'incompatible', gaps: [{ knownMissing: true, requirement: 'professional certification' }],
+    })) });
+    expect(mismatch.read(PROPOSAL_PATH)).toMatchObject({ status: 'retracted', eligibilityStatus: 'incompatible', retractionReason: 'decisive_requirement_missing', legacyRecoveryStatus: 'terminal' });
+  });
+
   it('does not retract a proposal for an incomplete or unproven incompatibility result', async () => {
     const store = matchingFixture();
     stubJobIndex([matchingJob]);
