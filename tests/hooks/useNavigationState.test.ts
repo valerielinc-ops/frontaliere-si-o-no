@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 
 vi.mock('@/services/router', () => ({
@@ -339,6 +339,28 @@ describe('useNavigationState', () => {
   // page — measured 2026-08-04 on 17 live URLs, h1 going from the article
   // title to "Guida Frontaliere" on hydration.
   describe('unresolved article slug', () => {
+    type IdleWindow = Window & {
+      requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+    };
+    const idleWindow = window as IdleWindow;
+    const originalIdleCallback = Object.getOwnPropertyDescriptor(window, 'requestIdleCallback');
+    const useFakeArticleIdle = () => {
+      vi.useFakeTimers();
+      Object.defineProperty(idleWindow, 'requestIdleCallback', {
+        configurable: true,
+        value: (callback: () => void) => window.setTimeout(callback, 250),
+      });
+    };
+    const waitForArticleIdle = async () => {
+      await act(async () => {
+        await vi.advanceTimersByTimeAsync(300);
+        await Promise.resolve();
+        await Promise.resolve();
+      });
+    };
+    const advanceToPostPaintBeforeIdle = async () => {
+      await act(async () => { await vi.advanceTimersByTimeAsync(50); });
+    };
     const STATIC_ARTICLE = '<div id="root"></div>'
       + '<main class="seo-static-content"><article class="ft-blog-article">'
       + '<h1>Poste Italiane cerca consulenti finanziari in Varese</h1>'
@@ -359,6 +381,9 @@ describe('useNavigationState', () => {
     });
 
     afterEach(() => {
+      vi.useRealTimers();
+      if (originalIdleCallback) Object.defineProperty(window, 'requestIdleCallback', originalIdleCallback);
+      else delete idleWindow.requestIdleCallback;
       document.body.innerHTML = '';
       __resetStaticArticleFallback();
       vi.mocked(parsePath).mockReturnValue({
@@ -409,31 +434,34 @@ describe('useNavigationState', () => {
     });
 
     it('stays on the static article when the corpus API cannot resolve the slug', async () => {
+      useFakeArticleIdle();
       vi.mocked(adoptRuntimeArticle).mockResolvedValue(null);
       const { result } = renderHook(() => useNavigationState());
-      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+      await waitForArticleIdle();
 
       expect(result.current.staticOverlay).toBe(true);
       expect(result.current.blogArticle).toBeNull();
     });
 
     it('stays on the static article when the corpus API throws', async () => {
+      useFakeArticleIdle();
       vi.mocked(adoptRuntimeArticle).mockRejectedValue(new Error('offline'));
       const { result } = renderHook(() => useNavigationState());
-      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+      await waitForArticleIdle();
 
       expect(result.current.staticOverlay).toBe(true);
       expect(result.current.blogArticle).toBeNull();
     });
 
     it('stays on the static article when the id resolves but the page cannot be drawn', async () => {
+      useFakeArticleIdle();
       vi.mocked(adoptRuntimeArticle).mockResolvedValue({
         id: 'poste-italiane-consulenti-finanziari-varese',
         slugs: { it: 'poste-italiane-consulenti-finanziari-varese' },
         renderable: false,
       });
       const { result } = renderHook(() => useNavigationState());
-      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+      await waitForArticleIdle();
 
       expect(result.current.staticOverlay).toBe(true);
       expect(result.current.blogArticle).toBeNull();
@@ -446,9 +474,10 @@ describe('useNavigationState', () => {
     });
 
     it('tells the resolver WHICH url it is resolving, so no body can be misattributed', async () => {
+      useFakeArticleIdle();
       vi.mocked(adoptRuntimeArticle).mockResolvedValue(null);
       renderHook(() => useNavigationState());
-      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+      await waitForArticleIdle();
 
       // Without this the resolver falls back to reading `location`/the stash,
       // which after a client-side navigation describes the PREVIOUS article —
@@ -462,25 +491,30 @@ describe('useNavigationState', () => {
     });
 
     it('takes over only once the article is fully resolved', async () => {
+      useFakeArticleIdle();
       vi.mocked(adoptRuntimeArticle).mockResolvedValue({
         id: 'poste-italiane-consulenti-finanziari-varese',
         slugs: { it: 'poste-italiane-consulenti-finanziari-varese' },
         renderable: true,
       });
       const { result } = renderHook(() => useNavigationState());
-      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+      await waitForArticleIdle();
 
       expect(result.current.blogArticle).toBe('poste-italiane-consulenti-finanziari-varese');
       expect(result.current.staticOverlay).toBe(false);
       expect(result.current.articleStaticFallbackKey).toBe(
         'frontaliere:poste-italiane-consulenti-finanziari-varese:it',
       );
+      const fallback = document.querySelector<HTMLElement>('main.seo-static-content article.ft-blog-article');
+      expect(fallback).not.toBeNull();
+      expect(document.getElementById('root')!.contains(fallback)).toBe(false);
     });
 
     it('never reaches the network for an article this build already ships', async () => {
+      useFakeArticleIdle();
       vi.mocked(resolveBlogSlug).mockReturnValue('poste-italiane-consulenti-finanziari-varese' as never);
       const { result } = renderHook(() => useNavigationState());
-      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+      await waitForArticleIdle();
 
       expect(result.current.blogArticle).toBe('poste-italiane-consulenti-finanziari-varese');
       expect(result.current.staticOverlay).toBe(false);
@@ -488,6 +522,26 @@ describe('useNavigationState', () => {
         'frontaliere:poste-italiane-consulenti-finanziari-varese:it',
       );
       expect(adoptRuntimeArticle).not.toHaveBeenCalled();
+    });
+
+    it('defers SPA resolution until after the static article has had a paint and an idle slice', async () => {
+      useFakeArticleIdle();
+      vi.mocked(adoptRuntimeArticle).mockResolvedValue(null);
+      const { result } = renderHook(() => useNavigationState());
+
+      expect(result.current.staticOverlay).toBe(true);
+      expect(document.querySelector('main.seo-static-content article.ft-blog-article')).not.toBeNull();
+      expect(adoptRuntimeArticle).not.toHaveBeenCalled();
+
+      await advanceToPostPaintBeforeIdle();
+      expect(result.current.staticOverlay).toBe(true);
+      expect(document.querySelector('main.seo-static-content article.ft-blog-article')).not.toBeNull();
+      expect(adoptRuntimeArticle).not.toHaveBeenCalled();
+
+      await waitForArticleIdle();
+      expect(adoptRuntimeArticle).toHaveBeenCalledTimes(1);
+      expect(result.current.staticOverlay).toBe(true);
+      expect(document.querySelector('main.seo-static-content article.ft-blog-article')).not.toBeNull();
     });
 
     it('removes the landing article before a client-side navigation', () => {
@@ -520,9 +574,10 @@ describe('useNavigationState', () => {
     });
 
     it('releases the static article only for the owner that asked, and never while #root is faded out', async () => {
+      useFakeArticleIdle();
       vi.mocked(resolveBlogSlug).mockReturnValue('poste-italiane-consulenti-finanziari-varese' as never);
       const { result } = renderHook(() => useNavigationState());
-      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+      await waitForArticleIdle();
       const key = result.current.articleStaticFallbackKey!;
       expect(key).toBe('frontaliere:poste-italiane-consulenti-finanziari-varese:it');
 
@@ -538,7 +593,7 @@ describe('useNavigationState', () => {
       expect(result.current.articleStaticFallbackKey).toBe(key);
 
       root.style.opacity = '1';
-      await act(async () => { await new Promise((resolve) => requestAnimationFrame(() => resolve(null))); });
+      await act(async () => { await vi.advanceTimersByTimeAsync(20); });
       expect(result.current.articleStaticFallbackKey).toBeNull();
     });
 

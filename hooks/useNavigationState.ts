@@ -56,6 +56,7 @@ import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
 const CANONICAL_ORIGIN = 'https://frontaliereticino.ch';
 const JOB_BOARD_COMPANY_PREFIX_RE = /^(azienda|company|unternehmen|entreprise)-[a-z0-9-]+$/;
+const ARTICLE_TAKEOVER_IDLE_TIMEOUT_MS = 2500;
 
 function jobBoardCompanySlugFromPath(pathname: string): string | null {
  const slug = pathname.split('/').filter(Boolean).pop() || '';
@@ -205,6 +206,7 @@ export function useNavigationState(): NavigationState {
  // replacing it after registry, metadata and body requests finish.
  const initialFrontaliereStaticArticle = initialKeepsStaticArticle
   && (!initialRoute.route.blogSection || initialRoute.route.blogSection === 'frontaliere');
+ const initialStaticArticleRouteKey = staticArticleFallbackRouteKey(initialRoute.route, initialRoute.locale);
  const [articleStaticFallbackKey, setArticleStaticFallbackKey] = useState<string | null>(() => (
   initialKeepsStaticArticle
    ? staticArticleFallbackRouteKey(initialRoute.route, initialRoute.locale)
@@ -226,9 +228,8 @@ export function useNavigationState(): NavigationState {
  // true to draw — `activeTab` is 'blog' with no article, which renders the hub
  // list, and the hub list is what was overwriting correct article pages
  // ("Guida Frontaliere" post-hydration on 17 live URLs, measured 2026-08-04).
- // Starting in overlay mode leaves the shard's article on screen. On cold
- // frontaliere detail pages that complete static body remains the owner; other
- // unresolved article routes retain the bundle-resolution handoff below.
+ // Starting in overlay mode leaves the shard's article on screen. Cold
+ // frontaliere details defer the bundle/runtime handoff until after first paint.
  const [staticOverlay, setStaticOverlay] = useState<boolean>(
  () => !!initialRoute.route.staticOverlay
  || initialFrontaliereStaticArticle
@@ -242,6 +243,8 @@ export function useNavigationState(): NavigationState {
  // Refs
  const isInitialMount = useRef(true);
  const suppressNextRouteSyncForTabRef = useRef<ActiveTab | null>(null);
+ const articleResolutionVersionRef = useRef(0);
+ const initialArticleTakeoverCancelledRef = useRef(false);
  // Tracks the route applied in the previous navigation so applyRoute() can
  // distinguish a true detail→list back-nav (where JobBoard restores its own
  // scroll) from a fresh entry to the job-board list from an external page
@@ -249,6 +252,8 @@ export function useNavigationState(): NavigationState {
  const prevAppliedRouteRef = useRef<AppRoute | null>(null);
 
  const clearStaticArticleFallback = useCallback(() => {
+  initialArticleTakeoverCancelledRef.current = true;
+  articleResolutionVersionRef.current += 1;
   setArticleStaticFallbackKey(null);
   setStaticOverlay(false);
   if (typeof document === 'undefined') return;
@@ -333,18 +338,22 @@ export function useNavigationState(): NavigationState {
   * so every failure route ends in "change nothing".
   */
  const resolvePendingArticle = useCallback((route: AppRoute, urlLocale: Locale) => {
+ const requestVersion = ++articleResolutionVersionRef.current;
+ const isCurrentRequest = () => requestVersion === articleResolutionVersionRef.current;
  const pending = pendingArticleSlug(route);
  if (!pending) return;
  const { section, slug } = pending;
  const isSwiss = section === 'svizzera';
  const isCanton = section.startsWith('canton-');
+ const articlePath = buildPath(route, urlLocale);
 
  // Put the article back on screen BEFORE flipping to overlay mode: the CLS
  // handoff in index.tsx may already have moved it inside #root, where React
  // has since replaced it. Restoring first means App's layout effect finds it
  // where it expects it on the very render that stops drawing the SPA <main>.
  const guard = () => {
-  if (restoreStaticArticleFallback()) {
+  if (!isCurrentRequest()) return;
+  if (restoreStaticArticleFallback(articlePath)) {
    setStaticOverlay(true);
    return;
   }
@@ -354,9 +363,10 @@ export function useNavigationState(): NavigationState {
   setStaticOverlay(false);
  };
  const adopt = (id: string) => {
+  if (!isCurrentRequest()) return;
   // Hold the SPA view back only behind a static article that is on the page.
   // With nothing there, the article view draws its own loading state at once.
-  const staticOnPage = isStaticArticleFallbackInDocument();
+  const staticOnPage = isStaticArticleFallbackInDocument(articlePath);
   setArticleStaticFallbackKey(
    staticOnPage ? buildStaticArticleFallbackKey(section, id, urlLocale) : null,
   );
@@ -368,6 +378,7 @@ export function useNavigationState(): NavigationState {
 
  (isSwiss ? preloadSwissData() : isCanton ? Promise.resolve() : preloadBlogData())
  .then(() => {
+ if (!isCurrentRequest()) return;
  const bundled = isSwiss ? resolveSwissSlug(slug, urlLocale) : isCanton ? undefined : resolveBlogSlug(slug, urlLocale);
  if (bundled) { adopt(bundled); return; }
  // Split out so the corpus-API client is a chunk the common path never
@@ -377,8 +388,9 @@ export function useNavigationState(): NavigationState {
  // article it is recovering a body for: everything downstream compares
  // against this slug rather than against whatever the document happens to
  // still be holding from the page the visitor landed on.
- .then((m) => m.adoptRuntimeArticle(section, urlLocale, slug, { path: buildPath(route, urlLocale) }))
+ .then((m) => m.adoptRuntimeArticle(section, urlLocale, slug, { path: articlePath }))
  .then((adopted) => {
+ if (!isCurrentRequest()) return;
  if (!adopted) { guard(); return; }
  // Learn the pair even when we won't render: it is what keeps
  // buildPath, the language switcher and the canonical URL pointing
@@ -410,50 +422,161 @@ export function useNavigationState(): NavigationState {
  if (r.blogSection === 'svizzera') {
  preloadSwissData().catch(() => {});
  }
- // Deferred slug → article id, plus the runtime fallback and the fail-open
- // guard behind it. Same call as applyRoute uses for client-side navigation,
- // so an article URL behaves identically whether it was typed, followed from
- // Google, or reached with the back button.
+ // Non-frontaliere cold article routes keep the existing immediate route
+ // resolution. Frontaliere snapshots use the post-paint handoff below.
  if (!initialFrontaliereStaticArticle) resolvePendingArticle(r, initialRoute.locale);
  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
- // The static article already contains its related links. Warm the interactive
- // blog surface only after the document has loaded and the browser has idle
- // time, or when the reader reaches/focuses the related-article section.
- // Importing BlogArticles here only prefetches its chunks; it does not mount
- // the component or request an article body.
+ // Keep the complete static article as the owner through first paint. Start
+ // SPA resolution only after load reaches an idle slice, or after a deliberate
+ // interaction / related-article intent. The static snapshot remains visible
+ // until BlogArticles reports that the matching article is fully renderable.
  useEffect(() => {
  if (!initialFrontaliereStaticArticle || typeof document === 'undefined') return;
- const prefetchBlog = () => prefetchTab('blog');
+ const idleWindow = window as Window & {
+  requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+  cancelIdleCallback?: (handle: number) => void;
+ };
+ let started = false;
+ let disposed = false;
+ let idleHandle: number | null = null;
+ let idleTimerHandle: number | null = null;
+ let observer: IntersectionObserver | null = null;
+ const frames = new Set<number>();
+ const timers = new Set<number>();
  const related = document.querySelector<HTMLElement>(
   'main.seo-static-content article.ft-blog-article [data-article-related]',
  );
- let observer: IntersectionObserver | null = null;
+
+ const cancelIdleStart = () => {
+  if (idleHandle !== null) idleWindow.cancelIdleCallback?.(idleHandle);
+  idleHandle = null;
+  if (idleTimerHandle !== null) {
+   window.clearTimeout(idleTimerHandle);
+  }
+  idleTimerHandle = null;
+ };
+ const cancelScheduledWork = () => {
+  frames.forEach((handle) => window.cancelAnimationFrame(handle));
+  frames.clear();
+  timers.forEach((handle) => window.clearTimeout(handle));
+  timers.clear();
+  cancelIdleStart();
+ };
+ const afterNextPaint = (callback: () => void) => {
+  if (disposed || started || initialArticleTakeoverCancelledRef.current) return;
+  let fired = false;
+  let frame: number | null = null;
+  let paintTimer: number | null = null;
+  let fallbackTimer: number | null = null;
+  const finish = () => {
+   if (fired) return;
+   fired = true;
+   if (frame !== null) {
+    window.cancelAnimationFrame(frame);
+    frames.delete(frame);
+   }
+   if (paintTimer !== null) {
+    window.clearTimeout(paintTimer);
+    timers.delete(paintTimer);
+   }
+   if (fallbackTimer !== null) {
+    window.clearTimeout(fallbackTimer);
+    timers.delete(fallbackTimer);
+   }
+   if (disposed || started || initialArticleTakeoverCancelledRef.current) return;
+   callback();
+  };
+  if (typeof window.requestAnimationFrame === 'function') {
+   fallbackTimer = window.setTimeout(finish, 1000);
+   timers.add(fallbackTimer);
+   frame = window.requestAnimationFrame(() => {
+    if (frame !== null) frames.delete(frame);
+    frame = null;
+    paintTimer = window.setTimeout(finish, 0);
+    timers.add(paintTimer);
+   });
+   frames.add(frame);
+  } else {
+   paintTimer = window.setTimeout(finish, 0);
+   timers.add(paintTimer);
+  }
+ };
+ const removeTriggers = () => {
+  window.removeEventListener('load', onLoad);
+  window.removeEventListener('pointerdown', onInteraction);
+  window.removeEventListener('keydown', onInteraction);
+  document.removeEventListener('pointerover', onRelatedIntent, true);
+  document.removeEventListener('focusin', onRelatedIntent, true);
+  observer?.disconnect();
+  observer = null;
+ };
+ const isStillOnInitialArticle = () => {
+  const current = parsePath(window.location.pathname);
+  return staticArticleFallbackRouteKey(current.route, current.locale) === initialStaticArticleRouteKey;
+ };
+ const startTakeover = () => {
+  if (started || disposed || initialArticleTakeoverCancelledRef.current) return;
+  if (!isStillOnInitialArticle()) {
+   initialArticleTakeoverCancelledRef.current = true;
+   cancelScheduledWork();
+   removeTriggers();
+   return;
+  }
+  started = true;
+  cancelScheduledWork();
+  removeTriggers();
+  prefetchTab('blog');
+  if (pendingArticleSlug(initialRoute.route)) {
+   resolvePendingArticle(initialRoute.route, initialRoute.locale);
+  } else if (initialRoute.route.blogArticle) {
+   // Known build-time articles need no resolver. Mount the SPA only after the
+   // static owner has painted; articleStaticFallbackKey keeps it in place
+   // until BlogArticles signals a complete, matching body.
+   setStaticOverlay(false);
+  }
+ };
+ const scheduleIdleTakeover = () => afterNextPaint(() => {
+  if (disposed || started) return;
+  if (initialArticleTakeoverCancelledRef.current) return;
+  if (typeof idleWindow.requestIdleCallback === 'function') {
+   idleHandle = idleWindow.requestIdleCallback(startTakeover, { timeout: ARTICLE_TAKEOVER_IDLE_TIMEOUT_MS });
+  } else {
+   idleTimerHandle = window.setTimeout(startTakeover, 0);
+  }
+ });
+ const requestTakeoverAfterPaint = () => {
+  cancelIdleStart();
+  afterNextPaint(startTakeover);
+ };
  const onRelatedIntent = (event: Event) => {
   const target = event.target;
-  if (target instanceof Element && target.closest('[data-article-related]')) prefetchBlog();
+  if (target instanceof Element && target.closest('[data-article-related]')) requestTakeoverAfterPaint();
  };
- const onLoad = () => prefetchBlog();
+ const onInteraction = () => requestTakeoverAfterPaint();
+ const onLoad = () => scheduleIdleTakeover();
 
- if (document.readyState === 'complete') prefetchBlog();
+ window.addEventListener('pointerdown', onInteraction, { once: true, passive: true });
+ window.addEventListener('keydown', onInteraction, { once: true, passive: true });
+ if (document.readyState === 'complete') scheduleIdleTakeover();
  else window.addEventListener('load', onLoad, { once: true });
  if (related && typeof IntersectionObserver !== 'undefined') {
   observer = new IntersectionObserver((entries) => {
    if (!entries.some((entry) => entry.isIntersecting)) return;
-   prefetchBlog();
    observer?.disconnect();
-  }, { rootMargin: '200px' });
+   observer = null;
+   requestTakeoverAfterPaint();
+  }, { rootMargin: '0px' });
   observer.observe(related);
  }
  document.addEventListener('pointerover', onRelatedIntent, true);
  document.addEventListener('focusin', onRelatedIntent, true);
  return () => {
-  window.removeEventListener('load', onLoad);
-  observer?.disconnect();
-  document.removeEventListener('pointerover', onRelatedIntent, true);
-  document.removeEventListener('focusin', onRelatedIntent, true);
+  disposed = true;
+  cancelScheduledWork();
+  removeTriggers();
  };
- }, [initialFrontaliereStaticArticle]);
+ }, [initialFrontaliereStaticArticle, initialRoute, initialStaticArticleRouteKey, resolvePendingArticle]);
 
  // Eagerly load svizzera slug data whenever the section becomes svizzera —
  // a client-side sub-tab switch (not an initial svizzera URL) must populate
@@ -511,6 +634,10 @@ export function useNavigationState(): NavigationState {
    window.location.replace(redirectTo + window.location.search + window.location.hash);
    return;
  }
+ // A route change owns its own resolver and must not be overwritten later by
+ // a pending response or deferred takeover for the previous article.
+ articleResolutionVersionRef.current += 1;
+ if (initialFrontaliereStaticArticle) initialArticleTakeoverCancelledRef.current = true;
  // Static SEO routes own their full HTML (rendered outside `#root`). When
  // navigating BACK into one (popstate) from elsewhere in the SPA, the
  // static content is no longer in the DOM and we cannot reconstruct it
