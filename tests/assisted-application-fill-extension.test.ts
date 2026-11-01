@@ -344,6 +344,10 @@ describe('fill extension: JOIN steps', () => {
     const state = amag.F.pageState(amag.document, { sawForm: true });
     expect(state.kind).toBe('final');
     expect(amag.F.textOf(state.final)).toBe('Inviare');
+    expect(amag.F.pageState(amag.document, { sawForm: true }).kind).not.toBe('confirmed');
+
+    const upload = page('<form><button type="submit">Inviare i documenti</button></form>', 'https://jobs.amag-group.ch/apply');
+    expect(upload.F.pageState(upload.document, { sawForm: true }).kind).toBe('unknown');
   });
 
   it('starts Coop’s application with «Jetzt bewerben», never «Später bewerben»', () => {
