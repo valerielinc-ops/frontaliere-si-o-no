@@ -366,13 +366,16 @@ export function hasUnverifiedCurrentStudentEligibility(postingText, profile = {}
       if (!NEGATED_CURRENT_ENROLLMENT_RE.test(entry)
         || hasHistoricalStudentCue(entry)
         || historicalYearRange(entry)) return false;
-      const namesOtherInstitution = OTHER_EDUCATION_INSTITUTION_CUE_RE.test(entry)
-        && !COMMERCIAL_SCHOOL_CUE_RE.test(entry);
-      const namesTargetEducation = !namesOtherInstitution
-        && (!needsYear || CURRENT_YEAR_CUE_RE.test(entry))
-        && (!needsSchool || COMMERCIAL_SCHOOL_CUE_RE.test(entry));
-      const isGenericCurrentNegation = !namesOtherInstitution && !COMMERCIAL_SCHOOL_CUE_RE.test(entry);
-      return namesTargetEducation || isGenericCurrentNegation;
+      const namesTargetSchool = COMMERCIAL_SCHOOL_CUE_RE.test(entry);
+      const namesTargetYear = CURRENT_YEAR_CUE_RE.test(entry);
+      const namesDifferentSchoolOnly = OTHER_EDUCATION_INSTITUTION_CUE_RE.test(entry) && !namesTargetSchool;
+      const namesTargetEducation = !namesDifferentSchoolOnly
+        && (!needsYear || namesTargetYear)
+        && (!needsSchool || namesTargetSchool);
+      const namesPartOfTargetEducation = !namesDifferentSchoolOnly
+        && ((needsSchool && namesTargetSchool) || (needsYear && namesTargetYear));
+      const isGenericCurrentNegation = !namesDifferentSchoolOnly && !namesTargetSchool && !namesTargetYear;
+      return namesTargetEducation || namesPartOfTargetEducation || isGenericCurrentNegation;
     });
     if (sourceContradictsCurrentEducation) return true;
     const sourceProvesCurrentEducation = sourceEntries.some((entry) =>
