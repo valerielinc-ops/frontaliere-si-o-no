@@ -142,7 +142,14 @@ export function parseRittmeyerListingsPage(html = '') {
     '#jobList, .results, ul.rex-navi2, .job-list, [data-job-list], [data-testid="job-card"], [class*="job-list"], [class*="stellen"], [class*="career"]',
   );
   const listingText = normalizeSpace(document.body?.textContent || listingContainer?.textContent || '');
-  const advertisedCount = listingText.match(/\b(\d+)\s+(?:jobs?|stellen(?:angebote)?|posti|postes?)\s+(?:found|gefunden|trovati|trouv[eé]s)\b/i)?.[1];
+  // Onlyfy's pager uses a range without the word "jobs" (e.g. "1-10 out of
+  // 16"), while the legacy board uses "16 jobs found". Read the total from
+  // either source-backed listing-count shape before allowing a single page.
+  const advertisedCount = listingText.match(
+    /\b\d+\s*(?:[-–—‑]|to|bis|a|à)\s*\d+\s+(?:out\s+of|of|von|de|di|sur)\s+(\d+)\b/i,
+  )?.[1] ?? listingText.match(
+    /\b(\d+)\s+(?:jobs?|stellen(?:angebote)?|posti|postes?)\s+(?:found|gefunden|trovati|trouv[eé]s)\b/i,
+  )?.[1];
   Object.defineProperties(rows, {
     rittmeyerListingMarkupSeen: { value: Boolean(listingContainer), enumerable: false },
     rittmeyerListingRecordCount: { value: rows.length, enumerable: false },

@@ -12,6 +12,8 @@ import {
   RITTMEYER_SITES,
   scrubRittmeyerLegacyLocaleCopies,
   jobMatchKey,
+  buildRittmeyerOnlyfyListingPageUrl,
+  fetchRittmeyerOnlyfyListingSource,
 } from '../scripts/update-rittmeyer-jobs.mjs';
 
 describe('rittmeyer-job-parser', () => {
@@ -109,6 +111,48 @@ describe('rittmeyer-job-parser', () => {
     expect(isRittmeyerTicinoListing(listings[0])).toBe(true);
     expect(listings.rittmeyerListingMarkupSeen).toBe(true);
     expect(listings.rittmeyerListingSkippedMalformedRows).toBe(0);
+  });
+
+  it('follows Onlyfy listing pages when the board advertises more than one page', async () => {
+    const card = (id: number, location: string) => `
+      <a data-testid="job-card" aria-label="Rittmeyer role ${id}"
+         href="/en/job/rittmeyer-role-${id}">
+        <h3 data-testid="job-title">Rittmeyer role ${id}</h3>
+        <div data-testid="job-more-info">${location} | Full-time employee | 01.11.2026</div>
+      </a>`;
+    const firstUrl = 'https://brugg.onlyfy.jobs/en/';
+    const secondUrl = buildRittmeyerOnlyfyListingPageUrl(firstUrl, 2);
+    expect(secondUrl).toBe('https://brugg.onlyfy.jobs/en/?page=2');
+    const pages = new Map([
+      [firstUrl, `<p>1-10 out of 16</p><div class="results">${Array.from({ length: 10 }, (_, i) => card(i + 1, 'Baar')).join('')}</div>`],
+      [secondUrl, `<p>11-16 out of 16</p><div class="results">${Array.from({ length: 6 }, (_, i) => card(i + 11, 'Camorino')).join('')}</div>`],
+    ]);
+    const requested = [];
+    const rows = await fetchRittmeyerOnlyfyListingSource(
+      { url: firstUrl, label: 'Onlyfy employer board' },
+      async (url) => {
+        requested.push(url);
+        return pages.get(url) || '';
+      },
+    );
+
+    expect(requested).toEqual([firstUrl, secondUrl]);
+    expect(rows).toHaveLength(16);
+    expect(rows.rittmeyerListingAdvertisedCount).toBe(16);
+    expect(new Set(rows.map((row) => row.href)).size).toBe(16);
+  });
+
+  it('fails closed when the Onlyfy page parameter does not advance the listing', async () => {
+    const page = `<p>16 jobs found</p><div class="results">${Array.from({ length: 10 }, (_, i) => `
+      <a data-testid="job-card" aria-label="Role ${i}" href="/en/job/role-${i}">
+        <h3 data-testid="job-title">Role ${i}</h3>
+        <div data-testid="job-more-info">Baar | Full-time employee</div>
+      </a>`).join('')}</div>`;
+
+    await expect(fetchRittmeyerOnlyfyListingSource(
+      { url: 'https://brugg.onlyfy.jobs/en/', label: 'Onlyfy employer board' },
+      async () => page,
+    )).rejects.toThrow(/duplicate listing row while paging/);
   });
 
   it('parses detail content and builds localized descriptions', () => {
