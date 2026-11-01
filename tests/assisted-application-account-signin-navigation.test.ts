@@ -15,7 +15,14 @@ function pageWithLink({ href, label, finalUrl, visible = true, tagName = 'A', co
     isVisible: vi.fn(async () => visible),
     click: vi.fn(async () => {}),
     innerText: vi.fn(async () => label),
-    evaluate: vi.fn(async () => tagName),
+    evaluate: vi.fn(async () => ({
+      tagName,
+      text: label,
+      ariaLabel: '',
+      title: '',
+      labelledBy: '',
+      href: href ?? null,
+    })),
     getAttribute: vi.fn(async (name: string) => {
       if (name === 'href') return href ?? null;
       if (name === 'aria-label' || name === 'title') return '';

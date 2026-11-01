@@ -2907,14 +2907,22 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     const frame = page.frames()[Number(candidate.frame) || 0] || page.mainFrame();
     const locator = frame.locator(`[data-aa-id="${id}"]`).first();
     if (!await locator.isVisible().catch(() => false)) continue;
-    const liveLabel = [
-      await locator.innerText().catch(() => ''),
-      await locator.getAttribute('aria-label').catch(() => ''),
-      await locator.getAttribute('title').catch(() => ''),
-    ];
-    if (!isExplicitSignInNavigationLabel(...liveLabel)) continue;
-    const tagName = await locator.evaluate((element) => String(element.tagName || '').toUpperCase()).catch(() => '');
-    if (tagName !== 'A') continue;
+    const liveControl = await locator.evaluate((element) => {
+      const doc = element.ownerDocument;
+      const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+        .map((id) => doc.getElementById(id)?.innerText || doc.getElementById(id)?.textContent || '')
+        .join(' ');
+      return {
+        tagName: String(element.tagName || '').toUpperCase(),
+        text: element.innerText || element.textContent || '',
+        ariaLabel: element.getAttribute('aria-label') || '',
+        title: element.getAttribute('title') || '',
+        labelledBy,
+        href: element.getAttribute('href'),
+      };
+    }).catch(() => null);
+    if (liveControl?.tagName !== 'A'
+      || !isExplicitSignInNavigationLabel(liveControl.text, liveControl.ariaLabel, liveControl.title, liveControl.labelledBy)) continue;
     const currentUrl = frame.url();
     let portalHost;
     try {
@@ -2922,8 +2930,7 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     } catch {
       continue;
     }
-    const href = await locator.getAttribute('href').catch(() => null);
-    const target = verifiedSignInTarget(href, currentUrl, portalHost);
+    const target = verifiedSignInTarget(liveControl.href, currentUrl, portalHost);
     if (!target) continue;
     try {
       await frame.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
