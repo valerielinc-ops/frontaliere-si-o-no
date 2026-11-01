@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-01T13:56:08.320Z",
+  "updatedAt": "2026-11-01T13:57:59.744Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -90471,12 +90471,12 @@
     },
     "asanti": {
       "key": "asanti",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:26.783Z",
-      "updatedAt": "2026-10-31T13:20:16.338Z",
+      "updatedAt": "2026-11-01T13:57:59.623Z",
       "name": "Asanti AG",
       "city": "",
       "zip": "",
@@ -90745,7 +90745,13 @@
         }
       ],
       "promotionPr": "16284",
-      "promotionBranch": "prospector/promote-2026-10-31"
+      "promotionBranch": "prospector/promote-2026-10-31",
+      "promotedAt": "2026-10-31T18:18:34Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-01T09:49:17.070Z",
+      "firstCrawlerJobCount": 7
     },
     "asanti.ch": {
       "key": "asanti.ch",
@@ -146191,12 +146197,12 @@
     },
     "bb-trading-werbeartikel@dietikon": {
       "key": "bb-trading-werbeartikel@dietikon",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-07T10:32:58.094Z",
-      "updatedAt": "2026-10-31T13:20:16.338Z",
+      "updatedAt": "2026-11-01T13:57:59.623Z",
       "name": "bb trading werbeartikel ag",
       "city": "Dietikon",
       "zip": "8953",
@@ -146433,7 +146439,13 @@
         }
       ],
       "promotionPr": "16284",
-      "promotionBranch": "prospector/promote-2026-10-31"
+      "promotionBranch": "prospector/promote-2026-10-31",
+      "promotedAt": "2026-10-31T18:18:34Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-01T09:49:09.555Z",
+      "firstCrawlerJobCount": 1
     },
     "bbarc.ch": {
       "key": "bbarc.ch",
@@ -328209,12 +328221,12 @@
     },
     "csl-immobilien@zurich": {
       "key": "csl-immobilien@zurich",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-05T07:55:29.047Z",
-      "updatedAt": "2026-10-31T13:20:16.338Z",
+      "updatedAt": "2026-11-01T13:57:59.623Z",
       "name": "CSL Immobilien AG",
       "city": "Zürich",
       "zip": "8052",
@@ -328452,7 +328464,13 @@
         }
       ],
       "promotionPr": "16284",
-      "promotionBranch": "prospector/promote-2026-10-31"
+      "promotionBranch": "prospector/promote-2026-10-31",
+      "promotedAt": "2026-10-31T18:18:34Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-01T09:49:09.582Z",
+      "firstCrawlerJobCount": 1
     },
     "csl-partner-architekten": {
       "key": "csl-partner-architekten",
@@ -396920,7 +396938,7 @@
         "web"
       ],
       "firstSeenAt": "2026-09-20T08:57:48.192Z",
-      "updatedAt": "2026-10-31T13:19:42.278Z",
+      "updatedAt": "2026-11-01T13:57:59.623Z",
       "name": "elektriker-elektromonteur-jobs",
       "domain": "elektriker-elektromonteur-jobs.ch",
       "careersUrl": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php",
@@ -397174,10 +397192,11 @@
       "promotionBranch": "prospector/promote-2026-10-29",
       "promotedAt": "2026-10-29T19:26:07Z",
       "firstCrawlerOutputStatus": "empty",
-      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-10-31T09:46:31.191Z",
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-01T09:49:27.327Z",
+      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAttentionAt": "2026-11-01T13:57:59.589Z"
     },
     "elektrisola-feindraht@escholzmatt": {
       "key": "elektrisola-feindraht@escholzmatt",
@@ -952428,7 +952447,7 @@
         "osm"
       ],
       "firstSeenAt": "2026-08-23T04:13:00.273Z",
-      "updatedAt": "2026-10-30T13:34:34.152Z",
+      "updatedAt": "2026-11-01T13:57:59.623Z",
       "name": "Opacc Software AG",
       "domain": "opacc.ch",
       "city": "Rothenburg",
@@ -952670,10 +952689,11 @@
       "promotionBranch": "prospector/promote-2026-10-29",
       "promotedAt": "2026-10-29T19:26:07Z",
       "firstCrawlerOutputStatus": "missing",
-      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
       "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAttentionAt": "2026-11-01T13:57:59.589Z"
     },
     "opal-associates@wetzikon-zh": {
       "key": "opal-associates@wetzikon-zh",
