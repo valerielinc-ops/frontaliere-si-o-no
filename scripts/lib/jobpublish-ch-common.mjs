@@ -364,7 +364,7 @@ export function createJobpublishChParser(config) {
       const postalCode = detailAddress.postalCode
         && normalize(detailAddress.locality) === normalize(city)
         ? detailAddress.postalCode
-        : hqPostalCodeForLocality(city, defaultCity, defaultPostalCode);
+        : hqPostalCodeForLocality(city, defaultCity, defaultPostalCode, defaultCanton);
 
       const descParts = [];
       if (detailText) descParts.push(detailText);

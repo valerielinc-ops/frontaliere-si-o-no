@@ -225,6 +225,7 @@ import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
 import { firstPageIndexFileName } from '@/build-plugins/shared/slimJobIndex';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
 import { buildJobPostingFacts, buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
+import { isFullyRemoteListing } from '@/scripts/lib/jobposting-field-provenance.mjs';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
 import { salaryProvenanceSuffix } from '@/build-plugins/shared/salaryEstimateSuffix';
@@ -516,8 +517,12 @@ export interface JobListing {
  sourceContract?: string;
  employmentType?: string;
  contractType?: string;
+ /** Canonical employer slug carried by the job-detail payload. */
+ companySlug?: JobInput['companySlug'];
  /** Source deadline hint; the canonical builder supplies a fallback when absent. */
  validThrough?: string;
+ /** Provenance of the source or derived deadline; never emitted in JSON-LD. */
+ validThroughSource?: JobInput['validThroughSource'];
  salaryMin?: number;
  salaryMax?: number;
  /** Provenance of the salary band — 'estimated' bands get an «(stima)»-style
@@ -539,6 +544,10 @@ export interface JobListing {
  requirements: string[];
  requirementsByLocale?: Partial<Record<Locale, string[]>>;
  streetAddress?: string;
+ /** Internal provenance for the retained street value; never emitted in JSON-LD. */
+ streetAddressSource?: JobInput['streetAddressSource'];
+ companyRegisteredAddress?: JobInput['companyRegisteredAddress'];
+ companyKnownAddress?: JobInput['companyKnownAddress'];
  postalCode?: string;
  addressLocality?: string;
  addressCountry?: string;
@@ -550,6 +559,10 @@ export interface JobListing {
  postedDate: string;
  crawledAt?: string;
  firstSeenAt?: string;
+ lastSeenAt?: JobInput['lastSeenAt'];
+ lastObservedAt?: JobInput['lastObservedAt'];
+ scrapedAt?: JobInput['scrapedAt'];
+ updatedAt?: JobInput['updatedAt'];
  url?: string;
  applyUrl?: string;
  source?: string;
@@ -6498,9 +6511,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ''
  ).trim();
  const localizedTitle = sanitizeJobTitle(jobDisplayTitle(job));
- const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
- `${localizedTitle} ${description || ''} ${job.location || ''}`
- );
+ const isRemote = isFullyRemoteListing({ title: job.title, location: job.location });
  // JSON-LD hiringOrganization.logo needs a fetchable URL — companyLogoUrl can
  // now return an inlined initials data: URI (fine for <img>, not for schema),
  // so fall back to the site icon for those rather than emitting a data URI.
@@ -6540,6 +6551,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  description,
  company: job.company,
  companyKey: job.companyKey,
+ companySlug: job.companySlug,
  companyDomain: job.companyDomain,
  companyLogoUrl: logo,
  addressLocality,
@@ -6547,16 +6559,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  addressCountry: job.addressCountry,
  postalCode,
  streetAddress: isValidAddr(rawStreet) ? rawStreet : '',
+ streetAddressSource: job.streetAddressSource,
+ companyRegisteredAddress: job.companyRegisteredAddress,
+ companyKnownAddress: job.companyKnownAddress,
  postingDateSource: job.postingDateSource,
  datePosted: job.datePosted,
  postedDate: job.postedDate,
  firstSeenAt: job.firstSeenAt,
+ lastSeenAt: job.lastSeenAt,
+ lastObservedAt: job.lastObservedAt,
  crawledAt: job.crawledAt,
+ scrapedAt: job.scrapedAt,
+ updatedAt: job.updatedAt,
  // Source contract values, not the 'full-time'-defaulting filter bucket.
  employmentType: job.employmentType,
  contract: job.sourceContract,
  contractType: job.contractType,
  validThrough: job.validThrough,
+ validThroughSource: job.validThroughSource,
  salaryMin,
  salaryMax,
  salaryCurrency,
@@ -10714,9 +10734,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // deterministic template + canonical schema builder that services/seoService.ts
  // uses for the runtime FAQPage JSON-LD on client-side navigation, so the
  // visible accordion here never desyncs from the structured data (or from the
- // SSG-prerendered static page for this same job). isRemote detection mirrors
- // the regex used elsewhere for the same purpose (jobsSeoPagesPlugin.ts,
- // services/seoService.ts).
+ // SSG-prerendered static page for this same job). isRemote detection uses the
+ // predicate shared with jobsSeoPagesPlugin.ts and services/seoService.ts.
  const faqJobInput: JobInput = {
  id: selectedJob.id,
  slug: selectedJob.slug,
@@ -10724,18 +10743,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  description: detailDescription,
  company: selectedJob.company,
  companyKey: selectedJob.companyKey,
+ companySlug: selectedJob.companySlug,
  companyDomain: selectedJob.companyDomain,
  addressLocality: selectedJob.addressLocality || selectedJob.location,
  addressRegion: detailJobCanton,
  addressCountry: selectedJob.addressCountry,
  postalCode: selectedJob.postalCode,
  streetAddress: selectedJob.streetAddress,
+ streetAddressSource: selectedJob.streetAddressSource,
+ companyRegisteredAddress: selectedJob.companyRegisteredAddress,
+ companyKnownAddress: selectedJob.companyKnownAddress,
  postingDateSource: selectedJob.postingDateSource,
  datePosted: selectedJob.datePosted,
  validThrough: selectedJob.validThrough,
+ validThroughSource: selectedJob.validThroughSource,
  postedDate: selectedJob.postedDate,
  firstSeenAt: selectedJob.firstSeenAt,
+ lastSeenAt: selectedJob.lastSeenAt,
+ lastObservedAt: selectedJob.lastObservedAt,
  crawledAt: selectedJob.crawledAt,
+ scrapedAt: selectedJob.scrapedAt,
+ updatedAt: selectedJob.updatedAt,
  employmentType: selectedJob.employmentType,
  contract: selectedJob.sourceContract,
  contractType: selectedJob.contractType,
@@ -10748,9 +10776,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  url: selectedJob.url,
  applyUrl: selectedJob.applyUrl,
  };
- const faqIsRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
- `${selectedJobTitle} ${detailDescription} ${selectedJob.location || ''}`
- );
+ const faqIsRemote = isFullyRemoteListing({ title: selectedJob.title, location: selectedJob.location });
  const faqIsTicino = detailJobCanton === 'TI';
  const faqCantonDisplay = getCantonDisplayName(detailJobCanton, locale);
  const faqSchema = buildJobPostingFacts(faqJobInput, locale, { fallbackUrl: detailPageUrl });
