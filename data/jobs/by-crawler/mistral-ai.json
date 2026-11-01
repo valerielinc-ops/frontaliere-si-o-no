@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-10-31T22:07:38.903Z",
-  "runId": "41243370189",
+  "assembledAt": "2026-11-01T09:39:04.656Z",
+  "runId": "41292933668",
   "jobs": [
     {
       "id": "mistral-ai-c24d6a4a84d2",
@@ -34,7 +34,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/19026237-fb3d-480d-a1a3-27204bcb154a",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:07:32.178Z",
+      "crawledAt": "2026-11-01T09:38:57.654Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -80,7 +80,11 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:38:57.654Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "mistral-ai-01b2b0d2cc89",
@@ -113,7 +117,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:07:32.175Z",
+      "crawledAt": "2026-11-01T09:38:57.651Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,7 +167,11 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:57.651Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

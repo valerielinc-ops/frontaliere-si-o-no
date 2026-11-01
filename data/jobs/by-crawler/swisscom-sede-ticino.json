@@ -1,7 +1,7 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-10-31T21:50:33.131Z",
-  "runId": "41242863016",
+  "assembledAt": "2026-11-01T09:30:20.473Z",
+  "runId": "41292451365",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-Microsoft_R-0005286",
@@ -39,7 +39,7 @@
       "datePosted": "2026-04-23",
       "postedDate": "2026-04-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:26.039Z",
+      "crawledAt": "2026-11-01T09:30:15.386Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -96,7 +96,11 @@
         }
       },
       "addressRegion": "BE",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:15.386Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-SAP-Technology-Consultant_R-0005423-1",
@@ -134,7 +138,7 @@
       "datePosted": "2026-06-02",
       "postedDate": "2026-06-02",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:25.234Z",
+      "crawledAt": "2026-11-01T09:30:14.882Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -178,7 +182,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:14.882Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Avaloq-Consultant---Expert-Credit_R-0004266",
@@ -216,7 +224,7 @@
       "datePosted": "2026-07-29",
       "postedDate": "2026-07-29",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:24.583Z",
+      "crawledAt": "2026-11-01T09:30:14.350Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -261,7 +269,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:14.350Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Modern-Workplace-Engineer_R-0006312-1",
@@ -299,7 +311,7 @@
       "datePosted": "2026-08-23",
       "postedDate": "2026-08-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:23.907Z",
+      "crawledAt": "2026-11-01T09:30:13.830Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -344,7 +356,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:13.830Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Sierre/Apprentissage--Gestionnaire-du-commerce-de-dtail-CFC-_R-0005984",
@@ -382,7 +398,7 @@
       "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:23.298Z",
+      "crawledAt": "2026-11-01T09:30:13.319Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -426,7 +442,11 @@
         }
       },
       "addressRegion": "VS",
-      "postalCode": "3960"
+      "postalCode": "3960",
+      "streetAddress": "Sierre",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:13.319Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Neuchtel/Apprentissage--Gestionnaire-du-commerce-de-dtail-CFC-_R-0005982",
@@ -464,7 +484,7 @@
       "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:22.737Z",
+      "crawledAt": "2026-11-01T09:30:12.825Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -508,7 +528,11 @@
         }
       },
       "addressRegion": "NE",
-      "postalCode": "2000"
+      "postalCode": "2000",
+      "streetAddress": "Neuchâtel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:12.825Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Avry-sur-Matran/Apprentissage--Gestionnaire-du-commerce-de-dtail-CFC-_R-0005980",
@@ -546,7 +570,7 @@
       "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:22.206Z",
+      "crawledAt": "2026-11-01T09:30:12.329Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -590,7 +614,11 @@
         }
       },
       "addressRegion": "FR",
-      "postalCode": "1754"
+      "postalCode": "1754",
+      "streetAddress": "Avry-sur-Matran",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:30:12.329Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/St-Gallen/Projektleiter-Sicherheitssysteme_R-0005783-1",
@@ -628,7 +656,7 @@
       "datePosted": "2026-09-03",
       "postedDate": "2026-09-03",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:21.641Z",
+      "crawledAt": "2026-11-01T09:30:11.782Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -671,7 +699,11 @@
         }
       },
       "addressRegion": "SG",
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:30:11.782Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/IT-Consultant---Full-Stack-Software-Engineer_R-0004536-1",
@@ -709,7 +741,7 @@
       "datePosted": "2026-09-10",
       "postedDate": "2026-09-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:20.947Z",
+      "crawledAt": "2026-11-01T09:30:11.135Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -747,7 +779,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:30:11.135Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Datacenter-Specialized-Sales_R-0006698",
@@ -785,7 +821,7 @@
       "datePosted": "2026-09-26",
       "postedDate": "2026-09-26",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:20.320Z",
+      "crawledAt": "2026-11-01T09:30:10.622Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -829,7 +865,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:30:10.622Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Internship-NETAdvance---Datacenter-Network_R-0006691",
@@ -867,7 +907,7 @@
       "datePosted": "2026-10-01",
       "postedDate": "2026-10-01",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:19.666Z",
+      "crawledAt": "2026-11-01T09:30:10.089Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -905,7 +945,11 @@
         }
       },
       "addressRegion": "BE",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:30:10.089Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/System-Architect-Application-Security_R-0006298-1",
@@ -943,7 +987,7 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:19.071Z",
+      "crawledAt": "2026-11-01T09:30:09.517Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -983,7 +1027,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:30:09.517Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Internship-NETAdvance---ONIS-AI-DevOps_R-0006550",
@@ -1021,7 +1069,7 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:18.530Z",
+      "crawledAt": "2026-11-01T09:30:09.002Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -1057,7 +1105,11 @@
         }
       },
       "addressRegion": "BE",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:30:09.002Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Fribourg/Promo-Manager_R-0006703",
@@ -1111,7 +1163,7 @@
       "datePosted": "2026-10-06",
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:17.970Z",
+      "crawledAt": "2026-11-01T09:30:08.424Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -1147,7 +1199,11 @@
         }
       },
       "addressRegion": "FR",
-      "postalCode": "1700"
+      "postalCode": "1700",
+      "streetAddress": "Fribourg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:30:08.424Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-Firewalling_R-0006743",
@@ -1185,7 +1241,7 @@
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:17.359Z",
+      "crawledAt": "2026-11-01T09:30:07.843Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1232,7 +1288,11 @@
         }
       },
       "addressRegion": "BE",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:30:07.843Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-Virtualisierungs-Infrastruktur--CaaS----VM-Ware_R-0006738",
@@ -1270,7 +1330,7 @@
       "datePosted": "2026-10-12",
       "postedDate": "2026-10-12",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:16.750Z",
+      "crawledAt": "2026-11-01T09:30:07.245Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1317,7 +1377,11 @@
         }
       },
       "addressRegion": "BE",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:30:07.245Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Oracle-Database-Specialist_R-0006580-1",
@@ -1355,7 +1419,7 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:16.191Z",
+      "crawledAt": "2026-11-01T09:30:06.660Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1397,7 +1461,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:30:06.660Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-Fortinet_R-0006745",
@@ -1435,7 +1503,7 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:15.603Z",
+      "crawledAt": "2026-11-01T09:30:06.089Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1477,7 +1545,11 @@
         }
       },
       "addressRegion": "BE",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:30:06.089Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-Endpoint-Protection_R-0006746",
@@ -1515,7 +1587,7 @@
       "datePosted": "2026-10-14",
       "postedDate": "2026-10-14",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:15.057Z",
+      "crawledAt": "2026-11-01T09:30:05.400Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1557,7 +1629,11 @@
         }
       },
       "addressRegion": "BE",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:30:05.400Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Netstal/Lehre--Detailhandelsfachfrau--mann-EFZ_R-0005965",
@@ -1595,7 +1671,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:14.507Z",
+      "crawledAt": "2026-11-01T09:30:04.790Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1637,7 +1713,11 @@
         }
       },
       "addressRegion": "GL",
-      "postalCode": "8754"
+      "postalCode": "8754",
+      "streetAddress": "Netstal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:04.790Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Brig/Lehre--Detailhandelsfachfrau--mann-EFZ_R-0005963",
@@ -1675,7 +1755,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:13.965Z",
+      "crawledAt": "2026-11-01T09:30:04.284Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1717,7 +1797,11 @@
         }
       },
       "addressRegion": "VS",
-      "postalCode": "3900"
+      "postalCode": "3900",
+      "streetAddress": "Brig",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:04.284Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Ibach/Lehre--Detailhandelsfachfrau--mann-EFZ_R-0005960",
@@ -1755,7 +1839,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:13.351Z",
+      "crawledAt": "2026-11-01T09:30:03.689Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1797,7 +1881,11 @@
         }
       },
       "addressRegion": "SZ",
-      "postalCode": "6438"
+      "postalCode": "6438",
+      "streetAddress": "Ibach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:03.689Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Chur/Lehre--Detailhandelsfachfrau--mann-EFZ_R-0005958",
@@ -1835,7 +1923,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:12.818Z",
+      "crawledAt": "2026-11-01T09:30:03.095Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1873,7 +1961,11 @@
         }
       },
       "addressRegion": "GR",
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:03.095Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Thun/Lehre--Detailhandelsfachfrau--mann-EFZ_R-0005950",
@@ -1911,7 +2003,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:12.192Z",
+      "crawledAt": "2026-11-01T09:30:02.388Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1950,7 +2042,11 @@
         }
       },
       "addressRegion": "BE",
-      "postalCode": "3600"
+      "postalCode": "3600",
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:02.388Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/BielBienne/Lehre--Detailhandelsfachfrau--mann-EFZ_R-0005945",
@@ -1988,7 +2084,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:11.535Z",
+      "crawledAt": "2026-11-01T09:30:01.725Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -2027,7 +2123,11 @@
         }
       },
       "addressRegion": "BE",
-      "postalCode": "2502"
+      "postalCode": "2502",
+      "streetAddress": "Biel/Bienne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:01.725Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Lucerne/Techniker-in-Sicherheitssysteme_R-0006837",
@@ -2065,7 +2165,7 @@
       "datePosted": "2026-10-21",
       "postedDate": "2026-10-21",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:11.018Z",
+      "crawledAt": "2026-11-01T09:30:01.225Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -2107,7 +2207,11 @@
         }
       },
       "addressRegion": "LU",
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "streetAddress": "Lucerne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:30:01.225Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Lehre--Detailhandelsfachfrau--mann-EFZ_R-0005964",
@@ -2145,7 +2249,7 @@
       "datePosted": "2026-10-19",
       "postedDate": "2026-10-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:10.415Z",
+      "crawledAt": "2026-11-01T09:30:00.581Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -2184,7 +2288,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:30:00.581Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Techniker-in-Sicherheitssysteme_R-0006865",
@@ -2222,7 +2330,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:09.800Z",
+      "crawledAt": "2026-11-01T09:29:59.990Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -2264,7 +2372,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:29:59.990Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Application-Manager-Syrius-Finance_R-0006783-1",
@@ -2302,7 +2414,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:09.129Z",
+      "crawledAt": "2026-11-01T09:29:59.340Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -2338,7 +2450,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:29:59.340Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Technical-Lead-for-IoT-Gateway-as-a-Service_R-0006822",
@@ -2376,7 +2492,7 @@
       "datePosted": "2026-10-25",
       "postedDate": "2026-10-25",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:08.496Z",
+      "crawledAt": "2026-11-01T09:29:58.743Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -2415,7 +2531,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-23T09:29:58.743Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Data-Governance-Counsel_R-0006803-1",
@@ -2453,7 +2573,7 @@
       "datePosted": "2026-10-25",
       "postedDate": "2026-10-25",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:07.939Z",
+      "crawledAt": "2026-11-01T09:29:58.222Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -2492,7 +2612,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-23T09:29:58.222Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/DevOps-Engineer---OpenShift-Platform---Managed-Services_R-0006873-1",
@@ -2530,7 +2654,7 @@
       "datePosted": "2026-10-25",
       "postedDate": "2026-10-25",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:07.239Z",
+      "crawledAt": "2026-11-01T09:29:57.639Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -2571,7 +2695,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-23T09:29:57.639Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Vevey/Technicien-IT-Support_R-0006778",
@@ -2609,7 +2737,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:06.598Z",
+      "crawledAt": "2026-11-01T09:29:57.034Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -2651,7 +2779,11 @@
         }
       },
       "addressRegion": "VD",
-      "postalCode": "1800"
+      "postalCode": "1800",
+      "streetAddress": "Vevey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:29:57.034Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Product-Owner---Kubernetes-Platform_R-0005123",
@@ -2689,7 +2821,7 @@
       "datePosted": "2026-10-29",
       "postedDate": "2026-10-29",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:05.936Z",
+      "crawledAt": "2026-11-01T09:29:56.495Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -2729,7 +2861,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:29:56.495Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Sales-Manager-Digital-Media---LMS_R-0006622",
@@ -2767,7 +2903,7 @@
       "datePosted": "2026-10-09",
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:05.335Z",
+      "crawledAt": "2026-11-01T09:29:55.882Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -2806,7 +2942,11 @@
         }
       },
       "addressRegion": "ZH",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:29:55.882Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Business-Controller_R-0006685",
@@ -2844,7 +2984,7 @@
       "datePosted": "2026-10-26",
       "postedDate": "2026-10-26",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-31T21:50:04.660Z",
+      "crawledAt": "2026-11-01T09:29:55.305Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -2888,7 +3028,11 @@
         }
       },
       "addressRegion": "BE",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:29:55.305Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

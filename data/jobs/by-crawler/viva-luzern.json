@@ -1,7 +1,7 @@
 {
   "crawlerKey": "viva-luzern",
-  "assembledAt": "2026-10-31T21:31:34.017Z",
-  "runId": "41242354960",
+  "assembledAt": "2026-11-01T09:16:40.800Z",
+  "runId": "41291964879",
   "jobs": [
     {
       "id": "viva-luzern-5b65d7a19c0c",
@@ -34,7 +34,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-oder-betreuung-efz/c09e6e2b-540c-4320-91c5-cb956ab6c7e5",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.450Z",
+      "crawledAt": "2026-11-01T09:16:03.676Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -99,7 +99,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:03.676Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-e87910a5c03f",
@@ -108,7 +111,7 @@
         "it": "pflegefachfrau-mann-hf-viva-luzern",
         "en": "certified-nursing-professional-viva-luzern-luzern",
         "de": "pflegefachfrau-mann-hf-viva-luzern-luzern",
-        "fr": "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
+        "fr": "professionnel-de-soins-viva-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -133,7 +136,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/cc1bce20-e58d-4ae3-9c1a-713f5237ccaa",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.448Z",
+      "crawledAt": "2026-11-01T09:16:03.675Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -175,7 +178,7 @@
         "registered-nurse-hf-viva-luzern",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-uy50u4",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-1067271482",
-        "professionnel-de-soins-viva-luzern"
+        "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -209,7 +212,7 @@
         "fr": [
           "specialiste-des-soins-palliatifs-viva-luzern-luzern",
           "soins-infirmiers-professionnels-hf-viva-luzern",
-          "professionnel-de-soins-viva-luzern"
+          "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-07-06T15:43:44.088Z",
@@ -225,7 +228,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:03.675Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-44758d48ba7e",
@@ -259,7 +265,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-betreuung-und-pflege/ce7584af-db46-4488-9fd9-e5e1f2192316",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.446Z",
+      "crawledAt": "2026-11-01T09:16:03.673Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -329,7 +335,10 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:03.673Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-d2d31a74dc40",
@@ -362,7 +371,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/f3addf97-defe-43c8-a9d0-85e9c3d28690",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.441Z",
+      "crawledAt": "2026-11-01T09:16:03.672Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -411,7 +420,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:03.672Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-855c90e1af46",
@@ -444,7 +456,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-keine-geteilten-dienste-im-bereich-pflege/1f23ea8f-dc96-4500-87b5-d5e710d52714",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.435Z",
+      "crawledAt": "2026-11-01T09:16:03.667Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -493,7 +505,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:03.667Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-cdef27786435",
@@ -527,7 +542,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege/5370ba7d-fad9-45a2-aa75-5af7fdd17642",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.434Z",
+      "crawledAt": "2026-11-01T09:16:03.666Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -570,7 +585,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:03.666Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-78534e424536",
@@ -603,7 +621,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege/3d38778e-14ab-41a7-9b3d-ce2bddf702b2",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.433Z",
+      "crawledAt": "2026-11-01T09:16:03.664Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -650,7 +668,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:03.664Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-d284b9a04df5",
@@ -684,7 +705,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege-fuer-die-demenz-wohngruppe/ee8b8ca5-2d50-412e-b489-b01ee0ae385c",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.432Z",
+      "crawledAt": "2026-11-01T09:16:03.663Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -731,7 +752,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:03.663Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-192ba1989699",
@@ -765,7 +789,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-fuer-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung/b56e0936-9a9e-485d-8d35-cd286dd309a9",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.430Z",
+      "crawledAt": "2026-11-01T09:16:03.662Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -806,7 +830,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:03.662Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-d2345616f8e1",
@@ -840,7 +867,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleitung-nacht-betreuung-und-pflege/f6cf51cf-3352-4ed9-ad4f-e53831f95338",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.429Z",
+      "crawledAt": "2026-11-01T09:16:03.659Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -900,7 +927,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:03.659Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-1bca2e5ad898",
@@ -934,7 +964,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege/913e4859-1c5d-4545-ace6-4e596a948f0e",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.427Z",
+      "crawledAt": "2026-11-01T09:16:03.658Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -981,7 +1011,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-14T09:16:03.658Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-bd569e8b0ec3",
@@ -1014,7 +1047,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/3329bce2-ce82-4fbc-a21f-2e9461eced23",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.426Z",
+      "crawledAt": "2026-11-01T09:16:03.657Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1070,7 +1103,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:03.657Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-60079c343239",
@@ -1103,7 +1139,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz/e190e5d0-e970-4a27-92e4-c8a53f587b03",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.424Z",
+      "crawledAt": "2026-11-01T09:16:03.654Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1143,7 +1179,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-30T09:16:03.654Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-f45f34fec097",
@@ -1176,7 +1215,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/65d772c5-cd0f-4a72-a422-6cbb949de951",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.422Z",
+      "crawledAt": "2026-11-01T09:16:03.652Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1231,7 +1270,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:16:03.652Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-1f27b35086d1",
@@ -1265,7 +1307,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-wohnbereichsgastronomie-im-abendservice/62868e15-4bc9-4a9d-bd54-0b9083540e27",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.418Z",
+      "crawledAt": "2026-11-01T09:16:03.649Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1305,7 +1347,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-30T09:16:03.649Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-80d6df314025",
@@ -1339,7 +1384,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-oder-fachfrau-mann-gesundheit-efz-im-nachtdienst/6d0fe6ae-81a5-4704-9267-25382f53ca73",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.411Z",
+      "crawledAt": "2026-11-01T09:16:03.646Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1380,7 +1425,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-04T09:16:03.646Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-a64b5247a6a0",
@@ -1414,7 +1462,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege/fd8f79b8-ca1f-4e5e-952b-63da72aac07f",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.406Z",
+      "crawledAt": "2026-11-01T09:16:03.643Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1461,7 +1509,10 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-04T09:16:03.643Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-4e0e5877bc89",
@@ -1495,7 +1546,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/aktivierungsfachfrau-mann-hf/af9e65bf-275f-40d3-b653-4faa1a279cda",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.401Z",
+      "crawledAt": "2026-11-01T09:16:03.640Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1542,7 +1593,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-05T09:16:03.640Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-7defbb8717fe",
@@ -1576,7 +1630,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stellvertretung-teamleitung-pflege/48f0632b-dec9-47aa-a003-4890eb58772b",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.394Z",
+      "crawledAt": "2026-11-01T09:16:03.637Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1617,7 +1671,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-06T09:16:03.637Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-0e6a84aedf3d",
@@ -1651,7 +1708,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-sofortaufnahme-und-entlastungsangebote/44917df6-f0be-4c3d-b146-7e17d09733e9",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.389Z",
+      "crawledAt": "2026-11-01T09:16:03.635Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1700,7 +1757,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:16:03.635Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-2d26e4f08a9f",
@@ -1734,7 +1794,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/rai-verantwortliche-r-fachexpertin-fachexperte-rai/cfae330b-2647-419a-982e-1278ff5dc45c",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.385Z",
+      "crawledAt": "2026-11-01T09:16:03.633Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1781,7 +1841,10 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T09:16:03.633Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-895afe0598e2",
@@ -1814,7 +1877,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-nacht-hf/988c4417-e9cb-4ff3-acae-35d2e6c4c5dc",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.381Z",
+      "crawledAt": "2026-11-01T09:16:03.631Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1863,7 +1926,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:16:03.631Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-b7497761fec2",
@@ -1897,7 +1963,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/aktivierungsfachperson-hf/e395457d-9ced-4254-8fac-0b1d6a92e0ec",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.375Z",
+      "crawledAt": "2026-11-01T09:16:03.629Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1944,7 +2010,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:16:03.629Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-9262c88f0f0e",
@@ -1978,7 +2047,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachverantwortliche-r-ausbildung-pflege/7300cfe5-eb04-4895-bb4b-3a7f0f93b6d0",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.371Z",
+      "crawledAt": "2026-11-01T09:16:03.627Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2025,7 +2094,10 @@
           "maxValue": 130400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:16:03.627Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-cc2f10334fe4",
@@ -2059,7 +2131,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-wohnbereichsgastronomie/d318b7b4-9f04-4c49-b8d4-7a6978203c71",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.368Z",
+      "crawledAt": "2026-11-01T09:16:03.625Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2108,7 +2180,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:16:03.625Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "viva-luzern-ef3bee42d6f6",
@@ -2141,7 +2216,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-kueche/aebb9803-d1fd-4100-920e-008154388e33",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:30:59.342Z",
+      "crawledAt": "2026-11-01T09:16:03.602Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2190,7 +2265,10 @@
           "maxValue": 86500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-30T09:16:03.602Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "wokin",
-  "assembledAt": "2026-10-31T21:34:21.847Z",
-  "runId": "41243030322",
+  "assembledAt": "2026-11-01T09:41:15.148Z",
+  "runId": "41292611758",
   "jobs": [
     {
       "id": "wokin-service-frauenfeld",
@@ -36,12 +36,12 @@
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8500",
-      "streetAddress": "",
+      "streetAddress": "Frauenfeld",
       "url": "https://wokin.ch/stellen/",
       "applyUrl": "https://wokin.ch/stellen/",
       "source": "WOKIN Dedicated Parser (official Stellen and employer context)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:34:16.684Z",
+      "crawledAt": "2026-11-01T09:41:10.229Z",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
@@ -82,7 +82,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:41:10.229Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,84 +1,8 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-31T21:45:50.335Z",
-  "runId": "41241930028",
+  "assembledAt": "2026-11-01T09:15:12.938Z",
+  "runId": "41291565146",
   "jobs": [
-    {
-      "id": "talan-68cff378c8b2",
-      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
-        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "QA Engineer Ebanking",
-      "titleByLocale": {
-        "it": "QA Ingegnere Ebanking",
-        "en": "QA: Ebanking",
-        "de": "QA Ingenieur Ebanking",
-        "fr": "QA Engineer Ebanking"
-      },
-      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
-        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
-        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
-        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.360Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-14T15:17:38.323Z",
-      "postedDate": "2026-07-14T15:17:38.323Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "jobReqId": "744000137693459",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "qa-engineer-ebanking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "qa-engineer-ebanking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T21:58:50.426Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "talan-838cc2a04384",
       "slug": "sviluppatore-abap-s-4hana-talan-geneva",
@@ -111,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.360Z",
+      "crawledAt": "2026-11-01T09:15:07.358Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -153,7 +77,246 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:15:07.358Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-338bfd5acd78",
+      "slug": "business-analyst-core-banking-talan-geneve",
+      "slugByLocale": {
+        "it": "business-analyst-core-banking-talan-geneve",
+        "en": "business-analyste-core-banking-talan-geneve-switzerland",
+        "de": "business-analyst-core-banking-talan-geneve",
+        "fr": "business-analyste-core-banking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Business Analyste Core Banking",
+      "titleByLocale": {
+        "it": "Business Analyst Core Banking",
+        "en": "Business Analyst Core Banking",
+        "de": "Business Analyst Core Banking",
+        "fr": "Business Analyste Core Banking"
+      },
+      "description": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\n Principales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent.",
+      "descriptionByLocale": {
+        "it": "All'interno del team di Core Banking IT, Business Analyst supporta i progetti di trasformazione di Core Banking e fornisce l'interfaccia tra team aziendali e IT.\nPrincipali responsabilità:\n\n• Analizzare e formalizzare le esigenze aziendali di Core Banking.\n\n• Soluzioni di progettazione con EMS e Service Owners.\n\n• Scrivere requisiti funzionali e specifiche.\n\n• Presentare le analisi agli utenti e ottenere la loro validazione.\n\n• Condurre le stime del carico di sviluppo.\n\n• Garantire il rispetto degli standard, delle procedure e dell'architettura IT\n\n• Assicurare il coordinamento tra il commercio, l'IT e i team tecnici.\n\nProfilo ricercato\n\n• Più di 15 anni di esperienza nel settore bancario, idealmente in Core Banking.\n\n• Forte esperienza nella trasformazione e consegna IT.\n\n• Buona conoscenza dei processi operativi in Wealth Management e nell'ecosistema Core Banking.\n\n• Esperienza nell'intelligenza artificiale.\n\n• Ottima capacità di comunicazione, con un buon livello in francese e inglese, sia orale che scritta.\n\n• Autonomo, strutturato e dotato di un forte spirito analitico.\n\n• L'orientamento del cliente e la capacità di lavorare con vari interlocutori.\n\n• Buon controllo SQL.\n\n• Capacità di evolversi in un ambiente complesso e gestire più argomenti in parallelo.\n\n• Laurea o equivalente.",
+        "en": "Within the Core Banking IT team, the Business Analyst supports Core Banking transformation projects and provides the interface between business and IT teams.\nMain responsibilities:\n\n• Analyze and formalize Core Banking business needs.\n\n• Design solutions with EMS and Service Owners.\n\n• Write down functional requirements and specifications.\n\n• Present the analyses to users and obtain their validation.\n\n• Conduct development load estimates.\n\n• Ensure compliance with IT standards, procedures and architecture\n\n• Ensure coordination between trade, IT and technical teams.\n\nProfile sought\n\n• More than 15 years of experience in the banking sector, ideally in Core Banking.\n\n• Strong experience in transformation and delivery IT.\n\n• Good knowledge of the operational processes in Wealth Management and the Core Banking ecosystem.\n\n• Experience in Artificial Intelligence.\n\n• Excellent communication skills, with a good level in French and English, both oral and written.\n\n• Autonomous, structured and endowed with a strong analytical spirit.\n\n• Customer orientation and ability to work with various interlocutors.\n\n• Good SQL control.\n\n• Ability to evolve in a complex environment and manage multiple topics in parallel.\n\n• Bachelor's degree or equivalent.",
+        "de": "Innerhalb des Core Banking IT Teams unterstützt der Business Analyst Core Banking Transformationsprojekte und stellt die Schnittstelle zwischen Business und IT Teams bereit.\nHauptzuständigkeiten:\n\n• Analysieren und formalisieren Sie die Anforderungen des Core Banking-Geschäfts.\n\n• Design-Lösungen mit EMS und Service Ownern.\n\n• Notieren Sie sich funktionale Anforderungen und Spezifikationen.\n\n• Präsentieren Sie die Analysen den Nutzern und erhalten Sie deren Validierung.\n\n• Durchführung von Entwicklungslastschätzungen.\n\n• Gewährleistung der Einhaltung von IT-Standards, -Verfahren und -Architektur\n\n• Gewährleistung der Koordinierung zwischen Handels-, IT- und technischen Teams.\n\nProfil gesucht\n\n• Mehr als 15 Jahre Erfahrung im Bankensektor, idealerweise im Core Banking.\n\n• Starke Erfahrung in der Transformation und Delivery IT.\n\n• Gute Kenntnisse der operativen Prozesse im Wealth Management und im Core Banking Ökosystem.\n\n• Erfahrung in Künstlicher Intelligenz.\n\n• Hervorragende Kommunikationsfähigkeiten, mit einem guten Niveau in Französisch und Englisch, sowohl mündlich als auch schriftlich.\n\n• Autonom, strukturiert und mit einem starken analytischen Geist ausgestattet.\n\n• Kundenorientierung und die Fähigkeit, mit verschiedenen Gesprächspartnern zu arbeiten.\n\n• Gute SQL-Kontrolle.\n\n• Fähigkeit, sich in einer komplexen Umgebung zu entwickeln und mehrere Themen parallel zu verwalten.\n\n• Bachelor-Abschluss oder gleichwertig.",
+        "fr": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\nPrincipales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-01T09:15:07.357Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-21T14:00:33.629Z",
+      "postedDate": "2026-08-21T14:00:33.629Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
+      "jobReqId": "744000144774739",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyste-core-banking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyste-core-banking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-08-21T21:26:00.523Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:15:07.357Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-68cff378c8b2",
+      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
+        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "QA Engineer Ebanking",
+      "titleByLocale": {
+        "it": "QA Ingegnere Ebanking",
+        "en": "QA: Ebanking",
+        "de": "QA Ingenieur Ebanking",
+        "fr": "QA Engineer Ebanking"
+      },
+      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
+        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
+        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
+        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
+      },
+      "needsRetranslation": false,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-01T09:15:07.356Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-14T15:17:38.323Z",
+      "postedDate": "2026-07-14T15:17:38.323Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "jobReqId": "744000137693459",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "qa-engineer-ebanking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-engineer-ebanking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T21:58:50.426Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:15:07.356Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-61c9acf4f11b",
+      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
+        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
+        "de": "berater-expert-sap-crm-f-h-talan-geneva",
+        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant Expert SAP CRM F/H",
+      "titleByLocale": {
+        "it": "Consulente Expert SAP CRM F/H",
+        "en": "Consultant Expert SAP CRM M/F",
+        "de": "Berater Expert SAP CRM F/H",
+        "fr": "Consultant Expert SAP CRM F/H"
+      },
+      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
+        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
+        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
+        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
+      },
+      "needsRetranslation": false,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-01T09:15:07.355Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T09:11:46.418Z",
+      "postedDate": "2026-10-02T09:11:46.418Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "jobReqId": "744000153133249",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:10:26.715Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T09:15:07.355Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-d96f65b3eb5e",
@@ -179,18 +342,19 @@
         "it": "Attività\n\n- Partecipare alla migrazione dei report e degli ambienti Tableau verso Power BI / Microsoft Fabric .\n- Analizzare la situazione esistente e contribuire alla definizione delle strategie di migrazione.\n- Privilegiare l’uso di Direct Lake per limitare le duplicazioni e ottimizzare le prestazioni.\n- Utilizzare la modalità Import quando i vincoli tecnici richiedono un approccio alternativo.\n- Progettare e far evolvere i modelli semantici Power BI / Fabric .\n- Lavorare con le sorgenti e gli ambienti SQL / Data Warehouse esistenti.\n- Garantire la qualità, le prestazioni e la manutenibilità delle soluzioni sviluppate.\n- Applicare le buone pratiche di Git, versioning, CI/CD e gestione degli sviluppi .\n- Contribuire al miglioramento delle pratiche di collaborazione e governance all’interno del team.\n- Partecipare alle fasi di test, validazione e messa in produzione.\n- Accompagnare progressivamente la migrazione dei diversi ambiti funzionali.\n\nProfilo ricercato\n\n- Esperienza significativa come Data Analyst / Esperto Power BI .\n- Solida esperienza con Microsoft Power BI e Microsoft Fabric .\n- Ottima padronanza dei modelli semantici e dell’architettura Power BI.\n- Esperienza concreta con Direct Lake e, idealmente, con scenari di migrazione verso Fabric.\n- Buona conoscenza di SQL / Data Warehouse .\n- Padronanza delle buone pratiche di Git e del versioning .\n- Esperienza in ambienti in cui gli aspetti di governance e collaborazione rivestono un ruolo importante.\n- Un’esperienza di migrazione Tableau → Power BI costituisce un reale valore aggiunto.\n- Capacità di lavorare in autonomia in un contesto complesso e vincolato dalle scadenze.\n- Eccellente atteggiamento professionale, capacità di comunicare con diversi interlocutori e di lavorare in team.\n- È richiesto un livello di competenza consolidato.",
         "en": "Responsibilities\n\n- Participate in migrating Tableau reports and environments to Power BI / Microsoft Fabric .\n- Analyze the existing setup and contribute to defining migration strategies.\n- Prioritize the use of Direct Lake to limit duplication and optimize performance.\n- Use Import mode when technical constraints require an alternative approach.\n- Design and evolve Power BI / Fabric semantic models .\n- Work with existing SQL / Data Warehouse sources and environments.\n- Ensure the quality, performance and maintainability of the solutions developed.\n- Apply best practices for Git, versioning, CI/CD and development management .\n- Contribute to improving collaboration and governance practices within the team.\n- Participate in testing, validation and production deployment phases.\n- Gradually support the migration of the various functional areas.\n\nDesired profile\n\n- Significant experience as a Data Analyst / Power BI Expert .\n- Solid experience with Microsoft Power BI and Microsoft Fabric .\n- Very good command of semantic models and Power BI architecture.\n- Practical experience with Direct Lake and, ideally, migration scenarios to Fabric.\n- Good knowledge of SQL / Data Warehouse .\n- Proficiency in Git best practices and versioning .\n- Experience in environments where governance and collaboration challenges are significant.\n- Experience migrating from Tableau → Power BI is a real asset.\n- Ability to work independently in a complex context under tight deadlines.\n- Excellent professional demeanor, ability to communicate with different stakeholders and work as part of a team.\n- A proven level of expertise is expected.",
         "de": "Aufgaben\n\n- An der Migration der Tableau-Berichte und -Umgebungen zu Power BI / Microsoft Fabric mitwirken.\n- Die bestehende Situation analysieren und zur Definition der Migrationsstrategien beitragen.\n- Die Verwendung von Direct Lake bevorzugen, um Duplikationen zu begrenzen und die Performance zu optimieren.\n- Den Importmodus verwenden, wenn technische Einschränkungen einen alternativen Ansatz erfordern.\n- Semantische Modelle in Power BI / Fabric konzipieren und weiterentwickeln.\n- Mit den vorhandenen SQL- / Data-Warehouse-Quellen und -Umgebungen arbeiten.\n- Die Qualität, Performance und Wartbarkeit der entwickelten Lösungen sicherstellen.\n- Bewährte Praktiken für Git, Versionierung, CI/CD und Entwicklungsmanagement anwenden .\n- Zur Verbesserung der Zusammenarbeits- und Governance-Praktiken innerhalb des Teams beitragen.\n- An den Phasen für Tests, Validierung und Produktivsetzung teilnehmen.\n- Die Migration der verschiedenen funktionalen Bereiche schrittweise begleiten.\n\nGesuchtes Profil\n\n- Erhebliche Erfahrung als Data Analyst / Power BI-Experte .\n- Solide Erfahrung mit Microsoft Power BI und Microsoft Fabric .\n- Sehr gute Kenntnisse in semantischen Modellen und der Architektur von Power BI.\n- Konkrete Erfahrung mit Direct Lake und idealerweise mit Migrationsszenarien zu Fabric.\n- Gute Kenntnisse in SQL / Data Warehouse .\n- Beherrschung bewährter Praktiken für Git und Versionsverwaltung.\n- Erfahrung in Umgebungen, in denen Governance und Zusammenarbeit von großer Bedeutung sind.\n- Erfahrung mit einer Migration von Tableau → Power BI stellt einen echten Vorteil dar.\n- Fähigkeit, in einem komplexen und von engen Fristen geprägten Umfeld selbstständig zu arbeiten.\n- Hervorragende professionelle Haltung, Fähigkeit, mit verschiedenen Ansprechpartnern zu kommunizieren und im Team zu arbeiten.\n- Ein fortgeschrittenes Expertenniveau wird erwartet.",
-        "fr": "Missions\n\n- Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n- Analyser l’existant et contribuer à la définition des stratégies de migration.\n- Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n- Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n- Concevoir et faire évoluer les semantic models Power BI / Fabric .\n- Travailler avec les sources et environnements SQL / Data Warehouse existants.\n- Garantir la qualité, la performance et la maintenabilité des solutions développées.\n- Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n- Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n- Participer aux phases de tests, de validation et de mise en production.\n- Accompagner progressivement la migration des différents périmètres fonctionnels.\n\nProfil recherché\n\n- Expérience significative en tant que Data Analyst / Expert Power BI .\n- Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n- Très bonne maîtrise des semantic models et de l’architecture Power BI.\n- Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n- Bonne connaissance de SQL / Data Warehouse .\n- Maîtrise des bonnes pratiques Git et versionning .\n- Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n- Une expérience de migration Tableau → Power BI constitue un réel atout.\n- Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n- Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n- Niveau d’expertise confirmé attendu."
+        "fr": "• Participer à la migration des rapports et environnements Tableau vers Power BI / Microsoft Fabric .\n\n• Analyser l’existant et contribuer à la définition des stratégies de migration.\n\n• Privilégier l’utilisation de Direct Lake pour limiter les duplications et optimiser les performances.\n\n• Utiliser le mode Import lorsque les contraintes techniques nécessitent une approche alternative.\n\n• Concevoir et faire évoluer les semantic models Power BI / Fabric .\n\n• Travailler avec les sources et environnements SQL / Data Warehouse existants.\n\n• Garantir la qualité, la performance et la maintenabilité des solutions développées.\n\n• Appliquer les bonnes pratiques de Git, versionning, CI/CD et gestion des développements .\n\n• Contribuer à l’amélioration des pratiques de collaboration et de gouvernance au sein de l’équipe.\n\n• Participer aux phases de tests, de validation et de mise en production.\n\n• Accompagner progressivement la migration des différents périmètres fonctionnels.\n\n• Expérience significative en tant que Data Analyst / Expert Power BI .\n\n• Solide expérience sur Microsoft Power BI et Microsoft Fabric .\n\n• Très bonne maîtrise des semantic models et de l’architecture Power BI.\n\n• Expérience concrète de Direct Lake et idéalement des scénarios de migration vers Fabric.\n\n• Bonne connaissance de SQL / Data Warehouse .\n\n• Maîtrise des bonnes pratiques Git et versionning .\n\n• Expérience dans des environnements où les enjeux de gouvernance et de collaboration sont importants.\n\n• Une expérience de migration Tableau → Power BI constitue un réel atout.\n\n• Capacité à travailler de manière autonome dans un contexte complexe et contraint par les délais.\n\n• Excellente posture professionnelle, capacité à communiquer avec différents interlocuteurs et à travailler en équipe.\n\n• Niveau d’expertise confirmé attendu."
       },
+      "needsRetranslation": true,
       "location": "Lausanne, VD, Switzerland",
       "canton": "VD",
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.359Z",
+      "crawledAt": "2026-11-01T09:15:07.355Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Consulenza",
@@ -245,237 +409,9 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true
-    },
-    {
-      "id": "talan-338bfd5acd78",
-      "slug": "business-analyst-core-banking-talan-geneve",
-      "slugByLocale": {
-        "it": "business-analyst-core-banking-talan-geneve",
-        "en": "business-analyste-core-banking-talan-geneve-switzerland",
-        "de": "business-analyst-core-banking-talan-geneve",
-        "fr": "business-analyste-core-banking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Business Analyste Core Banking",
-      "titleByLocale": {
-        "it": "Business Analyst Core Banking",
-        "en": "Business Analyst Core Banking",
-        "de": "Business Analyst Core Banking",
-        "fr": "Business Analyste Core Banking"
-      },
-      "description": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\n Principales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent.",
-      "descriptionByLocale": {
-        "it": "All'interno del team di Core Banking IT, Business Analyst supporta i progetti di trasformazione di Core Banking e fornisce l'interfaccia tra team aziendali e IT.\nPrincipali responsabilità:\n\n• Analizzare e formalizzare le esigenze aziendali di Core Banking.\n\n• Soluzioni di progettazione con EMS e Service Owners.\n\n• Scrivere requisiti funzionali e specifiche.\n\n• Presentare le analisi agli utenti e ottenere la loro validazione.\n\n• Condurre le stime del carico di sviluppo.\n\n• Garantire il rispetto degli standard, delle procedure e dell'architettura IT\n\n• Assicurare il coordinamento tra il commercio, l'IT e i team tecnici.\n\nProfilo ricercato\n\n• Più di 15 anni di esperienza nel settore bancario, idealmente in Core Banking.\n\n• Forte esperienza nella trasformazione e consegna IT.\n\n• Buona conoscenza dei processi operativi in Wealth Management e nell'ecosistema Core Banking.\n\n• Esperienza nell'intelligenza artificiale.\n\n• Ottima capacità di comunicazione, con un buon livello in francese e inglese, sia orale che scritta.\n\n• Autonomo, strutturato e dotato di un forte spirito analitico.\n\n• L'orientamento del cliente e la capacità di lavorare con vari interlocutori.\n\n• Buon controllo SQL.\n\n• Capacità di evolversi in un ambiente complesso e gestire più argomenti in parallelo.\n\n• Laurea o equivalente.",
-        "en": "Within the Core Banking IT team, the Business Analyst supports Core Banking transformation projects and provides the interface between business and IT teams.\nMain responsibilities:\n\n• Analyze and formalize Core Banking business needs.\n\n• Design solutions with EMS and Service Owners.\n\n• Write down functional requirements and specifications.\n\n• Present the analyses to users and obtain their validation.\n\n• Conduct development load estimates.\n\n• Ensure compliance with IT standards, procedures and architecture\n\n• Ensure coordination between trade, IT and technical teams.\n\nProfile sought\n\n• More than 15 years of experience in the banking sector, ideally in Core Banking.\n\n• Strong experience in transformation and delivery IT.\n\n• Good knowledge of the operational processes in Wealth Management and the Core Banking ecosystem.\n\n• Experience in Artificial Intelligence.\n\n• Excellent communication skills, with a good level in French and English, both oral and written.\n\n• Autonomous, structured and endowed with a strong analytical spirit.\n\n• Customer orientation and ability to work with various interlocutors.\n\n• Good SQL control.\n\n• Ability to evolve in a complex environment and manage multiple topics in parallel.\n\n• Bachelor's degree or equivalent.",
-        "de": "Innerhalb des Core Banking IT Teams unterstützt der Business Analyst Core Banking Transformationsprojekte und stellt die Schnittstelle zwischen Business und IT Teams bereit.\nHauptzuständigkeiten:\n\n• Analysieren und formalisieren Sie die Anforderungen des Core Banking-Geschäfts.\n\n• Design-Lösungen mit EMS und Service Ownern.\n\n• Notieren Sie sich funktionale Anforderungen und Spezifikationen.\n\n• Präsentieren Sie die Analysen den Nutzern und erhalten Sie deren Validierung.\n\n• Durchführung von Entwicklungslastschätzungen.\n\n• Gewährleistung der Einhaltung von IT-Standards, -Verfahren und -Architektur\n\n• Gewährleistung der Koordinierung zwischen Handels-, IT- und technischen Teams.\n\nProfil gesucht\n\n• Mehr als 15 Jahre Erfahrung im Bankensektor, idealerweise im Core Banking.\n\n• Starke Erfahrung in der Transformation und Delivery IT.\n\n• Gute Kenntnisse der operativen Prozesse im Wealth Management und im Core Banking Ökosystem.\n\n• Erfahrung in Künstlicher Intelligenz.\n\n• Hervorragende Kommunikationsfähigkeiten, mit einem guten Niveau in Französisch und Englisch, sowohl mündlich als auch schriftlich.\n\n• Autonom, strukturiert und mit einem starken analytischen Geist ausgestattet.\n\n• Kundenorientierung und die Fähigkeit, mit verschiedenen Gesprächspartnern zu arbeiten.\n\n• Gute SQL-Kontrolle.\n\n• Fähigkeit, sich in einer komplexen Umgebung zu entwickeln und mehrere Themen parallel zu verwalten.\n\n• Bachelor-Abschluss oder gleichwertig.",
-        "fr": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\nPrincipales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.359Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-21T14:00:33.629Z",
-      "postedDate": "2026-08-21T14:00:33.629Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
-      "jobReqId": "744000144774739",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyste-core-banking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyste-core-banking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T21:26:00.523Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-9addce44f74f",
-      "slug": "consulente-sap-basis-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-sap-basis-talan-geneva",
-        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
-        "de": "berater-sap-basis-talan-geneva",
-        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant SAP Basis",
-      "titleByLocale": {
-        "it": "Consulente SAP Basis",
-        "en": "SAP Basis Consultant",
-        "de": "Berater SAP Basis",
-        "fr": "Consultant SAP Basis"
-      },
-      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
-      "descriptionByLocale": {
-        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\nRuolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\nCompetenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\nProfilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
-        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\nRole & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\nDesired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\nDesired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
-        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\nRolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\nGewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\nProfil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
-        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
-      },
-      "needsRetranslation": false,
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.358Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T07:38:00.377Z",
-      "postedDate": "2026-10-02T07:38:00.377Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "jobReqId": "744000153113299",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-sap-basis-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-sap-basis-talan-geneva-ge-switzerland"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1266,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-04T22:55:58.545Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-61c9acf4f11b",
-      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
-        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
-        "de": "berater-expert-sap-crm-f-h-talan-geneva",
-        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant Expert SAP CRM F/H",
-      "titleByLocale": {
-        "it": "Consulente Expert SAP CRM F/H",
-        "en": "Consultant Expert SAP CRM M/F",
-        "de": "Berater Expert SAP CRM F/H",
-        "fr": "Consultant Expert SAP CRM F/H"
-      },
-      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
-        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
-        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
-        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
-      },
-      "needsRetranslation": false,
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.357Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T09:11:46.418Z",
-      "postedDate": "2026-10-02T09:11:46.418Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "jobReqId": "744000153133249",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:10:26.715Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:15:07.355Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-3d22739aef94",
@@ -501,7 +437,7 @@
         "it": "Contesto\n\nNell'ambito di un programma strategico di trasformazione Data, il nostro cliente è alla ricerca di un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per accompagnare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\n\nInterverrete nella gestione delle anagrafiche titoli, della qualità dei dati e dell'integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\n\nLe vostre mansioni\n\n- Raccogliere e analizzare le esigenze dei team Front Office, Rischi, Operazioni e Finanza.\n- Partecipare alla progettazione delle soluzioni EDM: acquisizione, convalida, arricchimento e distribuzione dei dati.\n- Garantire la gestione e la qualità dei dati finanziari di riferimento.\n- Definire le regole di controllo, i KPI e gli indicatori di qualità.\n- Partecipare all'integrazione dei fornitori di dati finanziari.\n- Facilitare workshop con le funzioni aziendali e coordinare i diversi interlocutori del progetto.\n- Produrre la documentazione funzionale e supportare gli utenti.\n\nCompetenze funzionali\n\n- Almeno 3-5 anni di esperienza in EDM, Reference Data o Security Master.\n- Solida conoscenza degli strumenti finanziari:\n- ISINA, CUSIP, SEDOLO\n- Azioni societarie\n- La tabella seguente indica il numero di partecipanti al programma.\n- Classificazioni e anagrafiche titoli\n- Esperienza in un ambiente bancario, di Asset Management o Wealth Management.\n- Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\n\nCompetenze tecniche\n\n- Esperienza nell'utilizzo di una piattaforma EDM o Security Master:\n- Informazioni su NeoXam\n- Fonte d'oro\n- Markit EDM\n- SimCorp\n- Aladdin.\n- o equivalente\n- Buona padronanza di SQL.\n- Conoscenza dei flussi di integrazione, API, XML / JSON.\n- Un'esperienza nel Cloud e in ambienti Agile costituisce un plus.\n\nQualità ricercate\n\n- Spiccate capacità di analisi e di risoluzione dei problemi.\n- Ottime capacità relazionali e di comunicazione con i team di business e IT.\n- Autonomia, rigore e senso dell'organizzazione.\n- Capacità di operare in ambienti complessi e fortemente orientati ai dati.",
         "en": "Context\n\nAs part of a strategic Data transformation program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\n\nYou will work on the management of security master data, data quality, and the integration of feeds supporting Wealth Management and Asset Management activities.\n\nYour responsibilities\n\n- Gather and analyze the needs of the Front Office, Risk, Operations, and Finance teams.\n- Participate in the design of EDM solutions: data ingestion, validation, enrichment, and distribution.\n- Ensure the management and quality of financial reference data.\n- Define control rules, KPIs, and quality indicators.\n- Participate in the integration of financial data providers.\n- Lead business workshops and coordinate the various project stakeholders.\n- Produce functional documentation and support users.\n\nFunctional skills\n\n- At least 3 to 5 years of experience in EDM, Reference Data, or Security Master.\n- Strong knowledge of financial instruments:\n- ISIN, CUSIP, SEDOL\n- corporate stock .\n- The following table shows the number of participants in the programme.\n- Classifications and security master data\n- Experience in a banking, Asset Management, or Wealth Management environment.\n- Knowledge of data providers such as Bloomberg, Refinitiv, or SIX.\n\nTechnical skills\n\n- Experience with an EDM or Security Master platform:\n- NeoXam DataHub\n- Golden Source\n- Markit EDM\n- SimCorp\n- Aladdin\n- or equivalent\n- Good command of SQL.\n- Knowledge of integration flows, APIs, XML / JSON.\n- Experience with Cloud and Agile environments is a plus.\n\nDesired qualities\n\n- Strong analytical and problem-solving skills.\n- Excellent interpersonal skills and communication with business and IT teams.\n- Autonomy, rigor and organizational skills.\n- Ability to work in complex and highly data-oriented environments.",
         "de": "Kontext\n\nIm Rahmen eines strategischen Programms zur Datentransformation sucht unser Kunde einen Business Analysten mit Spezialisierung auf Enterprise Data Management (EDM) und Instrument Data Management, um die Weiterentwicklung seiner Plattform für die Verwaltung von Finanzdaten zu begleiten.\n\nSie werden in den Bereichen Wertpapierstammdatenverwaltung, Datenqualität und Integration von Datenströmen tätig sein, die die Aktivitäten im Wealth Management und Asset Management versorgen.\n\nIhre Aufgaben\n\n- Die Anforderungen der Teams aus Front Office, Risikomanagement, Operations und Finance erfassen und analysieren.\n- An der Konzeption von EDM-Lösungen mitwirken: Datenaufnahme, Validierung, Anreicherung und Verteilung der Daten.\n- Die Verwaltung und Qualität der Finanzstammdaten sicherstellen.\n- Kontrollregeln, KPIs und Qualitätsindikatoren definieren.\n- An der Integration von Finanzdatenanbietern mitwirken.\n- Fachliche Workshops moderieren und die verschiedenen Projektbeteiligten koordinieren.\n- Die funktionale Dokumentation erstellen und die Benutzer unterstützen.\n\nFunktionale Kompetenzen\n\n- Mindestens 3 bis 5 Jahre Erfahrung in EDM, Reference Data oder Security Master.\n- Fundierte Kenntnisse von Finanzinstrumenten:\n- ISIN, CUSIP, SEDOL\n- Gesellschaftsaktionen\n- Die folgende Tabelle zeigt die Anzahl der Teilnehmer am Programm.\n- Klassifikationen und Wertpapier-Referenzdaten\n- Erfahrung in einem Bankenumfeld, im Asset Management oder im Wealth Management.\n- Kenntnis der Datenanbieter wie Bloomberg, Refinitiv oder SIX.\n\nTechnische Kompetenzen\n\n- Erfahrung mit einer EDM- oder Security-Master-Plattform:\n- NeoXam DataHub\n- Goldene Quelle\n- Markit EDM\n- SimCorp\n- Aladin\n- oder gleichwertig\n- Gute SQL-Kenntnisse.\n- Kenntnisse der Integrationsflüsse, APIs, XML / JSON.\n- Erfahrung mit Cloud und agilen Umgebungen ist von Vorteil.\n\nGesuchte Qualitäten\n\n- Ausgeprägte Analyse- und Problemlösungsfähigkeiten.\n- Ausgeprägte soziale Kompetenz und Kommunikationsfähigkeit im Umgang mit den Fach- und IT-Teams.\n- Selbstständigkeit, Genauigkeit und Organisationstalent.\n- Fähigkeit, in komplexen und stark datenorientierten Umgebungen zu agieren.",
-        "fr": "Contexte\n\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n\nVos missions\n\n- Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n- Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n- Assurer la gestion et la qualité des données de référence financières.\n- Définir les règles de contrôle, KPI et indicateurs de qualité.\n- Participer à l'intégration des fournisseurs de données financières.\n- Animer des ateliers métiers et coordonner les différents intervenants du projet.\n- Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n- 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n- Solide connaissance des instruments financiers :\n- ISIN, CUSIP, SEDOL\n- Corporate Actions\n- Pricing\n- Classifications et référentiels titres\n- Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n- Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n\nCompétences techniques\n\n- Expérience sur une plateforme EDM ou Security Master :\n- NeoXam DataHub\n- GoldenSource\n- Markit EDM\n- SimCorp\n- Aladdin\n- ou équivalent\n- Bonne maîtrise du SQL.\n- Connaissances des flux d'intégration, API, XML / JSON.\n- Une expérience Cloud et des environnements Agile constitue un plus.\n\nQualités recherchées\n\n- Forte capacité d'analyse et de résolution de problèmes.\n- Excellent relationnel et communication avec les équipes métiers et IT.\n- Autonomie, rigueur et sens de l'organisation.\n- Capacité à évoluer dans des environnements complexes et fortement orientés données."
+        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
       },
       "needsRetranslation": true,
       "location": "Genève, , Switzerland",
@@ -509,7 +445,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.357Z",
+      "crawledAt": "2026-11-01T09:15:07.354Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -552,87 +488,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
-    },
-    {
-      "id": "talan-c97255b5c406",
-      "slug": "piattaforma-dati-ms-fabric-databricks-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "piattaforma-dati-ms-fabric-databricks-talan-geneve-switzerland",
-        "en": "data-platform-ms-fabric-databricks-talan-geneve-switzerland",
-        "de": "datenplattform-ms-fabric-databricks-talan-geneve-switzerland",
-        "fr": "data-platform-ms-fabric-databricks-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Data Platform MS Fabric Databricks",
-      "titleByLocale": {
-        "it": "Piattaforma dati MS Fabric Databricks",
-        "en": "MS Fabric Databricks Data Platform",
-        "de": "Datenplattform MS Fabric Databricks",
-        "fr": "Data Platform MS Fabric Databricks"
-      },
-      "description": "Contexte de la mission\n Dans le cadre de l’évolution d’une plateforme Data au sein d’un environnement bancaire, nous recherchons un Data Engineer expérimenté sur Databricks et Microsoft Fabric .\n La mission consiste principalement à étendre la couverture fonctionnelle d’une plateforme Data existante en intégrant de nouveaux datasets selon des patterns et standards déjà définis.\n L’architecture et le framework étant déjà en place, l’objectif n’est pas de redéfinir la solution, mais de déployer de nouveaux flux de données en respectant les modèles, règles de qualité et processus CI/CD existants .\n Missions principales\n\n• Intégrer de nouveaux datasets au sein de la plateforme Data existante.\n\n• Configurer les nouveaux flux selon les patterns et standards établis.\n\n• Développer et adapter les traitements avec PySpark et SQL .\n\n• Définir correctement la modélisation des nouvelles données : dimensions, faits, granularité, clés métiers, SCD1/SCD2, snapshots.\n\n• Configurer les datasets à travers une approche déclarative, notamment via TOML .\n\n• Valider les données selon les règles de qualité et contrats existants.\n\n• Analyser et corriger les anomalies rencontrées lors de l'intégration des nouvelles sources.\n\n• Déployer les évolutions au travers des pipelines CI/CD Azure DevOps .\n\n• Diagnostiquer et résoudre les échecs liés aux quality gates et aux différentes étapes de promotion.\n\n• Comprendre fonctionnellement les données bancaires sources afin de garantir leur bonne intégration dans la plateforme.\n\nData Engineering\n\n• Solide expérience Databricks\n\n• Maîtrise de Delta Lake\n\n• Bonne connaissance de Unity Catalog\n\n• Connaissance de Change Data Feed\n\n• Très bon niveau en PySpark\n\n• Très bon niveau en SQL\n Data Modelling\n Capacité à déterminer pour chaque nouveau dataset :\n\n• dimension vs fact ;\n\n• SCD Type 1 vs SCD Type 2 ;\n\n• logique de snapshot ;\n\n• granularité ;\n\n• clés métiers naturelles ;\n\n• règles de transformation et de validation.\n CI/CD & DevOps\n\n• Bonne maîtrise d' Azure DevOps\n\n• Expérience de pipelines CI/CD existants\n\n• Compréhension des mécanismes de gates et de promotion par branches\n\n• Capacité à diagnostiquer les erreurs de déploiement\n\n• Une exposition à Databricks Asset Bundles et/ou Terraform constitue un avantage.\n Connaissance bancaire\n Une expérience du secteur bancaire, idéalement en Private Banking / Wealth Management , est indispensable.\n Bonne compréhension de données telles que :\n\n• positions ;\n\n• transactions ;\n\n• Assets under Management (AuM) ;\n\n• Net New Assets (NNA) ;\n\n• booking centers ;\n\n• hiérarchies clients.\n La capacité à comprendre fonctionnellement des données provenant d'un Core Banking System est particulièrement importante.\n Compétences appréciées\n\n• Expérience avec TOML ou des frameworks Data déclaratifs/config-driven\n\n• Expérience des patterns Auto CDC\n\n• SCD1 / SCD2\n\n• Kafka\n\n• Spark Declarative Pipelines\n\n• Connaissance de Microsoft Fabric\n\n• Expérience de la modélisation dimensionnelle\n\n• Connaissance de la méthodologie Kimball\n\n• Terraform",
-      "descriptionByLocale": {
-        "it": "Contesto della missione\n\nNell'ambito dell'evoluzione di una piattaforma Data all'interno di un ambiente bancario, siamo alla ricerca di un Data Engineer esperto in Databricks e Microsoft Fabric .\n\nLa missione consiste principalmente nell'ampliare la copertura funzionale di una piattaforma Data esistente integrando nuovi dataset secondo pattern e standard già definiti.\n\nPoiché l'architettura e il framework sono già in essere, l'obiettivo non è ridefinire la soluzione, ma implementare nuovi flussi di dati rispettando i modelli, le regole di qualità e i processi CI/CD esistenti .\n\nAttività principali\n\n- Integrare nuovi dataset all'interno della piattaforma Data esistente.\n- Configurare i nuovi flussi secondo i pattern e gli standard stabiliti.\n- Sviluppare e adattare le elaborazioni con PySpark e SQL .\n- Definire correttamente la modellazione dei nuovi dati: dimensioni, fatti, granularità, chiavi di business, SCD1/SCD2, snapshot.\n- Configurare i dataset attraverso un approccio dichiarativo, in particolare tramite TOML .\n- Convalidare i dati secondo le regole di qualità e i contratti esistenti.\n- Analizzare e correggere le anomalie riscontrate durante l'integrazione delle nuove fonti.\n- Distribuire le evoluzioni tramite le pipeline CI/CD Azure DevOps .\n- Diagnosticare e risolvere gli errori legati ai quality gate e alle diverse fasi di promozione.\n- Comprendere dal punto di vista funzionale i dati bancari di origine per garantirne la corretta integrazione nella piattaforma.\n\nIngegneria dei Dati\n\n- Solida esperienza con Databricks\n- Padronanza di Delta Lake\n- Buona conoscenza di Unity Catalog\n- Conoscenza del Change Data Feed\n- Ottimo livello in PySpark\n- Ottimo livello in SQL\n\nData pul\n\nCapacità di determinare per ogni nuovo dataset:\n\n- dimensione vs fatto ;\n- SCD Type 1 vs SCD Type 2;\n- logica dello snapshot;\n- granularità;\n- chiavi naturali di business;\n- regole di trasformazione e validazione.\n\nOpzioni & di sviluppo CI/CD\n\n- Buona padronanza di Azure DevOps\n- Esperienza con pipeline CI/CD esistenti\n- Comprensione dei meccanismi di gate e di promozione tramite branch\n- Capacità di diagnosticare gli errori di deployment\n- La familiarità con Databricks Asset Bundles e/o Terraform costituisce un vantaggio.\n\nConoscenza del settore bancario\n\nUn'esperienza nel settore bancario, idealmente nel Private Banking / Wealth Management, è indispensabile.\n\nBuona comprensione di dati quali:\n\n- posizioni;\n- transazioni;\n- Assets under Management (AuM);\n- Net New Assets (NNA);\n- booking centers;\n- gerarchie dei clienti.\n\nLa capacità di comprendere dal punto di vista funzionale i dati provenienti da un Core Banking System è particolarmente importante.\n\nCompetenze apprezzate\n\n- Esperienza con TOML o framework di dati dichiarativi/config-driven\n- Esperienza con i pattern Auto CDC\n- SCD1/SCD2\n- Franz Kafka\n- Tubi per la dichiarazione di scintilla\n- Conoscenza di Microsoft Fabric\n- Esperienza nella modellazione dimensionale\n- Conoscenza della metodologia Kimball\n- Terraformare",
-        "en": "Assignment context\n\nAs part of the evolution of a Data platform within a banking environment, we are looking for an experienced Data Engineer with Databricks and Microsoft Fabric .\n\nThe assignment mainly consists of extending the functional coverage of an existing Data platform by integrating new datasets according to already-defined patterns and standards.\n\nSince the architecture and framework are already in place, the objective is not to redefine the solution, but to deploy new data flows while complying with the existing models, quality rules and CI/CD processes .\n\nMain responsibilities\n\n- Integrate new datasets into the existing Data platform.\n- Configure the new flows according to the established patterns and standards.\n- Develop and adapt processing using PySpark and SQL .\n- Correctly define the modeling of the new data: dimensions, facts, granularity, business keys, SCD1/SCD2, snapshots.\n- Configure datasets through a declarative approach, particularly via TOML .\n- Validate the data according to existing quality rules and contracts.\n- Analyze and correct anomalies encountered during the integration of new sources.\n- Deploy the changes through Azure DevOps CI/CD pipelines .\n- Diagnose and resolve failures related to quality gates and the various promotion stages.\n- Understand the source banking data from a functional perspective to ensure its proper integration into the platform.\n\nData Engineering\n\n- Strong Databricks experience\n- Proficiency in Delta Lake\n- Good knowledge of Unity Catalog\n- Knowledge of Change Data Feed\n- Very good proficiency in PySpark\n- Very good proficiency in SQL\n\nData Modeling\n\nAbility to determine for each new dataset:\n\n- dimension vs. fact ;\n- SCD Type 1 vs SCD Type 2;\n- snapshot logic ;\n- granularity ;\n- natural business keys ;\n- transformation and validation rules.\n\nCI/CD & Dev Ops\n\n- Good command of Azure DevOps\n- Experience with existing CI/CD pipelines\n- Understanding of gate mechanisms and branch-based promotion\n- Ability to diagnose deployment errors\n- Exposure to Databricks Asset Bundles and/or Terraform is an advantage.\n\nBanking knowledge\n\nExperience in the banking sector, ideally in Private Banking / Wealth Management, is essential.\n\nGood understanding of data such as:\n\n- positions;\n- transactions;\n- Fund for Management (AuM);\n- Net New Fund (NNA);\n- - The \"Gals\" centre;\n- client hierarchies.\n\nThe ability to understand data originating from a Core Banking System from a functional perspective is particularly important.\n\nPreferred skills\n\n- Experience with TOML or declarative/config-driven data frameworks\n- Experience with Auto CDC patterns\n- SCD1 / SCD2\n- Franz Kafka\n- Spark Declaration Pipelines\n- Knowledge of Microsoft Fabric\n- Experience with dimensional modeling\n- Knowledge of the Kimball methodology\n- Terraform",
-        "de": "Kontext des Auftrags\n\nIm Rahmen der Weiterentwicklung einer Data-Plattform in einem Bankenumfeld suchen wir einen erfahrenen Data Engineer mit Erfahrung in Databricks und Microsoft Fabric .\n\nDer Auftrag besteht hauptsächlich darin, die funktionale Abdeckung einer bestehenden Data-Plattform zu erweitern, indem neue Datasets gemäß bereits definierten Patterns und Standards integriert werden.\n\nDa die Architektur und das Framework bereits vorhanden sind, besteht das Ziel nicht darin, die Lösung neu zu definieren, sondern neue Datenflüsse unter Einhaltung der bestehenden Modelle, Qualitätsregeln und CI/CD-Prozesse bereitzustellen .\n\nHauptaufgaben\n\n- Neue Datasets in die bestehende Data-Plattform integrieren.\n- Die neuen Datenflüsse gemäß den festgelegten Patterns und Standards konfigurieren.\n- Die Verarbeitungen mit PySpark und SQL entwickeln und anpassen .\n- Die Modellierung der neuen Daten korrekt definieren: Dimensionen, Fakten, Granularität, Geschäftsschlüssel, SCD1/SCD2, Snapshots.\n- Die Datasets über einen deklarativen Ansatz konfigurieren, insbesondere über TOML .\n- Die Daten gemäß den bestehenden Qualitätsregeln und Datenverträgen validieren.\n- Bei der Integration der neuen Quellen auftretende Anomalien analysieren und beheben.\n- Die Weiterentwicklungen über die CI/CD-Pipelines von Azure DevOps bereitstellen .\n- Fehlschläge im Zusammenhang mit Quality Gates und den verschiedenen Promotion-Schritten diagnostizieren und beheben .\n- Die Quelldaten aus dem Bankwesen fachlich verstehen, um ihre ordnungsgemäße Integration in die Plattform sicherzustellen.\n\nDatentechnik\n\n- Fundierte Erfahrung mit Databricks\n- Beherrschung von Delta Lake\n- Gute Kenntnisse in Unity Catalog\n- Kenntnisse im Change Data Feed\n- Sehr gute Kenntnisse in PySpark\n- Sehr gute Kenntnisse in SQL\n\nDatenmodellierung\n\nFähigkeit, für jeden neuen Datensatz zu bestimmen:\n\n- Dimension vs. Fakt;\n- SCD-Typ 1 vs. SCD-Typ 2;\n- Snapshot-Logik;\n- Granularität;\n- Natürliche Geschäftsschlüssel;\n- Transformations- und Validierungsregeln.\n\nKI/CD & Dev Ops\n\n- Gute Kenntnisse in Azure DevOps\n- Erfahrung mit bestehenden CI/CD-Pipelines\n- Verständnis der Gate-Mechanismen und der Promotion über Branches\n- Fähigkeit, Bereitstellungsfehler zu diagnostizieren\n- Erfahrung mit Databricks Asset Bundles und/oder Terraform ist von Vorteil.\n\nBankkenntnisse\n\nErfahrung im Bankensektor, idealerweise im Private Banking / Wealth Management, ist unerlässlich.\n\nGutes Verständnis von Daten wie:\n\n- Positionen;\n- Transaktionen;\n- Verwaltetes Vermögen (AuM) ;\n- Netto-Neuvermögen (NNA) ;\n- Buchungszentren ;\n- Kundenhierarchien.\n\nDie Fähigkeit, Daten aus einem Core-Banking-System funktional zu verstehen, ist besonders wichtig.\n\nWünschenswerte Kompetenzen\n\n- Erfahrung mit TOML oder deklarativen/konfigurationsgesteuerten Data-Frameworks\n- Erfahrung mit Auto-CDC-Patterns\n- SCD1 / SCD2\n- DECAILLON\n- Deklarative Spark-Pipelines\n- Kenntnisse in Microsoft Fabric\n- Erfahrung mit dimensionaler Modellierung\n- Kenntnisse der Kimball-Methodik\n- Terraform",
-        "fr": "Contexte de la mission\n\nDans le cadre de l’évolution d’une plateforme Data au sein d’un environnement bancaire, nous recherchons un Data Engineer expérimenté sur Databricks et Microsoft Fabric .\n\nLa mission consiste principalement à étendre la couverture fonctionnelle d’une plateforme Data existante en intégrant de nouveaux datasets selon des patterns et standards déjà définis.\n\nL’architecture et le framework étant déjà en place, l’objectif n’est pas de redéfinir la solution, mais de déployer de nouveaux flux de données en respectant les modèles, règles de qualité et processus CI/CD existants .\n\nMissions principales\n\n- Intégrer de nouveaux datasets au sein de la plateforme Data existante.\n- Configurer les nouveaux flux selon les patterns et standards établis.\n- Développer et adapter les traitements avec PySpark et SQL .\n- Définir correctement la modélisation des nouvelles données : dimensions, faits, granularité, clés métiers, SCD1/SCD2, snapshots.\n- Configurer les datasets à travers une approche déclarative, notamment via TOML .\n- Valider les données selon les règles de qualité et contrats existants.\n- Analyser et corriger les anomalies rencontrées lors de l'intégration des nouvelles sources.\n- Déployer les évolutions au travers des pipelines CI/CD Azure DevOps .\n- Diagnostiquer et résoudre les échecs liés aux quality gates et aux différentes étapes de promotion.\n- Comprendre fonctionnellement les données bancaires sources afin de garantir leur bonne intégration dans la plateforme.\n\nData Engineering\n\n- Solide expérience Databricks\n- Maîtrise de Delta Lake\n- Bonne connaissance de Unity Catalog\n- Connaissance de Change Data Feed\n- Très bon niveau en PySpark\n- Très bon niveau en SQL\n\nData Modelling\n\nCapacité à déterminer pour chaque nouveau dataset :\n\n- dimension vs fact ;\n- SCD Type 1 vs SCD Type 2 ;\n- logique de snapshot ;\n- granularité ;\n- clés métiers naturelles ;\n- règles de transformation et de validation.\n\nCI/CD & DevOps\n\n- Bonne maîtrise d' Azure DevOps\n- Expérience de pipelines CI/CD existants\n- Compréhension des mécanismes de gates et de promotion par branches\n- Capacité à diagnostiquer les erreurs de déploiement\n- Une exposition à Databricks Asset Bundles et/ou Terraform constitue un avantage.\n\nConnaissance bancaire\n\nUne expérience du secteur bancaire, idéalement en Private Banking / Wealth Management , est indispensable.\n\nBonne compréhension de données telles que :\n\n- positions ;\n- transactions ;\n- Assets under Management (AuM) ;\n- Net New Assets (NNA) ;\n- booking centers ;\n- hiérarchies clients.\n\nLa capacité à comprendre fonctionnellement des données provenant d'un Core Banking System est particulièrement importante.\n\nCompétences appréciées\n\n- Expérience avec TOML ou des frameworks Data déclaratifs/config-driven\n- Expérience des patterns Auto CDC\n- SCD1 / SCD2\n- Kafka\n- Spark Declarative Pipelines\n- Connaissance de Microsoft Fabric\n- Expérience de la modélisation dimensionnelle\n- Connaissance de la méthodologie Kimball\n- Terraform"
-      },
-      "needsRetranslation": true,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.356Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-15T14:53:09.347Z",
-      "postedDate": "2026-10-15T14:53:09.347Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
-      "jobReqId": "744000155782339",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "data-platform-ms-fabric-databricks-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "data-platform-ms-fabric-databricks-talan-geneve-switzerland"
-        ],
-        "de": [
-          "data-platform-ms-fabric-databricks-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-15T21:16:17.874Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "retranslationAttempts": 1
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-08T09:15:07.354Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-77288cd4a877",
@@ -665,7 +523,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.356Z",
+      "crawledAt": "2026-11-01T09:15:07.353Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -718,7 +576,174 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-01T09:15:07.353Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-9addce44f74f",
+      "slug": "consulente-sap-basis-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-sap-basis-talan-geneva",
+        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
+        "de": "berater-sap-basis-talan-geneva",
+        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant SAP Basis",
+      "titleByLocale": {
+        "it": "Consulente SAP Basis",
+        "en": "SAP Basis Consultant",
+        "de": "Berater SAP Basis",
+        "fr": "Consultant SAP Basis"
+      },
+      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+      "descriptionByLocale": {
+        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\nRuolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\nCompetenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\nProfilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
+        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\nRole & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\nDesired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\nDesired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
+        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\nRolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\nGewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\nProfil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
+        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
+      },
+      "needsRetranslation": false,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-01T09:15:07.353Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T07:38:00.377Z",
+      "postedDate": "2026-10-02T07:38:00.377Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "jobReqId": "744000153113299",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-sap-basis-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-sap-basis-talan-geneva-ge-switzerland"
+        ]
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1266,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-09-04T22:55:58.545Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T09:15:07.353Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-c97255b5c406",
+      "slug": "piattaforma-dati-ms-fabric-databricks-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "piattaforma-dati-ms-fabric-databricks-talan-geneve-switzerland",
+        "en": "data-platform-ms-fabric-databricks-talan-geneve-switzerland",
+        "de": "datenplattform-ms-fabric-databricks-talan-geneve-switzerland",
+        "fr": "data-platform-ms-fabric-databricks-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Data Platform MS Fabric Databricks",
+      "titleByLocale": {
+        "it": "Piattaforma dati MS Fabric Databricks",
+        "en": "MS Fabric Databricks Data Platform",
+        "de": "Datenplattform MS Fabric Databricks",
+        "fr": "Data Platform MS Fabric Databricks"
+      },
+      "description": "Contexte de la mission\n Dans le cadre de l’évolution d’une plateforme Data au sein d’un environnement bancaire, nous recherchons un Data Engineer expérimenté sur Databricks et Microsoft Fabric .\n La mission consiste principalement à étendre la couverture fonctionnelle d’une plateforme Data existante en intégrant de nouveaux datasets selon des patterns et standards déjà définis.\n L’architecture et le framework étant déjà en place, l’objectif n’est pas de redéfinir la solution, mais de déployer de nouveaux flux de données en respectant les modèles, règles de qualité et processus CI/CD existants .\n Missions principales\n\n• Intégrer de nouveaux datasets au sein de la plateforme Data existante.\n\n• Configurer les nouveaux flux selon les patterns et standards établis.\n\n• Développer et adapter les traitements avec PySpark et SQL .\n\n• Définir correctement la modélisation des nouvelles données : dimensions, faits, granularité, clés métiers, SCD1/SCD2, snapshots.\n\n• Configurer les datasets à travers une approche déclarative, notamment via TOML .\n\n• Valider les données selon les règles de qualité et contrats existants.\n\n• Analyser et corriger les anomalies rencontrées lors de l'intégration des nouvelles sources.\n\n• Déployer les évolutions au travers des pipelines CI/CD Azure DevOps .\n\n• Diagnostiquer et résoudre les échecs liés aux quality gates et aux différentes étapes de promotion.\n\n• Comprendre fonctionnellement les données bancaires sources afin de garantir leur bonne intégration dans la plateforme.\n\nData Engineering\n\n• Solide expérience Databricks\n\n• Maîtrise de Delta Lake\n\n• Bonne connaissance de Unity Catalog\n\n• Connaissance de Change Data Feed\n\n• Très bon niveau en PySpark\n\n• Très bon niveau en SQL\n Data Modelling\n Capacité à déterminer pour chaque nouveau dataset :\n\n• dimension vs fact ;\n\n• SCD Type 1 vs SCD Type 2 ;\n\n• logique de snapshot ;\n\n• granularité ;\n\n• clés métiers naturelles ;\n\n• règles de transformation et de validation.\n CI/CD & DevOps\n\n• Bonne maîtrise d' Azure DevOps\n\n• Expérience de pipelines CI/CD existants\n\n• Compréhension des mécanismes de gates et de promotion par branches\n\n• Capacité à diagnostiquer les erreurs de déploiement\n\n• Une exposition à Databricks Asset Bundles et/ou Terraform constitue un avantage.\n Connaissance bancaire\n Une expérience du secteur bancaire, idéalement en Private Banking / Wealth Management , est indispensable.\n Bonne compréhension de données telles que :\n\n• positions ;\n\n• transactions ;\n\n• Assets under Management (AuM) ;\n\n• Net New Assets (NNA) ;\n\n• booking centers ;\n\n• hiérarchies clients.\n La capacité à comprendre fonctionnellement des données provenant d'un Core Banking System est particulièrement importante.\n Compétences appréciées\n\n• Expérience avec TOML ou des frameworks Data déclaratifs/config-driven\n\n• Expérience des patterns Auto CDC\n\n• SCD1 / SCD2\n\n• Kafka\n\n• Spark Declarative Pipelines\n\n• Connaissance de Microsoft Fabric\n\n• Expérience de la modélisation dimensionnelle\n\n• Connaissance de la méthodologie Kimball\n\n• Terraform",
+      "descriptionByLocale": {
+        "it": "Contesto della missione\n\nNell'ambito dell'evoluzione di una piattaforma Data all'interno di un ambiente bancario, siamo alla ricerca di un Data Engineer esperto in Databricks e Microsoft Fabric .\n\nLa missione consiste principalmente nell'ampliare la copertura funzionale di una piattaforma Data esistente integrando nuovi dataset secondo pattern e standard già definiti.\n\nPoiché l'architettura e il framework sono già in essere, l'obiettivo non è ridefinire la soluzione, ma implementare nuovi flussi di dati rispettando i modelli, le regole di qualità e i processi CI/CD esistenti .\n\nAttività principali\n\n- Integrare nuovi dataset all'interno della piattaforma Data esistente.\n- Configurare i nuovi flussi secondo i pattern e gli standard stabiliti.\n- Sviluppare e adattare le elaborazioni con PySpark e SQL .\n- Definire correttamente la modellazione dei nuovi dati: dimensioni, fatti, granularità, chiavi di business, SCD1/SCD2, snapshot.\n- Configurare i dataset attraverso un approccio dichiarativo, in particolare tramite TOML .\n- Convalidare i dati secondo le regole di qualità e i contratti esistenti.\n- Analizzare e correggere le anomalie riscontrate durante l'integrazione delle nuove fonti.\n- Distribuire le evoluzioni tramite le pipeline CI/CD Azure DevOps .\n- Diagnosticare e risolvere gli errori legati ai quality gate e alle diverse fasi di promozione.\n- Comprendere dal punto di vista funzionale i dati bancari di origine per garantirne la corretta integrazione nella piattaforma.\n\nIngegneria dei Dati\n\n- Solida esperienza con Databricks\n- Padronanza di Delta Lake\n- Buona conoscenza di Unity Catalog\n- Conoscenza del Change Data Feed\n- Ottimo livello in PySpark\n- Ottimo livello in SQL\n\nData pul\n\nCapacità di determinare per ogni nuovo dataset:\n\n- dimensione vs fatto ;\n- SCD Type 1 vs SCD Type 2;\n- logica dello snapshot;\n- granularità;\n- chiavi naturali di business;\n- regole di trasformazione e validazione.\n\nOpzioni & di sviluppo CI/CD\n\n- Buona padronanza di Azure DevOps\n- Esperienza con pipeline CI/CD esistenti\n- Comprensione dei meccanismi di gate e di promozione tramite branch\n- Capacità di diagnosticare gli errori di deployment\n- La familiarità con Databricks Asset Bundles e/o Terraform costituisce un vantaggio.\n\nConoscenza del settore bancario\n\nUn'esperienza nel settore bancario, idealmente nel Private Banking / Wealth Management, è indispensabile.\n\nBuona comprensione di dati quali:\n\n- posizioni;\n- transazioni;\n- Assets under Management (AuM);\n- Net New Assets (NNA);\n- booking centers;\n- gerarchie dei clienti.\n\nLa capacità di comprendere dal punto di vista funzionale i dati provenienti da un Core Banking System è particolarmente importante.\n\nCompetenze apprezzate\n\n- Esperienza con TOML o framework di dati dichiarativi/config-driven\n- Esperienza con i pattern Auto CDC\n- SCD1/SCD2\n- Franz Kafka\n- Tubi per la dichiarazione di scintilla\n- Conoscenza di Microsoft Fabric\n- Esperienza nella modellazione dimensionale\n- Conoscenza della metodologia Kimball\n- Terraformare",
+        "en": "Assignment context\n\nAs part of the evolution of a Data platform within a banking environment, we are looking for an experienced Data Engineer with Databricks and Microsoft Fabric .\n\nThe assignment mainly consists of extending the functional coverage of an existing Data platform by integrating new datasets according to already-defined patterns and standards.\n\nSince the architecture and framework are already in place, the objective is not to redefine the solution, but to deploy new data flows while complying with the existing models, quality rules and CI/CD processes .\n\nMain responsibilities\n\n- Integrate new datasets into the existing Data platform.\n- Configure the new flows according to the established patterns and standards.\n- Develop and adapt processing using PySpark and SQL .\n- Correctly define the modeling of the new data: dimensions, facts, granularity, business keys, SCD1/SCD2, snapshots.\n- Configure datasets through a declarative approach, particularly via TOML .\n- Validate the data according to existing quality rules and contracts.\n- Analyze and correct anomalies encountered during the integration of new sources.\n- Deploy the changes through Azure DevOps CI/CD pipelines .\n- Diagnose and resolve failures related to quality gates and the various promotion stages.\n- Understand the source banking data from a functional perspective to ensure its proper integration into the platform.\n\nData Engineering\n\n- Strong Databricks experience\n- Proficiency in Delta Lake\n- Good knowledge of Unity Catalog\n- Knowledge of Change Data Feed\n- Very good proficiency in PySpark\n- Very good proficiency in SQL\n\nData Modeling\n\nAbility to determine for each new dataset:\n\n- dimension vs. fact ;\n- SCD Type 1 vs SCD Type 2;\n- snapshot logic ;\n- granularity ;\n- natural business keys ;\n- transformation and validation rules.\n\nCI/CD & Dev Ops\n\n- Good command of Azure DevOps\n- Experience with existing CI/CD pipelines\n- Understanding of gate mechanisms and branch-based promotion\n- Ability to diagnose deployment errors\n- Exposure to Databricks Asset Bundles and/or Terraform is an advantage.\n\nBanking knowledge\n\nExperience in the banking sector, ideally in Private Banking / Wealth Management, is essential.\n\nGood understanding of data such as:\n\n- positions;\n- transactions;\n- Fund for Management (AuM);\n- Net New Fund (NNA);\n- - The \"Gals\" centre;\n- client hierarchies.\n\nThe ability to understand data originating from a Core Banking System from a functional perspective is particularly important.\n\nPreferred skills\n\n- Experience with TOML or declarative/config-driven data frameworks\n- Experience with Auto CDC patterns\n- SCD1 / SCD2\n- Franz Kafka\n- Spark Declaration Pipelines\n- Knowledge of Microsoft Fabric\n- Experience with dimensional modeling\n- Knowledge of the Kimball methodology\n- Terraform",
+        "de": "Kontext des Auftrags\n\nIm Rahmen der Weiterentwicklung einer Data-Plattform in einem Bankenumfeld suchen wir einen erfahrenen Data Engineer mit Erfahrung in Databricks und Microsoft Fabric .\n\nDer Auftrag besteht hauptsächlich darin, die funktionale Abdeckung einer bestehenden Data-Plattform zu erweitern, indem neue Datasets gemäß bereits definierten Patterns und Standards integriert werden.\n\nDa die Architektur und das Framework bereits vorhanden sind, besteht das Ziel nicht darin, die Lösung neu zu definieren, sondern neue Datenflüsse unter Einhaltung der bestehenden Modelle, Qualitätsregeln und CI/CD-Prozesse bereitzustellen .\n\nHauptaufgaben\n\n- Neue Datasets in die bestehende Data-Plattform integrieren.\n- Die neuen Datenflüsse gemäß den festgelegten Patterns und Standards konfigurieren.\n- Die Verarbeitungen mit PySpark und SQL entwickeln und anpassen .\n- Die Modellierung der neuen Daten korrekt definieren: Dimensionen, Fakten, Granularität, Geschäftsschlüssel, SCD1/SCD2, Snapshots.\n- Die Datasets über einen deklarativen Ansatz konfigurieren, insbesondere über TOML .\n- Die Daten gemäß den bestehenden Qualitätsregeln und Datenverträgen validieren.\n- Bei der Integration der neuen Quellen auftretende Anomalien analysieren und beheben.\n- Die Weiterentwicklungen über die CI/CD-Pipelines von Azure DevOps bereitstellen .\n- Fehlschläge im Zusammenhang mit Quality Gates und den verschiedenen Promotion-Schritten diagnostizieren und beheben .\n- Die Quelldaten aus dem Bankwesen fachlich verstehen, um ihre ordnungsgemäße Integration in die Plattform sicherzustellen.\n\nDatentechnik\n\n- Fundierte Erfahrung mit Databricks\n- Beherrschung von Delta Lake\n- Gute Kenntnisse in Unity Catalog\n- Kenntnisse im Change Data Feed\n- Sehr gute Kenntnisse in PySpark\n- Sehr gute Kenntnisse in SQL\n\nDatenmodellierung\n\nFähigkeit, für jeden neuen Datensatz zu bestimmen:\n\n- Dimension vs. Fakt;\n- SCD-Typ 1 vs. SCD-Typ 2;\n- Snapshot-Logik;\n- Granularität;\n- Natürliche Geschäftsschlüssel;\n- Transformations- und Validierungsregeln.\n\nKI/CD & Dev Ops\n\n- Gute Kenntnisse in Azure DevOps\n- Erfahrung mit bestehenden CI/CD-Pipelines\n- Verständnis der Gate-Mechanismen und der Promotion über Branches\n- Fähigkeit, Bereitstellungsfehler zu diagnostizieren\n- Erfahrung mit Databricks Asset Bundles und/oder Terraform ist von Vorteil.\n\nBankkenntnisse\n\nErfahrung im Bankensektor, idealerweise im Private Banking / Wealth Management, ist unerlässlich.\n\nGutes Verständnis von Daten wie:\n\n- Positionen;\n- Transaktionen;\n- Verwaltetes Vermögen (AuM) ;\n- Netto-Neuvermögen (NNA) ;\n- Buchungszentren ;\n- Kundenhierarchien.\n\nDie Fähigkeit, Daten aus einem Core-Banking-System funktional zu verstehen, ist besonders wichtig.\n\nWünschenswerte Kompetenzen\n\n- Erfahrung mit TOML oder deklarativen/konfigurationsgesteuerten Data-Frameworks\n- Erfahrung mit Auto-CDC-Patterns\n- SCD1 / SCD2\n- DECAILLON\n- Deklarative Spark-Pipelines\n- Kenntnisse in Microsoft Fabric\n- Erfahrung mit dimensionaler Modellierung\n- Kenntnisse der Kimball-Methodik\n- Terraform",
+        "fr": "Contexte de la mission\nDans le cadre de l’évolution d’une plateforme Data au sein d’un environnement bancaire, nous recherchons un Data Engineer expérimenté sur Databricks et Microsoft Fabric .\nLa mission consiste principalement à étendre la couverture fonctionnelle d’une plateforme Data existante en intégrant de nouveaux datasets selon des patterns et standards déjà définis.\nL’architecture et le framework étant déjà en place, l’objectif n’est pas de redéfinir la solution, mais de déployer de nouveaux flux de données en respectant les modèles, règles de qualité et processus CI/CD existants .\nMissions principales\n\n• Intégrer de nouveaux datasets au sein de la plateforme Data existante.\n\n• Configurer les nouveaux flux selon les patterns et standards établis.\n\n• Développer et adapter les traitements avec PySpark et SQL .\n\n• Définir correctement la modélisation des nouvelles données : dimensions, faits, granularité, clés métiers, SCD1/SCD2, snapshots.\n\n• Configurer les datasets à travers une approche déclarative, notamment via TOML .\n\n• Valider les données selon les règles de qualité et contrats existants.\n\n• Analyser et corriger les anomalies rencontrées lors de l'intégration des nouvelles sources.\n\n• Déployer les évolutions au travers des pipelines CI/CD Azure DevOps .\n\n• Diagnostiquer et résoudre les échecs liés aux quality gates et aux différentes étapes de promotion.\n\n• Comprendre fonctionnellement les données bancaires sources afin de garantir leur bonne intégration dans la plateforme.\n\nData Engineering\n\n• Solide expérience Databricks\n\n• Maîtrise de Delta Lake\n\n• Bonne connaissance de Unity Catalog\n\n• Connaissance de Change Data Feed\n\n• Très bon niveau en PySpark\n\n• Très bon niveau en SQL\nData Modelling\nCapacité à déterminer pour chaque nouveau dataset :\n\n• dimension vs fact ;\n\n• SCD Type 1 vs SCD Type 2 ;\n\n• logique de snapshot ;\n\n• granularité ;\n\n• clés métiers naturelles ;\n\n• règles de transformation et de validation.\nCI/CD & DevOps\n\n• Bonne maîtrise d' Azure DevOps\n\n• Expérience de pipelines CI/CD existants\n\n• Compréhension des mécanismes de gates et de promotion par branches\n\n• Capacité à diagnostiquer les erreurs de déploiement\n\n• Une exposition à Databricks Asset Bundles et/ou Terraform constitue un avantage.\nConnaissance bancaire\nUne expérience du secteur bancaire, idéalement en Private Banking / Wealth Management , est indispensable.\nBonne compréhension de données telles que :\n\n• positions ;\n\n• transactions ;\n\n• Assets under Management (AuM) ;\n\n• Net New Assets (NNA) ;\n\n• booking centers ;\n\n• hiérarchies clients.\nLa capacité à comprendre fonctionnellement des données provenant d'un Core Banking System est particulièrement importante.\nCompétences appréciées\n\n• Expérience avec TOML ou des frameworks Data déclaratifs/config-driven\n\n• Expérience des patterns Auto CDC\n\n• SCD1 / SCD2\n\n• Kafka\n\n• Spark Declarative Pipelines\n\n• Connaissance de Microsoft Fabric\n\n• Expérience de la modélisation dimensionnelle\n\n• Connaissance de la méthodologie Kimball\n\n• Terraform"
+      },
+      "needsRetranslation": true,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-01T09:15:07.352Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-15T14:53:09.347Z",
+      "postedDate": "2026-10-15T14:53:09.347Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
+      "jobReqId": "744000155782339",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "data-platform-ms-fabric-databricks-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "data-platform-ms-fabric-databricks-talan-geneve-switzerland"
+        ],
+        "de": [
+          "data-platform-ms-fabric-databricks-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-15T21:16:17.874Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-14T09:15:07.352Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-7d591d30432b",
@@ -751,7 +776,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000158697280-developpeur-agentique?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.355Z",
+      "crawledAt": "2026-11-01T09:15:07.351Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -796,7 +821,10 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-29T09:15:07.351Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-dbc24b5b3f3c",
@@ -830,7 +858,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.353Z",
+      "crawledAt": "2026-11-01T09:15:07.350Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -875,7 +903,10 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:15:07.350Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-9f5be93106bb",
@@ -901,7 +932,7 @@
         "it": "Descrizione\n\nCerchiamo un/una Senior Integration Engineer per rafforzare un team specializzato nell’integrazione applicativa e nelle API.\n\nTi occuperai della progettazione, dello sviluppo e della manutenzione di soluzioni di integrazione robuste, sicure e scalabili, che consentano di rendere più fluidi gli scambi di dati tra diverse applicazioni e piattaforme.\n\nMansioni\n\n- Progettare, sviluppare e mantenere soluzioni di integrazione in Python, Java e SQL Server.\n- Sviluppare e gestire API, in particolare con FastAPI, e contribuire alla loro governance tramite una piattaforma di API Management.\n- Implementare flussi di dati in tempo reale con Kafka e architetture orientate agli eventi e ai microservizi.\n- Distribuire e mantenere i componenti di integrazione in ambienti OpenShift.\n- Garantire l'affidabilità, la sicurezza, le prestazioni e la disponibilità di servizi critici.\n- Partecipare alla risoluzione di incidenti complessi e al miglioramento continuo delle soluzioni esistenti.\n- Utilizzare strumenti di IA generativa per accelerare lo sviluppo, i test, l'analisi dei log e la documentazione, convalidando al contempo la qualità dei risultati prodotti.\n- Collaborare con i team tecnici e funzionali e garantire la documentazione delle soluzioni implementate.\n\nProfilo ricercato\n\n- Almeno 5 anni di esperienza nell'integrazione applicativa.\n- Ottima padronanza di Python e Java, nonché di SQL Server.\n- Esperienza pratica nello sviluppo di API con FastAPI.\n- Buona padronanza di Kafka e dei meccanismi di streaming e messaggistica.\n- Esperienza con una piattaforma di API Management, idealmente Gravitee.\n- Esperienza pratica con OpenShift e ambienti containerizzati.\n- Competenza nelle architetture a microservizi, nelle architetture orientate agli eventi e negli Enterprise Integration Patterns.\n- Conoscenza dei processi ETL/ELT e delle problematiche di trasformazione e scambio dei dati.\n- Esperienza pratica del Model Context Protocol (MCP) e della sua integrazione in architetture applicative complesse.\n- Utilizzo di assistenti IA per lo sviluppo e l'automazione, con la capacità di valutare criticamente il codice generato.\n- Capacità di progettare e mantenere servizi critici, sicuri e scalabili.\n- Eccellenti capacità di analisi, di risoluzione dei problemi e di comunicazione.\n\nCompetenze aggiuntive:\n\n- conoscenza di Talend ESB, Apache Camel o di altri strumenti di integrazione.\n\nFormazione:\n\n- Laurea triennale o magistrale in informatica o in un ambito equivalente.\n\nAmbiente tecnico:\n\n- Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP e strumenti di IA applicati allo sviluppo.",
         "en": "Description\n\nWe are looking for a Senior Integration Engineer to strengthen a team specializing in application integration and APIs.\n\nYou will work on designing, developing, and maintaining robust, secure, and scalable integration solutions, enabling smoother data exchanges between different applications and platforms.\n\nResponsibilities\n\n- Design, develop, and maintain integration solutions in Python, Java, and SQL Server.\n- Develop and manage APIs, particularly with FastAPI, and contribute to their governance through an API Management platform.\n- Implement real-time data flows with Kafka and event-driven and microservices architectures.\n- Deploy and maintain integration components in OpenShift environments.\n- Ensure the reliability, security, performance, and availability of critical services.\n- Participate in resolving complex incidents and continuously improving existing solutions.\n- Leverage generative AI tools to accelerate development, testing, log analysis, and documentation, while validating the quality of the results produced.\n- Collaborate with technical and functional teams and ensure the documentation of implemented solutions.\n\nDesired profile\n\n- Minimum 5 years of experience in application integration.\n- Very good command of Python and Java, as well as SQL Server.\n- Practical experience developing APIs with FastAPI.\n- Good command of Kafka and streaming and messaging mechanisms.\n- Experience with an API Management platform, ideally Gravitee.\n- Experience with OpenShift and containerized environments.\n- Expertise in microservices architectures, event-driven architectures, and Enterprise Integration Patterns.\n- Knowledge of ETL/ELT processes and data transformation and exchange challenges.\n- Practical experience with the Model Context Protocol (MCP) and its integration into complex application architectures.\n- Use of AI assistants for development and automation, with an ability to critically evaluate generated code.\n- Ability to design and maintain critical, secure, and scalable services.\n- Excellent analytical, problem-solving, and communication skills.\n\nAdditional assets:\n\n- knowledge of Talend ESB, Apache Camel or other integration tools.\n\nEducation:\n\n- Bachelor’s or Master’s degree in computer science or an equivalent field.\n\nTechnical environment:\n\n- Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP and AI tools applied to development.",
         "de": "Beschreibung\n\nWir suchen eine:n Senior Integration Engineer zur Verstärkung eines auf Anwendungsintegration und APIs spezialisierten Teams.\n\nSie werden an der Konzeption, Entwicklung und Wartung robuster, sicherer und skalierbarer Integrationslösungen arbeiten, die einen reibungslosen Datenaustausch zwischen verschiedenen Anwendungen und Plattformen ermöglichen.\n\nAufgaben\n\n- Konzipieren, entwickeln und warten Sie Integrationslösungen mit Python, Java und SQL Server.\n- Entwickeln und verwalten Sie APIs, insbesondere mit FastAPI, und tragen Sie über eine API-Management-Plattform zu deren Governance bei.\n- Setzen Sie Echtzeit-Datenflüsse mit Kafka sowie ereignisorientierte Architekturen und Microservices um.\n- Stellen Sie die Integrationskomponenten in OpenShift-Umgebungen bereit und warten Sie sie.\n- Stellen Sie die Zuverlässigkeit, Sicherheit, Leistung und Verfügbarkeit kritischer Dienste sicher.\n- Beteiligen Sie sich an der Behebung komplexer Vorfälle und an der kontinuierlichen Verbesserung bestehender Lösungen.\n- Nutzen Sie generative KI-Tools, um die Entwicklung, die Tests, die Analyse der Logs und die Dokumentation zu beschleunigen, und validieren Sie gleichzeitig die Qualität der erzeugten Ergebnisse.\n- Mit technischen und fachlichen Teams zusammenarbeiten und die Dokumentation der implementierten Lösungen sicherstellen.\n\nGesuchtes Profil\n\n- Mindestens 5 Jahre Erfahrung in der Anwendungsintegration.\n- Sehr gute Kenntnisse in Python und Java sowie in SQL Server.\n- Praktische Erfahrung in der Entwicklung von APIs mit FastAPI.\n- Gute Kenntnisse in Kafka sowie in Streaming- und Messaging-Mechanismen.\n- Erfahrung mit einer API-Management-Plattform, idealerweise Gravitee.\n- Praktische Erfahrung mit OpenShift und containerisierten Umgebungen.\n- Expertise in Microservice-Architekturen, ereignisgesteuerten Architekturen und Enterprise Integration Patterns.\n- Kenntnisse der ETL/ELT-Prozesse und der Herausforderungen bei der Datentransformation und dem Datenaustausch.\n- Praktische Erfahrung mit dem Model Context Protocol (MCP) und dessen Integration in komplexe Anwendungsarchitekturen.\n- Einsatz von KI-Assistenten für die Entwicklung und Automatisierung mit der Fähigkeit, generierten Code kritisch zu bewerten.\n- Fähigkeit, kritische, sichere und skalierbare Dienste zu konzipieren und zu warten.\n- Ausgeprägte Analyse-, Problemlösungs- und Kommunikationsfähigkeiten.\n\nZusätzliche Stärken:\n\n- Kenntnisse in Talend ESB, Apache Camel oder anderen Integrationstools.\n\nAusbildung:\n\n- Bachelor- oder Masterabschluss in Informatik oder einem gleichwertigen Bereich.\n\nTechnische Umgebung:\n\n- Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP und auf die Entwicklung angewandte KI-Tools.",
-        "fr": "Description\n\nNous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\n\nVous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\nMissions\n\n- Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n- Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n- Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n- Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n- Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n- Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n- Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n- Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\nProfil recherché\n\n- Minimum 5 ans d’expérience en intégration applicative.\n- Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n- Expérience pratique du développement d’API avec FastAPI.\n- Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n- Expérience d’une plateforme d’API Management, idéalement Gravitee.\n- Pratique d’OpenShift et des environnements conteneurisés.\n- Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n- Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n- Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n- Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n- Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n- Excellentes capacités d’analyse, de résolution de problèmes et de communication.\n\nAtouts complémentaires :\n\n- connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\n\nFormation :\n\n- Bachelor ou Master en informatique ou dans un domaine équivalent.\n\nEnvironnement technique :\n\n- Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement."
+        "fr": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\nVous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\nAtouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\nFormation : Bachelor ou Master en informatique ou dans un domaine équivalent.\nEnvironnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement."
       },
       "needsRetranslation": true,
       "location": "Genève, , Switzerland",
@@ -909,7 +940,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.352Z",
+      "crawledAt": "2026-11-01T09:15:07.348Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -955,7 +986,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:15:07.348Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-1136cde917a9",
@@ -981,7 +1014,7 @@
         "it": "Il/La Head of Presales guida la funzione di prevendita di Talan Suisse. Definisce il quadro di lavoro comune, dimensiona le capacità, sviluppa gli strumenti e le competenze dei team e monitora le performance della funzione. Il ruolo rimane direttamente coinvolto nelle opportunità Strategiche quando la situazione lo richiede.\n\nLa vostra missione:\n\n- Definire, documentare e far evolvere il processo e la governance della prevendita, in particolare i livelli Basic, Standard e Strategic, i ruoli e i rituali associati.\n- Gestire la capacità del pool di Bid Managers e anticipare i picchi di carico legati alle opportunità e agli accordi quadro.\n- Costruire il repository dei contenuti, dei modelli e delle buone pratiche utilizzato dai team di prevendita.\n- Sviluppare le competenze dei Bid Managers, dei Solution Leads e degli Opportunity Owners.\n- Intervenire personalmente come Solution Lead o Bid Manager sulle opportunità Strategiche secondo necessità.\n\nGestione della funzione di prevendita:\n\n- Definire, monitorare e condividere gli indicatori di performance, in particolare la copertura, il tasso di successo e il carico per ruolo e per Business Line.\n- Dirimere le tensioni di capacità tra le Business Lines e proporre piani d'azione.\n- Far adottare la governance, gli strumenti e gli standard di prevendita in tutta Talan Suisse.\n- Assicurare il miglioramento continuo del modello operativo e delle relative pratiche.\n\nPianificazione delle risorse e gestione del bench\n\n- Mantenere una previsione a scorrimento delle risorse su un orizzonte da tre a sei mesi, allineata alla pipeline e alle priorità strategiche.\n- Bilanciare gli obiettivi relativi al tasso di utilizzo con la capacità necessaria allo sviluppo commerciale e allo sviluppo delle practice.\n- Gestire l'allocazione delle risorse lungo l'intero processo di prevendita\n- Individuare le tensioni e le carenze di risorse e raccomandare nuove assunzioni, azioni di sviluppo delle competenze o rinforzi esterni.\n- Coordinare i responsabili delle practice e i team di delivery al fine di ottimizzare l'impiego delle risorse.\n\nPrevisioni e analisi del tasso di utilizzo:\n\n- Costruire e mantenere modelli che riflettano la capacità dell'azienda, la pipeline commerciale e i piani di delivery della prevendita.\n- Produrre la reportistica mensile e trimestrale e analizzare gli scostamenti.\n- Anticipare le tendenze e identificare i rischi per la redditività.\n- Formulare raccomandazioni basate sui dati per migliorare l'utilizzo e la pianificazione delle capacità.\n- Supportare le decisioni di pricing e di allocazione delle risorse con analisi affidabili.\n\nGestione delle competenze e delle referenze:\n\n- Mantenere una mappatura delle competenze a livello aziendale per practice, livello, area geografica, specializzazione e lingua.\n- Condurre valutazioni regolari e individuare i gap di capacità.\n- Fornire i dati utili alle decisioni relative al reclutamento, alla formazione, allo sviluppo dei talenti e allo staffing.\n- Mantenere un database centralizzato e consultabile di CV e referenze aggiornati, conformi agli standard aziendali.\n- Organizzare l'aggiornamento regolare dei CV e consentirne il rapido adattamento alle gare d'appalto e alle richieste dei clienti.\n- Garantire la riservatezza e la governance dei dati associati.\n\nMonitoraggio delle certificazioni e degli accreditamenti:\n\n- Mantenere un registro completo delle certificazioni, degli accreditamenti e delle referenze professionali.\n- Monitorare le scadenze e i rinnovi e avvisare in anticipo i collaboratori e i manager.\n- Garantire il rispetto dei requisiti di certificazione dei clienti e delle autorità di regolamentazione.\n- Analizzare la copertura delle certificazioni per practice, livello e specializzazione e comunicare i gap alla direzione.\n\nLe competenze richieste:\n\n- Solida esperienza nella prevendita e nel bid management su opportunità complesse.\n- Capacità di influenzare e ottenere il consenso senza un rapporto gerarchico diretto.\n- Padronanza della gestione basata sui dati, in particolare delle capacità, del carico di lavoro, degli indici e del tasso di attività.\n- Competenze in materia di coaching, affiancamento e sviluppo dei team.\n- Capacità di combinare la gestione trasversale e il coinvolgimento operativo nelle opportunità strategiche.\n\nIl tuo profilo:\n\n- Almeno otto-dieci anni di esperienza nella prevendita, nel bid management o nella vendita di soluzioni complesse.\n- Esperienza nella gestione di processi di pursuit a livello organizzativo.\n- Esperienza di collaborazione con diverse Business Lines, practice o settori di attività.\n- Dimestichezza con le tematiche relative alla pianificazione delle risorse, alla redditività e alla performance commerciale.\n- Padronanza professionale del francese e dell'inglese. La conoscenza del tedesco costituisce un vantaggio.\n\nCome verrà valutata la performance:\n\n- Tasso di copertura della capacità dei Bid Manager rispetto al carico di lavoro effettivo.\n- Tasso di successo delle opportunità Standard e Strategiche.\n- Tasso di adozione della governance e degli strumenti di prevendita da parte delle Business Lines.\n- Copertura del carico legato agli accordi quadro e agli accreditamenti.\n- Qualità delle previsioni delle risorse e controllo degli scostamenti tra capacità, pipeline e delivery.\n- Aggiornamento e copertura dei dati relativi a competenze, CV e certificazioni.\n\n.",
         "en": "The Head of Presales leads Talan Suisse's presales function. They define the common working framework, size capacity, develop the teams' tools and skills, and monitor the function's performance. The role remains directly involved in Strategic opportunities when the situation requires it.\n\nYour mission:\n\n- Define, document and evolve the presales process and governance, including the Basic, Standard and Strategic levels, and the associated roles and rituals.\n- Manage the capacity of the Bid Manager pool and anticipate workload peaks related to opportunities and framework agreements.\n- Build the repository of content, templates and best practices used by the presales teams.\n- Develop the skills of Bid Managers, Solution Leads and Opportunity Owners.\n- Personally act as a Solution Lead or Bid Manager on Strategic opportunities as needed.\n\nPresales function management:\n\n- Define, monitor and share performance indicators, notably coverage, success rate and workload by role and Business Line.\n- Resolve capacity conflicts between Business Lines and propose action plans.\n- Drive the adoption of presales governance, tools and standards across Talan Suisse.\n- Ensure continuous improvement of the operating model and its practices.\n\nResource planning and bench management\n\n- Maintain a rolling three- to six-month resource forecast, aligned with the pipeline and strategic priorities.\n- Balance utilization rate targets with the capacity required for business development and practice development.\n- Lead resource allocation throughout the presales process\n- Identify resource constraints and shortfalls and recommend hiring, upskilling initiatives or external support.\n- Coordinate practice leads and delivery teams to optimize resource deployment.\n\nUtilization forecasting and analysis:\n\n- Build and maintain models reflecting the company's capacity, sales pipeline and presales delivery schedules.\n- Produce monthly and quarterly reports and analyze variances.\n- Anticipate trends and identify risks to profitability.\n- Make data-driven recommendations to improve utilization and capacity planning.\n- Support pricing and resource allocation decisions with reliable analyses.\n\nSkills and references management:\n\n- Maintain an enterprise-wide skills map by practice, level, geography, specialty, and language.\n- Conduct regular assessments and identify capability gaps.\n- Provide data useful for recruitment, training, talent development, and staffing decisions.\n- Maintain a centralized, searchable database of up-to-date CVs and references, compliant with company standards.\n- Organize regular CV updates and enable their rapid adaptation to calls for tender and client requests.\n- Ensure the confidentiality and governance of associated data.\n\nCertification and accreditation tracking:\n\n- Maintain a complete register of certifications, accreditations, and professional references.\n- Track deadlines and renewals and alert employees and managers in advance.\n- Ensure compliance with the certification requirements of clients and regulatory authorities.\n- Analyze certification coverage by practice, level, and specialty and communicate gaps to management.\n\nExpected skills:\n\n- Strong experience in presales and bid management for complex opportunities.\n- Ability to influence and secure buy-in without direct line authority.\n- Proficiency in data-driven management, particularly capacity, workload, ratios, and utilization rate.\n- Skills in coaching, team support, and team development.\n- Ability to combine cross-functional management with operational involvement in Strategic opportunities.\n\nYour profile:\n\n- At least eight to ten years of experience in presales, bid management, or complex solutions sales.\n- Experience managing pursuit processes across an organization.\n- Experience collaborating with multiple Business Lines, practices, or business sectors.\n- Comfort with resource planning, profitability, and sales performance issues.\n- Professional proficiency in French and English. German is an asset.\n\nHow performance will be evaluated:\n\n- Bid Manager capacity coverage rate relative to actual workload.\n- Success rate of Standard and Strategic opportunities.\n- Adoption rate of governance and pre-sales tools by the Business Lines.\n- Coverage of the workload related to framework agreements and listings.\n- Quality of resource forecasts and control of variances between capacity, pipeline and delivery.\n- Recency and coverage of skills, CV and certification data.\n\n.",
         "de": "Der Head of Presales steuert die Presales-Funktion von Talan Suisse. Dabei werden der gemeinsame Arbeitsrahmen definiert, die Kapazitäten dimensioniert, die Tools und Kompetenzen der Teams entwickelt und die Leistung der Funktion verfolgt. Die Rolle bleibt direkt in Opportunities der Stufe Strategic eingebunden, wenn die Situation dies erfordert.\n\nIhre Aufgabe:\n\n- Den Presales-Prozess und die Presales-Governance definieren, dokumentieren und weiterentwickeln, insbesondere die Stufen Basic, Standard und Strategic sowie die zugehörigen Rollen und Rituale.\n- Die Kapazität des Bid-Manager-Pools steuern und die mit Opportunities und Rahmenverträgen verbundenen Auslastungsspitzen antizipieren.\n- Ein Repository für Inhalte, Vorlagen und Best Practices aufbauen, das von den Presales-Teams genutzt wird.\n- Die Kompetenzen der Bid Manager, Solution Leads und Opportunity Owners weiterentwickeln.\n- Je nach Bedarf persönlich als Solution Lead oder Bid Manager bei Opportunities der Stufe Strategic mitwirken.\n\nSteuerung der Presales-Funktion:\n\n- Leistungskennzahlen definieren, nachverfolgen und teilen, insbesondere die Abdeckung, die Erfolgsquote und die Auslastung je Rolle und Business Line.\n- Kapazitätskonflikte zwischen den Business Lines lösen und Maßnahmenpläne vorschlagen.\n- Die Presales-Governance, die Tools und die Presales-Standards bei Talan Suisse etablieren.\n- Die kontinuierliche Verbesserung des Betriebsmodells und seiner Praktiken sicherstellen.\n\nRessourcenplanung und Bench-Management\n\n- Eine rollierende Ressourcenprognose für drei bis sechs Monate aufrechterhalten, abgestimmt auf die Pipeline und die strategischen Prioritäten.\n- Die Auslastungsziele mit der für die Geschäftsentwicklung und die Weiterentwicklung der Practices erforderlichen Kapazität in Einklang bringen.\n- Die Ressourcenallokation über den gesamten Presales-Prozess steuern\n- Ressourcenkonflikte und -engpässe identifizieren und Neueinstellungen, Maßnahmen zur Kompetenzentwicklung oder externe Unterstützung empfehlen.\n- Die Practice-Verantwortlichen und die Delivery-Teams koordinieren, um den Ressourceneinsatz zu optimieren.\n\nPrognosen und Analyse des Auslastungsgrads:\n\n- Modelle erstellen und pflegen, die die Kapazität des Unternehmens, die Vertriebspipeline und die Presales-Delivery-Zeitpläne abbilden.\n- Monatliche und vierteljährliche Reportings erstellen und Abweichungen analysieren.\n- Trends antizipieren und Risiken für die Profitabilität identifizieren.\n- Datenbasierte Empfehlungen formulieren, um die Auslastung und die Kapazitätsplanung zu verbessern.\n- Entscheidungen zu Pricing und Ressourcenallokation mit verlässlichen Analysen unterstützen.\n\nKompetenz- und Referenzmanagement:\n\n- Eine unternehmensweite Kompetenzlandkarte nach Practice, Ebene, Geografie, Fachgebiet und Sprache pflegen.\n- Regelmäßige Bewertungen durchführen und Kapazitätslücken identifizieren.\n- Die für Entscheidungen über Einstellung, Schulung, Talententwicklung und Staffing benötigten Daten bereitstellen.\n- Eine zentralisierte und durchsuchbare Datenbank mit aktuellen, den Unternehmensstandards entsprechenden Lebensläufen und Referenzen pflegen.\n- Die regelmäßige Aktualisierung der Lebensläufe organisieren und ihre schnelle Anpassung an Ausschreibungen und Kundenanfragen ermöglichen.\n- Die Vertraulichkeit und Governance der zugehörigen Daten gewährleisten.\n\nNachverfolgung der Zertifizierungen und Akkreditierungen:\n\n- Ein vollständiges Register der Zertifizierungen, Akkreditierungen und beruflichen Referenzen pflegen.\n- Fristen und Erneuerungen nachverfolgen und Mitarbeitende sowie Führungskräfte frühzeitig benachrichtigen.\n- Die Einhaltung der Zertifizierungsanforderungen von Kunden und Regulierungsbehörden sicherstellen.\n- Die Abdeckung der Zertifizierungen nach Practice, Ebene und Fachgebiet analysieren und die Lücken an die Geschäftsleitung kommunizieren.\n\nDie erwarteten Kompetenzen:\n\n- Fundierte Erfahrung im Presales und Bid Management bei komplexen Opportunities.\n- Die Fähigkeit, Einfluss zu nehmen und Zustimmung ohne direkte disziplinarische Weisungsbefugnis zu gewinnen.\n- Sichere Beherrschung der datenbasierten Steuerung, insbesondere von Kapazitäten, Auslastung, Kennzahlen und Auslastungsgrad.\n- Kompetenzen im Coaching, in der Begleitung und in der Entwicklung von Teams.\n- Die Fähigkeit, bereichsübergreifende Steuerung und operative Mitwirkung an strategischen Opportunities zu verbinden.\n\nIhr Profil:\n\n- Mindestens acht bis zehn Jahre Erfahrung im Presales, Bid Management oder Vertrieb komplexer Lösungen.\n- Erfahrung in der Steuerung von Pursuit-Prozessen auf Organisationsebene.\n- Erfahrung in der Zusammenarbeit mit mehreren Business Lines, Practices oder Branchen.\n- Vertrautheit mit den Themen Ressourcenplanung, Profitabilität und Vertriebsleistung.\n- Französisch und Englisch auf professionellem Niveau. Deutschkenntnisse sind von Vorteil.\n\nWie die Leistung bewertet wird:\n\n- Abdeckungsgrad der Bid-Manager-Kapazität im Verhältnis zur tatsächlichen Arbeitslast.\n- Erfolgsquote der Standard- und strategischen Opportunities.\n- Adoptionsquote der Governance und der Pre-Sales-Tools durch die Business Lines.\n- Abdeckung des Aufwands im Zusammenhang mit Rahmenverträgen und Listungen.\n- Qualität der Ressourcenprognosen und Steuerung der Abweichungen zwischen Kapazität, Pipeline und Leistungserbringung.\n- Aktualität und Abdeckung der Daten zu Kompetenzen, Lebensläufen und Zertifizierungen.\n\n.",
-        "fr": "Le Head of Presales pilote la fonction avant-vente de Talan Suisse. Il ou elle définit le cadre de travail commun, dimensionne les capacités, développe les outils et les compétences des équipes et suit la performance de la fonction. Le rôle reste directement impliqué dans les opportunités Stratégiques lorsque la situation l'exige.\n\nVotre mission:\n\n- Définir, documenter et faire évoluer le processus et la gouvernance avant-vente, notamment les niveaux Basic, Standard et Strategic, les rôles et les rituels associés.\n- Piloter la capacité du pool de Bid Managers et anticiper les pics de charge liés aux opportunités et aux accords-cadres.\n- Construire le référentiel de contenus, de modèles et de bonnes pratiques utilisé par les équipes avant-vente.\n- Développer les compétences des Bid Managers, Solution Leads et Opportunity Owners.\n- Intervenir personnellement comme Solution Lead ou Bid Manager sur les opportunités Stratégiques selon les besoins.\n\nPilotage de la fonction avant-vente:\n\n- Définir, suivre et partager les indicateurs de performance, notamment la couverture, le taux de succès et la charge par rôle et par Business Line.\n- Arbitrer les tensions de capacité entre les Business Lines et proposer des plans d'action.\n- Faire adopter la gouvernance, les outils et les standards avant-vente à l'échelle de Talan Suisse.\n- Assurer l'amélioration continue du modèle opérationnel et de ses pratiques.\n\nPlanification des ressources et gestion du bench\n\n- Maintenir une prévision glissante des ressources sur trois à six mois, alignée sur le pipeline et les priorités stratégiques.\n- Équilibrer les objectifs de taux d'activité avec la capacité nécessaire au développement commercial et au développement des practices.\n- Piloter l'allocation des ressources sur l’ensemble du processus avant-vente\n- Identifier les tensions et les manques de ressources et recommander des recrutements, des actions de montée en compétence ou des renforts externes.\n- Coordonner les responsables de practice et les équipes delivery afin d'optimiser le déploiement des ressources.\n\nPrévisions et analyse du taux d'activité:\n\n- Construire et maintenir des modèles reflétant la capacité de l'entreprise, le pipeline commercial et les plannings de delivery avant-vente.\n- Produire les reportings mensuels et trimestriels et analyser les écarts.\n- Anticiper les tendances et identifier les risques pour la profitabilité.\n- Formuler des recommandations fondées sur les données pour améliorer l'utilisation et la planification des capacités.\n- Appuyer les décisions de pricing et d'allocation des ressources par des analyses fiables.\n\nGestion des compétences et des références:\n\n- Maintenir une cartographie des compétences à l'échelle de l'entreprise par practice, niveau, géographie, spécialité et langue.\n- Conduire des évaluations régulières et identifier les écarts de capacité.\n- Fournir les données utiles aux décisions de recrutement, de formation, de développement des talents et de staffing.\n- Maintenir une base centralisée et consultable de CV et de références à jour, conformes aux standards de l'entreprise.\n- Organiser la mise à jour régulière des CV et permettre leur adaptation rapide aux appels d'offres et aux demandes clients.\n- Garantir la confidentialité et la gouvernance des données associées.\n\nSuivi des certifications et accreditations:\n\n- Maintenir un registre complet des certifications, accréditations et références professionnelles.\n- Suivre les échéances et les renouvellements et alerter les collaborateurs et managers en amont.\n- Veiller au respect des exigences de certification des clients et des autorités réglementaires.\n- Analyser la couverture des certifications par practice, niveau et spécialité et communiquer les écarts à la direction.\n\nLes compétences attendues:\n\n- Expérience solide de l'avant-vente et du bid management sur des opportunités complexes.\n- Capacité à influencer et à obtenir l'adhésion sans lien hiérarchique direct.\n- Maîtrise du pilotage par les données, notamment les capacités, la charge, les ratios et le taux d'activité.\n- Compétences en coaching, accompagnement et développement des équipes.\n- Capacité à combiner pilotage transverse et implication opérationnelle sur les opportunités Stratégiques.\n\nVotre profil:\n\n- Huit à dix ans d'expérience minimum en avant-vente, bid management ou vente de solutions complexes.\n- Expérience du pilotage de processus de pursuit à l'échelle d'une organisation.\n- Expérience de collaboration avec plusieurs Business Lines, practices ou secteurs d'activité.\n- Aisance avec les enjeux de planification des ressources, de profitabilité et de performance commerciale.\n- Maîtrise professionnelle du français et de l'anglais. L'allemand constitue un atout.\n\nComment la performance sera évaluée:\n\n- Taux de couverture de la capacité Bid Manager par rapport à la charge réelle.\n- Taux de succès des opportunités Standard et Stratégiques.\n- Taux d'adoption de la gouvernance et des outils avant-vente par les Business Lines.\n- Couverture de la charge liée aux accords-cadres et aux référencements.\n- Qualité des prévisions de ressources et maîtrise des écarts entre capacité, pipeline et delivery.\n- Actualité et couverture des données de compétences, CV et certifications.\n\n."
+        "fr": "Le Head of Presales pilote la fonction avant-vente de Talan Suisse. Il ou elle définit le cadre de travail commun, dimensionne les capacités, développe les outils et les compétences des équipes et suit la performance de la fonction. Le rôle reste directement impliqué dans les opportunités Stratégiques lorsque la situation l'exige.\nVotre mission:\n\n• Définir, documenter et faire évoluer le processus et la gouvernance avant-vente, notamment les niveaux Basic, Standard et Strategic, les rôles et les rituels associés.\n\n• Piloter la capacité du pool de Bid Managers et anticiper les pics de charge liés aux opportunités et aux accords-cadres.\n\n• Construire le référentiel de contenus, de modèles et de bonnes pratiques utilisé par les équipes avant-vente.\n\n• Développer les compétences des Bid Managers, Solution Leads et Opportunity Owners.\n\n• Intervenir personnellement comme Solution Lead ou Bid Manager sur les opportunités Stratégiques selon les besoins.\nPilotage de la fonction avant-vente :\n\n• Définir, suivre et partager les indicateurs de performance, notamment la couverture, le taux de succès et la charge par rôle et par Business Line.\n\n• Arbitrer les tensions de capacité entre les Business Lines et proposer des plans d'action.\n\n• Faire adopter la gouvernance, les outils et les standards avant-vente à l'échelle de Talan Suisse.\n\n• Assurer l'amélioration continue du modèle opérationnel et de ses pratiques.\nPlanification des ressources et gestion du bench\n\n• Maintenir une prévision glissante des ressources sur trois à six mois, alignée sur le pipeline et les priorités stratégiques.\n\n• Équilibrer les objectifs de taux d'activité avec la capacité nécessaire au développement commercial et au développement des practices.\n\n• Piloter l'allocation des ressources sur l’ensemble du processus avant-vente\n\n• Identifier les tensions et les manques de ressources et recommander des recrutements, des actions de montée en compétence ou des renforts externes.\n\n• Coordonner les responsables de practice et les équipes delivery afin d'optimiser le déploiement des ressources.\nPrévisions et analyse du taux d'activité :\n\n• Construire et maintenir des modèles reflétant la capacité de l'entreprise, le pipeline commercial et les plannings de delivery avant-vente.\n\n• Produire les reportings mensuels et trimestriels et analyser les écarts.\n\n• Anticiper les tendances et identifier les risques pour la profitabilité.\n\n• Formuler des recommandations fondées sur les données pour améliorer l'utilisation et la planification des capacités.\n\n• Appuyer les décisions de pricing et d'allocation des ressources par des analyses fiables.\nGestion des compétences et des références :\n\n• Maintenir une cartographie des compétences à l'échelle de l'entreprise par practice, niveau, géographie, spécialité et langue.\n\n• Conduire des évaluations régulières et identifier les écarts de capacité.\n\n• Fournir les données utiles aux décisions de recrutement, de formation, de développement des talents et de staffing.\n\n• Maintenir une base centralisée et consultable de CV et de références à jour, conformes aux standards de l'entreprise.\n\n• Organiser la mise à jour régulière des CV et permettre leur adaptation rapide aux appels d'offres et aux demandes clients.\n\n• Garantir la confidentialité et la gouvernance des données associées.\nSuivi des certifications et accreditations:\n\n• Maintenir un registre complet des certifications, accréditations et références professionnelles.\n\n• Suivre les échéances et les renouvellements et alerter les collaborateurs et managers en amont.\n\n• Veiller au respect des exigences de certification des clients et des autorités réglementaires.\n\n• Analyser la couverture des certifications par practice, niveau et spécialité et communiquer les écarts à la direction.\n\nLes compétences attendues:\n\n• Expérience solide de l'avant-vente et du bid management sur des opportunités complexes.\n\n• Capacité à influencer et à obtenir l'adhésion sans lien hiérarchique direct.\n\n• Maîtrise du pilotage par les données, notamment les capacités, la charge, les ratios et le taux d'activité.\n\n• Compétences en coaching, accompagnement et développement des équipes.\n\n• Capacité à combiner pilotage transverse et implication opérationnelle sur les opportunités Stratégiques.\nVotre profil:\n\n• Huit à dix ans d'expérience minimum en avant-vente, bid management ou vente de solutions complexes.\n\n• Expérience du pilotage de processus de pursuit à l'échelle d'une organisation.\n\n• Expérience de collaboration avec plusieurs Business Lines, practices ou secteurs d'activité.\n\n• Aisance avec les enjeux de planification des ressources, de profitabilité et de performance commerciale.\n\n• Maîtrise professionnelle du français et de l'anglais. L'allemand constitue un atout.\nComment la performance sera évaluée :\n\n• Taux de couverture de la capacité Bid Manager par rapport à la charge réelle.\n\n• Taux de succès des opportunités Standard et Stratégiques.\n\n• Taux d'adoption de la gouvernance et des outils avant-vente par les Business Lines.\n\n• Couverture de la charge liée aux accords-cadres et aux référencements.\n\n• Qualité des prévisions de ressources et maîtrise des écarts entre capacité, pipeline et delivery.\n\n• Actualité et couverture des données de compétences, CV et certifications.\n\n."
       },
       "needsRetranslation": true,
       "location": "Geneva, GE, Switzerland",
@@ -989,7 +1022,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000158714650-head-of-presales-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:45:45.349Z",
+      "crawledAt": "2026-11-01T09:15:07.345Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1035,7 +1068,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-29T09:15:07.345Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

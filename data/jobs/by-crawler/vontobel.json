@@ -1,7 +1,7 @@
 {
   "crawlerKey": "vontobel",
-  "assembledAt": "2026-10-31T21:45:29.994Z",
-  "runId": "41243204704",
+  "assembledAt": "2026-11-01T09:43:35.142Z",
+  "runId": "41292779854",
   "jobs": [
     {
       "id": "vontobel-2d8bb0c38bb1",
@@ -35,7 +35,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Gotthardstrasse-43/Junior-Credit-Consultant_9248-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:20.742Z",
+      "crawledAt": "2026-11-01T09:43:28.405Z",
       "addressLocality": "Zürich / Gotthardstrasse 43",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -86,7 +86,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Gotthardstrasse 43",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:28.405Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-ea5cdbeb8b65",
@@ -120,7 +124,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Gotthardstrasse-43/Strategic-Business-Development-Key-Clients---Family-Offices_9252-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:19.626Z",
+      "crawledAt": "2026-11-01T09:43:27.708Z",
       "addressLocality": "Zürich / Gotthardstrasse 43",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -169,7 +173,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Gotthardstrasse 43",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:27.708Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-e0e2da6a5d20",
@@ -203,7 +211,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Gotthardstrasse-43/Business-Risk-Manager_9284-2",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:18.930Z",
+      "crawledAt": "2026-11-01T09:43:26.731Z",
       "addressLocality": "Zürich / Gotthardstrasse 43",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -251,7 +259,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Gotthardstrasse 43",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:26.731Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-453e72151fc5",
@@ -284,7 +296,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Genferstrasse-27/Business-Management-Specialist--DACH-business--100--_9361-2",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:18.184Z",
+      "crawledAt": "2026-11-01T09:43:26.063Z",
       "addressLocality": "Zürich / Genferstrasse 27",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -331,7 +343,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Genferstrasse 27",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:43:26.063Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-b0a84330a774",
@@ -365,7 +381,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Lugano--Via-Ferruccio-Pelli-1/Client-Associate_8901",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:17.437Z",
+      "crawledAt": "2026-11-01T09:43:25.392Z",
       "addressLocality": "Lugano / Via Ferruccio Pelli 1",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -409,7 +425,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "streetAddress": "Lugano / Via Ferruccio Pelli 1",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:43:25.392Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-aaf46db46ec2",
@@ -443,7 +463,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Gotthardstrasse-43/Client-Portfolio-Manager-for-Discretionary-Mandates_9407-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:16.452Z",
+      "crawledAt": "2026-11-01T09:43:24.611Z",
       "addressLocality": "Zürich / Gotthardstrasse 43",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -490,7 +510,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Gotthardstrasse 43",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:43:24.611Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-78a0541dfb8d",
@@ -524,7 +548,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Bleicherweg-21/Technology-Resilience-Specialist_9365-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:15.638Z",
+      "crawledAt": "2026-11-01T09:43:23.968Z",
       "addressLocality": "Zürich / Bleicherweg 21",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -571,7 +595,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Bleicherweg 21",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:43:23.968Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-3ddda2c0f4e3",
@@ -604,7 +632,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Bleicherweg-21/Senior-Business-Engineer---Quality---Rollout-Management-Digital-Client-Channels--80-100--_8362-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:14.877Z",
+      "crawledAt": "2026-11-01T09:43:23.255Z",
       "addressLocality": "Zürich / Bleicherweg 21",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -644,7 +672,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Bleicherweg 21",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:43:23.255Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-023a0e932a60",
@@ -678,7 +710,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Bleicherweg-21/Public-Distribution-Execution-Switzerland_9273-2",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:14.154Z",
+      "crawledAt": "2026-11-01T09:43:22.318Z",
       "addressLocality": "Zürich / Bleicherweg 21",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -727,7 +759,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Bleicherweg 21",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:43:22.318Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-fcfb12012058",
@@ -760,7 +796,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Genferstrasse-27/Digital-Marketing-Manager--100--_9456-2",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:13.332Z",
+      "crawledAt": "2026-11-01T09:43:21.652Z",
       "addressLocality": "Zürich / Genferstrasse 27",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -801,7 +837,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Genferstrasse 27",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:43:21.652Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-ce88a0e9a728",
@@ -835,7 +875,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Genferstrasse-27/Institutional-Sales-Associate_9119-2",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:12.464Z",
+      "crawledAt": "2026-11-01T09:43:21.005Z",
       "addressLocality": "Zürich / Genferstrasse 27",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -882,7 +922,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Genferstrasse 27",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:43:21.005Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-14da6615afd4",
@@ -916,7 +960,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Gotthardstrasse-43/Reception---Hospitality-Services--100--_9411-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:11.621Z",
+      "crawledAt": "2026-11-01T09:43:20.329Z",
       "addressLocality": "Zürich / Gotthardstrasse 43",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -960,7 +1004,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Gotthardstrasse 43",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:43:20.329Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-1a2d76d536d1",
@@ -994,7 +1042,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Splgenstrasse-5/Senior-Blockchain-Engineer_9487-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:10.903Z",
+      "crawledAt": "2026-11-01T09:43:19.670Z",
       "addressLocality": "Zürich / Splügenstrasse 5",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1041,7 +1089,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Splügenstrasse 5",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:43:19.670Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-0d018bc2621a",
@@ -1074,7 +1126,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Bleicherweg-21/UX-Designer_8363-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:10.126Z",
+      "crawledAt": "2026-11-01T09:43:19.020Z",
       "addressLocality": "Zürich / Bleicherweg 21",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1120,7 +1172,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Bleicherweg 21",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:43:19.020Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-7604724ba14b",
@@ -1154,7 +1210,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Bleicherweg-21/AML-Application-Engineer_9480",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:09.389Z",
+      "crawledAt": "2026-11-01T09:43:18.349Z",
       "addressLocality": "Zürich / Bleicherweg 21",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1201,7 +1257,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Bleicherweg 21",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:43:18.349Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-5fe064ff7861",
@@ -1234,7 +1294,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Gotthardstrasse-43/Executive-Assistant-with-paralegal-background--100--_9483-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:08.662Z",
+      "crawledAt": "2026-11-01T09:43:17.685Z",
       "addressLocality": "Zürich / Gotthardstrasse 43",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1281,7 +1341,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Gotthardstrasse 43",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:43:17.685Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-2cbdb287ccbf",
@@ -1314,7 +1378,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Bleicherweg-21/Fullstack-SW-Engineer-E-Banking_9360-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:07.953Z",
+      "crawledAt": "2026-11-01T09:43:17.039Z",
       "addressLocality": "Zürich / Bleicherweg 21",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1366,7 +1430,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Bleicherweg 21",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:43:17.039Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-e9c150619346",
@@ -1399,7 +1467,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Genve-Rue-du-Rhne-31/Business---Risk-Manager_9489-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:07.213Z",
+      "crawledAt": "2026-11-01T09:43:16.390Z",
       "addressLocality": "Genève/ Rue du Rhône 31",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1432,7 +1500,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "streetAddress": "Genève/ Rue du Rhône 31",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:43:16.390Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-c149764685e9",
@@ -1466,7 +1538,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Bleicherweg-21/Tax-Reporting-Specialist--80-100--_9458-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:06.482Z",
+      "crawledAt": "2026-11-01T09:43:15.727Z",
       "addressLocality": "Zürich / Bleicherweg 21",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1513,7 +1585,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Bleicherweg 21",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:43:15.727Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-05ce211bb7c5",
@@ -1546,7 +1622,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Genferstrasse-27/Product---Sustainability-Specialist--80-100--_9447-2",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:05.776Z",
+      "crawledAt": "2026-11-01T09:43:15.101Z",
       "addressLocality": "Zürich / Genferstrasse 27",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1593,7 +1669,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Genferstrasse 27",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:43:15.101Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-973f4dcc6d2d",
@@ -1627,7 +1707,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Genferstrasse-27/Client-Portfolio-Manager--Emerging-Markets-Fixed-Income_9382-2",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:05.058Z",
+      "crawledAt": "2026-11-01T09:43:14.465Z",
       "addressLocality": "Zürich / Genferstrasse 27",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1673,7 +1753,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Genferstrasse 27",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:43:14.465Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-4ad101dc9480",
@@ -1707,7 +1791,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Genferstrasse-8/Digital-Growth-and-Web-Publishing-Manager_9521-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:04.366Z",
+      "crawledAt": "2026-11-01T09:43:13.804Z",
       "addressLocality": "Zürich / Genferstrasse 8",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1754,7 +1838,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Genferstrasse 8",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:43:13.804Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-4d9d5a74a0e7",
@@ -1787,7 +1875,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Bleicherweg-21/Specialist---Structured-Products--Income-Events--Corporate-Actions--80-100--_9397-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:45:03.609Z",
+      "crawledAt": "2026-11-01T09:43:13.121Z",
       "addressLocality": "Zürich / Bleicherweg 21",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1831,7 +1919,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Bleicherweg 21",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:43:13.121Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-78e89677661d",
@@ -1865,7 +1957,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Bleicherweg-21/Third-Party-Risk-Manager_9527-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:02.857Z",
+      "crawledAt": "2026-11-01T09:43:12.443Z",
       "addressLocality": "Zürich / Bleicherweg 21",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1912,7 +2004,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Bleicherweg 21",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:43:12.443Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-dadfb039ac59",
@@ -1946,7 +2042,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Splgenstrasse-5/Senior-Client-Associate_9478-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:01.188Z",
+      "crawledAt": "2026-11-01T09:43:11.485Z",
       "addressLocality": "Zürich / Splügenstrasse 5",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1993,7 +2089,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Splügenstrasse 5",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:43:11.485Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-fa90934021ab",
@@ -2027,7 +2127,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Gotthardstrasse-44/Relationship-Manager-EAM_9457-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:45:00.445Z",
+      "crawledAt": "2026-11-01T09:43:10.836Z",
       "addressLocality": "Zürich / Gotthardstrasse 44",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2068,7 +2168,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Gotthardstrasse 44",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:43:10.836Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-7fcca56bf90d",
@@ -2102,7 +2206,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Bleicherweg-21/Data-Engineer_9465",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:59.705Z",
+      "crawledAt": "2026-11-01T09:43:10.159Z",
       "addressLocality": "Zürich / Bleicherweg 21",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2149,7 +2253,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Bleicherweg 21",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:43:10.159Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-88d36ed89e7a",
@@ -2183,7 +2291,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Bleicherweg-21/Head-of-Market-and-Counterparty-Risk-control_9542-1",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:58.996Z",
+      "crawledAt": "2026-11-01T09:43:09.444Z",
       "addressLocality": "Zürich / Bleicherweg 21",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2230,7 +2338,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Bleicherweg 21",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:43:09.444Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vontobel-8ed648af2c1e",
@@ -2264,7 +2376,7 @@
       "url": "https://vontobel.wd3.myworkdayjobs.com/en-US/Vontobel_External_Career/job/Zrich--Bleicherweg-21/Avaloq---ACPR-Platform-Engineer--80-100--_9268-2",
       "source": "Vontobel Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:44:58.286Z",
+      "crawledAt": "2026-11-01T09:43:08.644Z",
       "addressLocality": "Zürich / Bleicherweg 21",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2305,7 +2417,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zürich / Bleicherweg 21",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:43:08.644Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "clinica-hildebrand",
   "label": "Clinica Hildebrand Centro di riabilitazione",
-  "generatedAt": "2026-10-31T22:14:10.489Z",
+  "generatedAt": "2026-11-01T09:16:48.744Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4503,
-  "avgDurationMs": 4503,
+  "durationMs": 4248,
+  "avgDurationMs": 4248,
   "durationHistory": [
-    4503
+    4248
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "applyUrl": "https://www.clinica-hildebrand.ch/collaborazione.html",
       "source": "Clinica Hildebrand Dedicated Parser (HTML + PDF annunci)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T22:13:56.548Z",
+      "crawledAt": "2026-11-01T09:16:31.667Z",
       "addressLocality": "Brissago",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -58,14 +58,18 @@
       "salaryMin": 70500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Brissago",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:31.667Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

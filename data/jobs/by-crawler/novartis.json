@@ -1,7 +1,7 @@
 {
   "crawlerKey": "novartis",
-  "assembledAt": "2026-10-31T21:32:22.203Z",
-  "runId": "41242613275",
+  "assembledAt": "2026-11-01T09:21:51.592Z",
+  "runId": "41292206898",
   "jobs": [
     {
       "id": "novartis-ff9d2fa5856b",
@@ -34,7 +34,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Logistiker-in-EFZ_REQ-10084328",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:15.160Z",
+      "crawledAt": "2026-11-01T09:21:43.993Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -74,7 +74,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:43.993Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-a22bd282af90",
@@ -107,7 +111,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Laborant-in-EFZ-Fachrichtung-Chemie_REQ-10084314-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:14.311Z",
+      "crawledAt": "2026-11-01T09:21:42.989Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -147,7 +151,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:42.989Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-9fe5f74454ff",
@@ -180,7 +188,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Laborant-in-EFZ-Fachrichtung-Biologie_REQ-10084330",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:13.568Z",
+      "crawledAt": "2026-11-01T09:21:42.282Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -220,7 +228,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:42.282Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-abfa88e2981c",
@@ -253,7 +265,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Kauffrau--mann-EFZ_REQ-10084331",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:12.732Z",
+      "crawledAt": "2026-11-01T09:21:41.570Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -293,7 +305,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:41.570Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-39b695a97fc8",
@@ -326,7 +342,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Kauffrau--mann-EBA_REQ-10084332",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:11.930Z",
+      "crawledAt": "2026-11-01T09:21:40.882Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -366,7 +382,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:40.882Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-e882ef99ffa8",
@@ -399,7 +419,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Chemie--und-Pharmatechnologe--technologin-EFZ_REQ-10084325",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:11.105Z",
+      "crawledAt": "2026-11-01T09:21:40.071Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -439,7 +459,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:40.071Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-08b7341c75f7",
@@ -472,7 +496,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Tierpfleger-in-EFZ--Fachrichtung-Versuchstiere_REQ-10084421",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:10.189Z",
+      "crawledAt": "2026-11-01T09:21:39.311Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -529,7 +553,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:39.311Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-71c21093229a",
@@ -562,7 +590,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Therapeutic-Area-Head--PK-Sciences---Immunology_REQ-10084131-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:09.347Z",
+      "crawledAt": "2026-11-01T09:21:38.587Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -602,7 +630,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:38.587Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-f6cb43f04e3d",
@@ -635,7 +667,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Translational-Medicine-Director-Associate---Cardiovascular---Metabolic_REQ-10087155-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:08.598Z",
+      "crawledAt": "2026-11-01T09:21:37.803Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -675,7 +707,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T09:21:37.803Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-50fb85ef4773",
@@ -708,7 +744,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Biomarker-Therapeutic-Area-Head--Neuroscience_REQ-10087052-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:07.835Z",
+      "crawledAt": "2026-11-01T09:21:37.021Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -748,7 +784,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:21:37.021Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-35087a2101fc",
@@ -781,7 +821,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Muttenz-with-Canteen/Equipment-Operator--m-f-d-_REQ-10078774-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:06.992Z",
+      "crawledAt": "2026-11-01T09:21:36.280Z",
       "addressLocality": "Muttenz (with Canteen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -822,7 +862,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BL"
+      "addressRegion": "BL",
+      "streetAddress": "Muttenz (with Canteen)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:21:36.280Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-24c4dbcf4d6c",
@@ -855,7 +899,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Legal-Counsel-Global-Procurement--DD-IT_REQ-10086997-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:06.157Z",
+      "crawledAt": "2026-11-01T09:21:35.545Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -899,7 +943,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:21:35.545Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-004258e68c12",
@@ -932,7 +980,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Associate-Expert-Drug-Supply_REQ-10086875",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:05.307Z",
+      "crawledAt": "2026-11-01T09:21:34.838Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -973,7 +1021,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:21:34.838Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-72991996371d",
@@ -1006,7 +1058,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Translational-Medicine-Expert--Neurodegeneration-_REQ-10088329-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:04.547Z",
+      "crawledAt": "2026-11-01T09:21:34.131Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1046,7 +1098,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:21:34.131Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-ae87e5155984",
@@ -1079,7 +1135,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Executive-Clinical-Program-Leader---Translational-Clinical-Oncology_REQ-10087767-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:03.817Z",
+      "crawledAt": "2026-11-01T09:21:33.217Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1123,7 +1179,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:21:33.217Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-0aa229cdc5b2",
@@ -1156,7 +1216,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-ICT-Fachmann-frau-EFZ_REQ-10089048-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:32:03.047Z",
+      "crawledAt": "2026-11-01T09:21:32.492Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1198,7 +1258,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:21:32.492Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-e3c41b49af14",
@@ -1231,7 +1295,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Forward-Deployed-Engineer--FDE--Data42_REQ-10079038-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:02.192Z",
+      "crawledAt": "2026-11-01T09:21:31.790Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1271,7 +1335,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:21:31.790Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-2223a27da72b",
@@ -1304,7 +1372,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Patent-Paralegal_REQ-10087836-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:01.395Z",
+      "crawledAt": "2026-11-01T09:21:31.068Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1344,7 +1412,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:21:31.068Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-525b2a133366",
@@ -1377,7 +1449,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Next-Generation-Scientist-2027_REQ-10089124-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:00.666Z",
+      "crawledAt": "2026-11-01T09:21:30.360Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1423,7 +1495,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:21:30.360Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-6b11dec4ec26",
@@ -1456,7 +1532,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Postgraduate-Program-Biologics_REQ-10090227-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:59.853Z",
+      "crawledAt": "2026-11-01T09:21:29.589Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1502,7 +1578,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:21:29.589Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-5a0a44e17e80",
@@ -1535,7 +1615,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Corporate-Affairs-Intelligence--Strategic-Insights_REQ-10090495-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:58.937Z",
+      "crawledAt": "2026-11-01T09:21:28.825Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1575,7 +1655,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:21:28.825Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-0ab7d366f16d",
@@ -1608,7 +1692,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Portfolio-Analytics_REQ-10086799-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:58.211Z",
+      "crawledAt": "2026-11-01T09:21:28.101Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1655,7 +1739,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:21:28.101Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-d27fb3cd862c",
@@ -1688,7 +1776,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Biocatalysis-and-Protein-Engineering---Industrial-Post-Doctoral-Researcher-in-Global-Discovery-Chemistry--Novartis-Genesis-Labs-_REQ-10090372",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:57.329Z",
+      "crawledAt": "2026-11-01T09:21:27.383Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1734,7 +1822,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:21:27.383Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-f968a63a5f9a",
@@ -1767,7 +1859,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Muttenz-with-Canteen/Robotics-Expert-ITOT_REQ-10089426-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:56.566Z",
+      "crawledAt": "2026-11-01T09:21:26.294Z",
       "addressLocality": "Muttenz (with Canteen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1809,7 +1901,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BL"
+      "addressRegion": "BL",
+      "streetAddress": "Muttenz (with Canteen)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:21:26.294Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-35c80b2c708c",
@@ -1842,7 +1938,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Global-Regulatory-Director--RA-Central-Solutions-CTA-CTR_REQ-10089021",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:55.830Z",
+      "crawledAt": "2026-11-01T09:21:25.492Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1885,7 +1981,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:21:25.492Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-b3ef757a6783",
@@ -1918,7 +2018,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/WORKFORCE-STRATEGY-HEAD--ENTERPRISE-DATA-SCIENCE---ARTIFICIAL-INTELLIGENCE--DSAI-_REQ-10089300-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:55.112Z",
+      "crawledAt": "2026-11-01T09:21:24.746Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1964,7 +2064,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:21:24.746Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-24669a73950e",
@@ -1997,7 +2101,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Clinical-Program-Leader_REQ-10077698-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:54.378Z",
+      "crawledAt": "2026-11-01T09:21:23.977Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2043,7 +2147,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:21:23.977Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-ad6f2e8b2e33",
@@ -2076,7 +2184,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Head-of-International-Medical-Affairs--Governance-Enablement_REQ-10090847-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:53.635Z",
+      "crawledAt": "2026-11-01T09:21:23.224Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2122,7 +2230,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:21:23.224Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-3938dd35a2d8",
@@ -2155,7 +2267,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Head-of-International-Medical-Affairs--Process-Effectiveness-and-Monitoring_REQ-10090845-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:52.809Z",
+      "crawledAt": "2026-11-01T09:21:22.440Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2202,7 +2314,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:21:22.440Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-94fad109f910",
@@ -2235,7 +2351,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Analyst--Novartis-Venture-Fund_REQ-10089340-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:51.789Z",
+      "crawledAt": "2026-11-01T09:21:21.698Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2278,7 +2394,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:21:21.698Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-6bf026fcb434",
@@ -2311,7 +2431,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Rotkreuz-Field-Based/Sales-Representative-Neuroscience_REQ-10089591",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:51.057Z",
+      "crawledAt": "2026-11-01T09:21:20.921Z",
       "addressLocality": "Rotkreuz (Field-Based)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2359,7 +2479,11 @@
         }
       },
       "postalCode": "6300",
-      "addressRegion": "ZG"
+      "addressRegion": "ZG",
+      "streetAddress": "Rotkreuz (Field-Based)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:21:20.921Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-070f44695e7a",
@@ -2392,7 +2516,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/CBC-Process-Specialist_REQ-10083982-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:31:49.920Z",
+      "crawledAt": "2026-11-01T09:21:19.759Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2431,7 +2555,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:21:19.759Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-7d7b23924818",
@@ -2464,7 +2592,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/CBC-Process-Expert_REQ-10083985-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:49.192Z",
+      "crawledAt": "2026-11-01T09:21:19.048Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2503,7 +2631,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:21:19.048Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "novartis-104eed1d0945",
@@ -2536,7 +2668,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Scientific-AI-Platform-Lead--Data-Science--Disease-Area-X_REQ-10089231",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:48.455Z",
+      "crawledAt": "2026-11-01T09:21:18.276Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2582,87 +2714,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
-    },
-    {
-      "id": "novartis-576145d10eb9",
-      "slug": "ingegneria-degli-esperti-senior-novartis-basel-city",
-      "slugByLocale": {
-        "it": "ingegneria-degli-esperti-senior-novartis-basel-city",
-        "en": "device-packaging-senior-expert-engineering-novartis-ch",
-        "de": "gerate-verpackungen-senior-expert-engineering-novartis-basel-city",
-        "fr": "materiel-et-emballage-expert-en-genie-novartis-basel-city"
-      },
-      "company": "Novartis",
-      "companyKey": "novartis",
-      "companyDomain": "novartis.com",
-      "title": "Device & Packaging Senior Expert Engineering",
-      "titleByLocale": {
-        "it": "Ingegneria degli esperti senior",
-        "en": "Device & Packaging Senior Expert Engineering",
-        "de": "Geräte & Verpackungen Senior Expert Engineering",
-        "fr": "Matériel et emballage Expert en génie"
-      },
-      "description": "Salary Range:\nCHF93,800.00 - CHF174,200.00\n\nJob Description Summary\nLocation: Basel, Switzerland #onsite\n\nRole Purpose:\nThe successful candidate for this position will need to be able to support the technical development of packaging and delivery systems for new oral drugs within the Novartis Oral Packaging & Delivery Systems Group, from early phase activities up to commercialization and production scale up. In addition to outstanding inter-personal skills, a strong technical background in pharmaceutical packaging and drug delivery medical devices is crucial to be able to support, monitor and challenge internal and external development partners.\n\nJob Description\nTasks and responsibilities would typically include:\n\n• Thorough project planning\n\n• Supporting the definition of product requirements and qualification of oral packaging and drug delivery systems, e.g. drug/device combination products and medical devices\n\n• Supporting the collaboration with other development business partners:\n• Monitor work progress according to plan,\n\n• Monitor, support and challenge technical development as well as test and verification work,\n\n• Monitor development and implementation of manufacturing processes,\n\n• Providing primary packaging and device expertise in a broader cross-functional drug product development team,\n\n• Evaluating and challenging technical solutions,\n\n• Supporting and coordinating the manufacturing of clinical material and the production scale up,\n\n• Supporting cross functional project teams in the development, review and submission of regulatory dossiers,\n\n• Leading Risk management activities,\n\n• Managing and monitoring Human Factors Engineering activities,\n\n• Monitoring of design verification activities (in-house),\n\n• Leading and authoring technical documentation,\n\n• Ensuring a high-quality Design History file,\n\n• Transfer of Design History File to production.\n\nRequirements\nBachelor’s or Master’s degree in Packaging Science/Engineering or Mechanical Engineering or University level Engineering education.\nAn ideal candidate would have a relevant degree in engineering and at least 7 years’ experience in supporting or leading pharmaceutical packaging or drug delivery device development technical teams.\nFluency in English language is required. Proficiency in German/French advantageous.\n\nExperience desire d\n\n• Good understanding of pharmaceutical development in general,\n\n• Experience in supporting complex projects / programs,\n\n• Understanding of medical device regulations (FDA 21CFR 820, EU Medical Device Directive, EU Medical Device Regulation),\n\n• Development and writing of technical documentation of drug/device combination products and medical devices, including Design Control process and other applicable Regulatory, QA and GMP aspects,\n\n• Mechanical/Industrial engineering in general\n• Product design/Design for manufacture\n\n• Test and verification, incl. development of methods and equipment\n\n• General understanding of Human Factors Engineering, risk management and clinical studies processes and requirements,\n\n• Good communication and conflict solving skills.\n\nBenefits & Rewards\n\nAt Novartis, we’re committed to reimagining medicine together - and rewarding the people who make it happen.\n\nExpected Annual Base Salary Range for role: CHF93,800 to CHF174,200\n\nThe base salary offered is determined based on gender-neutral objectives, such as relevant skills, competencies and experience in accordance with the Novartis pay setting policy and upon joining Novartis will be reviewed periodically.\n\nIn addition to your base salary, you may be eligible for a performance-based bonus depending on certain performance parameters.\n\nThe rewards of being part of our team go far beyond base pay and incentives. We also offer a variety of competitive benefits in kind to help you thrive personally and professionally, such as insurance plans, retirement plans, wellbeing resources and global recognition programs. In addition, we provide flexible and hybrid working options, where possible, and minimum 14 weeks paid parental leave.\n\nSkills Desired",
-      "descriptionByLocale": {
-        "it": "Gamma di insalata:\nCHF93.800.00 - CHF174,200.00\n\nDescrizione del lavoro\nUbicazione: Basilea, Svizzera #onsite\n\nScopo del ruolo:\nIl candidato di successo per questa posizione dovrà essere in grado di supportare lo sviluppo tecnico dei sistemi di confezionamento e consegna per nuovi farmaci orali all'interno del Gruppo Sistemi di Imballaggio e Consegna Orale Novartis, dalle attività di fase iniziale fino alla commercializzazione e alla scala di produzione. Oltre alle eccezionali competenze interpersonali, un forte background tecnico nei dispositivi medici di confezionamento farmaceutico e di consegna della droga è fondamentale per essere in grado di supportare, monitorare e sfidare partner di sviluppo interni ed esterni.\n\nDescrizione del lavoro\nCompiti e responsabilità in genere includono:\n\n• Pianificazione di progetto accurata\n\n• Sostenere la definizione dei requisiti del prodotto e la qualificazione dei sistemi di confezionamento orale e di consegna della droga, ad esempio prodotti di combinazione di farmaci/dispositivi e dispositivi medici\n\n• Sostenere la collaborazione con altri partner commerciali di sviluppo:\n• Monitorare i progressi del lavoro secondo il piano,\n\n• Monitorare, supportare e sfidare lo sviluppo tecnico e il lavoro di test e verifica,\n\n• Monitorare lo sviluppo e l'attuazione dei processi produttivi,\n\n• Fornire l'imballaggio primario e la competenza del dispositivo in un più ampio team di sviluppo del prodotto di droga cross-funzionale,\n\n• Valutare e sfidare soluzioni tecniche,\n\n• Sostenere e coordinare la produzione di materiale clinico e la scala di produzione,\n\n• Sostenere i team di progetto funzionali trasversali nello sviluppo, nella revisione e nella presentazione dei dossier normativi,\n\n• Leader attività di gestione del rischio,\n\n• Gestione e monitoraggio delle attività di ingegneria dei fattori umani,\n\n• Monitoraggio delle attività di verifica della progettazione (in-house),\n\n• Documentazione tecnica leader e autore,\n\n• Assicurare un file di alta qualità Design History,\n\n• Trasferimento di Design History File alla produzione.\n\nRequisiti\nCorso di laurea o master in Scienze dell'imballaggio / ingegneria o ingegneria meccanica o istruzione di ingegneria universitaria.\nUn candidato ideale avrebbe una laurea rilevante in ingegneria e almeno 7 anni di esperienza nel supporto o leader di packaging farmaceutico o di sviluppo di dispositivi di distribuzione di droga team tecnici.\nÈ richiesta una fluidità in lingua inglese. Competenza in tedesco/francese vantaggiosa.\n\nEsperienza del desiderio\n\n• Buona comprensione dello sviluppo farmaceutico in generale,\n\n• Esperienza nel sostenere progetti / programmi complessi,\n\n• Comprensione delle normative sui dispositivi medici (FDA 21CFR 820, Direttiva sui dispositivi medici UE, Regolamento sui dispositivi medici UE),\n\n• Sviluppo e scrittura di documentazione tecnica di prodotti combinati di droga/dispositivi e dispositivi medici, compreso il processo di Design Control e altri aspetti regolamentari applicabili, QA e GMP,\n\n• Ingegneria meccanica/industriale in generale\n• Design del prodotto/Progetto per la fabbricazione\n\n• Test e verifica, incl. sviluppo di metodi e attrezzature\n\n• Comprensione generale dei fattori umani Ingegneria, gestione del rischio e processi e requisiti di studi clinici,\n\n• Buone capacità di comunicazione e risoluzione dei conflitti.\n\nVantaggi e premi\n\nA Novartis, ci impegniamo a riimmaginare insieme la medicina e a premiare le persone che lo fanno accadere.\n\nCampo d'insalatura annuale previsto per il ruolo: CHF93.800 a CHF174,200\n\nLo stipendio base offerto è determinato sulla base di obiettivi di genere-neutral, come le competenze rilevanti, competenze e l'esperienza in conformità con la politica di impostazione della retribuzione Novartis e dopo l'adesione Novartis saranno esaminati periodicamente.\n\nOltre al tuo stipendio base, potresti essere idoneo per un bonus basato sulle prestazioni a seconda di determinati parametri di prestazione.\n\nLe ricompense di far parte del nostro team vanno ben oltre la retribuzione base e gli incentivi. Offriamo anche una varietà di vantaggi competitivi in genere per aiutare a prosperare personalmente e professionalmente, come piani di assicurazione, piani di pensionamento, risorse di benessere e programmi di riconoscimento globale. Inoltre, forniamo opzioni di lavoro flessibili e ibride, dove possibile, e minimo 14 settimane congedo parentale pagato.\n\nCompetenze desiderate",
-        "en": "Salary Range:\nCHF93,800.00 - CHF174,200.00\n\nJob Description Summary\nLocation: Basel, Switzerland #onsite\n\nRole Purpose:\nThe successful candidate for this position will need to be able to support the technical development of packaging and delivery systems for new oral drugs within the Novartis Oral Packaging & Delivery Systems Group, from early phase activities up to commercialization and production scale up. In addition to outstanding inter-personal skills, a strong technical background in pharmaceutical packaging and drug delivery medical devices is crucial to be able to support, monitor and challenge internal and external development partners.\n\nJob Description\nTasks and responsibilities would typically include:\n\n• Thorough project planning\n\n• Supporting the definition of product requirements and qualification of oral packaging and drug delivery systems, e.g. drug/device combination products and medical devices\n\n• Supporting the collaboration with other development business partners:\n• Monitor work progress according to plan,\n\n• Monitor, support and challenge technical development as well as test and verification work,\n\n• Monitor development and implementation of manufacturing processes,\n\n• Providing primary packaging and device expertise in a broader cross-functional drug product development team,\n\n• Evaluating and challenging technical solutions,\n\n• Supporting and coordinating the manufacturing of clinical material and the production scale up,\n\n• Supporting cross functional project teams in the development, review and submission of regulatory dossiers,\n\n• Leading Risk management activities,\n\n• Managing and monitoring Human Factors Engineering activities,\n\n• Monitoring of design verification activities (in-house),\n\n• Leading and authoring technical documentation,\n\n• Ensuring a high-quality Design History file,\n\n• Transfer of Design History File to production.\n\nRequirements\nBachelor’s or Master’s degree in Packaging Science/Engineering or Mechanical Engineering or University level Engineering education.\nAn ideal candidate would have a relevant degree in engineering and at least 7 years’ experience in supporting or leading pharmaceutical packaging or drug delivery device development technical teams.\nFluency in English language is required. Proficiency in German/French advantageous.\n\nExperience desire d\n\n• Good understanding of pharmaceutical development in general,\n\n• Experience in supporting complex projects / programs,\n\n• Understanding of medical device regulations (FDA 21CFR 820, EU Medical Device Directive, EU Medical Device Regulation),\n\n• Development and writing of technical documentation of drug/device combination products and medical devices, including Design Control process and other applicable Regulatory, QA and GMP aspects,\n\n• Mechanical/Industrial engineering in general\n• Product design/Design for manufacture\n\n• Test and verification, incl. development of methods and equipment\n\n• General understanding of Human Factors Engineering, risk management and clinical studies processes and requirements,\n\n• Good communication and conflict solving skills.\n\nBenefits & Rewards\n\nAt Novartis, we’re committed to reimagining medicine together - and rewarding the people who make it happen.\n\nExpected Annual Base Salary Range for role: CHF93,800 to CHF174,200\n\nThe base salary offered is determined based on gender-neutral objectives, such as relevant skills, competencies and experience in accordance with the Novartis pay setting policy and upon joining Novartis will be reviewed periodically.\n\nIn addition to your base salary, you may be eligible for a performance-based bonus depending on certain performance parameters.\n\nThe rewards of being part of our team go far beyond base pay and incentives. We also offer a variety of competitive benefits in kind to help you thrive personally and professionally, such as insurance plans, retirement plans, wellbeing resources and global recognition programs. In addition, we provide flexible and hybrid working options, where possible, and minimum 14 weeks paid parental leave.\n\nSkills Desired",
-        "de": "Gehaltsbereich:\nCHF93.800.00 - CHF174.200.00\n\nStellenbeschreibung Zusammenfassung\nStandort: Basel, Schweiz #onsite\n\nZweck:\nDer erfolgreiche Kandidat für diese Position muss in der Lage sein, die technische Entwicklung von Verpackungs- und Verabreichungssystemen für neue orale Medikamente innerhalb der Novartis Oral Packaging & Delivery Systems Group zu unterstützen, von der frühen Phase bis zur Kommerzialisierung und Produktionsskala. Neben herausragenden zwischenmenschlichen Fähigkeiten ist ein starker technischer Hintergrund in pharmazeutischen Verpackungen und medizinischen Medikamenten entscheidend, um interne und externe Entwicklungspartner unterstützen, überwachen und herausfordern zu können.\n\nStellenbeschreibung\nAufgaben und Verantwortlichkeiten umfassen typischerweise:\n\n• Gründliche Projektplanung\n\n• Unterstützung der Definition von Produktanforderungen und der Qualifizierung von oralen Verpackungen und Medikamentenabgabesystemen, z. B. Kombinationsprodukte für Arzneimittel und Medizinprodukte\n\n• Unterstützung der Zusammenarbeit mit anderen Entwicklungs-Geschäftspartnern:\n• Überwachung des Arbeitsfortschritts nach Plan,\n\n• Überwachung, Unterstützung und Herausforderung der technischen Entwicklung sowie Test- und Verifizierungsarbeiten,\n\n• Überwachung der Entwicklung und Umsetzung von Fertigungsprozessen,\n\n• Bereitstellung von Primärverpackungs- und Geräteexpertise in einem breiteren funktionsübergreifenden Arzneimittelentwicklungsteam,\n\n• Bewertung und herausfordernde technische Lösungen,\n\n• Unterstützung und Koordination der Herstellung von klinischem Material und der Produktionsskala,\n\n• Unterstützung funktionsübergreifender Projektteams bei der Entwicklung, Überprüfung und Einreichung von regulatorischen Dossiers,\n\n• Leitende Tätigkeiten im Risikomanagement,\n\n• Verwaltung und Überwachung von Human Factors Engineering-Aktivitäten,\n\n• Überwachung der Konstruktionsprüfung (intern),\n\n• Führen und Verfassen technischer Dokumentation,\n\n• Sicherstellung einer hochwertigen Design History-Datei,\n\n• Übertragung von Design History File in die Produktion.\n\nAnforderungen\nBachelor- oder Master-Abschluss in Packaging Science / Engineering oder Maschinenbau oder Hochschulausbildung.\nEin idealer Kandidat verfügt über einen relevanten Abschluss in Ingenieurwissenschaften und mindestens 7 Jahre Erfahrung in der Unterstützung oder Leitung von technischen Teams für pharmazeutische Verpackungen oder Arzneimittelentwicklungsgeräte.\nEs ist eine fließende englische Sprache erforderlich. Kenntnisse in Deutsch/Französisch vorteilhaft.\n\nErfahrungswunsch d\n\n• Gutes Verständnis der pharmazeutischen Entwicklung im Allgemeinen,\n\n• Erfahrung in der Unterstützung komplexer Projekte / Programme,\n\n• Verständnis der Medizinproduktevorschriften (FDA 21CFR 820, EU-Medizinprodukterichtlinie, EU-Medizinprodukteverordnung),\n\n• Entwicklung und Verfassen der technischen Dokumentation von Arzneimittel-/Geräte-Kombinationsprodukten und Medizinprodukten, einschließlich des Entwurfskontrollverfahrens und anderer anwendbarer regulatorischer, QA- und GMP-Aspekte,\n\n• Maschinenbau/Industrietechnik im Allgemeinen\n• Produktdesign/Design für die Herstellung\n\n• Test und Verifizierung, einschl. Entwicklung von Methoden und Ausrüstung\n\n• Allgemeines Verständnis der Human Factors Engineering, Risikomanagement und klinische Studien Prozesse und Anforderungen,\n\n• Gute Kommunikation und Konfliktlösung Fähigkeiten.\n\nVorteile & Belohnungen\n\nBei Novartis setzen wir uns dafür ein, die Medizin gemeinsam neu zu gestalten - und die Menschen zu belohnen, die sie ermöglichen.\n\nErwartete jährliche Grundgehaltsspanne für Rollen: CHF 93.800 bis CHF 174.200\n\nDas angebotene Grundgehalt wird auf der Grundlage von geschlechtsneutralen Zielen wie relevanten Fähigkeiten, Kompetenzen und Erfahrungen gemäß der Lohnpolitik von Novartis festgelegt und wird nach dem Beitritt von Novartis regelmäßig überprüft.\n\nZusätzlich zu Ihrem Grundgehalt haben Sie möglicherweise Anspruch auf einen leistungsbezogenen Bonus, der von bestimmten Leistungsparametern abhängt.\n\nDie Belohnungen, Teil unseres Teams zu sein, gehen weit über Grundlohn und Anreize hinaus. Wir bieten auch eine Vielzahl von Wettbewerbsvorteilen an, die Ihnen helfen, persönlich und professionell zu gedeihen, wie Versicherungspläne, Altersvorsorgepläne, Wohlbefindensressourcen und globale Anerkennungsprogramme. Darüber hinaus bieten wir flexible und hybride Arbeitsmöglichkeiten, wo möglich, und mindestens 14 Wochen bezahlten Elternurlaub.\n\nGewünschte Fähigkeiten",
-        "fr": "Échelle salariale :\n93 800,00 CHF - 174 200,00 CHF\n\nSommaire de la description d'emploi\nLieu: Bâle, Suisse #onsite\n\nRôle But :\nLe candidat retenu pour ce poste devra être en mesure d'appuyer le développement technique des systèmes d'emballage et de livraison des nouveaux médicaments oraux au sein du groupe Novartis Oral Packaging & Delivery Systems, depuis les premières étapes jusqu'à la commercialisation et à l'échelle de production. Outre les compétences interpersonnelles exceptionnelles, il est essentiel de posséder une solide expérience technique en matière d'emballages pharmaceutiques et d'appareils médicaux de livraison de médicaments pour pouvoir appuyer, surveiller et défier les partenaires de développement internes et externes.\n\nDescription de l'emploi\nLes tâches et les responsabilités comprennent généralement :\n\n• Planification approfondie du projet\n\n• Appuyer la définition des exigences relatives aux produits et la qualification des systèmes d'emballage et de livraison de médicaments par voie orale, p.ex. les produits combinés médicaments/appareils et les instruments médicaux\n\n• Soutenir la collaboration avec d'autres partenaires du développement :\n• Surveiller l'avancement des travaux selon le plan,\n\n• Surveiller, appuyer et remettre en question le développement technique ainsi que les travaux d ' essai et de vérification,\n\n• Surveiller l'élaboration et la mise en œuvre des procédés de fabrication,\n\n• Fournir une expertise en matière d'emballage primaire et d'appareils dans une équipe plus vaste de développement de produits pharmaceutiques interfonctionnels;\n\n• Évaluation et solutions techniques stimulantes,\n\n• Soutenir et coordonner la fabrication de matériel clinique et l'échelle de production,\n\n• Soutenir les équipes de projet interfonctionnelles dans l'élaboration, l'examen et la présentation des dossiers réglementaires,\n\n• Principales activités de gestion des risques,\n\n• Gestion et suivi des activités d'ingénierie des facteurs humains\n\n• Surveillance des activités de vérification de la conception (interne),\n\n• Diriger et rédiger la documentation technique,\n\n• Assurer un fichier d'historique de conception de haute qualité,\n\n• Transfert du fichier historique de conception à la production.\n\nExigences\nBaccalauréat ou maîtrise en sciences de l'emballage/ingénierie ou en génie mécanique ou au niveau universitaire.\nUn candidat idéal aurait un diplôme d'ingénieur pertinent et au moins 7 ans d'expérience dans le soutien ou le leadership d'équipes techniques de développement d'emballages pharmaceutiques ou d'appareils de livraison de médicaments.\nLa maîtrise de l'anglais est requise. Compétence en allemand / français avantageux.\n\nExpérience de désir d\n\n• Bonne compréhension du développement pharmaceutique en général,\n\n• Expérience dans le soutien de projets/programmes complexes,\n\n• Compréhension de la réglementation relative aux dispositifs médicaux (FDA 21CFR 820, Directive européenne relative aux dispositifs médicaux, Règlement européen relatif aux dispositifs médicaux),\n\n• Élaboration et rédaction de documents techniques sur les produits combinés médicaments/dispositifs et les instruments médicaux, y compris le processus de contrôle de conception et d'autres aspects réglementaires, d'AQ et de BPF applicables,\n\n• Génie mécanique et industriel en général\n• Conception/conception de produits pour la fabrication\n\n• Essai et vérification, y compris mise au point de méthodes et d'équipements\n\n• Compréhension générale des facteurs humains Ingénierie, gestion des risques et études cliniques processus et exigences,\n\n• Bonnes compétences en communication et résolution de conflits.\n\nAvantages et récompenses\n\nÀ Novartis, nous nous engageons à réinventer la médecine ensemble - et à récompenser les gens qui y arrivent.\n\nSalaire annuel de base prévu pour le rôle : 93 800 CHF à 174 200 CHF\n\nLe salaire de base offert est déterminé en fonction d'objectifs non sexistes, tels que les compétences, les compétences et l'expérience pertinentes conformément à la politique d'établissement de la rémunération de Novartis et lors de son adhésion à Novartis sera examiné périodiquement.\n\nEn plus de votre salaire de base, vous pourriez être admissible à une prime basée sur le rendement selon certains paramètres de rendement.\n\nLes récompenses de faire partie de notre équipe vont bien au-delà de la rémunération de base et des incitatifs. Nous offrons également une variété d'avantages concurrentiels en nature pour vous aider à prospérer personnellement et professionnellement, comme les régimes d'assurance, les régimes de retraite, les ressources de bien-être et les programmes de reconnaissance mondiale. De plus, nous offrons des options de travail flexibles et hybrides, si possible, et un congé parental rémunéré minimum de 14 semaines.\n\nCompétences recherchées"
-      },
-      "location": "Basel (City)",
-      "canton": "BS",
-      "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Device---Packaging-Senior-Expert-Engineering_REQ-10090199",
-      "source": "Novartis Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-30T21:22:24.499Z",
-      "addressLocality": "Basel (City)",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Device---Packaging-Senior-Expert-Engineering_REQ-10090199",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "device-packaging-senior-expert-engineering-novartis-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "device-packaging-senior-expert-engineering-novartis-ch"
-        ],
-        "de": [
-          "device-packaging-senior-expert-engineering-novartis-ch"
-        ],
-        "fr": [
-          "device-packaging-senior-expert-engineering-novartis-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-30T09:33:30.006Z",
-      "salaryMin": 99500,
-      "salaryMax": 151000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99500,
-          "maxValue": 151000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4001",
       "addressRegion": "BS",
-      "crawlerMissStreak": 2
+      "streetAddress": "Basel (City)",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:21:18.276Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

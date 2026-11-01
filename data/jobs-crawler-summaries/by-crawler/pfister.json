@@ -1,7 +1,7 @@
 {
   "key": "pfister",
   "label": "Möbel Pfister AG",
-  "generatedAt": "2026-10-31T22:05:34.395Z",
+  "generatedAt": "2026-11-01T09:33:39.696Z",
   "total": 65,
   "discovered": null,
   "parsed": 65,
@@ -13,250 +13,17 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 2,
-  "unchangedCount": 62,
-  "durationMs": 35106,
-  "avgDurationMs": 35106,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 65,
+  "durationMs": 38772,
+  "avgDurationMs": 38772,
   "durationHistory": [
-    35106
+    38772
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "pfister-11e15b4bc800",
-      "slug": "gestione-immobiliare-business-mobel-pfister-ag-suhr",
-      "company": "Möbel Pfister AG",
-      "companyKey": "pfister",
-      "companyDomain": "pfister.ch",
-      "title": "SachbearbeiterIn Immobilienbewirtschaftung Gewerbe",
-      "location": "Suhr",
-      "canton": "AG",
-      "url": "https://apply.refline.ch/424626/3414/pub/1/index.html",
-      "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:51.300Z",
-      "addressLocality": "Suhr",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5034",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-17T05:51:55.764096+00:00",
-      "postedDate": "2026-06-17T05:51:55.764096+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/424626/3414/pub/1/index.html",
-      "externalId": "3414",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "firstSeenAt": "2026-07-04T12:18:21.817Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "pfister-0d61f03b0343",
-      "slug": "montatore-falegname-m-w-d-mobel-pfister-ag-suhr",
-      "company": "Möbel Pfister AG",
-      "companyKey": "pfister",
-      "companyDomain": "pfister.ch",
-      "title": "MonteurIn / SchreinerIn (w/m/d)",
-      "needsRetranslation": false,
-      "location": "Suhr",
-      "canton": "AG",
-      "url": "https://apply.refline.ch/424626/1427/pub/62/index.html",
-      "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:50.877Z",
-      "addressLocality": "Suhr",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5034",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2019-06-07T09:48:50.903000+00:00",
-      "postedDate": "2019-06-07T09:48:50.903000+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/424626/1427/pub/62/index.html",
-      "externalId": "1427",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "firstSeenAt": "2026-07-04T12:18:18.345Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "pfister-f06bbfa21b50",
-      "slug": "specialista-in-cucine-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
-      "company": "Möbel Pfister AG",
-      "companyKey": "pfister",
-      "companyDomain": "pfister.ch",
-      "title": "FachverkäuferIn Küchen (w/m/d)",
-      "needsRetranslation": false,
-      "location": "Alchenflüh-Lyssach",
-      "canton": "BE",
-      "url": "https://apply.refline.ch/424626/3384/pub/1/index.html",
-      "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:04:50.452Z",
-      "addressLocality": "Alchenflüh-Lyssach",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3422",
-      "category": "IT",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-05-07T13:43:14.791365+00:00",
-      "postedDate": "2026-05-07T13:43:14.791365+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/424626/3384/pub/1/index.html",
-      "externalId": "3384",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "firstSeenAt": "2026-07-04T12:18:13.556Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "pfister-2368951efda9",
-      "slug": "cabinetist-mounter-con-permesso-di-gatto-c1-c-m-f-d-mobel-pfister-ag-etoy",
-      "company": "Möbel Pfister AG",
-      "companyKey": "pfister",
-      "companyDomain": "pfister.ch",
-      "title": "Ébéniste / Monteur/euse avec permis de cat. C1 / C (f/h/d)",
-      "needsRetranslation": false,
-      "location": "Etoy",
-      "canton": "VD",
-      "url": "https://apply.refline.ch/424626/3454/pub/1/index.html",
-      "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:47:09.460Z",
-      "addressLocality": "Etoy",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1163",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-27T14:34:05.194550+00:00",
-      "postedDate": "2026-08-27T14:34:05.194550+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/424626/3454/pub/1/index.html",
-      "externalId": "3454",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "firstSeenAt": "2026-08-28T05:27:06.643Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "pfister-d1271858a7d0",
-      "slug": "ebeniste-monteur-euse-f-h-d-pfister-etoy",
-      "company": "Möbel Pfister AG",
-      "companyKey": "pfister",
-      "companyDomain": "pfister.ch",
-      "title": "Ébéniste / Monteur/euse (f/h/d)",
-      "needsRetranslation": false,
-      "location": "Etoy",
-      "canton": "VD",
-      "url": "https://apply.refline.ch/424626/3451/pub/1/index.html",
-      "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-30T09:47:07.886Z",
-      "addressLocality": "Etoy",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1163",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-27T14:15:30.304301+00:00",
-      "postedDate": "2026-08-27T14:15:30.304301+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/424626/3451/pub/1/index.html",
-      "externalId": "3451",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "firstSeenAt": "2026-08-28T05:27:05.205Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "updatedJobs": [],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "pfister-67e988bb4f32",
@@ -271,7 +38,7 @@
       "url": "https://apply.refline.ch/424626/3485/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:19.417Z",
+      "crawledAt": "2026-11-01T09:33:22.845Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -296,12 +63,16 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:33:22.845Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -316,7 +87,7 @@
       "url": "https://apply.refline.ch/424626/3465/pub/5/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:18.981Z",
+      "crawledAt": "2026-11-01T09:33:22.389Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -341,12 +112,16 @@
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Thörishaus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:33:22.389Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -362,7 +137,7 @@
       "url": "https://apply.refline.ch/424626/3462/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:17.812Z",
+      "crawledAt": "2026-11-01T09:33:21.937Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -387,12 +162,16 @@
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Thörishaus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:33:21.937Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -408,7 +187,7 @@
       "url": "https://apply.refline.ch/424626/3448/pub/3/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:05:17.393Z",
+      "crawledAt": "2026-11-01T09:33:21.483Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -433,12 +212,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Etoy",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:21.483Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -453,7 +236,7 @@
       "url": "https://apply.refline.ch/424626/3438/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:16.971Z",
+      "crawledAt": "2026-11-01T09:33:21.028Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -478,12 +261,16 @@
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Thörishaus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:21.028Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -498,7 +285,7 @@
       "url": "https://apply.refline.ch/424626/3437/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:16.555Z",
+      "crawledAt": "2026-11-01T09:33:20.577Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -523,12 +310,16 @@
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:33:20.577Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -543,7 +334,7 @@
       "url": "https://apply.refline.ch/424626/2883/pub/4/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:16.136Z",
+      "crawledAt": "2026-11-01T09:33:20.123Z",
       "addressLocality": "Thörishaus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -568,12 +359,16 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Thörishaus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:20.123Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -589,7 +384,7 @@
       "url": "https://apply.refline.ch/424626/3393/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:15.717Z",
+      "crawledAt": "2026-11-01T09:33:19.670Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -614,12 +409,16 @@
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:19.670Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -635,7 +434,7 @@
       "url": "https://apply.refline.ch/424626/3391/pub/5/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:15.298Z",
+      "crawledAt": "2026-11-01T09:33:17.885Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -660,12 +459,16 @@
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Dübendorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:17.885Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -681,7 +484,7 @@
       "url": "https://apply.refline.ch/424626/3484/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:14.879Z",
+      "crawledAt": "2026-11-01T09:33:17.432Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -706,12 +509,16 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Alchenflüh-Lyssach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:33:17.432Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -727,7 +534,7 @@
       "url": "https://apply.refline.ch/424626/3474/pub/4/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:14.461Z",
+      "crawledAt": "2026-11-01T09:33:16.977Z",
       "addressLocality": "Alchenflüh-Lyssach",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -752,12 +559,16 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Alchenflüh-Lyssach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:33:16.977Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -772,7 +583,7 @@
       "url": "https://apply.refline.ch/424626/3476/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:14.042Z",
+      "crawledAt": "2026-11-01T09:33:16.524Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -797,12 +608,16 @@
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-14T09:33:16.524Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -818,7 +633,7 @@
       "url": "https://apply.refline.ch/424626/3477/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:13.618Z",
+      "crawledAt": "2026-11-01T09:33:16.071Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -842,12 +657,16 @@
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-14T09:33:16.071Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -863,7 +682,7 @@
       "url": "https://apply.refline.ch/424626/3475/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:13.200Z",
+      "crawledAt": "2026-11-01T09:33:15.618Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -888,12 +707,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-11T09:33:15.618Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -909,7 +732,7 @@
       "url": "https://apply.refline.ch/424626/3442/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:12.781Z",
+      "crawledAt": "2026-11-01T09:33:15.166Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -934,12 +757,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:15.166Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -955,7 +782,7 @@
       "url": "https://apply.refline.ch/424626/3472/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:12.362Z",
+      "crawledAt": "2026-11-01T09:33:14.722Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -980,12 +807,16 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Wil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:33:14.722Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1000,7 +831,7 @@
       "url": "https://apply.refline.ch/424626/3470/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:11.945Z",
+      "crawledAt": "2026-11-01T09:33:14.271Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1025,12 +856,16 @@
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Pratteln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:33:14.271Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1045,7 +880,7 @@
       "url": "https://apply.refline.ch/424626/3468/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:11.518Z",
+      "crawledAt": "2026-11-01T09:33:13.817Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1070,12 +905,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Pratteln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:33:13.817Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1091,7 +930,7 @@
       "url": "https://apply.refline.ch/424626/3466/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:11.100Z",
+      "crawledAt": "2026-11-01T09:33:13.360Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1116,12 +955,16 @@
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:33:13.360Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1136,7 +979,7 @@
       "url": "https://apply.refline.ch/424626/0521/pub/7/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:05:10.674Z",
+      "crawledAt": "2026-11-01T09:33:12.906Z",
       "addressLocality": "Marin",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1161,12 +1004,16 @@
       "salaryMin": 96500,
       "salaryMax": 147000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Marin",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:12.906Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1181,7 +1028,7 @@
       "url": "https://apply.refline.ch/424626/3460/pub/5/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:10.253Z",
+      "crawledAt": "2026-11-01T09:33:12.450Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1206,12 +1053,16 @@
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:12.450Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1227,7 +1078,7 @@
       "url": "https://apply.refline.ch/424626/3463/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:09.833Z",
+      "crawledAt": "2026-11-01T09:33:11.999Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1252,12 +1103,16 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-07T09:33:11.999Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1272,7 +1127,7 @@
       "url": "https://apply.refline.ch/424626/3457/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:09.413Z",
+      "crawledAt": "2026-11-01T09:33:11.546Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1297,12 +1152,16 @@
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:11.546Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1317,7 +1176,7 @@
       "url": "https://apply.refline.ch/424626/3459/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:08.969Z",
+      "crawledAt": "2026-11-01T09:33:11.047Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1342,12 +1201,16 @@
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:11.047Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1363,7 +1226,7 @@
       "url": "https://apply.refline.ch/424626/3458/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:07.909Z",
+      "crawledAt": "2026-11-01T09:33:10.595Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1388,12 +1251,16 @@
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Thun",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:10.595Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1409,7 +1276,7 @@
       "url": "https://apply.refline.ch/424626/3453/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:05:07.490Z",
+      "crawledAt": "2026-11-01T09:33:10.142Z",
       "addressLocality": "Avry",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1434,12 +1301,16 @@
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Avry",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:10.142Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1455,7 +1326,7 @@
       "url": "https://apply.refline.ch/424626/3450/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:05:07.071Z",
+      "crawledAt": "2026-11-01T09:33:09.684Z",
       "addressLocality": "Avry",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1480,12 +1351,16 @@
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Avry",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:09.684Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1501,7 +1376,7 @@
       "url": "https://apply.refline.ch/424626/3447/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:06.652Z",
+      "crawledAt": "2026-11-01T09:33:07.683Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1526,12 +1401,16 @@
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:33:07.683Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1547,7 +1426,7 @@
       "url": "https://apply.refline.ch/424626/3444/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:06.233Z",
+      "crawledAt": "2026-11-01T09:33:07.230Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1572,12 +1451,16 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Affoltern am Albis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:33:07.230Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1592,7 +1475,7 @@
       "url": "https://apply.refline.ch/424626/3445/pub/1/index.html",
       "source": "Möbel Pfister AG Dedicated Parser (Refline 424626)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:05.811Z",
+      "crawledAt": "2026-11-01T09:33:06.775Z",
       "addressLocality": "Suhr",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1617,14 +1500,18 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bernstrasse Ost 49",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:33:06.775Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

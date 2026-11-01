@@ -1,7 +1,7 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-31T21:46:37.143Z",
+  "generatedAt": "2026-11-01T09:19:59.030Z",
   "total": 11,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 11028,
-  "avgDurationMs": 11028,
+  "durationMs": 10055,
+  "avgDurationMs": 10055,
   "durationHistory": [
-    11028
+    10055
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-11-02T11:36:36.581Z",
       "id": "damiani-group-ab68c04a261c",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -51,6 +51,8 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-finance-&-accounting-integration-specialist/1362895655",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,7 +82,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-11-02T11:36:36.581Z",
       "id": "damiani-group-90a504da8d41",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -92,6 +94,8 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-graphic-designer-freelance/1362881255",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -121,7 +125,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-11-30T17:55:44.457Z",
       "id": "damiani-group-6c6c860d598c",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -133,6 +137,8 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-marketing-manager/1366255755",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -162,7 +168,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-09-29T22:08:15.321Z",
       "id": "damiani-group-d11e38db046a",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -174,6 +180,8 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-consolidation-&-reporting-specialist/1359074255",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -205,7 +213,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-21T21:11:46.597Z",
       "id": "damiani-group-ef01cc390b3e",
       "needsRetranslation": true,
       "salaryMin": 68000,
@@ -215,6 +223,8 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-10-23T21:11:46.597Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -246,7 +256,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-18T21:16:47.126Z",
       "id": "damiani-group-5b96f074efb7",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -254,12 +264,15 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "firstSeenAt": "2026-10-20T21:16:47.126Z",
-      "_qualityScore": 94,
+      "streetAddress": "Ginevra",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -283,7 +296,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-10-22T11:12:56.301Z",
       "id": "damiani-group-5460459c212f",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -295,6 +308,8 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-it-support-&-junior-system-administrator/1362036255",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -326,7 +341,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2027-01-11T21:24:12.552Z",
       "id": "damiani-group-3095ed600c31",
       "needsRetranslation": true,
       "salaryMin": 49500,
@@ -336,6 +351,8 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-10-13T21:24:12.552Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -365,7 +382,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-09-16T22:39:21.798Z",
       "id": "damiani-group-604443163c6a",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -377,6 +394,8 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-customer-service-specialist-german-speaking/1355847255",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -406,7 +425,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-07T13:38:59.607Z",
       "id": "damiani-group-855284947b4a",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -418,6 +437,8 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-legal-senior-specialist/1367555455",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -449,7 +470,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-08-05T10:51:48.044Z",
       "id": "damiani-group-ee80d56f22ff",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -458,6 +479,8 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-05-07T10:51:48.044Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -467,5 +490,5 @@
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

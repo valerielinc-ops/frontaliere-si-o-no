@@ -1,7 +1,7 @@
 {
   "key": "ameos-ch",
   "label": "AMEOS Schweiz",
-  "generatedAt": "2026-10-31T21:20:20.019Z",
+  "generatedAt": "2026-11-01T09:12:50.313Z",
   "total": 18,
   "discovered": null,
   "parsed": 18,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 18,
-  "durationMs": 44373,
-  "avgDurationMs": 44373,
+  "durationMs": 27157,
+  "avgDurationMs": 27157,
   "durationHistory": [
-    44373
+    27157
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14192-assistenz-sachbearbeitung-in-der-administration-100%25-in-z%C3%BCrich",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:06.062Z",
+      "crawledAt": "2026-11-01T09:12:38.215Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -59,12 +59,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:12:38.215Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -79,7 +83,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9318-unterassistent-pj-chirurgie-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:05.071Z",
+      "crawledAt": "2026-11-01T09:12:37.239Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -100,12 +104,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Einsiedeln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:37.239Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -121,7 +129,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11782-mitarbeiter-case-management-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:02.542Z",
+      "crawledAt": "2026-11-01T09:12:36.098Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -142,12 +150,16 @@
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Einsiedeln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-06T09:12:36.098Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -163,7 +175,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13714-dipl-radiologiefachperson-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:00.157Z",
+      "crawledAt": "2026-11-01T09:12:34.992Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -184,12 +196,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Einsiedeln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:12:34.992Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -205,7 +221,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14119-dipl-pflegefachperson-interdisziplin%C3%A4re-bettenstation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:57.692Z",
+      "crawledAt": "2026-11-01T09:12:33.890Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -226,12 +242,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Einsiedeln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:12:33.890Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -246,7 +266,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14240-dipl-rettungssanit%C3%A4ter-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:55.194Z",
+      "crawledAt": "2026-11-01T09:12:32.783Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -267,12 +287,16 @@
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Einsiedeln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:12:32.783Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -288,7 +312,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14237-fachperson-gesundheit-interdisziplin%C3%A4re-privatstation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:54.228Z",
+      "crawledAt": "2026-11-01T09:12:31.700Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -309,12 +333,16 @@
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Einsiedeln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:12:31.700Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -330,7 +358,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14871-operativen-eink%C3%A4ufer-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:51.733Z",
+      "crawledAt": "2026-11-01T09:12:30.534Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -351,12 +379,16 @@
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Einsiedeln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:12:30.534Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -372,7 +404,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14868-sachbearbeiter-finanzbuchhaltung-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:49.188Z",
+      "crawledAt": "2026-11-01T09:12:29.435Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -393,12 +425,16 @@
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Einsiedeln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:12:29.435Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -414,7 +450,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14934-mitarbeiter-integrales-kapazit%C3%A4tsmanagement-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:46.748Z",
+      "crawledAt": "2026-11-01T09:12:28.330Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -435,12 +471,16 @@
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Einsiedeln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T09:12:28.330Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -456,7 +496,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/10368-leitung-psychologie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:44.149Z",
+      "crawledAt": "2026-11-01T09:12:27.208Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -477,12 +517,16 @@
       "salaryMin": 114500,
       "salaryMax": 195000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Brunnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:27.208Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -497,7 +541,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12839-diplomierte-pflegefachperson-hf-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:41.559Z",
+      "crawledAt": "2026-11-01T09:12:26.086Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -518,12 +562,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Brunnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:12:26.086Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -539,7 +587,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13730-controller-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:39.155Z",
+      "crawledAt": "2026-11-01T09:12:24.929Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -560,12 +608,16 @@
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Brunnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:12:24.929Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -580,7 +632,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13903-dipl-pflegefachperson-hf-nachtdienst-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:38.122Z",
+      "crawledAt": "2026-11-01T09:12:22.351Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -601,12 +653,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Brunnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:12:22.351Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -622,7 +678,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14390-stationsleitung-und-stellvertretende-leitung-pflege-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:35.569Z",
+      "crawledAt": "2026-11-01T09:12:21.205Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -643,12 +699,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Brunnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:12:21.205Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -664,7 +724,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/14339-assistenzarzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:33.171Z",
+      "crawledAt": "2026-11-01T09:12:20.071Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -685,12 +745,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "streetAddress": "Brunnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:12:20.071Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -706,7 +770,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/7902-oberarzt-undoder-leitender-facharzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:30.576Z",
+      "crawledAt": "2026-11-01T09:12:18.934Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -727,12 +791,16 @@
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Brunnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:18.934Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -748,7 +816,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11806-sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:19:29.523Z",
+      "crawledAt": "2026-11-01T09:12:16.429Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -769,14 +837,18 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Brunnen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:12:16.429Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

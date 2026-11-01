@@ -70,6 +70,10 @@ export interface FollowupPayload {
 export interface ReviewQuestion {
   id: string;
   question: string;
+  /** A native ATS label that could not be localized; shown with an explicit warning. */
+  localizationStatus?: 'fallback';
+  applicationQuestion?: string;
+  applicationQuestionLocale?: string | null;
   why: string;
   type: 'text' | 'yes_no' | 'choice' | 'number' | 'date';
   options: string[];

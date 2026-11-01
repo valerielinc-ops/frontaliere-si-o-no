@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-10-31T21:47:10.299Z",
-  "runId": "41242445754",
+  "assembledAt": "2026-11-01T09:20:12.142Z",
+  "runId": "41292050097",
   "jobs": [
     {
       "id": "pictet-21dc28c44047",
@@ -34,7 +34,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125302&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:03.644Z",
+      "crawledAt": "2026-11-01T09:20:06.049Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -81,7 +81,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:20:06.049Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pictet-d6040de00bca",
@@ -114,7 +118,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125294&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:03.063Z",
+      "crawledAt": "2026-11-01T09:20:05.457Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -147,7 +151,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:05.457Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pictet-e1fcdd767c81",
@@ -180,7 +188,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125312&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:02.471Z",
+      "crawledAt": "2026-11-01T09:20:04.885Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -227,7 +235,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:04.885Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pictet-a68ceb0574cc",
@@ -260,7 +272,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125304&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:01.838Z",
+      "crawledAt": "2026-11-01T09:20:04.244Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -307,7 +319,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:20:04.244Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pictet-20eba102f671",
@@ -340,7 +356,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124986&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:47:01.083Z",
+      "crawledAt": "2026-11-01T09:20:03.641Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -389,7 +405,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:20:03.641Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pictet-f7a17a34c9b7",
@@ -422,7 +442,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125308&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:47:00.525Z",
+      "crawledAt": "2026-11-01T09:20:03.030Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -468,7 +488,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:20:03.030Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pictet-1fbbb49f651e",
@@ -501,7 +525,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125038&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:59.984Z",
+      "crawledAt": "2026-11-01T09:20:02.432Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -534,7 +558,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:20:02.432Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pictet-ba2c8de69885",
@@ -567,7 +595,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125310&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:59.398Z",
+      "crawledAt": "2026-11-01T09:20:01.836Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -611,7 +639,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:20:01.836Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pictet-8327cbdbf059",
@@ -644,7 +676,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125264&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:58.801Z",
+      "crawledAt": "2026-11-01T09:20:01.217Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -691,7 +723,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:20:01.217Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "pictet-d30444604c3f",
@@ -724,7 +760,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125320&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:46:57.585Z",
+      "crawledAt": "2026-11-01T09:19:59.782Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -771,7 +807,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:19:59.782Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "caseificio-gottardo",
-  "assembledAt": "2026-10-31T21:43:16.585Z",
-  "runId": "41241930028",
+  "assembledAt": "2026-11-01T09:13:01.376Z",
+  "runId": "41291565146",
   "jobs": [
     {
       "title": "Apprendisti per la formazione di Tecnologo/a del latte (AFC)",
@@ -41,7 +41,7 @@
         "canton": "TI",
         "location": "Airolo"
       },
-      "crawledAt": "2026-10-31T21:43:13.356Z",
+      "crawledAt": "2026-11-01T09:12:59.249Z",
       "slug": "apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-gottardo",
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -89,7 +89,10 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://www.caseificiodelgottardo.ch/ita/apprendisti-per-la-formazione-di-tecnologoa-del-latte-afc-50359200",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:12:59.249Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

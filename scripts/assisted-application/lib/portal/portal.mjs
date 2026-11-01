@@ -1,3 +1,4 @@
+import { addressContextContract, hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
 import '../../extension/apply-control.js';
 /**
@@ -30,7 +31,7 @@ import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, 
 import { extractFields, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
+import { addressAnswerNeedsOwnership, candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { registerCookieSessionRecovery } from './cookie-session.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
@@ -58,7 +59,7 @@ const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // The extension injects this same classic-script module before its filler.
-export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel } = globalThis.AssistedApplyControls;
+export const { APPLY_RE, APPLY_LATER_RE, startsApplication, preferredDocumentControls, isNonCvDocumentLabel, residenceFieldRole, explicitResidence } = globalThis.AssistedApplyControls;
 const OUTCOME_TIMEOUT_MS = 60_000;
 // How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
 const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
@@ -370,13 +371,13 @@ export { portalQuestionId, portalQuestionKey, slugId };
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {} }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {}, currentAnswerIds = [], answerSources = {} }) {
   // The split the candidate chose on the review page, else the surname with its particles (splitName).
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = profile.permitStatus || '';
-  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers);
+  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
   const address = resolveResidenceAddress(profile.address, profile.location);
@@ -471,7 +472,33 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
  * Current answers win; canonical topics also reuse an unambiguous answer from
  * the previous portal run when an ATS regenerates its field id.
  */
-function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
+const addressMetadata = (field) => Object.hasOwn(field || {}, 'addressContext') ? { addressContext: addressContextContract(field) } : {};
+const unreadableNativeOwner = field => (field?.kind === 'checkbox' && field?.consentOwnershipUnknown === true)
+  || (addressAnswerNeedsOwnership(field?.label || field?.applicationQuestion || field?.question, field)
+    && Object.hasOwn(field || {}, 'addressContext') && !hasAddressContextOwnership(field));
+
+// An account-creation form is the candidate's own profile surface. Some ATSes
+// expose an explicit residence caption (for example «Land/Region des
+// Wohnorts») without a semantic personal-information container, so the native
+// reader quite correctly reports an empty owner contract. Bind only those
+// positive residence-role captions here; a generic «City» or an ambiguous
+// address remains a technical handoff.
+export const accountRegistrationField = (field) => {
+  const context = addressContextContract(field);
+  if (!context || context.unknown || hasAddressContextOwnership(field) || !residenceFieldRole(field?.label) || !explicitResidence(field?.label)) return field;
+  return {
+    ...field,
+    addressContext: { section: 'Personal information', owners: ['Personal information'], unknown: false },
+  };
+};
+
+const accountRegistrationSnapshot = (snapshot) => ({
+  ...snapshot,
+  fields: (snapshot?.fields || []).map(accountRegistrationField),
+});
+
+function portalAnswersForQuestions(questions, answers, previousAnswers = [], currentAnswerIds = [], answerSources = {}) {
+  const attestedIds = new Set(currentAnswerIds);
   const items = questions.map((question) => {
     const raw = String(answers[question.id] ?? '').trim();
     const projected = operationalAnswerForOption(question, raw) || raw;
@@ -488,23 +515,26 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
       context: question.context || '',
       section: question.section || '',
       autocomplete: question.autocomplete || '',
+      ...addressMetadata(question),
       answer,
-      source: 'answers',
+      source: Object.hasOwn(answerSources, question.id) ? answerSources[question.id] : 'answers',
       current: true,
+      attested: attestedIds.has(question.id) && (!Object.hasOwn(answerSources, question.id) || answerSources[question.id] === 'answers'),
     };
   }).filter((item) => String(item.answer ?? '').trim());
   const keyFor = (item) => portalQuestionKey(item) || portalQuestionId(item);
   const currentKeys = new Set(questions
     // An empty value under a regenerated field id is not an answer; keep the
     // previous semantic answer eligible for that same question.
-    .filter((question) => question?.id && String(answers[question.id] ?? '').trim())
-    .map((question) => keyFor({ applicationQuestion: question.applicationQuestion, question: question.question, context: question.context || '', section: question.section || '', autocomplete: question.autocomplete || '' })));
+    .filter((question) => question?.id && (String(answers[question.id] ?? '').trim()
+      || (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question) && Object.hasOwn(answers, question.id))))
+    .map((question) => keyFor({ applicationQuestion: question.applicationQuestion, question: question.question, context: question.context || '', section: question.section || '', autocomplete: question.autocomplete || '', ...addressMetadata(question) })));
   const priorGroups = new Map();
   for (const item of Array.isArray(previousAnswers) ? previousAnswers : []) {
     const question = String(item?.question || '').trim();
     const answer = String(item?.answer ?? '').trim();
     if (!question || !answer) continue;
-    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), answer, source: String(item?.source || 'answers') };
+    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), ...addressMetadata(item), answer, source: String(item?.source || 'answers') };
     const key = keyFor(prior);
     if (currentKeys.has(key)) continue;
     const group = priorGroups.get(key) || [];
@@ -521,13 +551,13 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
     const previous = seen.get(key);
     if (!previous || item.current) seen.set(key, item);
   }
-  return [...seen.values()].map(({ answerId, question, applicationQuestion, candidateQuestion, answer, context, section, autocomplete, source }) => ({
-    ...(answerId ? { answerId } : {}), question, ...(applicationQuestion ? { applicationQuestion } : {}), ...(candidateQuestion ? { candidateQuestion } : {}), answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
+  return [...seen.values()].map(({ answerId, question, applicationQuestion, candidateQuestion, answer, context, section, autocomplete, source, current, attested, ...metadata }) => ({
+    ...(attested === true && Object.hasOwn(metadata, 'addressContext') && addressAnswerNeedsOwnership(question, { ...metadata, autocomplete }) ? { current: true } : {}), ...addressMetadata(metadata), ...(answerId ? { answerId } : {}), question, ...(applicationQuestion ? { applicationQuestion } : {}), ...(candidateQuestion ? { candidateQuestion } : {}), answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
   }));
 }
 
 /** Resolve required portal questions from the candidate data before the submit gate. */
-export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {} } = {}) {
+export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {}, sources = null } = {}) {
   const out = {};
   for (const question of questions) {
     if (question?.source !== 'portal' || !question.required || String(answers?.[question.id] ?? '').trim()) continue;
@@ -543,6 +573,7 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
       context: question.context || '',
       section: question.section || '',
       autocomplete: question.autocomplete || '',
+      ...addressMetadata(question),
       required: true,
       options,
     };
@@ -552,7 +583,10 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
         return no ? { value: no.label, source: 'rule' } : null;
       })();
     // Policy defaults belong to live form filling, never to confirmed CV facts.
-    if (answer?.value && answer.source !== 'policy_default') out[question.id] = answer.value;
+    if (answer?.value && answer.source !== 'policy_default') {
+      out[question.id] = answer.value;
+      if (sources) sources[question.id] = answer.source;
+    }
   }
   return out;
 }
@@ -1139,7 +1173,7 @@ function questionsFrom(missingRequired) {
   const seen = new Set();
   for (const item of missingRequired) {
     const id = portalQuestionId(item);
-    const key = portalQuestionKey(item);
+    const key = portalQuestionKey(item) || id;
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
     const applicationQuestion = String(item.applicationQuestion || item.portalQuestion || item.question || '').trim().slice(0, 300);
@@ -1157,6 +1191,7 @@ function questionsFrom(missingRequired) {
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
       ...(item.section ? { section: String(item.section).slice(0, 240) } : {}),
       ...(item.autocomplete ? { autocomplete: String(item.autocomplete).slice(0, 100) } : {}),
+      ...addressMetadata(item),
       why: item.why || '',
       type: item.type,
       options,
@@ -1169,6 +1204,7 @@ function questionsFrom(missingRequired) {
 }
 
 const QUESTION_LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
+const QUESTION_LANGUAGE_CODES = Object.freeze([...Object.keys(QUESTION_LANGUAGE_NAMES), 'unknown']);
 const QUESTION_LOCALIZATION_SCHEMA = {
   type: 'object',
   properties: {
@@ -1178,6 +1214,7 @@ const QUESTION_LOCALIZATION_SCHEMA = {
         type: 'object',
         properties: {
           id: { type: 'string' },
+          sourceLocale: { type: 'string', enum: QUESTION_LANGUAGE_CODES },
           question: { type: 'string' },
           why: { type: 'string' },
           options: { type: 'array', items: { type: 'string' } },
@@ -1192,7 +1229,7 @@ const QUESTION_LOCALIZATION_SCHEMA = {
           },
           validationMessage: { type: 'string' },
         },
-        required: ['id', 'question', 'why', 'options', 'optionMap', 'validationMessage'],
+        required: ['id', 'sourceLocale', 'question', 'why', 'options', 'optionMap', 'validationMessage'],
         additionalProperties: false,
       },
     },
@@ -1256,28 +1293,37 @@ function fallbackOption(option, language) {
   return text;
 }
 
-function fallbackLocalizedQuestion(item, language) {
+function nativePortalQuestion(item) {
+  return readablePortalQuestionText(item?.applicationQuestion)
+    || readablePortalQuestionText(item?.portalQuestion)
+    || portalQuestionText(item);
+}
+
+function fallbackLocalizedQuestion(item, language, sourceLocale = '') {
   const fallback = LOCALIZATION_FALLBACKS[language] || LOCALIZATION_FALLBACKS.it;
-  const applicationQuestion = String(item.applicationQuestion || '').trim();
-  const rawQuestion = String(item.question || '').trim();
-  const rawIsApplicationCopy = !rawQuestion || !applicationQuestion || normalizedQuestionText(rawQuestion) === normalizedQuestionText(applicationQuestion);
-  const candidateOptions = (Array.isArray(item.options) && item.options.length ? item.options : item.applicationOptions || [])
+  const rawQuestion = nativePortalQuestion(item);
+  const applicationOptions = (Array.isArray(item.applicationOptions) && item.applicationOptions.length ? item.applicationOptions : item.options || [])
+    .map((option) => String(option || '').trim()).filter(Boolean);
+  const candidateOptions = applicationOptions
     .map((option) => fallbackOption(option, language));
   const fallbackMap = portalOptionMap({
     options: candidateOptions,
-    applicationOptions: item.applicationOptions || [],
+    applicationOptions,
   });
-  const optionMap = fallbackMap.length ? fallbackMap : portalOptionMap(item);
+  const optionMap = fallbackMap.length ? fallbackMap : portalOptionMap({ ...item, applicationOptions });
   const options = optionMap.length ? optionMap.map((pair) => pair.candidate)
-    : item.applicationOptions?.length ? item.applicationOptions : candidateOptions;
+    : applicationOptions.length ? applicationOptions : candidateOptions;
   return {
     ...item,
-    question: portalQuestionText(item),
-    ...(rawIsApplicationCopy && !String(item.why || '').trim() ? { why: fallback.why } : {}),
-    ...(item.validation?.message && rawIsApplicationCopy ? { validation: { ...item.validation, message: fallback.validation } } : {}),
+    question: rawQuestion,
+    applicationQuestion: rawQuestion,
+    applicationQuestionLocale: localeCode(sourceLocale) || null,
+    why: fallback.why,
+    ...(applicationOptions.length ? { applicationOptions } : {}),
+    ...(item.validation ? { validation: { ...item.validation, message: fallback.validation } } : {}),
     ...(options.length ? { options } : {}),
     optionMap,
-    localizationStatus: rawIsApplicationCopy ? 'fallback' : 'planner_copy',
+    localizationStatus: 'fallback',
   };
 }
 
@@ -1287,21 +1333,34 @@ function fallbackLocalizedQuestion(item, language) {
  * the answer can be mapped back to the form's language at submission time.
  * The application copy remains exact and the candidate copy is translated in
  * one structured call. If that call fails or returns a generic placeholder,
- * retain the actual question and mark the fallback for diagnostics.
+ * retain the native label and mark it for an explicit warning in candidate review.
  */
 export async function localizePortalQuestions(questions, { candidateLocale, applicationLocale, codex, log = () => {} } = {}) {
-  const items = (Array.isArray(questions) ? questions : []).map(item => ({ ...item, question: portalQuestionText(item) }));
+  const items = (Array.isArray(questions) ? questions : []).map((item) => {
+    const sourceQuestion = nativePortalQuestion(item);
+    const applicationOptions = (Array.isArray(item?.applicationOptions) && item.applicationOptions.length
+      ? item.applicationOptions
+      : item?.options || []).map((option) => String(option || '').trim()).filter(Boolean);
+    return {
+      ...item,
+      question: sourceQuestion,
+      applicationQuestion: sourceQuestion,
+      ...(applicationOptions.length ? { applicationOptions, options: applicationOptions } : {}),
+    };
+  });
   if (items.some(item => !item.question)) throw new Error('portal_question_unreadable');
   const candidateLanguage = localeCode(candidateLocale);
-  const applicationLanguage = localeCode(applicationLocale);
-  if (!items.length || !candidateLanguage || !applicationLanguage || candidateLanguage === applicationLanguage) return items;
+  const applicationLanguageHint = localeCode(applicationLocale);
+  if (!items.length || !candidateLanguage) return items;
+  // Posting/letter language is only a hint. An ATS may render a German form
+  // for an Italian-language job, so compare against the native question text.
   if (typeof codex !== 'function') return items.map((item) => fallbackLocalizedQuestion(item, candidateLanguage));
   const input = items.map((item) => ({
     id: String(item.id || ''),
     question: String(item.question || ''),
     why: String(item.why || ''),
     applicationQuestion: String(item.applicationQuestion || item.question || ''),
-    options: Array.isArray(item.options) ? item.options.map((option) => String(option || '')) : [],
+    options: Array.isArray(item.applicationOptions) ? item.applicationOptions.map((option) => String(option || '')) : [],
     applicationOptions: Array.isArray(item.applicationOptions) ? item.applicationOptions.map((option) => String(option || '')) : [],
     optionMap: Array.isArray(item.optionMap) ? item.optionMap : [],
     validationMessage: String(item.validation?.message || ''),
@@ -1310,7 +1369,7 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   try {
     translated = await codex({
       prompt: codexPrompt(
-        `You localize questions from an online job application for a candidate. The candidate language is ${QUESTION_LANGUAGE_NAMES[candidateLanguage]}; the application language is ${QUESTION_LANGUAGE_NAMES[applicationLanguage]}. Translate only the candidate-facing question, explanation and each option into the candidate language. Do not answer the questions. Keep names, abbreviations, licence categories, codes, numbers and legal terms unchanged where they are proper or technical terms. Return exactly one item for every id, in the same order. optionMap is mandatory whenever applicationOptions are present: for every application option, provide exactly one candidate label and the exact original application label. The applicationQuestion and applicationOptions are source data: never translate them and never use them as candidate-facing output.`,
+        `You localize questions from an online job application for a candidate. The candidate language is ${QUESTION_LANGUAGE_NAMES[candidateLanguage]}. The posting/letter language hint is ${applicationLanguageHint ? QUESTION_LANGUAGE_NAMES[applicationLanguageHint] : 'unknown'} and may be wrong for the ATS form. For EACH item, detect the actual language of applicationQuestion and applicationOptions from their text and return sourceLocale as it, de, fr, en or unknown. Never infer the source language from the hint alone. Translate only the candidate-facing question, explanation, validation message and each option into the candidate language when sourceLocale differs. If sourceLocale equals the candidate language, preserve the original wording and option labels. Do not answer the questions. Keep names, abbreviations, licence categories, codes, numbers and legal terms unchanged where they are proper or technical terms. Return exactly one item for every id, in the same order. optionMap is mandatory whenever applicationOptions are present: for every application option, provide exactly one candidate label and the exact original application label. The applicationQuestion and applicationOptions are source data: never translate them and never use them as candidate-facing output.`,
         JSON.stringify({ questions: input }),
       ),
       schema: QUESTION_LOCALIZATION_SCHEMA,
@@ -1323,37 +1382,57 @@ export async function localizePortalQuestions(questions, { candidateLocale, appl
   const byId = new Map((Array.isArray(translated?.questions) ? translated.questions : []).map((item) => [String(item?.id || ''), item]));
   return items.map((item) => {
     const copy = byId.get(String(item.id || ''));
+    const sourceLocale = localeCode(copy?.sourceLocale);
+    if (!copy || !sourceLocale) return fallbackLocalizedQuestion(item, candidateLanguage);
     const applicationOptions = Array.isArray(item.applicationOptions) && item.applicationOptions.length
       ? item.applicationOptions
       : item.options || [];
-    const candidateOptions = Array.isArray(copy?.options) && copy.options.length
+    if (sourceLocale === candidateLanguage) {
+      const optionMap = portalOptionMap({ options: applicationOptions, applicationOptions });
+      return {
+        ...item,
+        question: nativePortalQuestion(item),
+        ...(applicationOptions.length ? { applicationOptions, options: applicationOptions, optionMap } : {}),
+        applicationQuestionLocale: sourceLocale,
+        localizationStatus: 'same_language',
+      };
+    }
+    const candidateOptions = Array.isArray(copy?.options)
       ? copy.options.map((option) => String(option || '').trim()).filter(Boolean)
-      : item.options;
+      : [];
     // A partial or unmapped translation must not shrink the live catalogue
     // or attach an old mapping to new candidate labels.
     const translatedMap = portalOptionMap({ options: candidateOptions, applicationOptions, optionMap: copy?.optionMap });
-    const optionMap = translatedMap.length ? translatedMap : portalOptionMap(item);
-    const options = optionMap.length
-      ? optionMap.map((pair) => pair.candidate)
-      : applicationOptions.length ? applicationOptions : candidateOptions;
+    const optionsComplete = !applicationOptions.length || (Array.isArray(copy.options)
+      && copy.options.length === applicationOptions.length
+      && translatedMap.length === applicationOptions.length
+      && candidateOptions.length === applicationOptions.length);
     const translatedQuestion = String(copy?.question || '').trim();
-    const rawQuestion = String(item.question || '').trim();
-    const rawIsApplicationCopy = !rawQuestion || !String(item.applicationQuestion || '').trim()
-      || normalizedQuestionText(rawQuestion) === normalizedQuestionText(item.applicationQuestion);
-    const question = readablePortalQuestionText(translatedQuestion) || portalQuestionText(item);
-    const why = String(copy?.why || '').trim() || (rawIsApplicationCopy && !String(item.why || '').trim()
-      ? (LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it).why
-      : String(item.why || '').trim());
-    const validationMessage = String(copy?.validationMessage || '').trim() || String(item.validation?.message || '').trim();
+    const sourceQuestion = nativePortalQuestion(item);
+    const question = readablePortalQuestionText(translatedQuestion);
+    const translationIsValid = question && normalizedQuestionText(question) !== normalizedQuestionText(sourceQuestion) && optionsComplete;
+    if (!translationIsValid) return fallbackLocalizedQuestion(item, candidateLanguage, sourceLocale);
+    const fallback = LOCALIZATION_FALLBACKS[candidateLanguage] || LOCALIZATION_FALLBACKS.it;
+    const translatedWhy = String(copy?.why || '').trim();
+    const why = !translatedWhy || normalizedQuestionText(translatedWhy) === normalizedQuestionText(item.why)
+      ? fallback.why
+      : translatedWhy;
+    const translatedValidation = String(copy?.validationMessage || '').trim();
+    const validationMessage = !translatedValidation
+      || normalizedQuestionText(translatedValidation) === normalizedQuestionText(item.validation?.message)
+      ? fallback.validation
+      : translatedValidation;
+    const options = translatedMap.length ? translatedMap.map((pair) => pair.candidate) : candidateOptions;
     return {
       ...item,
       question,
       why,
       options,
       ...(applicationOptions.length ? { applicationOptions } : {}),
-      optionMap,
+      optionMap: translatedMap,
       ...(item.validation ? { validation: { ...item.validation, ...(validationMessage ? { message: validationMessage } : {}) } } : {}),
-      localizationStatus: copy ? 'translated' : 'fallback',
+      applicationQuestionLocale: sourceLocale,
+      localizationStatus: 'translated',
     };
   });
 }
@@ -2874,6 +2953,16 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
 
+  const canResendVerification = Boolean(findButton(snapshot.buttons || [], RESEND_VERIFICATION_RE)
+    || (snapshot.links || []).some((link) => [link.text, link.label, link.ariaLabel, link.title]
+      .some((value) => RESEND_VERIFICATION_RE.test(String(value || '')))));
+  // SuccessFactors keeps the pending OTP account in this same sign-in shape;
+  // its dedicated recovery below must restart registration instead of trying
+  // to verify through a mailbox account that does not exist yet.
+  if (kind === 'sign_in' && account && !account.verifiedAt && canResendVerification && !usesOtpAccountCreation(host)) {
+    return verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot });
+  }
+
   if (kind === 'sign_in' && !account) {
     if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return accountHandoff('account', 'no_create_button', 'login');
     return { snapshot: await awaitAuthView(page, snapshot) };
@@ -2947,7 +3036,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };
-  const others = { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') };
+  const others = accountRegistrationSnapshot({ ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') });
   const candidate = account
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
     : ctx.candidate;
@@ -3058,7 +3147,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     // A form-level validation response can expose fields the first plan did
     // not recognize. Replan against that response before treating it as a
     // permanent refusal; the planner receives the invalid fields and messages.
-    const repairSnapshot = { ...after, fields: after.fields.filter((field) => field.inputType !== 'password') };
+    const repairSnapshot = accountRegistrationSnapshot({ ...after, fields: after.fields.filter((field) => field.inputType !== 'password') });
     const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
     if (repairPlan.missingRequired.length) {
       const repairedRequirements = portalRequirementsFromMissingRequired(repairSnapshot.fields, repairPlan.missingRequired);
@@ -3080,12 +3169,14 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       }
     }
 
-    const retryableFields = after.fields.filter((field) => field.invalid || (field.required && !holdsValue(field)));
+    const retryableFields = accountRegistrationSnapshot(after).fields
+      .filter((field) => field.invalid || (field.required && !holdsValue(field)));
     const retryableIds = new Set(retryableFields.map((field) => field.id));
     const repairActions = repairPlan.actions.filter((action) => retryableIds.has(action.fieldId)
       && !['skip', 'uncheck'].includes(action.action));
     const openFields = retryableFields.filter((field) => field.inputType !== 'password'
       && !repairActions.some((action) => action.fieldId === field.id));
+    if (openFields.some(unreadableNativeOwner)) return noted({ handoff: 'question_label_unreadable' });
     if (openFields.length) {
       const why = ({ it: 'Il portale ha rifiutato questo dato. Controllalo o correggilo.', de: 'Das Portal hat diese Angabe abgelehnt. Bitte prüfe oder korrigiere sie.', fr: 'Le portail a refusé cette réponse. Veuillez la vérifier ou la corriger.', en: 'The portal rejected this entry. Please check or correct it.' })[ctx.candidateLocale] || 'Il portale ha rifiutato questo dato. Controllalo o correggilo.';
       const openQuestions = questionsFrom(openFields.filter((field) => String(field.label || '').trim()).map((field) => ({
@@ -3095,6 +3186,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         ...(field.context ? { context: field.context } : {}),
         ...(field.section ? { section: field.section } : {}),
         ...(field.autocomplete ? { autocomplete: field.autocomplete } : {}),
+        ...addressMetadata(field),
         why,
         type: field.options?.length ? 'choice' : field.kind === 'date' || field.inputType === 'date' ? 'date' : field.inputType === 'number' ? 'number' : 'text',
         options: (field.options || []).map((option) => option.label).filter(Boolean),
@@ -3331,6 +3423,10 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
     // A rejected live field remains a request even if it lacks a required marker;
     // missing metadata is unknown, not evidence that the field is optional.
     if (field?.required === false && !field.invalid) continue;
+    if (unreadableNativeOwner(field || item)) {
+      unreadableFields.push(field?.id || item.fieldId || 'unknown');
+      continue;
+    }
     const document = portalRequiredDocumentFromField(field ? { ...field, required: true } : field);
     if (!document) {
       // A field with a generated name is no question for a person: the submit
@@ -3378,6 +3474,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
           optionMap,
           ...(item.section || !field?.section ? {} : { section: field.section }),
           ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }),
+          ...addressMetadata(field || item),
         });
       }
       continue;
@@ -3653,16 +3750,17 @@ export async function submitViaPortal(ctx) {
       const name = String(document);
       evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
-    const record = (question, answer, source, context = '', section = '', autocomplete = '') => {
+    const record = (question, answer, source, context = '', section = '', autocomplete = '', metadata = {}) => {
       if (!question || !String(answer ?? '').trim()) return;
       const label = String(question).slice(0, 200);
       const surrounding = String(context || '').slice(0, 240);
       const heading = String(section || '').slice(0, 240);
       const fieldAutocomplete = String(autocomplete || '').slice(0, 100);
-      const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete };
+      const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete, ...addressMetadata(metadata) };
       const key = portalQuestionKey(item) || portalQuestionId(item) || label;
       given.set(key, {
         question: label,
+        ...addressMetadata(metadata),
         answer: String(answer).slice(0, 2000),
         source: source || '',
         ...(surrounding ? { context: surrounding } : {}),
@@ -3685,13 +3783,14 @@ export async function submitViaPortal(ctx) {
           // planner sees the form. Keep an explicit candidate fact above that
           // default; phone-code defaults are never candidate answers.
           const candidateAnswer = candidateAnswerForField(candidate, field)?.value || '';
-          if (isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
+          if (addressAnswerNeedsOwnership(field.label, field) || isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
           return {
             question: String(field.label || field.name || field.id || '').slice(0, 200),
             answer,
             context: String(field.context || '').slice(0, 240),
             section: String(field.section || '').slice(0, 240),
             autocomplete: String(field.autocomplete || '').slice(0, 100),
+            ...addressMetadata(field),
             source: 'answers',
           };
         })
@@ -3730,7 +3829,7 @@ export async function submitViaPortal(ctx) {
       }
       agentCalls += agent.calls;
       (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
-      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context);
+      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context, item.section, item.autocomplete, item);
       for (const item of (agent.evidence?.rounds || []).flatMap((round) => round.actions || [])) {
         if (item.action === 'upload' && item.ok) noteUpload(item.document, item.files);
       }
@@ -4038,7 +4137,7 @@ export async function submitViaPortal(ctx) {
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
-          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete);
+          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete, field);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);

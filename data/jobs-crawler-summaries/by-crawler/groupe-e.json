@@ -1,10 +1,10 @@
 {
   "key": "groupe-e",
   "label": "Groupe E",
-  "generatedAt": "2026-10-31T21:29:36.767Z",
+  "generatedAt": "2026-11-01T09:22:27.606Z",
   "total": 42,
   "discovered": null,
-  "parsed": 42,
+  "parsed": 40,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 40,
-  "durationMs": 34411,
-  "avgDurationMs": 34411,
+  "durationMs": 32235,
+  "avgDurationMs": 32235,
   "durationHistory": [
-    34411
+    32235
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-chef-de-projet-T%C3%A9l%C3%A9com-IT-80-100-Frib/1365693855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:01.489Z",
+      "crawledAt": "2026-11-01T09:21:52.418Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -57,12 +57,16 @@
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Matran - Mad 4",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:21:52.418Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -78,7 +82,7 @@
       "url": "https://job.groupe-e.ch/job/Guin-D%C3%BCdingen-Sanit%C3%A4r-und-Heizungsinstallateur-%28mw%29-80-100-Frib/1370150755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:28:54.468Z",
+      "crawledAt": "2026-11-01T09:21:45.388Z",
       "addressLocality": "Guin - Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -99,60 +103,21 @@
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "streetAddress": "Guin - Düdingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:21:45.388Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "id": "groupe-e-49751106e094",
-      "slug": "ingegnere-o-ingegnere-in-ingegneria-termica-e-climatica-80-100-groupe-e-granges-paccot-plexus",
-      "company": "Groupe E",
-      "companyKey": "groupe-e",
-      "companyDomain": "groupe-e.ch",
-      "title": "Ingénieure ou Ingénieur en Génie thermique et climatique 80-100%",
-      "needsRetranslation": false,
-      "location": "Granges-Paccot - Plexus",
-      "canton": "FR",
-      "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ing%C3%A9nieure-ou-Ing%C3%A9nieur-en-G%C3%A9nie-thermique-et-climatique-80-100-Frib/1367256555/",
-      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:19.181Z",
-      "addressLocality": "Granges-Paccot - Plexus",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1763",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Energia / Utility",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-03T02:00:00Z",
-      "postedDate": "2026-10-03T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1367256555/?locale=fr_FR",
-      "firstSeenAt": "2026-09-04T13:39:40.464Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "streetAddress": "Route de Morat 135",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "id": "groupe-e-9703a21003c3",
       "slug": "manutenzione-tabelle-elettriche-tecniche-groupe-e-matran-mad-4",
@@ -166,7 +131,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Technicienne-ou-technicien-de-maintenance-Tableaux-%C3%A9lectriques-Frib/1351513555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:18.598Z",
+      "crawledAt": "2026-11-01T09:22:08.308Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -187,12 +152,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 96,
+      "streetAddress": "Matran - Mad 4",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-02T09:22:08.308Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -208,12 +177,12 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ing%C3%A9nieure-ou-Ing%C3%A9nieur-de-projets-en-ouvrages-Hydro%C3%A9lectriques-80-100-Frib/1370493255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:17.962Z",
+      "crawledAt": "2026-11-01T09:22:07.724Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1763",
+      "postalCode": "",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -228,56 +197,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "streetAddress": "Route de Morat 135",
-      "_qualityScore": 93,
+      "streetAddress": "Granges-Paccot - Plexus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:22:07.724Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "groupe-e-e31345fb09a5",
-      "slug": "foreman-m-f-80-100-groupe-e-granges-paccot-chantemerle",
-      "company": "Groupe E",
-      "companyKey": "groupe-e",
-      "companyDomain": "groupe-e.ch",
-      "title": "Contremaître (H/F) 80-100%",
-      "needsRetranslation": false,
-      "location": "Granges-Paccot - Chantemerle",
-      "canton": "FR",
-      "url": "https://job.groupe-e.ch/job/Granges-Paccot-Chantemerle-Contrema%C3%AEtre-%28HF%29-80-100-Frib/1352594255/",
-      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:17.387Z",
-      "addressLocality": "Granges-Paccot - Chantemerle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1763",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Energia / Utility",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-06T02:00:00Z",
-      "postedDate": "2026-09-06T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1352594255/?locale=fr_FR",
-      "firstSeenAt": "2026-09-05T22:54:04.190Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "streetAddress": "Route de Morat 135",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -293,7 +222,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-Chef-de-Projet-Bureau-Technique-Infrastructures-Frib/1360032755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:16.801Z",
+      "crawledAt": "2026-11-01T09:22:07.139Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -314,12 +243,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Matran - Mad 4",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-03T09:22:07.139Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -334,7 +267,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-6-Technicienne-ou-Technicien-chef%C2%B7fe-de-projet-CVC-100-Frib/1355089455/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:16.201Z",
+      "crawledAt": "2026-11-01T09:22:06.562Z",
       "addressLocality": "Matran - Mad 6",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -355,12 +288,16 @@
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Matran - Mad 6",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-05T09:22:06.562Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -376,12 +313,12 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ing%C3%A9nieure-ou-Ing%C3%A9nieur-en-g%C3%A9nie-%C3%A9lectrique-Lot-infrastructure-MTBT-80-100-Frib/1370602555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:15.617Z",
+      "crawledAt": "2026-11-01T09:22:05.966Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1763",
+      "postalCode": "",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -397,13 +334,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "streetAddress": "Route de Morat 135",
-      "_qualityScore": 95,
+      "streetAddress": "Granges-Paccot - Plexus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:22:05.966Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -419,12 +359,12 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ingenieurin-oder-Projektingenieurin-Wasserkraftanlagen-80-100-Frei/1370781255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:29:15.010Z",
+      "crawledAt": "2026-11-01T09:22:05.365Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1763",
+      "postalCode": "",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -440,13 +380,16 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "streetAddress": "Route de Morat 135",
-      "_qualityScore": 95,
+      "streetAddress": "Granges-Paccot - Plexus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:22:05.365Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -461,7 +404,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-CFC-80-100-Frib/1343768055/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:14.424Z",
+      "crawledAt": "2026-11-01T09:22:04.732Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -482,12 +425,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Matran - Mad 4",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T09:22:04.732Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -503,7 +450,7 @@
       "url": "https://job.groupe-e.ch/job/Sion-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-80-100-Vala/1349278555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:13.834Z",
+      "crawledAt": "2026-11-01T09:22:04.143Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -524,12 +471,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:22:04.143Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -545,12 +496,12 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Responsable-de-projets-hydro%C3%A9lectriques-%28HF%29-80-100-Frib/1368038755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:12.582Z",
+      "crawledAt": "2026-11-01T09:22:02.961Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1763",
+      "postalCode": "",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -566,13 +517,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "streetAddress": "Route de Morat 135",
-      "_qualityScore": 93,
+      "streetAddress": "Granges-Paccot - Plexus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:22:02.961Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -588,12 +542,12 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Sp%C3%A9cialiste-Donn%C3%A9es-Achats-%28HF%29-80-100-Frib/1359361255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:12.000Z",
+      "crawledAt": "2026-11-01T09:22:02.357Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1763",
+      "postalCode": "",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -609,13 +563,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "streetAddress": "Route de Morat 135",
-      "_qualityScore": 93,
+      "streetAddress": "Granges-Paccot - Plexus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T09:22:02.357Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -631,7 +588,7 @@
       "url": "https://job.groupe-e.ch/job/Boudry-Elexpert-SA-Conseill%C3%A8re-ou-conseiller-en-s%C3%A9curit%C3%A9-%C3%A9lectrique-%2880-100%29-Neuc/1364631855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:11.422Z",
+      "crawledAt": "2026-11-01T09:22:01.741Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -652,12 +609,16 @@
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Boudry",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T09:22:01.741Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -673,12 +634,12 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Dessinatrice-ou-Dessinateur-sp%C3%A9cialis%C3%A9%C2%B7e-lignes-HT-80-100-Frib/1371279655/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:10.826Z",
+      "crawledAt": "2026-11-01T09:22:01.134Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1763",
+      "postalCode": "",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -694,13 +655,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "streetAddress": "Route de Morat 135",
-      "_qualityScore": 95,
+      "streetAddress": "Granges-Paccot - Plexus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:22:01.134Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -716,7 +680,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-6-Technicienne-ou-Technicien-de-maintenance-CVC-100-Frib/1352851555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:10.223Z",
+      "crawledAt": "2026-11-01T09:22:00.543Z",
       "addressLocality": "Matran - Mad 6",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -737,12 +701,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Matran - Mad 6",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-12T09:22:00.543Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -758,7 +726,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-6-Technicienne-ou-Technicien-SAV-PAC-100-Frib/1355971955/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:09.616Z",
+      "crawledAt": "2026-11-01T09:21:59.967Z",
       "addressLocality": "Matran - Mad 6",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -778,12 +746,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Matran - Mad 6",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:21:59.967Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -799,7 +771,7 @@
       "url": "https://job.groupe-e.ch/job/Boudry-Cheffe-ou-Chef-de-projets-en-Installation-%C3%A9lectriques-Neuc/1360629355/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:09.036Z",
+      "crawledAt": "2026-11-01T09:21:59.360Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -820,12 +792,16 @@
       "salaryMin": 96500,
       "salaryMax": 147000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Boudry",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T09:21:59.360Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -841,7 +817,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-chef-de-projets-mobilit%C3%A9-%C3%A9lectrique-%28R%C3%A9gion-Sud%29-Frib/1364900955/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:08.390Z",
+      "crawledAt": "2026-11-01T09:21:58.774Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -862,12 +838,16 @@
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Matran - Mad 4",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:21:58.774Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -883,7 +863,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-chef-de-projets-mobilit%C3%A9-%C3%A9lectrique-%28R%C3%A9gion-Centre%29-Frib/1364901255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:07.772Z",
+      "crawledAt": "2026-11-01T09:21:58.196Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -904,12 +884,16 @@
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Matran - Mad 4",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:21:58.196Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -925,12 +909,12 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ing%C3%A9nieure-ou-Ing%C3%A9nieur-Metering-80-100-Frib/1373081755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:07.191Z",
+      "crawledAt": "2026-11-01T09:21:57.586Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1763",
+      "postalCode": "",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -946,13 +930,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "streetAddress": "Route de Morat 135",
-      "_qualityScore": 93,
+      "streetAddress": "Granges-Paccot - Plexus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:21:57.586Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -968,7 +955,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Technicienne-ou-technicien-en-mobilit%C3%A9-%C3%A9lectrique-80-100-Frib/1356470155/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:06.597Z",
+      "crawledAt": "2026-11-01T09:21:56.983Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -989,12 +976,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Matran - Mad 4",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:21:56.983Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1009,7 +1000,7 @@
       "url": "https://job.groupe-e.ch/job/Guin-D%C3%BCdingen-Bauleiterin-oder-Bauleiter-Elektroinstallationen-80-100-Frei/1164828455/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:29:05.998Z",
+      "crawledAt": "2026-11-01T09:21:56.371Z",
       "addressLocality": "Guin - Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1030,48 +1021,10 @@
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "groupe-e-8b714a6374e7",
-      "slug": "supervisore-dei-lavori-80-100-groupe-e-granges-paccot-chantemerle",
-      "company": "Groupe E",
-      "companyKey": "groupe-e",
-      "companyDomain": "groupe-e.ch",
-      "title": "Conductrice ou conducteur de travaux 80-100%",
-      "location": "Granges-Paccot - Chantemerle",
-      "canton": "FR",
-      "url": "https://job.groupe-e.ch/job/Granges-Paccot-Chantemerle-Conductrice-ou-conducteur-de-travaux-80-100-Frib/1356589355/",
-      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:05.426Z",
-      "addressLocality": "Granges-Paccot - Chantemerle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1763",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Energia / Utility",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-20T02:00:00Z",
-      "postedDate": "2026-09-20T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1356589355/?locale=fr_FR",
-      "firstSeenAt": "2026-09-06T22:56:12.688Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "streetAddress": "Route de Morat 135",
+      "streetAddress": "Guin - Düdingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:21:56.371Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1093,7 +1046,7 @@
       "url": "https://job.groupe-e.ch/job/Guin-D%C3%BCdingen-Elektroinstallateurin-oder-Elektroinstallateur-80-100-Frei/1325920855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:29:04.838Z",
+      "crawledAt": "2026-11-01T09:21:55.751Z",
       "addressLocality": "Guin - Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1114,12 +1067,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Guin - Düdingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:21:55.751Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1134,7 +1091,7 @@
       "url": "https://job.groupe-e.ch/job/Payerne-A%C3%A9rop%C3%B4le-Electricien%C2%B7ne-de-r%C3%A9seau-Installateur-ou-installatrice-%C3%A9lectricien%C2%B7ne-80-100-Vaud/1350907455/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:04.192Z",
+      "crawledAt": "2026-11-01T09:21:55.165Z",
       "addressLocality": "Payerne - Aéropôle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1155,12 +1112,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Payerne - Aéropôle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:21:55.165Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1175,12 +1136,12 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Chantemerle-Responsable-de-projets-%28HF%29-80-100-Frib/1374009355/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:03.590Z",
+      "crawledAt": "2026-11-01T09:21:54.576Z",
       "addressLocality": "Granges-Paccot - Chantemerle",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1763",
+      "postalCode": "",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1196,13 +1157,16 @@
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "streetAddress": "Route de Morat 135",
-      "_qualityScore": 93,
+      "streetAddress": "Granges-Paccot - Chantemerle",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:21:54.576Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -1218,12 +1182,12 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ing%C3%A9nieur-ou-Ing%C3%A9nieure-en-Automation-80-100-Frib/1369311355/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:02.998Z",
+      "crawledAt": "2026-11-01T09:21:53.956Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1763",
+      "postalCode": "",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1239,13 +1203,16 @@
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
-      "streetAddress": "Route de Morat 135",
-      "_qualityScore": 93,
+      "streetAddress": "Granges-Paccot - Plexus",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:21:53.956Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -1261,7 +1228,7 @@
       "url": "https://job.groupe-e.ch/job/Boudry-Electricienne-de-montage-Neuc/1369480255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:02.415Z",
+      "crawledAt": "2026-11-01T09:21:53.376Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1282,12 +1249,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Boudry",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:21:53.376Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1302,7 +1273,7 @@
       "url": "https://job.groupe-e.ch/job/Ch%C3%A2teau-d'Oex-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-CFC-80-100-Frib/1351064855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:29:00.900Z",
+      "crawledAt": "2026-11-01T09:21:51.839Z",
       "addressLocality": "Château-d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1323,12 +1294,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Château-d'Oex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:21:51.839Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1344,7 +1319,7 @@
       "url": "https://job.groupe-e.ch/job/Ch%C3%A2teau-d'Oex-Electricienne-ou-%C3%A9lectricien-de-r%C3%A9seau-80-100-Vaud/1332742055/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:28:59.929Z",
+      "crawledAt": "2026-11-01T09:21:50.896Z",
       "addressLocality": "Château-d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1365,14 +1340,155 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Château-d'Oex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:21:50.896Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
+      }
+    },
+    {
+      "id": "groupe-e-772445fc52cf",
+      "slug": "tecnico-tecnico-80-100-groupe-e-matran-mad-4",
+      "company": "Groupe E",
+      "companyKey": "groupe-e",
+      "companyDomain": "groupe-e.ch",
+      "title": "Technicienne ou technicien bureau technique 80-100%",
+      "needsRetranslation": false,
+      "location": "Matran - Mad 4",
+      "canton": "FR",
+      "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Technicienne-ou-technicien-bureau-technique-80-100-Frib/1374520855/",
+      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-01T09:21:50.285Z",
+      "addressLocality": "Matran - Mad 4",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1753",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Energia / Utility",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-27T00:00:00Z",
+      "postedDate": "2026-10-27T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1374520855/?locale=fr_FR",
+      "firstSeenAt": "2026-10-27T21:29:42.828Z",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "streetAddress": "Matran - Mad 4",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:21:50.285Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "groupe-e-5e9b3a427f78",
+      "slug": "impianti-elettrici-capo-o-costruzione-80-100-groupe-e-payerne-grandcour",
+      "company": "Groupe E",
+      "companyKey": "groupe-e",
+      "companyDomain": "groupe-e.ch",
+      "title": "Cheffe ou chef de chantier installations électriques 80-100%",
+      "needsRetranslation": false,
+      "location": "Payerne - Grandcour",
+      "canton": "VD",
+      "url": "https://job.groupe-e.ch/job/Payerne-Grandcour-Cheffe-ou-chef-de-chantier-installations-%C3%A9lectriques-80-100-Vaud/1374693355/",
+      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-01T09:21:48.965Z",
+      "addressLocality": "Payerne - Grandcour",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1530",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Energia / Utility",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-28T00:00:00Z",
+      "postedDate": "2026-10-28T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1374693355/?locale=fr_FR",
+      "firstSeenAt": "2026-10-28T09:53:24.757Z",
+      "salaryMin": 97500,
+      "salaryMax": 148000,
+      "salarySource": "estimated",
+      "streetAddress": "Payerne - Grandcour",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:21:48.965Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "groupe-e-9c32816b2677",
+      "slug": "installatore-elettrico-cfc-80-100-groupe-e-payerne-grandcour",
+      "company": "Groupe E",
+      "companyKey": "groupe-e",
+      "companyDomain": "groupe-e.ch",
+      "title": "Installatrice ou installateur électricien·ne CFC 80-100%",
+      "location": "Payerne - Grandcour",
+      "canton": "VD",
+      "url": "https://job.groupe-e.ch/job/Payerne-Grandcour-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-CFC-80-100-Vaud/1374695455/",
+      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-01T09:21:48.360Z",
+      "addressLocality": "Payerne - Grandcour",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1530",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Energia / Utility",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-28T00:00:00Z",
+      "postedDate": "2026-10-28T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1374695455/?locale=fr_FR",
+      "firstSeenAt": "2026-10-28T09:53:25.546Z",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "streetAddress": "Payerne - Grandcour",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:21:48.360Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

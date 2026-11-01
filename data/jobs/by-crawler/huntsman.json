@@ -1,7 +1,7 @@
 {
   "crawlerKey": "huntsman",
-  "assembledAt": "2026-10-31T22:10:40.447Z",
-  "runId": "41243370189",
+  "assembledAt": "2026-11-01T09:37:00.301Z",
+  "runId": "41292933668",
   "jobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -50,7 +50,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:10:34.726Z",
+      "crawledAt": "2026-11-01T09:36:51.967Z",
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-corporati",
@@ -80,7 +80,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:36:51.967Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "huntsman-219a81c7a979",
@@ -129,7 +133,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T22:10:34.115Z",
+      "crawledAt": "2026-11-01T09:36:51.401Z",
       "jobReqId": "J-019937",
       "previousSlugs": [
         "electricien-ou-automaticien-metrologie-huntsman-ch"
@@ -154,7 +158,11 @@
         }
       },
       "postalCode": "1870",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "streetAddress": "Monthey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:36:51.401Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "huntsman-36e1a25387c1",
@@ -203,7 +211,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Laboratory-Technician---PCB-Materials_J-020110",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:10:33.462Z",
+      "crawledAt": "2026-11-01T09:36:50.701Z",
       "jobReqId": "J-020110",
       "previousSlugs": [
         "laboratory-technician-pcb-materials-huntsman-ch"
@@ -228,7 +236,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:36:50.701Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "huntsman-c78cd5f80c52",
@@ -277,7 +289,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern---Data-Science_J-020004",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:10:32.158Z",
+      "crawledAt": "2026-11-01T09:36:49.238Z",
       "jobReqId": "J-020004",
       "previousSlugs": [
         "intern-data-science-huntsman-ch"
@@ -307,7 +319,11 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:36:49.238Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

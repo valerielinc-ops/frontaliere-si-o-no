@@ -268,6 +268,36 @@ describe('fetchArticleOverlay — detects an index behind the published corpus',
     expect(fn.mock.calls.some(([url]) => String(url).includes('/manifest.json?v='))).toBe(true);
     expect(fn.mock.calls.some(([url]) => String(url).includes('-full.json'))).toBe(true);
   });
+
+  it('escalates when the recent total is current but its rows are incomplete', async () => {
+    const recent = {
+      total: 16,
+      articles: [{ id: 'recent', title: 'Recente' }],
+    };
+    const full = {
+      total: 16,
+      articles: [
+        { id: 'recent', title: 'Recente' },
+        { id: 'startup-innovazione-sociale-open-call', title: 'Startup e innovazione sociale' },
+      ],
+    };
+    const fn = vi.fn((u: string) => {
+      const url = String(u);
+      const body = url.includes('/manifest.json')
+        ? { counts: { swissArticles: 16 } }
+        : url.includes('-full') ? full : recent;
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(body),
+      } as unknown as Response);
+    });
+    vi.stubGlobal('fetch', fn);
+
+    const out = await fetchArticleOverlay('svizzera', 'it', 15);
+
+    expect(out.map((a) => a.id)).toEqual(['recent', 'startup-innovazione-sociale-open-call']);
+    expect(fn.mock.calls.some(([url]) => String(url).includes('-full.json'))).toBe(true);
+  });
 });
 
 // The index is fetched under both its stable and ROTATING urls, and that is not

@@ -1,16 +1,16 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-31T21:47:28.745Z",
+  "generatedAt": "2026-11-01T09:28:47.136Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9193,
-  "avgDurationMs": 9193,
+  "durationMs": 8021,
+  "avgDurationMs": 8021,
   "durationHistory": [
-    9193
+    8021
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -46,6 +46,9 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T21:34:09.718Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-29T21:34:09.718Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -87,6 +90,9 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-19T09:27:56.864Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-22T09:27:56.864Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -128,6 +134,9 @@
       "salaryMax": 78500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-12T21:24:59.633Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-14T21:24:59.633Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -169,6 +178,9 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-07T09:15:31.648Z",
+      "validThroughSource": "job-type-cap",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -209,6 +221,9 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-09T07:39:25.798Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T07:39:25.798Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -250,6 +265,9 @@
       "salaryMax": 135000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-10-19T07:39:25.798Z",
+      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T07:39:25.798Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -262,5 +280,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

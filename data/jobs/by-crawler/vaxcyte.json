@@ -1,7 +1,7 @@
 {
   "crawlerKey": "vaxcyte",
-  "assembledAt": "2026-10-31T21:42:24.751Z",
-  "runId": "41241930028",
+  "assembledAt": "2026-11-01T09:11:31.370Z",
+  "runId": "41291565146",
   "jobs": [
     {
       "id": "vaxcyte-6b03024d1766",
@@ -34,7 +34,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:42:16.262Z",
+      "crawledAt": "2026-11-01T09:11:23.227Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -90,7 +90,11 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T09:11:23.227Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vaxcyte-dfe11ab55bc0",
@@ -123,7 +127,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:42:16.249Z",
+      "crawledAt": "2026-11-01T09:11:23.213Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -174,7 +178,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:11:23.213Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vaxcyte-fb837ce9abee",
@@ -207,7 +215,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:42:16.246Z",
+      "crawledAt": "2026-11-01T09:11:23.208Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -255,7 +263,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:11:23.208Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "vaxcyte-44aff7c349e6",
@@ -288,7 +300,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5464246008?gh_jid=5464246008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:42:16.195Z",
+      "crawledAt": "2026-11-01T09:11:23.149Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -339,7 +351,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:11:23.149Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

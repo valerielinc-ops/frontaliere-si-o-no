@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-10-31T21:26:01.273Z",
-  "runId": "41241757776",
+  "assembledAt": "2026-11-01T09:20:31.905Z",
+  "runId": "41291409806",
   "jobs": [
     {
       "id": "kispi-zurich-d6d4e0ac5eee",
@@ -35,7 +35,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2963/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:50.760Z",
+      "crawledAt": "2026-11-01T09:20:19.220Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -75,7 +75,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:20:19.220Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-914c4bc50fe4",
@@ -108,7 +112,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2476/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T21:25:48.758Z",
+      "crawledAt": "2026-11-01T09:20:17.160Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -140,7 +144,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:20:17.160Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-f2070ffbd437",
@@ -174,7 +182,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3060/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:46.759Z",
+      "crawledAt": "2026-11-01T09:20:15.172Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -214,7 +222,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:20:15.172Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-0b429d6f4442",
@@ -247,7 +259,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2697/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:44.762Z",
+      "crawledAt": "2026-11-01T09:20:13.175Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -287,7 +299,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:20:13.175Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-440f80c824a0",
@@ -321,7 +337,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1231/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:42.760Z",
+      "crawledAt": "2026-11-01T09:20:11.183Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -369,7 +385,11 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:11.183Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-f266ae6b8d63",
@@ -402,7 +422,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3509/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:40.759Z",
+      "crawledAt": "2026-11-01T09:20:09.182Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -448,7 +468,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:20:09.182Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-b6c3c992a05c",
@@ -482,7 +506,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2348/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:37.708Z",
+      "crawledAt": "2026-11-01T09:20:05.943Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -522,7 +546,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:20:05.943Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-6f2d37e17714",
@@ -556,7 +584,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1330/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:36.714Z",
+      "crawledAt": "2026-11-01T09:20:04.944Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -598,7 +626,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:20:04.944Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-cf7c0b1d35fc",
@@ -632,7 +664,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2929/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:35.761Z",
+      "crawledAt": "2026-11-01T09:20:04.165Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -678,7 +710,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:20:04.165Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-b38097e12e6a",
@@ -711,7 +747,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2448/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:33.738Z",
+      "crawledAt": "2026-11-01T09:20:02.166Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -763,7 +799,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:20:02.166Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-ede2a2aa7d15",
@@ -796,7 +836,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3429/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:31.762Z",
+      "crawledAt": "2026-11-01T09:20:00.153Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -836,7 +876,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:20:00.153Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-6832f6aa9952",
@@ -869,7 +913,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3677/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:29.756Z",
+      "crawledAt": "2026-11-01T09:19:58.173Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -921,7 +965,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:19:58.173Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-1a58604068df",
@@ -955,7 +1003,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1915/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:27.765Z",
+      "crawledAt": "2026-11-01T09:19:56.164Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1007,7 +1055,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:19:56.164Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-10f82b565fd5",
@@ -1041,7 +1093,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3684/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:25.770Z",
+      "crawledAt": "2026-11-01T09:19:54.148Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1083,7 +1135,11 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:19:54.148Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-198fdf83b104",
@@ -1117,7 +1173,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3340/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:23.755Z",
+      "crawledAt": "2026-11-01T09:19:52.162Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1167,7 +1223,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:19:52.162Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-4e83e14e0e49",
@@ -1201,7 +1261,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3699/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:21.761Z",
+      "crawledAt": "2026-11-01T09:19:50.162Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1249,7 +1309,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:19:50.162Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-431350205128",
@@ -1283,7 +1347,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3712/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:19.757Z",
+      "crawledAt": "2026-11-01T09:19:48.164Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1329,7 +1393,11 @@
           "maxValue": 25600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:19:48.164Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-bfeea9f00238",
@@ -1363,7 +1431,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3502/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:17.758Z",
+      "crawledAt": "2026-11-01T09:19:46.166Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1419,7 +1487,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:19:46.166Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-db932a405122",
@@ -1452,7 +1524,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3716/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:13.758Z",
+      "crawledAt": "2026-11-01T09:19:42.171Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1495,7 +1567,11 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:19:42.171Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-6337814c5aec",
@@ -1529,7 +1605,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1566/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:11.752Z",
+      "crawledAt": "2026-11-01T09:19:40.171Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1575,7 +1651,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:19:40.171Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-9a4dece2b049",
@@ -1609,7 +1689,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1645/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:09.717Z",
+      "crawledAt": "2026-11-01T09:19:37.962Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1648,7 +1728,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:19:37.962Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-2be10a98ceae",
@@ -1682,7 +1766,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3290/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:08.758Z",
+      "crawledAt": "2026-11-01T09:19:37.162Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1721,7 +1805,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:19:37.162Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-528ff3bdd900",
@@ -1754,7 +1842,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3735/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:06.772Z",
+      "crawledAt": "2026-11-01T09:19:35.165Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1793,7 +1881,11 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:19:35.165Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-0a38b3dc1a38",
@@ -1827,7 +1919,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3732/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:04.763Z",
+      "crawledAt": "2026-11-01T09:19:33.170Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1866,7 +1958,11 @@
           "maxValue": 89600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:19:33.170Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-708c6a92817d",
@@ -1900,7 +1996,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3746/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:02.763Z",
+      "crawledAt": "2026-11-01T09:19:31.156Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1946,7 +2042,11 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:19:31.156Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-616707186b7b",
@@ -1979,7 +2079,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3739/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:25:00.755Z",
+      "crawledAt": "2026-11-01T09:19:29.167Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2018,7 +2118,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:19:29.167Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-bbc26e0a7ef6",
@@ -2052,7 +2156,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3606/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:58.759Z",
+      "crawledAt": "2026-11-01T09:19:27.169Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2091,7 +2195,11 @@
           "maxValue": 78800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:19:27.169Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-c1a5c85a8244",
@@ -2125,7 +2233,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/393/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:56.678Z",
+      "crawledAt": "2026-11-01T09:19:24.992Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2175,7 +2283,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:19:24.992Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-cf43ac7e40c5",
@@ -2209,7 +2321,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3747/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:55.765Z",
+      "crawledAt": "2026-11-01T09:19:24.163Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2256,7 +2368,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:19:24.163Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-2eb63187498b",
@@ -2289,7 +2405,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3751/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:53.751Z",
+      "crawledAt": "2026-11-01T09:19:22.174Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2335,7 +2451,11 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-21T09:19:22.174Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-82318d6e3455",
@@ -2369,7 +2489,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3576/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:51.762Z",
+      "crawledAt": "2026-11-01T09:19:20.167Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2409,7 +2529,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:19:20.167Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-f5f240bf7051",
@@ -2443,7 +2567,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3755/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:49.770Z",
+      "crawledAt": "2026-11-01T09:19:18.170Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2483,7 +2607,11 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:19:18.170Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-d6d0b2d1d97b",
@@ -2517,7 +2645,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3748/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:47.812Z",
+      "crawledAt": "2026-11-01T09:19:16.167Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2559,7 +2687,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:19:16.167Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-ae0b2f3fc68d",
@@ -2593,7 +2725,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3665/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:45.764Z",
+      "crawledAt": "2026-11-01T09:19:14.174Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2645,7 +2777,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:19:14.174Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-e452b255b8d6",
@@ -2679,7 +2815,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3592/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:43.759Z",
+      "crawledAt": "2026-11-01T09:19:12.167Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2723,7 +2859,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:19:12.167Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-0c19b1269ab9",
@@ -2757,7 +2897,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3599/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:41.761Z",
+      "crawledAt": "2026-11-01T09:19:10.166Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2809,7 +2949,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:19:10.166Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-9bde70c0823e",
@@ -2843,7 +2987,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3635/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:39.763Z",
+      "crawledAt": "2026-11-01T09:19:08.150Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2883,7 +3027,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:19:08.150Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-ef03a3cec6d9",
@@ -2917,7 +3065,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3700/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:37.783Z",
+      "crawledAt": "2026-11-01T09:19:06.141Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2962,7 +3110,11 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:19:06.141Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-fb9e32d758b0",
@@ -2996,7 +3148,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3563/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:35.738Z",
+      "crawledAt": "2026-11-01T09:19:04.164Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3044,7 +3196,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:19:04.164Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-b0ad3a2d569a",
@@ -3078,7 +3234,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3540/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:33.759Z",
+      "crawledAt": "2026-11-01T09:19:02.171Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3132,7 +3288,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:19:02.171Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-49eac8548186",
@@ -3166,7 +3326,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3196/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:31.756Z",
+      "crawledAt": "2026-11-01T09:19:00.319Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3253,7 +3413,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:19:00.319Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-e49394d1eb68",
@@ -3287,7 +3451,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3762/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:29.756Z",
+      "crawledAt": "2026-11-01T09:18:59.255Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3327,7 +3491,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:18:59.255Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-60f560913e67",
@@ -3361,7 +3529,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3763/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:27.765Z",
+      "crawledAt": "2026-11-01T09:18:58.182Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3401,7 +3569,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:18:58.182Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-509f3ec20351",
@@ -3434,7 +3606,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3532/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:25.764Z",
+      "crawledAt": "2026-11-01T09:18:57.135Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3473,7 +3645,11 @@
           "maxValue": 89600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:18:57.135Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-1857a4d7cdf8",
@@ -3506,7 +3682,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3764/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:23.761Z",
+      "crawledAt": "2026-11-01T09:18:56.077Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3546,14 +3722,18 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:18:56.077Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-ac08735a244c",
       "slug": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
         "de": "psychomotoriktherapeutin-m-w-d-30-40-kispi-zurich-zurich",
         "fr": "psychomotherapeute-h-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       },
@@ -3579,7 +3759,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3745/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:21.756Z",
+      "crawledAt": "2026-11-01T09:18:55.015Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3600,15 +3780,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
-        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich",
-        "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
+        "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
         ],
         "en": [
-          "psychomotor-therapist-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
+          "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
           "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
@@ -3627,7 +3806,11 @@
           "maxValue": 51200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:55.015Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-8529b2a552df",
@@ -3661,7 +3844,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3769/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:19.761Z",
+      "crawledAt": "2026-11-01T09:18:53.974Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3711,7 +3894,11 @@
           "maxValue": 12800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:18:53.974Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-28426e2eb866",
@@ -3745,7 +3932,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3512/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:17.788Z",
+      "crawledAt": "2026-11-01T09:18:52.912Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3785,7 +3972,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T09:18:52.912Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-0d81adbea267",
@@ -3818,7 +4009,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3331/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:15.759Z",
+      "crawledAt": "2026-11-01T09:18:51.842Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3864,7 +4055,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:18:51.842Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-386738192d62",
@@ -3897,7 +4092,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3574/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:13.764Z",
+      "crawledAt": "2026-11-01T09:18:50.748Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3943,7 +4138,11 @@
           "maxValue": 51200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:18:50.748Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-a7c8d95e2e4d",
@@ -3976,7 +4175,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3452/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:11.740Z",
+      "crawledAt": "2026-11-01T09:18:49.633Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4021,7 +4220,11 @@
           "maxValue": 89600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:18:49.633Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-8ee5f49744bc",
@@ -4055,7 +4258,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3134/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:09.764Z",
+      "crawledAt": "2026-11-01T09:18:48.722Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4119,7 +4322,11 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:18:48.722Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-36bc3af678a6",
@@ -4153,7 +4360,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3629/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:07.772Z",
+      "crawledAt": "2026-11-01T09:18:47.783Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4201,7 +4408,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:18:47.783Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-31f27e1b98de",
@@ -4235,7 +4446,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3704/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:05.790Z",
+      "crawledAt": "2026-11-01T09:18:46.869Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4267,7 +4478,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T09:18:46.869Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kispi-zurich-865652a694ba",
@@ -4300,7 +4515,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3771/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:24:00.599Z",
+      "crawledAt": "2026-11-01T09:18:46.120Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4346,7 +4561,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:18:46.120Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

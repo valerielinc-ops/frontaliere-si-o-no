@@ -1,7 +1,7 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-10-31T21:39:22.166Z",
-  "runId": "41242014604",
+  "assembledAt": "2026-11-01T09:21:12.948Z",
+  "runId": "41291644918",
   "jobs": [
     {
       "id": "company-e412mz",
@@ -31,7 +31,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-28T09:25:00.301Z",
       "titleByLocale": {
         "en": "Product Manager Digital",
@@ -93,7 +93,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 119000,
-      "salaryMax": 166000
+      "salaryMax": 166000,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-5cxceg",
@@ -121,7 +125,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-29T21:22:43.214Z",
       "titleByLocale": {
         "it": "R&D Control Ingegnere",
@@ -168,7 +172,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 64500,
-      "salaryMax": 110000
+      "salaryMax": 110000,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-bebpwv",
@@ -196,7 +204,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-01T09:18:02.942Z",
       "slugByLocale": {
         "it": "senior-project-lead-ingegnere-power-systems-80-100-abb-svizzera-sede-ticino-baden-aargau-bebpwv",
@@ -235,7 +243,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 178000,
-      "salaryMax": 313000
+      "salaryMax": 313000,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-hl6cgm",
@@ -263,7 +275,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-06T21:19:20.619Z",
       "titleByLocale": {
         "it": "Service Coordinatore 80 - 100% (f/m/d)",
@@ -311,7 +323,11 @@
       "postalCode": "5400",
       "needsRetranslation": true,
       "salaryMin": 72500,
-      "salaryMax": 110500
+      "salaryMax": 110500,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-fjt399",
@@ -341,7 +357,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-06T21:19:20.619Z",
       "titleByLocale": {
         "en": "Field Service Technician (80 - 100%) f/m/d",
@@ -395,7 +411,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 72500,
-      "salaryMax": 110500
+      "salaryMax": 110500,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-pe41b6",
@@ -426,7 +446,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-28T21:30:44.002Z",
       "titleByLocale": {
         "en": "(80 - 100%) Lead DC-DC Converter System Design",
@@ -489,7 +509,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 99500,
-      "salaryMax": 169500
+      "salaryMax": 169500,
+      "streetAddress": "Baden-Daettwil, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-j2h2qh",
@@ -517,7 +541,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-20T21:22:24.532Z",
       "titleByLocale": {
         "it": "Specialista della gestione dei dati – Operazioni (m/f/d), 80–100%",
@@ -564,7 +588,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8200",
       "salaryMin": 67000,
-      "salaryMax": 102000
+      "salaryMax": 102000,
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-g0z74t",
@@ -590,7 +618,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-09-30T21:16:05.084Z",
       "titleByLocale": {
         "it": "Tecnico di Servizio sul Campo (Regione Svizzera Centrale) m/f/d (80-100%)",
@@ -642,7 +670,11 @@
       "postingDateSource": "reported",
       "postalCode": "5400",
       "salaryMin": 88000,
-      "salaryMax": 123000
+      "salaryMax": 123000,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-gijo38",
@@ -673,7 +705,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-07T21:24:07.449Z",
       "titleByLocale": {
         "en": "Sales Support Specialist (f/m/d) 80-100%",
@@ -728,7 +760,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 107000,
-      "salaryMax": 187500
+      "salaryMax": 187500,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-nl64dh",
@@ -756,7 +792,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-06-12T21:50:02.091Z",
       "slugByLocale": {
         "it": "quality-specialista-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-nl64dh",
@@ -795,7 +831,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8200",
       "salaryMin": 60000,
-      "salaryMax": 102000
+      "salaryMax": 102000,
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-5rabx9",
@@ -826,7 +866,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-09-10T23:12:35.970Z",
       "titleByLocale": {
         "en": "Service Technician f/m/d (80-100%)",
@@ -906,7 +946,11 @@
       "postingDateSource": "reported",
       "postalCode": "8200",
       "salaryMin": 81500,
-      "salaryMax": 114000
+      "salaryMax": 114000,
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-eflf96",
@@ -934,7 +978,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-06-19T21:13:47.661Z",
       "slugByLocale": {
         "it": "senior-scienziato-80-100-m-f-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
@@ -973,7 +1017,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 99500,
-      "salaryMax": 169500
+      "salaryMax": 169500,
+      "streetAddress": "Baden-Daettwil, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-12T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-nv872x",
@@ -1001,7 +1049,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-09T21:16:59.595Z",
       "titleByLocale": {
         "it": "Tecnico/a dell'infrastruttura di laboratorio R&D (80 - 100%) m/f/d",
@@ -1056,7 +1104,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 107000,
-      "salaryMax": 187500
+      "salaryMax": 187500,
+      "streetAddress": "Baden-Daettwil, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-4lvmbs",
@@ -1084,7 +1136,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-09T21:16:59.595Z",
       "titleByLocale": {
         "it": "Senior Trade & Transportation Specialista (f/m/d) 80-100%",
@@ -1131,7 +1183,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 178000,
-      "salaryMax": 313000
+      "salaryMax": 313000,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-1icynn",
@@ -1161,7 +1217,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-09-18T23:15:02.968Z",
       "slugByLocale": {
         "it": "supervisore-meccanico-80-100-abb-svizzera-sede-ticino-baden-aargau",
@@ -1207,7 +1263,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 107000,
-      "salaryMax": 187500
+      "salaryMax": 187500,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-18T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-tz4lu4",
@@ -1235,7 +1295,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-22T09:24:33.604Z",
       "titleByLocale": {
         "it": "Responsabile vendite e soluzioni per il Paese 80 - 100% (m/f/d)",
@@ -1290,7 +1350,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 178000,
-      "salaryMax": 313000
+      "salaryMax": 313000,
+      "streetAddress": "Baden, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-5ilxdp",
@@ -1318,7 +1382,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-23T21:17:11.847Z",
       "titleByLocale": {
         "it": "(80 – 100%) Compliance Ingegnere / Senior R&D Ingegnere for SST",
@@ -1365,7 +1429,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
       "salaryMin": 178000,
-      "salaryMax": 313000
+      "salaryMax": 313000,
+      "streetAddress": "Baden-Daettwil, Aargau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-6so4ky",
@@ -1393,7 +1461,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-10-31T21:39:15.325Z",
+      "crawledAt": "2026-11-01T09:21:02.577Z",
       "firstSeenAt": "2026-10-30T21:24:18.725Z",
       "titleByLocale": {
         "it": "R&D Testing & Lab Specialista (m/w/d) 80 -100%",
@@ -1440,7 +1508,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8200",
       "salaryMin": 60000,
-      "salaryMax": 102000
+      "salaryMax": 102000,
+      "streetAddress": "Schaffhausen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:21:02.577Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

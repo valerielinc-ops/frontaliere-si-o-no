@@ -1,90 +1,144 @@
 {
   "key": "kanton-zuerich",
   "label": "Kantonale Verwaltung Zürich",
-  "generatedAt": "2026-10-31T21:35:48.811Z",
-  "total": 156,
+  "generatedAt": "2026-11-01T09:42:19.863Z",
+  "total": 153,
   "discovered": null,
   "parsed": 152,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 156,
+  "written": 153,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 2,
   "updatedCount": 0,
-  "removedCount": 3,
-  "unchangedCount": 156,
-  "durationMs": 84895,
-  "avgDurationMs": 84895,
+  "removedCount": 5,
+  "unchangedCount": 151,
+  "durationMs": 91094,
+  "avgDurationMs": 91094,
   "durationHistory": [
-    84895
+    91094
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [
+  "newJobs": [
     {
-      "id": "kanton-zuerich-f05c51da3beb",
-      "slug": "technology-innovation-architetto-kantonale-verwaltung-zurich-zurich",
+      "id": "kanton-zuerich-46183abb1a45",
+      "slug": "procuratore-senior-procuratore-senior-kantonale-verwaltung-zurich-zurich",
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
       "companyDomain": "zh.ch",
-      "title": "Technology Innovation Architect",
+      "title": "Oberstaatsanwältin / Oberstaatsanwalt",
       "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
-      "url": "https://live.solique.ch/ktzh/job/details/4082439/",
+      "url": "https://live.solique.ch/ktzh/job/details/4094377/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:52.361Z",
+      "crawledAt": "2026-11-01T09:41:30.695Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8001",
-      "category": "Amministrazione Pubblica",
+      "category": "Legale",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-08T13:40:02+02:00",
-      "postedDate": "2026-10-08T13:40:02+02:00",
+      "datePosted": "2026-10-30T07:58:20+01:00",
+      "postedDate": "2026-10-30T07:58:20+01:00",
       "postingDateSource": "reported",
-      "applyUrl": "https://live.solique.ch/ktzh/job/details/4082439/",
-      "externalId": "4082439",
+      "applyUrl": "https://live.solique.ch/ktzh/job/details/4094377/",
+      "externalId": "4094377",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-10-08T21:43:35.664Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 131500,
+      "salaryMax": 225500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:41:30.695Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-03T09:26:40.829Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
-      "id": "kanton-zuerich-8de36bb5271d",
-      "slug": "responsabile-di-progetto-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich",
+      "id": "kanton-zuerich-98cb5f3b290e",
+      "slug": "paralegal-kanton-zuerich-zurich",
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
       "companyDomain": "zh.ch",
-      "title": "Projektleiter/in Koordinationsstelle Teilhabe",
+      "title": "Paralegal",
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ktzh/job/details/4090200/",
+      "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:40:52.624Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/ktzh/job/details/4090200/",
+      "externalId": "4090200",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 85000,
+      "salaryMax": 145000,
+      "salarySource": "estimated",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:40:52.624Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-01T09:40:52.624Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 23
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [
+    {
+      "id": "kanton-zuerich-35d1507a805b",
+      "slug": "studentische-r-collaboratore-trice-in-kantonale-verwaltung-zurich",
+      "company": "Kantonale Verwaltung Zürich",
+      "companyKey": "kanton-zuerich",
+      "companyDomain": "zh.ch",
+      "title": "Studentische/-r Mitarbeiter/-in",
       "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
-      "url": "https://live.solique.ch/ktzh/job/details/4089270/",
+      "url": "https://live.solique.ch/ktzh/job/details/4072271/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:26.398Z",
+      "crawledAt": "2026-10-30T21:40:40.931Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -93,21 +147,21 @@
       "category": "Amministrazione Pubblica",
       "contract": "full-time",
       "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
+      "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/ktzh/job/details/4089270/",
-      "externalId": "4089270",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "firstSeenAt": "2026-10-20T21:29:02.963Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "applyUrl": "https://live.solique.ch/ktzh/job/details/4072271/",
+      "externalId": "4072271",
+      "pensumMin": 30,
+      "pensumMax": 40,
+      "pensum": "30 - 40%",
+      "firstSeenAt": "2026-09-19T23:06:27.321Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
       "_qualityScore": 88,
@@ -119,18 +173,19 @@
       }
     },
     {
-      "id": "kanton-zuerich-5eea62b9d19b",
-      "slug": "prorector-prorector-kantonale-verwaltung-zurich-zurich",
+      "id": "kanton-zuerich-9949b0e6c20e",
+      "slug": "amministratore-trice-ict-infrastruttura-server-per-il-momento-limitata-a-2-anni-kantonale-verwaltung-zurich-zurich",
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
       "companyDomain": "zh.ch",
-      "title": "Prorektorin / Prorektor",
+      "title": "ICT-Administrator/-in Serverinfrastruktur, vorerst befristet auf 2 Jahre",
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
-      "url": "https://live.solique.ch/ktzh/job/details/4094665/",
+      "url": "https://live.solique.ch/ktzh/job/details/4077518/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:39:07.985Z",
+      "crawledAt": "2026-10-30T21:40:34.037Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -143,18 +198,159 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-30T09:36:21+01:00",
-      "postedDate": "2026-10-30T09:36:21+01:00",
+      "datePosted": "2026-09-30T12:15:36+02:00",
+      "postedDate": "2026-09-30T12:15:36+02:00",
       "postingDateSource": "reported",
-      "applyUrl": "https://live.solique.ch/ktzh/job/details/4094665/",
-      "externalId": "4094665",
-      "pensumMin": 100,
+      "applyUrl": "https://live.solique.ch/ktzh/job/details/4077518/",
+      "externalId": "4077518",
+      "pensumMin": 80,
       "pensumMax": 100,
-      "pensum": "100%",
+      "pensum": "80 - 100%",
+      "firstSeenAt": "2026-10-01T09:29:41.978Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-30T09:39:07.985Z",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "kanton-zuerich-a69b7c474a6f",
+      "slug": "insegnanti-di-scuola-media-mba-di-matematica-kantonale-verwaltung-zurich-8600",
+      "company": "Kantonale Verwaltung Zürich",
+      "companyKey": "kanton-zuerich",
+      "companyDomain": "zh.ch",
+      "title": "Mittelschullehrpersonen mbA für Mathematik",
+      "needsRetranslation": false,
+      "location": "8600",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ktzh/job/details/4074683/",
+      "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-30T21:40:33.085Z",
+      "addressLocality": "8600",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Istruzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/ktzh/job/details/4074683/",
+      "externalId": "4074683",
+      "pensumMin": 70,
+      "pensumMax": 100,
+      "pensum": "70 - 100%",
+      "firstSeenAt": "2026-10-01T09:29:41.259Z",
+      "salaryMin": 63000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "kanton-zuerich-6acc881b34fd",
+      "slug": "insegnante-di-scuola-media-mba-per-pianoforte-kantonale-verwaltung-zurich-zurich",
+      "company": "Kantonale Verwaltung Zürich",
+      "companyKey": "kanton-zuerich",
+      "companyDomain": "zh.ch",
+      "title": "Mittelschullehrperson mbA für Klavier",
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ktzh/job/details/4089674/",
+      "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-30T21:40:27.934Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Istruzione",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-22T08:10:30+02:00",
+      "postedDate": "2026-10-22T08:10:30+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://live.solique.ch/ktzh/job/details/4089674/",
+      "externalId": "4089674",
+      "pensumMin": 60,
+      "pensumMax": 70,
+      "pensum": "60 - 70%",
+      "firstSeenAt": "2026-10-22T09:33:56.618Z",
+      "salaryMin": 63000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "kanton-zuerich-d0430921aff0",
+      "slug": "centro-per-l-annuncio-dei-posti-vacanti-cip-a-tempo-determinato-per-un-anno-con-opzione-di-assunzione-fissa-kantonale-verwaltung-9f70e68499",
+      "company": "Kantonale Verwaltung Zürich",
+      "companyKey": "kanton-zuerich",
+      "companyDomain": "zh.ch",
+      "title": "Personalvermittler/in Stellenmeldezentrum (SMZ) befristet für ein Jahr mit Option auf Festanstellung",
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ktzh/job/details/4075621/",
+      "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-30T21:40:14.497Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-28T09:44:04+02:00",
+      "postedDate": "2026-09-28T09:44:04+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://live.solique.ch/ktzh/job/details/4075621/",
+      "externalId": "4075621",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "firstSeenAt": "2026-09-01T14:26:30.823Z",
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "salarySource": "estimated",
       "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -179,7 +375,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4086407/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:20.880Z",
+      "crawledAt": "2026-11-01T09:42:00.532Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -204,12 +400,16 @@
       "salaryMin": 47300,
       "salaryMax": 87400,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:42:00.532Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -225,7 +425,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092445/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:20.447Z",
+      "crawledAt": "2026-11-01T09:42:00.060Z",
       "addressLocality": "Literargymnasium Rämibühl",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -250,12 +450,16 @@
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Literargymnasium Rämibühl",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:42:00.060Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -271,7 +475,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094161/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:19.988Z",
+      "crawledAt": "2026-11-01T09:41:59.574Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -295,12 +499,16 @@
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Bülach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:41:59.574Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -316,7 +524,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087190/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:19.553Z",
+      "crawledAt": "2026-11-01T09:41:59.086Z",
       "addressLocality": "Zürich Altstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -341,12 +549,16 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich Altstetten",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-15T09:41:59.086Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -362,7 +574,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4082453/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:19.114Z",
+      "crawledAt": "2026-11-01T09:41:58.610Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -387,12 +599,16 @@
       "salaryMin": 68000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:41:58.610Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -408,7 +624,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087626/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:18.681Z",
+      "crawledAt": "2026-11-01T09:41:58.135Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -433,12 +649,16 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Wädenswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:41:58.135Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -454,7 +674,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094671/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:18.241Z",
+      "crawledAt": "2026-11-01T09:41:57.662Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -479,12 +699,16 @@
       "salaryMin": 85000,
       "salaryMax": 145000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:41:57.662Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -499,7 +723,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092543/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:17.810Z",
+      "crawledAt": "2026-11-01T09:41:57.193Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -524,12 +748,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Regensdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:41:57.193Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -544,7 +772,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087732/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:17.368Z",
+      "crawledAt": "2026-11-01T09:41:56.713Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -569,12 +797,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:41:56.713Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -590,7 +822,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087527/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:16.925Z",
+      "crawledAt": "2026-11-01T09:41:56.240Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -615,12 +847,16 @@
       "salaryMin": 68000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-15T09:41:56.240Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -636,7 +872,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092618/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:16.474Z",
+      "crawledAt": "2026-11-01T09:41:55.771Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -661,12 +897,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:41:55.771Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -681,7 +921,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042763/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:15.972Z",
+      "crawledAt": "2026-11-01T09:41:55.246Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -706,12 +946,16 @@
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Bülach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:55.246Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -727,7 +971,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4080421/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:15.536Z",
+      "crawledAt": "2026-11-01T09:41:54.777Z",
       "addressLocality": "8002 Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -752,12 +996,16 @@
       "salaryMin": 85000,
       "salaryMax": 145000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "8002 Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:41:54.777Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -773,7 +1021,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089435/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:15.103Z",
+      "crawledAt": "2026-11-01T09:41:54.305Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -798,12 +1046,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Dielsdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:41:54.305Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -819,7 +1071,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093335/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:14.662Z",
+      "crawledAt": "2026-11-01T09:41:53.833Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -844,12 +1096,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lindau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:41:53.833Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -865,7 +1121,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093439/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:14.223Z",
+      "crawledAt": "2026-11-01T09:41:53.346Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -890,12 +1146,16 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:41:53.346Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -911,7 +1171,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4086229/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:13.784Z",
+      "crawledAt": "2026-11-01T09:41:52.823Z",
       "addressLocality": "Feldmeilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -936,12 +1196,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Feldmeilen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:41:52.823Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -957,7 +1221,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093206/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:13.209Z",
+      "crawledAt": "2026-11-01T09:41:52.354Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -982,12 +1246,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lindau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:41:52.354Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1003,7 +1271,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042689/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:12.711Z",
+      "crawledAt": "2026-11-01T09:41:51.883Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1028,12 +1296,16 @@
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:51.883Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1048,7 +1320,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4040232/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:12.274Z",
+      "crawledAt": "2026-11-01T09:41:51.416Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1073,12 +1345,16 @@
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Glattbrugg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:51.416Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1094,7 +1370,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4094531/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:11.838Z",
+      "crawledAt": "2026-11-01T09:41:50.933Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1119,12 +1395,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Regensdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:41:50.933Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1140,7 +1420,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088759/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:11.399Z",
+      "crawledAt": "2026-11-01T09:41:50.449Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1165,12 +1445,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:41:50.449Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1186,7 +1470,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4040234/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:10.962Z",
+      "crawledAt": "2026-11-01T09:41:49.978Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1211,12 +1495,16 @@
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lindau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:49.978Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1231,7 +1519,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088826/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:10.525Z",
+      "crawledAt": "2026-11-01T09:41:49.501Z",
       "addressLocality": "Andelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1256,12 +1544,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Andelfingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-19T09:41:49.501Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1277,7 +1569,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090836/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:10.069Z",
+      "crawledAt": "2026-11-01T09:41:49.032Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1302,12 +1594,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:41:49.032Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1322,7 +1618,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042754/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:09.636Z",
+      "crawledAt": "2026-11-01T09:41:48.564Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1347,12 +1643,16 @@
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:48.564Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1367,7 +1667,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091542/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:09.159Z",
+      "crawledAt": "2026-11-01T09:41:48.096Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1392,12 +1692,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:41:48.096Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1413,7 +1717,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088679/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:08.671Z",
+      "crawledAt": "2026-11-01T09:41:47.623Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1438,12 +1742,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:41:47.623Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1458,7 +1766,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/3970271/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:08.235Z",
+      "crawledAt": "2026-11-01T09:41:47.153Z",
       "addressLocality": "8706 Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1483,12 +1791,16 @@
       "salaryMin": 85000,
       "salaryMax": 145000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "8706 Meilen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:41:47.153Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1504,7 +1816,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089971/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:35:07.795Z",
+      "crawledAt": "2026-11-01T09:41:46.615Z",
       "addressLocality": "Winterthur-Wülflingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1529,14 +1841,18 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Winterthur-Wülflingen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:41:46.615Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

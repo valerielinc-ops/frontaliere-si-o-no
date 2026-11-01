@@ -1,7 +1,7 @@
 {
   "key": "oerlikon",
   "label": "Oerlikon",
-  "generatedAt": "2026-10-31T22:09:11.692Z",
+  "generatedAt": "2026-11-01T09:38:54.784Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 11230,
-  "avgDurationMs": 11230,
+  "durationMs": 11753,
+  "avgDurationMs": 11753,
   "durationHistory": [
-    11230
+    11753
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://careers.oerlikon.com/job/Global-OPS-Continuous-Improvement-Manager-%28gn%29/104472-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:08:57.712Z",
+      "crawledAt": "2026-11-01T09:38:37.498Z",
       "addressLocality": "Barchfeld, DEU",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -58,12 +58,16 @@
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Barchfeld, DEU",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-15T09:38:37.498Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -78,7 +82,7 @@
       "url": "https://careers.oerlikon.com/job/Receptionist/104921-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-31T22:08:57.042Z",
+      "crawledAt": "2026-11-01T09:38:36.859Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -99,12 +103,16 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Mendrisio, TI",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-09T09:38:36.859Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -119,7 +127,7 @@
       "url": "https://careers.oerlikon.com/job/Team-Lead-Electrical-Engineering/105195-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:56.398Z",
+      "crawledAt": "2026-11-01T09:38:36.219Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -141,12 +149,16 @@
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:38:36.219Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -161,7 +173,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:55.756Z",
+      "crawledAt": "2026-11-01T09:38:35.565Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -182,12 +194,16 @@
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:38:35.565Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -202,7 +218,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:55.110Z",
+      "crawledAt": "2026-11-01T09:38:34.920Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -223,12 +239,16 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:38:34.920Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -243,7 +263,7 @@
       "url": "https://careers.oerlikon.com/job/Techniker-%28gn%29-Pr%C3%BCffeld/104517-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:54.472Z",
+      "crawledAt": "2026-11-01T09:38:34.281Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -264,12 +284,16 @@
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:38:34.281Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -284,7 +308,7 @@
       "url": "https://careers.oerlikon.com/job/MonteurMechaniker-%28gn%29-f%C3%BCr-den-Anlagenbau/104513-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:53.830Z",
+      "crawledAt": "2026-11-01T09:38:33.646Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -305,12 +329,16 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:38:33.646Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -325,7 +353,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:53.161Z",
+      "crawledAt": "2026-11-01T09:38:32.987Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -346,12 +374,16 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-27T09:38:32.987Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -366,7 +398,7 @@
       "url": "https://careers.oerlikon.com/job/Inbetriebnahme-%28gn%29-Engineer/104461-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:52.510Z",
+      "crawledAt": "2026-11-01T09:38:32.354Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -387,12 +419,16 @@
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-30T09:38:32.354Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -407,7 +443,7 @@
       "url": "https://careers.oerlikon.com/job/Teamleiter-Elektrofertigung-%28gn%29/104960-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:08:51.707Z",
+      "crawledAt": "2026-11-01T09:38:31.684Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -428,14 +464,18 @@
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:38:31.684Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

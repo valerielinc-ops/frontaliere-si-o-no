@@ -728,6 +728,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     }]);
     const codex = async () => ({ questions: [{
       id: result.questions[0].id,
+      sourceLocale: 'de',
       question: 'Hai una patente CE valida e il certificato CZV (Code 95)?',
       why: 'Il portale lo richiede.',
       options: ['Seleziona', 'Sì', 'No'],

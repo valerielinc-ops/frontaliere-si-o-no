@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gesundheitsnetz-kuesnacht",
-  "assembledAt": "2026-10-31T22:05:52.871Z",
-  "runId": "41242779673",
+  "assembledAt": "2026-11-01T09:26:52.588Z",
+  "runId": "41292374401",
   "jobs": [
     {
       "id": "gesundheitsnetz-kuesnacht-d499e6b4a673",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/780392/0140/pub/2/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:46.167Z",
+      "crawledAt": "2026-11-01T09:26:45.248Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,7 +87,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T09:26:45.248Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-8d604f702258",
@@ -121,7 +125,7 @@
       "url": "https://apply.refline.ch/780392/0139/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:45.748Z",
+      "crawledAt": "2026-11-01T09:26:44.801Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -171,7 +175,11 @@
           "maxValue": 86500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T09:26:44.801Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-eed18fd6c304",
@@ -205,7 +213,7 @@
       "url": "https://apply.refline.ch/780392/0137/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:45.325Z",
+      "crawledAt": "2026-11-01T09:26:44.354Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -255,7 +263,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:26:44.354Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-baaa1d27c093",
@@ -289,7 +301,7 @@
       "url": "https://apply.refline.ch/780392/0134/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:44.893Z",
+      "crawledAt": "2026-11-01T09:26:43.907Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -341,7 +353,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:26:43.907Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-d57f96a7ee8f",
@@ -375,7 +391,7 @@
       "url": "https://apply.refline.ch/780392/0133/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:44.472Z",
+      "crawledAt": "2026-11-01T09:26:43.461Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -427,7 +443,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:26:43.461Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-b69c4ca7feaf",
@@ -461,7 +481,7 @@
       "url": "https://apply.refline.ch/780392/0132/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:44.052Z",
+      "crawledAt": "2026-11-01T09:26:43.011Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -513,7 +533,11 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:26:43.011Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-6384df6a2443",
@@ -546,7 +570,7 @@
       "url": "https://apply.refline.ch/780392/0084/pub/15/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:43.632Z",
+      "crawledAt": "2026-11-01T09:26:42.564Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -638,7 +662,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:42.564Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-309d447cb9b5",
@@ -672,7 +700,7 @@
       "url": "https://apply.refline.ch/780392/0090/pub/12/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:43.213Z",
+      "crawledAt": "2026-11-01T09:26:42.112Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -728,7 +756,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:42.112Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-99f0e5658868",
@@ -762,7 +794,7 @@
       "url": "https://apply.refline.ch/780392/0102/pub/12/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:42.787Z",
+      "crawledAt": "2026-11-01T09:26:41.667Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -818,7 +850,11 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:41.667Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-8ca654b7f08c",
@@ -852,7 +888,7 @@
       "url": "https://apply.refline.ch/780392/0130/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:42.365Z",
+      "crawledAt": "2026-11-01T09:26:41.220Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -902,7 +938,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-04T09:26:41.220Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-94cb6efd5bb0",
@@ -936,7 +976,7 @@
       "url": "https://apply.refline.ch/780392/0131/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:41.944Z",
+      "crawledAt": "2026-11-01T09:26:40.773Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -986,7 +1026,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-04T09:26:40.773Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-5a814129df34",
@@ -1020,7 +1064,7 @@
       "url": "https://apply.refline.ch/780392/0111/pub/6/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:41.522Z",
+      "crawledAt": "2026-11-01T09:26:40.324Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1072,7 +1116,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:40.324Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-1096ad3c9f78",
@@ -1106,7 +1154,7 @@
       "url": "https://apply.refline.ch/780392/0088/pub/10/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:41.100Z",
+      "crawledAt": "2026-11-01T09:26:39.877Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1175,7 +1223,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:39.877Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-d0d0d8356eaf",
@@ -1209,7 +1261,7 @@
       "url": "https://apply.refline.ch/780392/0085/pub/10/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:40.678Z",
+      "crawledAt": "2026-11-01T09:26:39.427Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1263,7 +1315,384 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:39.427Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "gesundheitsnetz-kuesnacht-b8deabf9771b",
+      "slug": "ausbildungsplatz-come-hf-pflege-fruhjahr-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+      "slugByLocale": {
+        "it": "ausbildungsplatz-come-hf-pflege-fruhjahr-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "en": "training-place-as-hf-nursing-spring-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "de": "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht",
+        "fr": "lieu-de-formation-en-soins-infirmiers-hf-printemps-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
+      },
+      "company": "Gesundheitsnetz Küsnacht AG",
+      "companyKey": "gesundheitsnetz-kuesnacht",
+      "companyDomain": "gnk.ch",
+      "title": "Ausbildungsplatz als HF Pflege (Frühjahr 2027)",
+      "titleByLocale": {
+        "it": "Luogo di formazione come allattamento HF (primavera 2027)",
+        "en": "Training place as HF nursing (spring 2027)",
+        "de": "Ausbildungsplatz als HF Pflege (Frühjahr 2027)",
+        "fr": "Lieu de formation en soins infirmiers HF (printemps 2027)"
+      },
+      "description": "• -->\n\nAusbildungsplatz als HF Pflege (Frühjahr 2027)\n\n100%\n\nKüsnacht\n\n2027 3 22 | befristet bis\n2030 3 21\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nIn einem respektvollen und unterstützenden Umfeld hast du die Chance, dich sowohl fachlich und persönlich weiterzuentwickeln. Zusammen mit unseren Berufsbildenden arbeitest und lernst du regelmässig in der Lern- und Arbeitsgemeinschaft. Berufsausbildung hat bei uns einen hohen Stellenwert: Jedes Jahr begleiten wir rund fünfundzwanzig Lernende und Studierende in verschiedenen Berufsfeldern.\n\nIhre neuen Aufgaben\n\nLiegt Ihnen Teamarbeit? Übernehmen Sie gerne Verantwortung und setzen sich gerne mit anderen Menschen auseinander? Sie sind gerne in Bewegung und lieben eine flexible Lebensgestaltung? Arbeiten Sie gerne mit und für ältere Menschen? Dann sind Sie bei uns am richtigen Ort.\n\nWas bringen Sie mit\n\n• DMS/FMS oder Berufsmatura/Matura oder eine dreijährige berufliche Grundbildung mit EFZ oder ein allgemeinbildender Abschluss\n• Bestandenes Zulassungsverfahren (Eignungstest, Eignungspraktikum, Portfolio/Dossier, Eignungsgespräch)\n• Flexibilität und Geduld, gute Beobachtungsgabe und Empathie\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute EDV-Kenntnisse\n• Bereitschaft für Wochenenddienste (Zuschlag für Wochenenddienste)\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
+      "descriptionByLocale": {
+        "it": "• --> Luogo di formazione come allattamento HF (primavera 2027) 100% Bacio notte 2027 3 22 | Data temporanea 2030 3 21 Parti La Gesundheitsnetz Küsnacht AG (GNK) con i centri di vecchiaia e salute Tägerhalde e Wangensbach con circa 130 residenti e la casa diurna, la Spitex, la vita in età avanzata e la consulenza con un totale di circa 240 dipendenti è una società non-profit interamente di proprietà del comune di Küsnacht. In un ambiente rispettoso e solidale, avete la possibilità di sviluppare sia professionalmente che personalmente. Insieme ai nostri tirocinanti professionali, lavori e impari regolarmente nella comunità di apprendimento e di lavoro. La formazione professionale è di grande importanza per noi: ogni anno accompagniamo circa venticinque studenti e studenti in vari campi professionali. Le nuove attività Hai un lavoro di squadra? Ti piace assumerti la responsabilità e impegnarsi con altre persone? Ti piace muoversi e amare uno stile di vita flessibile? Ti piace lavorare con e per le persone anziane? Allora sei nel posto giusto con noi. Cosa porti con te\n• DMS/FMS o Berufsmatura/Matura o tre anni di formazione professionale di base con EFZ o un grado di istruzione generale\n• Procedura di ammissione passita (test di idoneità, tirocinio di attitudine, portafoglio/dossier, colloquio di attitudine)\n• Flessibilità e pazienza, buona osservazione ed empatia\n• Molto buone capacità orali e scritte tedesche e buone competenze IT\n• Prontezza per i servizi del fine settimana (a pagamento per i servizi del fine settimana)\n• 6 settimane fino al completamento delle 20. Età anno\n• da 21. Età 5 settimane\n• da 50. Età 6 settimane\n• Vacanza di tutti i giorni «Sechseläuten & Chilbi-Montag»\n• 1/2 pomeriggio di lavoro del 24 e 31 dicembre\n• Due pause pagate al giorno a 15 minuti\n• Tempo di cambio pagato\n• Regali per compleanno\n• Eventi aziendali e di squadra\n• Regalo di anzianità da 5 anni di servizio\n• Formazione attraente\n• 2/3 dei contributi pensionistici del datore di lavoro\n• Presunzione Premium del datore di lavoro\n• Assicurazione per infortuni privati (BU/NBU) Copertura premium da parte del datore di lavoro\n• Tassa di raccomandazione per il rinvio di nuovi dipendenti\n• Compensazione automatica dei prezzi\n• Bevande gratuite come acqua, tè e caffè\n• ampia offerta di cibo (pranzo, bevande, snack, ecc.) a prezzi ridotti\n• Vantaggio significativo per ZVV-BonusPass\n• 50% di sconto per il biglietto stagionale degli stabilimenti balneari a Küsnacht\n• 50% di sconto su abbonamento fitness / fitness in-house\n• Sconti in farmacia Hotz Küsnacht\n• Posti auto all'aperto e sotterranei a basso prezzo di affitto mensile",
+        "en": "• --> Training place as HF nursing (spring 2027) 100% Kiss Night 2027 3 22 | Temporary date 2030 3 21 Parts The Gesundheitsnetz Küsnacht AG (GNK) with the old age and health centers Tägerhalde and Wangensbach with about 130 residents as well as the day home, the Spitex, the living in old age and the consulting with a total of about 240 employees is a non-profit corporation fully owned by the municipality of Küsnacht. In a respectful and supportive environment, you have the chance to develop both professionally and personally. Together with our vocational trainees, you work and learn regularly in the learning and working community. Vocational training is of great importance to us: Every year we accompany around twenty-five learners and students in various professional fields. Your new tasks Do you have teamwork? Do you like to take responsibility and engage with other people? Do you like to move and love a flexible lifestyle? Do you like working with and for older people? Then you are in the right place with us. What do you bring with you\n• DMS/FMS or Berufsmatura/Matura or three years of basic vocational training with EFZ or a general education degree\n• Passed admission procedure (suitability test, aptitude internship, portfolio/dossier, aptitude interview)\n• Flexibility and patience, good observation and empathy\n• Very good oral and written German skills as well as good IT skills\n• Readiness for weekend services (surcharge for weekend services)\n• 6 weeks until completion of the 20. Age year\n• from 21. Age 5 weeks\n• from 50. Age 6 weeks\n• All-day holiday «Sechseläuten & Chilbi-Montag»\n• 1/2 working day afternoon of the 24th & 31st December\n• Two paid breaks per day to 15 minutes\n• Paid changing time\n• Gifts for birthday\n• Company and team events\n• Gift of seniority from 5 years of service\n• Attractive training\n• 2/3 of pension contributions by employer\n• Medical day allowance Premium assumption by employer\n• Private Accident Insurance (BU/NBU) Premium coverage by employer\n• Recommendation fee for referral of new employees\n• Automatic price compensation\n• Free drinks such as water, tea and coffee\n• large offer of food (lunch, drinks, snacks, etc.) at reduced prices\n• Significant advantage for the ZVV-BonusPass\n• 50% discount for the seasonal ticket of the bathing establishments in Küsnacht\n• 50% discount on fitness subscription / fitness facilities in-house\n• Discounts in the pharmacy Hotz Küsnacht\n• Outdoor and underground parking spaces at low monthly rental prices",
+        "de": "• -->\n\nAusbildungsplatz als HF Pflege (Frühjahr 2027)\n\n100%\n\nKüsnacht\n\n2027 3 22 | befristet bis\n2030 3 21\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nIn einem respektvollen und unterstützenden Umfeld hast du die Chance, dich sowohl fachlich und persönlich weiterzuentwickeln. Zusammen mit unseren Berufsbildenden arbeitest und lernst du regelmässig in der Lern- und Arbeitsgemeinschaft. Berufsausbildung hat bei uns einen hohen Stellenwert: Jedes Jahr begleiten wir rund fünfundzwanzig Lernende und Studierende in verschiedenen Berufsfeldern.\n\nIhre neuen Aufgaben\n\nLiegt Ihnen Teamarbeit? Übernehmen Sie gerne Verantwortung und setzen sich gerne mit anderen Menschen auseinander? Sie sind gerne in Bewegung und lieben eine flexible Lebensgestaltung? Arbeiten Sie gerne mit und für ältere Menschen? Dann sind Sie bei uns am richtigen Ort.\n\nWas bringen Sie mit\n\n• DMS/FMS oder Berufsmatura/Matura oder eine dreijährige berufliche Grundbildung mit EFZ oder ein allgemeinbildender Abschluss\n• Bestandenes Zulassungsverfahren (Eignungstest, Eignungspraktikum, Portfolio/Dossier, Eignungsgespräch)\n• Flexibilität und Geduld, gute Beobachtungsgabe und Empathie\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute EDV-Kenntnisse\n• Bereitschaft für Wochenenddienste (Zuschlag für Wochenenddienste)\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
+        "fr": "• --> Lieu de formation en soins infirmiers HF (printemps 2027) 100% Soirée baiser Date temporaire 2030 3 21 Pièces Le Gesundheitsnetz Küsnacht AG (GNK) avec la vieillesse et les centres de santé Tägerhalde et Wangensbach avec environ 130 résidents ainsi que la maison de jour, le Spitex, la vie dans la vieillesse et la consultation avec un total d'environ 240 employés est une société à but non lucratif entièrement détenue par la municipalité de Küsnacht. Dans un environnement respectueux et favorable, vous avez la chance de vous développer à la fois professionnellement et personnellement. Avec nos stagiaires professionnels, vous travaillez et apprenez régulièrement dans la communauté d'apprentissage et de travail. La formation professionnelle est d'une grande importance pour nous: chaque année, nous accompagnons environ vingt-cinq apprenants et étudiants dans différents domaines professionnels. Vos nouvelles tâches Vous avez du travail d'équipe ? Tu aimes prendre des responsabilités et t'engager avec d'autres personnes ? Vous aimez bouger et aimer un style de vie flexible ? Vous aimez travailler avec et pour les personnes âgées ? Alors tu es au bon endroit avec nous. Qu'apportez-vous ?\n• DMS/FMS ou Berufsmatura/Matura ou trois années de formation professionnelle de base avec EFZ ou un diplôme d'enseignement général\n• Procédure d'admission (examen d'aptitude, stage d'aptitude, portfolio/dossier, entretien d'aptitude)\n• Flexibilité et patience, bonne observation et empathie\n• Très bonnes compétences orales et écrites en allemand ainsi que de bonnes compétences en informatique\n• Préparation aux services du week-end (en supplément pour les services du week-end)\n• 6 semaines avant l'achèvement des 20. Année\n• à partir de 21. Âge 5 semaines\n• à partir de 50. Âge 6 semaines\n• Vacances toute la journée «Sechseläuten & Chilbi-Montag»\n• 1/2 jour ouvrable après-midi du 24 et 31 décembre\n• Deux pauses payées par jour à 15 minutes\n• Temps de changement payé\n• Cadeaux pour anniversaire\n• Événements d'entreprise et d'équipe\n• Don d'ancienneté de 5 ans de service\n• Formation attractive\n• 2/3 des cotisations de retraite de l'employeur\n• Indemnité de jour pour soins médicaux\n• Assurance accidents privés (BU/NBU)\n• Frais de recommandation pour le renvoi de nouveaux employés\n• Compensation automatique des prix\n• Boissons gratuites telles que l'eau, le thé et le café\n• grande offre de nourriture (lunch, boissons, collations, etc.) à prix réduit\n• Avantage significatif pour le ZVV-BonusPass\n• Réduction de 50% pour le billet saisonnier des établissements de baignade à Küsnacht\n• Remise de 50% sur l'abonnement fitness / installations de fitness en interne\n• Réductions dans la pharmacie Hotz Küsnacht\n• Parking extérieur et souterrain à bas prix de location mensuelle"
+      },
+      "needsRetranslation": false,
+      "location": "Küsnacht",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/780392/0121/pub/1/index.html",
+      "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:26:37.964Z",
+      "addressLocality": "Küsnacht",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8700",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-02T15:43:11.429089+00:00",
+      "postedDate": "2026-07-02T15:43:11.429089+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/780392/0121/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "0121",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugs": [
+        "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "en": [
+          "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "fr": [
+          "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
+        ]
+      },
+      "firstSeenAt": "2026-07-02T21:49:34.903Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:37.964Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "gesundheitsnetz-kuesnacht-ef7d2c7a23a2",
+      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+      "slugByLocale": {
+        "it": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "en": "apprenticeship-as-a-specialist-in-health-efz-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht",
+        "fr": "apprentissage-comme-specialiste-de-la-sante-efz-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
+      },
+      "company": "Gesundheitsnetz Küsnacht AG",
+      "companyKey": "gesundheitsnetz-kuesnacht",
+      "companyDomain": "gnk.ch",
+      "title": "Lehrstelle als Fachfrau/Fachmann Gesundheit (EFZ) 2027",
+      "titleByLocale": {
+        "it": "Apprendistato come specialista in salute (EFZ) 2027",
+        "en": "Apprenticeship as a specialist in health (EFZ) 2027",
+        "de": "Lehrstelle als Fachfrau/Fachmann Gesundheit (EFZ) 2027",
+        "fr": "Apprentissage comme spécialiste de la santé (EFZ) 2027"
+      },
+      "description": "• -->\n\nLehrstelle als Fachfrau/Fachmann Gesundheit (EFZ) 2027\n\n100%\n\nKüsnacht\n\n2027 8 16 | befristet bis\n2030 8 15\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nAb August 2027 haben wir einen Ausbildungsplatz zu vergeben. Als FaGe-Lernende/r arbeitest du bei den Alters- und Gesundheitszentren mit den Standorten Tägerhalde und Wangensbach oder bei der Spitex.\n\nMagst du die Arbeit im Team? Übernimmst du gerne Verantwortung und bist du bereit, dich mit unterstützungsbedürftige Menschen zu betreuen? Hast du Freude daran für das Wohlbefinden unserer hochbetagten Bewohnenden zu sorgen? Möchtest du mit deiner Arbeit die Lebensqualität unserer Kundinnen und Kunde in ihrem vertrauten Umfeld positiv beeinflussen und damit ihre Selbstbestimmung nachhaltig erhalten? Dann bist du bei uns am richtigen Ort.\n\nDein Profil\n\n• Freude am Umgang mit Menschen\n• Einfühlungsvermögen und Hilfsbereitschaft\n• Körperliche und psychische Gesundheit sowie Belastbarkeit\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\nSei ein Teil von uns und erlebe...\n• Eine abwechslungsreiche und vielseitige Ausbildung\n• Motivierte Berufsbildende und Teams, die sich auf dich freuen\n• Eine regelmässige und individuelle Lernbegleitung\n• Eine Atmosphäre, die von Wertschätzung und Respekt geprägt ist\n• 6 Wochen Ferien bis zum 20. Lebensjahr\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
+      "descriptionByLocale": {
+        "it": "• --> Apprendistato come specialista in salute (EFZ) 2027 100% Bacio notte 2027 8 16 | Termine temporaneo per 2030 8 15 Parti La Gesundheitsnetz Küsnacht AG (GNK) con i centri di vecchiaia e salute Tägerhalde e Wangensbach con circa 130 residenti e la casa diurna, la Spitex, la vita in età avanzata e la consulenza con un totale di circa 240 dipendenti è una società non-profit interamente di proprietà del comune di Küsnacht. Da agosto 2027 dobbiamo assegnare un posto di formazione. Come apprendista FaGe lavori nei centri di età e salute con le sedi Tägerhalde e Wangensbach o Spitex. Ti piace lavorare in una squadra? Ti piace assumerti la responsabilità e sei pronto a prenderti cura di persone che hanno bisogno di sostegno? Ti piace prenderti cura del benessere dei nostri anziani residenti? Vuoi utilizzare il tuo lavoro per influenzare positivamente la qualità della vita dei nostri clienti nel loro ambiente familiare e quindi sostenere la loro autodeterminazione? Allora sei nel posto giusto con noi. Il tuo profilo\n• La gioia di affrontare le persone\n• Empatia e disponibilità\n• Salute fisica e mentale e resilienza\n• Molto buona conoscenza orale e scritta del tedesco Fai parte di noi e prova...\n• Una formazione variegata e versatile\n• Professionisti e team motivati che ti aspettano\n• Supporto di apprendimento regolare e individuale\n• Un'atmosfera caratterizzata da apprezzamento e rispetto\n• 6 settimane di vacanza fino alle 20. Anno di vita\n• 6 settimane fino al completamento delle 20. Età anno\n• da 21. Età 5 settimane\n• da 50. Età 6 settimane\n• Vacanza di tutti i giorni «Sechseläuten & Chilbi-Montag»\n• 1/2 pomeriggio di lavoro del 24 e 31 dicembre\n• Due pause pagate al giorno a 15 minuti\n• Tempo di cambio pagato\n• Regali per compleanno\n• Eventi aziendali e di squadra\n• Regalo di anzianità da 5 anni di servizio\n• Formazione attraente\n• 2/3 dei contributi pensionistici del datore di lavoro\n• Presunzione Premium del datore di lavoro\n• Assicurazione per infortuni privati (BU/NBU) Copertura premium da parte del datore di lavoro\n• Tassa di raccomandazione per il rinvio di nuovi dipendenti\n• Compensazione automatica dei prezzi\n• Bevande gratuite come acqua, tè e caffè\n• ampia offerta di cibo (pranzo, bevande, snack, ecc.) a prezzi ridotti\n• Vantaggio significativo per ZVV-BonusPass\n• 50% di sconto per il biglietto stagionale degli stabilimenti balneari a Küsnacht\n• 50% di sconto su abbonamento fitness / fitness in-house\n• Sconti in farmacia Hotz Küsnacht\n• Posti auto all'aperto e sotterranei a basso prezzo di affitto mensile",
+        "en": "• --> Apprenticeship as a specialist in health (EFZ) 2027 100% Kiss Night 2027 8 16 | Temporary term to 2030 8 15 Parts The Gesundheitsnetz Küsnacht AG (GNK) with the old age and health centers Tägerhalde and Wangensbach with about 130 residents as well as the day home, the Spitex, the living in old age and the consulting with a total of about 240 employees is a non-profit corporation fully owned by the municipality of Küsnacht. From August 2027 we have to award a training place. As a FaGe learner you work at the age and health centers with the locations Tägerhalde and Wangensbach or at Spitex. Do you like working in a team? Do you like to take responsibility and are you ready to take care of people in need of support? Do you enjoy taking care of the well-being of our elderly residents? Would you like to use your work to positively influence the quality of life of our customers in their familiar environment and thus sustain their self-determination? Then you are in the right place with us. Your profile\n• The joy of dealing with people\n• Empathy and helpfulness\n• Physical and mental health and resilience\n• Very good oral and written knowledge of German Be a part of us and experience...\n• A varied and versatile education\n• Motivated professionals and teams who are looking forward to you\n• Regular and individual learning support\n• An atmosphere characterized by appreciation and respect\n• 6 weeks holiday until the 20. Year of life\n• 6 weeks until completion of the 20. Age year\n• from 21. Age 5 weeks\n• from 50. Age 6 weeks\n• All-day holiday «Sechseläuten & Chilbi-Montag»\n• 1/2 working day afternoon of the 24th & 31st December\n• Two paid breaks per day to 15 minutes\n• Paid changing time\n• Gifts for birthday\n• Company and team events\n• Gift of seniority from 5 years of service\n• Attractive training\n• 2/3 of pension contributions by employer\n• Medical day allowance Premium assumption by employer\n• Private Accident Insurance (BU/NBU) Premium coverage by employer\n• Recommendation fee for referral of new employees\n• Automatic price compensation\n• Free drinks such as water, tea and coffee\n• large offer of food (lunch, drinks, snacks, etc.) at reduced prices\n• Significant advantage for the ZVV-BonusPass\n• 50% discount for the seasonal ticket of the bathing establishments in Küsnacht\n• 50% discount on fitness subscription / fitness facilities in-house\n• Discounts in the pharmacy Hotz Küsnacht\n• Outdoor and underground parking spaces at low monthly rental prices",
+        "de": "• -->\n\nLehrstelle als Fachfrau/Fachmann Gesundheit (EFZ) 2027\n\n100%\n\nKüsnacht\n\n2027 8 16 | befristet bis\n2030 8 15\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nAb August 2027 haben wir einen Ausbildungsplatz zu vergeben. Als FaGe-Lernende/r arbeitest du bei den Alters- und Gesundheitszentren mit den Standorten Tägerhalde und Wangensbach oder bei der Spitex.\n\nMagst du die Arbeit im Team? Übernimmst du gerne Verantwortung und bist du bereit, dich mit unterstützungsbedürftige Menschen zu betreuen? Hast du Freude daran für das Wohlbefinden unserer hochbetagten Bewohnenden zu sorgen? Möchtest du mit deiner Arbeit die Lebensqualität unserer Kundinnen und Kunde in ihrem vertrauten Umfeld positiv beeinflussen und damit ihre Selbstbestimmung nachhaltig erhalten? Dann bist du bei uns am richtigen Ort.\n\nDein Profil\n\n• Freude am Umgang mit Menschen\n• Einfühlungsvermögen und Hilfsbereitschaft\n• Körperliche und psychische Gesundheit sowie Belastbarkeit\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\nSei ein Teil von uns und erlebe...\n• Eine abwechslungsreiche und vielseitige Ausbildung\n• Motivierte Berufsbildende und Teams, die sich auf dich freuen\n• Eine regelmässige und individuelle Lernbegleitung\n• Eine Atmosphäre, die von Wertschätzung und Respekt geprägt ist\n• 6 Wochen Ferien bis zum 20. Lebensjahr\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
+        "fr": "• --> Apprentissage comme spécialiste de la santé (EFZ) 2027 100% Soirée baiser 2027 8 16 2030 8 15 Pièces Le Gesundheitsnetz Küsnacht AG (GNK) avec la vieillesse et les centres de santé Tägerhalde et Wangensbach avec environ 130 résidents ainsi que la maison de jour, le Spitex, la vie dans la vieillesse et la consultation avec un total d'environ 240 employés est une société à but non lucratif entièrement détenue par la municipalité de Küsnacht. A partir d'août 2027, nous devons attribuer un lieu de formation. En tant qu'apprenant FaGe, vous travaillez dans les centres d'âge et de santé avec les emplacements Tägerhalde et Wangensbach ou à Spitex. Vous aimez travailler en équipe ? Aimez-vous prendre des responsabilités et êtes-vous prêt à prendre soin des personnes qui ont besoin d'aide? Vous aimez prendre soin du bien-être de nos résidents âgés? Aimeriez-vous utiliser votre travail pour influencer positivement la qualité de vie de nos clients dans leur environnement familier et ainsi soutenir leur autodétermination? Alors tu es au bon endroit avec nous. Votre profil\n• La joie de traiter avec les gens\n• Empathie et serviabilité\n• Santé physique et mentale et résilience\n• Très bonne connaissance orale et écrite de l'allemand Faites partie de nous et vivez une expérience...\n• Une éducation variée et polyvalente\n• Des professionnels motivés et des équipes qui vous attendent\n• Appui régulier et individuel à l'apprentissage\n• Une atmosphère caractérisée par l'appréciation et le respect\n• 6 semaines de vacances jusqu'au 20. Année de vie\n• 6 semaines avant l'achèvement des 20. Année\n• à partir de 21. Âge 5 semaines\n• à partir de 50. Âge 6 semaines\n• Vacances toute la journée «Sechseläuten & Chilbi-Montag»\n• 1/2 jour ouvrable après-midi du 24 et 31 décembre\n• Deux pauses payées par jour à 15 minutes\n• Temps de changement payé\n• Cadeaux pour anniversaire\n• Événements d'entreprise et d'équipe\n• Don d'ancienneté de 5 ans de service\n• Formation attractive\n• 2/3 des cotisations de retraite de l'employeur\n• Indemnité de jour pour soins médicaux\n• Assurance accidents privés (BU/NBU)\n• Frais de recommandation pour le renvoi de nouveaux employés\n• Compensation automatique des prix\n• Boissons gratuites telles que l'eau, le thé et le café\n• grande offre de nourriture (lunch, boissons, collations, etc.) à prix réduit\n• Avantage significatif pour le ZVV-BonusPass\n• Réduction de 50% pour le billet saisonnier des établissements de baignade à Küsnacht\n• Remise de 50% sur l'abonnement fitness / installations de fitness en interne\n• Réductions dans la pharmacie Hotz Küsnacht\n• Parking extérieur et souterrain à bas prix de location mensuelle"
+      },
+      "needsRetranslation": true,
+      "location": "Küsnacht",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/780392/0120/pub/1/index.html",
+      "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:26:37.514Z",
+      "addressLocality": "Küsnacht",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8700",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-06-30T15:30:29.148257+00:00",
+      "postedDate": "2026-06-30T15:30:29.148257+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/780392/0120/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "0120",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugs": [
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht",
+        "apprenticeship-as-a-specialist-in-health-efz-2026-gesundheitsnetz-kusnacht-ag-kusnacht"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht",
+          "apprenticeship-as-a-specialist-in-health-efz-2026-gesundheitsnetz-kusnacht-ag-kusnacht"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "fr": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht"
+        ]
+      },
+      "firstSeenAt": "2026-07-01T11:49:37.687Z",
+      "salaryMin": 82000,
+      "salaryMax": 114500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82000,
+          "maxValue": 114500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:37.514Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "gesundheitsnetz-kuesnacht-219ed08db9aa",
+      "slug": "apprendistato-come-assistent-in-gesundheit-e-soziales-afp-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+      "slugByLocale": {
+        "it": "apprendistato-come-assistent-in-gesundheit-e-soziales-afp-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "en": "apprenticeship-as-health-and-social-assistant-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "de": "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kuesnacht",
+        "fr": "apprentissage-comme-assistante-sociale-et-de-sante-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
+      },
+      "company": "Gesundheitsnetz Küsnacht AG",
+      "companyKey": "gesundheitsnetz-kuesnacht",
+      "companyDomain": "gnk.ch",
+      "title": "Lehrstelle als Assistent/in Gesundheit und Soziales (EBA) 2027",
+      "titleByLocale": {
+        "it": "Apprendistato come Assistente Sociale e Salute (EBA) 2027",
+        "en": "Apprenticeship as Health and Social Assistant (EBA) 2027",
+        "de": "Lehrstelle als Assistent/in Gesundheit und Soziales (EBA) 2027",
+        "fr": "Apprentissage comme assistante sociale et de santé (EBA) 2027"
+      },
+      "description": "• -->\n\nLehrstelle als Assistent/in Gesundheit und Soziales (EBA) 2027\n\n100%\n\nKüsnacht\n\n2027 8 16 | befristet bis\n2030 8 15\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nAb August 2027 haben wir einen Ausbildungsplatz zu vergeben. Als AGS-Lernende/r arbeitest du bei den Alters- und Gesundheitszentren mit den Standorten Tägerhalde und Wangensbach.\n\nMagst du die Arbeit im Team? Übernimmst du gerne Verantwortung und bist du bereit, dich mit unterstützungsbedürftige Menschen zu betreuen? Hast du Freude daran für das Wohlbefinden unserer hochbetagten Bewohnenden zu sorgen? Möchtest du mit deiner Arbeit die Lebensqualität unserer Kundinnen und Kunde in ihrem vertrauten Umfeld positiv beeinflussen und damit ihre Selbstbestimmung nachhaltig erhalten? Dann bist du bei uns am richtigen Ort.\n\nDein Profil\n\n• Freude am Umgang mit Menschen\n• Einfühlungsvermögen und Hilfsbereitschaft\n• Körperliche und psychische Gesundheit sowie Belastbarkeit\n• Gute mündliche und schriftliche Deutschkenntnisse\nSei ein Teil von uns und erlebe...\n• Eine abwechslungsreiche und vielseitige Ausbildung\n• Motivierte Berufsbildende und Teams, die sich auf dich freuen\n• Eine regelmässige und individuelle Lernbegleitung\n• Eine Atmosphäre, die von Wertschätzung und Respekt geprägt ist\n• 6 Wochen Ferien bis zum 20. Lebensjahr\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
+      "descriptionByLocale": {
+        "it": "• --> Apprendistato come Assistente Sociale e Salute (EBA) 2027 100% Bacio notte 2027 8 16 | Termine temporaneo per 2030 8 15 Parti La Gesundheitsnetz Küsnacht AG (GNK) con i centri di vecchiaia e salute Tägerhalde e Wangensbach con circa 130 residenti e la casa diurna, la Spitex, la vita in età avanzata e la consulenza con un totale di circa 240 dipendenti è una società non-profit interamente di proprietà del comune di Küsnacht. Da agosto 2027 dobbiamo assegnare un posto di formazione. Come apprendista AGS lavori nei centri di età e salute con le sedi di Tägerhalde e Wangensbach. Ti piace lavorare in una squadra? Ti piace assumerti la responsabilità e sei pronto a prenderti cura di persone che hanno bisogno di sostegno? Ti piace prenderti cura del benessere dei nostri anziani residenti? Vuoi utilizzare il tuo lavoro per influenzare positivamente la qualità della vita dei nostri clienti nel loro ambiente familiare e quindi sostenere la loro autodeterminazione? Allora sei nel posto giusto con noi. Il tuo profilo\n• La gioia di affrontare le persone\n• Empatia e disponibilità\n• Salute fisica e mentale e resilienza\n• Buona conoscenza orale e scritta del tedesco Fai parte di noi e prova...\n• Una formazione variegata e versatile\n• Professionisti e team motivati che ti aspettano\n• Supporto di apprendimento regolare e individuale\n• Un'atmosfera caratterizzata da apprezzamento e rispetto\n• 6 settimane di vacanza fino alle 20. Anno di vita\n• 6 settimane fino al completamento delle 20. Età anno\n• da 21. Età 5 settimane\n• da 50. Età 6 settimane\n• Vacanza di tutti i giorni «Sechseläuten & Chilbi-Montag»\n• 1/2 pomeriggio di lavoro del 24 e 31 dicembre\n• Due pause pagate al giorno a 15 minuti\n• Tempo di cambio pagato\n• Regali per compleanno\n• Eventi aziendali e di squadra\n• Regalo di anzianità da 5 anni di servizio\n• Formazione attraente\n• 2/3 dei contributi pensionistici del datore di lavoro\n• Presunzione Premium del datore di lavoro\n• Assicurazione per infortuni privati (BU/NBU) Copertura premium da parte del datore di lavoro\n• Tassa di raccomandazione per il rinvio di nuovi dipendenti\n• Compensazione automatica dei prezzi\n• Bevande gratuite come acqua, tè e caffè\n• ampia offerta di cibo (pranzo, bevande, snack, ecc.) a prezzi ridotti\n• Vantaggio significativo per ZVV-BonusPass\n• 50% di sconto per il biglietto stagionale degli stabilimenti balneari a Küsnacht\n• 50% di sconto su abbonamento fitness / fitness in-house\n• Sconti in farmacia Hotz Küsnacht\n• Posti auto all'aperto e sotterranei a basso prezzo di affitto mensile",
+        "en": "• --> Apprenticeship as Health and Social Assistant (EBA) 2027 100% Kiss Night 2027 8 16 | Temporary term to 2030 8 15 Parts The Gesundheitsnetz Küsnacht AG (GNK) with the old age and health centers Tägerhalde and Wangensbach with about 130 residents as well as the day home, the Spitex, the living in old age and the consulting with a total of about 240 employees is a non-profit corporation fully owned by the municipality of Küsnacht. From August 2027 we have to award a training place. As an AGS learner you work at the age and health centers with the locations Tägerhalde and Wangensbach. Do you like working in a team? Do you like to take responsibility and are you ready to take care of people in need of support? Do you enjoy taking care of the well-being of our elderly residents? Would you like to use your work to positively influence the quality of life of our customers in their familiar environment and thus sustain their self-determination? Then you are in the right place with us. Your profile\n• The joy of dealing with people\n• Empathy and helpfulness\n• Physical and mental health and resilience\n• Good oral and written knowledge of German Be a part of us and experience...\n• A varied and versatile education\n• Motivated professionals and teams who are looking forward to you\n• Regular and individual learning support\n• An atmosphere characterized by appreciation and respect\n• 6 weeks holiday until the 20. Year of life\n• 6 weeks until completion of the 20. Age year\n• from 21. Age 5 weeks\n• from 50. Age 6 weeks\n• All-day holiday «Sechseläuten & Chilbi-Montag»\n• 1/2 working day afternoon of the 24th & 31st December\n• Two paid breaks per day to 15 minutes\n• Paid changing time\n• Gifts for birthday\n• Company and team events\n• Gift of seniority from 5 years of service\n• Attractive training\n• 2/3 of pension contributions by employer\n• Medical day allowance Premium assumption by employer\n• Private Accident Insurance (BU/NBU) Premium coverage by employer\n• Recommendation fee for referral of new employees\n• Automatic price compensation\n• Free drinks such as water, tea and coffee\n• large offer of food (lunch, drinks, snacks, etc.) at reduced prices\n• Significant advantage for the ZVV-BonusPass\n• 50% discount for the seasonal ticket of the bathing establishments in Küsnacht\n• 50% discount on fitness subscription / fitness facilities in-house\n• Discounts in the pharmacy Hotz Küsnacht\n• Outdoor and underground parking spaces at low monthly rental prices",
+        "de": "• -->\n\nLehrstelle als Assistent/in Gesundheit und Soziales (EBA) 2027\n\n100%\n\nKüsnacht\n\n2027 8 16 | befristet bis\n2030 8 15\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nAb August 2027 haben wir einen Ausbildungsplatz zu vergeben. Als AGS-Lernende/r arbeitest du bei den Alters- und Gesundheitszentren mit den Standorten Tägerhalde und Wangensbach.\n\nMagst du die Arbeit im Team? Übernimmst du gerne Verantwortung und bist du bereit, dich mit unterstützungsbedürftige Menschen zu betreuen? Hast du Freude daran für das Wohlbefinden unserer hochbetagten Bewohnenden zu sorgen? Möchtest du mit deiner Arbeit die Lebensqualität unserer Kundinnen und Kunde in ihrem vertrauten Umfeld positiv beeinflussen und damit ihre Selbstbestimmung nachhaltig erhalten? Dann bist du bei uns am richtigen Ort.\n\nDein Profil\n\n• Freude am Umgang mit Menschen\n• Einfühlungsvermögen und Hilfsbereitschaft\n• Körperliche und psychische Gesundheit sowie Belastbarkeit\n• Gute mündliche und schriftliche Deutschkenntnisse\nSei ein Teil von uns und erlebe...\n• Eine abwechslungsreiche und vielseitige Ausbildung\n• Motivierte Berufsbildende und Teams, die sich auf dich freuen\n• Eine regelmässige und individuelle Lernbegleitung\n• Eine Atmosphäre, die von Wertschätzung und Respekt geprägt ist\n• 6 Wochen Ferien bis zum 20. Lebensjahr\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
+        "fr": "• --> Apprentissage comme assistante sociale et de santé (EBA) 2027 100% Soirée baiser 2027 8 16 2030 8 15 Pièces Le Gesundheitsnetz Küsnacht AG (GNK) avec la vieillesse et les centres de santé Tägerhalde et Wangensbach avec environ 130 résidents ainsi que la maison de jour, le Spitex, la vie dans la vieillesse et la consultation avec un total d'environ 240 employés est une société à but non lucratif entièrement détenue par la municipalité de Küsnacht. A partir d'août 2027, nous devons attribuer un lieu de formation. En tant qu'apprenant de l'AGS, vous travaillez dans les centres d'âge et de santé avec les emplacements Tägerhalde et Wangensbach. Vous aimez travailler en équipe ? Aimez-vous prendre des responsabilités et êtes-vous prêt à prendre soin des personnes qui ont besoin d'aide? Vous aimez prendre soin du bien-être de nos résidents âgés? Aimeriez-vous utiliser votre travail pour influencer positivement la qualité de vie de nos clients dans leur environnement familier et ainsi soutenir leur autodétermination? Alors tu es au bon endroit avec nous. Votre profil\n• La joie de traiter avec les gens\n• Empathie et serviabilité\n• Santé physique et mentale et résilience\n• Bonne connaissance orale et écrite de l'allemand Faites partie de nous et vivez une expérience...\n• Une éducation variée et polyvalente\n• Des professionnels motivés et des équipes qui vous attendent\n• Appui régulier et individuel à l'apprentissage\n• Une atmosphère caractérisée par l'appréciation et le respect\n• 6 semaines de vacances jusqu'au 20. Année de vie\n• 6 semaines avant l'achèvement des 20. Année\n• à partir de 21. Âge 5 semaines\n• à partir de 50. Âge 6 semaines\n• Vacances toute la journée «Sechseläuten & Chilbi-Montag»\n• 1/2 jour ouvrable après-midi du 24 et 31 décembre\n• Deux pauses payées par jour à 15 minutes\n• Temps de changement payé\n• Cadeaux pour anniversaire\n• Événements d'entreprise et d'équipe\n• Don d'ancienneté de 5 ans de service\n• Formation attractive\n• 2/3 des cotisations de retraite de l'employeur\n• Indemnité de jour pour soins médicaux\n• Assurance accidents privés (BU/NBU)\n• Frais de recommandation pour le renvoi de nouveaux employés\n• Compensation automatique des prix\n• Boissons gratuites telles que l'eau, le thé et le café\n• grande offre de nourriture (lunch, boissons, collations, etc.) à prix réduit\n• Avantage significatif pour le ZVV-BonusPass\n• Réduction de 50% pour le billet saisonnier des établissements de baignade à Küsnacht\n• Remise de 50% sur l'abonnement fitness / installations de fitness en interne\n• Réductions dans la pharmacie Hotz Küsnacht\n• Parking extérieur et souterrain à bas prix de location mensuelle"
+      },
+      "needsRetranslation": true,
+      "location": "Küsnacht",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/780392/0119/pub/1/index.html",
+      "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:26:37.066Z",
+      "addressLocality": "Küsnacht",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8700",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-06-30T15:23:38.360046+00:00",
+      "postedDate": "2026-06-30T15:23:38.360046+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/780392/0119/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "0119",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugs": [
+        "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kuesnacht",
+        "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "apprenticeship-as-health-and-social-care-assistant-eba-2026-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "motivierte-r-assistent-in-gesundheit-e-soziales-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "motivated-assistant-in-health-and-social-care-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "motivierte-r-assistent-in-gesundheit-und-soziales-gesundheitsnetz-kuesnacht-kusnacht",
+        "assistant-motive-en-sante-et-en-soins-sociaux-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kuesnacht",
+          "apprenticeship-as-health-and-social-care-assistant-eba-2026-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "motivierte-r-assistent-in-gesundheit-e-soziales-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "motivated-assistant-in-health-and-social-care-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "motivierte-r-assistent-in-gesundheit-und-soziales-gesundheitsnetz-kuesnacht-kusnacht",
+          "assistant-motive-en-sante-et-en-soins-sociaux-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht"
+        ],
+        "en": [
+          "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "motivated-assistant-in-health-and-social-care-gesundheitsnetz-kusnacht-ag-kusnacht"
+        ],
+        "de": [
+          "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "motivierte-r-assistent-in-gesundheit-und-soziales-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "fr": [
+          "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "assistant-motive-en-sante-et-en-soins-sociaux-gesundheitsnetz-kusnacht-ag-kusnacht"
+        ]
+      },
+      "firstSeenAt": "2026-07-01T11:49:37.212Z",
+      "salaryMin": 82000,
+      "salaryMax": 114500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82000,
+          "maxValue": 114500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:37.066Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "gesundheitsnetz-kuesnacht-475b4b57c6de",
+      "slug": "pooleinsatze-per-dipl-pflegefachperson-hf-fh-fage-ags-e-pflegehilfen-srk-gesundheitsnetz-kusnacht-ag-kusnacht",
+      "slugByLocale": {
+        "it": "pooleinsatze-per-dipl-pflegefachperson-hf-fh-fage-ags-e-pflegehilfen-srk-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "en": "pool-bets-for-dipl-nursing-professional-hf-fh-fage-ags-and-nursing-aids-srk-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "de": "pooleinsatze-fur-dipl-pflegefachperson-hf-fh-fage-ags-und-pflegehilfen-srk-gesundheitsnetz",
+        "fr": "paris-de-piscine-pour-dipl-professionnels-des-soins-infirmiers-hf-fh-fage-ags-et-aides-infirmieres-srk-gesundheitsnetz"
+      },
+      "company": "Gesundheitsnetz Küsnacht AG",
+      "companyKey": "gesundheitsnetz-kuesnacht",
+      "companyDomain": "gnk.ch",
+      "title": "Pooleinsätze für Dipl. Pflegefachperson HF/FH, FaGe, AGS und Pflegehilfen SRK",
+      "titleByLocale": {
+        "it": "Infermiere su turni per professionista qualificato in assistenza infermieristica HF/FH, FaGe, AGS e assistenti sanitari SRK",
+        "en": "Shift Positions for Certified Nursing Professionals HF/FH, FaGe, AGS and SRK Care Assistants",
+        "de": "Pooleinsätze für Dipl. Pflegefachperson HF/FH, FaGe, AGS und Pflegehilfen SRK",
+        "fr": "Postes en rotation pour professionnel en soins certifié HF/FH, FaGe, AGS et aides-soignants SRK"
+      },
+      "description": "• -->\n\nPooleinsätze für Dipl. Pflegefachperson HF/FH, FaGe, AGS und Pflegehilfen SRK\n\n10% - 30%\n\nKüsnacht\n\nnach Vereinbarung\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nWir suchen Sie zur Unterstützung für die Teams auf den verschiedenen Abteilungen und freuen uns auf eine engagierte und offene Persönlichkeit.\n\nIn welchem Bereich wären die Einsätze\n\nUnsere Wohnformen sind Akut- und Übergangspflege nach Spitalaufenthalten, Daueraufenthalt, Entlastungs- und Schnupperaufenthalte, Geschützte Wohngruppe für Menschen mit Demenz oder anderen psychogeriatrischen Erkrankungen, Tagesheim zur Entlastung der Angehörigen.\n\nWas bringen Sie mit\n\nSie bringen eine der oben erwähnten Ausbildungen/Kurse und von Vorteil Erfahrung in der Langzeit- und Demenzpflege mit. Sie verfügen über gute mündliche und schriftliche Deutschkenntnisse sowie EDV-Kenntnisse. Sie sind flexibel und können sich rasch auf neue Bewohnersituationen einstellen.\n\nDas bieten wir Ihnen\n\nFerien und\nzusätzliche Feiertage\n\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
+      "descriptionByLocale": {
+        "it": "Designazione\n\n•\n\nScommesse in piscina per Dipl. Infermieristica professionale HF/FH, FaGe, AGS e allattamento SRK\n\n10% - 30 %\n\nBacio notte\n\nAccordo\n\nInformazioni su di noi\n\nLa Gesundheitsnetz Küsnacht AG (GNK) con l'età e i centri sanitari Tägerhalde e Wangensbach con circa 130 residenti e la casa diurna, la Spitex, la vita in età avanzata e la consulenza con un totale di circa 240 dipendenti è una società a responsabilità limitata pubblica a pieno titolo di proprietà del comune di Küsnacht.\n\nTi stiamo cercando\n\nsostenere le squadre nei diversi dipartimenti e guardare avanti a una personalità impegnata e aperta.\n\nIn quale area sarebbero le missioni\n\nLe nostre forme di vita sono cura acuta e transitoria dopo soggiorni ospedalieri, soggiorni permanenti, rilievi e soggiorni di prova, gruppo di alloggi protetti per persone con demenza o altre malattie psicogeriatriche, casa diurna per il sollievo dei parenti.\n\nCosa porti con te\n\n- Porti uno dei corsi di formazione sopra menzionati e l'esperienza benefica nella cura a lungo termine e demenza.\n- Hanno una buona conoscenza orale e scritta del tedesco e delle competenze informatiche.\n- Sono flessibili e possono adattarsi rapidamente a nuove situazioni residenziali.\n\nE' questo che ti offriamo.\n\n- Vacanze e vacanze aggiuntive\n- 6 settimane fino al completamento delle 20. Età anno\n- da 21. Età 5 settimane\nDal 50. Età 6 settimane\n- Vacanza \"Sechseläuten & Chilbi-Montag\"\n- 1/2 pomeriggio di lavoro del 24 e 31 dicembre\n- Due pause pagate al giorno a 15 minuti\n- Tempo di cambio pagato\n- Regali per compleanno\n- Eventi aziendali e di squadra\nRegalo di anzianità da 5. Anno di servizio\n- Attraente ulteriore istruzione e formazione\n- 2/3 dei contributi pensionistici del datore di lavoro\n- Indennità giornaliera medica Presunzione premium da parte del datore di lavoro\n- Assicurazione per infortuni privati (BU/NBU) Copertura premium da parte del datore di lavoro\n- quota di collocamento per la raccomandazione di nuovi dipendenti\n- compensazione automatica dei prezzi\n- Bevande gratuite come acqua, tè e caffè\n- ampia offerta di cibo (pranzo, bevande, snack, ecc.) a prezzi ridotti\n- Sconto significativo sulla ZVV-BonusPass\n- 50% di sconto per il biglietto di stagione degli stabilimenti balneari a Küsnacht\n- 50% di sconto su abbonamento fitness / fitness in-house\n- Sconti in farmacia Hotz Küsnacht\n- Posti auto all'aperto e sotterranei a prezzi di affitto mensili bassi",
+        "en": "Description\n\n• ->\n\nPool assignments for graduate nursing specialist HF/FH, FaGe, AGS and nursing care SRK\n\n10% - 30%\n\nKiss night\n\nby arrangement\n\nAbout us\n\nThe health net Küsnacht AG (GNK) with the age and health centers Tägerhalde and Wangensbach with about 130 residents as well as Tagesheim, the Spitex, the living in old age and the consulting with a total of about 240 employees is a non-profit limited company in full ownership of the municipality Küsnacht.\n\nWe are looking for you\n\nto support the teams in the various departments and look forward to a dedicated and open personality.\n\nIn which area would the missions be\n\nOur types of housing are acute and transitional care after hospital stays, permanent stay, relief and shrinking stays, sheltered housing for people with dementia or other psychogeriatric diseases, day care for the relief of their relatives.\n\nWhat do you bring with you?\n\n- You have one of the above mentioned training courses and an advantage in long-term and dementia care. - You have good oral and written German skills as well as computer skills. - You are flexible and can quickly adapt to new situations in the residents.\n\nWe offer you this\n\n- holidays and additional holidays - 6 weeks until the completion of the 20th year of age - from the 21st year of age 5 weeks - from the 50th year of age 6 weeks - all-day holiday «Sechseläuten & Chilbi-Monday» - 1/2 working day afternoon of 24th & 31st December - Two paid breaks per day to 15 minutes - Paid change-over time - Birthday gifts - Company and team events - Service age gift from the 5th year on.\n\nService year - Attractive further and further training - 2/3 of pension fund contributions by employer - Health day allowance Premiums by employer - Private accident insurance (BU/NBU) Employer's premium - Employment premium for recommendation of new employees - Automatic compensation for the costs of the costs of the services - Free drinks such as water, tea and coffee - Large offer of meals (lunch, drinks, snacks etc.) at reduced prices - Significant discount at the ZVV-BonusPass - 50% discount for the season ticket of the bathing establishments in Küsnacht - 50% discount on the\n\nFitness subscription / fitness facilities inhouse - discounts in the pharmacy Hotz Küsnacht - outdoor and underground parking spaces at reasonable monthly rental prices",
+        "de": "• -->\n\nPooleinsätze für Dipl. Pflegefachperson HF/FH, FaGe, AGS und Pflegehilfen SRK\n\n10% - 30%\n\nKüsnacht\n\nnach Vereinbarung\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nWir suchen Sie zur Unterstützung für die Teams auf den verschiedenen Abteilungen und freuen uns auf eine engagierte und offene Persönlichkeit.\n\nIn welchem Bereich wären die Einsätze\n\nUnsere Wohnformen sind Akut- und Übergangspflege nach Spitalaufenthalten, Daueraufenthalt, Entlastungs- und Schnupperaufenthalte, Geschützte Wohngruppe für Menschen mit Demenz oder anderen psychogeriatrischen Erkrankungen, Tagesheim zur Entlastung der Angehörigen.\n\nWas bringen Sie mit\n\nSie bringen eine der oben erwähnten Ausbildungen/Kurse und von Vorteil Erfahrung in der Langzeit- und Demenzpflege mit. Sie verfügen über gute mündliche und schriftliche Deutschkenntnisse sowie EDV-Kenntnisse. Sie sind flexibel und können sich rasch auf neue Bewohnersituationen einstellen.\n\nDas bieten wir Ihnen\n\nFerien und\nzusätzliche Feiertage\n\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
+        "fr": "Descriptif\n\n• -->\n\nOpérations de pool pour infirmières diplômées HF/FH, FaGe, AGS et infirmières auxiliaires SRK\n\n10% - 30%\n\nKusnacht\n\nsur rendez-vous\n\nÀ propos de nous\n\nLa Gesundheitnetz Küsnacht AG (GNK), avec les centres de retraite et de santé de Tägerhalde et Wangensbach avec environ 130 résidents ainsi qu'une garderie, Spitex, une résidence pour personnes âgées et des conseils avec un total d'environ 240 employés, est une société anonyme à but non lucratif détenue à 100 % par la commune de Küsnacht.\n\nNous vous cherchons\n\npour épauler les équipes des différents départements et compter sur une personnalité engagée et ouverte.\n\nDans quelle zone se situeraient les opérations ?\n\nNos formes de vie comprennent des soins aigus et de transition après un séjour à l'hôpital, des séjours de longue durée, des séjours de répit et d'essai, des groupes de vie protégés pour les personnes atteintes de démence ou d'autres maladies psychogériatriques et des garderies pour soulager le fardeau des proches.\n\nQu'est-ce que tu apportes avec toi ?\n\n- Vous disposez d'une des formations mentionnées ci-dessus et, avantageusement, d'une expérience en soins de longue durée et démence.\n- Vous possédez de bonnes compétences en allemand oral et écrit ainsi que des compétences informatiques.\n- Vous êtes flexible et savez vous adapter rapidement aux nouvelles situations de résidents.\n\nC'est ce que nous vous proposons\n\n- Jours fériés et jours fériés supplémentaires\n- 6 semaines jusqu'à l'âge de 20 ans\n- à partir de 21 ans 5 semaines\n- à partir de 50 ans 6 semaines\n- le jour férié « Sechseläuten & Chilbi Monday »\n- 1/2 journée ouvrable après-midi du 24 & 31 décembre\n- Deux pauses payantes par jour de 15 minutes\n- Temps de change payant\n- Cadeaux d'anniversaire\n- Événements d'entreprise et d'équipe\n- Cadeau d'ancienneté dès la 5ème année de service\n- Formation continue et formation continue attractives\n- 2/3 des cotisations à la caisse de pension par l'employeur\n- Primes journalières de maladie prises en charge par l'employeur\n- Primes d'assurance accident privée (BU/NBU) prises en charge par l'employeur\n- Prime de placement pour la recommandation de nouveaux employés\n- compensation automatique de l'inflation\n- des boissons gratuites telles que de l'eau, du thé et du café\n- Large choix de repas (déjeuner, boissons, collations, etc.) à prix réduits\n- Remise importante avec le ZVV-BonusPass\n- 50 % de réduction sur l'abonnement pour les établissements balnéaires de Küsnacht\n- 50 % de réduction sur l'abonnement fitness / les installations de fitness sur place\n- Réductions à la pharmacie Hotz Küsnacht\n- Places de parking extérieures et souterraines à des prix de location mensuels abordables"
+      },
+      "needsRetranslation": false,
+      "location": "Küsnacht",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/780392/0093/pub/4/index.html",
+      "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-01T09:26:36.614Z",
+      "addressLocality": "Küsnacht",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8700",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2025-10-17T14:02:43.632792+00:00",
+      "postedDate": "2025-10-17T14:02:43.632792+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/780392/0093/pub/4/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "0093",
+      "pensumMin": 10,
+      "pensumMax": 10,
+      "pensum": "10%",
+      "previousSlugs": [
+        "pooleinsatze-fur-dipl-pflegefachperson-hf-fh-fage-ags-und-pflegehilfen-srk-gesundheitsnetz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pooleinsatze-fur-dipl-pflegefachperson-hf-fh-fage-ags-und-pflegehilfen-srk-gesundheitsnetz"
+        ],
+        "en": [
+          "pooleinsatze-fur-dipl-pflegefachperson-hf-fh-fage-ags-und-pflegehilfen-srk-gesundheitsnetz"
+        ],
+        "fr": [
+          "pooleinsatze-fur-dipl-pflegefachperson-hf-fh-fage-ags-und-pflegehilfen-srk-gesundheitsnetz"
+        ]
+      },
+      "firstSeenAt": "2026-06-10T12:06:52.083Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:26:36.614Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-58b77dadc9ef",
@@ -1347,280 +1776,12 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "gesundheitsnetz-kuesnacht-b8deabf9771b",
-      "slug": "ausbildungsplatz-come-hf-pflege-fruhjahr-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-      "slugByLocale": {
-        "it": "ausbildungsplatz-come-hf-pflege-fruhjahr-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "en": "training-place-as-hf-nursing-spring-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "de": "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht",
-        "fr": "lieu-de-formation-en-soins-infirmiers-hf-printemps-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
       },
-      "company": "Gesundheitsnetz Küsnacht AG",
-      "companyKey": "gesundheitsnetz-kuesnacht",
-      "companyDomain": "gnk.ch",
-      "title": "Ausbildungsplatz als HF Pflege (Frühjahr 2027)",
-      "titleByLocale": {
-        "it": "Luogo di formazione come allattamento HF (primavera 2027)",
-        "en": "Training place as HF nursing (spring 2027)",
-        "de": "Ausbildungsplatz als HF Pflege (Frühjahr 2027)",
-        "fr": "Lieu de formation en soins infirmiers HF (printemps 2027)"
-      },
-      "description": "• -->\n\nAusbildungsplatz als HF Pflege (Frühjahr 2027)\n\n100%\n\nKüsnacht\n\n2027 3 22 | befristet bis\n2030 3 21\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nIn einem respektvollen und unterstützenden Umfeld hast du die Chance, dich sowohl fachlich und persönlich weiterzuentwickeln. Zusammen mit unseren Berufsbildenden arbeitest und lernst du regelmässig in der Lern- und Arbeitsgemeinschaft. Berufsausbildung hat bei uns einen hohen Stellenwert: Jedes Jahr begleiten wir rund fünfundzwanzig Lernende und Studierende in verschiedenen Berufsfeldern.\n\nIhre neuen Aufgaben\n\nLiegt Ihnen Teamarbeit? Übernehmen Sie gerne Verantwortung und setzen sich gerne mit anderen Menschen auseinander? Sie sind gerne in Bewegung und lieben eine flexible Lebensgestaltung? Arbeiten Sie gerne mit und für ältere Menschen? Dann sind Sie bei uns am richtigen Ort.\n\nWas bringen Sie mit\n\n• DMS/FMS oder Berufsmatura/Matura oder eine dreijährige berufliche Grundbildung mit EFZ oder ein allgemeinbildender Abschluss\n• Bestandenes Zulassungsverfahren (Eignungstest, Eignungspraktikum, Portfolio/Dossier, Eignungsgespräch)\n• Flexibilität und Geduld, gute Beobachtungsgabe und Empathie\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute EDV-Kenntnisse\n• Bereitschaft für Wochenenddienste (Zuschlag für Wochenenddienste)\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
-      "descriptionByLocale": {
-        "it": "• --> Luogo di formazione come allattamento HF (primavera 2027) 100% Bacio notte 2027 3 22 | Data temporanea 2030 3 21 Parti La Gesundheitsnetz Küsnacht AG (GNK) con i centri di vecchiaia e salute Tägerhalde e Wangensbach con circa 130 residenti e la casa diurna, la Spitex, la vita in età avanzata e la consulenza con un totale di circa 240 dipendenti è una società non-profit interamente di proprietà del comune di Küsnacht. In un ambiente rispettoso e solidale, avete la possibilità di sviluppare sia professionalmente che personalmente. Insieme ai nostri tirocinanti professionali, lavori e impari regolarmente nella comunità di apprendimento e di lavoro. La formazione professionale è di grande importanza per noi: ogni anno accompagniamo circa venticinque studenti e studenti in vari campi professionali. Le nuove attività Hai un lavoro di squadra? Ti piace assumerti la responsabilità e impegnarsi con altre persone? Ti piace muoversi e amare uno stile di vita flessibile? Ti piace lavorare con e per le persone anziane? Allora sei nel posto giusto con noi. Cosa porti con te\n• DMS/FMS o Berufsmatura/Matura o tre anni di formazione professionale di base con EFZ o un grado di istruzione generale\n• Procedura di ammissione passita (test di idoneità, tirocinio di attitudine, portafoglio/dossier, colloquio di attitudine)\n• Flessibilità e pazienza, buona osservazione ed empatia\n• Molto buone capacità orali e scritte tedesche e buone competenze IT\n• Prontezza per i servizi del fine settimana (a pagamento per i servizi del fine settimana)\n• 6 settimane fino al completamento delle 20. Età anno\n• da 21. Età 5 settimane\n• da 50. Età 6 settimane\n• Vacanza di tutti i giorni «Sechseläuten & Chilbi-Montag»\n• 1/2 pomeriggio di lavoro del 24 e 31 dicembre\n• Due pause pagate al giorno a 15 minuti\n• Tempo di cambio pagato\n• Regali per compleanno\n• Eventi aziendali e di squadra\n• Regalo di anzianità da 5 anni di servizio\n• Formazione attraente\n• 2/3 dei contributi pensionistici del datore di lavoro\n• Presunzione Premium del datore di lavoro\n• Assicurazione per infortuni privati (BU/NBU) Copertura premium da parte del datore di lavoro\n• Tassa di raccomandazione per il rinvio di nuovi dipendenti\n• Compensazione automatica dei prezzi\n• Bevande gratuite come acqua, tè e caffè\n• ampia offerta di cibo (pranzo, bevande, snack, ecc.) a prezzi ridotti\n• Vantaggio significativo per ZVV-BonusPass\n• 50% di sconto per il biglietto stagionale degli stabilimenti balneari a Küsnacht\n• 50% di sconto su abbonamento fitness / fitness in-house\n• Sconti in farmacia Hotz Küsnacht\n• Posti auto all'aperto e sotterranei a basso prezzo di affitto mensile",
-        "en": "• --> Training place as HF nursing (spring 2027) 100% Kiss Night 2027 3 22 | Temporary date 2030 3 21 Parts The Gesundheitsnetz Küsnacht AG (GNK) with the old age and health centers Tägerhalde and Wangensbach with about 130 residents as well as the day home, the Spitex, the living in old age and the consulting with a total of about 240 employees is a non-profit corporation fully owned by the municipality of Küsnacht. In a respectful and supportive environment, you have the chance to develop both professionally and personally. Together with our vocational trainees, you work and learn regularly in the learning and working community. Vocational training is of great importance to us: Every year we accompany around twenty-five learners and students in various professional fields. Your new tasks Do you have teamwork? Do you like to take responsibility and engage with other people? Do you like to move and love a flexible lifestyle? Do you like working with and for older people? Then you are in the right place with us. What do you bring with you\n• DMS/FMS or Berufsmatura/Matura or three years of basic vocational training with EFZ or a general education degree\n• Passed admission procedure (suitability test, aptitude internship, portfolio/dossier, aptitude interview)\n• Flexibility and patience, good observation and empathy\n• Very good oral and written German skills as well as good IT skills\n• Readiness for weekend services (surcharge for weekend services)\n• 6 weeks until completion of the 20. Age year\n• from 21. Age 5 weeks\n• from 50. Age 6 weeks\n• All-day holiday «Sechseläuten & Chilbi-Montag»\n• 1/2 working day afternoon of the 24th & 31st December\n• Two paid breaks per day to 15 minutes\n• Paid changing time\n• Gifts for birthday\n• Company and team events\n• Gift of seniority from 5 years of service\n• Attractive training\n• 2/3 of pension contributions by employer\n• Medical day allowance Premium assumption by employer\n• Private Accident Insurance (BU/NBU) Premium coverage by employer\n• Recommendation fee for referral of new employees\n• Automatic price compensation\n• Free drinks such as water, tea and coffee\n• large offer of food (lunch, drinks, snacks, etc.) at reduced prices\n• Significant advantage for the ZVV-BonusPass\n• 50% discount for the seasonal ticket of the bathing establishments in Küsnacht\n• 50% discount on fitness subscription / fitness facilities in-house\n• Discounts in the pharmacy Hotz Küsnacht\n• Outdoor and underground parking spaces at low monthly rental prices",
-        "de": "• -->\n\nAusbildungsplatz als HF Pflege (Frühjahr 2027)\n\n100%\n\nKüsnacht\n\n2027 3 22 | befristet bis\n2030 3 21\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nIn einem respektvollen und unterstützenden Umfeld hast du die Chance, dich sowohl fachlich und persönlich weiterzuentwickeln. Zusammen mit unseren Berufsbildenden arbeitest und lernst du regelmässig in der Lern- und Arbeitsgemeinschaft. Berufsausbildung hat bei uns einen hohen Stellenwert: Jedes Jahr begleiten wir rund fünfundzwanzig Lernende und Studierende in verschiedenen Berufsfeldern.\n\nIhre neuen Aufgaben\n\nLiegt Ihnen Teamarbeit? Übernehmen Sie gerne Verantwortung und setzen sich gerne mit anderen Menschen auseinander? Sie sind gerne in Bewegung und lieben eine flexible Lebensgestaltung? Arbeiten Sie gerne mit und für ältere Menschen? Dann sind Sie bei uns am richtigen Ort.\n\nWas bringen Sie mit\n\n• DMS/FMS oder Berufsmatura/Matura oder eine dreijährige berufliche Grundbildung mit EFZ oder ein allgemeinbildender Abschluss\n• Bestandenes Zulassungsverfahren (Eignungstest, Eignungspraktikum, Portfolio/Dossier, Eignungsgespräch)\n• Flexibilität und Geduld, gute Beobachtungsgabe und Empathie\n• Sehr gute mündliche und schriftliche Deutschkenntnisse sowie gute EDV-Kenntnisse\n• Bereitschaft für Wochenenddienste (Zuschlag für Wochenenddienste)\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
-        "fr": "• --> Lieu de formation en soins infirmiers HF (printemps 2027) 100% Soirée baiser Date temporaire 2030 3 21 Pièces Le Gesundheitsnetz Küsnacht AG (GNK) avec la vieillesse et les centres de santé Tägerhalde et Wangensbach avec environ 130 résidents ainsi que la maison de jour, le Spitex, la vie dans la vieillesse et la consultation avec un total d'environ 240 employés est une société à but non lucratif entièrement détenue par la municipalité de Küsnacht. Dans un environnement respectueux et favorable, vous avez la chance de vous développer à la fois professionnellement et personnellement. Avec nos stagiaires professionnels, vous travaillez et apprenez régulièrement dans la communauté d'apprentissage et de travail. La formation professionnelle est d'une grande importance pour nous: chaque année, nous accompagnons environ vingt-cinq apprenants et étudiants dans différents domaines professionnels. Vos nouvelles tâches Vous avez du travail d'équipe ? Tu aimes prendre des responsabilités et t'engager avec d'autres personnes ? Vous aimez bouger et aimer un style de vie flexible ? Vous aimez travailler avec et pour les personnes âgées ? Alors tu es au bon endroit avec nous. Qu'apportez-vous ?\n• DMS/FMS ou Berufsmatura/Matura ou trois années de formation professionnelle de base avec EFZ ou un diplôme d'enseignement général\n• Procédure d'admission (examen d'aptitude, stage d'aptitude, portfolio/dossier, entretien d'aptitude)\n• Flexibilité et patience, bonne observation et empathie\n• Très bonnes compétences orales et écrites en allemand ainsi que de bonnes compétences en informatique\n• Préparation aux services du week-end (en supplément pour les services du week-end)\n• 6 semaines avant l'achèvement des 20. Année\n• à partir de 21. Âge 5 semaines\n• à partir de 50. Âge 6 semaines\n• Vacances toute la journée «Sechseläuten & Chilbi-Montag»\n• 1/2 jour ouvrable après-midi du 24 et 31 décembre\n• Deux pauses payées par jour à 15 minutes\n• Temps de changement payé\n• Cadeaux pour anniversaire\n• Événements d'entreprise et d'équipe\n• Don d'ancienneté de 5 ans de service\n• Formation attractive\n• 2/3 des cotisations de retraite de l'employeur\n• Indemnité de jour pour soins médicaux\n• Assurance accidents privés (BU/NBU)\n• Frais de recommandation pour le renvoi de nouveaux employés\n• Compensation automatique des prix\n• Boissons gratuites telles que l'eau, le thé et le café\n• grande offre de nourriture (lunch, boissons, collations, etc.) à prix réduit\n• Avantage significatif pour le ZVV-BonusPass\n• Réduction de 50% pour le billet saisonnier des établissements de baignade à Küsnacht\n• Remise de 50% sur l'abonnement fitness / installations de fitness en interne\n• Réductions dans la pharmacie Hotz Küsnacht\n• Parking extérieur et souterrain à bas prix de location mensuelle"
-      },
-      "needsRetranslation": false,
-      "location": "Küsnacht",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/780392/0121/pub/1/index.html",
-      "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:39.838Z",
-      "addressLocality": "Küsnacht",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8700",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-02T15:43:11.429089+00:00",
-      "postedDate": "2026-07-02T15:43:11.429089+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/780392/0121/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "0121",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
-        ],
-        "en": [
-          "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
-        ],
-        "fr": [
-          "ausbildungsplatz-als-hf-pflege-fruhjahr-2027-gesundheitsnetz-kuesnacht-kusnacht"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T21:49:34.903Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "gesundheitsnetz-kuesnacht-ef7d2c7a23a2",
-      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-      "slugByLocale": {
-        "it": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "en": "apprenticeship-as-a-specialist-in-health-efz-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht",
-        "fr": "apprentissage-comme-specialiste-de-la-sante-efz-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
-      },
-      "company": "Gesundheitsnetz Küsnacht AG",
-      "companyKey": "gesundheitsnetz-kuesnacht",
-      "companyDomain": "gnk.ch",
-      "title": "Lehrstelle als Fachfrau/Fachmann Gesundheit (EFZ) 2027",
-      "titleByLocale": {
-        "it": "Apprendistato come specialista in salute (EFZ) 2027",
-        "en": "Apprenticeship as a specialist in health (EFZ) 2027",
-        "de": "Lehrstelle als Fachfrau/Fachmann Gesundheit (EFZ) 2027",
-        "fr": "Apprentissage comme spécialiste de la santé (EFZ) 2027"
-      },
-      "description": "• -->\n\nLehrstelle als Fachfrau/Fachmann Gesundheit (EFZ) 2027\n\n100%\n\nKüsnacht\n\n2027 8 16 | befristet bis\n2030 8 15\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nAb August 2027 haben wir einen Ausbildungsplatz zu vergeben. Als FaGe-Lernende/r arbeitest du bei den Alters- und Gesundheitszentren mit den Standorten Tägerhalde und Wangensbach oder bei der Spitex.\n\nMagst du die Arbeit im Team? Übernimmst du gerne Verantwortung und bist du bereit, dich mit unterstützungsbedürftige Menschen zu betreuen? Hast du Freude daran für das Wohlbefinden unserer hochbetagten Bewohnenden zu sorgen? Möchtest du mit deiner Arbeit die Lebensqualität unserer Kundinnen und Kunde in ihrem vertrauten Umfeld positiv beeinflussen und damit ihre Selbstbestimmung nachhaltig erhalten? Dann bist du bei uns am richtigen Ort.\n\nDein Profil\n\n• Freude am Umgang mit Menschen\n• Einfühlungsvermögen und Hilfsbereitschaft\n• Körperliche und psychische Gesundheit sowie Belastbarkeit\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\nSei ein Teil von uns und erlebe...\n• Eine abwechslungsreiche und vielseitige Ausbildung\n• Motivierte Berufsbildende und Teams, die sich auf dich freuen\n• Eine regelmässige und individuelle Lernbegleitung\n• Eine Atmosphäre, die von Wertschätzung und Respekt geprägt ist\n• 6 Wochen Ferien bis zum 20. Lebensjahr\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
-      "descriptionByLocale": {
-        "it": "• --> Apprendistato come specialista in salute (EFZ) 2027 100% Bacio notte 2027 8 16 | Termine temporaneo per 2030 8 15 Parti La Gesundheitsnetz Küsnacht AG (GNK) con i centri di vecchiaia e salute Tägerhalde e Wangensbach con circa 130 residenti e la casa diurna, la Spitex, la vita in età avanzata e la consulenza con un totale di circa 240 dipendenti è una società non-profit interamente di proprietà del comune di Küsnacht. Da agosto 2027 dobbiamo assegnare un posto di formazione. Come apprendista FaGe lavori nei centri di età e salute con le sedi Tägerhalde e Wangensbach o Spitex. Ti piace lavorare in una squadra? Ti piace assumerti la responsabilità e sei pronto a prenderti cura di persone che hanno bisogno di sostegno? Ti piace prenderti cura del benessere dei nostri anziani residenti? Vuoi utilizzare il tuo lavoro per influenzare positivamente la qualità della vita dei nostri clienti nel loro ambiente familiare e quindi sostenere la loro autodeterminazione? Allora sei nel posto giusto con noi. Il tuo profilo\n• La gioia di affrontare le persone\n• Empatia e disponibilità\n• Salute fisica e mentale e resilienza\n• Molto buona conoscenza orale e scritta del tedesco Fai parte di noi e prova...\n• Una formazione variegata e versatile\n• Professionisti e team motivati che ti aspettano\n• Supporto di apprendimento regolare e individuale\n• Un'atmosfera caratterizzata da apprezzamento e rispetto\n• 6 settimane di vacanza fino alle 20. Anno di vita\n• 6 settimane fino al completamento delle 20. Età anno\n• da 21. Età 5 settimane\n• da 50. Età 6 settimane\n• Vacanza di tutti i giorni «Sechseläuten & Chilbi-Montag»\n• 1/2 pomeriggio di lavoro del 24 e 31 dicembre\n• Due pause pagate al giorno a 15 minuti\n• Tempo di cambio pagato\n• Regali per compleanno\n• Eventi aziendali e di squadra\n• Regalo di anzianità da 5 anni di servizio\n• Formazione attraente\n• 2/3 dei contributi pensionistici del datore di lavoro\n• Presunzione Premium del datore di lavoro\n• Assicurazione per infortuni privati (BU/NBU) Copertura premium da parte del datore di lavoro\n• Tassa di raccomandazione per il rinvio di nuovi dipendenti\n• Compensazione automatica dei prezzi\n• Bevande gratuite come acqua, tè e caffè\n• ampia offerta di cibo (pranzo, bevande, snack, ecc.) a prezzi ridotti\n• Vantaggio significativo per ZVV-BonusPass\n• 50% di sconto per il biglietto stagionale degli stabilimenti balneari a Küsnacht\n• 50% di sconto su abbonamento fitness / fitness in-house\n• Sconti in farmacia Hotz Küsnacht\n• Posti auto all'aperto e sotterranei a basso prezzo di affitto mensile",
-        "en": "• --> Apprenticeship as a specialist in health (EFZ) 2027 100% Kiss Night 2027 8 16 | Temporary term to 2030 8 15 Parts The Gesundheitsnetz Küsnacht AG (GNK) with the old age and health centers Tägerhalde and Wangensbach with about 130 residents as well as the day home, the Spitex, the living in old age and the consulting with a total of about 240 employees is a non-profit corporation fully owned by the municipality of Küsnacht. From August 2027 we have to award a training place. As a FaGe learner you work at the age and health centers with the locations Tägerhalde and Wangensbach or at Spitex. Do you like working in a team? Do you like to take responsibility and are you ready to take care of people in need of support? Do you enjoy taking care of the well-being of our elderly residents? Would you like to use your work to positively influence the quality of life of our customers in their familiar environment and thus sustain their self-determination? Then you are in the right place with us. Your profile\n• The joy of dealing with people\n• Empathy and helpfulness\n• Physical and mental health and resilience\n• Very good oral and written knowledge of German Be a part of us and experience...\n• A varied and versatile education\n• Motivated professionals and teams who are looking forward to you\n• Regular and individual learning support\n• An atmosphere characterized by appreciation and respect\n• 6 weeks holiday until the 20. Year of life\n• 6 weeks until completion of the 20. Age year\n• from 21. Age 5 weeks\n• from 50. Age 6 weeks\n• All-day holiday «Sechseläuten & Chilbi-Montag»\n• 1/2 working day afternoon of the 24th & 31st December\n• Two paid breaks per day to 15 minutes\n• Paid changing time\n• Gifts for birthday\n• Company and team events\n• Gift of seniority from 5 years of service\n• Attractive training\n• 2/3 of pension contributions by employer\n• Medical day allowance Premium assumption by employer\n• Private Accident Insurance (BU/NBU) Premium coverage by employer\n• Recommendation fee for referral of new employees\n• Automatic price compensation\n• Free drinks such as water, tea and coffee\n• large offer of food (lunch, drinks, snacks, etc.) at reduced prices\n• Significant advantage for the ZVV-BonusPass\n• 50% discount for the seasonal ticket of the bathing establishments in Küsnacht\n• 50% discount on fitness subscription / fitness facilities in-house\n• Discounts in the pharmacy Hotz Küsnacht\n• Outdoor and underground parking spaces at low monthly rental prices",
-        "de": "• -->\n\nLehrstelle als Fachfrau/Fachmann Gesundheit (EFZ) 2027\n\n100%\n\nKüsnacht\n\n2027 8 16 | befristet bis\n2030 8 15\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nAb August 2027 haben wir einen Ausbildungsplatz zu vergeben. Als FaGe-Lernende/r arbeitest du bei den Alters- und Gesundheitszentren mit den Standorten Tägerhalde und Wangensbach oder bei der Spitex.\n\nMagst du die Arbeit im Team? Übernimmst du gerne Verantwortung und bist du bereit, dich mit unterstützungsbedürftige Menschen zu betreuen? Hast du Freude daran für das Wohlbefinden unserer hochbetagten Bewohnenden zu sorgen? Möchtest du mit deiner Arbeit die Lebensqualität unserer Kundinnen und Kunde in ihrem vertrauten Umfeld positiv beeinflussen und damit ihre Selbstbestimmung nachhaltig erhalten? Dann bist du bei uns am richtigen Ort.\n\nDein Profil\n\n• Freude am Umgang mit Menschen\n• Einfühlungsvermögen und Hilfsbereitschaft\n• Körperliche und psychische Gesundheit sowie Belastbarkeit\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\nSei ein Teil von uns und erlebe...\n• Eine abwechslungsreiche und vielseitige Ausbildung\n• Motivierte Berufsbildende und Teams, die sich auf dich freuen\n• Eine regelmässige und individuelle Lernbegleitung\n• Eine Atmosphäre, die von Wertschätzung und Respekt geprägt ist\n• 6 Wochen Ferien bis zum 20. Lebensjahr\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
-        "fr": "• --> Apprentissage comme spécialiste de la santé (EFZ) 2027 100% Soirée baiser 2027 8 16 2030 8 15 Pièces Le Gesundheitsnetz Küsnacht AG (GNK) avec la vieillesse et les centres de santé Tägerhalde et Wangensbach avec environ 130 résidents ainsi que la maison de jour, le Spitex, la vie dans la vieillesse et la consultation avec un total d'environ 240 employés est une société à but non lucratif entièrement détenue par la municipalité de Küsnacht. A partir d'août 2027, nous devons attribuer un lieu de formation. En tant qu'apprenant FaGe, vous travaillez dans les centres d'âge et de santé avec les emplacements Tägerhalde et Wangensbach ou à Spitex. Vous aimez travailler en équipe ? Aimez-vous prendre des responsabilités et êtes-vous prêt à prendre soin des personnes qui ont besoin d'aide? Vous aimez prendre soin du bien-être de nos résidents âgés? Aimeriez-vous utiliser votre travail pour influencer positivement la qualité de vie de nos clients dans leur environnement familier et ainsi soutenir leur autodétermination? Alors tu es au bon endroit avec nous. Votre profil\n• La joie de traiter avec les gens\n• Empathie et serviabilité\n• Santé physique et mentale et résilience\n• Très bonne connaissance orale et écrite de l'allemand Faites partie de nous et vivez une expérience...\n• Une éducation variée et polyvalente\n• Des professionnels motivés et des équipes qui vous attendent\n• Appui régulier et individuel à l'apprentissage\n• Une atmosphère caractérisée par l'appréciation et le respect\n• 6 semaines de vacances jusqu'au 20. Année de vie\n• 6 semaines avant l'achèvement des 20. Année\n• à partir de 21. Âge 5 semaines\n• à partir de 50. Âge 6 semaines\n• Vacances toute la journée «Sechseläuten & Chilbi-Montag»\n• 1/2 jour ouvrable après-midi du 24 et 31 décembre\n• Deux pauses payées par jour à 15 minutes\n• Temps de changement payé\n• Cadeaux pour anniversaire\n• Événements d'entreprise et d'équipe\n• Don d'ancienneté de 5 ans de service\n• Formation attractive\n• 2/3 des cotisations de retraite de l'employeur\n• Indemnité de jour pour soins médicaux\n• Assurance accidents privés (BU/NBU)\n• Frais de recommandation pour le renvoi de nouveaux employés\n• Compensation automatique des prix\n• Boissons gratuites telles que l'eau, le thé et le café\n• grande offre de nourriture (lunch, boissons, collations, etc.) à prix réduit\n• Avantage significatif pour le ZVV-BonusPass\n• Réduction de 50% pour le billet saisonnier des établissements de baignade à Küsnacht\n• Remise de 50% sur l'abonnement fitness / installations de fitness en interne\n• Réductions dans la pharmacie Hotz Küsnacht\n• Parking extérieur et souterrain à bas prix de location mensuelle"
-      },
-      "needsRetranslation": true,
-      "location": "Küsnacht",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/780392/0120/pub/1/index.html",
-      "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:39.417Z",
-      "addressLocality": "Küsnacht",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8700",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-30T15:30:29.148257+00:00",
-      "postedDate": "2026-06-30T15:30:29.148257+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/780392/0120/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "0120",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht",
-        "apprenticeship-as-a-specialist-in-health-efz-2026-gesundheitsnetz-kusnacht-ag-kusnacht"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht",
-          "apprenticeship-as-a-specialist-in-health-efz-2026-gesundheitsnetz-kusnacht-ag-kusnacht"
-        ],
-        "en": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht"
-        ],
-        "fr": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-2027-gesundheitsnetz-kuesnacht-kusnacht"
-        ]
-      },
-      "firstSeenAt": "2026-07-01T11:49:37.687Z",
-      "salaryMin": 82000,
-      "salaryMax": 114500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82000,
-          "maxValue": 114500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "gesundheitsnetz-kuesnacht-219ed08db9aa",
-      "slug": "apprendistato-come-assistent-in-gesundheit-e-soziales-afp-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-      "slugByLocale": {
-        "it": "apprendistato-come-assistent-in-gesundheit-e-soziales-afp-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "en": "apprenticeship-as-health-and-social-assistant-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "de": "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kuesnacht",
-        "fr": "apprentissage-comme-assistante-sociale-et-de-sante-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht"
-      },
-      "company": "Gesundheitsnetz Küsnacht AG",
-      "companyKey": "gesundheitsnetz-kuesnacht",
-      "companyDomain": "gnk.ch",
-      "title": "Lehrstelle als Assistent/in Gesundheit und Soziales (EBA) 2027",
-      "titleByLocale": {
-        "it": "Apprendistato come Assistente Sociale e Salute (EBA) 2027",
-        "en": "Apprenticeship as Health and Social Assistant (EBA) 2027",
-        "de": "Lehrstelle als Assistent/in Gesundheit und Soziales (EBA) 2027",
-        "fr": "Apprentissage comme assistante sociale et de santé (EBA) 2027"
-      },
-      "description": "• -->\n\nLehrstelle als Assistent/in Gesundheit und Soziales (EBA) 2027\n\n100%\n\nKüsnacht\n\n2027 8 16 | befristet bis\n2030 8 15\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nAb August 2027 haben wir einen Ausbildungsplatz zu vergeben. Als AGS-Lernende/r arbeitest du bei den Alters- und Gesundheitszentren mit den Standorten Tägerhalde und Wangensbach.\n\nMagst du die Arbeit im Team? Übernimmst du gerne Verantwortung und bist du bereit, dich mit unterstützungsbedürftige Menschen zu betreuen? Hast du Freude daran für das Wohlbefinden unserer hochbetagten Bewohnenden zu sorgen? Möchtest du mit deiner Arbeit die Lebensqualität unserer Kundinnen und Kunde in ihrem vertrauten Umfeld positiv beeinflussen und damit ihre Selbstbestimmung nachhaltig erhalten? Dann bist du bei uns am richtigen Ort.\n\nDein Profil\n\n• Freude am Umgang mit Menschen\n• Einfühlungsvermögen und Hilfsbereitschaft\n• Körperliche und psychische Gesundheit sowie Belastbarkeit\n• Gute mündliche und schriftliche Deutschkenntnisse\nSei ein Teil von uns und erlebe...\n• Eine abwechslungsreiche und vielseitige Ausbildung\n• Motivierte Berufsbildende und Teams, die sich auf dich freuen\n• Eine regelmässige und individuelle Lernbegleitung\n• Eine Atmosphäre, die von Wertschätzung und Respekt geprägt ist\n• 6 Wochen Ferien bis zum 20. Lebensjahr\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
-      "descriptionByLocale": {
-        "it": "• --> Apprendistato come Assistente Sociale e Salute (EBA) 2027 100% Bacio notte 2027 8 16 | Termine temporaneo per 2030 8 15 Parti La Gesundheitsnetz Küsnacht AG (GNK) con i centri di vecchiaia e salute Tägerhalde e Wangensbach con circa 130 residenti e la casa diurna, la Spitex, la vita in età avanzata e la consulenza con un totale di circa 240 dipendenti è una società non-profit interamente di proprietà del comune di Küsnacht. Da agosto 2027 dobbiamo assegnare un posto di formazione. Come apprendista AGS lavori nei centri di età e salute con le sedi di Tägerhalde e Wangensbach. Ti piace lavorare in una squadra? Ti piace assumerti la responsabilità e sei pronto a prenderti cura di persone che hanno bisogno di sostegno? Ti piace prenderti cura del benessere dei nostri anziani residenti? Vuoi utilizzare il tuo lavoro per influenzare positivamente la qualità della vita dei nostri clienti nel loro ambiente familiare e quindi sostenere la loro autodeterminazione? Allora sei nel posto giusto con noi. Il tuo profilo\n• La gioia di affrontare le persone\n• Empatia e disponibilità\n• Salute fisica e mentale e resilienza\n• Buona conoscenza orale e scritta del tedesco Fai parte di noi e prova...\n• Una formazione variegata e versatile\n• Professionisti e team motivati che ti aspettano\n• Supporto di apprendimento regolare e individuale\n• Un'atmosfera caratterizzata da apprezzamento e rispetto\n• 6 settimane di vacanza fino alle 20. Anno di vita\n• 6 settimane fino al completamento delle 20. Età anno\n• da 21. Età 5 settimane\n• da 50. Età 6 settimane\n• Vacanza di tutti i giorni «Sechseläuten & Chilbi-Montag»\n• 1/2 pomeriggio di lavoro del 24 e 31 dicembre\n• Due pause pagate al giorno a 15 minuti\n• Tempo di cambio pagato\n• Regali per compleanno\n• Eventi aziendali e di squadra\n• Regalo di anzianità da 5 anni di servizio\n• Formazione attraente\n• 2/3 dei contributi pensionistici del datore di lavoro\n• Presunzione Premium del datore di lavoro\n• Assicurazione per infortuni privati (BU/NBU) Copertura premium da parte del datore di lavoro\n• Tassa di raccomandazione per il rinvio di nuovi dipendenti\n• Compensazione automatica dei prezzi\n• Bevande gratuite come acqua, tè e caffè\n• ampia offerta di cibo (pranzo, bevande, snack, ecc.) a prezzi ridotti\n• Vantaggio significativo per ZVV-BonusPass\n• 50% di sconto per il biglietto stagionale degli stabilimenti balneari a Küsnacht\n• 50% di sconto su abbonamento fitness / fitness in-house\n• Sconti in farmacia Hotz Küsnacht\n• Posti auto all'aperto e sotterranei a basso prezzo di affitto mensile",
-        "en": "• --> Apprenticeship as Health and Social Assistant (EBA) 2027 100% Kiss Night 2027 8 16 | Temporary term to 2030 8 15 Parts The Gesundheitsnetz Küsnacht AG (GNK) with the old age and health centers Tägerhalde and Wangensbach with about 130 residents as well as the day home, the Spitex, the living in old age and the consulting with a total of about 240 employees is a non-profit corporation fully owned by the municipality of Küsnacht. From August 2027 we have to award a training place. As an AGS learner you work at the age and health centers with the locations Tägerhalde and Wangensbach. Do you like working in a team? Do you like to take responsibility and are you ready to take care of people in need of support? Do you enjoy taking care of the well-being of our elderly residents? Would you like to use your work to positively influence the quality of life of our customers in their familiar environment and thus sustain their self-determination? Then you are in the right place with us. Your profile\n• The joy of dealing with people\n• Empathy and helpfulness\n• Physical and mental health and resilience\n• Good oral and written knowledge of German Be a part of us and experience...\n• A varied and versatile education\n• Motivated professionals and teams who are looking forward to you\n• Regular and individual learning support\n• An atmosphere characterized by appreciation and respect\n• 6 weeks holiday until the 20. Year of life\n• 6 weeks until completion of the 20. Age year\n• from 21. Age 5 weeks\n• from 50. Age 6 weeks\n• All-day holiday «Sechseläuten & Chilbi-Montag»\n• 1/2 working day afternoon of the 24th & 31st December\n• Two paid breaks per day to 15 minutes\n• Paid changing time\n• Gifts for birthday\n• Company and team events\n• Gift of seniority from 5 years of service\n• Attractive training\n• 2/3 of pension contributions by employer\n• Medical day allowance Premium assumption by employer\n• Private Accident Insurance (BU/NBU) Premium coverage by employer\n• Recommendation fee for referral of new employees\n• Automatic price compensation\n• Free drinks such as water, tea and coffee\n• large offer of food (lunch, drinks, snacks, etc.) at reduced prices\n• Significant advantage for the ZVV-BonusPass\n• 50% discount for the seasonal ticket of the bathing establishments in Küsnacht\n• 50% discount on fitness subscription / fitness facilities in-house\n• Discounts in the pharmacy Hotz Küsnacht\n• Outdoor and underground parking spaces at low monthly rental prices",
-        "de": "• -->\n\nLehrstelle als Assistent/in Gesundheit und Soziales (EBA) 2027\n\n100%\n\nKüsnacht\n\n2027 8 16 | befristet bis\n2030 8 15\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nAb August 2027 haben wir einen Ausbildungsplatz zu vergeben. Als AGS-Lernende/r arbeitest du bei den Alters- und Gesundheitszentren mit den Standorten Tägerhalde und Wangensbach.\n\nMagst du die Arbeit im Team? Übernimmst du gerne Verantwortung und bist du bereit, dich mit unterstützungsbedürftige Menschen zu betreuen? Hast du Freude daran für das Wohlbefinden unserer hochbetagten Bewohnenden zu sorgen? Möchtest du mit deiner Arbeit die Lebensqualität unserer Kundinnen und Kunde in ihrem vertrauten Umfeld positiv beeinflussen und damit ihre Selbstbestimmung nachhaltig erhalten? Dann bist du bei uns am richtigen Ort.\n\nDein Profil\n\n• Freude am Umgang mit Menschen\n• Einfühlungsvermögen und Hilfsbereitschaft\n• Körperliche und psychische Gesundheit sowie Belastbarkeit\n• Gute mündliche und schriftliche Deutschkenntnisse\nSei ein Teil von uns und erlebe...\n• Eine abwechslungsreiche und vielseitige Ausbildung\n• Motivierte Berufsbildende und Teams, die sich auf dich freuen\n• Eine regelmässige und individuelle Lernbegleitung\n• Eine Atmosphäre, die von Wertschätzung und Respekt geprägt ist\n• 6 Wochen Ferien bis zum 20. Lebensjahr\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
-        "fr": "• --> Apprentissage comme assistante sociale et de santé (EBA) 2027 100% Soirée baiser 2027 8 16 2030 8 15 Pièces Le Gesundheitsnetz Küsnacht AG (GNK) avec la vieillesse et les centres de santé Tägerhalde et Wangensbach avec environ 130 résidents ainsi que la maison de jour, le Spitex, la vie dans la vieillesse et la consultation avec un total d'environ 240 employés est une société à but non lucratif entièrement détenue par la municipalité de Küsnacht. A partir d'août 2027, nous devons attribuer un lieu de formation. En tant qu'apprenant de l'AGS, vous travaillez dans les centres d'âge et de santé avec les emplacements Tägerhalde et Wangensbach. Vous aimez travailler en équipe ? Aimez-vous prendre des responsabilités et êtes-vous prêt à prendre soin des personnes qui ont besoin d'aide? Vous aimez prendre soin du bien-être de nos résidents âgés? Aimeriez-vous utiliser votre travail pour influencer positivement la qualité de vie de nos clients dans leur environnement familier et ainsi soutenir leur autodétermination? Alors tu es au bon endroit avec nous. Votre profil\n• La joie de traiter avec les gens\n• Empathie et serviabilité\n• Santé physique et mentale et résilience\n• Bonne connaissance orale et écrite de l'allemand Faites partie de nous et vivez une expérience...\n• Une éducation variée et polyvalente\n• Des professionnels motivés et des équipes qui vous attendent\n• Appui régulier et individuel à l'apprentissage\n• Une atmosphère caractérisée par l'appréciation et le respect\n• 6 semaines de vacances jusqu'au 20. Année de vie\n• 6 semaines avant l'achèvement des 20. Année\n• à partir de 21. Âge 5 semaines\n• à partir de 50. Âge 6 semaines\n• Vacances toute la journée «Sechseläuten & Chilbi-Montag»\n• 1/2 jour ouvrable après-midi du 24 et 31 décembre\n• Deux pauses payées par jour à 15 minutes\n• Temps de changement payé\n• Cadeaux pour anniversaire\n• Événements d'entreprise et d'équipe\n• Don d'ancienneté de 5 ans de service\n• Formation attractive\n• 2/3 des cotisations de retraite de l'employeur\n• Indemnité de jour pour soins médicaux\n• Assurance accidents privés (BU/NBU)\n• Frais de recommandation pour le renvoi de nouveaux employés\n• Compensation automatique des prix\n• Boissons gratuites telles que l'eau, le thé et le café\n• grande offre de nourriture (lunch, boissons, collations, etc.) à prix réduit\n• Avantage significatif pour le ZVV-BonusPass\n• Réduction de 50% pour le billet saisonnier des établissements de baignade à Küsnacht\n• Remise de 50% sur l'abonnement fitness / installations de fitness en interne\n• Réductions dans la pharmacie Hotz Küsnacht\n• Parking extérieur et souterrain à bas prix de location mensuelle"
-      },
-      "needsRetranslation": true,
-      "location": "Küsnacht",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/780392/0119/pub/1/index.html",
-      "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:38.971Z",
-      "addressLocality": "Küsnacht",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8700",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-30T15:23:38.360046+00:00",
-      "postedDate": "2026-06-30T15:23:38.360046+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/780392/0119/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "0119",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kuesnacht",
-        "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "apprenticeship-as-health-and-social-care-assistant-eba-2026-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "motivierte-r-assistent-in-gesundheit-e-soziales-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "motivated-assistant-in-health-and-social-care-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "motivierte-r-assistent-in-gesundheit-und-soziales-gesundheitsnetz-kuesnacht-kusnacht",
-        "assistant-motive-en-sante-et-en-soins-sociaux-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kuesnacht",
-          "apprenticeship-as-health-and-social-care-assistant-eba-2026-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "motivierte-r-assistent-in-gesundheit-e-soziales-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "motivated-assistant-in-health-and-social-care-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "motivierte-r-assistent-in-gesundheit-und-soziales-gesundheitsnetz-kuesnacht-kusnacht",
-          "assistant-motive-en-sante-et-en-soins-sociaux-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-gesundheitsnetz-kuesnacht"
-        ],
-        "en": [
-          "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "motivated-assistant-in-health-and-social-care-gesundheitsnetz-kusnacht-ag-kusnacht"
-        ],
-        "de": [
-          "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "motivierte-r-assistent-in-gesundheit-und-soziales-gesundheitsnetz-kuesnacht-kusnacht"
-        ],
-        "fr": [
-          "lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-2027-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "assistant-motive-en-sante-et-en-soins-sociaux-gesundheitsnetz-kusnacht-ag-kusnacht"
-        ]
-      },
-      "firstSeenAt": "2026-07-01T11:49:37.212Z",
-      "salaryMin": 82000,
-      "salaryMax": 114500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82000,
-          "maxValue": 114500,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1,
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-30T22:05:40.258Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-7c9ffcb9e80b",
@@ -1735,91 +1896,12 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "gesundheitsnetz-kuesnacht-475b4b57c6de",
-      "slug": "pooleinsatze-per-dipl-pflegefachperson-hf-fh-fage-ags-e-pflegehilfen-srk-gesundheitsnetz-kusnacht-ag-kusnacht",
-      "slugByLocale": {
-        "it": "pooleinsatze-per-dipl-pflegefachperson-hf-fh-fage-ags-e-pflegehilfen-srk-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "en": "pool-bets-for-dipl-nursing-professional-hf-fh-fage-ags-and-nursing-aids-srk-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "de": "pooleinsatze-fur-dipl-pflegefachperson-hf-fh-fage-ags-und-pflegehilfen-srk-gesundheitsnetz",
-        "fr": "paris-de-piscine-pour-dipl-professionnels-des-soins-infirmiers-hf-fh-fage-ags-et-aides-infirmieres-srk-gesundheitsnetz"
       },
-      "company": "Gesundheitsnetz Küsnacht AG",
-      "companyKey": "gesundheitsnetz-kuesnacht",
-      "companyDomain": "gnk.ch",
-      "title": "Pooleinsätze für Dipl. Pflegefachperson HF/FH, FaGe, AGS und Pflegehilfen SRK",
-      "titleByLocale": {
-        "it": "Infermiere su turni per professionista qualificato in assistenza infermieristica HF/FH, FaGe, AGS e assistenti sanitari SRK",
-        "en": "Shift Positions for Certified Nursing Professionals HF/FH, FaGe, AGS and SRK Care Assistants",
-        "de": "Pooleinsätze für Dipl. Pflegefachperson HF/FH, FaGe, AGS und Pflegehilfen SRK",
-        "fr": "Postes en rotation pour professionnel en soins certifié HF/FH, FaGe, AGS et aides-soignants SRK"
-      },
-      "description": "• -->\n\nPooleinsätze für Dipl. Pflegefachperson HF/FH, FaGe, AGS und Pflegehilfen SRK\n\n10% - 30%\n\nKüsnacht\n\nnach Vereinbarung\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nWir suchen Sie zur Unterstützung für die Teams auf den verschiedenen Abteilungen und freuen uns auf eine engagierte und offene Persönlichkeit.\n\nIn welchem Bereich wären die Einsätze\n\nUnsere Wohnformen sind Akut- und Übergangspflege nach Spitalaufenthalten, Daueraufenthalt, Entlastungs- und Schnupperaufenthalte, Geschützte Wohngruppe für Menschen mit Demenz oder anderen psychogeriatrischen Erkrankungen, Tagesheim zur Entlastung der Angehörigen.\n\nWas bringen Sie mit\n\nSie bringen eine der oben erwähnten Ausbildungen/Kurse und von Vorteil Erfahrung in der Langzeit- und Demenzpflege mit. Sie verfügen über gute mündliche und schriftliche Deutschkenntnisse sowie EDV-Kenntnisse. Sie sind flexibel und können sich rasch auf neue Bewohnersituationen einstellen.\n\nDas bieten wir Ihnen\n\nFerien und\nzusätzliche Feiertage\n\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
-      "descriptionByLocale": {
-        "it": "Designazione\n\n•\n\nScommesse in piscina per Dipl. Infermieristica professionale HF/FH, FaGe, AGS e allattamento SRK\n\n10% - 30 %\n\nBacio notte\n\nAccordo\n\nInformazioni su di noi\n\nLa Gesundheitsnetz Küsnacht AG (GNK) con l'età e i centri sanitari Tägerhalde e Wangensbach con circa 130 residenti e la casa diurna, la Spitex, la vita in età avanzata e la consulenza con un totale di circa 240 dipendenti è una società a responsabilità limitata pubblica a pieno titolo di proprietà del comune di Küsnacht.\n\nTi stiamo cercando\n\nsostenere le squadre nei diversi dipartimenti e guardare avanti a una personalità impegnata e aperta.\n\nIn quale area sarebbero le missioni\n\nLe nostre forme di vita sono cura acuta e transitoria dopo soggiorni ospedalieri, soggiorni permanenti, rilievi e soggiorni di prova, gruppo di alloggi protetti per persone con demenza o altre malattie psicogeriatriche, casa diurna per il sollievo dei parenti.\n\nCosa porti con te\n\n- Porti uno dei corsi di formazione sopra menzionati e l'esperienza benefica nella cura a lungo termine e demenza.\n- Hanno una buona conoscenza orale e scritta del tedesco e delle competenze informatiche.\n- Sono flessibili e possono adattarsi rapidamente a nuove situazioni residenziali.\n\nE' questo che ti offriamo.\n\n- Vacanze e vacanze aggiuntive\n- 6 settimane fino al completamento delle 20. Età anno\n- da 21. Età 5 settimane\nDal 50. Età 6 settimane\n- Vacanza \"Sechseläuten & Chilbi-Montag\"\n- 1/2 pomeriggio di lavoro del 24 e 31 dicembre\n- Due pause pagate al giorno a 15 minuti\n- Tempo di cambio pagato\n- Regali per compleanno\n- Eventi aziendali e di squadra\nRegalo di anzianità da 5. Anno di servizio\n- Attraente ulteriore istruzione e formazione\n- 2/3 dei contributi pensionistici del datore di lavoro\n- Indennità giornaliera medica Presunzione premium da parte del datore di lavoro\n- Assicurazione per infortuni privati (BU/NBU) Copertura premium da parte del datore di lavoro\n- quota di collocamento per la raccomandazione di nuovi dipendenti\n- compensazione automatica dei prezzi\n- Bevande gratuite come acqua, tè e caffè\n- ampia offerta di cibo (pranzo, bevande, snack, ecc.) a prezzi ridotti\n- Sconto significativo sulla ZVV-BonusPass\n- 50% di sconto per il biglietto di stagione degli stabilimenti balneari a Küsnacht\n- 50% di sconto su abbonamento fitness / fitness in-house\n- Sconti in farmacia Hotz Küsnacht\n- Posti auto all'aperto e sotterranei a prezzi di affitto mensili bassi",
-        "en": "Description\n\n• ->\n\nPool assignments for graduate nursing specialist HF/FH, FaGe, AGS and nursing care SRK\n\n10% - 30%\n\nKiss night\n\nby arrangement\n\nAbout us\n\nThe health net Küsnacht AG (GNK) with the age and health centers Tägerhalde and Wangensbach with about 130 residents as well as Tagesheim, the Spitex, the living in old age and the consulting with a total of about 240 employees is a non-profit limited company in full ownership of the municipality Küsnacht.\n\nWe are looking for you\n\nto support the teams in the various departments and look forward to a dedicated and open personality.\n\nIn which area would the missions be\n\nOur types of housing are acute and transitional care after hospital stays, permanent stay, relief and shrinking stays, sheltered housing for people with dementia or other psychogeriatric diseases, day care for the relief of their relatives.\n\nWhat do you bring with you?\n\n- You have one of the above mentioned training courses and an advantage in long-term and dementia care. - You have good oral and written German skills as well as computer skills. - You are flexible and can quickly adapt to new situations in the residents.\n\nWe offer you this\n\n- holidays and additional holidays - 6 weeks until the completion of the 20th year of age - from the 21st year of age 5 weeks - from the 50th year of age 6 weeks - all-day holiday «Sechseläuten & Chilbi-Monday» - 1/2 working day afternoon of 24th & 31st December - Two paid breaks per day to 15 minutes - Paid change-over time - Birthday gifts - Company and team events - Service age gift from the 5th year on.\n\nService year - Attractive further and further training - 2/3 of pension fund contributions by employer - Health day allowance Premiums by employer - Private accident insurance (BU/NBU) Employer's premium - Employment premium for recommendation of new employees - Automatic compensation for the costs of the costs of the services - Free drinks such as water, tea and coffee - Large offer of meals (lunch, drinks, snacks etc.) at reduced prices - Significant discount at the ZVV-BonusPass - 50% discount for the season ticket of the bathing establishments in Küsnacht - 50% discount on the\n\nFitness subscription / fitness facilities inhouse - discounts in the pharmacy Hotz Küsnacht - outdoor and underground parking spaces at reasonable monthly rental prices",
-        "de": "• -->\n\nPooleinsätze für Dipl. Pflegefachperson HF/FH, FaGe, AGS und Pflegehilfen SRK\n\n10% - 30%\n\nKüsnacht\n\nnach Vereinbarung\n\nTeilen\n\nDie Gesundheitsnetz Küsnacht AG (GNK) mit den Alters- und Gesundheitszentren Tägerhalde und Wangensbach mit rund 130 Bewohnerinnen und Bewohnern sowie Tagesheim, der Spitex, dem Wohnen im Alter und der Beratung mit insgesamt rund 240 Mitarbeiterinnen und Mitarbeiter ist eine gemeinnützige Aktiengesellschaft in vollständigem Eigentum der Gemeinde Küsnacht.\n\nWir suchen Sie zur Unterstützung für die Teams auf den verschiedenen Abteilungen und freuen uns auf eine engagierte und offene Persönlichkeit.\n\nIn welchem Bereich wären die Einsätze\n\nUnsere Wohnformen sind Akut- und Übergangspflege nach Spitalaufenthalten, Daueraufenthalt, Entlastungs- und Schnupperaufenthalte, Geschützte Wohngruppe für Menschen mit Demenz oder anderen psychogeriatrischen Erkrankungen, Tagesheim zur Entlastung der Angehörigen.\n\nWas bringen Sie mit\n\nSie bringen eine der oben erwähnten Ausbildungen/Kurse und von Vorteil Erfahrung in der Langzeit- und Demenzpflege mit. Sie verfügen über gute mündliche und schriftliche Deutschkenntnisse sowie EDV-Kenntnisse. Sie sind flexibel und können sich rasch auf neue Bewohnersituationen einstellen.\n\nDas bieten wir Ihnen\n\nFerien und\nzusätzliche Feiertage\n\n• 6 Wochen bis zur Vollendung des 20. Altersjahr\n• ab dem 21. Altersjahr 5 Wochen\n• ab dem 50. Altersjahr 6 Wochen\n• ganztägiger Feiertag «Sechseläuten & Chilbi-Montag»\n• 1/2 Arbeitstag Nachmittag des 24. & 31. Dezembers\n• Zwei bezahlte Pausen pro Tag zu 15 Minuten\n• Bezahlte Umkleidezeit\n• Geschenke zum Geburtstag\n• Firmen- und Teamanlässe\n• Dienstaltersgeschenk ab dem 5. Dienstjahr\n• Attraktive Fort- und Weiterbildungen\n• 2/3 der Pensionskassenbeiträge durch Arbeitgeberin\n• Krankentaggeld Prämienübernahme durch Arbeitgeberin\n• Private Unfallversicherung (BU/NBU) Prämienübernahme durch Arbeitgeberin\n• Vermittlungsprämie für Weiterempfehlung neuer Mitarbeitende\n• automatischer Teuerungsausgleich\n• Gratis-Getränke wie Wasser, Tee und Kaffee\n• grosses Angebot an Verpflegung (Mittagessen, Getränke, Snacks etc.) zu reduzierten Preisen\n• wesentliche Vergünstigung beim ZVV-BonusPass\n• 50% Rabatt für die Saisonkarte der Badeanstalten in Küsnacht\n• 50% Rabatt auf das Fitnessabonnement / Fitnessräumlichkeiten inhouse\n• Vergünstigungen in der Apotheke Hotz Küsnacht\n• Aussen- und Tiefgaragenplätze zu günstigen monatlichen Mietpreisen",
-        "fr": "Descriptif\n\n• -->\n\nOpérations de pool pour infirmières diplômées HF/FH, FaGe, AGS et infirmières auxiliaires SRK\n\n10% - 30%\n\nKusnacht\n\nsur rendez-vous\n\nÀ propos de nous\n\nLa Gesundheitnetz Küsnacht AG (GNK), avec les centres de retraite et de santé de Tägerhalde et Wangensbach avec environ 130 résidents ainsi qu'une garderie, Spitex, une résidence pour personnes âgées et des conseils avec un total d'environ 240 employés, est une société anonyme à but non lucratif détenue à 100 % par la commune de Küsnacht.\n\nNous vous cherchons\n\npour épauler les équipes des différents départements et compter sur une personnalité engagée et ouverte.\n\nDans quelle zone se situeraient les opérations ?\n\nNos formes de vie comprennent des soins aigus et de transition après un séjour à l'hôpital, des séjours de longue durée, des séjours de répit et d'essai, des groupes de vie protégés pour les personnes atteintes de démence ou d'autres maladies psychogériatriques et des garderies pour soulager le fardeau des proches.\n\nQu'est-ce que tu apportes avec toi ?\n\n- Vous disposez d'une des formations mentionnées ci-dessus et, avantageusement, d'une expérience en soins de longue durée et démence.\n- Vous possédez de bonnes compétences en allemand oral et écrit ainsi que des compétences informatiques.\n- Vous êtes flexible et savez vous adapter rapidement aux nouvelles situations de résidents.\n\nC'est ce que nous vous proposons\n\n- Jours fériés et jours fériés supplémentaires\n- 6 semaines jusqu'à l'âge de 20 ans\n- à partir de 21 ans 5 semaines\n- à partir de 50 ans 6 semaines\n- le jour férié « Sechseläuten & Chilbi Monday »\n- 1/2 journée ouvrable après-midi du 24 & 31 décembre\n- Deux pauses payantes par jour de 15 minutes\n- Temps de change payant\n- Cadeaux d'anniversaire\n- Événements d'entreprise et d'équipe\n- Cadeau d'ancienneté dès la 5ème année de service\n- Formation continue et formation continue attractives\n- 2/3 des cotisations à la caisse de pension par l'employeur\n- Primes journalières de maladie prises en charge par l'employeur\n- Primes d'assurance accident privée (BU/NBU) prises en charge par l'employeur\n- Prime de placement pour la recommandation de nouveaux employés\n- compensation automatique de l'inflation\n- des boissons gratuites telles que de l'eau, du thé et du café\n- Large choix de repas (déjeuner, boissons, collations, etc.) à prix réduits\n- Remise importante avec le ZVV-BonusPass\n- 50 % de réduction sur l'abonnement pour les établissements balnéaires de Küsnacht\n- 50 % de réduction sur l'abonnement fitness / les installations de fitness sur place\n- Réductions à la pharmacie Hotz Küsnacht\n- Places de parking extérieures et souterraines à des prix de location mensuels abordables"
-      },
-      "needsRetranslation": false,
-      "location": "Küsnacht",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/780392/0093/pub/4/index.html",
-      "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:05:37.383Z",
-      "addressLocality": "Küsnacht",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8700",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2025-10-17T14:02:43.632792+00:00",
-      "postedDate": "2025-10-17T14:02:43.632792+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/780392/0093/pub/4/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "0093",
-      "pensumMin": 10,
-      "pensumMax": 10,
-      "pensum": "10%",
-      "previousSlugs": [
-        "pooleinsatze-fur-dipl-pflegefachperson-hf-fh-fage-ags-und-pflegehilfen-srk-gesundheitsnetz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pooleinsatze-fur-dipl-pflegefachperson-hf-fh-fage-ags-und-pflegehilfen-srk-gesundheitsnetz"
-        ],
-        "en": [
-          "pooleinsatze-fur-dipl-pflegefachperson-hf-fh-fage-ags-und-pflegehilfen-srk-gesundheitsnetz"
-        ],
-        "fr": [
-          "pooleinsatze-fur-dipl-pflegefachperson-hf-fh-fage-ags-und-pflegehilfen-srk-gesundheitsnetz"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T12:06:52.083Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1,
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-30T22:05:37.807Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

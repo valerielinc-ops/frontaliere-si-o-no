@@ -1,7 +1,7 @@
 {
   "crawlerKey": "on-running",
-  "assembledAt": "2026-10-31T21:27:55.834Z",
-  "runId": "41242613275",
+  "assembledAt": "2026-11-01T09:17:19.007Z",
+  "runId": "41292206898",
   "jobs": [
     {
       "id": "on-running-2c2afe61aee4",
@@ -34,7 +34,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/4565069?gh_jid=4565069",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.953Z",
+      "crawledAt": "2026-11-01T09:17:11.199Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -80,7 +80,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.199Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-f281112c18f5",
@@ -113,7 +116,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8015208?gh_jid=8015208",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.950Z",
+      "crawledAt": "2026-11-01T09:17:11.196Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -159,7 +162,10 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.196Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-6691abfcf8aa",
@@ -192,7 +198,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074415?gh_jid=8074415",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.948Z",
+      "crawledAt": "2026-11-01T09:17:11.192Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -238,7 +244,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.192Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-9f177546289c",
@@ -271,7 +280,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7995040?gh_jid=7995040",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.937Z",
+      "crawledAt": "2026-11-01T09:17:11.181Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -329,7 +338,10 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.181Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-328167925f3a",
@@ -362,7 +374,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8054998?gh_jid=8054998",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.931Z",
+      "crawledAt": "2026-11-01T09:17:11.175Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -408,7 +420,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.175Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-35db6533bdb0",
@@ -441,7 +456,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7492423?gh_jid=7492423",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.926Z",
+      "crawledAt": "2026-11-01T09:17:11.167Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -505,13 +520,16 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.167Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-49ef8f989a22",
       "slug": "senior-lead-strategia-e-operazioni-di-vendita-al-dettaglio-del-distributore-on-running-zurich",
       "slugByLocale": {
-        "it": "responsabile-del-programma-attivita-di-negozio-gestita-da-distributori-globali-on-running-zurich",
+        "it": "senior-lead-strategia-e-operazioni-di-vendita-al-dettaglio-del-distributore-on-running-zurich",
         "en": "program-manager-global-distributor-led-store-business-on-running-ch",
         "de": "programmmanager-global-distributor-led-store-business-on-running-zurich",
         "fr": "gestionnaire-de-programme-global-distributor-piloted-store-business-on-running-zurich"
@@ -538,7 +556,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074409?gh_jid=8074409",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.921Z",
+      "crawledAt": "2026-11-01T09:17:11.162Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -567,7 +585,8 @@
         "it": [
           "program-manager-global-distributor-led-store-business-on-running-ch",
           "senior-lead-distributor-retail-strategy-operations-on-running-zurich",
-          "senior-lead-distributor-retail-strategy-operations-on-running-ch"
+          "senior-lead-distributor-retail-strategy-operations-on-running-ch",
+          "responsabile-del-programma-attivita-di-negozio-gestita-da-distributori-globali-on-running-zurich"
         ],
         "en": [
           "senior-lead-distributor-retail-strategy-operations-on-running-ch"
@@ -576,7 +595,8 @@
       "previousSlugs": [
         "program-manager-global-distributor-led-store-business-on-running-ch",
         "senior-lead-distributor-retail-strategy-operations-on-running-zurich",
-        "senior-lead-distributor-retail-strategy-operations-on-running-ch"
+        "senior-lead-distributor-retail-strategy-operations-on-running-ch",
+        "responsabile-del-programma-attivita-di-negozio-gestita-da-distributori-globali-on-running-zurich"
       ],
       "firstSeenAt": "2026-07-27T22:10:40.025Z",
       "salaryMin": 117000,
@@ -591,7 +611,10 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.162Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-5c1e3920f10a",
@@ -624,7 +647,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8158962?gh_jid=8158962",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.917Z",
+      "crawledAt": "2026-11-01T09:17:11.158Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -673,7 +696,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.158Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-3b40800b8e4a",
@@ -706,7 +732,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8095893?gh_jid=8095893",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.910Z",
+      "crawledAt": "2026-11-01T09:17:11.152Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -755,7 +781,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.152Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-858c7f4ed3e5",
@@ -788,7 +817,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7742550?gh_jid=7742550",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.903Z",
+      "crawledAt": "2026-11-01T09:17:11.143Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -840,7 +869,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.143Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-15fa0effdfb7",
@@ -849,7 +881,7 @@
         "it": "lead-test-di-abbigliamento-on-running-zurich",
         "en": "lead-apparel-testing-on-running-ch",
         "de": "blei-bekleidungstests-on-running-zurich",
-        "fr": "le-plomb-essai-d-habillement-on-running-zurich"
+        "fr": "responsable-tests-de-vetements-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -873,7 +905,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7775612?gh_jid=7775612",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.896Z",
+      "crawledAt": "2026-11-01T09:17:11.136Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -900,14 +932,14 @@
       },
       "previousSlugs": [
         "lead-apparel-testing-on-running-ch",
-        "responsable-tests-de-vetements-on-running-zurich"
+        "le-plomb-essai-d-habillement-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-apparel-testing-on-running-ch"
         ],
         "fr": [
-          "responsable-tests-de-vetements-on-running-zurich"
+          "le-plomb-essai-d-habillement-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.158Z",
@@ -923,7 +955,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.136Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-dc83e58b998c",
@@ -956,7 +991,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7384378?gh_jid=7384378",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.892Z",
+      "crawledAt": "2026-11-01T09:17:11.133Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1023,7 +1058,10 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.133Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-81f3e3792822",
@@ -1056,7 +1094,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7402412?gh_jid=7402412",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.886Z",
+      "crawledAt": "2026-11-01T09:17:11.127Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1104,7 +1142,10 @@
           "maxValue": 203000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.127Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-6374bc2a2df6",
@@ -1137,7 +1178,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8069314?gh_jid=8069314",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.878Z",
+      "crawledAt": "2026-11-01T09:17:11.115Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1182,7 +1223,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.115Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "on-running-146e8951f38c",
@@ -1215,7 +1259,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8030127?gh_jid=8030127",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:27:48.867Z",
+      "crawledAt": "2026-11-01T09:17:11.083Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1261,7 +1305,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:17:11.083Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

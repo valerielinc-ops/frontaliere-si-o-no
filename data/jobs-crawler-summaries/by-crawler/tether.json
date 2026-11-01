@@ -1,7 +1,7 @@
 {
   "key": "tether",
   "label": "Tether Operations",
-  "generatedAt": "2026-10-31T21:44:13.600Z",
+  "generatedAt": "2026-11-01T09:13:51.836Z",
   "total": 31,
   "discovered": null,
   "parsed": 31,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 31,
-  "durationMs": 3967,
-  "avgDurationMs": 3967,
+  "durationMs": 5539,
+  "avgDurationMs": 5539,
   "durationHistory": [
-    3967
+    5539
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://tether.recruitee.com/o/research-engineer-intern-videomultimodal-llm-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.182Z",
+      "crawledAt": "2026-11-01T09:13:32.444Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -60,12 +60,16 @@
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Chiasso",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:32.444Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -80,7 +84,7 @@
       "url": "https://tether.recruitee.com/o/ai-inference-engineer-qvac-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.170Z",
+      "crawledAt": "2026-11-01T09:13:32.433Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -103,12 +107,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:32.433Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -123,7 +131,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-agentic-post-training-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.168Z",
+      "crawledAt": "2026-11-01T09:13:32.430Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -146,12 +154,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:32.430Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -166,7 +178,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.163Z",
+      "crawledAt": "2026-11-01T09:13:32.425Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -189,12 +201,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:32.425Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -209,7 +225,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-vision-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.159Z",
+      "crawledAt": "2026-11-01T09:13:32.421Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -232,12 +248,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:32.421Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -252,7 +272,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-model-compression-quantization-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.155Z",
+      "crawledAt": "2026-11-01T09:13:32.417Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -275,12 +295,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:32.417Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -295,7 +319,7 @@
       "url": "https://tether.recruitee.com/o/p2p-nodejs-engineer-holepunch-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.143Z",
+      "crawledAt": "2026-11-01T09:13:32.406Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -318,12 +342,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:32.406Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -338,7 +366,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.142Z",
+      "crawledAt": "2026-11-01T09:13:32.405Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -361,12 +389,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:32.405Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -381,7 +413,7 @@
       "url": "https://tether.recruitee.com/o/frontend-software-engineer-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.139Z",
+      "crawledAt": "2026-11-01T09:13:32.402Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -404,12 +436,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-08T09:13:32.402Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -424,7 +460,7 @@
       "url": "https://tether.recruitee.com/o/senior-product-designer-wallets-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.138Z",
+      "crawledAt": "2026-11-01T09:13:32.401Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -447,12 +483,16 @@
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Berne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:32.401Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -467,7 +507,7 @@
       "url": "https://tether.recruitee.com/o/devops-engineer-100-remote-12",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.136Z",
+      "crawledAt": "2026-11-01T09:13:32.399Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -490,12 +530,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T09:13:32.399Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -510,7 +554,7 @@
       "url": "https://tether.recruitee.com/o/technical-content-creator-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.131Z",
+      "crawledAt": "2026-11-01T09:13:32.395Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -533,12 +577,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T09:13:32.395Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -553,7 +601,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-kernel-inference-optimization-100-remoteworldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.126Z",
+      "crawledAt": "2026-11-01T09:13:32.390Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -575,12 +623,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-30T09:13:32.390Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -595,7 +647,7 @@
       "url": "https://tether.recruitee.com/o/head-of-ai-expansion-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.121Z",
+      "crawledAt": "2026-11-01T09:13:32.386Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -618,12 +670,16 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-01T09:13:32.386Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -638,7 +694,7 @@
       "url": "https://tether.recruitee.com/o/event-design-coordinator-remote-europe-switz",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.119Z",
+      "crawledAt": "2026-11-01T09:13:32.384Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -661,12 +717,16 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:13:32.384Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -681,7 +741,7 @@
       "url": "https://tether.recruitee.com/o/senior-technical-product-manager-keet-100-remote-11",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.114Z",
+      "crawledAt": "2026-11-01T09:13:32.379Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -704,12 +764,16 @@
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:13:32.379Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -724,7 +788,7 @@
       "url": "https://tether.recruitee.com/o/vp-of-tech-expansion-100-remote-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.112Z",
+      "crawledAt": "2026-11-01T09:13:32.377Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -747,12 +811,16 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:13:32.377Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -767,7 +835,7 @@
       "url": "https://tether.recruitee.com/o/credit-lead-underwriter-fintech-payments-expertise-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.110Z",
+      "crawledAt": "2026-11-01T09:13:32.375Z",
       "addressLocality": "Geneve",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -790,12 +858,16 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:13:32.375Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -810,7 +882,7 @@
       "url": "https://tether.recruitee.com/o/product-manager-on-ramp-swap-100-remote-2",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.109Z",
+      "crawledAt": "2026-11-01T09:13:32.374Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -833,12 +905,16 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:13:32.374Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -853,7 +929,7 @@
       "url": "https://tether.recruitee.com/o/ai-technical-product-manager-qvac-100-remote-sw",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.104Z",
+      "crawledAt": "2026-11-01T09:13:32.369Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -876,12 +952,16 @@
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:13:32.369Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -896,7 +976,7 @@
       "url": "https://tether.recruitee.com/o/product-engineering-lead-keet-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.102Z",
+      "crawledAt": "2026-11-01T09:13:32.367Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -919,12 +999,16 @@
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-06T09:13:32.367Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -939,7 +1023,7 @@
       "url": "https://tether.recruitee.com/o/product-engineering-lead-qvac-100-remote-sw",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.093Z",
+      "crawledAt": "2026-11-01T09:13:32.358Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -962,12 +1046,16 @@
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-09T09:13:32.358Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -982,7 +1070,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-model-compression-quantization-zurich",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.089Z",
+      "crawledAt": "2026-11-01T09:13:32.354Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1005,12 +1093,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:13:32.354Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1025,7 +1117,7 @@
       "url": "https://tether.recruitee.com/o/frontend-desktop-engineer-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.088Z",
+      "crawledAt": "2026-11-01T09:13:32.353Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1048,12 +1140,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Berne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:13:32.353Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1068,7 +1164,7 @@
       "url": "https://tether.recruitee.com/o/frontend-desktop-engineer-internal",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.077Z",
+      "crawledAt": "2026-11-01T09:13:32.343Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1091,12 +1187,16 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Berne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:13:32.343Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1111,7 +1211,7 @@
       "url": "https://tether.recruitee.com/o/corporate-development-portfolio-manager-fintech-digital-assets-2",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.066Z",
+      "crawledAt": "2026-11-01T09:13:32.332Z",
       "addressLocality": "Geneve",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1134,12 +1234,16 @@
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-11T09:13:32.332Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1154,7 +1258,7 @@
       "url": "https://tether.recruitee.com/o/ai-filmmaker-100-remote-worldwide-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.065Z",
+      "crawledAt": "2026-11-01T09:13:32.330Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1177,12 +1281,16 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Berne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-12T09:13:32.330Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1197,7 +1305,7 @@
       "url": "https://tether.recruitee.com/o/head-of-financial-infrastructure-partnerships-expansion-digital-assets-expertise-2",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.043Z",
+      "crawledAt": "2026-11-01T09:13:32.304Z",
       "addressLocality": "Geneve",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1220,12 +1328,16 @@
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:13:32.304Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1240,7 +1352,7 @@
       "url": "https://tether.recruitee.com/o/mobile-engineer-react-native-100-remote-4",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.032Z",
+      "crawledAt": "2026-11-01T09:13:32.293Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1263,12 +1375,16 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:13:32.293Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1283,7 +1399,7 @@
       "url": "https://tether.recruitee.com/o/developer-productivity-engineer-100-remote-7",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:04.029Z",
+      "crawledAt": "2026-11-01T09:13:32.291Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1306,14 +1422,18 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:13:32.291Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

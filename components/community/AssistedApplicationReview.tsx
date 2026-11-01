@@ -10,6 +10,7 @@ import { AssistedApplicationFitNotice } from '@/components/community/AssistedApp
 import { AssistedApplicationCvChanges } from '@/components/community/AssistedApplicationCvChanges';
 import { AssistedApplicationKeptDocuments, WordCopyLink } from '@/components/community/AssistedApplicationKeptDocuments';
 import type { DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
+import { localizedQuestionWarning } from '@/services/assistedApplicationQuestionLocalization';
 import { useAssistedApplicationDocumentRechecks } from '@/services/useAssistedApplicationDocumentRechecks';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
@@ -74,14 +75,18 @@ function CopyButton({ value, label }: { value: string; label: string }) {
   );
 }
 
-function QuestionField({ question, value, onChange, disabled, error }: {
+function QuestionField({ question, value, onChange, disabled, error, locale }: {
   question: ReviewQuestion;
   value: string;
   onChange: (value: string) => void;
   disabled: boolean;
+  locale: string;
   error?: string;
 }) {
   const { t } = useTranslation();
+  const localizationWarning = question.localizationStatus === 'fallback'
+    ? localizedQuestionWarning(locale, question.applicationQuestionLocale)
+    : null;
   // min-w-0 / max-w-full: iOS Safari gives date inputs an intrinsic width that
   // ignores w-full and pushes them out of the card (giro di prova 2026-10-01).
   const inputClass = 'mt-1 block w-full min-w-0 max-w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading';
@@ -90,7 +95,18 @@ function QuestionField({ question, value, onChange, disabled, error }: {
   const dateClass = `${inputClass} appearance-none min-h-[2.75rem] text-left`;
   return (
     <label className="block text-sm font-medium text-body">
-      {question.question}{question.required && <span className="text-danger"> *</span>}
+      {question.localizationStatus === 'fallback' ? (
+        <span role="note" className="mt-1 block rounded-lg border border-edge bg-surface p-3 text-xs font-normal text-body">
+          <span className="block font-semibold text-danger">
+            {localizationWarning?.message}
+          </span>
+          <span className="mt-1 block">
+            <span className="font-semibold">{localizationWarning?.originalTextLabel}: </span>
+            {question.applicationQuestion || question.question}
+          </span>
+        </span>
+      ) : question.question}
+      {question.required && <span className="text-danger"> *</span>}
       {question.why && <span className="mt-0.5 block text-xs font-normal text-subtle">{question.why}</span>}
       {question.type === 'yes_no' ? (
         <select value={value} onChange={(event) => onChange(event.target.value)} disabled={disabled} className={inputClass}>
@@ -549,6 +565,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
               <QuestionField
                 key={question.id}
                 question={question}
+                locale={pageLocale}
                 value={answers[question.id] || ''}
                 onChange={(value) => {
                   setAnswers((current) => ({ ...current, [question.id]: value }));

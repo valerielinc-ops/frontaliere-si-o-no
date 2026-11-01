@@ -1,7 +1,7 @@
 {
   "crawlerKey": "everest-re",
-  "assembledAt": "2026-10-31T21:44:50.584Z",
-  "runId": "41242863016",
+  "assembledAt": "2026-11-01T09:25:10.253Z",
+  "runId": "41292451365",
   "jobs": [
     {
       "id": "everest-re-1306a4a3fe5d",
@@ -35,7 +35,7 @@
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Claims-Specialist_R7430",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:44:36.958Z",
+      "crawledAt": "2026-11-01T09:24:59.322Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -82,7 +82,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "streetAddress": "Zurich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:24:59.322Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sta",
-  "assembledAt": "2026-10-31T22:40:42.745Z",
+  "assembledAt": "2026-11-01T11:44:56.409Z",
   "runId": "41242779673",
   "jobs": [
     {
@@ -3182,7 +3182,7 @@
         "it": "carpentieri-di-assemblaggio-della-cucina-sta-personal-ag-schaffhausen-schaffhausen",
         "en": "kitchen-assembly-carpenters-sta-personal-ag-schaffhausen-schaffhausen",
         "de": "schreiner-in-fur-kuchenmontage-schaffhausen-schaffhausen-sta-ch",
-        "fr": "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-schaffhausen"
+        "fr": "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-schaffhausen-schaffhausen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -3227,7 +3227,7 @@
       "previousSlugs": [
         "schreiner-in-fur-kuchenmontage-schaffhausen-schaffhausen-sta-ch",
         "schreiner-in-fur-kuchenmontage-sta-personal-ag-schaffhausen",
-        "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-schaffhausen-schaffhausen"
+        "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3238,7 +3238,7 @@
         ],
         "fr": [
           "schreiner-in-fur-kuchenmontage-sta-personal-ag-schaffhausen",
-          "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-schaffhausen-schaffhausen"
+          "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-schaffhausen"
         ]
       },
       "salaryMin": 57500,
@@ -31616,12 +31616,12 @@
     },
     {
       "id": "sta-cb8f56b23493",
-      "slug": "montage-elektriker-in-per-lichtsignalanlagen-sta-personal-ag-dietikon",
+      "slug": "elettricista-di-montaggio-per-impianti-semaforici-sta-personal-ag-dietikon-zurich",
       "slugByLocale": {
         "de": "montage-elektriker-in-fur-lichtsignalanlagen-dietikon-zurich-sta-ch",
-        "it": "montage-elektriker-in-per-lichtsignalanlagen-sta-personal-ag-dietikon",
-        "en": "montage-elektriker-in-fur-lichtsignalanlagen-sta-personal-ag-dietikon",
-        "fr": "montage-elektriker-in-fur-lichtsignalanlagen-sta-personal-ag-dietikon"
+        "it": "elettricista-di-montaggio-per-impianti-semaforici-sta-personal-ag-dietikon-zurich",
+        "en": "assembly-electrician-for-traffic-signal-systems-sta-personal-ag-dietikon-zurich",
+        "fr": "electricien-ne-de-montage-pour-installations-de-signalisation-lumineuse-sta-personal-ag-dietikon-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -31667,11 +31667,20 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "montage-elektriker-in-fur-lichtsignalanlagen-dietikon-zurich-sta-ch"
+        "montage-elektriker-in-fur-lichtsignalanlagen-dietikon-zurich-sta-ch",
+        "montage-elektriker-in-per-lichtsignalanlagen-sta-personal-ag-dietikon",
+        "montage-elektriker-in-fur-lichtsignalanlagen-sta-personal-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montage-elektriker-in-fur-lichtsignalanlagen-dietikon-zurich-sta-ch"
+          "montage-elektriker-in-fur-lichtsignalanlagen-dietikon-zurich-sta-ch",
+          "montage-elektriker-in-per-lichtsignalanlagen-sta-personal-ag-dietikon"
+        ],
+        "en": [
+          "montage-elektriker-in-fur-lichtsignalanlagen-sta-personal-ag-dietikon"
+        ],
+        "fr": [
+          "montage-elektriker-in-fur-lichtsignalanlagen-sta-personal-ag-dietikon"
         ]
       },
       "salaryMin": 83000,
@@ -41235,7 +41244,7 @@
       "slug": "lavoratori-di-metalli-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "it": "lavoratori-di-metalli-sta-personal-ag-zurich-zurich",
-        "en": "metalworker-sta-personal-ag-zurich",
+        "en": "metalworkers-sta-personal-ag-zurich-zurich",
         "de": "metallbauer-in-monteur-in-zurich-zurich-sta-ch",
         "fr": "metaux-sta-personal-ag-zurich-zurich"
       },
@@ -41282,7 +41291,7 @@
       "previousSlugs": [
         "metallbauer-in-monteur-in-zurich-zurich-sta-ch",
         "metallbauer-in-monteur-in-sta-personal-ag-zurich",
-        "metalworkers-sta-personal-ag-zurich-zurich"
+        "metalworker-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -41290,7 +41299,7 @@
         ],
         "en": [
           "metallbauer-in-monteur-in-sta-personal-ag-zurich",
-          "metalworkers-sta-personal-ag-zurich-zurich"
+          "metalworker-sta-personal-ag-zurich"
         ],
         "fr": [
           "metallbauer-in-monteur-in-sta-personal-ag-zurich"
@@ -71075,8 +71084,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-neuinstallationen-und-unterhaltsarbeiten-luzern-luzern-sta-ch",
         "it": "installatore-trice-elettrico-a-in-per-neuinstallationen-e-unterhaltsarbeiten-sta-personal-ag-luzern",
-        "en": "elektroinstallateur-in-fur-neuinstallationen-und-unterhaltsarbeiten-luzern-luzern-sta-ch",
-        "fr": "elektroinstallateur-in-fur-neuinstallationen-und-unterhaltsarbeiten-luzern-luzern-sta-ch"
+        "en": "electrical-installer-fur-neuinstallationen-und-unterhaltsarbeiten-sta-personal-ag-luzern-luzern",
+        "fr": "installateur-trice-electricien-ne-fur-neuinstallationen-und-unterhaltsarbeiten-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -71123,6 +71132,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-neuinstallationen-und-unterhaltsarbeiten-luzern-luzern-sta-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-neuinstallationen-und-unterhaltsarbeiten-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-neuinstallationen-und-unterhaltsarbeiten-luzern-luzern-sta-ch"
         ]
       },
@@ -71883,7 +71898,7 @@
         "de": "elektroinstallateur-in-fur-neu-und-umbauten-andelfingen-zurich-sta-ch",
         "it": "installatore-trice-elettrico-a-in-per-neu-e-umbauten-sta-personal-ag-andelfingen",
         "en": "new-and-conversion-electrical-installers-sta-personal-ag-andelfingen-zurich",
-        "fr": "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-andelfingen"
+        "fr": "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-andelfingen-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -71934,7 +71949,7 @@
         "electrical-installer-for-new-builds-and-renovations-sta-personal-ag-andelfingen-zurich",
         "installateur-trice-electricien-ne-pour-constructions-neuves-et-transformations-sta-personal-ag-andelfingen-zurich",
         "elektroinstallateur-in-fur-neu-und-umbauten-andelfingen-zurich-sta-ch",
-        "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-andelfingen-zurich"
+        "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-andelfingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -71948,7 +71963,7 @@
           "electricien-ne-pour-les-constructions-neuves-et-les-transformations-sta-personal-ag-andelfingen",
           "elektroinstallateur-in-fur-neu-und-umbauten-sta-personal-ag-andelfingen",
           "installateur-trice-electricien-ne-pour-constructions-neuves-et-transformations-sta-personal-ag-andelfingen-zurich",
-          "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-andelfingen-zurich"
+          "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-andelfingen"
         ]
       },
       "salaryMin": 83000,
@@ -72374,7 +72389,7 @@
         "it": "installatori-elettrici-sta-personal-ag-luzern-luzern",
         "en": "electrical-installers-sta-personal-ag-luzern-luzern",
         "de": "elektroinstallateur-in-fur-ladenbau-luzern-luzern-sta-ch",
-        "fr": "installateur-trice-electricien-ne-pour-l-agencement-de-magasins-sta-personal-ag-luzern"
+        "fr": "installateurs-electriques-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -72419,7 +72434,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-ladenbau-luzern-luzern-sta-ch",
         "installateur-trice-electricien-ne-fur-ladenbau-sta-personal-ag-luzern",
-        "installateurs-electriques-sta-personal-ag-luzern-luzern"
+        "installateur-trice-electricien-ne-pour-l-agencement-de-magasins-sta-personal-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -72427,7 +72442,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-ladenbau-sta-personal-ag-luzern",
-          "installateurs-electriques-sta-personal-ag-luzern-luzern"
+          "installateur-trice-electricien-ne-pour-l-agencement-de-magasins-sta-personal-ag-luzern"
         ]
       },
       "salaryMin": 78500,
@@ -99644,7 +99659,7 @@
         "it": "installatore-trice-elettrico-a-in-per-wohn-gewerbe-e-industrieinstallationen-sta-personal-ag-lenzburg",
         "en": "residential-commercial-and-industrial-electrical-installers-sta-personal-ag-lenzburg-aargau",
         "de": "elektroinstallateur-in-fur-wohn-gewerbe-und-industrieinstallationen-lenzburg-aargau-sta-ch",
-        "fr": "installateur-trice-electricien-ne-pour-installations-residentielles-commerciales-et-industrielles-sta-personal-ag-lenzburg"
+        "fr": "installateurs-electriques-residentiels-commerciaux-et-industriels-sta-personal-ag-lenzburg-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -99689,7 +99704,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-wohn-gewerbe-und-industrieinstallationen-lenzburg-aargau-sta-ch",
         "installateur-trice-electricien-ne-fur-wohn-gewerbe-und-industrieinstallationen-sta-personal-ag-lenzburg",
-        "installateurs-electriques-residentiels-commerciaux-et-industriels-sta-personal-ag-lenzburg-aargau"
+        "installateur-trice-electricien-ne-pour-installations-residentielles-commerciales-et-industrielles-sta-personal-ag-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -99697,7 +99712,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-wohn-gewerbe-und-industrieinstallationen-sta-personal-ag-lenzburg",
-          "installateurs-electriques-residentiels-commerciaux-et-industriels-sta-personal-ag-lenzburg-aargau"
+          "installateur-trice-electricien-ne-pour-installations-residentielles-commerciales-et-industrielles-sta-personal-ag-lenzburg"
         ]
       },
       "salaryMin": 72500,
@@ -107333,8 +107348,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen",
         "it": "installatore-trice-elettrico-a-in-con-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen",
-        "en": "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen",
-        "fr": "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen"
+        "en": "electrical-installer-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen-aargau",
+        "fr": "installateur-trice-electricien-ne-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -107385,10 +107400,17 @@
         ],
         "de": [
           "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-zofingen-aargau-sta-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen"
+        ],
+        "fr": [
+          "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-zofingen-aargau-sta-ch"
+        "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-zofingen-aargau-sta-ch",
+        "elektroinstallateur-in-mit-erfahrung-im-serviceeinsatz-sta-personal-ag-zofingen"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -113527,7 +113549,7 @@
         "it": "carpenter-con-talento-organizzativo-sta-personal-ag-luzern-luzern",
         "en": "carpenter-with-organizational-talent-sta-personal-ag-luzern-luzern",
         "de": "schreiner-in-mit-organisationstalent-luzern-luzern-sta-ch",
-        "fr": "menuisier-ere-ayant-le-sens-de-l-organisation-sta-personal-ag-luzern"
+        "fr": "charpentier-avec-talent-organisationnel-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -113572,7 +113594,7 @@
       "previousSlugs": [
         "schreiner-in-mit-organisationstalent-luzern-luzern-sta-ch",
         "schreiner-in-mit-organisationstalent-sta-personal-ag-luzern",
-        "charpentier-avec-talent-organisationnel-sta-personal-ag-luzern-luzern"
+        "menuisier-ere-ayant-le-sens-de-l-organisation-sta-personal-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -113580,7 +113602,7 @@
         ],
         "fr": [
           "schreiner-in-mit-organisationstalent-sta-personal-ag-luzern",
-          "charpentier-avec-talent-organisationnel-sta-personal-ag-luzern-luzern"
+          "menuisier-ere-ayant-le-sens-de-l-organisation-sta-personal-ag-luzern"
         ]
       },
       "salaryMin": 69500,
@@ -135806,86 +135828,6 @@
         }
       },
       "postalCode": "4800",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "sta-ff49cb901622",
-      "slug": "maler-in-per-renovationen-sta-personal-ag-horgen",
-      "slugByLocale": {
-        "it": "maler-in-per-renovationen-sta-personal-ag-horgen",
-        "en": "painter-for-renovations-sta-personal-ag-horgen-zurich",
-        "de": "maler-in-fur-renovationen-horgen-zurich-sta-ch",
-        "fr": "peintre-pour-renovations-sta-personal-ag-horgen-zurich"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Maler/in für Renovationen",
-      "titleByLocale": {
-        "it": "Pittore per ristrutturazioni",
-        "en": "Painter for renovations",
-        "de": "Maler/in für Renovationen",
-        "fr": "Peintre pour rénovations"
-      },
-      "description": "An Innen- und Aussenflächen kannst du dein handwerkliches Können einsetzen und hochwertige Oberflächen gestalten. Der Betrieb legt Wert auf sorgfältige Vorbereitung und hat spannende Projekte mit modernen Werkzeugen im Portfolio. Du profitierst von einem tollen Team und einer sicheren Festanstellung. Für unseren Auftraggeber suchen wir eine/n\nTätigkeiten\n- Innen- und Außenanstriche an Gebäuden\n- Vorbereiten von Untergründen (Spachteln, Schleifen, Grundieren)\n- Tapezierarbeiten\n- Lackieren von Türen, Fenstern und anderen Bauteilen\n- Ausführen von dekorativen Maltechniken\n- Schutz- und Abdeckarbeiten\n- Einhaltung von Sicherheits- und Qualitätsvorschriften\nAnforderungen\n- Abgeschlossene Ausbildung als Maler/in EFZ oder vergleichbare Qualifikation\n- Erfahrung im Neu- und Umbau sowie bei Renovationen\n- Selbstständige und sorgfältige Arbeitsweise\n- Handwerkliches Geschick und körperliche Belastbarkeit\n- Teamfähigkeit und Zuverlässigkeit\n- Führerausweis Kategorie B von Vorteil\nAngebot\n- Modernes Werkzeug\n- Tolles Team\n- Sichere Festanstellung\n- Spannende Projekte",
-      "descriptionByLocale": {
-        "it": "Su superfici interne ed esterne è possibile utilizzare l'artigianato e progettare superfici di alta qualità. L'azienda attribuisce importanza alla preparazione attenta e ha entusiasmanti progetti con strumenti moderni nel suo portafoglio. Si beneficia di una grande squadra e un lavoro permanente sicuro. Per il nostro cliente stiamo cercando un\nAttività\n- Interni ed esterni dipinti di edifici\n- Preparazione di substrati (riempimento, macinazione, priming)\n- Carta da parati\n- Pittura di porte, finestre e altri componenti\n- Eseguire tecniche di pittura decorative\n- Lavori di protezione e di copertura\n- Rispetto della sicurezza e della qualità\nRequisiti\n- Formazione completa come pittore o qualifica equivalente\n- Esperienza in nuove costruzioni e ristrutturazioni\n- Metodi di lavoro autonomi e attenti\n- Artigianato e resilienza fisica\n- Lavoro di squadra e affidabilità\n- La patente di guida della categoria B è vantaggiosa\nOfferta\n- Strumenti moderni\n- Grande squadra\n- Occupazione permanente\n- Progetti emozionanti",
-        "en": "On interior and exterior surfaces you can use your craftsmanship and design high-quality surfaces. The company attaches importance to careful preparation and has exciting projects with modern tools in its portfolio. You benefit from a great team and a secure permanent job. For our client we are looking for a\nActivities\n- Interior and exterior paintings of buildings\n- Preparation of substrates (filling, grinding, priming)\n- Wallpaperwork\n- Painting of doors, windows and other components\n- Performing decorative painting techniques\n- Protective and covering work\n- Compliance with safety and quality regulations\nRequirements\n- Completed training as a painter or equivalent qualification\n- Experience in new construction and renovations\n- Self-employed and careful working methods\n- Craftsmanship and physical resilience\n- Teamwork and reliability\n- Category B driving licence is advantageous\nOffer\n- Modern tools\n- Great team\n- Secure permanent employment\n- Exciting projects",
-        "de": "An Innen- und Aussenflächen kannst du dein handwerkliches Können einsetzen und hochwertige Oberflächen gestalten. Der Betrieb legt Wert auf sorgfältige Vorbereitung und hat spannende Projekte mit modernen Werkzeugen im Portfolio. Du profitierst von einem tollen Team und einer sicheren Festanstellung. Für unseren Auftraggeber suchen wir eine/n\nTätigkeiten\n- Innen- und Außenanstriche an Gebäuden\n- Vorbereiten von Untergründen (Spachteln, Schleifen, Grundieren)\n- Tapezierarbeiten\n- Lackieren von Türen, Fenstern und anderen Bauteilen\n- Ausführen von dekorativen Maltechniken\n- Schutz- und Abdeckarbeiten\n- Einhaltung von Sicherheits- und Qualitätsvorschriften\nAnforderungen\n- Abgeschlossene Ausbildung als Maler/in EFZ oder vergleichbare Qualifikation\n- Erfahrung im Neu- und Umbau sowie bei Renovationen\n- Selbstständige und sorgfältige Arbeitsweise\n- Handwerkliches Geschick und körperliche Belastbarkeit\n- Teamfähigkeit und Zuverlässigkeit\n- Führerausweis Kategorie B von Vorteil\nAngebot\n- Modernes Werkzeug\n- Tolles Team\n- Sichere Festanstellung\n- Spannende Projekte",
-        "fr": "Sur les surfaces intérieures et extérieures, vous pouvez utiliser votre savoir-faire et concevoir des surfaces de haute qualité. L'entreprise attache de l'importance à une préparation soignée et a des projets passionnants avec des outils modernes dans son portefeuille. Vous bénéficiez d'une excellente équipe et d'un emploi permanent sécurisé. Pour notre client, nous cherchons\nActivités\n- Peintures intérieures et extérieures de bâtiments\n- Préparation des substrats (remplissage, broyage, apprêtage)\n- Papier peint\n- Peinture des portes, fenêtres et autres éléments\n- Réalisation de techniques de peinture décorative\n- Travaux de protection et de couverture\n- Respect des règles de sécurité et de qualité\nExigences\n- Formation complétée en tant que peintre ou qualification équivalente\n- Expérience dans les nouvelles constructions et rénovations\n- Travailleurs indépendants et méthodes de travail prudentes\n- Artisanat et résilience physique\n- Travail d'équipe et fiabilité\n- Le permis de conduire de catégorie B est avantageux\nOffre\n- Outils modernes\n- Grande équipe\n- Assurer un emploi permanent\n- Projets passionnants"
-      },
-      "location": "Horgen, Zürich",
-      "canton": "ZH",
-      "url": "https://www.sta.jobs/stellen/maler-in-horgen-dauerstelle-111247/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-28T23:01:09.478Z",
-      "addressLocality": "Horgen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T00:00:00+02:00",
-      "postedDate": "2026-10-02T00:00:00+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.sta.jobs/stellen/maler-in-horgen-dauerstelle-111247/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-renovationen-horgen-zurich-sta-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-renovationen-horgen-zurich-sta-ch"
-        ],
-        "en": [
-          "maler-in-fur-renovationen-horgen-zurich-sta-ch"
-        ],
-        "fr": [
-          "maler-in-fur-renovationen-horgen-zurich-sta-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:57:18.783Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8810",
       "crawlerMissStreak": 2
     },
     {

@@ -1,7 +1,7 @@
 {
   "key": "cereneo",
   "label": "Cereneo",
-  "generatedAt": "2026-10-31T21:20:42.958Z",
+  "generatedAt": "2026-11-01T09:14:21.204Z",
   "total": 13,
   "discovered": null,
   "parsed": 13,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 9319,
-  "avgDurationMs": 9319,
+  "durationMs": 9370,
+  "avgDurationMs": 9370,
   "durationHistory": [
-    9319
+    9370
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/72f97d28-0cf9-40a7-a6f5-d2dcf5de31c0/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:27.544Z",
+      "crawledAt": "2026-11-01T09:14:11.308Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -59,12 +59,16 @@
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Weggis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:14:11.308Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -80,7 +84,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/36b90089-e903-4c1a-9b85-4434fd0b44f6/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:27.116Z",
+      "crawledAt": "2026-11-01T09:14:10.812Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -101,12 +105,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Weggis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:14:10.812Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -122,7 +130,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/c8705b31-bcaf-4258-90d1-e1f7dd6487b3/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:26.684Z",
+      "crawledAt": "2026-11-01T09:14:10.305Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -143,12 +151,16 @@
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Weggis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:14:10.305Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -163,7 +175,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/4dffd14f-970c-45c3-afbb-e142e3f0447b/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:26.245Z",
+      "crawledAt": "2026-11-01T09:14:09.792Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -184,12 +196,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Weggis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:14:09.792Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -205,7 +221,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/ffaa9e26-ec92-47f3-8a57-fc99775590cc/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:25.807Z",
+      "crawledAt": "2026-11-01T09:14:09.275Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -226,12 +242,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Weggis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T09:14:09.275Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -247,7 +267,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/b303bafb-11ef-4528-8d6d-c499c28e527d/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:25.349Z",
+      "crawledAt": "2026-11-01T09:14:08.778Z",
       "addressLocality": "Vitznau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -268,12 +288,16 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Vitznau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:14:08.778Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -289,7 +313,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/8fd59027-87ef-462f-943a-12eb7e93508a/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:24.883Z",
+      "crawledAt": "2026-11-01T09:14:08.263Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -310,12 +334,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Weggis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-21T09:14:08.263Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -331,7 +359,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/d77dfdbc-8360-433d-9264-5605bf7899cc/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:24.465Z",
+      "crawledAt": "2026-11-01T09:14:07.771Z",
       "addressLocality": "Vitznau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -352,12 +380,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Vitznau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:14:07.771Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -372,7 +404,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/acb6791c-6db5-42b5-94a3-e50a3c44eda5/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:24.025Z",
+      "crawledAt": "2026-11-01T09:14:07.265Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -393,12 +425,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Weggis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:14:07.265Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -414,7 +450,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/18f4dfef-73bb-4877-afae-b5209428c208/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:23.563Z",
+      "crawledAt": "2026-11-01T09:14:06.756Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -435,12 +471,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Weggis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:14:06.756Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -455,7 +495,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/4340bd57-b4e8-4287-be41-368d12b28fe9/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:23.133Z",
+      "crawledAt": "2026-11-01T09:14:06.243Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -476,12 +516,16 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Weggis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:14:06.243Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -497,7 +541,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/657510bb-8bfc-4558-99cc-495a2c449964/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:22.685Z",
+      "crawledAt": "2026-11-01T09:14:05.740Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -518,12 +562,16 @@
       "salaryMin": 70200,
       "salaryMax": 97800,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Weggis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-22T09:14:05.740Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -539,7 +587,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/1ed80bac-4c09-40c7-8cf2-a6a602a2c844/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:22.215Z",
+      "crawledAt": "2026-11-01T09:14:05.224Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -560,14 +608,18 @@
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Weggis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T09:14:05.224Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

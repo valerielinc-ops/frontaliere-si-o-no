@@ -1,7 +1,7 @@
 {
   "crawlerKey": "trafigura",
-  "assembledAt": "2026-10-31T21:37:54.706Z",
-  "runId": "41242099764",
+  "assembledAt": "2026-11-01T09:16:39.904Z",
+  "runId": "41291723109",
   "jobs": [
     {
       "id": "trafigura-674732b4e044",
@@ -34,7 +34,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Analyst--Americas-Oil-2_R-017068",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:37:48.995Z",
+      "crawledAt": "2026-11-01T09:16:30.068Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -99,7 +99,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:30.068Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "trafigura-01401977788d",
@@ -132,7 +136,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Manager---Oil-products_R-017868",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:37:48.208Z",
+      "crawledAt": "2026-11-01T09:16:29.269Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -173,7 +177,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:29.269Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "trafigura-fec554f5b2cc",
@@ -207,7 +215,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/CTRM-Business-Architect_R-018081",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:37:47.320Z",
+      "crawledAt": "2026-11-01T09:16:28.456Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -248,7 +256,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:16:28.456Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "trafigura-4ef4cc69d9a1",
@@ -282,7 +294,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Business-Developer_R-018703",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:37:46.521Z",
+      "crawledAt": "2026-11-01T09:16:27.637Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -323,7 +335,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:16:27.637Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "trafigura-339b6ed93797",
@@ -357,7 +373,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Investigations-Officer_R-018720",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:37:45.572Z",
+      "crawledAt": "2026-11-01T09:16:26.827Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -404,7 +420,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:16:26.827Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "trafigura-efd489167225",
@@ -437,7 +457,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Trade-Finance--Automation-Lead_R-018841",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:37:44.854Z",
+      "crawledAt": "2026-11-01T09:16:25.991Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -481,7 +501,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:16:25.991Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "trafigura-d0463e7e9737",
@@ -514,7 +538,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Crude-Trader_R-018866",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:37:44.035Z",
+      "crawledAt": "2026-11-01T09:16:25.043Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -562,7 +586,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:16:25.043Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "trafigura-e3f9a6c7fc0d",
@@ -596,7 +624,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Commercial-Manager--Carbon-Upstream_R-018926",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:37:43.309Z",
+      "crawledAt": "2026-11-01T09:16:24.325Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -643,7 +671,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-25T09:16:24.325Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

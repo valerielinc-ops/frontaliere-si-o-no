@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-gut",
-  "assembledAt": "2026-10-31T22:09:10.171Z",
-  "runId": "41242534428",
+  "assembledAt": "2026-11-01T09:25:06.553Z",
+  "runId": "41292128544",
   "jobs": [
     {
       "id": "klinik-gut-4367-59b216f06dc4",
@@ -35,7 +35,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:09:04.276Z",
+      "crawledAt": "2026-11-01T09:25:01.009Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -86,16 +86,20 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Chur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:01.009Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-gut-1581-00c45976f0f5",
       "slug": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
       "slugByLocale": {
         "it": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
-        "en": "election-year-pj-sub-assistants-klinik-gut-ag-flasch",
+        "en": "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
         "de": "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-        "fr": "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
+        "fr": "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
@@ -120,7 +124,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:09:04.274Z",
+      "crawledAt": "2026-11-01T09:25:01.006Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -141,18 +145,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-        "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
-        "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
+        "election-year-pj-sub-assistants-klinik-gut-ag-flasch",
+        "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch"
         ],
         "en": [
-          "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch"
+          "election-year-pj-sub-assistants-klinik-gut-ag-flasch"
         ],
         "fr": [
-          "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
+          "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
@@ -168,7 +172,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fläsch",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:01.006Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-gut-1575-03ea5beb51fc",
@@ -201,7 +209,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:09:04.272Z",
+      "crawledAt": "2026-11-01T09:25:01.003Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -243,7 +251,11 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Fläsch",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:25:01.003Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-gut-4447-3a3d9a8bf4b5",
@@ -277,7 +289,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4447",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:09:04.270Z",
+      "crawledAt": "2026-11-01T09:25:01.000Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -327,7 +339,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Gut AG",
+        "streetAddress": "Via Paracelsus 2a",
+        "postalCode": "7500",
+        "addressLocality": "St. Moritz",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:49:26.863Z"
+      },
+      "streetAddress": "Via Paracelsus 2a",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:25:01.000Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-gut-2110-1176e329961f",
@@ -361,7 +387,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T22:09:04.257Z",
+      "crawledAt": "2026-11-01T09:25:00.979Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -401,7 +427,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Gut AG",
+        "streetAddress": "Via Paracelsus 2a",
+        "postalCode": "7500",
+        "addressLocality": "St. Moritz",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:49:26.863Z"
+      },
+      "streetAddress": "Via Paracelsus 2a",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:25:00.979Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

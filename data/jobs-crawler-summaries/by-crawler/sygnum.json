@@ -1,7 +1,7 @@
 {
   "key": "sygnum",
   "label": "Sygnum Bank",
-  "generatedAt": "2026-10-31T21:31:23.365Z",
+  "generatedAt": "2026-11-01T09:40:21.587Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 12720,
-  "avgDurationMs": 12720,
+  "durationMs": 14144,
+  "avgDurationMs": 14144,
   "durationHistory": [
-    12720
+    14144
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN296",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:00.057Z",
+      "crawledAt": "2026-11-01T09:40:02.893Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -60,6 +60,9 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-04T09:40:02.893Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,7 +83,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN283",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:30:59.417Z",
+      "crawledAt": "2026-11-01T09:40:01.689Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -103,6 +106,9 @@
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-03T09:40:01.689Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -123,7 +129,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:30:55.654Z",
+      "crawledAt": "2026-11-01T09:39:56.622Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -146,6 +152,9 @@
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:39:56.622Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -166,7 +175,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:30:55.055Z",
+      "crawledAt": "2026-11-01T09:39:55.890Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -189,6 +198,9 @@
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:39:55.890Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -209,7 +221,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:30:54.461Z",
+      "crawledAt": "2026-11-01T09:39:54.777Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -232,6 +244,9 @@
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:39:54.777Z",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -241,5 +256,5 @@
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

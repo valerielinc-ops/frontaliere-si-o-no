@@ -364,11 +364,18 @@ it('does not create a candidate request when the real reduction contains no ques
 it.each([false, true])('preserves a real document request and hard question without manufacturing answers: %s', async withQuestion => {
   const question = { id: 'permit', source: 'portal', type: 'choice', question: 'Do you hold a Swiss work permit?', applicationQuestion: 'Do you hold a Swiss work permit?', options: ['Yes', 'No'], required: true };
   const requirements = { questions: withQuestion ? [question] : [], documents: [{ id: 'diploma', label: 'Diploma', required: true }] };
-  const codex = vi.fn();
+  const codex = vi.fn(async (_request: any) => ({ questions: [{
+    id: 'permit', sourceLocale: 'en', question: 'Do you hold a Swiss work permit?', why: '',
+    options: ['Yes', 'No'], optionMap: [{ candidate: 'Yes', application: 'Yes' }, { candidate: 'No', application: 'No' }], validationMessage: '',
+  }] }));
   const request = await portalRequirementsForCandidate(requirements, { candidateLocale: 'en', applicationLocale: 'en', codex });
-  expect(request).toEqual(requirements);
+  expect(request.documents).toEqual(requirements.documents);
+  expect(request.questions).toHaveLength(withQuestion ? 1 : 0);
+  if (withQuestion) expect(request.questions[0]).toMatchObject({
+    question: 'Do you hold a Swiss work permit?', applicationQuestionLocale: 'en', localizationStatus: 'same_language',
+  });
   expect(request).not.toHaveProperty('answers');
-  expect(codex).not.toHaveBeenCalled();
+  expect(codex).toHaveBeenCalledTimes(withQuestion ? 1 : 0);
 });
 
 it('never treats an unreadable required field as an empty resolved reduction', async () => {
@@ -417,11 +424,107 @@ it('hands off an unreadable required field during the real pre-read before trans
   expect(await readPortalQuestions(ctx)).toEqual([]); // The legacy question-only caller stays safe.
 });
 
-it('uses the actual source question if localization returns only a generic placeholder', async () => {
-  const result = await localizePortalQuestions([{ id: 'q', question: 'Your current employer?', applicationQuestion: 'Your current employer?', options: [] }], {
-    candidateLocale: 'it', applicationLocale: 'en', codex: async () => ({ questions: [{ id: 'q', question: PORTAL_QUESTION_PLACEHOLDERS.it, why: '', options: [], optionMap: [], validationMessage: '' }] }),
+it('detects the ATS question language even when the posting language matches the candidate locale', async () => {
+  const question = 'Aus welcher Region stammt dein letzter Wohnort?';
+  let prompt = '';
+  const codex = vi.fn(async (request: any) => {
+    prompt = request.prompt;
+    return { questions: [{
+      id: 'region', sourceLocale: 'de', question: 'Da quale regione proviene la tua ultima residenza?',
+      why: 'Scegli la regione di provenienza.', options: ['Ticino', 'Resto della Svizzera'],
+      optionMap: [
+        { candidate: 'Ticino', application: 'Tessin' },
+        { candidate: 'Resto della Svizzera', application: 'Übrige Schweiz' },
+      ], validationMessage: '',
+    }] };
   });
-  expect(result[0].question).toBe('Your current employer?');
+  const result = await localizePortalQuestions([{
+    id: 'region', question, applicationQuestion: question, type: 'choice', required: true,
+    options: ['Tessin', 'Übrige Schweiz'], applicationOptions: ['Tessin', 'Übrige Schweiz'],
+  }], { candidateLocale: 'it', applicationLocale: 'it', codex });
+  expect(codex).toHaveBeenCalledOnce();
+  expect(prompt).toContain('may be wrong for the ATS form');
+  expect(result[0]).toMatchObject({
+    question: 'Da quale regione proviene la tua ultima residenza?',
+    applicationQuestion: question,
+    applicationQuestionLocale: 'de',
+    localizationStatus: 'translated',
+    options: ['Ticino', 'Resto della Svizzera'],
+    optionMap: [
+      { candidate: 'Ticino', application: 'Tessin' },
+      { candidate: 'Resto della Svizzera', application: 'Übrige Schweiz' },
+    ],
+  });
+});
+
+it('shows a fallback instead of marking a question translated when the ATS options were not translated', async () => {
+  const question = 'Welche Region ist dein Herkunftskanton?';
+  const applicationOptions = ['Tessin', 'Übrige Schweiz'];
+  const result = await localizePortalQuestions([{
+    id: 'region', question, applicationQuestion: question, type: 'choice', required: true,
+    options: applicationOptions, applicationOptions,
+  }], {
+    candidateLocale: 'it', applicationLocale: 'it', codex: async () => ({ questions: [{
+      id: 'region', sourceLocale: 'de', question: 'Qual è il tuo cantone di provenienza?',
+      why: 'Seleziona il cantone.', options: [], optionMap: [], validationMessage: '',
+    }] }),
+  });
+  expect(result[0]).toMatchObject({
+    question,
+    applicationQuestion: question,
+    applicationQuestionLocale: 'de',
+    applicationOptions,
+    options: applicationOptions,
+    localizationStatus: 'fallback',
+  });
+});
+
+it('keeps the exact ATS question and marks a placeholder translation as a visible fallback', async () => {
+  const question = 'Welche Region ist dein Herkunftskanton?';
+  const result = await localizePortalQuestions([{ id: 'q', question, applicationQuestion: question, options: [] }], {
+    candidateLocale: 'it', applicationLocale: 'it', codex: async () => ({ questions: [{
+      id: 'q', sourceLocale: 'de', question: PORTAL_QUESTION_PLACEHOLDERS.it, why: '', options: [], optionMap: [], validationMessage: '',
+    }] }),
+  });
+  expect(result[0]).toMatchObject({
+    question,
+    applicationQuestion: question,
+    applicationQuestionLocale: 'de',
+    localizationStatus: 'fallback',
+    why: 'Il portale richiede questa informazione.',
+  });
+});
+
+it('uses the readable ATS question when applicationQuestion contains a generic placeholder', async () => {
+  const question = 'Welche Region ist dein Herkunftskanton?';
+  const result = await localizePortalQuestions([{
+    id: 'q', question, applicationQuestion: PORTAL_QUESTION_PLACEHOLDERS.it, options: [],
+  }], {
+    candidateLocale: 'it', applicationLocale: 'it', codex: async () => ({ questions: [{
+      id: 'q', sourceLocale: 'de', question: PORTAL_QUESTION_PLACEHOLDERS.it,
+      why: '', options: [], optionMap: [], validationMessage: '',
+    }] }),
+  });
+  expect(result[0]).toMatchObject({
+    question,
+    applicationQuestion: question,
+    applicationQuestionLocale: 'de',
+    localizationStatus: 'fallback',
+  });
+});
+
+it('marks the original locale unknown when localization fails and never invents a translated question', async () => {
+  const question = 'Welche Region ist dein Herkunftskanton?';
+  const result = await localizePortalQuestions([{ id: 'q', question, applicationQuestion: question, options: [] }], {
+    candidateLocale: 'it', applicationLocale: 'it', codex: vi.fn().mockRejectedValue(new Error('translation unavailable')),
+  });
+  expect(result[0]).toMatchObject({
+    question,
+    applicationQuestion: question,
+    applicationQuestionLocale: null,
+    localizationStatus: 'fallback',
+    why: 'Il portale richiede questa informazione.',
+  });
 });
 
 const placeholder = { id: 'unreadable', source: 'portal', question: PORTAL_QUESTION_PLACEHOLDERS.it, applicationQuestion: '', required: true, type: 'text' };

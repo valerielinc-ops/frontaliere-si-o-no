@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sicpa",
-  "assembledAt": "2026-10-31T21:36:13.046Z",
-  "runId": "41243030322",
+  "assembledAt": "2026-11-01T09:39:07.008Z",
+  "runId": "41292611758",
   "jobs": [
     {
       "id": "sicpa-ea09f5b30d7a",
@@ -34,7 +34,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Sovereign-Data-Program-Intern/1445306733/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:36:05.113Z",
+      "crawledAt": "2026-11-01T09:39:01.202Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -74,7 +74,11 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Prilly",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:39:01.202Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sicpa-f0148cc868ea",
@@ -108,7 +112,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Business-Architect/1436219133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:36:04.603Z",
+      "crawledAt": "2026-11-01T09:39:00.659Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -148,7 +152,11 @@
           "maxValue": 92000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Prilly",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:39:00.659Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sicpa-3811aa4d831e",
@@ -181,7 +189,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1448503333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:36:04.082Z",
+      "crawledAt": "2026-11-01T09:39:00.085Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -231,7 +239,11 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Chavornay",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-14T09:39:00.085Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sicpa-a2dcc505f2a7",
@@ -265,7 +277,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Embedded-Software-Engineer/1433097433/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:36:03.558Z",
+      "crawledAt": "2026-11-01T09:38:59.516Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -304,7 +316,11 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Prilly",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-20T09:38:59.516Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sicpa-02d786a66886",
@@ -338,7 +354,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Senior-Patent-Counsel/1448011633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:36:02.548Z",
+      "crawledAt": "2026-11-01T09:38:58.421Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -386,7 +402,11 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Prilly",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T09:38:58.421Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sicpa-83b163de8760",
@@ -419,7 +439,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1409947133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:36:02.046Z",
+      "crawledAt": "2026-11-01T09:38:57.868Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -465,7 +485,11 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Chavornay",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:38:57.868Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sicpa-3fdbfe3608f5",
@@ -498,7 +522,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Op%C3%A9rateur-de-logistique-confirm%C3%A9/1400431333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-31T21:36:01.511Z",
+      "crawledAt": "2026-11-01T09:38:57.294Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -538,7 +562,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Chavornay",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-26T09:38:57.294Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sicpa-056572e48981",
@@ -572,7 +600,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technical-Coordinator/1404844633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:36:01.010Z",
+      "crawledAt": "2026-11-01T09:38:56.730Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -633,7 +661,11 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Prilly",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T09:38:56.730Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sicpa-ee4544be3e45",
@@ -666,7 +698,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Principal-Software-Engineer-Mobile-SDK-Tooling-&-On%E2%80%91Device-Computer-Vision-%28iOSAndroid%29/1393025833/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:36:00.481Z",
+      "crawledAt": "2026-11-01T09:38:56.173Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -706,7 +738,11 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddress": "Prilly",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-02T09:38:56.173Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kantonsspital-uri",
-  "assembledAt": "2026-10-31T21:33:47.246Z",
-  "runId": "41243030322",
+  "assembledAt": "2026-11-01T09:41:46.079Z",
+  "runId": "41292611758",
   "jobs": [
     {
       "id": "kantonsspital-uri-a7ca34ef560a",
@@ -35,7 +35,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Innere-Medizin-de-j34.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:40.669Z",
+      "crawledAt": "2026-11-01T09:41:39.803Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -88,7 +88,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:39.803Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-1d9b044c4b95",
@@ -121,7 +124,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Gynaekologie-und-Geburtshilfe-de-j37.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:40.102Z",
+      "crawledAt": "2026-11-01T09:41:39.197Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -162,7 +165,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:39.197Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-1e645156bde0",
@@ -196,7 +202,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Chirurgie-und-Orthopaedie-de-j35.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:39.538Z",
+      "crawledAt": "2026-11-01T09:41:38.605Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -239,7 +245,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:38.605Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-9fa1416bad40",
@@ -273,7 +282,7 @@
       "url": "https://stellen.ksuri.ch/Physiotherapeutin-mit-Zusatzfunktion-als-Berufsbildnerin-w-de-j409.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:39.086Z",
+      "crawledAt": "2026-11-01T09:41:38.144Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -306,7 +315,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-21T09:41:38.144Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-f16a011f5e45",
@@ -339,7 +351,7 @@
       "url": "https://stellen.ksuri.ch/Physiotherapeutin-wmd-70-100-de-j433.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:38.606Z",
+      "crawledAt": "2026-11-01T09:41:37.667Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -409,7 +421,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-27T09:41:37.667Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-eb3cfbf27411",
@@ -442,7 +457,7 @@
       "url": "https://stellen.ksuri.ch/Oberaerztin-arzt-Innere-Medizin-mit-Facharzt-Intensivmediz-de-j391.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:38.116Z",
+      "crawledAt": "2026-11-01T09:41:37.193Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -536,7 +551,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T09:41:37.193Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-70088df38b48",
@@ -569,7 +587,7 @@
       "url": "https://stellen.ksuri.ch/Mitarbeiterin-Service-Excellence-Restaurant-wmd-60-de-j437.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:37.534Z",
+      "crawledAt": "2026-11-01T09:41:36.569Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -610,7 +628,10 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-24T09:41:36.569Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-4e686551b44b",
@@ -643,7 +664,7 @@
       "url": "https://stellen.ksuri.ch/Leitender-aerztinArzt-Innere-Medizin-mit-Facharzt-Intensiv-de-j429.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:37.079Z",
+      "crawledAt": "2026-11-01T09:41:36.082Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -724,7 +745,10 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-07T09:41:36.082Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-8322aca65c12",
@@ -758,7 +782,7 @@
       "url": "https://stellen.ksuri.ch/Leitende-aerztin-Leitender-Arzt-Gastroenterologie-60-100-w-de-j426.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:36.503Z",
+      "crawledAt": "2026-11-01T09:41:35.480Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -805,7 +829,10 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:41:35.480Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-43f6c0fafa74",
@@ -839,7 +866,7 @@
       "url": "https://stellen.ksuri.ch/Fachperson-Operationstechnik-HF-wmd-80-100-de-j143.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:36.019Z",
+      "crawledAt": "2026-11-01T09:41:35.000Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -883,7 +910,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:35.000Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-c401a7b24736",
@@ -917,7 +947,7 @@
       "url": "https://stellen.ksuri.ch/Fachperson-Gesundheit-FaGe-wmd-40-100-de-j399.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:35.418Z",
+      "crawledAt": "2026-11-01T09:41:34.393Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -964,7 +994,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-24T09:41:34.393Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-7224ec0ce90a",
@@ -998,7 +1031,7 @@
       "url": "https://stellen.ksuri.ch/Fachperson-Betriebsunterhalt-wmd-80-100-de-j430.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:34.946Z",
+      "crawledAt": "2026-11-01T09:41:33.894Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1045,7 +1078,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:33.894Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-74ac3a3fa4ba",
@@ -1079,7 +1115,7 @@
       "url": "https://stellen.ksuri.ch/Expert-in-Intensivpflege-NDS-HF-wmd-60-100-de-j347.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:34.479Z",
+      "crawledAt": "2026-11-01T09:41:33.385Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1151,7 +1187,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:33.385Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-6c7924dd5dd2",
@@ -1184,7 +1223,7 @@
       "url": "https://stellen.ksuri.ch/Dipl-Pflegefachperson-FH-mit-Fachverantwortung-Akutpflege--de-j369.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:33.905Z",
+      "crawledAt": "2026-11-01T09:41:32.767Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1256,7 +1295,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-24T09:41:32.767Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-498c4b0ff693",
@@ -1289,7 +1331,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplaetze-Pflegefachfrau-mann-HF-wmd-100-de-j59.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:33.428Z",
+      "crawledAt": "2026-11-01T09:41:32.172Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1354,7 +1396,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:32.172Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-7e58366f9e86",
@@ -1388,7 +1433,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Radiologiefachperson-HF-wmd-100-de-j397.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:32.930Z",
+      "crawledAt": "2026-11-01T09:41:31.690Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1432,7 +1477,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-30T09:41:31.690Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-e2ee8cd497c2",
@@ -1466,7 +1514,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Experte-in-Anaesthesiepflege-NDS-HF-wmd-1-de-j407.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:32.443Z",
+      "crawledAt": "2026-11-01T09:41:31.173Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1507,7 +1555,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:31.173Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-ab1fd160c612",
@@ -1541,7 +1592,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Dipl-FachfrauFachmann-Operationstechnik-H-de-j213.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:31.844Z",
+      "crawledAt": "2026-11-01T09:41:30.534Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1582,7 +1633,10 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:30.534Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-1583b4a43e32",
@@ -1616,7 +1670,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Experte-in-Intensivpflege-NDS-HF-wmd-60-1-de-j210.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:31.261Z",
+      "crawledAt": "2026-11-01T09:41:29.922Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1663,7 +1717,10 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T09:41:29.922Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-db45079c262e",
@@ -1697,7 +1754,7 @@
       "url": "https://stellen.ksuri.ch/Assistenzaerztin-Assistenzarzt-Allgemeine-Innere-Medizin-w-de-j222.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:30.650Z",
+      "crawledAt": "2026-11-01T09:41:29.309Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1738,7 +1795,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:29.309Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kantonsspital-uri-72323daeec06",
@@ -1771,7 +1831,7 @@
       "url": "https://stellen.ksuri.ch/Assistenzaerztin-Assistenzarzt-Gynaekologie-und-Geburtshil-de-j402.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:33:30.039Z",
+      "crawledAt": "2026-11-01T09:41:28.688Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1812,7 +1872,10 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-01T09:41:28.688Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

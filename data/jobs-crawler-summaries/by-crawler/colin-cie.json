@@ -1,16 +1,16 @@
 {
   "key": "colin-cie",
   "label": "colin-cie",
-  "generatedAt": "2026-10-31T21:29:56.779Z",
+  "generatedAt": "2026-11-01T09:20:35.718Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 5876,
-  "avgDurationMs": 5876,
+  "durationMs": 5432,
+  "avgDurationMs": 5432,
   "durationHistory": [
-    5876
+    5432
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,11 +37,11 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:20:17.042Z",
       "salaryMin": 77500,
       "salaryMax": 104500,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "postalCode": "8001",
       "id": "colin-cie-fb2e46c97d69",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
@@ -49,13 +49,15 @@
       "sourceIdentity": "url:https://www.colin-cie.com/de/karriere/wm-berater-ch-zuerich-07-2024",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T21:29:38.515Z",
-      "_qualityScore": 92,
+      "crawledAt": "2026-11-01T09:20:17.042Z",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -79,11 +81,11 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:20:17.735Z",
       "salaryMin": 77500,
       "salaryMax": 104500,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Schaffhausen",
       "postalCode": "8200",
       "id": "colin-cie-adcd3df17efa",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
@@ -91,13 +93,15 @@
       "sourceIdentity": "url:https://www.colin-cie.com/de/karriere/wm-berater-re-schaffhausen-07-2024",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T21:29:39.644Z",
-      "_qualityScore": 92,
+      "crawledAt": "2026-11-01T09:20:17.735Z",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -121,7 +125,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:20:18.424Z",
       "salaryMin": 77500,
       "salaryMax": 104500,
       "currency": "CHF",
@@ -134,7 +138,9 @@
       "sourceIdentity": "url:https://www.colin-cie.com/de/karriere/wm-berater-regionale-kunden-lugano-09-2024",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T21:29:40.341Z",
+      "crawledAt": "2026-11-01T09:20:18.424Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -164,11 +170,11 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:20:19.118Z",
       "salaryMin": 77500,
       "salaryMax": 104500,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "postalCode": "8001",
       "id": "colin-cie-235463b5b28f",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
@@ -177,13 +183,15 @@
       "sourceIdentity": "url:https://www.colin-cie.com/de/karriere/wm-berater-nl-zuerich-07-2024",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T21:29:41.050Z",
-      "_qualityScore": 92,
+      "crawledAt": "2026-11-01T09:20:19.118Z",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -207,7 +215,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:20:19.807Z",
       "salaryMin": 77500,
       "salaryMax": 104500,
       "currency": "CHF",
@@ -220,7 +228,9 @@
       "sourceIdentity": "url:https://www.colin-cie.com/de/karriere/wm-berater-norditalien-lugano-09-2024",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T21:29:41.761Z",
+      "crawledAt": "2026-11-01T09:20:19.807Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -250,11 +260,11 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "",
+      "validThrough": "2026-12-01T09:20:20.497Z",
       "salaryMin": 77500,
       "salaryMax": 104500,
       "currency": "CHF",
-      "streetAddress": "",
+      "streetAddress": "Zürich",
       "postalCode": "8001",
       "id": "colin-cie-e1022f4d588f",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
@@ -263,15 +273,17 @@
       "sourceIdentity": "url:https://www.colin-cie.com/de/karriere/wm-berater-de-zuerich-07-2024",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-31T21:29:42.453Z",
-      "_qualityScore": 92,
+      "crawledAt": "2026-11-01T09:20:20.497Z",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

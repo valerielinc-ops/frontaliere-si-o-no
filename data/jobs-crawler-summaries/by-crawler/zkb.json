@@ -1,43 +1,41 @@
 {
   "key": "zkb",
   "label": "Zürcher Kantonalbank",
-  "generatedAt": "2026-10-31T21:21:26.313Z",
-  "total": 59,
+  "generatedAt": "2026-11-01T09:16:50.497Z",
+  "total": 60,
   "discovered": null,
-  "parsed": 60,
+  "parsed": 61,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 59,
+  "written": 60,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 59,
-  "durationMs": 33134,
-  "avgDurationMs": 33134,
+  "durationMs": 36841,
+  "avgDurationMs": 36841,
   "durationHistory": [
-    33134
+    36841
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [
+  "newJobs": [
     {
-      "id": "zkb-72f71843b2ea",
-      "slug": "fullstack-devops-ingegnere-m-w-d-zurcher-kantonalbank-zurich-c90236",
+      "id": "zkb-82ceebd575dd",
+      "slug": "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich",
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
       "companyDomain": "zkb.ch",
-      "title": "Fullstack DevOps Engineer (m/w/d)",
-      "needsRetranslation": false,
+      "title": "Senior Product Manager / Business Engineer ServiceNow (m/w/d)",
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11432/pub/2",
+      "url": "https://apply.refline.ch/792841/11410/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:17:06.332Z",
+      "crawledAt": "2026-11-01T09:16:31.663Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,75 +48,33 @@
       "sector": "Finanza / Banca",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-12T12:28:50.187744+00:00",
-      "postedDate": "2026-10-12T12:28:50.187744+00:00",
+      "datePosted": "2026-10-02T14:16:19.153764+00:00",
+      "postedDate": "2026-10-02T14:16:19.153764+00:00",
       "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11432/pub/2",
-      "externalId": "11432",
+      "applyUrl": "https://apply.refline.ch/792841/11410/pub/3",
+      "externalId": "11410",
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-10-12T21:14:26.323Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
+      "salaryMin": 124000,
+      "salaryMax": 173000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-01T09:16:31.663Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-01T09:16:31.663Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "zkb-7cefe9d2287b",
-      "slug": "consulenti-privati-dei-clienti-zurcher-kantonalbank-adliswil",
-      "company": "Zürcher Kantonalbank",
-      "companyKey": "zkb",
-      "companyDomain": "zkb.ch",
-      "title": "Kundenberater:in Privatkunden",
-      "needsRetranslation": false,
-      "location": "Adliswil",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11254/pub/1",
-      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-30T09:16:50.434Z",
-      "addressLocality": "Adliswil",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8134",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-01T11:10:23.890346+00:00",
-      "postedDate": "2026-07-01T11:10:23.890346+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11254/pub/1",
-      "externalId": "11254",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "firstSeenAt": "2026-07-06T22:14:40.119Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "translation": 21,
+        "completeness": 25
       }
     }
   ],
+  "updatedJobs": [],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "zkb-ee08ff1a8d65",
@@ -133,7 +89,7 @@
       "url": "https://apply.refline.ch/792841/11453/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:09.606Z",
+      "crawledAt": "2026-11-01T09:16:31.187Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -158,12 +114,16 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-29T09:16:31.187Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -178,7 +138,7 @@
       "url": "https://apply.refline.ch/792841/11444/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:09.187Z",
+      "crawledAt": "2026-11-01T09:16:30.708Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -203,12 +163,16 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-21T09:16:30.708Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -224,7 +188,7 @@
       "url": "https://apply.refline.ch/792841/11407/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:08.768Z",
+      "crawledAt": "2026-11-01T09:16:30.231Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,12 +213,16 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Meilen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T09:16:30.231Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -270,7 +238,7 @@
       "url": "https://apply.refline.ch/792841/11413/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:08.346Z",
+      "crawledAt": "2026-11-01T09:16:29.740Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -295,12 +263,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-04T09:16:29.740Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -315,7 +287,7 @@
       "url": "https://apply.refline.ch/792841/11451/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:07.927Z",
+      "crawledAt": "2026-11-01T09:16:29.264Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -340,12 +312,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-27T09:16:29.264Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -361,7 +337,7 @@
       "url": "https://apply.refline.ch/792841/11441/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:07.508Z",
+      "crawledAt": "2026-11-01T09:16:28.787Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -386,12 +362,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-19T09:16:28.787Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -407,7 +387,7 @@
       "url": "https://apply.refline.ch/792841/11427/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:07.086Z",
+      "crawledAt": "2026-11-01T09:16:28.309Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -432,12 +412,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-08T09:16:28.309Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -453,7 +437,7 @@
       "url": "https://apply.refline.ch/792841/11429/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:06.668Z",
+      "crawledAt": "2026-11-01T09:16:27.829Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -478,12 +462,16 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-10T09:16:27.829Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -499,7 +487,7 @@
       "url": "https://apply.refline.ch/792841/11449/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:05.829Z",
+      "crawledAt": "2026-11-01T09:16:26.876Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -524,12 +512,16 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-25T09:16:26.876Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -545,7 +537,7 @@
       "url": "https://apply.refline.ch/792841/11446/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:05.409Z",
+      "crawledAt": "2026-11-01T09:16:26.399Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -570,12 +562,16 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-21T09:16:26.399Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -590,7 +586,7 @@
       "url": "https://apply.refline.ch/792841/11443/pub/4",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:04.965Z",
+      "crawledAt": "2026-11-01T09:16:25.921Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -615,12 +611,16 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-21T09:16:25.921Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -635,7 +635,7 @@
       "url": "https://apply.refline.ch/792841/11264/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:03.925Z",
+      "crawledAt": "2026-11-01T09:16:25.439Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -659,12 +659,16 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-01T09:16:25.439Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -679,7 +683,7 @@
       "url": "https://apply.refline.ch/792841/11447/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:03.506Z",
+      "crawledAt": "2026-11-01T09:16:24.103Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -704,12 +708,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-21T09:16:24.103Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -725,7 +733,7 @@
       "url": "https://apply.refline.ch/792841/11445/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:03.089Z",
+      "crawledAt": "2026-11-01T09:16:23.622Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -750,12 +758,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-21T09:16:23.622Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -770,7 +782,7 @@
       "url": "https://apply.refline.ch/792841/11383/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:02.668Z",
+      "crawledAt": "2026-11-01T09:16:23.143Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -795,12 +807,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-24T09:16:23.143Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -816,7 +832,7 @@
       "url": "https://apply.refline.ch/792841/11440/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:02.250Z",
+      "crawledAt": "2026-11-01T09:16:22.660Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -841,12 +857,16 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Küsnacht",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T09:16:22.660Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -861,7 +881,7 @@
       "url": "https://apply.refline.ch/792841/11349/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:01.769Z",
+      "crawledAt": "2026-11-01T09:16:22.172Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -886,12 +906,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2026-12-04T09:16:22.172Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -907,7 +931,7 @@
       "url": "https://apply.refline.ch/792841/11438/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:01.348Z",
+      "crawledAt": "2026-11-01T09:16:21.694Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -932,12 +956,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-15T09:16:21.694Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -952,7 +980,7 @@
       "url": "https://apply.refline.ch/792841/11416/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:00.927Z",
+      "crawledAt": "2026-11-01T09:16:21.218Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -977,12 +1005,16 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-06T09:16:21.218Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -998,7 +1030,7 @@
       "url": "https://apply.refline.ch/792841/11436/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:00.507Z",
+      "crawledAt": "2026-11-01T09:16:20.737Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1023,12 +1055,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-14T09:16:20.737Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1044,7 +1080,7 @@
       "url": "https://apply.refline.ch/792841/11434/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:21:00.080Z",
+      "crawledAt": "2026-11-01T09:16:20.259Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1069,12 +1105,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-12T09:16:20.259Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1090,7 +1130,7 @@
       "url": "https://apply.refline.ch/792841/11421/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:59.662Z",
+      "crawledAt": "2026-11-01T09:16:19.779Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1115,12 +1155,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-07T09:16:19.779Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1135,7 +1179,7 @@
       "url": "https://apply.refline.ch/792841/11431/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:59.241Z",
+      "crawledAt": "2026-11-01T09:16:19.300Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1160,12 +1204,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-11T09:16:19.300Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1181,7 +1229,7 @@
       "url": "https://apply.refline.ch/792841/11425/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:58.809Z",
+      "crawledAt": "2026-11-01T09:16:18.821Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1206,12 +1254,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-08T09:16:18.821Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1227,7 +1279,7 @@
       "url": "https://apply.refline.ch/792841/11430/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:58.343Z",
+      "crawledAt": "2026-11-01T09:16:18.344Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1252,12 +1304,16 @@
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-10T09:16:18.344Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1273,7 +1329,7 @@
       "url": "https://apply.refline.ch/792841/11423/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:57.921Z",
+      "crawledAt": "2026-11-01T09:16:17.868Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1298,12 +1354,16 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-07T09:16:17.868Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1319,7 +1379,7 @@
       "url": "https://apply.refline.ch/792841/11424/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:57.499Z",
+      "crawledAt": "2026-11-01T09:16:17.389Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1344,12 +1404,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Meilen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-07T09:16:17.389Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1365,7 +1429,7 @@
       "url": "https://apply.refline.ch/792841/11422/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:57.077Z",
+      "crawledAt": "2026-11-01T09:16:16.908Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1390,12 +1454,16 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-07T09:16:16.908Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1411,7 +1479,7 @@
       "url": "https://apply.refline.ch/792841/11418/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:56.659Z",
+      "crawledAt": "2026-11-01T09:16:16.429Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1436,12 +1504,16 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-06T09:16:16.429Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -1457,7 +1529,7 @@
       "url": "https://apply.refline.ch/792841/11417/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-31T21:20:56.241Z",
+      "crawledAt": "2026-11-01T09:16:15.951Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1481,14 +1553,18 @@
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "streetAddress": "Bahnhofstrasse 9",
+      "streetAddressSource": "curated-company-city",
+      "validThrough": "2027-01-06T09:16:15.951Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

@@ -1,7 +1,7 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-10-31T22:07:29.624Z",
+  "generatedAt": "2026-11-01T09:41:40.590Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3507,
-  "avgDurationMs": 3507,
+  "durationMs": 3541,
+  "avgDurationMs": 3541,
   "durationHistory": [
-    3507
+    3541
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T22:07:15.125Z",
+      "crawledAt": "2026-11-01T09:41:24.340Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -58,14 +58,18 @@
       "salaryMin": 31000,
       "salaryMax": 39000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "streetAddress": "Champfèr",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T09:41:24.340Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

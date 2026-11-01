@@ -1,7 +1,7 @@
 {
   "key": "apple-retail-switzerland",
   "label": "Apple Retail Switzerland",
-  "generatedAt": "2026-10-31T21:32:30.929Z",
+  "generatedAt": "2026-11-01T09:22:32.045Z",
   "total": 24,
   "discovered": null,
   "parsed": 24,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 24,
-  "durationMs": 41336,
-  "avgDurationMs": 41336,
+  "durationMs": 49411,
+  "avgDurationMs": 49411,
   "durationHistory": [
-    41336
+    49411
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617889/aiml-apple-foundation-models-senior-ml-research-scientist-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:16.695Z",
+      "crawledAt": "2026-11-01T09:22:12.633Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -58,12 +58,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:22:12.633Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -78,7 +92,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:15.201Z",
+      "crawledAt": "2026-11-01T09:22:10.950Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -99,12 +113,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 94,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:22:10.950Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -119,7 +147,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:13.733Z",
+      "crawledAt": "2026-11-01T09:22:08.991Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -140,12 +168,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:22:08.991Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -160,7 +202,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:11.289Z",
+      "crawledAt": "2026-11-01T09:22:06.802Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -181,12 +223,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 92,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:22:06.802Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -201,7 +257,7 @@
       "url": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:09.950Z",
+      "crawledAt": "2026-11-01T09:22:04.768Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -222,12 +278,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:22:04.768Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -242,7 +312,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664779/aiml-machine-learning-researcher-mlr?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:08.802Z",
+      "crawledAt": "2026-11-01T09:22:03.091Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,12 +333,16 @@
       "salarySource": "estimated",
       "postalCode": "1003",
       "addressRegion": "VD",
-      "_qualityScore": 90,
+      "streetAddress": "Lausanne",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:22:03.091Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -283,7 +357,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664795/aiml-research-scientist-health?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:07.467Z",
+      "crawledAt": "2026-11-01T09:22:01.441Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -304,12 +378,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:22:01.441Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -324,7 +412,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672455/research-scientist-llm-efficiency?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:05.898Z",
+      "crawledAt": "2026-11-01T09:21:59.540Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -345,12 +433,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 94,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:21:59.540Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -365,7 +467,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672941/research-scientist-engineer-special-projects?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:04.400Z",
+      "crawledAt": "2026-11-01T09:21:57.946Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -386,12 +488,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:21:57.946Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -406,7 +522,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:02.860Z",
+      "crawledAt": "2026-11-01T09:21:56.079Z",
       "addressLocality": "Dietlikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -427,12 +543,16 @@
       "salarySource": "estimated",
       "postalCode": "8305",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "streetAddress": "Dietlikon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:56.079Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -447,7 +567,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679630/aiml-foundation-model-post-training-research-scientist?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:32:01.003Z",
+      "crawledAt": "2026-11-01T09:21:54.225Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -468,12 +588,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:21:54.225Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -488,7 +622,7 @@
       "url": "https://jobs.apple.com/en-us/details/200680814/staff-machine-learning-engineer-siri-runtime-systems-and-interaction?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:59.022Z",
+      "crawledAt": "2026-11-01T09:21:52.837Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -509,12 +643,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-01T09:21:52.837Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -529,7 +677,7 @@
       "url": "https://jobs.apple.com/en-us/details/200683178/aiml-machine-learning-researcher-multimodal-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:56.776Z",
+      "crawledAt": "2026-11-01T09:21:51.003Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -550,12 +698,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-11T09:21:51.003Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -570,7 +732,7 @@
       "url": "https://jobs.apple.com/en-us/details/200684066/channel-communications-manager-switzerland?team=SLDEV",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:54.809Z",
+      "crawledAt": "2026-11-01T09:21:49.337Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -591,12 +753,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-16T09:21:49.337Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -611,7 +787,7 @@
       "url": "https://jobs.apple.com/en-us/details/200686336/internship-computer-vision-machine-learning-research?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:53.486Z",
+      "crawledAt": "2026-11-01T09:21:47.957Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -632,12 +808,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-29T09:21:47.957Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -652,7 +842,7 @@
       "url": "https://jobs.apple.com/en-us/details/200686571/internship-computer-vision-machine-learning-research-llm-efficiency?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:52.064Z",
+      "crawledAt": "2026-11-01T09:21:46.182Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -673,12 +863,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 94,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-30T09:21:46.182Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -693,7 +897,7 @@
       "url": "https://jobs.apple.com/en-us/details/200685890/senior-ios-engineer-creativity-apps?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:50.707Z",
+      "crawledAt": "2026-11-01T09:21:44.159Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -714,12 +918,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-05T09:21:44.159Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -734,7 +952,7 @@
       "url": "https://jobs.apple.com/en-us/details/200687755/machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:49.298Z",
+      "crawledAt": "2026-11-01T09:21:42.133Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -755,12 +973,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-06T09:21:42.133Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -775,7 +1007,7 @@
       "url": "https://jobs.apple.com/en-us/details/200685035/internship-machine-learning-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:47.777Z",
+      "crawledAt": "2026-11-01T09:21:40.356Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -796,12 +1028,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-12T09:21:40.356Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -816,7 +1062,7 @@
       "url": "https://jobs.apple.com/en-us/details/200688770/vulnerability-researcher-sear?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:46.339Z",
+      "crawledAt": "2026-11-01T09:21:38.554Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -837,12 +1083,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-13T09:21:38.554Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -857,7 +1117,7 @@
       "url": "https://jobs.apple.com/en-us/details/200690121/human-centric-modeling-internship?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:44.948Z",
+      "crawledAt": "2026-11-01T09:21:36.789Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -878,12 +1138,26 @@
       "salarySource": "estimated",
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 94,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Apple Retail Switzerland",
+        "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+        "postalCode": "8001",
+        "addressLocality": "Zurich",
+        "addressRegion": "ZH",
+        "checkedAt": "2026-10-31T20:47:43.354Z"
+      },
+      "streetAddress": "c/o TMF Services SA, Zürich branch\nTalstrasse 83",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-18T09:21:36.789Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 25
       }
     },
     {
@@ -898,7 +1172,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438011/ch-operations-expert-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:43.573Z",
+      "crawledAt": "2026-11-01T09:21:34.668Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -917,12 +1191,16 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "streetAddress": "Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:34.668Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -937,7 +1215,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438204/ch-technical-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:42.015Z",
+      "crawledAt": "2026-11-01T09:21:31.398Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -956,12 +1234,16 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "streetAddress": "Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:31.398Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -976,7 +1258,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438017/ch-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-31T21:31:40.565Z",
+      "crawledAt": "2026-11-01T09:21:29.766Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -995,14 +1277,18 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "streetAddress": "Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T09:21:29.766Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

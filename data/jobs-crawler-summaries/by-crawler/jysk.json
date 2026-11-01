@@ -1,20 +1,99 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-10-31T21:51:47.216Z",
-  "total": 52,
+  "generatedAt": "2026-11-01T09:20:00.695Z",
+  "total": 50,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 52,
-  "durationMs": 83327,
-  "avgDurationMs": 83327,
+  "removedCount": 2,
+  "unchangedCount": 50,
+  "durationMs": 85749,
+  "avgDurationMs": 85749,
   "durationHistory": [
-    83327
+    85749
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "company-nxmvx0",
+      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-wadenswil-jysk-wadenswil-nxmvx0",
+      "company": "JYSK",
+      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Wädenswil",
+      "location": "Wädenswil",
+      "canton": "ZH",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-waedenswil",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-09-01T23:14:38.936Z",
+      "firstSeenAt": "2026-08-05T22:43:56.633Z",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "addressLocality": "Wädenswil",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "ZH",
+      "salarySource": "reported",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-waedenswil",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "postalCode": "8820",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "company-57jnh4",
+      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-widnau-heerbrugg-au-jysk-widnau-57jnh4",
+      "company": "JYSK",
+      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Widnau-Heerbrugg-Au",
+      "location": "Widnau",
+      "canton": "SG",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-widnau-heerbrugg-au",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-09-01T23:14:38.936Z",
+      "firstSeenAt": "2026-07-30T22:22:51.016Z",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "addressLocality": "Widnau",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "SG",
+      "salarySource": "reported",
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-widnau-heerbrugg-au",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "postalCode": "9443",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "id": "company-w76zez",
@@ -45,12 +124,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "4500",
-      "_qualityScore": 92,
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -82,12 +165,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "4665",
-      "_qualityScore": 92,
+      "streetAddress": "Oftringen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -119,12 +206,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "4500",
-      "_qualityScore": 92,
+      "streetAddress": "Solothurn",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -156,12 +247,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "3052",
-      "_qualityScore": 92,
+      "streetAddress": "Zollikofen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -193,12 +288,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "4900",
-      "_qualityScore": 92,
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -230,12 +329,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "3627",
-      "_qualityScore": 92,
+      "streetAddress": "Heimberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -267,12 +370,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "4900",
-      "_qualityScore": 92,
+      "streetAddress": "Langenthal",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -304,12 +411,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 92,
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -341,12 +452,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "3627",
-      "_qualityScore": 92,
+      "streetAddress": "Heimberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-10T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -378,12 +493,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "3052",
-      "_qualityScore": 92,
+      "streetAddress": "Zollikofen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -415,12 +534,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8580",
-      "_qualityScore": 92,
+      "streetAddress": "Amriswil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-07T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -452,12 +575,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "4133",
-      "_qualityScore": 92,
+      "streetAddress": "Pratteln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -489,12 +616,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "4133",
-      "_qualityScore": 92,
+      "streetAddress": "Pratteln",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-08T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -526,12 +657,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "9466",
-      "_qualityScore": 92,
+      "streetAddress": "Sennwald",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-04T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -563,12 +698,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "7323",
-      "_qualityScore": 92,
+      "streetAddress": "Vilters-Wangs",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -600,12 +739,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "7323",
-      "_qualityScore": 92,
+      "streetAddress": "Vilters-Wangs",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-03T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -637,12 +780,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8853",
-      "_qualityScore": 92,
+      "streetAddress": "Lachen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -674,12 +821,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8340",
-      "_qualityScore": 92,
+      "streetAddress": "Hinwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -711,12 +862,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8400",
-      "_qualityScore": 92,
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-11T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -748,13 +903,17 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "5400",
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-30T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
-      "_qualityScore": 92,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -786,12 +945,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8370",
-      "_qualityScore": 92,
+      "streetAddress": "Sirnach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-30T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -823,12 +986,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "3250",
-      "_qualityScore": 92,
+      "streetAddress": "Lyss",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-30T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -861,12 +1028,26 @@
       "postingDateSource": "unknown",
       "postalCode": "4800",
       "retranslationAttempts": 0,
-      "_qualityScore": 92,
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "JYSK",
+        "streetAddress": "Untere Brühlstrasse 4",
+        "postalCode": "4800",
+        "addressLocality": "Zofingen",
+        "addressRegion": "AG",
+        "checkedAt": "2026-10-31T20:49:30.556Z"
+      },
+      "streetAddress": "Untere Brühlstrasse 4",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-11-30T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -898,12 +1079,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6210",
-      "_qualityScore": 92,
+      "streetAddress": "Sursee",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-26T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -935,12 +1120,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "7270",
-      "_qualityScore": 92,
+      "streetAddress": "Davos Platz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-26T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -972,12 +1161,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6370",
-      "_qualityScore": 92,
+      "streetAddress": "Stans",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-24T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1009,12 +1202,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8952",
-      "_qualityScore": 92,
+      "streetAddress": "Schlieren",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-02T13:58:03.674Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1046,12 +1243,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8400",
-      "_qualityScore": 92,
+      "streetAddress": "Winterthur",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-01T23:12:13.778Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1083,12 +1284,16 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "6467",
-      "_qualityScore": 92,
+      "streetAddress": "Schattdorf",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-18T23:12:13.778Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     },
     {
@@ -1120,14 +1325,18 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8800",
-      "_qualityScore": 92,
+      "streetAddress": "Thalwil",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-11-17T23:12:13.778Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "e168f970d147d40c7738d1ce3aafcb74e7311e15"
+  "codeCommit": "044718753ee5e36b7b652a7b054192a921790283"
 }

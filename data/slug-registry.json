@@ -562249,7 +562249,8 @@
     "slugByLocale": {
       "it": "online-campaign-manager-ref-1102-corner-banca-lugano",
       "fr": "gestionnaire-de-campagne-en-ligne-ref-1102-corner-banca-lugano",
-      "de": "online-kampagnenmanager-ref-1102-corner-banca-lugano"
+      "de": "online-kampagnenmanager-ref-1102-corner-banca-lugano",
+      "en": "online-campaign-manager-ref-1102-corner-banca-lugano"
     },
     "createdAt": "2026-08-26",
     "canton": "TI"
@@ -963743,7 +963744,9 @@
     "canonicalSlug": "fi-administration-business-support-rif-1116-1136-corner-banca-lugano-55d7c64e0b",
     "slugByLocale": {
       "it": "fi-administration-business-support-rif-1116-1136-corner-banca-lugano-55d7c64e0b",
-      "en": "fi-administration-e-business-support-100-ref-1116-1136-1138-corner-banca-lugano"
+      "en": "fi-administration-e-business-support-100-ref-1116-1136-1138-corner-banca-lugano",
+      "de": "fi-verwaltung-und-unternehmensunterstutzung-ref-1116-1136-corner-banca-lugano-252124",
+      "fr": "fi-administration-et-soutien-aux-entreprises-ref-1116-1136-corner-banca-lugano-252124"
     },
     "createdAt": "2026-10-29",
     "canton": "TI"
@@ -971260,7 +971263,9 @@
   "id|liebherr.com|1453039033": {
     "canonicalSlug": "young-talent-hr-business-partnering-m-f-x-liebherr-bulle",
     "slugByLocale": {
-      "en": "young-talent-hr-business-partnering-m-f-x-liebherr-bulle"
+      "en": "young-talent-hr-business-partnering-m-f-x-liebherr-bulle",
+      "it": "giovane-talento-hr-business-partnering-m-f-x-liebherr-bulle",
+      "fr": "jeune-talent-partenariat-rh-h-f-x-liebherr-bulle"
     },
     "createdAt": "2026-10-31",
     "canton": "FR"
@@ -971268,7 +971273,10 @@
   "id|liebherr.com|1452975533": {
     "canonicalSlug": "young-talent-predevelopment-m-w-x-liebherr-bulle",
     "slugByLocale": {
-      "en": "young-talent-predevelopment-m-w-x-liebherr-bulle"
+      "en": "young-talent-predevelopment-m-w-x-liebherr-bulle",
+      "it": "giovani-talenti-presviluppo-m-f-x-liebherr-bulle",
+      "de": "junge-talente-vorentwicklung-m-w-x-liebherr-bulle",
+      "fr": "jeunes-talents-predeveloppement-h-f-x-liebherr-bulle"
     },
     "createdAt": "2026-10-31",
     "canton": "FR"
@@ -972187,9 +972195,58 @@
     "canonicalSlug": "leiter-risorse-umane-altishofen-a-galliker-transport-ag-altishofen",
     "slugByLocale": {
       "de": "leiter-hr-altishofen-a-galliker-altishofen",
-      "it": "leiter-risorse-umane-altishofen-a-galliker-transport-ag-altishofen"
+      "it": "leiter-risorse-umane-altishofen-a-galliker-transport-ag-altishofen",
+      "en": "head-of-hr-altishofen-a-galliker-transport-ag-altishofen",
+      "fr": "responsable-rh-altishofen-a-galliker-transport-ag-altishofen"
     },
     "createdAt": "2026-10-31",
     "canton": "LU"
+  },
+  "url|https://jobs.corner.ch/o/it-apprenticeship": {
+    "canonicalSlug": "apprendistato-it-corner-banca-switzerland",
+    "slugByLocale": {
+      "it": "apprendistato-it-corner-banca-switzerland",
+      "en": "it-apprenticeship-corner-banca-switzerland",
+      "de": "initiativbewerbung-lehre-corner-banca-switzerland",
+      "fr": "it-apprenticeship-corner-banca-switzerland"
+    },
+    "createdAt": "2026-11-01",
+    "canton": "TI"
+  },
+  "url|https://jobs.corner.ch/o/customer-advisor-100-team-zurich-ref-1133": {
+    "canonicalSlug": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
+    "slugByLocale": {
+      "it": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
+      "en": "customer-advisor-100-team-zurich-ref-1133-corner-banca-wallisellen"
+    },
+    "createdAt": "2026-11-01",
+    "canton": "ZH"
+  },
+  "url|https://jobs.corner.ch/o/customer-advisor-100-team-lugano-1": {
+    "canonicalSlug": "customer-advisor-100-team-lugano-corner-banca-wallisellen",
+    "slugByLocale": {
+      "en": "customer-advisor-100-team-lugano-corner-banca-wallisellen"
+    },
+    "createdAt": "2026-11-01",
+    "canton": "ZH"
+  },
+  "id|liebherr.com|1449471333": {
+    "canonicalSlug": "test-engineer-function-validation-m-f-x-liebherr-bulle",
+    "slugByLocale": {
+      "fr": "test-engineer-function-validation-m-f-x-liebherr-bulle"
+    },
+    "createdAt": "2026-11-01",
+    "canton": "FR"
+  },
+  "id|liebherr.com|1208568501": {
+    "canonicalSlug": "prozessingenieur-m-w-d-zeitmessung-refa-mtm-liebherr-bulle",
+    "slugByLocale": {
+      "it": "prozessingenieur-m-w-d-zeitmessung-refa-mtm-liebherr-bulle",
+      "en": "process-engineer-m-f-x-methods-time-measurement-refa-mtm-liebherr-bulle",
+      "de": "prozessingenieur-m-w-x-zeitmessung-refa-mtm-liebherr-bulle",
+      "fr": "ingenieur-process-h-f-x-methods-time-measurement-liebherr-bulle"
+    },
+    "createdAt": "2026-11-01",
+    "canton": "FR"
   }
 }
