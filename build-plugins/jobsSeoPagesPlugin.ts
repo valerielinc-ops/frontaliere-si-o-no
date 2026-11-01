@@ -393,15 +393,19 @@ type JobSeoLocale = (typeof JOB_SEO_LOCALES)[number];
 type JobRouteTracking = Record<string, Partial<Record<JobSeoLocale, string>>>;
 const normalizedRoutePath = (value: string): string => `/${String(value || '').replace(/^\/+|\/+$/g, '')}/`;
 
-/** Snapshot native ownership before compat aliases overwrite tracking paths. */
+/** Snapshot native ownership for tracking rows eligible for compat overwrite. */
 export function buildNativeJobPrefixIndex(
  tracking: JobRouteTracking,
  localePrefix: Record<JobSeoLocale, string>,
  sectionByLocale: Record<JobSeoLocale, string>,
+ compatEligibleTrackingSlugs?: ReadonlySet<string>,
 ): Map<string, string> {
  const index = new Map<string, string>();
  const prefixes = new Map<string, string>();
- for (const paths of Object.values(tracking)) {
+ for (const trackingSlug in tracking) {
+  if (!Object.prototype.hasOwnProperty.call(tracking, trackingSlug)) continue;
+  if (compatEligibleTrackingSlugs && !compatEligibleTrackingSlugs.has(trackingSlug)) continue;
+  const paths = tracking[trackingSlug];
   for (const locale of JOB_SEO_LOCALES) {
    // IT never consults the snapshot; retain every other locale even in a
    // single-locale build, whose ownership/hreflang passes read foreign paths.
@@ -12721,12 +12725,18 @@ ${staticAnalyticsHtml}
  }
  // Snapshot native non-Ticino registry paths before the compatibility merge
  // below is allowed to overwrite a locale entry with its legacy-TI alias.
- // `tracking[slug][locale]` alone cannot answer whether a legacy path should
- // be emitted: after the merge it is, by definition, equal to the path being
- // rendered. The Worker needs the native path to remain the sole owner of a
- // non-IT job's URL, so both the expired loop and the self-healing fallback use
- // this immutable route index.
- const nativeJobPrefixByLocaleAndSlug = buildNativeJobPrefixIndex(tracking, localePrefix, sectionByLocale);
+ // `currentSlugs` is the merge's overwrite guard; historical tracking rows
+ // cannot be changed there and do not need a native-path snapshot.
+ const nativeJobPrefixByLocaleAndSlug = buildNativeJobPrefixIndex(
+  tracking,
+  localePrefix,
+  sectionByLocale,
+  currentSlugs,
+ );
+ logJobsSeoMem('after-native-route-index', {
+  currentSlugs: currentSlugs.size,
+  nativeJobPrefixEntries: nativeJobPrefixByLocaleAndSlug.size,
+ });
  // Remove search combo slugs from tracking — these are handled by the search
  // combo section, not the job crawler pipeline. They were incorrectly imported
  // from orphan-indexed-job-slugs.json in previous builds.
