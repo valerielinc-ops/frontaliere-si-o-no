@@ -127,6 +127,83 @@ function runExtraOnlyScript(h: Harness, extraPaths: string[]): void {
   });
 }
 
+function runScratchPeakMeasurement(skipPerFileCleanup: boolean): number {
+  const h = initHarness();
+  const shimDir = mkdtempSync(join(tmpdir(), 'gcd-scratch-peak-shim-'));
+  const metricsLog = join(shimDir, 'metrics.tsv');
+  const realRm = execFileSync('which', ['rm'], { encoding: 'utf8' }).trim();
+  const rmShim = join(shimDir, 'rm');
+  const pathOne = 'data/jobs/expired/by-crawler/first.json';
+  const pathTwo = 'data/jobs/expired/by-crawler/second.json';
+  writeFileSync(
+    rmShim,
+    `#!/bin/bash
+set -u
+real_rm=${JSON.stringify(realRm)}
+metrics_log=${JSON.stringify(metricsLog)}
+skip_cleanup=${JSON.stringify(skipPerFileCleanup ? '1' : '0')}
+total_bytes=0
+for merge_dir in /tmp/crawler-commit-merge.*; do
+  [ -d "$merge_dir" ] || continue
+  bytes=$(du -sb -- "$merge_dir" 2>/dev/null | awk '{print $1}')
+  total_bytes=$((total_bytes + \${bytes:-0}))
+done
+printf '%s\\t%s\\n' "$(date +%s%N)" "$total_bytes" >> "$metrics_log"
+if [ "$skip_cleanup" = '1' ]; then
+  cleanup_paths=0
+  for arg in "$@"; do
+    case "$arg" in
+      /tmp/crawler-commit-merge.*/*) cleanup_paths=$((cleanup_paths + 1)) ;;
+    esac
+  done
+  if [ "$cleanup_paths" -ge 5 ]; then exit 0; fi
+fi
+exec "$real_rm" "$@"
+`,
+    { mode: 0o755 },
+  );
+
+  try {
+    for (const [path, crawler] of [[pathOne, 'first'], [pathTwo, 'second']] as const) {
+      writeJson(h.repoDir, path, [{ crawler, phase: 'base' }]);
+    }
+    commitAndPush(h.repoDir, 'seed scratch peak benchmark');
+    for (const [path, crawler] of [[pathOne, 'first'], [pathTwo, 'second']] as const) {
+      writeJson(h.repoDir, path, [{ crawler, phase: 'updated' }]);
+    }
+
+    const result = spawnSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'scratch peak benchmark'], {
+      cwd: h.repoDir,
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: `${shimDir}${delimiter}${process.env.PATH ?? ''}`,
+        JOBS_SLICE_FILE: '',
+        DATA_PIPELINE_LEASE: '0',
+        SKIP_AI_TRANSLATION: '1',
+        SLUG_HISTORY_SUMMARY_FILE: join(h.repoDir, 'no-such-slug-history-summary.txt'),
+        GH_TOKEN: '',
+        GITHUB_TOKEN: '',
+        GITHUB_RUN_ID: '',
+        GITHUB_REPOSITORY: '',
+        GITHUB_OUTPUT: '',
+      },
+    });
+    const output = `${result.stdout}${result.stderr}`;
+    expect(result.status, output).toBe(0);
+
+    const peaks = readFileSync(metricsLog, 'utf8')
+      .split('\n')
+      .filter(Boolean)
+      .map((line) => Number(line.split('\t')[1]));
+    expect(peaks.length).toBeGreaterThan(0);
+    return Math.max(...peaks);
+  } finally {
+    cleanup(h);
+    rmSync(shimDir, { recursive: true, force: true });
+  }
+}
+
 /** Reads a file back from origin/main — i.e. what was actually pushed. */
 function readFromOrigin<T>(h: Harness, relPath: string): T {
   const out = execFileSync('git', ['show', `main:${relPath}`], {
@@ -310,6 +387,13 @@ exec ${JSON.stringify(realRm)} "$@"
       cleanup(h);
       rmSync(shimDir, { recursive: true, force: true });
     }
+  });
+
+  it('keeps peak per-file scratch below the retention baseline for the same batch', () => {
+    const before = runScratchPeakMeasurement(true);
+    const after = runScratchPeakMeasurement(false);
+    console.log(`[scratch-peak] same 2-slice expired batch: before=${before} after=${after} bytes`);
+    expect(after).toBeLessThan(before);
   });
 
   it('preserves concurrent crawler generation ledger appends', () => {
