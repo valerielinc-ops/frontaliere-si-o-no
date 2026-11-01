@@ -310,9 +310,27 @@ describe('application concierge candidate API', () => {
       parentProposalId: 'proposal-1',
       paymentStatus: 'paid',
       submissionStatus: 'awaiting_upload',
+      locale: 'it',
       jobId: 'job-1',
     }));
     expect([...mocks.files].some((path) => path.startsWith('assisted-application-uploads/child-1/'))).toBe(true);
+  });
+
+  it('copies the current validated service locale into the accepted child inside the transaction', async () => {
+    mocks.documents.get('application_concierge_services/service-1')!.locale = 'de';
+    mocks.setCopyHook(() => {
+      const storedService = mocks.documents.get('application_concierge_services/service-1')!;
+      mocks.documents.set('application_concierge_services/service-1', { ...storedService, locale: 'fr' });
+    });
+
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result.status).toBe(200);
+    expect(mocks.documents.get('assisted_applications/child-1')).toEqual(expect.objectContaining({ locale: 'fr' }));
   });
 
   it('rejects a compatible verdict tied to an older CV before copying it', async () => {
