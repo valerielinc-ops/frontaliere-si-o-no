@@ -15,8 +15,8 @@
  *   4. the raw message is stored encrypted (90-day retention), the
  *      classification in `assisted_applications/{id}/inbox`;
  *   5. the message goes to the candidate at once — full text, attachments up to
- *      10 MB, our one-line summary on top, Reply-To set to the recruiter so the
- *      candidate answers them directly;
+ *      10 MB, our one-line summary on top, Reply-To set to the authenticated
+ *      source Reply-To (or the source From) so the candidate answers them directly;
  *   6. an acknowledgement or a reply of the employer settles a submission of
  *      unknown outcome (career-ops: "sent" on the success page OR the
  *      confirmation e-mail): see confirmSubmissionByEmployer.
@@ -34,7 +34,7 @@ import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { brandCallout, brandParagraph, brandSignature, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
 import { customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
 import { decryptJson, encryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
-import { addressOf, parseMimeMessage, senderAuthenticated } from './lib/mimeMessage.js';
+import { addressOf, parseMimeMessage, senderAuthenticated, singleMailboxAddress } from './lib/mimeMessage.js';
 
 export const INBOUND_CATEGORIES = [
   'interview_invite', 'rejection', 'documents_request', 'question', 'assessment',
@@ -613,8 +613,9 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     const { raw } = decryptJson(JSON.parse(Buffer.from(file).toString('utf8')), runKeyFrom(runKey));
     const message = parseMimeMessage(Buffer.from(raw, 'base64'));
     const sender = addressOf(message.from);
+    const sourceFrom = singleMailboxAddress(message.from);
     const rules = readByRules(message);
-    const authenticated = senderAuthenticated(message.headers, sender);
+    const authenticated = Boolean(sourceFrom) && senderAuthenticated(message.headers, sourceFrom);
     let classification;
     let classifiedBy = 'codex';
     try {
@@ -647,7 +648,10 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     else if (to) {
       const { attachments, omittedAttachments } = forwardableAttachments(message.attachments);
       const forward = buildForward({ order, message, classification, sender: sender || message.from, omittedAttachments });
-      const replyTo = sender && sender !== OWNER_MAILBOX && !sender.endsWith('@candidature.frontaliereticino.ch') ? sender : undefined;
+      const sourceReplyTo = authenticated ? singleMailboxAddress(message.replyTo) : '';
+      const replyTo = [sourceReplyTo, sourceFrom].find((address) => address
+        && address !== OWNER_MAILBOX
+        && !address.endsWith('@candidature.frontaliereticino.ch'));
       const company = String(order.companyName || 'Frontaliere Ticino').replace(/["<>\\\r\n]/g, '').slice(0, 60);
       const { failed, sent } = await sendCascade([{
         payload: {

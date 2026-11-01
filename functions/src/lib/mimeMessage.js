@@ -7,12 +7,17 @@
  * leaf parts of (nested) multiparts, base64 / quoted-printable bodies,
  * attachment file names (RFC 2231 and RFC 2047), the first text/plain part (or
  * an HTML part converted to text),
- * and the sender-authentication verdict Cloudflare writes in
- * Authentication-Results. No dependency, so it deploys with the functions.
+ * safe links from HTML alternatives, and the sender-authentication verdict
+ * Cloudflare writes in Authentication-Results. No dependency, so it deploys
+ * with the functions.
  */
+
+import { EMAIL_RE } from './emailValidation.js';
 
 const MAX_PARTS = 40;
 const MAX_DEPTH = 4;
+const MAX_HTML_LINKS_TO_APPEND = 20;
+const MAX_HTML_LINK_LENGTH = 2048;
 
 function splitHeaderBody(raw) {
   const text = typeof raw === 'string' ? raw : Buffer.from(raw).toString('latin1');
@@ -125,32 +130,103 @@ function decodeBody(body, transferEncoding) {
   return Buffer.from(body, 'latin1');
 }
 
-/** Turn an HTML-only message into the text the classifier and the runner need. */
-export function htmlToText(html) {
+function removeNonContentHtml(html) {
   return String(html || '')
     .replace(/<!--[\s\S]*?-->/g, ' ')
-    .replace(/<(?:script|style|head|title|svg|noscript)\b[^>]*>[\s\S]*?<\/(?:script|style|head|title|svg|noscript)>/gi, ' ')
+    .replace(/<(?:script|style|head|title|svg|noscript)\b[^>]*>[\s\S]*?<\/(?:script|style|head|title|svg|noscript)>/gi, ' ');
+}
+
+function decodeHtmlEntity(entity) {
+  const lower = String(entity || '').toLowerCase();
+  if (lower === 'amp') return '&';
+  if (lower === 'lt') return '<';
+  if (lower === 'gt') return '>';
+  if (lower === 'quot') return '"';
+  if (lower === 'apos') return "'";
+  if (lower === 'nbsp') return ' ';
+  const codePoint = lower.startsWith('#x') ? Number.parseInt(lower.slice(2), 16) : Number.parseInt(lower.slice(1), 10);
+  return Number.isSafeInteger(codePoint) && codePoint > 0 && codePoint <= 0x10ffff
+    ? String.fromCodePoint(codePoint)
+    : ' ';
+}
+
+function decodeHtmlEntities(value) {
+  return String(value || '').replace(/&(#x[\da-f]+|#\d+|amp|lt|gt|quot|apos|nbsp);/gi, (_, entity) => decodeHtmlEntity(entity));
+}
+
+/** Turn an HTML-only message into the text the classifier and the runner need. */
+export function htmlToText(html, { safeLinksOnly = false } = {}) {
+  return removeNonContentHtml(html)
     // Verification links are often the only copy of the token in a portal mail.
-    .replace(/<a\b[^>]*\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))[^>]*>([\s\S]*?)<\/a>/gi, (_, doubleQuoted, singleQuoted, bare, label) => `${label} ${doubleQuoted || singleQuoted || bare}`)
+    .replace(/<a\b[^>]*\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))[^>]*>([\s\S]*?)<\/a>/gi, (_, doubleQuoted, singleQuoted, bare, label) => {
+      const href = doubleQuoted || singleQuoted || bare;
+      if (!safeLinksOnly) return `${label} ${href}`;
+      const safeUrl = normalizedHttpsUrl(decodeHtmlEntities(href));
+      return safeUrl ? `${label} ${safeUrl}` : label;
+    })
     .replace(/<(?:br\s*\/?>|\/(?:p|div|li|tr|h[1-6]|td|th|section|article|table|ul|ol))\s*>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
-    .replace(/&(#x[\da-f]+|#\d+|amp|lt|gt|quot|apos|nbsp);/gi, (_, entity) => {
-      const lower = entity.toLowerCase();
-      if (lower === 'amp') return '&';
-      if (lower === 'lt') return '<';
-      if (lower === 'gt') return '>';
-      if (lower === 'quot') return '"';
-      if (lower === 'apos') return "'";
-      if (lower === 'nbsp') return ' ';
-      const codePoint = lower.startsWith('#x') ? Number.parseInt(lower.slice(2), 16) : Number.parseInt(lower.slice(1), 10);
-      return Number.isSafeInteger(codePoint) && codePoint > 0 && codePoint <= 0x10ffff
-        ? String.fromCodePoint(codePoint)
-        : ' ';
-    })
+    .replace(/&(#x[\da-f]+|#\d+|amp|lt|gt|quot|apos|nbsp);/gi, (_, entity) => decodeHtmlEntity(entity))
     .replace(/[ \t]+\n/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
     .replace(/[ \t]{2,}/g, ' ')
     .trim();
+}
+
+function normalizedHttpsUrl(value) {
+  const candidate = String(value || '').trim();
+  if (!candidate || candidate.length > MAX_HTML_LINK_LENGTH || /[\u0000-\u0020\u007f<>"']/.test(candidate)) return '';
+  try {
+    const parsed = new URL(candidate);
+    if (parsed.protocol !== 'https:' || !parsed.hostname || parsed.username || parsed.password) return '';
+    return parsed.toString();
+  } catch {
+    return '';
+  }
+}
+
+function extractHtmlLinks(html) {
+  const content = removeNonContentHtml(html);
+  const links = [];
+  const seen = new Set();
+  const anchorPattern = /<a\b([^>]*)>([\s\S]*?)<\/a\s*>/gi;
+  const hrefPattern = /(?:^|\s)href\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/i;
+  for (const match of content.matchAll(anchorPattern)) {
+    const hrefMatch = hrefPattern.exec(match[1] || '');
+    if (!hrefMatch) continue;
+    const url = normalizedHttpsUrl(decodeHtmlEntities(hrefMatch[1] ?? hrefMatch[2] ?? hrefMatch[3] ?? ''));
+    if (!url || seen.has(url)) continue;
+    const label = htmlToText(match[2]).replace(/\s+/g, ' ').trim().slice(0, 180);
+    links.push({ url, label });
+    seen.add(url);
+    if (links.length >= MAX_HTML_LINKS_TO_APPEND) break;
+  }
+  return links;
+}
+
+function urlTokensInText(text) {
+  const tokens = [];
+  const seen = new Set();
+  for (const match of String(text || '').matchAll(/https:\/\/[^\s<>"'`]+/gi)) {
+    let token = match[0];
+    while (/[.,;!?]$/.test(token)) token = token.slice(0, -1);
+    while (token.endsWith(')') && (token.match(/\(/g) || []).length < (token.match(/\)/g) || []).length) token = token.slice(0, -1);
+    const url = normalizedHttpsUrl(token);
+    if (url && !seen.has(url)) {
+      tokens.push(url);
+      seen.add(url);
+    }
+  }
+  return tokens;
+}
+
+function appendHtmlOnlyLinks(plainText, html) {
+  const original = String(plainText || '');
+  const present = new Set(urlTokensInText(original));
+  const missing = extractHtmlLinks(html).filter(({ url }) => !present.has(url));
+  if (!missing.length) return original;
+  const lines = missing.map(({ label, url }) => label && label !== url ? `${label}: ${url}` : url);
+  return `${original.trimEnd()}${original.trim() ? '\n\n' : ''}${lines.join('\n')}`;
 }
 
 function collectParts(headerText, body, depth, out) {
@@ -181,7 +257,7 @@ function collectParts(headerText, body, depth, out) {
 
 /**
  * @param {Buffer|string} raw RFC 5322 message
- * @returns {{headers:Array<[string,string]>, from:string, subject:string, text:string,
+ * @returns {{headers:Array<[string,string]>, from:string, replyTo:string, subject:string, text:string,
  *   attachments:Array<{filename:string, contentType:string, content:Buffer}>}}
  */
 export function parseMimeMessage(raw) {
@@ -199,11 +275,17 @@ export function parseMimeMessage(raw) {
       return part.content.toString('utf8');
     }
   };
-  if (textPart) text = contentOf(textPart);
-  else if (htmlPart) text = htmlToText(contentOf(htmlPart));
+  const plainText = textPart ? contentOf(textPart) : '';
+  const htmlText = htmlPart ? contentOf(htmlPart) : '';
+  if (plainText.trim()) text = htmlPart ? appendHtmlOnlyLinks(plainText, htmlText) : plainText;
+  else if (htmlPart) text = htmlToText(htmlText, { safeLinksOnly: true });
+  else if (textPart) text = plainText;
+  const replyToHeaders = headers.filter(([key]) => key === 'reply-to');
   return {
     headers,
     from: decodeEncodedWords(header(headers, 'from')),
+    // Duplicate Reply-To fields are ambiguous and must fall back to From.
+    replyTo: replyToHeaders.length === 1 ? decodeEncodedWords(replyToHeaders[0][1]) : '',
     subject: decodeEncodedWords(header(headers, 'subject')),
     text,
     attachments: parts.filter((part) => part.isAttachment).map(({ filename, contentType, content }) => ({ filename, contentType, content })),
@@ -213,6 +295,25 @@ export function parseMimeMessage(raw) {
 export function addressOf(value) {
   const match = /<([^>]+)>/.exec(String(value || '')) || /([^\s<>"]+@[^\s<>"]+)/.exec(String(value || ''));
   return match ? match[1].trim().toLowerCase() : '';
+}
+
+/** A single safe mailbox; address lists and malformed headers fail closed. */
+export function singleMailboxAddress(value) {
+  const text = decodeEncodedWords(String(value || '')).trim();
+  if (!text || HEADER_CONTROL.test(text)) return '';
+  const bracketed = [...text.matchAll(/<([^<>]+)>/g)];
+  let candidate = '';
+  if (bracketed.length === 1) {
+    const mailboxMatch = /^(.*?)<([^<>]+)>$/.exec(text);
+    if (!mailboxMatch || /[<>]/.test(mailboxMatch[1]) || mailboxMatch[1].includes('@')) return '';
+    candidate = mailboxMatch[2].trim();
+  } else if (bracketed.length === 0 && !/[\s,;<>]/.test(text)) {
+    candidate = text;
+  } else {
+    return '';
+  }
+  if (!EMAIL_RE.test(candidate) || addressOf(candidate) !== candidate.toLowerCase()) return '';
+  return candidate.toLowerCase();
 }
 
 const domainOf = (address) => String(address || '').split('@')[1]?.toLowerCase() || '';

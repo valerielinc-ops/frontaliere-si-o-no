@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { decodeEncodedWords, parseMimeMessage } from '../functions/src/lib/mimeMessage.js';
+import { decodeEncodedWords, parseMimeMessage, singleMailboxAddress } from '../functions/src/lib/mimeMessage.js';
 
 function base64Word(value: string, charset = 'UTF-8') {
   return `=?${charset}?B?${Buffer.from(value, 'utf8').toString('base64')}?=`;
@@ -68,6 +68,76 @@ describe('RFC 2047 MIME header codec', () => {
     expect(parsed.attachments).toHaveLength(1);
     expect(parsed.attachments[0]).toMatchObject({ filename: 'fixture.bin', contentType: 'application/octet-stream' });
     expect(parsed.attachments[0].content.equals(attachment)).toBe(true);
+  });
+
+  it('keeps unique source Reply-To and adds only safe HTTPS links missing from text/plain', () => {
+    const boundary = 'synthetic-alternative-boundary';
+    const raw = Buffer.from([
+      'From: Recruiting <hr@employer.example>',
+      'Reply-To: Applications <apply@employer.example>',
+      'MIME-Version: 1.0',
+      `Content-Type: multipart/alternative; boundary="${boundary}"`,
+      '',
+      `--${boundary}`,
+      'Content-Type: text/plain; charset=utf-8',
+      '',
+      'Please review: https://employer.example/already.',
+      `--${boundary}`,
+      'Content-Type: text/html; charset=utf-8',
+      '',
+      '<p>Please review the application.</p>',
+      '<a href="https://employer.example/already">View application</a>',
+      '<a href="https://employer.example/request?app=12&amp;lang=it">Documents requested</a>',
+      '<a href="javascript:alert(1)">Unsafe link</a>',
+      '<a href="https://user:secret@evil.example/login">Credentialed link</a>',
+      '<script><a href="https://evil.example/script">Script link</a></script>',
+      `--${boundary}--`,
+      '',
+    ].join('\r\n'), 'latin1');
+
+    const parsed = parseMimeMessage(raw);
+    expect(parsed.replyTo).toBe('Applications <apply@employer.example>');
+    expect(parsed.text).toContain('Please review: https://employer.example/already.');
+    expect(parsed.text).toContain('Documents requested: https://employer.example/request?app=12&lang=it');
+    expect(parsed.text.match(/https:\/\/employer\.example\/already/g)).toHaveLength(1);
+    for (const unsafe of ['javascript:', 'user:secret@', 'Script link', '<a ', '<script']) {
+      expect(parsed.text).not.toContain(unsafe);
+    }
+  });
+
+  it('does not expose an ambiguous duplicate Reply-To header', () => {
+    const parsed = parseMimeMessage(Buffer.from([
+      'From: Recruiting <hr@employer.example>',
+      'Reply-To: First <first@employer.example>',
+      'Reply-To: Second <second@employer.example>',
+      '',
+    ].join('\r\n'), 'latin1'));
+
+    expect(parsed.replyTo).toBe('');
+  });
+
+  it('converts HTML-only mail to text while retaining only safe HTTPS links', () => {
+    const parsed = parseMimeMessage(Buffer.from([
+      'From: Recruiting <hr@employer.example>',
+      'Content-Type: text/html; charset=utf-8',
+      '',
+      '<p>Open your application.</p>',
+      '<a href="https://employer.example/application?id=42&amp;lang=it">Application</a>',
+      '<a href="javascript:alert(1)">Unsafe link</a>',
+      '<a href="http://employer.example/insecure">Insecure link</a>',
+      '',
+    ].join('\r\n'), 'latin1'));
+
+    expect(parsed.text).toContain('Application https://employer.example/application?id=42&lang=it');
+    expect(parsed.text).not.toContain('javascript:');
+    expect(parsed.text).not.toContain('http://');
+    expect(parsed.text).toContain('Unsafe link');
+  });
+
+  it('accepts exactly one mailbox and rejects malformed or multiple Reply-To destinations', () => {
+    expect(singleMailboxAddress('Talent Team <apply@employer.example>')).toBe('apply@employer.example');
+    expect(singleMailboxAddress('<apply@employer.example> trailing')).toBe('');
+    expect(singleMailboxAddress('First <first@employer.example>, Second <second@employer.example>')).toBe('');
   });
 
   it('fails closed for malformed, unknown-charset and control-bearing encoded words', () => {

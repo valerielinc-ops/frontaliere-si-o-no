@@ -83,6 +83,68 @@ const plainMail = ({ subject, text, headers = [] }: { subject: string; text: str
   '',
 ].join('\r\n'), 'latin1');
 
+const alternativeMail = ({ subject, text, html, headers = [] }: { subject: string; text: string; html: string; headers?: string[] }) => {
+  const boundary = 'synthetic-forward-boundary';
+  return Buffer.from([
+    'From: Recruiting <hr@employer.example>',
+    `Subject: =?utf-8?B?${Buffer.from(subject, 'utf8').toString('base64')}?=`,
+    ...headers,
+    'MIME-Version: 1.0',
+    `Content-Type: multipart/alternative; boundary="${boundary}"`,
+    '',
+    `--${boundary}`,
+    'Content-Type: text/plain; charset=utf-8',
+    '',
+    text,
+    `--${boundary}`,
+    'Content-Type: text/html; charset=utf-8',
+    '',
+    html,
+    `--${boundary}--`,
+    '',
+  ].join('\r\n'), 'latin1');
+};
+
+describe('safe forwarding of MIME links and reply destinations', () => {
+  it('forwards HTTPS links that exist only in HTML and uses an authenticated source Reply-To', async () => {
+    const { store, alias } = await setup('en');
+    const raw = alternativeMail({
+      subject: 'Your application',
+      text: 'We have received your application.',
+      html: '<p>We have received your application.</p><a href="https://employer.example/documents?case=42&amp;lang=en">Open requested documents</a><a href="javascript:alert(1)">Unsafe</a>',
+      headers: [
+        'Reply-To: Applications <apply@employer.example>',
+        'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example',
+      ],
+    });
+
+    const { processed, sendCascade } = await deliverWithoutModel({ store, alias, raw });
+    expect(processed).toMatchObject({ category: 'auto_acknowledgement', forwarded: 'sent' });
+    const { payload } = (sendCascade.mock.calls as any)[0][0][0];
+    expect(payload.text).toContain('Open requested documents: https://employer.example/documents?case=42&lang=en');
+    expect(payload.replyTo).toBe('apply@employer.example');
+    expect(payload.html).toContain('Open requested documents: https://employer.example/documents?case=42&amp;lang=en');
+    expect(payload.html).not.toContain('<a href="javascript:');
+  });
+
+  it.each([
+    ['unauthenticated source Reply-To', ['Reply-To: spoof@evil.example'], 'hr@employer.example'],
+    ['ambiguous multiple source Reply-To mailboxes', [
+      'Reply-To: First <first@employer.example>, Second <second@employer.example>',
+      'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example',
+    ], 'hr@employer.example'],
+  ])('falls back to the source From for %s', async (_label, headers, expected) => {
+    const { store, alias } = await setup('en');
+    const { sendCascade } = await deliverWithoutModel({
+      store,
+      alias,
+      raw: plainMail({ subject: 'Your application', text: 'We have received your application.', headers }),
+    });
+    const { payload } = (sendCascade.mock.calls as any)[0][0][0];
+    expect(payload.replyTo).toBe(expected);
+  });
+});
+
 describe('fallback classification by the purpose of the message', () => {
   const table: Array<[string, string, string, string]> = [
     // An application received, in the four languages.

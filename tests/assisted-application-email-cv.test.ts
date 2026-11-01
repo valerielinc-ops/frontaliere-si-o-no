@@ -162,4 +162,15 @@ describe('CV by e-mail reply', () => {
     expect((await handleAssistedApplicationEmailCv(request(exe), { db: store().db, bucket: fakeBucket(), secret: SECRET })).body)
       .toMatchObject({ matched: false, reason: 'no_cv_attachment' });
   });
+
+  it('rejects an authenticated but ambiguous multi-mailbox From header', async () => {
+    const ambiguous = rawMessage({
+      from: 'Maria Rossi <maria.rossi@gmail.com>, Other Sender <other@gmail.com>',
+    });
+    const bucket = fakeBucket();
+    const result = await handleAssistedApplicationEmailCv(request(ambiguous), { db: store().db, bucket, secret: SECRET });
+
+    expect(result.body).toMatchObject({ matched: false, reason: 'unauthenticated' });
+    expect(bucket.files.size).toBe(0);
+  });
 });
