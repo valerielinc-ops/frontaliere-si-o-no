@@ -54,6 +54,7 @@ function pageWithLink({ href, label, finalUrl, visible = true, tagName = 'A', co
     })),
   };
   const page = {
+    url: () => url,
     frames: () => [frame],
     mainFrame: () => frame,
     waitForTimeout: vi.fn(async () => {}),

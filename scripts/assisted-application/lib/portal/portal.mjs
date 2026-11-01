@@ -2893,8 +2893,9 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     // Cookie managers are the only overlays this path is allowed to dismiss:
     // their controls are explicitly localized and handled by the shared
     // cookie-banner policy. Unknown dialogs remain a human handoff.
-    if (!await dismissCookieBanner(page, currentSnapshot)) return false;
-    currentSnapshot = await extractFields(page, NAVIGATION).catch(() => null);
+    const cookieResult = await dismissCookieBanner(page, currentSnapshot);
+    if (cookieResult !== true && cookieResult?.status !== 'dismissed') return false;
+    currentSnapshot = cookieResult?.snapshot || await extractFields(page, NAVIGATION).catch(() => null);
     if (!currentSnapshot || currentSnapshot.dialogs?.length) return false;
   }
   const candidates = [...(currentSnapshot?.links || []), ...(currentSnapshot?.buttons || [])]
